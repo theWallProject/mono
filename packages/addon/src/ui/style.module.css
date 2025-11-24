@@ -1,0 +1,209 @@
+.container {
+  display: flex;
+  font-family: sans-serif;
+  /* font-family: "JimmyCollins", "FFBouya-Normal"; */
+  font-size: 24px;
+  /* position: fixed; */
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* .ar {
+ font-size: 16px;
+} */
+
+.bgLayer {
+  /* opacity: 0.7; */
+  /* background-position: right; */
+  /* background-size: cover; */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  /* filter: brightness(0.4); */
+  opacity: 0.95;
+  /* z-index: 999999999 !important; */
+}
+
+.theWallLogo {
+  opacity: 0.9;
+  width: 19vw;
+  position: fixed;
+  top: 0;
+
+  left: 0;
+  filter: drop-shadow(0px 0px 5px black);
+}
+
+.modalContainer {
+  color: #000;
+  max-width: 300px;
+  min-width: 200px;
+  /* top: 370px; */
+
+  /* min-height: 250px; */
+  transition: opacity 0.5s;
+  position: absolute;
+  box-shadow: 3px 3px 41px #7e7e7e;
+  background-color: #1b1b1b;
+  opacity: 0.95;
+  top: 25vh;
+}
+
+.buttonsWrapper {
+  position: absolute;
+  display: flex;
+  bottom: 10;
+  right: 0;
+  /* flex-direction: column;
+  gap: 8px; */
+}
+.modalMargin {
+  margin: 20px 20px 50px 20px;
+}
+
+.modalContentWrapper {
+  /* text-shadow: 0 0 4px #f44336; */
+  color: #ff6d62;
+  padding-bottom: 20px;
+}
+
+.altLink {
+  color: #99ffb7;
+  text-decoration: none;
+}
+
+.button {
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  color: #e9e9e9;
+  background: #252525;
+  border: none;
+  border-radius: 9px;
+  align-items: center;
+  margin-right: 1rem;
+  font-family: inherit;
+  font-size: 13px;
+  transition: box-shadow 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  display: flex;
+  box-shadow: 3px 2px 7px #000000;
+  padding: 4px 14px;
+  position: relative;
+  overflow: hidden;
+}
+/* .ar .button {
+  font-size: 16px;
+} */
+
+.button:hover {
+  box-shadow: 6px 6px 12px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+  background: linear-gradient(
+    90deg,
+    #252525,
+    rgba(255, 255, 255, 0.1),
+    #252525
+  );
+  background-size: 200% 100%;
+  background-position: -200% 0;
+  animation: shimmer 0.8s ease-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 10px;
+  right: 0px;
+}
+
+.altPopupMenu {
+  opacity: 0.98;
+  background: #232323;
+  border-radius: 5px;
+  min-width: 130px;
+  position: absolute;
+  top: 34px;
+  right: 18px;
+  box-shadow: 0 4px 24px #0000004d;
+  text-align: center;
+  font-size: 19px;
+}
+
+.altPopupList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.altPopupItem {
+  padding: 6px;
+  transition: background 0.2s;
+}
+
+.altPopupItem:hover {
+  background: #333;
+}
+
+@media (min-width: 768px) {
+  .container {
+    font-size: 32px;
+  }
+
+  /* .container.ar {
+    font-size: 23px;
+  } */
+  .modalContainer {
+    min-width: 600px;
+    max-width: 700px;
+    top: 40vh;
+  }
+  .button {
+    font-size: 24px;
+  }
+  .altPopupMenu {
+    top: 48px;
+    min-width: 220px;
+    right: 16px;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    font-size: 38px;
+  }
+  /* .container.ar {
+    font-size: 64px;
+  } */
+  .modalContainer {
+    min-width: 600px;
+    max-width: 700px;
+    /* top: 450px; */
+  }
+  .button {
+    font-size: 25px;
+  }
+  /* .buttonsWrapper {
+    flex-direction: row;
+  } */
+}

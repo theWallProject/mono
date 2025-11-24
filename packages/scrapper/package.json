@@ -1,0 +1,40 @@
+{
+  "name": "@thewall/scrapper",
+  "version": "1.0.0",
+  "description": "Puppeteer script to get data from Crunchbase",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "validate": "ts-node src/validate_index.ts",
+    "apply-overrides": "ts-node src/tasks/apply_overrides.ts",
+    "merge": "ts-node-dev src/merge_results.ts",
+    "convert": "ts-node-dev src/convertDB.ts",
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js",
+    "preinstall": "npm install github:theWallProject/addonCommon --force"
+  },
+  "engines": {
+    "node": "21"
+  },
+  "dependencies": {
+    "@theWallProject/addonCommon": "github:theWallProject/addonCommon",
+    "dotenv": "^16.4.7",
+    "inquirer": "^12.2.0",
+    "playwright": "^1.48.0",
+    "puppeteer": "^24.25.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^7.2.1",
+    "globals": "^15.13.0",
+    "prettier": "^3.4.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0"
+  }
+}

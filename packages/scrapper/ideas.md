@@ -1,0 +1,10 @@
+- support linkedin.com/showcase/\* links
+-
+- check addons
+- check youtube history
+- collect npm and python packages
+- add youtube videos blacklist using search
+- get youtube channel id /channel/asdasd from the youtube page canonical html tag, and another way to get the channel id from the youtube page if it was a channel url and open both when validating
+- https://team8.vc/portfolio/
+- https://team8.vc/team8-capital/
+- https://team8.vc/team/
