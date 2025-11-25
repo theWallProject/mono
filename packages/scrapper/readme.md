@@ -121,7 +121,7 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
 
 ### Step 1: Common Setup (All Platforms)
 
-1. **`@theWallProject/addonCommon`**: Add `API_ENDPOINT_RULE_PLATFORM_NAME` (regex capturing username in group 1), `DBFileNames.FLAGGED_PLATFORM_NAME`, and `platformName?: string` to `FinalDBFileType`
+1. **`@theWallProject/common`**: Add `API_ENDPOINT_RULE_PLATFORM_NAME` (regex capturing username in group 1), `DBFileNames.FLAGGED_PLATFORM_NAME`, and `platformName?: string` to `FinalDBFileType`
    - Field naming: use short lowercase (e.g., Instagram → `ig`, GitHub → `gh`)
 
 ### Step 2: Platform-Specific Setup

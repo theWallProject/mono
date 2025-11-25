@@ -4,7 +4,7 @@ import {
   getMainDomain,
   type FinalDBFileType,
   type SpecialDomains
-} from "@theWallProject/addonCommon"
+} from "@theWallProject/common"
 
 import ALL from "./db/ALL.json"
 import { error, log } from "./helpers"

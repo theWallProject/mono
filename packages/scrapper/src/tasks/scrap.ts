@@ -6,7 +6,7 @@ import { ScrappedItemType } from "../types";
 import {
   APIListOfReasons,
   valuesOfListOfReasons,
-} from "@theWallProject/addonCommon";
+} from "@theWallProject/common";
 import { error, log, warn } from "../helper";
 import dotenv from "dotenv";
 

@@ -9,7 +9,6 @@ const filesToAdd = [
   'README.md',
   'package.json',
   '.prettierrc.mjs',
-  'package-lock.json',
   { path: 'TRANSLATIONS/', wildcard: true },
   { path: 'src/', wildcard: true },
   { path: 'locales/', wildcard: true },

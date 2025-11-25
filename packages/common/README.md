@@ -1,4 +1,4 @@
-# @theWallProject/addonCommon
+# @theWallProject/common
 
 Common types and utilities for theWall addon projects.
 
@@ -61,7 +61,7 @@ Common types and utilities for theWall addon projects.
 
 ## Usage
 
-This package is used by [theWallAddon](https://github.com/theWallProject/theWallAddon) to:
+This package is used by The Wall projects to:
 - Define types and schemas for domain detection
 - Provide endpoint rules for special domains (LinkedIn, Facebook, Twitter, Instagram, GitHub)
 - Extract and validate domain information

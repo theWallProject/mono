@@ -1,0 +1,17 @@
+{
+  "name": "thewall-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for The Wall project",
+  "scripts": {
+    "build:common": "pnpm --filter @theWallProject/common build",
+    "build:addon": "pnpm --filter @theWallProject/addon build",
+    "build:scrapper": "pnpm --filter @theWallProject/scrapper build",
+    "build": "pnpm build:common && pnpm build:addon && pnpm build:scrapper"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  }
+}
+

@@ -8,7 +8,7 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
-} from "@theWallProject/addonCommon";
+} from "@theWallProject/common";
 import { log } from "../../helper";
 import type { LinkField } from "./types";
 

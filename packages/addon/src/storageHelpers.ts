@@ -7,7 +7,7 @@ export const getStorageItem = async <T>(key: string): Promise<T | null> => {
       chrome.storage.session.get([key], (result) => {
         log(`getStorageItem got key[${key}] result`, result[key])
 
-        resolve(result[key] || null)
+        resolve((result[key] as T) || null)
       })
     } catch (e) {
       error(`getStorageItem error: ${key}`, e)

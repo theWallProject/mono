@@ -12,7 +12,7 @@ import {
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
   DBFileNames,
-} from "@theWallProject/addonCommon";
+} from "@theWallProject/common";
 import { APIScrapperFileDataSchema, ScrappedFileType } from "../types";
 import { error, log, warn } from "../helper";
 

@@ -11,7 +11,7 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
-} from "@theWallProject/addonCommon";
+} from "@theWallProject/common";
 import { APIScrapperFileDataSchema, ScrappedItemType } from "../types";
 import { log, cleanWebsite, error } from "../helper";
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds";
