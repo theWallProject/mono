@@ -445,6 +445,33 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
         testRule(rule, "https://www.youtube.com/@MrBeast", true, "MrBeast");
       });
 
+      it("should match https://www.youtube.com/@sentra_security (with protocol and www)", () => {
+        testRule(
+          rule,
+          "https://www.youtube.com/@sentra_security",
+          true,
+          "sentra_security"
+        );
+      });
+
+      it("should match http://www.youtube.com/@sentra_security (with http protocol)", () => {
+        testRule(
+          rule,
+          "http://www.youtube.com/@sentra_security",
+          true,
+          "sentra_security"
+        );
+      });
+
+      it("should match www.youtube.com/@sentra_security (with www but no protocol)", () => {
+        testRule(
+          rule,
+          "www.youtube.com/@sentra_security",
+          true,
+          "sentra_security"
+        );
+      });
+
       it("should match with query params", () => {
         testRule(
           rule,
@@ -802,6 +829,23 @@ describe("API_ENDPOINT_RULE_YOUTUBE_CHANNEL", () => {
         true,
         "UC123456789"
       );
+    });
+
+    it("should match https://www.youtube.com/channel/UC123 (with protocol and www)", () => {
+      testRule(
+        rule,
+        "https://www.youtube.com/channel/UC123",
+        true,
+        "UC123"
+      );
+    });
+
+    it("should match http://www.youtube.com/channel/UC123 (with http protocol)", () => {
+      testRule(rule, "http://www.youtube.com/channel/UC123", true, "UC123");
+    });
+
+    it("should match www.youtube.com/channel/UC123 (with www but no protocol)", () => {
+      testRule(rule, "www.youtube.com/channel/UC123", true, "UC123");
     });
 
     it("should match with query params", () => {

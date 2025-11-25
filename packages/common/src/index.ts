@@ -171,17 +171,20 @@ export const API_ENDPOINT_RULE_GITHUB = {
  * - youtube.com/@ID
  * - youtube.com/c/ID
  * - youtube.com/c/@ID
+ * - https://www.youtube.com/@ID
+ * - http://youtube.com/ID
  * All formats capture the ID (without @ prefix) since they represent the same profile/channel
+ * Handles optional protocol (http://, https://) and optional www. prefix
  */
 export const API_ENDPOINT_RULE_YOUTUBE_PROFILE = {
   domain: "youtube.com",
   regex:
-    "(?:youtube\\.com)/(?:(?:c/(?!(?:@)?(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)@?)|(?:@(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b))|(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)(?!(?:c/|@)))([^/?]+)",
+    "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/(?:(?:c/(?!(?:@)?(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)@?)|(?:@(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b))|(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)(?!(?:c/|@)))([^/?]+)",
 } as const satisfies APIEndpointRule;
 
 export const API_ENDPOINT_RULE_YOUTUBE_CHANNEL = {
   domain: "youtube.com",
-  regex: "(?:youtube\\.com)/channel/([^/?]+)",
+  regex: "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/channel/([^/?]+)",
 } as const satisfies APIEndpointRule;
 
 export const API_ENDPOINT_RULE_TIKTOK = {

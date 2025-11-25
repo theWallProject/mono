@@ -83,3 +83,6 @@ pnpm build
 - All packages use `@theWallProject/*` scope for consistency
 - The `common` package is linked as a workspace dependency in `addon` and `scrapper`
 - No `package-lock.json` files in packages (pnpm uses single lock file at root)
+
+
+

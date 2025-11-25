@@ -73,7 +73,14 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
       const normalizedUrl = url.replace(/^(https?:\/\/)www\./i, "$1")
 
       const ruleForDomain = CONFIG.rules.find((rule) => {
-        const ruleRegex = new RegExp(rule.regex)
+        // Use case-insensitive flag for YouTube, Twitter, LinkedIn (as per common package comments)
+        const flags =
+          rule.domain === "youtube.com" ||
+          rule.domain === "twitter.com" ||
+          rule.domain === "linkedin.com"
+            ? "i"
+            : ""
+        const ruleRegex = new RegExp(rule.regex, flags)
         const regexResult = ruleRegex.test(normalizedUrl)
 
         if (regexResult) {
@@ -85,7 +92,14 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
       if (ruleForDomain) {
         log("storage: isUrlFlagged [rule]", { ruleForDomain })
 
-        const regex = new RegExp(ruleForDomain.regex)
+        // Use case-insensitive flag for YouTube, Twitter, LinkedIn
+        const flags =
+          ruleForDomain.domain === "youtube.com" ||
+          ruleForDomain.domain === "twitter.com" ||
+          ruleForDomain.domain === "linkedin.com"
+            ? "i"
+            : ""
+        const regex = new RegExp(ruleForDomain.regex, flags)
         const results = regex.exec(normalizedUrl)
         const selector = results && results[1]
 
@@ -111,11 +125,40 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
             })
           }
 
-          log(`storage: isUrlFlagged testing for id ${selector}`)
-
-          const findResult = (ALL as FinalDBFileType[]).find(
-            (row) => row[selectorKey] === selector
+          log(
+            `storage: isUrlFlagged testing for id ${selector} in field ${selectorKey}`
           )
+
+          // Debug: log first few matching rows to see what's in the database
+          const sampleRows = (ALL as FinalDBFileType[])
+            .filter((row) => row[selectorKey])
+            .slice(0, 3)
+          log(
+            `storage: isUrlFlagged sample rows with ${selectorKey}:`,
+            sampleRows.map((row) => ({
+              id: row.id,
+              name: row.n,
+              [selectorKey]: row[selectorKey]
+            }))
+          )
+
+          const findResult = (ALL as FinalDBFileType[]).find((row) => {
+            const dbValue = row[selectorKey]
+            if (!dbValue) return false
+
+            // Normalize: strip @ prefix and compare (YouTube profile IDs may have @ in DB)
+            const normalizedDbValue =
+              typeof dbValue === "string" ? dbValue.replace(/^@/, "") : dbValue
+            const normalizedSelector = selector.replace(/^@/, "")
+
+            const matches = normalizedDbValue === normalizedSelector
+            if (matches) {
+              log(
+                `storage: isUrlFlagged found match: dbValue="${dbValue}", selector="${selector}"`
+              )
+            }
+            return matches
+          })
 
           log("isUrlFlagged findResult:", findResult)
 

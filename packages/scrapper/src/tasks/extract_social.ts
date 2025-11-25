@@ -44,9 +44,11 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
   const regexGitHub = new RegExp(API_ENDPOINT_RULE_GITHUB.regex);
   const regexYouTubeProfile = new RegExp(
     API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex,
+    "i",
   );
   const regexYouTubeChannel = new RegExp(
     API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex,
+    "i",
   );
   const regexTikTok = new RegExp(API_ENDPOINT_RULE_TIKTOK.regex);
   const regexThreads = new RegExp(API_ENDPOINT_RULE_THREADS.regex);
@@ -231,9 +233,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
     // Extract YouTube Profile (from manual overrides)
     // Use common regex as only source of truth
     if (ytp && ytp !== "") {
-      // Normalize URL to handle www. prefix for regex matching
-      const normalizedYtp = ytp.replace(/^www\./, "");
-      const results = regexYouTubeProfile.exec(normalizedYtp);
+      const results = regexYouTubeProfile.exec(ytp);
       const result = results && results[1];
 
       if (result) {

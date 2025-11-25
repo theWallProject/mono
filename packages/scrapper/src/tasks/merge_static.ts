@@ -75,7 +75,7 @@ const extractIdentifier = (url: string, field: LinkField): string => {
     }
     return results[1].replace(/\//g, "_");
   } else if (field === "ytp") {
-    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex);
+    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i");
     const results = regex.exec(url);
     if (!results || !results[1]) {
       throw new Error(
@@ -84,7 +84,7 @@ const extractIdentifier = (url: string, field: LinkField): string => {
     }
     return results[1].replace(/\//g, "_");
   } else if (field === "ytc") {
-    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex);
+    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i");
     const results = regex.exec(url);
     if (!results || !results[1]) {
       throw new Error(
