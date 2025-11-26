@@ -140,7 +140,8 @@ export type APIEndpointConfig = {
  */
 export const API_ENDPOINT_RULE_LINKEDIN_COMPANY = {
   domain: "linkedin.com",
-  regex: "(?:https?://)?(?:www\\.)?(?:linkedin\\.com)/(?!school)(?:company|showcase)/([^/?]+)",
+  regex:
+    "(?:https?://)?(?:www\\.)?(?:linkedin\\.com)/(?!school)(?:company|showcase)/([^/?]+)",
 } as const satisfies APIEndpointRule;
 
 export const API_ENDPOINT_RULE_FACEBOOK = {
@@ -223,7 +224,6 @@ export const CONFIG: APIEndpointConfig = {
 
 /**
  * Extracts the main domain from a given URL.
- * Normalizes subdomains to the main domain (e.g., careers.wix.com -> wix.com)
  **/
 export function getMainDomain(url: string) {
   try {
@@ -236,12 +236,8 @@ export function getMainDomain(url: string) {
     const {hostname} = new URL(urlWithProtocol);
     const parsed = parse(hostname);
 
-    // Use parsed.domain to get the main domain without subdomain
-    // Fall back to parsed.hostname if domain is not available
-    const mainDomain = parsed.domain || parsed.hostname;
-    
-    if (mainDomain) {
-      return mainDomain.replace("www.", "");
+    if (parsed.hostname) {
+      return parsed.hostname.replace("www.", "");
     }
     console.warn("getMainDomain empty:", url);
 

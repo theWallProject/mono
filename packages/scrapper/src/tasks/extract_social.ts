@@ -234,7 +234,9 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
     // Use common regex as only source of truth
     if (ytp && ytp !== "") {
       const results = regexYouTubeProfile.exec(ytp);
-      const result = results && results[1];
+      // Check all capture groups (user/, c/, @, or direct format) and use the first non-undefined one
+      const result =
+        results && (results[1] || results[2] || results[3] || results[4]);
 
       if (result) {
         if (youtubeProfileMap[result]) {

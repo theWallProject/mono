@@ -1142,10 +1142,14 @@ describe("Website URL detection (should not match any social media regex)", () =
 });
 
 describe("getMainDomain", () => {
-  it("should normalize subdomains to main domain", () => {
-    expect(getMainDomain("https://careers.wix.com/test")).toBe("wix.com");
-    expect(getMainDomain("https://www.careers.wix.com/test")).toBe("wix.com");
-    expect(getMainDomain("careers.wix.com/test")).toBe("wix.com");
+  it("should keep subdomains", () => {
+    expect(getMainDomain("https://careers.wix.com/test")).toBe(
+      "careers.wix.com"
+    );
+    expect(getMainDomain("https://www.careers.wix.com/test")).toBe(
+      "careers.wix.com"
+    );
+    expect(getMainDomain("careers.wix.com/test")).toBe("careers.wix.com");
   });
 
   it("should handle main domain without subdomain", () => {
@@ -1155,10 +1159,10 @@ describe("getMainDomain", () => {
   });
 
   it("should handle other subdomains", () => {
-    expect(getMainDomain("https://blog.example.com")).toBe("example.com");
-    expect(getMainDomain("https://api.github.com")).toBe("github.com");
+    expect(getMainDomain("https://blog.example.com")).toBe("blog.example.com");
+    expect(getMainDomain("https://api.github.com")).toBe("api.github.com");
     expect(getMainDomain("https://subdomain.example.co.uk")).toBe(
-      "example.co.uk"
+      "subdomain.example.co.uk"
     );
   });
 });
