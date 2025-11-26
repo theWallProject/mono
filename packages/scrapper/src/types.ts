@@ -59,12 +59,18 @@ export const ScrappedItemSchema = z.object({
 
   /** category_groups */
   industryGroups: z.array(z.string()).optional(),
+  /** hint flag */
+  isHint: z.boolean().optional(),
+  /** hint text */
+  hintText: z.string().optional(),
+  /** hint URL */
+  hintUrl: z.string().optional(),
 });
 
 export const APIScrapperFileDataSchema = z.array(ScrappedItemSchema);
 
 export const ManualItemSchema = z.object({
-  reasons: z.array(APIListOfReasonsSchema),
+  reasons: z.array(APIListOfReasonsSchema).optional(),
   name: z.string().min(1, { message: "String cannot be empty" }),
   li: z.array(z.string()).optional(),
   ws: z.array(z.string()).min(1, { message: "String cannot be empty" }),
@@ -76,6 +82,9 @@ export const ManualItemSchema = z.object({
   ytc: z.array(z.string()).optional(),
   tt: z.array(z.string()).optional(),
   th: z.array(z.string()).optional(),
+  isHint: z.boolean().optional(),
+  hintText: z.string().optional(),
+  hintUrl: z.string().optional(),
 });
 
 export const BuyIsraeliTechSchema = z.array(

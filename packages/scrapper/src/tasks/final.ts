@@ -44,6 +44,15 @@ const loadJsonFiles = (folderPath: string) => {
         if (newRow.s) {
           idRecord[newRow.id]["s"] = newRow.s;
         }
+        if (newRow.hint) {
+          idRecord[newRow.id]["hint"] = true;
+        }
+        if (newRow.hintText) {
+          idRecord[newRow.id]["hintText"] = newRow.hintText;
+        }
+        if (newRow.hintUrl) {
+          idRecord[newRow.id]["hintUrl"] = newRow.hintUrl;
+        }
       } else {
         idRecord[newRow.id] = {
           id: newRow.id,
@@ -53,6 +62,9 @@ const loadJsonFiles = (folderPath: string) => {
           // ws: "",
           [key]: newRow.selector,
           // c: newRow;
+          ...(newRow.hint ? { hint: true } : {}),
+          ...(newRow.hintText ? { hintText: newRow.hintText } : {}),
+          ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {}),
         };
       }
     }

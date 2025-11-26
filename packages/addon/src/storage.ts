@@ -1,5 +1,4 @@
 import {
-  APIListOfReasons,
   CONFIG,
   getMainDomain,
   type FinalDBFileType,
@@ -51,14 +50,13 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
   const domain = getMainDomain(url)
 
   if (domain.endsWith(".il")) {
-    const localTestKey = `il_${domain}`
-    const isDismissed = await checkIsDissmissed(localTestKey)
-
+    // Hints don't support dismissing - always set to false
     return new Promise((resolve) => {
       resolve({
-        isDismissed,
-        name: domain,
-        reasons: [APIListOfReasons.Url],
+        isHint: true,
+        hintText: chrome.i18n.getMessage("hintIsraeliWebsite"),
+        hintUrl: "https://the-wall.win",
+        isDismissed: false,
         rule: {
           selector: domain,
           key: "il" as const
@@ -101,7 +99,11 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
             : ""
         const regex = new RegExp(ruleForDomain.regex, flags)
         const results = regex.exec(normalizedUrl)
-        const selector = results && results[1]
+        // For YouTube, the regex has multiple capture groups - use the first non-undefined one
+        // Groups: 1=user/, 2=c/@?, 3=@, 4=direct
+        const selector =
+          results &&
+          (results[1] || results[2] || results[3] || results[4] || results[1])
 
         if (selector) {
           const selectorKey = getSelectorKey(
@@ -129,29 +131,27 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
             `storage: isUrlFlagged testing for id ${selector} in field ${selectorKey}`
           )
 
-          // Debug: log first few matching rows to see what's in the database
-          const sampleRows = (ALL as FinalDBFileType[])
-            .filter((row) => row[selectorKey])
-            .slice(0, 3)
-          log(
-            `storage: isUrlFlagged sample rows with ${selectorKey}:`,
-            sampleRows.map((row) => ({
-              id: row.id,
-              name: row.n,
-              [selectorKey]: row[selectorKey]
-            }))
-          )
-
           const findResult = (ALL as FinalDBFileType[]).find((row) => {
             const dbValue = row[selectorKey]
             if (!dbValue) return false
 
-            // Normalize: strip @ prefix and compare (YouTube profile IDs may have @ in DB)
+            // Normalize: strip @ prefix from both values
+            // For YouTube, Twitter, LinkedIn: also compare case-insensitively
             const normalizedDbValue =
-              typeof dbValue === "string" ? dbValue.replace(/^@/, "") : dbValue
-            const normalizedSelector = selector.replace(/^@/, "")
+              typeof dbValue === "string" ? dbValue.replace(/^@/i, "") : dbValue
+            const normalizedSelector = selector.replace(/^@/i, "")
 
-            const matches = normalizedDbValue === normalizedSelector
+            // Case-insensitive comparison for YouTube, Twitter, LinkedIn
+            const isCaseInsensitive =
+              ruleForDomain.domain === "youtube.com" ||
+              ruleForDomain.domain === "twitter.com" ||
+              ruleForDomain.domain === "linkedin.com"
+
+            const matches = isCaseInsensitive
+              ? normalizedDbValue.toLowerCase() ===
+                normalizedSelector.toLowerCase()
+              : normalizedDbValue === normalizedSelector
+
             if (matches) {
               log(
                 `storage: isUrlFlagged found match: dbValue="${dbValue}", selector="${selector}"`
@@ -163,6 +163,28 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
           log("isUrlFlagged findResult:", findResult)
 
           if (findResult) {
+            // Check if this is a hint entry
+            const result = findResult as FinalDBFileType & {
+              hint?: boolean
+              hintText?: string
+              hintUrl?: string
+            }
+            if (result.hint && result.hintText) {
+              // Hints don't support dismissing - always set to false
+              const hintResult: UrlTestResult = {
+                isHint: true,
+                hintText: result.hintText,
+                hintUrl: result.hintUrl || "",
+                isDismissed: false,
+                rule: {
+                  selector,
+                  key: getSelectorKey(ruleForDomain.domain, normalizedUrl)
+                }
+              }
+              resolve(hintResult)
+              return
+            }
+
             resolve({
               reasons: findResult.r,
               name: findResult.n,
@@ -195,6 +217,28 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
           const localTestKey = `ws_${domain}`
 
           const isDismissed = await checkIsDissmissed(localTestKey)
+
+          // Check if this is a hint entry
+          const result = findResult as FinalDBFileType & {
+            hint?: boolean
+            hintText?: string
+            hintUrl?: string
+          }
+          if (result.hint && result.hintText) {
+            // Hints don't support dismissing - always set to false
+            const hintResult_obj: UrlTestResult = {
+              isHint: true,
+              hintText: result.hintText,
+              hintUrl: result.hintUrl || "",
+              isDismissed: false,
+              rule: {
+                selector: domain,
+                key: "ws" as const
+              }
+            }
+            resolve(hintResult_obj)
+            return
+          }
 
           resolve({
             isDismissed,

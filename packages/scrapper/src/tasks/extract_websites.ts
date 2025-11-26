@@ -80,6 +80,9 @@ export const run = async (merged: ScrappedFileType) => {
       name: row.name,
       reasons: row.reasons,
       ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+      ...(row.isHint ? { hint: true } : {}),
+      ...(row.hintText ? { hintText: row.hintText } : {}),
+      ...(row.hintUrl ? { hintUrl: row.hintUrl } : {}),
     };
     if (Array.isArray(previousRows)) {
       // error(`Duplicate domain [flagged]: ${domain} of website ${website}`);
@@ -140,32 +143,30 @@ function mergeObjects(
 ): APIEndpointDomainsResult {
   const merged: APIEndpointDomainsResult = { ...obj1 };
 
-  // Type guard helper
-  const isAPIEndpointKey = (
-    key: string,
-  ): key is keyof APIEndpointDomainsResult => {
-    return key in obj1;
-  };
+  // Merge reasons arrays and remove duplicates
+  merged.reasons = Array.from(new Set([...merged.reasons, ...obj2.reasons]));
 
-  for (const key of Object.keys(obj2)) {
-    if (!isAPIEndpointKey(key)) {
-      continue;
-    }
-    if (
-      key === "reasons"
-      // Array.isArray(obj2Value) &&
-      // Array.isArray(obj1Value)
-    ) {
-      // Merge reasons arrays and remove duplicates
-
-      merged.reasons = Array.from(new Set([...merged[key], ...obj2[key]]));
-    } else if (!obj2[key] || obj2[key] === "") {
-      // Skip empty fields in obj2
-      continue;
-    } else if (!merged[key] || merged[key] === "") {
-      // Fill empty fields in obj1
-      merged[key] = obj2[key];
-    }
+  // Merge other fields
+  if (obj2.selector && (!merged.selector || merged.selector === "")) {
+    merged.selector = obj2.selector;
+  }
+  if (obj2.id && (!merged.id || merged.id === "")) {
+    merged.id = obj2.id;
+  }
+  if (obj2.name && (!merged.name || merged.name === "")) {
+    merged.name = obj2.name;
+  }
+  if (obj2.s && (!merged.s || merged.s === "")) {
+    merged.s = obj2.s;
+  }
+  if (obj2.hint !== undefined) {
+    merged.hint = obj2.hint;
+  }
+  if (obj2.hintText && (!merged.hintText || merged.hintText === "")) {
+    merged.hintText = obj2.hintText;
+  }
+  if (obj2.hintUrl && (!merged.hintUrl || merged.hintUrl === "")) {
+    merged.hintUrl = obj2.hintUrl;
   }
 
   return merged;

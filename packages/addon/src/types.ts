@@ -8,6 +8,30 @@ export enum MessageTypes {
 
 export type UrlTestResult =
   | {
+      isHint: true
+      hintText: string
+      hintUrl: string
+      isDismissed?: boolean
+      rule: {
+        selector: string
+        key:
+          | "li"
+          | "il"
+          | "fb"
+          | "ws"
+          | "tw"
+          | "ig"
+          | "gh"
+          | "ytp"
+          | "ytc"
+          | "tt"
+          | "th"
+      }
+    }
+  | {
+      isHint?: false | undefined
+      hintUrl?: string
+      hintText?: string
       reasons: APIListOfReasonsValues[]
       name: string
       comment?: string
@@ -15,7 +39,18 @@ export type UrlTestResult =
       isDismissed?: boolean
       rule: {
         selector: string
-        key: "li" | "il" | "fb" | "ws" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th"
+        key:
+          | "li"
+          | "il"
+          | "fb"
+          | "ws"
+          | "tw"
+          | "ig"
+          | "gh"
+          | "ytp"
+          | "ytc"
+          | "tt"
+          | "th"
       }
       alt?: { n: string; ws: string }[]
       stockSymbol?: string

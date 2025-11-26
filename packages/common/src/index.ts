@@ -71,6 +71,12 @@ export const APIEndpointDomainsResultSchema = z.object({
   name: z.string(),
   /** stock sympol */
   s: z.string().optional(),
+  /** hint flag */
+  hint: z.boolean().optional(),
+  /** hint text */
+  hintText: z.string().optional(),
+  /** hint URL */
+  hintUrl: z.string().optional(),
 });
 
 export type APIEndpointDomainsResult = z.infer<
@@ -119,6 +125,12 @@ export const FinalDBFileSchema = z.object({
       })
     )
     .optional(),
+  /** hint flag */
+  hint: z.boolean().optional(),
+  /** hint text */
+  hintText: z.string().optional(),
+  /** hint URL */
+  hintUrl: z.string().optional(),
 });
 
 export type FinalDBFileType = z.infer<typeof FinalDBFileSchema>;

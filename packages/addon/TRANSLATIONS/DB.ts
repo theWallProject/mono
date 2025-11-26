@@ -187,6 +187,17 @@ export const TRANSLATIONS = {
     nl: "Doneer om de muur sterker te maken 🧱",
     zh_CN: "捐款让墙更坚固 🧱",
     zh_TW: "捐款讓牆更堅固 🧱"
+  },
+  hintIsraeliWebsite: {
+    en: "Psst, this is an Israeli website.",
+    ar: "تنبيه: هذا موقع إسرائيلي.",
+    id: "Hei, ini adalah situs web Israel.",
+    ms: "Hei, ini adalah laman web Israel.",
+    bn: "জানিয়ে রাখি, এটি একটি ইসরাইলী ওয়েবসাইট।",
+    fr: "Psst, c'est un site web israélien.",
+    nl: "Psst, dit is een Israëlische website.",
+    zh_CN: "提示：这是一个以色列网站。",
+    zh_TW: "提示：這是一個以色列網站。"
   }
 } satisfies TransDB
 

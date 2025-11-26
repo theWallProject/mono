@@ -3,6 +3,7 @@ import path from "path";
 import { ManualItemSchema, ScrappedFileType } from "../types";
 import { log, cleanWebsite } from "../helper";
 import { BDS } from "../static_data/BDS";
+import { Hints } from "../static_data/hints";
 
 const outputFilePath = path.join(
   __dirname,
@@ -12,6 +13,7 @@ const outputFilePath = path.join(
 const injectStaticRows = () => {
   const merged: ScrappedFileType = [];
 
+  // Process BDS items
   for (const item of BDS) {
     const safeItem = ManualItemSchema.parse(item);
 
@@ -70,6 +72,34 @@ const injectStaticRows = () => {
             id: `s_tw_${name}_${index}`,
           });
         }
+      }
+    }
+  }
+
+  // Process Hints items
+  for (const item of Hints) {
+    const safeItem = ManualItemSchema.parse(item);
+
+    const { name, reasons, ws, isHint, hintText, hintUrl } = safeItem;
+
+    // Only process items with isHint flag
+    if (isHint) {
+      for (const [index, website] of ws.entries()) {
+        const _website = cleanWebsite(website);
+        if (!_website) {
+          console.error(`Website is empty: ${website}`);
+          throw new Error("Website is empty");
+        }
+
+        merged.push({
+          name,
+          reasons,
+          ws: _website,
+          id: `hint_ws_${name}_${index}`,
+          isHint: true,
+          hintText: hintText,
+          hintUrl: hintUrl,
+        });
       }
     }
   }
