@@ -67,7 +67,16 @@ export const manualOverrides: Record<
     tw: ["https://x.com/AU10TIXLimited"],
     ig: ["https://www.instagram.com/life_at_au10tix"],
     gh: ["https://github.com/au10tixmobile"],
-    urls: ["https://play.google.com/store/apps/developer?id=Au10tix&hl=de"],
+    urls: ["https://play.google.com/store/apps/developer?id=Au10tix"],
+    _processed: true,
+  },
+  Aidoc: {
+    fb: ["https://www.facebook.com/aidocmed"],
+    tw: ["https://x.com/aidocmed"],
+    ytp: ["https://www.youtube.com/@AidocAI"],
+    urls: [
+      "https://apps.apple.com/us/developer/aidoc-medical-ltd/id1459219008",
+    ],
     _processed: true,
   },
   BioCatch: {
@@ -140,6 +149,18 @@ export const manualOverrides: Record<
       "https://marketplace.microsoft.com/de-de/product/web-apps/cyera1658314682323.cyera_cloud_data_security?tab=overview",
       "https://www.elastic.co/docs/reference/integrations/cyera",
     ],
+    _processed: true,
+  },
+  "D-Fend Solutions": {
+    li: ["https://www.linkedin.com/company/d-fend-solutions"],
+    fb: ["https://www.facebook.com/DFendSolutions"],
+    tw: ["https://x.com/DFendSolutions"],
+    ig: ["https://www.instagram.com/d_fend_solutions"],
+    ytp: [
+      "https://www.youtube.com/@DFendSolutions",
+      "https://www.youtube.com/@zoharhalachmi5784",
+    ],
+    urls: ["https://d-fendsolutions.com"],
     _processed: true,
   },
   Earnix: {
@@ -407,7 +428,6 @@ export const manualOverrides: Record<
     ],
     _processed: true,
   },
-  Wix: { tw: "https://x.com/Wix" },
   Zenity: {
     li: ["https://www.linkedin.com/company/zenitysec"],
     tw: ["https://x.com/zenitysec"],

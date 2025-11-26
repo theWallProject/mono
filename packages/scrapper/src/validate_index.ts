@@ -35,7 +35,7 @@ const main = async () => {
         const shouldApply = answer.trim().toLowerCase() === "y" || answer.trim().toLowerCase() === "yes";
         
         if (!shouldApply) {
-          log("⏭️  Skipping apply-overrides. Run 'npm run apply-overrides' manually when ready.");
+          log("⏭️  Skipping apply-overrides. Run 'pnpm run apply-overrides' manually when ready.");
           process.exit(0);
           return;
         }
@@ -43,12 +43,12 @@ const main = async () => {
         // Run apply-overrides after user confirmation
         log("\n🔄 Applying manual overrides to output files...");
         try {
-          execSync("npm run apply-overrides", { stdio: "inherit" });
+          execSync("pnpm run apply-overrides", { stdio: "inherit", cwd: process.cwd() });
           log("✅ All files updated successfully!");
           process.exit(0);
         } catch (err) {
           error(
-            "⚠️  Failed to apply overrides. Run 'npm run apply-overrides' manually.",
+            "⚠️  Failed to apply overrides. Run 'pnpm run apply-overrides' manually.",
           );
           process.exit(1);
         }
