@@ -77,12 +77,19 @@ const extractIdentifier = (url: string, field: LinkField): string => {
   } else if (field === "ytp") {
     const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i");
     const results = regex.exec(url);
-    if (!results || !results[1]) {
+    if (!results) {
       throw new Error(
         `Failed to extract YouTube Profile identifier from: ${url}`,
       );
     }
-    return results[1].replace(/\//g, "_");
+    // Check all capture groups (user/, c/, @, or direct format) and use the first non-undefined one
+    const id = results[1] || results[2] || results[3] || results[4];
+    if (!id) {
+      throw new Error(
+        `Failed to extract YouTube Profile identifier from: ${url}`,
+      );
+    }
+    return id.replace(/\//g, "_");
   } else if (field === "ytc") {
     const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i");
     const results = regex.exec(url);

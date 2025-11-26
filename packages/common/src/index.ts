@@ -131,10 +131,16 @@ export type APIEndpointConfig = {
 
 /**
  * LinkedIn regex - should be used with case-insensitive flag ('i') since LinkedIn IDs are case-insensitive
+ * Matches both company and showcase formats:
+ * - linkedin.com/company/ID
+ * - linkedin.com/showcase/ID
+ * - https://www.linkedin.com/company/ID
+ * - https://www.linkedin.com/showcase/ID
+ * Handles optional protocol (http://, https://) and optional www. prefix
  */
 export const API_ENDPOINT_RULE_LINKEDIN_COMPANY = {
   domain: "linkedin.com",
-  regex: "(?:linkedin\\.com)/(?!school)(?:company|showcase)/([^/?]+)",
+  regex: "(?:https?://)?(?:www\\.)?(?:linkedin\\.com)/(?!school)(?:company|showcase)/([^/?]+)",
 } as const satisfies APIEndpointRule;
 
 export const API_ENDPOINT_RULE_FACEBOOK = {
@@ -171,15 +177,17 @@ export const API_ENDPOINT_RULE_GITHUB = {
  * - youtube.com/@ID
  * - youtube.com/c/ID
  * - youtube.com/c/@ID
+ * - youtube.com/user/ID
  * - https://www.youtube.com/@ID
  * - http://youtube.com/ID
  * All formats capture the ID (without @ prefix) since they represent the same profile/channel
  * Handles optional protocol (http://, https://) and optional www. prefix
+ * Note: The regex uses multiple capture groups (1-4) for different formats. Use the first non-undefined group.
  */
 export const API_ENDPOINT_RULE_YOUTUBE_PROFILE = {
   domain: "youtube.com",
   regex:
-    "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/(?:(?:c/(?!(?:@)?(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)@?)|(?:@(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b))|(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)(?!(?:c/|@)))([^/?]+)",
+    "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/(?:(?:user/([^/?]+))|(?:c/(?!(?:@)?(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)@?([^/?]+))|(?:@(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)([^/?]+))|(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)(?!(?:c/|@|user/))([^/?]+))",
 } as const satisfies APIEndpointRule;
 
 export const API_ENDPOINT_RULE_YOUTUBE_CHANNEL = {
@@ -215,6 +223,7 @@ export const CONFIG: APIEndpointConfig = {
 
 /**
  * Extracts the main domain from a given URL.
+ * Normalizes subdomains to the main domain (e.g., careers.wix.com -> wix.com)
  **/
 export function getMainDomain(url: string) {
   try {
@@ -227,8 +236,12 @@ export function getMainDomain(url: string) {
     const {hostname} = new URL(urlWithProtocol);
     const parsed = parse(hostname);
 
-    if (parsed.hostname) {
-      return parsed.hostname.replace("www.", "");
+    // Use parsed.domain to get the main domain without subdomain
+    // Fall back to parsed.hostname if domain is not available
+    const mainDomain = parsed.domain || parsed.hostname;
+    
+    if (mainDomain) {
+      return mainDomain.replace("www.", "");
     }
     console.warn("getMainDomain empty:", url);
 

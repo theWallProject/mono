@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import * as readline from "readline";
 import { chromium, BrowserContext, Page } from "playwright";
 import {
   API_ENDPOINT_RULE_LINKEDIN_COMPANY,
@@ -437,6 +438,16 @@ const searchServices: SearchService[] = [
     name: "Instagram",
     urlTemplate: (query) =>
       `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(query)}`,
+  },
+  {
+    name: "npm",
+    urlTemplate: (query) =>
+      `https://www.npmjs.com/search?q=${encodeURIComponent(query)}`,
+  },
+  {
+    name: "VSCode Extensions",
+    urlTemplate: (query) =>
+      `https://marketplace.visualstudio.com/search?term=${encodeURIComponent(query)}`,
   },
 ];
 
@@ -1415,6 +1426,37 @@ const sortByReasonAndCbRank = (
   });
 };
 
+/**
+ * Prompts the user for a company name with a default value prefilled
+ */
+const promptForCompanyName = (defaultCompany: string): Promise<string> => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise<string>((resolve) => {
+    rl.question(
+      `Enter company name to process (default: ${defaultCompany}): `,
+      (answer) => {
+        rl.close();
+        const companyName = answer.trim() || defaultCompany;
+        resolve(companyName);
+      },
+    );
+  });
+};
+
+/**
+ * Finds a company by exact case-sensitive name match
+ */
+const findCompanyByName = (
+  companyName: string,
+  items: ScrappedItemType[],
+): ScrappedItemType | null => {
+  return items.find((item) => item.name === companyName) || null;
+};
+
 export async function run() {
   let browserContext: BrowserContext | null = null;
 
@@ -1449,11 +1491,37 @@ export async function run() {
       return;
     }
 
-    // Process only the first unprocessed item
+    // Get default company (next in queue)
+    const defaultCompany = unprocessedItems[0].name;
 
-    const item = unprocessedItems[0];
+    // Prompt user for company name with default prefilled
+    const selectedCompanyName = await promptForCompanyName(defaultCompany);
+
+    // Find the selected company by exact case-sensitive match
+    const item = findCompanyByName(selectedCompanyName, unprocessedItems);
+
+    if (!item) {
+      // Company not found - show error with available options
+      error(
+        `\n❌ Company "${selectedCompanyName}" not found in unprocessed items.`,
+      );
+      log("\nAvailable companies (showing first 10):");
+      const sampleCompanies = unprocessedItems.slice(0, 10);
+      for (const company of sampleCompanies) {
+        log(`  - ${company.name}`);
+      }
+      if (unprocessedItems.length > 10) {
+        log(`  ... and ${unprocessedItems.length - 10} more`);
+      }
+      throw new Error(
+        `Company "${selectedCompanyName}" not found. Please use an exact case-sensitive match.`,
+      );
+    }
+
+    // Find the index of the selected company for progress display
+    const itemIndex = unprocessedItems.findIndex((i) => i.name === item.name);
     log(
-      `\n[1/${unprocessedItems.length}] Processing: ${item.name} (cbRank: ${item.cbRank || "N/A"})`,
+      `\n[${itemIndex + 1}/${unprocessedItems.length}] Processing: ${item.name} (cbRank: ${item.cbRank || "N/A"})`,
     );
 
     // Launch browser with persistent profile (reuse same profile across items)

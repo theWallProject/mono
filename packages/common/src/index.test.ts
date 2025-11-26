@@ -9,6 +9,7 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
+  getMainDomain,
 } from "./index";
 
 /**
@@ -33,7 +34,9 @@ function testRule(
   if (shouldMatch) {
     expect(match).not.toBeNull();
     if (match && expectedId !== undefined) {
-      expect(match[1]).toBe(expectedId);
+      // For YouTube profile, check all capture groups (user/, c/, @, or direct format)
+      const capturedId = match[1] || match[2] || match[3] || match[4];
+      expect(capturedId).toBe(expectedId);
     }
   } else {
     expect(match).toBeNull();
@@ -68,6 +71,24 @@ describe("API_ENDPOINT_RULE_LINKEDIN_COMPANY", () => {
         "https://www.linkedin.com/showcase/tech-innovation",
         true,
         "tech-innovation"
+      );
+    });
+
+    it("should match linkedin.com/showcase/wix-engineering", () => {
+      testRule(
+        rule,
+        "https://www.linkedin.com/showcase/wix-engineering",
+        true,
+        "wix-engineering"
+      );
+    });
+
+    it("should match linkedin.com/company/wix-engineering", () => {
+      testRule(
+        rule,
+        "https://www.linkedin.com/company/wix-engineering",
+        true,
+        "wix-engineering"
       );
     });
 
@@ -554,6 +575,38 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
       });
     });
 
+    describe("Format 5: youtube.com/user/ID", () => {
+      it("should match youtube.com/user/ChannelName", () => {
+        testRule(
+          rule,
+          "https://www.youtube.com/user/ChannelName",
+          true,
+          "ChannelName"
+        );
+      });
+
+      it("should match youtube.com/user/mkbhd", () => {
+        testRule(rule, "https://www.youtube.com/user/mkbhd", true, "mkbhd");
+      });
+
+      it("should match with query params", () => {
+        testRule(
+          rule,
+          "https://youtube.com/user/example?sub_confirmation=1",
+          true,
+          "example"
+        );
+      });
+
+      it("should match without protocol", () => {
+        testRule(rule, "youtube.com/user/kurzgesagt", true, "kurzgesagt");
+      });
+
+      it("should match with www", () => {
+        testRule(rule, "https://www.youtube.com/user/mkbhd", true, "mkbhd");
+      });
+    });
+
     describe("Case-insensitive matching (all formats)", () => {
       it("should match case-insensitive for format 1: youtube.com/ID", () => {
         testRule(rule, "https://www.youtube.com/Example", true, "Example");
@@ -604,15 +657,32 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
           "veritasium"
         );
       });
+
+      it("should match case-insensitive for format 5: youtube.com/user/ID", () => {
+        testRule(
+          rule,
+          "https://www.youtube.com/user/CHANNELNAME",
+          true,
+          "CHANNELNAME"
+        );
+        testRule(rule, "https://YOUTUBE.COM/user/mkbhd", true, "mkbhd");
+        testRule(
+          rule,
+          "https://www.YOUTUBE.com/user/veritasium",
+          true,
+          "veritasium"
+        );
+      });
     });
 
     describe("All formats should capture the same ID for equivalent URLs", () => {
       const testId = "mkbhd";
-      it(`should capture "${testId}" from all 4 formats`, () => {
+      it(`should capture "${testId}" from all 5 formats`, () => {
         testRule(rule, `https://www.youtube.com/${testId}`, true, testId);
         testRule(rule, `https://www.youtube.com/@${testId}`, true, testId);
         testRule(rule, `https://www.youtube.com/c/${testId}`, true, testId);
         testRule(rule, `https://www.youtube.com/c/@${testId}`, true, testId);
+        testRule(rule, `https://www.youtube.com/user/${testId}`, true, testId);
       });
     });
   });
@@ -670,8 +740,13 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
       testRule(rule, "https://www.youtube.com/trending", false);
     });
 
-    it("should not match youtube.com/user/", () => {
-      testRule(rule, "https://www.youtube.com/user/ChannelName", false);
+    it("should match youtube.com/user/ChannelName", () => {
+      testRule(
+        rule,
+        "https://www.youtube.com/user/ChannelName",
+        true,
+        "ChannelName"
+      );
     });
 
     it("should not match other domains", () => {
@@ -832,12 +907,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_CHANNEL", () => {
     });
 
     it("should match https://www.youtube.com/channel/UC123 (with protocol and www)", () => {
-      testRule(
-        rule,
-        "https://www.youtube.com/channel/UC123",
-        true,
-        "UC123"
-      );
+      testRule(rule, "https://www.youtube.com/channel/UC123", true, "UC123");
     });
 
     it("should match http://www.youtube.com/channel/UC123 (with http protocol)", () => {
@@ -1022,5 +1092,73 @@ describe("API_ENDPOINT_RULE_THREADS", () => {
     it("should not match other domains", () => {
       testRule(rule, "https://www.instagram.com/zuck", false);
     });
+  });
+});
+
+describe("Website URL detection (should not match any social media regex)", () => {
+  const allRules = [
+    API_ENDPOINT_RULE_LINKEDIN_COMPANY,
+    API_ENDPOINT_RULE_FACEBOOK,
+    API_ENDPOINT_RULE_TWITTER,
+    API_ENDPOINT_RULE_INSTAGRAM,
+    API_ENDPOINT_RULE_GITHUB,
+    API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+    API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
+    API_ENDPOINT_RULE_TIKTOK,
+    API_ENDPOINT_RULE_THREADS,
+  ];
+
+  it("should not match careers.wix.com/test as any social media", () => {
+    const url = "https://careers.wix.com/test";
+
+    for (const rule of allRules) {
+      const flags =
+        rule.domain === "twitter.com" ||
+        rule.domain === "linkedin.com" ||
+        rule.domain === "youtube.com"
+          ? "i"
+          : "";
+      const regex = new RegExp(rule.regex, flags);
+      const match = regex.exec(url);
+      expect(match).toBeNull();
+    }
+  });
+
+  it("should not match careers.wix.com/test (without protocol) as any social media", () => {
+    const url = "careers.wix.com/test";
+
+    for (const rule of allRules) {
+      const flags =
+        rule.domain === "twitter.com" ||
+        rule.domain === "linkedin.com" ||
+        rule.domain === "youtube.com"
+          ? "i"
+          : "";
+      const regex = new RegExp(rule.regex, flags);
+      const match = regex.exec(url);
+      expect(match).toBeNull();
+    }
+  });
+});
+
+describe("getMainDomain", () => {
+  it("should normalize subdomains to main domain", () => {
+    expect(getMainDomain("https://careers.wix.com/test")).toBe("wix.com");
+    expect(getMainDomain("https://www.careers.wix.com/test")).toBe("wix.com");
+    expect(getMainDomain("careers.wix.com/test")).toBe("wix.com");
+  });
+
+  it("should handle main domain without subdomain", () => {
+    expect(getMainDomain("https://wix.com")).toBe("wix.com");
+    expect(getMainDomain("https://www.wix.com")).toBe("wix.com");
+    expect(getMainDomain("wix.com")).toBe("wix.com");
+  });
+
+  it("should handle other subdomains", () => {
+    expect(getMainDomain("https://blog.example.com")).toBe("example.com");
+    expect(getMainDomain("https://api.github.com")).toBe("github.com");
+    expect(getMainDomain("https://subdomain.example.co.uk")).toBe(
+      "example.co.uk"
+    );
   });
 });
