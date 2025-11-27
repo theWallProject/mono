@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 import icon16 from "../../assets/icon16.png"
-import { getExtensionURL } from "../helpers"
+import { getExtensionURL, track } from "../helpers"
 
 export const HintToastContent = ({
   hintId,
@@ -73,6 +73,7 @@ export const HintToastContent = ({
           onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
+            track("Button", "Click", "hint_link")
             if (processedHintUrl) {
               window.open(processedHintUrl, "_blank", "noopener,noreferrer")
             }
@@ -122,6 +123,7 @@ export const HintToastContent = ({
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
+              track("Button", "Click", "hint_expand")
               setIsExpanded(true)
             }}
             onMouseDown={(e) => {
@@ -162,6 +164,7 @@ export const HintToastContent = ({
               onClick={async (e) => {
                 e.preventDefault()
                 e.stopPropagation()
+                track("Button", "Click", "hint_dismiss_this")
                 onDismiss()
                 await onDismissPermanently(hintId)
               }}
@@ -199,6 +202,7 @@ export const HintToastContent = ({
               onClick={async (e) => {
                 e.preventDefault()
                 e.stopPropagation()
+                track("Button", "Click", "hint_disable_all")
                 onDismiss()
                 await onDisableAll()
               }}

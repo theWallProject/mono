@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 
 // eslint-disable-next-line import/order
 import icon16 from "../assets/icon16.png"
-import { getExtensionURL } from "./helpers"
+import { getExtensionURL, track } from "./helpers"
 import {
   getAllLocalStorageItems,
   getLocalStorageItem,
@@ -39,6 +39,7 @@ function Popup() {
   }, [])
 
   const toggleHintsSystem = async () => {
+    track("Button", "Click", "hint_toggle_system")
     setIsToggling(true)
     try {
       const newState = !hintsDisabled
@@ -52,6 +53,7 @@ function Popup() {
   }
 
   const resetDismissedHints = async () => {
+    track("Button", "Click", "hint_reset_dismissed")
     setIsResetting(true)
     try {
       const allItems = await getAllLocalStorageItems()
