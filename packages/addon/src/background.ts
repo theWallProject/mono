@@ -66,39 +66,30 @@ function isSpecialUrl(url: string) {
 const testTabUrl = async (tabId: number, url: string) => {
   if (isSpecialUrl(url)) {
     log(`testTabUrl ignoring special url [${url}]`)
-
     return
   }
 
-  log(`testTabUrl ${tabId} [${url}]`)
+  log(`testTabUrl ${tabId} [${url}] - requesting content script to test URL`)
 
-  const result = await isUrlFlagged(url)
-  // .then((result) => {
-  log("testTabUrl isUrlFlagged result:", result)
-
-  // todo: avoid using setTimeout
-  setTimeout(async () => {
-    const msgResult = await chrome.tabs.sendMessage<Message>(tabId, {
-      action: MessageTypes.GetTestResult,
-      result
-    })
-    // .then((result) => {
-    log("chrome.tabs.sendMessage promise success", msgResult)
-  }, 2000)
-
-  // }, 10000)
-
-  // })
-  // .catch((e) => {
-  //   error(`chrome.tabs.sendMessage promise error [${url}]`, e)
-  // })
-  // }
-
-  // }, 1000)
-  // })
-  // .catch((e) => {
-  //   error(`testTabUrl isUrlFlagged promise error [${url}]`, e)
-  // })
+  // Send message to content script to trigger URL test
+  // Content script will handle the actual test and respond
+  chrome.tabs.sendMessage<Message>(
+    tabId,
+    {
+      action: MessageTypes.RequestUrlTest
+    },
+    () => {
+      if (chrome.runtime.lastError) {
+        // Content script may not be ready yet - this is fine,
+        // it will test on mount anyway
+        error(
+          `testTabUrl: Content script not ready for tab ${tabId} - ${chrome.runtime.lastError.message}`
+        )
+        return
+      }
+      log(`testTabUrl: Content script acknowledged request for tab ${tabId}`)
+    }
+  )
 }
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {

@@ -2,7 +2,7 @@ import type { APIListOfReasonsValues } from "@theWallProject/common"
 
 export enum MessageTypes {
   TestUrl = "TestUrl",
-  GetTestResult = "GetTestResult",
+  RequestUrlTest = "RequestUrlTest",
   DissmissUrl = "DissmissUrl"
 }
 
@@ -64,8 +64,7 @@ export type Message =
       url: string
     }
   | {
-      action: MessageTypes.GetTestResult
-      result: UrlTestResult
+      action: MessageTypes.RequestUrlTest
     }
   | {
       action: MessageTypes.DissmissUrl

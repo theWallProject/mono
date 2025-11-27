@@ -1,12 +1,12 @@
 /* eslint-disable import/order */
-import React, { useEffect, useRef, useState } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import { toast, Toaster } from "react-hot-toast"
 
 import { getExtensionURL, track } from "~helpers"
 
 import backgroundImage from "../../assets/images/flag-bg.jpg"
 import theWallWhite from "../../assets/images/the-wall-white.png"
-// import { log, warn } from "../helpers"
+import { error, log } from "../helpers"
 // import { share } from "../image_sharing/image"
 import { ShareButton } from "../share_button/ShareButton"
 import {
@@ -36,6 +36,7 @@ export const Banner = () => {
     useState<MessageResponseMap[MessageTypes.TestUrl]>()
   const toastIdRef = useRef<string | null>(null)
   const isCheckingHintRef = useRef<boolean>(false)
+  const isTestingUrlRef = useRef<boolean>(false)
 
   // Check if a hint was shown recently (within 3 days)
   const wasHintShownRecently = async (hintId: string): Promise<boolean> => {
@@ -144,24 +145,77 @@ export const Banner = () => {
     window.open(mailtoLink, "_blank")
   }
 
+  // Helper function to check if URL is special (chrome://, extension://, etc.)
+  const isSpecialUrl = (url: string): boolean => {
+    try {
+      const parsedUrl = new URL(url)
+      // Return true if the protocol is not http or https
+      return parsedUrl.protocol !== "http:" && parsedUrl.protocol !== "https:"
+    } catch {
+      // If the URL is invalid, treat it as special
+      return true
+    }
+  }
+
+  // Helper function to test current URL
+  const testCurrentUrl = useCallback(() => {
+    // Prevent duplicate simultaneous requests
+    if (isTestingUrlRef.current) {
+      log("[Banner] Already testing URL, skipping duplicate request")
+      return
+    }
+
+    const url = window.location.href
+
+    // Skip special URLs
+    if (isSpecialUrl(url)) {
+      log("[Banner] Skipping special URL:", url)
+      return
+    }
+
+    isTestingUrlRef.current = true
+    log("[Banner] Testing URL:", url)
+
+    chrome.runtime.sendMessage<Message>(
+      {
+        action: MessageTypes.TestUrl,
+        url
+      },
+      (result: MessageResponseMap[MessageTypes.TestUrl]) => {
+        isTestingUrlRef.current = false
+
+        if (chrome.runtime.lastError) {
+          error("[Banner] Error testing URL:", chrome.runtime.lastError.message)
+          return
+        }
+
+        log("[Banner] Test result:", result)
+        setTestResult(result)
+      }
+    )
+  }, [])
+
+  // Test URL on initial mount
+  useEffect(() => {
+    testCurrentUrl()
+  }, [testCurrentUrl])
+
+  // Listen for navigation-triggered test requests from background
   useEffect(() => {
     const listener = (message: Message) => {
-      console.log("[Banner] Received message:", message)
-      if (message.action === MessageTypes.GetTestResult) {
-        console.log("[Banner] Setting testResult:", message.result)
-        setTestResult(message.result)
+      log("[Banner] Received message:", message)
+      if (message.action === MessageTypes.RequestUrlTest) {
+        log("[Banner] RequestUrlTest received, testing current URL")
+        testCurrentUrl()
       }
       return true // Indicate we will send a response asynchronously
     }
-    // log("inside use effect before adding listener")
     chrome.runtime.onMessage.addListener(listener)
 
     return () => {
-      // warn("removing use effect. removing listener")
-
       chrome.runtime.onMessage.removeListener(listener)
     }
-  }, [])
+  }, [testCurrentUrl])
 
   // Inject animation styles for hint buttons
   useEffect(() => {
@@ -194,7 +248,7 @@ export const Banner = () => {
 
   // Show toast when hint result is received
   useEffect(() => {
-    console.log("[Hint Toast] testResult:", testResult)
+    log("[Hint Toast] testResult:", testResult)
 
     if (
       testResult?.isHint === true &&
@@ -203,11 +257,11 @@ export const Banner = () => {
     ) {
       // Use hint name as the unique ID
       const hintId = testResult.name
-      console.log("[Hint Toast] Processing hint:", hintId)
+      log("[Hint Toast] Processing hint:", hintId)
 
       // Check if this hint was already shown recently
       if (isCheckingHintRef.current) {
-        console.log("[Hint Toast] Already checking, skipping")
+        log("[Hint Toast] Already checking, skipping")
         return // Prevent multiple simultaneous checks
       }
 
@@ -221,7 +275,7 @@ export const Banner = () => {
             wasHintShownRecently(hintId)
           ])
 
-        console.log("[Hint Toast] Conditions check:", {
+        log("[Hint Toast] Conditions check:", {
           hintId,
           systemDisabled,
           permanentlyDismissed,
@@ -232,7 +286,7 @@ export const Banner = () => {
 
         if (systemDisabled || permanentlyDismissed || shownRecently) {
           // Don't show toast if any condition prevents it
-          console.log("[Hint Toast] Blocked from showing:", {
+          log("[Hint Toast] Blocked from showing:", {
             systemDisabled,
             permanentlyDismissed,
             shownRecently
@@ -241,7 +295,7 @@ export const Banner = () => {
           return
         }
 
-        console.log("[Hint Toast] All checks passed, showing toast")
+        log("[Hint Toast] All checks passed, showing toast")
 
         // Mark this hint as shown
         await markHintAsShown(hintId)
@@ -265,7 +319,7 @@ export const Banner = () => {
         )
         const toastId = `hint-${hintId}-${Date.now()}`
 
-        console.log("[Hint Toast] Creating toast with:", {
+        log("[Hint Toast] Creating toast with:", {
           hintId,
           processedHintText,
           processedHintUrl,
@@ -303,16 +357,14 @@ export const Banner = () => {
           }
         )
 
-        console.log("[Hint Toast] Toast created with ID:", id)
+        log("[Hint Toast] Toast created with ID:", id)
         toastIdRef.current = id
       })()
     } else if (testResult === undefined || (testResult && !testResult.isHint)) {
       // Only dismiss toast if testResult is undefined or no longer a hint
       // Don't dismiss if testResult.isHint is still true but blocked
       if (toastIdRef.current) {
-        console.log(
-          "[Hint Toast] Dismissing toast - testResult changed to non-hint"
-        )
+        log("[Hint Toast] Dismissing toast - testResult changed to non-hint")
         toast.dismiss(toastIdRef.current)
         toastIdRef.current = null
       }
