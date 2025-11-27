@@ -1,7 +1,6 @@
 declare const styles: {
   readonly "bgGif": string;
   readonly "bgLayer": string;
-  readonly "closeButton": string;
   readonly "contactButton": string;
   readonly "container": string;
   readonly "content": string;
@@ -14,9 +13,6 @@ declare const styles: {
   readonly "footerActions": string;
   readonly "header": string;
   readonly "link": string;
-  readonly "logo": string;
-  readonly "modalContainer": string;
-  readonly "modalMargin": string;
   readonly "noteText": string;
   readonly "optionsImage": string;
   readonly "optionsImageContainer": string;
@@ -28,7 +24,6 @@ declare const styles: {
   readonly "shareButtons": string;
   readonly "shareLabel": string;
   readonly "shareSection": string;
-  readonly "shimmer": string;
   readonly "theWallLogo": string;
   readonly "title": string;
   readonly "version": string;

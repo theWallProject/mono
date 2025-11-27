@@ -16,7 +16,7 @@ import {
 
 // Versions that should trigger the "what's new" page
 // User controls which versions trigger it by adding versions to this array
-const WHATS_NEW_VERSIONS = ["1.5.4"]
+const WHATS_NEW_VERSIONS = ["1.6.0"]
 
 chrome.runtime.onInstalled.addListener(async (details) => {
   log("background:runtime.onInstalled", details)
@@ -44,7 +44,9 @@ chrome.runtime.onInstalled.addListener(async (details) => {
           // Mark this version as shown
           await markWhatsNewVersionAsShown(currentVersion)
         } else {
-          log(`Version ${currentVersion} already shown, skipping what's new page`)
+          log(
+            `Version ${currentVersion} already shown, skipping what's new page`
+          )
         }
       } else {
         log(`Version ${currentVersion} not in WHATS_NEW_VERSIONS, skipping`)
