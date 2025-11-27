@@ -198,6 +198,52 @@ export const TRANSLATIONS = {
     nl: "Psst, dit is een Israëlische website.",
     zh_CN: "提示：这是一个以色列网站。",
     zh_TW: "提示：這是一個以色列網站。"
+  },
+  hintDismiss: {
+    en: "Dismiss",
+    ar: "إغلاق",
+    id: "Tutup",
+    ms: "Tutup",
+    bn: "বাতিল করুন",
+    fr: "Fermer",
+    nl: "Sluiten",
+    zh_CN: "关闭",
+    zh_TW: "關閉"
+  },
+  hintDismissThis: {
+    en: "Dismiss this",
+    ar: "إغلاق هذا",
+    id: "Tutup ini",
+    ms: "Tutup ini",
+    bn: "এটি বাতিল করুন",
+    fr: "Fermer ceci",
+    nl: "Sluit dit",
+    zh_CN: "关闭此提示",
+    zh_TW: "關閉此提示"
+  },
+  hintDisableAll: {
+    en: "Disable All hints",
+    ar: "تعطيل جميع التلميحات",
+    id: "Nonaktifkan semua petunjuk",
+    ms: "Lumpuhkan semua petunjuk",
+    bn: "সমস্ত ইঙ্গিত নিষ্ক্রিয় করুন",
+    fr: "Désactiver tous les indices",
+    nl: "Alle hints uitschakelen",
+    zh_CN: "禁用所有提示",
+    zh_TW: "停用所有提示"
+  },
+  hintDisableAllConfirm: {
+    en: "Are you sure? We have very few but important tips. You can change this setting anytime in the extension options.",
+    ar: "هل أنت متأكد؟ لدينا نصائح قليلة ولكن مهمة. يمكنك تغيير هذا الإعداد في أي وقت من خيارات الامتداد.",
+    id: "Apakah Anda yakin? Kami memiliki sedikit tetapi penting tips. Anda dapat mengubah pengaturan ini kapan saja di opsi ekstensi.",
+    ms: "Adakah anda pasti? Kami mempunyai sedikit tetapi penting petua. Anda boleh menukar tetapan ini pada bila-bila masa dalam pilihan sambungan.",
+    bn: "আপনি কি নিশ্চিত? আমাদের কাছে খুব কম কিন্তু গুরুত্বপূর্ণ টিপস রয়েছে। আপনি যেকোনো সময় এক্সটেনশন বিকল্পে এই সেটিং পরিবর্তন করতে পারেন।",
+    fr: "Êtes-vous sûr ? Nous avons très peu mais des conseils importants. Vous pouvez modifier ce paramètre à tout moment dans les options de l'extension.",
+    nl: "Weet je het zeker? We hebben weinig maar belangrijke tips. Je kunt deze instelling altijd wijzigen in de extensie-opties.",
+    zh_CN:
+      "你确定吗？我们只有很少但重要的提示。您可以随时在扩展选项中更改此设置。",
+    zh_TW:
+      "你確定嗎？我們只有很少但重要的提示。您可以隨時在擴展選項中更改此設置。"
   }
 } satisfies TransDB
 

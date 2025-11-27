@@ -1,5 +1,10 @@
 import { error, log } from "./helpers"
 
+// LocalStorage key constants
+export const HINT_SHOWN_PREFIX = "hint_shown_"
+export const HINT_DISMISSED_PERM_PREFIX = "hint_dismissed_perm_"
+export const HINTS_SYSTEM_DISABLED_KEY = "hints_system_disabled"
+
 export const getStorageItem = async <T>(key: string): Promise<T | null> => {
   log(`getStorageItem getting key[${key}]`)
   return new Promise((resolve, reject) => {
@@ -35,7 +40,9 @@ export const setStorageItem = async <T>(
   })
 }
 
-export const getLocalStorageItem = async <T>(key: string): Promise<T | null> => {
+export const getLocalStorageItem = async <T>(
+  key: string
+): Promise<T | null> => {
   log(`getLocalStorageItem getting key[${key}]`)
   return new Promise((resolve, reject) => {
     try {
@@ -70,7 +77,9 @@ export const setLocalStorageItem = async <T>(
   })
 }
 
-export const removeLocalStorageItems = async (keys: string[]): Promise<void> => {
+export const removeLocalStorageItems = async (
+  keys: string[]
+): Promise<void> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.remove(keys, () => {
@@ -84,7 +93,9 @@ export const removeLocalStorageItems = async (keys: string[]): Promise<void> => 
   })
 }
 
-export const getAllLocalStorageItems = async (): Promise<Record<string, unknown>> => {
+export const getAllLocalStorageItems = async (): Promise<
+  Record<string, unknown>
+> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.get(null, (items) => {

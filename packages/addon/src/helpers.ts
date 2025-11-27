@@ -43,3 +43,16 @@ export function track(category: TR_CAT, action: TR_ACTION, name: TR_NAME) {
     error(e)
   }
 }
+
+// Shared helper to ensure proper extension URL
+export const getExtensionURL = (importedUrl: string) => {
+  // If it's already a full extension URL, return as is
+  if (
+    importedUrl.startsWith("chrome-extension://") ||
+    importedUrl.startsWith("safari-web-extension://")
+  ) {
+    return importedUrl
+  }
+  // Otherwise, convert it using chrome.runtime.getURL
+  return chrome.runtime.getURL(importedUrl)
+}

@@ -54,6 +54,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
     return new Promise((resolve) => {
       resolve({
         isHint: true,
+        name: "Israeli Website",
         hintText: chrome.i18n.getMessage("hintIsraeliWebsite"),
         hintUrl: "https://the-wall.win",
         isDismissed: false,
@@ -173,6 +174,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
               // Hints don't support dismissing - always set to false
               const hintResult: UrlTestResult = {
                 isHint: true,
+                name: findResult.n,
                 hintText: result.hintText,
                 hintUrl: result.hintUrl || "",
                 isDismissed: false,
@@ -228,6 +230,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
             // Hints don't support dismissing - always set to false
             const hintResult_obj: UrlTestResult = {
               isHint: true,
+              name: findResult.n,
               hintText: result.hintText,
               hintUrl: result.hintUrl || "",
               isDismissed: false,

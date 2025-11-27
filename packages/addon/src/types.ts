@@ -9,6 +9,7 @@ export enum MessageTypes {
 export type UrlTestResult =
   | {
       isHint: true
+      name: string
       hintText: string
       hintUrl: string
       isDismissed?: boolean

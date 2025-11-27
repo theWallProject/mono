@@ -12,6 +12,7 @@ const outputFilePath = path.join(
 
 const injectStaticRows = () => {
   const merged: ScrappedFileType = [];
+  log("Starting injectStaticRows - processing BDS and Hints");
 
   // Process BDS items
   for (const item of BDS) {
@@ -27,7 +28,7 @@ const injectStaticRows = () => {
 
       merged.push({
         name,
-        reasons,
+        reasons: reasons ?? [],
         ws: _website,
         id: `s_ws_${name}_${index}`,
       });
@@ -38,7 +39,7 @@ const injectStaticRows = () => {
         if (linkedIn) {
           merged.push({
             name,
-            reasons,
+            reasons: reasons ?? [],
             li: cleanWebsite(linkedIn),
             ws: "",
             id: `s_li_${name}_${index}`,
@@ -52,7 +53,7 @@ const injectStaticRows = () => {
         if (facebook) {
           merged.push({
             name,
-            reasons,
+            reasons: reasons ?? [],
             fb: cleanWebsite(facebook),
             ws: "",
             id: `s_fb_${name}_${index}`,
@@ -66,7 +67,7 @@ const injectStaticRows = () => {
         if (twitter) {
           merged.push({
             name,
-            reasons,
+            reasons: reasons ?? [],
             tw: cleanWebsite(twitter),
             ws: "",
             id: `s_tw_${name}_${index}`,
@@ -77,6 +78,7 @@ const injectStaticRows = () => {
   }
 
   // Process Hints items
+  log(`Processing ${Hints.length} hint items`);
   for (const item of Hints) {
     const safeItem = ManualItemSchema.parse(item);
 
@@ -93,7 +95,7 @@ const injectStaticRows = () => {
 
         merged.push({
           name,
-          reasons,
+          reasons: reasons ?? [],
           ws: _website,
           id: `hint_ws_${name}_${index}`,
           isHint: true,
@@ -103,6 +105,7 @@ const injectStaticRows = () => {
       }
     }
   }
+  log(`Processed ${merged.length} total items (BDS + Hints)`);
 
   const sortedArray = merged.sort((a, b) => a.name.localeCompare(b.name));
 
