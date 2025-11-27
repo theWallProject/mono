@@ -37,6 +37,13 @@ export type TR_NAME =
   | "hint_disable_all"
   | "hint_toggle_system"
   | "hint_reset_dismissed"
+  | "options_donate"
+  | "options_share_fb"
+  | "options_share_tw"
+  | "options_share_li"
+  | "options_share_wa"
+  | "options_share_tg"
+  | "options_contact"
 
 export function track(category: TR_CAT, action: TR_ACTION, name: TR_NAME) {
   try {

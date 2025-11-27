@@ -2,7 +2,11 @@
 
 import { error, log, warn } from "./helpers"
 import { isUrlFlagged } from "./storage"
-import { setStorageItem } from "./storageHelpers"
+import {
+  getWhatsNewShownVersions,
+  markWhatsNewVersionAsShown,
+  setStorageItem
+} from "./storageHelpers"
 import {
   MessageTypes,
   type Message,
@@ -10,11 +14,47 @@ import {
   type SendResponse
 } from "./types"
 
-chrome.runtime.onInstalled.addListener(() => {
-  log("background:runtime.onInstalled")
+// Versions that should trigger the "what's new" page
+// User controls which versions trigger it by adding versions to this array
+const WHATS_NEW_VERSIONS = ["1.5.4"]
+
+chrome.runtime.onInstalled.addListener(async (details) => {
+  log("background:runtime.onInstalled", details)
   chrome.storage.session.clear(() => {
     log("cleared session [onInstalled]...")
   })
+
+  // Check if we should show "what's new" page
+  if (details.reason === "install" || details.reason === "update") {
+    try {
+      const manifest = chrome.runtime.getManifest()
+      const currentVersion = manifest.version
+      log(`Checking what's new for version ${currentVersion}`)
+
+      // Check if this version should trigger the "what's new" page
+      if (WHATS_NEW_VERSIONS.includes(currentVersion)) {
+        // Check if this version has already been shown
+        const shownVersions = await getWhatsNewShownVersions()
+        if (!shownVersions.includes(currentVersion)) {
+          log(`Opening what's new page for version ${currentVersion}`)
+          // Open the what's new page
+          chrome.tabs.create({
+            url: chrome.runtime.getURL("tabs/whats-new.html")
+          })
+          // Mark this version as shown
+          await markWhatsNewVersionAsShown(currentVersion)
+        } else {
+          log(`Version ${currentVersion} already shown, skipping what's new page`)
+        }
+      } else {
+        log(`Version ${currentVersion} not in WHATS_NEW_VERSIONS, skipping`)
+      }
+    } catch (e) {
+      error("Error checking what's new page:", e)
+      // Don't fail hard - just log the error
+    }
+  }
+
   // const manifest = chrome.runtime.getManifest()
   // const contentScriptFile = manifest.content_scripts?.[0]?.js?.[0] // Get the first declared content script
 

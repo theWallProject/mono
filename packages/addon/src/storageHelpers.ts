@@ -4,6 +4,7 @@ import { error, log } from "./helpers"
 export const HINT_SHOWN_PREFIX = "hint_shown_"
 export const HINT_DISMISSED_PERM_PREFIX = "hint_dismissed_perm_"
 export const HINTS_SYSTEM_DISABLED_KEY = "hints_system_disabled"
+export const WHATS_NEW_SHOWN_VERSIONS_KEY = "whats_new_shown_versions"
 
 export const getStorageItem = async <T>(key: string): Promise<T | null> => {
   log(`getStorageItem getting key[${key}]`)
@@ -104,6 +105,51 @@ export const getAllLocalStorageItems = async (): Promise<
       })
     } catch (e) {
       error(`getAllLocalStorageItems error`, e)
+      reject(e)
+    }
+  })
+}
+
+// What's New version tracking helpers
+export const getWhatsNewShownVersions = async (): Promise<string[]> => {
+  log(`getWhatsNewShownVersions getting versions`)
+  return new Promise((resolve, reject) => {
+    try {
+      chrome.storage.local.get([WHATS_NEW_SHOWN_VERSIONS_KEY], (result) => {
+        const versions = (result[WHATS_NEW_SHOWN_VERSIONS_KEY] as string[]) || []
+        log(`getWhatsNewShownVersions got ${versions.length} versions`, versions)
+        resolve(versions)
+      })
+    } catch (e) {
+      error(`getWhatsNewShownVersions error`, e)
+      reject(e)
+    }
+  })
+}
+
+export const markWhatsNewVersionAsShown = async (
+  version: string
+): Promise<void> => {
+  log(`markWhatsNewVersionAsShown marking version [${version}]`)
+  return new Promise((resolve, reject) => {
+    try {
+      getWhatsNewShownVersions().then((existingVersions) => {
+        if (!existingVersions.includes(version)) {
+          const updatedVersions = [...existingVersions, version]
+          chrome.storage.local.set(
+            { [WHATS_NEW_SHOWN_VERSIONS_KEY]: updatedVersions },
+            () => {
+              log(`markWhatsNewVersionAsShown set version [${version}]`)
+              resolve()
+            }
+          )
+        } else {
+          log(`markWhatsNewVersionAsShown version [${version}] already marked`)
+          resolve()
+        }
+      })
+    } catch (e) {
+      error(`markWhatsNewVersionAsShown error: ${version}`, e)
       reject(e)
     }
   })

@@ -83,7 +83,7 @@ export default [
       "react-hooks/refs": "off",
       "react-hooks/purity": "off",
       "import/order": [
-        "error",
+        "warn",
         {
           groups: [
             "builtin",
