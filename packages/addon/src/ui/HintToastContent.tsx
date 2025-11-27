@@ -73,10 +73,13 @@ export const HintToastContent = ({
           onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
-            track("Button", "Click", "hint_link")
             if (processedHintUrl) {
               window.open(processedHintUrl, "_blank", "noopener,noreferrer")
             }
+            // Track after opening window
+            setTimeout(() => {
+              track("Button", "Click", "hint_link")
+            }, 100)
           }}
           onMouseDown={(e) => {
             e.preventDefault()
@@ -241,4 +244,3 @@ export const HintToastContent = ({
     </div>
   )
 }
-
