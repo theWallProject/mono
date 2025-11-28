@@ -34,3 +34,4 @@ export const thauraHints: ManualItemType[] = [
     hintUrl: "https://thaura.ai/?referral=the-wall",
   },
 ];
+
