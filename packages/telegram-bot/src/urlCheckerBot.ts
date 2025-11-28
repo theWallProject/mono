@@ -11,36 +11,20 @@ import {
   type SpecialDomains,
   type APIListOfReasonsValues,
 } from "@theWallProject/common";
-import {readFileSync} from "node:fs";
-import {join} from "node:path";
-import {fileURLToPath} from "node:url";
+import ALL from "../db/ALL.json";
 
-// Load database at module level - fail immediately if missing
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(__filename, "..", "..");
-const dbPath = join(__dirname, "db", "ALL.json");
+// Validate database at module level - fail immediately if invalid
+const database = ALL as unknown;
 
-let database: FinalDBFileType[];
-
-try {
-  const dbContent = readFileSync(dbPath, "utf-8");
-  const parsed = JSON.parse(dbContent) as unknown;
-
-  if (!Array.isArray(parsed)) {
-    throw new Error(`Database file is not an array: ${dbPath}`);
-  }
-
-  database = parsed as FinalDBFileType[];
-
-  if (database.length === 0) {
-    throw new Error(`Database is empty: ${dbPath}`);
-  }
-} catch (error) {
-  if (error instanceof Error) {
-    throw new Error(`Failed to load database from ${dbPath}: ${error.message}`);
-  }
-  throw new Error(`Failed to load database from ${dbPath}: Unknown error`);
+if (!Array.isArray(database)) {
+  throw new Error("Database file is not an array");
 }
+
+if (database.length === 0) {
+  throw new Error("Database is empty");
+}
+
+const typedDatabase = database as FinalDBFileType[];
 
 /**
  * Link field type (bot-specific, not shared).
@@ -290,5 +274,5 @@ export function checkUrlForBot(url: string): UrlCheckResult | undefined {
     throw new Error(`Invalid URL: ${url}`);
   }
 
-  return checkUrl(url, database);
+  return checkUrl(url, typedDatabase);
 }
