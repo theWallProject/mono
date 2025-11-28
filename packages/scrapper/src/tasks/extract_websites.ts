@@ -5,7 +5,7 @@ import {
   APIEndpointDomains,
   APIEndpointDomainsResult,
   DBFileNames,
-} from "@theWallProject/common";
+} from "../scrapperTypes";
 import { APIScrapperFileDataSchema, ScrappedFileType } from "../types";
 import { error, log, warn } from "../helper";
 

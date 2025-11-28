@@ -4,8 +4,8 @@ import { log } from "../helper";
 import {
   APIEndpointDomainsResultSchema,
   DBFileNames,
-  FinalDBFileType,
-} from "@theWallProject/common";
+} from "../scrapperTypes";
+import { FinalDBFileType } from "@theWallProject/common";
 import { z } from "zod";
 import alternatives from "../../src/static_data/alternatives.json";
 import { LinkField } from "./validate_urls";

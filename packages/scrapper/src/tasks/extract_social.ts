@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import {
-  APIEndpointDomains,
   API_ENDPOINT_RULE_LINKEDIN_COMPANY,
   API_ENDPOINT_RULE_FACEBOOK,
   API_ENDPOINT_RULE_TWITTER,
@@ -11,8 +10,8 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
-  DBFileNames,
 } from "@theWallProject/common";
+import { APIEndpointDomains, DBFileNames } from "../scrapperTypes";
 import { APIScrapperFileDataSchema, ScrappedFileType } from "../types";
 import { error, log, warn } from "../helper";
 

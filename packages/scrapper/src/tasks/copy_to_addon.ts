@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { format } from "prettier";
 import { log } from "../helper";
-import { DBFileNames } from "@theWallProject/common";
+import { DBFileNames } from "../scrapperTypes";
 
 const sourceFolder = path.join(__dirname, `../../results/4_final`);
 const targetFolder = path.join(__dirname, `../../../addon/src/db/`);

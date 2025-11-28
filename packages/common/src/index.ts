@@ -21,6 +21,9 @@ export const APIListOfReasons = {
 export type valuesOfListOfReasons =
   (typeof APIListOfReasons)[keyof typeof APIListOfReasons];
 
+/**
+ * Schema for API list of reasons (shared between addon and scrapper via FinalDBFileSchema).
+ */
 export const APIListOfReasonsSchema = z.enum([
   APIListOfReasons.HeadQuarterInIL,
   APIListOfReasons.FounderInIL,
@@ -29,25 +32,7 @@ export const APIListOfReasonsSchema = z.enum([
   APIListOfReasons.BDS,
 ]);
 
-// export type APIListOfReasonsSchemaType = z.infer<typeof APIListOfReasonsSchema>;
-
-export enum DBFileNames {
-  ALL = "ALL",
-  WEBSITES = "WEBSITES",
-  FLAGGED_FACEBOOK = "FLAGGED_FACEBOOK",
-  FLAGGED_LI_COMPANY = "FLAGGED_LI_COMPANY",
-  FLAGGED_TWITTER = "FLAGGED_TWITTER",
-  FLAGGED_INSTAGRAM = "FLAGGED_INSTAGRAM",
-  FLAGGED_GITHUB = "FLAGGED_GITHUB",
-  FLAGGED_YOUTUBE_PROFILE = "FLAGGED_YOUTUBE_PROFILE",
-  FLAGGED_YOUTUBE_CHANNEL = "FLAGGED_YOUTUBE_CHANNEL",
-  FLAGGED_TIKTOK = "FLAGGED_TIKTOK",
-  FLAGGED_THREADS = "FLAGGED_THREADS",
-}
-
-export type DBFileNamesValues = `${DBFileNames}`;
-export type APIListOfReasonsValues =
-  (typeof APIListOfReasons)[keyof typeof APIListOfReasons];
+export type APIListOfReasonsValues = z.infer<typeof APIListOfReasonsSchema>;
 export type SpecialDomains =
   | "linkedin.com"
   | "facebook.com"
@@ -63,25 +48,6 @@ type APIEndpointRule = {
   domain: SpecialDomains;
   regex: string;
 };
-
-export const APIEndpointDomainsResultSchema = z.object({
-  selector: z.string(),
-  id: z.string(),
-  reasons: z.array(APIListOfReasonsSchema),
-  name: z.string(),
-  /** stock sympol */
-  s: z.string().optional(),
-  /** hint flag */
-  hint: z.boolean().optional(),
-  /** hint text */
-  hintText: z.string().optional(),
-  /** hint URL */
-  hintUrl: z.string().optional(),
-});
-
-export type APIEndpointDomainsResult = z.infer<
-  typeof APIEndpointDomainsResultSchema
->;
 
 export const FinalDBFileSchema = z.object({
   /** id */
@@ -134,8 +100,6 @@ export const FinalDBFileSchema = z.object({
 });
 
 export type FinalDBFileType = z.infer<typeof FinalDBFileSchema>;
-
-export type APIEndpointDomains = APIEndpointDomainsResult[];
 
 export type APIEndpointConfig = {
   rules: APIEndpointRule[];
