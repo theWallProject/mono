@@ -1,62 +1,25 @@
-import type { APIListOfReasonsValues } from "@theWallProject/common"
+import type { UrlCheckResult } from "@theWallProject/common";
 
 export enum MessageTypes {
   TestUrl = "TestUrl",
   RequestUrlTest = "RequestUrlTest",
-  DissmissUrl = "DissmissUrl"
+  DissmissUrl = "DissmissUrl",
 }
 
+/**
+ * Addon-specific extension of UrlCheckResult.
+ * Adds dismissal tracking and additional fields for UI display.
+ */
 export type UrlTestResult =
-  | {
-      isHint: true
-      name: string
-      hintText: string
-      hintUrl: string
-      isDismissed?: boolean
-      rule: {
-        selector: string
-        key:
-          | "li"
-          | "il"
-          | "fb"
-          | "ws"
-          | "tw"
-          | "ig"
-          | "gh"
-          | "ytp"
-          | "ytc"
-          | "tt"
-          | "th"
-      }
-    }
-  | {
-      isHint?: false | undefined
-      hintUrl?: string
-      hintText?: string
-      reasons: APIListOfReasonsValues[]
-      name: string
-      comment?: string
-      link?: string
-      isDismissed?: boolean
-      rule: {
-        selector: string
-        key:
-          | "li"
-          | "il"
-          | "fb"
-          | "ws"
-          | "tw"
-          | "ig"
-          | "gh"
-          | "ytp"
-          | "ytc"
-          | "tt"
-          | "th"
-      }
-      alt?: { n: string; ws: string }[]
-      stockSymbol?: string
-    }
-  | undefined
+  | (Extract<UrlCheckResult, { isHint: true }> & {
+      isDismissed?: boolean;
+    })
+  | (Extract<UrlCheckResult, { isHint?: false }> & {
+      isDismissed?: boolean;
+      hintUrl?: string;
+      hintText?: string;
+    })
+  | undefined;
 
 export type Message =
   | {

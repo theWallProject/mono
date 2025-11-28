@@ -9,8 +9,8 @@ import {
   getMainDomain,
   type FinalDBFileType,
   type SpecialDomains,
-  type APIListOfReasonsValues,
   type LinkField,
+  type UrlCheckResult,
 } from "@theWallProject/common";
 import ALL from "../db/ALL.json";
 
@@ -26,33 +26,6 @@ if (database.length === 0) {
 }
 
 const typedDatabase = database as FinalDBFileType[];
-
-/**
- * Platform-agnostic URL check result (without dismissal tracking).
- */
-export type UrlCheckResult =
-  | {
-      isHint: true;
-      name: string;
-      hintText: string;
-      hintUrl: string;
-      rule: {
-        selector: string;
-        key: LinkField;
-      };
-    }
-  | {
-      isHint?: false | undefined;
-      reasons: APIListOfReasonsValues[];
-      name: string;
-      alt?: {n: string; ws: string}[];
-      stockSymbol?: string;
-      rule: {
-        selector: string;
-        key: LinkField;
-      };
-    }
-  | undefined;
 
 /**
  * Gets the selector key (database field name) for a given domain.

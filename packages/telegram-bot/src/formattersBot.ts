@@ -3,8 +3,10 @@
  * Strict type checking, exhaustive case handling.
  */
 
-import type {APIListOfReasonsValues} from "@theWallProject/common";
-import type {UrlCheckResult} from "./urlCheckerBot.js";
+import type {
+  APIListOfReasonsValues,
+  UrlCheckResult,
+} from "@theWallProject/common";
 import {MESSAGES_BOT} from "./messagesBot.js";
 
 /**
@@ -92,7 +94,7 @@ export function formatMessageReplyForBot(
   if (result.alt && result.alt.length > 0) {
     parts.push("");
     parts.push("*Alternatives:*");
-    result.alt.forEach((alt) => {
+    result.alt.forEach((alt: {n: string; ws: string}) => {
       parts.push(`• ${alt.n} - ${alt.ws}`);
     });
   }

@@ -51,6 +51,36 @@ export type LinkField =
   | "th" // threads
   | "il"; // israeli website (.il domain)
 
+/**
+ * Platform-agnostic URL check result (without dismissal tracking).
+ * Shared across all packages. Platform-specific extensions (like isDismissed) should extend this type.
+ */
+export type UrlCheckResult =
+  | {
+      isHint: true;
+      name: string;
+      hintText: string;
+      hintUrl: string;
+      rule: {
+        selector: string;
+        key: LinkField;
+      };
+    }
+  | {
+      isHint?: false | undefined;
+      reasons: APIListOfReasonsValues[];
+      name: string;
+      alt?: {n: string; ws: string}[];
+      stockSymbol?: string;
+      comment?: string;
+      link?: string;
+      rule: {
+        selector: string;
+        key: LinkField;
+      };
+    }
+  | undefined;
+
 export type SpecialDomains =
   | "linkedin.com"
   | "facebook.com"

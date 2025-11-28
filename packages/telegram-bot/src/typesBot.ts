@@ -3,7 +3,7 @@
  * All types are strictly typed with no `any` allowed.
  */
 
-import type { UrlCheckResult } from "./urlCheckerBot.js";
+import type { UrlCheckResult } from "@theWallProject/common";
 
 /**
  * Inline query result for Telegram.
