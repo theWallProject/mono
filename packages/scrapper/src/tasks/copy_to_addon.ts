@@ -39,7 +39,7 @@ export const run = async () => {
       // Check if source file exists
       if (!fs.existsSync(sourcePath)) {
         log(
-          `Warning: Source file ${sourcePath} does not exist. Skipping copy.`
+          `Warning: Source file ${sourcePath} does not exist. Skipping copy.`,
         );
         continue;
       }
@@ -64,12 +64,17 @@ export const run = async () => {
         log(`Writing to target file: ${targetPath}`);
         // Write the formatted content to target file (will overwrite if exists)
         // Use 'w' flag to ensure file is overwritten
-        fs.writeFileSync(targetPath, formatted, { encoding: "utf-8", flag: "w" });
-        
+        fs.writeFileSync(targetPath, formatted, {
+          encoding: "utf-8",
+          flag: "w",
+        });
+
         // Verify the file was written
         if (fs.existsSync(targetPath)) {
           const stats = fs.statSync(targetPath);
-          log(`Successfully copied and formatted: ${sourcePath} -> ${targetPath} (${stats.size} bytes)`);
+          log(
+            `Successfully copied and formatted: ${sourcePath} -> ${targetPath} (${stats.size} bytes)`,
+          );
         } else {
           throw new Error(`File was not written to ${targetPath}`);
         }
@@ -85,7 +90,7 @@ export const run = async () => {
       log(`Copied: ${sourcePath} -> ${targetPath}`);
     }
   }
-  
+
   log(`Finished copying files`);
 };
 

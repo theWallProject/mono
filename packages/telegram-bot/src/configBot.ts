@@ -23,18 +23,23 @@ export const PORT: number = ((): number => {
   const portStr = getRequiredEnv("PORT");
   const port = Number.parseInt(portStr, 10);
   if (Number.isNaN(port) || port < 1 || port > 65535) {
-    throw new Error(`Invalid PORT value: ${portStr}. Must be a number between 1 and 65535`);
+    throw new Error(
+      `Invalid PORT value: ${portStr}. Must be a number between 1 and 65535`
+    );
   }
   return port;
 })();
 
-export const NODE_ENV: "development" | "production" = ((): "development" | "production" => {
+export const NODE_ENV: "development" | "production" = (():
+  | "development"
+  | "production" => {
   const env = getOptionalEnv("NODE_ENV", "development");
   if (env !== "development" && env !== "production") {
-    throw new Error(`Invalid NODE_ENV: ${env}. Must be "development" or "production"`);
+    throw new Error(
+      `Invalid NODE_ENV: ${env}. Must be "development" or "production"`
+    );
   }
   return env;
 })();
 
 export const WEBHOOK_URL: string | undefined = process.env.WEBHOOK_URL;
-

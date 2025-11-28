@@ -3,6 +3,11 @@
  * Strict validation, no fallbacks - returns null if no valid URL found.
  */
 
+import LinkifyIt from "linkify-it";
+
+// Initialize linkify-it instance
+const linkify = new LinkifyIt();
+
 /**
  * Extracts the first valid URL from text.
  * Supports URLs with or without protocol.
@@ -15,53 +20,41 @@ export function extractUrlFromTextBot(text: string): string | null {
     throw new Error(`Invalid text input: ${text}`);
   }
 
-  // Regex pattern for URLs:
-  // - http:// or https:// URLs
-  // - URLs without protocol (domain.tld with optional path)
-  // - Handles markdown links [text](url) and <url>
-  const urlPatterns = [
-    // Full URLs with protocol
-    /https?:\/\/[^\s<>"']+/gi,
-    // Markdown links: [text](url)
-    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/gi,
-    // HTML-style links: <url>
-    /<https?:\/\/[^\s>]+>/gi,
-    // URLs without protocol (domain.tld format)
-    /(?:^|\s)([a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?:\/[^\s<>"']*)?)/gi,
-  ];
+  // Find all links in the text
+  const matches = linkify.match(text);
 
-  for (const pattern of urlPatterns) {
-    const matches = text.match(pattern);
-    if (matches && matches.length > 0) {
-      // Get first match and clean it up
-      let url = matches[0]?.trim() ?? "";
+  if (!matches || matches.length === 0) {
+    return null;
+  }
 
-      // Remove markdown/HTML brackets if present
-      url = url.replace(/^\[([^\]]+)\]\(/, "").replace(/^<|>$/g, "");
+  // Get the first match
+  const firstMatch = matches[0];
 
-      // Remove trailing punctuation
-      url = url.replace(/[.,;:!?]+$/, "");
+  if (!firstMatch || !firstMatch.url) {
+    return null;
+  }
 
-      // Add protocol if missing (for domain-only URLs)
-      if (!url.startsWith("http://") && !url.startsWith("https://")) {
-        // Only add protocol if it looks like a domain
-        if (/^[a-zA-Z0-9]/.test(url)) {
-          url = `https://${url}`;
-        } else {
-          continue; // Skip if doesn't look like a valid domain
-        }
-      }
+  let url = firstMatch.url.trim();
 
-      // Basic URL validation
-      try {
-        new URL(url);
-        return url;
-      } catch {
-        // Invalid URL, try next pattern
-        continue;
-      }
+  // Remove trailing punctuation
+  url = url.replace(/[.,;:!?]+$/, "");
+
+  // Add protocol if missing (for domain-only URLs)
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    // Only add protocol if it looks like a domain
+    if (/^[a-zA-Z0-9]/.test(url)) {
+      url = `https://${url}`;
+    } else {
+      return null; // Doesn't look like a valid domain
     }
   }
 
-  return null;
+  // Basic URL validation
+  try {
+    new URL(url);
+    return url;
+  } catch {
+    // Invalid URL
+    return null;
+  }
 }

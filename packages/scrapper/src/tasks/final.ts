@@ -1,10 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { log } from "../helper";
-import {
-  APIEndpointDomainsResultSchema,
-  DBFileNames,
-} from "../scrapperTypes";
+import { APIEndpointDomainsResultSchema, DBFileNames } from "../scrapperTypes";
 import { FinalDBFileType } from "@theWallProject/common";
 import { z } from "zod";
 import alternatives from "../../src/static_data/alternatives.json";
