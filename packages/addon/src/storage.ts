@@ -1,8 +1,9 @@
 import {
   CONFIG,
   getMainDomain,
+  getSelectorKey,
   type FinalDBFileType,
-  type SpecialDomains
+  type LinkField
 } from "@theWallProject/common"
 
 import ALL from "./db/ALL.json"
@@ -111,6 +112,13 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
             ruleForDomain.domain,
             normalizedUrl
           )
+
+          // "il" is not a database field, skip database lookup for .il domains
+          if (selectorKey === "il") {
+            resolve(undefined)
+            return
+          }
+
           const localTestKey = `${selectorKey}_${selector}`
 
           const isDismissed = await checkIsDissmissed(localTestKey)
@@ -133,7 +141,8 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
           )
 
           const findResult = (ALL as FinalDBFileType[]).find((row) => {
-            const dbValue = row[selectorKey]
+            // selectorKey is guaranteed to not be "il" at this point
+            const dbValue = row[selectorKey as Exclude<LinkField, "il">]
             if (!dbValue) return false
 
             // Normalize: strip @ prefix from both values
@@ -259,45 +268,4 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
     }
     executeAsync()
   })
-}
-
-function getSelectorKey(domain: SpecialDomains, url?: string) {
-  switch (domain) {
-    case "facebook.com":
-      return "fb" as const
-    case "twitter.com":
-    case "x.com":
-      return "tw" as const
-    case "linkedin.com":
-      return "li" as const
-    case "instagram.com":
-      return "ig" as const
-    case "github.com":
-      return "gh" as const
-    case "youtube.com": {
-      // Determine if it's a Profile (@) or Channel (/channel/) URL
-      // Check the URL directly - Profile URLs have /@, Channel URLs have /channel/
-      if (!url) {
-        throw new Error(
-          `getSelectorKey: url is required for youtube.com domain`
-        )
-      }
-      if (url.includes("/channel/")) {
-        return "ytc" as const
-      }
-      if (url.includes("/@")) {
-        return "ytp" as const
-      }
-      // Default to ytp for other YouTube URLs (shouldn't happen with proper rules)
-      return "ytp" as const
-    }
-    case "tiktok.com":
-      return "tt" as const
-    case "threads.com":
-      return "th" as const
-
-    default: {
-      throw new Error(`getSelectorKey: unexpected domain ${domain}`)
-    }
-  }
 }

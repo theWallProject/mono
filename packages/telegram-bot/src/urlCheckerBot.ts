@@ -7,9 +7,8 @@
 import {
   CONFIG,
   getMainDomain,
+  getSelectorKey,
   type FinalDBFileType,
-  type SpecialDomains,
-  type LinkField,
   type UrlCheckResult,
 } from "@theWallProject/common";
 import ALL from "../db/ALL.json";
@@ -26,47 +25,6 @@ if (database.length === 0) {
 }
 
 const typedDatabase = database as FinalDBFileType[];
-
-/**
- * Gets the selector key (database field name) for a given domain.
- * @throws Error if domain is unexpected or URL is required but missing
- */
-function getSelectorKey(domain: SpecialDomains, url?: string): LinkField {
-  switch (domain) {
-    case "facebook.com":
-      return "fb";
-    case "twitter.com":
-    case "x.com":
-      return "tw";
-    case "linkedin.com":
-      return "li";
-    case "instagram.com":
-      return "ig";
-    case "github.com":
-      return "gh";
-    case "youtube.com": {
-      if (!url) {
-        throw new Error(
-          "getSelectorKey: url is required for youtube.com domain"
-        );
-      }
-      if (url.includes("/channel/")) {
-        return "ytc";
-      }
-      if (url.includes("/@")) {
-        return "ytp";
-      }
-      return "ytp";
-    }
-    case "tiktok.com":
-      return "tt";
-    case "threads.com":
-      return "th";
-    default: {
-      throw new Error(`getSelectorKey: unexpected domain ${domain}`);
-    }
-  }
-}
 
 /**
  * Core URL checking logic (platform-agnostic).

@@ -271,3 +271,49 @@ export function getMainDomain(url: string) {
     return "";
   }
 }
+
+/**
+ * Gets the selector key (database field name) for a given domain.
+ * Maps SpecialDomains to LinkField values.
+ * @param domain - The domain to map
+ * @param url - Optional URL (required for youtube.com to distinguish between profile and channel)
+ * @returns The corresponding LinkField value
+ * @throws Error if domain is unexpected or URL is required but missing
+ */
+export function getSelectorKey(domain: SpecialDomains, url?: string): LinkField {
+  switch (domain) {
+    case "facebook.com":
+      return "fb";
+    case "twitter.com":
+    case "x.com":
+      return "tw";
+    case "linkedin.com":
+      return "li";
+    case "instagram.com":
+      return "ig";
+    case "github.com":
+      return "gh";
+    case "youtube.com": {
+      if (!url) {
+        throw new Error(
+          "getSelectorKey: url is required for youtube.com domain"
+        );
+      }
+      if (url.includes("/channel/")) {
+        return "ytc";
+      }
+      if (url.includes("/@")) {
+        return "ytp";
+      }
+      // Default to ytp for other YouTube URLs (shouldn't happen with proper rules)
+      return "ytp";
+    }
+    case "tiktok.com":
+      return "tt";
+    case "threads.com":
+      return "th";
+    default: {
+      throw new Error(`getSelectorKey: unexpected domain ${domain}`);
+    }
+  }
+}
