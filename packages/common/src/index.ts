@@ -33,6 +33,24 @@ export const APIListOfReasonsSchema = z.enum([
 ]);
 
 export type APIListOfReasonsValues = z.infer<typeof APIListOfReasonsSchema>;
+
+/**
+ * Link field type shared across all packages.
+ * When adding a new field, all packages should support it.
+ */
+export type LinkField =
+  | "ws" // website
+  | "li" // linkedin
+  | "fb" // facebook
+  | "tw" // twitter
+  | "ig" // instagram
+  | "gh" // github
+  | "ytp" // youtube profile
+  | "ytc" // youtube channel
+  | "tt" // tiktok
+  | "th" // threads
+  | "il"; // israeli website (.il domain)
+
 export type SpecialDomains =
   | "linkedin.com"
   | "facebook.com"

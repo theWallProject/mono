@@ -12,6 +12,7 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
+  type LinkField,
 } from "@theWallProject/common";
 import { APIScrapperFileDataSchema, ScrappedItemType } from "../types";
 import { error, log } from "../helper";
@@ -21,9 +22,12 @@ type ProcessedState = {
   _processed: true;
 };
 
+// ScrapperLinkField excludes "il" since it's not a database field (only used in bot/addon for .il domains)
+type ScrapperLinkField = Exclude<LinkField, "il">;
+
 type ManualOverrideFields = Omit<
   Partial<ScrappedItemType>,
-  "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th"
+  ScrapperLinkField
 > & {
   ws?: string | string[];
   li?: string | string[];
@@ -252,17 +256,6 @@ const checkRedirect = async (
   return { finalUrl, redirected };
 };
 
-export type LinkField =
-  | "ws"
-  | "li"
-  | "fb"
-  | "tw"
-  | "ig"
-  | "gh"
-  | "ytp"
-  | "ytc"
-  | "tt"
-  | "th";
 type CategorizedUrls = {
   ws?: string[];
   li?: string[];
@@ -502,7 +495,7 @@ const validateItemLinks = async (
   const changes: OverrideWithUrls = {};
   let hasChanges = false;
 
-  const links: Array<{ field: LinkField; url: string }> = [];
+  const links: Array<{ field: ScrapperLinkField; url: string }> = [];
   if (item.ws) links.push({ field: "ws", url: item.ws });
   if (item.li) links.push({ field: "li", url: item.li });
   if (item.fb) links.push({ field: "fb", url: item.fb });
@@ -515,7 +508,11 @@ const validateItemLinks = async (
   }
 
   const pages: Page[] = [];
-  const linkPages: Array<{ page: Page; field: LinkField; url: string }> = [];
+  const linkPages: Array<{
+    page: Page;
+    field: ScrapperLinkField;
+    url: string;
+  }> = [];
 
   // Open all link tabs first (without waiting for navigation)
   for (const { field, url } of links) {
@@ -991,11 +988,13 @@ const validateItemLinks = async (
           // CRITICAL: Collect ALL URLs from different tabs, but deduplicate within each category
           // If multiple tabs have the same URL, it will only appear once per category
           const categorized: CategorizedUrls = {};
-          const seenUrls = new Map<LinkField | "urls", Set<string>>(); // Track seen URLs per category to avoid duplicates
+          const seenUrls = new Map<ScrapperLinkField | "urls", Set<string>>(); // Track seen URLs per category to avoid duplicates
 
           for (const url of extraUrls) {
             const category = categorizeUrl(url);
-            const categoryKey = category || "urls";
+            // categorizeUrl never returns "il" (only returns database fields or null)
+            const categoryKey: ScrapperLinkField | "urls" = (category ||
+              "urls") as ScrapperLinkField | "urls";
             const cleanedUrl = removeTrailingSlash(url);
 
             // Initialize Set for this category if needed

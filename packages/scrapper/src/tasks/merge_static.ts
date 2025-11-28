@@ -11,12 +11,12 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
+  type LinkField,
 } from "@theWallProject/common";
 import { APIScrapperFileDataSchema, ScrappedItemType } from "../types";
 import { log, cleanWebsite, error } from "../helper";
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds";
 import { manualOverrides } from "./manual_resolve/manualOverrides";
-import { LinkField } from "./validate_urls";
 
 // Type for items that may have ig/gh/ytp/ytc/tt/th from manual overrides (not in base ScrappedItemType)
 type ScrappedItemWithOverrides = ScrappedItemType & {

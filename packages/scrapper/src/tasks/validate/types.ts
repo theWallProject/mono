@@ -1,16 +1,6 @@
-import { ScrappedItemType } from "../../types";
+import { LinkField } from "@theWallProject/common";
 
-export type LinkField =
-  | "ws"
-  | "li"
-  | "fb"
-  | "tw"
-  | "ig"
-  | "gh"
-  | "ytp"
-  | "ytc"
-  | "tt"
-  | "th";
+import { ScrappedItemType } from "../../types";
 
 export type ProcessedState = {
   _processed: true;

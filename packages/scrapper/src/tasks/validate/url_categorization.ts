@@ -8,9 +8,9 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_THREADS,
+  type LinkField,
 } from "@theWallProject/common";
 import { log } from "../../helper";
-import type { LinkField } from "./types";
 
 /**
  * Categorize a URL into ws, li, fb, tw, ig, gh, ytp, ytc, tt, th, or null (unsupported)

@@ -2,10 +2,9 @@ import fs from "fs";
 import path from "path";
 import { log } from "../helper";
 import { APIEndpointDomainsResultSchema, DBFileNames } from "../scrapperTypes";
-import { FinalDBFileType } from "@theWallProject/common";
+import { FinalDBFileType, type LinkField } from "@theWallProject/common";
 import { z } from "zod";
 import alternatives from "../../src/static_data/alternatives.json";
-import { LinkField } from "./validate_urls";
 
 const folderPath = path.join(__dirname, "../../results/3_networks");
 
@@ -37,6 +36,7 @@ const loadJsonFiles = (folderPath: string) => {
       let testRow = idRecord[newRow.id];
 
       if (testRow) {
+        // @ts-expect-error -- key is LinkField but FinalDBFileType doesn't include "il", which is fine since scrapper never uses "il"
         idRecord[newRow.id][key] = newRow.selector;
         if (newRow.s) {
           idRecord[newRow.id]["s"] = newRow.s;

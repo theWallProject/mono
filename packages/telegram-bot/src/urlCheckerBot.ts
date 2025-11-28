@@ -10,6 +10,7 @@ import {
   type FinalDBFileType,
   type SpecialDomains,
   type APIListOfReasonsValues,
+  type LinkField,
 } from "@theWallProject/common";
 import ALL from "../db/ALL.json";
 
@@ -25,22 +26,6 @@ if (database.length === 0) {
 }
 
 const typedDatabase = database as FinalDBFileType[];
-
-/**
- * Link field type (bot-specific, not shared).
- */
-export type LinkField =
-  | "ws"
-  | "li"
-  | "fb"
-  | "tw"
-  | "ig"
-  | "gh"
-  | "ytp"
-  | "ytc"
-  | "tt"
-  | "th"
-  | "il";
 
 /**
  * Platform-agnostic URL check result (without dismissal tracking).
