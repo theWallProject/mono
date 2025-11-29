@@ -4,6 +4,25 @@
 
 FROM node:20-alpine
 
+# Declare build arguments for required environment variables
+ARG NODE_ENV
+ARG BOT_TOKEN
+ARG BOT_USERNAME
+ARG WEBHOOK_URL
+
+# Validate that all required environment variables are provided
+RUN if [ -z "$NODE_ENV" ]; then echo "ERROR: NODE_ENV build argument is required" && exit 1; fi
+RUN if [ "$NODE_ENV" != "production" ]; then echo "ERROR: NODE_ENV must be 'production' for Docker build" && exit 1; fi
+RUN if [ -z "$BOT_TOKEN" ]; then echo "ERROR: BOT_TOKEN build argument is required" && exit 1; fi
+RUN if [ -z "$BOT_USERNAME" ]; then echo "ERROR: BOT_USERNAME build argument is required" && exit 1; fi
+RUN if [ -z "$WEBHOOK_URL" ]; then echo "ERROR: WEBHOOK_URL build argument is required" && exit 1; fi
+
+# Set as environment variables (can be overridden at runtime via --env-file)
+ENV NODE_ENV=$NODE_ENV
+ENV BOT_TOKEN=$BOT_TOKEN
+ENV BOT_USERNAME=$BOT_USERNAME
+ENV WEBHOOK_URL=$WEBHOOK_URL
+
 WORKDIR /app
 
 # Install pnpm (match local version to avoid lockfile compatibility issues)
