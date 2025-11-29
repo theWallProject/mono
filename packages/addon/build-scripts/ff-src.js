@@ -8,7 +8,6 @@ const filesToAdd = [
   "tsconfig.json",
   "README.md",
   "package.json",
-  ".prettierrc.mjs",
   { path: "TRANSLATIONS/", wildcard: true },
   { path: "src/", wildcard: true },
   { path: "locales/", wildcard: true },
@@ -46,9 +45,19 @@ archive.pipe(output)
 // add files to archive
 filesToAdd.forEach((item) => {
   if (typeof item === "string") {
-    archive.file(item, { name: path.basename(item) })
+    // Check if file exists before adding
+    if (fs.existsSync(item)) {
+      archive.file(item, { name: path.basename(item) })
+    } else {
+      console.warn(`Skipping missing file: ${item}`)
+    }
   } else if (item.wildcard) {
-    archive.directory(item.path, path.basename(item.path))
+    // Check if directory exists before adding
+    if (fs.existsSync(item.path)) {
+      archive.directory(item.path, path.basename(item.path))
+    } else {
+      console.warn(`Skipping missing directory: ${item.path}`)
+    }
   }
 })
 

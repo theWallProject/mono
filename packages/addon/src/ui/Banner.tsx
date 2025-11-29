@@ -8,6 +8,11 @@ import backgroundImage from "../../assets/images/flag-bg.jpg"
 import theWallWhite from "../../assets/images/the-wall-white.png"
 import { error, log } from "../helpers"
 // import { share } from "../image_sharing/image"
+import {
+  findRuleOfType,
+  isUrlOnlyRule,
+  processRule
+} from "../rules"
 import { ShareButton } from "../share_button/ShareButton"
 import {
   getAllLocalStorageItems,
@@ -158,19 +163,36 @@ export const Banner = () => {
   }
 
   // Helper function to test current URL
-  const testCurrentUrl = useCallback(() => {
+  const testCurrentUrl = useCallback(async () => {
     // Prevent duplicate simultaneous requests
     if (isTestingUrlRef.current) {
       log("[Banner] Already testing URL, skipping duplicate request")
       return
     }
 
-    const url = window.location.href
+    let url = window.location.href
 
     // Skip special URLs
     if (isSpecialUrl(url)) {
       log("[Banner] Skipping special URL:", url)
       return
+    }
+
+    // Check if there's a URL + DOM + full block rule for this page
+    const urlDomFullRule = findRuleOfType(url, "urlDomFull")
+    if (urlDomFullRule) {
+      log("[Banner] URL + DOM + full block rule found, extracting URL from DOM")
+      const extractedUrl = await processRule(urlDomFullRule)
+      if (extractedUrl && typeof extractedUrl === "string") {
+        url = extractedUrl
+        log("[Banner] Testing extracted URL:", url)
+      } else {
+        log("[Banner] Could not extract URL from DOM, testing page URL")
+      }
+    } else if (isUrlOnlyRule(url)) {
+      // URL-only is the default fallback (thousands of rules in ALL.json)
+      // No extraction needed - use current page URL
+      log("[Banner] Treating as URL-only rule (default fallback)")
     }
 
     isTestingUrlRef.current = true
@@ -198,6 +220,26 @@ export const Banner = () => {
   // Test URL on initial mount
   useEffect(() => {
     testCurrentUrl()
+  }, [testCurrentUrl])
+
+  // Re-test URL when navigation occurs on pages with rules (SPA navigation)
+  useEffect(() => {
+    let lastUrl = window.location.href
+    const checkInterval = setInterval(() => {
+      if (window.location.href !== lastUrl) {
+        lastUrl = window.location.href
+        // Re-test if there's a urlDomFull rule or if it's URL-only (default fallback)
+        const urlDomFullRule = findRuleOfType(lastUrl, "urlDomFull")
+        if (urlDomFullRule || isUrlOnlyRule(lastUrl)) {
+          log("[Banner] URL changed on page with rule, re-testing")
+          testCurrentUrl()
+        }
+      }
+    }, 1000)
+
+    return () => {
+      clearInterval(checkInterval)
+    }
   }, [testCurrentUrl])
 
   // Listen for navigation-triggered test requests from background

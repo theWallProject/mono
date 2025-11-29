@@ -443,7 +443,7 @@ export const manualOverrides: Record<
       "https://x.com/wix"
     ],
     ig: ["https://www.instagram.com/wix"],
-    ytp: ["https://www.youtube.com/@Wix"],
+    ytp: ["https://www.youtube.com/@Wix", "https://www.youtube.com/@WixStudio"],
     gh: [
       "https://github.com/wix",
       "https://github.com/wix-academy",

@@ -1,12 +1,14 @@
-// eslint-disable-next-line import/order
 import { error, log } from "../helpers"
-import type { DomScanRule, ExtractedItem } from "./types"
+import type { RuleOfType } from "../rules/types"
+import type { ExtractedItem } from "./types"
 
 /**
  * Extract URLs from DOM elements based on rule configuration
  * Finds item containers first, then extracts links from each container
  */
-export const extractItems = (rule: DomScanRule): ExtractedItem[] => {
+export const extractItems = (
+  rule: RuleOfType<"urlDomInline">
+): ExtractedItem[] => {
   try {
     if (!rule || !rule.itemSelector || !rule.linkSelector) {
       error(`[Extractor] Invalid rule configuration`)
@@ -104,7 +106,7 @@ export const extractItems = (rule: DomScanRule): ExtractedItem[] => {
  */
 export const extractUrlFromItem = (
   itemElement: globalThis.Element,
-  rule: DomScanRule
+  rule: RuleOfType<"urlDomInline">
 ): ExtractedItem | null => {
   try {
     const linkElement = itemElement.querySelector(

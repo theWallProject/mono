@@ -1,13 +1,14 @@
+import type { APIListOfReasonsValues } from "@theWallProject/common"
 import React, { useEffect, useRef, useState } from "react"
 
-import { log } from "../helpers"
-// eslint-disable-next-line import/order
+import theWallWhite from "../../assets/images/the-wall-white.png"
+import { getExtensionURL, log } from "../helpers"
 import { REASON_TO_I18N_KEY } from "../helpers/reasonMap"
 import style from "./style.module.css"
 
 type HoverTooltipProps = {
   name?: string
-  reasons?: string[]
+  reasons?: APIListOfReasonsValues[]
   targetElement: globalThis.HTMLElement
   onClose: () => void
 }
@@ -20,6 +21,7 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({
 }) => {
   const tooltipRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ top: 0, left: 0 })
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const updatePosition = () => {
@@ -53,6 +55,11 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({
 
     updatePosition()
 
+    // Trigger fade in after position is set
+    setTimeout(() => {
+      setIsVisible(true)
+    }, 10)
+
     // Update position on scroll/resize
     const handleScroll = () => updatePosition()
     const handleResize = () => updatePosition()
@@ -74,6 +81,11 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({
         !tooltipRef.current.contains(e.target as globalThis.Node) &&
         !targetElement.contains(e.target as globalThis.Node)
       ) {
+        // Don't close if clicking on overlay dismiss button
+        const target = e.target as globalThis.Element
+        if (target?.closest?.(".wall-overlay-dismiss")) {
+          return
+        }
         onClose()
       }
     }
@@ -93,11 +105,26 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({
     }
   }, [onClose, targetElement])
 
-  if (!name && (!reasons || reasons.length === 0)) {
+  // Listen for dismiss events from overlay button
+  useEffect(() => {
+    const handleDismiss = () => {
+      setIsVisible(false)
+      setTimeout(() => {
+        onClose()
+      }, 200)
+    }
+
+    targetElement.addEventListener("wall:dismiss", handleDismiss)
+    return () => {
+      targetElement.removeEventListener("wall:dismiss", handleDismiss)
+    }
+  }, [targetElement, onClose])
+
+  if (!reasons || reasons.length === 0) {
     return null
   }
 
-  const getReasonText = (reason: string): string => {
+  const getReasonText = (reason: APIListOfReasonsValues): string => {
     const messageKey = REASON_TO_I18N_KEY[reason]
     if (!messageKey) {
       return reason
@@ -112,15 +139,26 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({
     }
   }
 
+  const extensionName = chrome.i18n.getMessage("extensionName")
+
+  // Note: This tooltip only shows addon logo/name and reasons - NO links.
+  // Links are only shown in the Banner component (for full-page blocks), not in DOM scanner tooltips.
   return (
     <div
       ref={tooltipRef}
-      className={style.wallDomTooltip}
+      className={`${style.wallDomTooltip}${isVisible ? ` ${style["wallDomTooltipVisible"]}` : ""}`}
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`
       }}>
-      {name && <div className={style.wallDomTooltipName}>{name}</div>}
+      <div className={style["wallDomTooltipHeader"]}>
+        <img
+          src={getExtensionURL(theWallWhite)}
+          alt="The Wall"
+          className={style["wallDomTooltipLogo"]}
+        />
+        <div className={style.wallDomTooltipName}>{extensionName}</div>
+      </div>
       {reasons && reasons.length > 0 && (
         <div className={style.wallDomTooltipReason}>
           {reasons.map((reason, index) => (

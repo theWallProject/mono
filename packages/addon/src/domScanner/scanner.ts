@@ -1,22 +1,27 @@
+import type { APIListOfReasonsValues } from "@theWallProject/common"
 import React from "react"
 import { createRoot, type Root } from "react-dom/client"
 
 import { error, log } from "../helpers"
+import { findRuleOfType } from "../rules"
+import type { RuleOfType } from "../rules/types"
 import {
   MessageTypes,
   type Message,
   type MessageResponseMap,
   type UrlTestResult
 } from "../types"
-import { findMatchingRule } from "./config"
 import { extractItems, extractUrlFromItem } from "./extractor"
 import { HoverTooltip } from "./HoverTooltip"
-import type { DomScanRule } from "./types"
 import {
   applyVisualTreatment,
+  clearAllPassedBorders,
   getCheckResultData,
   isItemProcessed,
-  markItemProcessed
+  markItemPassed,
+  markItemProcessed,
+  OVERLAY_CLASS,
+  resetAllModifications
 } from "./visualTreatment"
 
 const PROCESSING_DELAY_MS = 1000 // 1 second delay after mutations
@@ -28,7 +33,7 @@ type QueuedItem = {
 }
 
 export class DomScanner {
-  private rule: DomScanRule | null = null
+  private rule: RuleOfType<"urlDomInline"> | null = null
   private intersectionObserver: globalThis.IntersectionObserver | null = null
   private mutationObserver: globalThis.MutationObserver | null = null
   private processingQueue: Set<globalThis.Element> = new Set()
@@ -38,6 +43,16 @@ export class DomScanner {
   private tooltipRoot: Root | null = null
   private tooltipContainer: globalThis.HTMLElement | null = null
   private isActive = false
+  private initTimeout: number | null = null
+  // Track event listeners for cleanup
+  private eventListeners: Map<
+    globalThis.Element,
+    {
+      handleMouseEnter: () => void
+      handleMouseLeave: () => void
+    }
+  > = new Map()
+  private readonly MAX_PROCESSED_URLS_CACHE = 1000 // Limit cache size to prevent unbounded growth
 
   /**
    * Initialize scanner for current page
@@ -47,18 +62,31 @@ export class DomScanner {
       const url = window.location.href
       log(`[Scanner] Initializing for URL: ${url}`)
 
-      this.rule = findMatchingRule(url)
-
-      if (!this.rule) {
-        log(`[Scanner] No matching rule found for URL`)
+      // Get urlDomInline rule for this page
+      const inlineRule = findRuleOfType(url, "urlDomInline")
+      if (!inlineRule) {
+        // Silently return if no rule found (expected for many pages)
         return
       }
 
-      log(`[Scanner] Found matching rule: ${this.rule.urlPattern}`)
+      this.rule = inlineRule
+
+      log(`[Scanner] Found matching rule: ${this.rule.urlPattern.toString()}`)
+
+      // Clear any existing init timeout
+      if (this.initTimeout) {
+        clearTimeout(this.initTimeout)
+        this.initTimeout = null
+      }
 
       // Wait 1 second after page load before starting
-      setTimeout(() => {
-        this.start()
+      this.initTimeout = window.setTimeout(() => {
+        this.initTimeout = null
+        // Only start if we still have a rule (wasn't stopped during delay)
+        if (this.rule) {
+          log(`[Scanner] Starting scanner after delay`)
+          this.start()
+        }
       }, PROCESSING_DELAY_MS)
     } catch (e) {
       error(`[Scanner] Failed to initialize`, e)
@@ -101,6 +129,12 @@ export class DomScanner {
 
     this.isActive = false
 
+    // Cancel init timeout if pending
+    if (this.initTimeout) {
+      clearTimeout(this.initTimeout)
+      this.initTimeout = null
+    }
+
     if (this.intersectionObserver) {
       this.intersectionObserver.disconnect()
       this.intersectionObserver = null
@@ -116,9 +150,18 @@ export class DomScanner {
       this.processingTimeout = null
     }
 
+    // Remove all event listeners
+    this.removeAllEventListeners()
+
     this.processingQueue.clear()
     this.hideTooltip()
     this.removeTooltipContainer()
+
+    // Reset all visual modifications when stopping
+    resetAllModifications()
+
+    // Clear processed URLs cache
+    this.processedUrls.clear()
 
     log(`[Scanner] Stopped`)
   }
@@ -143,11 +186,7 @@ export class DomScanner {
       }
     )
 
-    // Observe all existing items
-    const items = document.querySelectorAll(this.rule.itemSelector)
-    items.forEach((item) => {
-      this.intersectionObserver?.observe(item)
-    })
+    // Removed observer.observe() calls - items are now processed via initial scan only
   }
 
   /**
@@ -166,7 +205,7 @@ export class DomScanner {
 
             // Check if the added node is an item container
             if (element.matches && element.matches(this.rule!.itemSelector)) {
-              this.intersectionObserver?.observe(element)
+              // Removed observer.observe() call
               this.queueItemForProcessing(element)
               hasNewItems = true
             }
@@ -174,7 +213,7 @@ export class DomScanner {
             // Check if any item containers were added within this node
             const items = element.querySelectorAll?.(this.rule!.itemSelector)
             items?.forEach((item) => {
-              this.intersectionObserver?.observe(item)
+              // Removed observer.observe() call
               this.queueItemForProcessing(item)
               hasNewItems = true
             })
@@ -231,11 +270,20 @@ export class DomScanner {
     }
 
     try {
+      // Clear old green borders before processing new items
+      clearAllPassedBorders()
+
       // Get visible items from queue
       const visibleItems: QueuedItem[] = []
       const itemsToRemove: globalThis.Element[] = []
 
       this.processingQueue.forEach((itemElement) => {
+        // Check if element is still in the DOM
+        if (!itemElement.isConnected) {
+          itemsToRemove.push(itemElement)
+          return
+        }
+
         // Check if item is visible
         const rect = itemElement.getBoundingClientRect()
         const isVisible =
@@ -310,10 +358,16 @@ export class DomScanner {
         // Check if URL was already checked (cached)
         if (this.processedUrls.has(item.url)) {
           const result = this.processedUrls.get(item.url)!
+          // If dismissed, skip it
+          if (result && result.isDismissed) {
+            markItemProcessed(item.itemElement)
+            continue
+          }
           const extracted = extractUrlFromItem(item.itemElement, this.rule!)
           if (extracted && result) {
             applyVisualTreatment(extracted, result)
             if (result && result !== undefined && !result.isDismissed) {
+              // Setup hover handler for all flagged items (to show tooltip)
               this.setupHoverHandler(item.itemElement)
             }
           }
@@ -369,28 +423,46 @@ export class DomScanner {
                 return
               }
 
-              // Cache result
+              // Cache result (with size limit to prevent unbounded growth)
               if (result !== undefined) {
+                // If cache is too large, remove oldest entries (simple FIFO)
+                if (this.processedUrls.size >= this.MAX_PROCESSED_URLS_CACHE) {
+                  const firstKey = this.processedUrls.keys().next().value
+                  if (firstKey) {
+                    this.processedUrls.delete(firstKey)
+                  }
+                }
                 this.processedUrls.set(item.url, result)
               }
 
+              // Check if element is still in the DOM before applying treatment
+              if (!item.itemElement.isConnected) {
+                resolve()
+                return
+              }
+
+              // If dismissed, mark as processed and don't show anything
+              if (result && result.isDismissed) {
+                markItemProcessed(item.itemElement)
+                resolve()
+                return
+              }
+
               // Apply visual treatment if flagged
-              if (result && result !== undefined) {
+              if (result && result !== undefined && !result.isDismissed) {
                 const extracted = extractUrlFromItem(
                   item.itemElement,
                   this.rule!
                 )
                 if (extracted) {
                   applyVisualTreatment(extracted, result)
-
-                  // Setup hover handler if flagged
-                  if (!result.isDismissed) {
-                    this.setupHoverHandler(item.itemElement)
-                  }
+                  // Setup hover handler for all flagged items (to show tooltip)
+                  this.setupHoverHandler(item.itemElement)
                 }
+              } else {
+                // Item passed (not flagged) - mark as passed for debugging
+                markItemPassed(item.itemElement)
               }
-
-              markItemProcessed(item.itemElement)
               resolve()
             } catch (e) {
               error(`[Scanner] Error processing URL check response`, e)
@@ -448,10 +520,21 @@ export class DomScanner {
         return
       }
 
+      // Remove existing handlers if any (to prevent duplicates)
+      const existing = this.eventListeners.get(itemElement)
+      if (existing) {
+        element.removeEventListener("mouseenter", existing.handleMouseEnter)
+        element.removeEventListener("mouseleave", existing.handleMouseLeave)
+      }
+
       const handleMouseEnter = () => {
         try {
+          if (!this.isActive) {
+            return // Don't show tooltip if scanner is stopped
+          }
           const data = getCheckResultData(itemElement)
-          if (data && (data.name || data.reasons)) {
+          // Show tooltip if there are reasons (name is no longer needed)
+          if (data && data.reasons && data.reasons.length > 0) {
             this.showTooltip(element, data.name, data.reasons)
           }
         } catch (e) {
@@ -459,23 +542,67 @@ export class DomScanner {
         }
       }
 
-      const handleMouseLeave = () => {
+      const handleMouseLeave = (e: globalThis.MouseEvent) => {
         try {
+          // Don't hide tooltip if mouse is moving to tooltip or overlay
+          const relatedTarget = e.relatedTarget as globalThis.Node | null
+          if (
+            relatedTarget &&
+            (this.tooltipContainer?.contains(relatedTarget) ||
+              element
+                .querySelector(`.${OVERLAY_CLASS}`)
+                ?.contains(relatedTarget))
+          ) {
+            return
+          }
           this.hideTooltip()
-        } catch (e) {
-          error(`[Scanner] Error in mouseleave handler`, e)
+        } catch (err) {
+          error(`[Scanner] Error in mouseleave handler`, err)
         }
       }
 
-      // Remove existing handlers if any
-      element.removeEventListener("mouseenter", handleMouseEnter)
-      element.removeEventListener("mouseleave", handleMouseLeave)
+      // Store handlers for cleanup
+      this.eventListeners.set(itemElement, {
+        handleMouseEnter,
+        handleMouseLeave: handleMouseLeave as () => void
+      })
 
       // Add new handlers
       element.addEventListener("mouseenter", handleMouseEnter)
-      element.addEventListener("mouseleave", handleMouseLeave)
+      element.addEventListener(
+        "mouseleave",
+        handleMouseLeave as (e: globalThis.Event) => void
+      )
     } catch (e) {
       error(`[Scanner] Error setting up hover handler`, e)
+    }
+  }
+
+  /**
+   * Remove all event listeners to prevent memory leaks
+   */
+  private removeAllEventListeners(): void {
+    try {
+      this.eventListeners.forEach((handlers, element) => {
+        try {
+          if (element.isConnected) {
+            const htmlElement = element as globalThis.HTMLElement
+            htmlElement.removeEventListener(
+              "mouseenter",
+              handlers.handleMouseEnter
+            )
+            htmlElement.removeEventListener(
+              "mouseleave",
+              handlers.handleMouseLeave
+            )
+          }
+        } catch {
+          // Element might have been removed, ignore
+        }
+      })
+      this.eventListeners.clear()
+    } catch (e) {
+      error(`[Scanner] Error removing event listeners`, e)
     }
   }
 
@@ -518,7 +645,7 @@ export class DomScanner {
   private showTooltip(
     targetElement: globalThis.HTMLElement,
     name?: string,
-    reasons?: string[]
+    reasons?: APIListOfReasonsValues[]
   ): void {
     try {
       if (!this.tooltipRoot || !this.tooltipContainer || !targetElement) {
