@@ -1,0 +1,48 @@
+# Docker ignore for telegram-bot package
+# This file is maintained by packages/telegram-bot
+# It excludes everything except what's needed for the bot runtime
+
+# Exclude other packages entirely
+packages/addon
+packages/scrapper
+
+# Exclude source files (we only need built dist/)
+packages/*/src
+packages/*/tsconfig.json
+packages/*/*.ts
+!packages/*/*.d.ts
+
+# Exclude node_modules (installed fresh in Docker)
+node_modules
+packages/*/node_modules
+
+# Exclude build outputs from other packages
+packages/addon/dist
+packages/addon/build
+packages/scrapper/dist
+
+# Development files
+.env
+.env.*
+!.env.prod.example
+*.log
+*.md
+!packages/telegram-bot/README.md
+!packages/common/README.md
+
+# Git
+.git
+.gitignore
+
+# Docker files
+**/Dockerfile*
+**/docker-compose*.yml
+**/.dockerignore
+
+# Other unnecessary files
+packages/*/plan.md
+packages/*/lhttpd
+packages/*/scripts
+packages/*/*.tsbuildinfo
+packages/*/coverage
+
