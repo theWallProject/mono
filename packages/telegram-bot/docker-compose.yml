@@ -5,17 +5,15 @@ services:
     build:
       context: ../..
       dockerfile: packages/telegram-bot/Dockerfile
-      args:
-        PORT: ${PORT}
     image: telegram-bot:prod
     container_name: telegram-bot-prod
     restart: unless-stopped
     ports:
-      - "${PORT}:${PORT}"
+      - "3333:3333"
     env_file:
       - .env.prod
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:${PORT}/health"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3333/health"]
       interval: 30s
       timeout: 10s
       retries: 3

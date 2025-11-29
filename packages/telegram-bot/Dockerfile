@@ -55,15 +55,8 @@ RUN test -f packages/telegram-bot/dist/index.js || (echo "Built index.js missing
 
 WORKDIR /app/packages/telegram-bot
 
-# Port from environment variable (required)
-ARG PORT
-ENV PORT=${PORT}
-
-# Validate PORT is set
-RUN test -n "$PORT" || (echo "PORT environment variable is required" && exit 1)
-
-# Expose port
-EXPOSE ${PORT}
+# Expose port (hardcoded to 3333)
+EXPOSE 3333
 
 # Start server
 CMD ["node", "dist/index.js"]

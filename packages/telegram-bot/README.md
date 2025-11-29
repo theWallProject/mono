@@ -54,7 +54,6 @@ You can run both simultaneously - dev locally for testing new features, prod on 
    ```env
    BOT_TOKEN=your_production_bot_token_here
    BOT_USERNAME=your_production_bot_username_here
-   PORT=3009
    NODE_ENV=production
    WEBHOOK_URL=https://your-public-bot-url.example.com
    ```
@@ -89,7 +88,6 @@ You can run both simultaneously - dev locally for testing new features, prod on 
 
 - `BOT_TOKEN` - Telegram bot token from BotFather (production bot)
 - `BOT_USERNAME` - Your bot's username (for mention detection, production bot)
-- `PORT` - Server port (no default, must be set, e.g., 3009 for prod, 3005 for dev)
 
 ### Development (Required when NODE_ENV=development)
 
@@ -234,4 +232,4 @@ For detailed VPS deployment instructions, including Docker installation, reverse
 - **Bot not responding**: Check that `BOT_TOKEN` is correct and bot is started
 - **Database errors**: Ensure `packages/telegram-bot/db/ALL.json` exists and is valid
 - **Webhook errors**: Verify `WEBHOOK_URL` is accessible and HTTPS is enabled
-- **Port conflicts**: Change `PORT` in your `.env.dev` or `.env.prod` file if the port is already in use
+- **Port conflicts**: The bot uses port 3333 (hardcoded). If this port is in use, you'll need to modify the code.

@@ -51,16 +51,11 @@ export const BOT_USERNAME: string = ((): string => {
   return getRequiredEnv("BOT_USERNAME");
 })();
 
-export const PORT: number = ((): number => {
-  const portStr = getRequiredEnv("PORT");
-  const port = Number.parseInt(portStr, 10);
-  if (Number.isNaN(port) || port < 1 || port > 65535) {
-    throw new Error(
-      `Invalid PORT value: ${portStr}. Must be a number between 1 and 65535`
-    );
-  }
-  return port;
-})();
+/**
+ * Server port (hardcoded).
+ * Port 3333 is used for the Telegram bot service.
+ */
+export const PORT: number = 3333;
 
 /**
  * Gets webhook URL based on environment.

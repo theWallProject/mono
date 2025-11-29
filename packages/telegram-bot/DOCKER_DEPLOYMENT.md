@@ -1,13 +1,30 @@
 # Docker Deployment Guide
 
-This guide covers deploying the Telegram bot to a VPS server running Ubuntu with an existing web server (lighttpd/Apache).
+This guide covers deploying the Telegram bot to a VPS server running Ubuntu with LiteSpeed web server.
 
 ## Prerequisites
 
 - Ubuntu VPS server with SSH access
-- Existing web server (lighttpd, Apache, or nginx)
+- LiteSpeed web server (or Apache-compatible server using `.htaccess`)
 - Domain name with DNS configured (for webhook HTTPS)
 - Docker installed (see installation steps below)
+
+## Port Configuration
+
+The Telegram bot uses **port 3333** (hardcoded).
+
+**Port Conflicts Check:**
+
+- ✅ **Port 3333** - Telegram bot (no conflict)
+- ⚠️ **Port 3001** - Backend service (different port, no conflict)
+- ⚠️ **Port 8080** - Frontend service (different port, no conflict)
+
+If port 3333 is already in use, you'll need to modify the code to use a different port.
+
+**Path Conflicts:**
+
+- The bot uses `/webhook` path - ensure this doesn't conflict with your existing routes
+- The proxy configuration specifically matches `/webhook` and won't interfere with other paths
 
 ## Docker Installation on Ubuntu
 
@@ -56,110 +73,66 @@ Docker containers run independently of your host web server. They communicate vi
 ### Architecture Overview
 
 ```
-Internet → Domain (HTTPS) → Web Server (lighttpd/Apache) → Reverse Proxy → Docker Container (port 3009)
+Internet → Domain (HTTPS) → LiteSpeed → Reverse Proxy (.htaccess) → Docker Container (port 3333)
 ```
 
 The web server handles SSL/TLS termination and routes `/webhook` requests to the Docker container.
+
+**Coexistence with Other Services:**
+
+- The Telegram bot runs independently in its own Docker container
+- Uses port 3333 (hardcoded) - no conflict with other services
+- Only `/webhook` path is proxied - all other paths handled by existing configuration
+- Can run alongside other Docker services (backend on port 3001, frontend on port 8080, etc.)
 
 ## Network Configuration
 
 ### Port Mapping
 
-The Docker container exposes the port specified in your `.env.prod` file (PORT variable). Map it to a host port:
+The Docker container exposes port 3333 (hardcoded). Map it to the same host port:
 
 ```bash
-# PORT is read from .env.prod file
-docker run -p ${PORT}:${PORT} --env-file .env.prod ...
+docker run -p 3333:3333 --env-file .env.prod ...
 ```
 
-This maps the host port to the container port (both read from `.env.prod`).
+This maps host port 3333 to container port 3333.
 
 ### Reverse Proxy Setup
 
-#### Option 1: lighttpd mod_proxy
+#### LiteSpeed / .htaccess Configuration
 
-Edit `/etc/lighttpd/lighttpd.conf`:
+If your site runs on LiteSpeed (or Apache-compatible) and already uses an `.htaccess` file for the React SPA:
 
-```conf
-server.modules += ("mod_proxy")
+1. **Ensure the bot container is listening on port 3333** (see Port Mapping above).
+2. **Edit the site's `.htaccess`** (the one in the React app doc root).
+3. **Add this rule after the HTTPS redirect and before the React Router catch-all**:
 
-$HTTP["url"] =~ "^/webhook" {
-    proxy.server = (
-        "" => (
-            (
-                "host" => "127.0.0.1",
-                "port" => ${PORT}  # Replace with PORT value from .env.prod
-            )
-        )
-    )
-}
-```
+   ```apache
+   # Telegram bot webhook → Docker on port 3333
+   RewriteRule ^webhook(/.*)?$ http://127.0.0.1:3333/webhook$1 [P,L]
+   ```
 
-Restart lighttpd:
+4. **Test from the server**:
 
-```bash
-sudo systemctl restart lighttpd
-```
+   ```bash
+   # Docker container directly
+   curl http://localhost:3333/health
 
-#### Option 2: Apache mod_proxy
+   # Through LiteSpeed proxy
+   curl -v https://your-domain.com/webhook
+   ```
 
-Enable required modules:
+This keeps all app-specific routing in `.htaccess` and only proxies the `/webhook` path to the Docker container.
 
-```bash
-sudo a2enmod proxy
-sudo a2enmod proxy_http
-sudo a2enmod ssl
-```
+**Troubleshooting:**
 
-Edit your Apache virtual host configuration:
+If `/webhook` requests are not being proxied:
 
-```apache
-<VirtualHost *:443>
-    ServerName your-domain.com
-
-    # SSL configuration...
-
-    ProxyPreserveHost On
-    ProxyPass /webhook http://127.0.0.1:${PORT}/webhook
-    ProxyPassReverse /webhook http://127.0.0.1:${PORT}/webhook
-    # Replace ${PORT} with the PORT value from your .env.prod file
-</VirtualHost>
-```
-
-Restart Apache:
-
-```bash
-sudo systemctl restart apache2
-```
-
-#### Option 3: nginx (if using nginx)
-
-Edit your nginx site configuration:
-
-```nginx
-server {
-    listen 443 ssl;
-    server_name your-domain.com;
-
-    # SSL configuration...
-
-    location /webhook {
-        proxy_pass http://127.0.0.1:${PORT}/webhook;
-        # Replace ${PORT} with the PORT value from your .env.prod file
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
-
-Reload nginx:
-
-```bash
-sudo nginx -t
-sudo systemctl reload nginx
-```
+1. **Check that the rule is placed before the React Router catch-all** (the `RewriteRule ^(.*)$ /dist/index.html` rule)
+2. **Verify Docker container is running**: `docker ps | grep telegram-bot`
+3. **Test container directly**: `curl http://localhost:3333/health`
+4. **Check LiteSpeed error logs** for proxy-related errors
+5. **Ensure proxy feature is enabled** in LiteSpeed WebAdmin if using `[P]` flag
 
 ## Environment Setup
 
@@ -178,7 +151,21 @@ Add your production environment variables:
 ```env
 BOT_TOKEN=your_production_bot_token
 BOT_USERNAME=your_production_bot_username
-PORT=3009
+NODE_ENV=production
+WEBHOOK_URL=https://your-domain.com
+```
+
+```bash
+mkdir -p ~/telegram-bot
+cd ~/telegram-bot
+nano .env.prod
+```
+
+Add your production environment variables:
+
+```env
+BOT_TOKEN=your_production_bot_token
+BOT_USERNAME=your_production_bot_username
 NODE_ENV=production
 WEBHOOK_URL=https://your-domain.com
 ```
@@ -204,7 +191,7 @@ services:
     container_name: telegram-bot-prod
     restart: unless-stopped
     ports:
-      - "${PORT}:${PORT}" # Replace ${PORT} with value from .env.prod
+      - "3333:3333"
     env_file:
       - .env.prod
     healthcheck:
@@ -215,9 +202,8 @@ services:
           "--quiet",
           "--tries=1",
           "--spider",
-          "http://localhost:${PORT}/health",
+          "http://localhost:3333/health",
         ]
-      # Replace ${PORT} with value from .env.prod
       interval: 30s
       timeout: 10s
       retries: 3
@@ -244,7 +230,7 @@ docker compose stop
 docker compose down
 ```
 
-**Note**: Docker Compose automatically reads `.env.prod` and substitutes `${PORT}` - no manual extraction needed!
+**Note**: Port 3333 is hardcoded in the configuration.
 
 ## Deployment Workflow
 
@@ -282,9 +268,7 @@ cd ~/telegram-bot
 git pull
 
 # Build image
-# PORT is read from .env.prod file
-docker build --build-arg PORT=${PORT} -t telegram-bot:prod .
-# Replace ${PORT} with value from .env.prod, or use: node scripts/docker-helper.js build .env.prod
+docker build -t telegram-bot:prod .
 
 # Stop existing container
 docker stop telegram-bot-prod || true
@@ -294,8 +278,7 @@ docker rm telegram-bot-prod || true
 docker run -d \
   --name telegram-bot-prod \
   --restart unless-stopped \
-  -p ${PORT}:${PORT} \
-  # Replace ${PORT} with value from .env.prod
+  -p 3333:3333 \
   --env-file .env.prod \
   telegram-bot:prod
 ```
@@ -314,8 +297,7 @@ docker rm telegram-bot-prod || true
 docker run -d \
   --name telegram-bot-prod \
   --restart unless-stopped \
-  -p ${PORT}:${PORT} \
-  # Replace ${PORT} with value from .env.prod
+  -p 3333:3333 \
   --env-file .env.prod \
   your-registry.com/telegram-bot:prod
 ```
@@ -330,12 +312,10 @@ docker ps
 docker logs telegram-bot-prod
 
 # Test health endpoint
-curl http://localhost:${PORT}/health
-# Replace ${PORT} with value from .env.prod
+curl http://localhost:3333/health
 
 # Test webhook endpoint (from server)
-curl -X POST http://localhost:${PORT}/webhook
-# Replace ${PORT} with value from .env.prod
+curl -X POST http://localhost:3333/webhook
 ```
 
 ## Common Docker Commands
@@ -384,12 +364,12 @@ docker system prune
 
 1. Check logs: `docker logs telegram-bot-prod`
 2. Verify environment variables: `docker exec telegram-bot-prod env`
-3. Check port availability: `sudo netstat -tulpn | grep ${PORT}` (replace with PORT from .env.prod)
+3. Check port availability: `sudo netstat -tulpn | grep 3333`
 
 ### Webhook Not Receiving Requests
 
 1. Verify reverse proxy configuration
-2. Test container directly: `curl http://localhost:${PORT}/health` (replace with PORT from .env.prod)
+2. Test container directly: `curl http://localhost:3333/health`
 3. Check webhook URL in Telegram: Use BotFather's `/getWebhookInfo`
 4. Verify SSL certificate is valid
 5. Check firewall rules: `sudo ufw status`
@@ -397,10 +377,10 @@ docker system prune
 ### Port Already in Use
 
 ```bash
-# Find process using port (replace ${PORT} with value from .env.prod)
-sudo lsof -i :${PORT}
+# Find process using port
+sudo lsof -i :3333
 
-# Kill process or change PORT in .env.prod
+# Kill process if needed
 ```
 
 ### Container Keeps Restarting
@@ -432,7 +412,7 @@ sudo usermod -aG docker $USER
 3. **Use Docker secrets** for sensitive data in production
 4. **Keep Docker updated**: `sudo apt update && sudo apt upgrade docker-ce`
 5. **Monitor logs** regularly for suspicious activity
-6. **Use firewall** to restrict access: `sudo ufw allow ${PORT}/tcp` (replace with PORT from .env.prod)
+6. **Use firewall** to restrict access: `sudo ufw allow 3333/tcp`
 
 ## Monitoring
 
@@ -441,8 +421,7 @@ sudo usermod -aG docker $USER
 The bot exposes a `/health` endpoint:
 
 ```bash
-curl http://localhost:${PORT}/health
-# Replace ${PORT} with value from .env.prod
+curl http://localhost:3333/health
 ```
 
 ### Log Monitoring
