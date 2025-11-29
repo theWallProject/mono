@@ -6,8 +6,8 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm@8
+# Install pnpm (match local version to avoid lockfile compatibility issues)
+RUN npm install -g pnpm@10
 
 # Copy package files needed for production dependencies
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
