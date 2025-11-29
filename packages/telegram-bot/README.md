@@ -19,7 +19,6 @@ Telegram bot that checks URLs against The Wall database to determine if links ar
 ### Manual Setup Steps
 
 1. **Create Telegram Bot**:
-
    - Open [@BotFather](https://t.me/botfather) on Telegram
    - Send `/newbot` command
    - Choose a name for your bot
@@ -28,7 +27,6 @@ Telegram bot that checks URLs against The Wall database to determine if links ar
    - Note your bot's username (e.g., `thewall_bot`)
 
 2. **Configure Environment Variables**:
-
    - Copy `.env.example` to `.env` (if not blocked by gitignore)
    - Fill in your values:
      ```env
@@ -65,7 +63,12 @@ Telegram bot that checks URLs against The Wall database to determine if links ar
 ### Optional
 
 - `NODE_ENV` - Environment: `development` or `production` (default: `development`)
-- `WEBHOOK_URL` - Webhook URL for production (if not set, uses polling in development)
+- `WEBHOOK_URL` - Public **HTTPS base URL** for your bot server in production.
+  - This value is used as `${WEBHOOK_URL}/webhook` in the code:
+    - Express mounts the handler at `/webhook`
+    - Telegraf sets the webhook to `${WEBHOOK_URL}/webhook`
+  - In **development**, you can omit `WEBHOOK_URL` and the bot will run in **polling** mode.
+  - In **production**, `WEBHOOK_URL` is **required**; otherwise the server will throw.
 
 ### Required
 
