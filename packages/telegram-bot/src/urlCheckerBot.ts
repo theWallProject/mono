@@ -17,7 +17,12 @@ import {
   type UrlCheckResult,
 } from "@theWallProject/common";
 import {getT, getTByLanguage, type TFunction} from "./translations.js";
-import ALL from "../db/ALL.json";
+import {createRequire} from "node:module";
+
+const require = createRequire(import.meta.url);
+// Use CommonJS-style require to load JSON without import assertions (works in Node 20 ESM)
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const ALL = require("../db/ALL.json") as FinalDBFileType[];
 
 // Validate database at module level - fail immediately if invalid
 const database = ALL as unknown;

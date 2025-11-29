@@ -10,17 +10,31 @@ import {createBot} from "./bot.js";
 import {PORT, WEBHOOK_URL, NODE_ENV} from "./configBot.js";
 
 // Load environment-specific .env file
-// First check if NODE_ENV is set externally, otherwise default to development
-const env = process.env.NODE_ENV ?? "development";
-const envFile = env === "production" ? ".env.prod" : ".env.dev";
-const envPath = resolve(process.cwd(), envFile);
+// NODE_ENV MUST be set explicitly; no defaults, no fallbacks
+const env = process.env.NODE_ENV;
 
-// Load the appropriate env file (fail-fast if file doesn't exist)
-const result = config({path: envPath});
-if (result.error) {
+if (!env) {
   throw new Error(
-    `Failed to load environment file ${envFile} at ${envPath}: ${result.error.message}`
+    "NODE_ENV is required and must be set to either 'development' or 'production'"
   );
+}
+
+if (env === "development") {
+  // In development, require a local .env.dev and fail fast if missing
+  const envFile = ".env.dev";
+  const envPath = resolve(process.cwd(), envFile);
+
+  const result = config({path: envPath});
+  if (result.error) {
+    throw new Error(
+      `Failed to load environment file ${envFile} at ${envPath}: ${result.error.message}`
+    );
+  }
+} else if (env === "production") {
+  // In production (Docker), rely on environment variables injected by Docker
+  // via docker-compose `env_file: .env.prod`. Do NOT require a file in the image.
+} else {
+  throw new Error(`Unsupported NODE_ENV value: ${env}`);
 }
 
 const app = express();
