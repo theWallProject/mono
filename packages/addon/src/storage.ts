@@ -1,9 +1,12 @@
 import {
-  CONFIG,
+  extractSelector,
+  findInDatabaseByDomain,
+  findInDatabaseBySelector,
+  findMatchingRule,
+  formatResult,
   getMainDomain,
   getSelectorKey,
-  type FinalDBFileType,
-  type LinkField
+  type FinalDBFileType
 } from "@theWallProject/common"
 
 import ALL from "./db/ALL.json"
@@ -45,224 +48,152 @@ const checkIsDissmissed = async (testKey: string) => {
   return isDismissed
 }
 
+/**
+ * Creates an .il domain hint result with i18n (addon-specific).
+ * Uses chrome.i18n for internationalization.
+ */
+function createIlHint(domain: string): UrlTestResult {
+  return {
+    isHint: true,
+    name: "Israeli Website",
+    hintText: chrome.i18n.getMessage("hintIsraeliWebsite"),
+    hintUrl: "https://the-wall.win",
+    isDismissed: false,
+    rule: {
+      selector: domain,
+      key: "il" as const
+    }
+  }
+}
+
 export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
   log(`storage: isUrlFlagged ${url}`)
 
   const domain = getMainDomain(url)
 
+  // Handle .il domains separately with i18n (addon-specific concern)
   if (domain.endsWith(".il")) {
-    // Hints don't support dismissing - always set to false
-    return new Promise((resolve) => {
-      resolve({
-        isHint: true,
-        name: "Israeli Website",
-        hintText: chrome.i18n.getMessage("hintIsraeliWebsite"),
-        hintUrl: "https://the-wall.win",
-        isDismissed: false,
-        rule: {
-          selector: domain,
-          key: "il" as const
-        }
-      })
-    })
+    return Promise.resolve(createIlHint(domain))
   }
 
   return new Promise((resolve) => {
     const executeAsync = async () => {
-      // Normalize URL by removing www. prefix for regex matching
-      const normalizedUrl = url.replace(/^(https?:\/\/)www\./i, "$1")
+      // Use shared pure functions for rule matching
+      const rule = findMatchingRule(url)
 
-      const ruleForDomain = CONFIG.rules.find((rule) => {
-        // Use case-insensitive flag for YouTube, Twitter, LinkedIn (as per common package comments)
-        const flags =
-          rule.domain === "youtube.com" ||
-          rule.domain === "twitter.com" ||
-          rule.domain === "linkedin.com"
-            ? "i"
-            : ""
-        const ruleRegex = new RegExp(rule.regex, flags)
-        const regexResult = ruleRegex.test(normalizedUrl)
+      if (rule) {
+        log("storage: isUrlFlagged [rule]", { rule })
 
-        if (regexResult) {
-          log({ url, normalizedUrl, rule, regexResult })
-        }
-        return regexResult
-      })
-
-      if (ruleForDomain) {
-        log("storage: isUrlFlagged [rule]", { ruleForDomain })
-
-        // Use case-insensitive flag for YouTube, Twitter, LinkedIn
-        const flags =
-          ruleForDomain.domain === "youtube.com" ||
-          ruleForDomain.domain === "twitter.com" ||
-          ruleForDomain.domain === "linkedin.com"
-            ? "i"
-            : ""
-        const regex = new RegExp(ruleForDomain.regex, flags)
-        const results = regex.exec(normalizedUrl)
-        // For YouTube, the regex has multiple capture groups - use the first non-undefined one
-        // Groups: 1=user/, 2=c/@?, 3=@, 4=direct
-        const selector =
-          results &&
-          (results[1] || results[2] || results[3] || results[4] || results[1])
-
-        if (selector) {
-          const selectorKey = getSelectorKey(
-            ruleForDomain.domain,
-            normalizedUrl
-          )
-
-          // "il" is not a database field, skip database lookup for .il domains
-          if (selectorKey === "il") {
-            resolve(undefined)
-            return
-          }
-
-          const localTestKey = `${selectorKey}_${selector}`
-
-          const isDismissed = await checkIsDissmissed(localTestKey)
-
-          if (isDismissed) {
-            resolve({
-              isDismissed: true,
-              // reasons and name dont matter here
-              reasons: [],
-              name: domain,
-              rule: {
-                selector,
-                key: getSelectorKey(ruleForDomain.domain, normalizedUrl)
-              }
-            })
-          }
-
-          log(
-            `storage: isUrlFlagged testing for id ${selector} in field ${selectorKey}`
-          )
-
-          const findResult = (ALL as FinalDBFileType[]).find((row) => {
-            // selectorKey is guaranteed to not be "il" at this point
-            const dbValue = row[selectorKey as Exclude<LinkField, "il">]
-            if (!dbValue) return false
-
-            // Normalize: strip @ prefix from both values
-            // For YouTube, Twitter, LinkedIn: also compare case-insensitively
-            const normalizedDbValue =
-              typeof dbValue === "string" ? dbValue.replace(/^@/i, "") : dbValue
-            const normalizedSelector = selector.replace(/^@/i, "")
-
-            // Case-insensitive comparison for YouTube, Twitter, LinkedIn
-            const isCaseInsensitive =
-              ruleForDomain.domain === "youtube.com" ||
-              ruleForDomain.domain === "twitter.com" ||
-              ruleForDomain.domain === "linkedin.com"
-
-            const matches = isCaseInsensitive
-              ? normalizedDbValue.toLowerCase() ===
-                normalizedSelector.toLowerCase()
-              : normalizedDbValue === normalizedSelector
-
-            if (matches) {
-              log(
-                `storage: isUrlFlagged found match: dbValue="${dbValue}", selector="${selector}"`
-              )
-            }
-            return matches
+        const selector = extractSelector(url, rule)
+        if (!selector) {
+          log("storage: isUrlFlagged [rule] no selector extracted", {
+            rule,
+            url
           })
+          resolve(undefined)
+          return
+        }
 
-          log("isUrlFlagged findResult:", findResult)
+        const selectorKey = getSelectorKey(rule.domain, url)
 
-          if (findResult) {
-            // Check if this is a hint entry
-            const result = findResult as FinalDBFileType & {
-              hint?: boolean
-              hintText?: string
-              hintUrl?: string
+        // "il" is not a database field, skip database lookup
+        if (selectorKey === "il") {
+          resolve(undefined)
+          return
+        }
+
+        const localTestKey = `${selectorKey}_${selector}`
+        const isDismissed = await checkIsDissmissed(localTestKey)
+
+        // Check dismissal first (addon-specific concern)
+        if (isDismissed) {
+          resolve({
+            isDismissed: true,
+            reasons: [],
+            name: domain,
+            rule: {
+              selector,
+              key: selectorKey
             }
-            if (result.hint && result.hintText) {
-              // Hints don't support dismissing - always set to false
-              const hintResult: UrlTestResult = {
-                isHint: true,
-                name: findResult.n,
-                hintText: result.hintText,
-                hintUrl: result.hintUrl || "",
-                isDismissed: false,
-                rule: {
-                  selector,
-                  key: getSelectorKey(ruleForDomain.domain, normalizedUrl)
-                }
-              }
-              resolve(hintResult)
-              return
-            }
+          })
+          return
+        }
 
+        log(
+          `storage: isUrlFlagged testing for id ${selector} in field ${selectorKey}`
+        )
+
+        // Use shared pure function for database lookup
+        const findResult = findInDatabaseBySelector(
+          selector,
+          selectorKey,
+          rule.domain,
+          ALL as FinalDBFileType[]
+        )
+
+        log("isUrlFlagged findResult:", findResult)
+
+        if (findResult) {
+          // Use shared pure function to format result
+          const baseResult = formatResult(findResult, selector, selectorKey)
+
+          // Add dismissal tracking (addon-specific extension)
+          if (baseResult && baseResult.isHint === true) {
             resolve({
-              reasons: findResult.r,
-              name: findResult.n,
-              alt: findResult.alt,
-              stockSymbol: findResult.s,
-              rule: {
-                selector,
-                key: getSelectorKey(ruleForDomain.domain, normalizedUrl)
-              }
+              isHint: true,
+              name: baseResult.name,
+              hintText: baseResult.hintText,
+              hintUrl: baseResult.hintUrl,
+              isDismissed: false, // Hints don't support dismissing
+              rule: baseResult.rule
             })
+          } else if (baseResult) {
+            resolve({
+              ...baseResult,
+              isDismissed: false
+            } as UrlTestResult)
           } else {
             resolve(undefined)
           }
         } else {
-          log("storage: isUrlFlagged [rule] no result!!", {
-            ruleForDomain,
-            regex
-          })
-
           resolve(undefined)
         }
       } else {
-        const findResult = (ALL as FinalDBFileType[]).find(
-          (row) => row.ws === domain
+        // No matching rule, check by domain (website lookup)
+        const findResult = findInDatabaseByDomain(
+          domain,
+          ALL as FinalDBFileType[]
         )
 
         log("storage: isUrlFlagged onsuccess", findResult)
 
         if (findResult) {
           const localTestKey = `ws_${domain}`
-
           const isDismissed = await checkIsDissmissed(localTestKey)
 
-          // Check if this is a hint entry
-          const result = findResult as FinalDBFileType & {
-            hint?: boolean
-            hintText?: string
-            hintUrl?: string
-          }
-          if (result.hint && result.hintText) {
-            // Hints don't support dismissing - always set to false
-            const hintResult_obj: UrlTestResult = {
-              isHint: true,
-              name: findResult.n,
-              hintText: result.hintText,
-              hintUrl: result.hintUrl || "",
-              isDismissed: false,
-              rule: {
-                selector: domain,
-                key: "ws" as const
-              }
-            }
-            resolve(hintResult_obj)
-            return
-          }
+          // Use shared pure function to format result
+          const baseResult = formatResult(findResult, domain, "ws")
 
-          resolve({
-            isDismissed,
-            reasons: findResult.r,
-            name: findResult.n,
-            alt: findResult.alt,
-            stockSymbol: findResult.s,
-            rule: {
-              selector: domain,
-              key: "ws" as const
-            }
-          })
+          // Add dismissal tracking (addon-specific extension)
+          if (baseResult && baseResult.isHint === true) {
+            resolve({
+              isHint: true,
+              name: baseResult.name,
+              hintText: baseResult.hintText,
+              hintUrl: baseResult.hintUrl,
+              isDismissed: false, // Hints don't support dismissing
+              rule: baseResult.rule
+            })
+          } else if (baseResult) {
+            resolve({
+              ...baseResult,
+              isDismissed
+            } as UrlTestResult)
+          } else {
+            resolve(undefined)
+          }
+        } else {
+          resolve(undefined)
         }
       }
     }

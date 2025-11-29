@@ -273,6 +273,169 @@ export function getMainDomain(url: string) {
 }
 
 /**
+ * Normalizes a URL by removing www. prefix for regex matching.
+ * Pure function with no side effects.
+ */
+export function normalizeUrl(url: string): string {
+  return url.replace(/^(https?:\/\/)www\./i, "$1");
+}
+
+/**
+ * Gets regex flags for a domain (case-insensitive for YouTube, Twitter, LinkedIn).
+ * Pure function with no side effects.
+ */
+function getRegexFlags(domain: SpecialDomains): string {
+  return domain === "youtube.com" ||
+    domain === "twitter.com" ||
+    domain === "linkedin.com"
+    ? "i"
+    : "";
+}
+
+/**
+ * Finds the matching rule for a URL from CONFIG.rules.
+ * Pure function with no side effects.
+ * @param url - The normalized URL to match
+ * @returns The matching rule or null if no match
+ */
+export function findMatchingRule(
+  url: string
+): (typeof CONFIG.rules)[number] | null {
+  const normalizedUrl = normalizeUrl(url);
+  const rule = CONFIG.rules.find((rule) => {
+    const flags = getRegexFlags(rule.domain);
+    const ruleRegex = new RegExp(rule.regex, flags);
+    return ruleRegex.test(normalizedUrl);
+  });
+  return rule || null;
+}
+
+/**
+ * Extracts the selector (username/ID) from a URL using a rule's regex.
+ * Pure function with no side effects.
+ * @param url - The normalized URL
+ * @param rule - The rule to use for extraction
+ * @returns The extracted selector or null if no match
+ */
+export function extractSelector(
+  url: string,
+  rule: (typeof CONFIG.rules)[number]
+): string | null {
+  const normalizedUrl = normalizeUrl(url);
+  const flags = getRegexFlags(rule.domain);
+  const regex = new RegExp(rule.regex, flags);
+  const results = regex.exec(normalizedUrl);
+  // For YouTube, the regex has multiple capture groups - use the first non-undefined one
+  // Groups: 1=user/, 2=c/@?, 3=@, 4=direct
+  const selector =
+    results &&
+    (results[1] || results[2] || results[3] || results[4] || results[1]);
+  return selector || null;
+}
+
+/**
+ * Finds a matching database entry by selector and selector key.
+ * Pure function with no side effects.
+ * @param selector - The selector to match (e.g., username)
+ * @param selectorKey - The database field key (e.g., "fb", "tw")
+ * @param domain - The domain for case-insensitive comparison logic
+ * @param database - The database array to search
+ * @returns The matching database entry or null
+ */
+export function findInDatabaseBySelector(
+  selector: string,
+  selectorKey: LinkField,
+  domain: SpecialDomains,
+  database: FinalDBFileType[]
+): FinalDBFileType | null {
+  // "il" is not a database field, skip database lookup
+  if (selectorKey === "il") {
+    return null;
+  }
+
+  const findResult = database.find((row) => {
+    const dbValue = row[selectorKey as Exclude<LinkField, "il">];
+    if (!dbValue || typeof dbValue !== "string") {
+      return false;
+    }
+
+    // Normalize: strip @ prefix from both values
+    // For YouTube, Twitter, LinkedIn: also compare case-insensitively
+    const normalizedDbValue = dbValue.replace(/^@/i, "");
+    const normalizedSelector = selector.replace(/^@/i, "");
+
+    // Case-insensitive comparison for YouTube, Twitter, LinkedIn
+    const isCaseInsensitive =
+      domain === "youtube.com" ||
+      domain === "twitter.com" ||
+      domain === "linkedin.com";
+
+    return isCaseInsensitive
+      ? normalizedDbValue.toLowerCase() === normalizedSelector.toLowerCase()
+      : normalizedDbValue === normalizedSelector;
+  });
+
+  return findResult || null;
+}
+
+/**
+ * Finds a matching database entry by domain (for website lookups).
+ * Pure function with no side effects.
+ * @param domain - The domain to search for
+ * @param database - The database array to search
+ * @returns The matching database entry or null
+ */
+export function findInDatabaseByDomain(
+  domain: string,
+  database: FinalDBFileType[]
+): FinalDBFileType | null {
+  const findResult = database.find((row) => row.ws === domain);
+  return findResult || null;
+}
+
+/**
+ * Formats a database entry into a UrlCheckResult.
+ * Pure function with no side effects.
+ * @param findResult - The database entry to format
+ * @param selector - The selector (username/domain)
+ * @param selectorKey - The database field key
+ * @returns Formatted UrlCheckResult
+ */
+export function formatResult(
+  findResult: FinalDBFileType,
+  selector: string,
+  selectorKey: LinkField
+): UrlCheckResult {
+  // Check if this is a hint entry
+  if (findResult.hint && findResult.hintText) {
+    return {
+      isHint: true,
+      name: findResult.n,
+      hintText: findResult.hintText,
+      hintUrl: findResult.hintUrl || "",
+      rule: {
+        selector,
+        key: selectorKey,
+      },
+    };
+  }
+
+  return {
+    isHint: false,
+    reasons: findResult.r,
+    name: findResult.n,
+    alt: findResult.alt,
+    stockSymbol: findResult.s,
+    comment: findResult.c,
+    link: findResult.ws,
+    rule: {
+      selector,
+      key: selectorKey,
+    },
+  };
+}
+
+/**
  * Gets the selector key (database field name) for a given domain.
  * Maps SpecialDomains to LinkField values.
  * @param domain - The domain to map
@@ -280,7 +443,10 @@ export function getMainDomain(url: string) {
  * @returns The corresponding LinkField value
  * @throws Error if domain is unexpected or URL is required but missing
  */
-export function getSelectorKey(domain: SpecialDomains, url?: string): LinkField {
+export function getSelectorKey(
+  domain: SpecialDomains,
+  url?: string
+): LinkField {
   switch (domain) {
     case "facebook.com":
       return "fb";
