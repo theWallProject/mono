@@ -1,37 +1,38 @@
-import fs from "fs";
-import path from "path";
-import { ManualItemSchema, ScrappedFileType } from "../types";
-import { log, cleanWebsite } from "../helper";
-import { BDS } from "../static_data/BDS";
-import { Hints } from "../static_data/hints";
+import fs from "fs"
+import path from "path"
+
+import { cleanWebsite, log } from "../helper"
+import { BDS } from "../static_data/BDS"
+import { Hints } from "../static_data/hints"
+import { ManualItemSchema, ScrappedFileType } from "../types"
 
 const outputFilePath = path.join(
   __dirname,
-  "../../results/1_batches/static/MANUAL.json",
-);
+  "../../results/1_batches/static/MANUAL.json"
+)
 
 const injectStaticRows = () => {
-  const merged: ScrappedFileType = [];
-  log("Starting injectStaticRows - processing BDS and Hints");
+  const merged: ScrappedFileType = []
+  log("Starting injectStaticRows - processing BDS and Hints")
 
   // Process BDS items
   for (const item of BDS) {
-    const safeItem = ManualItemSchema.parse(item);
+    const safeItem = ManualItemSchema.parse(item)
 
-    const { name, reasons, ws, li, fb, tw } = safeItem;
+    const { name, reasons, ws, li, fb, tw } = safeItem
 
     for (const [index, website] of ws.entries()) {
-      const _website = cleanWebsite(website);
+      const _website = cleanWebsite(website)
       if (!_website) {
-        continue;
+        continue
       }
 
       merged.push({
         name,
         reasons: reasons ?? [],
         ws: _website,
-        id: `s_ws_${name}_${index}`,
-      });
+        id: `s_ws_${name}_${index}`
+      })
     }
 
     if (li) {
@@ -42,8 +43,8 @@ const injectStaticRows = () => {
             reasons: reasons ?? [],
             li: cleanWebsite(linkedIn),
             ws: "",
-            id: `s_li_${name}_${index}`,
-          });
+            id: `s_li_${name}_${index}`
+          })
         }
       }
     }
@@ -56,8 +57,8 @@ const injectStaticRows = () => {
             reasons: reasons ?? [],
             fb: cleanWebsite(facebook),
             ws: "",
-            id: `s_fb_${name}_${index}`,
-          });
+            id: `s_fb_${name}_${index}`
+          })
         }
       }
     }
@@ -70,27 +71,27 @@ const injectStaticRows = () => {
             reasons: reasons ?? [],
             tw: cleanWebsite(twitter),
             ws: "",
-            id: `s_tw_${name}_${index}`,
-          });
+            id: `s_tw_${name}_${index}`
+          })
         }
       }
     }
   }
 
   // Process Hints items
-  log(`Processing ${Hints.length} hint items`);
+  log(`Processing ${Hints.length} hint items`)
   for (const item of Hints) {
-    const safeItem = ManualItemSchema.parse(item);
+    const safeItem = ManualItemSchema.parse(item)
 
-    const { name, reasons, ws, isHint, hintText, hintUrl } = safeItem;
+    const { name, reasons, ws, isHint, hintText, hintUrl } = safeItem
 
     // Only process items with isHint flag
     if (isHint) {
       for (const [index, website] of ws.entries()) {
-        const _website = cleanWebsite(website);
+        const _website = cleanWebsite(website)
         if (!_website) {
-          console.error(`Website is empty: ${website}`);
-          throw new Error("Website is empty");
+          console.error(`Website is empty: ${website}`)
+          throw new Error("Website is empty")
         }
 
         merged.push({
@@ -100,26 +101,26 @@ const injectStaticRows = () => {
           id: `hint_ws_${name}_${index}`,
           isHint: true,
           hintText: hintText,
-          hintUrl: hintUrl,
-        });
+          hintUrl: hintUrl
+        })
       }
     }
   }
-  log(`Processed ${merged.length} total items (BDS + Hints)`);
+  log(`Processed ${merged.length} total items (BDS + Hints)`)
 
-  const sortedArray = merged.sort((a, b) => a.name.localeCompare(b.name));
+  const sortedArray = merged.sort((a, b) => a.name.localeCompare(b.name))
 
-  saveJsonToFile(sortedArray, outputFilePath);
-  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`);
+  saveJsonToFile(sortedArray, outputFilePath)
+  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
 
-  return sortedArray;
-};
+  return sortedArray
+}
 
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8");
-  log(`Data successfully written to ${outputFilePath}`);
-};
+  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
+  log(`Data successfully written to ${outputFilePath}`)
+}
 
 export async function run() {
-  injectStaticRows();
+  injectStaticRows()
 }

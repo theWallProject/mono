@@ -3,8 +3,8 @@
  * These are only used by the scrapper package, not shared with other packages.
  */
 
-import { z } from "zod";
-import { APIListOfReasonsSchema } from "@theWallProject/common";
+import { APIListOfReasonsSchema } from "@theWallProject/common"
+import { z } from "zod"
 
 export enum DBFileNames {
   ALL = "ALL",
@@ -17,10 +17,10 @@ export enum DBFileNames {
   FLAGGED_YOUTUBE_PROFILE = "FLAGGED_YOUTUBE_PROFILE",
   FLAGGED_YOUTUBE_CHANNEL = "FLAGGED_YOUTUBE_CHANNEL",
   FLAGGED_TIKTOK = "FLAGGED_TIKTOK",
-  FLAGGED_THREADS = "FLAGGED_THREADS",
+  FLAGGED_THREADS = "FLAGGED_THREADS"
 }
 
-export type DBFileNamesValues = `${DBFileNames}`;
+export type DBFileNamesValues = `${DBFileNames}`
 
 export const APIEndpointDomainsResultSchema = z.object({
   selector: z.string(),
@@ -34,11 +34,11 @@ export const APIEndpointDomainsResultSchema = z.object({
   /** hint text */
   hintText: z.string().optional(),
   /** hint URL */
-  hintUrl: z.string().optional(),
-});
+  hintUrl: z.string().optional()
+})
 
 export type APIEndpointDomainsResult = z.infer<
   typeof APIEndpointDomainsResultSchema
->;
+>
 
-export type APIEndpointDomains = APIEndpointDomainsResult[];
+export type APIEndpointDomains = APIEndpointDomainsResult[]

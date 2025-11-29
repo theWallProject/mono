@@ -1,9 +1,9 @@
-import type { UrlCheckResult } from "@theWallProject/common";
+import type { UrlCheckResult } from "@theWallProject/common"
 
 export enum MessageTypes {
   TestUrl = "TestUrl",
   RequestUrlTest = "RequestUrlTest",
-  DissmissUrl = "DissmissUrl",
+  DissmissUrl = "DissmissUrl"
 }
 
 /**
@@ -12,14 +12,14 @@ export enum MessageTypes {
  */
 export type UrlTestResult =
   | (Extract<UrlCheckResult, { isHint: true }> & {
-      isDismissed?: boolean;
+      isDismissed?: boolean
     })
   | (Extract<UrlCheckResult, { isHint?: false }> & {
-      isDismissed?: boolean;
-      hintUrl?: string;
-      hintText?: string;
+      isDismissed?: boolean
+      hintUrl?: string
+      hintText?: string
     })
-  | undefined;
+  | undefined
 
 export type Message =
   | {

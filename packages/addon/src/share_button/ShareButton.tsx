@@ -4,9 +4,9 @@ import { FaTelegram } from "@react-icons/all-files/fa/FaTelegram"
 import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp"
 import React from "react"
 
-import styles from "./ShareButton.module.css"
-
 import { track } from "~helpers"
+
+import styles from "./ShareButton.module.css"
 
 // import { share } from "../image_sharing/image"
 // import { Button } from "../ui/Button"
@@ -91,7 +91,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
             }}
             aria-label="Share on X (Twitter)">
             <svg width={30} height={30} viewBox="0 0 24 24" fill="#8899ac">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
           </a>
         </div>

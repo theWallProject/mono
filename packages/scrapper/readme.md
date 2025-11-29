@@ -129,12 +129,10 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
 #### For Platforms from Crunchbase (LinkedIn, Facebook, Twitter pattern)
 
 2. **`src/types.ts`**:
-
    - Add `platformName: z.string().optional()` to `ScrappedItemSchema`
    - Add `platformName: z.array(z.string()).optional()` to `ManualItemSchema`
 
 3. **`src/tasks/extract_social.ts`**:
-
    - Import `API_ENDPOINT_RULE_PLATFORM_NAME` and `DBFileNames.FLAGGED_PLATFORM_NAME`
    - Add extraction logic (follow Facebook/Twitter pattern)
    - Add file output using `DBFileNames.FLAGGED_PLATFORM_NAME`
@@ -146,12 +144,10 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
 #### For Platforms Only from Manual Overrides (Instagram, GitHub pattern)
 
 2. **`src/types.ts`**:
-
    - **DO NOT** add to `ScrappedItemSchema` (only in manual overrides)
    - Add `platformName: z.array(z.string()).optional()` to `ManualItemSchema`
 
 3. **`src/tasks/extract_social.ts`**:
-
    - **SKIP** this step (not extracted from Crunchbase)
 
 4. **`src/tasks/validate_urls.ts`**:
@@ -162,7 +158,6 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
 5. **`src/tasks/manual_resolve/manualOverrides.ts`**: Add `platformName?: string | string[]` to `ManualOverrideFields` type
 
 6. **`src/tasks/merge_static.ts`**:
-
    - Import `API_ENDPOINT_RULE_PLATFORM_NAME`
    - Add `"platformName"` to `extractIdentifier` function (add new case)
    - Add `"platformName"` to `linkFields` array
@@ -171,7 +166,6 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
    - Protocol removal is handled automatically via `setField`
 
 7. **`src/tasks/validate_urls.ts`**:
-
    - Import `API_ENDPOINT_RULE_PLATFORM_NAME`
    - Add `"platformName"` to `LinkField` type
    - Add `platformName?: string[]` to `CategorizedUrls` and `OverrideWithUrls` types

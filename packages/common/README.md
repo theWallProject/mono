@@ -9,36 +9,40 @@ Common types and utilities for theWall addon projects.
 ### Steps to Add a New Platform (e.g., Instagram, GitHub)
 
 1. **Add domain to `SpecialDomains` type**
+
    ```typescript
    export type SpecialDomains =
      | "linkedin.com"
      | "facebook.com"
      // ... existing domains ...
-     | "newplatform.com"; // ← Add here
+     | "newplatform.com" // ← Add here
    ```
 
 2. **Create the endpoint rule constant**
+
    ```typescript
    export const API_ENDPOINT_RULE_NEWPLATFORM = {
      domain: "newplatform.com",
-     regex: "(?:newplatform.com)/([^/?]+)",
-   } as const satisfies APIEndpointRule;
+     regex: "(?:newplatform.com)/([^/?]+)"
+   } as const satisfies APIEndpointRule
    ```
 
 3. **Add to `DBFileNames` enum**
+
    ```typescript
    export enum DBFileNames {
      // ... existing entries ...
-     FLAGGED_NEWPLATFORM = "FLAGGED_NEWPLATFORM", // ← Add here
+     FLAGGED_NEWPLATFORM = "FLAGGED_NEWPLATFORM" // ← Add here
    }
    ```
 
 4. **Add field to `FinalDBFileSchema`**
+
    ```typescript
    export const FinalDBFileSchema = z.object({
      // ... existing fields ...
-     np: z.string().optional(), // ← Add here (use short abbreviation)
-   });
+     np: z.string().optional() // ← Add here (use short abbreviation)
+   })
    ```
 
 5. **⚠️ ADD TO CONFIG - Don't forget this!**
@@ -46,9 +50,9 @@ Common types and utilities for theWall addon projects.
    export const CONFIG: APIEndpointConfig = {
      rules: [
        // ... existing rules ...
-       API_ENDPOINT_RULE_NEWPLATFORM, // ← Add here
-     ],
-   };
+       API_ENDPOINT_RULE_NEWPLATFORM // ← Add here
+     ]
+   }
    ```
 
 ### Checklist Template
@@ -62,7 +66,7 @@ Common types and utilities for theWall addon projects.
 ## Usage
 
 This package is used by The Wall projects to:
+
 - Define types and schemas for domain detection
 - Provide endpoint rules for special domains (LinkedIn, Facebook, Twitter, Instagram, GitHub)
 - Extract and validate domain information
-

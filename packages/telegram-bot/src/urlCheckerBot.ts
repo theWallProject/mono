@@ -4,38 +4,39 @@
  * Fails fast if database is missing or empty.
  */
 
-import type {Context} from "telegraf";
+import { createRequire } from "node:module"
 import {
+  extractSelector,
+  findInDatabaseByDomain,
+  findInDatabaseBySelector,
+  findMatchingRule,
+  formatResult,
   getMainDomain,
   getSelectorKey,
-  findMatchingRule,
-  extractSelector,
-  findInDatabaseBySelector,
-  findInDatabaseByDomain,
-  formatResult,
   type FinalDBFileType,
-  type UrlCheckResult,
-} from "@theWallProject/common";
-import {getT, getTByLanguage, type TFunction} from "./translations.js";
-import {createRequire} from "node:module";
+  type UrlCheckResult
+} from "@theWallProject/common"
+import type { Context } from "telegraf"
 
-const require = createRequire(import.meta.url);
+import { getT, getTByLanguage, type TFunction } from "./translations.js"
+
+const require = createRequire(import.meta.url)
 // Use CommonJS-style require to load JSON without import assertions (works in Node 20 ESM)
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const ALL = require("../db/ALL.json") as FinalDBFileType[];
+const ALL = require("../db/ALL.json") as FinalDBFileType[]
 
 // Validate database at module level - fail immediately if invalid
-const database = ALL as unknown;
+const database = ALL as unknown
 
 if (!Array.isArray(database)) {
-  throw new Error("Database file is not an array");
+  throw new Error("Database file is not an array")
 }
 
 if (database.length === 0) {
-  throw new Error("Database is empty");
+  throw new Error("Database is empty")
 }
 
-const typedDatabase = database as FinalDBFileType[];
+const typedDatabase = database as FinalDBFileType[]
 
 /**
  * Creates an .il domain hint result (platform-specific, not shared).
@@ -49,9 +50,9 @@ function createIlHint(domain: string, t: TFunction): UrlCheckResult {
     hintUrl: "https://the-wall.win",
     rule: {
       selector: domain,
-      key: "il",
-    },
-  };
+      key: "il"
+    }
+  }
 }
 
 /**
@@ -69,46 +70,46 @@ function checkUrl(
   t: TFunction
 ): UrlCheckResult | undefined {
   if (!url || typeof url !== "string") {
-    throw new Error(`Invalid URL: ${url}`);
+    throw new Error(`Invalid URL: ${url}`)
   }
 
-  const domain = getMainDomain(url);
+  const domain = getMainDomain(url)
 
   // Handle .il domains separately (platform-specific concern)
   if (domain.endsWith(".il")) {
-    return createIlHint(domain, t);
+    return createIlHint(domain, t)
   }
 
   // Use shared pure functions for rule matching
-  const rule = findMatchingRule(url);
+  const rule = findMatchingRule(url)
 
   if (rule) {
-    const selector = extractSelector(url, rule);
+    const selector = extractSelector(url, rule)
     if (!selector) {
-      return undefined;
+      return undefined
     }
 
-    const selectorKey = getSelectorKey(rule.domain, url);
+    const selectorKey = getSelectorKey(rule.domain, url)
     const findResult = findInDatabaseBySelector(
       selector,
       selectorKey,
       rule.domain,
       database
-    );
+    )
 
     if (findResult) {
-      return formatResult(findResult, selector, selectorKey);
+      return formatResult(findResult, selector, selectorKey)
     }
-    return undefined;
+    return undefined
   } else {
     // No matching rule, check by domain (website lookup)
-    const findResult = findInDatabaseByDomain(domain, database);
+    const findResult = findInDatabaseByDomain(domain, database)
     if (findResult) {
-      return formatResult(findResult, domain, "ws");
+      return formatResult(findResult, domain, "ws")
     }
   }
 
-  return undefined;
+  return undefined
 }
 
 /**
@@ -123,9 +124,9 @@ export function checkUrlForBot(
   ctx?: Context
 ): UrlCheckResult | undefined {
   if (!url || typeof url !== "string") {
-    throw new Error(`Invalid URL: ${url}`);
+    throw new Error(`Invalid URL: ${url}`)
   }
 
-  const t = ctx ? getT(ctx) : getTByLanguage("en");
-  return checkUrl(url, typedDatabase, t);
+  const t = ctx ? getT(ctx) : getTByLanguage("en")
+  return checkUrl(url, typedDatabase, t)
 }

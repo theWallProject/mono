@@ -1,5 +1,5 @@
-import { APIListOfReasonsSchema } from "@theWallProject/common";
-import { z } from "zod";
+import { APIListOfReasonsSchema } from "@theWallProject/common"
+import { z } from "zod"
 
 export const ScrappedItemSchema = z.object({
   name: z.string(),
@@ -16,8 +16,8 @@ export const ScrappedItemSchema = z.object({
     .array(
       z.object({
         name: z.string(),
-        link: z.string().url(),
-      }),
+        link: z.string().url()
+      })
     )
     .optional(),
   hq_postal_code: z.string().optional(),
@@ -25,24 +25,24 @@ export const ScrappedItemSchema = z.object({
     .array(
       z.object({
         name: z.string(),
-        link: z.string().url(),
-      }),
+        link: z.string().url()
+      })
     )
     .optional(),
   investorIds: z
     .array(
       z.object({
         name: z.string(),
-        link: z.string().url(),
-      }),
+        link: z.string().url()
+      })
     )
     .optional(),
   acquirerIds: z
     .array(
       z.object({
         name: z.string(),
-        link: z.string().url(),
-      }),
+        link: z.string().url()
+      })
     )
     .optional(),
   /** short_description */
@@ -64,10 +64,10 @@ export const ScrappedItemSchema = z.object({
   /** hint text */
   hintText: z.string().optional(),
   /** hint URL */
-  hintUrl: z.string().optional(),
-});
+  hintUrl: z.string().optional()
+})
 
-export const APIScrapperFileDataSchema = z.array(ScrappedItemSchema);
+export const APIScrapperFileDataSchema = z.array(ScrappedItemSchema)
 
 export const ManualItemSchema = z.object({
   reasons: z.array(APIListOfReasonsSchema).optional(),
@@ -84,21 +84,21 @@ export const ManualItemSchema = z.object({
   th: z.array(z.string()).optional(),
   isHint: z.boolean().optional(),
   hintText: z.string().optional(),
-  hintUrl: z.string().optional(),
-});
+  hintUrl: z.string().optional()
+})
 
 export const BuyIsraeliTechSchema = z.array(
   z.object({
     Name: z.string().min(1, { message: "String cannot be empty" }),
     Link: z.union([
       z.string().min(1, { message: "String cannot be empty" }),
-      z.null(),
+      z.null()
     ]),
-    IsraelRelation: z.union([z.literal("HQ"), z.literal("Satellite Office")]),
-  }),
-);
+    IsraelRelation: z.union([z.literal("HQ"), z.literal("Satellite Office")])
+  })
+)
 
-export type ManualItemType = z.infer<typeof ManualItemSchema>;
-export type ScrappedItemType = z.infer<typeof ScrappedItemSchema>;
-export type ScrappedFileType = z.infer<typeof APIScrapperFileDataSchema>;
-export type BuyIsraeliTechType = z.infer<typeof BuyIsraeliTechSchema>;
+export type ManualItemType = z.infer<typeof ManualItemSchema>
+export type ScrappedItemType = z.infer<typeof ScrappedItemSchema>
+export type ScrappedFileType = z.infer<typeof APIScrapperFileDataSchema>
+export type BuyIsraeliTechType = z.infer<typeof BuyIsraeliTechSchema>

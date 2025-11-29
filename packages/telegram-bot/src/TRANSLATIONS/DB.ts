@@ -5,17 +5,17 @@
 
 export type TransDB = {
   [key: string]: {
-    en: string;
-    ar: string;
-    id: string;
-    fr: string;
-    nl: string;
-    zh_CN: string;
-    zh_TW: string;
-    ms: string;
-    bn: string;
-  };
-};
+    en: string
+    ar: string
+    id: string
+    fr: string
+    nl: string
+    zh_CN: string
+    zh_TW: string
+    ms: string
+    bn: string
+  }
+}
 
 export const TRANSLATIONS = {
   safe: {
@@ -27,7 +27,7 @@ export const TRANSLATIONS = {
     fr: "✓ Ce lien semble être sûr",
     nl: "✓ Deze link lijkt veilig te zijn",
     zh_CN: "✓ 此链接似乎是安全的",
-    zh_TW: "✓ 此連結似乎是安全的",
+    zh_TW: "✓ 此連結似乎是安全的"
   },
   "flagged.header": {
     en: "⚠️ Flagged",
@@ -38,7 +38,7 @@ export const TRANSLATIONS = {
     fr: "⚠️ Signalé",
     nl: "⚠️ Gemarkeerd",
     zh_CN: "⚠️ 已标记",
-    zh_TW: "⚠️ 已標記",
+    zh_TW: "⚠️ 已標記"
   },
   "flagged.learnMore": {
     en: "Learn more: https://the-wall.win",
@@ -49,7 +49,7 @@ export const TRANSLATIONS = {
     fr: "En savoir plus : https://the-wall.win",
     nl: "Meer informatie: https://the-wall.win",
     zh_CN: "了解更多：https://the-wall.win",
-    zh_TW: "了解更多：https://the-wall.win",
+    zh_TW: "了解更多：https://the-wall.win"
   },
   "hint.header": {
     en: "💡 Hint",
@@ -60,7 +60,7 @@ export const TRANSLATIONS = {
     fr: "💡 Indice",
     nl: "💡 Hint",
     zh_CN: "💡 提示",
-    zh_TW: "💡 提示",
+    zh_TW: "💡 提示"
   },
   "hint.israeliWebsite": {
     en: "Psst, this is an Israeli website.",
@@ -71,7 +71,7 @@ export const TRANSLATIONS = {
     fr: "Psst, c'est un site web israélien.",
     nl: "Psst, dit is een Israëlische website.",
     zh_CN: "提示：这是一个以色列网站。",
-    zh_TW: "提示：這是一個以色列網站。",
+    zh_TW: "提示：這是一個以色列網站。"
   },
   "hint.israeliWebsiteName": {
     en: "Israeli Website",
@@ -82,7 +82,7 @@ export const TRANSLATIONS = {
     fr: "Site web israélien",
     nl: "Israëlische website",
     zh_CN: "以色列网站",
-    zh_TW: "以色列網站",
+    zh_TW: "以色列網站"
   },
   "reasons.h": {
     en: "Headquarters is in Israel",
@@ -93,7 +93,7 @@ export const TRANSLATIONS = {
     fr: "Le siège se trouve en Israël",
     nl: "Het hoofdkantoor bevindt zich in Israël",
     zh_CN: "总部位于以色列",
-    zh_TW: "總部位於以色列",
+    zh_TW: "總部位於以色列"
   },
   "reasons.f": {
     en: "One or more founders are connected to Israel",
@@ -104,7 +104,7 @@ export const TRANSLATIONS = {
     fr: "Un ou plusieurs fondateurs sont liés à Israël",
     nl: "Een of meer oprichters hebben banden met Israël",
     zh_CN: "一个或多个创始人与以色列有关",
-    zh_TW: "一個或多個創始人與以色列有關",
+    zh_TW: "一個或多個創始人與以色列有關"
   },
   "reasons.i": {
     en: "One or more investors are connected to Israel",
@@ -115,7 +115,7 @@ export const TRANSLATIONS = {
     fr: "Un ou plusieurs investisseurs sont liés à Israël",
     nl: "Een of meer investeerders hebben banden met Israël",
     zh_CN: "一个或多个投资者与以色列有关",
-    zh_TW: "一個或多個投資者與以色列有關",
+    zh_TW: "一個或多個投資者與以色列有關"
   },
   "reasons.u": {
     en: "This URL ends with .il, This means it's an Israeli website!",
@@ -126,7 +126,7 @@ export const TRANSLATIONS = {
     fr: "Cette URL se termine par .il, ce qui signifie qu'il s'agit d'un site web israélien !",
     nl: "Deze URL eindigt op .il, wat betekent dat het een Israëlische website is!",
     zh_CN: "这个网址以.il结尾，这意味着这是一个以色列网站！",
-    zh_TW: "這個網址以.il結尾，這意味著這是一個以色列網站！",
+    zh_TW: "這個網址以.il結尾，這意味著這是一個以色列網站！"
   },
   "reasons.b": {
     en: "Listed on the BDS Boycott list",
@@ -137,7 +137,7 @@ export const TRANSLATIONS = {
     fr: "Figure sur la liste du boycott BDS",
     nl: "Staat op de BDS-Boycotlijst",
     zh_CN: "被列入BDS抵制名单",
-    zh_TW: "被列入BDS抵制名單",
+    zh_TW: "被列入BDS抵制名單"
   },
   "reasons.short.h": {
     en: "HQ in Israel",
@@ -148,7 +148,7 @@ export const TRANSLATIONS = {
     fr: "Siège en Israël",
     nl: "Hoofdkantoor in Israël",
     zh_CN: "总部在以色列",
-    zh_TW: "總部在以色列",
+    zh_TW: "總部在以色列"
   },
   "reasons.short.f": {
     en: "Founder in Israel",
@@ -159,7 +159,7 @@ export const TRANSLATIONS = {
     fr: "Fondateur en Israël",
     nl: "Oprichter in Israël",
     zh_CN: "创始人在以色列",
-    zh_TW: "創始人在以色列",
+    zh_TW: "創始人在以色列"
   },
   "reasons.short.i": {
     en: "Investor in Israel",
@@ -170,7 +170,7 @@ export const TRANSLATIONS = {
     fr: "Investisseur en Israël",
     nl: "Investeerder in Israël",
     zh_CN: "投资者在以色列",
-    zh_TW: "投資者在以色列",
+    zh_TW: "投資者在以色列"
   },
   "reasons.short.u": {
     en: "Israeli website",
@@ -181,7 +181,7 @@ export const TRANSLATIONS = {
     fr: "Site web israélien",
     nl: "Israëlische website",
     zh_CN: "以色列网站",
-    zh_TW: "以色列網站",
+    zh_TW: "以色列網站"
   },
   "reasons.short.b": {
     en: "BDS listed",
@@ -192,7 +192,7 @@ export const TRANSLATIONS = {
     fr: "Listé BDS",
     nl: "BDS-gelist",
     zh_CN: "BDS名单",
-    zh_TW: "BDS名單",
+    zh_TW: "BDS名單"
   },
   "help.noUrl": {
     en: "Please send me a URL to check. I can check if a link is safe or flagged.",
@@ -203,7 +203,7 @@ export const TRANSLATIONS = {
     fr: "Veuillez m'envoyer une URL à vérifier. Je peux vérifier si un lien est sûr ou signalé.",
     nl: "Stuur me een URL om te controleren. Ik kan controleren of een link veilig is of gemarkeerd.",
     zh_CN: "请发送一个URL让我检查。我可以检查链接是否安全或已标记。",
-    zh_TW: "請發送一個URL讓我檢查。我可以檢查連結是否安全或已標記。",
+    zh_TW: "請發送一個URL讓我檢查。我可以檢查連結是否安全或已標記。"
   },
   "help.usage": {
     en: "Send me a URL or mention me in a group with a URL to check it.",
@@ -214,7 +214,7 @@ export const TRANSLATIONS = {
     fr: "Envoyez-moi une URL ou mentionnez-moi dans un groupe avec une URL pour la vérifier.",
     nl: "Stuur me een URL of vermeld me in een groep met een URL om het te controleren.",
     zh_CN: "发送给我一个URL或在群组中用URL提及我来检查它。",
-    zh_TW: "發送給我一個URL或在群組中用URL提及我來檢查它。",
+    zh_TW: "發送給我一個URL或在群組中用URL提及我來檢查它。"
   },
   "error.invalidUrl": {
     en: "Invalid URL format. Please send a valid URL.",
@@ -225,7 +225,7 @@ export const TRANSLATIONS = {
     fr: "Format d'URL invalide. Veuillez envoyer une URL valide.",
     nl: "Ongeldig URL-formaat. Stuur een geldige URL.",
     zh_CN: "无效的URL格式。请发送有效的URL。",
-    zh_TW: "無效的URL格式。請發送有效的URL。",
+    zh_TW: "無效的URL格式。請發送有效的URL。"
   },
   "error.checkFailed": {
     en: "Failed to check URL. Please try again.",
@@ -236,7 +236,7 @@ export const TRANSLATIONS = {
     fr: "Échec de la vérification de l'URL. Veuillez réessayer.",
     nl: "URL-controle mislukt. Probeer het opnieuw.",
     zh_CN: "检查URL失败。请重试。",
-    zh_TW: "檢查URL失敗。請重試。",
+    zh_TW: "檢查URL失敗。請重試。"
   },
   "inline.safe": {
     en: "Safe",
@@ -247,7 +247,7 @@ export const TRANSLATIONS = {
     fr: "Sûr",
     nl: "Veilig",
     zh_CN: "安全",
-    zh_TW: "安全",
+    zh_TW: "安全"
   },
   "inline.noIssues": {
     en: "No issues found",
@@ -258,7 +258,7 @@ export const TRANSLATIONS = {
     fr: "Aucun problème trouvé",
     nl: "Geen problemen gevonden",
     zh_CN: "未发现问题",
-    zh_TW: "未發現問題",
+    zh_TW: "未發現問題"
   },
   "formatter.reasons": {
     en: "Reasons:",
@@ -269,7 +269,7 @@ export const TRANSLATIONS = {
     fr: "Raisons :",
     nl: "Redenen:",
     zh_CN: "原因：",
-    zh_TW: "原因：",
+    zh_TW: "原因："
   },
   "formatter.alternatives": {
     en: "Alternatives:",
@@ -280,7 +280,7 @@ export const TRANSLATIONS = {
     fr: "Alternatives :",
     nl: "Alternatieven:",
     zh_CN: "替代品：",
-    zh_TW: "替代品：",
+    zh_TW: "替代品："
   },
   "advertising.addon": {
     en: "Do you like this bot? You will LOVE the browser addon! Download it now from the-wall.win 🧱🍉",
@@ -293,7 +293,7 @@ export const TRANSLATIONS = {
     zh_CN:
       "你喜欢这个机器人吗？你会爱上浏览器插件！立即从 the-wall.win 下载 🧱🍉",
     zh_TW:
-      "你喜歡這個機器人嗎？你會愛上瀏覽器插件！立即從 the-wall.win 下載 🧱🍉",
+      "你喜歡這個機器人嗎？你會愛上瀏覽器插件！立即從 the-wall.win 下載 🧱🍉"
   },
   "advertising.share": {
     en: "💬 Share this result with others to help them stay informed!",
@@ -304,12 +304,12 @@ export const TRANSLATIONS = {
     fr: "💬 Partagez ce résultat avec d'autres pour les aider à rester informés !",
     nl: "💬 Deel dit resultaat met anderen om hen geïnformeerd te houden!",
     zh_CN: "💬 与他人分享此结果，帮助他们保持了解！",
-    zh_TW: "💬 與他人分享此結果，幫助他們保持了解！",
-  },
-} satisfies TransDB;
+    zh_TW: "💬 與他人分享此結果，幫助他們保持了解！"
+  }
+} satisfies TransDB
 
 // Auto-generate translation keys from the TRANSLATIONS object
-export type TranslationKey = keyof typeof TRANSLATIONS;
+export type TranslationKey = keyof typeof TRANSLATIONS
 
 // Language code type
-export type LanguageCode = keyof TransDB[string];
+export type LanguageCode = keyof TransDB[string]

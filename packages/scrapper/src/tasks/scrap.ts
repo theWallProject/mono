@@ -1,24 +1,22 @@
-import puppeteer, { Page } from "puppeteer";
-import fs from "fs";
-import path from "path";
-import { format } from "prettier";
-import { ScrappedItemType } from "../types";
-import {
-  APIListOfReasons,
-  valuesOfListOfReasons,
-} from "@theWallProject/common";
-import { error, log, warn } from "../helper";
-import dotenv from "dotenv";
+import fs from "fs"
+import path from "path"
+import { APIListOfReasons, valuesOfListOfReasons } from "@theWallProject/common"
+import dotenv from "dotenv"
+import { format } from "prettier"
+import puppeteer, { Page } from "puppeteer"
+
+import { error, log, warn } from "../helper"
+import { ScrappedItemType } from "../types"
 
 type ScrappingConfig = {
-  cbSearchUrl: string;
+  cbSearchUrl: string
   // cbRanges: [string, string][];
-  reasons: valuesOfListOfReasons[];
-  fileName: string;
-  cbSteps: [number, number][];
-};
+  reasons: valuesOfListOfReasons[]
+  fileName: string
+  cbSteps: [number, number][]
+}
 
-const homeUrl = "https://www.crunchbase.com";
+const homeUrl = "https://www.crunchbase.com"
 const filterStages: ScrappingConfig[] = [
   {
     cbSearchUrl:
@@ -44,8 +42,8 @@ const filterStages: ScrappingConfig[] = [
       [2580001, 2850000],
       [2850001, 3180000],
       [3180001, 3540000],
-      [3540001, 9999999],
-    ],
+      [3540001, 9999999]
+    ]
   },
   {
     cbSearchUrl:
@@ -55,8 +53,8 @@ const filterStages: ScrappingConfig[] = [
     cbSteps: [
       [1, 150000],
       [150001, 1200000],
-      [1200001, 999999999],
-    ],
+      [1200001, 999999999]
+    ]
   },
   {
     cbSearchUrl:
@@ -65,9 +63,9 @@ const filterStages: ScrappingConfig[] = [
     fileName: "INV_NOT_FOUNDER_ISR",
     cbSteps: [
       [1, 50000],
-      [50001, 999999999],
-    ],
-  },
+      [50001, 999999999]
+    ]
+  }
   // {
   //   cbSearchUrl:
   //     "https://www.crunchbase.com/lists/berlin-halal-friendly/6dab6829-5be0-4038-a408-edf172fb269a/organization.companies",
@@ -90,149 +88,147 @@ const filterStages: ScrappingConfig[] = [
   //     [3300001, 999999999],
   //   ],
   // },
-];
+]
 
 export async function run() {
-  dotenv.config();
+  dotenv.config()
 
-  const EMAIL = process.env.EMAIL;
-  const PASSWORD = process.env.PASSWORD;
+  const EMAIL = process.env.EMAIL
+  const PASSWORD = process.env.PASSWORD
 
   if (!EMAIL || !PASSWORD) {
-    throw new Error("EMAIL and PASSWORD must be set");
+    throw new Error("EMAIL and PASSWORD must be set")
   }
 
   const browser = await puppeteer.launch({
     headless: false,
     // executablePath: "/usr/bin/google-chrome",
     // args: ["--start-maximized"],
-    args: ["--window-size=1800,1000"],
+    args: ["--window-size=1800,1000"]
     // userDataDir,
-  });
-  const page = await browser.newPage();
+  })
+  const page = await browser.newPage()
 
   page.on("error", (err) => {
-    error("Scrap browser error occurred:", err);
-    throw new Error("Scrap browser error occurred");
-  });
+    error("Scrap browser error occurred:", err)
+    throw new Error("Scrap browser error occurred")
+  })
 
   page.on("close", () => {
-    warn("Page was closed unexpectedly!");
-  });
+    warn("Page was closed unexpectedly!")
+  })
 
   browser.on("disconnected", () => {
-    error("Browser was disconnected!");
-    throw new Error("Browser was disconnected");
-  });
+    error("Browser was disconnected!")
+    throw new Error("Browser was disconnected")
+  })
 
-  await page.setViewport({ width: 1800, height: 1000 });
+  await page.setViewport({ width: 1800, height: 1000 })
 
   // Navigate to the page
-  await page.goto(homeUrl, { waitUntil: "domcontentloaded" });
-  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {});
+  await page.goto(homeUrl, { waitUntil: "domcontentloaded" })
+  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 
-  await page.waitForSelector('[aria-label="Log In"]');
-  await page.click('[aria-label="Log In"]');
-  await page.waitForSelector('[type="email"]');
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await page.waitForSelector('[aria-label="Log In"]')
+  await page.click('[aria-label="Log In"]')
+  await page.waitForSelector('[type="email"]')
+  await new Promise((resolve) => setTimeout(resolve, 3000))
 
-  await page.type('[type="email"]', EMAIL, { delay: 50 });
-  await page.type('[type="password"]', PASSWORD, { delay: 50 });
-  await page.click('[type="submit"]');
-  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {});
+  await page.type('[type="email"]', EMAIL, { delay: 50 })
+  await page.type('[type="password"]', PASSWORD, { delay: 50 })
+  await page.click('[type="submit"]')
+  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 
-  log("Continuing after login...");
-  const stageCounts = [];
+  log("Continuing after login...")
+  const stageCounts = []
 
   for await (const stage of filterStages) {
-    log("processing stage:", stage);
+    log("processing stage:", stage)
 
-    let batchNum = 1;
+    let batchNum = 1
 
     for (const [from, to] of stage.cbSteps) {
       if (
         fs.existsSync(
           path.join(
             __dirname,
-            `../../results/1_batches/cb/${stage.fileName}_${batchNum}.json`,
-          ),
+            `../../results/1_batches/cb/${stage.fileName}_${batchNum}.json`
+          )
         )
       ) {
-        warn(`Skipping stage ${stage.fileName}_${batchNum}...`);
-        batchNum += 1;
+        warn(`Skipping stage ${stage.fileName}_${batchNum}...`)
+        batchNum += 1
 
-        continue;
+        continue
       }
 
-      log(`before naviagting to ${stage.cbSearchUrl}`);
+      log(`before naviagting to ${stage.cbSearchUrl}`)
 
-      await page.goto(stage.cbSearchUrl, { waitUntil: "domcontentloaded" });
+      await page.goto(stage.cbSearchUrl, { waitUntil: "domcontentloaded" })
 
       // log("before reloading");
       // await page.reload({ waitUntil: "domcontentloaded" });
 
-      await setFilter(page, 0, from);
-      log("after setting from");
+      await setFilter(page, 0, from)
+      log("after setting from")
 
-      await setFilter(page, 1, to);
-      log("after setting to");
+      await setFilter(page, 1, to)
+      log("after setting to")
 
       try {
-        await clickSearchButton(page);
+        await clickSearchButton(page)
       } catch (error) {
-        warn("couldnt click search, skipping", error);
+        warn("couldnt click search, skipping", error)
       }
 
-      const resultsInfo = await page.waitForSelector(
-        ".component--results-info",
-      );
+      const resultsInfo = await page.waitForSelector(".component--results-info")
       if (!resultsInfo) {
-        throw new Error("no results info found");
+        throw new Error("no results info found")
       }
 
       const resultsInfoText = await resultsInfo.evaluate((el) =>
-        el.textContent?.trim(),
-      );
-      log("Results info text:", resultsInfoText);
+        el.textContent?.trim()
+      )
+      log("Results info text:", resultsInfoText)
       // extract number from pattern "of 789,76 results"
       const strCountFromResultsInfo = resultsInfoText
         ?.split("of")[1]
-        .match(/\d+/)?.[0];
+        .match(/\d+/)?.[0]
 
       if (!strCountFromResultsInfo) {
-        throw new Error("no number from results info found");
+        throw new Error("no number from results info found")
       }
-      const countFromResultsInfo = parseInt(strCountFromResultsInfo);
+      const countFromResultsInfo = parseInt(strCountFromResultsInfo)
 
-      stageCounts.push({ batchNum, countFromResultsInfo });
+      stageCounts.push({ batchNum, countFromResultsInfo })
 
       // if (resultsInfo) {
       const textNodes = await page.evaluate(() => {
-        const element = document.querySelector(".component--results-info");
-        if (!element) return [];
+        const element = document.querySelector(".component--results-info")
+        if (!element) return []
 
         return Array.from(element.childNodes)
           .filter((node) => node.nodeType === Node.TEXT_NODE)
-          .map((node) => node.textContent?.trim());
-      });
+          .map((node) => node.textContent?.trim())
+      })
 
-      log("Search count:", textNodes);
+      log("Search count:", textNodes)
 
-      const results = await processTable(page, stage);
-      log("after processTable");
+      const results = await processTable(page, stage)
+      log("after processTable")
 
-      results.sort((a, b) => a.name.localeCompare(b.name));
+      results.sort((a, b) => a.name.localeCompare(b.name))
       if (results.length !== countFromResultsInfo) {
         warn(
-          `Size mismatch [${from}]: ${results.length} !== ${countFromResultsInfo}`,
-        );
+          `Size mismatch [${from}]: ${results.length} !== ${countFromResultsInfo}`
+        )
       }
 
-      await saveResultsToFile(results, `${stage.fileName}_${batchNum}.json`);
-      batchNum += 1;
+      await saveResultsToFile(results, `${stage.fileName}_${batchNum}.json`)
+      batchNum += 1
     }
 
-    log("stageCounts", stageCounts);
+    log("stageCounts", stageCounts)
     // await page.goto(stage.cbSearchUrl, { waitUntil: "domcontentloaded" });
     // await new Promise((resolve) => setTimeout(resolve, 10000));
   }
@@ -242,58 +238,54 @@ export async function run() {
 
 async function saveResultsToFile(
   results: ScrappedItemType[],
-  fileName: string,
+  fileName: string
 ) {
-  const filePath = path.join(
-    __dirname,
-    "../../results/1_batches/cb/",
-    fileName,
-  );
+  const filePath = path.join(__dirname, "../../results/1_batches/cb/", fileName)
 
-  log(`scraping complete. Saving ${results.length} rows to [${filePath}]...`);
+  log(`scraping complete. Saving ${results.length} rows to [${filePath}]...`)
   const text = await format(JSON.stringify(results, null, 2), {
-    parser: "json",
-  });
+    parser: "json"
+  })
 
-  fs.writeFileSync(filePath, text, { flag: "a" });
-  log(`Results saved to ${filePath}`);
+  fs.writeFileSync(filePath, text, { flag: "a" })
+  log(`Results saved to ${filePath}`)
 }
 
 async function clickSearchButton(page: Page): Promise<void> {
-  log("Clicking the search button...");
-  const searchButtonSelector = '[data-cy="search-button"]';
+  log("Clicking the search button...")
+  const searchButtonSelector = '[data-cy="search-button"]'
 
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  await page.waitForSelector(searchButtonSelector, { timeout: 1000 });
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+  await page.waitForSelector(searchButtonSelector, { timeout: 1000 })
 
   try {
-    await page.click(searchButtonSelector);
-    log("Search button clicked, waiting for results to load...");
+    await page.click(searchButtonSelector)
+    log("Search button clicked, waiting for results to load...")
   } catch (error) {
     warn(
       "Couldnt click search button button, waiting for results to load...",
-      error,
-    );
+      error
+    )
   }
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  await new Promise((resolve) => setTimeout(resolve, 5000))
 }
 
 async function setFilter(
   page: Page,
   index: number,
-  value: number,
+  value: number
 ): Promise<void> {
-  const selector = ".component--number-input .mdc-text-field__input";
+  const selector = ".component--number-input .mdc-text-field__input"
 
-  log(`Setting filter for ${selector} with value ${value}[${index}]`);
+  log(`Setting filter for ${selector} with value ${value}[${index}]`)
 
   // Wait for element to be ready with increased timeout
-  await page.waitForSelector(selector);
+  await page.waitForSelector(selector)
 
   // Use page.$$ to get fresh handles each time
-  const fields = await page.$$(selector);
+  const fields = await page.$$(selector)
   if (!fields[index]) {
-    throw new Error(`Field at index ${index} not found`);
+    throw new Error(`Field at index ${index} not found`)
   }
 
   // Focus and click using page.evaluate with property checks
@@ -308,71 +300,71 @@ async function setFilter(
     ) {
       // Use Object.getOwnPropertyDescriptor or direct property access
       // Since we're in browser context, element is a DOM element with these methods
-      const elementRecord: Record<string, unknown> = {};
-      Object.assign(elementRecord, element);
-      const focusMethod = elementRecord["focus"];
-      const selectMethod = elementRecord["select"];
+      const elementRecord: Record<string, unknown> = {}
+      Object.assign(elementRecord, element)
+      const focusMethod = elementRecord["focus"]
+      const selectMethod = elementRecord["select"]
 
       if (
         typeof focusMethod === "function" &&
         typeof selectMethod === "function"
       ) {
         // Use Function.prototype.call to invoke without type assertions
-        Function.prototype.call.call(focusMethod, element);
-        Function.prototype.call.call(selectMethod, element);
+        Function.prototype.call.call(focusMethod, element)
+        Function.prototype.call.call(selectMethod, element)
       }
     }
-  }, fields[index]);
+  }, fields[index])
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 1000))
 
   // Clear existing value
-  await page.keyboard.press("Backspace");
+  await page.keyboard.press("Backspace")
 
   // Type new value directly
-  await page.keyboard.type(value.toString(), { delay: 100 });
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await page.keyboard.type(value.toString(), { delay: 100 })
+  await new Promise((resolve) => setTimeout(resolve, 1000))
 
   // Click away to trigger any change events
   if (index === 1) {
-    await page.mouse.click(500, 100);
+    await page.mouse.click(500, 100)
   }
-  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {});
+  await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 }
 
 async function processTable(
   page: Page,
-  stage: ScrappingConfig,
+  stage: ScrappingConfig
 ): Promise<ScrappedItemType[]> {
-  const results: ScrappedItemType[] = [];
-  let hasMore = true;
-  let currentFirstRowName = "";
+  const results: ScrappedItemType[] = []
+  let hasMore = true
+  let currentFirstRowName = ""
 
   while (hasMore) {
-    log("waiting for table body...");
-    await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {});
+    log("waiting for table body...")
+    await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 
-    await page.waitForSelector(".body-wrapper");
-    await page.waitForSelector(".body-wrapper grid-row");
+    await page.waitForSelector(".body-wrapper")
+    await page.waitForSelector(".body-wrapper grid-row")
 
-    const rows = await page.$$(".body-wrapper grid-row");
+    const rows = await page.$$(".body-wrapper grid-row")
 
-    log(`processing [${rows.length}] rows...`);
+    log(`processing [${rows.length}] rows...`)
     for (const row of rows) {
       const rowData: ScrappedItemType = await page.evaluate(
         (row, stg) => {
           const getData = (selector: string): string =>
-            row.querySelector<HTMLDivElement>(selector)?.innerText || "";
+            row.querySelector<HTMLDivElement>(selector)?.innerText || ""
 
           const getLinks = (
-            selector: string,
+            selector: string
           ): { name: string; link: string }[] =>
             [...row.querySelectorAll<HTMLAnchorElement>(selector)].map(
               (link) => ({
                 name: link.innerText.trim(),
-                link: link.href,
-              }),
-            );
+                link: link.href
+              })
+            )
 
           const result: ScrappedItemType = {
             reasons: stg.reasons,
@@ -380,7 +372,7 @@ async function processTable(
             cbLink: getLinks("[data-columnid=identifier] a")[0].link,
             id: getLinks("[data-columnid=identifier] a")[0].link.replace(
               "https://www.crunchbase.com/organization/",
-              "",
+              ""
             ),
             li:
               row.querySelector<HTMLAnchorElement>("[data-columnid=linkedin] a")
@@ -400,62 +392,62 @@ async function processTable(
             description: getData("[data-columnid=short_description]"),
             cbRank: getData("[data-columnid=rank_org_company]").replaceAll(
               ",",
-              "",
+              ""
             ),
             estRevenue: getData("[data-columnid=revenue_range]").replace(
               "—",
-              "",
+              ""
             ),
             stock_symbol: getData("[data-columnid=stock_symbol]").replace(
               "—",
-              "",
+              ""
             ),
             hq_postal_code: getData("[data-columnid=hq_postal_code]").replace(
               "—",
-              "",
+              ""
             ),
             stock_exchange_symbol: getData(
-              "[data-columnid=stock_exchange_symbol]",
+              "[data-columnid=stock_exchange_symbol]"
             ).replace("—", ""),
             industries: getLinks("[data-columnid=categories] a").map(
-              (link) => link.name,
+              (link) => link.name
             ),
             industryGroups: getLinks("[data-columnid=category_groups] a").map(
-              (link) => link.name,
-            ),
-          };
+              (link) => link.name
+            )
+          }
 
-          return result;
+          return result
         },
         row,
-        stage,
-      );
+        stage
+      )
 
-      results.push(rowData);
+      results.push(rowData)
     }
 
-    log("checking for next page...");
-    const nextBtn = await page.$(".page-button-next");
-    if (!nextBtn) break;
+    log("checking for next page...")
+    const nextBtn = await page.$(".page-button-next")
+    if (!nextBtn) break
 
     hasMore = await page.evaluate(
       (btn) => btn.getAttribute("aria-disabled") !== "true",
-      nextBtn,
-    );
+      nextBtn
+    )
 
     if (hasMore) {
-      log("has more... clicking next");
-      await nextBtn.click();
+      log("has more... clicking next")
+      await nextBtn.click()
 
       // Wait for the first row to change
       const newFirstRowSelector =
-        ".body-wrapper grid-row [data-columnid=identifier]";
+        ".body-wrapper grid-row [data-columnid=identifier]"
 
       currentFirstRowName = await page.evaluate(
         (selector) =>
           document.querySelector<HTMLDivElement>(selector)?.innerText || "",
-        newFirstRowSelector,
-      );
+        newFirstRowSelector
+      )
 
       await page.waitForFunction(
         (selector, currentName) =>
@@ -463,13 +455,13 @@ async function processTable(
           currentName,
         { timeout: 5000 },
         newFirstRowSelector,
-        currentFirstRowName,
-      );
+        currentFirstRowName
+      )
 
-      log("waiting for content to load...");
-      await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {});
+      log("waiting for content to load...")
+      await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
     }
   }
 
-  return results;
+  return results
 }

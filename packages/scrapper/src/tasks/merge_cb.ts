@@ -1,100 +1,99 @@
-import fs from "fs";
-import path from "path";
-import { ScrappedItemType, APIScrapperFileDataSchema } from "../types";
-import { log, warn } from "../helper";
+import fs from "fs"
+import path from "path"
 
-const folderPath = path.join(__dirname, "../../results/1_batches/cb");
+import { log, warn } from "../helper"
+import { APIScrapperFileDataSchema, ScrappedItemType } from "../types"
+
+const folderPath = path.join(__dirname, "../../results/1_batches/cb")
 
 const outputFilePath = path.join(
   __dirname,
-  "../../results/2_merged/1_MERGED_CB.json",
-);
+  "../../results/2_merged/1_MERGED_CB.json"
+)
 
 const loadJsonFiles = (folderPath: string) => {
   const files = fs
     .readdirSync(folderPath)
-    .filter((file) => file.endsWith(".json"));
+    .filter((file) => file.endsWith(".json"))
 
-  let combinedArray: ScrappedItemType[] = [];
-  const duplicates: Record<string, ScrappedItemType[]> = {};
+  let combinedArray: ScrappedItemType[] = []
+  const duplicates: Record<string, ScrappedItemType[]> = {}
 
   files.forEach((file) => {
-    const filePath = path.join(folderPath, file);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
+    const filePath = path.join(folderPath, file)
+    const fileContent = fs.readFileSync(filePath, "utf-8")
 
-    const parsedData = APIScrapperFileDataSchema.parse(JSON.parse(fileContent));
-    log(`File ${file} has ${parsedData.length} rows`);
+    const parsedData = APIScrapperFileDataSchema.parse(JSON.parse(fileContent))
+    log(`File ${file} has ${parsedData.length} rows`)
 
     for (const newRow of parsedData) {
-      const previousRows = duplicates[newRow.id];
+      const previousRows = duplicates[newRow.id]
 
       if (Array.isArray(previousRows)) {
         const isDuplicate = previousRows.some(
           (existingRow) =>
             JSON.stringify({ ...existingRow, cbRank: undefined }) ===
-            JSON.stringify({ ...newRow, cbRank: undefined }),
-        );
+            JSON.stringify({ ...newRow, cbRank: undefined })
+        )
 
         if (!isDuplicate) {
-          previousRows.push(newRow);
+          previousRows.push(newRow)
         }
-        continue;
+        continue
       } else {
-        duplicates[newRow.id] = [newRow];
-        combinedArray.push(newRow);
+        duplicates[newRow.id] = [newRow]
+        combinedArray.push(newRow)
       }
     }
-  });
+  })
 
   for (const [id, rows] of Object.entries(duplicates)) {
     if (rows.length > 1) {
-      warn(`Duplicate ids: ${id}`);
+      warn(`Duplicate ids: ${id}`)
 
-      let merged = rows[0];
+      let merged = rows[0]
 
       for (const row of rows) {
-        merged = mergeObjects(merged, row);
+        merged = mergeObjects(merged, row)
       }
 
       combinedArray.splice(
         combinedArray.findIndex((item) => item.id === id),
         1,
-        merged,
-      );
+        merged
+      )
     }
   }
 
-  const sortedArray = combinedArray.sort((a, b) =>
-    a.name.localeCompare(b.name),
-  );
+  const sortedArray = combinedArray.sort((a, b) => a.name.localeCompare(b.name))
 
-  saveJsonToFile(sortedArray, outputFilePath);
-  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`);
-};
+  saveJsonToFile(sortedArray, outputFilePath)
+  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
+}
 
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8");
-  log(`Data successfully written to ${outputFilePath}`);
-};
+  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
+  log(`Data successfully written to ${outputFilePath}`)
+}
 
 export async function run() {
-  return loadJsonFiles(folderPath);
+  return loadJsonFiles(folderPath)
 }
 
 function mergeObjects(
   obj1: ScrappedItemType,
-  obj2: ScrappedItemType,
+  obj2: ScrappedItemType
 ): ScrappedItemType {
-  const merged: ScrappedItemType = { ...obj1 };
+  const merged: ScrappedItemType = { ...obj1 }
 
   // Type guard helper
   const isScrappedItemKey = (key: string): key is keyof ScrappedItemType => {
-    return key in obj1;
-  };
+    return key in obj1
+  }
 
   for (const key of Object.keys(obj2)) {
     if (!isScrappedItemKey(key)) {
-      continue;
+      continue
     }
     if (
       key === "reasons"
@@ -103,16 +102,16 @@ function mergeObjects(
     ) {
       // Merge reasons arrays and remove duplicates
 
-      merged.reasons = Array.from(new Set([...merged[key], ...obj2[key]]));
+      merged.reasons = Array.from(new Set([...merged[key], ...obj2[key]]))
     } else if (!obj2[key] || obj2[key] === "") {
       // Skip empty fields in obj2
-      continue;
+      continue
     } else if (!merged[key] || merged[key] === "") {
       // Fill empty fields in obj1
       // @ts-expect-error -- fix later
-      merged[key] = obj2[key];
+      merged[key] = obj2[key]
     }
   }
 
-  return merged;
+  return merged
 }

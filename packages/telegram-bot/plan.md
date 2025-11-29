@@ -41,7 +41,6 @@ packages/telegram-bot/
 **Manual Steps Required:**
 
 1. Create Telegram bot via [@BotFather](https://t.me/botfather):
-
    - Send `/newbot` command
    - Choose a name for your bot
    - Choose a username (must end in `bot`, e.g., `theWallBoycott_bot`)
@@ -101,14 +100,14 @@ packages/telegram-bot/
   export const BOT_TOKEN: string =
     process.env.BOT_TOKEN ??
     (() => {
-      throw new Error("BOT_TOKEN environment variable is required");
-    })();
+      throw new Error("BOT_TOKEN environment variable is required")
+    })()
 
   export const BOT_USERNAME: string =
     process.env.BOT_USERNAME ??
     (() => {
-      throw new Error("BOT_USERNAME environment variable is required");
-    })();
+      throw new Error("BOT_USERNAME environment variable is required")
+    })()
   ```
 
 - No defaults, no fallbacks - fail immediately if missing
@@ -265,12 +264,12 @@ packages/telegram-bot/
 **BAD (Fallback):**
 
 ```typescript
-const token = process.env.BOT_TOKEN || "default-token"; // NO!
-const url = extractUrl(text) || "https://example.com"; // NO!
+const token = process.env.BOT_TOKEN || "default-token" // NO!
+const url = extractUrl(text) || "https://example.com" // NO!
 try {
-  checkUrl(url);
+  checkUrl(url)
 } catch {
-  return "Error occurred"; // NO!
+  return "Error occurred" // NO!
 }
 ```
 
@@ -280,15 +279,15 @@ try {
 const token: string =
   process.env.BOT_TOKEN ??
   (() => {
-    throw new Error("BOT_TOKEN is required");
-  })();
+    throw new Error("BOT_TOKEN is required")
+  })()
 
-const url = extractUrl(text);
+const url = extractUrl(text)
 if (!url) {
-  throw new Error(`No valid URL found in text: ${text}`);
+  throw new Error(`No valid URL found in text: ${text}`)
 }
 
-const result = checkUrl(url); // Let it throw if it fails
+const result = checkUrl(url) // Let it throw if it fails
 ```
 
 ## Testing Strategy
@@ -310,21 +309,22 @@ const result = checkUrl(url); // Let it throw if it fails
 ### In `packages/telegram-bot/src/urlCheckerBot.ts`:
 
 ```typescript
-import {checkUrl} from "@theWallProject/common";
-import ALL from "../db/ALL.json";
-import type {FinalDBFileType, UrlCheckResult} from "@theWallProject/common";
+import { checkUrl } from "@theWallProject/common"
+import type { FinalDBFileType, UrlCheckResult } from "@theWallProject/common"
+
+import ALL from "../db/ALL.json"
 
 // Load database at module level, throw if missing
-const database: FinalDBFileType[] = ALL as FinalDBFileType[];
+const database: FinalDBFileType[] = ALL as FinalDBFileType[]
 if (database.length === 0) {
-  throw new Error("Database is empty");
+  throw new Error("Database is empty")
 }
 
 export function checkUrlForBot(url: string): UrlCheckResult | undefined {
   if (!url || typeof url !== "string") {
-    throw new Error(`Invalid URL: ${url}`);
+    throw new Error(`Invalid URL: ${url}`)
   }
-  return checkUrl(url, database);
+  return checkUrl(url, database)
 }
 ```
 

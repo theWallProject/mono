@@ -1,4 +1,4 @@
-import { ManualItemType } from "../../types";
+import { ManualItemType } from "../../types"
 
 export const thauraHints: ManualItemType[] = [
   {
@@ -7,7 +7,7 @@ export const thauraHints: ManualItemType[] = [
     isHint: true,
     hintText:
       "Hey, Have you tried Thaura.ai? It's a great alternative to ChatGPT.",
-    hintUrl: "https://thaura.ai/?referral=the-wall",
+    hintUrl: "https://thaura.ai/?referral=the-wall"
   },
   {
     name: "Claude",
@@ -15,7 +15,7 @@ export const thauraHints: ManualItemType[] = [
     isHint: true,
     hintText:
       "Hey, Have you tried Thaura.ai? It's a great alternative to Claude.",
-    hintUrl: "https://thaura.ai/?referral=the-wall",
+    hintUrl: "https://thaura.ai/?referral=the-wall"
   },
   {
     name: "Gemini",
@@ -23,7 +23,7 @@ export const thauraHints: ManualItemType[] = [
     isHint: true,
     hintText:
       "Hey, Have you tried Thaura.ai? It's a great alternative to Gemini.",
-    hintUrl: "https://thaura.ai/?referral=the-wall",
+    hintUrl: "https://thaura.ai/?referral=the-wall"
   },
   {
     name: "Grok",
@@ -31,7 +31,6 @@ export const thauraHints: ManualItemType[] = [
     isHint: true,
     hintText:
       "Hey, Have you tried Thaura.ai? It's a great alternative to Grok.",
-    hintUrl: "https://thaura.ai/?referral=the-wall",
-  },
-];
-
+    hintUrl: "https://thaura.ai/?referral=the-wall"
+  }
+]

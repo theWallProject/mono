@@ -1,6 +1,5 @@
-import {parse} from "tldts";
-
-import {z} from "zod";
+import { parse } from "tldts"
+import { z } from "zod"
 
 /**
  * Enum-like object for APIListOfReasons, for code reference.
@@ -15,11 +14,11 @@ export const APIListOfReasons = {
   /** Url */
   Url: "u",
   /** BDS */
-  BDS: "b",
-} as const;
+  BDS: "b"
+} as const
 
 export type valuesOfListOfReasons =
-  (typeof APIListOfReasons)[keyof typeof APIListOfReasons];
+  (typeof APIListOfReasons)[keyof typeof APIListOfReasons]
 
 /**
  * Schema for API list of reasons (shared between addon and scrapper via FinalDBFileSchema).
@@ -29,10 +28,10 @@ export const APIListOfReasonsSchema = z.enum([
   APIListOfReasons.FounderInIL,
   APIListOfReasons.InvestorNotFounderInIL,
   APIListOfReasons.Url,
-  APIListOfReasons.BDS,
-]);
+  APIListOfReasons.BDS
+])
 
-export type APIListOfReasonsValues = z.infer<typeof APIListOfReasonsSchema>;
+export type APIListOfReasonsValues = z.infer<typeof APIListOfReasonsSchema>
 
 /**
  * Link field type shared across all packages.
@@ -49,7 +48,7 @@ export type LinkField =
   | "ytc" // youtube channel
   | "tt" // tiktok
   | "th" // threads
-  | "il"; // israeli website (.il domain)
+  | "il" // israeli website (.il domain)
 
 /**
  * Platform-agnostic URL check result (without dismissal tracking).
@@ -57,29 +56,29 @@ export type LinkField =
  */
 export type UrlCheckResult =
   | {
-      isHint: true;
-      name: string;
-      hintText: string;
-      hintUrl: string;
+      isHint: true
+      name: string
+      hintText: string
+      hintUrl: string
       rule: {
-        selector: string;
-        key: LinkField;
-      };
+        selector: string
+        key: LinkField
+      }
     }
   | {
-      isHint?: false | undefined;
-      reasons: APIListOfReasonsValues[];
-      name: string;
-      alt?: {n: string; ws: string}[];
-      stockSymbol?: string;
-      comment?: string;
-      link?: string;
+      isHint?: false | undefined
+      reasons: APIListOfReasonsValues[]
+      name: string
+      alt?: { n: string; ws: string }[]
+      stockSymbol?: string
+      comment?: string
+      link?: string
       rule: {
-        selector: string;
-        key: LinkField;
-      };
+        selector: string
+        key: LinkField
+      }
     }
-  | undefined;
+  | undefined
 
 export type SpecialDomains =
   | "linkedin.com"
@@ -90,12 +89,12 @@ export type SpecialDomains =
   | "github.com"
   | "youtube.com"
   | "tiktok.com"
-  | "threads.com";
+  | "threads.com"
 
 type APIEndpointRule = {
-  domain: SpecialDomains;
-  regex: string;
-};
+  domain: SpecialDomains
+  regex: string
+}
 
 export const FinalDBFileSchema = z.object({
   /** id */
@@ -135,7 +134,7 @@ export const FinalDBFileSchema = z.object({
         /** name */
         n: z.string(),
         /** website */
-        ws: z.string(),
+        ws: z.string()
       })
     )
     .optional(),
@@ -144,14 +143,14 @@ export const FinalDBFileSchema = z.object({
   /** hint text */
   hintText: z.string().optional(),
   /** hint URL */
-  hintUrl: z.string().optional(),
-});
+  hintUrl: z.string().optional()
+})
 
-export type FinalDBFileType = z.infer<typeof FinalDBFileSchema>;
+export type FinalDBFileType = z.infer<typeof FinalDBFileSchema>
 
 export type APIEndpointConfig = {
-  rules: APIEndpointRule[];
-};
+  rules: APIEndpointRule[]
+}
 
 /**
  * LinkedIn regex - should be used with case-insensitive flag ('i') since LinkedIn IDs are case-insensitive
@@ -165,14 +164,14 @@ export type APIEndpointConfig = {
 export const API_ENDPOINT_RULE_LINKEDIN_COMPANY = {
   domain: "linkedin.com",
   regex:
-    "(?:https?://)?(?:www\\.)?(?:linkedin\\.com)/(?!school)(?:company|showcase)/([^/?]+)",
-} as const satisfies APIEndpointRule;
+    "(?:https?://)?(?:www\\.)?(?:linkedin\\.com)/(?!school)(?:company|showcase)/([^/?]+)"
+} as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_FACEBOOK = {
   domain: "facebook.com",
   regex:
-    "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login)([^/?]+)",
-} as const satisfies APIEndpointRule;
+    "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login)([^/?]+)"
+} as const satisfies APIEndpointRule
 
 /**
  * Twitter regex - should be used with case-insensitive flag ('i') since Twitter IDs are case-insensitive
@@ -180,20 +179,20 @@ export const API_ENDPOINT_RULE_FACEBOOK = {
 export const API_ENDPOINT_RULE_TWITTER = {
   domain: "twitter.com",
   regex:
-    "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings)([^/?]+)",
-} as const satisfies APIEndpointRule;
+    "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings)([^/?]+)"
+} as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_INSTAGRAM = {
   domain: "instagram.com",
   regex:
-    "(?:instagram\\.com)/(?!explore|reels|p/|stories|tv/|direct|accounts)([^/?]+)",
-} as const satisfies APIEndpointRule;
+    "(?:instagram\\.com)/(?!explore|reels|p/|stories|tv/|direct|accounts)([^/?]+)"
+} as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_GITHUB = {
   domain: "github.com",
   regex:
-    "(?<!gist\\.)(?:github\\.com)/(?!settings|.*/(?:issues|pull|releases|actions|security))([^/]+)",
-} as const satisfies APIEndpointRule; // Captures userid only: github.com/userid/repoid → userid
+    "(?<!gist\\.)(?:github\\.com)/(?!settings|.*/(?:issues|pull|releases|actions|security))([^/]+)"
+} as const satisfies APIEndpointRule // Captures userid only: github.com/userid/repoid → userid
 
 /**
  * YouTube profile regex - should be used with case-insensitive flag ('i') since YouTube profile IDs are case-insensitive
@@ -212,25 +211,25 @@ export const API_ENDPOINT_RULE_GITHUB = {
 export const API_ENDPOINT_RULE_YOUTUBE_PROFILE = {
   domain: "youtube.com",
   regex:
-    "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/(?:(?:user/([^/?]+))|(?:c/(?!(?:@)?(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)@?([^/?]+))|(?:@(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)([^/?]+))|(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)(?!(?:c/|@|user/))([^/?]+))",
-} as const satisfies APIEndpointRule;
+    "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/(?:(?:user/([^/?]+))|(?:c/(?!(?:@)?(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)@?([^/?]+))|(?:@(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)([^/?]+))|(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)(?!(?:c/|@|user/))([^/?]+))"
+} as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_YOUTUBE_CHANNEL = {
   domain: "youtube.com",
-  regex: "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/channel/([^/?]+)",
-} as const satisfies APIEndpointRule;
+  regex: "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/channel/([^/?]+)"
+} as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_TIKTOK = {
   domain: "tiktok.com",
   regex:
-    "(?:tiktok\\.com)/(?!.*/video/|discover|foryou|trending|music|upload)([^/?]+)",
-} as const satisfies APIEndpointRule;
+    "(?:tiktok\\.com)/(?!.*/video/|discover|foryou|trending|music|upload)([^/?]+)"
+} as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_THREADS = {
   domain: "threads.com",
   regex:
-    "(?:threads\\.com)/(?!.*/post/|search|explore|activity|settings)([^/?]+)",
-} as const satisfies APIEndpointRule;
+    "(?:threads\\.com)/(?!.*/post/|search|explore|activity|settings)([^/?]+)"
+} as const satisfies APIEndpointRule
 
 export const CONFIG: APIEndpointConfig = {
   rules: [
@@ -242,9 +241,9 @@ export const CONFIG: APIEndpointConfig = {
     API_ENDPOINT_RULE_YOUTUBE_PROFILE,
     API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
     API_ENDPOINT_RULE_TIKTOK,
-    API_ENDPOINT_RULE_THREADS,
-  ],
-};
+    API_ENDPOINT_RULE_THREADS
+  ]
+}
 
 /**
  * Extracts the main domain from a given URL.
@@ -255,20 +254,20 @@ export function getMainDomain(url: string) {
     const urlWithProtocol =
       url.startsWith("http://") || url.startsWith("https://")
         ? url
-        : `https://${url}`;
+        : `https://${url}`
 
-    const {hostname} = new URL(urlWithProtocol);
-    const parsed = parse(hostname);
+    const { hostname } = new URL(urlWithProtocol)
+    const parsed = parse(hostname)
 
     if (parsed.hostname) {
-      return parsed.hostname.replace("www.", "");
+      return parsed.hostname.replace("www.", "")
     }
-    console.warn("getMainDomain empty:", url);
+    console.warn("getMainDomain empty:", url)
 
-    return "";
+    return ""
   } catch (e) {
-    console.error("getMainDomain error:", url, e);
-    return "";
+    console.error("getMainDomain error:", url, e)
+    return ""
   }
 }
 
@@ -277,7 +276,7 @@ export function getMainDomain(url: string) {
  * Pure function with no side effects.
  */
 export function normalizeUrl(url: string): string {
-  return url.replace(/^(https?:\/\/)www\./i, "$1");
+  return url.replace(/^(https?:\/\/)www\./i, "$1")
 }
 
 /**
@@ -289,7 +288,7 @@ function getRegexFlags(domain: SpecialDomains): string {
     domain === "twitter.com" ||
     domain === "linkedin.com"
     ? "i"
-    : "";
+    : ""
 }
 
 /**
@@ -301,13 +300,13 @@ function getRegexFlags(domain: SpecialDomains): string {
 export function findMatchingRule(
   url: string
 ): (typeof CONFIG.rules)[number] | null {
-  const normalizedUrl = normalizeUrl(url);
+  const normalizedUrl = normalizeUrl(url)
   const rule = CONFIG.rules.find((rule) => {
-    const flags = getRegexFlags(rule.domain);
-    const ruleRegex = new RegExp(rule.regex, flags);
-    return ruleRegex.test(normalizedUrl);
-  });
-  return rule || null;
+    const flags = getRegexFlags(rule.domain)
+    const ruleRegex = new RegExp(rule.regex, flags)
+    return ruleRegex.test(normalizedUrl)
+  })
+  return rule || null
 }
 
 /**
@@ -321,16 +320,16 @@ export function extractSelector(
   url: string,
   rule: (typeof CONFIG.rules)[number]
 ): string | null {
-  const normalizedUrl = normalizeUrl(url);
-  const flags = getRegexFlags(rule.domain);
-  const regex = new RegExp(rule.regex, flags);
-  const results = regex.exec(normalizedUrl);
+  const normalizedUrl = normalizeUrl(url)
+  const flags = getRegexFlags(rule.domain)
+  const regex = new RegExp(rule.regex, flags)
+  const results = regex.exec(normalizedUrl)
   // For YouTube, the regex has multiple capture groups - use the first non-undefined one
   // Groups: 1=user/, 2=c/@?, 3=@, 4=direct
   const selector =
     results &&
-    (results[1] || results[2] || results[3] || results[4] || results[1]);
-  return selector || null;
+    (results[1] || results[2] || results[3] || results[4] || results[1])
+  return selector || null
 }
 
 /**
@@ -350,32 +349,32 @@ export function findInDatabaseBySelector(
 ): FinalDBFileType | null {
   // "il" is not a database field, skip database lookup
   if (selectorKey === "il") {
-    return null;
+    return null
   }
 
   const findResult = database.find((row) => {
-    const dbValue = row[selectorKey as Exclude<LinkField, "il">];
+    const dbValue = row[selectorKey as Exclude<LinkField, "il">]
     if (!dbValue || typeof dbValue !== "string") {
-      return false;
+      return false
     }
 
     // Normalize: strip @ prefix from both values
     // For YouTube, Twitter, LinkedIn: also compare case-insensitively
-    const normalizedDbValue = dbValue.replace(/^@/i, "");
-    const normalizedSelector = selector.replace(/^@/i, "");
+    const normalizedDbValue = dbValue.replace(/^@/i, "")
+    const normalizedSelector = selector.replace(/^@/i, "")
 
     // Case-insensitive comparison for YouTube, Twitter, LinkedIn
     const isCaseInsensitive =
       domain === "youtube.com" ||
       domain === "twitter.com" ||
-      domain === "linkedin.com";
+      domain === "linkedin.com"
 
     return isCaseInsensitive
       ? normalizedDbValue.toLowerCase() === normalizedSelector.toLowerCase()
-      : normalizedDbValue === normalizedSelector;
-  });
+      : normalizedDbValue === normalizedSelector
+  })
 
-  return findResult || null;
+  return findResult || null
 }
 
 /**
@@ -389,8 +388,8 @@ export function findInDatabaseByDomain(
   domain: string,
   database: FinalDBFileType[]
 ): FinalDBFileType | null {
-  const findResult = database.find((row) => row.ws === domain);
-  return findResult || null;
+  const findResult = database.find((row) => row.ws === domain)
+  return findResult || null
 }
 
 /**
@@ -415,9 +414,9 @@ export function formatResult(
       hintUrl: findResult.hintUrl || "",
       rule: {
         selector,
-        key: selectorKey,
-      },
-    };
+        key: selectorKey
+      }
+    }
   }
 
   return {
@@ -430,9 +429,9 @@ export function formatResult(
     link: findResult.ws,
     rule: {
       selector,
-      key: selectorKey,
-    },
-  };
+      key: selectorKey
+    }
+  }
 }
 
 /**
@@ -449,37 +448,37 @@ export function getSelectorKey(
 ): LinkField {
   switch (domain) {
     case "facebook.com":
-      return "fb";
+      return "fb"
     case "twitter.com":
     case "x.com":
-      return "tw";
+      return "tw"
     case "linkedin.com":
-      return "li";
+      return "li"
     case "instagram.com":
-      return "ig";
+      return "ig"
     case "github.com":
-      return "gh";
+      return "gh"
     case "youtube.com": {
       if (!url) {
         throw new Error(
           "getSelectorKey: url is required for youtube.com domain"
-        );
+        )
       }
       if (url.includes("/channel/")) {
-        return "ytc";
+        return "ytc"
       }
       if (url.includes("/@")) {
-        return "ytp";
+        return "ytp"
       }
       // Default to ytp for other YouTube URLs (shouldn't happen with proper rules)
-      return "ytp";
+      return "ytp"
     }
     case "tiktok.com":
-      return "tt";
+      return "tt"
     case "threads.com":
-      return "th";
+      return "th"
     default: {
-      throw new Error(`getSelectorKey: unexpected domain ${domain}`);
+      throw new Error(`getSelectorKey: unexpected domain ${domain}`)
     }
   }
 }

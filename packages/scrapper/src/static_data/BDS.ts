@@ -1,4 +1,4 @@
-import { ManualItemType } from "../types";
+import { ManualItemType } from "../types"
 
 // use this code to fetsh all afliated pages from linkedin
 /*
@@ -22,7 +22,7 @@ export const BDS: ManualItemType[] = [
       "https://www.omen.com",
       "https://www.hyperx.com",
       "https://www.hpe.com",
-      "https://www.arubanetworks.com",
+      "https://www.arubanetworks.com"
     ],
     li: [
       "https://www.linkedin.com/company/hewlett-packard-enterprise/",
@@ -51,26 +51,26 @@ export const BDS: ManualItemType[] = [
       "https://www.linkedin.com/showcase/hpe-ai/",
       "https://www.linkedin.com/showcase/hpe-aruba-networking/",
       "https://www.linkedin.com/showcase/hpe-pointnext-services/",
-      "https://www.linkedin.com/showcase/hpestorage/",
+      "https://www.linkedin.com/showcase/hpestorage/"
     ],
     tw: [
       "https://x.com/hp",
       "https://x.com/OMENbyHP",
       "https://x.com/HyperX",
       "https://x.com/HPE",
-      "https://x.com/HPE_Aruba_NETW",
+      "https://x.com/HPE_Aruba_NETW"
     ],
     fb: [
       "https://www.facebook.com/HP/",
       "https://www.facebook.com/OMENbyHP.de",
-      "https://www.facebook.com/HyperXDE/?brand_redir=179848128697913",
-    ],
+      "https://www.facebook.com/HyperXDE/?brand_redir=179848128697913"
+    ]
   },
   {
     name: "Jedyapps",
     reasons: ["h"],
     ws: ["https://www.jedyapps.com/"],
-    li: ["https://www.linkedin.com/company/jedyapps"],
+    li: ["https://www.linkedin.com/company/jedyapps"]
   },
   {
     name: "Siemens",
@@ -89,10 +89,10 @@ export const BDS: ManualItemType[] = [
       "https://www.linkedin.com/company/siemens-healthineers/",
       "https://www.linkedin.com/company/siemenssoftware/",
       "https://www.linkedin.com/company/hacon/",
-      "https://www.linkedin.com/company/siemens-eda/",
+      "https://www.linkedin.com/company/siemens-eda/"
     ],
     tw: ["https://x.com/Siemens"],
-    fb: ["https://www.facebook.com/Siemens"],
+    fb: ["https://www.facebook.com/Siemens"]
     // https://www.youtube.com/@siemens
     // https://www.instagram.com/siemens/
   },
@@ -125,14 +125,14 @@ export const BDS: ManualItemType[] = [
       "https://www.linkedin.com/company/axa-mps/",
       "https://www.linkedin.com/company/axa-minmetals-assurance/",
       "https://www.linkedin.com/company/axa-france/",
-      "https://www.linkedin.com/showcase/axa-research-fund/",
+      "https://www.linkedin.com/showcase/axa-research-fund/"
     ],
     tw: ["https://x.com/AXA"],
     fb: [
       "https://www.facebook.com/AXA.de/",
       "https://www.facebook.com/AXAAssuranceMaroc",
-      "https://www.facebook.com/axainsurance",
-    ],
+      "https://www.facebook.com/axainsurance"
+    ]
     // https://www.youtube.com/user/axapeopleprotectors
   },
   {
@@ -142,7 +142,7 @@ export const BDS: ManualItemType[] = [
     ws: ["https://www.puma.com"],
     li: ["https://www.linkedin.com/company/puma/"],
     tw: ["https://x.com/puma"],
-    fb: ["https://www.facebook.com/PumaGermany/"],
+    fb: ["https://www.facebook.com/PumaGermany/"]
     // https://www.tiktok.com/@puma
     // https://www.instagram.com/puma/
     // https://www.youtube.com/user/PUMA
@@ -154,7 +154,7 @@ export const BDS: ManualItemType[] = [
     ws: ["https://www.ahava.com"],
     li: ["https://www.linkedin.com/company/dead-sea-laboratories-ahava"],
     tw: [""],
-    fb: ["https://www.facebook.com/ahavagermany"],
+    fb: ["https://www.facebook.com/ahavagermany"]
   },
   {
     name: "Sabra",
@@ -163,7 +163,7 @@ export const BDS: ManualItemType[] = [
     ws: ["https://sabra.com/"],
     li: ["https://www.linkedin.com/company/sabra-dipping-company-llc/"],
     tw: ["https://x.com/Sabra"],
-    fb: ["https://www.facebook.com/Sabra/"],
+    fb: ["https://www.facebook.com/Sabra/"]
     // https://www.instagram.com/sabra/
     // https://www.tiktok.com/@sabra
   },
@@ -174,9 +174,9 @@ export const BDS: ManualItemType[] = [
     ws: ["wixsite.com"],
     li: [""],
     tw: [""],
-    fb: [""],
-  },
-];
+    fb: [""]
+  }
+]
 
 /*
   {

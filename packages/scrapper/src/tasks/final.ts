@@ -1,55 +1,56 @@
-import fs from "fs";
-import path from "path";
-import { execSync } from "child_process";
-import { log } from "../helper";
-import { APIEndpointDomainsResultSchema, DBFileNames } from "../scrapperTypes";
-import { FinalDBFileType, type LinkField } from "@theWallProject/common";
-import { z } from "zod";
-import alternatives from "../../src/static_data/alternatives.json";
+import { execSync } from "child_process"
+import fs from "fs"
+import path from "path"
+import { FinalDBFileType, type LinkField } from "@theWallProject/common"
+import { z } from "zod"
 
-const folderPath = path.join(__dirname, "../../results/3_networks");
+import alternatives from "../../src/static_data/alternatives.json"
+import { log } from "../helper"
+import { APIEndpointDomainsResultSchema, DBFileNames } from "../scrapperTypes"
+
+const folderPath = path.join(__dirname, "../../results/3_networks")
 
 const outputFilePath = path.join(
   __dirname,
-  `../../results/4_final/${DBFileNames.ALL}.json`,
-);
+  `../../results/4_final/${DBFileNames.ALL}.json`
+)
 
 const loadJsonFiles = (folderPath: string) => {
   const files = fs
     .readdirSync(folderPath)
-    .filter((file) => file.endsWith(".json"));
+    .filter((file) => file.endsWith(".json"))
 
-  let combinedArray: FinalDBFileType[] = [];
-  const idRecord: Record<string, FinalDBFileType> = {};
+  let combinedArray: FinalDBFileType[] = []
+  const idRecord: Record<string, FinalDBFileType> = {}
 
   files.forEach((file) => {
-    const filePath = path.join(folderPath, file);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
+    const filePath = path.join(folderPath, file)
+    const fileContent = fs.readFileSync(filePath, "utf-8")
 
     const parsedData = z
       .array(APIEndpointDomainsResultSchema)
-      .parse(JSON.parse(fileContent));
+      .parse(JSON.parse(fileContent))
 
-    log(`File ${file} has ${parsedData.length} rows`);
-    const key = keyFromFileName(file);
+    log(`File ${file} has ${parsedData.length} rows`)
+    const key = keyFromFileName(file)
 
     for (const newRow of parsedData) {
-      let testRow = idRecord[newRow.id];
+      let testRow = idRecord[newRow.id]
 
       if (testRow) {
         // @ts-expect-error -- key is LinkField but FinalDBFileType doesn't include "il", which is fine since scrapper never uses "il"
-        idRecord[newRow.id][key] = newRow.selector;
+        idRecord[newRow.id][key] = newRow.selector
         if (newRow.s) {
-          idRecord[newRow.id]["s"] = newRow.s;
+          idRecord[newRow.id]["s"] = newRow.s
         }
         if (newRow.hint) {
-          idRecord[newRow.id]["hint"] = true;
+          idRecord[newRow.id]["hint"] = true
         }
         if (newRow.hintText) {
-          idRecord[newRow.id]["hintText"] = newRow.hintText;
+          idRecord[newRow.id]["hintText"] = newRow.hintText
         }
         if (newRow.hintUrl) {
-          idRecord[newRow.id]["hintUrl"] = newRow.hintUrl;
+          idRecord[newRow.id]["hintUrl"] = newRow.hintUrl
         }
       } else {
         idRecord[newRow.id] = {
@@ -62,77 +63,77 @@ const loadJsonFiles = (folderPath: string) => {
           // c: newRow;
           ...(newRow.hint ? { hint: true } : {}),
           ...(newRow.hintText ? { hintText: newRow.hintText } : {}),
-          ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {}),
-        };
+          ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {})
+        }
       }
     }
-  });
+  })
 
-  log(`Combined data has ${Object.keys(idRecord).length} unique ids`);
-  combinedArray = Object.values(idRecord);
+  log(`Combined data has ${Object.keys(idRecord).length} unique ids`)
+  combinedArray = Object.values(idRecord)
 
   combinedArray = combinedArray.map((item) => {
     // @ts-expect-error -- ok here
-    const alt = alternatives[item.id];
+    const alt = alternatives[item.id]
 
     if (alt) {
-      item.alt = alt;
+      item.alt = alt
     }
 
-    return item;
-  });
+    return item
+  })
 
-  const sortedArray = combinedArray.sort((a, b) => a.n.localeCompare(b.n));
+  const sortedArray = combinedArray.sort((a, b) => a.n.localeCompare(b.n))
 
-  saveJsonToFile(sortedArray, outputFilePath);
-  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`);
-};
+  saveJsonToFile(sortedArray, outputFilePath)
+  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
+}
 
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8");
-  log(`Final data successfully written to ${outputFilePath}`);
+  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
+  log(`Final data successfully written to ${outputFilePath}`)
 
   // Format with prettier using CLI
-  log(`Formatting with prettier...`);
+  log(`Formatting with prettier...`)
   try {
     execSync(`npx prettier --write "${outputFilePath}"`, {
       stdio: "inherit",
-      cwd: path.join(__dirname, "../.."),
-    });
-    log(`Successfully formatted ${outputFilePath} with prettier`);
+      cwd: path.join(__dirname, "../..")
+    })
+    log(`Successfully formatted ${outputFilePath} with prettier`)
   } catch (error) {
-    log(`Warning: Failed to format with prettier: ${error}`);
-    throw error;
+    log(`Warning: Failed to format with prettier: ${error}`)
+    throw error
   }
-};
+}
 
 export async function run() {
-  return loadJsonFiles(folderPath);
+  return loadJsonFiles(folderPath)
 }
 function keyFromFileName(fileName: string): LinkField {
   switch (fileName.split(".")[0]) {
     case DBFileNames.FLAGGED_FACEBOOK:
-      return "fb";
+      return "fb"
     case DBFileNames.FLAGGED_LI_COMPANY:
-      return "li";
+      return "li"
     case DBFileNames.FLAGGED_TWITTER:
-      return "tw";
+      return "tw"
     case DBFileNames.WEBSITES:
-      return "ws";
+      return "ws"
     case DBFileNames.FLAGGED_INSTAGRAM:
-      return "ig";
+      return "ig"
     case DBFileNames.FLAGGED_GITHUB:
-      return "gh";
+      return "gh"
     case DBFileNames.FLAGGED_YOUTUBE_PROFILE:
-      return "ytp";
+      return "ytp"
     case DBFileNames.FLAGGED_YOUTUBE_CHANNEL:
-      return "ytc";
+      return "ytc"
     case DBFileNames.FLAGGED_TIKTOK:
-      return "tt";
+      return "tt"
     case DBFileNames.FLAGGED_THREADS:
-      return "th";
+      return "th"
 
     default:
-      throw new Error(`Unknown file name: ${fileName}`);
+      throw new Error(`Unknown file name: ${fileName}`)
   }
 }

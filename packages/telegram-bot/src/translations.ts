@@ -3,12 +3,13 @@
  * Provides compile-time key validation and language detection.
  */
 
-import type {Context} from "telegraf";
+import type { Context } from "telegraf"
+
 import {
   TRANSLATIONS,
-  type TranslationKey,
   type LanguageCode,
-} from "./TRANSLATIONS/DB.js";
+  type TranslationKey
+} from "./TRANSLATIONS/DB.js"
 
 /**
  * Gets a translation for a given key and language.
@@ -24,31 +25,31 @@ export function getTranslation<K extends TranslationKey>(
   language: LanguageCode,
   fallback: LanguageCode = "en"
 ): string {
-  const translation = TRANSLATIONS[key];
+  const translation = TRANSLATIONS[key]
   if (!translation) {
-    throw new Error(`Translation key "${String(key)}" not found`);
+    throw new Error(`Translation key "${String(key)}" not found`)
   }
 
-  const text = translation[language];
+  const text = translation[language]
   if (text) {
-    return text;
+    return text
   }
 
   // Try fallback language
-  const fallbackText = translation[fallback];
+  const fallbackText = translation[fallback]
   if (fallbackText) {
-    return fallbackText;
+    return fallbackText
   }
 
   // Last resort: try English
-  const englishText = translation.en;
+  const englishText = translation.en
   if (englishText) {
-    return englishText;
+    return englishText
   }
 
   throw new Error(
     `Translation missing for key "${String(key)}" in language "${language}" and fallback "${fallback}"`
-  );
+  )
 }
 
 /**
@@ -57,35 +58,32 @@ export function getTranslation<K extends TranslationKey>(
  */
 function normalizeLanguageCode(code: string | undefined): LanguageCode {
   if (!code || typeof code !== "string") {
-    return "en";
+    return "en"
   }
 
   // Normalize common variations
-  const normalized = code
-    .toLowerCase()
-    .replace(/-/g, "_")
-    .trim();
+  const normalized = code.toLowerCase().replace(/-/g, "_").trim()
 
   // Map known variations
   const languageMap: Record<string, LanguageCode> = {
-    "zh_cn": "zh_CN",
-    "zh_tw": "zh_TW",
+    zh_cn: "zh_CN",
+    zh_tw: "zh_TW",
     "zh-cn": "zh_CN",
     "zh-tw": "zh_TW",
-    "en_us": "en",
+    en_us: "en",
     "en-us": "en",
-    "en": "en",
-    "ar": "ar",
-    "id": "id",
-    "fr": "fr",
-    "nl": "nl",
-    "ms": "ms",
-    "bn": "bn",
-  };
+    en: "en",
+    ar: "ar",
+    id: "id",
+    fr: "fr",
+    nl: "nl",
+    ms: "ms",
+    bn: "bn"
+  }
 
-  const mapped = languageMap[normalized];
+  const mapped = languageMap[normalized]
   if (mapped) {
-    return mapped;
+    return mapped
   }
 
   // Check if it's a direct match (case-insensitive)
@@ -98,30 +96,30 @@ function normalizeLanguageCode(code: string | undefined): LanguageCode {
     "zh_CN",
     "zh_TW",
     "ms",
-    "bn",
-  ];
+    "bn"
+  ]
 
   const directMatch = supportedLanguages.find(
     (lang) => lang.toLowerCase() === normalized
-  );
+  )
   if (directMatch) {
-    return directMatch;
+    return directMatch
   }
 
   // Extract base language (e.g., "en" from "en-US")
-  const parts = normalized.split("_");
-  const baseLang = parts[0]?.split("-")[0];
+  const parts = normalized.split("_")
+  const baseLang = parts[0]?.split("-")[0]
   if (baseLang) {
     const baseMatch = supportedLanguages.find(
       (lang) => lang.toLowerCase() === baseLang
-    );
+    )
     if (baseMatch) {
-      return baseMatch;
+      return baseMatch
     }
   }
 
   // Default to English if no match found
-  return "en";
+  return "en"
 }
 
 /**
@@ -132,18 +130,18 @@ function normalizeLanguageCode(code: string | undefined): LanguageCode {
  */
 export function getUserLanguage(ctx: Context): LanguageCode {
   if (!("from" in ctx) || !ctx.from) {
-    return "en";
+    return "en"
   }
 
-  const languageCode = ctx.from.language_code;
-  return normalizeLanguageCode(languageCode);
+  const languageCode = ctx.from.language_code
+  return normalizeLanguageCode(languageCode)
 }
 
 /**
  * Type-safe translation function bound to a specific language.
  * Shorter alias: use `t` instead of `getTranslation`.
  */
-export type TFunction = <K extends TranslationKey>(key: K) => string;
+export type TFunction = <K extends TranslationKey>(key: K) => string
 
 /**
  * Creates a context-aware translation function.
@@ -157,10 +155,10 @@ export type TFunction = <K extends TranslationKey>(key: K) => string;
  * ```
  */
 export function getT(ctx: Context): TFunction {
-  const language = getUserLanguage(ctx);
+  const language = getUserLanguage(ctx)
   return <K extends TranslationKey>(key: K): string => {
-    return getTranslation(key, language);
-  };
+    return getTranslation(key, language)
+  }
 }
 
 /**
@@ -176,10 +174,9 @@ export function getT(ctx: Context): TFunction {
  */
 export function getTByLanguage(language: LanguageCode = "en"): TFunction {
   return <K extends TranslationKey>(key: K): string => {
-    return getTranslation(key, language);
-  };
+    return getTranslation(key, language)
+  }
 }
 
 // Re-export types for convenience
-export type {TranslationKey, LanguageCode};
-
+export type { TranslationKey, LanguageCode }

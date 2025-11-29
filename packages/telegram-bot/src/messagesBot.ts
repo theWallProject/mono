@@ -5,4 +5,4 @@
  */
 
 // Re-export translation types
-export type {TranslationKey, LanguageCode} from "./translations.js";
+export type { TranslationKey, LanguageCode } from "./translations.js"

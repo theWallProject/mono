@@ -77,4 +77,3 @@ pnpm build
 
 - All packages use `@theWallProject/*` scope for consistency
 - The `common` package is linked as a workspace dependency in `addon` and `scrapper`
-

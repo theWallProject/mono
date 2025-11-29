@@ -202,7 +202,7 @@ services:
           "--quiet",
           "--tries=1",
           "--spider",
-          "http://localhost:3333/health",
+          "http://localhost:3333/health"
         ]
       interval: 30s
       timeout: 10s

@@ -1,32 +1,33 @@
-import fs from "fs";
-import path from "path";
+import fs from "fs"
+import path from "path"
 import {
-  getMainDomain,
-  API_ENDPOINT_RULE_LINKEDIN_COMPANY,
   API_ENDPOINT_RULE_FACEBOOK,
-  API_ENDPOINT_RULE_TWITTER,
-  API_ENDPOINT_RULE_INSTAGRAM,
   API_ENDPOINT_RULE_GITHUB,
-  API_ENDPOINT_RULE_YOUTUBE_PROFILE,
-  API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
-  API_ENDPOINT_RULE_TIKTOK,
+  API_ENDPOINT_RULE_INSTAGRAM,
+  API_ENDPOINT_RULE_LINKEDIN_COMPANY,
   API_ENDPOINT_RULE_THREADS,
-  type LinkField,
-} from "@theWallProject/common";
-import { APIScrapperFileDataSchema, ScrappedItemType } from "../types";
-import { log, cleanWebsite, error } from "../helper";
-import { manualDeleteIds } from "./manual_resolve/manualDeleteIds";
-import { manualOverrides } from "./manual_resolve/manualOverrides";
+  API_ENDPOINT_RULE_TIKTOK,
+  API_ENDPOINT_RULE_TWITTER,
+  API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
+  API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+  getMainDomain,
+  type LinkField
+} from "@theWallProject/common"
+
+import { cleanWebsite, error, log } from "../helper"
+import { APIScrapperFileDataSchema, ScrappedItemType } from "../types"
+import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
+import { manualOverrides } from "./manual_resolve/manualOverrides"
 
 // Type for items that may have ig/gh/ytp/ytc/tt/th from manual overrides (not in base ScrappedItemType)
 type ScrappedItemWithOverrides = ScrappedItemType & {
-  ig?: string;
-  gh?: string;
-  ytp?: string;
-  ytc?: string;
-  tt?: string;
-  th?: string;
-};
+  ig?: string
+  gh?: string
+  ytp?: string
+  ytc?: string
+  tt?: string
+  th?: string
+}
 
 // Helper to extract identifier from URL for ID generation
 const extractIdentifier = (url: string, field: LinkField): string => {
@@ -36,127 +37,127 @@ const extractIdentifier = (url: string, field: LinkField): string => {
       .replace(/^https?:\/\//, "")
       .replace(/^www\./, "")
       .split("/")[0]
-      .replace(/\./g, "_");
-    return domain;
+      .replace(/\./g, "_")
+    return domain
   } else if (field === "li") {
-    const regex = new RegExp(API_ENDPOINT_RULE_LINKEDIN_COMPANY.regex);
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_LINKEDIN_COMPANY.regex)
+    const results = regex.exec(url)
     if (!results || !results[1]) {
-      throw new Error(`Failed to extract LinkedIn identifier from: ${url}`);
+      throw new Error(`Failed to extract LinkedIn identifier from: ${url}`)
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   } else if (field === "fb") {
-    const regex = new RegExp(API_ENDPOINT_RULE_FACEBOOK.regex);
-    const normalizedUrl = url.replace("/pg/", "/").replace("/p/", "/");
-    const results = regex.exec(normalizedUrl);
+    const regex = new RegExp(API_ENDPOINT_RULE_FACEBOOK.regex)
+    const normalizedUrl = url.replace("/pg/", "/").replace("/p/", "/")
+    const results = regex.exec(normalizedUrl)
     if (!results || !results[1]) {
-      throw new Error(`Failed to extract Facebook identifier from: ${url}`);
+      throw new Error(`Failed to extract Facebook identifier from: ${url}`)
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   } else if (field === "tw") {
-    const regex = new RegExp(API_ENDPOINT_RULE_TWITTER.regex);
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_TWITTER.regex)
+    const results = regex.exec(url)
     if (!results || !results[1]) {
-      throw new Error(`Failed to extract Twitter identifier from: ${url}`);
+      throw new Error(`Failed to extract Twitter identifier from: ${url}`)
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   } else if (field === "ig") {
-    const regex = new RegExp(API_ENDPOINT_RULE_INSTAGRAM.regex);
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_INSTAGRAM.regex)
+    const results = regex.exec(url)
     if (!results || !results[1]) {
-      throw new Error(`Failed to extract Instagram identifier from: ${url}`);
+      throw new Error(`Failed to extract Instagram identifier from: ${url}`)
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   } else if (field === "gh") {
-    const regex = new RegExp(API_ENDPOINT_RULE_GITHUB.regex);
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_GITHUB.regex)
+    const results = regex.exec(url)
     if (!results || !results[1]) {
-      throw new Error(`Failed to extract GitHub identifier from: ${url}`);
+      throw new Error(`Failed to extract GitHub identifier from: ${url}`)
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   } else if (field === "ytp") {
-    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i");
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i")
+    const results = regex.exec(url)
     if (!results) {
       throw new Error(
-        `Failed to extract YouTube Profile identifier from: ${url}`,
-      );
+        `Failed to extract YouTube Profile identifier from: ${url}`
+      )
     }
     // Check all capture groups (user/, c/, @, or direct format) and use the first non-undefined one
-    const id = results[1] || results[2] || results[3] || results[4];
+    const id = results[1] || results[2] || results[3] || results[4]
     if (!id) {
       throw new Error(
-        `Failed to extract YouTube Profile identifier from: ${url}`,
-      );
+        `Failed to extract YouTube Profile identifier from: ${url}`
+      )
     }
-    return id.replace(/\//g, "_");
+    return id.replace(/\//g, "_")
   } else if (field === "ytc") {
-    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i");
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i")
+    const results = regex.exec(url)
     if (!results || !results[1]) {
       throw new Error(
-        `Failed to extract YouTube Channel identifier from: ${url}`,
-      );
+        `Failed to extract YouTube Channel identifier from: ${url}`
+      )
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   } else if (field === "tt") {
-    const regex = new RegExp(API_ENDPOINT_RULE_TIKTOK.regex);
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_TIKTOK.regex)
+    const results = regex.exec(url)
     if (!results || !results[1]) {
-      throw new Error(`Failed to extract TikTok identifier from: ${url}`);
+      throw new Error(`Failed to extract TikTok identifier from: ${url}`)
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   } else if (field === "th") {
-    const regex = new RegExp(API_ENDPOINT_RULE_THREADS.regex);
-    const results = regex.exec(url);
+    const regex = new RegExp(API_ENDPOINT_RULE_THREADS.regex)
+    const results = regex.exec(url)
     if (!results || !results[1]) {
-      throw new Error(`Failed to extract Threads identifier from: ${url}`);
+      throw new Error(`Failed to extract Threads identifier from: ${url}`)
     }
-    return results[1].replace(/\//g, "_");
+    return results[1].replace(/\//g, "_")
   }
-  throw new Error(`Unknown field: ${field}`);
-};
+  throw new Error(`Unknown field: ${field}`)
+}
 // import MERGED_CB from "../../results/2_merged/1_MERGED_CB.json";
 
-const folderPath = path.join(__dirname, "../../results/1_batches/static");
+const folderPath = path.join(__dirname, "../../results/1_batches/static")
 const mergedCBPath = path.join(
   __dirname,
-  "../../results/2_merged/1_MERGED_CB.json",
-);
+  "../../results/2_merged/1_MERGED_CB.json"
+)
 
 const outputFilePath = path.join(
   __dirname,
-  "../../results/2_merged/2_MERGED_ALL.json",
-);
+  "../../results/2_merged/2_MERGED_ALL.json"
+)
 
 const loadJsonFiles = (folderPath: string) => {
-  const mergedCBContent = fs.readFileSync(mergedCBPath, "utf-8");
+  const mergedCBContent = fs.readFileSync(mergedCBPath, "utf-8")
 
   let combinedArray = APIScrapperFileDataSchema.parse(
-    JSON.parse(mergedCBContent),
-  );
+    JSON.parse(mergedCBContent)
+  )
 
   const files = fs
     .readdirSync(folderPath)
-    .filter((file) => file.endsWith(".json"));
+    .filter((file) => file.endsWith(".json"))
 
   files.forEach((file) => {
-    const filePath = path.join(folderPath, file);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const parsedData = APIScrapperFileDataSchema.parse(JSON.parse(fileContent));
+    const filePath = path.join(folderPath, file)
+    const fileContent = fs.readFileSync(filePath, "utf-8")
+    const parsedData = APIScrapperFileDataSchema.parse(JSON.parse(fileContent))
 
-    log(`Static File ${file} has ${parsedData.length} rows`);
+    log(`Static File ${file} has ${parsedData.length} rows`)
 
     for (const newRow of parsedData) {
       const siteExists = combinedArray.some((row) => {
-        return newRow.ws && cleanWebsite(newRow.ws) === cleanWebsite(row.ws);
-      });
+        return newRow.ws && cleanWebsite(newRow.ws) === cleanWebsite(row.ws)
+      })
 
       if (siteExists) {
-        error(`Skipping Duplicate website:`, newRow);
-        continue;
+        error(`Skipping Duplicate website:`, newRow)
+        continue
       } else {
-        combinedArray.push(newRow);
+        combinedArray.push(newRow)
       }
 
       // if (newRow.ws && urls.has(newRow.ws)) {
@@ -190,17 +191,17 @@ const loadJsonFiles = (folderPath: string) => {
       //   combinedArray.push(newRow);
       // }
     }
-  });
+  })
 
   const deDubeArray = combinedArray.flatMap((row) => {
-    row.li = cleanWebsite(row.li);
-    row.ws = cleanWebsite(row.ws);
-    row.fb = cleanWebsite(row.fb);
-    row.tw = cleanWebsite(row.tw);
+    row.li = cleanWebsite(row.li)
+    row.ws = cleanWebsite(row.ws)
+    row.fb = cleanWebsite(row.fb)
+    row.tw = cleanWebsite(row.tw)
 
-    const { id } = row;
+    const { id } = row
 
-    if (manualDeleteIds.includes(id)) return [];
+    if (manualDeleteIds.includes(id)) return []
 
     // const dubName = tmpArr.find((row) => row.name === name);
     // const dubWebsite = tmpArr.find((row) => row.ws === ws && ws);
@@ -287,61 +288,61 @@ const loadJsonFiles = (folderPath: string) => {
     // } else {
     // tmpArr.push(row);
 
-    return [row];
+    return [row]
     // }
-  });
+  })
 
   // First pass: normalize URLs and apply overrides (including arrays)
-  const processedItems: ScrappedItemWithOverrides[] = [];
-  const additionalItems: ScrappedItemWithOverrides[] = [];
+  const processedItems: ScrappedItemWithOverrides[] = []
+  const additionalItems: ScrappedItemWithOverrides[] = []
 
   for (const row of deDubeArray) {
     row.tw = row.tw
       ?.replace("www.twitter.com", "x.com")
-      ?.replace("twitter.com", "x.com");
+      ?.replace("twitter.com", "x.com")
 
-    row.li = row.li?.replace("/company-beta/", "/company/");
+    row.li = row.li?.replace("/company-beta/", "/company/")
 
     if (row.ws) {
-      row.ws = getMainDomain(row.ws);
+      row.ws = getMainDomain(row.ws)
     }
 
     // Remove https:// and http:// from all URL fields
     const removeProtocol = (url: string | undefined): string | undefined => {
-      if (!url) return url;
-      return url.replace(/^https?:\/\//, "");
-    };
+      if (!url) return url
+      return url.replace(/^https?:\/\//, "")
+    }
 
-    row.ws = removeProtocol(row.ws);
-    row.li = removeProtocol(row.li);
-    row.fb = removeProtocol(row.fb);
-    row.tw = removeProtocol(row.tw);
+    row.ws = removeProtocol(row.ws)
+    row.li = removeProtocol(row.li)
+    row.fb = removeProtocol(row.fb)
+    row.tw = removeProtocol(row.tw)
 
-    const override = manualOverrides[row.name];
+    const override = manualOverrides[row.name]
 
     if (override) {
       // Apply override, but exclude the processed state flags and urls field
-      const excludeKeys = new Set(["_processed", "urls"]);
+      const excludeKeys = new Set(["_processed", "urls"])
       const overrideFields = Object.fromEntries(
-        Object.entries(override).filter(([key]) => !excludeKeys.has(key)),
-      );
-      const hasOverrideFields = Object.keys(overrideFields).length > 0;
+        Object.entries(override).filter(([key]) => !excludeKeys.has(key))
+      )
+      const hasOverrideFields = Object.keys(overrideFields).length > 0
 
       if (!hasOverrideFields) {
         // No override fields means processed with no changes - skip
-        processedItems.push(row);
-        continue;
+        processedItems.push(row)
+        continue
       }
 
       // Process each override field, handling arrays
-      const updatedRow: ScrappedItemWithOverrides = { ...row };
+      const updatedRow: ScrappedItemWithOverrides = { ...row }
 
       // Apply name override first if present (before logging)
       if (overrideFields.name && typeof overrideFields.name === "string") {
-        updatedRow.name = overrideFields.name;
+        updatedRow.name = overrideFields.name
       }
 
-      log(`Manually updated ${updatedRow.name}`);
+      log(`Manually updated ${updatedRow.name}`)
       const linkFields: LinkField[] = [
         "ws",
         "li",
@@ -352,74 +353,74 @@ const loadJsonFiles = (folderPath: string) => {
         "ytp",
         "ytc",
         "tt",
-        "th",
-      ];
+        "th"
+      ]
 
       // Helper to remove protocol from URLs
       const removeProtocol = (url: string | undefined): string | undefined => {
-        if (!url) return url;
-        return url.replace(/^https?:\/\//, "");
-      };
+        if (!url) return url
+        return url.replace(/^https?:\/\//, "")
+      }
 
       // Helper to set field on object using proper typing
       const setField = (
         obj: ScrappedItemWithOverrides,
         field: LinkField,
-        value: string | undefined,
+        value: string | undefined
       ) => {
-        if (field === "ws") obj.ws = value;
-        else if (field === "li") obj.li = value;
-        else if (field === "fb") obj.fb = value;
-        else if (field === "tw") obj.tw = value;
-        else if (field === "ig") obj.ig = value;
-        else if (field === "gh") obj.gh = value;
-        else if (field === "ytp") obj.ytp = value;
-        else if (field === "ytc") obj.ytc = value;
-        else if (field === "tt") obj.tt = value;
-        else if (field === "th") obj.th = value;
-      };
+        if (field === "ws") obj.ws = value
+        else if (field === "li") obj.li = value
+        else if (field === "fb") obj.fb = value
+        else if (field === "tw") obj.tw = value
+        else if (field === "ig") obj.ig = value
+        else if (field === "gh") obj.gh = value
+        else if (field === "ytp") obj.ytp = value
+        else if (field === "ytc") obj.ytc = value
+        else if (field === "tt") obj.tt = value
+        else if (field === "th") obj.th = value
+      }
 
       for (const field of linkFields) {
-        const overrideValue = overrideFields[field];
-        if (overrideValue === undefined) continue;
+        const overrideValue = overrideFields[field]
+        if (overrideValue === undefined) continue
 
         if (Array.isArray(overrideValue)) {
           // Update original with first element
           if (overrideValue.length > 0) {
-            const firstUrl = overrideValue[0];
+            const firstUrl = overrideValue[0]
             if (typeof firstUrl === "string") {
-              setField(updatedRow, field, removeProtocol(firstUrl));
+              setField(updatedRow, field, removeProtocol(firstUrl))
             }
           }
 
           // Create new minimal entries for remaining elements
           for (let i = 1; i < overrideValue.length; i++) {
-            const url = overrideValue[i];
-            if (!url || url === "" || typeof url !== "string") continue;
+            const url = overrideValue[i]
+            if (!url || url === "" || typeof url !== "string") continue
 
             try {
-              const identifier = extractIdentifier(url, field);
-              const newId = `${row.id}_manual_${field}_${identifier}`;
+              const identifier = extractIdentifier(url, field)
+              const newId = `${row.id}_manual_${field}_${identifier}`
 
               const newItem: ScrappedItemWithOverrides = {
                 id: newId,
                 name: row.name,
-                reasons: row.reasons,
-              };
-              setField(newItem, field, removeProtocol(url));
+                reasons: row.reasons
+              }
+              setField(newItem, field, removeProtocol(url))
 
-              additionalItems.push(newItem);
-              log(`Created new entry: ${newId} for ${field}: ${url}`);
+              additionalItems.push(newItem)
+              log(`Created new entry: ${newId} for ${field}: ${url}`)
             } catch (e) {
               error(
-                `Failed to extract identifier from ${url} for ${row.name}: ${e}`,
-              );
-              throw e;
+                `Failed to extract identifier from ${url} for ${row.name}: ${e}`
+              )
+              throw e
             }
           }
         } else if (typeof overrideValue === "string") {
           // Single string value - apply normally, remove protocol
-          setField(updatedRow, field, removeProtocol(overrideValue));
+          setField(updatedRow, field, removeProtocol(overrideValue))
         }
       }
 
@@ -428,12 +429,12 @@ const loadJsonFiles = (folderPath: string) => {
       for (const [key, value] of Object.entries(overrideFields)) {
         // Skip special fields
         if (key === "_processed" || key === "urls") {
-          continue;
+          continue
         }
 
         // Skip name (already handled above)
         if (key === "name") {
-          continue;
+          continue
         }
 
         // Skip link fields (already handled in linkFields loop above)
@@ -449,51 +450,51 @@ const loadJsonFiles = (folderPath: string) => {
           key === "tt" ||
           key === "th"
         ) {
-          continue;
+          continue
         }
 
         // Hard fail if key doesn't exist in the row object (invalid property)
         if (!(key in updatedRow)) {
-          const validKeys = Object.keys(updatedRow).join(", ");
+          const validKeys = Object.keys(updatedRow).join(", ")
           error(
-            `Unexpected override key "${key}" for ${row.name}. Valid keys: ${validKeys}`,
-          );
-          throw new Error(`Invalid override key "${key}" for ${row.name}`);
+            `Unexpected override key "${key}" for ${row.name}. Valid keys: ${validKeys}`
+          )
+          throw new Error(`Invalid override key "${key}" for ${row.name}`)
         }
 
-        Object.assign(updatedRow, { [key]: value });
+        Object.assign(updatedRow, { [key]: value })
       }
 
       // Remove protocol from override-applied URLs
       // Note: ig, gh, ytp, ytc, tt, and th are handled through linkFields loop above with protocol already removed
-      updatedRow.ws = updatedRow.ws?.replace(/^https?:\/\//, "");
-      updatedRow.li = updatedRow.li?.replace(/^https?:\/\//, "");
-      updatedRow.fb = updatedRow.fb?.replace(/^https?:\/\//, "");
-      updatedRow.tw = updatedRow.tw?.replace(/^https?:\/\//, "");
+      updatedRow.ws = updatedRow.ws?.replace(/^https?:\/\//, "")
+      updatedRow.li = updatedRow.li?.replace(/^https?:\/\//, "")
+      updatedRow.fb = updatedRow.fb?.replace(/^https?:\/\//, "")
+      updatedRow.tw = updatedRow.tw?.replace(/^https?:\/\//, "")
 
-      processedItems.push(updatedRow);
+      processedItems.push(updatedRow)
     } else {
-      processedItems.push(row);
+      processedItems.push(row)
     }
   }
 
   // Combine processed items with additional items
-  const manuallyUpdatedArray = [...processedItems, ...additionalItems];
+  const manuallyUpdatedArray = [...processedItems, ...additionalItems]
 
   const sortedArray = manuallyUpdatedArray.sort((a, b) =>
-    a.name.localeCompare(b.name),
-  );
+    a.name.localeCompare(b.name)
+  )
 
-  saveJsonToFile(sortedArray, outputFilePath);
-  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`);
+  saveJsonToFile(sortedArray, outputFilePath)
+  log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
 
-  return sortedArray;
-};
+  return sortedArray
+}
 
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8");
-  log(`Data successfully written to ${outputFilePath}`);
-};
+  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
+  log(`Data successfully written to ${outputFilePath}`)
+}
 
 // function areDuplicates(
 //   row1: ScrappedItemType,
@@ -513,5 +514,5 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
 // }
 
 export async function run() {
-  return loadJsonFiles(folderPath);
+  return loadJsonFiles(folderPath)
 }

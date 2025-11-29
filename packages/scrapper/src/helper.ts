@@ -1,18 +1,18 @@
 export function log(...params: unknown[]) {
   // alert(text)
-  console.log(...params);
+  console.log(...params)
   // debugger
 }
 
 export function error(...params: unknown[]) {
   // alert(text)
-  console.error("🔴", ...params);
+  console.error("🔴", ...params)
   // debugger
 }
 
 export function warn(...params: unknown[]) {
   // alert(text)
-  console.warn("🟡", ...params);
+  console.warn("🟡", ...params)
   // debugger
 }
 
@@ -20,5 +20,5 @@ export function cleanWebsite(website?: string) {
   return website
     ?.replace(/^https?:\/\//, "")
     .replace(/\/$/, "")
-    .split("/?")[0];
+    .split("/?")[0]
 }
