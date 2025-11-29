@@ -44,9 +44,9 @@ packages/telegram-bot/
 
    - Send `/newbot` command
    - Choose a name for your bot
-   - Choose a username (must end in `bot`, e.g., `thewall_bot`)
+   - Choose a username (must end in `bot`, e.g., `theWallBoycott_bot`)
    - **Save the BOT_TOKEN** provided by BotFather
-   - Get bot username (e.g., `thewall_bot`) for mention detection
+   - Get bot username (e.g., `theWallBoycott_bot`) for mention detection
 
 2. Create `.env` file in `packages/telegram-bot/`:
 

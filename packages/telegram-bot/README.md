@@ -4,7 +4,7 @@ Telegram bot that checks URLs against The Wall database to determine if links ar
 
 ## Features
 
-- **Inline queries**: Check URLs by typing `@botname <url>` in any chat
+- **Inline queries**: Check URLs by typing `@theWallBoycott_bot <url>` in any chat
 - **Direct messages**: Send URLs directly to the bot in private chat
 - **Group mentions**: Mention the bot in groups with a URL to check it
 
@@ -22,19 +22,21 @@ Telegram bot that checks URLs against The Wall database to determine if links ar
    - Open [@BotFather](https://t.me/botfather) on Telegram
    - Send `/newbot` command
    - Choose a name for your bot
-   - Choose a username (must end in `bot`, e.g., `thewall_bot`)
+   - Choose a username (must end in `bot`, e.g., `theWallBoycott_bot`)
    - **Save the BOT_TOKEN** provided by BotFather
-   - Note your bot's username (e.g., `thewall_bot`)
+   - Note your bot's username (e.g., `theWallBoycott_bot`)
 
 2. **Configure Environment Variables**:
    - Copy `.env.example` to `.env` (if not blocked by gitignore)
    - Fill in your values:
-     ```env
-     BOT_TOKEN=your_bot_token_here
-     BOT_USERNAME=your_bot_username_here
-     PORT=3004
-     NODE_ENV=development
-     ```
+
+   ```env
+   BOT_TOKEN=your_bot_token_here
+   BOT_USERNAME=theWallBoycott_bot
+   PORT=3004
+   NODE_ENV=development
+   WEBHOOK_URL=https://your-public-bot-url.example.com
+   ```
 
 3. **Install Dependencies**:
 
@@ -78,7 +80,7 @@ Telegram bot that checks URLs against The Wall database to determine if links ar
 
 ### Inline Queries
 
-Type `@your_bot_name <url>` in any chat to get instant results.
+Type `@theWallBoycott_bot <url>` in any chat to get instant results.
 
 ### Direct Messages
 
@@ -86,7 +88,7 @@ Send a URL directly to the bot in a private chat.
 
 ### Group Mentions
 
-Mention the bot (`@your_bot_name`) in a group message containing a URL.
+Mention the bot (`@theWallBoycott_bot`) in a group message containing a URL.
 
 ## Error Handling Philosophy
 
