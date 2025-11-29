@@ -60,7 +60,7 @@ sudo usermod -aG docker $USER
 
 ```bash
 docker --version
-docker compose version
+docker-compose --version
 ```
 
 ## Running Docker Alongside Existing Web Server
@@ -214,20 +214,20 @@ Use docker-compose commands:
 
 ```bash
 # Build and start
-docker compose up -d --build
+docker-compose up -d --build
 
 # Or separately:
-docker compose build
-docker compose up -d
+docker-compose build
+docker-compose up -d
 
 # View logs
-docker compose logs -f
+docker-compose logs -f
 
 # Stop
-docker compose stop
+docker-compose stop
 
 # Stop and remove
-docker compose down
+docker-compose down
 ```
 
 **Note**: Port 3333 is hardcoded in the configuration.

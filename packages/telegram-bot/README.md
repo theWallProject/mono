@@ -205,20 +205,20 @@ The project uses `docker-compose.yml` which automatically reads `PORT` and other
 # From packages/telegram-bot directory:
 
 # Build and run
-docker compose up -d --build
+docker-compose up -d --build
 
 # Or separately:
-docker compose build
-docker compose up -d
+docker-compose build
+docker-compose up -d
 
 # View logs
-docker compose logs -f
+docker-compose logs -f
 
 # Stop
-docker compose stop
+docker-compose stop
 
 # Stop and remove
-docker compose down
+docker-compose down
 ```
 
 **Note**: Docker Compose automatically reads `.env.prod` and substitutes `${PORT}` in the compose file. No manual PORT extraction needed!
