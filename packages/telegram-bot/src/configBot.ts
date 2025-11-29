@@ -11,13 +11,45 @@ const getRequiredEnv = (key: string): string => {
   return value;
 };
 
-const getOptionalEnv = (key: string, defaultValue: string): string => {
-  return process.env[key] ?? defaultValue;
-};
+export const NODE_ENV: "development" | "production" = (():
+  | "development"
+  | "production" => {
+  const env = getRequiredEnv("NODE_ENV");
+  if (env !== "development" && env !== "production") {
+    throw new Error(
+      `Invalid NODE_ENV: ${env}. Must be "development" or "production"`
+    );
+  }
+  return env;
+})();
 
-export const BOT_TOKEN: string = getRequiredEnv("BOT_TOKEN");
+/**
+ * Gets bot token based on environment.
+ * Dev: Requires BOT_TOKEN_DEV (fail-fast, no fallback).
+ * Prod: Requires BOT_TOKEN.
+ */
+export const BOT_TOKEN: string = ((): string => {
+  if (NODE_ENV === "development") {
+    // Dev: require BOT_TOKEN_DEV (fail-fast)
+    return getRequiredEnv("BOT_TOKEN_DEV");
+  }
+  // Prod: require BOT_TOKEN
+  return getRequiredEnv("BOT_TOKEN");
+})();
 
-export const BOT_USERNAME: string = getRequiredEnv("BOT_USERNAME");
+/**
+ * Gets bot username based on environment.
+ * Dev: Requires BOT_USERNAME_DEV (fail-fast, no fallback).
+ * Prod: Requires BOT_USERNAME.
+ */
+export const BOT_USERNAME: string = ((): string => {
+  if (NODE_ENV === "development") {
+    // Dev: require BOT_USERNAME_DEV (fail-fast)
+    return getRequiredEnv("BOT_USERNAME_DEV");
+  }
+  // Prod: require BOT_USERNAME
+  return getRequiredEnv("BOT_USERNAME");
+})();
 
 export const PORT: number = ((): number => {
   const portStr = getRequiredEnv("PORT");
@@ -30,16 +62,16 @@ export const PORT: number = ((): number => {
   return port;
 })();
 
-export const NODE_ENV: "development" | "production" = (():
-  | "development"
-  | "production" => {
-  const env = getOptionalEnv("NODE_ENV", "development");
-  if (env !== "development" && env !== "production") {
-    throw new Error(
-      `Invalid NODE_ENV: ${env}. Must be "development" or "production"`
-    );
+/**
+ * Gets webhook URL based on environment.
+ * Dev: Optional (uses polling mode if not set).
+ * Prod: Required (fail-fast).
+ */
+export const WEBHOOK_URL: string | undefined = ((): string | undefined => {
+  if (NODE_ENV === "production") {
+    // Prod: require WEBHOOK_URL (fail-fast)
+    return getRequiredEnv("WEBHOOK_URL");
   }
-  return env;
+  // Dev: optional (polling mode if not set)
+  return process.env.WEBHOOK_URL;
 })();
-
-export const WEBHOOK_URL: string | undefined = process.env.WEBHOOK_URL;

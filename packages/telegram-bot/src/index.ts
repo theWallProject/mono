@@ -3,10 +3,25 @@
  * Express.js server with Telegraf webhook/polling support.
  */
 
-import "dotenv/config";
+import {config} from "dotenv";
+import {resolve} from "node:path";
 import express, {type Request, type Response} from "express";
 import {createBot} from "./bot.js";
 import {PORT, WEBHOOK_URL, NODE_ENV} from "./configBot.js";
+
+// Load environment-specific .env file
+// First check if NODE_ENV is set externally, otherwise default to development
+const env = process.env.NODE_ENV ?? "development";
+const envFile = env === "production" ? ".env.prod" : ".env.dev";
+const envPath = resolve(process.cwd(), envFile);
+
+// Load the appropriate env file (fail-fast if file doesn't exist)
+const result = config({path: envPath});
+if (result.error) {
+  throw new Error(
+    `Failed to load environment file ${envFile} at ${envPath}: ${result.error.message}`
+  );
+}
 
 const app = express();
 
@@ -23,21 +38,26 @@ const bot = createBot();
 
 // Webhook or polling setup
 if (WEBHOOK_URL) {
-  // Webhook mode
-  app.use(bot.webhookCallback("/webhook"));
-  bot.telegram.setWebhook(`${WEBHOOK_URL}/webhook`).catch((error) => {
-    throw new Error(
-      `Failed to set webhook: ${
-        error instanceof Error ? error.message : String(error)
-      }`
-    );
-  });
-  console.log(`Bot webhook set to: ${WEBHOOK_URL}/webhook`);
+  // Webhook mode (production or dev with webhook)
+  // Use bot.createWebhook instead of bot.webhookCallback (recommended by Telegraf)
+  bot
+    .createWebhook({
+      domain: WEBHOOK_URL,
+      path: "/webhook",
+    })
+    .then((webhookMiddleware) => {
+      app.use(webhookMiddleware);
+      console.log(`Bot webhook set to: ${WEBHOOK_URL}/webhook`);
+    })
+    .catch((error) => {
+      throw new Error(
+        `Failed to create webhook: ${
+          error instanceof Error ? error.message : String(error)
+        }`
+      );
+    });
 } else {
-  // Polling mode (development)
-  if (NODE_ENV === "production") {
-    throw new Error("WEBHOOK_URL is required in production mode");
-  }
+  // Polling mode (development only - WEBHOOK_URL is required in production)
   bot.launch().catch((error) => {
     throw new Error(
       `Failed to launch bot: ${
