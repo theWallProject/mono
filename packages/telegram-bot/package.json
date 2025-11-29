@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "tsx scripts/copy-db.ts",
     "build": "tsc --build",
-    "dev": "tsx watch src/index.ts",
+    "dev": "cross-env NODE_ENV=development tsx watch src/index.ts",
     "start": "node dist/index.js",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
@@ -31,6 +31,7 @@
     "@types/node": "^24.8.1",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
+    "cross-env": "^10.1.0",
     "eslint": "^9.37.0",
     "prettier": "^3.4.1",
     "tsx": "^4.19.2",

@@ -43,7 +43,7 @@ You can run both simultaneously - dev locally for testing new features, prod on 
    **`.env.dev`** (for development):
 
    ```env
-   BOT_TOKEN_DEV=your_dev_bot_token_here
+   BOT_TOKEN=your_dev_bot_token_here
    BOT_USERNAME_DEV=your_dev_bot_username_here
    PORT=3005
    NODE_ENV=development
@@ -91,7 +91,7 @@ You can run both simultaneously - dev locally for testing new features, prod on 
 
 ### Development (Required when NODE_ENV=development)
 
-- `BOT_TOKEN_DEV` - Telegram bot token for development/testing (required in dev mode)
+- `BOT_TOKEN` - Telegram bot token for development/testing (required in dev mode)
 - `BOT_USERNAME_DEV` - Development bot username (required in dev mode)
   - Bot will fail-fast if not set in development mode
   - Use separate dev bot for testing new features
@@ -109,7 +109,7 @@ You can run both simultaneously - dev locally for testing new features, prod on 
 ### Environment-Based Behavior
 
 - **Development** (`NODE_ENV=development`):
-  - Requires `BOT_TOKEN_DEV` and `BOT_USERNAME_DEV` (fail-fast if missing)
+  - Requires `BOT_TOKEN` and `BOT_USERNAME_DEV` (fail-fast if missing)
   - Runs in polling mode if `WEBHOOK_URL` is not set
   - Typically runs locally via `pnpm dev`
 
@@ -164,7 +164,7 @@ pnpm dev
 ### Development Bot Setup
 
 1. Create a separate dev bot via [@BotFather](https://t.me/botfather) (required)
-2. Set `BOT_TOKEN_DEV` and `BOT_USERNAME_DEV` in `.env`
+2. Set `BOT_TOKEN` and `BOT_USERNAME_DEV` in `.env`
 3. Set `NODE_ENV=development` (required)
 4. Run `pnpm dev` - bot will use dev token
 

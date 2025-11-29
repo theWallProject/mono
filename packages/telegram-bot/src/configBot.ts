@@ -25,31 +25,15 @@ export const NODE_ENV: "development" | "production" = (():
 
 /**
  * Gets bot token based on environment.
- * Dev: Requires BOT_TOKEN_DEV (fail-fast, no fallback).
- * Prod: Requires BOT_TOKEN.
+ * Uses BOT_TOKEN from .env.dev (development) or .env.prod (production).
  */
-export const BOT_TOKEN: string = ((): string => {
-  if (NODE_ENV === "development") {
-    // Dev: require BOT_TOKEN_DEV (fail-fast)
-    return getRequiredEnv("BOT_TOKEN_DEV");
-  }
-  // Prod: require BOT_TOKEN
-  return getRequiredEnv("BOT_TOKEN");
-})();
+export const BOT_TOKEN: string = getRequiredEnv("BOT_TOKEN");
 
 /**
  * Gets bot username based on environment.
- * Dev: Requires BOT_USERNAME_DEV (fail-fast, no fallback).
- * Prod: Requires BOT_USERNAME.
+ * Uses BOT_USERNAME from .env.dev (development) or .env.prod (production).
  */
-export const BOT_USERNAME: string = ((): string => {
-  if (NODE_ENV === "development") {
-    // Dev: require BOT_USERNAME_DEV (fail-fast)
-    return getRequiredEnv("BOT_USERNAME_DEV");
-  }
-  // Prod: require BOT_USERNAME
-  return getRequiredEnv("BOT_USERNAME");
-})();
+export const BOT_USERNAME: string = getRequiredEnv("BOT_USERNAME");
 
 /**
  * Server port (hardcoded).

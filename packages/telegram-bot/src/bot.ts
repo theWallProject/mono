@@ -37,6 +37,10 @@ export async function handleInlineQueryBot(ctx: Context): Promise<void> {
   const result = checkUrlForBot(url, ctx);
   const formatted = formatResultForBot(result, "inline", ctx);
 
+  // Add advertising message to inline query result
+  const adMessage = `\n\n${t("advertising.addon")}\n\n${t("advertising.share")}`;
+  const formattedWithAd = formatted + adMessage;
+
   const title = result?.isHint
     ? result.name
     : result
@@ -75,7 +79,7 @@ export async function handleInlineQueryBot(ctx: Context): Promise<void> {
       title,
       description,
       input_message_content: {
-        message_text: formatted,
+        message_text: formattedWithAd,
         parse_mode: "Markdown",
       },
     },
@@ -108,6 +112,10 @@ export async function handleMessageBot(ctx: Context): Promise<void> {
     const result = checkUrlForBot(url, ctx);
     const formatted = formatResultForBot(result, "message", ctx);
     await ctx.reply(formatted, {parse_mode: "Markdown"});
+
+    // Send advertising message
+    const adMessage = `${t("advertising.addon")}\n\n${t("advertising.share")}`;
+    await ctx.reply(adMessage);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(`Failed to check URL: ${message}`);
@@ -148,6 +156,10 @@ export async function handleMentionBot(ctx: Context): Promise<void> {
     const result = checkUrlForBot(url, ctx);
     const formatted = formatResultForBot(result, "message", ctx);
     await ctx.reply(formatted, {parse_mode: "Markdown"});
+
+    // Send advertising message
+    const adMessage = `${t("advertising.addon")}\n\n${t("advertising.share")}`;
+    await ctx.reply(adMessage);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(`Failed to check URL: ${message}`);

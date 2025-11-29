@@ -13,6 +13,7 @@
     "build": "pnpm build:common && pnpm build:scrapper && pnpm build:addon && pnpm build:telegram-bot",
     "package": "pnpm --filter @theWallProject/addon run package",
     "validate": "pnpm --filter @theWallProject/scrapper validate",
+    "bot:dev": "cross-env NODE_ENV=development pnpm --filter @theWallProject/telegram-bot dev",
     "bot:build": "pnpm build:common && pnpm build:telegram-bot && pnpm --filter @theWallProject/telegram-bot bot:build",
     "bot:run": "pnpm --filter @theWallProject/telegram-bot bot:run",
     "bot:logs": "pwsh -File scripts/deploy-bot.ps1 -Mode logs",
@@ -21,5 +22,8 @@
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
   }
 }

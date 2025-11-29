@@ -282,6 +282,30 @@ export const TRANSLATIONS = {
     zh_CN: "替代品：",
     zh_TW: "替代品：",
   },
+  "advertising.addon": {
+    en: "Do you like this bot? You will LOVE the browser addon! Download it now from the-wall.win 🧱🍉",
+    ar: "هل يعجبك البوت؟ ستحب إضافة المتصفح! حمّل الآن من the-wall.win 🧱🍉",
+    id: "Apakah Anda menyukai bot ini? Anda akan menyukai addon browser! Unduh sekarang dari the-wall.win 🧱🍉",
+    ms: "Adakah anda suka bot ini? Anda akan suka addon pelayar! Muat turun sekarang dari the-wall.win 🧱🍉",
+    bn: "আপনি কি বটটি পছন্দ করেন? আপনি ব্রাউজার অ্যাডঅনটি পছন্দ করবেন! এখনই the-wall.win থেকে ডাউনলোড করুন 🧱🍉",
+    fr: "Vous aimez le bot ? Vous allez adorer l'extension de navigateur ! Téléchargez maintenant depuis the-wall.win 🧱🍉",
+    nl: "Vind je de bot leuk? Je zult de browseradd-on geweldig vinden! Download nu van the-wall.win 🧱🍉",
+    zh_CN:
+      "你喜欢这个机器人吗？你会爱上浏览器插件！立即从 the-wall.win 下载 🧱🍉",
+    zh_TW:
+      "你喜歡這個機器人嗎？你會愛上瀏覽器插件！立即從 the-wall.win 下載 🧱🍉",
+  },
+  "advertising.share": {
+    en: "💬 Share this result with others to help them stay informed!",
+    ar: "💬 شارك هذه النتيجة مع الآخرين لمساعدتهم على البقاء على اطلاع!",
+    id: "💬 Bagikan hasil ini dengan orang lain untuk membantu mereka tetap terinformasi!",
+    ms: "💬 Kongsi hasil ini dengan orang lain untuk membantu mereka kekal dimaklumkan!",
+    bn: "💬 অন্যদের সাথে এই ফলাফল শেয়ার করুন যাতে তারা অবগত থাকতে পারে!",
+    fr: "💬 Partagez ce résultat avec d'autres pour les aider à rester informés !",
+    nl: "💬 Deel dit resultaat met anderen om hen geïnformeerd te houden!",
+    zh_CN: "💬 与他人分享此结果，帮助他们保持了解！",
+    zh_TW: "💬 與他人分享此結果，幫助他們保持了解！",
+  },
 } satisfies TransDB;
 
 // Auto-generate translation keys from the TRANSLATIONS object
@@ -289,4 +313,3 @@ export type TranslationKey = keyof typeof TRANSLATIONS;
 
 // Language code type
 export type LanguageCode = keyof TransDB[string];
-

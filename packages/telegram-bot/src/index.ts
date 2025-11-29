@@ -3,39 +3,14 @@
  * Express.js server with Telegraf webhook/polling support.
  */
 
-import {config} from "dotenv";
-import {resolve} from "node:path";
+// CRITICAL: Import env initialization FIRST before any other imports
+// This ensures .env file is loaded before configBot.ts is evaluated
+import "./init-env.js";
+
+// Now import other modules (env vars are already loaded)
 import express, {type Request, type Response} from "express";
 import {createBot} from "./bot.js";
 import {PORT, WEBHOOK_URL, NODE_ENV} from "./configBot.js";
-
-// Load environment-specific .env file
-// NODE_ENV MUST be set explicitly; no defaults, no fallbacks
-const env = process.env.NODE_ENV;
-
-if (!env) {
-  throw new Error(
-    "NODE_ENV is required and must be set to either 'development' or 'production'"
-  );
-}
-
-if (env === "development") {
-  // In development, require a local .env.dev and fail fast if missing
-  const envFile = ".env.dev";
-  const envPath = resolve(process.cwd(), envFile);
-
-  const result = config({path: envPath});
-  if (result.error) {
-    throw new Error(
-      `Failed to load environment file ${envFile} at ${envPath}: ${result.error.message}`
-    );
-  }
-} else if (env === "production") {
-  // In production (Docker), rely on environment variables injected by Docker
-  // via docker-compose `env_file: .env.prod`. Do NOT require a file in the image.
-} else {
-  throw new Error(`Unsupported NODE_ENV value: ${env}`);
-}
 
 const app = express();
 
