@@ -13,8 +13,10 @@
     "build": "pnpm build:common && pnpm build:scrapper && pnpm build:addon && pnpm build:telegram-bot",
     "package": "pnpm --filter @theWallProject/addon run package",
     "validate": "pnpm --filter @theWallProject/scrapper validate",
-    "docker:bot:build": "pnpm build:common && pnpm build:telegram-bot && pnpm --filter @theWallProject/telegram-bot docker:build",
-    "docker:bot:run": "pnpm --filter @theWallProject/telegram-bot docker:run"
+    "bot:build": "pnpm build:common && pnpm build:telegram-bot && pnpm --filter @theWallProject/telegram-bot bot:build",
+    "bot:run": "pnpm --filter @theWallProject/telegram-bot bot:run",
+    "bot:logs": "pwsh -File scripts/deploy-bot.ps1 -Mode logs",
+    "bot:deploy": "pwsh -File scripts/deploy-bot.ps1 -Mode deploy"
   },
   "engines": {
     "node": ">=18",
