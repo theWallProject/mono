@@ -8,7 +8,7 @@ import {Telegraf} from "telegraf";
 import {checkUrlForBot} from "./urlCheckerBot.js";
 import {formatResultForBot} from "./formattersBot.js";
 import {extractUrlFromTextBot} from "./urlExtractorBot.js";
-import {MESSAGES_BOT} from "./messagesBot.js";
+import {getT} from "./translations.js";
 import {BOT_TOKEN, BOT_USERNAME} from "./configBot.js";
 
 /**
@@ -19,6 +19,7 @@ export async function handleInlineQueryBot(ctx: Context): Promise<void> {
     throw new Error("Invalid inline query context");
   }
 
+  const t = getT(ctx);
   const query = ctx.inlineQuery.query.trim();
 
   if (!query) {
@@ -33,39 +34,39 @@ export async function handleInlineQueryBot(ctx: Context): Promise<void> {
     return;
   }
 
-  const result = checkUrlForBot(url);
-  const formatted = formatResultForBot(result, "inline");
+  const result = checkUrlForBot(url, ctx);
+  const formatted = formatResultForBot(result, "inline", ctx);
 
   const title = result?.isHint
     ? result.name
     : result
-    ? `${result.name}${result.stockSymbol ? ` (${result.stockSymbol})` : ""}`
-    : "Safe";
+      ? `${result.name}${result.stockSymbol ? ` (${result.stockSymbol})` : ""}`
+      : t("inline.safe");
 
   const description = result?.isHint
     ? result.hintText
     : result
-    ? result.reasons
-        .map((r) => {
-          switch (r) {
-            case "h":
-              return "HQ in Israel";
-            case "f":
-              return "Founder in Israel";
-            case "i":
-              return "Investor in Israel";
-            case "u":
-              return "Israeli website";
-            case "b":
-              return "BDS listed";
-            default: {
-              const _exhaustive: never = r;
-              throw new Error(`Unexpected reason: ${_exhaustive}`);
+      ? result.reasons
+          .map((r) => {
+            switch (r) {
+              case "h":
+                return t("reasons.short.h");
+              case "f":
+                return t("reasons.short.f");
+              case "i":
+                return t("reasons.short.i");
+              case "u":
+                return t("reasons.short.u");
+              case "b":
+                return t("reasons.short.b");
+              default: {
+                const _exhaustive: never = r;
+                throw new Error(`Unexpected reason: ${_exhaustive}`);
+              }
             }
-          }
-        })
-        .join(", ")
-    : "No issues found";
+          })
+          .join(", ")
+      : t("inline.noIssues");
 
   await ctx.answerInlineQuery([
     {
@@ -89,22 +90,23 @@ export async function handleMessageBot(ctx: Context): Promise<void> {
     return; // Not a text message, ignore
   }
 
+  const t = getT(ctx);
   const text = ctx.message.text;
   if (!text) {
-    await ctx.reply(MESSAGES_BOT.help.noUrl);
+    await ctx.reply(t("help.noUrl"));
     return;
   }
 
   const url = extractUrlFromTextBot(text);
 
   if (!url) {
-    await ctx.reply(MESSAGES_BOT.help.noUrl);
+    await ctx.reply(t("help.noUrl"));
     return;
   }
 
   try {
-    const result = checkUrlForBot(url);
-    const formatted = formatResultForBot(result, "message");
+    const result = checkUrlForBot(url, ctx);
+    const formatted = formatResultForBot(result, "message", ctx);
     await ctx.reply(formatted, {parse_mode: "Markdown"});
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -120,6 +122,7 @@ export async function handleMentionBot(ctx: Context): Promise<void> {
     return;
   }
 
+  const t = getT(ctx);
   const text = ctx.message.text;
   if (!text) {
     return;
@@ -137,13 +140,13 @@ export async function handleMentionBot(ctx: Context): Promise<void> {
   const url = extractUrlFromTextBot(text);
 
   if (!url) {
-    await ctx.reply(MESSAGES_BOT.help.noUrl);
+    await ctx.reply(t("help.noUrl"));
     return;
   }
 
   try {
-    const result = checkUrlForBot(url);
-    const formatted = formatResultForBot(result, "message");
+    const result = checkUrlForBot(url, ctx);
+    const formatted = formatResultForBot(result, "message", ctx);
     await ctx.reply(formatted, {parse_mode: "Markdown"});
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);

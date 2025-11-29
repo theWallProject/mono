@@ -3,28 +3,29 @@
  * Strict type checking, exhaustive case handling.
  */
 
+import type {Context} from "telegraf";
 import type {
   APIListOfReasonsValues,
   UrlCheckResult,
 } from "@theWallProject/common";
-import {MESSAGES_BOT} from "./messagesBot.js";
+import {getT, type TFunction} from "./translations.js";
 
 /**
  * Formats a reason code into a human-readable message.
  * @throws Error if reason is unexpected (exhaustive check)
  */
-function formatReasonBot(reason: APIListOfReasonsValues): string {
+function formatReasonBot(reason: APIListOfReasonsValues, t: TFunction): string {
   switch (reason) {
     case "h":
-      return MESSAGES_BOT.reasons.h;
+      return t("reasons.h");
     case "f":
-      return MESSAGES_BOT.reasons.f;
+      return t("reasons.f");
     case "i":
-      return MESSAGES_BOT.reasons.i;
+      return t("reasons.i");
     case "u":
-      return MESSAGES_BOT.reasons.u;
+      return t("reasons.u");
     case "b":
-      return MESSAGES_BOT.reasons.b;
+      return t("reasons.b");
     default: {
       const _exhaustive: never = reason;
       throw new Error(`Unexpected reason: ${_exhaustive}`);
@@ -36,18 +37,20 @@ function formatReasonBot(reason: APIListOfReasonsValues): string {
  * Formats reasons array into formatted text.
  */
 export function formatReasonsForBot(
-  reasons: readonly APIListOfReasonsValues[]
+  reasons: readonly APIListOfReasonsValues[],
+  t: TFunction
 ): string {
-  return reasons.map((reason) => `• ${formatReasonBot(reason)}`).join("\n");
+  return reasons.map((reason) => `• ${formatReasonBot(reason, t)}`).join("\n");
 }
 
 /**
  * Formats a hint result for display.
  */
 export function formatHintForBot(
-  result: Extract<UrlCheckResult, {isHint: true}>
+  result: Extract<UrlCheckResult, {isHint: true}>,
+  t: TFunction
 ): string {
-  const parts: string[] = [MESSAGES_BOT.hint.header, result.hintText];
+  const parts: string[] = [t("hint.header"), result.hintText];
 
   if (result.hintUrl) {
     parts.push(`\n${result.hintUrl}`);
@@ -60,17 +63,18 @@ export function formatHintForBot(
  * Formats a flagged result for inline query (compact).
  */
 export function formatInlineResultForBot(
-  result: Extract<UrlCheckResult, {isHint?: false}>
+  result: Extract<UrlCheckResult, {isHint?: false}>,
+  t: TFunction
 ): string {
-  const parts: string[] = [`${MESSAGES_BOT.flagged.header}: ${result.name}`];
+  const parts: string[] = [`${t("flagged.header")}: ${result.name}`];
 
   if (result.stockSymbol) {
     parts[0] += ` (${result.stockSymbol})`;
   }
 
   parts.push("");
-  parts.push("Reasons:");
-  parts.push(formatReasonsForBot(result.reasons));
+  parts.push(t("formatter.reasons"));
+  parts.push(formatReasonsForBot(result.reasons, t));
 
   return parts.join("\n");
 }
@@ -79,28 +83,29 @@ export function formatInlineResultForBot(
  * Formats a flagged result for message reply (detailed).
  */
 export function formatMessageReplyForBot(
-  result: Extract<UrlCheckResult, {isHint?: false}>
+  result: Extract<UrlCheckResult, {isHint?: false}>,
+  t: TFunction
 ): string {
-  const parts: string[] = [`${MESSAGES_BOT.flagged.header}: *${result.name}*`];
+  const parts: string[] = [`${t("flagged.header")}: *${result.name}*`];
 
   if (result.stockSymbol) {
     parts[0] += ` (${result.stockSymbol})`;
   }
 
   parts.push("");
-  parts.push("*Reasons:*");
-  parts.push(formatReasonsForBot(result.reasons));
+  parts.push(`*${t("formatter.reasons")}*`);
+  parts.push(formatReasonsForBot(result.reasons, t));
 
   if (result.alt && result.alt.length > 0) {
     parts.push("");
-    parts.push("*Alternatives:*");
+    parts.push(`*${t("formatter.alternatives")}*`);
     result.alt.forEach((alt: {n: string; ws: string}) => {
       parts.push(`• ${alt.n} - ${alt.ws}`);
     });
   }
 
   parts.push("");
-  parts.push(MESSAGES_BOT.flagged.learnMore);
+  parts.push(t("flagged.learnMore"));
 
   return parts.join("\n");
 }
@@ -111,19 +116,22 @@ export function formatMessageReplyForBot(
  */
 export function formatResultForBot(
   result: UrlCheckResult,
-  format: "inline" | "message" = "message"
+  format: "inline" | "message",
+  ctx: Context
 ): string {
+  const t = getT(ctx);
+
   if (result === undefined) {
-    return MESSAGES_BOT.safe;
+    return t("safe");
   }
 
   if (result.isHint) {
-    return formatHintForBot(result);
+    return formatHintForBot(result, t);
   }
 
   if (format === "inline") {
-    return formatInlineResultForBot(result);
+    return formatInlineResultForBot(result, t);
   }
 
-  return formatMessageReplyForBot(result);
+  return formatMessageReplyForBot(result, t);
 }
