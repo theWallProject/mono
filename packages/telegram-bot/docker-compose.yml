@@ -5,11 +5,6 @@ services:
     build:
       context: ../..
       dockerfile: packages/telegram-bot/Dockerfile
-      args:
-        NODE_ENV: ${NODE_ENV:-production}
-        BOT_TOKEN: ${BOT_TOKEN}
-        BOT_USERNAME: ${BOT_USERNAME}
-        WEBHOOK_URL: ${WEBHOOK_URL}
     image: telegram-bot:prod
     container_name: telegram-bot-prod
     restart: unless-stopped
