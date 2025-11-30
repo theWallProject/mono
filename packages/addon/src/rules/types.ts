@@ -26,3 +26,4 @@ export type Rule =
  */
 export type RuleOfType<T extends Rule["type"]> = Extract<Rule, { type: T }>
 
+

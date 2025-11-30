@@ -33,3 +33,4 @@ export async function processRule<T extends Rule["type"]>(
   return processor(rule) as Promise<string | null | Extract<Rule, { type: T }>>
 }
 
+

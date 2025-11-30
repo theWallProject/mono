@@ -66,3 +66,4 @@ if (!process.env.BOT_TOKEN) {
 }
 
 console.log(`[ENV] BOT_TOKEN loaded: ${process.env.BOT_TOKEN ? "YES" : "NO"}`)
+
