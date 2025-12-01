@@ -293,7 +293,8 @@ fun AppListScreen() {
             val (bad, good) = installedApps.partition { blacklistMap.containsKey(it.packageName) }
             blacklistedApps = bad.map { it to blacklistMap[it.packageName]!! }
             otherApps = good.filter {
-                ((it.applicationInfo?.flags ?: 0) and ApplicationInfo.FLAG_SYSTEM) == 0
+                (it.applicationInfo?.flags
+                    ?: 0) and (ApplicationInfo.FLAG_SYSTEM or ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
             }
         }
         isLoading = false
