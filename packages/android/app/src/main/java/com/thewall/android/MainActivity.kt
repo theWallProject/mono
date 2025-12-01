@@ -50,6 +50,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import com.thewall.android.ui.theme.TheWallBoycottAssistantTheme
 import kotlinx.coroutines.Dispatchers
@@ -155,9 +158,10 @@ class MainActivity : ComponentActivity() {
         }
 
         // Re-check permission every time the app comes into the foreground.
-        DisposableEffect(Unit) {
-            val lifecycleObserver = androidx.lifecycle.LifecycleEventObserver { _, event ->
-                if (event == androidx.lifecycle.Lifecycle.Event.ON_RESUME) {
+        val lifecycleOwner = LocalLifecycleOwner.current
+        DisposableEffect(lifecycleOwner) {
+            val observer = LifecycleEventObserver { _, event ->
+                if (event == Lifecycle.Event.ON_RESUME) {
                     if (screen is Screen.List && !(screen as Screen.List).permissionGranted) {
                         if (hasQueryAllPackagesPermission()) {
                             screen = Screen.List(permissionGranted = true)
@@ -165,9 +169,9 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
-            this@MainActivity.lifecycle.addObserver(lifecycleObserver)
+            lifecycleOwner.lifecycle.addObserver(observer)
             onDispose {
-                this@MainActivity.lifecycle.removeObserver(lifecycleObserver)
+                lifecycleOwner.lifecycle.removeObserver(observer)
             }
         }
     }
