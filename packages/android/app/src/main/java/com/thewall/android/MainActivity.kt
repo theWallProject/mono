@@ -3,7 +3,6 @@ package com.thewall.android
 import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -50,6 +49,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import com.thewall.android.ui.theme.TheWallBoycottAssistantTheme
 import kotlinx.coroutines.Dispatchers
@@ -86,7 +86,7 @@ class MainActivity : ComponentActivity() {
     private fun requestQueryAllPackagesPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
-                data = Uri.parse("package:$packageName")
+                data = "package:$packageName".toUri()
             }
             permissionLauncher.launch(intent)
         }
@@ -113,10 +113,10 @@ class MainActivity : ComponentActivity() {
                 is Screen.Start -> {
                     StartScreen(
                         onScanClicked = {
-                            if (hasQueryAllPackagesPermission()) {
-                                screen = Screen.List(permissionGranted = true)
+                            screen = if (hasQueryAllPackagesPermission()) {
+                                Screen.List(permissionGranted = true)
                             } else {
-                                screen = Screen.Permission
+                                Screen.Permission
                             }
                         }
                     )
