@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -194,7 +195,7 @@ fun StartScreen(onScanClicked: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Ready to Scan", style = MaterialTheme.typography.headlineMedium)
+        Text("The Wall", style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(24.dp))
         Button(onClick = onScanClicked) {
             Text("Scan Installed Apps")
@@ -308,13 +309,13 @@ fun AppListScreen() {
     } else {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(8.dp)
+            contentPadding = PaddingValues(16.dp)
         ) {
             item {
-                Column(modifier = Modifier.padding(8.dp)) {
+                Column(modifier = Modifier.padding(bottom = 16.dp)) {
                     Text(
-                        "App Scanner Results",
-                        style = MaterialTheme.typography.headlineMedium,
+                        "The Wall",
+                        style = MaterialTheme.typography.headlineLarge,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(16.dp))
@@ -333,7 +334,7 @@ fun AppListScreen() {
                     Text(
                         "Caught Apps",
                         style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.padding(8.dp),
+                        modifier = Modifier.padding(bottom = 8.dp),
                         fontWeight = FontWeight.Bold,
                         color = Color.Red
                     )
@@ -345,10 +346,11 @@ fun AppListScreen() {
 
             if (otherApps.isNotEmpty()) {
                 item {
+                    Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         "All Other Apps",
                         style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.padding(8.dp),
+                        modifier = Modifier.padding(bottom = 8.dp),
                         fontWeight = FontWeight.Bold
                     )
                 }
@@ -376,10 +378,16 @@ fun AppInfo(app: PackageInfo, blacklistInfo: BlacklistItem?, reasonsMap: Map<Str
         null -> MaterialTheme.colorScheme.surfaceVariant
     }
 
+    val icon = when (effectiveLevel) {
+        ReasonLevel.ERROR -> Icons.Default.Warning
+        ReasonLevel.WARNING -> Icons.Default.Warning
+        null -> Icons.Default.CheckCircle
+    }
+
     val iconColor = when (effectiveLevel) {
         ReasonLevel.ERROR -> Color.Red
         ReasonLevel.WARNING -> Color(0xFFFFA500) // Orange
-        null -> Color.Transparent
+        null -> Color.Green
     }
 
     Card(
@@ -392,14 +400,13 @@ fun AppInfo(app: PackageInfo, blacklistInfo: BlacklistItem?, reasonsMap: Map<Str
             modifier = Modifier.padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (blacklistInfo != null) {
-                Icon(
-                    imageVector = Icons.Default.Warning,
-                    contentDescription = "Warning",
-                    tint = iconColor,
-                    modifier = Modifier.padding(end = 8.dp)
-                )
-            }
+            Icon(
+                imageVector = icon,
+                contentDescription = "Status Icon",
+                tint = iconColor,
+                modifier = Modifier.padding(end = 8.dp)
+            )
+
             appIcon?.let {
                 Image(
                     painter = rememberDrawablePainter(drawable = it),
