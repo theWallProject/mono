@@ -1,8 +1,10 @@
 package com.thewall.android
 
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -54,6 +56,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.thewall.android.ui.theme.TheWallBoycottAssistantTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -225,28 +229,75 @@ fun PermissionRequestScreen(onRequestPermission: () -> Unit) {
     }
 }
 
-val hardcodedBlacklist = setOf(
-    "com.facebook.katana",      // Facebook
-    "com.instagram.android",    // Instagram
-    "com.twitter.android",      // Twitter / X
-    "com.whatsapp",             // WhatsApp
-    "com.facebook.orca",        // Facebook Messenger
-    "com.google.android.youtube"// YouTube
+enum class ReasonLevel {
+    WARNING,
+    ERROR
+}
+
+data class Reason(
+    val message: String,
+    val level: ReasonLevel
 )
+
+data class BlacklistItem(
+    val developerId: String,
+    val reasonIds: List<String>
+)
+
+val reasonsMap = mapOf(
+    "HQ" to Reason("Headquartered in Israel", ReasonLevel.ERROR),
+    "INVESTOR" to Reason("Significant investment from Israeli VCs", ReasonLevel.WARNING),
+    "FOUNDER" to Reason("Founded by Israeli entrepreneurs", ReasonLevel.ERROR),
+    "BDS" to Reason("On the BDS boycott list", ReasonLevel.ERROR)
+)
+
+fun BlacklistItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {
+    val hasError = this.reasonIds.any { reasonsMap[it]?.level == ReasonLevel.ERROR }
+    return if (hasError) ReasonLevel.ERROR else ReasonLevel.WARNING
+}
+
+fun AssetManager.readFile(fileName: String): String =
+    open(fileName).bufferedReader().use { it.readText() }
 
 @Composable
 fun AppListScreen() {
-    var installedApps by remember { mutableStateOf<List<PackageInfo>>(emptyList()) }
     var isLoading by remember { mutableStateOf(true) }
+    var blacklistedApps by remember {
+        mutableStateOf<List<Pair<PackageInfo, BlacklistItem>>>(
+            emptyList()
+        )
+    }
+    var otherApps by remember { mutableStateOf<List<PackageInfo>>(emptyList()) }
     val context = LocalContext.current
 
     LaunchedEffect(Unit) {
+        Log.d("AppListScreen", "LaunchedEffect started")
         isLoading = true
-        val apps = withContext(Dispatchers.IO) {
-            context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
+        withContext(Dispatchers.IO) {
+            Log.d("AppListScreen", "Background thread started")
+            val gson = Gson()
+            val assetManager = context.assets
+
+            // Load blacklist
+            val blacklistJson = assetManager.readFile("blacklist.json")
+            val blacklistType = object : TypeToken<List<BlacklistItem>>() {}.type
+            val blacklist = gson.fromJson<List<BlacklistItem>>(blacklistJson, blacklistType)
+            val blacklistMap = blacklist.associateBy { it.developerId }
+            Log.d("AppListScreen", "Blacklist loaded with ${blacklist.size} items")
+
+            // Get installed apps
+            val installedApps =
+                context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
+            Log.d("AppListScreen", "Found ${installedApps.size} installed apps")
+
+            val (bad, good) = installedApps.partition { blacklistMap.containsKey(it.packageName) }
+            blacklistedApps = bad.map { it to blacklistMap[it.packageName]!! }
+            otherApps = good.filter {
+                ((it.applicationInfo?.flags ?: 0) and ApplicationInfo.FLAG_SYSTEM) == 0
+            }
         }
-        installedApps = apps
         isLoading = false
+        Log.d("AppListScreen", "isLoading set to false")
     }
 
     if (isLoading) {
@@ -254,10 +305,6 @@ fun AppListScreen() {
             CircularProgressIndicator()
         }
     } else {
-        val (caughtApps, safeApps) = installedApps.partition {
-            hardcodedBlacklist.contains(it.packageName)
-        }
-
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(8.dp)
@@ -270,10 +317,17 @@ fun AppListScreen() {
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(16.dp))
+                    if (blacklistedApps.isEmpty()) {
+                        Text(
+                            "Device is Clean!",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = Color.Green
+                        )
+                    }
                 }
             }
 
-            if (caughtApps.isNotEmpty()) {
+            if (blacklistedApps.isNotEmpty()) {
                 item {
                     Text(
                         "Caught Apps",
@@ -283,22 +337,22 @@ fun AppListScreen() {
                         color = Color.Red
                     )
                 }
-                items(caughtApps) { app ->
-                    AppInfo(app = app, isCaught = true)
+                items(blacklistedApps) { (app, blacklistInfo) ->
+                    AppInfo(app = app, blacklistInfo = blacklistInfo, reasonsMap = reasonsMap)
                 }
             }
 
-            if (safeApps.isNotEmpty()) {
+            if (otherApps.isNotEmpty()) {
                 item {
                     Text(
-                        "Safe Apps",
+                        "All Other Apps",
                         style = MaterialTheme.typography.headlineSmall,
                         modifier = Modifier.padding(8.dp),
                         fontWeight = FontWeight.Bold
                     )
                 }
-                items(safeApps) { app ->
-                    AppInfo(app = app, isCaught = false)
+                items(otherApps) { app ->
+                    AppInfo(app = app, blacklistInfo = null, reasonsMap = reasonsMap)
                 }
             }
         }
@@ -306,36 +360,42 @@ fun AppListScreen() {
 }
 
 @Composable
-fun AppInfo(app: PackageInfo, isCaught: Boolean) {
+fun AppInfo(app: PackageInfo, blacklistInfo: BlacklistItem?, reasonsMap: Map<String, Reason>) {
     val pm = LocalContext.current.packageManager
     val appName = remember(app) {
-        val applicationInfo = app.applicationInfo
-        if (applicationInfo != null) {
-            applicationInfo.loadLabel(pm).toString()
-        } else {
-            Log.w("AppInfo", "ApplicationInfo is null for package: ${app.packageName}")
-            app.packageName
-        }
+        app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
     }
     val appIcon = remember(app) { app.applicationInfo?.loadIcon(pm) }
+
+    val effectiveLevel = blacklistInfo?.getEffectiveLevel(reasonsMap)
+
+    val cardColor = when (effectiveLevel) {
+        ReasonLevel.ERROR -> Color.Red.copy(alpha = 0.2f)
+        ReasonLevel.WARNING -> Color.Yellow.copy(alpha = 0.3f)
+        null -> MaterialTheme.colorScheme.surfaceVariant
+    }
+
+    val iconColor = when (effectiveLevel) {
+        ReasonLevel.ERROR -> Color.Red
+        ReasonLevel.WARNING -> Color(0xFFFFA500) // Orange
+        null -> Color.Transparent
+    }
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 4.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isCaught) Color.Red.copy(alpha = 0.2f) else MaterialTheme.colorScheme.surfaceVariant
-        )
+        colors = CardDefaults.cardColors(containerColor = cardColor)
     ) {
         Row(
             modifier = Modifier.padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (isCaught) {
+            if (blacklistInfo != null) {
                 Icon(
                     imageVector = Icons.Default.Warning,
                     contentDescription = "Warning",
-                    tint = Color.Red,
+                    tint = iconColor,
                     modifier = Modifier.padding(end = 8.dp)
                 )
             }
@@ -349,7 +409,14 @@ fun AppInfo(app: PackageInfo, isCaught: Boolean) {
             Spacer(modifier = Modifier.width(12.dp))
             Column {
                 Text(text = appName, fontWeight = FontWeight.Bold)
-                Text(text = app.packageName, style = MaterialTheme.typography.bodySmall)
+                if (blacklistInfo != null) {
+                    val reasons = blacklistInfo.reasonIds.mapNotNull { reasonsMap[it] }
+                    val reasonMessages =
+                        reasons.joinToString(separator = "\n") { "- ${it.message}" }
+                    Text(text = reasonMessages, style = MaterialTheme.typography.bodySmall)
+                } else {
+                    Text(text = app.packageName, style = MaterialTheme.typography.bodySmall)
+                }
             }
         }
     }
