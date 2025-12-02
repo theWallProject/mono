@@ -29,13 +29,18 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Scanner
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -63,6 +68,7 @@ import com.thewall.android.ui.theme.TheWallBoycottAssistantTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
 
     // A launcher to request the permission result back from the Settings screen.
@@ -113,48 +119,63 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
-            when (val currentScreen = screen) {
-                is Screen.Start -> {
-                    StartScreen(
-                        onScanClicked = {
-                            screen = if (hasQueryAllPackagesPermission()) {
-                                Screen.List(permissionGranted = true)
-                            } else {
-                                Screen.Permission
+        Scaffold(
+            bottomBar = {
+                NavigationBar {
+                    NavigationBarItem(
+                        icon = { Icon(Icons.Filled.Scanner, contentDescription = "Scan Apps") },
+                        label = { Text("Scan Apps") },
+                        selected = true,
+                        onClick = { /* No-op, since we only have one screen */ }
+                    )
+                }
+            }
+        ) { innerPadding ->
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                color = MaterialTheme.colorScheme.background
+            ) {
+                when (val currentScreen = screen) {
+                    is Screen.Start -> {
+                        StartScreen(
+                            onScanClicked = {
+                                screen = if (hasQueryAllPackagesPermission()) {
+                                    Screen.List(permissionGranted = true)
+                                } else {
+                                    Screen.Permission
+                                }
                             }
-                        }
-                    )
-                }
+                        )
+                    }
 
-                is Screen.Permission -> {
-                    PermissionRequestScreen(
-                        onRequestPermission = {
-                            requestQueryAllPackagesPermission()
-                            // After requesting, we want to check again when the user returns.
-                            // We'll go to the list screen, which will re-evaluate on resume.
-                            screen = Screen.List(permissionGranted = false)
-                        }
-                    )
-                }
+                    is Screen.Permission -> {
+                        PermissionRequestScreen(
+                            onRequestPermission = {
+                                requestQueryAllPackagesPermission()
+                                // After requesting, we want to check again when the user returns.
+                                // We'll go to the list screen, which will re-evaluate on resume.
+                                screen = Screen.List(permissionGranted = false)
+                            }
+                        )
+                    }
 
-                is Screen.List -> {
-                    if (currentScreen.permissionGranted) {
-                        AppListScreen()
-                    } else {
-                        // This will show while we wait for the user to grant the permission
-                        // after they've returned from settings. onResume will trigger the update.
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                CircularProgressIndicator()
-                                Spacer(modifier = Modifier.height(16.dp))
-                                Text("Waiting for permission...")
+                    is Screen.List -> {
+                        if (currentScreen.permissionGranted) {
+                            AppListScreen()
+                        } else {
+                            // This will show while we wait for the user to grant the permission
+                            // after they've returned from settings. onResume will trigger the update.
+                            Box(
+                                modifier = Modifier.fillMaxSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    CircularProgressIndicator()
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                    Text("Waiting for permission...")
+                                }
                             }
                         }
                     }
