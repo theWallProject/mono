@@ -138,10 +138,7 @@ export async function handleMentionBot(ctx: Context): Promise<void> {
   }
 
   // Check if bot is mentioned
-  const mentionPattern = new RegExp(
-    `@${BOT_USERNAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`,
-    "i"
-  )
+  const mentionPattern = new RegExp(`@${BOT_USERNAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, "i")
   if (!mentionPattern.test(text)) {
     return
   }

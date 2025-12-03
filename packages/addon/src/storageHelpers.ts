@@ -23,10 +23,7 @@ export const getStorageItem = async <T>(key: string): Promise<T | null> => {
   })
 }
 
-export const setStorageItem = async <T>(
-  key: string,
-  value: T
-): Promise<void> => {
+export const setStorageItem = async <T>(key: string, value: T): Promise<void> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.session.set({ [key]: value }, () => {
@@ -41,9 +38,7 @@ export const setStorageItem = async <T>(
   })
 }
 
-export const getLocalStorageItem = async <T>(
-  key: string
-): Promise<T | null> => {
+export const getLocalStorageItem = async <T>(key: string): Promise<T | null> => {
   log(`getLocalStorageItem getting key[${key}]`)
   return new Promise((resolve, reject) => {
     try {
@@ -60,10 +55,7 @@ export const getLocalStorageItem = async <T>(
   })
 }
 
-export const setLocalStorageItem = async <T>(
-  key: string,
-  value: T
-): Promise<void> => {
+export const setLocalStorageItem = async <T>(key: string, value: T): Promise<void> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.set({ [key]: value }, () => {
@@ -78,9 +70,7 @@ export const setLocalStorageItem = async <T>(
   })
 }
 
-export const removeLocalStorageItems = async (
-  keys: string[]
-): Promise<void> => {
+export const removeLocalStorageItems = async (keys: string[]): Promise<void> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.remove(keys, () => {
@@ -94,9 +84,7 @@ export const removeLocalStorageItems = async (
   })
 }
 
-export const getAllLocalStorageItems = async (): Promise<
-  Record<string, unknown>
-> => {
+export const getAllLocalStorageItems = async (): Promise<Record<string, unknown>> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.get(null, (items) => {
@@ -116,12 +104,8 @@ export const getWhatsNewShownVersions = async (): Promise<string[]> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.get([WHATS_NEW_SHOWN_VERSIONS_KEY], (result) => {
-        const versions =
-          (result[WHATS_NEW_SHOWN_VERSIONS_KEY] as string[]) || []
-        log(
-          `getWhatsNewShownVersions got ${versions.length} versions`,
-          versions
-        )
+        const versions = (result[WHATS_NEW_SHOWN_VERSIONS_KEY] as string[]) || []
+        log(`getWhatsNewShownVersions got ${versions.length} versions`, versions)
         resolve(versions)
       })
     } catch (e) {
@@ -131,22 +115,17 @@ export const getWhatsNewShownVersions = async (): Promise<string[]> => {
   })
 }
 
-export const markWhatsNewVersionAsShown = async (
-  version: string
-): Promise<void> => {
+export const markWhatsNewVersionAsShown = async (version: string): Promise<void> => {
   log(`markWhatsNewVersionAsShown marking version [${version}]`)
   return new Promise((resolve, reject) => {
     try {
       getWhatsNewShownVersions().then((existingVersions) => {
         if (!existingVersions.includes(version)) {
           const updatedVersions = [...existingVersions, version]
-          chrome.storage.local.set(
-            { [WHATS_NEW_SHOWN_VERSIONS_KEY]: updatedVersions },
-            () => {
-              log(`markWhatsNewVersionAsShown set version [${version}]`)
-              resolve()
-            }
-          )
+          chrome.storage.local.set({ [WHATS_NEW_SHOWN_VERSIONS_KEY]: updatedVersions }, () => {
+            log(`markWhatsNewVersionAsShown set version [${version}]`)
+            resolve()
+          })
         } else {
           log(`markWhatsNewVersionAsShown version [${version}] already marked`)
           resolve()

@@ -16,19 +16,10 @@ import {
 /**
  * Helper function to test if a URL matches a regex pattern and extracts the ID
  */
-function testRule(
-  rule: { domain: string; regex: string },
-  url: string,
-  shouldMatch: boolean,
-  expectedId?: string
-) {
+function testRule(rule: { domain: string; regex: string }, url: string, shouldMatch: boolean, expectedId?: string) {
   // Twitter, LinkedIn, and YouTube profile IDs are case-insensitive, so use 'i' flag for these regexes
   const flags =
-    rule.domain === "twitter.com" ||
-    rule.domain === "linkedin.com" ||
-    rule.domain === "youtube.com"
-      ? "i"
-      : ""
+    rule.domain === "twitter.com" || rule.domain === "linkedin.com" || rule.domain === "youtube.com" ? "i" : ""
   const regex = new RegExp(rule.regex, flags)
   const match = regex.exec(url)
 
@@ -49,57 +40,27 @@ describe("API_ENDPOINT_RULE_LINKEDIN_COMPANY", () => {
 
   describe("positive cases", () => {
     it("should match linkedin.com/company/microsoft", () => {
-      testRule(
-        rule,
-        "https://www.linkedin.com/company/microsoft",
-        true,
-        "microsoft"
-      )
+      testRule(rule, "https://www.linkedin.com/company/microsoft", true, "microsoft")
     })
 
     it("should match linkedin.com/company/google with query params", () => {
-      testRule(
-        rule,
-        "https://www.linkedin.com/company/google?trk=test",
-        true,
-        "google"
-      )
+      testRule(rule, "https://www.linkedin.com/company/google?trk=test", true, "google")
     })
 
     it("should match linkedin.com/showcase/tech-innovation", () => {
-      testRule(
-        rule,
-        "https://www.linkedin.com/showcase/tech-innovation",
-        true,
-        "tech-innovation"
-      )
+      testRule(rule, "https://www.linkedin.com/showcase/tech-innovation", true, "tech-innovation")
     })
 
     it("should match linkedin.com/showcase/wix-engineering", () => {
-      testRule(
-        rule,
-        "https://www.linkedin.com/showcase/wix-engineering",
-        true,
-        "wix-engineering"
-      )
+      testRule(rule, "https://www.linkedin.com/showcase/wix-engineering", true, "wix-engineering")
     })
 
     it("should match linkedin.com/company/wix-engineering", () => {
-      testRule(
-        rule,
-        "https://www.linkedin.com/company/wix-engineering",
-        true,
-        "wix-engineering"
-      )
+      testRule(rule, "https://www.linkedin.com/company/wix-engineering", true, "wix-engineering")
     })
 
     it("should match linkedin.com/showcase/startup-ecosystem with query params", () => {
-      testRule(
-        rule,
-        "https://www.linkedin.com/showcase/startup-ecosystem?ref=test",
-        true,
-        "startup-ecosystem"
-      )
+      testRule(rule, "https://www.linkedin.com/showcase/startup-ecosystem?ref=test", true, "startup-ecosystem")
     })
 
     it("should match without protocol", () => {
@@ -111,26 +72,11 @@ describe("API_ENDPOINT_RULE_LINKEDIN_COMPANY", () => {
     })
 
     it("should match case-insensitive company names (LinkedIn IDs are case-insensitive)", () => {
-      testRule(
-        rule,
-        "https://www.linkedin.com/company/Microsoft",
-        true,
-        "Microsoft"
-      )
-      testRule(
-        rule,
-        "https://www.linkedin.com/company/MICROSOFT",
-        true,
-        "MICROSOFT"
-      )
+      testRule(rule, "https://www.linkedin.com/company/Microsoft", true, "Microsoft")
+      testRule(rule, "https://www.linkedin.com/company/MICROSOFT", true, "MICROSOFT")
       testRule(rule, "https://www.linkedin.com/COMPANY/google", true, "google")
       testRule(rule, "https://LINKEDIN.COM/company/apple", true, "apple")
-      testRule(
-        rule,
-        "https://www.linkedin.com/SHOWCASE/tech-innovation",
-        true,
-        "tech-innovation"
-      )
+      testRule(rule, "https://www.linkedin.com/SHOWCASE/tech-innovation", true, "tech-innovation")
     })
   })
 
@@ -186,12 +132,7 @@ describe("API_ENDPOINT_RULE_FACEBOOK", () => {
     })
 
     it("should match facebook.com/pages/tech-company", () => {
-      testRule(
-        rule,
-        "https://www.facebook.com/pages/tech-company",
-        true,
-        "pages"
-      )
+      testRule(rule, "https://www.facebook.com/pages/tech-company", true, "pages")
     })
 
     it("should match without protocol", () => {
@@ -292,12 +233,7 @@ describe("API_ENDPOINT_RULE_INSTAGRAM", () => {
     })
 
     it("should match with query params", () => {
-      testRule(
-        rule,
-        "https://instagram.com/natgeo?igshid=abc123",
-        true,
-        "natgeo"
-      )
+      testRule(rule, "https://instagram.com/natgeo?igshid=abc123", true, "natgeo")
     })
 
     it("should match without protocol", () => {
@@ -305,12 +241,7 @@ describe("API_ENDPOINT_RULE_INSTAGRAM", () => {
     })
 
     it("should match with www", () => {
-      testRule(
-        rule,
-        "https://www.instagram.com/taylorswift",
-        true,
-        "taylorswift"
-      )
+      testRule(rule, "https://www.instagram.com/taylorswift", true, "taylorswift")
     })
   })
 
@@ -362,12 +293,7 @@ describe("API_ENDPOINT_RULE_GITHUB", () => {
     })
 
     it("should match github.com/facebook/react and capture only username", () => {
-      testRule(
-        rule,
-        "https://github.com/facebook/react/blob/main/README.md",
-        true,
-        "facebook"
-      )
+      testRule(rule, "https://github.com/facebook/react/blob/main/README.md", true, "facebook")
     })
 
     it("should match without protocol", () => {
@@ -432,12 +358,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
       })
 
       it("should match with query params", () => {
-        testRule(
-          rule,
-          "https://youtube.com/veritasium?si=abc123",
-          true,
-          "veritasium"
-        )
+        testRule(rule, "https://youtube.com/veritasium?si=abc123", true, "veritasium")
       })
 
       it("should match without protocol", () => {
@@ -459,39 +380,19 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
       })
 
       it("should match https://www.youtube.com/@sentra_security (with protocol and www)", () => {
-        testRule(
-          rule,
-          "https://www.youtube.com/@sentra_security",
-          true,
-          "sentra_security"
-        )
+        testRule(rule, "https://www.youtube.com/@sentra_security", true, "sentra_security")
       })
 
       it("should match http://www.youtube.com/@sentra_security (with http protocol)", () => {
-        testRule(
-          rule,
-          "http://www.youtube.com/@sentra_security",
-          true,
-          "sentra_security"
-        )
+        testRule(rule, "http://www.youtube.com/@sentra_security", true, "sentra_security")
       })
 
       it("should match www.youtube.com/@sentra_security (with www but no protocol)", () => {
-        testRule(
-          rule,
-          "www.youtube.com/@sentra_security",
-          true,
-          "sentra_security"
-        )
+        testRule(rule, "www.youtube.com/@sentra_security", true, "sentra_security")
       })
 
       it("should match with query params", () => {
-        testRule(
-          rule,
-          "https://youtube.com/@veritasium?si=abc123",
-          true,
-          "veritasium"
-        )
+        testRule(rule, "https://youtube.com/@veritasium?si=abc123", true, "veritasium")
       })
 
       it("should match without protocol", () => {
@@ -505,30 +406,15 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
 
     describe("Format 3: youtube.com/c/ID", () => {
       it("should match youtube.com/c/omadahealth", () => {
-        testRule(
-          rule,
-          "https://www.youtube.com/c/omadahealth",
-          true,
-          "omadahealth"
-        )
+        testRule(rule, "https://www.youtube.com/c/omadahealth", true, "omadahealth")
       })
 
       it("should match youtube.com/c/ChannelName", () => {
-        testRule(
-          rule,
-          "https://www.youtube.com/c/ChannelName",
-          true,
-          "ChannelName"
-        )
+        testRule(rule, "https://www.youtube.com/c/ChannelName", true, "ChannelName")
       })
 
       it("should match with query params", () => {
-        testRule(
-          rule,
-          "https://youtube.com/c/example?sub_confirmation=1",
-          true,
-          "example"
-        )
+        testRule(rule, "https://youtube.com/c/example?sub_confirmation=1", true, "example")
       })
 
       it("should match without protocol", () => {
@@ -550,12 +436,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
       })
 
       it("should match with query params", () => {
-        testRule(
-          rule,
-          "https://youtube.com/c/@veritasium?si=abc123",
-          true,
-          "veritasium"
-        )
+        testRule(rule, "https://youtube.com/c/@veritasium?si=abc123", true, "veritasium")
       })
 
       it("should match without protocol", () => {
@@ -569,12 +450,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
 
     describe("Format 5: youtube.com/user/ID", () => {
       it("should match youtube.com/user/ChannelName", () => {
-        testRule(
-          rule,
-          "https://www.youtube.com/user/ChannelName",
-          true,
-          "ChannelName"
-        )
+        testRule(rule, "https://www.youtube.com/user/ChannelName", true, "ChannelName")
       })
 
       it("should match youtube.com/user/mkbhd", () => {
@@ -582,12 +458,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
       })
 
       it("should match with query params", () => {
-        testRule(
-          rule,
-          "https://youtube.com/user/example?sub_confirmation=1",
-          true,
-          "example"
-        )
+        testRule(rule, "https://youtube.com/user/example?sub_confirmation=1", true, "example")
       })
 
       it("should match without protocol", () => {
@@ -610,21 +481,11 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
         testRule(rule, "https://www.youtube.com/@MKBHD", true, "MKBHD")
         testRule(rule, "https://www.youtube.com/@MRBEAST", true, "MRBEAST")
         testRule(rule, "https://YOUTUBE.COM/@mkbhd", true, "mkbhd")
-        testRule(
-          rule,
-          "https://www.YOUTUBE.com/@veritasium",
-          true,
-          "veritasium"
-        )
+        testRule(rule, "https://www.YOUTUBE.com/@veritasium", true, "veritasium")
       })
 
       it("should match case-insensitive for format 3: youtube.com/c/ID", () => {
-        testRule(
-          rule,
-          "https://www.youtube.com/c/OMADAHEALTH",
-          true,
-          "OMADAHEALTH"
-        )
+        testRule(rule, "https://www.youtube.com/c/OMADAHEALTH", true, "OMADAHEALTH")
         testRule(rule, "https://YOUTUBE.COM/c/ChannelName", true, "ChannelName")
         testRule(rule, "https://www.YOUTUBE.com/c/example", true, "example")
       })
@@ -632,28 +493,13 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
       it("should match case-insensitive for format 4: youtube.com/c/@ID", () => {
         testRule(rule, "https://www.youtube.com/c/@MKBHD", true, "MKBHD")
         testRule(rule, "https://YOUTUBE.COM/c/@mkbhd", true, "mkbhd")
-        testRule(
-          rule,
-          "https://www.YOUTUBE.com/c/@veritasium",
-          true,
-          "veritasium"
-        )
+        testRule(rule, "https://www.YOUTUBE.com/c/@veritasium", true, "veritasium")
       })
 
       it("should match case-insensitive for format 5: youtube.com/user/ID", () => {
-        testRule(
-          rule,
-          "https://www.youtube.com/user/CHANNELNAME",
-          true,
-          "CHANNELNAME"
-        )
+        testRule(rule, "https://www.youtube.com/user/CHANNELNAME", true, "CHANNELNAME")
         testRule(rule, "https://YOUTUBE.COM/user/mkbhd", true, "mkbhd")
-        testRule(
-          rule,
-          "https://www.YOUTUBE.com/user/veritasium",
-          true,
-          "veritasium"
-        )
+        testRule(rule, "https://www.YOUTUBE.com/user/veritasium", true, "veritasium")
       })
     })
 
@@ -679,11 +525,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
     })
 
     it("should not match youtube.com/playlist", () => {
-      testRule(
-        rule,
-        "https://www.youtube.com/playlist?list=PLrAXtmRdnEQy6nuLMH1Y3J8",
-        false
-      )
+      testRule(rule, "https://www.youtube.com/playlist?list=PLrAXtmRdnEQy6nuLMH1Y3J8", false)
     })
 
     it("should not match youtube.com/live", () => {
@@ -699,11 +541,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
     })
 
     it("should not match youtube.com/channel", () => {
-      testRule(
-        rule,
-        "https://www.youtube.com/channel/UCuAXFkgsw1L7xaCfnd5JJOw",
-        false
-      )
+      testRule(rule, "https://www.youtube.com/channel/UCuAXFkgsw1L7xaCfnd5JJOw", false)
     })
 
     it("should not match youtube.com/feed", () => {
@@ -719,12 +557,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_PROFILE", () => {
     })
 
     it("should match youtube.com/user/ChannelName", () => {
-      testRule(
-        rule,
-        "https://www.youtube.com/user/ChannelName",
-        true,
-        "ChannelName"
-      )
+      testRule(rule, "https://www.youtube.com/user/ChannelName", true, "ChannelName")
     })
 
     it("should not match other domains", () => {
@@ -876,12 +709,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_CHANNEL", () => {
 
   describe("positive cases", () => {
     it("should match youtube.com/channel/UCxxxxx", () => {
-      testRule(
-        rule,
-        "https://www.youtube.com/channel/UC123456789",
-        true,
-        "UC123456789"
-      )
+      testRule(rule, "https://www.youtube.com/channel/UC123456789", true, "UC123456789")
     })
 
     it("should match https://www.youtube.com/channel/UC123 (with protocol and www)", () => {
@@ -897,12 +725,7 @@ describe("API_ENDPOINT_RULE_YOUTUBE_CHANNEL", () => {
     })
 
     it("should match with query params", () => {
-      testRule(
-        rule,
-        "https://youtube.com/channel/UC123?ref=test",
-        true,
-        "UC123"
-      )
+      testRule(rule, "https://youtube.com/channel/UC123?ref=test", true, "UC123")
     })
 
     it("should match without protocol", () => {
@@ -950,12 +773,7 @@ describe("API_ENDPOINT_RULE_TIKTOK", () => {
 
   describe("positive cases", () => {
     it("should match tiktok.com/@charlidamelio", () => {
-      testRule(
-        rule,
-        "https://www.tiktok.com/@charlidamelio",
-        true,
-        "@charlidamelio"
-      )
+      testRule(rule, "https://www.tiktok.com/@charlidamelio", true, "@charlidamelio")
     })
 
     it("should match tiktok.com/@khaby.lame", () => {
@@ -963,12 +781,7 @@ describe("API_ENDPOINT_RULE_TIKTOK", () => {
     })
 
     it("should match with query params", () => {
-      testRule(
-        rule,
-        "https://tiktok.com/@addisonre?lang=en",
-        true,
-        "@addisonre"
-      )
+      testRule(rule, "https://tiktok.com/@addisonre?lang=en", true, "@addisonre")
     })
 
     it("should match without protocol", () => {
@@ -1024,12 +837,7 @@ describe("API_ENDPOINT_RULE_THREADS", () => {
     })
 
     it("should match with query params", () => {
-      testRule(
-        rule,
-        "https://threads.com/@natgeo?igshid=abc123",
-        true,
-        "@natgeo"
-      )
+      testRule(rule, "https://threads.com/@natgeo?igshid=abc123", true, "@natgeo")
     })
 
     it("should match without protocol", () => {
@@ -1037,12 +845,7 @@ describe("API_ENDPOINT_RULE_THREADS", () => {
     })
 
     it("should match with www", () => {
-      testRule(
-        rule,
-        "https://www.threads.com/@taylorswift",
-        true,
-        "@taylorswift"
-      )
+      testRule(rule, "https://www.threads.com/@taylorswift", true, "@taylorswift")
     })
   })
 
@@ -1091,11 +894,7 @@ describe("Website URL detection (should not match any social media regex)", () =
 
     for (const rule of allRules) {
       const flags =
-        rule.domain === "twitter.com" ||
-        rule.domain === "linkedin.com" ||
-        rule.domain === "youtube.com"
-          ? "i"
-          : ""
+        rule.domain === "twitter.com" || rule.domain === "linkedin.com" || rule.domain === "youtube.com" ? "i" : ""
       const regex = new RegExp(rule.regex, flags)
       const match = regex.exec(url)
       expect(match).toBeNull()
@@ -1107,11 +906,7 @@ describe("Website URL detection (should not match any social media regex)", () =
 
     for (const rule of allRules) {
       const flags =
-        rule.domain === "twitter.com" ||
-        rule.domain === "linkedin.com" ||
-        rule.domain === "youtube.com"
-          ? "i"
-          : ""
+        rule.domain === "twitter.com" || rule.domain === "linkedin.com" || rule.domain === "youtube.com" ? "i" : ""
       const regex = new RegExp(rule.regex, flags)
       const match = regex.exec(url)
       expect(match).toBeNull()
@@ -1121,12 +916,8 @@ describe("Website URL detection (should not match any social media regex)", () =
 
 describe("getMainDomain", () => {
   it("should keep subdomains", () => {
-    expect(getMainDomain("https://careers.wix.com/test")).toBe(
-      "careers.wix.com"
-    )
-    expect(getMainDomain("https://www.careers.wix.com/test")).toBe(
-      "careers.wix.com"
-    )
+    expect(getMainDomain("https://careers.wix.com/test")).toBe("careers.wix.com")
+    expect(getMainDomain("https://www.careers.wix.com/test")).toBe("careers.wix.com")
     expect(getMainDomain("careers.wix.com/test")).toBe("careers.wix.com")
   })
 
@@ -1139,8 +930,6 @@ describe("getMainDomain", () => {
   it("should handle other subdomains", () => {
     expect(getMainDomain("https://blog.example.com")).toBe("blog.example.com")
     expect(getMainDomain("https://api.github.com")).toBe("api.github.com")
-    expect(getMainDomain("https://subdomain.example.co.uk")).toBe(
-      "subdomain.example.co.uk"
-    )
+    expect(getMainDomain("https://subdomain.example.co.uk")).toBe("subdomain.example.co.uk")
   })
 })

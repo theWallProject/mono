@@ -26,10 +26,7 @@ type ProcessedState = {
 // ScrapperLinkField excludes "il" since it's not a database field (only used in bot/addon for .il domains)
 type ScrapperLinkField = Exclude<LinkField, "il">
 
-type ManualOverrideFields = Omit<
-  Partial<ScrappedItemType>,
-  ScrapperLinkField
-> & {
+type ManualOverrideFields = Omit<Partial<ScrappedItemType>, ScrapperLinkField> & {
   ws?: string | string[]
   li?: string | string[]
   fb?: string | string[]
@@ -42,30 +39,16 @@ type ManualOverrideFields = Omit<
   th?: string | string[]
 }
 
-type ManualOverrideValue =
-  | (ManualOverrideFields & ProcessedState)
-  | ProcessedState
-  | ManualOverrideFields
+type ManualOverrideValue = (ManualOverrideFields & ProcessedState) | ProcessedState | ManualOverrideFields
 
-const inputFilePath = path.join(
-  __dirname,
-  "../../results/2_merged/2_MERGED_ALL.json"
-)
+const inputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
 
-const manualOverridesPath = path.join(
-  __dirname,
-  "./manual_resolve/manualOverrides.ts"
-)
+const manualOverridesPath = path.join(__dirname, "./manual_resolve/manualOverrides.ts")
 
 const isProcessed = (
   value: ManualOverrideValue
 ): value is ProcessedState | (Partial<ScrappedItemType> & ProcessedState) => {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    "_processed" in value &&
-    value._processed === true
-  )
+  return typeof value === "object" && value !== null && "_processed" in value && value._processed === true
 }
 
 const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
@@ -75,38 +58,24 @@ const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
   delete require.cache[resolvedPath]
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const module = require(modulePath)
-  const overrides = (module.manualOverrides || {}) satisfies Record<
-    string,
-    ManualOverrideValue
-  >
+  const overrides = (module.manualOverrides || {}) satisfies Record<string, ManualOverrideValue>
   return overrides
 }
 
 const formatValue = (value: ManualOverrideValue): string => {
   if (isProcessed(value)) {
     const fields: string[] = []
-    if ("ws" in value && value.ws !== undefined)
-      fields.push(`ws: ${JSON.stringify(value.ws)}`)
-    if ("li" in value && value.li !== undefined)
-      fields.push(`li: ${JSON.stringify(value.li)}`)
-    if ("fb" in value && value.fb !== undefined)
-      fields.push(`fb: ${JSON.stringify(value.fb)}`)
-    if ("tw" in value && value.tw !== undefined)
-      fields.push(`tw: ${JSON.stringify(value.tw)}`)
-    if ("ig" in value && value.ig !== undefined)
-      fields.push(`ig: ${JSON.stringify(value.ig)}`)
-    if ("gh" in value && value.gh !== undefined)
-      fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if ("ytp" in value && value.ytp !== undefined)
-      fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if ("ytc" in value && value.ytc !== undefined)
-      fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
-    if ("tt" in value && value.tt !== undefined)
-      fields.push(`tt: ${JSON.stringify(value.tt)}`)
-    if ("th" in value && value.th !== undefined)
-      fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined)
-      fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if ("ws" in value && value.ws !== undefined) fields.push(`ws: ${JSON.stringify(value.ws)}`)
+    if ("li" in value && value.li !== undefined) fields.push(`li: ${JSON.stringify(value.li)}`)
+    if ("fb" in value && value.fb !== undefined) fields.push(`fb: ${JSON.stringify(value.fb)}`)
+    if ("tw" in value && value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
+    if ("ig" in value && value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
+    if ("gh" in value && value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
+    if ("ytp" in value && value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
+    if ("ytc" in value && value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
+    if ("tt" in value && value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
+    if ("th" in value && value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
+    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
 
     if (fields.length > 0) {
       // Has changes - include both the fields and the processed state
@@ -124,14 +93,11 @@ const formatValue = (value: ManualOverrideValue): string => {
     if (value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
     if (value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
     if (value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if (value.ytp !== undefined)
-      fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if (value.ytc !== undefined)
-      fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
+    if (value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
+    if (value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
     if (value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
     if (value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined)
-      fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
 
     if (fields.length > 0) {
       return `{ ${fields.join(", ")} }`
@@ -141,9 +107,7 @@ const formatValue = (value: ManualOverrideValue): string => {
   }
 }
 
-const saveManualOverrides = async (
-  overrides: Record<string, ManualOverrideValue>
-) => {
+const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>) => {
   const keys = Object.keys(overrides).sort()
   let content = 'import { ScrappedItemType } from "../../types";\n\n'
   content +=
@@ -168,15 +132,11 @@ const saveManualOverrides = async (
       parser: "typescript"
     })
     fs.writeFileSync(manualOverridesPath, formatted, "utf-8")
-    log(
-      `Saved manualOverrides to ${manualOverridesPath} (formatted with prettier)`
-    )
+    log(`Saved manualOverrides to ${manualOverridesPath} (formatted with prettier)`)
   } catch (e) {
     // If prettier fails, save without formatting
     fs.writeFileSync(manualOverridesPath, content, "utf-8")
-    log(
-      `Saved manualOverrides to ${manualOverridesPath} (prettier failed: ${e})`
-    )
+    log(`Saved manualOverrides to ${manualOverridesPath} (prettier failed: ${e})`)
   }
 }
 
@@ -225,10 +185,7 @@ const urlsAreEquivalent = (url1: string, url2: string): boolean => {
   return normalized1 === normalized2
 }
 
-const checkRedirect = async (
-  page: Page,
-  url: string
-): Promise<{ finalUrl: string; redirected: boolean }> => {
+const checkRedirect = async (page: Page, url: string): Promise<{ finalUrl: string; redirected: boolean }> => {
   const normalizedUrl = normalizeUrl(url)
   const initialUrl = normalizedUrl
   let finalUrl = initialUrl
@@ -244,9 +201,7 @@ const checkRedirect = async (
   }
 
   if (response.status() >= 400) {
-    throw new Error(
-      `HTTP ${response.status()} error for ${normalizedUrl}: ${response.statusText()}`
-    )
+    throw new Error(`HTTP ${response.status()} error for ${normalizedUrl}: ${response.statusText()}`)
   }
 
   finalUrl = response.url()
@@ -306,19 +261,13 @@ const categorizeUrl = (url: string): LinkField | null => {
     }
 
     // Check YouTube Profile - use common regex as only source of truth
-    const regexYouTubeProfile = new RegExp(
-      API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex,
-      "i"
-    )
+    const regexYouTubeProfile = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i")
     if (regexYouTubeProfile.test(url)) {
       return "ytp"
     }
 
     // Check YouTube Channel - use common regex as only source of truth
-    const regexYouTubeChannel = new RegExp(
-      API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex,
-      "i"
-    )
+    const regexYouTubeChannel = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i")
     if (regexYouTubeChannel.test(url)) {
       return "ytc"
     }
@@ -385,13 +334,11 @@ type SearchService = {
 const searchServices: SearchService[] = [
   {
     name: "Ecosia",
-    urlTemplate: (query) =>
-      `https://www.ecosia.org/search?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.ecosia.org/search?q=${encodeURIComponent(query)}`
   },
   {
     name: "GitHub",
-    urlTemplate: (query) =>
-      `https://github.com/search?q=${encodeURIComponent(query)}&type=users`
+    urlTemplate: (query) => `https://github.com/search?q=${encodeURIComponent(query)}&type=users`
   },
   {
     name: "YouTube",
@@ -400,59 +347,46 @@ const searchServices: SearchService[] = [
   },
   {
     name: "TikTok",
-    urlTemplate: (query) =>
-      `https://www.tiktok.com/search/user?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.tiktok.com/search/user?q=${encodeURIComponent(query)}`
   },
   {
     name: "Play Store",
-    urlTemplate: (query) =>
-      `https://play.google.com/store/search?q=${encodeURIComponent(query)}&c=apps`
+    urlTemplate: (query) => `https://play.google.com/store/search?q=${encodeURIComponent(query)}&c=apps`
   },
   {
     name: "Apple Store",
-    urlTemplate: (query) =>
-      `https://www.apple.com/us/search/${encodeURIComponent(query)}?src=globalnav`
+    urlTemplate: (query) => `https://www.apple.com/us/search/${encodeURIComponent(query)}?src=globalnav`
   },
   {
     name: "Chrome Web Store",
-    urlTemplate: (query) =>
-      `https://chrome.google.com/webstore/search/${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://chrome.google.com/webstore/search/${encodeURIComponent(query)}`
   },
   {
     name: "Facebook",
-    urlTemplate: (query) =>
-      `https://www.facebook.com/search/pages/?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.facebook.com/search/pages/?q=${encodeURIComponent(query)}`
   },
   {
     name: "Threads",
-    urlTemplate: (query) =>
-      `https://www.threads.net/search?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.threads.net/search?q=${encodeURIComponent(query)}`
   },
   {
     name: "Instagram",
-    urlTemplate: (query) =>
-      `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(query)}`
   },
   {
     name: "npm",
-    urlTemplate: (query) =>
-      `https://www.npmjs.com/search?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.npmjs.com/search?q=${encodeURIComponent(query)}`
   },
   {
     name: "VSCode Extensions",
-    urlTemplate: (query) =>
-      `https://marketplace.visualstudio.com/search?term=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://marketplace.visualstudio.com/search?term=${encodeURIComponent(query)}`
   }
 ]
 
 /**
  * Opens search pages for all configured search services
  */
-const openSearchPages = async (
-  context: BrowserContext,
-  query: string,
-  pages: Page[]
-): Promise<void> => {
+const openSearchPages = async (context: BrowserContext, query: string, pages: Page[]): Promise<void> => {
   // Open all search tabs first (without waiting for navigation)
   const searchPages: Array<{
     page: Page
@@ -489,10 +423,7 @@ const openSearchPages = async (
   await Promise.all(navigationPromises)
 }
 
-const validateItemLinks = async (
-  context: BrowserContext,
-  item: ScrappedItemType
-): Promise<OverrideWithUrls | null> => {
+const validateItemLinks = async (context: BrowserContext, item: ScrappedItemType): Promise<OverrideWithUrls | null> => {
   const changes: OverrideWithUrls = {}
   let hasChanges = false
 
@@ -538,9 +469,7 @@ const validateItemLinks = async (
       }
     } catch (e) {
       const errorMessage = e instanceof Error ? e.message : String(e)
-      error(
-        `    ⚠️  Error checking ${field} (${url}): ${errorMessage}. Page kept open for manual verification.`
-      )
+      error(`    ⚠️  Error checking ${field} (${url}): ${errorMessage}. Page kept open for manual verification.`)
       // Keep the page open for manual verification instead of closing it
       // Note: We don't set changes[field] here, so it won't be auto-updated
       // User can manually update via the urls array or close the browser and continue
@@ -586,9 +515,7 @@ const validateItemLinks = async (
   }
 
   // Wait for entire browser to be closed by user
-  log(
-    `  ⏳ Browser windows are open (${pages.length} tabs). Close the browser to proceed...`
-  )
+  log(`  ⏳ Browser windows are open (${pages.length} tabs). Close the browser to proceed...`)
 
   // CRITICAL: Store tracking data OUTSIDE browser context scope
   // These persist even after browser/context closes
@@ -653,9 +580,7 @@ const validateItemLinks = async (
 
       if (isShuttingDown) {
         // Browser is already closing - keep URLs in finalUrls (already there)
-        log(
-          `  [DEBUG] ⚠️ Tab closed during context shutdown, ${urlHistory.size} URLs preserved`
-        )
+        log(`  [DEBUG] ⚠️ Tab closed during context shutdown, ${urlHistory.size} URLs preserved`)
         return
       }
 
@@ -687,23 +612,16 @@ const validateItemLinks = async (
   // Wait for all pending tab close checks to complete (or timeout after 4 seconds)
   const waitForPendingChecks = async () => {
     if (pendingTabCloseChecks.size > 0) {
-      log(
-        `  [DEBUG] Waiting for ${pendingTabCloseChecks.size} pending tab close checks to complete...`
-      )
+      log(`  [DEBUG] Waiting for ${pendingTabCloseChecks.size} pending tab close checks to complete...`)
       const maxWait = TAB_CLOSE_DELAY_MS + 1000 // Wait slightly longer than the delay
       const startTime = Date.now()
 
-      while (
-        pendingTabCloseChecks.size > 0 &&
-        Date.now() - startTime < maxWait
-      ) {
+      while (pendingTabCloseChecks.size > 0 && Date.now() - startTime < maxWait) {
         await new Promise((resolve) => setTimeout(resolve, 100))
       }
 
       if (pendingTabCloseChecks.size > 0) {
-        log(
-          `  [DEBUG] ⚠️ Still ${pendingTabCloseChecks.size} pending checks, proceeding anyway`
-        )
+        log(`  [DEBUG] ⚠️ Still ${pendingTabCloseChecks.size} pending checks, proceeding anyway`)
         // Clear remaining timeouts
         for (const timeoutId of pendingTabCloseChecks) {
           clearTimeout(timeoutId)
@@ -760,9 +678,7 @@ const validateItemLinks = async (
         }
 
         if (oldUrl && oldUrl !== tabUrl && oldUrl !== "about:blank") {
-          log(
-            `  [DEBUG] ✨ Tab URL updated from ${source}: ${oldUrl} → ${tabUrl}`
-          )
+          log(`  [DEBUG] ✨ Tab URL updated from ${source}: ${oldUrl} → ${tabUrl}`)
         } else if (oldUrl !== tabUrl) {
           log(`  [DEBUG] ✨ Tab URL captured from ${source}: ${tabUrl}`)
         }
@@ -845,16 +761,10 @@ const validateItemLinks = async (
     const collectExtraUrls = (): string[] => {
       const extraUrls: string[] = []
       log(`  [DEBUG] === Starting URL collection (deterministic method) ===`)
-      log(
-        `  [DEBUG] Links we opened: ${JSON.stringify(links.map((l) => l.url))}`
-      )
+      log(`  [DEBUG] Links we opened: ${JSON.stringify(links.map((l) => l.url))}`)
       log(`  [DEBUG] Total tracked tabs: ${tabUrlHistory.size}`)
-      log(
-        `  [DEBUG] Tabs with URLs in persistent storage: ${persistentTabUrls.size}`
-      )
-      log(
-        `  [DEBUG] URLs user manually closed (excluded): ${userClosedUrls.size}`
-      )
+      log(`  [DEBUG] Tabs with URLs in persistent storage: ${persistentTabUrls.size}`)
+      log(`  [DEBUG] URLs user manually closed (excluded): ${userClosedUrls.size}`)
 
       try {
         // DETERMINISTIC: Use persistentTabUrls as the single source of truth
@@ -894,10 +804,7 @@ const validateItemLinks = async (
         log(`  [DEBUG] URLs: ${JSON.stringify(extraUrls)}`)
 
         // Verify: number of tabs should equal number of URLs
-        if (
-          persistentTabUrls.size !==
-          extraUrls.length + userClosedSkipped + blankUrlsSkipped
-        ) {
+        if (persistentTabUrls.size !== extraUrls.length + userClosedSkipped + blankUrlsSkipped) {
           log(
             `  [DEBUG] ⚠️ WARNING: Tab count (${persistentTabUrls.size}) does not match collected URLs (${extraUrls.length} + ${userClosedSkipped} skipped + ${blankUrlsSkipped} blank)`
           )
@@ -919,9 +826,7 @@ const validateItemLinks = async (
 
     const cleanup = (reason: string) => {
       if (resolved) {
-        log(
-          `  [DEBUG] cleanup called again with reason: ${reason}, but already resolved`
-        )
+        log(`  [DEBUG] cleanup called again with reason: ${reason}, but already resolved`)
         return
       }
       resolved = true
@@ -933,20 +838,14 @@ const validateItemLinks = async (
       // DETERMINISTIC: persistentTabUrls is already populated and persists
       // No need to capture URLs here - they're already in persistentTabUrls
       log(`  [DEBUG] cleanup() called with reason: ${reason}`)
-      log(
-        `  [DEBUG] Using persistentTabUrls (${persistentTabUrls.size} tabs) as single source of truth`
-      )
+      log(`  [DEBUG] Using persistentTabUrls (${persistentTabUrls.size} tabs) as single source of truth`)
 
       // Mark context as closing
       // This prevents tab close handlers from interfering
       isContextClosing = true
-      log(
-        `  [DEBUG] Context closing flag set to prevent URL deletion during tab close events`
-      )
+      log(`  [DEBUG] Context closing flag set to prevent URL deletion during tab close events`)
 
-      log(
-        `  [DEBUG] Reading tab->URL mappings (no browser access needed): ${persistentTabUrls.size} tabs with URLs`
-      )
+      log(`  [DEBUG] Reading tab->URL mappings (no browser access needed): ${persistentTabUrls.size} tabs with URLs`)
       log(`  [DEBUG] Total tracked tabs before cleanup: ${tabUrlHistory.size}`)
 
       // Log all URLs currently in storage for debugging
@@ -961,9 +860,7 @@ const validateItemLinks = async (
           }
         }
       } else {
-        log(
-          `  [DEBUG] ⚠️ WARNING: persistentTabUrls is empty! All URLs may have been deleted.`
-        )
+        log(`  [DEBUG] ⚠️ WARNING: persistentTabUrls is empty! All URLs may have been deleted.`)
       }
 
       // Simply read from persistentTabUrls - tab->URL mappings prepared by events
@@ -976,9 +873,7 @@ const validateItemLinks = async (
         const extraUrls = collectExtraUrls()
 
         log(`  [DEBUG] Collection returned ${extraUrls.length} URLs`)
-        log(
-          `  [DEBUG] Changes object before: ${JSON.stringify(Object.keys(changes))}`
-        )
+        log(`  [DEBUG] Changes object before: ${JSON.stringify(Object.keys(changes))}`)
 
         if (extraUrls.length > 0) {
           log(`  📎 Found ${extraUrls.length} extra tab URL(s):`, extraUrls)
@@ -992,8 +887,7 @@ const validateItemLinks = async (
           for (const url of extraUrls) {
             const category = categorizeUrl(url)
             // categorizeUrl never returns "il" (only returns database fields or null)
-            const categoryKey: ScrapperLinkField | "urls" = (category ||
-              "urls") as ScrapperLinkField | "urls"
+            const categoryKey: ScrapperLinkField | "urls" = (category || "urls") as ScrapperLinkField | "urls"
             const cleanedUrl = removeTrailingSlash(url)
 
             // Initialize Set for this category if needed
@@ -1005,9 +899,7 @@ const validateItemLinks = async (
 
             // Skip if we've already seen this exact URL in this category
             if (seen.has(cleanedUrl)) {
-              log(
-                `  [DEBUG] ⊙ Skipped duplicate URL in ${categoryKey}: ${cleanedUrl}`
-              )
+              log(`  [DEBUG] ⊙ Skipped duplicate URL in ${categoryKey}: ${cleanedUrl}`)
               continue
             }
 
@@ -1049,15 +941,8 @@ const validateItemLinks = async (
           }
 
           // Helper to merge arrays and deduplicate
-          const mergeAndDeduplicate = (
-            existing: string | string[] | undefined,
-            newUrls: string[]
-          ): string[] => {
-            const existingArray = Array.isArray(existing)
-              ? existing
-              : existing
-                ? [existing]
-                : []
+          const mergeAndDeduplicate = (existing: string | string[] | undefined, newUrls: string[]): string[] => {
+            const existingArray = Array.isArray(existing) ? existing : existing ? [existing] : []
             const combined = [...existingArray, ...newUrls]
             // Deduplicate by converting to Set and back to array
             return Array.from(new Set(combined))
@@ -1099,17 +984,13 @@ const validateItemLinks = async (
           if (categorized.ytp && categorized.ytp.length > 0) {
             changes.ytp = mergeAndDeduplicate(changes.ytp, categorized.ytp)
             hasChanges = true
-            log(
-              `  ✓ Categorized ${categorized.ytp.length} YouTube Profile URL(s)`
-            )
+            log(`  ✓ Categorized ${categorized.ytp.length} YouTube Profile URL(s)`)
           }
 
           if (categorized.ytc && categorized.ytc.length > 0) {
             changes.ytc = mergeAndDeduplicate(changes.ytc, categorized.ytc)
             hasChanges = true
-            log(
-              `  ✓ Categorized ${categorized.ytc.length} YouTube Channel URL(s)`
-            )
+            log(`  ✓ Categorized ${categorized.ytc.length} YouTube Channel URL(s)`)
           }
 
           if (categorized.tt && categorized.tt.length > 0) {
@@ -1128,23 +1009,16 @@ const validateItemLinks = async (
           if (categorized.urls && categorized.urls.length > 0) {
             changes.urls = mergeAndDeduplicate(changes.urls, categorized.urls)
             hasChanges = true
-            log(
-              `  ✓ Kept ${categorized.urls.length} unsupported URL(s) in urls array`
-            )
+            log(`  ✓ Kept ${categorized.urls.length} unsupported URL(s) in urls array`)
           }
         } else {
           log(`  [DEBUG] No extra URLs found`)
         }
 
-        log(
-          `  [DEBUG] Final changes object: ${JSON.stringify(changes, null, 2)}`
-        )
-        log(
-          `  [DEBUG] hasChanges=${hasChanges}, changes.keys=${Object.keys(changes).join(", ")}`
-        )
+        log(`  [DEBUG] Final changes object: ${JSON.stringify(changes, null, 2)}`)
+        log(`  [DEBUG] hasChanges=${hasChanges}, changes.keys=${Object.keys(changes).join(", ")}`)
 
-        const finalHasChanges =
-          hasChanges || (changes.urls !== undefined && changes.urls.length > 0)
+        const finalHasChanges = hasChanges || (changes.urls !== undefined && changes.urls.length > 0)
         const hasUrls = changes.urls !== undefined && changes.urls.length > 0
         log(
           `  [DEBUG] Final decision: hasChanges=${hasChanges}, hasUrls=${hasUrls}, finalHasChanges=${finalHasChanges}`
@@ -1200,9 +1074,7 @@ const validateItemLinks = async (
 
     // Listen to multiple events with debug logging
     browser.once("disconnected", () => {
-      log(
-        `  [DEBUG] Browser 'disconnected' event fired - using persistentTabUrls`
-      )
+      log(`  [DEBUG] Browser 'disconnected' event fired - using persistentTabUrls`)
       // DETERMINISTIC: persistentTabUrls already has all URLs, no need to capture
       isContextClosing = true
       log(
@@ -1212,15 +1084,11 @@ const validateItemLinks = async (
     })
 
     context.once("close", () => {
-      log(
-        `  [DEBUG] Context 'close' event fired - setting closing flag and collecting URLs`
-      )
+      log(`  [DEBUG] Context 'close' event fired - setting closing flag and collecting URLs`)
       // Set flag immediately when context starts closing
       // This prevents tab close handlers from deleting URLs
       isContextClosing = true
-      log(
-        `  [DEBUG] Context closing flag set, persistentTabUrls size: ${persistentTabUrls.size}`
-      )
+      log(`  [DEBUG] Context closing flag set, persistentTabUrls size: ${persistentTabUrls.size}`)
       cleanup("context close event")
     })
 
@@ -1250,9 +1118,7 @@ const validateItemLinks = async (
       // If all pages are closed, browser was likely closed
       if (allPagesClosed && pages.length > 0) {
         isContextClosing = true
-        log(
-          `  [DEBUG] All pages closed detected in polling - using persistentTabUrls (${persistentTabUrls.size} tabs)`
-        )
+        log(`  [DEBUG] All pages closed detected in polling - using persistentTabUrls (${persistentTabUrls.size} tabs)`)
         cleanup("polling (all pages closed)")
         return
       }
@@ -1263,11 +1129,7 @@ const validateItemLinks = async (
 /**
  * Draws a progress bar
  */
-const drawProgressBar = (
-  current: number,
-  total: number,
-  width: number = 40
-): string => {
+const drawProgressBar = (current: number, total: number, width: number = 40): string => {
   const percentage = total > 0 ? Math.min((current / total) * 100, 100) : 0
   const filled = Math.round((percentage / 100) * width)
   const empty = width - filled
@@ -1278,10 +1140,7 @@ const drawProgressBar = (
 /**
  * Gets statistics about processed/unprocessed items
  */
-const getStatistics = (
-  allItems: ScrappedItemType[],
-  processedItems: Record<string, ManualOverrideValue>
-) => {
+const getStatistics = (allItems: ScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
   const total = allItems.length
   let processed = 0
   let unprocessed = 0
@@ -1292,8 +1151,7 @@ const getStatistics = (
   }
 
   for (const item of allItems) {
-    const isProcessedItem =
-      processedItems[item.name] && isProcessed(processedItems[item.name])
+    const isProcessedItem = processedItems[item.name] && isProcessed(processedItems[item.name])
 
     if (isProcessedItem) {
       processed++
@@ -1329,10 +1187,7 @@ const getStatistics = (
 /**
  * Displays statistics and progress bar
  */
-const displayStatistics = (
-  allItems: ScrappedItemType[],
-  processedItems: Record<string, ManualOverrideValue>
-) => {
+const displayStatistics = (allItems: ScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
   const stats = getStatistics(allItems, processedItems)
 
   log("\n" + "=".repeat(60))
@@ -1345,36 +1200,20 @@ const displayStatistics = (
 
   // By reason
   log("\n📋 By Reason:")
-  log(
-    `   Reason "h": ${drawProgressBar(stats.byReason.h.processed, stats.byReason.h.total, 30)}`
-  )
-  log(
-    `   Reason "f": ${drawProgressBar(stats.byReason.f.processed, stats.byReason.f.total, 30)}`
-  )
-  log(
-    `   Others:    ${drawProgressBar(stats.byReason.other.processed, stats.byReason.other.total, 30)}`
-  )
+  log(`   Reason "h": ${drawProgressBar(stats.byReason.h.processed, stats.byReason.h.total, 30)}`)
+  log(`   Reason "f": ${drawProgressBar(stats.byReason.f.processed, stats.byReason.f.total, 30)}`)
+  log(`   Others:    ${drawProgressBar(stats.byReason.other.processed, stats.byReason.other.total, 30)}`)
 
   // Summary
   log("\n📊 Summary:")
   log(`   Total companies:     ${stats.total}`)
-  log(
-    `   ✅ Processed:        ${stats.processed} (${((stats.processed / stats.total) * 100).toFixed(1)}%)`
-  )
-  log(
-    `   ⏳ Remaining:        ${stats.unprocessed} (${((stats.unprocessed / stats.total) * 100).toFixed(1)}%)`
-  )
+  log(`   ✅ Processed:        ${stats.processed} (${((stats.processed / stats.total) * 100).toFixed(1)}%)`)
+  log(`   ⏳ Remaining:        ${stats.unprocessed} (${((stats.unprocessed / stats.total) * 100).toFixed(1)}%)`)
 
   log("\n📋 Remaining by Reason:")
-  log(
-    `   Reason "h":          ${stats.byReason.h.total - stats.byReason.h.processed} remaining`
-  )
-  log(
-    `   Reason "f":          ${stats.byReason.f.total - stats.byReason.f.processed} remaining`
-  )
-  log(
-    `   Others:              ${stats.byReason.other.total - stats.byReason.other.processed} remaining`
-  )
+  log(`   Reason "h":          ${stats.byReason.h.total - stats.byReason.h.processed} remaining`)
+  log(`   Reason "f":          ${stats.byReason.f.total - stats.byReason.f.processed} remaining`)
+  log(`   Others:              ${stats.byReason.other.total - stats.byReason.other.processed} remaining`)
 
   log("\n" + "=".repeat(60))
 }
@@ -1398,9 +1237,7 @@ const getReasonPriority = (item: ScrappedItemType): number => {
   return 3 // Other reasons = lowest priority
 }
 
-const sortByReasonAndCbRank = (
-  items: ScrappedItemType[]
-): ScrappedItemType[] => {
+const sortByReasonAndCbRank = (items: ScrappedItemType[]): ScrappedItemType[] => {
   return [...items].sort((a, b) => {
     // First sort by reason priority (h first, then f, then others)
     const priorityA = getReasonPriority(a)
@@ -1426,24 +1263,18 @@ const promptForCompanyName = (defaultCompany: string): Promise<string> => {
   })
 
   return new Promise<string>((resolve) => {
-    rl.question(
-      `Enter company name to process (default: ${defaultCompany}): `,
-      (answer) => {
-        rl.close()
-        const companyName = answer.trim() || defaultCompany
-        resolve(companyName)
-      }
-    )
+    rl.question(`Enter company name to process (default: ${defaultCompany}): `, (answer) => {
+      rl.close()
+      const companyName = answer.trim() || defaultCompany
+      resolve(companyName)
+    })
   })
 }
 
 /**
  * Finds a company by exact case-sensitive name match
  */
-const findCompanyByName = (
-  companyName: string,
-  items: ScrappedItemType[]
-): ScrappedItemType | null => {
+const findCompanyByName = (companyName: string, items: ScrappedItemType[]): ScrappedItemType | null => {
   return items.find((item) => item.name === companyName) || null
 }
 
@@ -1492,9 +1323,7 @@ export async function run() {
 
     if (!item) {
       // Company not found - show error with available options
-      error(
-        `\n❌ Company "${selectedCompanyName}" not found in unprocessed items.`
-      )
+      error(`\n❌ Company "${selectedCompanyName}" not found in unprocessed items.`)
       log("\nAvailable companies (showing first 10):")
       const sampleCompanies = unprocessedItems.slice(0, 10)
       for (const company of sampleCompanies) {
@@ -1503,16 +1332,12 @@ export async function run() {
       if (unprocessedItems.length > 10) {
         log(`  ... and ${unprocessedItems.length - 10} more`)
       }
-      throw new Error(
-        `Company "${selectedCompanyName}" not found. Please use an exact case-sensitive match.`
-      )
+      throw new Error(`Company "${selectedCompanyName}" not found. Please use an exact case-sensitive match.`)
     }
 
     // Find the index of the selected company for progress display
     const itemIndex = unprocessedItems.findIndex((i) => i.name === item.name)
-    log(
-      `\n[${itemIndex + 1}/${unprocessedItems.length}] Processing: ${item.name} (cbRank: ${item.cbRank || "N/A"})`
-    )
+    log(`\n[${itemIndex + 1}/${unprocessedItems.length}] Processing: ${item.name} (cbRank: ${item.cbRank || "N/A"})`)
 
     // Launch browser with persistent profile (reuse same profile across items)
     log("Launching browser with persistent profile...")
@@ -1529,10 +1354,7 @@ export async function run() {
 
     // Load The Wall extension from local path
     // Path from src/tasks/validate_urls.ts: go up 3 levels (to parent of scrapper repo), then into addon/build/chrome-mv3-dev/
-    const extensionDir = path.join(
-      __dirname,
-      "../../../addon/build/chrome-mv3-dev"
-    )
+    const extensionDir = path.join(__dirname, "../../../addon/build/chrome-mv3-dev")
     const extensionManifestPath = path.join(extensionDir, "manifest.json")
 
     // Check if extension exists - crash if not found
@@ -1658,18 +1480,14 @@ export async function run() {
     try {
       const exists = fs.existsSync(manualOverridesPath)
       if (!exists) {
-        throw new Error(
-          `manualOverrides file not found after save: ${manualOverridesPath}`
-        )
+        throw new Error(`manualOverrides file not found after save: ${manualOverridesPath}`)
       }
       // Try to read it to ensure it's fully written
       fs.readFileSync(manualOverridesPath, "utf-8")
       log("  💾 Progress saved and verified")
     } catch (e) {
       error(`  ⚠️  Failed to verify manualOverrides save: ${e}`)
-      throw new Error(
-        `Cannot proceed: manualOverrides file not saved correctly`
-      )
+      throw new Error(`Cannot proceed: manualOverrides file not saved correctly`)
     }
 
     log(`\n✓ Item processed. Remaining items: ${unprocessedItems.length - 1}`)

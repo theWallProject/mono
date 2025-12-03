@@ -3,17 +3,10 @@ import path from "path"
 import { format } from "prettier"
 
 import { error, log, warn } from "../helper"
-import {
-  APIEndpointDomains,
-  APIEndpointDomainsResult,
-  DBFileNames
-} from "../scrapperTypes"
+import { APIEndpointDomains, APIEndpointDomainsResult, DBFileNames } from "../scrapperTypes"
 import { APIScrapperFileDataSchema, ScrappedFileType } from "../types"
 
-const outputFilePath = path.join(
-  __dirname,
-  `../../results/3_networks/${DBFileNames.WEBSITES}.json`
-)
+const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNames.WEBSITES}.json`)
 
 export const run = async (merged: ScrappedFileType) => {
   const mergedDB = APIScrapperFileDataSchema.parse(merged)
@@ -27,11 +20,7 @@ export const run = async (merged: ScrappedFileType) => {
       let shouldKeep = false
 
       if (website) {
-        const domain = website
-          .replace("https://", "")
-          .replace("http://", "")
-          .replace("www.", "")
-          .split("/")[0]
+        const domain = website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0]
 
         shouldKeep = !(
           domain.includes("google.com") ||
@@ -62,11 +51,7 @@ export const run = async (merged: ScrappedFileType) => {
       throw new Error("Website is empty")
     }
 
-    const domain = website
-      .replace("https://", "")
-      .replace("http://", "")
-      .replace("www.", "")
-      .split("/")[0]
+    const domain = website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0]
 
     // if (domain.split(".").length > 2) {
     //   // warn(`Website Domain extracted ${website} => ${domain}`);
@@ -138,10 +123,7 @@ export const run = async (merged: ScrappedFileType) => {
   log(`Wrote ${mergedDB.length} rows...`)
 }
 
-function mergeObjects(
-  obj1: APIEndpointDomainsResult,
-  obj2: APIEndpointDomainsResult
-): APIEndpointDomainsResult {
+function mergeObjects(obj1: APIEndpointDomainsResult, obj2: APIEndpointDomainsResult): APIEndpointDomainsResult {
   const merged: APIEndpointDomainsResult = { ...obj1 }
 
   // Merge reasons arrays and remove duplicates

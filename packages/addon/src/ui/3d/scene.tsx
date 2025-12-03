@@ -9,13 +9,7 @@ import { WallObj } from "./WallObj"
 const GROUP_POS = new Vector3(0, 0, 0)
 const GROUP_SCALE = new Vector3(1, 1, 1)
 
-const Scene = ({
-  isSharing,
-  isSkipping
-}: {
-  isSkipping: boolean
-  isSharing: boolean
-}) => {
+const Scene = ({ isSharing, isSkipping }: { isSkipping: boolean; isSharing: boolean }) => {
   const groupRef = useRef<Group>(null)
 
   // useEffect(() => {

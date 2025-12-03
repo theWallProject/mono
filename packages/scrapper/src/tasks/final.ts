@@ -10,15 +10,10 @@ import { APIEndpointDomainsResultSchema, DBFileNames } from "../scrapperTypes"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
 
-const outputFilePath = path.join(
-  __dirname,
-  `../../results/4_final/${DBFileNames.ALL}.json`
-)
+const outputFilePath = path.join(__dirname, `../../results/4_final/${DBFileNames.ALL}.json`)
 
 const loadJsonFiles = (folderPath: string) => {
-  const files = fs
-    .readdirSync(folderPath)
-    .filter((file) => file.endsWith(".json"))
+  const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
   let combinedArray: FinalDBFileType[] = []
   const idRecord: Record<string, FinalDBFileType> = {}
@@ -27,9 +22,7 @@ const loadJsonFiles = (folderPath: string) => {
     const filePath = path.join(folderPath, file)
     const fileContent = fs.readFileSync(filePath, "utf-8")
 
-    const parsedData = z
-      .array(APIEndpointDomainsResultSchema)
-      .parse(JSON.parse(fileContent))
+    const parsedData = z.array(APIEndpointDomainsResultSchema).parse(JSON.parse(fileContent))
 
     log(`File ${file} has ${parsedData.length} rows`)
     const key = keyFromFileName(file)

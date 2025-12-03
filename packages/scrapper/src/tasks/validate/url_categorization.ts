@@ -50,19 +50,13 @@ export const categorizeUrl = (url: string): LinkField | null => {
     }
 
     // Check YouTube Profile - use common regex as only source of truth
-    const regexYouTubeProfile = new RegExp(
-      API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex,
-      "i"
-    )
+    const regexYouTubeProfile = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i")
     if (regexYouTubeProfile.test(url)) {
       return "ytp"
     }
 
     // Check YouTube Channel - use common regex as only source of truth
-    const regexYouTubeChannel = new RegExp(
-      API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex,
-      "i"
-    )
+    const regexYouTubeChannel = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i")
     if (regexYouTubeChannel.test(url)) {
       return "ytc"
     }

@@ -3,10 +3,7 @@
  * Strict type checking, exhaustive case handling.
  */
 
-import type {
-  APIListOfReasonsValues,
-  UrlCheckResult
-} from "@theWallProject/common"
+import type { APIListOfReasonsValues, UrlCheckResult } from "@theWallProject/common"
 import type { Context } from "telegraf"
 
 import { getT, type TFunction } from "./translations.js"
@@ -37,20 +34,14 @@ function formatReasonBot(reason: APIListOfReasonsValues, t: TFunction): string {
 /**
  * Formats reasons array into formatted text.
  */
-export function formatReasonsForBot(
-  reasons: readonly APIListOfReasonsValues[],
-  t: TFunction
-): string {
+export function formatReasonsForBot(reasons: readonly APIListOfReasonsValues[], t: TFunction): string {
   return reasons.map((reason) => `• ${formatReasonBot(reason, t)}`).join("\n")
 }
 
 /**
  * Formats a hint result for display.
  */
-export function formatHintForBot(
-  result: Extract<UrlCheckResult, { isHint: true }>,
-  t: TFunction
-): string {
+export function formatHintForBot(result: Extract<UrlCheckResult, { isHint: true }>, t: TFunction): string {
   const parts: string[] = [t("hint.header"), result.hintText]
 
   if (result.hintUrl) {
@@ -63,10 +54,7 @@ export function formatHintForBot(
 /**
  * Formats a flagged result for inline query (compact).
  */
-export function formatInlineResultForBot(
-  result: Extract<UrlCheckResult, { isHint?: false }>,
-  t: TFunction
-): string {
+export function formatInlineResultForBot(result: Extract<UrlCheckResult, { isHint?: false }>, t: TFunction): string {
   const parts: string[] = [`${t("flagged.header")}: ${result.name}`]
 
   if (result.stockSymbol) {
@@ -83,10 +71,7 @@ export function formatInlineResultForBot(
 /**
  * Formats a flagged result for message reply (detailed).
  */
-export function formatMessageReplyForBot(
-  result: Extract<UrlCheckResult, { isHint?: false }>,
-  t: TFunction
-): string {
+export function formatMessageReplyForBot(result: Extract<UrlCheckResult, { isHint?: false }>, t: TFunction): string {
   const parts: string[] = [`${t("flagged.header")}: *${result.name}*`]
 
   if (result.stockSymbol) {
@@ -115,11 +100,7 @@ export function formatMessageReplyForBot(
  * Formats a result for Telegram display.
  * @throws Error if result type is unexpected
  */
-export function formatResultForBot(
-  result: UrlCheckResult,
-  format: "inline" | "message",
-  ctx: Context
-): string {
+export function formatResultForBot(result: UrlCheckResult, format: "inline" | "message", ctx: Context): string {
   const t = getT(ctx)
 
   if (result === undefined) {

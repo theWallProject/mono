@@ -7,12 +7,8 @@ import { APIScrapperFileDataSchema } from "../types"
 
 const report = () => {
   const merged = APIScrapperFileDataSchema.parse(mergedall)
-  const top = merged.filter(
-    (item) => item.cbRank && item.reasons && item.reasons.includes("h")
-  )
-  const sortedArray = top
-    .sort((a, b) => Number(a.cbRank) - Number(b.cbRank))
-    .slice(0, 10)
+  const top = merged.filter((item) => item.cbRank && item.reasons && item.reasons.includes("h"))
+  const sortedArray = top.sort((a, b) => Number(a.cbRank) - Number(b.cbRank)).slice(0, 10)
 
   log(sortedArray)
 

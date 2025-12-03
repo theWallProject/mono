@@ -8,9 +8,7 @@ import { runUpdateSteps } from "../index"
 
 async function main() {
   log("🔄 Applying manual overrides to output files...")
-  log(
-    "This will regenerate ALL.json and other output files with latest manualOverrides.ts"
-  )
+  log("This will regenerate ALL.json and other output files with latest manualOverrides.ts")
 
   try {
     // Run update steps without any prompts (skip scraping, validation, copy to addon)

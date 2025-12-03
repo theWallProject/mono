@@ -17,10 +17,7 @@ const DEBUG_SHOW_PASSED_BORDER = true
 /**
  * Apply visual treatment to a flagged item
  */
-export const applyVisualTreatment = (
-  item: ExtractedItem,
-  checkResult: UrlTestResult
-): void => {
+export const applyVisualTreatment = (item: ExtractedItem, checkResult: UrlTestResult): void => {
   try {
     if (!checkResult || checkResult.isDismissed) {
       return
@@ -36,15 +33,8 @@ export const applyVisualTreatment = (
     if (checkResult.name) {
       itemElement.setAttribute("data-wall-name", checkResult.name)
     }
-    if (
-      "reasons" in checkResult &&
-      checkResult.reasons &&
-      checkResult.reasons.length > 0
-    ) {
-      itemElement.setAttribute(
-        "data-wall-reasons",
-        checkResult.reasons.join(",")
-      )
+    if ("reasons" in checkResult && checkResult.reasons && checkResult.reasons.length > 0) {
+      itemElement.setAttribute("data-wall-reasons", checkResult.reasons.join(","))
     }
     // Store URL and rule info for dismissal
     if (item.url) {
@@ -62,9 +52,7 @@ export const applyVisualTreatment = (
     }
 
     // Create overlay if it doesn't exist
-    let overlay = itemElement.querySelector(
-      `.${OVERLAY_CLASS}`
-    ) as globalThis.HTMLElement
+    let overlay = itemElement.querySelector(`.${OVERLAY_CLASS}`) as globalThis.HTMLElement
     if (!overlay) {
       overlay = document.createElement("div")
       overlay.className = OVERLAY_CLASS
@@ -133,16 +121,12 @@ export const applyVisualTreatment = (
           chrome.runtime.sendMessage(message, (response) => {
             if (!chrome.runtime.lastError && response) {
               // Dispatch event to hide tooltip
-              itemElement.dispatchEvent(
-                new globalThis.CustomEvent("wall:dismiss", { bubbles: true })
-              )
+              itemElement.dispatchEvent(new globalThis.CustomEvent("wall:dismiss", { bubbles: true }))
               // Remove visual treatment - dismissal is now persisted in storage
               // Future checks will return isDismissed: true
               removeVisualTreatment(itemElement)
               markItemProcessed(itemElement)
-              log(
-                `[VisualTreatment] Dismissed ${key}_${selector} - will persist for 1 month`
-              )
+              log(`[VisualTreatment] Dismissed ${key}_${selector} - will persist for 1 month`)
             }
           })
         }
@@ -163,9 +147,7 @@ export const applyVisualTreatment = (
 /**
  * Remove visual treatment from an item
  */
-export const removeVisualTreatment = (
-  itemElement: globalThis.Element
-): void => {
+export const removeVisualTreatment = (itemElement: globalThis.Element): void => {
   try {
     const element = itemElement as globalThis.HTMLElement
     element.removeAttribute(FLAGGED_ATTR)
@@ -365,13 +347,7 @@ export const resetAllModifications = (): void => {
 /**
  * Valid reason codes for type checking
  */
-const VALID_REASON_CODES: readonly APIListOfReasonsValues[] = [
-  "h",
-  "f",
-  "i",
-  "u",
-  "b"
-] as const
+const VALID_REASON_CODES: readonly APIListOfReasonsValues[] = ["h", "f", "i", "u", "b"] as const
 
 /**
  * Check if a string is a valid reason code

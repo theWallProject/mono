@@ -5,10 +5,7 @@ import { log } from "../helper"
 import BIT from "../static_data/external/buyIsraeliTech.json"
 import { BuyIsraeliTechSchema, ScrappedFileType } from "../types"
 
-const outputFilePath = path.join(
-  __dirname,
-  "../../results/1_batches/static/BUY_ISR_TECH.json"
-)
+const outputFilePath = path.join(__dirname, "../../results/1_batches/static/BUY_ISR_TECH.json")
 
 const injectStaticRows = () => {
   const merged: ScrappedFileType = []

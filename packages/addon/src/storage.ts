@@ -32,9 +32,7 @@ const checkIsDissmissed = async (testKey: string) => {
         log(`${testKey} was dismissed less than 1 month ago, keep dissmissed`)
         isDismissed = true
       } else {
-        log(
-          `${testKey} was dismissed longer than a month ago, not dismissing anymore`
-        )
+        log(`${testKey} was dismissed longer than a month ago, not dismissing anymore`)
         isDismissed = false
       }
     } else {
@@ -119,17 +117,10 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
           return
         }
 
-        log(
-          `storage: isUrlFlagged testing for id ${selector} in field ${selectorKey}`
-        )
+        log(`storage: isUrlFlagged testing for id ${selector} in field ${selectorKey}`)
 
         // Use shared pure function for database lookup
-        const findResult = findInDatabaseBySelector(
-          selector,
-          selectorKey,
-          rule.domain,
-          ALL as FinalDBFileType[]
-        )
+        const findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, ALL as FinalDBFileType[])
 
         log("isUrlFlagged findResult:", findResult)
 
@@ -160,10 +151,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
         }
       } else {
         // No matching rule, check by domain (website lookup)
-        const findResult = findInDatabaseByDomain(
-          domain,
-          ALL as FinalDBFileType[]
-        )
+        const findResult = findInDatabaseByDomain(domain, ALL as FinalDBFileType[])
 
         log("storage: isUrlFlagged onsuccess", findResult)
 

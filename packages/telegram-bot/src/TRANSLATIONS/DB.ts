@@ -290,10 +290,8 @@ export const TRANSLATIONS = {
     bn: "আপনি কি বটটি পছন্দ করেন? আপনি ব্রাউজার অ্যাডঅনটি পছন্দ করবেন! এখনই the-wall.win থেকে ডাউনলোড করুন 🧱🍉",
     fr: "Vous aimez le bot ? Vous allez adorer l'extension de navigateur ! Téléchargez maintenant depuis the-wall.win 🧱🍉",
     nl: "Vind je de bot leuk? Je zult de browseradd-on geweldig vinden! Download nu van the-wall.win 🧱🍉",
-    zh_CN:
-      "你喜欢这个机器人吗？你会爱上浏览器插件！立即从 the-wall.win 下载 🧱🍉",
-    zh_TW:
-      "你喜歡這個機器人嗎？你會愛上瀏覽器插件！立即從 the-wall.win 下載 🧱🍉"
+    zh_CN: "你喜欢这个机器人吗？你会爱上浏览器插件！立即从 the-wall.win 下载 🧱🍉",
+    zh_TW: "你喜歡這個機器人嗎？你會愛上瀏覽器插件！立即從 the-wall.win 下載 🧱🍉"
   },
   "advertising.share": {
     en: "💬 Share this result with others to help them stay informed!",

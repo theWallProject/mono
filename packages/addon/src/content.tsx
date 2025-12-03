@@ -18,11 +18,7 @@ export const config: PlasmoCSConfig = {
 
 export const getStyle = () => {
   const style = document.createElement("style")
-  style.textContent = [
-    styleText,
-    shareButtonstyleText,
-    domScannerStyleText
-  ].join("\n")
+  style.textContent = [styleText, shareButtonstyleText, domScannerStyleText].join("\n")
   return style
 }
 
@@ -37,9 +33,7 @@ const Content = () => {
 
     // Skip scanner for urlOnly and urlDomFull rules (Banner handles these)
     if (rule && (rule.type === "urlOnly" || rule.type === "urlDomFull")) {
-      log(
-        `[Content] Page has ${rule.type} rule, skipping DOM scanner initialization (Banner handles it)`
-      )
+      log(`[Content] Page has ${rule.type} rule, skipping DOM scanner initialization (Banner handles it)`)
       return
     }
 

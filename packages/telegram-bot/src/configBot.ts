@@ -11,14 +11,10 @@ const getRequiredEnv = (key: string): string => {
   return value
 }
 
-export const NODE_ENV: "development" | "production" = (():
-  | "development"
-  | "production" => {
+export const NODE_ENV: "development" | "production" = ((): "development" | "production" => {
   const env = getRequiredEnv("NODE_ENV")
   if (env !== "development" && env !== "production") {
-    throw new Error(
-      `Invalid NODE_ENV: ${env}. Must be "development" or "production"`
-    )
+    throw new Error(`Invalid NODE_ENV: ${env}. Must be "development" or "production"`)
   }
   return env
 })()

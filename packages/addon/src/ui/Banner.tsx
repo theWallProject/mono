@@ -8,11 +8,7 @@ import backgroundImage from "../../assets/images/flag-bg.jpg"
 import theWallWhite from "../../assets/images/the-wall-white.png"
 import { error, log } from "../helpers"
 // import { share } from "../image_sharing/image"
-import {
-  findRuleOfType,
-  isUrlOnlyRule,
-  processRule
-} from "../rules"
+import { findRuleOfType, isUrlOnlyRule, processRule } from "../rules"
 import { ShareButton } from "../share_button/ShareButton"
 import {
   getAllLocalStorageItems,
@@ -37,8 +33,7 @@ export const Banner = () => {
   const [isSkipping, setIsSkipping] = useState(false)
   const [areAlternativesShown, setAreAlternativesShown] = useState(false)
 
-  const [testResult, setTestResult] =
-    useState<MessageResponseMap[MessageTypes.TestUrl]>()
+  const [testResult, setTestResult] = useState<MessageResponseMap[MessageTypes.TestUrl]>()
   const toastIdRef = useRef<string | null>(null)
   const isCheckingHintRef = useRef<boolean>(false)
   const isTestingUrlRef = useRef<boolean>(false)
@@ -64,10 +59,7 @@ export const Banner = () => {
     for (const key in allItems) {
       if (key.startsWith(HINT_SHOWN_PREFIX)) {
         const lastShownTimestamp = allItems[key] as number
-        if (
-          typeof lastShownTimestamp === "number" &&
-          now - lastShownTimestamp >= THREE_DAYS_MS
-        ) {
+        if (typeof lastShownTimestamp === "number" && now - lastShownTimestamp >= THREE_DAYS_MS) {
           keysToRemove.push(key)
         }
       }
@@ -79,16 +71,12 @@ export const Banner = () => {
 
   // Check if hints system is disabled globally
   const isHintsSystemDisabled = async (): Promise<boolean> => {
-    const disabled = await getLocalStorageItem<boolean>(
-      HINTS_SYSTEM_DISABLED_KEY
-    )
+    const disabled = await getLocalStorageItem<boolean>(HINTS_SYSTEM_DISABLED_KEY)
     return disabled === true
   }
 
   // Check if a hint is dismissed permanently
-  const isHintDismissedPermanently = async (
-    hintId: string
-  ): Promise<boolean> => {
+  const isHintDismissedPermanently = async (hintId: string): Promise<boolean> => {
     const storageKey = `${HINT_DISMISSED_PERM_PREFIX}${hintId}`
     const dismissed = await getLocalStorageItem<boolean>(storageKey)
     return dismissed === true
@@ -115,11 +103,7 @@ export const Banner = () => {
   }
 
   // Helper function to replace {{url}} placeholders with the current page URL
-  const replacePlaceholders = (
-    text: string | undefined,
-    url: string,
-    encodeForUrl: boolean = false
-  ): string => {
+  const replacePlaceholders = (text: string | undefined, url: string, encodeForUrl: boolean = false): string => {
     if (!text) return ""
     const replacement = encodeForUrl ? encodeURIComponent(url) : url
     return text.replace(/\{\{url\}\}/g, replacement)
@@ -292,11 +276,7 @@ export const Banner = () => {
   useEffect(() => {
     log("[Hint Toast] testResult:", testResult)
 
-    if (
-      testResult?.isHint === true &&
-      !testResult.isDismissed &&
-      testResult.name
-    ) {
+    if (testResult?.isHint === true && !testResult.isDismissed && testResult.name) {
       // Use hint name as the unique ID
       const hintId = testResult.name
       log("[Hint Toast] Processing hint:", hintId)
@@ -310,12 +290,11 @@ export const Banner = () => {
       isCheckingHintRef.current = true
       ;(async () => {
         // Check all conditions before showing
-        const [systemDisabled, permanentlyDismissed, shownRecently] =
-          await Promise.all([
-            isHintsSystemDisabled(),
-            isHintDismissedPermanently(hintId),
-            wasHintShownRecently(hintId)
-          ])
+        const [systemDisabled, permanentlyDismissed, shownRecently] = await Promise.all([
+          isHintsSystemDisabled(),
+          isHintDismissedPermanently(hintId),
+          wasHintShownRecently(hintId)
+        ])
 
         log("[Hint Toast] Conditions check:", {
           hintId,
@@ -349,16 +328,8 @@ export const Banner = () => {
         }
 
         const currentUrl = window.location.href
-        const processedHintUrl = replacePlaceholders(
-          testResult.hintUrl,
-          currentUrl,
-          true
-        )
-        const processedHintText = replacePlaceholders(
-          testResult.hintText,
-          currentUrl,
-          false
-        )
+        const processedHintUrl = replacePlaceholders(testResult.hintUrl, currentUrl, true)
+        const processedHintText = replacePlaceholders(testResult.hintText, currentUrl, false)
         const toastId = `hint-${hintId}-${Date.now()}`
 
         log("[Hint Toast] Creating toast with:", {
@@ -453,13 +424,8 @@ export const Banner = () => {
         }}
       />
       {testResult && !testResult.isDismissed ? (
-        <div
-          className={style.container}
-          dir={chrome.i18n.getMessage("@@bidi_dir")}>
-          <img
-            src="https://the-wall.win/bg.gif?rec=1&action_name=wall"
-            alt=""
-          />
+        <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
+          <img src="https://the-wall.win/bg.gif?rec=1&action_name=wall" alt="" />
           <div
             className={style.bgLayer}
             style={{
@@ -477,11 +443,7 @@ export const Banner = () => {
             }}>
             <Scene isSharing={isSharing} isSkipping={isSkipping} />
           </div>
-          <img
-            src={getExtensionURL(theWallWhite)}
-            className={style.theWallLogo}
-            alt="The Wall Logo"
-          />
+          <img src={getExtensionURL(theWallWhite)} className={style.theWallLogo} alt="The Wall Logo" />
           <div className={style.modalContainer}>
             <div className={style.modalMargin}>
               <div className={style.modalContentWrapper}>
@@ -490,43 +452,15 @@ export const Banner = () => {
 
                   switch (reason) {
                     case "u":
-                      return (
-                        <div key={reason}>
-                          {chrome.i18n.getMessage("reasonUrlIL", [companyName])}
-                        </div>
-                      )
+                      return <div key={reason}>{chrome.i18n.getMessage("reasonUrlIL", [companyName])}</div>
                     case "f":
-                      return (
-                        <div key={reason}>
-                          {chrome.i18n.getMessage("reasonFounder", [
-                            companyName
-                          ])}
-                        </div>
-                      )
+                      return <div key={reason}>{chrome.i18n.getMessage("reasonFounder", [companyName])}</div>
                     case "i":
-                      return (
-                        <div key={reason}>
-                          {chrome.i18n.getMessage("reasonInvestor", [
-                            companyName
-                          ])}
-                        </div>
-                      )
+                      return <div key={reason}>{chrome.i18n.getMessage("reasonInvestor", [companyName])}</div>
                     case "h":
-                      return (
-                        <div key={reason}>
-                          {chrome.i18n.getMessage("reasonHeadquarter", [
-                            testResult.name
-                          ])}
-                        </div>
-                      )
+                      return <div key={reason}>{chrome.i18n.getMessage("reasonHeadquarter", [testResult.name])}</div>
                     case "b":
-                      return (
-                        <div key={reason}>
-                          {chrome.i18n.getMessage("reasonBDS", [
-                            testResult.name
-                          ])}
-                        </div>
-                      )
+                      return <div key={reason}>{chrome.i18n.getMessage("reasonBDS", [testResult.name])}</div>
 
                     default:
                       reason satisfies never
@@ -550,10 +484,7 @@ export const Banner = () => {
                   onClick={() => {
                     track("Button", "Click", "allow_month")
 
-                    onDismissSessionClick(
-                      testResult.rule.key,
-                      testResult.rule.selector
-                    )
+                    onDismissSessionClick(testResult.rule.key, testResult.rule.selector)
                   }}
                   onMouseEnter={() => setIsSkipping(true)}
                   onMouseLeave={() => setIsSkipping(false)}
@@ -609,10 +540,7 @@ export const Banner = () => {
           </div>
 
           <div className={style.bottomBar}>
-            <Button
-              title={chrome.i18n.getMessage("buttomBarButtonReport")}
-              onClick={handleReportMistakeClick}
-            />
+            <Button title={chrome.i18n.getMessage("buttomBarButtonReport")} onClick={handleReportMistakeClick} />
           </div>
 
           <div

@@ -40,38 +40,23 @@ if (WEBHOOK_URL) {
       console.log(`Bot webhook set to: ${WEBHOOK_URL}/webhook`)
     })
     .catch((error) => {
-      throw new Error(
-        `Failed to create webhook: ${
-          error instanceof Error ? error.message : String(error)
-        }`
-      )
+      throw new Error(`Failed to create webhook: ${error instanceof Error ? error.message : String(error)}`)
     })
 } else {
   // Polling mode (development only - WEBHOOK_URL is required in production)
   bot.launch().catch((error) => {
-    throw new Error(
-      `Failed to launch bot: ${
-        error instanceof Error ? error.message : String(error)
-      }`
-    )
+    throw new Error(`Failed to launch bot: ${error instanceof Error ? error.message : String(error)}`)
   })
   console.log("Bot started in polling mode")
 }
 
 // Error handling middleware
-app.use(
-  (
-    err: Error,
-    _req: Request,
-    res: Response,
-    _next: express.NextFunction
-  ): void => {
-    console.error("Express error:", err)
-    res.status(500).json({ error: "Internal server error" })
-    // Don't swallow errors - let them propagate
-    throw err
-  }
-)
+app.use((err: Error, _req: Request, res: Response, _next: express.NextFunction): void => {
+  console.error("Express error:", err)
+  res.status(500).json({ error: "Internal server error" })
+  // Don't swallow errors - let them propagate
+  throw err
+})
 
 // Start server
 const server = app.listen(PORT, () => {

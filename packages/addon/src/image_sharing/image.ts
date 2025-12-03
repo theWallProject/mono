@@ -2,10 +2,7 @@ import { error, log } from "../helpers"
 import image from "./template.jpg"
 
 // Function to generate image with text overlay
-async function generateImageWithText(
-  text: string,
-  templateImageUrl: string
-): Promise<HTMLCanvasElement> {
+async function generateImageWithText(text: string, templateImageUrl: string): Promise<HTMLCanvasElement> {
   const img = new Image()
 
   // Make sure CORS issues are handled if using cross-origin images
@@ -80,11 +77,7 @@ async function shareImage(imageDataUrl: string, title: string, text: string) {
   }
 }
 
-export const share = async (
-  textToOverlay: string,
-  title: string,
-  text: string
-) => {
+export const share = async (textToOverlay: string, title: string, text: string) => {
   try {
     // Wait for the image to be generated with text overlay
     const canvas = await generateImageWithText(textToOverlay, image)

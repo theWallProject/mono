@@ -172,10 +172,8 @@ export const TRANSLATIONS = {
     bn: 'দ্য ওয়াল - বয়কট অ্যাসিস্ট্যান্ট" ব্রাউজার অ্যাডঅন ব্যবহার করে আমি একটি ইসরায়েলি ওয়েবসাইট এড়িয়েছি। চেষ্টা করে দেখুন!',
     fr: "J'ai évité un site web israélien en utilisant le module complémentaire de navigateur « The Wall - Boycott assistant ». Essayez-le!",
     nl: 'Ik heb een Israëlische website vermeden door de browser addon "The Wall - Boycott assistant" te gebruiken. Probeer het eens!',
-    zh_CN:
-      '我通过使用"赛博锡安之壁 - 极端复国主义抵制助手"浏览器插件避免了一个以色列网站。试试看！',
-    zh_TW:
-      '我通過使用"賽博錫安之墻 - 極端復國主義抵製助手"瀏覽器插件避免了一個以色列網站。試試看！'
+    zh_CN: '我通过使用"赛博锡安之壁 - 极端复国主义抵制助手"浏览器插件避免了一个以色列网站。试试看！',
+    zh_TW: '我通過使用"賽博錫安之墻 - 極端復國主義抵製助手"瀏覽器插件避免了一個以色列網站。試試看！'
   },
   modalDonateButton: {
     en: "Donate to make the wall stronger 🧱",
@@ -240,10 +238,8 @@ export const TRANSLATIONS = {
     bn: "আপনি কি নিশ্চিত? আমাদের কাছে খুব কম কিন্তু গুরুত্বপূর্ণ টিপস রয়েছে। আপনি যেকোনো সময় এক্সটেনশন বিকল্পে এই সেটিং পরিবর্তন করতে পারেন।",
     fr: "Êtes-vous sûr ? Nous avons très peu mais des conseils importants. Vous pouvez modifier ce paramètre à tout moment dans les options de l'extension.",
     nl: "Weet je het zeker? We hebben weinig maar belangrijke tips. Je kunt deze instelling altijd wijzigen in de extensie-opties.",
-    zh_CN:
-      "你确定吗？我们只有很少但重要的提示。您可以随时在扩展选项中更改此设置。",
-    zh_TW:
-      "你確定嗎？我們只有很少但重要的提示。您可以隨時在擴展選項中更改此設置。"
+    zh_CN: "你确定吗？我们只有很少但重要的提示。您可以随时在扩展选项中更改此设置。",
+    zh_TW: "你確定嗎？我們只有很少但重要的提示。您可以隨時在擴展選項中更改此設置。"
   }
 } satisfies TransDB
 

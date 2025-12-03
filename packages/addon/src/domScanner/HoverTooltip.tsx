@@ -13,12 +13,7 @@ type HoverTooltipProps = {
   onClose: () => void
 }
 
-export const HoverTooltip: React.FC<HoverTooltipProps> = ({
-  name,
-  reasons,
-  targetElement,
-  onClose
-}) => {
+export const HoverTooltip: React.FC<HoverTooltipProps> = ({ name, reasons, targetElement, onClose }) => {
   const tooltipRef = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ top: 0, left: 0 })
   const [isVisible, setIsVisible] = useState(false)
@@ -152,11 +147,7 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({
         left: `${position.left}px`
       }}>
       <div className={style["wallDomTooltipHeader"]}>
-        <img
-          src={getExtensionURL(theWallWhite)}
-          alt="The Wall"
-          className={style["wallDomTooltipLogo"]}
-        />
+        <img src={getExtensionURL(theWallWhite)} alt="The Wall" className={style["wallDomTooltipLogo"]} />
         <div className={style.wallDomTooltipName}>{extensionName}</div>
       </div>
       {reasons && reasons.length > 0 && (

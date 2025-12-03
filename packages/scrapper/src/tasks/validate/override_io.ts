@@ -6,36 +6,22 @@ import { log } from "../../helper"
 import type { ManualOverrideFields, ManualOverrideValue } from "./types"
 import { isProcessed } from "./types"
 
-const manualOverridesPath = path.join(
-  __dirname,
-  "../manual_resolve/manualOverrides.ts"
-)
+const manualOverridesPath = path.join(__dirname, "../manual_resolve/manualOverrides.ts")
 
 const formatValue = (value: ManualOverrideValue): string => {
   if (isProcessed(value)) {
     const fields: string[] = []
-    if ("ws" in value && value.ws !== undefined)
-      fields.push(`ws: ${JSON.stringify(value.ws)}`)
-    if ("li" in value && value.li !== undefined)
-      fields.push(`li: ${JSON.stringify(value.li)}`)
-    if ("fb" in value && value.fb !== undefined)
-      fields.push(`fb: ${JSON.stringify(value.fb)}`)
-    if ("tw" in value && value.tw !== undefined)
-      fields.push(`tw: ${JSON.stringify(value.tw)}`)
-    if ("ig" in value && value.ig !== undefined)
-      fields.push(`ig: ${JSON.stringify(value.ig)}`)
-    if ("gh" in value && value.gh !== undefined)
-      fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if ("ytp" in value && value.ytp !== undefined)
-      fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if ("ytc" in value && value.ytc !== undefined)
-      fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
-    if ("tt" in value && value.tt !== undefined)
-      fields.push(`tt: ${JSON.stringify(value.tt)}`)
-    if ("th" in value && value.th !== undefined)
-      fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined)
-      fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if ("ws" in value && value.ws !== undefined) fields.push(`ws: ${JSON.stringify(value.ws)}`)
+    if ("li" in value && value.li !== undefined) fields.push(`li: ${JSON.stringify(value.li)}`)
+    if ("fb" in value && value.fb !== undefined) fields.push(`fb: ${JSON.stringify(value.fb)}`)
+    if ("tw" in value && value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
+    if ("ig" in value && value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
+    if ("gh" in value && value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
+    if ("ytp" in value && value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
+    if ("ytc" in value && value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
+    if ("tt" in value && value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
+    if ("th" in value && value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
+    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
 
     if (fields.length > 0) {
       // Has changes - include both the fields and the processed state
@@ -53,14 +39,11 @@ const formatValue = (value: ManualOverrideValue): string => {
     if (value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
     if (value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
     if (value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if (value.ytp !== undefined)
-      fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if (value.ytc !== undefined)
-      fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
+    if (value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
+    if (value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
     if (value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
     if (value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined)
-      fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
 
     if (fields.length > 0) {
       return `{ ${fields.join(", ")} }`
@@ -77,16 +60,11 @@ export const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
   delete require.cache[resolvedPath]
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const module = require(modulePath)
-  const overrides = (module.manualOverrides || {}) satisfies Record<
-    string,
-    ManualOverrideValue
-  >
+  const overrides = (module.manualOverrides || {}) satisfies Record<string, ManualOverrideValue>
   return overrides
 }
 
-export const saveManualOverrides = async (
-  overrides: Record<string, ManualOverrideValue>
-): Promise<void> => {
+export const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>): Promise<void> => {
   const keys = Object.keys(overrides).sort()
   let content = 'import { ScrappedItemType } from "../../types";\n\n'
   content +=
@@ -111,14 +89,10 @@ export const saveManualOverrides = async (
       parser: "typescript"
     })
     fs.writeFileSync(manualOverridesPath, formatted, "utf-8")
-    log(
-      `Saved manualOverrides to ${manualOverridesPath} (formatted with prettier)`
-    )
+    log(`Saved manualOverrides to ${manualOverridesPath} (formatted with prettier)`)
   } catch (e) {
     // If prettier fails, save without formatting
     fs.writeFileSync(manualOverridesPath, content, "utf-8")
-    log(
-      `Saved manualOverrides to ${manualOverridesPath} (prettier failed: ${e})`
-    )
+    log(`Saved manualOverrides to ${manualOverridesPath} (prettier failed: ${e})`)
   }
 }

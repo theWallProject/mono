@@ -85,14 +85,7 @@ export default [
       "import/order": [
         "warn",
         {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index"
-          ],
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
           "newlines-between": "ignore",
           alphabetize: {
             order: "asc",
@@ -107,27 +100,23 @@ export default [
         "error",
         {
           name: "alert",
-          message:
-            "Use console.log or custom logging instead of alert() in browser extensions"
+          message: "Use console.log or custom logging instead of alert() in browser extensions"
         }
       ],
       "no-restricted-syntax": [
         "error",
         {
           selector: "CallExpression[callee.name='eval']",
-          message:
-            "eval() is not allowed in browser extensions for security reasons"
+          message: "eval() is not allowed in browser extensions for security reasons"
         },
         {
           selector: "CallExpression[callee.name='Function']",
-          message:
-            "Function constructor is not allowed in browser extensions for security reasons"
+          message: "Function constructor is not allowed in browser extensions for security reasons"
         },
         {
           selector:
             "CallExpression[callee.object.name='chrome'][callee.property.name='tabs'][callee.property.name='executeScript']",
-          message:
-            "Consider using chrome.scripting.executeScript instead of chrome.tabs.executeScript (Manifest V3)"
+          message: "Consider using chrome.scripting.executeScript instead of chrome.tabs.executeScript (Manifest V3)"
         }
       ]
     }

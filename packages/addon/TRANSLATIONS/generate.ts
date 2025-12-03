@@ -27,9 +27,7 @@ const deleteFolderRecursive = async (folderPath: string) => {
 }
 
 // Generate the locale files
-const generateLocaleFiles = async (
-  translations: Record<string, Record<string, string>>
-) => {
+const generateLocaleFiles = async (translations: Record<string, Record<string, string>>) => {
   const languages = Object.keys(translations[Object.keys(translations)[0]])
 
   for (const lang of languages) {

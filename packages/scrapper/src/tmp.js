@@ -4,9 +4,7 @@ const path = require("path")
 
 function extractDomain(url) {
   try {
-    const { hostname } = new URL(
-      url.startsWith("http") ? url : "https://" + url
-    )
+    const { hostname } = new URL(url.startsWith("http") ? url : "https://" + url)
     return `https://${hostname}`
   } catch {
     return url
@@ -42,10 +40,7 @@ async function filterReport(filePath) {
         }
 
         if (typeof row.result === "string") {
-          if (
-            row.result.split("https://")[1] &&
-            row.result.split("https://")[1] === row.url.split("https://www.")[1]
-          ) {
+          if (row.result.split("https://")[1] && row.result.split("https://")[1] === row.url.split("https://www.")[1]) {
             return false
           }
 
@@ -100,9 +95,6 @@ async function filterReport(filePath) {
   }
 }
 
-const filePath = path.join(
-  __dirname,
-  "../results/2_merged/report_websites.json"
-) // Adjust the path as per your repo structure
+const filePath = path.join(__dirname, "../results/2_merged/report_websites.json") // Adjust the path as per your repo structure
 
 filterReport(filePath).catch((err) => console.error(err))

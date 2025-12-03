@@ -11,10 +11,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const DB_FILE_NAME = "ALL.json"
-const sourcePath = path.join(
-  __dirname,
-  `../../scrapper/results/4_final/${DB_FILE_NAME}`
-)
+const sourcePath = path.join(__dirname, `../../scrapper/results/4_final/${DB_FILE_NAME}`)
 const targetPath = path.join(__dirname, `../db/${DB_FILE_NAME}`)
 
 export const run = (): void => {
@@ -23,8 +20,7 @@ export const run = (): void => {
   // Check if source file exists
   if (!fs.existsSync(sourcePath)) {
     throw new Error(
-      `Source database file does not exist: ${sourcePath}\n` +
-        `Please run the scraper first to generate the database.`
+      `Source database file does not exist: ${sourcePath}\n` + `Please run the scraper first to generate the database.`
     )
   }
 

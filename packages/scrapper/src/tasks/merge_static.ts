@@ -79,25 +79,19 @@ const extractIdentifier = (url: string, field: LinkField): string => {
     const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i")
     const results = regex.exec(url)
     if (!results) {
-      throw new Error(
-        `Failed to extract YouTube Profile identifier from: ${url}`
-      )
+      throw new Error(`Failed to extract YouTube Profile identifier from: ${url}`)
     }
     // Check all capture groups (user/, c/, @, or direct format) and use the first non-undefined one
     const id = results[1] || results[2] || results[3] || results[4]
     if (!id) {
-      throw new Error(
-        `Failed to extract YouTube Profile identifier from: ${url}`
-      )
+      throw new Error(`Failed to extract YouTube Profile identifier from: ${url}`)
     }
     return id.replace(/\//g, "_")
   } else if (field === "ytc") {
     const regex = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i")
     const results = regex.exec(url)
     if (!results || !results[1]) {
-      throw new Error(
-        `Failed to extract YouTube Channel identifier from: ${url}`
-      )
+      throw new Error(`Failed to extract YouTube Channel identifier from: ${url}`)
     }
     return results[1].replace(/\//g, "_")
   } else if (field === "tt") {
@@ -120,26 +114,16 @@ const extractIdentifier = (url: string, field: LinkField): string => {
 // import MERGED_CB from "../../results/2_merged/1_MERGED_CB.json";
 
 const folderPath = path.join(__dirname, "../../results/1_batches/static")
-const mergedCBPath = path.join(
-  __dirname,
-  "../../results/2_merged/1_MERGED_CB.json"
-)
+const mergedCBPath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.json")
 
-const outputFilePath = path.join(
-  __dirname,
-  "../../results/2_merged/2_MERGED_ALL.json"
-)
+const outputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
 
 const loadJsonFiles = (folderPath: string) => {
   const mergedCBContent = fs.readFileSync(mergedCBPath, "utf-8")
 
-  let combinedArray = APIScrapperFileDataSchema.parse(
-    JSON.parse(mergedCBContent)
-  )
+  let combinedArray = APIScrapperFileDataSchema.parse(JSON.parse(mergedCBContent))
 
-  const files = fs
-    .readdirSync(folderPath)
-    .filter((file) => file.endsWith(".json"))
+  const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
   files.forEach((file) => {
     const filePath = path.join(folderPath, file)
@@ -297,9 +281,7 @@ const loadJsonFiles = (folderPath: string) => {
   const additionalItems: ScrappedItemWithOverrides[] = []
 
   for (const row of deDubeArray) {
-    row.tw = row.tw
-      ?.replace("www.twitter.com", "x.com")
-      ?.replace("twitter.com", "x.com")
+    row.tw = row.tw?.replace("www.twitter.com", "x.com")?.replace("twitter.com", "x.com")
 
     row.li = row.li?.replace("/company-beta/", "/company/")
 
@@ -323,9 +305,7 @@ const loadJsonFiles = (folderPath: string) => {
     if (override) {
       // Apply override, but exclude the processed state flags and urls field
       const excludeKeys = new Set(["_processed", "urls"])
-      const overrideFields = Object.fromEntries(
-        Object.entries(override).filter(([key]) => !excludeKeys.has(key))
-      )
+      const overrideFields = Object.fromEntries(Object.entries(override).filter(([key]) => !excludeKeys.has(key)))
       const hasOverrideFields = Object.keys(overrideFields).length > 0
 
       if (!hasOverrideFields) {
@@ -343,18 +323,7 @@ const loadJsonFiles = (folderPath: string) => {
       }
 
       log(`Manually updated ${updatedRow.name}`)
-      const linkFields: LinkField[] = [
-        "ws",
-        "li",
-        "fb",
-        "tw",
-        "ig",
-        "gh",
-        "ytp",
-        "ytc",
-        "tt",
-        "th"
-      ]
+      const linkFields: LinkField[] = ["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
 
       // Helper to remove protocol from URLs
       const removeProtocol = (url: string | undefined): string | undefined => {
@@ -363,11 +332,7 @@ const loadJsonFiles = (folderPath: string) => {
       }
 
       // Helper to set field on object using proper typing
-      const setField = (
-        obj: ScrappedItemWithOverrides,
-        field: LinkField,
-        value: string | undefined
-      ) => {
+      const setField = (obj: ScrappedItemWithOverrides, field: LinkField, value: string | undefined) => {
         if (field === "ws") obj.ws = value
         else if (field === "li") obj.li = value
         else if (field === "fb") obj.fb = value
@@ -412,9 +377,7 @@ const loadJsonFiles = (folderPath: string) => {
               additionalItems.push(newItem)
               log(`Created new entry: ${newId} for ${field}: ${url}`)
             } catch (e) {
-              error(
-                `Failed to extract identifier from ${url} for ${row.name}: ${e}`
-              )
+              error(`Failed to extract identifier from ${url} for ${row.name}: ${e}`)
               throw e
             }
           }
@@ -456,9 +419,7 @@ const loadJsonFiles = (folderPath: string) => {
         // Hard fail if key doesn't exist in the row object (invalid property)
         if (!(key in updatedRow)) {
           const validKeys = Object.keys(updatedRow).join(", ")
-          error(
-            `Unexpected override key "${key}" for ${row.name}. Valid keys: ${validKeys}`
-          )
+          error(`Unexpected override key "${key}" for ${row.name}. Valid keys: ${validKeys}`)
           throw new Error(`Invalid override key "${key}" for ${row.name}`)
         }
 
@@ -481,9 +442,7 @@ const loadJsonFiles = (folderPath: string) => {
   // Combine processed items with additional items
   const manuallyUpdatedArray = [...processedItems, ...additionalItems]
 
-  const sortedArray = manuallyUpdatedArray.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  )
+  const sortedArray = manuallyUpdatedArray.sort((a, b) => a.name.localeCompare(b.name))
 
   saveJsonToFile(sortedArray, outputFilePath)
   log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)

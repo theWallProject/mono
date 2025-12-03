@@ -32,38 +32,23 @@ function WhatsNew() {
     switch (platform) {
       case "fb":
         track("Button", "Click", "options_share_fb")
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
-          "_blank"
-        )
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`, "_blank")
         break
       case "tw":
         track("Button", "Click", "options_share_tw")
-        window.open(
-          `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`,
-          "_blank"
-        )
+        window.open(`https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`, "_blank")
         break
       case "li":
         track("Button", "Click", "options_share_li")
-        window.open(
-          `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedText}`,
-          "_blank"
-        )
+        window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedText}`, "_blank")
         break
       case "wa":
         track("Button", "Click", "options_share_wa")
-        window.open(
-          `https://wa.me/?text=${encodedText} ${encodedUrl}`,
-          "_blank"
-        )
+        window.open(`https://wa.me/?text=${encodedText} ${encodedUrl}`, "_blank")
         break
       case "tg":
         track("Button", "Click", "options_share_tg")
-        window.open(
-          `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`,
-          "_blank"
-        )
+        window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`, "_blank")
         break
     }
   }
@@ -75,10 +60,7 @@ function WhatsNew() {
 
   const handleContact = () => {
     track("Button", "Click", "options_contact")
-    window.open(
-      "mailto:the.wall.addon@proton.me?subject=Contact - The Wall Extension",
-      "_blank"
-    )
+    window.open("mailto:the.wall.addon@proton.me?subject=Contact - The Wall Extension", "_blank")
   }
 
   return (
@@ -92,11 +74,7 @@ function WhatsNew() {
       />
 
       {/* The Wall Logo */}
-      <img
-        src={getExtensionURL(theWallWhite)}
-        alt="The Wall Logo"
-        className={styles.theWallLogo}
-      />
+      <img src={getExtensionURL(theWallWhite)} alt="The Wall Logo" className={styles.theWallLogo} />
 
       <div className={styles.contentWrapper}>
         <div className={styles.header}>
@@ -115,9 +93,7 @@ function WhatsNew() {
           {/* Static feature sections */}
           <section className={styles.featureSection}>
             <h2 className={styles.sectionTitle}>New Platform Support</h2>
-            <p className={styles.featureText}>
-              We now support many new platforms including:
-            </p>
+            <p className={styles.featureText}>We now support many new platforms including:</p>
             <div className={styles.platformList}>
               <span className={styles.platformItem}>YouTube</span>
               <span className={styles.platformItem}>TikTok</span>
@@ -126,16 +102,13 @@ function WhatsNew() {
               <span className={styles.platformItem}>Threads</span>
               <span className={styles.platformItem}>And more coming soon!</span>
             </div>
-            <p className={styles.noteText}>
-              Note: Platform support is not yet available for all websites.
-            </p>
+            <p className={styles.noteText}>Note: Platform support is not yet available for all websites.</p>
           </section>
 
           <section className={styles.featureSection}>
             <h2 className={styles.sectionTitle}>New Hints System</h2>
             <p className={styles.featureText}>
-              Introducing a new hints system to support better actions, in
-              collaboration with other{" "}
+              Introducing a new hints system to support better actions, in collaboration with other{" "}
               <a
                 href="https://techforpalestine.org"
                 target="_blank"
@@ -144,19 +117,11 @@ function WhatsNew() {
                 TechForPalestine
               </a>{" "}
               projects like{" "}
-              <a
-                href="https://thaura.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.externalLink}>
+              <a href="https://thaura.ai" target="_blank" rel="noopener noreferrer" className={styles.externalLink}>
                 Thaura
               </a>{" "}
               and{" "}
-              <a
-                href="https://newscord.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.externalLink}>
+              <a href="https://newscord.org/" target="_blank" rel="noopener noreferrer" className={styles.externalLink}>
                 Newscord
               </a>
               .
@@ -165,9 +130,7 @@ function WhatsNew() {
 
           <section className={styles.featureSection}>
             <h2 className={styles.sectionTitle}>Hints Control Options</h2>
-            <p className={styles.featureText}>
-              New options to control the hints system. More options coming soon!
-            </p>
+            <p className={styles.featureText}>New options to control the hints system. More options coming soon!</p>
             <div className={styles.optionsImageContainer}>
               <img
                 src={getExtensionURL(hintsOptionsImage)}
@@ -183,11 +146,7 @@ function WhatsNew() {
             <button className={styles.donateButton} onClick={handleDonate}>
               Donate
             </button>
-            <a
-              href="https://the-wall.win"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.link}>
+            <a href="https://the-wall.win" target="_blank" rel="noopener noreferrer" className={styles.link}>
               Visit the-wall.win
             </a>
             <button className={styles.contactButton} onClick={handleContact}>
@@ -198,10 +157,7 @@ function WhatsNew() {
           <div className={styles.shareSection}>
             <span className={styles.shareLabel}>Share:</span>
             <div className={styles.shareButtons}>
-              <button
-                className={styles.shareButton}
-                onClick={() => handleShare("fb")}
-                aria-label="Share on Facebook">
+              <button className={styles.shareButton} onClick={() => handleShare("fb")} aria-label="Share on Facebook">
                 <FaFacebook size={24} color="#3b5998" />
               </button>
               <button
@@ -212,22 +168,13 @@ function WhatsNew() {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </button>
-              <button
-                className={styles.shareButton}
-                onClick={() => handleShare("li")}
-                aria-label="Share on LinkedIn">
+              <button className={styles.shareButton} onClick={() => handleShare("li")} aria-label="Share on LinkedIn">
                 <FaLinkedin size={24} color="#0e76a8" />
               </button>
-              <button
-                className={styles.shareButton}
-                onClick={() => handleShare("wa")}
-                aria-label="Share on WhatsApp">
+              <button className={styles.shareButton} onClick={() => handleShare("wa")} aria-label="Share on WhatsApp">
                 <FaWhatsapp size={24} color="#25D366" />
               </button>
-              <button
-                className={styles.shareButton}
-                onClick={() => handleShare("tg")}
-                aria-label="Share on Telegram">
+              <button className={styles.shareButton} onClick={() => handleShare("tg")} aria-label="Share on Telegram">
                 <FaTelegram size={24} color="#0088cc" />
               </button>
             </div>

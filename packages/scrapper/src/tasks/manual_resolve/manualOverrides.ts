@@ -17,10 +17,7 @@ type ManualOverrideFields = {
    * This is the developer identifier, not a specific app package name.
    */
   android_dev_id?: string
-} & Omit<
-  Partial<ScrappedItemType>,
-  "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th"
->
+} & Omit<Partial<ScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">
 
 export const manualOverrides: Record<
   string,
@@ -33,21 +30,11 @@ export const manualOverrides: Record<
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders/" },
   "AI21 Labs": {
     ws: ["https://www.ai21.com", "https://www.wordtune.com"],
-    li: [
-      "https://www.linkedin.com/company/ai21",
-      "https://www.linkedin.com/showcase/wordtune"
-    ],
-    fb: [
-      "https://www.facebook.com/AI21Labs",
-      "https://www.facebook.com/wordtune"
-    ],
+    li: ["https://www.linkedin.com/company/ai21", "https://www.linkedin.com/showcase/wordtune"],
+    fb: ["https://www.facebook.com/AI21Labs", "https://www.facebook.com/wordtune"],
     tw: ["https://x.com/AI21Labs", "https://x.com/wordtune"],
     ig: ["https://www.instagram.com/wordtune_official"],
-    gh: [
-      "https://github.com/AI21Labs",
-      "https://github.com/AI21X",
-      "https://github.com/mangate"
-    ],
+    gh: ["https://github.com/AI21Labs", "https://github.com/AI21X", "https://github.com/mangate"],
     ytp: ["https://www.youtube.com/@ai21labs"],
     ytc: ["https://www.youtube.com/channel/UCDQlFKBK11jIxm4iVymoAtA"],
     tt: ["https://www.tiktok.com/@wordtune_official"],
@@ -79,9 +66,7 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/aidocmed"],
     tw: ["https://x.com/aidocmed"],
     ytp: ["https://www.youtube.com/@AidocAI"],
-    urls: [
-      "https://apps.apple.com/us/developer/aidoc-medical-ltd/id1459219008"
-    ],
+    urls: ["https://apps.apple.com/us/developer/aidoc-medical-ltd/id1459219008"],
     _processed: true
   },
   BioCatch: {
@@ -109,10 +94,7 @@ export const manualOverrides: Record<
     _processed: true
   },
   Cellebrite: {
-    li: [
-      "https://www.linkedin.com/company/cellebrite",
-      "http://www.linkedin.com/company/100045"
-    ],
+    li: ["https://www.linkedin.com/company/cellebrite", "http://www.linkedin.com/company/100045"],
     fb: ["https://www.facebook.com/cellebritedigitalintelligence"],
     ytp: [
       "https://www.youtube.com/@cellebrite",
@@ -141,9 +123,7 @@ export const manualOverrides: Record<
     gh: ["https://github.com/Classiq"],
     ytp: ["https://www.youtube.com/@ClassiqTechnologies"],
     tt: ["https://www.tiktok.com/@classiqtech"],
-    urls: [
-      "https://classiq-community.slack.com/join/shared_invite/zt-39du2mz80-fE_GBGxMaDxBFRBr_4nrjw"
-    ],
+    urls: ["https://classiq-community.slack.com/join/shared_invite/zt-39du2mz80-fE_GBGxMaDxBFRBr_4nrjw"],
     _processed: true
   },
   Cyera: {
@@ -161,10 +141,7 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/DFendSolutions"],
     tw: ["https://x.com/DFendSolutions"],
     ig: ["https://www.instagram.com/d_fend_solutions"],
-    ytp: [
-      "https://www.youtube.com/@DFendSolutions",
-      "https://www.youtube.com/@zoharhalachmi5784"
-    ],
+    ytp: ["https://www.youtube.com/@DFendSolutions", "https://www.youtube.com/@zoharhalachmi5784"],
     urls: ["https://d-fendsolutions.com"],
     _processed: true
   },
@@ -229,15 +206,8 @@ export const manualOverrides: Record<
       "https://x.com/tolokaai",
       "https://x.com/tractoai"
     ],
-    ig: [
-      "https://www.instagram.com/avride.ai",
-      "https://www.instagram.com/tripleten.tech"
-    ],
-    gh: [
-      "https://github.com/Toloka",
-      "https://github.com/nebius",
-      "https://github.com/tractoai"
-    ],
+    ig: ["https://www.instagram.com/avride.ai", "https://www.instagram.com/tripleten.tech"],
+    gh: ["https://github.com/Toloka", "https://github.com/nebius", "https://github.com/tractoai"],
     ytp: [
       "https://www.youtube.com/@TripleTenTech",
       "https://www.youtube.com/@nebiusofficial",
@@ -278,10 +248,7 @@ export const manualOverrides: Record<
   },
   "Omada Health": {
     ig: ["https://www.instagram.com/omadahealth"],
-    ytp: [
-      "https://www.youtube.com/@Omadahealth",
-      "https://www.youtube.com/omadahealth"
-    ],
+    ytp: ["https://www.youtube.com/@Omadahealth", "https://www.youtube.com/omadahealth"],
     urls: [
       "https://play.google.com/store/apps/developer?id=Omada+Health",
       "https://apps.apple.com/us/developer/omada-health-inc/id805711011",
@@ -323,10 +290,7 @@ export const manualOverrides: Record<
       "https://www.linkedin.com/company/hybrid-identity-protection-conference",
       "https://www.linkedin.com/company/semperis"
     ],
-    fb: [
-      "https://www.facebook.com/semperistech",
-      "https://www.facebook.com/HIPConf"
-    ],
+    fb: ["https://www.facebook.com/semperistech", "https://www.facebook.com/HIPConf"],
     tw: ["https://x.com/hipconf", "https://x.com/semperistech"],
     ig: ["https://www.instagram.com/hipconf"],
     ytp: ["https://www.youtube.com/@semperistech"],
@@ -423,10 +387,7 @@ export const manualOverrides: Record<
   "Tre Capital GP Ltd": { tw: [""] },
   "VAST Data": {
     gh: ["https://github.com/vast-data"],
-    ytp: [
-      "https://www.youtube.com/vastdata",
-      "https://www.youtube.com/@VASTData"
-    ],
+    ytp: ["https://www.youtube.com/vastdata", "https://www.youtube.com/@VASTData"],
     urls: [
       "https://aws.amazon.com/marketplace/seller-profile?id=seller-rhponql53yee4",
       "https://www.carahsoft.com/vast"
@@ -435,10 +396,7 @@ export const manualOverrides: Record<
   },
   Wix: {
     ws: ["https://www.wix.com", "https://stylable.io", "https://wix.github.io"],
-    li: [
-      "https://www.linkedin.com/company/wix-com",
-      "https://www.linkedin.com/showcase/wix-engineering"
-    ],
+    li: ["https://www.linkedin.com/company/wix-com", "https://www.linkedin.com/showcase/wix-engineering"],
     fb: ["https://www.facebook.com/wix"],
     tw: [
       "https://x.com/WixEng",
@@ -449,11 +407,7 @@ export const manualOverrides: Record<
     ],
     ig: ["https://www.instagram.com/wix"],
     ytp: ["https://www.youtube.com/@Wix", "https://www.youtube.com/@WixStudio"],
-    gh: [
-      "https://github.com/wix",
-      "https://github.com/wix-academy",
-      "https://github.com/wix-incubator"
-    ],
+    gh: ["https://github.com/wix", "https://github.com/wix-academy", "https://github.com/wix-incubator"],
     tt: ["https://www.tiktok.com/@wix"],
     th: ["https://www.threads.com/@wix"],
     urls: [
@@ -486,15 +440,8 @@ export const manualOverrides: Record<
       "https://www.facebook.com/183379648361597",
       "https://www.facebook.com/152479438248050"
     ],
-    tw: [
-      "https://x.com/eToroES",
-      "https://x.com/eToroAr",
-      "https://x.com/eToroItalia"
-    ],
-    ig: [
-      "https://www.instagram.com/etoro_italia",
-      "https://www.instagram.com/etoro_official"
-    ],
+    tw: ["https://x.com/eToroES", "https://x.com/eToroAr", "https://x.com/eToroItalia"],
+    ig: ["https://www.instagram.com/etoro_italia", "https://www.instagram.com/etoro_official"],
     ytp: [
       "https://www.youtube.com/@etoro",
       "https://www.youtube.com/@eToroItalia",
@@ -513,15 +460,8 @@ export const manualOverrides: Record<
     _processed: true
   },
   "monday.com": {
-    ws: [
-      "https://monday.com",
-      "https://www.mondayert.org",
-      "https://www.workcanvas.com"
-    ],
-    li: [
-      "https://www.linkedin.com/company/mondaydotcom/",
-      "https://www.linkedin.com/company/2525169"
-    ],
+    ws: ["https://monday.com", "https://www.mondayert.org", "https://www.workcanvas.com"],
+    li: ["https://www.linkedin.com/company/mondaydotcom/", "https://www.linkedin.com/company/2525169"],
     tw: ["https://x.com/mondaydotcom", "https://x.com/mondaysupport"],
     ig: [
       "https://www.instagram.com/mondaydotcom",

@@ -40,6 +40,4 @@ export type MessageResponseMap = {
   [MessageTypes.DissmissUrl]: true
 }
 
-export type SendResponse<T extends keyof MessageResponseMap> = (
-  response: MessageResponseMap[T]
-) => void
+export type SendResponse<T extends keyof MessageResponseMap> = (response: MessageResponseMap[T]) => void

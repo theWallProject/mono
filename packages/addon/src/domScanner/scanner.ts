@@ -5,12 +5,7 @@ import { createRoot, type Root } from "react-dom/client"
 import { error, log } from "../helpers"
 import { findRuleOfType } from "../rules"
 import type { RuleOfType } from "../rules/types"
-import {
-  MessageTypes,
-  type Message,
-  type MessageResponseMap,
-  type UrlTestResult
-} from "../types"
+import { MessageTypes, type Message, type MessageResponseMap, type UrlTestResult } from "../types"
 import { extractItems, extractUrlFromItem } from "./extractor"
 import { HoverTooltip } from "./HoverTooltip"
 import {
@@ -377,9 +372,7 @@ export class DomScanner {
 
         // Wait before processing next item (non-blocking)
         if (i > 0) {
-          await new Promise((resolve) =>
-            setTimeout(resolve, SEQUENTIAL_CHECK_DELAY_MS)
-          )
+          await new Promise((resolve) => setTimeout(resolve, SEQUENTIAL_CHECK_DELAY_MS))
         }
 
         // Check single URL
@@ -409,68 +402,59 @@ export class DomScanner {
           url: item.url
         }
 
-        chrome.runtime.sendMessage<Message>(
-          message,
-          (result: MessageResponseMap[MessageTypes.TestUrl]) => {
-            try {
-              if (chrome.runtime.lastError) {
-                error(
-                  `[Scanner] URL check error for ${item.url}:`,
-                  chrome.runtime.lastError.message
-                )
-                markItemProcessed(item.itemElement)
-                resolve()
-                return
-              }
-
-              // Cache result (with size limit to prevent unbounded growth)
-              if (result !== undefined) {
-                // If cache is too large, remove oldest entries (simple FIFO)
-                if (this.processedUrls.size >= this.MAX_PROCESSED_URLS_CACHE) {
-                  const firstKey = this.processedUrls.keys().next().value
-                  if (firstKey) {
-                    this.processedUrls.delete(firstKey)
-                  }
-                }
-                this.processedUrls.set(item.url, result)
-              }
-
-              // Check if element is still in the DOM before applying treatment
-              if (!item.itemElement.isConnected) {
-                resolve()
-                return
-              }
-
-              // If dismissed, mark as processed and don't show anything
-              if (result && result.isDismissed) {
-                markItemProcessed(item.itemElement)
-                resolve()
-                return
-              }
-
-              // Apply visual treatment if flagged
-              if (result && result !== undefined && !result.isDismissed) {
-                const extracted = extractUrlFromItem(
-                  item.itemElement,
-                  this.rule!
-                )
-                if (extracted) {
-                  applyVisualTreatment(extracted, result)
-                  // Setup hover handler for all flagged items (to show tooltip)
-                  this.setupHoverHandler(item.itemElement)
-                }
-              } else {
-                // Item passed (not flagged) - mark as passed for debugging
-                markItemPassed(item.itemElement)
-              }
-              resolve()
-            } catch (e) {
-              error(`[Scanner] Error processing URL check response`, e)
+        chrome.runtime.sendMessage<Message>(message, (result: MessageResponseMap[MessageTypes.TestUrl]) => {
+          try {
+            if (chrome.runtime.lastError) {
+              error(`[Scanner] URL check error for ${item.url}:`, chrome.runtime.lastError.message)
               markItemProcessed(item.itemElement)
               resolve()
+              return
             }
+
+            // Cache result (with size limit to prevent unbounded growth)
+            if (result !== undefined) {
+              // If cache is too large, remove oldest entries (simple FIFO)
+              if (this.processedUrls.size >= this.MAX_PROCESSED_URLS_CACHE) {
+                const firstKey = this.processedUrls.keys().next().value
+                if (firstKey) {
+                  this.processedUrls.delete(firstKey)
+                }
+              }
+              this.processedUrls.set(item.url, result)
+            }
+
+            // Check if element is still in the DOM before applying treatment
+            if (!item.itemElement.isConnected) {
+              resolve()
+              return
+            }
+
+            // If dismissed, mark as processed and don't show anything
+            if (result && result.isDismissed) {
+              markItemProcessed(item.itemElement)
+              resolve()
+              return
+            }
+
+            // Apply visual treatment if flagged
+            if (result && result !== undefined && !result.isDismissed) {
+              const extracted = extractUrlFromItem(item.itemElement, this.rule!)
+              if (extracted) {
+                applyVisualTreatment(extracted, result)
+                // Setup hover handler for all flagged items (to show tooltip)
+                this.setupHoverHandler(item.itemElement)
+              }
+            } else {
+              // Item passed (not flagged) - mark as passed for debugging
+              markItemPassed(item.itemElement)
+            }
+            resolve()
+          } catch (e) {
+            error(`[Scanner] Error processing URL check response`, e)
+            markItemProcessed(item.itemElement)
+            resolve()
           }
-        )
+        })
       } catch (e) {
         error(`[Scanner] Error checking single URL`, e)
         markItemProcessed(item.itemElement)
@@ -549,9 +533,7 @@ export class DomScanner {
           if (
             relatedTarget &&
             (this.tooltipContainer?.contains(relatedTarget) ||
-              element
-                .querySelector(`.${OVERLAY_CLASS}`)
-                ?.contains(relatedTarget))
+              element.querySelector(`.${OVERLAY_CLASS}`)?.contains(relatedTarget))
           ) {
             return
           }
@@ -569,10 +551,7 @@ export class DomScanner {
 
       // Add new handlers
       element.addEventListener("mouseenter", handleMouseEnter)
-      element.addEventListener(
-        "mouseleave",
-        handleMouseLeave as (e: globalThis.Event) => void
-      )
+      element.addEventListener("mouseleave", handleMouseLeave as (e: globalThis.Event) => void)
     } catch (e) {
       error(`[Scanner] Error setting up hover handler`, e)
     }
@@ -587,14 +566,8 @@ export class DomScanner {
         try {
           if (element.isConnected) {
             const htmlElement = element as globalThis.HTMLElement
-            htmlElement.removeEventListener(
-              "mouseenter",
-              handlers.handleMouseEnter
-            )
-            htmlElement.removeEventListener(
-              "mouseleave",
-              handlers.handleMouseLeave
-            )
+            htmlElement.removeEventListener("mouseenter", handlers.handleMouseEnter)
+            htmlElement.removeEventListener("mouseleave", handlers.handleMouseLeave)
           }
         } catch {
           // Element might have been removed, ignore
@@ -642,11 +615,7 @@ export class DomScanner {
   /**
    * Show tooltip
    */
-  private showTooltip(
-    targetElement: globalThis.HTMLElement,
-    name?: string,
-    reasons?: APIListOfReasonsValues[]
-  ): void {
+  private showTooltip(targetElement: globalThis.HTMLElement, name?: string, reasons?: APIListOfReasonsValues[]): void {
     try {
       if (!this.tooltipRoot || !this.tooltipContainer || !targetElement) {
         return

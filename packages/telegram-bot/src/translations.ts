@@ -5,11 +5,7 @@
 
 import type { Context } from "telegraf"
 
-import {
-  TRANSLATIONS,
-  type LanguageCode,
-  type TranslationKey
-} from "./TRANSLATIONS/DB.js"
+import { TRANSLATIONS, type LanguageCode, type TranslationKey } from "./TRANSLATIONS/DB.js"
 
 /**
  * Gets a translation for a given key and language.
@@ -47,9 +43,7 @@ export function getTranslation<K extends TranslationKey>(
     return englishText
   }
 
-  throw new Error(
-    `Translation missing for key "${String(key)}" in language "${language}" and fallback "${fallback}"`
-  )
+  throw new Error(`Translation missing for key "${String(key)}" in language "${language}" and fallback "${fallback}"`)
 }
 
 /**
@@ -87,21 +81,9 @@ function normalizeLanguageCode(code: string | undefined): LanguageCode {
   }
 
   // Check if it's a direct match (case-insensitive)
-  const supportedLanguages: LanguageCode[] = [
-    "en",
-    "ar",
-    "id",
-    "fr",
-    "nl",
-    "zh_CN",
-    "zh_TW",
-    "ms",
-    "bn"
-  ]
+  const supportedLanguages: LanguageCode[] = ["en", "ar", "id", "fr", "nl", "zh_CN", "zh_TW", "ms", "bn"]
 
-  const directMatch = supportedLanguages.find(
-    (lang) => lang.toLowerCase() === normalized
-  )
+  const directMatch = supportedLanguages.find((lang) => lang.toLowerCase() === normalized)
   if (directMatch) {
     return directMatch
   }
@@ -110,9 +92,7 @@ function normalizeLanguageCode(code: string | undefined): LanguageCode {
   const parts = normalized.split("_")
   const baseLang = parts[0]?.split("-")[0]
   if (baseLang) {
-    const baseMatch = supportedLanguages.find(
-      (lang) => lang.toLowerCase() === baseLang
-    )
+    const baseMatch = supportedLanguages.find((lang) => lang.toLowerCase() === baseLang)
     if (baseMatch) {
       return baseMatch
     }

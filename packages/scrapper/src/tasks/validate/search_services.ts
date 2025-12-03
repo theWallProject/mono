@@ -10,13 +10,11 @@ export type SearchService = {
 export const searchServices: SearchService[] = [
   {
     name: "Ecosia",
-    urlTemplate: (query) =>
-      `https://www.ecosia.org/search?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.ecosia.org/search?q=${encodeURIComponent(query)}`
   },
   {
     name: "GitHub",
-    urlTemplate: (query) =>
-      `https://github.com/search?q=${encodeURIComponent(query)}&type=users`
+    urlTemplate: (query) => `https://github.com/search?q=${encodeURIComponent(query)}&type=users`
   },
   {
     name: "YouTube",
@@ -25,49 +23,38 @@ export const searchServices: SearchService[] = [
   },
   {
     name: "TikTok",
-    urlTemplate: (query) =>
-      `https://www.tiktok.com/search/user?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.tiktok.com/search/user?q=${encodeURIComponent(query)}`
   },
   {
     name: "Play Store",
-    urlTemplate: (query) =>
-      `https://play.google.com/store/search?q=${encodeURIComponent(query)}&c=apps`
+    urlTemplate: (query) => `https://play.google.com/store/search?q=${encodeURIComponent(query)}&c=apps`
   },
   {
     name: "Apple Store",
-    urlTemplate: (query) =>
-      `https://www.apple.com/us/search/${encodeURIComponent(query)}?src=globalnav`
+    urlTemplate: (query) => `https://www.apple.com/us/search/${encodeURIComponent(query)}?src=globalnav`
   },
   {
     name: "Chrome Web Store",
-    urlTemplate: (query) =>
-      `https://chrome.google.com/webstore/search/${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://chrome.google.com/webstore/search/${encodeURIComponent(query)}`
   },
   {
     name: "Facebook",
-    urlTemplate: (query) =>
-      `https://www.facebook.com/search/pages/?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.facebook.com/search/pages/?q=${encodeURIComponent(query)}`
   },
   {
     name: "Threads",
-    urlTemplate: (query) =>
-      `https://www.threads.net/search?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.threads.net/search?q=${encodeURIComponent(query)}`
   },
   {
     name: "Instagram",
-    urlTemplate: (query) =>
-      `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(query)}`
+    urlTemplate: (query) => `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(query)}`
   }
 ]
 
 /**
  * Opens search pages for all configured search services
  */
-export const openSearchPages = async (
-  context: BrowserContext,
-  query: string,
-  pages: Page[]
-): Promise<void> => {
+export const openSearchPages = async (context: BrowserContext, query: string, pages: Page[]): Promise<void> => {
   // Open all search tabs first (without waiting for navigation)
   const searchPages: Array<{
     page: Page

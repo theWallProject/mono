@@ -33,9 +33,7 @@ function Popup() {
 
     // Check if hints system is disabled on mount
     const checkHintsStatus = async () => {
-      const disabled = await getLocalStorageItem<boolean>(
-        HINTS_SYSTEM_DISABLED_KEY
-      )
+      const disabled = await getLocalStorageItem<boolean>(HINTS_SYSTEM_DISABLED_KEY)
       setHintsDisabled(disabled === true)
       setIsLoading(false)
     }
@@ -64,10 +62,7 @@ function Popup() {
       const keysToRemove: string[] = []
 
       for (const key in allItems) {
-        if (
-          key.startsWith(HINT_DISMISSED_PERM_PREFIX) ||
-          key.startsWith(HINT_SHOWN_PREFIX)
-        ) {
+        if (key.startsWith(HINT_DISMISSED_PERM_PREFIX) || key.startsWith(HINT_SHOWN_PREFIX)) {
           keysToRemove.push(key)
         }
       }
@@ -96,10 +91,7 @@ function Popup() {
     switch (platform) {
       case "fb":
         track("Button", "Click", "options_share_fb")
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-          "_blank"
-        )
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, "_blank")
         break
       case "tw":
         track("Button", "Click", "options_share_tw")
@@ -107,10 +99,7 @@ function Popup() {
         break
       case "li":
         track("Button", "Click", "options_share_li")
-        window.open(
-          `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}`,
-          "_blank"
-        )
+        window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}`, "_blank")
         break
       case "wa":
         track("Button", "Click", "options_share_wa")
@@ -125,10 +114,7 @@ function Popup() {
 
   const handleContact = () => {
     track("Button", "Click", "options_contact")
-    window.open(
-      "mailto:the.wall.addon@proton.me?subject=Contact - The Wall Extension",
-      "_blank"
-    )
+    window.open("mailto:the.wall.addon@proton.me?subject=Contact - The Wall Extension", "_blank")
   }
 
   const containerStyle: React.CSSProperties = {
@@ -301,9 +287,7 @@ function Popup() {
             type="button"
             onClick={toggleHintsSystem}
             disabled={isToggling || isResetting}
-            style={
-              isToggling || isResetting ? disabledButtonStyle : buttonStyle
-            }
+            style={isToggling || isResetting ? disabledButtonStyle : buttonStyle}
             onMouseEnter={(e) => {
               if (!isToggling && !isResetting) {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
@@ -318,21 +302,13 @@ function Popup() {
                 e.currentTarget.style.transform = "translateY(0)"
               }
             }}>
-            {isToggling
-              ? "Processing..."
-              : hintsDisabled
-                ? "Enable Hints System"
-                : "Disable Hints System"}
+            {isToggling ? "Processing..." : hintsDisabled ? "Enable Hints System" : "Disable Hints System"}
           </button>
           <button
             type="button"
             onClick={resetDismissedHints}
             disabled={isToggling || isResetting}
-            style={
-              isToggling || isResetting
-                ? { ...lastButtonStyle, ...disabledButtonStyle }
-                : lastButtonStyle
-            }
+            style={isToggling || isResetting ? { ...lastButtonStyle, ...disabledButtonStyle } : lastButtonStyle}
             onMouseEnter={(e) => {
               if (!isToggling && !isResetting) {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
@@ -456,9 +432,7 @@ function Popup() {
         </div>
       </div>
 
-      {successMessage && (
-        <div style={successMessageStyle}>✓ {successMessage}</div>
-      )}
+      {successMessage && <div style={successMessageStyle}>✓ {successMessage}</div>}
 
       {/* Footer */}
       <div style={footerStyle}>

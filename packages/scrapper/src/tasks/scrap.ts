@@ -19,8 +19,7 @@ type ScrappingConfig = {
 const homeUrl = "https://www.crunchbase.com"
 const filterStages: ScrappingConfig[] = [
   {
-    cbSearchUrl:
-      "https://www.crunchbase.com/discover/saved/israel-active/ec0496b1-5137-4e73-a3eb-a9e7ea6b2900",
+    cbSearchUrl: "https://www.crunchbase.com/discover/saved/israel-active/ec0496b1-5137-4e73-a3eb-a9e7ea6b2900",
     reasons: [APIListOfReasons.HeadQuarterInIL],
     fileName: "HQ_ISR",
     cbSteps: [
@@ -46,8 +45,7 @@ const filterStages: ScrappingConfig[] = [
     ]
   },
   {
-    cbSearchUrl:
-      "https://www.crunchbase.com/discover/saved/israel-founder-active/a5dfe009-c869-4d34-8b3c-c0213f08056b",
+    cbSearchUrl: "https://www.crunchbase.com/discover/saved/israel-founder-active/a5dfe009-c869-4d34-8b3c-c0213f08056b",
     reasons: [APIListOfReasons.FounderInIL],
     fileName: "FOUNDER_ISR",
     cbSteps: [
@@ -148,14 +146,7 @@ export async function run() {
     let batchNum = 1
 
     for (const [from, to] of stage.cbSteps) {
-      if (
-        fs.existsSync(
-          path.join(
-            __dirname,
-            `../../results/1_batches/cb/${stage.fileName}_${batchNum}.json`
-          )
-        )
-      ) {
+      if (fs.existsSync(path.join(__dirname, `../../results/1_batches/cb/${stage.fileName}_${batchNum}.json`))) {
         warn(`Skipping stage ${stage.fileName}_${batchNum}...`)
         batchNum += 1
 
@@ -186,14 +177,10 @@ export async function run() {
         throw new Error("no results info found")
       }
 
-      const resultsInfoText = await resultsInfo.evaluate((el) =>
-        el.textContent?.trim()
-      )
+      const resultsInfoText = await resultsInfo.evaluate((el) => el.textContent?.trim())
       log("Results info text:", resultsInfoText)
       // extract number from pattern "of 789,76 results"
-      const strCountFromResultsInfo = resultsInfoText
-        ?.split("of")[1]
-        .match(/\d+/)?.[0]
+      const strCountFromResultsInfo = resultsInfoText?.split("of")[1].match(/\d+/)?.[0]
 
       if (!strCountFromResultsInfo) {
         throw new Error("no number from results info found")
@@ -219,9 +206,7 @@ export async function run() {
 
       results.sort((a, b) => a.name.localeCompare(b.name))
       if (results.length !== countFromResultsInfo) {
-        warn(
-          `Size mismatch [${from}]: ${results.length} !== ${countFromResultsInfo}`
-        )
+        warn(`Size mismatch [${from}]: ${results.length} !== ${countFromResultsInfo}`)
       }
 
       await saveResultsToFile(results, `${stage.fileName}_${batchNum}.json`)
@@ -236,10 +221,7 @@ export async function run() {
   // await browser.close();
 }
 
-async function saveResultsToFile(
-  results: ScrappedItemType[],
-  fileName: string
-) {
+async function saveResultsToFile(results: ScrappedItemType[], fileName: string) {
   const filePath = path.join(__dirname, "../../results/1_batches/cb/", fileName)
 
   log(`scraping complete. Saving ${results.length} rows to [${filePath}]...`)
@@ -262,19 +244,12 @@ async function clickSearchButton(page: Page): Promise<void> {
     await page.click(searchButtonSelector)
     log("Search button clicked, waiting for results to load...")
   } catch (error) {
-    warn(
-      "Couldnt click search button button, waiting for results to load...",
-      error
-    )
+    warn("Couldnt click search button button, waiting for results to load...", error)
   }
   await new Promise((resolve) => setTimeout(resolve, 5000))
 }
 
-async function setFilter(
-  page: Page,
-  index: number,
-  value: number
-): Promise<void> {
+async function setFilter(page: Page, index: number, value: number): Promise<void> {
   const selector = ".component--number-input .mdc-text-field__input"
 
   log(`Setting filter for ${selector} with value ${value}[${index}]`)
@@ -291,13 +266,7 @@ async function setFilter(
   // Focus and click using page.evaluate with property checks
   await page.evaluate((element: unknown) => {
     // Type narrowing without assertions: check if element has required methods
-    if (
-      element &&
-      typeof element === "object" &&
-      element !== null &&
-      "focus" in element &&
-      "select" in element
-    ) {
+    if (element && typeof element === "object" && element !== null && "focus" in element && "select" in element) {
       // Use Object.getOwnPropertyDescriptor or direct property access
       // Since we're in browser context, element is a DOM element with these methods
       const elementRecord: Record<string, unknown> = {}
@@ -305,10 +274,7 @@ async function setFilter(
       const focusMethod = elementRecord["focus"]
       const selectMethod = elementRecord["select"]
 
-      if (
-        typeof focusMethod === "function" &&
-        typeof selectMethod === "function"
-      ) {
+      if (typeof focusMethod === "function" && typeof selectMethod === "function") {
         // Use Function.prototype.call to invoke without type assertions
         Function.prototype.call.call(focusMethod, element)
         Function.prototype.call.call(selectMethod, element)
@@ -332,10 +298,7 @@ async function setFilter(
   await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 }
 
-async function processTable(
-  page: Page,
-  stage: ScrappingConfig
-): Promise<ScrappedItemType[]> {
+async function processTable(page: Page, stage: ScrappingConfig): Promise<ScrappedItemType[]> {
   const results: ScrappedItemType[] = []
   let hasMore = true
   let currentFirstRowName = ""
@@ -353,18 +316,13 @@ async function processTable(
     for (const row of rows) {
       const rowData: ScrappedItemType = await page.evaluate(
         (row, stg) => {
-          const getData = (selector: string): string =>
-            row.querySelector<HTMLDivElement>(selector)?.innerText || ""
+          const getData = (selector: string): string => row.querySelector<HTMLDivElement>(selector)?.innerText || ""
 
-          const getLinks = (
-            selector: string
-          ): { name: string; link: string }[] =>
-            [...row.querySelectorAll<HTMLAnchorElement>(selector)].map(
-              (link) => ({
-                name: link.innerText.trim(),
-                link: link.href
-              })
-            )
+          const getLinks = (selector: string): { name: string; link: string }[] =>
+            [...row.querySelectorAll<HTMLAnchorElement>(selector)].map((link) => ({
+              name: link.innerText.trim(),
+              link: link.href
+            }))
 
           const result: ScrappedItemType = {
             reasons: stg.reasons,
@@ -374,47 +332,21 @@ async function processTable(
               "https://www.crunchbase.com/organization/",
               ""
             ),
-            li:
-              row.querySelector<HTMLAnchorElement>("[data-columnid=linkedin] a")
-                ?.href || "",
-            fb:
-              row.querySelector<HTMLAnchorElement>("[data-columnid=facebook] a")
-                ?.href || "",
-            ws:
-              row.querySelector<HTMLAnchorElement>("[data-columnid=website] a")
-                ?.href || "",
-            tw:
-              row.querySelector<HTMLAnchorElement>("[data-columnid=twitter] a")
-                ?.href || "",
+            li: row.querySelector<HTMLAnchorElement>("[data-columnid=linkedin] a")?.href || "",
+            fb: row.querySelector<HTMLAnchorElement>("[data-columnid=facebook] a")?.href || "",
+            ws: row.querySelector<HTMLAnchorElement>("[data-columnid=website] a")?.href || "",
+            tw: row.querySelector<HTMLAnchorElement>("[data-columnid=twitter] a")?.href || "",
             founderIds: getLinks("[data-columnid=founder_identifiers] a"),
             investorIds: getLinks("[data-columnid=investor_identifiers] a"),
             acquirerIds: getLinks("[data-columnid=acquirer_identifier] a"),
             description: getData("[data-columnid=short_description]"),
-            cbRank: getData("[data-columnid=rank_org_company]").replaceAll(
-              ",",
-              ""
-            ),
-            estRevenue: getData("[data-columnid=revenue_range]").replace(
-              "—",
-              ""
-            ),
-            stock_symbol: getData("[data-columnid=stock_symbol]").replace(
-              "—",
-              ""
-            ),
-            hq_postal_code: getData("[data-columnid=hq_postal_code]").replace(
-              "—",
-              ""
-            ),
-            stock_exchange_symbol: getData(
-              "[data-columnid=stock_exchange_symbol]"
-            ).replace("—", ""),
-            industries: getLinks("[data-columnid=categories] a").map(
-              (link) => link.name
-            ),
-            industryGroups: getLinks("[data-columnid=category_groups] a").map(
-              (link) => link.name
-            )
+            cbRank: getData("[data-columnid=rank_org_company]").replaceAll(",", ""),
+            estRevenue: getData("[data-columnid=revenue_range]").replace("—", ""),
+            stock_symbol: getData("[data-columnid=stock_symbol]").replace("—", ""),
+            hq_postal_code: getData("[data-columnid=hq_postal_code]").replace("—", ""),
+            stock_exchange_symbol: getData("[data-columnid=stock_exchange_symbol]").replace("—", ""),
+            industries: getLinks("[data-columnid=categories] a").map((link) => link.name),
+            industryGroups: getLinks("[data-columnid=category_groups] a").map((link) => link.name)
           }
 
           return result
@@ -430,29 +362,22 @@ async function processTable(
     const nextBtn = await page.$(".page-button-next")
     if (!nextBtn) break
 
-    hasMore = await page.evaluate(
-      (btn) => btn.getAttribute("aria-disabled") !== "true",
-      nextBtn
-    )
+    hasMore = await page.evaluate((btn) => btn.getAttribute("aria-disabled") !== "true", nextBtn)
 
     if (hasMore) {
       log("has more... clicking next")
       await nextBtn.click()
 
       // Wait for the first row to change
-      const newFirstRowSelector =
-        ".body-wrapper grid-row [data-columnid=identifier]"
+      const newFirstRowSelector = ".body-wrapper grid-row [data-columnid=identifier]"
 
       currentFirstRowName = await page.evaluate(
-        (selector) =>
-          document.querySelector<HTMLDivElement>(selector)?.innerText || "",
+        (selector) => document.querySelector<HTMLDivElement>(selector)?.innerText || "",
         newFirstRowSelector
       )
 
       await page.waitForFunction(
-        (selector, currentName) =>
-          document.querySelector<HTMLDivElement>(selector)?.innerText !==
-          currentName,
+        (selector, currentName) => document.querySelector<HTMLDivElement>(selector)?.innerText !== currentName,
         { timeout: 5000 },
         newFirstRowSelector,
         currentFirstRowName

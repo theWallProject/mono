@@ -6,15 +6,10 @@ import { APIScrapperFileDataSchema, ScrappedItemType } from "../types"
 
 const folderPath = path.join(__dirname, "../../results/1_batches/cb")
 
-const outputFilePath = path.join(
-  __dirname,
-  "../../results/2_merged/1_MERGED_CB.json"
-)
+const outputFilePath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.json")
 
 const loadJsonFiles = (folderPath: string) => {
-  const files = fs
-    .readdirSync(folderPath)
-    .filter((file) => file.endsWith(".json"))
+  const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
   let combinedArray: ScrappedItemType[] = []
   const duplicates: Record<string, ScrappedItemType[]> = {}
@@ -32,8 +27,7 @@ const loadJsonFiles = (folderPath: string) => {
       if (Array.isArray(previousRows)) {
         const isDuplicate = previousRows.some(
           (existingRow) =>
-            JSON.stringify({ ...existingRow, cbRank: undefined }) ===
-            JSON.stringify({ ...newRow, cbRank: undefined })
+            JSON.stringify({ ...existingRow, cbRank: undefined }) === JSON.stringify({ ...newRow, cbRank: undefined })
         )
 
         if (!isDuplicate) {
@@ -80,10 +74,7 @@ export async function run() {
   return loadJsonFiles(folderPath)
 }
 
-function mergeObjects(
-  obj1: ScrappedItemType,
-  obj2: ScrappedItemType
-): ScrappedItemType {
+function mergeObjects(obj1: ScrappedItemType, obj2: ScrappedItemType): ScrappedItemType {
   const merged: ScrappedItemType = { ...obj1 }
 
   // Type guard helper

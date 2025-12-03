@@ -6,10 +6,7 @@ import { BDS } from "../static_data/BDS"
 import { Hints } from "../static_data/hints"
 import { ManualItemSchema, ScrappedFileType } from "../types"
 
-const outputFilePath = path.join(
-  __dirname,
-  "../../results/1_batches/static/MANUAL.json"
-)
+const outputFilePath = path.join(__dirname, "../../results/1_batches/static/MANUAL.json")
 
 const injectStaticRows = () => {
   const merged: ScrappedFileType = []

@@ -18,12 +18,7 @@ interface ShareButtonProps {
   onMouseLeave?: () => void
 }
 
-export const ShareButton: React.FC<ShareButtonProps> = ({
-  text,
-  url,
-  onMouseEnter,
-  onMouseLeave
-}) => {
+export const ShareButton: React.FC<ShareButtonProps> = ({ text, url, onMouseEnter, onMouseLeave }) => {
   // const [isOpen, setIsOpen] = useState(false)
 
   const encodedText = encodeURIComponent(text)
@@ -45,11 +40,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
         className={styles.dropdown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        style={
-          chrome.i18n.getMessage("@@bidi_dir") === "ltr"
-            ? { left: 0 }
-            : { right: 0 }
-        }>
+        style={chrome.i18n.getMessage("@@bidi_dir") === "ltr" ? { left: 0 } : { right: 0 }}>
         {/* //todo: enable image sharing */}
         {/* {navigator.canShare && (
             <div className={styles.shareOption}>
@@ -70,10 +61,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
             onClick={() => {
               track("Button", "Click", "share_fb")
 
-              window.open(
-                `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
-                "_blank"
-              )
+              window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`, "_blank")
             }}
             aria-label="Share on Facebook">
             <FaFacebook size={30} color="#3b5998" />
@@ -84,10 +72,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
             onClick={() => {
               track("Button", "Click", "share_tw")
 
-              window.open(
-                `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`,
-                "_blank"
-              )
+              window.open(`https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`, "_blank")
             }}
             aria-label="Share on X (Twitter)">
             <svg width={30} height={30} viewBox="0 0 24 24" fill="#8899ac">
@@ -114,10 +99,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
             onClick={() => {
               track("Button", "Click", "share_wa")
 
-              window.open(
-                `https://wa.me/?text=${encodedText} ${encodedUrl}`,
-                "_blank"
-              )
+              window.open(`https://wa.me/?text=${encodedText} ${encodedUrl}`, "_blank")
             }}
             aria-label="Share on WhatsApp">
             <FaWhatsapp size={30} color="#25D366" />
@@ -128,10 +110,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
             onClick={() => {
               track("Button", "Click", "share_tg")
 
-              window.open(
-                `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`,
-                "_blank"
-              )
+              window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`, "_blank")
             }}
             aria-label="Share on Telegram">
             <FaTelegram size={30} color="#0088cc" />

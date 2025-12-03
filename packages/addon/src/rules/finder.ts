@@ -1,6 +1,5 @@
-import type { Rule } from "./types"
-
 import { findMatchingRule, findRuleOfType, isUrlOnlyRule } from "./config"
+import type { Rule } from "./types"
 
 // Re-export finder functions
 export { findMatchingRule, findRuleOfType, isUrlOnlyRule }
@@ -15,10 +14,7 @@ export const hasMatchingRule = (url: string): boolean => {
 /**
  * Get the type of rule that matches a URL (if any)
  */
-export const getMatchingRuleType = (
-  url: string
-): Rule["type"] | null => {
+export const getMatchingRuleType = (url: string): Rule["type"] | null => {
   const rule = findMatchingRule(url)
   return rule?.type ?? null
 }
-

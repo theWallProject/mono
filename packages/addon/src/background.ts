@@ -2,17 +2,8 @@
 
 import { error, log, warn } from "./helpers"
 import { isUrlFlagged } from "./storage"
-import {
-  getWhatsNewShownVersions,
-  markWhatsNewVersionAsShown,
-  setStorageItem
-} from "./storageHelpers"
-import {
-  MessageTypes,
-  type Message,
-  type MessageResponseMap,
-  type SendResponse
-} from "./types"
+import { getWhatsNewShownVersions, markWhatsNewVersionAsShown, setStorageItem } from "./storageHelpers"
+import { MessageTypes, type Message, type MessageResponseMap, type SendResponse } from "./types"
 
 // Versions that should trigger the "what's new" page
 // User controls which versions trigger it by adding versions to this array
@@ -44,9 +35,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
           // Mark this version as shown
           await markWhatsNewVersionAsShown(currentVersion)
         } else {
-          log(
-            `Version ${currentVersion} already shown, skipping what's new page`
-          )
+          log(`Version ${currentVersion} already shown, skipping what's new page`)
         }
       } else {
         log(`Version ${currentVersion} not in WHATS_NEW_VERSIONS, skipping`)
@@ -124,9 +113,7 @@ const testTabUrl = async (tabId: number, url: string) => {
       if (chrome.runtime.lastError) {
         // Content script may not be ready yet - this is fine,
         // it will test on mount anyway
-        error(
-          `testTabUrl: Content script not ready for tab ${tabId} - ${chrome.runtime.lastError.message}`
-        )
+        error(`testTabUrl: Content script not ready for tab ${tabId} - ${chrome.runtime.lastError.message}`)
         return
       }
       log(`testTabUrl: Content script acknowledged request for tab ${tabId}`)
@@ -181,22 +168,14 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
       log("chrome.tabs.onActivated tab wasnt completed, setting handler")
 
       // Otherwise, wait for it to finish loading
-      const onUpdatedListener = async (
-        tabId: number,
-        changeInfo: chrome.tabs.OnUpdatedInfo,
-        tab: chrome.tabs.Tab
-      ) => {
+      const onUpdatedListener = async (tabId: number, changeInfo: chrome.tabs.OnUpdatedInfo, tab: chrome.tabs.Tab) => {
         log(`chrome.tabs.onActivated onUpdatedListener`, {
           tabId,
           changeInfo,
           tab
         })
 
-        if (
-          tabId === activeInfo.tabId &&
-          changeInfo.status === "complete" &&
-          tab.url
-        ) {
+        if (tabId === activeInfo.tabId && changeInfo.status === "complete" && tab.url) {
           await testTabUrl(tabId, tab.url)
 
           // Remove the listener to prevent duplicate calls
@@ -214,11 +193,7 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
 })
 
 chrome.runtime.onMessage.addListener(
-  (
-    message: Message,
-    sender,
-    sendResponse: SendResponse<keyof MessageResponseMap>
-  ) => {
+  (message: Message, sender, sendResponse: SendResponse<keyof MessageResponseMap>) => {
     log("chrome.runtime.onMessage", message, sender)
     const action = message.action
 

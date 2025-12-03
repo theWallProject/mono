@@ -3,4 +3,3 @@ export { findMatchingRule, findRuleOfType, hasMatchingRule, getMatchingRuleType,
 export { RULES } from "./config"
 export type { Rule, RuleOfType } from "./types"
 export { PROCESSORS, processRule } from "./processors"
-

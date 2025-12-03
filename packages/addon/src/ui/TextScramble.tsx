@@ -21,12 +21,7 @@ const randomChar = () => {
   return CHARS[Math.floor(Math.random() * CHARS.length)]
 }
 
-export const TextScramble: React.FC<TextScrambleProps> = ({
-  texts,
-  interval = 2000,
-  speed = 1,
-  className = ""
-}) => {
+export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 2000, speed = 1, className = "" }) => {
   const [currentText, setCurrentText] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0)
   const elementRef = useRef<HTMLDivElement>(null)

@@ -22,10 +22,7 @@ export type ManualOverrideFields = Omit<
   th?: string | string[]
 }
 
-export type ManualOverrideValue =
-  | (ManualOverrideFields & ProcessedState)
-  | ProcessedState
-  | ManualOverrideFields
+export type ManualOverrideValue = (ManualOverrideFields & ProcessedState) | ProcessedState | ManualOverrideFields
 
 export type OverrideWithUrls = {
   ws?: string | string[]
@@ -58,10 +55,5 @@ export type CategorizedUrls = {
 export const isProcessed = (
   value: ManualOverrideValue
 ): value is ProcessedState | (Partial<ScrappedItemType> & ProcessedState) => {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    "_processed" in value &&
-    value._processed === true
-  )
+  return typeof value === "object" && value !== null && "_processed" in value && value._processed === true
 }

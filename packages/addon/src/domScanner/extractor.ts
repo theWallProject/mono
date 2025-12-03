@@ -6,9 +6,7 @@ import type { ExtractedItem } from "./types"
  * Extract URLs from DOM elements based on rule configuration
  * Finds item containers first, then extracts links from each container
  */
-export const extractItems = (
-  rule: RuleOfType<"urlDomInline">
-): ExtractedItem[] => {
+export const extractItems = (rule: RuleOfType<"urlDomInline">): ExtractedItem[] => {
   try {
     if (!rule || !rule.itemSelector || !rule.linkSelector) {
       error(`[Extractor] Invalid rule configuration`)
@@ -24,22 +22,16 @@ export const extractItems = (
     // Fail-safe: limit processing to prevent performance issues
     const maxItems = 500
     const elementsToProcess =
-      itemElements.length > maxItems
-        ? Array.from(itemElements).slice(0, maxItems)
-        : Array.from(itemElements)
+      itemElements.length > maxItems ? Array.from(itemElements).slice(0, maxItems) : Array.from(itemElements)
 
     if (itemElements.length > maxItems) {
-      log(
-        `[Extractor] Limiting processing to ${maxItems} items (found ${itemElements.length})`
-      )
+      log(`[Extractor] Limiting processing to ${maxItems} items (found ${itemElements.length})`)
     }
 
     elementsToProcess.forEach((itemElement) => {
       try {
         // Find link within this item container
-        const linkElement = itemElement.querySelector(
-          rule.linkSelector
-        ) as globalThis.HTMLElement | null
+        const linkElement = itemElement.querySelector(rule.linkSelector) as globalThis.HTMLElement | null
 
         if (!linkElement) {
           log(
@@ -54,10 +46,7 @@ export const extractItems = (
         const urlAttribute = linkElement.getAttribute(linkAttribute)
 
         if (!urlAttribute) {
-          log(
-            `[Extractor] Link element found but has no ${linkAttribute} attribute. Link element:`,
-            linkElement
-          )
+          log(`[Extractor] Link element found but has no ${linkAttribute} attribute. Link element:`, linkElement)
           return
         }
 
@@ -65,10 +54,7 @@ export const extractItems = (
         let url: string | null = null
         try {
           // If it's already absolute, use as-is
-          if (
-            urlAttribute.startsWith("http://") ||
-            urlAttribute.startsWith("https://")
-          ) {
+          if (urlAttribute.startsWith("http://") || urlAttribute.startsWith("https://")) {
             url = urlAttribute
           } else {
             // Resolve relative URL
@@ -79,9 +65,7 @@ export const extractItems = (
           return
         }
 
-        log(
-          `[Extractor] Successfully extracted URL from item: ${url} (from ${urlAttribute})`
-        )
+        log(`[Extractor] Successfully extracted URL from item: ${url} (from ${urlAttribute})`)
         items.push({
           itemElement,
           linkElement,
@@ -109,14 +93,10 @@ export const extractUrlFromItem = (
   rule: RuleOfType<"urlDomInline">
 ): ExtractedItem | null => {
   try {
-    const linkElement = itemElement.querySelector(
-      rule.linkSelector
-    ) as globalThis.HTMLElement | null
+    const linkElement = itemElement.querySelector(rule.linkSelector) as globalThis.HTMLElement | null
 
     if (!linkElement) {
-      log(
-        `[Extractor] No link element found in item container using selector: ${rule.linkSelector}`
-      )
+      log(`[Extractor] No link element found in item container using selector: ${rule.linkSelector}`)
       return null
     }
 
@@ -124,19 +104,13 @@ export const extractUrlFromItem = (
     const urlAttribute = linkElement.getAttribute(linkAttribute)
 
     if (!urlAttribute) {
-      log(
-        `[Extractor] Link element found but has no ${linkAttribute} attribute. Element:`,
-        linkElement
-      )
+      log(`[Extractor] Link element found but has no ${linkAttribute} attribute. Element:`, linkElement)
       return null
     }
 
     let url: string | null = null
     try {
-      if (
-        urlAttribute.startsWith("http://") ||
-        urlAttribute.startsWith("https://")
-      ) {
+      if (urlAttribute.startsWith("http://") || urlAttribute.startsWith("https://")) {
         url = urlAttribute
       } else {
         url = new URL(urlAttribute, window.location.href).href
@@ -146,12 +120,8 @@ export const extractUrlFromItem = (
       return null
     }
 
-    log(
-      `[Extractor] extractUrlFromItem: Successfully extracted URL: ${url} (from ${urlAttribute})`
-    )
-    log(
-      `[Extractor] extractUrlFromItem: Successfully extracted URL: ${url} (from ${urlAttribute})`
-    )
+    log(`[Extractor] extractUrlFromItem: Successfully extracted URL: ${url} (from ${urlAttribute})`)
+    log(`[Extractor] extractUrlFromItem: Successfully extracted URL: ${url} (from ${urlAttribute})`)
     return {
       itemElement,
       linkElement,

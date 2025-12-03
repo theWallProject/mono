@@ -37,8 +37,6 @@ export const APIEndpointDomainsResultSchema = z.object({
   hintUrl: z.string().optional()
 })
 
-export type APIEndpointDomainsResult = z.infer<
-  typeof APIEndpointDomainsResultSchema
->
+export type APIEndpointDomainsResult = z.infer<typeof APIEndpointDomainsResultSchema>
 
 export type APIEndpointDomains = APIEndpointDomainsResult[]

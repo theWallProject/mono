@@ -9,15 +9,9 @@ type ValidationResult = {
   result: string | number
 }
 
-const inputFilePath = path.join(
-  __dirname,
-  "../../results/2_merged/1_MERGED_CB.json"
-)
+const inputFilePath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.json")
 
-const outputFilePath = path.join(
-  __dirname,
-  "../../results/2_merged/report.json"
-)
+const outputFilePath = path.join(__dirname, "../../results/2_merged/report.json")
 
 const validateUrl = async (url: string): Promise<ValidationResult> => {
   if (!url) {

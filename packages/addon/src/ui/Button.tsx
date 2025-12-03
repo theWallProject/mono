@@ -1,8 +1,4 @@
-import React, {
-  type CSSProperties,
-  type FC,
-  type MouseEventHandler
-} from "react"
+import React, { type CSSProperties, type FC, type MouseEventHandler } from "react"
 
 import style from "./style.module.css"
 

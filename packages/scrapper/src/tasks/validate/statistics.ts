@@ -7,11 +7,7 @@ import { isProcessed } from "./types"
 /**
  * Draws a progress bar
  */
-export const drawProgressBar = (
-  current: number,
-  total: number,
-  width: number = 40
-): string => {
+export const drawProgressBar = (current: number, total: number, width: number = 40): string => {
   const percentage = total > 0 ? Math.min((current / total) * 100, 100) : 0
   const filled = Math.round((percentage / 100) * width)
   const empty = width - filled
@@ -22,10 +18,7 @@ export const drawProgressBar = (
 /**
  * Gets statistics about processed/unprocessed items
  */
-export const getStatistics = (
-  allItems: ScrappedItemType[],
-  processedItems: Record<string, ManualOverrideValue>
-) => {
+export const getStatistics = (allItems: ScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
   const total = allItems.length
   let processed = 0
   let unprocessed = 0
@@ -36,8 +29,7 @@ export const getStatistics = (
   }
 
   for (const item of allItems) {
-    const isProcessedItem =
-      processedItems[item.name] && isProcessed(processedItems[item.name])
+    const isProcessedItem = processedItems[item.name] && isProcessed(processedItems[item.name])
 
     if (isProcessedItem) {
       processed++
@@ -89,36 +81,20 @@ export const displayStatistics = (
 
   // By reason
   log("\n📋 By Reason:")
-  log(
-    `   Reason "h": ${drawProgressBar(stats.byReason.h.processed, stats.byReason.h.total, 30)}`
-  )
-  log(
-    `   Reason "f": ${drawProgressBar(stats.byReason.f.processed, stats.byReason.f.total, 30)}`
-  )
-  log(
-    `   Others:    ${drawProgressBar(stats.byReason.other.processed, stats.byReason.other.total, 30)}`
-  )
+  log(`   Reason "h": ${drawProgressBar(stats.byReason.h.processed, stats.byReason.h.total, 30)}`)
+  log(`   Reason "f": ${drawProgressBar(stats.byReason.f.processed, stats.byReason.f.total, 30)}`)
+  log(`   Others:    ${drawProgressBar(stats.byReason.other.processed, stats.byReason.other.total, 30)}`)
 
   // Summary
   log("\n📊 Summary:")
   log(`   Total companies:     ${stats.total}`)
-  log(
-    `   ✅ Processed:        ${stats.processed} (${((stats.processed / stats.total) * 100).toFixed(1)}%)`
-  )
-  log(
-    `   ⏳ Remaining:        ${stats.unprocessed} (${((stats.unprocessed / stats.total) * 100).toFixed(1)}%)`
-  )
+  log(`   ✅ Processed:        ${stats.processed} (${((stats.processed / stats.total) * 100).toFixed(1)}%)`)
+  log(`   ⏳ Remaining:        ${stats.unprocessed} (${((stats.unprocessed / stats.total) * 100).toFixed(1)}%)`)
 
   log("\n📋 Remaining by Reason:")
-  log(
-    `   Reason "h":          ${stats.byReason.h.total - stats.byReason.h.processed} remaining`
-  )
-  log(
-    `   Reason "f":          ${stats.byReason.f.total - stats.byReason.f.processed} remaining`
-  )
-  log(
-    `   Others:              ${stats.byReason.other.total - stats.byReason.other.processed} remaining`
-  )
+  log(`   Reason "h":          ${stats.byReason.h.total - stats.byReason.h.processed} remaining`)
+  log(`   Reason "f":          ${stats.byReason.f.total - stats.byReason.f.processed} remaining`)
+  log(`   Others:              ${stats.byReason.other.total - stats.byReason.other.processed} remaining`)
 
   log("\n" + "=".repeat(60))
 }

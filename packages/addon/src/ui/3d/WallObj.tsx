@@ -30,17 +30,11 @@ const WallObj = () => {
 
   useFrame(() => {
     if (wallRef.current) {
-      const targetRotationY =
-        INITIAL_Y_ROTATION + mousePosition.current.x * ROTATION_SENSITIVITY
-      const targetRotationX =
-        INITIAL_X_ROTATION - mousePosition.current.y * ROTATION_SENSITIVITY
+      const targetRotationY = INITIAL_Y_ROTATION + mousePosition.current.x * ROTATION_SENSITIVITY
+      const targetRotationX = INITIAL_X_ROTATION - mousePosition.current.y * ROTATION_SENSITIVITY
 
-      const smoothedRotationY =
-        lastRotation.current.y +
-        (targetRotationY - lastRotation.current.y) * ROTATION_SMOOTHING
-      const smoothedRotationX =
-        lastRotation.current.x +
-        (targetRotationX - lastRotation.current.x) * ROTATION_SMOOTHING
+      const smoothedRotationY = lastRotation.current.y + (targetRotationY - lastRotation.current.y) * ROTATION_SMOOTHING
+      const smoothedRotationX = lastRotation.current.x + (targetRotationX - lastRotation.current.x) * ROTATION_SMOOTHING
 
       lastRotation.current.y = Math.max(
         INITIAL_Y_ROTATION - MAX_ROTATION_Y,

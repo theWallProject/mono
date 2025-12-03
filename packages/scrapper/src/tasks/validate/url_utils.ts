@@ -45,10 +45,7 @@ export const urlsAreEquivalent = (url1: string, url2: string): boolean => {
   return normalized1 === normalized2
 }
 
-export const checkRedirect = async (
-  page: Page,
-  url: string
-): Promise<{ finalUrl: string; redirected: boolean }> => {
+export const checkRedirect = async (page: Page, url: string): Promise<{ finalUrl: string; redirected: boolean }> => {
   const normalizedUrl = normalizeUrl(url)
   const initialUrl = normalizedUrl
   let finalUrl = initialUrl
@@ -64,9 +61,7 @@ export const checkRedirect = async (
   }
 
   if (response.status() >= 400) {
-    throw new Error(
-      `HTTP ${response.status()} error for ${normalizedUrl}: ${response.statusText()}`
-    )
+    throw new Error(`HTTP ${response.status()} error for ${normalizedUrl}: ${response.statusText()}`)
   }
 
   finalUrl = response.url()

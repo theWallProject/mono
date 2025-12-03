@@ -30,8 +30,7 @@ export const newscordHints: ManualItemType[] = [
     reasons: [],
     ws: ["https://nytimes.com"],
     isHint: true,
-    hintText:
-      "Hey, The New York Times is biased. Use Newscord to get the full picture.",
+    hintText: "Hey, The New York Times is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}"
   },
   {
@@ -39,8 +38,7 @@ export const newscordHints: ManualItemType[] = [
     reasons: [],
     ws: ["https://wsj.com"],
     isHint: true,
-    hintText:
-      "Hey, The Wall Street Journal is biased. Use Newscord to get the full picture.",
+    hintText: "Hey, The Wall Street Journal is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}"
   },
   {
@@ -56,8 +54,7 @@ export const newscordHints: ManualItemType[] = [
     reasons: [],
     ws: ["https://washingtonpost.com"],
     isHint: true,
-    hintText:
-      "Hey, The Washington Post is biased. Use Newscord to get the full picture.",
+    hintText: "Hey, The Washington Post is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}"
   },
   {
@@ -65,8 +62,7 @@ export const newscordHints: ManualItemType[] = [
     reasons: [],
     ws: ["https://theguardian.com"],
     isHint: true,
-    hintText:
-      "Hey, The Guardian is biased. Use Newscord for more balanced news.",
+    hintText: "Hey, The Guardian is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}"
   },
   {
@@ -90,8 +86,7 @@ export const newscordHints: ManualItemType[] = [
     reasons: [],
     ws: ["https://apnews.com"],
     isHint: true,
-    hintText:
-      "Hey, Associated Press is biased. Use Newscord for more balanced news.",
+    hintText: "Hey, Associated Press is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}"
   }
 ]

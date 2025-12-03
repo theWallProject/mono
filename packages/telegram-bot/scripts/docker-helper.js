@@ -34,10 +34,10 @@ try {
     // Build from monorepo root
     const dockerfile = resolve(process.cwd(), "Dockerfile")
     const rootDir = resolve(process.cwd(), "../..")
-    execSync(
-      `docker build --build-arg PORT=${port} -f ${dockerfile} -t telegram-bot:prod ${rootDir}`,
-      { stdio: "inherit", cwd: rootDir }
-    )
+    execSync(`docker build --build-arg PORT=${port} -f ${dockerfile} -t telegram-bot:prod ${rootDir}`, {
+      stdio: "inherit",
+      cwd: rootDir
+    })
   } else if (command === "run") {
     // Run container with port mapping from env file
     execSync(

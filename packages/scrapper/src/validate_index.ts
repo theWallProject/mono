@@ -29,40 +29,31 @@ const main = async () => {
   })
 
   return new Promise<void>((resolve) => {
-    rl.question(
-      "\n❓ Apply manual overrides to output files? (y/n): ",
-      (answer) => {
-        rl.close()
-        const shouldApply =
-          answer.trim().toLowerCase() === "y" ||
-          answer.trim().toLowerCase() === "yes"
+    rl.question("\n❓ Apply manual overrides to output files? (y/n): ", (answer) => {
+      rl.close()
+      const shouldApply = answer.trim().toLowerCase() === "y" || answer.trim().toLowerCase() === "yes"
 
-        if (!shouldApply) {
-          log(
-            "⏭️  Skipping apply-overrides. Run 'pnpm run apply-overrides' manually when ready."
-          )
-          process.exit(0)
-          return
-        }
-
-        // Run apply-overrides after user confirmation
-        log("\n🔄 Applying manual overrides to output files...")
-        try {
-          execSync("pnpm run apply-overrides", {
-            stdio: "inherit",
-            cwd: process.cwd()
-          })
-          log("✅ All files updated successfully!")
-          process.exit(0)
-        } catch (err) {
-          error(
-            "⚠️  Failed to apply overrides. Run 'pnpm run apply-overrides' manually."
-          )
-          process.exit(1)
-        }
-        resolve()
+      if (!shouldApply) {
+        log("⏭️  Skipping apply-overrides. Run 'pnpm run apply-overrides' manually when ready.")
+        process.exit(0)
+        return
       }
-    )
+
+      // Run apply-overrides after user confirmation
+      log("\n🔄 Applying manual overrides to output files...")
+      try {
+        execSync("pnpm run apply-overrides", {
+          stdio: "inherit",
+          cwd: process.cwd()
+        })
+        log("✅ All files updated successfully!")
+        process.exit(0)
+      } catch (err) {
+        error("⚠️  Failed to apply overrides. Run 'pnpm run apply-overrides' manually.")
+        process.exit(1)
+      }
+      resolve()
+    })
   })
 }
 

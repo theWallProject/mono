@@ -42,14 +42,8 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
   const regexTwitter = new RegExp(API_ENDPOINT_RULE_TWITTER.regex)
   const regexInstagram = new RegExp(API_ENDPOINT_RULE_INSTAGRAM.regex)
   const regexGitHub = new RegExp(API_ENDPOINT_RULE_GITHUB.regex)
-  const regexYouTubeProfile = new RegExp(
-    API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex,
-    "i"
-  )
-  const regexYouTubeChannel = new RegExp(
-    API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex,
-    "i"
-  )
+  const regexYouTubeProfile = new RegExp(API_ENDPOINT_RULE_YOUTUBE_PROFILE.regex, "i")
+  const regexYouTubeChannel = new RegExp(API_ENDPOINT_RULE_YOUTUBE_CHANNEL.regex, "i")
   const regexTikTok = new RegExp(API_ENDPOINT_RULE_TIKTOK.regex)
   const regexThreads = new RegExp(API_ENDPOINT_RULE_THREADS.regex)
 
@@ -109,25 +103,13 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
     }
 
     if (fb && fb !== "") {
-      const results = regexFacebook.exec(
-        fb.replace("/pg/", "/").replace("/p/", "/")
-      )
+      const results = regexFacebook.exec(fb.replace("/pg/", "/").replace("/p/", "/"))
       const result = results && results[1]
 
       if (result) {
         // log(`Facebook processing ${fb} => ${result}`);
 
-        if (
-          [
-            "profile.php",
-            "home.php",
-            "groups",
-            "pages",
-            "search",
-            "people",
-            "share"
-          ].includes(result)
-        ) {
+        if (["profile.php", "home.php", "groups", "pages", "search", "people", "share"].includes(result)) {
           // warn("skipping facebook group link for now");
         } else {
           if (fbMap[result]) {
@@ -154,9 +136,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
 
       if (result) {
         // log(`Twitter extracted ${tw} => ${result}`);
-        if (
-          ["home", "https:", "hashtag", "search", "intent"].includes(result)
-        ) {
+        if (["home", "https:", "hashtag", "search", "intent"].includes(result)) {
           return
         }
         if (twitterMap[result]) {
@@ -183,9 +163,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
       const result = results && results[1]
 
       if (result) {
-        if (
-          ["explore", "accounts", "direct", "stories", "reels"].includes(result)
-        ) {
+        if (["explore", "accounts", "direct", "stories", "reels"].includes(result)) {
           return
         }
         if (instagramMap[result]) {
@@ -235,8 +213,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
     if (ytp && ytp !== "") {
       const results = regexYouTubeProfile.exec(ytp)
       // Check all capture groups (user/, c/, @, or direct format) and use the first non-undefined one
-      const result =
-        results && (results[1] || results[2] || results[3] || results[4])
+      const result = results && (results[1] || results[2] || results[3] || results[4])
 
       if (result) {
         if (youtubeProfileMap[result]) {
@@ -334,74 +311,47 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
 
   saveJsonToFile(
     linkedinFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_LI_COMPANY}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_LI_COMPANY}.json`)
   )
 
   saveJsonToFile(
     facebookFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_FACEBOOK}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_FACEBOOK}.json`)
   )
 
   saveJsonToFile(
     twitterFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_TWITTER}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_TWITTER}.json`)
   )
 
   saveJsonToFile(
     instagramFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_INSTAGRAM}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_INSTAGRAM}.json`)
   )
 
   saveJsonToFile(
     githubFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_GITHUB}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_GITHUB}.json`)
   )
 
   saveJsonToFile(
     youtubeProfileFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_YOUTUBE_PROFILE}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_YOUTUBE_PROFILE}.json`)
   )
 
   saveJsonToFile(
     youtubeChannelFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_YOUTUBE_CHANNEL}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_YOUTUBE_CHANNEL}.json`)
   )
 
   saveJsonToFile(
     tiktokFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_TIKTOK}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_TIKTOK}.json`)
   )
 
   saveJsonToFile(
     threadsFlagged.sort((a, b) => a.name.localeCompare(b.name)),
-    path.join(
-      __dirname,
-      `../../results/3_networks/${DBFileNames.FLAGGED_THREADS}.json`
-    )
+    path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_THREADS}.json`)
   )
 
   log(`Wrote ${linkedinFlagged.length} li rows...`)

@@ -19,9 +19,7 @@ export const getReasonPriority = (item: ScrappedItemType): number => {
   return 3 // Other reasons = lowest priority
 }
 
-export const sortByReasonAndCbRank = (
-  items: ScrappedItemType[]
-): ScrappedItemType[] => {
+export const sortByReasonAndCbRank = (items: ScrappedItemType[]): ScrappedItemType[] => {
   return [...items].sort((a, b) => {
     // First sort by reason priority (h first, then f, then others)
     const priorityA = getReasonPriority(a)

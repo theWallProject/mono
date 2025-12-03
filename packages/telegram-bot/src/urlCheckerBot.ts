@@ -64,11 +64,7 @@ function createIlHint(domain: string, t: TFunction): UrlCheckResult {
  * @param t - Translation function
  * @returns UrlCheckResult or undefined if URL is safe
  */
-function checkUrl(
-  url: string,
-  database: FinalDBFileType[],
-  t: TFunction
-): UrlCheckResult | undefined {
+function checkUrl(url: string, database: FinalDBFileType[], t: TFunction): UrlCheckResult | undefined {
   if (!url || typeof url !== "string") {
     throw new Error(`Invalid URL: ${url}`)
   }
@@ -90,12 +86,7 @@ function checkUrl(
     }
 
     const selectorKey = getSelectorKey(rule.domain, url)
-    const findResult = findInDatabaseBySelector(
-      selector,
-      selectorKey,
-      rule.domain,
-      database
-    )
+    const findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, database)
 
     if (findResult) {
       return formatResult(findResult, selector, selectorKey)
@@ -119,10 +110,7 @@ function checkUrl(
  * @returns UrlCheckResult or undefined if safe
  * @throws Error if URL is invalid
  */
-export function checkUrlForBot(
-  url: string,
-  ctx?: Context
-): UrlCheckResult | undefined {
+export function checkUrlForBot(url: string, ctx?: Context): UrlCheckResult | undefined {
   if (!url || typeof url !== "string") {
     throw new Error(`Invalid URL: ${url}`)
   }
