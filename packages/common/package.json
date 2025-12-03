@@ -5,6 +5,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
+    "postbuild": "pnpm -w lint && pnpm -w format:common",
+    "format": "pnpm -w lint && pnpm -w format:common",
     "lint": "echo 'Use root-level lint command: pnpm lint'",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -6,7 +6,7 @@
     "type-check": "tsc --noEmit",
     "trans": "pnpm dlx tsx TRANSLATIONS/generate.ts",
     "dev": "pnpm run pre-build && plasmo dev",
-    "build": "pnpm run lint && pnpm run pre-build && pnpm run build:chrome && pnpm run build:ff && pnpm run build:edge && pnpm run build:opera && pnpm run build:ff-src",
+    "build": "pnpm run lint && pnpm run pre-build && pnpm run build:chrome && pnpm run build:ff && pnpm run build:edge && pnpm run build:opera && pnpm run build:ff-src && pnpm -w lint && pnpm -w format:addon",
     "build:chrome": "plasmo build --no-minify",
     "build:ff": "plasmo build --target=firefox-mv2 --no-minify",
     "build:edge": "plasmo build --target=edge-mv3 --no-minify",
@@ -20,6 +20,7 @@
     "pre-build": "tcm -p \"src/**/*.css\" && pnpm run trans && pnpm run type-check",
     "watch": "tcm -p 'src/**/*.css' -w",
     "nuke": "rm -rf node_modules build .plasmo && pnpm store prune && pnpm install",
+    "format": "pnpm -w lint && pnpm -w format:addon",
     "lint": "echo 'Use root-level lint command: pnpm lint'",
     "lint:fix": "echo 'Use root-level lint command: pnpm lint:fix'"
   },

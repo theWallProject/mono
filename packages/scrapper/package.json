@@ -10,8 +10,9 @@
     "merge": "ts-node-dev src/merge_results.ts",
     "convert": "ts-node-dev src/convertDB.ts",
     "build": "tsc",
+    "postbuild": "ts-node src/tasks/regenerate_db.ts && ts-node src/tasks/copy_to_addon.ts && pnpm -w lint && pnpm -w format:scrapper",
+    "format": "pnpm -w lint && pnpm -w format:scrapper",
     "lint": "echo 'Use root-level lint command: pnpm lint'",
-    "postbuild": "ts-node src/tasks/regenerate_db.ts && ts-node src/tasks/copy_to_addon.ts",
     "start": "pnpm run build && node dist/index.js"
   },
   "engines": {
