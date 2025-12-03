@@ -11,15 +11,15 @@ data class Reason(
 )
 
 data class BlacklistItem(
-    val developerId: String,
+    val androidDevId: String,
     val reasonIds: List<String>
 )
 
 val reasonsMap = mapOf(
-    "HQ" to Reason("Headquartered in Israel", ReasonLevel.ERROR),
-    "INVESTOR" to Reason("Significant investment from Israeli VCs", ReasonLevel.WARNING),
-    "FOUNDER" to Reason("Founded by Israeli entrepreneurs", ReasonLevel.ERROR),
-    "BDS" to Reason("On the BDS boycott list", ReasonLevel.ERROR)
+    "h" to Reason("Headquartered in Israel", ReasonLevel.ERROR),
+    "i" to Reason("Significant investment from Israeli VCs", ReasonLevel.WARNING),
+    "f" to Reason("Founded by Israeli entrepreneurs", ReasonLevel.ERROR),
+    "b" to Reason("On the BDS boycott list", ReasonLevel.ERROR)
 )
 
 fun BlacklistItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {

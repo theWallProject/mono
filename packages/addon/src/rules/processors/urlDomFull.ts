@@ -18,17 +18,13 @@ export const processUrlDomFull = async (
       if (!element) {
         // Retry logic for dynamic content (implementation detail, not in config)
         if (retryCount < maxRetries) {
-          log(
-            `[UrlDomFullProcessor] Element not found, retrying... (${retryCount + 1}/${maxRetries})`
-          )
+          log(`[UrlDomFullProcessor] Element not found, retrying... (${retryCount + 1}/${maxRetries})`)
           setTimeout(() => {
             resolve(processUrlDomFull(rule, retryCount + 1, maxRetries))
           }, 500) // 500ms delay between retries
           return
         }
-        log(
-          `[UrlDomFullProcessor] Element not found after retries: ${rule.linkSelector}`
-        )
+        log(`[UrlDomFullProcessor] Element not found after retries: ${rule.linkSelector}`)
         resolve(null)
         return
       }
@@ -37,9 +33,7 @@ export const processUrlDomFull = async (
       const urlAttribute = element.getAttribute(attribute)
 
       if (!urlAttribute) {
-        log(
-          `[UrlDomFullProcessor] Element found but has no ${attribute} attribute: ${rule.linkSelector}`
-        )
+        log(`[UrlDomFullProcessor] Element found but has no ${attribute} attribute: ${rule.linkSelector}`)
         resolve(null)
         return
       }
@@ -47,10 +41,7 @@ export const processUrlDomFull = async (
       // Resolve relative URLs to absolute
       let url: string | null = null
       try {
-        if (
-          urlAttribute.startsWith("http://") ||
-          urlAttribute.startsWith("https://")
-        ) {
+        if (urlAttribute.startsWith("http://") || urlAttribute.startsWith("https://")) {
           url = urlAttribute
         } else {
           // Resolve relative URL
@@ -70,4 +61,3 @@ export const processUrlDomFull = async (
     }
   })
 }
-

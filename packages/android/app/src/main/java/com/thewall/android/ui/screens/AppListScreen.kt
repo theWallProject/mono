@@ -74,7 +74,6 @@ fun AppListScreen() {
             val blacklistJson = MainActivity.readFile(assetManager, "blacklist.json")
             val blacklistType = object : TypeToken<List<BlacklistItem>>() {}.type
             val blacklist = gson.fromJson<List<BlacklistItem>>(blacklistJson, blacklistType)
-            val blacklistMap = blacklist.associateBy { it.developerId }
             Log.d("AppListScreen", "Blacklist loaded with ${blacklist.size} items")
 
             // Get installed apps
@@ -82,8 +81,13 @@ fun AppListScreen() {
                 context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
             Log.d("AppListScreen", "Found ${installedApps.size} installed apps")
 
-            val (bad, good) = installedApps.partition { blacklistMap.containsKey(it.packageName) }
-            blacklistedApps = bad.map { it to blacklistMap[it.packageName]!! }
+            // Match apps: package name should start with androidDevId (e.g., "com.wix.app" matches "com.wix")
+            val (bad, good) = installedApps.partition { app ->
+                blacklist.any { item -> app.packageName.startsWith(item.androidDevId) }
+            }
+            blacklistedApps = bad.map { app ->
+                app to blacklist.first { item -> app.packageName.startsWith(item.androidDevId) }
+            }
             otherApps = good.filter {
                 (it.applicationInfo?.flags
                     ?: 0) and (ApplicationInfo.FLAG_SYSTEM or ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0

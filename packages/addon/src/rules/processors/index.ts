@@ -1,5 +1,4 @@
 import type { Rule } from "../types"
-
 import { processUrlDomFull } from "./urlDomFull"
 import { processUrlDomInline } from "./urlDomInline"
 import { processUrlOnly } from "./urlOnly"
@@ -32,5 +31,3 @@ export async function processRule<T extends Rule["type"]>(
   const processor = PROCESSORS[rule.type]
   return processor(rule) as Promise<string | null | Extract<Rule, { type: T }>>
 }
-
-

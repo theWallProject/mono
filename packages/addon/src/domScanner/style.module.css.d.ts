@@ -4,9 +4,12 @@ declare const styles: {
   readonly "wallDomBadge": string;
   readonly "wallDomOverlay": string;
   readonly "wallDomTooltip": string;
+  readonly "wallDomTooltipHeader": string;
+  readonly "wallDomTooltipLogo": string;
   readonly "wallDomTooltipName": string;
   readonly "wallDomTooltipReason": string;
   readonly "wallDomTooltipReasonItem": string;
+  readonly "wallDomTooltipVisible": string;
 };
 export = styles;
 

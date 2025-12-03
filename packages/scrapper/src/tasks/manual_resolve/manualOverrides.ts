@@ -12,6 +12,11 @@ type ManualOverrideFields = {
   ytc?: string | string[]
   tt?: string | string[]
   th?: string | string[]
+  /**
+   * Android developer ID like "com.wix" (not full app package IDs).
+   * This is the developer identifier, not a specific app package name.
+   */
+  android_dev_id?: string
 } & Omit<
   Partial<ScrappedItemType>,
   "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th"

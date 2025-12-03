@@ -482,3 +482,11 @@ export function getSelectorKey(
     }
   }
 }
+
+// Export blacklist schemas
+export {
+  BlacklistItemSchema,
+  BlacklistSchema,
+  type BlacklistItem,
+  type Blacklist
+} from "./schemas/blacklist"

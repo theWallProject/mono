@@ -39,15 +39,11 @@ if (envResult.error) {
           `Please create .env.dev with BOT_TOKEN, BOT_USERNAME, etc.`
       )
     }
-    throw new Error(
-      `Failed to load environment file ${envFile} at ${envPath}: ${error.message}`
-    )
+    throw new Error(`Failed to load environment file ${envFile} at ${envPath}: ${error.message}`)
   }
   // In production, .env.prod is optional (env vars may come from Docker)
   if (error.code !== "ENOENT") {
-    throw new Error(
-      `Failed to load environment file ${envFile} at ${envPath}: ${error.message}`
-    )
+    throw new Error(`Failed to load environment file ${envFile} at ${envPath}: ${error.message}`)
   }
 } else {
   console.log(`[ENV] Successfully loaded ${envFile}`)
@@ -60,10 +56,8 @@ process.env.NODE_ENV = nodeEnvFromEnv
 // Verify BOT_TOKEN is loaded
 if (!process.env.BOT_TOKEN) {
   throw new Error(
-    `BOT_TOKEN not found after loading ${envFile} from ${envPath}. ` +
-      `Please ensure BOT_TOKEN is set in ${envFile}`
+    `BOT_TOKEN not found after loading ${envFile} from ${envPath}. ` + `Please ensure BOT_TOKEN is set in ${envFile}`
   )
 }
 
 console.log(`[ENV] BOT_TOKEN loaded: ${process.env.BOT_TOKEN ? "YES" : "NO"}`)
-

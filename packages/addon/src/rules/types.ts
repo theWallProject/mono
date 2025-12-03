@@ -25,5 +25,3 @@ export type Rule =
  * Type helper to extract a specific rule type from the union
  */
 export type RuleOfType<T extends Rule["type"]> = Extract<Rule, { type: T }>
-
-
