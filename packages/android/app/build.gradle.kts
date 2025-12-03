@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import java.io.File
 
 plugins {
     alias(libs.plugins.android.application)
@@ -82,6 +81,28 @@ dependencies {
     implementation(libs.org.json)
 }
 
+// ----------------------------------------------------------------------------------
+// --- WARNING: SYNC BREADCRUMB -----------------------------------------------------
+// ----------------------------------------------------------------------------------
+// This task copies the master JSON database from the `scrapper` package.
+// If the location or filename in the scrapper package changes, this task MUST be updated.
+// This is the source of truth for the URL Lookup feature.
+//
+tasks.register("copyAllJson") {
+    val sourceFile = file("${project.rootProject.projectDir}/../scrapper/results/4_final/ALL.json")
+    val destFile = file("src/main/assets/ALL.json")
+
+    doLast {
+        if (!sourceFile.exists()) {
+            throw GradleException("ALL.json not found at ${sourceFile.absolutePath}.")
+        }
+        destFile.parentFile.mkdirs()
+        sourceFile.copyTo(destFile, overwrite = true)
+        println("✅ Copied ALL.json to ${destFile.absolutePath}")
+    }
+}
+
+
 // Task to copy schema from common package to Android assets
 tasks.register("copyBlacklistSchema") {
     val schemaSource = file("${project.rootProject.projectDir}/../common/src/schemas/blacklist.schema.json")
@@ -140,6 +161,7 @@ tasks.register("validateBlacklist") {
 // Make validation run before compilation
 tasks.named("preBuild") {
     dependsOn("validateBlacklist")
+    dependsOn("copyAllJson")
 }
 
 tasks.register("preCommitCheck") {
