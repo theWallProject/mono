@@ -468,7 +468,6 @@ export const Banner = () => {
                 })}
                 {/* // todo: use or delete */}
                 {testResult.comment ? <div>{testResult.comment}</div> : ""}
-                {testResult.link ? <a href={testResult.link}>Link</a> : ""}
               </div>
 
               <div className={style.buttonsWrapper}>

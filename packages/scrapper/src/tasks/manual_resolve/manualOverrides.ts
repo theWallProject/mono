@@ -175,7 +175,30 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
-  Fiverr: { fb: "https://www.facebook.com/Fiverr" },
+  Fiverr: {
+    ws: ["https://www.fiverr.com", "https://www.clearvoice.com", "https://www.autods.com"],
+    fb: ["https://www.facebook.com/Fiverr", "https://www.facebook.com/ClearVoiceContent"],
+    android_dev_id: "com.fiverr",
+    ytp: ["https://www.youtube.com/@fiverr"],
+    ytc: ["https://www.youtube.com/channel/UC3uRppA1nJm53HMVauBS-tw"],
+    tt: ["https://www.tiktok.com/@fiverr"],
+    tw: ["https://x.com/fiverr", "https://x.com/ClearVoice"],
+    ig: ["https://www.instagram.com/fiverr", "https://www.instagram.com/clearvoicecontent"],
+    li: [
+      "https://www.linkedin.com/company/fiverr-com",
+      "https://www.linkedin.com/showcase/fiverr-affiliates",
+      "https://www.linkedin.com/showcase/fiverr-learn",
+      "https://www.linkedin.com/showcase/fiverr-us",
+      "https://www.linkedin.com/company/clearvoice"
+    ],
+    urls: [
+      "https://play.google.com/store/apps/developer?id=Fiverr",
+      "https://sprout.link/fiverr",
+      "https://www.linkedin.com/products/fiverr-com-fiverr",
+      "https://www.pinterest.com/fiverr",
+      "https://www.pinterest.com/fiverr/brand-style-guides-brand-identity"
+    ]
+  },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Metis Technologies": { fb: "", tw: "" },
   MoonPay: {
