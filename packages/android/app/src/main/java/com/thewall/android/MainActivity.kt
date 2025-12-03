@@ -1,12 +1,12 @@
 package com.thewall.android
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -31,15 +31,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import com.thewall.android.background.ScanWorker
 import com.thewall.android.ui.screens.AppListScreen
 import com.thewall.android.ui.screens.PermissionRequestScreen
 import com.thewall.android.ui.screens.StartScreen
 import com.thewall.android.ui.theme.TheWallBoycottAssistantTheme
 import com.thewall.android.ui.urllookup.UrlLookupScreen
+import java.util.concurrent.TimeUnit
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
@@ -48,21 +54,25 @@ class MainActivity : ComponentActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {}
 
-    // State to hold the shared URL
+    private val requestNotificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) {}
+
     private var sharedUrl by mutableStateOf<String?>(null)
+    private var navigateToScreen by mutableStateOf<String?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("ShareDebug", "onCreate called. Intent action: ${intent?.action}")
         handleIntent(intent)
+        schedulePeriodicScan()
         setContent {
             TheWallBoycottAssistantTheme {
                 MainScreen(
                     initialUrl = sharedUrl,
-                    onUrlHandled = {
-                        Log.d("ShareDebug", "URL handled, clearing sharedUrl.")
-                        sharedUrl = null
-                    } // Clear the URL after handling
+                    navigateToScreen = navigateToScreen,
+                    onUrlHandled = { sharedUrl = null },
+                    onNavigationHandled = { navigateToScreen = null },
+                    requestNotificationPermission = { askForNotificationPermission() }
                 )
             }
         }
@@ -70,17 +80,15 @@ class MainActivity : ComponentActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        Log.d("ShareDebug", "onNewIntent called. Intent action: ${intent.action}")
         handleIntent(intent)
-        // We need to recompose with the new URL
         setContent {
             TheWallBoycottAssistantTheme {
                 MainScreen(
                     initialUrl = sharedUrl,
-                    onUrlHandled = {
-                        Log.d("ShareDebug", "URL handled, clearing sharedUrl.")
-                        sharedUrl = null
-                    }
+                    navigateToScreen = navigateToScreen,
+                    onUrlHandled = { sharedUrl = null },
+                    onNavigationHandled = { navigateToScreen = null },
+                    requestNotificationPermission = { askForNotificationPermission() }
                 )
             }
         }
@@ -88,27 +96,30 @@ class MainActivity : ComponentActivity() {
 
     private fun handleIntent(intent: Intent?) {
         if (intent?.action == Intent.ACTION_SEND && "text/plain" == intent.type) {
-            val receivedUrl = intent.getStringExtra(Intent.EXTRA_TEXT)
-            Log.d("ShareDebug", "handleIntent: Received text: '$receivedUrl'")
-            if (receivedUrl != null) {
-                sharedUrl = receivedUrl
-                Log.d("ShareDebug", "handleIntent: sharedUrl state updated to: '$sharedUrl'")
-            } else {
-                Log.d("ShareDebug", "handleIntent: Received null text.")
-            }
-        } else {
-            Log.d(
-                "ShareDebug",
-                "handleIntent: Intent was not a valid share intent. Action: ${intent?.action}, Type: ${intent?.type}"
-            )
+            sharedUrl = intent.getStringExtra(Intent.EXTRA_TEXT)
         }
+        intent?.getStringExtra(ScanWorker.NAVIGATE_TO_SCREEN_EXTRA)?.let {
+            navigateToScreen = it
+        }
+    }
+    
+    private fun schedulePeriodicScan() {
+        // --- BREADCRUMB: Background Job Frequency ---
+        // This is where the frequency of the periodic background scan is controlled.
+        // The minimum interval allowed by Android is 15 minutes.
+        val scanWorkRequest = PeriodicWorkRequestBuilder<ScanWorker>(15, TimeUnit.MINUTES).build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "PERIODIC_APP_SCAN",
+            ExistingPeriodicWorkPolicy.KEEP,
+            scanWorkRequest
+        )
     }
 
     private fun hasQueryAllPackagesPermission(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             checkSelfPermission(android.Manifest.permission.QUERY_ALL_PACKAGES) == PackageManager.PERMISSION_GRANTED
         } else {
-            true // Not needed for older Android versions.
+            true
         }
     }
 
@@ -121,21 +132,43 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun askForNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                requestNotificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
+    }
+
     @Composable
-    private fun MainScreen(initialUrl: String?, onUrlHandled: () -> Unit) {
-        // If we received a URL, start on the UrlLookup screen. Otherwise, default to List.
-        var currentScreen by remember { mutableStateOf<Screen>(if (initialUrl != null) Screen.UrlLookup else Screen.List) }
-        var scanState by remember { mutableStateOf(ScanState.Idle) }
+    private fun MainScreen(
+        initialUrl: String?,
+        navigateToScreen: String?,
+        onUrlHandled: () -> Unit,
+        onNavigationHandled: () -> Unit,
+        requestNotificationPermission: () -> Unit
+    ) {
+        val defaultScreen = when {
+            initialUrl != null -> Screen.UrlLookup
+            navigateToScreen == ScanWorker.APP_SCAN_SCREEN -> Screen.List
+            else -> Screen.List
+        }
+        var currentScreen by remember { mutableStateOf<Screen>(defaultScreen) }
+        var scanState by remember { mutableStateOf(if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) ScanState.Scanning else ScanState.Idle) }
         var permissionGranted by remember { mutableStateOf(hasQueryAllPackagesPermission()) }
 
-        // When a new shared URL comes in while the app is open, we need to react
-        LaunchedEffect(initialUrl) {
+        LaunchedEffect(Unit) {
+            requestNotificationPermission()
+        }
+
+        LaunchedEffect(initialUrl, navigateToScreen) {
             if (initialUrl != null) {
-                Log.d(
-                    "ShareDebug",
-                    "MainScreen: LaunchedEffect detected new initialUrl: '$initialUrl'"
-                )
                 currentScreen = Screen.UrlLookup
+            }
+            if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) {
+                currentScreen = Screen.List
+                scanState = ScanState.Scanning
+                onNavigationHandled()
             }
         }
 
@@ -144,7 +177,6 @@ class MainActivity : ComponentActivity() {
             val observer = LifecycleEventObserver { _, event ->
                 if (event == Lifecycle.Event.ON_RESUME) {
                     val hasPermission = hasQueryAllPackagesPermission()
-                    // If permission was just granted, move to the list.
                     if (hasPermission && !permissionGranted) {
                         scanState = ScanState.Scanning
                     }
@@ -184,16 +216,12 @@ class MainActivity : ComponentActivity() {
                 when (currentScreen) {
                     is Screen.List -> {
                         when (scanState) {
-                            ScanState.Idle -> {
-                                StartScreen(onScanClicked = { scanState = ScanState.Scanning })
-                            }
+                            ScanState.Idle -> StartScreen(onScanClicked = { scanState = ScanState.Scanning })
                             ScanState.Scanning -> {
                                 if (permissionGranted) {
                                     AppListScreen()
                                 } else {
-                                    PermissionRequestScreen(
-                                        onRequestPermission = { requestQueryAllPackagesPermission() }
-                                    )
+                                    PermissionRequestScreen(onRequestPermission = { requestQueryAllPackagesPermission() })
                                 }
                             }
                         }

@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.accompanist.drawablepainter)
     implementation(libs.gson)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.work.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
