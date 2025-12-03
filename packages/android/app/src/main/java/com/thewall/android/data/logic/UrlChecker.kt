@@ -5,6 +5,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.thewall.android.data.Alternative
 import com.thewall.android.data.FinalDBFile
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.net.URI
 
 // ----------------------------------------------------------------------------------
@@ -22,20 +24,25 @@ import java.net.URI
 // ----------------------------------------------------------------------------------
 class UrlChecker(private val context: Context) {
 
-    private val database: List<FinalDBFile> by lazy {
-        loadDatabase()
-    }
+    // Cache for the parsed database to avoid reloading it every time.
+    private var database: List<FinalDBFile>? = null
 
     private val config: APIEndpointConfig by lazy {
         buildApiEndpointConfig()
     }
 
-    private fun loadDatabase(): List<FinalDBFile> {
-        // This function assumes `ALL.json` exists in assets. This is handled by a
-        // Gradle task in `build.gradle.kts`. See that file for its own sync warning.
-        val jsonString = context.assets.open("ALL.json").bufferedReader().use { it.readText() }
-        val listType = object : TypeToken<List<FinalDBFile>>() {}.type
-        return Gson().fromJson(jsonString, listType)
+    private suspend fun getDatabase(): List<FinalDBFile> {
+        database?.let { return it }
+        // --- Performance Note ---
+        // This is executed on a background thread by the caller (`checkUrl`).
+        // It loads and parses the large JSON file from assets.
+        return withContext(Dispatchers.IO) {
+            val jsonString = context.assets.open("ALL.json").bufferedReader().use { it.readText() }
+            val listType = object : TypeToken<List<FinalDBFile>>() {}.type
+            val db: List<FinalDBFile> = Gson().fromJson(jsonString, listType)
+            database = db // Cache the result
+            db
+        }
     }
 
 
@@ -91,30 +98,32 @@ class UrlChecker(private val context: Context) {
     /**
      * --- WARNING: SYNC BREADCRUMB ---
      * This is the main entry point. Its logic flow is a port of `checkUrl` from the common package.
+     * It runs the entire check on a background thread to prevent blocking the UI.
      */
-    fun checkUrl(url: String): UrlCheckResult? {
+    suspend fun checkUrl(url: String): UrlCheckResult? = withContext(Dispatchers.Default) {
+        val db = getDatabase() // Load the database if needed (uses Dispatchers.IO).
+
         val rule = findMatchingRule(url)
         if (rule != null) {
             val selector = extractSelector(url, rule)
             if (selector != null) {
                 val selectorKey = getSelectorKey(rule.domain, url)
-                val findResult =
-                    findInDatabaseBySelector(selector, selectorKey, rule.domain, database)
+                val findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, db)
                 if (findResult != null) {
-                    return formatResult(findResult, selector, selectorKey)
+                    return@withContext formatResult(findResult, selector, selectorKey)
                 }
             }
         }
 
         val domain = getMainDomain(url)
         if (domain.isNotEmpty()) {
-            val findResult = findInDatabaseByDomain(domain, database)
+            val findResult = findInDatabaseByDomain(domain, db)
             if (findResult != null) {
-                return formatResult(findResult, domain, "ws")
+                return@withContext formatResult(findResult, domain, "ws")
             }
         }
 
-        return null
+        return@withContext null
     }
 
     private fun getMainDomain(url: String): String {
@@ -136,7 +145,7 @@ class UrlChecker(private val context: Context) {
 
     // --- WARNING: SYNC BREADCRUMB ---
     // The following functions are all direct ports of their TypeScript counterparts in the common package.
-    // (e.g., `normalizeUrl`, `getRegexFlags`, `findMatchingRule`, `extractSelector`, 
+    // (e.g., `normalizeUrl`, `getRegexFlags`, `findMatchingRule`, `extractSelector`,
     // `findInDatabaseBySelector`, `getSelectorKey`).
     // If the TypeScript implementation changes, these must be updated.
 
@@ -249,7 +258,6 @@ class UrlChecker(private val context: Context) {
                 }
                 if (url.contains("/channel/")) "ytc" else "ytp"
             }
-
             "tiktok.com" -> "tt"
             "threads.com" -> "th"
             else -> throw IllegalArgumentException("getSelectorKey: unexpected domain $domain")

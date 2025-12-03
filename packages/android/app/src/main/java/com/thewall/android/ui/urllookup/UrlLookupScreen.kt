@@ -2,7 +2,9 @@ package com.thewall.android.ui.urllookup
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,15 +22,18 @@ import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,14 +47,47 @@ import com.thewall.android.data.ReasonLevel
 import com.thewall.android.data.logic.UrlCheckResult
 import com.thewall.android.data.logic.UrlChecker
 import com.thewall.android.data.reasonsMap
+import kotlinx.coroutines.launch
 
 @Composable
-fun UrlLookupScreen() {
-    var url by remember { mutableStateOf("") }
+fun UrlLookupScreen(
+    initialUrl: String? = null,
+    onUrlHandled: () -> Unit = {}
+) {
+    var url by remember { mutableStateOf(initialUrl ?: "") }
     var result by remember { mutableStateOf<UrlCheckResult?>(null) }
     var hasSearched by remember { mutableStateOf(false) }
+    var isLoading by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val urlChecker = remember { UrlChecker(context) }
+    val scope = rememberCoroutineScope()
+
+    fun performCheck(checkUrl: String) {
+        if (checkUrl.isBlank()) return
+        isLoading = true
+        hasSearched = true
+        scope.launch {
+            try {
+                result = urlChecker.checkUrl(checkUrl)
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
+    // --- Automatic Scan Logic ---
+    LaunchedEffect(initialUrl) {
+        if (initialUrl != null) {
+            Log.d(
+                "ShareDebug",
+                "UrlLookupScreen: LaunchedEffect received initialUrl: '$initialUrl'"
+            )
+            performCheck(initialUrl)
+            onUrlHandled() // Notify the activity that the URL has been processed
+        } else {
+            Log.d("ShareDebug", "UrlLookupScreen: LaunchedEffect received null initialUrl.")
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -64,17 +102,19 @@ fun UrlLookupScreen() {
         )
         Spacer(modifier = Modifier.height(8.dp))
         Button(
-            onClick = {
-                hasSearched = true
-                result = urlChecker.checkUrl(url)
-            },
-            modifier = Modifier.fillMaxWidth()
+            onClick = { performCheck(url) },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = !isLoading
         ) {
             Text("Check URL")
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        if (hasSearched) {
+        if (isLoading) {
+            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
+        } else if (hasSearched) {
             when (val res = result) {
                 is UrlCheckResult.Match -> MatchResultCard(res)
                 is UrlCheckResult.Hint -> HintResultCard(res)

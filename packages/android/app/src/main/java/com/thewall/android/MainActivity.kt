@@ -6,6 +6,7 @@ import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -24,6 +25,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,12 +48,59 @@ class MainActivity : ComponentActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {}
 
+    // State to hold the shared URL
+    private var sharedUrl by mutableStateOf<String?>(null)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("ShareDebug", "onCreate called. Intent action: ${intent?.action}")
+        handleIntent(intent)
         setContent {
             TheWallBoycottAssistantTheme {
-                MainScreen()
+                MainScreen(
+                    initialUrl = sharedUrl,
+                    onUrlHandled = {
+                        Log.d("ShareDebug", "URL handled, clearing sharedUrl.")
+                        sharedUrl = null
+                    } // Clear the URL after handling
+                )
             }
+        }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        Log.d("ShareDebug", "onNewIntent called. Intent action: ${intent.action}")
+        handleIntent(intent)
+        // We need to recompose with the new URL
+        setContent {
+            TheWallBoycottAssistantTheme {
+                MainScreen(
+                    initialUrl = sharedUrl,
+                    onUrlHandled = {
+                        Log.d("ShareDebug", "URL handled, clearing sharedUrl.")
+                        sharedUrl = null
+                    }
+                )
+            }
+        }
+    }
+
+    private fun handleIntent(intent: Intent?) {
+        if (intent?.action == Intent.ACTION_SEND && "text/plain" == intent.type) {
+            val receivedUrl = intent.getStringExtra(Intent.EXTRA_TEXT)
+            Log.d("ShareDebug", "handleIntent: Received text: '$receivedUrl'")
+            if (receivedUrl != null) {
+                sharedUrl = receivedUrl
+                Log.d("ShareDebug", "handleIntent: sharedUrl state updated to: '$sharedUrl'")
+            } else {
+                Log.d("ShareDebug", "handleIntent: Received null text.")
+            }
+        } else {
+            Log.d(
+                "ShareDebug",
+                "handleIntent: Intent was not a valid share intent. Action: ${intent?.action}, Type: ${intent?.type}"
+            )
         }
     }
 
@@ -73,10 +122,22 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun MainScreen() {
-        var currentScreen by remember { mutableStateOf<Screen>(Screen.List) }
+    private fun MainScreen(initialUrl: String?, onUrlHandled: () -> Unit) {
+        // If we received a URL, start on the UrlLookup screen. Otherwise, default to List.
+        var currentScreen by remember { mutableStateOf<Screen>(if (initialUrl != null) Screen.UrlLookup else Screen.List) }
         var scanState by remember { mutableStateOf(ScanState.Idle) }
         var permissionGranted by remember { mutableStateOf(hasQueryAllPackagesPermission()) }
+
+        // When a new shared URL comes in while the app is open, we need to react
+        LaunchedEffect(initialUrl) {
+            if (initialUrl != null) {
+                Log.d(
+                    "ShareDebug",
+                    "MainScreen: LaunchedEffect detected new initialUrl: '$initialUrl'"
+                )
+                currentScreen = Screen.UrlLookup
+            }
+        }
 
         val lifecycleOwner = LocalLifecycleOwner.current
         DisposableEffect(lifecycleOwner) {
@@ -126,7 +187,6 @@ class MainActivity : ComponentActivity() {
                             ScanState.Idle -> {
                                 StartScreen(onScanClicked = { scanState = ScanState.Scanning })
                             }
-
                             ScanState.Scanning -> {
                                 if (permissionGranted) {
                                     AppListScreen()
@@ -138,8 +198,10 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
-
-                    is Screen.UrlLookup -> UrlLookupScreen()
+                    is Screen.UrlLookup -> UrlLookupScreen(
+                        initialUrl = initialUrl,
+                        onUrlHandled = onUrlHandled
+                    )
                 }
             }
         }
