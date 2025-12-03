@@ -1,11 +1,25 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# Initialize fnm (Fast Node Manager) environment
+# Git hooks run in minimal environment, so we need to set up fnm
+if command -v fnm >/dev/null 2>&1; then
+  # Use bash syntax since Git Bash on Windows supports it
+  eval "$(fnm env --shell bash 2>/dev/null)" || true
+fi
+
+# Fallback: try to find pnpm in node_modules/.bin (local installation)
+if ! command -v pnpm >/dev/null 2>&1; then
+  if [ -f "node_modules/.bin/pnpm" ]; then
+    export PATH="$PATH:$(pwd)/node_modules/.bin"
+  fi
+fi
+
 # Run lint-staged for formatting staged files
-npx lint-staged || exit 1
+pnpm exec lint-staged || exit 1
 
-# Run lint for all packages (use npx pnpm if pnpm is not in PATH)
-command -v pnpm >/dev/null 2>&1 && pnpm lint || npx pnpm lint || exit 1
+# Run lint for all packages
+pnpm lint || exit 1
 
-# Run build for all packages (use npx pnpm if pnpm is not in PATH)
-command -v pnpm >/dev/null 2>&1 && pnpm build || npx pnpm build || exit 1
+# Run build for all packages
+pnpm build || exit 1
