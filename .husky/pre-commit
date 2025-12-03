@@ -1,4 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged
+# Run lint-staged for formatting staged files
+npx lint-staged || exit 1
+
+# Run lint for all packages (use npx pnpm if pnpm is not in PATH)
+command -v pnpm >/dev/null 2>&1 && pnpm lint || npx pnpm lint || exit 1
+
+# Run build for all packages (use npx pnpm if pnpm is not in PATH)
+command -v pnpm >/dev/null 2>&1 && pnpm build || npx pnpm build || exit 1

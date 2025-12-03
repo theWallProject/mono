@@ -30,10 +30,11 @@ console.log(`[ENV] Current working directory: ${process.cwd()}`)
 const envResult = config({ path: envPath, override: true })
 
 if (envResult.error) {
-  const error = envResult.error as Error & { code?: string }
+  const error = envResult.error instanceof Error ? envResult.error : new Error(String(envResult.error))
+  const errorCode = "code" in error && typeof error.code === "string" ? error.code : undefined
   // In development, .env.dev is required
   if (nodeEnvFromEnv === "development") {
-    if (error.code === "ENOENT") {
+    if (errorCode === "ENOENT") {
       throw new Error(
         `.env.dev file is required in development mode but not found at ${envPath}. ` +
           `Please create .env.dev with BOT_TOKEN, BOT_USERNAME, etc.`
@@ -42,7 +43,7 @@ if (envResult.error) {
     throw new Error(`Failed to load environment file ${envFile} at ${envPath}: ${error.message}`)
   }
   // In production, .env.prod is optional (env vars may come from Docker)
-  if (error.code !== "ENOENT") {
+  if (errorCode !== "ENOENT") {
     throw new Error(`Failed to load environment file ${envFile} at ${envPath}: ${error.message}`)
   }
 } else {

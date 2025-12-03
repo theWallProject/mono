@@ -3,7 +3,7 @@ import path from "path"
 import prettier from "prettier"
 
 import { log } from "../../helper"
-import type { ManualOverrideFields, ManualOverrideValue } from "./types"
+import type { ManualOverrideValue } from "./types"
 import { isProcessed } from "./types"
 
 const manualOverridesPath = path.join(__dirname, "../manual_resolve/manualOverrides.ts")

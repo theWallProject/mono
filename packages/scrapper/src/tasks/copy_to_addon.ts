@@ -2,7 +2,6 @@ import fs from "fs"
 import path from "path"
 
 import { log } from "../helper"
-import { DBFileNames } from "../scrapperTypes"
 
 const sourceFolder = path.join(__dirname, `../../results/4_final`)
 const targetFolder = path.join(__dirname, `../../../addon/src/db/`)

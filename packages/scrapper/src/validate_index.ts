@@ -48,7 +48,7 @@ const main = async () => {
         })
         log("✅ All files updated successfully!")
         process.exit(0)
-      } catch (err) {
+      } catch {
         error("⚠️  Failed to apply overrides. Run 'pnpm run apply-overrides' manually.")
         process.exit(1)
       }

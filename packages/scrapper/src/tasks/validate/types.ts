@@ -1,5 +1,3 @@
-import { LinkField } from "@theWallProject/common"
-
 import { ScrappedItemType } from "../../types"
 
 export type ProcessedState = {

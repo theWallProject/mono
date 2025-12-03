@@ -4,7 +4,6 @@ import { FaTelegram } from "@react-icons/all-files/fa/FaTelegram"
 import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp"
 import React, { useEffect, useState } from "react"
 
-// eslint-disable-next-line import/order
 import icon16 from "../assets/icon16.png"
 import { getExtensionURL, track } from "./helpers"
 import {

@@ -38,6 +38,7 @@ if (WEBHOOK_URL) {
     .then((webhookMiddleware) => {
       app.use(webhookMiddleware)
       console.log(`Bot webhook set to: ${WEBHOOK_URL}/webhook`)
+      return undefined
     })
     .catch((error) => {
       throw new Error(`Failed to create webhook: ${error instanceof Error ? error.message : String(error)}`)
@@ -51,7 +52,7 @@ if (WEBHOOK_URL) {
 }
 
 // Error handling middleware
-app.use((err: Error, _req: Request, res: Response, _next: express.NextFunction): void => {
+app.use((err: Error, _req: Request, res: Response): void => {
   console.error("Express error:", err)
   res.status(500).json({ error: "Internal server error" })
   // Don't swallow errors - let them propagate

@@ -11,7 +11,7 @@ const outputFilePath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.
 const loadJsonFiles = (folderPath: string) => {
   const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
-  let combinedArray: ScrappedItemType[] = []
+  const combinedArray: ScrappedItemType[] = []
   const duplicates: Record<string, ScrappedItemType[]> = {}
 
   files.forEach((file) => {

@@ -28,7 +28,7 @@ const loadJsonFiles = (folderPath: string) => {
     const key = keyFromFileName(file)
 
     for (const newRow of parsedData) {
-      let testRow = idRecord[newRow.id]
+      const testRow = idRecord[newRow.id]
 
       if (testRow) {
         // @ts-expect-error -- key is LinkField but FinalDBFileType doesn't include "il", which is fine since scrapper never uses "il"

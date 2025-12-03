@@ -1,4 +1,3 @@
-/* eslint-disable import/order */
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import { toast, Toaster } from "react-hot-toast"
 

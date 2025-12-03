@@ -887,7 +887,12 @@ const validateItemLinks = async (context: BrowserContext, item: ScrappedItemType
           for (const url of extraUrls) {
             const category = categorizeUrl(url)
             // categorizeUrl never returns "il" (only returns database fields or null)
-            const categoryKey: ScrapperLinkField | "urls" = (category || "urls") as ScrapperLinkField | "urls"
+            let categoryKey: ScrapperLinkField | "urls"
+            if (category === null || category === "il") {
+              categoryKey = "urls"
+            } else {
+              categoryKey = category
+            }
             const cleanedUrl = removeTrailingSlash(url)
 
             // Initialize Set for this category if needed
@@ -1292,7 +1297,7 @@ export async function run() {
     log(`Loaded ${data.length} items`)
 
     // Load current manual overrides
-    let currentOverrides = loadManualOverrides()
+    const currentOverrides = loadManualOverrides()
     log(`Loaded ${Object.keys(currentOverrides).length} existing overrides`)
 
     // Sort by reason priority (h first, then f, then others) and cbRank

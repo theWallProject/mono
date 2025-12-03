@@ -121,7 +121,7 @@ const outputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL
 const loadJsonFiles = (folderPath: string) => {
   const mergedCBContent = fs.readFileSync(mergedCBPath, "utf-8")
 
-  let combinedArray = APIScrapperFileDataSchema.parse(JSON.parse(mergedCBContent))
+  const combinedArray = APIScrapperFileDataSchema.parse(JSON.parse(mergedCBContent))
 
   const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 

@@ -331,7 +331,7 @@ export function findInDatabaseBySelector(
   }
 
   const findResult = database.find((row) => {
-    const dbValue = row[selectorKey as Exclude<LinkField, "il">]
+    const dbValue = row[selectorKey]
     if (!dbValue || typeof dbValue !== "string") {
       return false
     }

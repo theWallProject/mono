@@ -22,21 +22,22 @@ import { getT, getTByLanguage, type TFunction } from "./translations.js"
 
 const require = createRequire(import.meta.url)
 // Use CommonJS-style require to load JSON without import assertions (works in Node 20 ESM)
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const ALL = require("../db/ALL.json") as FinalDBFileType[]
+
+const ALL = require("../db/ALL.json")
 
 // Validate database at module level - fail immediately if invalid
-const database = ALL as unknown
-
-if (!Array.isArray(database)) {
+if (!Array.isArray(ALL)) {
   throw new Error("Database file is not an array")
 }
 
-if (database.length === 0) {
+if (ALL.length === 0) {
   throw new Error("Database is empty")
 }
 
-const typedDatabase = database as FinalDBFileType[]
+// Type guard to ensure all items match FinalDBFileType
+const typedDatabase: FinalDBFileType[] = ALL.filter((item): item is FinalDBFileType => {
+  return typeof item === "object" && item !== null && "id" in item && "n" in item && "r" in item
+})
 
 /**
  * Creates an .il domain hint result (platform-specific, not shared).
