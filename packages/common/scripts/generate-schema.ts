@@ -8,6 +8,30 @@ const reasonEnumValues = Object.values(APIListOfReasons)
 
 // Manually construct schema to ensure it matches the Zod schema exactly
 // This ensures consistency and avoids issues with zod-to-json-schema
+const itemProperties = {
+  androidDevId: {
+    type: "string",
+    description: "Android developer ID like 'com.wix' (not full app package IDs)"
+  },
+  androidAppIds: {
+    type: "array",
+    description: "Array of full Android app package IDs for exact matching",
+    items: {
+      type: "string"
+    },
+    minItems: 1
+  },
+  reasonIds: {
+    type: "array",
+    description: "Array of reason codes matching ALL.json format",
+    items: {
+      type: "string",
+      enum: reasonEnumValues
+    },
+    minItems: 1
+  }
+}
+
 const schema = {
   $schema: "http://json-schema.org/draft-07/schema#",
   type: "array",
@@ -15,23 +39,20 @@ const schema = {
     "Array of Android blacklist items. ⚠️ AUTO-GENERATED - Do not edit manually. Run 'pnpm run generate-schema' in common package to regenerate.",
   items: {
     type: "object",
-    required: ["androidDevId", "reasonIds"],
-    properties: {
-      androidDevId: {
-        type: "string",
-        description: "Android developer ID like 'com.wix' (not full app package IDs)"
+    required: ["reasonIds"],
+    properties: itemProperties,
+    additionalProperties: false,
+    // Ensure at least one of androidDevId or androidAppIds is present
+    anyOf: [
+      {
+        properties: itemProperties,
+        required: ["androidDevId", "reasonIds"]
       },
-      reasonIds: {
-        type: "array",
-        description: "Array of reason codes matching ALL.json format",
-        items: {
-          type: "string",
-          enum: reasonEnumValues
-        },
-        minItems: 1
+      {
+        properties: itemProperties,
+        required: ["androidAppIds", "reasonIds"]
       }
-    },
-    additionalProperties: false
+    ]
   }
 }
 

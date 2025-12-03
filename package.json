@@ -18,7 +18,8 @@
     "bot:build": "pnpm build:common && pnpm build:telegram-bot && pnpm --filter @theWallProject/telegram-bot bot:build",
     "bot:run": "pnpm --filter @theWallProject/telegram-bot bot:run",
     "bot:logs": "pwsh -File scripts/deploy-bot.ps1 -Mode logs",
-    "bot:deploy": "pwsh -File scripts/deploy-bot.ps1 -Mode deploy"
+    "bot:deploy": "pwsh -File scripts/deploy-bot.ps1 -Mode deploy",
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=18",
@@ -27,6 +28,13 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.7.0",
     "cross-env": "^10.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "3.6.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,css}": [
+      "prettier --write"
+    ]
   }
 }

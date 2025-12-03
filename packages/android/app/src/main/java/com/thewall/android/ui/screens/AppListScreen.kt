@@ -81,12 +81,20 @@ fun AppListScreen() {
                 context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
             Log.d("AppListScreen", "Found ${installedApps.size} installed apps")
 
-            // Match apps: package name should start with androidDevId (e.g., "com.wix.app" matches "com.wix")
+            // Match apps: check exact matches for androidAppIds, prefix matches for androidDevId
             val (bad, good) = installedApps.partition { app ->
-                blacklist.any { item -> app.packageName.startsWith(item.androidDevId) }
+                blacklist.any { item ->
+                    // Check exact match against androidAppIds if present
+                    (item.androidAppIds != null && item.androidAppIds.isNotEmpty() && app.packageName in item.androidAppIds) ||
+                    // Check prefix match against androidDevId if present
+                    (item.androidDevId != null && app.packageName.startsWith(item.androidDevId))
+                }
             }
             blacklistedApps = bad.map { app ->
-                app to blacklist.first { item -> app.packageName.startsWith(item.androidDevId) }
+                app to blacklist.first { item ->
+                    (item.androidAppIds != null && item.androidAppIds.isNotEmpty() && app.packageName in item.androidAppIds) ||
+                    (item.androidDevId != null && app.packageName.startsWith(item.androidDevId))
+                }
             }
             otherApps = good.filter {
                 (it.applicationInfo?.flags

@@ -417,7 +417,9 @@ const loadJsonFiles = (folderPath: string) => {
         }
 
         // Hard fail if key doesn't exist in the row object (invalid property)
-        if (!(key in updatedRow)) {
+        // Allow android_dev_id and android_app_ids even if not in current row (they're optional schema fields)
+        const validOptionalFields = ["android_dev_id", "android_app_ids"]
+        if (!(key in updatedRow) && !validOptionalFields.includes(key)) {
           const validKeys = Object.keys(updatedRow).join(", ")
           error(`Unexpected override key "${key}" for ${row.name}. Valid keys: ${validKeys}`)
           throw new Error(`Invalid override key "${key}" for ${row.name}`)

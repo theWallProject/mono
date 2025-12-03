@@ -7,6 +7,16 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+    dependencies {
+        classpath(libs.json.schema.validator)
+    }
+}
+
 android {
     namespace = "com.thewall.android"
     compileSdk = 36
@@ -67,16 +77,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    
+
     // JSON schema validator for build-time validation
-    implementation(libs.json.schema.validator)
+    implementation(libs.org.json)
 }
 
 // Task to copy schema from common package to Android assets
 tasks.register("copyBlacklistSchema") {
     val schemaSource = file("${project.rootProject.projectDir}/../common/src/schemas/blacklist.schema.json")
     val schemaDest = file("src/main/assets/blacklist.schema.json")
-    
+
     doLast {
         if (!schemaSource.exists()) {
             throw GradleException("Schema file not found at ${schemaSource.absolutePath}. Run 'pnpm run generate-schema' in common package first.")
@@ -90,10 +100,10 @@ tasks.register("copyBlacklistSchema") {
 // Task to validate blacklist.json against schema at build time
 tasks.register("validateBlacklist") {
     dependsOn("copyBlacklistSchema")
-    
+
     val blacklistFile = file("src/main/assets/blacklist.json")
     val schemaFile = file("src/main/assets/blacklist.schema.json")
-    
+
     doLast {
         if (!blacklistFile.exists()) {
             throw GradleException("blacklist.json not found at ${blacklistFile.absolutePath}")
@@ -101,15 +111,15 @@ tasks.register("validateBlacklist") {
         if (!schemaFile.exists()) {
             throw GradleException("blacklist.schema.json not found at ${schemaFile.absolutePath}. Run 'copyBlacklistSchema' task first.")
         }
-        
+
         try {
-            val schemaText = File(schemaFile).readText()
-            val blacklistText = File(blacklistFile).readText()
-            
+            val schemaText = schemaFile.readText()
+            val blacklistText = blacklistFile.readText()
+
             // Schema is a JSON object (even though it describes an array)
             val schemaJson = org.json.JSONObject(schemaText)
             val blacklistJson = org.json.JSONArray(blacklistText)
-            
+
             val schema = org.everit.json.schema.loader.SchemaLoader.load(schemaJson)
             schema.validate(blacklistJson)
             println("✅ blacklist.json validation passed - schema matches models.kt structure")
@@ -118,7 +128,7 @@ tasks.register("validateBlacklist") {
             errors.forEach { error ->
                 println("❌ Validation error: ${error.message}")
                 println("   Violated schema: ${error.schemaLocation}")
-                println("   Instance location: ${error.instanceLocation}")
+                println("   Instance location: ${error.pointerToViolation}")
             }
             throw GradleException("blacklist.json validation failed. See errors above.")
         } catch (e: Exception) {

@@ -21,9 +21,7 @@
     "watch": "tcm -p 'src/**/*.css' -w",
     "nuke": "rm -rf node_modules build .plasmo && pnpm store prune && pnpm install",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx && echo '✅ ESLint: No issues found!'",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged"
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "type": "module",
   "dependencies": {
@@ -41,16 +39,6 @@
     "vite": "^7.1.10",
     "vite-plugin-gltf": "^4.0.0"
   },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "devDependencies": {
     "@types/chrome": "^0.1.24",
     "@types/node": "24.8.1",
@@ -65,8 +53,6 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.4",
     "plasmo": "^0.90.5",
     "prettier": "3.6.2",
     "ts-node": "^10.9.2",

@@ -17,6 +17,11 @@ type ManualOverrideFields = {
    * This is the developer identifier, not a specific app package name.
    */
   android_dev_id?: string
+  /**
+   * Array of full Android app package IDs for exact matching.
+   * Use this when you want to block specific apps rather than all apps from a developer.
+   */
+  android_app_ids?: string[]
 } & Omit<Partial<ScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">
 
 export const manualOverrides: Record<
@@ -59,6 +64,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/AU10TIXLimited"],
     ig: ["https://www.instagram.com/life_at_au10tix"],
     gh: ["https://github.com/au10tixmobile"],
+    android_dev_id: "com.au10tix",
     urls: ["https://play.google.com/store/apps/developer?id=Au10tix"],
     _processed: true
   },
@@ -76,6 +82,7 @@ export const manualOverrides: Record<
     gh: ["https://github.com/biocatchltd"],
     ytp: ["https://www.youtube.com/@biocatch.official"],
     ytc: ["https://www.youtube.com/channel/UCGHkBeKgH_6-B8CjRcCqm-A"],
+    android_dev_id: "com.biocatch.biometric",
     urls: [
       "https://marketplace.microsoft.com/en-gb/product/saas/biocatch.biocatch_behavioral_biometrics?tab=Overview",
       "https://medium.com/@BioCatchTechBlog",
@@ -87,6 +94,7 @@ export const manualOverrides: Record<
   Bluesky: {
     ws: ["https://bsky.social", "https://bsky.app"],
     gh: ["https://github.com/bluesky-social"],
+    android_dev_id: "xyz.blueskyweb",
     urls: [
       "https://apps.apple.com/us/developer/bluesky-pbllc/id1654243552",
       "https://play.google.com/store/apps/developer?id=Bluesky+PBLLC"
@@ -151,6 +159,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/earnix_inc"],
     gh: ["https://github.com/Earnix"],
     ytp: ["https://www.youtube.com/@Earnix_Inc"],
+    android_dev_id: "mobile.app1hh7BC4Jb6",
     urls: ["https://play.google.com/store/apps/developer?id=Earnix+Ltd"],
     _processed: true
   },
@@ -158,6 +167,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/empathy"],
     ig: ["https://www.instagram.com/empathy_com"],
     th: ["https://www.threads.com/@empathy_com"],
+    android_dev_id: "com.empathy",
     urls: [
       "https://apps.apple.com/us/developer/empathy/id1536395194",
       "https://play.google.com/store/apps/dev?id=7573398188169424467",
@@ -173,6 +183,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@moonpayhq"],
     ytc: ["https://www.youtube.com/channel/UC9hQtWpGGNaZ8yiwFsBkRBg"],
     th: ["https://www.threads.com/@moonpay"],
+    android_dev_id: "com.moonpay",
     urls: [
       "https://apps.apple.com/us/developer/moonpay/id1635031434",
       "https://play.google.com/store/apps/developer?id=MoonPay"
@@ -249,6 +260,7 @@ export const manualOverrides: Record<
   "Omada Health": {
     ig: ["https://www.instagram.com/omadahealth"],
     ytp: ["https://www.youtube.com/@Omadahealth", "https://www.youtube.com/omadahealth"],
+    android_dev_id: "com.healthcoda",
     urls: [
       "https://play.google.com/store/apps/developer?id=Omada+Health",
       "https://apps.apple.com/us/developer/omada-health-inc/id805711011",
@@ -312,6 +324,7 @@ export const manualOverrides: Record<
     gh: ["https://github.com/Sentinel-One"],
     ytp: ["https://www.youtube.com/@Sentinelone-inc"],
     ytc: ["https://www.youtube.com/channel/UCm-vzfQy1lNglsXRBY6Vu5w"],
+    android_dev_id: "com.sentinelone",
     urls: ["https://play.google.com/store/apps/developer?id=Zimperium+INC."],
     _processed: true
   },
@@ -325,6 +338,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life_at_silverfort"],
     gh: ["https://github.com/silverfort-open-source"],
     ytp: ["https://www.youtube.com/@silverfort"],
+    android_dev_id: "com.silverfort",
     urls: [
       "https://apps.apple.com/us/developer/silverfort/id1227704144",
       "https://chromewebstore.google.com/detail/silverfort/pehheafegmblicfcnkpacblgfeabpgim",
@@ -347,6 +361,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@team8group"],
     ytc: ["https://www.youtube.com/channel/UCyHEyZPo7EMoHcWyDtMxMFA"],
     th: ["https://www.threads.com/@team8group"],
+    android_app_ids: ["com.eventcadence.team8"],
     urls: [
       "https://medium.com/@fleur.s",
       "https://medium.com/@galia.beer.gabel",
@@ -410,6 +425,7 @@ export const manualOverrides: Record<
     gh: ["https://github.com/wix", "https://github.com/wix-academy", "https://github.com/wix-incubator"],
     tt: ["https://www.tiktok.com/@wix"],
     th: ["https://www.threads.com/@wix"],
+    android_dev_id: "com.wix",
     urls: [
       "https://central.sonatype.com/namespace/com.wix",
       "https://chromewebstore.google.com/detail/wix-studio-tab/gfcgnonhmndaodgdnjajnpmaknjgkgpg",
@@ -453,6 +469,7 @@ export const manualOverrides: Record<
     ],
     tt: ["https://www.tiktok.com/@etoro_official"],
     th: ["https://www.threads.com/@etoro_official"],
+    android_dev_id: "com.etoro",
     urls: [
       "https://apps.apple.com/us/developer/etoro/id491658374",
       "https://play.google.com/store/apps/developer?id=eToro"
@@ -478,6 +495,8 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCA9UvBiKHly15rN8u_Km3BQ"],
     tt: ["https://www.tiktok.com/@mondayinsights"],
     th: ["https://www.threads.com/@mondaydotcom"],
+    android_dev_id: "com.monday",
+    android_app_ids: ["com.monday.elevate", "com.work_contacts.client", "ai.taka.app"],
     urls: [
       "https://www.facebook.com/groups/monday.community",
       "https://www.facebook.com/groups/183295877306250",

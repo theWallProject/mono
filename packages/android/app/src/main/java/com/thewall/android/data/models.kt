@@ -11,7 +11,8 @@ data class Reason(
 )
 
 data class BlacklistItem(
-    val androidDevId: String,
+    val androidDevId: String?,
+    val androidAppIds: List<String>?,
     val reasonIds: List<String>
 )
 
