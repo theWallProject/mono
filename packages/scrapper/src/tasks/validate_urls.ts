@@ -14,7 +14,6 @@ import {
   type LinkField
 } from "@theWallProject/common"
 import { BrowserContext, chromium, Page } from "playwright"
-import prettier from "prettier"
 
 import { error, log } from "../helper"
 import { APIScrapperFileDataSchema, ScrappedItemType } from "../types"
@@ -124,20 +123,8 @@ const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue
 
   content += "};\n"
 
-  // Format with prettier
-  try {
-    const prettierConfig = await prettier.resolveConfig(manualOverridesPath)
-    const formatted = await prettier.format(content, {
-      ...prettierConfig,
-      parser: "typescript"
-    })
-    fs.writeFileSync(manualOverridesPath, formatted, "utf-8")
-    log(`Saved manualOverrides to ${manualOverridesPath} (formatted with prettier)`)
-  } catch (e) {
-    // If prettier fails, save without formatting
-    fs.writeFileSync(manualOverridesPath, content, "utf-8")
-    log(`Saved manualOverrides to ${manualOverridesPath} (prettier failed: ${e})`)
-  }
+  fs.writeFileSync(manualOverridesPath, content, "utf-8")
+  log(`Saved manualOverrides to ${manualOverridesPath}`)
 }
 
 const normalizeUrl = (url: string): string => {

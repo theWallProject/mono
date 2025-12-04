@@ -33,7 +33,7 @@ export const run = () => {
 
     const targetPath = path.join(targetFolder, file)
 
-    // Copy file directly (file is already formatted by prettier in final.ts)
+    // Copy file directly
     fs.copyFileSync(sourcePath, targetPath)
     log(`Copied: ${sourcePath} -> ${targetPath}`)
   }

@@ -32,7 +32,7 @@ export const run = (): void => {
   }
 
   try {
-    // Copy file directly (file is already formatted by prettier in final.ts)
+    // Copy file directly
     fs.copyFileSync(sourcePath, targetPath)
 
     // Verify the file was written

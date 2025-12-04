@@ -1,6 +1,5 @@
 import fs from "fs"
 import path from "path"
-import { format } from "prettier"
 
 import { error, log, warn } from "../helper"
 import { APIEndpointDomains, APIEndpointDomainsResult, DBFileNames } from "../scrapperTypes"
@@ -107,18 +106,7 @@ export const run = async (merged: ScrappedFileType) => {
     }
   }
 
-  fs.writeFileSync(
-    outputFilePath,
-    await format(
-      JSON.stringify(
-        result.sort((a, b) => a.selector.localeCompare(b.selector)),
-        null,
-        2
-      ),
-      { parser: "json" }
-    ),
-    "utf-8"
-  )
+  fs.writeFileSync(outputFilePath, JSON.stringify(result.sort((a, b) => a.selector.localeCompare(b.selector))), "utf-8")
 
   log(`Wrote ${mergedDB.length} rows...`)
 }

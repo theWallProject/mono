@@ -1,6 +1,5 @@
 import fs from "fs"
 import path from "path"
-import prettier from "prettier"
 
 import { log } from "../../helper"
 import type { ManualOverrideValue } from "./types"
@@ -81,18 +80,6 @@ export const saveManualOverrides = async (overrides: Record<string, ManualOverri
 
   content += "};\n"
 
-  // Format with prettier
-  try {
-    const prettierConfig = await prettier.resolveConfig(manualOverridesPath)
-    const formatted = await prettier.format(content, {
-      ...prettierConfig,
-      parser: "typescript"
-    })
-    fs.writeFileSync(manualOverridesPath, formatted, "utf-8")
-    log(`Saved manualOverrides to ${manualOverridesPath} (formatted with prettier)`)
-  } catch (e) {
-    // If prettier fails, save without formatting
-    fs.writeFileSync(manualOverridesPath, content, "utf-8")
-    log(`Saved manualOverrides to ${manualOverridesPath} (prettier failed: ${e})`)
-  }
+  fs.writeFileSync(manualOverridesPath, content, "utf-8")
+  log(`Saved manualOverrides to ${manualOverridesPath}`)
 }

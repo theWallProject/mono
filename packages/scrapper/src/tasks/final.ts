@@ -1,4 +1,3 @@
-import { execSync } from "child_process"
 import fs from "fs"
 import path from "path"
 import { FinalDBFileType, type LinkField } from "@theWallProject/common"
@@ -85,19 +84,6 @@ const loadJsonFiles = (folderPath: string) => {
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
   fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
   log(`Final data successfully written to ${outputFilePath}`)
-
-  // Format with prettier using CLI
-  log(`Formatting with prettier...`)
-  try {
-    execSync(`npx prettier --write "${outputFilePath}"`, {
-      stdio: "inherit",
-      cwd: path.join(__dirname, "../..")
-    })
-    log(`Successfully formatted ${outputFilePath} with prettier`)
-  } catch (error) {
-    log(`Warning: Failed to format with prettier: ${error}`)
-    throw error
-  }
 }
 
 export async function run() {

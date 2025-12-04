@@ -2,7 +2,6 @@ import fs from "fs"
 import path from "path"
 import { APIListOfReasons, valuesOfListOfReasons } from "@theWallProject/common"
 import dotenv from "dotenv"
-import { format } from "prettier"
 import puppeteer, { Page } from "puppeteer"
 
 import { error, log, warn } from "../helper"
@@ -225,9 +224,7 @@ async function saveResultsToFile(results: ScrappedItemType[], fileName: string) 
   const filePath = path.join(__dirname, "../../results/1_batches/cb/", fileName)
 
   log(`scraping complete. Saving ${results.length} rows to [${filePath}]...`)
-  const text = await format(JSON.stringify(results, null, 2), {
-    parser: "json"
-  })
+  const text = JSON.stringify(results)
 
   fs.writeFileSync(filePath, text, { flag: "a" })
   log(`Results saved to ${filePath}`)
