@@ -13,7 +13,7 @@ import {
 } from "@theWallProject/common"
 
 import { error, log, warn } from "../helper"
-import { APIEndpointDomains, DBFileNames } from "../scrapperTypes"
+import { APIEndpointDomains, DBFileNames } from "../types"
 import { MergedDataFileSchema, MergedDataItem, ScrappedFileType } from "../types"
 
 const extractSocialLinks = (data: MergedDataItem[]) => {

@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 
 import { error, log, warn } from "../helper"
-import { APIEndpointDomains, APIEndpointDomainsResult, DBFileNames } from "../scrapperTypes"
+import { APIEndpointDomains, APIEndpointDomainsResult, DBFileNames } from "../types"
 import { MergedDataFileSchema, ScrappedFileType } from "../types"
 
 const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNames.WEBSITES}.json`)

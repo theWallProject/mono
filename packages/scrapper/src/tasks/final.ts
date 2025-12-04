@@ -5,7 +5,7 @@ import { z } from "zod"
 
 import alternatives from "../../src/static_data/alternatives.json"
 import { log } from "../helper"
-import { APIEndpointDomainsResultSchema, DBFileNames } from "../scrapperTypes"
+import { APIEndpointDomainsResultSchema, DBFileNames } from "../types"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
 
