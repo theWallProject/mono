@@ -73,6 +73,9 @@ export const saveManualOverrides = async (overrides: Record<string, ManualOverri
 
   for (const key of keys) {
     const value = overrides[key]
+    if (value === undefined) {
+      throw new Error(`Unexpected undefined value for key: ${key}`)
+    }
     const needsQuotes = !/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key)
     const keyStr = needsQuotes ? `"${key.replace(/"/g, '\\"')}"` : key
     content += `  ${keyStr}: ${formatValue(value)},\n`

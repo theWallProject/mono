@@ -20,6 +20,9 @@ export const run = async (merged: ScrappedFileType) => {
 
       if (website) {
         const domain = website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0]
+        if (domain === undefined) {
+          throw new Error(`Failed to extract domain from: ${website}`)
+        }
 
         shouldKeep = !(
           domain.includes("google.com") ||
@@ -51,6 +54,10 @@ export const run = async (merged: ScrappedFileType) => {
     }
 
     const domain = website.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0]
+    if (domain === undefined) {
+      error(row)
+      throw new Error(`Failed to extract domain from: ${website}`)
+    }
 
     // if (domain.split(".").length > 2) {
     //   // warn(`Website Domain extracted ${website} => ${domain}`);
@@ -93,13 +100,21 @@ export const run = async (merged: ScrappedFileType) => {
     if (rows.length > 1) {
       warn(`Duplicate flagged domain: ${domain}`)
 
-      let merged = rows[0]
+      const firstRow = rows[0]
+      if (firstRow === undefined) {
+        throw new Error(`Unexpected empty rows array for domain: ${domain}`)
+      }
+      let merged = firstRow
 
       for (const row of rows) {
         merged = mergeObjects(merged, row)
       }
+      const mergedSelector = merged.selector
+      if (mergedSelector === undefined) {
+        throw new Error(`Merged result has undefined selector for domain: ${domain}`)
+      }
       result.splice(
-        result.findIndex((row) => row.selector === merged.selector),
+        result.findIndex((row) => row.selector === mergedSelector),
         1,
         merged
       )

@@ -344,6 +344,10 @@ export class DomScanner {
       // Process items one by one with delay
       for (let i = 0; i < items.length; i++) {
         const item = items[i]
+        if (item === undefined) {
+          console.error(`[Scanner] Unexpected undefined item at index ${i}`)
+          continue
+        }
 
         // Skip if already processed
         if (isItemProcessed(item.itemElement)) {

@@ -179,7 +179,12 @@ export async function run() {
       const resultsInfoText = await resultsInfo.evaluate((el) => el.textContent?.trim())
       log("Results info text:", resultsInfoText)
       // extract number from pattern "of 789,76 results"
-      const strCountFromResultsInfo = resultsInfoText?.split("of")[1].match(/\d+/)?.[0]
+      const splitResult = resultsInfoText?.split("of")
+      const afterOf = splitResult?.[1]
+      if (afterOf === undefined) {
+        throw new Error("Failed to extract count from results info text")
+      }
+      const strCountFromResultsInfo = afterOf.match(/\d+/)?.[0]
 
       if (!strCountFromResultsInfo) {
         throw new Error("no number from results info found")
@@ -321,14 +326,16 @@ async function processTable(page: Page, stage: ScrappingConfig): Promise<Scrappe
               link: link.href
             }))
 
+          const identifierLinks = getLinks("[data-columnid=identifier] a")
+          const firstIdentifierLink = identifierLinks[0]
+          if (firstIdentifierLink === undefined) {
+            throw new Error("Failed to find identifier link")
+          }
           const result: ScrappedItemType = {
             reasons: stg.reasons,
             name: getData("[data-columnid=identifier]"),
-            cbLink: getLinks("[data-columnid=identifier] a")[0].link,
-            id: getLinks("[data-columnid=identifier] a")[0].link.replace(
-              "https://www.crunchbase.com/organization/",
-              ""
-            ),
+            cbLink: firstIdentifierLink.link,
+            id: firstIdentifierLink.link.replace("https://www.crunchbase.com/organization/", ""),
             li: row.querySelector<HTMLAnchorElement>("[data-columnid=linkedin] a")?.href || "",
             fb: row.querySelector<HTMLAnchorElement>("[data-columnid=facebook] a")?.href || "",
             ws: row.querySelector<HTMLAnchorElement>("[data-columnid=website] a")?.href || "",

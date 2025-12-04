@@ -34,7 +34,15 @@ export const normalizeUrlForComparison = (url: string): string => {
   url = url.replace(/^https:\/\/www\./, "https://")
 
   // Remove query parameters and fragments for comparison
-  url = url.split("?")[0].split("#")[0]
+  const afterQuery = url.split("?")[0]
+  if (afterQuery === undefined) {
+    throw new Error(`Failed to split URL by query: ${url}`)
+  }
+  const afterFragment = afterQuery.split("#")[0]
+  if (afterFragment === undefined) {
+    throw new Error(`Failed to split URL by fragment: ${afterQuery}`)
+  }
+  url = afterFragment
 
   return url
 }

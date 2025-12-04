@@ -28,13 +28,26 @@ const deleteFolderRecursive = async (folderPath: string) => {
 
 // Generate the locale files
 const generateLocaleFiles = async (translations: Record<string, Record<string, string>>) => {
-  const languages = Object.keys(translations[Object.keys(translations)[0]])
+  const translationKeys = Object.keys(translations)
+  const firstKey = translationKeys[0]
+  if (firstKey === undefined) {
+    throw new Error("Unexpected: translations object is empty")
+  }
+  const firstTranslation = translations[firstKey]
+  if (firstTranslation === undefined) {
+    throw new Error(`Unexpected: translation for key "${firstKey}" is undefined`)
+  }
+  const languages = Object.keys(firstTranslation)
 
   for (const lang of languages) {
     const messages: Record<string, { message: string }> = {}
 
     for (const [key, translationsForKey] of Object.entries(translations)) {
-      messages[key] = { message: translationsForKey[lang] }
+      const translationValue = translationsForKey[lang]
+      if (translationValue === undefined) {
+        throw new Error(`Unexpected: translation for key "${key}" and language "${lang}" is undefined`)
+      }
+      messages[key] = { message: translationValue }
     }
 
     const langDir = path.join(outputDir, lang)

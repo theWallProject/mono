@@ -84,7 +84,11 @@ export async function generateAndroidBlacklist() {
       continue
     }
 
-    blacklist.push(singleItemValidation.data[0])
+    const validatedItem = singleItemValidation.data[0]
+    if (validatedItem === undefined) {
+      throw new Error(`Unexpected: validated item is undefined for ${companyName}`)
+    }
+    blacklist.push(validatedItem)
   }
 
   // Sort by androidDevId or first androidAppId for consistent output

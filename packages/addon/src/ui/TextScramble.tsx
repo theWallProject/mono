@@ -41,8 +41,12 @@ export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 20
     const frame = frameRef.current
 
     for (let i = 0; i < queue.length; i++) {
-      const { from, to, start, end } = queue[i]
-      let { char } = queue[i]
+      const queueItem = queue[i]
+      if (queueItem === undefined) {
+        throw new Error(`Unexpected undefined queue item at index ${i}`)
+      }
+      const { from, to, start, end } = queueItem
+      let { char } = queueItem
 
       if (frame >= end) {
         complete++
@@ -50,7 +54,9 @@ export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 20
       } else if (frame >= start) {
         if (!char || Math.random() < 0.28) {
           char = randomChar()
-          queue[i].char = char
+          if (queueItem !== undefined) {
+            queueItem.char = char
+          }
         }
 
         output += `<span class="dud">${char}</span>`
@@ -113,7 +119,11 @@ export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 20
     const nextText = () => {
       const nextIndex = (currentIndex + 1) % texts.length
 
-      setText(texts[currentIndex]).then(() => {
+      const currentText = texts[currentIndex]
+      if (currentText === undefined) {
+        throw new Error(`Unexpected undefined text at index ${currentIndex}`)
+      }
+      setText(currentText).then(() => {
         timeoutId = setTimeout(() => {
           setCurrentIndex(nextIndex)
         }, interval)
@@ -134,8 +144,12 @@ export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 20
   // Initial text setup
   useEffect(() => {
     if (texts.length > 0 && elementRef.current) {
-      setCurrentText(texts[0])
-      elementRef.current.innerText = texts[0]
+      const firstText = texts[0]
+      if (firstText === undefined) {
+        throw new Error("Unexpected undefined first text")
+      }
+      setCurrentText(firstText)
+      elementRef.current.innerText = firstText
     }
   }, [texts])
 

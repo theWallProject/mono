@@ -116,6 +116,9 @@ const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue
 
   for (const key of keys) {
     const value = overrides[key]
+    if (value === undefined) {
+      throw new Error(`Unexpected undefined value for key: ${key}`)
+    }
     const needsQuotes = !/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key)
     const keyStr = needsQuotes ? `"${key.replace(/"/g, '\\"')}"` : key
     content += `  ${keyStr}: ${formatValue(value)},\n`
@@ -161,7 +164,15 @@ const normalizeUrlForComparison = (url: string): string => {
   url = url.replace(/^https:\/\/www\./, "https://")
 
   // Remove query parameters and fragments for comparison
-  url = url.split("?")[0].split("#")[0]
+  const afterQuery = url.split("?")[0]
+  if (afterQuery === undefined) {
+    throw new Error(`Failed to split URL by query: ${url}`)
+  }
+  const afterFragment = afterQuery.split("#")[0]
+  if (afterFragment === undefined) {
+    throw new Error(`Failed to split URL by fragment: ${afterQuery}`)
+  }
+  url = afterFragment
 
   return url
 }
@@ -1143,7 +1154,8 @@ const getStatistics = (allItems: ScrappedItemType[], processedItems: Record<stri
   }
 
   for (const item of allItems) {
-    const isProcessedItem = processedItems[item.name] && isProcessed(processedItems[item.name])
+    const processedItem = processedItems[item.name]
+    const isProcessedItem = processedItem !== undefined && isProcessed(processedItem)
 
     if (isProcessedItem) {
       processed++
@@ -1153,18 +1165,24 @@ const getStatistics = (allItems: ScrappedItemType[], processedItems: Record<stri
 
     // Count by reason
     const priority = getReasonPriority(item)
+    const reasonH = byReason.h
+    const reasonF = byReason.f
+    const reasonOther = byReason.other
+    if (reasonH === undefined || reasonF === undefined || reasonOther === undefined) {
+      throw new Error("Unexpected: byReason properties are undefined")
+    }
     if (priority === 1) {
       // "h" reason
-      byReason.h.total++
-      if (isProcessedItem) byReason.h.processed++
+      reasonH.total++
+      if (isProcessedItem) reasonH.processed++
     } else if (priority === 2) {
       // "f" reason
-      byReason.f.total++
-      if (isProcessedItem) byReason.f.processed++
+      reasonF.total++
+      if (isProcessedItem) reasonF.processed++
     } else {
       // other reasons
-      byReason.other.total++
-      if (isProcessedItem) byReason.other.processed++
+      reasonOther.total++
+      if (isProcessedItem) reasonOther.processed++
     }
   }
 
@@ -1192,9 +1210,15 @@ const displayStatistics = (allItems: ScrappedItemType[], processedItems: Record<
 
   // By reason
   log("\n📋 By Reason:")
-  log(`   Reason "h": ${drawProgressBar(stats.byReason.h.processed, stats.byReason.h.total, 30)}`)
-  log(`   Reason "f": ${drawProgressBar(stats.byReason.f.processed, stats.byReason.f.total, 30)}`)
-  log(`   Others:    ${drawProgressBar(stats.byReason.other.processed, stats.byReason.other.total, 30)}`)
+  const statsH = stats.byReason.h
+  const statsF = stats.byReason.f
+  const statsOther = stats.byReason.other
+  if (statsH === undefined || statsF === undefined || statsOther === undefined) {
+    throw new Error("Unexpected: stats.byReason properties are undefined")
+  }
+  log(`   Reason "h": ${drawProgressBar(statsH.processed, statsH.total, 30)}`)
+  log(`   Reason "f": ${drawProgressBar(statsF.processed, statsF.total, 30)}`)
+  log(`   Others:    ${drawProgressBar(statsOther.processed, statsOther.total, 30)}`)
 
   // Summary
   log("\n📊 Summary:")
@@ -1203,9 +1227,9 @@ const displayStatistics = (allItems: ScrappedItemType[], processedItems: Record<
   log(`   ⏳ Remaining:        ${stats.unprocessed} (${((stats.unprocessed / stats.total) * 100).toFixed(1)}%)`)
 
   log("\n📋 Remaining by Reason:")
-  log(`   Reason "h":          ${stats.byReason.h.total - stats.byReason.h.processed} remaining`)
-  log(`   Reason "f":          ${stats.byReason.f.total - stats.byReason.f.processed} remaining`)
-  log(`   Others:              ${stats.byReason.other.total - stats.byReason.other.processed} remaining`)
+  log(`   Reason "h":          ${statsH.total - statsH.processed} remaining`)
+  log(`   Reason "f":          ${statsF.total - statsF.processed} remaining`)
+  log(`   Others:              ${statsOther.total - statsOther.processed} remaining`)
 
   log("\n" + "=".repeat(60))
 }
@@ -1305,7 +1329,11 @@ export async function run() {
     }
 
     // Get default company (next in queue)
-    const defaultCompany = unprocessedItems[0].name
+    const firstUnprocessedItem = unprocessedItems[0]
+    if (firstUnprocessedItem === undefined) {
+      throw new Error("Unexpected: unprocessedItems array is empty")
+    }
+    const defaultCompany = firstUnprocessedItem.name
 
     // Prompt user for company name with default prefilled
     const selectedCompanyName = await promptForCompanyName(defaultCompany)

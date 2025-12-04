@@ -33,11 +33,14 @@ type ScrappedItemWithOverrides = ScrappedItemType & {
 const extractIdentifier = (url: string, field: LinkField): string => {
   if (field === "ws") {
     // For websites, use domain (match extract_websites.ts logic)
-    const domain = url
+    let domain = url
       .replace(/^https?:\/\//, "")
       .replace(/^www\./, "")
       .split("/")[0]
-      .replace(/\./g, "_")
+    if (domain === undefined) {
+      throw new Error(`Failed to extract domain from: ${url}`)
+    }
+    domain = domain.replace(/\./g, "_")
     return domain
   } else if (field === "li") {
     const regex = new RegExp(API_ENDPOINT_RULE_LINKEDIN_COMPANY.regex)

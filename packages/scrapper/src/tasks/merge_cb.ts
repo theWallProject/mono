@@ -45,7 +45,11 @@ const loadJsonFiles = (folderPath: string) => {
     if (rows.length > 1) {
       warn(`Duplicate ids: ${id}`)
 
-      let merged = rows[0]
+      const firstRow = rows[0]
+      if (firstRow === undefined) {
+        throw new Error(`Unexpected empty rows array for id: ${id}`)
+      }
+      let merged = firstRow
 
       for (const row of rows) {
         merged = mergeObjects(merged, row)
