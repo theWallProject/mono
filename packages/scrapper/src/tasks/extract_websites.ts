@@ -3,12 +3,14 @@ import path from "path"
 
 import { error, log, warn } from "../helper"
 import { APIEndpointDomains, APIEndpointDomainsResult, DBFileNames } from "../scrapperTypes"
-import { APIScrapperFileDataSchema, ScrappedFileType } from "../types"
+import { MergedDataFileSchema, ScrappedFileType } from "../types"
 
 const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNames.WEBSITES}.json`)
 
 export const run = async (merged: ScrappedFileType) => {
-  const mergedDB = APIScrapperFileDataSchema.parse(merged)
+  // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
+  // This will throw immediately if validation fails
+  const mergedDB = MergedDataFileSchema.parse(merged)
   const duplicates: Record<string, APIEndpointDomainsResult[]> = {}
 
   const db = mergedDB

@@ -95,55 +95,59 @@ type APIEndpointRule = {
   regex: string
 }
 
-export const FinalDBFileSchema = z.object({
-  /** id */
-  id: z.string(),
-  /** website */
-  ws: z.string().optional(),
-  /** linkedin */
-  li: z.string().optional(),
-  /** facebook */
-  fb: z.string().optional(),
-  /** twitter */
-  tw: z.string().optional(),
-  /** instagram */
-  ig: z.string().optional(),
-  /** github */
-  gh: z.string().optional(),
-  /** youtube profile */
-  ytp: z.string().optional(),
-  /** youtube channel */
-  ytc: z.string().optional(),
-  /** tiktok */
-  tt: z.string().optional(),
-  /** threads */
-  th: z.string().optional(),
-  /** reasons */
-  r: z.array(APIListOfReasonsSchema),
-  /** name */
-  n: z.string(),
-  /** comment */
-  c: z.string().optional(),
-  /** stock sympol */
-  s: z.string().optional(),
-  /** alternative names */
-  alt: z
-    .array(
-      z.object({
-        /** name */
-        n: z.string(),
-        /** website */
-        ws: z.string()
-      })
-    )
-    .optional(),
-  /** hint flag */
-  hint: z.boolean().optional(),
-  /** hint text */
-  hintText: z.string().optional(),
-  /** hint URL */
-  hintUrl: z.string().optional()
-})
+export const FinalDBFileSchema = z
+  .object({
+    /** id */
+    id: z.string(),
+    /** website */
+    ws: z.string().optional(),
+    /** linkedin */
+    li: z.string().optional(),
+    /** facebook */
+    fb: z.string().optional(),
+    /** twitter */
+    tw: z.string().optional(),
+    /** instagram */
+    ig: z.string().optional(),
+    /** github */
+    gh: z.string().optional(),
+    /** youtube profile */
+    ytp: z.string().optional(),
+    /** youtube channel */
+    ytc: z.string().optional(),
+    /** tiktok */
+    tt: z.string().optional(),
+    /** threads */
+    th: z.string().optional(),
+    /** reasons */
+    r: z.array(APIListOfReasonsSchema),
+    /** name */
+    n: z.string(),
+    /** comment */
+    c: z.string().optional(),
+    /** stock sympol */
+    s: z.string().optional(),
+    /** alternative names */
+    alt: z
+      .array(
+        z
+          .object({
+            /** name */
+            n: z.string(),
+            /** website */
+            ws: z.string()
+          })
+          .strict()
+      )
+      .optional(),
+    /** hint flag */
+    hint: z.boolean().optional(),
+    /** hint text */
+    hintText: z.string().optional(),
+    /** hint URL */
+    hintUrl: z.string().optional()
+  })
+  .strict()
 
 export type FinalDBFileType = z.infer<typeof FinalDBFileSchema>
 

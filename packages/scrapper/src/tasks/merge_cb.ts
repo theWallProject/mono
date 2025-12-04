@@ -40,11 +40,10 @@ const loadJsonFiles = (folderPath: string) => {
       }
     }
   })
+  warn(`Total duplicate ids: ${Object.keys(duplicates).length}`)
 
   for (const [id, rows] of Object.entries(duplicates)) {
     if (rows.length > 1) {
-      warn(`Duplicate ids: ${id}`)
-
       const firstRow = rows[0]
       if (firstRow === undefined) {
         throw new Error(`Unexpected empty rows array for id: ${id}`)

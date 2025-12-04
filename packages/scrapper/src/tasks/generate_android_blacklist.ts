@@ -26,10 +26,13 @@ export async function generateAndroidBlacklist() {
   // Create a map of company name to reasons for quick lookup
   const reasonsMap = new Map<string, APIListOfReasonsValues[]>()
   for (const item of finalDb) {
-    // Validate and filter reasons to ensure they match the schema
-    const validReasons = item.r.filter((r): r is APIListOfReasonsValues => {
-      return APIListOfReasonsSchema.safeParse(r).success
-    })
+    // Validate all reasons - fail immediately if any reason is invalid
+    const validReasons: APIListOfReasonsValues[] = []
+    for (const r of item.r) {
+      // This will throw immediately if validation fails
+      const validatedReason = APIListOfReasonsSchema.parse(r)
+      validReasons.push(validatedReason)
+    }
     if (validReasons.length > 0) {
       reasonsMap.set(item.n, validReasons)
     }
@@ -78,13 +81,9 @@ export async function generateAndroidBlacklist() {
 
     // Validate the item before adding (Zod will ensure at least one of androidDevId or androidAppIds is present)
     // Use the schema's element type by parsing a single-item array
-    const singleItemValidation = BlacklistSchema.safeParse([item])
-    if (!singleItemValidation.success) {
-      console.warn(`⚠️  Invalid blacklist item for ${companyName}, skipping:`, singleItemValidation.error.issues)
-      continue
-    }
-
-    const validatedItem = singleItemValidation.data[0]
+    // This will throw immediately if validation fails
+    const validatedArray = BlacklistSchema.parse([item])
+    const validatedItem = validatedArray[0]
     if (validatedItem === undefined) {
       throw new Error(`Unexpected: validated item is undefined for ${companyName}`)
     }
@@ -108,13 +107,8 @@ export async function generateAndroidBlacklist() {
     return aKey.localeCompare(bKey)
   })
 
-  // Validate against schema
-  const validationResult = BlacklistSchema.safeParse(blacklist)
-  if (!validationResult.success) {
-    console.error("❌ Blacklist validation failed:")
-    console.error(JSON.stringify(validationResult.error.issues, null, 2))
-    throw new Error("Generated blacklist does not match schema")
-  }
+  // Validate against schema - this will throw immediately if validation fails
+  BlacklistSchema.parse(blacklist)
 
   // Write to Android assets directory
   const outputPath = path.join(__dirname, "../../../android/app/src/main/assets/blacklist.json")

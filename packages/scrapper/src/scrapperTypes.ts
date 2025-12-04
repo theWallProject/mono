@@ -22,20 +22,22 @@ export enum DBFileNames {
 
 export type DBFileNamesValues = `${DBFileNames}`
 
-export const APIEndpointDomainsResultSchema = z.object({
-  selector: z.string(),
-  id: z.string(),
-  reasons: z.array(APIListOfReasonsSchema),
-  name: z.string(),
-  /** stock sympol */
-  s: z.string().optional(),
-  /** hint flag */
-  hint: z.boolean().optional(),
-  /** hint text */
-  hintText: z.string().optional(),
-  /** hint URL */
-  hintUrl: z.string().optional()
-})
+export const APIEndpointDomainsResultSchema = z
+  .object({
+    selector: z.string(),
+    id: z.string(),
+    reasons: z.array(APIListOfReasonsSchema),
+    name: z.string(),
+    /** stock sympol */
+    s: z.string().optional(),
+    /** hint flag */
+    hint: z.boolean().optional(),
+    /** hint text */
+    hintText: z.string().optional(),
+    /** hint URL */
+    hintUrl: z.string().optional()
+  })
+  .strict()
 
 export type APIEndpointDomainsResult = z.infer<typeof APIEndpointDomainsResultSchema>
 

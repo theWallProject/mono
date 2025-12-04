@@ -14,17 +14,7 @@ import {
 
 import { error, log, warn } from "../helper"
 import { APIEndpointDomains, DBFileNames } from "../scrapperTypes"
-import { APIScrapperFileDataSchema, ScrappedFileType } from "../types"
-
-// Type for merged data that may include ig/gh/ytp/ytc/tt/th from manual overrides
-type MergedDataItem = ScrappedFileType[number] & {
-  ig?: string
-  gh?: string
-  ytp?: string
-  ytc?: string
-  tt?: string
-  th?: string
-}
+import { MergedDataFileSchema, MergedDataItem, ScrappedFileType } from "../types"
 
 const extractSocialLinks = (data: MergedDataItem[]) => {
   const linkedinFlagged: APIEndpointDomains = []
@@ -371,8 +361,9 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
 }
 
 export async function run(merged: ScrappedFileType | MergedDataItem[]) {
-  // Validate base structure (ig/gh may be present but not in schema)
-  APIScrapperFileDataSchema.parse(merged)
+  // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
+  // This will throw immediately if validation fails
+  MergedDataFileSchema.parse(merged)
 
   extractSocialLinks(merged)
 }

@@ -16,7 +16,7 @@ import {
 import { BrowserContext, chromium, Page } from "playwright"
 
 import { error, log } from "../helper"
-import { APIScrapperFileDataSchema, ScrappedItemType } from "../types"
+import { MergedDataFileSchema, ScrappedItemType } from "../types"
 
 type ProcessedState = {
   _processed: true
@@ -1304,7 +1304,9 @@ export async function run() {
     // Load data
     log("Loading data from 2_MERGED_ALL.json...")
     const fileContent = fs.readFileSync(inputFilePath, "utf-8")
-    const data = APIScrapperFileDataSchema.parse(JSON.parse(fileContent))
+    // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
+    // This will throw immediately if validation fails
+    const data = MergedDataFileSchema.parse(JSON.parse(fileContent))
     log(`Loaded ${data.length} items`)
 
     // Load current manual overrides

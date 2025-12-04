@@ -3,10 +3,12 @@
 import mergedall from "../../results/2_merged/2_MERGED_ALL.json"
 import alt from "../../src/static_data/alternatives.json"
 import { warn } from "../helper"
-import { APIScrapperFileDataSchema } from "../types"
+import { MergedDataFileSchema } from "../types"
 
 const report = () => {
-  const merged = APIScrapperFileDataSchema.parse(mergedall)
+  // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
+  // This will throw immediately if validation fails
+  const merged = MergedDataFileSchema.parse(mergedall)
   const top = merged.filter((item) => item.cbRank && item.reasons && item.reasons.includes("h"))
   const sortedArray = top.sort((a, b) => Number(a.cbRank) - Number(b.cbRank)).slice(0, 10)
 

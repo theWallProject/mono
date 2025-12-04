@@ -141,7 +141,7 @@ const loadJsonFiles = (folderPath: string) => {
       })
 
       if (siteExists) {
-        error(`Skipping Duplicate website:`, newRow)
+        error(`Skipping Duplicate website ${newRow.ws} for ${newRow.name}`)
         continue
       } else {
         combinedArray.push(newRow)

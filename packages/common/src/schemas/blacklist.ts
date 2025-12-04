@@ -29,6 +29,7 @@ export const BlacklistItemSchema = z
      */
     reasonIds: z.array(APIListOfReasonsSchema).min(1)
   })
+  .strict()
   .refine((data) => data.androidDevId != null || (data.androidAppIds != null && data.androidAppIds.length > 0), {
     message: "At least one of androidDevId or androidAppIds must be present"
   })
