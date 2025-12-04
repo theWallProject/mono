@@ -53,11 +53,6 @@ CrunchbaseScrappedItemType {
   estRevenue?: string
   industries?: string[]
   industryGroups?: string[]
-  isHint?: boolean
-  hintText?: string
-  hintUrl?: string
-  android_dev_id?: string
-  android_app_ids?: string[]
 }
 ```
 
@@ -66,6 +61,7 @@ CrunchbaseScrappedItemType {
 - Scrapes data from Crunchbase in batches
 - Each batch saved as separate JSON file
 - Only includes fields from Crunchbase API response
+- Does NOT include hint fields or Android fields (these come from manual data/overrides)
 
 ---
 
@@ -213,12 +209,22 @@ BuyIsraeliTechType {
 
 ```typescript
 MergedDataItem extends CrunchbaseScrappedItemType {
+  // Additional social platforms from manual overrides
   ig?: string          // Instagram (from manual overrides)
   gh?: string          // GitHub (from manual overrides)
   ytp?: string         // YouTube Profile (from manual overrides)
   ytc?: string         // YouTube Channel (from manual overrides)
   tt?: string          // TikTok (from manual overrides)
   th?: string          // Threads (from manual overrides)
+
+  // Hint fields from manual data (BDS, Hints)
+  isHint?: boolean     // Hint flag (from manual hints data)
+  hintText?: string    // Hint text (from manual hints data)
+  hintUrl?: string     // Hint URL (from manual hints data)
+
+  // Android fields from manual overrides
+  android_dev_id?: string      // Android developer ID (from manual overrides)
+  android_app_ids?: string[]   // Android app package IDs (from manual overrides)
 }
 ```
 
@@ -233,11 +239,16 @@ MergedDataItem extends CrunchbaseScrappedItemType {
 - Converts Twitter URLs: `twitter.com` → `x.com`
 - Normalizes LinkedIn: `/company-beta/` → `/company/`
 - Uses `getMainDomain()` for websites
+- Adds hint fields from manual hints data
+- Adds Android fields from manual overrides
 
-**Type Duplication Note:**
+**Type Note:**
 
-- `MergedDataItem` extends `CrunchbaseScrappedItemType` but adds 6 new optional fields
-- Internal type `ScrappedItemWithOverrides` is essentially the same as `MergedDataItem`
+- `MergedDataItem` extends `CrunchbaseScrappedItemType` and adds:
+  - 6 social platform fields (ig, gh, ytp, ytc, tt, th) from manual overrides
+  - 3 hint fields (isHint, hintText, hintUrl) from manual hints data
+  - 2 Android fields (android_dev_id, android_app_ids) from manual overrides
+- These fields are NOT from Crunchbase API - they come from manual data sources
 
 ---
 
@@ -284,10 +295,37 @@ NetworksFlatItemType {
 - Deduplicates by selector per platform
 - Sorts by name
 
-**Type Duplication Note:**
+**Type Comparison: `MergedDataItem` vs `NetworksFlatItemType`**
 
-- `NetworksFlatItemType` is a flattened version with only `selector` instead of full URL
-- Similar structure to final output but different field names
+| Aspect                | `MergedDataItem` (Input)                                                | `NetworksFlatItemType` (Output)               |
+| --------------------- | ----------------------------------------------------------------------- | --------------------------------------------- |
+| **Structure**         | One entry per company                                                   | One entry per platform/selector               |
+| **URL Fields**        | Full URLs: `li`, `ws`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` | None (replaced by `selector`)                 |
+| **Selector**          | Not present                                                             | Extracted identifier (username, domain, etc.) |
+| **Core Fields**       | `id`, `name`, `reasons`                                                 | `id`, `name`, `reasons` (preserved)           |
+| **Stock Symbol**      | `stock_symbol`                                                          | `s` (abbreviated)                             |
+| **Hint Fields**       | `isHint`, `hintText`, `hintUrl`                                         | `isHint`, `hintText`, `hintUrl` (preserved)   |
+| **Crunchbase Fields** | `cbLink`, `cbRank`, `estRevenue`, `industries`, `founderIds`, etc.      | None (dropped)                                |
+| **Other Fields**      | `description`, `hq_postal_code`, `acquirerIds`, etc.                    | None (dropped)                                |
+
+**Key Transformations:**
+
+1. **Flattening**: One company entry with multiple URLs → Multiple entries (one per platform)
+   - Example: Company with `li`, `fb`, `tw` → 3 separate entries
+
+2. **URL Extraction**: Full URL → Platform-specific identifier
+   - `li: "linkedin.com/company/example"` → `selector: "example"`
+   - `fb: "facebook.com/example"` → `selector: "example"`
+   - `ws: "example.com"` → `selector: "example_com"` (for websites)
+
+3. **Field Mapping**:
+   - `stock_symbol` → `s`
+   - All other fields preserved as-is or dropped
+
+4. **Platform Separation**: Each platform gets its own file
+   - LinkedIn entries → `FLAGGED_LI_COMPANY.json`
+   - Facebook entries → `FLAGGED_FACEBOOK.json`
+   - etc.
 
 ---
 
@@ -362,11 +400,44 @@ FinalDBFileType {
 - Adds alternatives from `static_data/alternatives.json`
 - Sorts by name
 
-**Type Duplication Note:**
+**Type Comparison: `NetworksFlatItemType` vs `FinalDBFileType`**
 
-- `FinalDBFileType` uses abbreviated field names (`n`, `r`, `ws`, etc.)
-- Similar structure to `NetworksFlatItemType` but with different field names
-- Defined in `@theWallProject/common` package
+| Aspect              | `NetworksFlatItemType` (Input)   | `FinalDBFileType` (Output)                                                     |
+| ------------------- | -------------------------------- | ------------------------------------------------------------------------------ |
+| **Structure**       | One entry per platform/selector  | One entry per company (`id`) with all platforms combined                       |
+| **ID Field**        | `id` (company ID)                | `id` (same, used for merging)                                                  |
+| **Name Field**      | `name` (full name)               | `n` (abbreviated)                                                              |
+| **Reasons Field**   | `reasons` (full name)            | `r` (abbreviated)                                                              |
+| **Stock Symbol**    | `s`                              | `s` (same)                                                                     |
+| **Selector**        | `selector` (platform identifier) | Not present (becomes platform field value)                                     |
+| **Platform Fields** | None (only `selector`)           | `ws`, `li`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` (selector values) |
+| **Hint Fields**     | `isHint`, `hintText`, `hintUrl`  | `isHint`, `hintText`, `hintUrl` (preserved)                                    |
+| **Alternatives**    | Not present                      | `alt` (added from alternatives.json)                                           |
+| **Comment**         | Not present                      | `c` (optional)                                                                 |
+
+**Key Transformations:**
+
+1. **Unflattening**: Multiple platform entries → One company entry
+   - Multiple `NetworksFlatItemType` entries with same `id` → One `FinalDBFileType` entry
+   - Example: 3 entries (LinkedIn, Facebook, Twitter) with `id: "company123"` → 1 entry with `id: "company123"`, `li: "selector1"`, `fb: "selector2"`, `tw: "selector3"`
+
+2. **Selector → Platform Field Mapping**:
+   - `selector: "example"` from `FLAGGED_LI_COMPANY.json` → `li: "example"`
+   - `selector: "example"` from `FLAGGED_FACEBOOK.json` → `fb: "example"`
+   - `selector: "example_com"` from `WEBSITES.json` → `ws: "example_com"`
+
+3. **Field Name Abbreviation**:
+   - `name` → `n`
+   - `reasons` → `r`
+   - Other fields remain the same or are mapped
+
+4. **Data Enrichment**:
+   - Adds `alt` field from `alternatives.json` if available
+   - Preserves all hint fields
+
+5. **File Consolidation**:
+   - Reads from multiple files (one per platform)
+   - Outputs to single `ALL.json` file
 
 ---
 
@@ -460,6 +531,7 @@ ValidationResult {
 1. **`CrunchbaseScrappedItemType`** (Crunchbase-specific type)
    - Used in: scrap, merge_cb
    - Contains: name, id, reasons, li, ws, fb, tw, and Crunchbase-specific fields (cbLink, cbRank, estRevenue, industries, etc.)
+   - Does NOT include hint fields or Android fields (these are added in MergedDataItem)
 
 2. **`ManualEntryType`** (manual entry type)
    - Used in: gen_static, gen_buyIsraeliTech
@@ -468,9 +540,12 @@ ValidationResult {
    - Subset of `CrunchbaseScrappedItemType` (all fields are compatible)
 
 3. **`MergedDataItem`** extends `CrunchbaseScrappedItemType`
-   - Adds: ig, gh, ytp, ytc, tt, th
+   - Adds: ig, gh, ytp, ytc, tt, th (social platforms from manual overrides)
+   - Adds: isHint, hintText, hintUrl (hint fields from manual hints data)
+   - Adds: android_dev_id, android_app_ids (Android fields from manual overrides)
    - Used in: merge_static (output), extract_social, extract_websites
    - Can be created from both `CrunchbaseScrappedItemType` and `ManualEntryType`
+   - Contains all fields from Crunchbase plus all manual data fields
 
 4. **`NetworksFlatItemType`** (flattened structure)
    - Similar to base but with `selector` instead of URL fields
@@ -500,10 +575,6 @@ ValidationResult {
    - `CrunchbaseScrappedItemType` includes Crunchbase-specific fields
    - Conversion from arrays to single strings happens in `gen_static()`
 
-4. **Internal type `ScrappedItemWithOverrides`**
-   - Duplicate of `MergedDataItem` (defined in `merge_static.ts`)
-   - Should use `MergedDataItem` directly
-
 ### Recommendations
 
 1. **Unify `CrunchbaseScrappedItemType` and `MergedDataItem`**
@@ -515,9 +586,6 @@ ValidationResult {
    - Use transformation functions to convert to `FinalDBFileType`
    - Document the mapping clearly
 
-3. **Remove `ScrappedItemWithOverrides`**
-   - Use `MergedDataItem` directly in `merge_static.ts`
-
-4. **Consider a unified base type**
+3. **Consider a unified base type**
    - Create a base type with all possible fields
    - Use discriminated unions or optional fields for variations

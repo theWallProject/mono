@@ -15,19 +15,9 @@ import {
 } from "@theWallProject/common"
 
 import { cleanWebsite, error, log } from "../helper"
-import { CrunchbaseScrappedItemsSchema, CrunchbaseScrappedItemType, ManualEntriesSchema } from "../types"
+import { CrunchbaseScrappedItemsSchema, ManualEntriesSchema, MergedDataItem } from "../types"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
-
-// Type for items that may have ig/gh/ytp/ytc/tt/th from manual overrides (not in base CrunchbaseScrappedItemType)
-type ScrappedItemWithOverrides = CrunchbaseScrappedItemType & {
-  ig?: string
-  gh?: string
-  ytp?: string
-  ytc?: string
-  tt?: string
-  th?: string
-}
 
 // Helper to extract identifier from URL for ID generation
 const extractIdentifier = (url: string, field: LinkField): string => {
@@ -280,8 +270,8 @@ const loadJsonFiles = (folderPath: string) => {
   })
 
   // First pass: normalize URLs and apply overrides (including arrays)
-  const processedItems: ScrappedItemWithOverrides[] = []
-  const additionalItems: ScrappedItemWithOverrides[] = []
+  const processedItems: MergedDataItem[] = []
+  const additionalItems: MergedDataItem[] = []
 
   for (const row of deDubeArray) {
     row.tw = row.tw?.replace("www.twitter.com", "x.com")?.replace("twitter.com", "x.com")
@@ -318,7 +308,7 @@ const loadJsonFiles = (folderPath: string) => {
       }
 
       // Process each override field, handling arrays
-      const updatedRow: ScrappedItemWithOverrides = { ...row }
+      const updatedRow: MergedDataItem = { ...row }
 
       // Apply name override first if present (before logging)
       if (overrideFields.name && typeof overrideFields.name === "string") {
@@ -335,7 +325,7 @@ const loadJsonFiles = (folderPath: string) => {
       }
 
       // Helper to set field on object using proper typing
-      const setField = (obj: ScrappedItemWithOverrides, field: LinkField, value: string | undefined) => {
+      const setField = (obj: MergedDataItem, field: LinkField, value: string | undefined) => {
         if (field === "ws") obj.ws = value
         else if (field === "li") obj.li = value
         else if (field === "fb") obj.fb = value
@@ -370,7 +360,7 @@ const loadJsonFiles = (folderPath: string) => {
               const identifier = extractIdentifier(url, field)
               const newId = `${row.id}_manual_${field}_${identifier}`
 
-              const newItem: ScrappedItemWithOverrides = {
+              const newItem: MergedDataItem = {
                 id: newId,
                 name: row.name,
                 reasons: row.reasons

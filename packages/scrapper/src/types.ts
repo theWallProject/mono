@@ -88,17 +88,7 @@ const CrunchbaseScrappedItemSchema = z
     industries: z.array(z.string()).optional(),
 
     /** category_groups */
-    industryGroups: z.array(z.string()).optional(),
-    /** hint flag */
-    isHint: z.boolean().optional(),
-    /** hint text */
-    hintText: z.string().optional(),
-    /** hint URL */
-    hintUrl: z.string().optional(),
-    /** Android developer ID like "com.wix" (not full app package IDs) */
-    android_dev_id: z.string().optional(),
-    /** Array of full Android app package IDs for exact matching */
-    android_app_ids: z.array(z.string()).optional()
+    industryGroups: z.array(z.string()).optional()
   })
   .strict()
 
@@ -128,6 +118,7 @@ export type NetworksFlatItemsType = NetworksFlatItemType[]
 /**
  * Merged data item schema
  * Includes ig/gh/ytp/ytc/tt/th from manual overrides
+ * Also includes hint and Android fields from manual data/overrides (not from Crunchbase)
  */
 export const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   /** instagram */
@@ -141,7 +132,17 @@ export const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   /** tiktok */
   tt: z.string().optional(),
   /** threads */
-  th: z.string().optional()
+  th: z.string().optional(),
+  /** hint flag */
+  isHint: z.boolean().optional(),
+  /** hint text */
+  hintText: z.string().optional(),
+  /** hint URL */
+  hintUrl: z.string().optional(),
+  /** Android developer ID like "com.wix" (not full app package IDs) */
+  android_dev_id: z.string().optional(),
+  /** Array of full Android app package IDs for exact matching */
+  android_app_ids: z.array(z.string()).optional()
 })
 
 export const MergedDataFileSchema = z.array(MergedDataItemSchema)
