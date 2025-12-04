@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 
 import { log, warn } from "../helper"
-import { APIScrapperFileDataSchema, ScrappedItemType } from "../types"
+import { CrunchbaseScrappedItemsSchema, CrunchbaseScrappedItemType } from "../types"
 
 const folderPath = path.join(__dirname, "../../results/1_batches/cb")
 
@@ -11,14 +11,14 @@ const outputFilePath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.
 const loadJsonFiles = (folderPath: string) => {
   const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
-  const combinedArray: ScrappedItemType[] = []
-  const duplicates: Record<string, ScrappedItemType[]> = {}
+  const combinedArray: CrunchbaseScrappedItemType[] = []
+  const duplicates: Record<string, CrunchbaseScrappedItemType[]> = {}
 
   files.forEach((file) => {
     const filePath = path.join(folderPath, file)
     const fileContent = fs.readFileSync(filePath, "utf-8")
 
-    const parsedData = APIScrapperFileDataSchema.parse(JSON.parse(fileContent))
+    const parsedData = CrunchbaseScrappedItemsSchema.parse(JSON.parse(fileContent))
     log(`File ${file} has ${parsedData.length} rows`)
 
     for (const newRow of parsedData) {
@@ -77,11 +77,11 @@ export async function run() {
   return loadJsonFiles(folderPath)
 }
 
-function mergeObjects(obj1: ScrappedItemType, obj2: ScrappedItemType): ScrappedItemType {
-  const merged: ScrappedItemType = { ...obj1 }
+function mergeObjects(obj1: CrunchbaseScrappedItemType, obj2: CrunchbaseScrappedItemType): CrunchbaseScrappedItemType {
+  const merged: CrunchbaseScrappedItemType = { ...obj1 }
 
   // Type guard helper
-  const isScrappedItemKey = (key: string): key is keyof ScrappedItemType => {
+  const isScrappedItemKey = (key: string): key is keyof CrunchbaseScrappedItemType => {
     return key in obj1
   }
 

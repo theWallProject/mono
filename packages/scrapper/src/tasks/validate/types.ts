@@ -1,11 +1,11 @@
-import { ScrappedItemType } from "../../types"
+import { CrunchbaseScrappedItemType } from "../../types"
 
 export type ProcessedState = {
   _processed: true
 }
 
 export type ManualOverrideFields = Omit<
-  Partial<ScrappedItemType>,
+  Partial<CrunchbaseScrappedItemType>,
   "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th"
 > & {
   ws?: string | string[]
@@ -52,6 +52,6 @@ export type CategorizedUrls = {
 
 export const isProcessed = (
   value: ManualOverrideValue
-): value is ProcessedState | (Partial<ScrappedItemType> & ProcessedState) => {
+): value is ProcessedState | (Partial<CrunchbaseScrappedItemType> & ProcessedState) => {
   return typeof value === "object" && value !== null && "_processed" in value && value._processed === true
 }

@@ -95,7 +95,7 @@ Other scripts: `npm run merge`, `npm run convert`
 
 ## Data Structures
 
-- **ScrappedItemType**: Full company data (name, id, cbLink, reasons, social links, founderIds, investorIds, cbRank, etc.)
+- **CrunchbaseScrappedItemType**: Full company data (name, id, cbLink, reasons, social links, founderIds, investorIds, cbRank, etc.)
 - **APIEndpointDomainsResult**: `{ id, selector, name, reasons, s? }`
 - **FinalDBFileType**: `{ id, n, r, s?, ws?, li?, fb?, tw?, alt? }`
 
@@ -129,7 +129,7 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
 #### For Platforms from Crunchbase (LinkedIn, Facebook, Twitter pattern)
 
 2. **`src/types.ts`**:
-   - Add `platformName: z.string().optional()` to `ScrappedItemSchema`
+   - Add `platformName: z.string().optional()` to `CrunchbaseScrappedItemSchema`
    - Add `platformName: z.array(z.string()).optional()` to `ManualItemSchema`
 
 3. **`src/tasks/extract_social.ts`**:
@@ -139,19 +139,19 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
    - Add log statement
 
 4. **`src/tasks/validate_urls.ts`**:
-   - Add `"platformName"` to `validateItemLinks` links array (since it exists on `ScrappedItemType`)
+   - Add `"platformName"` to `validateItemLinks` links array (since it exists on `CrunchbaseScrappedItemType`)
 
 #### For Platforms Only from Manual Overrides (Instagram, GitHub pattern)
 
 2. **`src/types.ts`**:
-   - **DO NOT** add to `ScrappedItemSchema` (only in manual overrides)
+   - **DO NOT** add to `CrunchbaseScrappedItemSchema` (only in manual overrides)
    - Add `platformName: z.array(z.string()).optional()` to `ManualItemSchema`
 
 3. **`src/tasks/extract_social.ts`**:
    - **SKIP** this step (not extracted from Crunchbase)
 
 4. **`src/tasks/validate_urls.ts`**:
-   - **DO NOT** add to `validateItemLinks` links array (field doesn't exist on `ScrappedItemType`)
+   - **DO NOT** add to `validateItemLinks` links array (field doesn't exist on `CrunchbaseScrappedItemType`)
 
 ### Step 3: Common Steps (All Platforms)
 

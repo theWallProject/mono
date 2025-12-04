@@ -16,7 +16,7 @@ import {
 import { BrowserContext, chromium, Page } from "playwright"
 
 import { error, log } from "../helper"
-import { MergedDataFileSchema, ScrappedItemType } from "../types"
+import { CrunchbaseScrappedItemType, MergedDataFileSchema } from "../types"
 
 type ProcessedState = {
   _processed: true
@@ -25,7 +25,7 @@ type ProcessedState = {
 // ScrapperLinkField excludes "il" since it's not a database field (only used in bot/addon for .il domains)
 type ScrapperLinkField = Exclude<LinkField, "il">
 
-type ManualOverrideFields = Omit<Partial<ScrappedItemType>, ScrapperLinkField> & {
+type ManualOverrideFields = Omit<Partial<CrunchbaseScrappedItemType>, ScrapperLinkField> & {
   ws?: string | string[]
   li?: string | string[]
   fb?: string | string[]
@@ -46,7 +46,7 @@ const manualOverridesPath = path.join(__dirname, "./manual_resolve/manualOverrid
 
 const isProcessed = (
   value: ManualOverrideValue
-): value is ProcessedState | (Partial<ScrappedItemType> & ProcessedState) => {
+): value is ProcessedState | (Partial<CrunchbaseScrappedItemType> & ProcessedState) => {
   return typeof value === "object" && value !== null && "_processed" in value && value._processed === true
 }
 
@@ -108,9 +108,9 @@ const formatValue = (value: ManualOverrideValue): string => {
 
 const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>) => {
   const keys = Object.keys(overrides).sort()
-  let content = 'import { ScrappedItemType } from "../../types";\n\n'
+  let content = 'import { CrunchbaseScrappedItemType } from "../../types";\n\n'
   content +=
-    '// Allow arrays for link fields in overrides\ntype ManualOverrideFields = {\n  ws?: string | string[];\n  li?: string | string[];\n  fb?: string | string[];\n  tw?: string | string[];\n  ig?: string | string[];\n  gh?: string | string[];\n  ytp?: string | string[];\n  ytc?: string | string[];\n  tt?: string | string[];\n  th?: string | string[];\n} & Omit<Partial<ScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">;\n\n'
+    '// Allow arrays for link fields in overrides\ntype ManualOverrideFields = {\n  ws?: string | string[];\n  li?: string | string[];\n  fb?: string | string[];\n  tw?: string | string[];\n  ig?: string | string[];\n  gh?: string | string[];\n  ytp?: string | string[];\n  ytc?: string | string[];\n  tt?: string | string[];\n  th?: string | string[];\n} & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">;\n\n'
   content +=
     "export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] })> = {\n"
 
@@ -421,7 +421,10 @@ const openSearchPages = async (context: BrowserContext, query: string, pages: Pa
   await Promise.all(navigationPromises)
 }
 
-const validateItemLinks = async (context: BrowserContext, item: ScrappedItemType): Promise<OverrideWithUrls | null> => {
+const validateItemLinks = async (
+  context: BrowserContext,
+  item: CrunchbaseScrappedItemType
+): Promise<OverrideWithUrls | null> => {
   const changes: OverrideWithUrls = {}
   let hasChanges = false
 
@@ -430,7 +433,7 @@ const validateItemLinks = async (context: BrowserContext, item: ScrappedItemType
   if (item.li) links.push({ field: "li", url: item.li })
   if (item.fb) links.push({ field: "fb", url: item.fb })
   if (item.tw) links.push({ field: "tw", url: item.tw })
-  // ig and gh are only from manual overrides, not in ScrappedItemType
+  // ig and gh are only from manual overrides, not in CrunchbaseScrappedItemType
 
   if (links.length === 0) {
     log(`  No links to validate for ${item.name}`)
@@ -1143,7 +1146,7 @@ const drawProgressBar = (current: number, total: number, width: number = 40): st
 /**
  * Gets statistics about processed/unprocessed items
  */
-const getStatistics = (allItems: ScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
+const getStatistics = (allItems: CrunchbaseScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
   const total = allItems.length
   let processed = 0
   let unprocessed = 0
@@ -1197,7 +1200,10 @@ const getStatistics = (allItems: ScrappedItemType[], processedItems: Record<stri
 /**
  * Displays statistics and progress bar
  */
-const displayStatistics = (allItems: ScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
+const displayStatistics = (
+  allItems: CrunchbaseScrappedItemType[],
+  processedItems: Record<string, ManualOverrideValue>
+) => {
   const stats = getStatistics(allItems, processedItems)
 
   log("\n" + "=".repeat(60))
@@ -1240,7 +1246,7 @@ const displayStatistics = (allItems: ScrappedItemType[], processedItems: Record<
  * - "f" reason = priority 2
  * - others = priority 3 (lowest)
  */
-const getReasonPriority = (item: ScrappedItemType): number => {
+const getReasonPriority = (item: CrunchbaseScrappedItemType): number => {
   if (!item.reasons || item.reasons.length === 0) {
     return 3 // No reasons = lowest priority
   }
@@ -1253,7 +1259,7 @@ const getReasonPriority = (item: ScrappedItemType): number => {
   return 3 // Other reasons = lowest priority
 }
 
-const sortByReasonAndCbRank = (items: ScrappedItemType[]): ScrappedItemType[] => {
+const sortByReasonAndCbRank = (items: CrunchbaseScrappedItemType[]): CrunchbaseScrappedItemType[] => {
   return [...items].sort((a, b) => {
     // First sort by reason priority (h first, then f, then others)
     const priorityA = getReasonPriority(a)
@@ -1290,7 +1296,10 @@ const promptForCompanyName = (defaultCompany: string): Promise<string> => {
 /**
  * Finds a company by exact case-sensitive name match
  */
-const findCompanyByName = (companyName: string, items: ScrappedItemType[]): ScrappedItemType | null => {
+const findCompanyByName = (
+  companyName: string,
+  items: CrunchbaseScrappedItemType[]
+): CrunchbaseScrappedItemType | null => {
   return items.find((item) => item.name === companyName) || null
 }
 

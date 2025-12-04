@@ -17,28 +17,12 @@ export enum DBFileNames {
 
 export type DBFileNamesValues = `${DBFileNames}`
 
-export const APIEndpointDomainsResultSchema = z
-  .object({
-    selector: z.string(),
-    id: z.string(),
-    reasons: z.array(APIListOfReasonsSchema),
-    name: z.string(),
-    /** stock sympol */
-    s: z.string().optional(),
-    /** hint flag */
-    hint: z.boolean().optional(),
-    /** hint text */
-    hintText: z.string().optional(),
-    /** hint URL */
-    hintUrl: z.string().optional()
-  })
-  .strict()
-
-export type APIEndpointDomainsResult = z.infer<typeof APIEndpointDomainsResultSchema>
-
-export type APIEndpointDomains = APIEndpointDomainsResult[]
-
-export const ScrappedItemSchema = z
+/**
+ * Crunchbase scraped item schema
+ * Only includes fields that are present in the Crunchbase API response
+ * DON'T USE THIS SCHEMA FOR MANUAL OVERRIDES
+ */
+const CrunchbaseScrappedItemSchema = z
   .object({
     name: z.string(),
     id: z.string(),
@@ -118,10 +102,30 @@ export const ScrappedItemSchema = z
   })
   .strict()
 
-export const APIScrapperFileDataSchema = z.array(ScrappedItemSchema)
+export const CrunchbaseScrappedItemsSchema = z.array(CrunchbaseScrappedItemSchema)
 
+export const APIEndpointDomainsResultSchema = z
+  .object({
+    selector: z.string(),
+    id: z.string(),
+    reasons: z.array(APIListOfReasonsSchema),
+    name: z.string(),
+    /** stock sympol */
+    s: z.string().optional(),
+    /** hint flag */
+    hint: z.boolean().optional(),
+    /** hint text */
+    hintText: z.string().optional(),
+    /** hint URL */
+    hintUrl: z.string().optional()
+  })
+  .strict()
+
+export type APIEndpointDomainsResult = z.infer<typeof APIEndpointDomainsResultSchema>
+
+export type APIEndpointDomains = APIEndpointDomainsResult[]
 // Schema for merged data that may include ig/gh/ytp/ytc/tt/th from manual overrides
-export const MergedDataItemSchema = ScrappedItemSchema.extend({
+export const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   /** instagram */
   ig: z.string().optional(),
   /** github */
@@ -177,8 +181,8 @@ export const BuyIsraeliTechSchema = z.array(
 )
 
 export type ManualItemType = z.infer<typeof ManualItemSchema>
-export type ScrappedItemType = z.infer<typeof ScrappedItemSchema>
-export type ScrappedFileType = z.infer<typeof APIScrapperFileDataSchema>
+export type CrunchbaseScrappedItemType = z.infer<typeof CrunchbaseScrappedItemSchema>
+export type CrunchbaseScrappedItemsType = z.infer<typeof CrunchbaseScrappedItemsSchema>
 export type MergedDataItem = z.infer<typeof MergedDataItemSchema>
 export type MergedDataFile = z.infer<typeof MergedDataFileSchema>
 export type BuyIsraeliTechType = z.infer<typeof BuyIsraeliTechSchema>

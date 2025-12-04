@@ -5,7 +5,7 @@ import dotenv from "dotenv"
 import puppeteer, { Page } from "puppeteer"
 
 import { error, log, warn } from "../helper"
-import { ScrappedItemType } from "../types"
+import { CrunchbaseScrappedItemType } from "../types"
 
 type ScrappingConfig = {
   cbSearchUrl: string
@@ -225,7 +225,7 @@ export async function run() {
   // await browser.close();
 }
 
-async function saveResultsToFile(results: ScrappedItemType[], fileName: string) {
+async function saveResultsToFile(results: CrunchbaseScrappedItemType[], fileName: string) {
   const filePath = path.join(__dirname, "../../results/1_batches/cb/", fileName)
 
   log(`scraping complete. Saving ${results.length} rows to [${filePath}]...`)
@@ -300,8 +300,8 @@ async function setFilter(page: Page, index: number, value: number): Promise<void
   await page.waitForNetworkIdle({ timeout: 5000 }).catch(() => {})
 }
 
-async function processTable(page: Page, stage: ScrappingConfig): Promise<ScrappedItemType[]> {
-  const results: ScrappedItemType[] = []
+async function processTable(page: Page, stage: ScrappingConfig): Promise<CrunchbaseScrappedItemType[]> {
+  const results: CrunchbaseScrappedItemType[] = []
   let hasMore = true
   let currentFirstRowName = ""
 
@@ -316,7 +316,7 @@ async function processTable(page: Page, stage: ScrappingConfig): Promise<Scrappe
 
     log(`processing [${rows.length}] rows...`)
     for (const row of rows) {
-      const rowData: ScrappedItemType = await page.evaluate(
+      const rowData: CrunchbaseScrappedItemType = await page.evaluate(
         (row, stg) => {
           const getData = (selector: string): string => row.querySelector<HTMLDivElement>(selector)?.innerText || ""
 
@@ -331,7 +331,7 @@ async function processTable(page: Page, stage: ScrappingConfig): Promise<Scrappe
           if (firstIdentifierLink === undefined) {
             throw new Error("Failed to find identifier link")
           }
-          const result: ScrappedItemType = {
+          const result: CrunchbaseScrappedItemType = {
             reasons: stg.reasons,
             name: getData("[data-columnid=identifier]"),
             cbLink: firstIdentifierLink.link,

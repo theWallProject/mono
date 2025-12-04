@@ -13,8 +13,13 @@ import {
 } from "@theWallProject/common"
 
 import { error, log, warn } from "../helper"
-import { APIEndpointDomains, DBFileNames } from "../types"
-import { MergedDataFileSchema, MergedDataItem, ScrappedFileType } from "../types"
+import {
+  APIEndpointDomains,
+  CrunchbaseScrappedItemsType,
+  DBFileNames,
+  MergedDataFileSchema,
+  MergedDataItem
+} from "../types"
 
 const extractSocialLinks = (data: MergedDataItem[]) => {
   const linkedinFlagged: APIEndpointDomains = []
@@ -360,7 +365,7 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
   log(`Data successfully written to ${outputFilePath}`)
 }
 
-export async function run(merged: ScrappedFileType | MergedDataItem[]) {
+export async function run(merged: CrunchbaseScrappedItemsType | MergedDataItem[]) {
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
   // This will throw immediately if validation fails
   MergedDataFileSchema.parse(merged)

@@ -1,5 +1,5 @@
 import { log } from "../../helper"
-import { ScrappedItemType } from "../../types"
+import { CrunchbaseScrappedItemType } from "../../types"
 import { getReasonPriority } from "./sorting"
 import type { ManualOverrideValue } from "./types"
 import { isProcessed } from "./types"
@@ -18,7 +18,10 @@ export const drawProgressBar = (current: number, total: number, width: number = 
 /**
  * Gets statistics about processed/unprocessed items
  */
-export const getStatistics = (allItems: ScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
+export const getStatistics = (
+  allItems: CrunchbaseScrappedItemType[],
+  processedItems: Record<string, ManualOverrideValue>
+) => {
   const total = allItems.length
   let processed = 0
   let unprocessed = 0
@@ -73,7 +76,7 @@ export const getStatistics = (allItems: ScrappedItemType[], processedItems: Reco
  * Displays statistics and progress bar
  */
 export const displayStatistics = (
-  allItems: ScrappedItemType[],
+  allItems: CrunchbaseScrappedItemType[],
   processedItems: Record<string, ManualOverrideValue>
 ): void => {
   const stats = getStatistics(allItems, processedItems)

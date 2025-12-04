@@ -15,12 +15,12 @@ import {
 } from "@theWallProject/common"
 
 import { cleanWebsite, error, log } from "../helper"
-import { APIScrapperFileDataSchema, ScrappedItemType } from "../types"
+import { CrunchbaseScrappedItemsSchema, CrunchbaseScrappedItemType } from "../types"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
 
-// Type for items that may have ig/gh/ytp/ytc/tt/th from manual overrides (not in base ScrappedItemType)
-type ScrappedItemWithOverrides = ScrappedItemType & {
+// Type for items that may have ig/gh/ytp/ytc/tt/th from manual overrides (not in base CrunchbaseScrappedItemType)
+type ScrappedItemWithOverrides = CrunchbaseScrappedItemType & {
   ig?: string
   gh?: string
   ytp?: string
@@ -124,14 +124,14 @@ const outputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL
 const loadJsonFiles = (folderPath: string) => {
   const mergedCBContent = fs.readFileSync(mergedCBPath, "utf-8")
 
-  const combinedArray = APIScrapperFileDataSchema.parse(JSON.parse(mergedCBContent))
+  const combinedArray = CrunchbaseScrappedItemsSchema.parse(JSON.parse(mergedCBContent))
 
   const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
   files.forEach((file) => {
     const filePath = path.join(folderPath, file)
     const fileContent = fs.readFileSync(filePath, "utf-8")
-    const parsedData = APIScrapperFileDataSchema.parse(JSON.parse(fileContent))
+    const parsedData = CrunchbaseScrappedItemsSchema.parse(JSON.parse(fileContent))
 
     log(`Static File ${file} has ${parsedData.length} rows`)
 
@@ -461,10 +461,10 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
 }
 
 // function areDuplicates(
-//   row1: ScrappedItemType,
-//   row2: ScrappedItemType,
+//   row1: CrunchbaseScrappedItemType,
+//   row2: CrunchbaseScrappedItemType,
 // ): boolean {
-//   const keysToCompare: (keyof ScrappedItemType)[] = [
+//   const keysToCompare: (keyof CrunchbaseScrappedItemType)[] = [
 //     // "name",
 //     "id",
 //     "li",

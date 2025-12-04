@@ -1,4 +1,4 @@
-import { ScrappedItemType } from "../../types"
+import { CrunchbaseScrappedItemType } from "../../types"
 
 // Allow arrays for link fields in overrides
 type ManualOverrideFields = {
@@ -22,7 +22,7 @@ type ManualOverrideFields = {
    * Use this when you want to block specific apps rather than all apps from a developer.
    */
   android_app_ids?: string[]
-} & Omit<Partial<ScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">
+} & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">
 
 export const manualOverrides: Record<
   string,

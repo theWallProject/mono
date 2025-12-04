@@ -2,12 +2,17 @@ import fs from "fs"
 import path from "path"
 
 import { error, log, warn } from "../helper"
-import { APIEndpointDomains, APIEndpointDomainsResult, DBFileNames } from "../types"
-import { MergedDataFileSchema, ScrappedFileType } from "../types"
+import {
+  APIEndpointDomains,
+  APIEndpointDomainsResult,
+  CrunchbaseScrappedItemsType,
+  DBFileNames,
+  MergedDataFileSchema
+} from "../types"
 
 const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNames.WEBSITES}.json`)
 
-export const run = async (merged: ScrappedFileType) => {
+export const run = async (merged: CrunchbaseScrappedItemsType) => {
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
   // This will throw immediately if validation fails
   const mergedDB = MergedDataFileSchema.parse(merged)

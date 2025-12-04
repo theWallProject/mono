@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path"
 
 import { error, log } from "../helper"
-import { APIScrapperFileDataSchema, ScrappedFileType } from "../types"
+import { CrunchbaseScrappedItemsSchema, CrunchbaseScrappedItemsType } from "../types"
 
 type ValidationResult = {
   url: string
@@ -50,7 +50,7 @@ const validateUrl = async (url: string): Promise<ValidationResult> => {
   }
 }
 
-const validateUrls = async (data: ScrappedFileType) => {
+const validateUrls = async (data: CrunchbaseScrappedItemsType) => {
   const results: ValidationResult[] = []
   let processed = 0
   const total = data.length
@@ -81,7 +81,7 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
 export async function run() {
   try {
     const fileContent = fs.readFileSync(inputFilePath, "utf-8")
-    const data = APIScrapperFileDataSchema.parse(JSON.parse(fileContent))
+    const data = CrunchbaseScrappedItemsSchema.parse(JSON.parse(fileContent))
 
     log(`Starting URL validation for ${data.length} entries...`)
     const results = await validateUrls(data)
