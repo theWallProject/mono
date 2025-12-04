@@ -100,10 +100,10 @@ CrunchbaseScrappedItemType {
 - `BDS` (from `static_data/BDS.ts`) - `CompressedManualItemType[]`
 - `Hints` (from `static_data/hints.ts`) - `CompressedManualItemType[]`
 
-**Output:** `CrunchbaseScrappedItemType[]`
+**Output:** `ManualEntryType[]`
 
 - **Location:** `results/1_batches/static/MANUAL.json`
-- **Type:** `CrunchbaseScrappedItemsType`
+- **Type:** `ManualEntriesType` (alias for `ManualEntryType[]`)
 
 **Input Type:**
 
@@ -127,17 +127,35 @@ CompressedManualItemType {
 }
 ```
 
+**Output Type:**
+
+```typescript
+ManualEntryType {
+  name: string
+  id: string
+  reasons: APIListOfReasons[]
+  li?: string          // Single LinkedIn URL
+  ws?: string          // Single website URL
+  fb?: string          // Single Facebook URL
+  tw?: string          // Single Twitter URL
+  isHint?: boolean
+  hintText?: string
+  hintUrl?: string
+}
+```
+
 **Transformations:**
 
-- Converts `CompressedManualItemType` (with arrays) → `CrunchbaseScrappedItemType` (with single strings)
+- Converts `CompressedManualItemType` (with arrays) → `ManualEntryType` (with single strings)
 - Creates one entry per URL (splits arrays into multiple entries)
 - Generates IDs: `s_ws_${name}_${index}`, `s_li_${name}_${index}`, etc.
 - Only processes Hints items with `isHint: true`
 
-**Type Duplication Note:**
+**Type Note:**
 
-- `CompressedManualItemType` has arrays for URLs, but output uses single strings
-- Output type is `CrunchbaseScrappedItemType` (same as scrap output)
+- `ManualEntryType` is a dedicated type for manual entries (not Crunchbase items)
+- Only includes fields that manual entries actually use
+- Does not include Crunchbase-specific fields like `cbLink`, `cbRank`, `estRevenue`, etc.
 
 ---
 
@@ -147,10 +165,10 @@ CompressedManualItemType {
 
 **Input:** `BuyIsraeliTechType[]` (from `static_data/external/buyIsraeliTech.json`)
 
-**Output:** `CrunchbaseScrappedItemType[]`
+**Output:** `ManualEntryType[]`
 
 - **Location:** `results/1_batches/static/BUY_ISR_TECH.json`
-- **Type:** `CrunchbaseScrappedItemsType`
+- **Type:** `ManualEntriesType` (alias for `ManualEntryType[]`)
 
 **Input Type:**
 
@@ -169,11 +187,11 @@ BuyIsraeliTechType {
 **Transformations:**
 
 - Filters for `IsraelRelation === "HQ"` and `Link` is string
-- Converts to `CrunchbaseScrappedItemType` format
+- Converts to `ManualEntryType` format
 - Sets `reasons: ["h"]`
 - Generates ID: `BIT_${Name}`
 
-**Type:** Same as scrap output (`CrunchbaseScrappedItemType[]`)
+**Type:** Same as `gen_static()` output (`ManualEntryType[]`)
 
 ---
 
@@ -184,7 +202,7 @@ BuyIsraeliTechType {
 **Input:**
 
 - `CrunchbaseScrappedItemType[]` from `results/2_merged/1_MERGED_CB.json`
-- `CrunchbaseScrappedItemType[]` from all files in `results/1_batches/static/`
+- `ManualEntryType[]` from all files in `results/1_batches/static/`
 
 **Output:** `MergedDataItem[]`
 
@@ -439,20 +457,27 @@ ValidationResult {
 
 ### Core Type Hierarchy
 
-1. **`CrunchbaseScrappedItemType`** (base type)
-   - Used in: scrap, merge_cb, gen_static, gen_buyIsraeliTech
-   - Contains: name, id, reasons, li, ws, fb, tw, and many optional fields
+1. **`CrunchbaseScrappedItemType`** (Crunchbase-specific type)
+   - Used in: scrap, merge_cb
+   - Contains: name, id, reasons, li, ws, fb, tw, and Crunchbase-specific fields (cbLink, cbRank, estRevenue, industries, etc.)
 
-2. **`MergedDataItem`** extends `CrunchbaseScrappedItemType`
+2. **`ManualEntryType`** (manual entry type)
+   - Used in: gen_static, gen_buyIsraeliTech
+   - Contains: name, id, reasons, li, ws, fb, tw, isHint, hintText, hintUrl
+   - Does NOT include Crunchbase-specific fields
+   - Subset of `CrunchbaseScrappedItemType` (all fields are compatible)
+
+3. **`MergedDataItem`** extends `CrunchbaseScrappedItemType`
    - Adds: ig, gh, ytp, ytc, tt, th
-   - Used in: merge_static, extract_social, extract_websites
+   - Used in: merge_static (output), extract_social, extract_websites
+   - Can be created from both `CrunchbaseScrappedItemType` and `ManualEntryType`
 
-3. **`NetworksFlatItemType`** (flattened structure)
+4. **`NetworksFlatItemType`** (flattened structure)
    - Similar to base but with `selector` instead of URL fields
    - Used in: extract_social, extract_websites, final
    - Fields: selector, id, reasons, name, s, isHint, hintText, hintUrl
 
-4. **`FinalDBFileType`** (abbreviated structure)
+5. **`FinalDBFileType`** (abbreviated structure)
    - Similar to `NetworksFlatItemType` but with abbreviated field names
    - Used in: final, generate_android_blacklist
    - Defined in: `@theWallProject/common`
@@ -469,10 +494,11 @@ ValidationResult {
    - `FinalDBFileType` has platform fields (`ws`, `li`, etc.), `n`, `r`
    - Could use a mapping function instead of separate types
 
-3. **`CompressedManualItemType` vs `CrunchbaseScrappedItemType`**
-   - `CompressedManualItemType` uses arrays for URLs
-   - `CrunchbaseScrappedItemType` uses single strings
-   - Conversion happens in `gen_static()`
+3. **`CompressedManualItemType` vs `ManualEntryType` vs `CrunchbaseScrappedItemType`**
+   - `CompressedManualItemType` uses arrays for URLs (input format)
+   - `ManualEntryType` uses single strings (output format for manual entries)
+   - `CrunchbaseScrappedItemType` includes Crunchbase-specific fields
+   - Conversion from arrays to single strings happens in `gen_static()`
 
 4. **Internal type `ScrappedItemWithOverrides`**
    - Duplicate of `MergedDataItem` (defined in `merge_static.ts`)

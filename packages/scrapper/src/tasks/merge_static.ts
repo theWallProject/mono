@@ -15,7 +15,7 @@ import {
 } from "@theWallProject/common"
 
 import { cleanWebsite, error, log } from "../helper"
-import { CrunchbaseScrappedItemsSchema, CrunchbaseScrappedItemType } from "../types"
+import { CrunchbaseScrappedItemsSchema, CrunchbaseScrappedItemType, ManualEntriesSchema } from "../types"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
 
@@ -131,7 +131,7 @@ const loadJsonFiles = (folderPath: string) => {
   files.forEach((file) => {
     const filePath = path.join(folderPath, file)
     const fileContent = fs.readFileSync(filePath, "utf-8")
-    const parsedData = CrunchbaseScrappedItemsSchema.parse(JSON.parse(fileContent))
+    const parsedData = ManualEntriesSchema.parse(JSON.parse(fileContent))
 
     log(`Static File ${file} has ${parsedData.length} rows`)
 

@@ -4,12 +4,12 @@ import path from "path"
 import { cleanWebsite, log } from "../helper"
 import { BDS } from "../static_data/BDS"
 import { Hints } from "../static_data/hints"
-import { CompressedManualItemSchema, CrunchbaseScrappedItemsType } from "../types"
+import { CompressedManualItemSchema, ManualEntriesType } from "../types"
 
 const outputFilePath = path.join(__dirname, "../../results/1_batches/static/MANUAL.json")
 
 const injectStaticRows = () => {
-  const merged: CrunchbaseScrappedItemsType = []
+  const merged: ManualEntriesType = []
   log("Starting injectStaticRows - processing BDS and Hints")
 
   // Process BDS items

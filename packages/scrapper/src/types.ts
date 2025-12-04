@@ -166,6 +166,28 @@ export const CompressedManualItemSchema = z
   })
   .strict()
 
+/**
+ * Manual entry schema
+ * Used for entries created from manual data (BDS, Hints, BuyIsraeliTech)
+ * Only includes fields that manual entries actually use
+ */
+export const ManualEntrySchema = z
+  .object({
+    name: z.string(),
+    id: z.string(),
+    reasons: z.array(APIListOfReasonsSchema),
+    li: z.string().optional(),
+    ws: z.string().optional(),
+    fb: z.string().optional(),
+    tw: z.string().optional(),
+    isHint: z.boolean().optional(),
+    hintText: z.string().optional(),
+    hintUrl: z.string().optional()
+  })
+  .strict()
+
+export const ManualEntriesSchema = z.array(ManualEntrySchema)
+
 export const BuyIsraeliTechSchema = z.array(
   z
     .object({
@@ -185,6 +207,8 @@ export const BuyIsraeliTechSchema = z.array(
 )
 
 export type CompressedManualItemType = z.infer<typeof CompressedManualItemSchema>
+export type ManualEntryType = z.infer<typeof ManualEntrySchema>
+export type ManualEntriesType = z.infer<typeof ManualEntriesSchema>
 export type CrunchbaseScrappedItemType = z.infer<typeof CrunchbaseScrappedItemSchema>
 export type CrunchbaseScrappedItemsType = z.infer<typeof CrunchbaseScrappedItemsSchema>
 export type MergedDataItem = z.infer<typeof MergedDataItemSchema>
