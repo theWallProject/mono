@@ -3,11 +3,11 @@ import path from "path"
 
 import { error, log, warn } from "../helper"
 import {
-  APIEndpointDomains,
-  APIEndpointDomainsResult,
   CrunchbaseScrappedItemsType,
   DBFileNames,
-  MergedDataFileSchema
+  MergedDataFileSchema,
+  NetworksFlatItemsType,
+  NetworksFlatItemType
 } from "../types"
 
 const outputFilePath = path.join(__dirname, `../../results/3_networks/${DBFileNames.WEBSITES}.json`)
@@ -16,7 +16,7 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
   // This will throw immediately if validation fails
   const mergedDB = MergedDataFileSchema.parse(merged)
-  const duplicates: Record<string, APIEndpointDomainsResult[]> = {}
+  const duplicates: Record<string, NetworksFlatItemType[]> = {}
 
   const db = mergedDB
     .filter((row) => row.ws && row.ws !== "")
@@ -50,7 +50,7 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
       return shouldKeep
     })
 
-  const result: APIEndpointDomains = []
+  const result: NetworksFlatItemsType = []
 
   for (const row of db) {
     const website = row.ws
@@ -79,7 +79,7 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
       name: row.name,
       reasons: row.reasons,
       ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-      ...(row.isHint ? { hint: true } : {}),
+      ...(row.isHint ? { isHint: true } : {}),
       ...(row.hintText ? { hintText: row.hintText } : {}),
       ...(row.hintUrl ? { hintUrl: row.hintUrl } : {})
     }
@@ -133,8 +133,8 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
   log(`Wrote ${mergedDB.length} rows...`)
 }
 
-function mergeObjects(obj1: APIEndpointDomainsResult, obj2: APIEndpointDomainsResult): APIEndpointDomainsResult {
-  const merged: APIEndpointDomainsResult = { ...obj1 }
+function mergeObjects(obj1: NetworksFlatItemType, obj2: NetworksFlatItemType): NetworksFlatItemType {
+  const merged: NetworksFlatItemType = { ...obj1 }
 
   // Merge reasons arrays and remove duplicates
   merged.reasons = Array.from(new Set([...merged.reasons, ...obj2.reasons]))
@@ -152,8 +152,8 @@ function mergeObjects(obj1: APIEndpointDomainsResult, obj2: APIEndpointDomainsRe
   if (obj2.s && (!merged.s || merged.s === "")) {
     merged.s = obj2.s
   }
-  if (obj2.hint !== undefined) {
-    merged.hint = obj2.hint
+  if (obj2.isHint !== undefined) {
+    merged.isHint = obj2.isHint
   }
   if (obj2.hintText && (!merged.hintText || merged.hintText === "")) {
     merged.hintText = obj2.hintText

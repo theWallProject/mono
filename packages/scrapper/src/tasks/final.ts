@@ -5,7 +5,7 @@ import { z } from "zod"
 
 import alternatives from "../../src/static_data/alternatives.json"
 import { log } from "../helper"
-import { APIEndpointDomainsResultSchema, DBFileNames } from "../types"
+import { DBFileNames, NetworksFlatItemsSchema } from "../types"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
 
@@ -21,7 +21,7 @@ const loadJsonFiles = (folderPath: string) => {
     const filePath = path.join(folderPath, file)
     const fileContent = fs.readFileSync(filePath, "utf-8")
 
-    const parsedData = z.array(APIEndpointDomainsResultSchema).parse(JSON.parse(fileContent))
+    const parsedData = z.array(NetworksFlatItemsSchema).parse(JSON.parse(fileContent))
 
     log(`File ${file} has ${parsedData.length} rows`)
     const key = keyFromFileName(file)
@@ -39,8 +39,8 @@ const loadJsonFiles = (folderPath: string) => {
         if (newRow.s) {
           existingRow["s"] = newRow.s
         }
-        if (newRow.hint) {
-          existingRow["hint"] = true
+        if (newRow.isHint) {
+          existingRow["isHint"] = true
         }
         if (newRow.hintText) {
           existingRow["hintText"] = newRow.hintText
@@ -57,7 +57,7 @@ const loadJsonFiles = (folderPath: string) => {
           // ws: "",
           [key]: newRow.selector,
           // c: newRow;
-          ...(newRow.hint ? { hint: true } : {}),
+          ...(newRow.isHint ? { isHint: true } : {}),
           ...(newRow.hintText ? { hintText: newRow.hintText } : {}),
           ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {})
         }

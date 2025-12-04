@@ -141,7 +141,7 @@ export const FinalDBFileSchema = z
       )
       .optional(),
     /** hint flag */
-    hint: z.boolean().optional(),
+    isHint: z.boolean().optional(),
     /** hint text */
     hintText: z.string().optional(),
     /** hint URL */
@@ -378,7 +378,7 @@ export function findInDatabaseByDomain(domain: string, database: FinalDBFileType
  */
 export function formatResult(findResult: FinalDBFileType, selector: string, selectorKey: LinkField): UrlCheckResult {
   // Check if this is a hint entry
-  if (findResult.hint && findResult.hintText) {
+  if (findResult.isHint && findResult.hintText) {
     return {
       isHint: true,
       name: findResult.n,

@@ -96,7 +96,7 @@ Other scripts: `npm run merge`, `npm run convert`
 ## Data Structures
 
 - **CrunchbaseScrappedItemType**: Full company data (name, id, cbLink, reasons, social links, founderIds, investorIds, cbRank, etc.)
-- **APIEndpointDomainsResult**: `{ id, selector, name, reasons, s? }`
+- **NetworksFlatItemType**: `{ id, selector, name, reasons, s? }`
 - **FinalDBFileType**: `{ id, n, r, s?, ws?, li?, fb?, tw?, alt? }`
 
 ## Manual Resolution

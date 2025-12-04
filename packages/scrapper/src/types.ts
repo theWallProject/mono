@@ -104,7 +104,7 @@ const CrunchbaseScrappedItemSchema = z
 
 export const CrunchbaseScrappedItemsSchema = z.array(CrunchbaseScrappedItemSchema)
 
-export const APIEndpointDomainsResultSchema = z
+export const NetworksFlatItemsSchema = z
   .object({
     selector: z.string(),
     id: z.string(),
@@ -113,7 +113,7 @@ export const APIEndpointDomainsResultSchema = z
     /** stock sympol */
     s: z.string().optional(),
     /** hint flag */
-    hint: z.boolean().optional(),
+    isHint: z.boolean().optional(),
     /** hint text */
     hintText: z.string().optional(),
     /** hint URL */
@@ -121,10 +121,14 @@ export const APIEndpointDomainsResultSchema = z
   })
   .strict()
 
-export type APIEndpointDomainsResult = z.infer<typeof APIEndpointDomainsResultSchema>
+export type NetworksFlatItemType = z.infer<typeof NetworksFlatItemsSchema>
 
-export type APIEndpointDomains = APIEndpointDomainsResult[]
-// Schema for merged data that may include ig/gh/ytp/ytc/tt/th from manual overrides
+export type NetworksFlatItemsType = NetworksFlatItemType[]
+
+/**
+ * Merged data item schema
+ * Includes ig/gh/ytp/ytc/tt/th from manual overrides
+ */
 export const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   /** instagram */
   ig: z.string().optional(),

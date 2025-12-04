@@ -14,23 +14,23 @@ import {
 
 import { error, log, warn } from "../helper"
 import {
-  APIEndpointDomains,
   CrunchbaseScrappedItemsType,
   DBFileNames,
   MergedDataFileSchema,
-  MergedDataItem
+  MergedDataItem,
+  NetworksFlatItemsType
 } from "../types"
 
 const extractSocialLinks = (data: MergedDataItem[]) => {
-  const linkedinFlagged: APIEndpointDomains = []
-  const facebookFlagged: APIEndpointDomains = []
-  const twitterFlagged: APIEndpointDomains = []
-  const instagramFlagged: APIEndpointDomains = []
-  const githubFlagged: APIEndpointDomains = []
-  const youtubeProfileFlagged: APIEndpointDomains = []
-  const youtubeChannelFlagged: APIEndpointDomains = []
-  const tiktokFlagged: APIEndpointDomains = []
-  const threadsFlagged: APIEndpointDomains = []
+  const linkedinFlagged: NetworksFlatItemsType = []
+  const facebookFlagged: NetworksFlatItemsType = []
+  const twitterFlagged: NetworksFlatItemsType = []
+  const instagramFlagged: NetworksFlatItemsType = []
+  const githubFlagged: NetworksFlatItemsType = []
+  const youtubeProfileFlagged: NetworksFlatItemsType = []
+  const youtubeChannelFlagged: NetworksFlatItemsType = []
+  const tiktokFlagged: NetworksFlatItemsType = []
+  const threadsFlagged: NetworksFlatItemsType = []
 
   const regexLinkedin = new RegExp(API_ENDPOINT_RULE_LINKEDIN_COMPANY.regex)
   const regexFacebook = new RegExp(API_ENDPOINT_RULE_FACEBOOK.regex)
