@@ -130,7 +130,7 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
 
 2. **`src/types.ts`**:
    - Add `platformName: z.string().optional()` to `CrunchbaseScrappedItemSchema`
-   - Add `platformName: z.array(z.string()).optional()` to `ManualItemSchema`
+   - Add `platformName: z.array(z.string()).optional()` to `CompressedManualItemSchema`
 
 3. **`src/tasks/extract_social.ts`**:
    - Import `API_ENDPOINT_RULE_PLATFORM_NAME` and `DBFileNames.FLAGGED_PLATFORM_NAME`
@@ -145,7 +145,7 @@ Defined in `src/tasks/manual_resolve/duplicate.ts`:
 
 2. **`src/types.ts`**:
    - **DO NOT** add to `CrunchbaseScrappedItemSchema` (only in manual overrides)
-   - Add `platformName: z.array(z.string()).optional()` to `ManualItemSchema`
+   - Add `platformName: z.array(z.string()).optional()` to `CompressedManualItemSchema`
 
 3. **`src/tasks/extract_social.ts`**:
    - **SKIP** this step (not extracted from Crunchbase)

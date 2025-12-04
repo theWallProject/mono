@@ -1,5 +1,5 @@
-import { ManualItemType } from "../types"
+import { CompressedManualItemType } from "../types"
 import { newscordHints } from "./hints/newscord"
 import { thauraHints } from "./hints/thaura"
 
-export const Hints: ManualItemType[] = [...thauraHints, ...newscordHints]
+export const Hints: CompressedManualItemType[] = [...thauraHints, ...newscordHints]

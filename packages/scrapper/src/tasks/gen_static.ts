@@ -4,7 +4,7 @@ import path from "path"
 import { cleanWebsite, log } from "../helper"
 import { BDS } from "../static_data/BDS"
 import { Hints } from "../static_data/hints"
-import { CrunchbaseScrappedItemsType, ManualItemSchema } from "../types"
+import { CompressedManualItemSchema, CrunchbaseScrappedItemsType } from "../types"
 
 const outputFilePath = path.join(__dirname, "../../results/1_batches/static/MANUAL.json")
 
@@ -14,7 +14,7 @@ const injectStaticRows = () => {
 
   // Process BDS items
   for (const item of BDS) {
-    const safeItem = ManualItemSchema.parse(item)
+    const safeItem = CompressedManualItemSchema.parse(item)
 
     const { name, reasons, ws, li, fb, tw } = safeItem
 
@@ -78,7 +78,7 @@ const injectStaticRows = () => {
   // Process Hints items
   log(`Processing ${Hints.length} hint items`)
   for (const item of Hints) {
-    const safeItem = ManualItemSchema.parse(item)
+    const safeItem = CompressedManualItemSchema.parse(item)
 
     const { name, reasons, ws, isHint, hintText, hintUrl } = safeItem
 

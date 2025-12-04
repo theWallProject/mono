@@ -1,6 +1,6 @@
-import { ManualItemType } from "../../types"
+import { CompressedManualItemType } from "../../types"
 
-export const thauraHints: ManualItemType[] = [
+export const thauraHints: CompressedManualItemType[] = [
   {
     name: "ChatGPT",
     ws: ["https://chatgpt.com"],

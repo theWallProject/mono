@@ -1,4 +1,4 @@
-import { ManualItemType } from "../types"
+import { CompressedManualItemType } from "../types"
 
 // use this code to fetsh all afliated pages from linkedin
 /*
@@ -13,7 +13,7 @@ console.log(links.join(",\n"));
 
 */
 
-export const BDS: ManualItemType[] = [
+export const BDS: CompressedManualItemType[] = [
   {
     name: "HP",
     reasons: ["b"],

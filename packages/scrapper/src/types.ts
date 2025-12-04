@@ -146,7 +146,7 @@ export const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
 
 export const MergedDataFileSchema = z.array(MergedDataItemSchema)
 
-export const ManualItemSchema = z
+export const CompressedManualItemSchema = z
   .object({
     reasons: z.array(APIListOfReasonsSchema).optional(),
     name: z.string().min(1, { message: "String cannot be empty" }),
@@ -184,7 +184,7 @@ export const BuyIsraeliTechSchema = z.array(
     .strict()
 )
 
-export type ManualItemType = z.infer<typeof ManualItemSchema>
+export type CompressedManualItemType = z.infer<typeof CompressedManualItemSchema>
 export type CrunchbaseScrappedItemType = z.infer<typeof CrunchbaseScrappedItemSchema>
 export type CrunchbaseScrappedItemsType = z.infer<typeof CrunchbaseScrappedItemsSchema>
 export type MergedDataItem = z.infer<typeof MergedDataItemSchema>

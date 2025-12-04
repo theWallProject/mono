@@ -1,6 +1,6 @@
-import { ManualItemType } from "../../types"
+import { CompressedManualItemType } from "../../types"
 
-export const newscordHints: ManualItemType[] = [
+export const newscordHints: CompressedManualItemType[] = [
   {
     name: "BBC",
     reasons: [],
