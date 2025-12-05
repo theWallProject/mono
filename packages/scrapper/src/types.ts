@@ -94,33 +94,12 @@ const CrunchbaseScrappedItemSchema = z
 
 export const CrunchbaseScrappedItemsSchema = z.array(CrunchbaseScrappedItemSchema)
 
-export const NetworksFlatItemsSchema = z
-  .object({
-    selector: z.string(),
-    id: z.string(),
-    reasons: z.array(APIListOfReasonsSchema),
-    name: z.string(),
-    /** stock sympol */
-    s: z.string().optional(),
-    /** hint flag */
-    isHint: z.boolean().optional(),
-    /** hint text */
-    hintText: z.string().optional(),
-    /** hint URL */
-    hintUrl: z.string().optional()
-  })
-  .strict()
-
-export type NetworksFlatItemType = z.infer<typeof NetworksFlatItemsSchema>
-
-export type NetworksFlatItemsType = NetworksFlatItemType[]
-
 /**
  * Merged data item schema
  * Includes ig/gh/ytp/ytc/tt/th from manual overrides
  * Also includes hint and Android fields from manual data/overrides (not from Crunchbase)
  */
-export const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
+const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   /** instagram */
   ig: z.string().optional(),
   /** github */
@@ -166,6 +145,27 @@ export const CompressedManualItemSchema = z
     hintUrl: z.string().optional()
   })
   .strict()
+
+export const NetworksFlatItemsSchema = z
+  .object({
+    selector: z.string(),
+    id: z.string(),
+    reasons: z.array(APIListOfReasonsSchema),
+    name: z.string(),
+    /** stock sympol */
+    s: z.string().optional(),
+    /** hint flag */
+    isHint: z.boolean().optional(),
+    /** hint text */
+    hintText: z.string().optional(),
+    /** hint URL */
+    hintUrl: z.string().optional()
+  })
+  .strict()
+
+export type NetworksFlatItemType = z.infer<typeof NetworksFlatItemsSchema>
+
+export type NetworksFlatItemsType = NetworksFlatItemType[]
 
 /**
  * Manual entry schema

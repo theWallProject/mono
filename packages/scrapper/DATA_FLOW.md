@@ -536,8 +536,9 @@ ValidationResult {
 2. **`ManualEntryType`** (manual entry type)
    - Used in: gen_static, gen_buyIsraeliTech
    - Contains: name, id, reasons, li, ws, fb, tw, isHint, hintText, hintUrl
-   - Does NOT include Crunchbase-specific fields
-   - Subset of `CrunchbaseScrappedItemType` (all fields are compatible)
+   - Does NOT include Crunchbase-specific fields (cbLink, cbRank, estRevenue, etc.)
+   - Shares common fields with `CrunchbaseScrappedItemType` but has unique hint fields that CB doesn't have
+   - NOT a subset - they overlap but each has unique fields
 
 3. **`MergedDataItem`** extends `CrunchbaseScrappedItemType`
    - Adds: ig, gh, ytp, ytc, tt, th (social platforms from manual overrides)
