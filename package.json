@@ -21,6 +21,7 @@
     "bot:run": "pnpm --filter @theWallProject/telegram-bot bot:run",
     "bot:logs": "pwsh -File scripts/deploy-bot.ps1 -Mode logs",
     "bot:deploy": "pwsh -File scripts/deploy-bot.ps1 -Mode deploy",
+    "commit": "tsx scripts/commit.ts",
     "prepare": "husky"
   },
   "engines": {
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@ianvs/prettier-plugin-sort-imports": "4.7.0",
+    "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
     "cross-env": "^10.1.0",
@@ -42,10 +44,13 @@
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.0",
+    "extract-gfm": "^0.1.0",
     "globals": "^15.13.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "prettier": "3.6.2"
+    "prettier": "3.6.2",
+    "prompts": "^2.4.2",
+    "tsx": "^4.20.6"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,css}": [
