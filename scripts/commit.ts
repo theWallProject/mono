@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { exec, execSync, spawnSync } from "node:child_process"
+import { exec, spawnSync } from "node:child_process"
 import { existsSync, readFileSync, writeFileSync } from "node:fs"
 import http from "node:http"
 import { join } from "node:path"
@@ -124,6 +124,102 @@ async function getStagedDiff() {
       resolve(stdout)
     })
   })
+}
+
+function limitDiffPerFile(diff: string): string {
+  const PER_FILE_LINE_LIMIT = 100
+  const TOTAL_CHAR_LIMIT = 5000
+
+  // Split diff by file (each file starts with "diff --git")
+  const fileSections = diff.split(/\n(?=diff --git)/)
+  const limitedSections: string[] = []
+  let totalChars = 0
+  let fileCount = 0
+  const truncatedFiles: string[] = []
+
+  // Count original stats
+  const originalChars = diff.length
+  const originalLines = diff.split("\n").length
+  const originalFileCount = fileSections.length
+
+  for (const section of fileSections) {
+    if (!section.trim()) continue
+
+    fileCount++
+    const lines = section.split("\n")
+    const headerLines: string[] = []
+    const contentLines: string[] = []
+    let inHeader = true
+
+    // Separate header from content
+    for (const line of lines) {
+      if (
+        inHeader &&
+        (line.startsWith("diff --git") ||
+          line.startsWith("index ") ||
+          line.startsWith("---") ||
+          line.startsWith("+++") ||
+          line.startsWith("@@") ||
+          line.trim() === "")
+      ) {
+        headerLines.push(line)
+        if (line.startsWith("@@")) {
+          inHeader = false
+        }
+      } else {
+        inHeader = false
+        contentLines.push(line)
+      }
+    }
+
+    // Limit content lines
+    let limitedContent = contentLines
+    if (contentLines.length > PER_FILE_LINE_LIMIT) {
+      limitedContent = contentLines.slice(0, PER_FILE_LINE_LIMIT)
+      limitedContent.push(`... (truncated, showing first ${PER_FILE_LINE_LIMIT} lines)`)
+      // Extract filename from header
+      const fileMatch = section.match(/diff --git a\/(.+?) b\//)
+      if (fileMatch) {
+        truncatedFiles.push(fileMatch[1])
+      }
+    }
+
+    const limitedSection = [...headerLines, ...limitedContent].join("\n")
+    const sectionChars = limitedSection.length
+
+    // Check if adding this section would exceed total limit
+    if (totalChars + sectionChars > TOTAL_CHAR_LIMIT) {
+      // Try to fit at least part of this section
+      const remainingChars = TOTAL_CHAR_LIMIT - totalChars
+      if (remainingChars > 100) {
+        // Include partial section
+        const partialSection = limitedSection.substring(0, remainingChars - 50)
+        limitedSections.push(partialSection + "\n... (diff truncated, total limit reached)")
+        totalChars = TOTAL_CHAR_LIMIT
+      }
+      break
+    }
+
+    limitedSections.push(limitedSection)
+    totalChars += sectionChars
+  }
+
+  const result = limitedSections.join("\n")
+  const finalChars = result.length
+  const finalLines = result.split("\n").length
+
+  // Log stats
+  console.log(`📊 Diff stats: ${originalFileCount} files, ${originalLines} lines, ${originalChars} chars`)
+  if (truncatedFiles.length > 0) {
+    console.log(`   Files truncated (per-file limit): ${truncatedFiles.join(", ")}`)
+  }
+  if (finalChars < originalChars) {
+    console.log(`   → Limited to: ${fileCount} files, ${finalLines} lines, ${finalChars} chars`)
+  } else {
+    console.log(`   → Final: ${fileCount} files, ${finalLines} lines, ${finalChars} chars`)
+  }
+
+  return result
 }
 
 async function generateCommitMessage(diff: string, model: string): Promise<string> {
@@ -255,24 +351,17 @@ async function main() {
   // Select model (will preselect previously chosen one if available)
   const selectedModel = await selectModel(availableModels)
 
-  // Get staged diff before lint-staged modifies files
-  const diff = await getStagedDiff()
-  if (!diff || diff.trim().length === 0) {
+  // Get staged diff
+  const rawDiff = await getStagedDiff()
+  if (!rawDiff || rawDiff.trim().length === 0) {
     throw new Error("No staged changes to commit")
   }
 
-  // Generate commit message based on current staged changes
-  const commitMessage = await generateCommitMessage(diff, selectedModel)
+  // Limit diff per file and apply total limit
+  const diff = limitDiffPerFile(rawDiff)
 
-  // Run lint-staged to fix code before committing
-  console.log("🧹 Running lint-staged...")
-  try {
-    execSync("npx lint-staged", { stdio: "inherit" })
-    console.log("✅ Code linted and fixed")
-  } catch {
-    console.error("❌ lint-staged failed. Please fix errors before committing.")
-    process.exit(1)
-  }
+  // Generate commit message based on limited diff
+  const commitMessage = await generateCommitMessage(diff, selectedModel)
 
   console.log("📝 Generated Commit Message:")
   console.log(
