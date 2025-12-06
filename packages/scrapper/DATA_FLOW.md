@@ -120,6 +120,8 @@ CompressedManualItemType {
   isHint?: boolean
   hintText?: string
   hintUrl?: string
+  android_dev_id?: string      // Android developer ID
+  android_app_ids?: string[]   // Android app package IDs
 }
 ```
 
@@ -137,6 +139,8 @@ ManualEntryType {
   isHint?: boolean
   hintText?: string
   hintUrl?: string
+  android_dev_id?: string      // Android developer ID
+  android_app_ids?: string[]   // Android app package IDs
 }
 ```
 
@@ -283,6 +287,8 @@ NetworksFlatItemType {
   isHint?: boolean
   hintText?: string
   hintUrl?: string
+  android_dev_id?: string      // Android developer ID
+  android_app_ids?: string[]   // Android app package IDs
 }
 ```
 
@@ -297,16 +303,17 @@ NetworksFlatItemType {
 
 **Type Comparison: `MergedDataItem` vs `NetworksFlatItemType`**
 
-| Aspect                | `MergedDataItem` (Input)                                                | `NetworksFlatItemType` (Output)               |
-| --------------------- | ----------------------------------------------------------------------- | --------------------------------------------- |
-| **Structure**         | One entry per company                                                   | One entry per platform/selector               |
-| **URL Fields**        | Full URLs: `li`, `ws`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` | None (replaced by `selector`)                 |
-| **Selector**          | Not present                                                             | Extracted identifier (username, domain, etc.) |
-| **Core Fields**       | `id`, `name`, `reasons`                                                 | `id`, `name`, `reasons` (preserved)           |
-| **Stock Symbol**      | `stock_symbol`                                                          | `s` (abbreviated)                             |
-| **Hint Fields**       | `isHint`, `hintText`, `hintUrl`                                         | `isHint`, `hintText`, `hintUrl` (preserved)   |
-| **Crunchbase Fields** | `cbLink`, `cbRank`, `estRevenue`, `industries`, `founderIds`, etc.      | None (dropped)                                |
-| **Other Fields**      | `description`, `hq_postal_code`, `acquirerIds`, etc.                    | None (dropped)                                |
+| Aspect                | `MergedDataItem` (Input)                                                | `NetworksFlatItemType` (Output)                 |
+| --------------------- | ----------------------------------------------------------------------- | ----------------------------------------------- |
+| **Structure**         | One entry per company                                                   | One entry per platform/selector                 |
+| **URL Fields**        | Full URLs: `li`, `ws`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` | None (replaced by `selector`)                   |
+| **Selector**          | Not present                                                             | Extracted identifier (username, domain, etc.)   |
+| **Core Fields**       | `id`, `name`, `reasons`                                                 | `id`, `name`, `reasons` (preserved)             |
+| **Stock Symbol**      | `stock_symbol`                                                          | `s` (abbreviated)                               |
+| **Hint Fields**       | `isHint`, `hintText`, `hintUrl`                                         | `isHint`, `hintText`, `hintUrl` (preserved)     |
+| **Android Fields**    | `android_dev_id`, `android_app_ids`                                     | `android_dev_id`, `android_app_ids` (preserved) |
+| **Crunchbase Fields** | `cbLink`, `cbRank`, `estRevenue`, `industries`, `founderIds`, etc.      | None (dropped)                                  |
+| **Other Fields**      | `description`, `hq_postal_code`, `acquirerIds`, etc.                    | None (dropped)                                  |
 
 **Key Transformations:**
 
@@ -389,6 +396,8 @@ FinalDBFileType {
   isHint?: boolean
   hintText?: string
   hintUrl?: string
+  android_dev_id?: string      // Android developer ID
+  android_app_ids?: string[]   // Android app package IDs
 }
 ```
 
@@ -402,18 +411,19 @@ FinalDBFileType {
 
 **Type Comparison: `NetworksFlatItemType` vs `FinalDBFileType`**
 
-| Aspect              | `NetworksFlatItemType` (Input)   | `FinalDBFileType` (Output)                                                     |
-| ------------------- | -------------------------------- | ------------------------------------------------------------------------------ |
-| **Structure**       | One entry per platform/selector  | One entry per company (`id`) with all platforms combined                       |
-| **ID Field**        | `id` (company ID)                | `id` (same, used for merging)                                                  |
-| **Name Field**      | `name` (full name)               | `n` (abbreviated)                                                              |
-| **Reasons Field**   | `reasons` (full name)            | `r` (abbreviated)                                                              |
-| **Stock Symbol**    | `s`                              | `s` (same)                                                                     |
-| **Selector**        | `selector` (platform identifier) | Not present (becomes platform field value)                                     |
-| **Platform Fields** | None (only `selector`)           | `ws`, `li`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` (selector values) |
-| **Hint Fields**     | `isHint`, `hintText`, `hintUrl`  | `isHint`, `hintText`, `hintUrl` (preserved)                                    |
-| **Alternatives**    | Not present                      | `alt` (added from alternatives.json)                                           |
-| **Comment**         | Not present                      | `c` (optional)                                                                 |
+| Aspect              | `NetworksFlatItemType` (Input)      | `FinalDBFileType` (Output)                                                     |
+| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------ |
+| **Structure**       | One entry per platform/selector     | One entry per company (`id`) with all platforms combined                       |
+| **ID Field**        | `id` (company ID)                   | `id` (same, used for merging)                                                  |
+| **Name Field**      | `name` (full name)                  | `n` (abbreviated)                                                              |
+| **Reasons Field**   | `reasons` (full name)               | `r` (abbreviated)                                                              |
+| **Stock Symbol**    | `s`                                 | `s` (same)                                                                     |
+| **Selector**        | `selector` (platform identifier)    | Not present (becomes platform field value)                                     |
+| **Platform Fields** | None (only `selector`)              | `ws`, `li`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` (selector values) |
+| **Hint Fields**     | `isHint`, `hintText`, `hintUrl`     | `isHint`, `hintText`, `hintUrl` (preserved)                                    |
+| **Android Fields**  | `android_dev_id`, `android_app_ids` | `android_dev_id`, `android_app_ids` (preserved)                                |
+| **Alternatives**    | Not present                         | `alt` (added from alternatives.json)                                           |
+| **Comment**         | Not present                         | `c` (optional)                                                                 |
 
 **Key Transformations:**
 
@@ -535,9 +545,9 @@ ValidationResult {
 
 2. **`ManualEntryType`** (manual entry type)
    - Used in: gen_static, gen_buyIsraeliTech
-   - Contains: name, id, reasons, li, ws, fb, tw, isHint, hintText, hintUrl
+   - Contains: name, id, reasons, li, ws, fb, tw, isHint, hintText, hintUrl, android_dev_id, android_app_ids
    - Does NOT include Crunchbase-specific fields (cbLink, cbRank, estRevenue, etc.)
-   - Shares common fields with `CrunchbaseScrappedItemType` but has unique hint fields that CB doesn't have
+   - Shares common fields with `CrunchbaseScrappedItemType` but has unique hint and Android fields that CB doesn't have
    - NOT a subset - they overlap but each has unique fields
 
 3. **`MergedDataItem`** extends `CrunchbaseScrappedItemType`
@@ -551,12 +561,13 @@ ValidationResult {
 4. **`NetworksFlatItemType`** (flattened structure)
    - Similar to base but with `selector` instead of URL fields
    - Used in: extract_social, extract_websites, final
-   - Fields: selector, id, reasons, name, s, isHint, hintText, hintUrl
+   - Fields: selector, id, reasons, name, s, isHint, hintText, hintUrl, android_dev_id, android_app_ids
 
 5. **`FinalDBFileType`** (abbreviated structure)
    - Similar to `NetworksFlatItemType` but with abbreviated field names
    - Used in: final, generate_android_blacklist
    - Defined in: `@theWallProject/common`
+   - Fields: id, ws, li, fb, tw, ig, gh, ytp, ytc, tt, th, r, n, c, s, alt, isHint, hintText, hintUrl, android_dev_id, android_app_ids
 
 ### Duplication Issues
 
@@ -590,3 +601,124 @@ ValidationResult {
 3. **Consider a unified base type**
    - Create a base type with all possible fields
    - Use discriminated unions or optional fields for variations
+
+---
+
+## Type Comparison: `packages/common/src/index.ts` vs `packages/scrapper/src/types.ts`
+
+This section compares the types defined in the `common` package (shared across all packages) and the `scrapper` package (internal to the scrapper pipeline).
+
+### Shared Types
+
+1. **`APIListOfReasonsSchema`**
+   - **Location:** `packages/common/src/index.ts` (defined)
+   - **Usage:** `packages/scrapper/src/types.ts` (imported)
+   - **Purpose:** Shared enum schema for flagging reasons (`h`, `f`, `i`, `u`, `b`)
+   - **Status:** ✅ Properly shared via common package
+
+2. **Link Field Names**
+   - **Common:** Defines `LinkField` type union: `"ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th" | "il"`
+   - **Scrapper:** Uses same field names but doesn't define `LinkField` type
+   - **Status:** ⚠️ Scrapper should import `LinkField` from common for consistency
+
+### Type Mapping: Scrapper → Common
+
+#### `MergedDataItem` (Scrapper) → `FinalDBFileType` (Common)
+
+| Aspect                | `MergedDataItem` (Scrapper)                                  | `FinalDBFileType` (Common)        | Notes                                        |
+| --------------------- | ------------------------------------------------------------ | --------------------------------- | -------------------------------------------- |
+| **Package**           | `packages/scrapper/src/types.ts`                             | `packages/common/src/index.ts`    | Common is shared, scrapper is internal       |
+| **Purpose**           | Intermediate format (after merge_static)                     | Final output format (after final) | FinalDBFileType is the API contract          |
+| **Field Names**       | Full names (`name`, `reasons`, `stock_symbol`)               | Abbreviated (`n`, `r`, `s`)       | Abbreviation for file size optimization      |
+| **Platform Fields**   | `ws`, `li`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` | Same                              | ✅ Consistent field names                    |
+| **Core Fields**       | `id`, `name`, `reasons`                                      | `id`, `n`, `r`                    | Name abbreviation only                       |
+| **Stock Symbol**      | `stock_symbol`                                               | `s`                               | Abbreviated                                  |
+| **Comment**           | Not present                                                  | `c` (optional)                    | Added in final step                          |
+| **Alternatives**      | Not present                                                  | `alt` (optional)                  | Added in final step from alternatives.json   |
+| **Hint Fields**       | `isHint`, `hintText`, `hintUrl`                              | Same                              | ✅ Preserved                                 |
+| **Android Fields**    | `android_dev_id`, `android_app_ids`                          | Same                              | ✅ Preserved (used for blacklist generation) |
+| **Crunchbase Fields** | `cbLink`, `cbRank`, `estRevenue`, `industries`, etc.         | Not present                       | Dropped (not needed in final output)         |
+
+**Key Differences:**
+
+- `FinalDBFileType` is the **abbreviated, final format** used by the addon/API
+- `MergedDataItem` is the **full, intermediate format** used during processing
+- `FinalDBFileType` drops Crunchbase-specific fields (but preserves Android fields)
+- `FinalDBFileType` adds `alt` and `c` fields that aren't in `MergedDataItem`
+
+#### `NetworksFlatItemType` (Scrapper) → `FinalDBFileType` (Common)
+
+| Aspect              | `NetworksFlatItemType` (Scrapper)           | `FinalDBFileType` (Common)                                   | Notes                                  |
+| ------------------- | ------------------------------------------- | ------------------------------------------------------------ | -------------------------------------- |
+| **Structure**       | Flattened (one entry per platform/selector) | Unflattened (one entry per company)                          | Different data organization            |
+| **Selector**        | `selector` (platform identifier)            | Not present (becomes platform field value)                   | Selector is mapped to platform field   |
+| **Platform Fields** | None (only `selector`)                      | `ws`, `li`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` | Selector values become platform fields |
+| **Name Field**      | `name` (full)                               | `n` (abbreviated)                                            | Abbreviated in final format            |
+| **Reasons Field**   | `reasons` (full)                            | `r` (abbreviated)                                            | Abbreviated in final format            |
+| **Stock Symbol**    | `s`                                         | `s`                                                          | ✅ Same (already abbreviated)          |
+| **Hint Fields**     | `isHint`, `hintText`, `hintUrl`             | Same                                                         | ✅ Preserved                           |
+| **Android Fields**  | `android_dev_id`, `android_app_ids`         | Same                                                         | ✅ Preserved                           |
+| **Alternatives**    | Not present                                 | `alt` (optional)                                             | Added in final step                    |
+| **Comment**         | Not present                                 | `c` (optional)                                               | Added in final step                    |
+
+**Key Transformations:**
+
+- **Flattening → Unflattening:** Multiple `NetworksFlatItemType` entries (one per platform) → One `FinalDBFileType` entry (all platforms combined)
+- **Selector → Platform Field:** `selector: "example"` from LinkedIn file → `li: "example"` in final format
+- **Field Abbreviation:** `name` → `n`, `reasons` → `r`
+
+### Type Coverage Analysis
+
+#### Fields Present in `FinalDBFileType` but NOT in `MergedDataItem`:
+
+- `alt` - Added from `alternatives.json` in final step
+- `c` - Comment field (source unclear, may be added in final step)
+
+#### Fields Present in `MergedDataItem` but NOT in `FinalDBFileType`:
+
+- `cbLink`, `cbRank`, `estRevenue` - Crunchbase-specific metadata
+- `industries`, `industryGroups` - Crunchbase categories
+- `founderIds`, `investorIds`, `acquirerIds` - Crunchbase relationship data
+- `description` - Company description
+- `hq_postal_code` - Location data
+- `stock_exchange_symbol` - Additional stock metadata
+- `acquirer_identifier` - Acquisition data
+
+#### Fields Present in Both:
+
+- `id`, `ws`, `li`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` - Core platform fields
+- `isHint`, `hintText`, `hintUrl` - Hint fields
+- `android_dev_id`, `android_app_ids` - Android fields (preserved in all types with hint fields)
+- `name`/`n`, `reasons`/`r`, `stock_symbol`/`s` - Core metadata (abbreviated in final)
+
+### Type Definitions Location
+
+| Type                           | Location                         | Package  | Purpose                                  |
+| ------------------------------ | -------------------------------- | -------- | ---------------------------------------- |
+| `APIListOfReasonsSchema`       | `packages/common/src/index.ts`   | Common   | Shared enum schema                       |
+| `LinkField`                    | `packages/common/src/index.ts`   | Common   | Platform field type union                |
+| `FinalDBFileSchema`            | `packages/common/src/index.ts`   | Common   | Final output schema (API contract)       |
+| `FinalDBFileType`              | `packages/common/src/index.ts`   | Common   | Final output type (inferred from schema) |
+| `CrunchbaseScrappedItemSchema` | `packages/scrapper/src/types.ts` | Scrapper | Crunchbase API response schema           |
+| `MergedDataItemSchema`         | `packages/scrapper/src/types.ts` | Scrapper | Intermediate merged data schema          |
+| `NetworksFlatItemsSchema`      | `packages/scrapper/src/types.ts` | Scrapper | Flattened network data schema            |
+| `ManualEntrySchema`            | `packages/scrapper/src/types.ts` | Scrapper | Manual entry schema                      |
+| `CompressedManualItemSchema`   | `packages/scrapper/src/types.ts` | Scrapper | Compressed manual input schema           |
+
+### Recommendations
+
+1. **Import `LinkField` in Scrapper**
+   - Scrapper should import `LinkField` from `@theWallProject/common` instead of using string literals
+   - Ensures consistency across packages
+
+2. **Type Safety for Field Abbreviations**
+   - Consider creating a mapping type for field abbreviations (`name` → `n`, `reasons` → `r`)
+   - This would make the transformation more type-safe
+
+3. **Document Field Transformations**
+   - The transformation from `MergedDataItem` → `FinalDBFileType` drops Crunchbase-specific fields
+   - Android fields are now preserved in all types that have hint fields (consistent data model)
+
+4. **Consider Type Guards**
+   - Add type guards to distinguish between intermediate and final formats
+   - Helps catch bugs during development

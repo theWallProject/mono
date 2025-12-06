@@ -81,7 +81,9 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
       ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
       ...(row.isHint ? { isHint: true } : {}),
       ...(row.hintText ? { hintText: row.hintText } : {}),
-      ...(row.hintUrl ? { hintUrl: row.hintUrl } : {})
+      ...(row.hintUrl ? { hintUrl: row.hintUrl } : {}),
+      ...(row.android_dev_id ? { android_dev_id: row.android_dev_id } : {}),
+      ...(row.android_app_ids ? { android_app_ids: row.android_app_ids } : {})
     }
     if (Array.isArray(previousRows)) {
       // error(`Duplicate domain [flagged]: ${domain} of website ${website}`);
@@ -160,6 +162,12 @@ function mergeObjects(obj1: NetworksFlatItemType, obj2: NetworksFlatItemType): N
   }
   if (obj2.hintUrl && (!merged.hintUrl || merged.hintUrl === "")) {
     merged.hintUrl = obj2.hintUrl
+  }
+  if (obj2.android_dev_id && (!merged.android_dev_id || merged.android_dev_id === "")) {
+    merged.android_dev_id = obj2.android_dev_id
+  }
+  if (obj2.android_app_ids && (!merged.android_app_ids || merged.android_app_ids.length === 0)) {
+    merged.android_app_ids = obj2.android_app_ids
   }
 
   return merged

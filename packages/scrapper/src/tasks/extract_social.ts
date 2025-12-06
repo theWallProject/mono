@@ -55,7 +55,26 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
   const threadsMap: { [key: string]: boolean } = {}
 
   data.forEach((row) => {
-    const { name, ws, li, fb, tw, reasons, id, ig, gh, ytp, ytc, tt, th } = row
+    const {
+      name,
+      ws,
+      li,
+      fb,
+      tw,
+      reasons,
+      id,
+      ig,
+      gh,
+      ytp,
+      ytc,
+      tt,
+      th,
+      isHint,
+      hintText,
+      hintUrl,
+      android_dev_id,
+      android_app_ids
+    } = row
 
     // if (namesMap[name]) {
     //   error(`Duplicate name [social]: ${row.name}`);
@@ -87,7 +106,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             name: name,
             id: row.id,
             reasons: reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {
@@ -116,7 +140,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
               selector: result,
               name: name,
               reasons: reasons,
-              ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+              ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+              ...(isHint ? { isHint: true } : {}),
+              ...(hintText ? { hintText } : {}),
+              ...(hintUrl ? { hintUrl } : {}),
+              ...(android_dev_id ? { android_dev_id } : {}),
+              ...(android_app_ids ? { android_app_ids } : {})
             })
           }
         }
@@ -144,7 +173,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             selector: result,
             name: row.name,
             reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {
@@ -171,7 +205,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             selector: result,
             name: row.name,
             reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {
@@ -195,7 +234,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             selector: result,
             name: row.name,
             reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {
@@ -221,7 +265,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             selector: result,
             name: row.name,
             reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {
@@ -245,7 +294,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             selector: result,
             name: row.name,
             reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {
@@ -270,7 +324,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             selector: result,
             name: row.name,
             reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {
@@ -295,7 +354,12 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             selector: result,
             name: row.name,
             reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {})
+            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
+            ...(isHint ? { isHint: true } : {}),
+            ...(hintText ? { hintText } : {}),
+            ...(hintUrl ? { hintUrl } : {}),
+            ...(android_dev_id ? { android_dev_id } : {}),
+            ...(android_app_ids ? { android_app_ids } : {})
           })
         }
       } else {

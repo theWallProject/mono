@@ -48,6 +48,12 @@ const loadJsonFiles = (folderPath: string) => {
         if (newRow.hintUrl) {
           existingRow["hintUrl"] = newRow.hintUrl
         }
+        if (newRow.android_dev_id) {
+          existingRow["android_dev_id"] = newRow.android_dev_id
+        }
+        if (newRow.android_app_ids) {
+          existingRow["android_app_ids"] = newRow.android_app_ids
+        }
       } else {
         idRecord[newRow.id] = {
           id: newRow.id,
@@ -59,7 +65,9 @@ const loadJsonFiles = (folderPath: string) => {
           // c: newRow;
           ...(newRow.isHint ? { isHint: true } : {}),
           ...(newRow.hintText ? { hintText: newRow.hintText } : {}),
-          ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {})
+          ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {}),
+          ...(newRow.android_dev_id ? { android_dev_id: newRow.android_dev_id } : {}),
+          ...(newRow.android_app_ids ? { android_app_ids: newRow.android_app_ids } : {})
         }
       }
     }
