@@ -11,11 +11,11 @@ async function main() {
   log("This will regenerate ALL.json and other output files with latest manualOverrides.ts")
 
   try {
-    // Run update steps without any prompts (skip scraping, validation, copy to addon)
+    // Run update steps without any prompts (skip scraping, validation)
+    // Note: ALL.json is automatically copied to all destinations in final.ts
     await runUpdateSteps({
       shouldScrap: false,
-      shouldValidate: false,
-      shouldCopyToAddon: false
+      shouldValidate: false
     })
 
     log("\n✅ Successfully applied manual overrides!")

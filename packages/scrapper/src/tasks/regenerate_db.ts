@@ -9,8 +9,7 @@ import { runUpdateSteps } from "../index"
     log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Starting database regeneration...")
     await runUpdateSteps({
       shouldScrap: false,
-      shouldValidate: false,
-      shouldCopyToAddon: false
+      shouldValidate: false
     })
     log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Database regeneration completed successfully")
     process.exit(0)

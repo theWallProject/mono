@@ -96,6 +96,36 @@ const loadJsonFiles = (folderPath: string) => {
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
   fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
   log(`Final data successfully written to ${outputFilePath}`)
+
+  // Copy ALL.json to all destinations right after it's generated
+  const allJsonPath = outputFilePath
+
+  // Copy to addon
+  const addonTarget = path.join(__dirname, `../../../addon/src/db/ALL.json`)
+  const addonDir = path.dirname(addonTarget)
+  if (!fs.existsSync(addonDir)) {
+    fs.mkdirSync(addonDir, { recursive: true })
+  }
+  fs.copyFileSync(allJsonPath, addonTarget)
+  log(`Copied ALL.json to addon: ${addonTarget}`)
+
+  // Copy to Android assets
+  const androidTarget = path.join(__dirname, `../../../android/app/src/main/assets/ALL.json`)
+  const androidDir = path.dirname(androidTarget)
+  if (!fs.existsSync(androidDir)) {
+    fs.mkdirSync(androidDir, { recursive: true })
+  }
+  fs.copyFileSync(allJsonPath, androidTarget)
+  log(`Copied ALL.json to Android assets: ${androidTarget}`)
+
+  // Copy to telegram-bot
+  const telegramTarget = path.join(__dirname, `../../../telegram-bot/db/ALL.json`)
+  const telegramDir = path.dirname(telegramTarget)
+  if (!fs.existsSync(telegramDir)) {
+    fs.mkdirSync(telegramDir, { recursive: true })
+  }
+  fs.copyFileSync(allJsonPath, telegramTarget)
+  log(`Copied ALL.json to telegram-bot: ${telegramTarget}`)
 }
 
 export async function run() {

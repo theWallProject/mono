@@ -2,7 +2,6 @@ import inquirer from "inquirer"
 
 import { error, log } from "./helper"
 import { run as alternativesReport } from "./tasks/alternatives_report"
-import { run as copyToAddon } from "./tasks/copy_to_addon"
 import { run as extractSocial } from "./tasks/extract_social"
 import { run as extractWebsites } from "./tasks/extract_websites"
 import { run as final } from "./tasks/final"
@@ -40,11 +39,7 @@ if (require.main === module) {
   })
 }
 
-export const runUpdateSteps = async (options?: {
-  shouldScrap?: boolean
-  shouldValidate?: boolean
-  shouldCopyToAddon?: boolean
-}) => {
+export const runUpdateSteps = async (options?: { shouldScrap?: boolean; shouldValidate?: boolean }) => {
   const opts = options || {}
 
   if (opts.shouldScrap) {
@@ -79,10 +74,7 @@ export const runUpdateSteps = async (options?: {
   log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 10: Show alternatives report...")
   await alternativesReport()
 
-  if (opts.shouldCopyToAddon) {
-    log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 11: Copy to Addon...")
-    await copyToAddon()
-  }
+  // Note: ALL.json is now automatically copied to all destinations in final.ts
 
   if (opts.shouldValidate) {
     log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 12: Validating URLs...")
@@ -101,18 +93,12 @@ const main = async () => {
       type: "confirm",
       name: "shouldValidate",
       message: "Validate URLs?"
-    },
-    {
-      type: "confirm",
-      name: "shouldCopyToAddon",
-      message: "Copy to Addon?"
     }
   ])
 
   await runUpdateSteps({
     shouldScrap: answers.shouldScrap,
-    shouldValidate: answers.shouldValidate,
-    shouldCopyToAddon: answers.shouldCopyToAddon
+    shouldValidate: answers.shouldValidate
   })
 }
 
