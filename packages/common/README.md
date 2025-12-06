@@ -62,6 +62,30 @@ Common types and utilities for theWall addon projects.
 - [ ] Entry added to `DBFileNames` enum (`FLAGGED_*`)
 - [ ] Field added to `FinalDBFileSchema` (short abbreviation)
 - [ ] **Rule added to `CONFIG.rules` array** ⚠️
+- [ ] Run `pnpm run generate-schema` to regenerate JSON schema
+
+## Schema Generation
+
+**The Zod schema (`FinalDBFileSchema`) is the absolute source of truth.**
+
+The JSON schema file (`all.generated.schema.json`) is auto-generated from the Zod schema using `zod-to-json-schema`:
+
+```bash
+pnpm run generate-schema
+```
+
+This script:
+
+1. Generates `packages/common/src/schemas/all.generated.schema.json` from `FinalDBFileSchema`
+2. Copies the schema to `packages/android/app/src/main/assets/all.generated.schema.json`
+
+**Build-time validation:**
+
+- Schema generation runs as part of `build:common`
+- All `ALL.json` files are validated against the generated schema
+- Android build validates `ALL.json` against the schema and fails if it doesn't match
+
+**⚠️ Do not edit `all.generated.schema.json` manually.** Always modify `FinalDBFileSchema` and regenerate.
 
 ## Usage
 

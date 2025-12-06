@@ -82,47 +82,30 @@ dependencies {
     implementation(libs.org.json)
 }
 
-// Task to copy schema from common package to Android assets
-tasks.register("copyBlacklistSchema") {
-    val schemaSource = file("${project.rootProject.projectDir}/../common/src/schemas/blacklist.schema.json")
-    val schemaDest = file("src/main/assets/blacklist.schema.json")
+// Task to validate ALL.json against schema at build time
+tasks.register("validateAllJson") {
+    val allJsonFile = file("src/main/assets/ALL.json")
+    val schemaFile = file("src/main/assets/all.generated.schema.json")
 
     doLast {
-        if (!schemaSource.exists()) {
-            throw GradleException("Schema file not found at ${schemaSource.absolutePath}. Run 'pnpm run generate-schema' in common package first.")
-        }
-        schemaDest.parentFile.mkdirs()
-        schemaSource.copyTo(schemaDest, overwrite = true)
-        println("✅ Copied blacklist schema to ${schemaDest.absolutePath}")
-    }
-}
-
-// Task to validate blacklist.json against schema at build time
-tasks.register("validateBlacklist") {
-    dependsOn("copyBlacklistSchema")
-
-    val blacklistFile = file("src/main/assets/blacklist.json")
-    val schemaFile = file("src/main/assets/blacklist.schema.json")
-
-    doLast {
-        if (!blacklistFile.exists()) {
-            throw GradleException("blacklist.json not found at ${blacklistFile.absolutePath}")
+        if (!allJsonFile.exists()) {
+            throw GradleException("ALL.json not found at ${allJsonFile.absolutePath}")
         }
         if (!schemaFile.exists()) {
-            throw GradleException("blacklist.schema.json not found at ${schemaFile.absolutePath}. Run 'copyBlacklistSchema' task first.")
+            throw GradleException("all.generated.schema.json not found at ${schemaFile.absolutePath}. Run 'pnpm run generate-schema' in common package first.")
         }
 
         try {
             val schemaText = schemaFile.readText()
-            val blacklistText = blacklistFile.readText()
+            val allJsonText = allJsonFile.readText()
 
             // Schema is a JSON object (even though it describes an array)
             val schemaJson = org.json.JSONObject(schemaText)
-            val blacklistJson = org.json.JSONArray(blacklistText)
+            val allJson = org.json.JSONArray(allJsonText)
 
             val schema = org.everit.json.schema.loader.SchemaLoader.load(schemaJson)
-            schema.validate(blacklistJson)
-            println("✅ blacklist.json validation passed - schema matches models.kt structure")
+            schema.validate(allJson)
+            println("✅ ALL.json validation passed - schema matches FinalDBFileSchema")
         } catch (e: org.everit.json.schema.ValidationException) {
             val errors = e.causingExceptions.ifEmpty { listOf(e) }
             errors.forEach { error ->
@@ -130,22 +113,14 @@ tasks.register("validateBlacklist") {
                 println("   Violated schema: ${error.schemaLocation}")
                 println("   Instance location: ${error.pointerToViolation}")
             }
-            throw GradleException("blacklist.json validation failed. See errors above.")
+            throw GradleException("ALL.json validation failed. The file does not match the schema generated from FinalDBFileSchema. See errors above.")
         } catch (e: Exception) {
-            throw GradleException("Failed to validate blacklist.json: ${e.message}", e)
+            throw GradleException("Failed to validate ALL.json: ${e.message}", e)
         }
     }
 }
 
 // Make validation run before compilation
-// Note: ALL.json is now copied automatically by scrapper build process
 tasks.named("preBuild") {
-    dependsOn("validateBlacklist")
-}
-
-tasks.register("preCommitCheck") {
-    dependsOn("lintDebug", "validateBlacklist")
-    doLast {
-        println("✅ Pre-commit checks passed!")
-    }
+    dependsOn("validateAllJson")
 }

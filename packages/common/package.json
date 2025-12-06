@@ -4,20 +4,22 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --build",
+    "build": "pnpm run generate-schema && pnpm run validate-schema && tsc --build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "generate-schema": "ts-node scripts/generate-schema.ts"
+    "generate-schema": "ts-node scripts/generate-schema.ts",
+    "validate-schema": "ts-node scripts/validate-schema.ts"
   },
   "dependencies": {
     "tldts": "^7.0.8"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "jsonschema": "^1.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "vitest": "^1.0.0",
-    "zod-to-json-schema": "^3.23.5"
+    "zod-to-json-schema": "^3.25.0"
   },
   "publishConfig": {
     "access": "public"

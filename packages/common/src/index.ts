@@ -95,6 +95,18 @@ type APIEndpointRule = {
   regex: string
 }
 
+/**
+ * Zod schema for FinalDBFileType - THE ABSOLUTE SOURCE OF TRUTH.
+ *
+ * ⚠️ IMPORTANT: This Zod schema is the authoritative source for ALL.json structure.
+ * The JSON schema file at `packages/common/src/schemas/all.generated.schema.json` is AUTO-GENERATED
+ * from this Zod schema using `zod-to-json-schema`.
+ *
+ * To update the schema:
+ * 1. Modify this Zod schema
+ * 2. Run `pnpm run generate-schema` to regenerate the JSON schema file
+ * 3. The build will validate ALL.json files against the generated schema
+ */
 export const FinalDBFileSchema = z
   .object({
     /** id */

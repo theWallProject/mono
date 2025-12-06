@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { exec, spawnSync } from "node:child_process"
-import { existsSync, readFileSync, writeFileSync } from "node:fs"
+import { spawn, spawnSync } from "node:child_process"
+import { existsSync, readFileSync, unlinkSync, writeFileSync } from "node:fs"
 import http from "node:http"
 import { join } from "node:path"
 import prompts from "prompts"
@@ -8,6 +8,7 @@ import { z } from "zod"
 
 const OLLAMA_BASE_URL = "http://127.0.0.1:11434"
 const CONFIG_FILE = join(process.cwd(), ".commit-config.json")
+const CACHE_FILE = join(process.cwd(), ".commit-message-cache.json")
 
 const OllamaTagsSchema = z.object({
   models: z.array(
@@ -116,9 +117,28 @@ async function selectModel(availableModels: string[]): Promise<string> {
 
 async function getStagedDiff() {
   return new Promise<string | null>((resolve, reject) => {
-    exec("git diff --cached", (error, stdout) => {
-      if (error) {
-        reject(error)
+    const child = spawn("git", ["diff", "--cached", "--ignore-all-space", "--ignore-blank-lines"], {
+      stdio: ["ignore", "pipe", "pipe"]
+    })
+
+    let stdout = ""
+    let stderr = ""
+
+    child.stdout.on("data", (data) => {
+      stdout += data.toString()
+    })
+
+    child.stderr.on("data", (data) => {
+      stderr += data.toString()
+    })
+
+    child.on("error", (error) => {
+      reject(error)
+    })
+
+    child.on("close", (code) => {
+      if (code !== 0) {
+        reject(new Error(`git diff --cached failed with code ${code}: ${stderr}`))
         return
       }
       resolve(stdout)
@@ -127,8 +147,9 @@ async function getStagedDiff() {
 }
 
 function limitDiffPerFile(diff: string): string {
-  const PER_FILE_LINE_LIMIT = 100
-  const TOTAL_CHAR_LIMIT = 5000
+  const MAX_FILES = 100
+  const INITIAL_PER_FILE_LINE_LIMIT = 100
+  const TOTAL_CHAR_LIMIT = 50000
 
   // Split diff by file (each file starts with "diff --git")
   const fileSections = diff.split(/\n(?=diff --git)/)
@@ -142,8 +163,21 @@ function limitDiffPerFile(diff: string): string {
   const originalLines = diff.split("\n").length
   const originalFileCount = fileSections.length
 
+  // Calculate per-file line limit based on number of files
+  // If we have many files, reduce per-file limit to fit more files
+  let perFileLineLimit = INITIAL_PER_FILE_LINE_LIMIT
+  if (originalFileCount > MAX_FILES) {
+    // Reduce per-file limit proportionally to fit MAX_FILES
+    perFileLineLimit = Math.max(20, Math.floor((INITIAL_PER_FILE_LINE_LIMIT * MAX_FILES) / originalFileCount))
+  }
+
   for (const section of fileSections) {
     if (!section.trim()) continue
+
+    // Stop if we've reached the file limit
+    if (fileCount >= MAX_FILES) {
+      break
+    }
 
     fileCount++
     const lines = section.split("\n")
@@ -172,11 +206,27 @@ function limitDiffPerFile(diff: string): string {
       }
     }
 
-    // Limit content lines
-    let limitedContent = contentLines
-    if (contentLines.length > PER_FILE_LINE_LIMIT) {
-      limitedContent = contentLines.slice(0, PER_FILE_LINE_LIMIT)
-      limitedContent.push(`... (truncated, showing first ${PER_FILE_LINE_LIMIT} lines)`)
+    // Filter out whitespace-only and context lines, keep only actual changes
+    const meaningfulLines = contentLines.filter((line) => {
+      const trimmed = line.trim()
+      // Keep lines that show actual changes (start with + or -)
+      if (trimmed.startsWith("+") || trimmed.startsWith("-")) {
+        // Filter out lines that are only whitespace changes
+        const withoutPrefix = trimmed.substring(1).trim()
+        // Keep if there's actual content (not just whitespace)
+        return withoutPrefix.length > 0
+      }
+      // Skip context lines (starting with space) and empty lines
+      return false
+    })
+
+    // Limit content lines (reduce if file is too big)
+    let limitedContent = meaningfulLines
+    if (meaningfulLines.length > perFileLineLimit) {
+      limitedContent = meaningfulLines.slice(0, perFileLineLimit)
+      limitedContent.push(
+        `... (truncated, showing first ${perFileLineLimit} of ${meaningfulLines.length} meaningful lines)`
+      )
       // Extract filename from header
       const fileMatch = section.match(/diff --git a\/(.+?) b\//)
       if (fileMatch) {
@@ -302,7 +352,33 @@ ${diff}`
   return result
 }
 
-async function commitChanges(message: string) {
+function saveCachedMessage(message: string): void {
+  writeFileSync(CACHE_FILE, JSON.stringify({ message, timestamp: Date.now() }, null, 2), "utf-8")
+}
+
+function loadCachedMessage(): string | null {
+  if (!existsSync(CACHE_FILE)) {
+    return null
+  }
+  try {
+    const content = readFileSync(CACHE_FILE, "utf-8")
+    const parsed = JSON.parse(content)
+    if (parsed.message && typeof parsed.message === "string") {
+      return parsed.message
+    }
+  } catch {
+    // Invalid cache file, ignore
+  }
+  return null
+}
+
+function clearCachedMessage(): void {
+  if (existsSync(CACHE_FILE)) {
+    unlinkSync(CACHE_FILE)
+  }
+}
+
+async function commitChanges(message: string, noVerify = false): Promise<void> {
   // Split message into lines - first line is the title
   const lines = message
     .split("\n")
@@ -316,7 +392,11 @@ async function commitChanges(message: string) {
   const body = lines.slice(1)
 
   // Use first line as title, rest as body
-  const args = ["commit", "-m", title]
+  const args = ["commit"]
+  if (noVerify) {
+    args.push("--no-verify")
+  }
+  args.push("-m", title)
   for (const line of body) {
     args.push("-m", line)
   }
@@ -333,6 +413,32 @@ async function commitChanges(message: string) {
 }
 
 async function main() {
+  // Check for cached message from previous failed commit
+  const cachedMessage = loadCachedMessage()
+  if (cachedMessage) {
+    console.log("💾 Found cached commit message from previous run.")
+    const { useCached } = await prompts({
+      type: "confirm",
+      name: "useCached",
+      message: "Use cached message with --no-verify?",
+      initial: true
+    })
+
+    if (useCached) {
+      try {
+        await commitChanges(cachedMessage, true)
+        clearCachedMessage()
+        console.log("✅ Changes committed with cached message (--no-verify).")
+        return
+      } catch (error: unknown) {
+        console.error(`❌ Commit failed: ${error instanceof Error ? error.message : String(error)}`)
+        process.exit(1)
+      }
+    } else {
+      clearCachedMessage()
+    }
+  }
+
   // Get available models and check if Ollama is running
   let availableModels: string[]
   try {
@@ -363,13 +469,8 @@ async function main() {
   // Generate commit message based on limited diff
   const commitMessage = await generateCommitMessage(diff, selectedModel)
 
-  console.log("📝 Generated Commit Message:")
-  console.log(
-    commitMessage
-      .split("\n")
-      .map((line) => `   ${line}`)
-      .join("\n")
-  )
+  // Save message to cache
+  saveCachedMessage(commitMessage)
 
   const { confirm } = await prompts({
     type: "confirm",
@@ -379,9 +480,18 @@ async function main() {
   })
 
   if (confirm) {
-    await commitChanges(commitMessage)
-    console.log("✅ Changes committed.")
+    try {
+      await commitChanges(commitMessage)
+      clearCachedMessage()
+      console.log("✅ Changes committed.")
+    } catch (error: unknown) {
+      // Keep cached message for retry
+      console.error(`❌ Commit failed: ${error instanceof Error ? error.message : String(error)}`)
+      console.log("💾 Message saved to cache. Run the command again to retry with --no-verify.")
+      throw error
+    }
   } else {
+    clearCachedMessage()
     console.log("🙅 Commit aborted.")
   }
 }
