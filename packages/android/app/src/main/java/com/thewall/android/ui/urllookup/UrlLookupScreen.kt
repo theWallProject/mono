@@ -43,9 +43,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.thewall.android.data.ReasonLevel
-import com.thewall.android.data.logic.UrlCheckResult
+import com.thewall.android.data.models.ReasonLevel
 import com.thewall.android.data.logic.UrlChecker
+import com.thewall.android.data.models.UrlCheckResult
 import com.thewall.android.data.reasonsMap
 import kotlinx.coroutines.launch
 

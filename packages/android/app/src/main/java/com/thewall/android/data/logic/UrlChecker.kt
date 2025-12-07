@@ -3,8 +3,12 @@ package com.thewall.android.data.logic
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.thewall.android.data.Alternative
-import com.thewall.android.data.FinalDBFile
+import com.thewall.android.data.models.APIEndpointConfig
+import com.thewall.android.data.models.APIEndpointRule
+import com.thewall.android.data.models.AllItem
+import com.thewall.android.data.models.RuleInfo
+import com.thewall.android.data.models.UrlCheckResult
+import com.thewall.android.util.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.URI
@@ -25,21 +29,21 @@ import java.net.URI
 class UrlChecker(private val context: Context) {
 
     // Cache for the parsed database to avoid reloading it every time.
-    private var database: List<FinalDBFile>? = null
+    private var database: List<AllItem>? = null
 
     private val config: APIEndpointConfig by lazy {
         buildApiEndpointConfig()
     }
 
-    private suspend fun getDatabase(): List<FinalDBFile> {
+    private suspend fun getDatabase(): List<AllItem> {
         database?.let { return it }
         // --- Performance Note ---
         // This is executed on a background thread by the caller (`checkUrl`).
         // It loads and parses the large JSON file from assets.
         return withContext(Dispatchers.IO) {
-            val jsonString = context.assets.open("ALL.json").bufferedReader().use { it.readText() }
-            val listType = object : TypeToken<List<FinalDBFile>>() {}.type
-            val db: List<FinalDBFile> = Gson().fromJson(jsonString, listType)
+            val jsonString = readFile(context.assets, "ALL.json")
+            val listType = object : TypeToken<List<AllItem>>() {}.type
+            val db: List<AllItem> = Gson().fromJson(jsonString, listType)
             database = db // Cache the result
             db
         }
@@ -57,38 +61,56 @@ class UrlChecker(private val context: Context) {
             rules = listOf(
                 APIEndpointRule(
                     "linkedin.com",
+                    // Captures the company name from /company/{name} or /showcase/{name}
+                    // Excludes /school/ paths.
                     "(?:https?://)?(?:www\\.)?(?:linkedin\\.com)/(?!school)(?:company|showcase)/([^/?]+)"
                 ),
                 APIEndpointRule(
                     "facebook.com",
+                    // Captures the page name from facebook.com/{name}
+                    // Excludes common paths like /events, /groups, etc.
                     "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login)([^/?]+)"
                 ),
                 APIEndpointRule(
                     "twitter.com",
+                    // Captures the handle from twitter.com/{handle}, x.com/{handle}, or t.co/{handle}
+                    // Excludes paths like /search, /hashtag, etc.
                     "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings)([^/?]+)"
                 ),
                 APIEndpointRule(
                     "instagram.com",
+                    // Captures the username from instagram.com/{username}
+                    // Excludes common paths like /explore, /reels, etc.
                     "(?:instagram\\.com)/(?!explore|reels|p/|stories|tv/|direct|accounts)([^/?]+)"
                 ),
                 APIEndpointRule(
                     "github.com",
+                    // Captures the username or org name from github.com/{name}
+                    // Excludes paths for issues, pull requests, etc. and gist.github.com
                     "(?<!gist\\.)(?:github\\.com)/(?!settings|.*/(?:issues|pull|releases|actions|security))([^/]+)"
                 ),
                 APIEndpointRule(
                     "youtube.com",
+                    // Captures channel/user name from various YouTube URL formats like:
+                    // /user/{name}, /c/{name}, /@{name}, or just /{name}
+                    // Excludes common paths like /watch, /feed, etc.
                     "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/(?:(?:user/([^/?]+))|(?:c/(?!(?:@)?(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)@?([^/?]+))|(?:@(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)([^/?]+))|(?!(?:about|channel|embed|feed|live|playlist|results|shorts|trending|user/|watch)\\b)(?!(?:c/|@|user/))([^/?]+))"
                 ),
                 APIEndpointRule(
                     "youtube.com",
+                    // Captures the channel ID from youtube.com/channel/{ID}
                     "(?:https?://)?(?:www\\.)?(?:youtube\\.com)/channel/([^/?]+)"
                 ),
                 APIEndpointRule(
                     "tiktok.com",
+                    // Captures the username from tiktok.com/{username}
+                    // Excludes paths like /video, /discover, etc.
                     "(?:tiktok\\.com)/(?!.*/video/|discover|foryou|trending|music|upload)([^/?]+)"
                 ),
                 APIEndpointRule(
                     "threads.com",
+                    // Captures the username from threads.com/{username}
+                    // Excludes paths like /post, /search, etc.
                     "(?:threads\\.com)/(?!.*/post/|search|explore|activity|settings)([^/?]+)"
                 )
             )
@@ -108,9 +130,11 @@ class UrlChecker(private val context: Context) {
             val selector = extractSelector(url, rule)
             if (selector != null) {
                 val selectorKey = getSelectorKey(rule.domain, url)
-                val findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, db)
-                if (findResult != null) {
-                    return@withContext formatResult(findResult, selector, selectorKey)
+                if (selectorKey != null) {
+                    val findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, db)
+                    if (findResult != null) {
+                        return@withContext formatResult(findResult, selector, selectorKey)
+                    }
                 }
             }
         }
@@ -180,23 +204,23 @@ class UrlChecker(private val context: Context) {
         selector: String,
         selectorKey: String,
         domain: String,
-        database: List<FinalDBFile>
-    ): FinalDBFile? {
+        database: List<AllItem>
+    ): AllItem? {
         if (selectorKey == "il") {
             return null
         }
         return database.find { row ->
             val dbValue = when (selectorKey) {
-                "ws" -> row.website
-                "li" -> row.linkedin
-                "fb" -> row.facebook
-                "tw" -> row.twitter
-                "ig" -> row.instagram
-                "gh" -> row.github
-                "ytp" -> row.youtubeProfile
-                "ytc" -> row.youtubeChannel
-                "tt" -> row.tiktok
-                "th" -> row.threads
+                "ws" -> row.ws
+                "li" -> row.li
+                "fb" -> row.fb
+                "tw" -> row.tw
+                "ig" -> row.ig
+                "gh" -> row.gh
+                "ytp" -> row.ytp
+                "ytc" -> row.ytc
+                "tt" -> row.tt
+                "th" -> row.th
                 else -> null
             }
             if (dbValue == null) {
@@ -216,36 +240,36 @@ class UrlChecker(private val context: Context) {
         }
     }
 
-    private fun findInDatabaseByDomain(domain: String, database: List<FinalDBFile>): FinalDBFile? {
-        return database.find { it.website == domain }
+    private fun findInDatabaseByDomain(domain: String, database: List<AllItem>): AllItem? {
+        return database.find { it.ws == domain }
     }
 
     private fun formatResult(
-        findResult: FinalDBFile,
+        findResult: AllItem,
         selector: String,
         selectorKey: String
     ): UrlCheckResult {
         return if (findResult.isHint == true && findResult.hintText != null) {
             UrlCheckResult.Hint(
-                name = findResult.name,
+                name = findResult.n,
                 hintText = findResult.hintText,
                 hintUrl = findResult.hintUrl ?: "",
                 rule = RuleInfo(selector, selectorKey)
             )
         } else {
             UrlCheckResult.Match(
-                reasons = findResult.reasons,
-                name = findResult.name,
-                alt = findResult.alternatives,
-                stockSymbol = findResult.stockSymbol,
-                comment = findResult.comment,
-                link = findResult.website,
+                reasons = findResult.r,
+                name = findResult.n,
+                alt = findResult.alt,
+                stockSymbol = findResult.s,
+                comment = findResult.c,
+                link = findResult.ws,
                 rule = RuleInfo(selector, selectorKey)
             )
         }
     }
 
-    private fun getSelectorKey(domain: String, url: String? = null): String {
+    private fun getSelectorKey(domain: String, url: String?): String? {
         return when (domain) {
             "facebook.com" -> "fb"
             "twitter.com", "x.com" -> "tw"
@@ -253,41 +277,12 @@ class UrlChecker(private val context: Context) {
             "instagram.com" -> "ig"
             "github.com" -> "gh"
             "youtube.com" -> {
-                if (url == null) {
-                    throw IllegalArgumentException("getSelectorKey: url is required for youtube.com domain")
-                }
+                if (url == null) return null
                 if (url.contains("/channel/")) "ytc" else "ytp"
             }
             "tiktok.com" -> "tt"
             "threads.com" -> "th"
-            else -> throw IllegalArgumentException("getSelectorKey: unexpected domain $domain")
+            else -> null // Return null for unexpected domains
         }
     }
 }
-
-data class APIEndpointConfig(val rules: List<APIEndpointRule>)
-data class APIEndpointRule(val domain: String, val regex: String)
-
-sealed class UrlCheckResult {
-    data class Hint(
-        val name: String,
-        val hintText: String,
-        val hintUrl: String,
-        val rule: RuleInfo
-    ) : UrlCheckResult()
-
-    data class Match(
-        val reasons: List<String>,
-        val name: String,
-        val alt: List<Alternative>?,
-        val stockSymbol: String?,
-        val comment: String?,
-        val link: String?,
-        val rule: RuleInfo
-    ) : UrlCheckResult()
-}
-
-data class RuleInfo(
-    val selector: String,
-    val key: String
-)

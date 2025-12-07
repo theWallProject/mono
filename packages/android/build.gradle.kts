@@ -4,12 +4,3 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
 }
-
-tasks.register<Copy>("installGitHooks") {
-    from("scripts/pre-commit.sh")
-    into(".git/hooks")
-    rename { "pre-commit" }
-    filePermissions {
-        unix("rwxr-xr-x") // "755" permissions
-    }
-}

@@ -1,12 +1,13 @@
 package com.thewall.android.ui.screens
 
-import android.app.Activity
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -27,58 +28,69 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.thewall.android.MainActivity
-import com.thewall.android.data.BlacklistItem
-import com.thewall.android.data.Reason
-import com.thewall.android.data.ReasonLevel
-import com.thewall.android.data.getEffectiveLevel
+import com.thewall.android.data.models.AllItem
+import com.thewall.android.data.models.Reason
+import com.thewall.android.data.models.ReasonLevel
 import com.thewall.android.data.reasonsMap
+import com.thewall.android.util.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 private data class AppScanResults(
-    val blacklisted: List<Pair<PackageInfo, BlacklistItem>>,
+    val blacklisted: List<Pair<PackageInfo, AllItem>>,
     val other: List<PackageInfo>
 )
 
-private suspend fun performAppScan(context: Context): AppScanResults {
+private suspend fun performAppScan(context: Context): AppScanResults = withContext(Dispatchers.IO) {
     Log.d("AppListScreen", "Background thread started for app scan")
     val gson = Gson()
     val assetManager = context.assets
 
-    // Load blacklist
-    val blacklistJson = MainActivity.readFile(assetManager, "blacklist.json")
-    val blacklistType = object : TypeToken<List<BlacklistItem>>() {}.type
-    val blacklist = gson.fromJson<List<BlacklistItem>>(blacklistJson, blacklistType)
-    Log.d("AppListScreen", "Blacklist loaded with ${blacklist.size} items")
+    // Load ALL.json
+    val allJson = readFile(assetManager, "ALL.json")
+    val allItemsType = object : TypeToken<List<AllItem>>() {}.type
+    val allItems = gson.fromJson<List<AllItem>>(allJson, allItemsType)
+    Log.d("AppListScreen", "ALL.json loaded with ${allItems.size} items")
+
+    val blacklist = allItems.filter { it.androidDevId != null || it.androidAppIds != null }
+    Log.d("AppListScreen", "Blacklist created with ${blacklist.size} items")
 
     // Get installed apps
     val installedApps =
         context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
     Log.d("AppListScreen", "Found ${installedApps.size} installed apps")
 
-    // Match apps: check exact matches for androidAppIds, prefix matches for androidDevId
-    val (bad, good) = installedApps.partition { app ->
-        blacklist.any { item ->
-            (item.androidAppIds != null && item.androidAppIds.isNotEmpty() && app.packageName in item.androidAppIds) ||
-                    (item.androidDevId != null && app.packageName.startsWith(item.androidDevId))
-        }
-    }
-    val blacklistedApps = bad.map { app ->
-        app to blacklist.first { item ->
-            (item.androidAppIds != null && item.androidAppIds.isNotEmpty() && app.packageName in item.androidAppIds) ||
-                    (item.androidDevId != null && app.packageName.startsWith(item.androidDevId))
-        }
-    }
-    val otherApps = good.filter {
+    val blacklistedApps = mutableListOf<Pair<PackageInfo, AllItem>>()
+    val otherApps = mutableListOf<PackageInfo>()
+
+    val nonSystemApps = installedApps.filter {
         (it.applicationInfo?.flags
             ?: 0) and (ApplicationInfo.FLAG_SYSTEM or ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
     }
-    return AppScanResults(blacklistedApps, otherApps)
+
+    nonSystemApps.forEach { app ->
+        val matchingItem = blacklist.find { item ->
+            (item.androidAppIds?.contains(app.packageName) == true) ||
+                    (item.androidDevId?.let { app.packageName.startsWith(it) } == true)
+        }
+        if (matchingItem != null) {
+            blacklistedApps.add(app to matchingItem)
+        } else {
+            otherApps.add(app)
+        }
+    }
+
+    AppScanResults(blacklistedApps, otherApps)
+}
+
+fun AllItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {
+    val hasError = this.r.any { reasonsMap[it]?.level == ReasonLevel.ERROR }
+    return if (hasError) ReasonLevel.ERROR else ReasonLevel.WARNING
 }
 
 
@@ -86,37 +98,94 @@ private suspend fun performAppScan(context: Context): AppScanResults {
 @Composable
 fun AppListScreen() {
     var isLoading by remember { mutableStateOf(true) }
-    var blacklistedApps by remember { mutableStateOf<List<Pair<PackageInfo, BlacklistItem>>>(emptyList()) }
+    var blacklistedApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
     var otherApps by remember { mutableStateOf<List<PackageInfo>>(emptyList()) }
     var refreshTrigger by remember { mutableStateOf(0) }
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    var showPermissionRationale by remember { mutableStateOf(false) }
 
     fun refresh() {
         refreshTrigger++
     }
 
+    val requestPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            refresh()
+        }
+    }
+
+    fun askForNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            when {
+                ContextCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    refresh()
+                }
+                else -> {
+                    showPermissionRationale = true
+                }
+            }
+        } else {
+            refresh()
+        }
+    }
+
     val uninstallLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) {
-        // This block is executed when the user returns from the uninstall prompt.
-        // We refresh the list regardless of whether they completed the uninstall.
         Log.d("AppListScreen", "Returned from uninstall prompt. Refreshing list.")
         refresh()
     }
 
     LaunchedEffect(refreshTrigger) {
-        Log.d("AppListScreen", "LaunchedEffect started (trigger: $refreshTrigger)")
-        isLoading = true
-        scope.launch(Dispatchers.IO) {
-            val results = performAppScan(context)
-            withContext(Dispatchers.Main) {
-                blacklistedApps = results.blacklisted
-                otherApps = results.other
-                isLoading = false
-                Log.d("AppListScreen", "isLoading set to false")
+        if (refreshTrigger > 0) {
+            Log.d("AppListScreen", "LaunchedEffect started (trigger: $refreshTrigger)")
+            isLoading = true
+            scope.launch {
+                val results = performAppScan(context)
+                withContext(Dispatchers.Main) {
+                    blacklistedApps = results.blacklisted
+                    otherApps = results.other
+                    isLoading = false
+                    Log.d("AppListScreen", "isLoading set to false")
+                }
             }
         }
+    }
+    
+    // Perform initial scan
+    LaunchedEffect(Unit) {
+        refresh()
+    }
+
+    if (showPermissionRationale) {
+        AlertDialog(
+            onDismissRequest = { showPermissionRationale = false },
+            title = { Text("Permission Required") },
+            text = { Text("To notify you about newly installed boycotted apps in the background, this app requires notification permissions.") },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showPermissionRationale = false
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                        }
+                    }
+                ) {
+                    Text("Continue")
+                }
+            },
+            dismissButton = {
+                Button(onClick = { showPermissionRationale = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
     }
 
     Scaffold(
@@ -124,7 +193,7 @@ fun AppListScreen() {
             TopAppBar(
                 title = { Text("Scanned Apps", fontWeight = FontWeight.Bold) },
                 actions = {
-                    IconButton(onClick = { refresh() }, enabled = !isLoading) {
+                    IconButton(onClick = { askForNotificationPermission() }, enabled = !isLoading) {
                         Icon(Icons.Default.Refresh, contentDescription = "Refresh Scan")
                     }
                 }
@@ -204,7 +273,7 @@ fun AppListScreen() {
 @Composable
 fun AppInfo(
     app: PackageInfo,
-    blacklistInfo: BlacklistItem?,
+    blacklistInfo: AllItem?,
     reasonsMap: Map<String, Reason>,
     onUninstallClicked: (String) -> Unit
 ) {
@@ -263,7 +332,7 @@ fun AppInfo(
             Column(modifier = Modifier.weight(1f)) {
                 Text(text = appName, fontWeight = FontWeight.Bold)
                 if (blacklistInfo != null) {
-                    val reasons = blacklistInfo.reasonIds.mapNotNull { reasonsMap[it] }
+                    val reasons = blacklistInfo.r.mapNotNull { reasonsMap[it] }
                     val reasonMessages =
                         reasons.joinToString(separator = "\n") { "- ${it.message}" }
                     Text(text = reasonMessages, style = MaterialTheme.typography.bodySmall)

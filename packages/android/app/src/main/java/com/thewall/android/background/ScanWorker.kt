@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.content.pm.ServiceInfo
 import android.os.Build
 import android.util.Log
 import androidx.core.app.ActivityCompat
@@ -20,7 +21,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.thewall.android.MainActivity
 import com.thewall.android.R
-import com.thewall.android.data.BlacklistItem
+import com.thewall.android.data.models.AllItem
+import com.thewall.android.util.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -40,7 +42,11 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
     override suspend fun doWork(): Result {
         Log.d(TAG, "Periodic scan worker started.")
         val progressNotification = createNotification("Background Scan", "Scanning apps for matches...")
-        val foregroundInfo = ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification)
+        val foregroundInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
+        } else {
+            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification)
+        }
         setForeground(foregroundInfo)
 
         return withContext(Dispatchers.IO) {
@@ -67,9 +73,11 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
     private fun findBlacklistedApps(): List<String> {
         val pm = appContext.packageManager
         val assetManager = appContext.assets
-        val blacklistJson = MainActivity.readFile(assetManager, "blacklist.json")
-        val blacklistType = object : TypeToken<List<BlacklistItem>>() {}.type
-        val blacklist: List<BlacklistItem> = Gson().fromJson(blacklistJson, blacklistType)
+        val allJson = readFile(assetManager, "ALL.json")
+        val allItemsType = object : TypeToken<List<AllItem>>() {}.type
+        val allItems: List<AllItem> = Gson().fromJson(allJson, allItemsType)
+
+        val blacklist = allItems.filter { it.androidDevId != null || it.androidAppIds != null }
 
         val installedApps = pm.getInstalledPackages(PackageManager.GET_META_DATA)
         Log.d(TAG, "Found ${installedApps.size} installed apps to scan.")

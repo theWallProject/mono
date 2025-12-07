@@ -1,9 +1,7 @@
 package com.thewall.android
 
-import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -25,13 +23,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -54,10 +50,6 @@ class MainActivity : ComponentActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {}
 
-    private val requestNotificationPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) {}
-
     private var sharedUrl by mutableStateOf<String?>(null)
     private var navigateToScreen by mutableStateOf<String?>(null)
 
@@ -65,14 +57,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         handleIntent(intent)
         schedulePeriodicScan()
+
         setContent {
             TheWallBoycottAssistantTheme {
                 MainScreen(
                     initialUrl = sharedUrl,
                     navigateToScreen = navigateToScreen,
                     onUrlHandled = { sharedUrl = null },
-                    onNavigationHandled = { navigateToScreen = null },
-                    requestNotificationPermission = { askForNotificationPermission() }
+                    onNavigationHandled = { navigateToScreen = null }
                 )
             }
         }
@@ -81,17 +73,6 @@ class MainActivity : ComponentActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleIntent(intent)
-        setContent {
-            TheWallBoycottAssistantTheme {
-                MainScreen(
-                    initialUrl = sharedUrl,
-                    navigateToScreen = navigateToScreen,
-                    onUrlHandled = { sharedUrl = null },
-                    onNavigationHandled = { navigateToScreen = null },
-                    requestNotificationPermission = { askForNotificationPermission() }
-                )
-            }
-        }
     }
 
     private fun handleIntent(intent: Intent?) {
@@ -102,11 +83,8 @@ class MainActivity : ComponentActivity() {
             navigateToScreen = it
         }
     }
-    
+
     private fun schedulePeriodicScan() {
-        // --- BREADCRUMB: Background Job Frequency ---
-        // This is where the frequency of the periodic background scan is controlled.
-        // The minimum interval allowed by Android is 15 minutes.
         val scanWorkRequest = PeriodicWorkRequestBuilder<ScanWorker>(15, TimeUnit.MINUTES).build()
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(
             "PERIODIC_APP_SCAN",
@@ -132,53 +110,46 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun askForNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                requestNotificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
-        }
-    }
-
     @Composable
     private fun MainScreen(
         initialUrl: String?,
         navigateToScreen: String?,
         onUrlHandled: () -> Unit,
-        onNavigationHandled: () -> Unit,
-        requestNotificationPermission: () -> Unit
+        onNavigationHandled: () -> Unit
     ) {
-        val defaultScreen = when {
-            initialUrl != null -> Screen.UrlLookup
-            navigateToScreen == ScanWorker.APP_SCAN_SCREEN -> Screen.List
-            else -> Screen.List
+        var currentScreen by remember {
+            val defaultScreen = when {
+                initialUrl != null -> Screen.UrlLookup
+                navigateToScreen == ScanWorker.APP_SCAN_SCREEN -> Screen.List
+                else -> Screen.List
+            }
+            mutableStateOf(defaultScreen)
         }
-        var currentScreen by remember { mutableStateOf<Screen>(defaultScreen) }
-        var scanState by remember { mutableStateOf(if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) ScanState.Scanning else ScanState.Idle) }
+        var scanState by remember {
+            val initialState = if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) ScanState.Scanning else ScanState.Idle
+            mutableStateOf(initialState)
+        }
         var permissionGranted by remember { mutableStateOf(hasQueryAllPackagesPermission()) }
 
-        LaunchedEffect(Unit) {
-            requestNotificationPermission()
+        // Effect to handle navigation from intent extras
+        if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) {
+            currentScreen = Screen.List
+            scanState = ScanState.Scanning
+            onNavigationHandled()
+        }
+         if (initialUrl != null) {
+            currentScreen = Screen.UrlLookup
         }
 
-        LaunchedEffect(initialUrl, navigateToScreen) {
-            if (initialUrl != null) {
-                currentScreen = Screen.UrlLookup
-            }
-            if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) {
-                currentScreen = Screen.List
-                scanState = ScanState.Scanning
-                onNavigationHandled()
-            }
-        }
 
+        // Effect to check for permission changes on resume
         val lifecycleOwner = LocalLifecycleOwner.current
         DisposableEffect(lifecycleOwner) {
             val observer = LifecycleEventObserver { _, event ->
                 if (event == Lifecycle.Event.ON_RESUME) {
                     val hasPermission = hasQueryAllPackagesPermission()
                     if (hasPermission && !permissionGranted) {
-                        scanState = ScanState.Scanning
+                        scanState = ScanState.Scanning // Auto-scan after permission is granted
                     }
                     permissionGranted = hasPermission
                 }
@@ -221,7 +192,7 @@ class MainActivity : ComponentActivity() {
                                 if (permissionGranted) {
                                     AppListScreen()
                                 } else {
-                                    PermissionRequestScreen(onRequestPermission = { requestQueryAllPackagesPermission() })
+                                    PermissionRequestScreen(onRequestPermission = ::requestQueryAllPackagesPermission)
                                 }
                             }
                         }
@@ -233,11 +204,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-
-    companion object {
-        fun readFile(assetManager: AssetManager, fileName: String): String =
-            assetManager.open(fileName).bufferedReader().use { it.readText() }
     }
 }
 
