@@ -46,5 +46,8 @@ data class AllItem(
     val androidDevId: String? = null,
     /** Array of full Android app package IDs for exact matching */
     @SerializedName("android_app_ids")
-    val androidAppIds: List<String>? = null
+    val androidAppIds: List<String>? = null,
+    /** Hint for an alternative Android app */
+    @SerializedName("hint_android_id")
+    val hintAndroidId: String? = null
 )

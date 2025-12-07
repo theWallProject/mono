@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
@@ -43,6 +44,7 @@ import kotlinx.coroutines.withContext
 
 private data class AppScanResults(
     val blacklisted: List<Pair<PackageInfo, AllItem>>,
+    val hinted: List<Pair<PackageInfo, AllItem>>,
     val other: List<PackageInfo>
 )
 
@@ -51,44 +53,47 @@ private suspend fun performAppScan(context: Context): AppScanResults = withConte
     val gson = Gson()
     val assetManager = context.assets
 
-    // Load ALL.json
     val allJson = readFile(assetManager, "ALL.json")
     val allItemsType = object : TypeToken<List<AllItem>>() {}.type
     val allItems = gson.fromJson<List<AllItem>>(allJson, allItemsType)
     Log.d("AppListScreen", "ALL.json loaded with ${allItems.size} items")
 
-    val blacklist = allItems.filter { it.androidDevId != null || it.androidAppIds != null }
-    Log.d("AppListScreen", "Blacklist created with ${blacklist.size} items")
+    val (hints, blacklist) = allItems.partition { it.isHint == true }
+    Log.d("AppListScreen", "Separated ${hints.size} hints and ${blacklist.size} blacklist items")
 
-    // Get installed apps
-    val installedApps =
-        context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
+    val installedApps = context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
     Log.d("AppListScreen", "Found ${installedApps.size} installed apps")
 
     val blacklistedApps = mutableListOf<Pair<PackageInfo, AllItem>>()
+    val hintedApps = mutableListOf<Pair<PackageInfo, AllItem>>()
     val otherApps = mutableListOf<PackageInfo>()
 
     val nonSystemApps = installedApps.filter {
-        (it.applicationInfo?.flags
-            ?: 0) and (ApplicationInfo.FLAG_SYSTEM or ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
+        (it.applicationInfo?.flags ?: 0) and (ApplicationInfo.FLAG_SYSTEM or ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
     }
 
     nonSystemApps.forEach { app ->
-        val matchingItem = blacklist.find { item ->
+        val matchingBlacklistItem = blacklist.find { item ->
             (item.androidAppIds?.contains(app.packageName) == true) ||
                     (item.androidDevId?.let { app.packageName.startsWith(it) } == true)
         }
-        if (matchingItem != null) {
-            blacklistedApps.add(app to matchingItem)
-        } else {
-            otherApps.add(app)
+        val matchingHintItem = hints.find { item ->
+            (item.androidAppIds?.contains(app.packageName) == true)
+        }
+
+        when {
+            matchingBlacklistItem != null -> blacklistedApps.add(app to matchingBlacklistItem)
+            matchingHintItem != null -> hintedApps.add(app to matchingHintItem)
+            else -> otherApps.add(app)
         }
     }
 
-    AppScanResults(blacklistedApps, otherApps)
+    AppScanResults(blacklistedApps, hintedApps, otherApps)
 }
 
+
 fun AllItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {
+    if (this.isHint == true) return ReasonLevel.WARNING
     val hasError = this.r.any { reasonsMap[it]?.level == ReasonLevel.ERROR }
     return if (hasError) ReasonLevel.ERROR else ReasonLevel.WARNING
 }
@@ -99,6 +104,7 @@ fun AllItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {
 fun AppListScreen() {
     var isLoading by remember { mutableStateOf(true) }
     var blacklistedApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
+    var hintedApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
     var otherApps by remember { mutableStateOf<List<PackageInfo>>(emptyList()) }
     var refreshTrigger by remember { mutableStateOf(0) }
     val context = LocalContext.current
@@ -150,6 +156,7 @@ fun AppListScreen() {
                 val results = performAppScan(context)
                 withContext(Dispatchers.Main) {
                     blacklistedApps = results.blacklisted
+                    hintedApps = results.hinted
                     otherApps = results.other
                     isLoading = false
                     Log.d("AppListScreen", "isLoading set to false")
@@ -157,8 +164,7 @@ fun AppListScreen() {
             }
         }
     }
-    
-    // Perform initial scan
+
     LaunchedEffect(Unit) {
         refresh()
     }
@@ -169,21 +175,15 @@ fun AppListScreen() {
             title = { Text("Permission Required") },
             text = { Text("To notify you about newly installed boycotted apps in the background, this app requires notification permissions.") },
             confirmButton = {
-                Button(
-                    onClick = {
-                        showPermissionRationale = false
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                        }
+                Button(onClick = {
+                    showPermissionRationale = false
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
                     }
-                ) {
-                    Text("Continue")
-                }
+                }) { Text("Continue") }
             },
             dismissButton = {
-                Button(onClick = { showPermissionRationale = false }) {
-                    Text("Cancel")
-                }
+                Button(onClick = { showPermissionRationale = false }) { Text("Cancel") }
             }
         )
     }
@@ -201,23 +201,15 @@ fun AppListScreen() {
         }
     ) { paddingValues ->
         if (isLoading) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues),
-                contentAlignment = Alignment.Center
-            ) {
+            Box(modifier = Modifier.fillMaxSize().padding(paddingValues), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
             }
         } else {
             LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues),
+                modifier = Modifier.fillMaxSize().padding(paddingValues),
                 contentPadding = PaddingValues(16.dp)
             ) {
-
-                if (blacklistedApps.isEmpty()) {
+                if (blacklistedApps.isEmpty() && hintedApps.isEmpty()) {
                     item {
                         Text(
                             "Device is Clean!",
@@ -238,16 +230,30 @@ fun AppListScreen() {
                             color = Color.Red
                         )
                     }
-                    items(blacklistedApps) { (app, blacklistInfo) ->
-                        AppInfo(
-                            app = app,
-                            blacklistInfo = blacklistInfo,
-                            reasonsMap = reasonsMap,
-                            onUninstallClicked = { packageName ->
-                                val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
-                                uninstallLauncher.launch(intent)
-                            }
+                    items(blacklistedApps) { (app, itemInfo) ->
+                        AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = {
+                            val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$it"))
+                            uninstallLauncher.launch(intent)
+                        })
+                    }
+                }
+
+                if (hintedApps.isNotEmpty()) {
+                    item {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            "Suggestions",
+                            style = MaterialTheme.typography.headlineSmall,
+                            modifier = Modifier.padding(bottom = 8.dp),
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFFFA500) // Orange
                         )
+                    }
+                    items(hintedApps) { (app, itemInfo) ->
+                        AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = {
+                            val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$it"))
+                            uninstallLauncher.launch(intent)
+                        })
                     }
                 }
 
@@ -262,7 +268,7 @@ fun AppListScreen() {
                         )
                     }
                     items(otherApps) { app ->
-                        AppInfo(app = app, blacklistInfo = null, reasonsMap = reasonsMap, onUninstallClicked = {})
+                        AppInfoCard(app = app, itemInfo = null, onUninstallClicked = {})
                     }
                 }
             }
@@ -271,20 +277,17 @@ fun AppListScreen() {
 }
 
 @Composable
-fun AppInfo(
+fun AppInfoCard(
     app: PackageInfo,
-    blacklistInfo: AllItem?,
-    reasonsMap: Map<String, Reason>,
+    itemInfo: AllItem?,
     onUninstallClicked: (String) -> Unit
 ) {
     val context = LocalContext.current
     val pm = context.packageManager
-    val appName = remember(app) {
-        app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
-    }
+    val appName = remember(app) { app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName }
     val appIcon = remember(app) { app.applicationInfo?.loadIcon(pm) }
 
-    val effectiveLevel = blacklistInfo?.getEffectiveLevel(reasonsMap)
+    val effectiveLevel = itemInfo?.getEffectiveLevel(reasonsMap)
 
     val cardColor = when (effectiveLevel) {
         ReasonLevel.ERROR -> Color.Red.copy(alpha = 0.2f)
@@ -294,7 +297,7 @@ fun AppInfo(
 
     val icon = when (effectiveLevel) {
         ReasonLevel.ERROR -> Icons.Default.Warning
-        ReasonLevel.WARNING -> Icons.Default.Warning
+        ReasonLevel.WARNING -> Icons.Default.Info
         null -> Icons.Default.CheckCircle
     }
 
@@ -305,15 +308,10 @@ fun AppInfo(
     }
 
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
         colors = CardDefaults.cardColors(containerColor = cardColor)
     ) {
-        Row(
-            modifier = Modifier.padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+        Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 imageVector = icon,
                 contentDescription = "Status Icon",
@@ -329,25 +327,41 @@ fun AppInfo(
                 )
             }
             Spacer(modifier = Modifier.width(12.dp))
+
             Column(modifier = Modifier.weight(1f)) {
                 Text(text = appName, fontWeight = FontWeight.Bold)
-                if (blacklistInfo != null) {
-                    val reasons = blacklistInfo.r.mapNotNull { reasonsMap[it] }
-                    val reasonMessages =
-                        reasons.joinToString(separator = "\n") { "- ${it.message}" }
-                    Text(text = reasonMessages, style = MaterialTheme.typography.bodySmall)
+                if (itemInfo != null) {
+                    if (itemInfo.isHint == true) {
+                        Text(
+                            text = itemInfo.hintText ?: "Suggestion available",
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    } else {
+                        val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
+                        val reasonMessages = reasons.joinToString(separator = "\n") { "- ${it.message}" }
+                        Text(text = reasonMessages, style = MaterialTheme.typography.bodySmall)
+                    }
                 } else {
                     Text(text = app.packageName, style = MaterialTheme.typography.bodySmall)
                 }
             }
 
-            if (blacklistInfo != null) {
-                IconButton(onClick = { onUninstallClicked(app.packageName) }) {
-                    Icon(
-                        Icons.Default.Delete,
-                        contentDescription = "Uninstall App",
-                        tint = Color.Red.copy(alpha = 0.7f)
-                    )
+            if (itemInfo != null) {
+                if (itemInfo.isHint == true && itemInfo.hintAndroidId != null) {
+                    Button(onClick = {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${itemInfo.hintAndroidId}"))
+                        context.startActivity(intent)
+                    }) {
+                        Text("Install")
+                    }
+                } else {
+                    IconButton(onClick = { onUninstallClicked(app.packageName) }) {
+                        Icon(
+                            Icons.Default.Delete,
+                            contentDescription = "Uninstall App",
+                            tint = Color.Red.copy(alpha = 0.7f)
+                        )
+                    }
                 }
             }
         }

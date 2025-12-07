@@ -7,7 +7,7 @@ import { run as extractWebsites } from "./tasks/extract_websites"
 import { run as final } from "./tasks/final"
 import { run as genStaticBIT } from "./tasks/gen_buyIsraeliTech"
 import { run as genStatic } from "./tasks/gen_static"
-import { generateAndroidBlacklist } from "./tasks/generate_android_blacklist"
+// import { generateAndroidBlacklist } from "./tasks/generate_android_blacklist"
 import { run as mergeCB } from "./tasks/merge_cb"
 import { run as mergeStatic } from "./tasks/merge_static"
 import { run as scrap } from "./tasks/scrap"
@@ -68,8 +68,8 @@ export const runUpdateSteps = async (options?: { shouldScrap?: boolean; shouldVa
   log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 8: Generate final DB file...")
   await final()
 
-  log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 9: Generate Android blacklist...")
-  await generateAndroidBlacklist()
+  // log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 9: Generate Android blacklist...")
+  // await generateAndroidBlacklist()
 
   log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 10: Show alternatives report...")
   await alternativesReport()
