@@ -158,6 +158,8 @@ export const FinalDBFileSchema = z
     hintText: z.string().optional(),
     /** hint URL */
     hintUrl: z.string().optional(),
+    /** Android app ID for hints (e.g., "com.xxx.yyy") */
+    hint_android_id: z.string().optional(),
     /** Android developer ID like "com.wix" (not full app package IDs) */
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */

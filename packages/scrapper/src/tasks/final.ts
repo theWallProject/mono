@@ -48,6 +48,9 @@ const loadJsonFiles = (folderPath: string) => {
         if (newRow.hintUrl) {
           existingRow["hintUrl"] = newRow.hintUrl
         }
+        if (newRow.hint_android_id) {
+          existingRow["hint_android_id"] = newRow.hint_android_id
+        }
         if (newRow.android_dev_id) {
           existingRow["android_dev_id"] = newRow.android_dev_id
         }
@@ -66,6 +69,7 @@ const loadJsonFiles = (folderPath: string) => {
           ...(newRow.isHint ? { isHint: true } : {}),
           ...(newRow.hintText ? { hintText: newRow.hintText } : {}),
           ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {}),
+          ...(newRow.hint_android_id ? { hint_android_id: newRow.hint_android_id } : {}),
           ...(newRow.android_dev_id ? { android_dev_id: newRow.android_dev_id } : {}),
           ...(newRow.android_app_ids ? { android_app_ids: newRow.android_app_ids } : {})
         }

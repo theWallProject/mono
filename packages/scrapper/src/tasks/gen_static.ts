@@ -80,7 +80,7 @@ const injectStaticRows = () => {
   for (const item of Hints) {
     const safeItem = CompressedManualItemSchema.parse(item)
 
-    const { name, reasons, ws, isHint, hintText, hintUrl, android_dev_id, android_app_ids } = safeItem
+    const { name, reasons, ws, isHint, hintText, hintUrl, hint_android_id, android_dev_id, android_app_ids } = safeItem
 
     // Only process items with isHint flag
     if (isHint) {
@@ -99,6 +99,7 @@ const injectStaticRows = () => {
           isHint: true,
           hintText: hintText,
           hintUrl: hintUrl,
+          ...(hint_android_id ? { hint_android_id } : {}),
           ...(android_dev_id ? { android_dev_id } : {}),
           ...(android_app_ids ? { android_app_ids } : {})
         })

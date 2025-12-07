@@ -118,6 +118,8 @@ const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   hintText: z.string().optional(),
   /** hint URL */
   hintUrl: z.string().optional(),
+  /** Android app ID for hints (e.g., "com.xxx.yyy") */
+  hint_android_id: z.string().optional(),
   /** Android developer ID like "com.wix" (not full app package IDs) */
   android_dev_id: z.string().optional(),
   /** Array of full Android app package IDs for exact matching */
@@ -143,6 +145,8 @@ export const CompressedManualItemSchema = z
     isHint: z.boolean().optional(),
     hintText: z.string().optional(),
     hintUrl: z.string().optional(),
+    /** Android app ID for hints (e.g., "com.xxx.yyy") */
+    hint_android_id: z.string().optional(),
     /** Android developer ID like "com.wix" (not full app package IDs) */
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
@@ -164,6 +168,8 @@ export const NetworksFlatItemsSchema = z
     hintText: z.string().optional(),
     /** hint URL */
     hintUrl: z.string().optional(),
+    /** Android app ID for hints (e.g., "com.xxx.yyy") */
+    hint_android_id: z.string().optional(),
     /** Android developer ID like "com.wix" (not full app package IDs) */
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */
@@ -192,6 +198,8 @@ export const ManualEntrySchema = z
     isHint: z.boolean().optional(),
     hintText: z.string().optional(),
     hintUrl: z.string().optional(),
+    /** Android app ID for hints (e.g., "com.xxx.yyy") */
+    hint_android_id: z.string().optional(),
     /** Android developer ID like "com.wix" (not full app package IDs) */
     android_dev_id: z.string().optional(),
     /** Array of full Android app package IDs for exact matching */

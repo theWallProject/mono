@@ -82,6 +82,7 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
       ...(row.isHint ? { isHint: true } : {}),
       ...(row.hintText ? { hintText: row.hintText } : {}),
       ...(row.hintUrl ? { hintUrl: row.hintUrl } : {}),
+      ...(row.hint_android_id ? { hint_android_id: row.hint_android_id } : {}),
       ...(row.android_dev_id ? { android_dev_id: row.android_dev_id } : {}),
       ...(row.android_app_ids ? { android_app_ids: row.android_app_ids } : {})
     }
@@ -162,6 +163,9 @@ function mergeObjects(obj1: NetworksFlatItemType, obj2: NetworksFlatItemType): N
   }
   if (obj2.hintUrl && (!merged.hintUrl || merged.hintUrl === "")) {
     merged.hintUrl = obj2.hintUrl
+  }
+  if (obj2.hint_android_id && (!merged.hint_android_id || merged.hint_android_id === "")) {
+    merged.hint_android_id = obj2.hint_android_id
   }
   if (obj2.android_dev_id && (!merged.android_dev_id || merged.android_dev_id === "")) {
     merged.android_dev_id = obj2.android_dev_id
