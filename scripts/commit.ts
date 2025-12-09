@@ -413,6 +413,9 @@ async function commitChanges(message: string, noVerify = false): Promise<void> {
 }
 
 async function main() {
+  // Check for fast mode flag
+  const fastMode = process.argv.includes("--fast") || process.argv.includes("-f")
+
   // Check for cached message from previous failed commit
   const cachedMessage = loadCachedMessage()
   if (cachedMessage) {
@@ -456,7 +459,31 @@ async function main() {
   }
 
   // Select model (will preselect previously chosen one if available)
-  const selectedModel = await selectModel(availableModels)
+  // In fast mode, skip selection and use saved model from config
+  let selectedModel: string
+  if (fastMode) {
+    try {
+      const config = loadConfig()
+      const foundModel = availableModels.find((model) => model === config.selectedModel)
+      if (!foundModel) {
+        console.error(
+          `❌ Fast mode: Saved model "${config.selectedModel}" not found in available models.`
+        )
+        console.error("   Available models:", availableModels.join(", "))
+        console.error("   Please run without --fast to select a model first.")
+        process.exit(1)
+      }
+      selectedModel = foundModel
+      console.log(`⚡ Fast mode: Using saved model "${selectedModel}"`)
+    } catch (error: unknown) {
+      console.error(
+        `❌ Fast mode: No saved model found. Please run without --fast to select a model first.`
+      )
+      process.exit(1)
+    }
+  } else {
+    selectedModel = await selectModel(availableModels)
+  }
 
   // Get staged diff
   const rawDiff = await getStagedDiff()
@@ -482,9 +509,9 @@ async function main() {
 
   if (confirm) {
     try {
-      await commitChanges(commitMessage)
+      await commitChanges(commitMessage, fastMode)
       clearCachedMessage()
-      console.log("✅ Changes committed.")
+      console.log(fastMode ? "✅ Changes committed (--no-verify)." : "✅ Changes committed.")
     } catch (error: unknown) {
       // Keep cached message for retry
       console.error(`❌ Commit failed: ${error instanceof Error ? error.message : String(error)}`)
