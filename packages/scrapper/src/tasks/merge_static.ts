@@ -12,6 +12,7 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
   APIListOfReasonsSchema,
   getMainDomain,
+  type APIListOfReasonsValues,
   type LinkField
 } from "@theWallProject/common"
 
@@ -431,6 +432,7 @@ const loadJsonFiles = (folderPath: string) => {
   }
 
   // Process manualAdditions - add new items that don't exist yet
+  // Create separate entries for each social media link (like old BDS flow)
   for (const addition of manualAdditions) {
     const existingItem = processedItems.find((item) => item.name === addition.name)
     if (existingItem) {
@@ -447,8 +449,30 @@ const loadJsonFiles = (folderPath: string) => {
       continue
     }
 
-    // Generate ID from first available identifier
-    let generatedId: string | undefined
+    // Extract and validate reasons first (shared across all entries)
+    const reasons: APIListOfReasonsValues[] = []
+    if ("reasons" in addition && Array.isArray(addition.reasons)) {
+      for (const r of addition.reasons) {
+        try {
+          const validatedReason = APIListOfReasonsSchema.parse(r)
+          reasons.push(validatedReason)
+        } catch {
+          error(`Invalid reason "${r}" for manualAddition "${addition.name}"`)
+          throw new Error(`Invalid reason in manualAddition "${addition.name}"`)
+        }
+      }
+    }
+
+    // Extract non-link fields that should be preserved on all entries
+    // Note: alt field is handled separately in final.ts, not here
+    const android_dev_id = "android_dev_id" in addition ? addition.android_dev_id : undefined
+    const android_app_ids = "android_app_ids" in addition ? addition.android_app_ids : undefined
+
+    // Track entries created per field for logging
+    const entriesCreated: Record<string, number> = {}
+    let totalEntriesCreated = 0
+
+    // Process each link field and create separate entries for each URL
     const linkFields: LinkField[] = ["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
 
     for (const field of linkFields) {
@@ -475,100 +499,66 @@ const loadJsonFiles = (folderPath: string) => {
         fieldValue = addition.th
       }
 
-      if (fieldValue) {
-        const url = Array.isArray(fieldValue) ? fieldValue[0] : fieldValue
-        if (url && typeof url === "string" && url !== "") {
-          try {
-            const identifier = extractIdentifier(url, field)
-            generatedId = `manual_${field}_${identifier}`
-            break
-          } catch {
-            // Try next field
-            continue
+      if (!fieldValue) {
+        continue
+      }
+
+      // Normalize to array for uniform processing
+      const urlArray: string[] = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
+      entriesCreated[field] = 0
+
+      // Create a separate entry for each URL
+      for (const url of urlArray) {
+        // Skip empty strings
+        if (!url || typeof url !== "string" || url === "") {
+          continue
+        }
+
+        try {
+          const identifier = extractIdentifier(url, field)
+          const generatedId = `manual_${field}_${identifier}`
+
+          // Create new MergedDataItem for this specific link
+          const newItem: MergedDataItem = {
+            id: generatedId,
+            name: addition.name,
+            reasons
           }
+
+          // Set the specific link field (with protocol removed)
+          setField(newItem, field, removeProtocol(url))
+
+          // Preserve non-link fields on all entries
+          // Note: alt field is handled separately in final.ts
+          if (android_dev_id) {
+            newItem.android_dev_id = android_dev_id
+          }
+          if (android_app_ids) {
+            newItem.android_app_ids = android_app_ids
+          }
+
+          processedItems.push(newItem)
+          entriesCreated[field]++
+          totalEntriesCreated++
+        } catch (e) {
+          error(`Failed to create entry for ${field} URL "${url}" in manualAddition "${addition.name}": ${e}`)
+          // Continue processing other URLs instead of throwing
         }
       }
     }
 
-    if (!generatedId) {
-      error(`Failed to generate ID for manualAddition "${addition.name}" - no valid URLs found`)
+    // Verify at least one entry was created
+    if (totalEntriesCreated === 0) {
+      error(`Failed to create any entries for manualAddition "${addition.name}" - no valid URLs found`)
       throw new Error(`Cannot create manualAddition "${addition.name}" without a valid URL`)
     }
 
-    // Extract and validate reasons
-    const reasons: Array<"h" | "f" | "i" | "u" | "b"> = []
-    if ("reasons" in addition && Array.isArray(addition.reasons)) {
-      for (const r of addition.reasons) {
-        try {
-          const validatedReason = APIListOfReasonsSchema.parse(r)
-          reasons.push(validatedReason)
-        } catch {
-          error(`Invalid reason "${r}" for manualAddition "${addition.name}"`)
-          throw new Error(`Invalid reason in manualAddition "${addition.name}"`)
-        }
-      }
-    }
-
-    // Create new MergedDataItem from manualAddition
-    const newItem: MergedDataItem = {
-      id: generatedId,
-      name: addition.name,
-      reasons
-    }
-
-    // Apply all fields from addition (excluding _processed, urls, alt, name)
-    const excludeKeys = new Set(["_processed", "urls", "alt", "name", "reasons"])
-    for (const [key, value] of Object.entries(addition)) {
-      if (excludeKeys.has(key)) continue
-
-      if (
-        key === "ws" ||
-        key === "li" ||
-        key === "fb" ||
-        key === "tw" ||
-        key === "ig" ||
-        key === "gh" ||
-        key === "ytp" ||
-        key === "ytc" ||
-        key === "tt" ||
-        key === "th"
-      ) {
-        // Handle link fields - take first URL if array, remove protocol
-        const url = Array.isArray(value) ? value[0] : value
-        if (url && typeof url === "string" && url !== "") {
-          if (key === "ws") {
-            setField(newItem, "ws", removeProtocol(url))
-          } else if (key === "li") {
-            setField(newItem, "li", removeProtocol(url))
-          } else if (key === "fb") {
-            setField(newItem, "fb", removeProtocol(url))
-          } else if (key === "tw") {
-            setField(newItem, "tw", removeProtocol(url))
-          } else if (key === "ig") {
-            setField(newItem, "ig", removeProtocol(url))
-          } else if (key === "gh") {
-            setField(newItem, "gh", removeProtocol(url))
-          } else if (key === "ytp") {
-            setField(newItem, "ytp", removeProtocol(url))
-          } else if (key === "ytc") {
-            setField(newItem, "ytc", removeProtocol(url))
-          } else if (key === "tt") {
-            setField(newItem, "tt", removeProtocol(url))
-          } else if (key === "th") {
-            setField(newItem, "th", removeProtocol(url))
-          }
-        }
-      } else if (key === "android_dev_id" || key === "android_app_ids") {
-        // Copy Android fields as-is
-        Object.assign(newItem, { [key]: value })
-      } else {
-        // Copy other fields
-        Object.assign(newItem, { [key]: value })
-      }
-    }
-
-    processedItems.push(newItem)
-    log(`Added manualAddition: ${addition.name} with ID ${generatedId}`)
+    // Log summary of entries created
+    const fieldSummary = Object.entries(entriesCreated)
+      .filter(([, count]) => count > 0)
+      .map(([field, count]) => `${count} ${field}`)
+      .join(", ")
+    log(`Added manualAddition: ${addition.name} - created ${totalEntriesCreated} entries (${fieldSummary})`)
   }
 
   // Combine processed items with additional items

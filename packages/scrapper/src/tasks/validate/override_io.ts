@@ -70,7 +70,7 @@ export const saveManualOverrides = async (overrides: Record<string, ManualOverri
   if (newKeys.length > 0) {
     throw new Error(
       `Cannot add new keys to manualOverrides.ts: ${newKeys.join(", ")}. ` +
-      "New entries must be added to manualAdditions.ts instead."
+        "New entries must be added to manualAdditions.ts instead."
     )
   }
 
