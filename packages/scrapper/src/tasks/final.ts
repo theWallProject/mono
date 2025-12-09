@@ -5,8 +5,8 @@ import { z } from "zod"
 
 import { log } from "../helper"
 import { DBFileNames, NetworksFlatItemsSchema } from "../types"
-import { manualOverrides } from "./manual_resolve/manualOverrides"
 import { manualAdditions } from "./manual_resolve/manualAdditions"
+import { manualOverrides } from "./manual_resolve/manualOverrides"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
 
