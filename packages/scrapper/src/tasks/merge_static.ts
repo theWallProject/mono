@@ -431,14 +431,11 @@ const loadJsonFiles = (folderPath: string) => {
     }
   }
 
-  // Process manualAdditions - add new items that don't exist yet
-  // Create separate entries for each social media link (like old BDS flow)
+  // Process manualAdditions - add new items or enrich existing ones
+  // The first URL of each field is kept on a single base entry, and extra URLs
+  // are emitted as separate minimal entries (similar to manualOverrides handling).
   for (const addition of manualAdditions) {
-    const existingItem = processedItems.find((item) => item.name === addition.name)
-    if (existingItem) {
-      log(`Skipping manualAddition "${addition.name}" - already exists in data`)
-      continue
-    }
+    const existingIndex = processedItems.findIndex((item) => item.name === addition.name)
 
     // Type guard to check if addition has ManualOverrideFields
     const hasFields = (item: typeof addition): item is typeof addition & { reasons?: string[] } => {
@@ -463,102 +460,179 @@ const loadJsonFiles = (folderPath: string) => {
       }
     }
 
-    // Extract non-link fields that should be preserved on all entries
+    const linkFields: LinkField[] = ["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
+    const toUrlArray = (value: unknown): string[] => {
+      if (Array.isArray(value)) {
+        return value.filter((url): url is string => typeof url === "string" && url.trim() !== "")
+      }
+      if (typeof value === "string" && value.trim() !== "") {
+        return [value]
+      }
+      return []
+    }
+
+    // Extract non-link fields that should be preserved on base entries
     // Note: alt field is handled separately in final.ts, not here
     const android_dev_id = "android_dev_id" in addition ? addition.android_dev_id : undefined
     const android_app_ids = "android_app_ids" in addition ? addition.android_app_ids : undefined
 
-    // Track entries created per field for logging
-    const entriesCreated: Record<string, number> = {}
-    let totalEntriesCreated = 0
+    // Helper to safely get field value from addition
+    const getFieldValue = (field: LinkField): unknown => {
+      if (field === "ws") return "ws" in addition ? addition.ws : undefined
+      if (field === "li") return "li" in addition ? addition.li : undefined
+      if (field === "fb") return "fb" in addition ? addition.fb : undefined
+      if (field === "tw") return "tw" in addition ? addition.tw : undefined
+      if (field === "ig") return "ig" in addition ? addition.ig : undefined
+      if (field === "gh") return "gh" in addition ? addition.gh : undefined
+      if (field === "ytp") return "ytp" in addition ? addition.ytp : undefined
+      if (field === "ytc") return "ytc" in addition ? addition.ytc : undefined
+      if (field === "tt") return "tt" in addition ? addition.tt : undefined
+      if (field === "th") return "th" in addition ? addition.th : undefined
+      return undefined
+    }
 
-    // Process each link field and create separate entries for each URL
-    const linkFields: LinkField[] = ["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
-
+    // Build a map of link fields to arrays for easier processing
+    const fieldUrls = new Map<LinkField, string[]>()
     for (const field of linkFields) {
-      let fieldValue: unknown
-      if (field === "ws" && "ws" in addition) {
-        fieldValue = addition.ws
-      } else if (field === "li" && "li" in addition) {
-        fieldValue = addition.li
-      } else if (field === "fb" && "fb" in addition) {
-        fieldValue = addition.fb
-      } else if (field === "tw" && "tw" in addition) {
-        fieldValue = addition.tw
-      } else if (field === "ig" && "ig" in addition) {
-        fieldValue = addition.ig
-      } else if (field === "gh" && "gh" in addition) {
-        fieldValue = addition.gh
-      } else if (field === "ytp" && "ytp" in addition) {
-        fieldValue = addition.ytp
-      } else if (field === "ytc" && "ytc" in addition) {
-        fieldValue = addition.ytc
-      } else if (field === "tt" && "tt" in addition) {
-        fieldValue = addition.tt
-      } else if (field === "th" && "th" in addition) {
-        fieldValue = addition.th
+      const value = getFieldValue(field)
+      const urls = toUrlArray(value)
+      if (urls.length > 0) {
+        fieldUrls.set(field, urls)
+      }
+    }
+
+    if (fieldUrls.size === 0) {
+      error(`Failed to create any entries for manualAddition "${addition.name}" - no valid URLs found`)
+      throw new Error(`Cannot create manualAddition "${addition.name}" without a valid URL`)
+    }
+
+    // Enrich existing item if it exists, otherwise create a new base entry
+    if (existingIndex !== -1) {
+      const existingItem = processedItems[existingIndex]
+
+      if (!existingItem) {
+        error(`Existing item not found for manualAddition "${addition.name}"`)
+        throw new Error(`Cannot create manualAddition "${addition.name}" without a valid existing item`)
       }
 
-      if (!fieldValue) {
-        continue
+      const updatedItem: MergedDataItem = { ...existingItem }
+
+      // Merge reasons
+      updatedItem.reasons = Array.from(new Set([...(existingItem.reasons || []), ...reasons]))
+
+      // Carry android fields to the base entry
+      if (android_dev_id) {
+        updatedItem.android_dev_id = android_dev_id
+      }
+      if (android_app_ids) {
+        updatedItem.android_app_ids = android_app_ids
       }
 
-      // Normalize to array for uniform processing
-      const urlArray: string[] = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
-      entriesCreated[field] = 0
-
-      // Create a separate entry for each URL
-      for (const url of urlArray) {
-        // Skip empty strings
-        if (!url || typeof url !== "string" || url === "") {
-          continue
+      for (const [field, urls] of fieldUrls.entries()) {
+        const [firstUrl, ...rest] = urls
+        if (firstUrl) {
+          setField(updatedItem, field, removeProtocol(firstUrl))
         }
 
+        for (const url of rest) {
+          try {
+            const identifier = extractIdentifier(url, field)
+            const newId = `${existingItem.id}_manual_${field}_${identifier}`
+            const newItem: MergedDataItem = {
+              id: newId,
+              name: existingItem.name,
+              reasons: updatedItem.reasons
+            }
+            setField(newItem, field, removeProtocol(url))
+            additionalItems.push(newItem)
+            log(`Created new entry from manualAddition: ${newId} for ${field}: ${url}`)
+          } catch (e) {
+            error(`Failed to extract identifier from ${url} for ${addition.name}: ${e}`)
+            throw e
+          }
+        }
+      }
+
+      processedItems[existingIndex] = updatedItem
+      log(`Merged manualAddition "${addition.name}" into existing item with ${fieldUrls.size} field(s)`)
+      continue
+    }
+
+    // New base entry (not present in scraped data)
+    const primaryEntry = Array.from<[LinkField, string[]]>(fieldUrls.entries())[0]
+    if (!primaryEntry) {
+      error(`Primary entry missing for manualAddition "${addition.name}"`)
+      throw new Error(`Cannot create manualAddition "${addition.name}" without a primary URL`)
+    }
+
+    const [primaryField, primaryUrls] = primaryEntry
+    if (!primaryUrls) {
+      throw new Error(`Cannot create manualAddition "${addition.name}" without primaryUrls`)
+    }
+    if (!primaryField) {
+      throw new Error(`Cannot create manualAddition "${addition.name}" without primaryUrls`)
+    }
+    const primaryUrl = primaryUrls[0]
+
+    if (!primaryUrl) {
+      error(`Primary URL missing for manualAddition "${addition.name}"`)
+      throw new Error(`Cannot create manualAddition "${addition.name}" without a primary URL`)
+    }
+
+    let primaryIdentifier: string
+    try {
+      primaryIdentifier = extractIdentifier(primaryUrl, primaryField)
+    } catch (e) {
+      error(`Failed to extract identifier from primary URL ${primaryUrl} for ${addition.name}: ${e}`)
+      throw e
+    }
+
+    const baseId = `manual_${primaryField}_${primaryIdentifier}`
+    const baseItem: MergedDataItem = {
+      id: baseId,
+      name: addition.name,
+      reasons,
+      ...(android_dev_id ? { android_dev_id } : {}),
+      ...(android_app_ids ? { android_app_ids } : {})
+    }
+
+    // Apply first URLs to the base entry
+    for (const [field, urls] of fieldUrls.entries()) {
+      const [firstUrl] = urls
+      if (firstUrl) {
+        setField(baseItem, field, removeProtocol(firstUrl))
+      }
+    }
+
+    processedItems.push(baseItem)
+
+    // Create additional entries for extra URLs (without carrying android fields)
+    for (const [field, urls] of fieldUrls.entries()) {
+      const [, ...rest] = urls
+      for (const url of rest) {
         try {
           const identifier = extractIdentifier(url, field)
           const generatedId = `manual_${field}_${identifier}`
-
-          // Create new MergedDataItem for this specific link
           const newItem: MergedDataItem = {
             id: generatedId,
             name: addition.name,
             reasons
           }
-
-          // Set the specific link field (with protocol removed)
           setField(newItem, field, removeProtocol(url))
-
-          // Preserve non-link fields on all entries
-          // Note: alt field is handled separately in final.ts
-          if (android_dev_id) {
-            newItem.android_dev_id = android_dev_id
-          }
-          if (android_app_ids) {
-            newItem.android_app_ids = android_app_ids
-          }
-
-          processedItems.push(newItem)
-          entriesCreated[field]++
-          totalEntriesCreated++
+          additionalItems.push(newItem)
+          log(`Created new entry: ${generatedId} for ${field}: ${url}`)
         } catch (e) {
           error(`Failed to create entry for ${field} URL "${url}" in manualAddition "${addition.name}": ${e}`)
-          // Continue processing other URLs instead of throwing
+          throw e
         }
       }
     }
 
-    // Verify at least one entry was created
-    if (totalEntriesCreated === 0) {
-      error(`Failed to create any entries for manualAddition "${addition.name}" - no valid URLs found`)
-      throw new Error(`Cannot create manualAddition "${addition.name}" without a valid URL`)
-    }
-
-    // Log summary of entries created
-    const fieldSummary = Object.entries(entriesCreated)
-      .filter(([, count]) => count > 0)
-      .map(([field, count]) => `${count} ${field}`)
-      .join(", ")
-    log(`Added manualAddition: ${addition.name} - created ${totalEntriesCreated} entries (${fieldSummary})`)
+    log(
+      `Added manualAddition: ${addition.name} - base entry created with ${fieldUrls.size} field(s) and ${
+        additionalItems.length
+      } extra URL(s) so far`
+    )
   }
 
   // Combine processed items with additional items

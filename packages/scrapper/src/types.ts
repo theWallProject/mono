@@ -154,26 +154,27 @@ export const CompressedManualItemSchema = z
   })
   .strict()
 
+/**
+ * NetworksFlatItemsSchema - Schema for intermediate FLAGGED_* files
+ *
+ * These files are flattened representations used during the pipeline.
+ * They are merged in the final() step to create ALL.json.
+ *
+ * ONLY these 4 fields are needed:
+ * - id: for merging entries in final() step
+ * - selector: the platform-specific identifier (username, domain, etc.)
+ * - name: company name for display/debugging
+ * - reasons: blocking reasons
+ *
+ * Other fields (stock symbol, hints, Android) are carried through 2_MERGED_ALL.json
+ * and added directly in the final() step when creating ALL.json.
+ */
 export const NetworksFlatItemsSchema = z
   .object({
-    selector: z.string(),
     id: z.string(),
-    reasons: z.array(APIListOfReasonsSchema),
+    selector: z.string(),
     name: z.string(),
-    /** stock sympol */
-    s: z.string().optional(),
-    /** hint flag */
-    isHint: z.boolean().optional(),
-    /** hint text */
-    hintText: z.string().optional(),
-    /** hint URL */
-    hintUrl: z.string().optional(),
-    /** Android app ID for hints (e.g., "com.xxx.yyy") */
-    hint_android_id: z.string().optional(),
-    /** Android developer ID like "com.wix" (not full app package IDs) */
-    android_dev_id: z.string().optional(),
-    /** Array of full Android app package IDs for exact matching */
-    android_app_ids: z.array(z.string()).optional()
+    reasons: z.array(APIListOfReasonsSchema)
   })
   .strict()
 

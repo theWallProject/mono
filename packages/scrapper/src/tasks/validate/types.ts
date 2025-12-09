@@ -18,6 +18,7 @@ export type OverrideWithUrls = {
   tt?: string | string[]
   th?: string | string[]
   urls?: string[]
+  android_app_ids?: string[]
 }
 
 export type CategorizedUrls = {
@@ -32,6 +33,7 @@ export type CategorizedUrls = {
   tt?: string[]
   th?: string[]
   urls?: string[] // Unsupported URLs only
+  android_app_ids?: string[] // Android app package IDs extracted from Play Store URLs
 }
 
 export const isProcessed = (

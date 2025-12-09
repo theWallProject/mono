@@ -146,6 +146,24 @@ const removeTrailingSlash = (url: string): string => {
   return url.replace(/\/+$/, "")
 }
 
+/**
+ * Extracts Android app ID from Play Store URL
+ * Returns the app ID if URL is a Play Store app details page, null otherwise
+ * Only extracts from /details?id= URLs, not from /dev?id= or /developer?id= URLs
+ */
+const extractAndroidAppId = (url: string): string | null => {
+  try {
+    // Match Play Store app details URLs: https://play.google.com/store/apps/details?id=com.xxx.yyy
+    const match = url.match(/play\.google\.com\/store\/apps\/details\?id=([^&/]+)/i)
+    if (match && match[1]) {
+      return decodeURIComponent(match[1])
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
 const normalizeUrlForComparison = (url: string): string => {
   if (!url) return ""
 
@@ -218,6 +236,7 @@ type CategorizedUrls = {
   tt?: string[]
   th?: string[]
   urls?: string[] // Unsupported URLs only
+  android_app_ids?: string[] // Android app package IDs extracted from Play Store URLs
 }
 
 // Categorize a URL into ws, li, fb, tw, ig, gh, ytp, ytc, tt, th, or null (unsupported)
@@ -317,6 +336,7 @@ type OverrideWithUrls = {
   tt?: string | string[]
   th?: string | string[]
   urls?: string[]
+  android_app_ids?: string[]
 }
 
 // Search service configuration
@@ -882,6 +902,17 @@ const validateItemLinks = async (
           const seenUrls = new Map<ScrapperLinkField | "urls", Set<string>>() // Track seen URLs per category to avoid duplicates
 
           for (const url of extraUrls) {
+            // Check if this is a Play Store app details URL - extract app ID instead of adding to urls
+            const androidAppId = extractAndroidAppId(url)
+            if (androidAppId) {
+              if (!categorized.android_app_ids) categorized.android_app_ids = []
+              if (!categorized.android_app_ids.includes(androidAppId)) {
+                categorized.android_app_ids.push(androidAppId)
+                log(`  [DEBUG] ✓ Extracted Android app ID: ${androidAppId}`)
+              }
+              continue // Skip adding to urls array
+            }
+
             const category = categorizeUrl(url)
             // categorizeUrl never returns "il" (only returns database fields or null)
             let categoryKey: ScrapperLinkField | "urls"
@@ -1005,6 +1036,18 @@ const validateItemLinks = async (
             changes.th = mergeAndDeduplicate(changes.th, categorized.th)
             hasChanges = true
             log(`  ✓ Categorized ${categorized.th.length} Threads URL(s)`)
+          }
+
+          if (categorized.android_app_ids && categorized.android_app_ids.length > 0) {
+            const existingAppIds = Array.isArray(changes.android_app_ids)
+              ? changes.android_app_ids
+              : changes.android_app_ids
+                ? [changes.android_app_ids]
+                : []
+            const combined = [...existingAppIds, ...categorized.android_app_ids]
+            changes.android_app_ids = Array.from(new Set(combined)) // Deduplicate
+            hasChanges = true
+            log(`  ✓ Extracted ${categorized.android_app_ids.length} Android app ID(s)`)
           }
 
           // Only keep unsupported URLs in urls array (with deduplication)
@@ -1697,6 +1740,17 @@ export async function addNewEntryLinksForAdditions(
             const seenUrls = new Map<ScrapperLinkField | "urls", Set<string>>()
 
             for (const url of extraUrls) {
+              // Check if this is a Play Store app details URL - extract app ID instead of adding to urls
+              const androidAppId = extractAndroidAppId(url)
+              if (androidAppId) {
+                if (!categorized.android_app_ids) categorized.android_app_ids = []
+                if (!categorized.android_app_ids.includes(androidAppId)) {
+                  categorized.android_app_ids.push(androidAppId)
+                  log(`  [DEBUG] ✓ Extracted Android app ID: ${androidAppId}`)
+                }
+                continue // Skip adding to urls array
+              }
+
               const category = categorizeUrl(url)
               let categoryKey: ScrapperLinkField | "urls"
               if (category === null || category === "il") {
@@ -1796,6 +1850,11 @@ export async function addNewEntryLinksForAdditions(
               log(`  ✓ Categorized ${categorized.th.length} Threads URL(s)`)
             }
 
+            if (categorized.android_app_ids && categorized.android_app_ids.length > 0) {
+              changes.android_app_ids = categorized.android_app_ids
+              log(`  ✓ Extracted ${categorized.android_app_ids.length} Android app ID(s)`)
+            }
+
             if (categorized.urls && categorized.urls.length > 0) {
               changes.urls = categorized.urls
               log(`  ✓ Kept ${categorized.urls.length} unsupported URL(s) in urls array`)
@@ -1865,7 +1924,8 @@ export async function addNewEntryLinksForAdditions(
         ...(collectedUrls.ytp !== undefined && { ytp: collectedUrls.ytp }),
         ...(collectedUrls.ytc !== undefined && { ytc: collectedUrls.ytc }),
         ...(collectedUrls.tt !== undefined && { tt: collectedUrls.tt }),
-        ...(collectedUrls.th !== undefined && { th: collectedUrls.th })
+        ...(collectedUrls.th !== undefined && { th: collectedUrls.th }),
+        ...(collectedUrls.android_app_ids !== undefined && { android_app_ids: collectedUrls.android_app_ids })
       }
 
       currentAdditions.push(addition)

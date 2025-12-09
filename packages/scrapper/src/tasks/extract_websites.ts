@@ -77,14 +77,7 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
       id: row.id,
       selector: domain,
       name: row.name,
-      reasons: row.reasons,
-      ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-      ...(row.isHint ? { isHint: true } : {}),
-      ...(row.hintText ? { hintText: row.hintText } : {}),
-      ...(row.hintUrl ? { hintUrl: row.hintUrl } : {}),
-      ...(row.hint_android_id ? { hint_android_id: row.hint_android_id } : {}),
-      ...(row.android_dev_id ? { android_dev_id: row.android_dev_id } : {}),
-      ...(row.android_app_ids ? { android_app_ids: row.android_app_ids } : {})
+      reasons: row.reasons
     }
     if (Array.isArray(previousRows)) {
       // error(`Duplicate domain [flagged]: ${domain} of website ${website}`);
@@ -142,7 +135,7 @@ function mergeObjects(obj1: NetworksFlatItemType, obj2: NetworksFlatItemType): N
   // Merge reasons arrays and remove duplicates
   merged.reasons = Array.from(new Set([...merged.reasons, ...obj2.reasons]))
 
-  // Merge other fields
+  // Merge other required fields (keep first non-empty value)
   if (obj2.selector && (!merged.selector || merged.selector === "")) {
     merged.selector = obj2.selector
   }
@@ -151,27 +144,6 @@ function mergeObjects(obj1: NetworksFlatItemType, obj2: NetworksFlatItemType): N
   }
   if (obj2.name && (!merged.name || merged.name === "")) {
     merged.name = obj2.name
-  }
-  if (obj2.s && (!merged.s || merged.s === "")) {
-    merged.s = obj2.s
-  }
-  if (obj2.isHint !== undefined) {
-    merged.isHint = obj2.isHint
-  }
-  if (obj2.hintText && (!merged.hintText || merged.hintText === "")) {
-    merged.hintText = obj2.hintText
-  }
-  if (obj2.hintUrl && (!merged.hintUrl || merged.hintUrl === "")) {
-    merged.hintUrl = obj2.hintUrl
-  }
-  if (obj2.hint_android_id && (!merged.hint_android_id || merged.hint_android_id === "")) {
-    merged.hint_android_id = obj2.hint_android_id
-  }
-  if (obj2.android_dev_id && (!merged.android_dev_id || merged.android_dev_id === "")) {
-    merged.android_dev_id = obj2.android_dev_id
-  }
-  if (obj2.android_app_ids && (!merged.android_app_ids || merged.android_app_ids.length === 0)) {
-    merged.android_app_ids = obj2.android_app_ids
   }
 
   return merged

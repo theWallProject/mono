@@ -48,6 +48,10 @@ export const searchServices: SearchService[] = [
   {
     name: "Instagram",
     urlTemplate: (query) => `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(query)}`
+  },
+  {
+    name: "LinkedIn",
+    urlTemplate: (query) => `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(query)}`
   }
 ]
 

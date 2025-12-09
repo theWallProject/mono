@@ -55,27 +55,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
   const threadsMap: { [key: string]: boolean } = {}
 
   data.forEach((row) => {
-    const {
-      name,
-      ws,
-      li,
-      fb,
-      tw,
-      reasons,
-      id,
-      ig,
-      gh,
-      ytp,
-      ytc,
-      tt,
-      th,
-      isHint,
-      hintText,
-      hintUrl,
-      hint_android_id,
-      android_dev_id,
-      android_app_ids
-    } = row
+    const { name, ws, li, fb, tw, reasons, id, ig, gh, ytp, ytc, tt, th } = row
 
     // if (namesMap[name]) {
     //   error(`Duplicate name [social]: ${row.name}`);
@@ -103,17 +83,10 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
         } else {
           liMap[result] = true
           linkedinFlagged.push({
+            id: row.id,
             selector: result,
             name: name,
-            id: row.id,
-            reasons: reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: reasons
           })
         }
       } else {
@@ -141,13 +114,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
               id: id,
               selector: result,
               name: name,
-              reasons: reasons,
-              ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-              ...(isHint ? { isHint: true } : {}),
-              ...(hintText ? { hintText } : {}),
-              ...(hintUrl ? { hintUrl } : {}),
-              ...(android_dev_id ? { android_dev_id } : {}),
-              ...(android_app_ids ? { android_app_ids } : {})
+              reasons: reasons
             })
           }
         }
@@ -174,14 +141,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             id: row.id,
             selector: result,
             name: row.name,
-            reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: row.reasons
           })
         }
       } else {
@@ -207,14 +167,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             id: row.id,
             selector: result,
             name: row.name,
-            reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: row.reasons
           })
         }
       } else {
@@ -237,14 +190,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             id: row.id,
             selector: result,
             name: row.name,
-            reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: row.reasons
           })
         }
       } else {
@@ -269,14 +215,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             id: row.id,
             selector: result,
             name: row.name,
-            reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: row.reasons
           })
         }
       } else {
@@ -299,14 +238,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             id: row.id,
             selector: result,
             name: row.name,
-            reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: row.reasons
           })
         }
       } else {
@@ -330,14 +262,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             id: row.id,
             selector: result,
             name: row.name,
-            reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: row.reasons
           })
         }
       } else {
@@ -361,14 +286,7 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
             id: row.id,
             selector: result,
             name: row.name,
-            reasons: row.reasons,
-            ...(row.stock_symbol ? { s: row.stock_symbol } : {}),
-            ...(isHint ? { isHint: true } : {}),
-            ...(hintText ? { hintText } : {}),
-            ...(hintUrl ? { hintUrl } : {}),
-            ...(hint_android_id ? { hint_android_id } : {}),
-            ...(android_dev_id ? { android_dev_id } : {}),
-            ...(android_app_ids ? { android_app_ids } : {})
+            reasons: row.reasons
           })
         }
       } else {

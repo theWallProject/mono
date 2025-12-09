@@ -4,15 +4,22 @@ import { FinalDBFileType, type LinkField } from "@theWallProject/common"
 import { z } from "zod"
 
 import { log } from "../helper"
-import { DBFileNames, NetworksFlatItemsSchema } from "../types"
+import { DBFileNames, MergedDataFileSchema, NetworksFlatItemsSchema } from "../types"
 import { manualAdditions } from "./manual_resolve/manualAdditions"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
+const mergedDataPath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
 
 const outputFilePath = path.join(__dirname, `../../results/4_final/${DBFileNames.ALL}.json`)
 
 const loadJsonFiles = (folderPath: string) => {
+  // Load merged data to get stock symbol, hints, and Android fields
+  const mergedDataContent = fs.readFileSync(mergedDataPath, "utf-8")
+  const mergedData = MergedDataFileSchema.parse(JSON.parse(mergedDataContent))
+  const mergedDataMap = new Map(mergedData.map((item) => [item.id, item]))
+  log(`Loaded ${mergedData.length} items from merged data`)
+
   const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
   let combinedArray: FinalDBFileType[] = []
@@ -29,6 +36,7 @@ const loadJsonFiles = (folderPath: string) => {
 
     for (const newRow of parsedData) {
       const testRow = idRecord[newRow.id]
+      const mergedItem = mergedDataMap.get(newRow.id)
 
       if (testRow) {
         const existingRow = idRecord[newRow.id]
@@ -37,42 +45,20 @@ const loadJsonFiles = (folderPath: string) => {
         }
         // @ts-expect-error -- key is LinkField but FinalDBFileType doesn't include "il", which is fine since scrapper never uses "il"
         existingRow[key] = newRow.selector
-        if (newRow.s) {
-          existingRow["s"] = newRow.s
-        }
-        if (newRow.isHint) {
-          existingRow["isHint"] = true
-        }
-        if (newRow.hintText) {
-          existingRow["hintText"] = newRow.hintText
-        }
-        if (newRow.hintUrl) {
-          existingRow["hintUrl"] = newRow.hintUrl
-        }
-        if (newRow.hint_android_id) {
-          existingRow["hint_android_id"] = newRow.hint_android_id
-        }
-        if (newRow.android_dev_id) {
-          existingRow["android_dev_id"] = newRow.android_dev_id
-        }
-        if (newRow.android_app_ids) {
-          existingRow["android_app_ids"] = newRow.android_app_ids
-        }
       } else {
         idRecord[newRow.id] = {
           id: newRow.id,
           r: newRow.reasons,
           n: newRow.name,
-          s: newRow.s,
-          // ws: "",
           [key]: newRow.selector,
-          // c: newRow;
-          ...(newRow.isHint ? { isHint: true } : {}),
-          ...(newRow.hintText ? { hintText: newRow.hintText } : {}),
-          ...(newRow.hintUrl ? { hintUrl: newRow.hintUrl } : {}),
-          ...(newRow.hint_android_id ? { hint_android_id: newRow.hint_android_id } : {}),
-          ...(newRow.android_dev_id ? { android_dev_id: newRow.android_dev_id } : {}),
-          ...(newRow.android_app_ids ? { android_app_ids: newRow.android_app_ids } : {})
+          // Add fields from merged data if available
+          ...(mergedItem?.stock_symbol ? { s: mergedItem.stock_symbol } : {}),
+          ...(mergedItem?.isHint ? { isHint: true } : {}),
+          ...(mergedItem?.hintText ? { hintText: mergedItem.hintText } : {}),
+          ...(mergedItem?.hintUrl ? { hintUrl: mergedItem.hintUrl } : {}),
+          ...(mergedItem?.hint_android_id ? { hint_android_id: mergedItem.hint_android_id } : {}),
+          ...(mergedItem?.android_dev_id ? { android_dev_id: mergedItem.android_dev_id } : {}),
+          ...(mergedItem?.android_app_ids ? { android_app_ids: mergedItem.android_app_ids } : {})
         }
       }
     }
