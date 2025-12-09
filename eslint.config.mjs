@@ -178,13 +178,28 @@ const fileOverrides = [
   {
     files: ["packages/addon/src/helpers.ts", "packages/addon/TRANSLATIONS/generate.ts"],
     rules: {
-      "no-console": "off" // Allow console in helper files
+      "no-console": "off" // Allow console in helper files (where custom log functions are defined)
     }
   },
   {
     files: ["packages/addon/src/ui/TextScramble.tsx"],
     rules: {
       "react-hooks/exhaustive-deps": "off" // Disable exhaustive deps for this specific component
+    }
+  },
+  // Content script files - enforce use of custom log functions, error on console.*
+  {
+    files: [
+      "packages/addon/src/content.tsx",
+      "packages/addon/src/domScanner/**/*.{ts,tsx}",
+      "packages/addon/src/ui/**/*.{ts,tsx}",
+      "packages/addon/src/share_button/**/*.{ts,tsx}",
+      "packages/addon/src/rules/**/*.{ts,tsx}",
+      "packages/addon/src/storageHelpers.ts",
+      "packages/addon/src/types.ts"
+    ],
+    rules: {
+      "no-console": "error" // Error on console.* in content scripts - must use custom log functions
     }
   }
 ]

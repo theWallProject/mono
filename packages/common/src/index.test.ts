@@ -10,7 +10,9 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
-  getMainDomain
+  findInDatabaseByDomain,
+  getMainDomain,
+  type FinalDBFileType
 } from "./index"
 
 /**
@@ -131,8 +133,36 @@ describe("API_ENDPOINT_RULE_FACEBOOK", () => {
       testRule(rule, "https://www.facebook.com/meta?ref=share", true, "meta")
     })
 
-    it("should match facebook.com/pages/tech-company", () => {
-      testRule(rule, "https://www.facebook.com/pages/tech-company", true, "pages")
+    it("should not match facebook.com/pages/tech-company (pages is excluded)", () => {
+      testRule(rule, "https://www.facebook.com/pages/tech-company", false)
+    })
+
+    it("should not match facebook.com/profile.php URLs", () => {
+      testRule(rule, "https://www.facebook.com/profile.php?id=100089536429763", false)
+    })
+
+    it("should not match facebook.com/home.php URLs", () => {
+      testRule(rule, "https://www.facebook.com/home.php", false)
+    })
+
+    it("should not match facebook.com/search URLs", () => {
+      testRule(rule, "https://www.facebook.com/search?q=test", false)
+    })
+
+    it("should not match facebook.com/people (exact path)", () => {
+      testRule(rule, "https://www.facebook.com/people", false)
+    })
+
+    it("should not match facebook.com/share (exact path)", () => {
+      testRule(rule, "https://www.facebook.com/share", false)
+    })
+
+    it("should not match facebook.com/people/ (path starting with people)", () => {
+      testRule(rule, "https://www.facebook.com/people/something", false)
+    })
+
+    it("should not match facebook.com/share/ (path starting with share)", () => {
+      testRule(rule, "https://www.facebook.com/share/something", false)
     })
 
     it("should match without protocol", () => {
@@ -141,6 +171,14 @@ describe("API_ENDPOINT_RULE_FACEBOOK", () => {
 
     it("should match with www", () => {
       testRule(rule, "https://www.facebook.com/netflix", true, "netflix")
+    })
+
+    it("should match facebook.com/peopleoffabric (username containing 'people')", () => {
+      testRule(rule, "https://www.facebook.com/peopleoffabric", true, "peopleoffabric")
+    })
+
+    it("should match facebook.com/shareittIsrael (username containing 'share')", () => {
+      testRule(rule, "https://www.facebook.com/shareittIsrael", true, "shareittIsrael")
     })
   })
 
@@ -931,5 +969,87 @@ describe("getMainDomain", () => {
     expect(getMainDomain("https://blog.example.com")).toBe("blog.example.com")
     expect(getMainDomain("https://api.github.com")).toBe("api.github.com")
     expect(getMainDomain("https://subdomain.example.co.uk")).toBe("subdomain.example.co.uk")
+  })
+})
+
+describe("findInDatabaseByDomain with subdomain support", () => {
+  const mockDatabase: FinalDBFileType[] = [
+    { id: "1", ws: "wix.com", r: ["h"], n: "Wix" },
+    { id: "2", ws: "fr.wix.com", r: ["h"], n: "Wix France" },
+    { id: "3", ws: "example.co.uk", r: ["h"], n: "Example UK" }
+  ]
+
+  describe("Base domain stored → matches all subdomains", () => {
+    const baseDomainOnlyDb: FinalDBFileType[] = [{ id: "1", ws: "wix.com", r: ["h"], n: "Wix" }]
+
+    it("should match exact base domain wix.com → wix.com", () => {
+      const result = findInDatabaseByDomain("wix.com", baseDomainOnlyDb)
+      expect(result?.id).toBe("1")
+    })
+
+    it("should match subdomain fr.wix.com when base wix.com is stored", () => {
+      const result = findInDatabaseByDomain("fr.wix.com", baseDomainOnlyDb)
+      expect(result?.id).toBe("1") // Should match base domain entry
+    })
+
+    it("should match subdomain careers.wix.com when base wix.com is stored", () => {
+      const result = findInDatabaseByDomain("careers.wix.com", baseDomainOnlyDb)
+      expect(result?.id).toBe("1")
+    })
+
+    it("should match nested subdomain api.fr.wix.com when base wix.com is stored", () => {
+      const result = findInDatabaseByDomain("api.fr.wix.com", baseDomainOnlyDb)
+      expect(result?.id).toBe("1")
+    })
+  })
+
+  describe("Subdomain stored → ONLY matches exact subdomain", () => {
+    it("should match exact subdomain fr.wix.com → fr.wix.com", () => {
+      const result = findInDatabaseByDomain("fr.wix.com", mockDatabase)
+      expect(result?.id).toBe("2") // Exact match takes priority
+    })
+
+    it("should NOT match base domain wix.com when subdomain fr.wix.com is stored", () => {
+      // Since we have both wix.com and fr.wix.com, it will match wix.com entry
+      const result = findInDatabaseByDomain("wix.com", mockDatabase)
+      expect(result?.id).toBe("1") // Should match only the base entry
+    })
+
+    it("should NOT match different subdomain de.wix.com when fr.wix.com is stored", () => {
+      const result = findInDatabaseByDomain("de.wix.com", mockDatabase)
+      expect(result?.id).toBe("1") // Should fall back to base wix.com entry
+    })
+  })
+
+  describe("Edge cases", () => {
+    it("should NOT match different base domains", () => {
+      const result = findInDatabaseByDomain("other.com", mockDatabase)
+      expect(result).toBeNull()
+    })
+
+    it("should handle .co.uk and similar TLDs correctly", () => {
+      const result = findInDatabaseByDomain("subdomain.example.co.uk", mockDatabase)
+      expect(result?.id).toBe("3")
+    })
+
+    it("should handle database with only subdomain entry", () => {
+      const subdomainOnlyDb: FinalDBFileType[] = [{ id: "1", ws: "fr.wix.com", r: ["h"], n: "Wix France" }]
+      // Exact match should work
+      expect(findInDatabaseByDomain("fr.wix.com", subdomainOnlyDb)?.id).toBe("1")
+      // Base domain should NOT match when only subdomain is stored
+      expect(findInDatabaseByDomain("wix.com", subdomainOnlyDb)).toBeNull()
+      // Different subdomain should NOT match
+      expect(findInDatabaseByDomain("de.wix.com", subdomainOnlyDb)).toBeNull()
+    })
+
+    it("should handle empty database", () => {
+      const emptyDb: FinalDBFileType[] = []
+      expect(findInDatabaseByDomain("wix.com", emptyDb)).toBeNull()
+    })
+
+    it("should handle entries without ws field", () => {
+      const dbWithMissingWs: FinalDBFileType[] = [{ id: "1", r: ["h"], n: "No Website" }]
+      expect(findInDatabaseByDomain("wix.com", dbWithMissingWs)).toBeNull()
+    })
   })
 })

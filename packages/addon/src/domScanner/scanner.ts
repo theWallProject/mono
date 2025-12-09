@@ -345,7 +345,7 @@ export class DomScanner {
       for (let i = 0; i < items.length; i++) {
         const item = items[i]
         if (item === undefined) {
-          console.error(`[Scanner] Unexpected undefined item at index ${i}`)
+          error(`[Scanner] Unexpected undefined item at index ${i}`)
           continue
         }
 

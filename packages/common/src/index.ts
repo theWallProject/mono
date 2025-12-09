@@ -189,7 +189,8 @@ export const API_ENDPOINT_RULE_LINKEDIN_COMPANY = {
 
 export const API_ENDPOINT_RULE_FACEBOOK = {
   domain: "facebook.com",
-  regex: "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login)([^/?]+)"
+  regex:
+    "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login|profile\\.php|home\\.php|pages|search|people(?=[/?]|$)|share(?=[/?]|$))([^/?]+)"
 } as const satisfies APIEndpointRule
 
 /**
@@ -375,15 +376,63 @@ export function findInDatabaseBySelector(
 }
 
 /**
+ * Checks if testDomain is a subdomain of baseDomain.
+ * Returns true only if baseDomain is a base domain (no subdomain) and testDomain is its subdomain.
+ * Pure function with no side effects.
+ *
+ * Examples:
+ * - isSubdomainOf("fr.wix.com", "wix.com") → true
+ * - isSubdomainOf("careers.wix.com", "wix.com") → true
+ * - isSubdomainOf("wix.com", "wix.com") → false (same domain)
+ * - isSubdomainOf("wix.com", "fr.wix.com") → false (base domain doesn't match subdomain)
+ * - isSubdomainOf("de.wix.com", "fr.wix.com") → false (different subdomains)
+ * @param testDomain - The domain to test (e.g., "fr.wix.com")
+ * @param baseDomain - The base domain to check against (e.g., "wix.com")
+ * @returns True if testDomain is a subdomain of baseDomain
+ */
+function isSubdomainOf(testDomain: string, baseDomain: string): boolean {
+  // Must be different domains
+  if (testDomain === baseDomain) return false
+
+  // Check if testDomain ends with ".baseDomain"
+  if (!testDomain.endsWith(`.${baseDomain}`)) return false
+
+  // Ensure baseDomain has no subdomain (count dots)
+  // wix.com has 1 dot → base domain
+  // fr.wix.com has 2 dots → subdomain
+  // api.fr.wix.com has 3 dots → nested subdomain
+  const baseDotCount = (baseDomain.match(/\./g) || []).length
+  const testDotCount = (testDomain.match(/\./g) || []).length
+
+  // baseDomain must be base (1 dot for .com/.net, 2 dots for .co.uk/.com.au)
+  // testDomain must have more dots than baseDomain
+  return testDotCount > baseDotCount
+}
+
+/**
  * Finds a matching database entry by domain (for website lookups).
+ * Supports subdomain matching: if a base domain is stored (e.g., "wix.com"),
+ * it will match all subdomains (e.g., "fr.wix.com", "careers.wix.com").
+ * If a subdomain is explicitly stored (e.g., "fr.wix.com"), only that exact subdomain matches.
  * Pure function with no side effects.
  * @param domain - The domain to search for
  * @param database - The database array to search
  * @returns The matching database entry or null
  */
 export function findInDatabaseByDomain(domain: string, database: FinalDBFileType[]): FinalDBFileType | null {
-  const findResult = database.find((row) => row.ws === domain)
-  return findResult || null
+  // First pass: check for exact match (prioritizes exact subdomain matches over base domain matches)
+  const exactMatch = database.find((row) => row.ws === domain)
+  if (exactMatch) return exactMatch
+
+  // Second pass: check for subdomain match (only if no exact match found)
+  // If stored rule is base domain (no subdomain), check if input is its subdomain
+  // Example: stored="wix.com", input="fr.wix.com" → should match
+  const subdomainMatch = database.find((row) => {
+    if (!row.ws) return false
+    return isSubdomainOf(domain, row.ws)
+  })
+
+  return subdomainMatch || null
 }
 
 /**

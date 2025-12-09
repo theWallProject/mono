@@ -102,21 +102,16 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
 
       if (result) {
         // log(`Facebook processing ${fb} => ${result}`);
-
-        if (["profile.php", "home.php", "groups", "pages", "search", "people", "share"].includes(result)) {
-          // warn("skipping facebook group link for now");
+        if (fbMap[result]) {
+          error(`Duplicate Facebook [social]: ${result}`)
         } else {
-          if (fbMap[result]) {
-            error(`Duplicate Facebook [social]: ${result}`)
-          } else {
-            fbMap[result] = true
-            facebookFlagged.push({
-              id: id,
-              selector: result,
-              name: name,
-              reasons: reasons
-            })
-          }
+          fbMap[result] = true
+          facebookFlagged.push({
+            id: id,
+            selector: result,
+            name: name,
+            reasons: reasons
+          })
         }
       } else {
         warn(`Facebook processing ${fb} had no result! [${result}]`)

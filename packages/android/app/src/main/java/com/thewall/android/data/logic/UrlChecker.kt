@@ -240,8 +240,54 @@ class UrlChecker(private val context: Context) {
         }
     }
 
+    /**
+     * Checks if testDomain is a subdomain of baseDomain.
+     * Returns true only if baseDomain is a base domain (no subdomain) and testDomain is its subdomain.
+     *
+     * Examples:
+     * - isSubdomainOf("fr.wix.com", "wix.com") → true
+     * - isSubdomainOf("careers.wix.com", "wix.com") → true
+     * - isSubdomainOf("wix.com", "wix.com") → false (same domain)
+     * - isSubdomainOf("wix.com", "fr.wix.com") → false (base domain doesn't match subdomain)
+     * - isSubdomainOf("de.wix.com", "fr.wix.com") → false (different subdomains)
+     */
+    private fun isSubdomainOf(testDomain: String, baseDomain: String): Boolean {
+        // Must be different domains
+        if (testDomain == baseDomain) return false
+
+        // Check if testDomain ends with ".baseDomain"
+        if (!testDomain.endsWith(".$baseDomain")) return false
+
+        // Ensure baseDomain has no subdomain (count dots)
+        // wix.com has 1 dot → base domain
+        // fr.wix.com has 2 dots → subdomain
+        // api.fr.wix.com has 3 dots → nested subdomain
+        val baseDotCount = baseDomain.count { it == '.' }
+        val testDotCount = testDomain.count { it == '.' }
+
+        // baseDomain must be base (1 dot for .com/.net, 2 dots for .co.uk/.com.au)
+        // testDomain must have more dots than baseDomain
+        return testDotCount > baseDotCount
+    }
+
+    /**
+     * Finds a matching database entry by domain (for website lookups).
+     * Supports subdomain matching: if a base domain is stored (e.g., "wix.com"),
+     * it will match all subdomains (e.g., "fr.wix.com", "careers.wix.com").
+     * If a subdomain is explicitly stored (e.g., "fr.wix.com"), only that exact subdomain matches.
+     */
     private fun findInDatabaseByDomain(domain: String, database: List<AllItem>): AllItem? {
-        return database.find { it.ws == domain }
+        // First pass: check for exact match (prioritizes exact subdomain matches over base domain matches)
+        val exactMatch = database.find { it.ws == domain }
+        if (exactMatch != null) return exactMatch
+
+        // Second pass: check for subdomain match (only if no exact match found)
+        // If stored rule is base domain (no subdomain), check if input is its subdomain
+        // Example: stored="wix.com", input="fr.wix.com" → should match
+        return database.find { row ->
+            val storedDomain = row.ws ?: return@find false
+            isSubdomainOf(domain, storedDomain)
+        }
     }
 
     private fun formatResult(

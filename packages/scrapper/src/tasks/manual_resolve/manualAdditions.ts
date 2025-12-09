@@ -57,6 +57,67 @@ export const manualAdditions: ManualAdditionItem[] = [
     tw: ["https://x.com/AXA"]
   },
   {
+    name: "Caltex",
+    reasons: ["b"],
+    ws: ["https://www.caltex.com", "https://caltexlubricants.com"],
+    fb: ["https://www.facebook.com/CaltexLubricantsEG", "https://www.facebook.com/CaltexSingapore"],
+    tw: ["https://x.com/CaltexSingapore"],
+    ig: ["https://www.instagram.com/boycottcaltex"],
+    ytp: [
+      "https://www.youtube.com/@CaltexBrand",
+      "https://www.youtube.com/@CaltexDavao",
+      "https://www.youtube.com/@CaltexLubricantsIN",
+      "https://www.youtube.com/@CaltexNZ",
+      "https://www.youtube.com/@CaltexPakistanOfficial",
+      "https://www.youtube.com/@CaltexPronPiyananOil",
+      "https://www.youtube.com/@CaltexSriLanka2021",
+      "https://www.youtube.com/@Pt.lancarsaktioffice",
+      "https://www.youtube.com/@caltex7410",
+      "https://www.youtube.com/@caltex_australia",
+      "https://www.youtube.com/@caltexbrafordlubricants5906",
+      "https://www.youtube.com/@caltexcambodia1379",
+      "https://www.youtube.com/@caltexcambodia1971",
+      "https://www.youtube.com/@caltexcareers1480",
+      "https://www.youtube.com/@caltexdigital7354",
+      "https://www.youtube.com/@caltexeasterncape6866",
+      "https://www.youtube.com/@caltexglenashley333",
+      "https://www.youtube.com/@caltexksa1253",
+      "https://www.youtube.com/@caltexlubenar4660",
+      "https://www.youtube.com/@caltexlubricantsme",
+      "https://www.youtube.com/@caltexnz2571",
+      "https://www.youtube.com/@caltexnz5716",
+      "https://www.youtube.com/@caltexofficialstoremalaysi5917",
+      "https://www.youtube.com/@caltexsouthafrica5590"
+    ],
+    tt: [
+      "https://www.tiktok.com/@caltex.tmn.intan",
+      "https://www.tiktok.com/@caltex_emstar",
+      "https://www.tiktok.com/@caltexassamkumbang",
+      "https://www.tiktok.com/@caltexbachok",
+      "https://www.tiktok.com/@caltexmy",
+      "https://www.tiktok.com/@caltexsungaitong",
+      "https://www.tiktok.com/@caltexthailand",
+      "https://www.tiktok.com/@gimtit168"
+    ],
+    urls: [
+      "https://apps.apple.com/us/app/caltex-nz/id1435121311",
+      "https://apps.apple.com/us/app/caltex-pakistan/id1239372998",
+      "https://apps.apple.com/us/app/caltex-workshop/id1522862138",
+      "https://apps.apple.com/us/app/caltexgo-rewards/id1607535654",
+      "https://apps.apple.com/us/app/netlube-caltex-australia/id685230181",
+      "https://apps.apple.com/us/app/netlube-caltex-new-zealand/id946248618",
+      "https://play.google.com/store/apps/developer?id=Chevron+Singapore+Pte+Ltd",
+      "https://afsc.org/BoycottChevron"
+    ],
+    android_app_ids: [
+      "com.Caltex.CaltexWorkshop",
+      "com.caltex.starcardonline",
+      "com.chevron.caltexgo.prod",
+      "pk.caltex.chevron"
+    ],
+    _processed: true
+  },
+  {
     name: "Chevron",
     reasons: ["b"],
     ws: [
@@ -65,12 +126,6 @@ export const manualAdditions: ManualAdditionItem[] = [
       "www.cpchem.com",
       "https://chevronfuels.com",
       "https://www.chevronmarineproducts.com"
-    ],
-    fb: [
-      "https://www.facebook.com/BonifaceChevronStation",
-      "https://www.facebook.com/Chevron",
-      "https://www.facebook.com/ChevronAdvocacyNetwork",
-      "https://www.facebook.com/ChevronFuelsandRenewableSolutions"
     ],
     li: [
       "https://www.linkedin.com/showcase/chevron-marine-products",
@@ -89,7 +144,14 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.linkedin.com/company/noble-energy",
       "https://www.linkedin.com/showcase/chevron-technology-ventures"
     ],
+    fb: [
+      "https://www.facebook.com/BonifaceChevronStation",
+      "https://www.facebook.com/Chevron",
+      "https://www.facebook.com/ChevronAdvocacyNetwork",
+      "https://www.facebook.com/ChevronFuelsandRenewableSolutions"
+    ],
     tw: ["https://x.com/Chevron"],
+    ig: ["https://www.instagram.com/chevron"],
     gh: ["https://github.com/ChevronETC"],
     ytp: [
       "https://www.youtube.com/@Chevron",
@@ -106,18 +168,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     ],
     ytc: ["https://www.youtube.com/channel/UCG7MOSE5VUfvaZocYhyxi4w"],
     tt: ["https://www.tiktok.com/@chevron"],
-    android_app_ids: [
-      "com.Chevron.HES.EffeEngmt",
-      "com.als.chevron",
-      "com.chevron.StartWorkChecksIOGP",
-      "com.chevron.cbpandroid",
-      "com.chevron.retverify",
-      "com.digitalinsight.cma.fiid01002",
-      "com.mysalesforce.mycommunity.C00D3000000017zqEAA.A0OT5Y00000000jcWAA",
-      "com.outsystemsenterprise.chevronproductsuklim.FASTOnboard",
-      "com.outsystemsenterprise.chevronproductsuklim.MLDRMobile",
-      "com.polarislabs.horizon.lubewatch.android"
-    ],
+    th: ["https://www.threads.com/@chevron"],
     urls: [
       "https://apps.apple.com/us/app/chevron/id1450978468",
       "https://chevronadvocacynetwork.com",
@@ -143,9 +194,18 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.bloomberg.com/profile/company/7728792Z:MK",
       "https://www.yellowpages.my/-1228660"
     ],
-    ig: ["https://www.instagram.com/chevron"],
-    th: ["https://www.threads.com/@chevron"],
-
+    android_app_ids: [
+      "com.Chevron.HES.EffeEngmt",
+      "com.als.chevron",
+      "com.chevron.StartWorkChecksIOGP",
+      "com.chevron.cbpandroid",
+      "com.chevron.retverify",
+      "com.digitalinsight.cma.fiid01002",
+      "com.mysalesforce.mycommunity.C00D3000000017zqEAA.A0OT5Y00000000jcWAA",
+      "com.outsystemsenterprise.chevronproductsuklim.FASTOnboard",
+      "com.outsystemsenterprise.chevronproductsuklim.MLDRMobile",
+      "com.polarislabs.horizon.lubewatch.android"
+    ],
     _processed: true
   },
   {

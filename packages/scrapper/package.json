@@ -9,7 +9,7 @@
     "apply-overrides": "ts-node src/tasks/apply_overrides.ts",
     "merge": "ts-node-dev src/merge_results.ts",
     "convert": "ts-node-dev src/convertDB.ts",
-    "build": "tsc && ts-node src/tasks/regenerate_db.ts && pnpm --filter @theWallProject/common validate-schema",
+    "build": "tsc && pnpm --filter @theWallProject/common test && ts-node src/tasks/regenerate_db.ts && pnpm --filter @theWallProject/common validate-schema",
     "start": "pnpm run build && node dist/index.js"
   },
   "engines": {

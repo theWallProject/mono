@@ -1,16 +1,29 @@
+// Flag to control content script logging
+// Set to false to disable all logging in content scripts (logs become noops)
+const ENABLE_CONTENT_SCRIPT_LOGGING = false
+
 export function log(...params: unknown[]) {
+  if (!ENABLE_CONTENT_SCRIPT_LOGGING) {
+    return
+  }
   // alert(text)
   console.log("🍉", ...params)
   // debugger
 }
 
 export function error(...params: unknown[]) {
+  if (!ENABLE_CONTENT_SCRIPT_LOGGING) {
+    return
+  }
   // alert(text)
   console.error("🔴🍉🔴", ...params)
   // debugger
 }
 
 export function warn(...params: unknown[]) {
+  if (!ENABLE_CONTENT_SCRIPT_LOGGING) {
+    return
+  }
   // alert(text)
   console.warn("⚠️🍉⚠️", ...params)
   // debugger
