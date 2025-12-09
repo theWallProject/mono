@@ -10,12 +10,14 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+  APIListOfReasonsSchema,
   getMainDomain,
   type LinkField
 } from "@theWallProject/common"
 
 import { cleanWebsite, error, log } from "../helper"
 import { CrunchbaseScrappedItemsSchema, ManualEntriesSchema, MergedDataItem } from "../types"
+import { manualAdditions } from "./manual_resolve/manualAdditions"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
 
@@ -269,6 +271,26 @@ const loadJsonFiles = (folderPath: string) => {
     // }
   })
 
+  // Helper to remove protocol from URLs
+  const removeProtocol = (url: string | undefined): string | undefined => {
+    if (!url) return url
+    return url.replace(/^https?:\/\//, "")
+  }
+
+  // Helper to set field on object using proper typing
+  const setField = (obj: MergedDataItem, field: LinkField, value: string | undefined) => {
+    if (field === "ws") obj.ws = value
+    else if (field === "li") obj.li = value
+    else if (field === "fb") obj.fb = value
+    else if (field === "tw") obj.tw = value
+    else if (field === "ig") obj.ig = value
+    else if (field === "gh") obj.gh = value
+    else if (field === "ytp") obj.ytp = value
+    else if (field === "ytc") obj.ytc = value
+    else if (field === "tt") obj.tt = value
+    else if (field === "th") obj.th = value
+  }
+
   // First pass: normalize URLs and apply overrides (including arrays)
   const processedItems: MergedDataItem[] = []
   const additionalItems: MergedDataItem[] = []
@@ -280,12 +302,6 @@ const loadJsonFiles = (folderPath: string) => {
 
     if (row.ws) {
       row.ws = getMainDomain(row.ws)
-    }
-
-    // Remove https:// and http:// from all URL fields
-    const removeProtocol = (url: string | undefined): string | undefined => {
-      if (!url) return url
-      return url.replace(/^https?:\/\//, "")
     }
 
     row.ws = removeProtocol(row.ws)
@@ -317,26 +333,6 @@ const loadJsonFiles = (folderPath: string) => {
 
       log(`Manually updated ${updatedRow.name}`)
       const linkFields: LinkField[] = ["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
-
-      // Helper to remove protocol from URLs
-      const removeProtocol = (url: string | undefined): string | undefined => {
-        if (!url) return url
-        return url.replace(/^https?:\/\//, "")
-      }
-
-      // Helper to set field on object using proper typing
-      const setField = (obj: MergedDataItem, field: LinkField, value: string | undefined) => {
-        if (field === "ws") obj.ws = value
-        else if (field === "li") obj.li = value
-        else if (field === "fb") obj.fb = value
-        else if (field === "tw") obj.tw = value
-        else if (field === "ig") obj.ig = value
-        else if (field === "gh") obj.gh = value
-        else if (field === "ytp") obj.ytp = value
-        else if (field === "ytc") obj.ytc = value
-        else if (field === "tt") obj.tt = value
-        else if (field === "th") obj.th = value
-      }
 
       for (const field of linkFields) {
         const overrideValue = overrideFields[field]
@@ -432,6 +428,147 @@ const loadJsonFiles = (folderPath: string) => {
     } else {
       processedItems.push(row)
     }
+  }
+
+  // Process manualAdditions - add new items that don't exist yet
+  for (const addition of manualAdditions) {
+    const existingItem = processedItems.find((item) => item.name === addition.name)
+    if (existingItem) {
+      log(`Skipping manualAddition "${addition.name}" - already exists in data`)
+      continue
+    }
+
+    // Type guard to check if addition has ManualOverrideFields
+    const hasFields = (item: typeof addition): item is typeof addition & { reasons?: string[] } => {
+      return typeof item === "object" && item !== null && "name" in item
+    }
+
+    if (!hasFields(addition)) {
+      continue
+    }
+
+    // Generate ID from first available identifier
+    let generatedId: string | undefined
+    const linkFields: LinkField[] = ["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
+
+    for (const field of linkFields) {
+      let fieldValue: unknown
+      if (field === "ws" && "ws" in addition) {
+        fieldValue = addition.ws
+      } else if (field === "li" && "li" in addition) {
+        fieldValue = addition.li
+      } else if (field === "fb" && "fb" in addition) {
+        fieldValue = addition.fb
+      } else if (field === "tw" && "tw" in addition) {
+        fieldValue = addition.tw
+      } else if (field === "ig" && "ig" in addition) {
+        fieldValue = addition.ig
+      } else if (field === "gh" && "gh" in addition) {
+        fieldValue = addition.gh
+      } else if (field === "ytp" && "ytp" in addition) {
+        fieldValue = addition.ytp
+      } else if (field === "ytc" && "ytc" in addition) {
+        fieldValue = addition.ytc
+      } else if (field === "tt" && "tt" in addition) {
+        fieldValue = addition.tt
+      } else if (field === "th" && "th" in addition) {
+        fieldValue = addition.th
+      }
+
+      if (fieldValue) {
+        const url = Array.isArray(fieldValue) ? fieldValue[0] : fieldValue
+        if (url && typeof url === "string" && url !== "") {
+          try {
+            const identifier = extractIdentifier(url, field)
+            generatedId = `manual_${field}_${identifier}`
+            break
+          } catch {
+            // Try next field
+            continue
+          }
+        }
+      }
+    }
+
+    if (!generatedId) {
+      error(`Failed to generate ID for manualAddition "${addition.name}" - no valid URLs found`)
+      throw new Error(`Cannot create manualAddition "${addition.name}" without a valid URL`)
+    }
+
+    // Extract and validate reasons
+    const reasons: Array<"h" | "f" | "i" | "u" | "b"> = []
+    if ("reasons" in addition && Array.isArray(addition.reasons)) {
+      for (const r of addition.reasons) {
+        try {
+          const validatedReason = APIListOfReasonsSchema.parse(r)
+          reasons.push(validatedReason)
+        } catch {
+          error(`Invalid reason "${r}" for manualAddition "${addition.name}"`)
+          throw new Error(`Invalid reason in manualAddition "${addition.name}"`)
+        }
+      }
+    }
+
+    // Create new MergedDataItem from manualAddition
+    const newItem: MergedDataItem = {
+      id: generatedId,
+      name: addition.name,
+      reasons
+    }
+
+    // Apply all fields from addition (excluding _processed, urls, alt, name)
+    const excludeKeys = new Set(["_processed", "urls", "alt", "name", "reasons"])
+    for (const [key, value] of Object.entries(addition)) {
+      if (excludeKeys.has(key)) continue
+
+      if (
+        key === "ws" ||
+        key === "li" ||
+        key === "fb" ||
+        key === "tw" ||
+        key === "ig" ||
+        key === "gh" ||
+        key === "ytp" ||
+        key === "ytc" ||
+        key === "tt" ||
+        key === "th"
+      ) {
+        // Handle link fields - take first URL if array, remove protocol
+        const url = Array.isArray(value) ? value[0] : value
+        if (url && typeof url === "string" && url !== "") {
+          if (key === "ws") {
+            setField(newItem, "ws", removeProtocol(url))
+          } else if (key === "li") {
+            setField(newItem, "li", removeProtocol(url))
+          } else if (key === "fb") {
+            setField(newItem, "fb", removeProtocol(url))
+          } else if (key === "tw") {
+            setField(newItem, "tw", removeProtocol(url))
+          } else if (key === "ig") {
+            setField(newItem, "ig", removeProtocol(url))
+          } else if (key === "gh") {
+            setField(newItem, "gh", removeProtocol(url))
+          } else if (key === "ytp") {
+            setField(newItem, "ytp", removeProtocol(url))
+          } else if (key === "ytc") {
+            setField(newItem, "ytc", removeProtocol(url))
+          } else if (key === "tt") {
+            setField(newItem, "tt", removeProtocol(url))
+          } else if (key === "th") {
+            setField(newItem, "th", removeProtocol(url))
+          }
+        }
+      } else if (key === "android_dev_id" || key === "android_app_ids") {
+        // Copy Android fields as-is
+        Object.assign(newItem, { [key]: value })
+      } else {
+        // Copy other fields
+        Object.assign(newItem, { [key]: value })
+      }
+    }
+
+    processedItems.push(newItem)
+    log(`Added manualAddition: ${addition.name} with ID ${generatedId}`)
   }
 
   // Combine processed items with additional items

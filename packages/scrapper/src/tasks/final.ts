@@ -6,6 +6,7 @@ import { z } from "zod"
 import { log } from "../helper"
 import { DBFileNames, NetworksFlatItemsSchema } from "../types"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
+import { manualAdditions } from "./manual_resolve/manualAdditions"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
 
@@ -80,9 +81,19 @@ const loadJsonFiles = (folderPath: string) => {
   log(`Combined data has ${Object.keys(idRecord).length} unique ids`)
   combinedArray = Object.values(idRecord)
 
+  // Create a map of manualAdditions by name for quick lookup
+  const manualAdditionsMap = new Map(manualAdditions.map((item) => [item.name, item]))
+
   combinedArray = combinedArray.map((item) => {
+    // Check manualOverrides first
     const override = manualOverrides[item.n]
-    const alt = override && typeof override === "object" && "alt" in override ? override.alt : undefined
+    let alt = override && typeof override === "object" && "alt" in override ? override.alt : undefined
+
+    // Check manualAdditions if not found in manualOverrides
+    if (!alt) {
+      const addition = manualAdditionsMap.get(item.n)
+      alt = addition && typeof addition === "object" && "alt" in addition ? addition.alt : undefined
+    }
 
     if (alt) {
       item.alt = alt

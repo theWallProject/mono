@@ -466,9 +466,7 @@ async function main() {
       const config = loadConfig()
       const foundModel = availableModels.find((model) => model === config.selectedModel)
       if (!foundModel) {
-        console.error(
-          `❌ Fast mode: Saved model "${config.selectedModel}" not found in available models.`
-        )
+        console.error(`❌ Fast mode: Saved model "${config.selectedModel}" not found in available models.`)
         console.error("   Available models:", availableModels.join(", "))
         console.error("   Please run without --fast to select a model first.")
         process.exit(1)
@@ -476,9 +474,7 @@ async function main() {
       selectedModel = foundModel
       console.log(`⚡ Fast mode: Using saved model "${selectedModel}"`)
     } catch (error: unknown) {
-      console.error(
-        `❌ Fast mode: No saved model found. Please run without --fast to select a model first.`
-      )
+      console.error(`❌ Fast mode: No saved model found. Please run without --fast to select a model first.`, error)
       process.exit(1)
     }
   } else {
