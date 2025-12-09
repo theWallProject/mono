@@ -183,7 +183,7 @@ export type NetworksFlatItemsType = NetworksFlatItemType[]
 
 /**
  * Manual entry schema
- * Used for entries created from manual data (BDS, Hints, BuyIsraeliTech)
+ * Used for entries created from manual data (Hints, BuyIsraeliTech)
  * Only includes fields that manual entries actually use
  */
 export const ManualEntrySchema = z

@@ -55,7 +55,7 @@ Create three saved searches in Crunchbase with these filters:
 
 2. **Merge CB** (`merge_cb.ts`): Consolidates all CB batches, merges duplicates by `id`, combines `reasons` arrays. Output: `results/2_merged/1_MERGED_CB.json`
 
-3. **Generate Static Data** (`gen_static.ts`, `gen_buyIsraeliTech.ts`): Processes BDS and BuyIsTech data. Output: `results/1_batches/static/*.json`
+3. **Generate Static Data** (`gen_static.ts`, `gen_buyIsraeliTech.ts`): Processes Hints and BuyIsTech data. Output: `results/1_batches/static/*.json`
 
 4. **Merge All** (`merge_static.ts`): Combines CB + static data, deduplicates by website, applies manual overrides, normalizes URLs. Output: `results/2_merged/2_MERGED_ALL.json`
 

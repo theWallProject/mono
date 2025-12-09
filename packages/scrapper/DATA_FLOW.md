@@ -93,7 +93,6 @@ CrunchbaseScrappedItemType {
 
 **Input:**
 
-- `BDS` (from `static_data/BDS.ts`) - `CompressedManualItemType[]`
 - `Hints` (from `static_data/hints.ts`) - `CompressedManualItemType[]`
 
 **Output:** `ManualEntryType[]`
@@ -221,7 +220,7 @@ MergedDataItem extends CrunchbaseScrappedItemType {
   tt?: string          // TikTok (from manual overrides)
   th?: string          // Threads (from manual overrides)
 
-  // Hint fields from manual data (BDS, Hints)
+  // Hint fields from manual data (Hints)
   isHint?: boolean     // Hint flag (from manual hints data)
   hintText?: string    // Hint text (from manual hints data)
   hintUrl?: string     // Hint URL (from manual hints data)
