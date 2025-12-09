@@ -235,3 +235,30 @@ export type CrunchbaseScrappedItemsType = z.infer<typeof CrunchbaseScrappedItems
 export type MergedDataItem = z.infer<typeof MergedDataItemSchema>
 export type MergedDataFile = z.infer<typeof MergedDataFileSchema>
 export type BuyIsraeliTechType = z.infer<typeof BuyIsraeliTechSchema>
+
+/**
+ * Manual override fields type
+ * Allows arrays for link fields in overrides
+ */
+export type ManualOverrideFields = {
+  ws?: string | string[]
+  li?: string | string[]
+  fb?: string | string[]
+  tw?: string | string[]
+  ig?: string | string[]
+  gh?: string | string[]
+  ytp?: string | string[]
+  ytc?: string | string[]
+  tt?: string | string[]
+  th?: string | string[]
+  /**
+   * Android developer ID like "com.wix" (not full app package IDs).
+   * This is the developer identifier, not a specific app package name.
+   */
+  android_dev_id?: string
+  /**
+   * Array of full Android app package IDs for exact matching.
+   * Use this when you want to block specific apps rather than all apps from a developer.
+   */
+  android_app_ids?: string[]
+} & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">

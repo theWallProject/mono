@@ -542,6 +542,7 @@ ValidationResult {
    - Used in: scrap, merge_cb
    - Contains: name, id, reasons, li, ws, fb, tw, and Crunchbase-specific fields (cbLink, cbRank, estRevenue, industries, etc.)
    - Does NOT include hint fields or Android fields (these are added in MergedDataItem)
+   - Link fields are single strings: `ws?: string`, `li?: string`, etc.
 
 2. **`ManualEntryType`** (manual entry type)
    - Used in: gen_static, gen_buyIsraeliTech
@@ -549,21 +550,33 @@ ValidationResult {
    - Does NOT include Crunchbase-specific fields (cbLink, cbRank, estRevenue, etc.)
    - Shares common fields with `CrunchbaseScrappedItemType` but has unique hint and Android fields that CB doesn't have
    - NOT a subset - they overlap but each has unique fields
+   - Link fields are single strings: `ws?: string`, `li?: string`, etc.
 
-3. **`MergedDataItem`** extends `CrunchbaseScrappedItemType`
-   - Adds: ig, gh, ytp, ytc, tt, th (social platforms from manual overrides)
-   - Adds: isHint, hintText, hintUrl (hint fields from manual hints data)
+3. **`ManualOverrideFields`** (manual override type)
+   - **Location:** `packages/scrapper/src/types.ts`
+   - Used in: manual_resolve/manualOverrides.ts, validate_urls.ts
+   - Contains: All link fields (ws, li, fb, tw, ig, gh, ytp, ytc, tt, th) as `string | string[]` (allows arrays)
+   - Contains: android_dev_id, android_app_ids (Android fields)
+   - Contains: All fields from CrunchbaseScrappedItemType (via Omit & intersection)
+   - Does NOT include hint fields (isHint, hintText, hintUrl, hint_android_id)
+   - **Purpose:** Type for manual overrides that can override multiple URLs per field (arrays) or single URLs (strings)
+   - **Key difference from MergedDataItem:** Allows arrays for link fields to support multiple URLs per platform
+
+4. **`MergedDataItem`** extends `CrunchbaseScrappedItemType`
+   - Adds: ig, gh, ytp, ytc, tt, th (social platforms from manual overrides) as single strings
+   - Adds: isHint, hintText, hintUrl, hint_android_id (hint fields from manual hints data)
    - Adds: android_dev_id, android_app_ids (Android fields from manual overrides)
    - Used in: merge_static (output), extract_social, extract_websites
    - Can be created from both `CrunchbaseScrappedItemType` and `ManualEntryType`
    - Contains all fields from Crunchbase plus all manual data fields
+   - Link fields are single strings: `ws?: string`, `li?: string`, etc.
 
-4. **`NetworksFlatItemType`** (flattened structure)
+5. **`NetworksFlatItemType`** (flattened structure)
    - Similar to base but with `selector` instead of URL fields
    - Used in: extract_social, extract_websites, final
    - Fields: selector, id, reasons, name, s, isHint, hintText, hintUrl, android_dev_id, android_app_ids
 
-5. **`FinalDBFileType`** (abbreviated structure)
+6. **`FinalDBFileType`** (abbreviated structure)
    - Similar to `NetworksFlatItemType` but with abbreviated field names
    - Used in: final, generate_android_blacklist
    - Defined in: `@theWallProject/common`
@@ -586,6 +599,14 @@ ValidationResult {
    - `ManualEntryType` uses single strings (output format for manual entries)
    - `CrunchbaseScrappedItemType` includes Crunchbase-specific fields
    - Conversion from arrays to single strings happens in `gen_static()`
+
+4. **`ManualOverrideFields` vs `MergedDataItem`**
+   - `ManualOverrideFields` allows arrays for link fields (`string | string[]`) to support multiple URLs per platform
+   - `MergedDataItem` uses single strings for link fields (`string`)
+   - `ManualOverrideFields` does NOT include hint fields (isHint, hintText, hintUrl, hint_android_id)
+   - `MergedDataItem` includes hint fields
+   - Both include Android fields and Crunchbase fields
+   - **Purpose difference:** `ManualOverrideFields` is for manual overrides (allows arrays), `MergedDataItem` is for merged data in pipeline (single values)
 
 ### Recommendations
 
@@ -693,17 +714,18 @@ This section compares the types defined in the `common` package (shared across a
 
 ### Type Definitions Location
 
-| Type                           | Location                         | Package  | Purpose                                  |
-| ------------------------------ | -------------------------------- | -------- | ---------------------------------------- |
-| `APIListOfReasonsSchema`       | `packages/common/src/index.ts`   | Common   | Shared enum schema                       |
-| `LinkField`                    | `packages/common/src/index.ts`   | Common   | Platform field type union                |
-| `FinalDBFileSchema`            | `packages/common/src/index.ts`   | Common   | Final output schema (API contract)       |
-| `FinalDBFileType`              | `packages/common/src/index.ts`   | Common   | Final output type (inferred from schema) |
-| `CrunchbaseScrappedItemSchema` | `packages/scrapper/src/types.ts` | Scrapper | Crunchbase API response schema           |
-| `MergedDataItemSchema`         | `packages/scrapper/src/types.ts` | Scrapper | Intermediate merged data schema          |
-| `NetworksFlatItemsSchema`      | `packages/scrapper/src/types.ts` | Scrapper | Flattened network data schema            |
-| `ManualEntrySchema`            | `packages/scrapper/src/types.ts` | Scrapper | Manual entry schema                      |
-| `CompressedManualItemSchema`   | `packages/scrapper/src/types.ts` | Scrapper | Compressed manual input schema           |
+| Type                           | Location                         | Package  | Purpose                                                     |
+| ------------------------------ | -------------------------------- | -------- | ----------------------------------------------------------- |
+| `APIListOfReasonsSchema`       | `packages/common/src/index.ts`   | Common   | Shared enum schema                                          |
+| `LinkField`                    | `packages/common/src/index.ts`   | Common   | Platform field type union                                   |
+| `FinalDBFileSchema`            | `packages/common/src/index.ts`   | Common   | Final output schema (API contract)                          |
+| `FinalDBFileType`              | `packages/common/src/index.ts`   | Common   | Final output type (inferred from schema)                    |
+| `CrunchbaseScrappedItemSchema` | `packages/scrapper/src/types.ts` | Scrapper | Crunchbase API response schema                              |
+| `MergedDataItemSchema`         | `packages/scrapper/src/types.ts` | Scrapper | Intermediate merged data schema                             |
+| `NetworksFlatItemsSchema`      | `packages/scrapper/src/types.ts` | Scrapper | Flattened network data schema                               |
+| `ManualEntrySchema`            | `packages/scrapper/src/types.ts` | Scrapper | Manual entry schema                                         |
+| `CompressedManualItemSchema`   | `packages/scrapper/src/types.ts` | Scrapper | Compressed manual input schema                              |
+| `ManualOverrideFields`         | `packages/scrapper/src/types.ts` | Scrapper | Manual override fields type (allows arrays for link fields) |
 
 ### Recommendations
 

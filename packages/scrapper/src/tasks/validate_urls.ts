@@ -16,7 +16,7 @@ import {
 import { BrowserContext, chromium, Page } from "playwright"
 
 import { error, log } from "../helper"
-import { CrunchbaseScrappedItemType, MergedDataFileSchema } from "../types"
+import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../types"
 
 type ProcessedState = {
   _processed: true
@@ -24,19 +24,6 @@ type ProcessedState = {
 
 // ScrapperLinkField excludes "il" since it's not a database field (only used in bot/addon for .il domains)
 type ScrapperLinkField = Exclude<LinkField, "il">
-
-type ManualOverrideFields = Omit<Partial<CrunchbaseScrappedItemType>, ScrapperLinkField> & {
-  ws?: string | string[]
-  li?: string | string[]
-  fb?: string | string[]
-  tw?: string | string[]
-  ig?: string | string[]
-  gh?: string | string[]
-  ytp?: string | string[]
-  ytc?: string | string[]
-  tt?: string | string[]
-  th?: string | string[]
-}
 
 type ManualOverrideValue = (ManualOverrideFields & ProcessedState) | ProcessedState | ManualOverrideFields
 
@@ -75,6 +62,10 @@ const formatValue = (value: ManualOverrideValue): string => {
     if ("tt" in value && value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
     if ("th" in value && value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
     if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if ("android_dev_id" in value && value.android_dev_id !== undefined)
+      fields.push(`android_dev_id: ${JSON.stringify(value.android_dev_id)}`)
+    if ("android_app_ids" in value && value.android_app_ids !== undefined)
+      fields.push(`android_app_ids: ${JSON.stringify(value.android_app_ids)}`)
 
     if (fields.length > 0) {
       // Has changes - include both the fields and the processed state
@@ -97,6 +88,10 @@ const formatValue = (value: ManualOverrideValue): string => {
     if (value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
     if (value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
     if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if ("android_dev_id" in value && value.android_dev_id !== undefined)
+      fields.push(`android_dev_id: ${JSON.stringify(value.android_dev_id)}`)
+    if ("android_app_ids" in value && value.android_app_ids !== undefined)
+      fields.push(`android_app_ids: ${JSON.stringify(value.android_app_ids)}`)
 
     if (fields.length > 0) {
       return `{ ${fields.join(", ")} }`
@@ -108,9 +103,7 @@ const formatValue = (value: ManualOverrideValue): string => {
 
 const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>) => {
   const keys = Object.keys(overrides).sort()
-  let content = 'import { CrunchbaseScrappedItemType } from "../../types";\n\n'
-  content +=
-    '// Allow arrays for link fields in overrides\ntype ManualOverrideFields = {\n  ws?: string | string[];\n  li?: string | string[];\n  fb?: string | string[];\n  tw?: string | string[];\n  ig?: string | string[];\n  gh?: string | string[];\n  ytp?: string | string[];\n  ytc?: string | string[];\n  tt?: string | string[];\n  th?: string | string[];\n} & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">;\n\n'
+  let content = 'import { ManualOverrideFields } from "../../types";\n\n'
   content +=
     "export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] })> = {\n"
 
@@ -1301,6 +1294,615 @@ const findCompanyByName = (
   items: CrunchbaseScrappedItemType[]
 ): CrunchbaseScrappedItemType | null => {
   return items.find((item) => item.name === companyName) || null
+}
+
+/**
+ * Adds a new entry to manualOverrides.ts by opening browser with search pages
+ * and collecting URLs using the same flow as validateItemLinks
+ */
+export async function addNewEntryLinks(companyName: string): Promise<void> {
+  let browserContext: BrowserContext | null = null
+
+  // Persistent browser profile path
+  const userDataDir = path.join(__dirname, "../../.browser-profile")
+
+  try {
+    log(`\nAdding new entry for: ${companyName}`)
+
+    // Load current manual overrides
+    const currentOverrides = loadManualOverrides()
+
+    // Launch browser with persistent profile
+    log("Launching browser with persistent profile...")
+
+    const browserArgs = [
+      "--start-maximized",
+      "--disable-blink-features=AutomationControlled",
+      "--disable-dev-shm-usage",
+      "--no-sandbox",
+      "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    ]
+
+    // Load The Wall extension from local path
+    const extensionDir = path.join(__dirname, "../../../addon/build/chrome-mv3-dev")
+    const extensionManifestPath = path.join(extensionDir, "manifest.json")
+
+    if (!fs.existsSync(extensionManifestPath)) {
+      throw new Error(
+        `Extension manifest not found at: ${extensionManifestPath}. ` +
+          `Please ensure the extension is built at: ${extensionDir}`
+      )
+    }
+
+    const absoluteExtensionDir = path.resolve(extensionDir)
+    browserArgs.push(`--disable-extensions-except=${absoluteExtensionDir}`)
+    browserArgs.push(`--load-extension=${absoluteExtensionDir}`)
+    log(`Loading The Wall extension from: ${absoluteExtensionDir}`)
+
+    browserContext = await chromium.launchPersistentContext(userDataDir, {
+      headless: false,
+      args: browserArgs,
+      viewport: { width: 1280, height: 720 },
+      ignoreHTTPSErrors: true
+    })
+    log("Browser launched (profile will persist cookies/login)")
+
+    // Remove webdriver property from all pages
+    const pages = browserContext.pages()
+    for (const page of pages) {
+      await page.addInitScript(() => {
+        Object.defineProperty(navigator, "webdriver", {
+          get: () => false
+        })
+        Object.defineProperty(navigator, "plugins", {
+          get: () => [1, 2, 3, 4, 5]
+        })
+        Object.defineProperty(navigator, "languages", {
+          get: () => ["en-US", "en"]
+        })
+        Object.defineProperty(window, "chrome", {
+          value: { runtime: {} },
+          writable: true,
+          configurable: true
+        })
+      })
+    }
+
+    browserContext.on("page", async (page) => {
+      await page.addInitScript(() => {
+        Object.defineProperty(navigator, "webdriver", {
+          get: () => false
+        })
+        Object.defineProperty(navigator, "plugins", {
+          get: () => [1, 2, 3, 4, 5]
+        })
+        Object.defineProperty(navigator, "languages", {
+          get: () => ["en-US", "en"]
+        })
+        Object.defineProperty(window, "chrome", {
+          value: { runtime: {} },
+          writable: true,
+          configurable: true
+        })
+      })
+    })
+
+    // Open search pages for the company name (no existing links to validate)
+    const searchPages: Page[] = []
+    await openSearchPages(browserContext, companyName, searchPages)
+
+    // Close any empty tabs
+    try {
+      const allPages = browserContext.pages()
+      const emptyPages: Page[] = []
+      for (const page of allPages) {
+        try {
+          if (!page.isClosed() && !searchPages.includes(page)) {
+            const url = page.url()
+            if (url === "about:blank" || url === "") {
+              emptyPages.push(page)
+            }
+          }
+        } catch {
+          // Page might already be closed
+        }
+      }
+
+      for (const page of emptyPages) {
+        try {
+          await page.close()
+        } catch {
+          // Page might already be closed
+        }
+      }
+      if (emptyPages.length > 0) {
+        log(`  Closed ${emptyPages.length} empty tab(s)`)
+      }
+    } catch {
+      // Ignore errors when closing empty tabs
+    }
+
+    log(`  ⏳ Browser windows are open (${searchPages.length} tabs). Close the browser to proceed...`)
+
+    // Use the same URL collection logic as validateItemLinks
+    // CRITICAL: Store tracking data OUTSIDE browser context scope
+    const persistentTabUrls = new Map<Page, string>()
+    const tabUrlHistory = new Map<Page, Set<string>>()
+    const userClosedUrls = new Set<string>()
+    const pendingTabCloseChecks = new Set<NodeJS.Timeout>()
+    let isContextClosing = false
+    const TAB_CLOSE_DELAY_MS = 3000
+
+    const isBrowserStillOpen = (tab: Page): boolean => {
+      try {
+        const tabContext = tab.context()
+        if (tabContext) {
+          const browser = tabContext.browser()
+          if (browser !== null && browser.isConnected()) {
+            return true
+          }
+        }
+      } catch {
+        // Context closed
+      }
+
+      try {
+        if (!browserContext) {
+          throw new Error("browserContext is null")
+        }
+        const mainBrowser = browserContext.browser()
+        return mainBrowser !== null && mainBrowser.isConnected()
+      } catch (e) {
+        console.error(`Error checking if browser is connected: ${e}`)
+        return false
+      }
+    }
+
+    const setupTabCloseHandler = (tab: Page) => {
+      tab.on("close", () => {
+        const url = persistentTabUrls.get(tab)
+        const urlHistory = tabUrlHistory.get(tab) || new Set<string>()
+
+        if (!isContextClosing) {
+          tabUrlHistory.delete(tab)
+        }
+
+        if (!url || url === "about:blank") {
+          return
+        }
+
+        let isShuttingDown = isContextClosing
+        if (!isShuttingDown) {
+          try {
+            const tabContext = tab.context()
+            isShuttingDown = !tabContext || tabContext.browser() === null
+          } catch {
+            isShuttingDown = true
+          }
+        }
+
+        if (isShuttingDown) {
+          return
+        }
+
+        const timeoutId = setTimeout(() => {
+          pendingTabCloseChecks.delete(timeoutId)
+
+          if (isBrowserStillOpen(tab) && !isContextClosing) {
+            for (const historyUrl of urlHistory) {
+              userClosedUrls.add(historyUrl)
+            }
+            log(
+              `  [DEBUG] ✗ Tab closed (user action), marking ${urlHistory.size} URLs as excluded: ${Array.from(urlHistory).join(", ")}`
+            )
+          }
+        }, TAB_CLOSE_DELAY_MS)
+
+        pendingTabCloseChecks.add(timeoutId)
+      })
+    }
+
+    const waitForPendingChecks = async () => {
+      if (pendingTabCloseChecks.size > 0) {
+        log(`  [DEBUG] Waiting for ${pendingTabCloseChecks.size} pending tab close checks to complete...`)
+        const maxWait = TAB_CLOSE_DELAY_MS + 1000
+        const startTime = Date.now()
+
+        while (pendingTabCloseChecks.size > 0 && Date.now() - startTime < maxWait) {
+          await new Promise((resolve) => setTimeout(resolve, 100))
+        }
+
+        if (pendingTabCloseChecks.size > 0) {
+          log(`  [DEBUG] ⚠️ Still ${pendingTabCloseChecks.size} pending checks, proceeding anyway`)
+          for (const timeoutId of pendingTabCloseChecks) {
+            clearTimeout(timeoutId)
+          }
+          pendingTabCloseChecks.clear()
+        }
+      }
+    }
+
+    // Initialize with search pages
+    for (const tab of searchPages) {
+      tabUrlHistory.set(tab, new Set<string>())
+      try {
+        const url = tab.url()
+        if (url && url !== "about:blank") {
+          persistentTabUrls.set(tab, url)
+          const history = tabUrlHistory.get(tab)
+          if (history) {
+            history.add(url)
+          }
+        }
+      } catch {
+        // Tab might not have URL yet
+      }
+    }
+
+    const updateTabUrl = (tab: Page, source: string = "unknown") => {
+      try {
+        if (tab.isClosed()) {
+          return
+        }
+        const tabUrl = tab.url()
+        if (tabUrl && tabUrl !== "about:blank") {
+          const oldUrl = persistentTabUrls.get(tab)
+          persistentTabUrls.set(tab, tabUrl)
+
+          if (!tabUrlHistory.has(tab)) {
+            tabUrlHistory.set(tab, new Set<string>())
+          }
+          const history = tabUrlHistory.get(tab)
+          if (history) {
+            if (oldUrl && oldUrl !== tabUrl && oldUrl !== "about:blank") {
+              history.add(oldUrl)
+            }
+            history.add(tabUrl)
+          }
+
+          if (oldUrl && oldUrl !== tabUrl && oldUrl !== "about:blank") {
+            log(`  [DEBUG] ✨ Tab URL updated from ${source}: ${oldUrl} → ${tabUrl}`)
+          } else if (oldUrl !== tabUrl) {
+            log(`  [DEBUG] ✨ Tab URL captured from ${source}: ${tabUrl}`)
+          }
+        }
+      } catch {
+        // Tab might be closing
+      }
+    }
+
+    // Set up navigation listeners
+    for (const tab of searchPages) {
+      try {
+        updateTabUrl(tab, "initial")
+        tab.on("framenavigated", () => {
+          updateTabUrl(tab, "framenavigated")
+        })
+        tab.on("load", () => {
+          updateTabUrl(tab, "load")
+        })
+        setupTabCloseHandler(tab)
+      } catch {
+        // Tab might not have a URL yet
+      }
+    }
+
+    // Listen for new tabs
+    browserContext.on("page", (tab) => {
+      try {
+        tabUrlHistory.set(tab, new Set<string>())
+        log(`  [DEBUG] ✨ New tab created (total tracked: ${tabUrlHistory.size})`)
+
+        try {
+          const initialUrl = tab.url()
+          if (initialUrl && initialUrl !== "about:blank") {
+            persistentTabUrls.set(tab, initialUrl)
+            const history = tabUrlHistory.get(tab)
+            if (history) {
+              history.add(initialUrl)
+            }
+          }
+        } catch {
+          // Tab might not have URL yet
+        }
+
+        tab.on("framenavigated", () => {
+          updateTabUrl(tab, "framenavigated")
+        })
+        tab.on("load", () => {
+          updateTabUrl(tab, "load")
+        })
+        setupTabCloseHandler(tab)
+      } catch (e) {
+        log(`  [DEBUG] Error in tab event handler: ${e}`)
+      }
+    })
+
+    // Wait for browser close and collect URLs
+    const changes: OverrideWithUrls = {}
+    const collectedUrls = await new Promise<OverrideWithUrls>((resolve) => {
+      let resolved = false
+      let pollInterval: NodeJS.Timeout | null = null
+
+      const collectExtraUrls = (): string[] => {
+        const extraUrls: string[] = []
+        log(`  [DEBUG] === Starting URL collection ===`)
+        log(`  [DEBUG] Total tracked tabs: ${tabUrlHistory.size}`)
+        log(`  [DEBUG] Tabs with URLs: ${persistentTabUrls.size}`)
+        log(`  [DEBUG] URLs user manually closed: ${userClosedUrls.size}`)
+
+        try {
+          let validUrlsFound = 0
+          let userClosedSkipped = 0
+          let blankUrlsSkipped = 0
+
+          for (const [, url] of persistentTabUrls.entries()) {
+            if (!url || url === "about:blank") {
+              blankUrlsSkipped++
+              continue
+            }
+
+            if (userClosedUrls.has(url)) {
+              userClosedSkipped++
+              continue
+            }
+
+            const cleanedUrl = removeTrailingSlash(url)
+            extraUrls.push(cleanedUrl)
+            validUrlsFound++
+            log(`  [DEBUG] ✓ Collected final URL: ${cleanedUrl}`)
+          }
+
+          extraUrls.sort()
+
+          log(`  [DEBUG] === URL collection complete ===`)
+          log(
+            `  [DEBUG] Summary: ${validUrlsFound} valid URLs from ${persistentTabUrls.size} tabs, ${userClosedSkipped} user-closed, ${blankUrlsSkipped} blank`
+          )
+
+          return extraUrls
+        } catch (e) {
+          log(`  [DEBUG] Error collecting URLs: ${e}`)
+          return []
+        }
+      }
+
+      const cleanup = (reason: string) => {
+        if (resolved) {
+          return
+        }
+        resolved = true
+        if (pollInterval) {
+          clearInterval(pollInterval)
+          pollInterval = null
+        }
+
+        isContextClosing = true
+        log(`  [DEBUG] cleanup() called with reason: ${reason}`)
+        ;(async () => {
+          await waitForPendingChecks()
+
+          log(`  [DEBUG] Collecting from tab->URL mappings...`)
+          const extraUrls = collectExtraUrls()
+
+          if (extraUrls.length > 0) {
+            log(`  📎 Found ${extraUrls.length} tab URL(s):`, extraUrls)
+
+            const categorized: CategorizedUrls = {}
+            const seenUrls = new Map<ScrapperLinkField | "urls", Set<string>>()
+
+            for (const url of extraUrls) {
+              const category = categorizeUrl(url)
+              let categoryKey: ScrapperLinkField | "urls"
+              if (category === null || category === "il") {
+                categoryKey = "urls"
+              } else {
+                categoryKey = category
+              }
+              const cleanedUrl = removeTrailingSlash(url)
+
+              if (!seenUrls.has(categoryKey)) {
+                seenUrls.set(categoryKey, new Set<string>())
+              }
+              const seen = seenUrls.get(categoryKey)
+              if (!seen) continue
+
+              if (seen.has(cleanedUrl)) {
+                continue
+              }
+
+              seen.add(cleanedUrl)
+
+              if (category === "li") {
+                if (!categorized.li) categorized.li = []
+                categorized.li.push(cleanedUrl)
+              } else if (category === "fb") {
+                if (!categorized.fb) categorized.fb = []
+                categorized.fb.push(cleanedUrl)
+              } else if (category === "tw") {
+                if (!categorized.tw) categorized.tw = []
+                categorized.tw.push(cleanedUrl)
+              } else if (category === "ig") {
+                if (!categorized.ig) categorized.ig = []
+                categorized.ig.push(cleanedUrl)
+              } else if (category === "gh") {
+                if (!categorized.gh) categorized.gh = []
+                categorized.gh.push(cleanedUrl)
+              } else if (category === "ytp") {
+                if (!categorized.ytp) categorized.ytp = []
+                categorized.ytp.push(cleanedUrl)
+              } else if (category === "ytc") {
+                if (!categorized.ytc) categorized.ytc = []
+                categorized.ytc.push(cleanedUrl)
+              } else if (category === "tt") {
+                if (!categorized.tt) categorized.tt = []
+                categorized.tt.push(cleanedUrl)
+              } else if (category === "th") {
+                if (!categorized.th) categorized.th = []
+                categorized.th.push(cleanedUrl)
+              } else {
+                if (!categorized.urls) categorized.urls = []
+                categorized.urls.push(cleanedUrl)
+              }
+            }
+
+            if (categorized.li && categorized.li.length > 0) {
+              changes.li = categorized.li
+              log(`  ✓ Categorized ${categorized.li.length} LinkedIn URL(s)`)
+            }
+
+            if (categorized.fb && categorized.fb.length > 0) {
+              changes.fb = categorized.fb
+              log(`  ✓ Categorized ${categorized.fb.length} Facebook URL(s)`)
+            }
+
+            if (categorized.tw && categorized.tw.length > 0) {
+              changes.tw = categorized.tw
+              log(`  ✓ Categorized ${categorized.tw.length} Twitter/X URL(s)`)
+            }
+
+            if (categorized.ig && categorized.ig.length > 0) {
+              changes.ig = categorized.ig
+              log(`  ✓ Categorized ${categorized.ig.length} Instagram URL(s)`)
+            }
+
+            if (categorized.gh && categorized.gh.length > 0) {
+              changes.gh = categorized.gh
+              log(`  ✓ Categorized ${categorized.gh.length} GitHub URL(s)`)
+            }
+
+            if (categorized.ytp && categorized.ytp.length > 0) {
+              changes.ytp = categorized.ytp
+              log(`  ✓ Categorized ${categorized.ytp.length} YouTube Profile URL(s)`)
+            }
+
+            if (categorized.ytc && categorized.ytc.length > 0) {
+              changes.ytc = categorized.ytc
+              log(`  ✓ Categorized ${categorized.ytc.length} YouTube Channel URL(s)`)
+            }
+
+            if (categorized.tt && categorized.tt.length > 0) {
+              changes.tt = categorized.tt
+              log(`  ✓ Categorized ${categorized.tt.length} TikTok URL(s)`)
+            }
+
+            if (categorized.th && categorized.th.length > 0) {
+              changes.th = categorized.th
+              log(`  ✓ Categorized ${categorized.th.length} Threads URL(s)`)
+            }
+
+            if (categorized.urls && categorized.urls.length > 0) {
+              changes.urls = categorized.urls
+              log(`  ✓ Kept ${categorized.urls.length} unsupported URL(s) in urls array`)
+            }
+          }
+
+          log(`  ✓ Browser closed, continuing...`)
+          resolve(changes)
+        })()
+      }
+
+      if (!browserContext) {
+        cleanup("no browser context")
+        return
+      }
+
+      const browser = browserContext.browser()
+      if (!browser) {
+        cleanup("no browser instance")
+        return
+      }
+
+      browser.once("disconnected", () => {
+        isContextClosing = true
+        cleanup("disconnected event")
+      })
+
+      browserContext.once("close", () => {
+        isContextClosing = true
+        cleanup("context close event")
+      })
+
+      // Poll for browser close as fallback
+      pollInterval = setInterval(() => {
+        try {
+          if (!browserContext) {
+            cleanup("polling detected null context")
+            return
+          }
+          const browser = browserContext.browser()
+          if (!browser || !browser.isConnected()) {
+            cleanup("polling detected close")
+          }
+        } catch {
+          cleanup("polling error")
+        }
+      }, 1000)
+    })
+
+    // Save the new entry to manualOverrides.ts
+    if (Object.keys(collectedUrls).length > 0) {
+      log(`  ✏️ Collected URLs for ${companyName}:`, collectedUrls)
+
+      const override: ManualOverrideFields & ProcessedState & { urls?: string[] } = {
+        _processed: true
+      }
+
+      if (collectedUrls.urls) override.urls = collectedUrls.urls
+      if (collectedUrls.ws !== undefined) override.ws = collectedUrls.ws
+      if (collectedUrls.li !== undefined) override.li = collectedUrls.li
+      if (collectedUrls.fb !== undefined) override.fb = collectedUrls.fb
+      if (collectedUrls.tw !== undefined) override.tw = collectedUrls.tw
+      if (collectedUrls.ig !== undefined) override.ig = collectedUrls.ig
+      if (collectedUrls.gh !== undefined) override.gh = collectedUrls.gh
+      if (collectedUrls.ytp !== undefined) override.ytp = collectedUrls.ytp
+      if (collectedUrls.ytc !== undefined) override.ytc = collectedUrls.ytc
+      if (collectedUrls.tt !== undefined) override.tt = collectedUrls.tt
+      if (collectedUrls.th !== undefined) override.th = collectedUrls.th
+
+      currentOverrides[companyName] = override
+    } else {
+      log(`  ✓ No URLs collected for ${companyName}, marking as processed`)
+      const override: ProcessedState = {
+        _processed: true
+      }
+      currentOverrides[companyName] = override
+    }
+
+    // Save after collecting URLs
+    await saveManualOverrides(currentOverrides)
+
+    // Verify the file is saved
+    try {
+      const exists = fs.existsSync(manualOverridesPath)
+      if (!exists) {
+        throw new Error(`manualOverrides file not found after save: ${manualOverridesPath}`)
+      }
+      fs.readFileSync(manualOverridesPath, "utf-8")
+      log("  💾 Progress saved and verified")
+    } catch (e) {
+      error(`  ⚠️  Failed to verify manualOverrides save: ${e}`)
+      throw new Error(`Cannot proceed: manualOverrides file not saved correctly`)
+    }
+
+    log(`\n✓ Entry added for ${companyName}`)
+  } catch (err) {
+    error("Error during add entry:", err)
+    throw err
+  } finally {
+    if (browserContext) {
+      try {
+        const browser = browserContext.browser()
+        const isConnected = browser?.isConnected() ?? false
+        if (isConnected) {
+          await browserContext.close()
+          log("Browser closed")
+        }
+      } catch {
+        // Browser context already closed, ignore
+      }
+    }
+  }
 }
 
 export async function run() {

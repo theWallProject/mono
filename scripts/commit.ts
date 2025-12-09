@@ -417,6 +417,7 @@ async function main() {
   const cachedMessage = loadCachedMessage()
   if (cachedMessage) {
     console.log("💾 Found cached commit message from previous run.")
+    console.log("\n" + cachedMessage + "\n")
     const { useCached } = await prompts({
       type: "confirm",
       name: "useCached",

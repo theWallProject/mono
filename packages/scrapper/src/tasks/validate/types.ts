@@ -1,23 +1,7 @@
-import { CrunchbaseScrappedItemType } from "../../types"
+import { CrunchbaseScrappedItemType, ManualOverrideFields } from "../../types"
 
 export type ProcessedState = {
   _processed: true
-}
-
-export type ManualOverrideFields = Omit<
-  Partial<CrunchbaseScrappedItemType>,
-  "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th"
-> & {
-  ws?: string | string[]
-  li?: string | string[]
-  fb?: string | string[]
-  tw?: string | string[]
-  ig?: string | string[]
-  gh?: string | string[]
-  ytp?: string | string[]
-  ytc?: string | string[]
-  tt?: string | string[]
-  th?: string | string[]
 }
 
 export type ManualOverrideValue = (ManualOverrideFields & ProcessedState) | ProcessedState | ManualOverrideFields

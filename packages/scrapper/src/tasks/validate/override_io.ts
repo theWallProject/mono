@@ -63,9 +63,7 @@ export const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
 
 export const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>): Promise<void> => {
   const keys = Object.keys(overrides).sort()
-  let content = 'import { CrunchbaseScrappedItemType } from "../../types";\n\n'
-  content +=
-    '// Allow arrays for link fields in overrides\ntype ManualOverrideFields = {\n  ws?: string | string[];\n  li?: string | string[];\n  fb?: string | string[];\n  tw?: string | string[];\n  ig?: string | string[];\n  gh?: string | string[];\n  ytp?: string | string[];\n  ytc?: string | string[];\n  tt?: string | string[];\n  th?: string | string[];\n} & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">;\n\n'
+  let content = 'import { ManualOverrideFields } from "../../types";\n\n'
   content +=
     "export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] })> = {\n"
 

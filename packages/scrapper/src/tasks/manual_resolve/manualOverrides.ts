@@ -1,28 +1,4 @@
-import { CrunchbaseScrappedItemType } from "../../types"
-
-// Allow arrays for link fields in overrides
-type ManualOverrideFields = {
-  ws?: string | string[]
-  li?: string | string[]
-  fb?: string | string[]
-  tw?: string | string[]
-  ig?: string | string[]
-  gh?: string | string[]
-  ytp?: string | string[]
-  ytc?: string | string[]
-  tt?: string | string[]
-  th?: string | string[]
-  /**
-   * Android developer ID like "com.wix" (not full app package IDs).
-   * This is the developer identifier, not a specific app package name.
-   */
-  android_dev_id?: string
-  /**
-   * Array of full Android app package IDs for exact matching.
-   * Use this when you want to block specific apps rather than all apps from a developer.
-   */
-  android_app_ids?: string[]
-} & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">
+import { ManualOverrideFields } from "../../types"
 
 export const manualOverrides: Record<
   string,
@@ -64,8 +40,8 @@ export const manualOverrides: Record<
     tw: ["https://x.com/AU10TIXLimited"],
     ig: ["https://www.instagram.com/life_at_au10tix"],
     gh: ["https://github.com/au10tixmobile"],
-    android_dev_id: "com.au10tix",
     urls: ["https://play.google.com/store/apps/developer?id=Au10tix"],
+    android_dev_id: "com.au10tix",
     _processed: true
   },
   Aidoc: {
@@ -82,23 +58,23 @@ export const manualOverrides: Record<
     gh: ["https://github.com/biocatchltd"],
     ytp: ["https://www.youtube.com/@biocatch.official"],
     ytc: ["https://www.youtube.com/channel/UCGHkBeKgH_6-B8CjRcCqm-A"],
-    android_dev_id: "com.biocatch.biometric",
     urls: [
       "https://marketplace.microsoft.com/en-gb/product/saas/biocatch.biocatch_behavioral_biometrics?tab=Overview",
       "https://medium.com/@BioCatchTechBlog",
       "https://play.google.com/store/apps/developer?id=BioCatch+Ltd.",
       "https://www.comeet.com/jobs/biocatch/03.00E/data-engineer/0C.759"
     ],
+    android_dev_id: "com.biocatch.biometric",
     _processed: true
   },
   Bluesky: {
     ws: ["https://bsky.social", "https://bsky.app"],
     gh: ["https://github.com/bluesky-social"],
-    android_dev_id: "xyz.blueskyweb",
     urls: [
       "https://apps.apple.com/us/developer/bluesky-pbllc/id1654243552",
       "https://play.google.com/store/apps/developer?id=Bluesky+PBLLC"
     ],
+    android_dev_id: "xyz.blueskyweb",
     _processed: true
   },
   Cellebrite: {
@@ -159,31 +135,24 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/earnix_inc"],
     gh: ["https://github.com/Earnix"],
     ytp: ["https://www.youtube.com/@Earnix_Inc"],
-    android_dev_id: "mobile.app1hh7BC4Jb6",
     urls: ["https://play.google.com/store/apps/developer?id=Earnix+Ltd"],
+    android_dev_id: "mobile.app1hh7BC4Jb6",
     _processed: true
   },
   Empathy: {
     tw: ["https://x.com/empathy"],
     ig: ["https://www.instagram.com/empathy_com"],
     th: ["https://www.threads.com/@empathy_com"],
-    android_dev_id: "com.empathy",
     urls: [
       "https://apps.apple.com/us/developer/empathy/id1536395194",
       "https://play.google.com/store/apps/dev?id=7573398188169424467",
       "https://sprout.link/empathy_com"
     ],
+    android_dev_id: "com.empathy",
     _processed: true
   },
   Fiverr: {
     ws: ["https://www.fiverr.com", "https://www.clearvoice.com", "https://www.autods.com"],
-    fb: ["https://www.facebook.com/Fiverr", "https://www.facebook.com/ClearVoiceContent"],
-    android_dev_id: "com.fiverr",
-    ytp: ["https://www.youtube.com/@fiverr"],
-    ytc: ["https://www.youtube.com/channel/UC3uRppA1nJm53HMVauBS-tw"],
-    tt: ["https://www.tiktok.com/@fiverr"],
-    tw: ["https://x.com/fiverr", "https://x.com/ClearVoice"],
-    ig: ["https://www.instagram.com/fiverr", "https://www.instagram.com/clearvoicecontent"],
     li: [
       "https://www.linkedin.com/company/fiverr-com",
       "https://www.linkedin.com/showcase/fiverr-affiliates",
@@ -191,13 +160,41 @@ export const manualOverrides: Record<
       "https://www.linkedin.com/showcase/fiverr-us",
       "https://www.linkedin.com/company/clearvoice"
     ],
+    fb: ["https://www.facebook.com/Fiverr", "https://www.facebook.com/ClearVoiceContent"],
+    tw: ["https://x.com/fiverr", "https://x.com/ClearVoice"],
+    ig: ["https://www.instagram.com/fiverr", "https://www.instagram.com/clearvoicecontent"],
+    ytp: ["https://www.youtube.com/@fiverr"],
+    ytc: ["https://www.youtube.com/channel/UC3uRppA1nJm53HMVauBS-tw"],
+    tt: ["https://www.tiktok.com/@fiverr"],
     urls: [
       "https://play.google.com/store/apps/developer?id=Fiverr",
       "https://sprout.link/fiverr",
       "https://www.linkedin.com/products/fiverr-com-fiverr",
       "https://www.pinterest.com/fiverr",
       "https://www.pinterest.com/fiverr/brand-style-guides-brand-identity"
-    ]
+    ],
+    android_dev_id: "com.fiverr"
+  },
+  Hypernative: {
+    ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
+    li: ["https://www.linkedin.com/company/hypernative"],
+    tw: ["https://x.com/HypernativeLabs"],
+    gh: ["https://github.com/Hypernative-Labs"],
+    ytp: ["https://www.youtube.com/@hypernative-io"],
+    urls: [
+      "https://aptosnetwork.com/ecosystem/directory/hypernative",
+      "https://ballisticventures.com/why-we-invested-in-hypernative",
+      "https://cryptorank.io/price/hypernative",
+      "https://docs.linea.build/get-started/tooling/security/hypernative",
+      "https://hackernoon.com/hypernative-and-flare-form-strategic-alliance-to-fortify-web3-security",
+      "https://medium.com/@Hypernative/about",
+      "https://moralis.com/web3-wiki/hypernative",
+      "https://www.businesswire.com/news/home/20250610162307/en/Hypernative-Raises-%2440M-Series-B-to-Remove-Security-Barriers-to-Web3-Mass-Adoption",
+      "https://www.comeet.com/jobs/hypernative/8A.00E",
+      "https://www.hypernative.io",
+      "https://www.yahoo.com/news/crypto-security-startup-hypernative-raises-130027102.html"
+    ],
+    _processed: true
   },
   LayerX: {
     li: ["https://www.linkedin.com/company/layerx-security"],
@@ -214,11 +211,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@moonpayhq"],
     ytc: ["https://www.youtube.com/channel/UC9hQtWpGGNaZ8yiwFsBkRBg"],
     th: ["https://www.threads.com/@moonpay"],
-    android_dev_id: "com.moonpay",
     urls: [
       "https://apps.apple.com/us/developer/moonpay/id1635031434",
       "https://play.google.com/store/apps/developer?id=MoonPay"
     ],
+    android_dev_id: "com.moonpay",
     _processed: true
   },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
@@ -284,14 +281,10 @@ export const manualOverrides: Record<
     urls: ["https://noma.security"],
     _processed: true
   },
-  "Od Podcast": {
-    ws: "",
-    li: "https://www.linkedin.com/company/guykatsovichpodcast"
-  },
+  "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
   "Omada Health": {
     ig: ["https://www.instagram.com/omadahealth"],
     ytp: ["https://www.youtube.com/@Omadahealth", "https://www.youtube.com/omadahealth"],
-    android_dev_id: "com.healthcoda",
     urls: [
       "https://play.google.com/store/apps/developer?id=Omada+Health",
       "https://apps.apple.com/us/developer/omada-health-inc/id805711011",
@@ -299,6 +292,7 @@ export const manualOverrides: Record<
       "https://vimeo.com/weareomadahealth",
       "https://job-boards.greenhouse.io/omadahealth"
     ],
+    android_dev_id: "com.healthcoda",
     _processed: true
   },
   "Ox Security": {
@@ -355,8 +349,8 @@ export const manualOverrides: Record<
     gh: ["https://github.com/Sentinel-One"],
     ytp: ["https://www.youtube.com/@Sentinelone-inc"],
     ytc: ["https://www.youtube.com/channel/UCm-vzfQy1lNglsXRBY6Vu5w"],
-    android_dev_id: "com.sentinelone",
     urls: ["https://play.google.com/store/apps/developer?id=Zimperium+INC."],
+    android_dev_id: "com.sentinelone",
     _processed: true
   },
   Sentra: {
@@ -369,12 +363,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life_at_silverfort"],
     gh: ["https://github.com/silverfort-open-source"],
     ytp: ["https://www.youtube.com/@silverfort"],
-    android_dev_id: "com.silverfort",
     urls: [
       "https://apps.apple.com/us/developer/silverfort/id1227704144",
       "https://chromewebstore.google.com/detail/silverfort/pehheafegmblicfcnkpacblgfeabpgim",
       "https://play.google.com/store/apps/developer?id=Silverfort+Inc."
     ],
+    android_dev_id: "com.silverfort",
     _processed: true
   },
   Somite: { tw: "https://x.com/somiteai" },
@@ -392,7 +386,6 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@team8group"],
     ytc: ["https://www.youtube.com/channel/UCyHEyZPo7EMoHcWyDtMxMFA"],
     th: ["https://www.threads.com/@team8group"],
-    android_app_ids: ["com.eventcadence.team8"],
     urls: [
       "https://medium.com/@fleur.s",
       "https://medium.com/@galia.beer.gabel",
@@ -403,6 +396,7 @@ export const manualOverrides: Record<
       "https://vimeo.com/443398567",
       "https://www.comeet.com/jobs/team8/61.003"
     ],
+    android_app_ids: ["com.eventcadence.team8"],
     _processed: true
   },
   "The Agro Exchange": { ws: "https://www.agrox.io" },
@@ -452,11 +446,10 @@ export const manualOverrides: Record<
       "https://x.com/wix"
     ],
     ig: ["https://www.instagram.com/wix"],
-    ytp: ["https://www.youtube.com/@Wix", "https://www.youtube.com/@WixStudio"],
     gh: ["https://github.com/wix", "https://github.com/wix-academy", "https://github.com/wix-incubator"],
+    ytp: ["https://www.youtube.com/@Wix", "https://www.youtube.com/@WixStudio"],
     tt: ["https://www.tiktok.com/@wix"],
     th: ["https://www.threads.com/@wix"],
-    android_dev_id: "com.wix",
     urls: [
       "https://central.sonatype.com/namespace/com.wix",
       "https://chromewebstore.google.com/detail/wix-studio-tab/gfcgnonhmndaodgdnjajnpmaknjgkgpg",
@@ -469,6 +462,7 @@ export const manualOverrides: Record<
       "https://www.npmjs.com/package/react-native-ui-lib",
       "https://www.pinterest.com/wixcom"
     ],
+    android_dev_id: "com.wix",
     _processed: true
   },
   Zenity: {
@@ -500,11 +494,11 @@ export const manualOverrides: Record<
     ],
     tt: ["https://www.tiktok.com/@etoro_official"],
     th: ["https://www.threads.com/@etoro_official"],
-    android_dev_id: "com.etoro",
     urls: [
       "https://apps.apple.com/us/developer/etoro/id491658374",
       "https://play.google.com/store/apps/developer?id=eToro"
     ],
+    android_dev_id: "com.etoro",
     _processed: true
   },
   "monday.com": {
@@ -526,8 +520,6 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCA9UvBiKHly15rN8u_Km3BQ"],
     tt: ["https://www.tiktok.com/@mondayinsights"],
     th: ["https://www.threads.com/@mondaydotcom"],
-    android_dev_id: "com.monday",
-    android_app_ids: ["com.monday.elevate", "com.work_contacts.client", "ai.taka.app"],
     urls: [
       "https://www.facebook.com/groups/monday.community",
       "https://www.facebook.com/groups/183295877306250",
@@ -543,6 +535,8 @@ export const manualOverrides: Record<
       "https://www.linkedin.com/products/mondaydotcom-monday-dev",
       "https://www.linkedin.com/products/mondaydotcom-mondaycom"
     ],
+    android_dev_id: "com.monday",
+    android_app_ids: ["com.monday.elevate", "com.work_contacts.client", "ai.taka.app"],
     _processed: true
   }
 }
