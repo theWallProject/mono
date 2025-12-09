@@ -10,27 +10,43 @@ export const manualOverrides: Record<
 > = {
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders/" },
   "AI21 Labs": {
-    ws: ["https://www.ai21.com", "https://www.wordtune.com"],
-    li: ["https://www.linkedin.com/company/ai21", "https://www.linkedin.com/showcase/wordtune"],
-    fb: ["https://www.facebook.com/AI21Labs", "https://www.facebook.com/wordtune"],
-    tw: ["https://x.com/AI21Labs", "https://x.com/wordtune"],
-    ig: ["https://www.instagram.com/wordtune_official"],
+    ws: ["https://www.ai21.com"],
+    li: ["https://www.linkedin.com/company/ai21"],
+    fb: ["https://www.facebook.com/AI21Labs"],
+    tw: ["https://x.com/AI21Labs"],
     gh: ["https://github.com/AI21Labs", "https://github.com/AI21X", "https://github.com/mangate"],
     ytp: ["https://www.youtube.com/@ai21labs"],
-    ytc: ["https://www.youtube.com/channel/UCDQlFKBK11jIxm4iVymoAtA"],
-    tt: ["https://www.tiktok.com/@wordtune_official"],
     urls: [
       "https://apps.apple.com/us/developer/ai21-labs-inc/id1628773286",
       "https://aws.amazon.com/bedrock/ai21",
-      "https://chromewebstore.google.com/detail/wordtune-ai-paraphrasing/nllcnknpjnininklegdoijpljgdjkijc",
       "https://cloud.google.com/customers/ai21",
       "https://discord.com/app/invite-with-guild-onboarding/cKzg6GEAyB",
       "https://discord.com/invite/cKzg6GEAyB",
       "https://finance.yahoo.com/news/nvidia-google-back-ai21-labs-140222256.html",
       "https://huggingface.co/ai21labs",
-      "https://microsoftedge.microsoft.com/addons/detail/wordtune-ai-paraphrasing/fgngodlaekdlibajobmkaklibdggemdd",
-      "https://www.linkedin.com/newsletters/6995001803318681600",
       "https://www.youtube.com/watch?v=DyE0YkoFFEE"
+    ],
+    alt: [
+      { n: "Mistral AI", ws: "https://mistral.ai/" },
+      { n: "Cohere", ws: "https://cohere.com/" },
+      { n: "Aleph Alpha", ws: "https://www.aleph-alpha.com/" },
+      { n: "Stability AI", ws: "https://stability.ai/" }
+    ],
+    _processed: true
+  },
+  Wordtune: {
+    reasons: ["h"],
+    ws: ["https://www.wordtune.com"],
+    li: ["https://www.linkedin.com/showcase/wordtune"],
+    fb: ["https://www.facebook.com/wordtune"],
+    tw: ["https://x.com/wordtune"],
+    ig: ["https://www.instagram.com/wordtune_official"],
+    ytc: ["https://www.youtube.com/channel/UCDQlFKBK11jIxm4iVymoAtA"],
+    tt: ["https://www.tiktok.com/@wordtune_official"],
+    urls: [
+      "https://chromewebstore.google.com/detail/wordtune-ai-paraphrasing/nllcnknpjnininklegdoijpljgdjkijc",
+      "https://microsoftedge.microsoft.com/addons/detail/wordtune-ai-paraphrasing/fgngodlaekdlibajobmkaklibdggemdd",
+      "https://www.linkedin.com/newsletters/6995001803318681600"
     ],
     _processed: true
   },
@@ -279,6 +295,12 @@ export const manualOverrides: Record<
     gh: ["https://github.com/Noma-Security"],
     ytp: ["https://www.youtube.com/@NomaSecurity"],
     urls: ["https://noma.security"],
+    alt: [
+      { n: "Holistic AI", ws: "https://www.holisticai.com/" },
+      { n: "Securiti", ws: "https://securiti.ai/" },
+      { n: "Credo AI", ws: "https://www.credo.ai/" },
+      { n: "Protect AI", ws: "https://protectai.com/" }
+    ],
     _processed: true
   },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
@@ -357,6 +379,11 @@ export const manualOverrides: Record<
     gh: ["https://github.com/sentraio"],
     ytp: ["https://www.youtube.com/@sentra_security"],
     urls: ["https://www.facebook.com/profile.php?id=100091748057784"],
+    alt: [
+      { n: "Securiti", ws: "https://securiti.ai/" },
+      { n: "OneTrust", ws: "https://www.onetrust.com/" },
+      { n: "Netwrix", ws: "https://www.netwrix.com/" }
+    ],
     _processed: true
   },
   Silverfort: {
@@ -369,6 +396,11 @@ export const manualOverrides: Record<
       "https://play.google.com/store/apps/developer?id=Silverfort+Inc."
     ],
     android_dev_id: "com.silverfort",
+    alt: [
+      { n: "Keycloak", ws: "https://www.keycloak.org/" },
+      { n: "BeyondTrust", ws: "https://www.beyondtrust.com/" },
+      { n: "One Identity", ws: "https://www.oneidentity.com/" }
+    ],
     _processed: true
   },
   Somite: { tw: "https://x.com/somiteai" },
@@ -377,6 +409,16 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/speedata.io"],
     gh: ["https://github.com/Speedata-io"],
     ytp: ["https://www.youtube.com/@Speedata-io"],
+    alt: [
+      {
+        n: "ARM Neoverse",
+        ws: "https://www.arm.com/products/silicon-ip-cpu/neoverse/"
+      },
+      {
+        n: "Xilinx Versal ACAP",
+        ws: "https://www.xilinx.com/products/silicon-platforms/versal.html"
+      }
+    ],
     _processed: true
   },
   Team8: {
@@ -397,6 +439,11 @@ export const manualOverrides: Record<
       "https://www.comeet.com/jobs/team8/61.003"
     ],
     android_app_ids: ["com.eventcadence.team8"],
+    alt: [
+      { n: "Rocket Internet", ws: "https://www.rocket-internet.com/" },
+      { n: "Atomico", ws: "https://www.atomico.com/" },
+      { n: "Balderton Capital", ws: "https://www.balderton.com/" }
+    ],
     _processed: true
   },
   "The Agro Exchange": { ws: "https://www.agrox.io" },
@@ -422,6 +469,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@torq_io"],
     tt: ["https://www.tiktok.com/@torq.io"],
     urls: ["https://job-boards.greenhouse.io/torq"],
+    alt: [
+      { n: "Tines", ws: "https://www.tines.com/" },
+      { n: "D3 Security", ws: "https://d3security.com/" },
+      { n: "Swimlane", ws: "https://swimlane.com/" }
+    ],
     _processed: true
   },
   "Tre Capital GP Ltd": { tw: [""] },
@@ -507,6 +559,15 @@ export const manualOverrides: Record<
       "https://play.google.com/store/apps/developer?id=eToro"
     ],
     android_dev_id: "com.etoro",
+    alt: [
+      { n: "Trading 212", ws: "https://www.trading212.com/" },
+      { n: "DEGIRO", ws: "https://www.degiro.eu/" },
+      { n: "IG Group", ws: "https://www.ig.com/" },
+      { n: "XTB", ws: "https://www.xtb.com/" },
+      { n: "Freedom24", ws: "https://freedom24.com/" },
+      { n: "Mubasher", ws: "https://english.mubasher.info/" },
+      { n: "AZAforex", ws: "https://www.azaforex.com/" }
+    ],
     _processed: true
   },
   "monday.com": {
@@ -545,6 +606,15 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.monday",
     android_app_ids: ["com.monday.elevate", "com.work_contacts.client", "ai.taka.app"],
+    alt: [
+      { n: "Zoho Projects", ws: "https://www.zoho.com/projects/" },
+      { n: "OpenProject", ws: "https://www.openproject.org/" },
+      { n: "Wrike", ws: "https://www.wrike.com/" },
+      { n: "Teamwork", ws: "https://www.teamwork.com/" },
+      { n: "Basecamp", ws: "https://basecamp.com/" },
+      { n: "Quire", ws: "https://quire.io/" },
+      { n: "Bitrix24", ws: "https://www.bitrix24.com/" }
+    ],
     _processed: true
   }
 }

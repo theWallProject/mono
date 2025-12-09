@@ -406,7 +406,7 @@ FinalDBFileType {
 - Combines all network files by `id`
 - Maps `selector` → platform field (e.g., `ws`, `li`, `fb`)
 - Maps field names: `name` → `n`, `reasons` → `r`
-- Adds alternatives from `static_data/alternatives.json`
+- Adds alternatives from `manualOverrides` (via `alt` field in `manual_resolve/manualOverrides.ts`)
 - Sorts by name
 
 **Type Comparison: `NetworksFlatItemType` vs `FinalDBFileType`**
@@ -422,7 +422,7 @@ FinalDBFileType {
 | **Platform Fields** | None (only `selector`)              | `ws`, `li`, `fb`, `tw`, `ig`, `gh`, `ytp`, `ytc`, `tt`, `th` (selector values) |
 | **Hint Fields**     | `isHint`, `hintText`, `hintUrl`     | `isHint`, `hintText`, `hintUrl` (preserved)                                    |
 | **Android Fields**  | `android_dev_id`, `android_app_ids` | `android_dev_id`, `android_app_ids` (preserved)                                |
-| **Alternatives**    | Not present                         | `alt` (added from alternatives.json)                                           |
+| **Alternatives**    | Not present                         | `alt` (added from manualOverrides.alt field)                                   |
 | **Comment**         | Not present                         | `c` (optional)                                                                 |
 
 **Key Transformations:**
@@ -442,7 +442,7 @@ FinalDBFileType {
    - Other fields remain the same or are mapped
 
 4. **Data Enrichment**:
-   - Adds `alt` field from `alternatives.json` if available
+   - Adds `alt` field from `manualOverrides` (via `alt` field in `manual_resolve/manualOverrides.ts`) if available
    - Preserves all hint fields
 
 5. **File Consolidation**:
@@ -491,11 +491,11 @@ BlacklistItem {
 **Input:**
 
 - `MergedDataItem[]` from `results/2_merged/2_MERGED_ALL.json`
-- `alternatives` from `static_data/alternatives.json`
+- `manualOverrides` from `manual_resolve/manualOverrides.ts`
 
 **Output:** Console warnings (no file output)
 
-**Purpose:** Reports missing alternatives for top-ranked companies
+**Purpose:** Reports missing alternatives for top-ranked companies (checks for `alt` field in manual overrides)
 
 ---
 
@@ -655,7 +655,7 @@ This section compares the types defined in the `common` package (shared across a
 | **Core Fields**       | `id`, `name`, `reasons`                                      | `id`, `n`, `r`                    | Name abbreviation only                       |
 | **Stock Symbol**      | `stock_symbol`                                               | `s`                               | Abbreviated                                  |
 | **Comment**           | Not present                                                  | `c` (optional)                    | Added in final step                          |
-| **Alternatives**      | Not present                                                  | `alt` (optional)                  | Added in final step from alternatives.json   |
+| **Alternatives**      | Not present                                                  | `alt` (optional)                  | Added in final step from manualOverrides.alt |
 | **Hint Fields**       | `isHint`, `hintText`, `hintUrl`                              | Same                              | ✅ Preserved                                 |
 | **Android Fields**    | `android_dev_id`, `android_app_ids`                          | Same                              | ✅ Preserved (used for blacklist generation) |
 | **Crunchbase Fields** | `cbLink`, `cbRank`, `estRevenue`, `industries`, etc.         | Not present                       | Dropped (not needed in final output)         |
@@ -692,7 +692,7 @@ This section compares the types defined in the `common` package (shared across a
 
 #### Fields Present in `FinalDBFileType` but NOT in `MergedDataItem`:
 
-- `alt` - Added from `alternatives.json` in final step
+- `alt` - Added from `manualOverrides.alt` field in final step
 - `c` - Comment field (source unclear, may be added in final step)
 
 #### Fields Present in `MergedDataItem` but NOT in `FinalDBFileType`:

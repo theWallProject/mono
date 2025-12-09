@@ -265,7 +265,7 @@ export type ManualOverrideFields = {
    * Alternatives array with name and website
    */
   alt?: Array<{
-    n: string  // name
+    n: string // name
     ws: string // website
   }>
 } & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">

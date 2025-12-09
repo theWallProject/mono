@@ -63,7 +63,7 @@ Create three saved searches in Crunchbase with these filters:
 
 6. **Extract Websites** (`extract_websites.ts`): Extracts domains, filters invalid sites. Output: `results/3_networks/WEBSITES.json`
 
-7. **Generate Final DB** (`final.ts`): Merges network files by `id`, adds alternatives. Output: `results/4_final/ALL.json`
+7. **Generate Final DB** (`final.ts`): Merges network files by `id`, adds alternatives from `manualOverrides.alt`. Output: `results/4_final/ALL.json`
 
 8. **Alternatives Report** (`alternatives_report.ts`): Validates top 10 companies have alternatives. Output: Console warnings
 
