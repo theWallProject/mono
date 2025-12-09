@@ -1,10 +1,12 @@
 import { execSync } from "child_process"
 import fs from "fs"
 import path from "path"
+import { APIListOfReasonsSchema } from "@theWallProject/common"
+import type { APIListOfReasonsValues } from "@theWallProject/common"
 import inquirer from "inquirer"
 
 import { error, log } from "./helper"
-import { addNewEntryLinks, run as validateUrls } from "./tasks/validate_urls"
+import { addNewEntryLinksForAdditions, run as validateUrls } from "./tasks/validate_urls"
 
 process.on("unhandledRejection", (reason) => {
   error("DATA_ERROR Unhandled Rejection:", reason)
@@ -43,8 +45,8 @@ const saveManualDeleteIds = (deleteIds: string[]): void => {
   log(`Saved manualDeleteIds to ${manualDeleteIdsPath}`)
 }
 
-const promptForAction = async (): Promise<"validate" | "add" | "delete"> => {
-  const result = await inquirer.prompt<{ action: "validate" | "add" | "delete" }>([
+const promptForAction = async (): Promise<"validate" | "add-addition" | "delete"> => {
+  const result = await inquirer.prompt<{ action: "validate" | "add-addition" | "delete" }>([
     {
       type: "list",
       name: "action",
@@ -55,8 +57,8 @@ const promptForAction = async (): Promise<"validate" | "add" | "delete"> => {
           value: "validate"
         },
         {
-          name: "Add (create new entry in manualOverrides.ts)",
-          value: "add"
+          name: "Add Addition (create new entry in manualAdditions.ts)",
+          value: "add-addition"
         },
         {
           name: "Delete (add to manualDeleteIds.ts)",
@@ -85,12 +87,14 @@ const promptForCompanyId = async (): Promise<string> => {
   return companyId.trim()
 }
 
-const promptForCompanyName = async (): Promise<string> => {
+const promptForCompanyName = async (
+  target: "manualOverrides" | "manualAdditions" = "manualOverrides"
+): Promise<string> => {
   const { companyName } = await inquirer.prompt([
     {
       type: "input",
       name: "companyName",
-      message: "Enter company name to add to manualOverrides.ts:",
+      message: `Enter company name to add to ${target}.ts:`,
       validate: (input: string) => {
         if (!input || !input.trim()) {
           return "Company name cannot be empty"
@@ -102,19 +106,19 @@ const promptForCompanyName = async (): Promise<string> => {
   return companyName.trim()
 }
 
-const loadManualOverrides = (): Record<string, unknown> => {
-  const manualOverridesPath = path.join(__dirname, "./tasks/manual_resolve/manualOverrides.ts")
-  const modulePath = path.resolve(manualOverridesPath)
+const loadManualAdditions = (): Array<{ name: string }> => {
+  const manualAdditionsPath = path.join(__dirname, "./tasks/manual_resolve/manualAdditions.ts")
+  const modulePath = path.resolve(manualAdditionsPath)
   const resolvedPath = require.resolve(modulePath)
   // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
   delete require.cache[resolvedPath]
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const module = require(modulePath)
-  const overrides = module.manualOverrides || {}
-  if (typeof overrides !== "object" || overrides === null || Array.isArray(overrides)) {
-    throw new Error("manualOverrides is not an object")
+  const additions = module.manualAdditions || []
+  if (!Array.isArray(additions)) {
+    throw new Error("manualAdditions is not an array")
   }
-  return overrides
+  return additions
 }
 
 const handleDeleteAction = async (): Promise<void> => {
@@ -133,21 +137,55 @@ const handleDeleteAction = async (): Promise<void> => {
   log(`✅ Added "${companyId}" to manualDeleteIds.ts`)
 }
 
-const handleAddAction = async (): Promise<void> => {
-  const currentOverrides = loadManualOverrides()
-  log(`\nCurrent manualOverrides: ${Object.keys(currentOverrides).length} entries`)
+const promptForReasons = async (): Promise<APIListOfReasonsValues[]> => {
+  const { reasons } = await inquirer.prompt<{ reasons: string[] }>([
+    {
+      type: "checkbox",
+      name: "reasons",
+      message: "Select reasons (at least one required):",
+      choices: [
+        { name: "h - Headquartered in Israel", value: "h" },
+        { name: "f - Founded by Israeli entrepreneurs", value: "f" },
+        { name: "i - Significant investment from Israeli VCs", value: "i" },
+        { name: "b - On the BDS boycott list", value: "b" }
+      ],
+      validate: (input: string[]) => {
+        if (!Array.isArray(input) || input.length === 0) {
+          return "At least one reason must be selected"
+        }
+        return true
+      }
+    }
+  ])
 
-  const companyName = await promptForCompanyName()
+  // Validate all reasons using the schema
+  const validatedReasons: APIListOfReasonsValues[] = []
+  for (const reason of reasons) {
+    try {
+      validatedReasons.push(APIListOfReasonsSchema.parse(reason))
+    } catch {
+      throw new Error(`Invalid reason value: ${reason}`)
+    }
+  }
+  return validatedReasons
+}
 
-  if (companyName in currentOverrides) {
-    error(`\n❌ Company "${companyName}" already exists in manualOverrides.ts`)
-    error("Use the Validate option to update existing entries.")
-    throw new Error(`Company "${companyName}" already exists in manualOverrides.ts`)
+const handleAddAdditionAction = async (): Promise<void> => {
+  const currentAdditions = loadManualAdditions()
+  log(`\nCurrent manualAdditions: ${currentAdditions.length} entries`)
+
+  const companyName = await promptForCompanyName("manualAdditions")
+
+  if (currentAdditions.some((item) => item.name === companyName)) {
+    error(`\n❌ Company "${companyName}" already exists in manualAdditions.ts`)
+    throw new Error(`Company "${companyName}" already exists in manualAdditions.ts`)
   }
 
+  const reasons = await promptForReasons()
+
   try {
-    await addNewEntryLinks(companyName)
-    log(`✅ Added new entry "${companyName}" to manualOverrides.ts`)
+    await addNewEntryLinksForAdditions(companyName, reasons)
+    log(`✅ Added new entry "${companyName}" to manualAdditions.ts`)
   } catch (err) {
     error("Add entry error:", err)
     throw err
@@ -228,8 +266,8 @@ const main = async () => {
 
   if (action === "delete") {
     await handleDeleteAction()
-  } else if (action === "add") {
-    await handleAddAction()
+  } else if (action === "add-addition") {
+    await handleAddAdditionAction()
   } else {
     await handleValidateAction()
   }

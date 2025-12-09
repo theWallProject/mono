@@ -62,6 +62,18 @@ export const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
 }
 
 export const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>): Promise<void> => {
+  // Load existing overrides to check for new keys
+  const existingOverrides = loadManualOverrides()
+  const existingKeys = new Set(Object.keys(existingOverrides))
+  const newKeys = Object.keys(overrides).filter((key) => !existingKeys.has(key))
+
+  if (newKeys.length > 0) {
+    throw new Error(
+      `Cannot add new keys to manualOverrides.ts: ${newKeys.join(", ")}. ` +
+      "New entries must be added to manualAdditions.ts instead."
+    )
+  }
+
   const keys = Object.keys(overrides).sort()
   let content = 'import { ManualOverrideFields } from "../../types";\n\n'
   content +=

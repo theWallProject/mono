@@ -11,12 +11,15 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+  type APIListOfReasonsValues,
   type LinkField
 } from "@theWallProject/common"
 import { BrowserContext, chromium, Page } from "playwright"
 
 import { error, log } from "../helper"
 import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../types"
+import type { ManualAdditionItem } from "./manual_resolve/manualAdditions"
+import { loadManualAdditions, saveManualAdditions } from "./validate/addition_io"
 
 type ProcessedState = {
   _processed: true
@@ -1295,12 +1298,14 @@ const findCompanyByName = (
 ): CrunchbaseScrappedItemType | null => {
   return items.find((item) => item.name === companyName) || null
 }
-
 /**
- * Adds a new entry to manualOverrides.ts by opening browser with search pages
+ * Adds a new entry to manualAdditions.ts by opening browser with search pages
  * and collecting URLs using the same flow as validateItemLinks
  */
-export async function addNewEntryLinks(companyName: string): Promise<void> {
+export async function addNewEntryLinksForAdditions(
+  companyName: string,
+  reasons: APIListOfReasonsValues[]
+): Promise<void> {
   let browserContext: BrowserContext | null = null
 
   // Persistent browser profile path
@@ -1309,8 +1314,8 @@ export async function addNewEntryLinks(companyName: string): Promise<void> {
   try {
     log(`\nAdding new entry for: ${companyName}`)
 
-    // Load current manual overrides
-    const currentOverrides = loadManualOverrides()
+    // Load current manual additions
+    const currentAdditions = loadManualAdditions()
 
     // Launch browser with persistent profile
     log("Launching browser with persistent profile...")
@@ -1840,49 +1845,54 @@ export async function addNewEntryLinks(companyName: string): Promise<void> {
       }, 1000)
     })
 
-    // Save the new entry to manualOverrides.ts
+    // Save the new entry to manualAdditions.ts
+    const manualAdditionsPath = path.join(__dirname, "./manual_resolve/manualAdditions.ts")
+
     if (Object.keys(collectedUrls).length > 0) {
       log(`  ✏️ Collected URLs for ${companyName}:`, collectedUrls)
 
-      const override: ManualOverrideFields & ProcessedState & { urls?: string[] } = {
-        _processed: true
+      const addition: ManualAdditionItem = {
+        name: companyName,
+        reasons,
+        _processed: true,
+        ...(collectedUrls.urls && { urls: collectedUrls.urls }),
+        ...(collectedUrls.ws !== undefined && { ws: collectedUrls.ws }),
+        ...(collectedUrls.li !== undefined && { li: collectedUrls.li }),
+        ...(collectedUrls.fb !== undefined && { fb: collectedUrls.fb }),
+        ...(collectedUrls.tw !== undefined && { tw: collectedUrls.tw }),
+        ...(collectedUrls.ig !== undefined && { ig: collectedUrls.ig }),
+        ...(collectedUrls.gh !== undefined && { gh: collectedUrls.gh }),
+        ...(collectedUrls.ytp !== undefined && { ytp: collectedUrls.ytp }),
+        ...(collectedUrls.ytc !== undefined && { ytc: collectedUrls.ytc }),
+        ...(collectedUrls.tt !== undefined && { tt: collectedUrls.tt }),
+        ...(collectedUrls.th !== undefined && { th: collectedUrls.th })
       }
 
-      if (collectedUrls.urls) override.urls = collectedUrls.urls
-      if (collectedUrls.ws !== undefined) override.ws = collectedUrls.ws
-      if (collectedUrls.li !== undefined) override.li = collectedUrls.li
-      if (collectedUrls.fb !== undefined) override.fb = collectedUrls.fb
-      if (collectedUrls.tw !== undefined) override.tw = collectedUrls.tw
-      if (collectedUrls.ig !== undefined) override.ig = collectedUrls.ig
-      if (collectedUrls.gh !== undefined) override.gh = collectedUrls.gh
-      if (collectedUrls.ytp !== undefined) override.ytp = collectedUrls.ytp
-      if (collectedUrls.ytc !== undefined) override.ytc = collectedUrls.ytc
-      if (collectedUrls.tt !== undefined) override.tt = collectedUrls.tt
-      if (collectedUrls.th !== undefined) override.th = collectedUrls.th
-
-      currentOverrides[companyName] = override
+      currentAdditions.push(addition)
     } else {
       log(`  ✓ No URLs collected for ${companyName}, marking as processed`)
-      const override: ProcessedState = {
+      const addition: ManualAdditionItem = {
+        name: companyName,
+        reasons,
         _processed: true
       }
-      currentOverrides[companyName] = override
+      currentAdditions.push(addition)
     }
 
     // Save after collecting URLs
-    await saveManualOverrides(currentOverrides)
+    await saveManualAdditions(currentAdditions)
 
     // Verify the file is saved
     try {
-      const exists = fs.existsSync(manualOverridesPath)
+      const exists = fs.existsSync(manualAdditionsPath)
       if (!exists) {
-        throw new Error(`manualOverrides file not found after save: ${manualOverridesPath}`)
+        throw new Error(`manualAdditions file not found after save: ${manualAdditionsPath}`)
       }
-      fs.readFileSync(manualOverridesPath, "utf-8")
+      fs.readFileSync(manualAdditionsPath, "utf-8")
       log("  💾 Progress saved and verified")
     } catch (e) {
-      error(`  ⚠️  Failed to verify manualOverrides save: ${e}`)
-      throw new Error(`Cannot proceed: manualOverrides file not saved correctly`)
+      error(`  ⚠️  Failed to verify manualAdditions save: ${e}`)
+      throw new Error(`Cannot proceed: manualAdditions file not saved correctly`)
     }
 
     log(`\n✓ Entry added for ${companyName}`)
