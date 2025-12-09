@@ -8,19 +8,21 @@ import { isProcessed } from "./types"
 const manualOverridesPath = path.join(__dirname, "../manual_resolve/manualOverrides.ts")
 
 const formatValue = (value: ManualOverrideValue): string => {
+  // Fields to exclude from output (handled specially)
+  const excludeKeys = new Set(["_processed"])
+
   if (isProcessed(value)) {
     const fields: string[] = []
-    if ("ws" in value && value.ws !== undefined) fields.push(`ws: ${JSON.stringify(value.ws)}`)
-    if ("li" in value && value.li !== undefined) fields.push(`li: ${JSON.stringify(value.li)}`)
-    if ("fb" in value && value.fb !== undefined) fields.push(`fb: ${JSON.stringify(value.fb)}`)
-    if ("tw" in value && value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
-    if ("ig" in value && value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
-    if ("gh" in value && value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if ("ytp" in value && value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if ("ytc" in value && value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
-    if ("tt" in value && value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
-    if ("th" in value && value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
+
+    // Preserve all fields except _processed
+    for (const [key, val] of Object.entries(value)) {
+      if (excludeKeys.has(key)) {
+        continue
+      }
+      if (val !== undefined) {
+        fields.push(`${key}: ${JSON.stringify(val)}`)
+      }
+    }
 
     if (fields.length > 0) {
       // Has changes - include both the fields and the processed state
@@ -32,17 +34,13 @@ const formatValue = (value: ManualOverrideValue): string => {
   } else {
     // Regular override without processed state
     const fields: string[] = []
-    if (value.ws !== undefined) fields.push(`ws: ${JSON.stringify(value.ws)}`)
-    if (value.li !== undefined) fields.push(`li: ${JSON.stringify(value.li)}`)
-    if (value.fb !== undefined) fields.push(`fb: ${JSON.stringify(value.fb)}`)
-    if (value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
-    if (value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
-    if (value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if (value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if (value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
-    if (value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
-    if (value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
+
+    // Preserve all fields
+    for (const [key, val] of Object.entries(value)) {
+      if (val !== undefined) {
+        fields.push(`${key}: ${JSON.stringify(val)}`)
+      }
+    }
 
     if (fields.length > 0) {
       return `{ ${fields.join(", ")} }`

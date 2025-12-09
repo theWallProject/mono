@@ -1468,15 +1468,22 @@ export async function run() {
     const changes = await validateItemLinks(browserContext, item)
 
     // Browser is closed now, process results
+    // Get existing override to preserve fields like android_dev_id, android_app_ids
+    const existingOverride = currentOverrides[item.name]
+
     if (changes && Object.keys(changes).length > 0) {
       // Has changes - update with the changes
       log(`  ✏️ Changes detected for ${item.name}:`, changes)
       // OverrideWithUrls can return arrays for any link field, convert to ManualOverrideFields format
       // ManualOverrideFields allows arrays for all link fields (ws/li/fb/tw/ig/gh/ytp/ytc/tt/th)
+      // Preserve existing fields (like android_dev_id, android_app_ids) from existing override
       const override: ManualOverrideFields &
         ProcessedState & {
           urls?: string[]
         } = {
+        ...(existingOverride && typeof existingOverride === "object" && !isProcessed(existingOverride)
+          ? existingOverride
+          : {}),
         _processed: true
       }
 
@@ -1495,12 +1502,22 @@ export async function run() {
 
       currentOverrides[item.name] = override
     } else {
-      // No changes - mark as processed
+      // No changes - mark as processed but preserve existing fields
       log(`  ✓ No changes for ${item.name}`)
-      const override: ProcessedState = {
-        _processed: true
+      if (existingOverride && typeof existingOverride === "object" && !isProcessed(existingOverride)) {
+        // Preserve existing fields and mark as processed
+        const override: ManualOverrideFields & ProcessedState = {
+          ...existingOverride,
+          _processed: true
+        }
+        currentOverrides[item.name] = override
+      } else {
+        // No existing fields, just mark as processed
+        const override: ProcessedState = {
+          _processed: true
+        }
+        currentOverrides[item.name] = override
       }
-      currentOverrides[item.name] = override
     }
 
     // Save after each item

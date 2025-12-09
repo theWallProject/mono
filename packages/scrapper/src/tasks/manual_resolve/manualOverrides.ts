@@ -199,6 +199,14 @@ export const manualOverrides: Record<
       "https://www.pinterest.com/fiverr/brand-style-guides-brand-identity"
     ]
   },
+  LayerX: {
+    li: ["https://www.linkedin.com/company/layerx-security"],
+    tw: ["https://x.com/LayerxSecurity"],
+    gh: ["https://github.com/Mirovia-Security"],
+    ytp: ["https://www.youtube.com/@LayerXSecurity"],
+    urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
+    _processed: true
+  },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Metis Technologies": { fb: "", tw: "" },
   MoonPay: {
