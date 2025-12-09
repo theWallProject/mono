@@ -3,9 +3,9 @@ import path from "path"
 import { FinalDBFileType, type LinkField } from "@theWallProject/common"
 import { z } from "zod"
 
-import alternatives from "../../src/static_data/alternatives.json"
 import { log } from "../helper"
 import { DBFileNames, NetworksFlatItemsSchema } from "../types"
+import { manualOverrides } from "./manual_resolve/manualOverrides"
 
 const folderPath = path.join(__dirname, "../../results/3_networks")
 
@@ -81,8 +81,8 @@ const loadJsonFiles = (folderPath: string) => {
   combinedArray = Object.values(idRecord)
 
   combinedArray = combinedArray.map((item) => {
-    // @ts-expect-error -- ok here
-    const alt = alternatives[item.id]
+    const override = manualOverrides[item.n]
+    const alt = override && typeof override === "object" && "alt" in override ? override.alt : undefined
 
     if (alt) {
       item.alt = alt

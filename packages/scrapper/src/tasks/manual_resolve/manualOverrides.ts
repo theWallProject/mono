@@ -462,6 +462,14 @@ export const manualOverrides: Record<
       "https://www.npmjs.com/package/react-native-ui-lib",
       "https://www.pinterest.com/wixcom"
     ],
+    alt: [
+      { n: "Boon Digital Solutions", ws: "https://boondigitalsolutions.com" },
+      { n: "Sndian", ws: "https://sndian.com" },
+      { n: "wuilt", ws: "https://wuilt.com" },
+      { n: "JIMDO", ws: "https://www.jimdo.com" },
+      { n: "Webnode", ws: "https://www.webnode.com/" },
+      { n: "Tilda", ws: "https://tilda.cc" }
+    ],
     android_dev_id: "com.wix",
     _processed: true
   },

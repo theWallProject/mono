@@ -1,9 +1,9 @@
 // import fs from "fs";
 // import path from "path";
 import mergedall from "../../results/2_merged/2_MERGED_ALL.json"
-import alt from "../../src/static_data/alternatives.json"
 import { warn } from "../helper"
 import { MergedDataFileSchema } from "../types"
+import { manualOverrides } from "./manual_resolve/manualOverrides"
 
 const report = () => {
   // Validate merged data structure (includes ig/gh/ytp/ytc/tt/th from manual overrides)
@@ -15,8 +15,8 @@ const report = () => {
   // log(sortedArray)
 
   for (const item of sortedArray) {
-    // @ts-expect-error -- ok here
-    const alternative = alt[item.id]
+    const override = manualOverrides[item.name]
+    const alternative = override && typeof override === "object" && "alt" in override ? override.alt : undefined
     if (!alternative) {
       warn(`Company ${item.id} is missing alternatives`)
     }

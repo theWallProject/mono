@@ -296,8 +296,8 @@ const loadJsonFiles = (folderPath: string) => {
     const override = manualOverrides[row.name]
 
     if (override) {
-      // Apply override, but exclude the processed state flags and urls field
-      const excludeKeys = new Set(["_processed", "urls"])
+      // Apply override, but exclude the processed state flags, urls field, and alt field (used only in final.ts)
+      const excludeKeys = new Set(["_processed", "urls", "alt"])
       const overrideFields = Object.fromEntries(Object.entries(override).filter(([key]) => !excludeKeys.has(key)))
       const hasOverrideFields = Object.keys(overrideFields).length > 0
 
@@ -384,7 +384,7 @@ const loadJsonFiles = (folderPath: string) => {
       // Skip link fields as they're already handled above
       for (const [key, value] of Object.entries(overrideFields)) {
         // Skip special fields
-        if (key === "_processed" || key === "urls") {
+        if (key === "_processed" || key === "urls" || key === "alt") {
           continue
         }
 

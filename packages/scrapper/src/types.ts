@@ -261,4 +261,11 @@ export type ManualOverrideFields = {
    * Use this when you want to block specific apps rather than all apps from a developer.
    */
   android_app_ids?: string[]
+  /**
+   * Alternatives array with name and website
+   */
+  alt?: Array<{
+    n: string  // name
+    ws: string // website
+  }>
 } & Omit<Partial<CrunchbaseScrappedItemType>, "ws" | "li" | "fb" | "tw" | "ig" | "gh" | "ytp" | "ytc" | "tt" | "th">
