@@ -12,8 +12,8 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
   APIListOfReasonsSchema,
   getMainDomain,
-  type APIListOfReasonsValues,
-  type LinkField
+  type LinkField,
+  type valuesOfListOfReasons
 } from "@theWallProject/common"
 
 import { cleanWebsite, error, log } from "../helper"
@@ -447,7 +447,7 @@ const loadJsonFiles = (folderPath: string) => {
     }
 
     // Extract and validate reasons first (shared across all entries)
-    const reasons: APIListOfReasonsValues[] = []
+    const reasons: valuesOfListOfReasons[] = []
     if ("reasons" in addition && Array.isArray(addition.reasons)) {
       for (const r of addition.reasons) {
         try {

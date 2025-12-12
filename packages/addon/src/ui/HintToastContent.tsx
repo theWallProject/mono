@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 import icon16 from "../../assets/icon16.png"
 import { getExtensionURL, track } from "../helpers"
+import { getI18nMessage } from "../helpers/i18n-keys"
 
 export const HintToastContent = ({
   hintId,
@@ -198,7 +199,7 @@ export const HintToastContent = ({
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
               }}>
-              {chrome.i18n.getMessage("hintDismissThis")}
+              {getI18nMessage("hintDismissThis")}
             </button>
             <button
               type="button"
@@ -236,7 +237,7 @@ export const HintToastContent = ({
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
               }}>
-              {chrome.i18n.getMessage("hintDisableAll")}
+              {getI18nMessage("hintDisableAll")}
             </button>
           </>
         )}

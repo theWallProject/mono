@@ -11,6 +11,7 @@ import {
 
 import ALL from "./db/ALL.json"
 import { error, log } from "./helpers"
+import { getI18nMessage } from "./helpers/i18n-keys"
 import { getStorageItem } from "./storageHelpers"
 import { type UrlTestResult } from "./types"
 
@@ -54,7 +55,7 @@ function createIlHint(domain: string): UrlTestResult {
   return {
     isHint: true,
     name: "Israeli Website",
-    hintText: chrome.i18n.getMessage("hintIsraeliWebsite"),
+    hintText: getI18nMessage("hintIsraeliWebsite"),
     hintUrl: "https://the-wall.win",
     isDismissed: false,
     rule: {

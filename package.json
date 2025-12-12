@@ -23,14 +23,16 @@
     "bot:deploy": "pwsh -File scripts/deploy-bot.ps1 -Mode deploy",
     "commit": "tsx scripts/commit.ts",
     "commit:fast": "tsx scripts/commit.ts --fast",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:addon": "pnpm --filter @theWallProject/addon test",
+    "test:addon:e2e": "pnpm --filter @theWallProject/addon test:e2e"
   },
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
   },
   "dependencies": {
-    "zod": "^4.1.13"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
@@ -40,17 +42,21 @@
     "@typescript-eslint/parser": "^8.46.1",
     "cross-env": "^10.1.0",
     "eslint": "^9.37.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-vitest": "^0.5.4",
     "extract-gfm": "^0.1.0",
     "globals": "^15.13.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "3.6.2",
     "prompts": "^2.4.2",
-    "tsx": "^4.20.6"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "5.9.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,css}": [

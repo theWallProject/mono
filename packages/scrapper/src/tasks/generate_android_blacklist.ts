@@ -3,8 +3,8 @@ import path from "path"
 import {
   APIListOfReasonsSchema,
   BlacklistSchema,
-  type APIListOfReasonsValues,
-  type BlacklistItem
+  type BlacklistItem,
+  type valuesOfListOfReasons
 } from "@theWallProject/common"
 
 import { manualOverrides } from "./manual_resolve/manualOverrides"
@@ -24,10 +24,10 @@ export async function generateAndroidBlacklist() {
   const finalDb: Array<{ n: string; r: string[] }> = JSON.parse(finalDbContent)
 
   // Create a map of company name to reasons for quick lookup
-  const reasonsMap = new Map<string, APIListOfReasonsValues[]>()
+  const reasonsMap = new Map<string, valuesOfListOfReasons[]>()
   for (const item of finalDb) {
     // Validate all reasons - fail immediately if any reason is invalid
-    const validReasons: APIListOfReasonsValues[] = []
+    const validReasons: valuesOfListOfReasons[] = []
     for (const r of item.r) {
       // This will throw immediately if validation fails
       const validatedReason = APIListOfReasonsSchema.parse(r)

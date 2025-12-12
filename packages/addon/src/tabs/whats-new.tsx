@@ -8,6 +8,7 @@ import backgroundImage from "../../assets/images/flag-bg.jpg"
 import hintsOptionsImage from "../../assets/images/hints-options.png"
 import theWallWhite from "../../assets/images/the-wall-white.png"
 import { getExtensionURL, track } from "../helpers"
+import { getI18nMessage } from "../helpers/i18n-keys"
 import styles from "../whats-new.module.css"
 
 function WhatsNew() {
@@ -21,7 +22,7 @@ function WhatsNew() {
   }, [])
 
   // Get extension name from manifest
-  const extensionName = chrome.i18n.getMessage("extensionName")
+  const extensionName = getI18nMessage("extensionName")
 
   const handleShare = (platform: string) => {
     const url = "https://the-wall.win"

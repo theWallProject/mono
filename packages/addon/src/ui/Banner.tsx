@@ -6,6 +6,8 @@ import { getExtensionURL, track } from "~helpers"
 import backgroundImage from "../../assets/images/flag-bg.jpg"
 import theWallWhite from "../../assets/images/the-wall-white.png"
 import { error, log } from "../helpers"
+import { getI18nMessage } from "../helpers/i18n-keys"
+import { getReasonI18nKey } from "../helpers/reasonMap"
 // import { share } from "../image_sharing/image"
 import { findRuleOfType, isUrlOnlyRule, processRule } from "../rules"
 import { ShareButton } from "../share_button/ShareButton"
@@ -423,7 +425,7 @@ export const Banner = () => {
         }}
       />
       {testResult && !testResult.isDismissed ? (
-        <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
+        <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir") as "ltr" | "rtl"}>
           <img src="https://the-wall.win/bg.gif?rec=1&action_name=wall" alt="" />
           <div
             className={style.bgLayer}
@@ -449,22 +451,14 @@ export const Banner = () => {
                 {testResult.reasons.map((reason) => {
                   const companyName = `"${testResult.name}" ${testResult.stockSymbol ? `(${testResult.stockSymbol})` : ""}`
 
-                  switch (reason) {
-                    case "u":
-                      return <div key={reason}>{chrome.i18n.getMessage("reasonUrlIL", [companyName])}</div>
-                    case "f":
-                      return <div key={reason}>{chrome.i18n.getMessage("reasonFounder", [companyName])}</div>
-                    case "i":
-                      return <div key={reason}>{chrome.i18n.getMessage("reasonInvestor", [companyName])}</div>
-                    case "h":
-                      return <div key={reason}>{chrome.i18n.getMessage("reasonHeadquarter", [testResult.name])}</div>
-                    case "b":
-                      return <div key={reason}>{chrome.i18n.getMessage("reasonBDS", [testResult.name])}</div>
-
-                    default:
-                      reason satisfies never
-                      throw new Error(`unknown reason [${reason}]`)
+                  // Type guard to ensure reason is a valid string literal
+                  if (typeof reason !== "string") {
+                    throw new Error(`Invalid reason type: ${typeof reason}`)
                   }
+
+                  const reasonKey = getReasonI18nKey(reason)
+                  const substitutions = reason === "h" || reason === "b" ? [testResult.name] : [companyName]
+                  return <div key={reason}>{getI18nMessage(reasonKey, substitutions)}</div>
                 })}
                 {/* // todo: use or delete */}
                 {testResult.comment ? <div>{testResult.comment}</div> : ""}
@@ -472,13 +466,13 @@ export const Banner = () => {
 
               <div className={style.buttonsWrapper}>
                 <ShareButton
-                  text={chrome.i18n.getMessage("sharingMessageText")}
+                  text={getI18nMessage("sharingMessageText")}
                   url={"https://the-wall.win"}
                   onMouseEnter={() => setIsSharing(true)}
                   onMouseLeave={() => setIsSharing(false)}
                 />
                 <Button
-                  title={chrome.i18n.getMessage("modalDismissSession")}
+                  title={getI18nMessage("modalDismissSession")}
                   onClick={() => {
                     track("Button", "Click", "allow_month")
 
@@ -492,7 +486,7 @@ export const Banner = () => {
                 />
                 {testResult.alt ? (
                   <Button
-                    title={chrome.i18n.getMessage("modalShowAlternatives")}
+                    title={getI18nMessage("modalShowAlternatives")}
                     onClick={() => {
                       track("Button", "Click", "show_alternatives")
                       setAreAlternativesShown(true)
@@ -505,7 +499,7 @@ export const Banner = () => {
                   />
                 ) : (
                   <Button
-                    title={chrome.i18n.getMessage("modalSupportPalestine")}
+                    title={getI18nMessage("modalSupportPalestine")}
                     onClick={() => {
                       track("Button", "Click", "support_pal")
 
@@ -538,7 +532,7 @@ export const Banner = () => {
           </div>
 
           <div className={style.bottomBar}>
-            <Button title={chrome.i18n.getMessage("buttomBarButtonReport")} onClick={handleReportMistakeClick} />
+            <Button title={getI18nMessage("buttomBarButtonReport")} onClick={handleReportMistakeClick} />
           </div>
 
           <div
@@ -551,7 +545,7 @@ export const Banner = () => {
               gap: "10px"
             }}>
             <Button
-              title={chrome.i18n.getMessage("modalDonateButton")}
+              title={getI18nMessage("modalDonateButton")}
               onClick={() => {
                 track("Button", "Click", "support_ko_fi")
                 window.open("https://ko-fi.com/thewalladdon", "_blank")

@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react"
 
 import icon16 from "../assets/icon16.png"
 import { getExtensionURL, track } from "./helpers"
+import { getI18nMessage } from "./helpers/i18n-keys"
 import {
   getAllLocalStorageItems,
   getLocalStorageItem,
@@ -345,7 +346,7 @@ function Popup() {
               e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)"
               e.currentTarget.style.transform = "translateY(0)"
             }}>
-            {chrome.i18n.getMessage("modalDonateButton")}
+            {getI18nMessage("modalDonateButton")}
           </button>
         </div>
 

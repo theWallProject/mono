@@ -25,7 +25,7 @@ export const BlacklistItemSchema = z
     /**
      * Array of reason codes matching ALL.json format.
      * Uses the same APIListOfReasonsSchema to ensure consistency.
-     * Type: APIListOfReasonsValues[] ("h" | "f" | "i" | "u" | "b")
+     * Type: valuesOfListOfReasons[] ("h" | "f" | "i" | "u" | "b")
      */
     reasonIds: z.array(APIListOfReasonsSchema).min(1)
   })

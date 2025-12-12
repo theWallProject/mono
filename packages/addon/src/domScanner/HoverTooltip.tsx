@@ -1,14 +1,16 @@
-import type { APIListOfReasonsValues } from "@theWallProject/common"
+import type { valuesOfListOfReasons } from "@theWallProject/common"
 import React, { useEffect, useRef, useState } from "react"
 
 import theWallWhite from "../../assets/images/the-wall-white.png"
-import { getExtensionURL, log } from "../helpers"
-import { REASON_TO_I18N_KEY } from "../helpers/reasonMap"
+import { getExtensionURL } from "../helpers"
+import { getI18nMessage } from "../helpers/i18n-keys"
+import { getReasonI18nKey } from "../helpers/reasonMap"
 import style from "./style.module.css"
+import { isWallDismissEvent, WALL_DISMISS_EVENT_TYPE } from "./visualTreatment"
 
 type HoverTooltipProps = {
   name?: string
-  reasons?: APIListOfReasonsValues[]
+  reasons?: valuesOfListOfReasons[]
   targetElement: globalThis.HTMLElement
   onClose: () => void
 }
@@ -68,50 +70,21 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({ name, reasons, targe
     }
   }, [targetElement])
 
-  // Close tooltip when clicking outside or pressing Escape
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        tooltipRef.current &&
-        !tooltipRef.current.contains(e.target as globalThis.Node) &&
-        !targetElement.contains(e.target as globalThis.Node)
-      ) {
-        // Don't close if clicking on overlay dismiss button
-        const target = e.target as globalThis.Element
-        if (target?.closest?.(".wall-overlay-dismiss")) {
-          return
-        }
-        onClose()
-      }
-    }
-
-    const handleEscape = (e: globalThis.KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose()
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    document.addEventListener("keydown", handleEscape)
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-      document.removeEventListener("keydown", handleEscape)
-    }
-  }, [onClose, targetElement])
-
   // Listen for dismiss events from overlay button
   useEffect(() => {
-    const handleDismiss = () => {
+    const handleDismiss: globalThis.EventListener = (event) => {
+      if (!isWallDismissEvent(event)) {
+        return
+      }
       setIsVisible(false)
       setTimeout(() => {
         onClose()
       }, 200)
     }
 
-    targetElement.addEventListener("wall:dismiss", handleDismiss)
+    targetElement.addEventListener(WALL_DISMISS_EVENT_TYPE, handleDismiss)
     return () => {
-      targetElement.removeEventListener("wall:dismiss", handleDismiss)
+      targetElement.removeEventListener(WALL_DISMISS_EVENT_TYPE, handleDismiss)
     }
   }, [targetElement, onClose])
 
@@ -119,22 +92,18 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({ name, reasons, targe
     return null
   }
 
-  const getReasonText = (reason: APIListOfReasonsValues): string => {
-    const messageKey = REASON_TO_I18N_KEY[reason]
-    if (!messageKey) {
-      return reason
-    }
+  const getReasonText = (reason: valuesOfListOfReasons): string => {
+    const messageKey = getReasonI18nKey(reason)
 
-    try {
-      const message = chrome.i18n.getMessage(messageKey, [name || ""])
-      return message || reason
-    } catch (e) {
-      log(`[HoverTooltip] Failed to get i18n message for ${messageKey}`, e)
-      return reason
+    const substitutions = name ? [name] : []
+    const message = getI18nMessage(messageKey, substitutions)
+    if (!message || message === "") {
+      throw new Error(`Failed to get i18n message for key: ${messageKey} (reason: ${reason})`)
     }
+    return message
   }
 
-  const extensionName = chrome.i18n.getMessage("extensionName")
+  const extensionName = getI18nMessage("extensionName")
 
   // Note: This tooltip only shows addon logo/name and reasons - NO links.
   // Links are only shown in the Banner component (for full-page blocks), not in DOM scanner tooltips.

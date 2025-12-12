@@ -1,4 +1,4 @@
-import type { APIListOfReasonsValues } from "@theWallProject/common"
+import type { valuesOfListOfReasons } from "@theWallProject/common"
 import React from "react"
 import { createRoot, type Root } from "react-dom/client"
 
@@ -619,7 +619,7 @@ export class DomScanner {
   /**
    * Show tooltip
    */
-  private showTooltip(targetElement: globalThis.HTMLElement, name?: string, reasons?: APIListOfReasonsValues[]): void {
+  private showTooltip(targetElement: globalThis.HTMLElement, name?: string, reasons?: valuesOfListOfReasons[]): void {
     try {
       if (!this.tooltipRoot || !this.tooltipContainer || !targetElement) {
         return

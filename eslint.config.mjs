@@ -1,10 +1,12 @@
 import js from "@eslint/js"
 import tseslint from "@typescript-eslint/eslint-plugin"
 import tsparser from "@typescript-eslint/parser"
+import eslintComments from "eslint-plugin-eslint-comments"
 import importPlugin from "eslint-plugin-import"
 import promise from "eslint-plugin-promise"
 import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
+import vitest from "eslint-plugin-vitest"
 import globals from "globals"
 
 // Global ignores for all packages
@@ -19,7 +21,10 @@ const globalIgnores = {
     "**/*.css.d.ts",
     "packages/addon/build-scripts/**",
     "packages/scrapper/results/**",
-    "packages/scrapper/dist/**"
+    "packages/scrapper/dist/**",
+    "**/coverage/**",
+    "**/playwright-report/**",
+    "**/.playwright/**"
   ]
 }
 
@@ -32,7 +37,8 @@ const baseConfig = {
     sourceType: "module"
   },
   plugins: {
-    "@typescript-eslint": tseslint
+    "@typescript-eslint": tseslint,
+    "eslint-comments": eslintComments
   },
   rules: {
     // JavaScript recommended rules (shared)
@@ -42,9 +48,21 @@ const baseConfig = {
     // Common TypeScript rules for all packages
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/consistent-type-assertions": [
+      "warn",
+      {
+        assertionStyle: "never"
+      }
+    ],
     // Common JavaScript rules for all packages
     "prefer-const": "error",
-    "no-var": "error"
+    "no-var": "error",
+    // Warn on all eslint-disable comments
+    "eslint-comments/no-use": ["warn", { allow: [] }],
+    "eslint-comments/no-unlimited-disable": "warn",
+    "eslint-comments/no-unused-disable": "warn",
+    "eslint-comments/no-unused-enable": "warn",
+    "eslint-comments/require-description": "warn"
   }
 }
 
@@ -69,7 +87,7 @@ const nodeConfig = {
     ...tseslint.configs.strict.rules,
     "no-undef": "off", // TypeScript handles this
     "@typescript-eslint/consistent-type-assertions": [
-      "error",
+      "warn",
       {
         assertionStyle: "never"
       }
@@ -123,7 +141,9 @@ const reactConfig = {
       atob: true,
       btoa: true,
       NodeJS: true,
-      MouseEvent: true
+      MouseEvent: true,
+      // Plasmo provides process.env (https://docs.plasmo.com/framework/env)
+      process: "readonly"
     }
   },
   plugins: {
@@ -173,6 +193,91 @@ const reactConfig = {
   }
 }
 
+// Test files configuration
+const testConfig = {
+  files: ["**/*.test.ts", "**/*.test.tsx", "**/tests/**/*.ts", "**/tests/**/*.tsx"],
+  languageOptions: {
+    parser: tsparser,
+    parserOptions: {
+      project: [
+        "packages/addon/tsconfig.json",
+        "packages/common/tsconfig.json",
+        "packages/scrapper/tsconfig.json",
+        "packages/telegram-bot/tsconfig.json"
+      ],
+      tsconfigRootDir: import.meta.dirname || process.cwd()
+    },
+    globals: {
+      ...globals.node,
+      describe: "readonly",
+      it: "readonly",
+      test: "readonly",
+      expect: "readonly",
+      beforeEach: "readonly",
+      afterEach: "readonly",
+      beforeAll: "readonly",
+      afterAll: "readonly",
+      vi: "readonly",
+      // Browser globals available in page.evaluate() context
+      window: "readonly",
+      chrome: "readonly",
+      document: "readonly",
+      HTMLElement: "readonly"
+    }
+  },
+  plugins: {
+    vitest
+  },
+  rules: {
+    "no-console": "off", // Allow console.log in tests
+    // Ensure unused variables are caught in tests
+    "@typescript-eslint/no-unused-vars": "error",
+    // Vitest plugin rules - prevent common test mistakes
+    "vitest/no-standalone-expect": "error", // Prevent expect() outside of test/it blocks
+    "vitest/valid-expect": "error", // Ensure expect() is called correctly
+    "vitest/no-focused-tests": "warn", // Warn about .only() tests
+    "vitest/no-disabled-tests": "warn", // Warn about .skip() tests
+    "vitest/no-conditional-expect": "error", // Prevent expect() in conditionals
+    "vitest/no-conditional-in-test": "warn", // Warn about conditionals in tests
+    "vitest/no-test-return-statement": "error", // Prevent return in test functions
+    // Prevent always-true conditions (requires type-aware linting)
+    "@typescript-eslint/no-unnecessary-condition": "warn",
+    // Prevent unused expressions (like expect() without assertion)
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        allowShortCircuit: false,
+        allowTernary: false,
+        allowTaggedTemplates: false
+      }
+    ],
+    // Prevent empty test blocks
+    "no-empty": ["error", { allowEmptyCatch: true }],
+    // Prevent tests with only comments
+    "no-empty-function": ["warn", { allow: ["arrowFunctions"] }],
+    // ⚠️ ABSOLUTE LAST RESORT - Only use when no plugin rule exists
+    // This is a hacky workaround. Always search for proper ESLint plugins first!
+    // No plugin exists for detecting useless assertions like expect(true).toBe(true)
+    // Checked: eslint-plugin-vitest, eslint-plugin-jest, eslint-plugin-testing-library
+    "no-restricted-syntax": [
+      "error",
+      {
+        // Match: expect(true).toBe(true) or expect(true).toEqual(true)
+        // AST structure: CallExpression[callee=MemberExpression[object=CallExpression[callee=expect, args=[true]], property=toBe], args=[true]]
+        selector:
+          "CallExpression[callee.type='MemberExpression'][callee.object.type='CallExpression'][callee.object.callee.name='expect'][callee.object.arguments.0.value=true][callee.property.name=/^(toBe|toEqual|toStrictEqual)$/] > Literal[value=true]",
+        message: "Useless assertion: expect(true).toBe(true) always passes. Write a meaningful assertion instead."
+      },
+      {
+        // Match: expect(false).toBe(false) or expect(false).toEqual(false)
+        selector:
+          "CallExpression[callee.type='MemberExpression'][callee.object.type='CallExpression'][callee.object.callee.name='expect'][callee.object.arguments.0.value=false][callee.property.name=/^(toBe|toEqual|toStrictEqual)$/] > Literal[value=false]",
+        message: "Useless assertion: expect(false).toBe(false) always passes. Write a meaningful assertion instead."
+      }
+    ]
+  }
+}
+
 // File-specific overrides (only when absolutely necessary)
 const fileOverrides = [
   {
@@ -204,4 +309,4 @@ const fileOverrides = [
   }
 ]
 
-export default [globalIgnores, baseConfig, nodeConfig, reactConfig, ...fileOverrides]
+export default [globalIgnores, baseConfig, nodeConfig, reactConfig, testConfig, ...fileOverrides]

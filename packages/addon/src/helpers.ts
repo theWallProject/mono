@@ -58,7 +58,32 @@ export type TR_NAME =
   | "options_share_tg"
   | "options_contact"
 
+// Helper to safely check for test mode
+function isTestModeEnabled(): boolean {
+  // Check window.TEST_MODE (browser/test environment) - primary check
+  if (typeof window !== "undefined") {
+    const windowWithTestMode = window
+    if (windowWithTestMode.TEST_MODE) {
+      return true
+    }
+  }
+
+  // Check process.env.TEST_MODE (set by test-mode.ts)
+  // According to Plasmo docs (https://docs.plasmo.com/framework/env), process.env is available in extensions
+  if (typeof process !== "undefined" && process.env?.TEST_MODE === "true") {
+    return true
+  }
+
+  return false
+}
+
 export function track(category: TR_CAT, action: TR_ACTION, name: TR_NAME) {
+  // Disable tracking in test mode - log instead
+  if (isTestModeEnabled()) {
+    console.log("[TEST] Track:", { category, action, name })
+    return
+  }
+
   try {
     const img = document.createElement("img")
     // imageUrl += "&e_v=" + encodeURIComponent(value) // Optional numeric value

@@ -11,8 +11,8 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
-  type APIListOfReasonsValues,
-  type LinkField
+  type LinkField,
+  type valuesOfListOfReasons
 } from "@theWallProject/common"
 import { BrowserContext, chromium, Page } from "playwright"
 
@@ -1347,7 +1347,7 @@ const findCompanyByName = (
  */
 export async function addNewEntryLinksForAdditions(
   companyName: string,
-  reasons: APIListOfReasonsValues[]
+  reasons: valuesOfListOfReasons[]
 ): Promise<void> {
   let browserContext: BrowserContext | null = null
 

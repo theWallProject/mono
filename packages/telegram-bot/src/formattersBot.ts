@@ -3,7 +3,7 @@
  * Strict type checking, exhaustive case handling.
  */
 
-import type { APIListOfReasonsValues, UrlCheckResult } from "@theWallProject/common"
+import type { UrlCheckResult, valuesOfListOfReasons } from "@theWallProject/common"
 import type { Context } from "telegraf"
 
 import { getT, type TFunction } from "./translations.js"
@@ -12,7 +12,7 @@ import { getT, type TFunction } from "./translations.js"
  * Formats a reason code into a human-readable message.
  * @throws Error if reason is unexpected (exhaustive check)
  */
-function formatReasonBot(reason: APIListOfReasonsValues, t: TFunction): string {
+function formatReasonBot(reason: valuesOfListOfReasons, t: TFunction): string {
   switch (reason) {
     case "h":
       return t("reasons.h")
@@ -34,7 +34,7 @@ function formatReasonBot(reason: APIListOfReasonsValues, t: TFunction): string {
 /**
  * Formats reasons array into formatted text.
  */
-export function formatReasonsForBot(reasons: readonly APIListOfReasonsValues[], t: TFunction): string {
+export function formatReasonsForBot(reasons: readonly valuesOfListOfReasons[], t: TFunction): string {
   return reasons.map((reason) => `• ${formatReasonBot(reason, t)}`).join("\n")
 }
 

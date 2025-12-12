@@ -51,6 +51,8 @@ pnpm test
 cd packages/addon
 pnpm dev
 pnpm build
+pnpm test        # Run tests
+pnpm test:e2e    # Run E2E tests only
 ```
 
 ### Scrapper Package
@@ -73,7 +75,24 @@ pnpm build
 └── pnpm-workspace.yaml
 ```
 
+## Testing
+
+### Addon Package Tests
+
+The addon package includes comprehensive end-to-end tests:
+
+```bash
+# Run addon tests from root
+pnpm test:addon
+pnpm test:addon:e2e
+```
+
+Tests use Playwright and Vitest to test all extension functionality in real Chrome instances. See [packages/addon/tests/README.md](packages/addon/tests/README.md) for detailed documentation.
+
+**Note**: Tests require the extension to be built first (`pnpm build:chrome`) and an internet connection for testing real URLs.
+
 ## Notes
 
 - All packages use `@theWallProject/*` scope for consistency
 - The `common` package is linked as a workspace dependency in `addon` and `scrapper`
+- Addon tests require built extension and internet connection
