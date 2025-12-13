@@ -28,7 +28,7 @@ describe("Content Script", () => {
   })
 
   it("should initialize DOM scanner for urlDomInline rules", async () => {
-    const testUrl = getRandomResult({ ruleType: "urlDomInline", excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ ruleType: "urlDomInline", excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -47,7 +47,7 @@ describe("Content Script", () => {
   })
 
   it("should render banner component", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -62,7 +62,7 @@ describe("Content Script", () => {
   })
 
   it("should trigger URL testing on page load", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {

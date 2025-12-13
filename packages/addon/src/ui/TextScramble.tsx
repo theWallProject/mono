@@ -1,3 +1,4 @@
+import { log } from "console"
 import React, { useEffect, useRef, useState } from "react"
 
 interface TextScrambleProps {
@@ -123,11 +124,17 @@ export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 20
       if (currentText === undefined) {
         throw new Error(`Unexpected undefined text at index ${currentIndex}`)
       }
-      setText(currentText).then(() => {
-        timeoutId = setTimeout(() => {
-          setCurrentIndex(nextIndex)
-        }, interval)
-      })
+      setText(currentText)
+        .then(() => {
+          timeoutId = setTimeout(() => {
+            setCurrentIndex(nextIndex)
+          }, interval)
+          return undefined
+        })
+        .catch((error) => {
+          // Silently handle errors in text animation
+          log("TextScramble setText error:", error)
+        })
     }
 
     nextText()

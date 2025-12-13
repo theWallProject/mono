@@ -1,6 +1,8 @@
 // Flag to control content script logging
-// Set to false to disable all logging in content scripts (logs become noops)
+// Enabled only in development mode, disabled in production builds
+// Note: NODE_ENV is a built-in Plasmo variable automatically set to "development" or "production"
 const ENABLE_CONTENT_SCRIPT_LOGGING = false
+// console.log("🍉 process.env.NODE_ENV", process.env?.NODE_ENV, process.env)
 
 export function log(...params: unknown[]) {
   if (!ENABLE_CONTENT_SCRIPT_LOGGING) {
@@ -57,6 +59,8 @@ export type TR_NAME =
   | "options_share_wa"
   | "options_share_tg"
   | "options_contact"
+  | "linkedin_job_processing_enable"
+  | "linkedin_job_processing_disable"
 
 // Helper to safely check for test mode
 function isTestModeEnabled(): boolean {

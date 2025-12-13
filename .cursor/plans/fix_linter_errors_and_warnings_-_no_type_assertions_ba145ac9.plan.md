@@ -64,7 +64,7 @@ todos:
 - **Lines 46, 310, 366**: `expect()` in `beforeAll` hooks
 - **Fix**: Move assertions into test blocks or throw errors in beforeAll
 
-### 2. extension.ts - Unused variable (1 error)  
+### 2. extension.ts - Unused variable (1 error)
 
 - **Line 236**: Unused `error` in catch block
 - **Fix**: Remove variable or prefix with `_`
@@ -252,7 +252,7 @@ const bidiDir = chrome.i18n.getMessage("@@bidi_dir")
 if (bidiDir !== "ltr" && bidiDir !== "rtl") {
   throw new Error(`Invalid bidi_dir value: ${bidiDir}`)
 }
-dir={bidiDir}
+dir = { bidiDir }
 ```
 
 ### Category G: Function Parameters (2 warnings)
@@ -338,6 +338,7 @@ resolve(value as T) // Only if type guard not possible
 ### 1. no-dynamic-delete (6 warnings)
 
 - **Fix**: Create typed wrapper function
+
 ```typescript
 function clearRequireCache(modulePath: string): void {
   const resolvedPath = require.resolve(modulePath)
@@ -346,10 +347,10 @@ function clearRequireCache(modulePath: string): void {
 }
 ```
 
-
 ### 2. no-require-imports (7 warnings)
 
 - **Fix**: Create typed module loader
+
 ```typescript
 function loadModule<T>(modulePath: string): T {
   const resolvedPath = require.resolve(modulePath)
@@ -363,11 +364,11 @@ function loadModule<T>(modulePath: string): T {
 }
 ```
 
-
 ### 3. no-explicit-any (1 warning)
 
 - **validate.ts:43**: `catch (e: any)`
-- **Fix**: 
+- **Fix**:
+
 ```typescript
 catch (e: unknown) {
   const error = e instanceof Error ? e : new Error(String(e))
@@ -379,11 +380,11 @@ catch (e: unknown) {
 }
 ```
 
-
 ### 4. ban-ts-comment (1 warning)
 
 - **generate-schema.ts:27**: `@ts-ignore`
 - **Fix**: Remove @ts-ignore, use type assertion with guard:
+
 ```typescript
 const generatedSchemaUnknown: unknown = zodToJsonSchema(arraySchema, {
   name: "AllJsonSchema",
@@ -392,7 +393,6 @@ const generatedSchemaUnknown: unknown = zodToJsonSchema(arraySchema, {
 })
 // Type guard handles the type narrowing
 ```
-
 
 ## Other Warnings (2)
 

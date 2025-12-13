@@ -53,13 +53,13 @@ export class DomScanner {
   /**
    * Initialize scanner for current page
    */
-  public initialize(): void {
+  public async initialize(): Promise<void> {
     try {
       const url = window.location.href
       log(`[Scanner] Initializing for URL: ${url}`)
 
       // Get urlDomInline rule for this page
-      const inlineRule = findRuleOfType<"urlDomInline">(url, "urlDomInline")
+      const inlineRule = await findRuleOfType<"urlDomInline">(url, "urlDomInline")
       if (!inlineRule) {
         // Silently return if no rule found (expected for many pages)
         return

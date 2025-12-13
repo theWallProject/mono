@@ -192,25 +192,50 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
   return true
 })
 
+function handleTestUrlMessage(
+  message: Extract<Message, { action: typeof MessageTypes.TestUrl }>,
+  sendResponse: SendResponse<typeof MessageTypes.TestUrl>
+): void {
+  isUrlFlagged(message.url)
+    .then((result) => {
+      log("chrome.runtime.onMessage isUrlFlagged result", { result })
+      sendResponse(result)
+      return result
+    })
+    .catch((error) => {
+      error("chrome.runtime.onMessage isUrlFlagged error", error)
+      sendResponse(undefined)
+    })
+}
+
+function handleDissmissUrlMessage(
+  message: Extract<Message, { action: typeof MessageTypes.DissmissUrl }>,
+  sendResponse: SendResponse<typeof MessageTypes.DissmissUrl>
+): void {
+  const key = `${message.key}_${message.selector}`
+  const now = Date.now()
+  setStorageItem(key, now)
+    .then(() => {
+      log(`chrome.runtime.onMessage setStorageItem succes of key ${key}`)
+      sendResponse(true)
+      return true
+    })
+    .catch((err) => {
+      error(`chrome.runtime.onMessage setStorageItem error for key ${key}`, err)
+      // Still send true to acknowledge the message, error is logged
+      sendResponse(true)
+    })
+}
+
 chrome.runtime.onMessage.addListener(
   (message: Message, sender, sendResponse: SendResponse<keyof MessageResponseMap>) => {
     log("chrome.runtime.onMessage", message, sender)
     const action = message.action
 
     if (action === MessageTypes.TestUrl) {
-      isUrlFlagged(message.url).then((result) => {
-        log("chrome.runtime.onMessage isUrlFlagged result", { result })
-
-        sendResponse(result)
-      })
+      handleTestUrlMessage(message, sendResponse)
     } else if (action === MessageTypes.DissmissUrl) {
-      const key = `${message.key}_${message.selector}`
-      const now = Date.now()
-      setStorageItem(key, now).then(() => {
-        log(`chrome.runtime.onMessage setStorageItem succes of key ${key}`)
-
-        sendResponse(true)
-      })
+      handleDissmissUrlMessage(message, sendResponse)
     } else {
       throw new Error(`unexpected message [${message.action}]`)
     }

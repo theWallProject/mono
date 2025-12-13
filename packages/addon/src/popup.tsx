@@ -13,14 +13,17 @@ import {
   HINT_DISMISSED_PERM_PREFIX,
   HINT_SHOWN_PREFIX,
   HINTS_SYSTEM_DISABLED_KEY,
+  LINKEDIN_JOB_PROCESSING_ENABLED_KEY,
   removeLocalStorageItems,
   setLocalStorageItem
 } from "./storageHelpers"
 
 function Popup() {
   const [hintsDisabled, setHintsDisabled] = useState<boolean>(false)
+  const [linkedinJobProcessingEnabled, setLinkedinJobProcessingEnabled] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isToggling, setIsToggling] = useState<boolean>(false)
+  const [isTogglingLinkedIn, setIsTogglingLinkedIn] = useState<boolean>(false)
   const [isResetting, setIsResetting] = useState<boolean>(false)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
 
@@ -35,6 +38,11 @@ function Popup() {
     const checkHintsStatus = async () => {
       const disabled = await getLocalStorageItem<boolean>(HINTS_SYSTEM_DISABLED_KEY)
       setHintsDisabled(disabled === true)
+
+      // Check LinkedIn job processing setting (defaults to false/disabled)
+      const enabled = await getLocalStorageItem<boolean>(LINKEDIN_JOB_PROCESSING_ENABLED_KEY)
+      setLinkedinJobProcessingEnabled(enabled === true)
+
       setIsLoading(false)
     }
     checkHintsStatus()
@@ -51,6 +59,20 @@ function Popup() {
       setTimeout(() => setSuccessMessage(null), 2000)
     } finally {
       setIsToggling(false)
+    }
+  }
+
+  const toggleLinkedInJobProcessing = async () => {
+    const newState = !linkedinJobProcessingEnabled
+    track("Button", "Click", newState ? "linkedin_job_processing_enable" : "linkedin_job_processing_disable")
+    setIsTogglingLinkedIn(true)
+    try {
+      await setLocalStorageItem(LINKEDIN_JOB_PROCESSING_ENABLED_KEY, newState)
+      setLinkedinJobProcessingEnabled(newState)
+      setSuccessMessage(newState ? "LinkedIn job detection enabled" : "LinkedIn job detection disabled")
+      setTimeout(() => setSuccessMessage(null), 2000)
+    } finally {
+      setIsTogglingLinkedIn(false)
     }
   }
 
@@ -265,6 +287,39 @@ function Popup() {
     cursor: "not-allowed"
   }
 
+  const checkboxContainerStyle: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    padding: "10px 14px",
+    background: "rgba(255, 255, 255, 0.08)",
+    border: "1px solid rgba(255, 255, 255, 0.15)",
+    borderRadius: "8px",
+    marginBottom: "8px",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+    boxSizing: "border-box"
+  }
+
+  const checkboxStyle: React.CSSProperties = {
+    width: "18px",
+    height: "18px",
+    cursor: "pointer",
+    accentColor: "#74d136",
+    flexShrink: 0
+  }
+
+  const checkboxLabelStyle: React.CSSProperties = {
+    fontSize: "13px",
+    lineHeight: "1.5",
+    fontFamily: "sans-serif",
+    fontWeight: "500",
+    color: "#e9e9e9",
+    flex: 1,
+    cursor: "pointer",
+    userSelect: "none"
+  }
+
   if (isLoading) {
     return (
       <div style={containerStyle}>
@@ -286,8 +341,8 @@ function Popup() {
           <button
             type="button"
             onClick={toggleHintsSystem}
-            disabled={isToggling || isResetting}
-            style={isToggling || isResetting ? disabledButtonStyle : buttonStyle}
+            disabled={isToggling || isResetting || isTogglingLinkedIn}
+            style={isToggling || isResetting || isTogglingLinkedIn ? disabledButtonStyle : buttonStyle}
             onMouseEnter={(e) => {
               if (!isToggling && !isResetting) {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
@@ -304,11 +359,42 @@ function Popup() {
             }}>
             {isToggling ? "Processing..." : hintsDisabled ? "Enable Hints System" : "Disable Hints System"}
           </button>
+          <div
+            style={checkboxContainerStyle}
+            onClick={toggleLinkedInJobProcessing}
+            onMouseEnter={(e) => {
+              if (!isTogglingLinkedIn && !isToggling && !isResetting) {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)"
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isTogglingLinkedIn && !isToggling && !isResetting) {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)"
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)"
+              }
+            }}>
+            <input
+              type="checkbox"
+              checked={linkedinJobProcessingEnabled}
+              onChange={toggleLinkedInJobProcessing}
+              onClick={(e) => e.stopPropagation()}
+              disabled={isTogglingLinkedIn || isToggling || isResetting}
+              style={checkboxStyle}
+            />
+            <label style={checkboxLabelStyle}>
+              {isTogglingLinkedIn ? "Processing..." : "BETA - Detect LinkedIn Job pages"}
+            </label>
+          </div>
           <button
             type="button"
             onClick={resetDismissedHints}
-            disabled={isToggling || isResetting}
-            style={isToggling || isResetting ? { ...lastButtonStyle, ...disabledButtonStyle } : lastButtonStyle}
+            disabled={isToggling || isResetting || isTogglingLinkedIn}
+            style={
+              isToggling || isResetting || isTogglingLinkedIn
+                ? { ...lastButtonStyle, ...disabledButtonStyle }
+                : lastButtonStyle
+            }
             onMouseEnter={(e) => {
               if (!isToggling && !isResetting) {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"

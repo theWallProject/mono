@@ -23,7 +23,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     console.log("[TEST] Starting: should show hints toast on hint URLs")
 
     // Get ONE hint URL - test once
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: true, excludeLoginRequired: true })
     console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
 
     const page = await context.newPage()
@@ -53,7 +53,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     console.log("[TEST] Starting: should show hint only once per session")
 
     // EXPLICIT: Get a hint URL
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: true, excludeLoginRequired: true })
     console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
 
     const page = await context.newPage()
@@ -113,7 +113,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     console.log("[TEST] Hints system disabled")
 
     // EXPLICIT: Get a hint URL
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: true, excludeLoginRequired: true })
     console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
 
     const page = await context.newPage()
@@ -148,7 +148,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     console.log("[TEST] Starting: should allow dismissing hints temporarily")
 
     // EXPLICIT: Get a hint URL
-    const testUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: true, excludeLoginRequired: true })
     console.log(`[TEST] Selected hint URL: ${testUrl.url}`)
 
     const page = await context.newPage()

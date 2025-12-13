@@ -29,14 +29,14 @@ export interface CategorizedUrl {
  * Extract all results from database entry
  * Extracts all fields (ws, fb, li, tw, ig, gh, ytp, ytc, tt, th) that exist in the entry
  */
-function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
+async function extractResults(entry: FinalDBFileType): Promise<CategorizedUrl[]> {
   const results: CategorizedUrl[] = []
   const isHint = !!(entry.isHint && entry.hintText)
 
   // Extract website URL
   if (entry.ws) {
     const url = `https://${entry.ws}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -56,7 +56,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
   // Extract social media URLs from database fields
   if (entry.fb) {
     const url = `https://www.facebook.com/${entry.fb}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -74,7 +74,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.li) {
     const url = `https://www.linkedin.com/company/${entry.li}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -92,7 +92,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.tw) {
     const url = `https://www.twitter.com/${entry.tw}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -110,7 +110,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.ig) {
     const url = `https://www.instagram.com/${entry.ig}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -128,7 +128,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.gh) {
     const url = `https://www.github.com/${entry.gh}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -146,7 +146,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.ytp) {
     const url = `https://www.youtube.com/@${entry.ytp}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -164,7 +164,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.ytc) {
     const url = `https://www.youtube.com/@${entry.ytc}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -182,7 +182,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.tt) {
     const url = `https://www.tiktok.com/@${entry.tt}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -200,7 +200,7 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
 
   if (entry.th) {
     const url = `https://www.threads.net/@${entry.th}`
-    const rule = findMatchingRule(url)
+    const rule = await findMatchingRule(url)
     const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
       ? rule.type === "urlDomFull"
         ? "urlDomFull"
@@ -223,20 +223,20 @@ function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
  * Get a random result from the database using filters
  * Returns the exact same result for the same filters (deterministic)
  */
-export function getRandomResult(options?: {
+export async function getRandomResult(options?: {
   ruleType?: "urlOnly" | "urlDomFull" | "urlDomInline"
   isHint?: boolean
   hasSocialMedia?: boolean
   reason?: string
   excludeLoginRequired?: boolean
-}): CategorizedUrl {
+}): Promise<CategorizedUrl> {
   const { ruleType, isHint, hasSocialMedia, reason, excludeLoginRequired = false } = options || {}
 
   // Filter database entries directly
   const filtered: CategorizedUrl[] = []
 
   for (const entry of database) {
-    const results = extractResults(entry)
+    const results = await extractResults(entry)
 
     for (const result of results) {
       // Exclude LinkedIn URLs if excludeLoginRequired is true (but keep other URLs from same entry)
@@ -287,21 +287,21 @@ export function getRandomResult(options?: {
  * Get random URLs by category
  * Returns deterministic results (same filters = same results)
  */
-export function getRandomUrls(options: {
+export async function getRandomUrls(options: {
   count?: number
   ruleType?: "urlOnly" | "urlDomFull" | "urlDomInline"
   isHint?: boolean
   hasSocialMedia?: boolean
   reason?: string
   excludeLoginRequired?: boolean
-}): CategorizedUrl[] {
+}): Promise<CategorizedUrl[]> {
   const { count = 1, ruleType, isHint, hasSocialMedia, reason, excludeLoginRequired = false } = options
 
   // Filter database entries directly (same logic as getRandomResult)
   const filtered: CategorizedUrl[] = []
 
   for (const entry of database) {
-    const results = extractResults(entry)
+    const results = await extractResults(entry)
 
     for (const result of results) {
       // Exclude LinkedIn URLs if excludeLoginRequired is true (but keep other URLs from same entry)
@@ -355,18 +355,18 @@ export function getRandomUrls(options: {
  * Ensures the URL matches the expected behavior for the rule type
  * Excludes LinkedIn URLs (requires login)
  */
-export function getTestUrlWithConditions(options: {
+export async function getTestUrlWithConditions(options: {
   ruleType: "urlOnly" | "urlDomFull" | "urlDomInline"
   expectBanner?: boolean
   expectHint?: boolean
-}): CategorizedUrl {
+}): Promise<CategorizedUrl> {
   const { ruleType, expectBanner, expectHint } = options
 
   let url: CategorizedUrl
 
   // urlOnly rules should ALWAYS show banners, never hints
   if (ruleType === "urlOnly") {
-    url = getRandomResult({
+    url = await getRandomResult({
       ruleType: "urlOnly",
       isHint: false, // urlOnly rules are never hints
       excludeLoginRequired: true // Exclude LinkedIn URLs (requires login)
@@ -374,14 +374,14 @@ export function getTestUrlWithConditions(options: {
   } else if (expectBanner !== undefined || expectHint !== undefined) {
     // urlDomFull and urlDomInline can be either banners or hints
     const isHint = expectHint === true
-    url = getRandomResult({
+    url = await getRandomResult({
       ruleType,
       isHint,
       excludeLoginRequired: true
     })
   } else {
     // No specific expectation, return any URL of this rule type
-    url = getRandomResult({
+    url = await getRandomResult({
       ruleType,
       excludeLoginRequired: true
     })
@@ -464,7 +464,7 @@ export function addBadLink(url: string): void {
  * This is used as the hint ID for storage tracking
  * Uses the same lookup logic as storage.ts
  */
-export function getHintNameForUrl(url: string): string | null {
+export async function getHintNameForUrl(url: string): Promise<string | null> {
   const domain = getMainDomain(url)
 
   // Handle .il domains separately
@@ -473,7 +473,7 @@ export function getHintNameForUrl(url: string): string | null {
   }
 
   // Use shared pure functions for rule matching (same logic as storage.ts)
-  const rule = findMatchingRule(url)
+  const rule = await findMatchingRule(url)
 
   if (rule && rule.type !== "urlOnly") {
     // For urlDomFull and urlDomInline rules, we need to extract selector differently
@@ -564,7 +564,7 @@ export function getHintNameForUrl(url: string): string | null {
  * EXPLICIT: Returns a URL that will show the alternatives button
  * FAILS HARD if no such URL exists
  */
-export function getUrlWithAlternatives(options?: { excludeLoginRequired?: boolean }): CategorizedUrl {
+export async function getUrlWithAlternatives(options?: { excludeLoginRequired?: boolean }): Promise<CategorizedUrl> {
   const { excludeLoginRequired = false } = options || {}
 
   // Find entries in database that have alternatives
@@ -579,7 +579,7 @@ export function getUrlWithAlternatives(options?: { excludeLoginRequired?: boolea
   // Get URLs from entries with alternatives
   const allUrlsWithAlternatives: CategorizedUrl[] = []
   for (const entry of entriesWithAlternatives) {
-    allUrlsWithAlternatives.push(...extractResults(entry))
+    allUrlsWithAlternatives.push(...(await extractResults(entry)))
   }
 
   // Filter based on options
@@ -610,7 +610,7 @@ export function getUrlWithAlternatives(options?: { excludeLoginRequired?: boolea
  * EXPLICIT: Returns a URL that will show the Support Palestine button
  * FAILS HARD if no such URL exists
  */
-export function getUrlWithoutAlternatives(options?: { excludeLoginRequired?: boolean }): CategorizedUrl {
+export async function getUrlWithoutAlternatives(options?: { excludeLoginRequired?: boolean }): Promise<CategorizedUrl> {
   const { excludeLoginRequired = false } = options || {}
 
   // Find entries in database that DON'T have alternatives
@@ -625,7 +625,7 @@ export function getUrlWithoutAlternatives(options?: { excludeLoginRequired?: boo
   // Get URLs from entries without alternatives
   const allUrlsWithoutAlternatives: CategorizedUrl[] = []
   for (const entry of entriesWithoutAlternatives) {
-    allUrlsWithoutAlternatives.push(...extractResults(entry))
+    allUrlsWithoutAlternatives.push(...(await extractResults(entry)))
   }
 
   // Filter based on options

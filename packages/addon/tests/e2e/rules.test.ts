@@ -29,7 +29,7 @@ describe("Rule Types", (): void => {
 
     while (successCount < targetCount && attempts < maxAttempts) {
       attempts++
-      const testUrl = getTestUrlWithConditions({
+      const testUrl = await getTestUrlWithConditions({
         ruleType: "urlOnly",
         expectBanner: true
       })
@@ -77,7 +77,7 @@ describe("Rule Types", (): void => {
     // Test with URLs that should show banners
     const testUrls: Array<CategorizedUrl | null> = []
     for (let i = 0; i < 3; i++) {
-      const url = getTestUrlWithConditions({
+      const url = await getTestUrlWithConditions({
         ruleType: "urlDomFull",
         expectBanner: true
       })
@@ -109,7 +109,7 @@ describe("Rule Types", (): void => {
     // urlDomInline rules trigger DOM scanning - test with URLs that should show banners
     const testUrls: CategorizedUrl[] = []
     for (let i = 0; i < 3; i++) {
-      const url = getTestUrlWithConditions({
+      const url = await getTestUrlWithConditions({
         ruleType: "urlDomInline",
         expectBanner: true
       })
@@ -140,7 +140,7 @@ describe("Rule Types", (): void => {
 
   it("should handle special .il domains correctly", async () => {
     // Get URLs that end with .il
-    const testUrls = getRandomUrls({ count: 3, reason: "u", excludeLoginRequired: true })
+    const testUrls = await getRandomUrls({ count: 3, reason: "u", excludeLoginRequired: true })
 
     for (const testUrl of testUrls) {
       expect(testUrl.url.includes(".il")).toBe(true)
@@ -173,7 +173,7 @@ describe("Rule Types", (): void => {
 
     while (successCount < targetCount && attempts < maxAttempts) {
       attempts++
-      const testUrls = getRandomUrls({
+      const testUrls = await getRandomUrls({
         count: 1,
         hasSocialMedia: true,
         isHint: false,
@@ -218,7 +218,7 @@ describe("Rule Types", (): void => {
 
     for (const ruleType of ruleTypes) {
       // All rule types should show banners when configured correctly
-      const testUrl = getTestUrlWithConditions({
+      const testUrl = await getTestUrlWithConditions({
         ruleType,
         expectBanner: true
       })

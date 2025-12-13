@@ -5,6 +5,7 @@ export const HINT_SHOWN_PREFIX = "hint_shown_"
 export const HINT_DISMISSED_PERM_PREFIX = "hint_dismissed_perm_"
 export const HINTS_SYSTEM_DISABLED_KEY = "hints_system_disabled"
 export const WHATS_NEW_SHOWN_VERSIONS_KEY = "whats_new_shown_versions"
+export const LINKEDIN_JOB_PROCESSING_ENABLED_KEY = "linkedin_job_processing_enabled"
 
 export const getStorageItem = async <T>(key: string): Promise<T | null> => {
   log(`getStorageItem getting key[${key}]`)
@@ -123,18 +124,25 @@ export const markWhatsNewVersionAsShown = async (version: string): Promise<void>
   log(`markWhatsNewVersionAsShown marking version [${version}]`)
   return new Promise((resolve, reject) => {
     try {
-      getWhatsNewShownVersions().then((existingVersions) => {
-        if (!existingVersions.includes(version)) {
-          const updatedVersions = [...existingVersions, version]
-          chrome.storage.local.set({ [WHATS_NEW_SHOWN_VERSIONS_KEY]: updatedVersions }, () => {
-            log(`markWhatsNewVersionAsShown set version [${version}]`)
+      getWhatsNewShownVersions()
+        .then((existingVersions) => {
+          if (!existingVersions.includes(version)) {
+            const updatedVersions = [...existingVersions, version]
+            chrome.storage.local.set({ [WHATS_NEW_SHOWN_VERSIONS_KEY]: updatedVersions }, () => {
+              log(`markWhatsNewVersionAsShown set version [${version}]`)
+              resolve()
+            })
+            return undefined
+          } else {
+            log(`markWhatsNewVersionAsShown version [${version}] already marked`)
             resolve()
-          })
-        } else {
-          log(`markWhatsNewVersionAsShown version [${version}] already marked`)
-          resolve()
-        }
-      })
+            return undefined
+          }
+        })
+        .catch((e) => {
+          error(`markWhatsNewVersionAsShown error: ${version}`, e)
+          reject(e)
+        })
     } catch (e) {
       error(`markWhatsNewVersionAsShown error: ${version}`, e)
       reject(e)

@@ -68,8 +68,8 @@ describe.skip("Multi-Tab Scenarios", () => {
 
   it("should handle multiple tabs with different URLs", async () => {
     // Get a mix: 2 banner URLs and 1 hint URL
-    const bannerUrls = getRandomUrls({ count: 2, isHint: false, excludeLoginRequired: true })
-    const hintUrls = getRandomUrls({ count: 1, isHint: true, excludeLoginRequired: true })
+    const bannerUrls = await getRandomUrls({ count: 2, isHint: false, excludeLoginRequired: true })
+    const hintUrls = await getRandomUrls({ count: 1, isHint: true, excludeLoginRequired: true })
     const testUrls = [...bannerUrls, ...hintUrls]
 
     const pages: Page[] = []
@@ -130,7 +130,7 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should show hint only once per session when visiting same URL in same tab", async () => {
-    const hintUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
+    const hintUrl = await getRandomResult({ isHint: true, excludeLoginRequired: true })
     const page = await context.newPage()
 
     try {
@@ -160,8 +160,8 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should show correct banner/hint independently in each tab", async () => {
-    const flaggedUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
-    const hintUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
+    const flaggedUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const hintUrl = await getRandomResult({ isHint: true, excludeLoginRequired: true })
 
     const page1 = await context.newPage()
     const page2 = await context.newPage()
@@ -197,7 +197,7 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should not break functionality when switching tabs", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page1 = await context.newPage()
     const page2 = await context.newPage()
@@ -233,7 +233,7 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should not affect other tabs when dismissing in one tab", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page1 = await context.newPage()
     const page2 = await context.newPage()

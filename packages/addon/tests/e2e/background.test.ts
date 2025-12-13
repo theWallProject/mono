@@ -32,7 +32,7 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab updates", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -50,7 +50,7 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab activation", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     // Create two tabs
     const page1 = await context.newPage()
@@ -81,7 +81,8 @@ describe("Background Script", () => {
     // Test message handling by checking if extension responds to URL tests
     const page = await context.newPage()
     try {
-      const testUrl = getRandomUrls({ count: 1, isHint: false, excludeLoginRequired: true })[0]
+      const testUrls = await getRandomUrls({ count: 1, isHint: false, excludeLoginRequired: true })
+      const testUrl = testUrls[0]
       expect(testUrl).toBeDefined()
 
       await navigateToUrl(page, testUrl!.url)
