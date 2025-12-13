@@ -79,8 +79,7 @@ describe("My Feature", () => {
 const urls = getRandomUrls({
   count: 5,
   ruleType: "urlOnly",
-  isHint: false,
-  excludeTested: true
+  isHint: false
 })
 ```
 

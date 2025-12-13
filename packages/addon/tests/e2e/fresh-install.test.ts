@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeAll, describe, expect, it } from "vitest"
+import { beforeEach, describe, expect, it } from "vitest"
 
 import { HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -10,13 +10,11 @@ describe("Fresh Install Scenarios", () => {
   let context: BrowserContext
   let extensionId: string
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const result = await launchBrowserWithExtension()
     context = result.context
     extensionId = result.extensionId
   })
-
-  // Browser cleanup is handled globally in test-mode.ts
 
   it("should behave correctly on first install with no storage", async () => {
     await simulateFreshInstall(context, extensionId)

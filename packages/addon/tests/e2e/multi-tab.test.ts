@@ -10,7 +10,8 @@ import {
   navigateToUrl,
   setStorageValue,
   waitFor,
-  waitForExtensionProcessing
+  waitForExtensionProcessing,
+  waitUntilHintShown
 } from "../utils/extension"
 
 describe.skip("Multi-Tab Scenarios", () => {
@@ -67,8 +68,8 @@ describe.skip("Multi-Tab Scenarios", () => {
 
   it("should handle multiple tabs with different URLs", async () => {
     // Get a mix: 2 banner URLs and 1 hint URL
-    const bannerUrls = getRandomUrls({ count: 2, isHint: false, excludeTested: true, excludeLoginRequired: true })
-    const hintUrls = getRandomUrls({ count: 1, isHint: true, excludeTested: true, excludeLoginRequired: true })
+    const bannerUrls = getRandomUrls({ count: 2, isHint: false, excludeLoginRequired: true })
+    const hintUrls = getRandomUrls({ count: 1, isHint: true, excludeLoginRequired: true })
     const testUrls = [...bannerUrls, ...hintUrls]
 
     const pages: Page[] = []
@@ -106,7 +107,7 @@ describe.skip("Multi-Tab Scenarios", () => {
       // Test hint URLs - fail fast if hints don't show
       // Note: Each tab is a separate page, so hints should show in each tab on first visit
       for (const { page } of hintPages) {
-        expect(await isHintsToastShown(page)).toBe(true)
+        expect(await waitUntilHintShown(page)).toBe(true)
       }
 
       // Test banner URLs - fail fast if banners don't show
@@ -129,7 +130,7 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should show hint only once per session when visiting same URL in same tab", async () => {
-    const hintUrl = getRandomResult({ isHint: true, excludeTested: true, excludeLoginRequired: true })
+    const hintUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
     const page = await context.newPage()
 
     try {
@@ -137,7 +138,7 @@ describe.skip("Multi-Tab Scenarios", () => {
       const nav1Success = await navigateToUrl(page, hintUrl.url)
       expect(nav1Success).toBe(true)
       await waitForExtensionProcessing(page)
-      expect(await isHintsToastShown(page)).toBe(true)
+      expect(await waitUntilHintShown(page)).toBe(true)
 
       // Navigate away
       const nav2Success = await navigateToUrl(page, "https://example.com")
@@ -159,8 +160,8 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should show correct banner/hint independently in each tab", async () => {
-    const flaggedUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
-    const hintUrl = getRandomResult({ isHint: true, excludeTested: true, excludeLoginRequired: true })
+    const flaggedUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const hintUrl = getRandomResult({ isHint: true, excludeLoginRequired: true })
 
     const page1 = await context.newPage()
     const page2 = await context.newPage()
@@ -188,7 +189,7 @@ describe.skip("Multi-Tab Scenarios", () => {
       expect(await isBannerDisplayed(page1)).toBe(true)
 
       // Second tab should show hint toast (hintUrl.isHint is true - database has isHint: true AND hintText)
-      expect(await isHintsToastShown(page2)).toBe(true)
+      expect(await waitUntilHintShown(page2)).toBe(true)
     } finally {
       await page1.close()
       await page2.close()
@@ -196,7 +197,7 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should not break functionality when switching tabs", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
+    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page1 = await context.newPage()
     const page2 = await context.newPage()
@@ -232,7 +233,7 @@ describe.skip("Multi-Tab Scenarios", () => {
   })
 
   it("should not affect other tabs when dismissing in one tab", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
+    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page1 = await context.newPage()
     const page2 = await context.newPage()

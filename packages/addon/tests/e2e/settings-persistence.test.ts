@@ -1,26 +1,18 @@
 import type { BrowserContext } from "playwright"
-import { afterAll, beforeAll, describe, expect, it } from "vitest"
+import { beforeEach, describe, expect, it } from "vitest"
 
 import { HINT_DISMISSED_PERM_PREFIX, HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { launchBrowserWithExtension } from "../utils/browser"
-import { backupStorage, restoreStorage, simulateExistingUser, verifyStorage } from "../utils/storage"
+import { simulateExistingUser, verifyStorage } from "../utils/storage"
 
 describe("Settings Persistence", () => {
   let context: BrowserContext
   let extensionId: string
-  let storageBackup: Record<string, unknown>
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const result = await launchBrowserWithExtension()
     context = result.context
     extensionId = result.extensionId
-    storageBackup = await backupStorage(context, extensionId)
-  })
-
-  afterAll(async () => {
-    // Test-specific cleanup: restore storage
-    await restoreStorage(context, extensionId, storageBackup)
-    // Browser cleanup is handled globally in test-mode.ts
   })
 
   it("should persist hints system toggle across sessions", async () => {

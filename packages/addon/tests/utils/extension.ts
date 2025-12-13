@@ -33,7 +33,8 @@ export async function navigateToUrl(page: Page, url: string, timeout = 30000): P
       console.log(`[TEST] Page is on about:blank, navigating to: ${url}`)
     }
 
-    await page.goto(url, { waitUntil: "load", timeout })
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout })
+    console.log(`[TEST] Page navigated to: ${url}`)
 
     // Verify we actually navigated away from about:blank
     const finalUrl = page.url()
@@ -83,7 +84,7 @@ export async function navigateToUrl(page: Page, url: string, timeout = 30000): P
   }
 
   const currentUrl = page.url()
-
+  console.log(`[TEST] Current URL: ${currentUrl}`)
   // Check if still on about:blank (shouldn't happen but safety check)
   if (currentUrl === "about:blank") {
     console.log(`[TEST] Page still on about:blank after navigation to ${url}`)
@@ -96,8 +97,16 @@ export async function navigateToUrl(page: Page, url: string, timeout = 30000): P
     const requestedHost = new URL(url).hostname
     const currentHost = new URL(currentUrl).hostname
 
-    // If hostname changed, it's a redirect
-    if (requestedHost !== currentHost) {
+    // Normalize hostnames (remove www prefix for comparison)
+    const normalizeHost = (host: string): string => {
+      return host.startsWith("www.") ? host.substring(4) : host
+    }
+
+    const normalizedRequested = normalizeHost(requestedHost)
+    const normalizedCurrent = normalizeHost(currentHost)
+
+    // If hostname changed (ignoring www), it's a redirect
+    if (normalizedRequested !== normalizedCurrent) {
       console.log(`[TEST] URL redirected to different domain: ${currentUrl} (original: ${url})`)
       addBadLink(url)
       return false
@@ -124,6 +133,7 @@ export async function navigateToUrl(page: Page, url: string, timeout = 30000): P
     return false
   }
 
+  console.log(`[TEST] Page is not a login/auth page: ${currentUrl} (original: ${url})`)
   return true
 }
 
@@ -186,55 +196,152 @@ export async function waitForBanner(page: Page): Promise<void> {
 }
 
 /**
- * Check if hints toast is shown
- * Fast check - looks for our icon with hint text nearby
+ * Check if hints toast is shown (immediate check, no waiting)
+ * Returns true if toast is visible, false otherwise
+ * Uses shadow DOM traversal to find the toast icon
  */
 export async function isHintsToastShown(page: Page): Promise<boolean> {
   try {
-    // Look for the icon directly - it's in the hint toast
-    const icon = page.locator('img[alt="The Wall"]')
-    const count = await icon.count().catch(() => 0)
+    const result = await page.evaluate(() => {
+      // First, find plasmo-csui component
+      const plasmoCsui = document.querySelector("plasmo-csui")
+      if (!plasmoCsui) {
+        return false
+      }
 
-    if (count === 0) {
-      return false
-    }
+      if (!plasmoCsui.shadowRoot) {
+        return false
+      }
 
-    // Check if any icon is visible and has hint text nearby
-    for (let i = 0; i < count; i++) {
-      const iconElement = icon.nth(i)
-      const isVisible = await iconElement.isVisible().catch(() => false)
-      if (!isVisible) continue
+      // Search inside plasmo-csui shadow root
+      const searchInRoot = (root: Document | ShadowRoot | Element): boolean => {
+        // Search for images in current root
+        const images = root.querySelectorAll('img[alt="The Wall"]')
 
-      // Check if this icon is in a toast container by looking for hint text
-      const isInToast = await iconElement
-        .evaluate((img) => {
-          let parent = img.parentElement
-          let depth = 0
-          while (parent && depth < 5) {
-            // Check if parent contains text (hint text is in a span sibling)
-            const text = parent.textContent || ""
-            // Hint toast has text content (not just the icon)
-            // Check if there's meaningful text (more than just whitespace/icon alt text)
-            if (text.trim().length > 10) {
-              // Make sure it's not the banner (banner has "The Wall Logo" alt, not "The Wall")
-              // And it has text content, so it's likely the hint toast
+        for (const img of Array.from(images)) {
+          const rect = img.getBoundingClientRect()
+          const style = window.getComputedStyle(img)
+          const isVisible =
+            rect.width > 0 &&
+            rect.height > 0 &&
+            style.display !== "none" &&
+            style.visibility !== "hidden" &&
+            parseFloat(style.opacity) > 0
+
+          if (isVisible) {
+            return true
+          }
+        }
+
+        // Recursively search nested shadow roots
+        const allElements = root.querySelectorAll("*")
+        for (const el of Array.from(allElements)) {
+          if (el.shadowRoot) {
+            if (searchInRoot(el.shadowRoot)) {
               return true
             }
-            parent = parent.parentElement
-            depth++
           }
-          return false
-        })
-        .catch(() => false)
+        }
 
-      if (isInToast) {
-        return true
+        return false
       }
-    }
 
+      return searchInRoot(plasmoCsui.shadowRoot)
+    })
+
+    return result
+  } catch {
     return false
+  }
+}
+
+/**
+ * Wait until hints toast is shown
+ * Waits for the icon to appear, handling shadow DOM if present
+ */
+export async function waitUntilHintShown(page: Page, timeout = 10000): Promise<boolean> {
+  console.log(`[TEST] waitUntilHintShown: Starting check (timeout: ${timeout}ms)`)
+  try {
+    // First wait for plasmo-csui element to appear
+    await page.waitForSelector("plasmo-csui", { timeout: 5000 }).catch(() => {
+      console.log(`[TEST] waitUntilHintShown: plasmo-csui element not found within 5s`)
+    })
+
+    await waitFor(
+      async () => {
+        const result = await page.evaluate(() => {
+          // First, find plasmo-csui component
+          const plasmoCsui = document.querySelector("plasmo-csui")
+          if (!plasmoCsui) {
+            return { found: false, details: "plasmo-csui element not found" }
+          }
+
+          if (!plasmoCsui.shadowRoot) {
+            return { found: false, details: "plasmo-csui found but no shadow root" }
+          }
+
+          // Search inside plasmo-csui shadow root
+          const searchInRoot = (
+            root: Document | ShadowRoot | Element,
+            depth = 0
+          ): { found: boolean; details: string } => {
+            // Search for images in current root
+            const images = root.querySelectorAll('img[alt="The Wall"]')
+            let foundCount = 0
+            let visibleCount = 0
+
+            for (const img of Array.from(images)) {
+              foundCount++
+              const rect = img.getBoundingClientRect()
+              const style = window.getComputedStyle(img)
+              const isVisible =
+                rect.width > 0 &&
+                rect.height > 0 &&
+                style.display !== "none" &&
+                style.visibility !== "hidden" &&
+                parseFloat(style.opacity) > 0
+
+              if (isVisible) {
+                visibleCount++
+                return { found: true, details: `Found visible img at depth ${depth} in plasmo-csui shadow root` }
+              }
+            }
+
+            // Recursively search nested shadow roots (in case there are multiple levels)
+            const allElements = root.querySelectorAll("*")
+            let shadowRootCount = 0
+            for (const el of Array.from(allElements)) {
+              if (el.shadowRoot) {
+                shadowRootCount++
+                const result = searchInRoot(el.shadowRoot, depth + 1)
+                if (result.found) return result
+              }
+            }
+
+            return {
+              found: false,
+              details: `Depth ${depth} in plasmo-csui: found ${foundCount} img(s), ${visibleCount} visible, ${shadowRootCount} nested shadow roots`
+            }
+          }
+
+          return searchInRoot(plasmoCsui.shadowRoot, 0)
+        })
+
+        console.log(`[TEST] waitUntilHintShown: Check result - found: ${result.found}, details: ${result.details}`)
+
+        return result.found
+      },
+      {
+        timeout,
+        interval: 200,
+        description: "hints toast to appear"
+      }
+    )
+
+    console.log(`[TEST] waitUntilHintShown: ✓ Toast found!`)
+    return true
   } catch (error) {
-    console.error("[TEST] Error checking for toast:", error)
+    console.error(`[TEST] waitUntilHintShown: ✗ Failed or timeout:`, error)
     return false
   }
 }
@@ -309,43 +416,6 @@ export async function waitForExtensionProcessing(page: Page): Promise<void> {
 
   // Wait for DOM to be ready (content script injection point)
   await page.waitForLoadState("domcontentloaded")
-
-  // Wait for extension to process - use fast native waiting for banner OR hint
-  try {
-    // Wait for either banner logo or hint toast icon
-    await Promise.race([
-      page.waitForSelector('img[alt="The Wall Logo"]', { state: "visible" }),
-      (async () => {
-        await page.waitForSelector('img[alt="The Wall"]', { state: "visible" })
-        // Verify it's in a toast by checking for hint text
-        await page.waitForFunction(() => {
-          const icons = Array.from(document.querySelectorAll('img[alt="The Wall"]'))
-          return icons.some((icon) => {
-            let parent = icon.parentElement
-            let depth = 0
-            while (parent && depth < 5) {
-              // Check if parent contains hint text (meaningful text content)
-              const text = parent.textContent || ""
-              if (text.trim().length > 10) {
-                return true
-              }
-              parent = parent.parentElement
-              depth++
-            }
-            return false
-          })
-        })
-      })()
-    ])
-    console.log(`[TEST] Extension processing complete (banner/hint appeared)`)
-  } catch {
-    // Extension might not show banner/hint for clean URLs - that's okay
-    // Just ensure we've waited at least a minimal amount for content script injection
-    await new Promise<void>((resolve) => {
-      setTimeout(() => resolve(), 500)
-    })
-    console.log("[TEST] Extension processing wait complete (no banner/hint expected for this URL)")
-  }
 }
 
 /**
@@ -506,88 +576,4 @@ export async function waitForExternalLink(
       }
     })
   })
-}
-
-/**
- * Debug hint state - check why a hint might not be showing
- * Returns diagnostic information about hint blocking conditions
- */
-export async function debugHintState(
-  context: BrowserContext,
-  extensionId: string,
-  hintId: string
-): Promise<{
-  hintsSystemDisabled: boolean
-  permanentlyDismissed: boolean
-  shownRecently: boolean
-  lastShownTimestamp: number | null
-  storageKeys: string[]
-}> {
-  const page = await context.newPage()
-  try {
-    const popupUrl = getExtensionPopupUrl(extensionId)
-    await page.goto(popupUrl, { waitUntil: "domcontentloaded" })
-
-    const debugInfo = await page.evaluate(
-      ({
-        hintId,
-        hintShownPrefix,
-        hintDismissedPermPrefix,
-        hintsSystemDisabledKey
-      }: {
-        hintId: string
-        hintShownPrefix: string
-        hintDismissedPermPrefix: string
-        hintsSystemDisabledKey: string
-      }) => {
-        return new Promise<{
-          hintsSystemDisabled: boolean
-          permanentlyDismissed: boolean
-          shownRecently: boolean
-          lastShownTimestamp: number | null
-          storageKeys: string[]
-        }>((resolve) => {
-          chrome.storage.local.get(null, (items) => {
-            const hintShownKey = `${hintShownPrefix}${hintId}`
-            const hintDismissedKey = `${hintDismissedPermPrefix}${hintId}`
-
-            const hintsSystemDisabled = items[hintsSystemDisabledKey] === true
-            const permanentlyDismissed = items[hintDismissedKey] === true
-            const lastShownTimestamp: number | undefined =
-              typeof items[hintShownKey] === "number" ? items[hintShownKey] : undefined
-
-            const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000
-            const now = Date.now()
-            const shownRecently = lastShownTimestamp !== undefined && now - lastShownTimestamp < THREE_DAYS_MS
-
-            // Get all hint-related keys for debugging
-            const storageKeys = Object.keys(items).filter(
-              (key) =>
-                key.startsWith(hintShownPrefix) ||
-                key.startsWith(hintDismissedPermPrefix) ||
-                key === hintsSystemDisabledKey
-            )
-
-            resolve({
-              hintsSystemDisabled,
-              permanentlyDismissed,
-              shownRecently,
-              lastShownTimestamp: lastShownTimestamp ?? null,
-              storageKeys
-            })
-          })
-        })
-      },
-      {
-        hintId,
-        hintShownPrefix: "hint_shown_",
-        hintDismissedPermPrefix: "hint_dismissed_perm_",
-        hintsSystemDisabledKey: "hints_system_disabled"
-      }
-    )
-
-    return debugInfo
-  } finally {
-    await page.close()
-  }
 }

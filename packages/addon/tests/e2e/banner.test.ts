@@ -23,15 +23,13 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
     console.log("[TEST] Browser setup complete")
   })
 
-  // Browser cleanup is handled globally in test-mode.ts
-
   describe("Banner - All Standard Features (Single URL)", () => {
     let page: Page
     let testUrl: ReturnType<typeof getRandomResult>
 
     beforeAll(async () => {
       console.log("[TEST] Setting up single URL for all standard banner tests")
-      testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
+      testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
       if (testUrl.isHint) {
@@ -189,7 +187,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
     it("should dismiss banner when skip button is clicked", async () => {
       console.log("[TEST] Starting: should dismiss banner when skip button is clicked")
 
-      const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
+      const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
       const page = await context.newPage()
@@ -232,7 +230,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
     it("should not show banner again after dismissal in same session", async () => {
       console.log("[TEST] Starting: should not show banner again after dismissal in same session")
 
-      const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
+      const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
       const page = await context.newPage()
@@ -296,7 +294,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
     beforeAll(async () => {
       console.log("[TEST] Setting up URL with alternatives")
-      testUrl = getUrlWithAlternatives({ excludeTested: true, excludeLoginRequired: true })
+      testUrl = getUrlWithAlternatives({ excludeLoginRequired: true })
       console.log(`[TEST] Selected URL with alternatives: ${testUrl.url}`)
 
       if (testUrl.isHint) {
@@ -352,7 +350,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
     beforeAll(async () => {
       console.log("[TEST] Setting up URL without alternatives")
-      testUrl = getUrlWithoutAlternatives({ excludeTested: true, excludeLoginRequired: true })
+      testUrl = getUrlWithoutAlternatives({ excludeLoginRequired: true })
       console.log(`[TEST] Selected URL without alternatives: ${testUrl.url}`)
 
       if (testUrl.isHint) {
@@ -427,7 +425,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
       for (const ruleType of ruleTypes) {
         console.log(`[TEST] Testing rule type: ${ruleType}`)
-        const testUrl = getRandomResult({ ruleType, isHint: false, excludeTested: true, excludeLoginRequired: true })
+        const testUrl = getRandomResult({ ruleType, isHint: false, excludeLoginRequired: true })
         console.log(`[TEST] Selected URL: ${testUrl.url} (ruleType: ${testUrl.ruleType})`)
 
         if (testUrl.isHint) {

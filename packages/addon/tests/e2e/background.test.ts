@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeAll, describe, expect, it } from "vitest"
+import { beforeEach, describe, expect, it } from "vitest"
 
 import { getRandomResult, getRandomUrls } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -10,13 +10,11 @@ describe("Background Script", () => {
   let context: BrowserContext
   let extensionId: string
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const result = await launchBrowserWithExtension()
     context = result.context
     extensionId = result.extensionId
   })
-
-  // Browser cleanup is handled globally in test-mode.ts
 
   it("should load background script correctly", async () => {
     // Background script loads automatically with extension
@@ -34,7 +32,7 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab updates", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
+    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -52,7 +50,7 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab activation", async () => {
-    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
+    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     // Create two tabs
     const page1 = await context.newPage()
@@ -83,7 +81,7 @@ describe("Background Script", () => {
     // Test message handling by checking if extension responds to URL tests
     const page = await context.newPage()
     try {
-      const testUrl = getRandomUrls({ count: 1, isHint: false, excludeTested: true, excludeLoginRequired: true })[0]
+      const testUrl = getRandomUrls({ count: 1, isHint: false, excludeLoginRequired: true })[0]
       expect(testUrl).toBeDefined()
 
       await navigateToUrl(page, testUrl!.url)

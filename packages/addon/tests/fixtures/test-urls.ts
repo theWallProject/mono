@@ -228,17 +228,9 @@ export function getRandomResult(options?: {
   isHint?: boolean
   hasSocialMedia?: boolean
   reason?: string
-  excludeTested?: boolean
   excludeLoginRequired?: boolean
 }): CategorizedUrl {
-  const {
-    ruleType,
-    isHint,
-    hasSocialMedia,
-    reason,
-    excludeTested = false,
-    excludeLoginRequired = false
-  } = options || {}
+  const { ruleType, isHint, hasSocialMedia, reason, excludeLoginRequired = false } = options || {}
 
   // Filter database entries directly
   const filtered: CategorizedUrl[] = []
@@ -266,36 +258,15 @@ export function getRandomResult(options?: {
         continue
       }
 
-      // Exclude tested URLs if requested
-      if (excludeTested) {
-        const testedUrls = getTestedUrls()
-        if (testedUrls.has(result.url)) {
-          continue
-        }
-      }
-
-      // ALWAYS exclude bad links (URLs that fail to navigate)
+      // ALWAYS exclude bad links (URLs that fail to navigate) - applies to hints and all other URLs
       const badLinks = getBadLinks()
-      if (badLinks.has(result.url)) {
+      const normalizedUrl = normalizeUrl(result.url)
+      if (badLinks.has(normalizedUrl)) {
         continue
       }
 
       filtered.push(result)
     }
-  }
-
-  // Fail fast if no results
-  if (filtered.length === 0) {
-    const filterEntries: string[] = []
-    if (options) {
-      for (const [key, value] of Object.entries(options)) {
-        if (typeof value !== "undefined") {
-          filterEntries.push(`${key}=${value}`)
-        }
-      }
-    }
-    const filters = filterEntries.length > 0 ? filterEntries.join(", ") : "none"
-    throw new Error(`No results found matching criteria: ${filters}`)
   }
 
   // Sort by URL for deterministic selection, then pick based on a consistent index
@@ -313,21 +284,6 @@ export function getRandomResult(options?: {
 }
 
 /**
- * All categorized URLs
- */
-let categorizedUrls: CategorizedUrl[] | null = null
-
-function getCategorizedUrls(): CategorizedUrl[] {
-  if (!categorizedUrls) {
-    categorizedUrls = []
-    for (const entry of database) {
-      categorizedUrls.push(...extractResults(entry))
-    }
-  }
-  return categorizedUrls
-}
-
-/**
  * Get random URLs by category
  * Returns deterministic results (same filters = same results)
  */
@@ -337,18 +293,9 @@ export function getRandomUrls(options: {
   isHint?: boolean
   hasSocialMedia?: boolean
   reason?: string
-  excludeTested?: boolean
   excludeLoginRequired?: boolean
 }): CategorizedUrl[] {
-  const {
-    count = 1,
-    ruleType,
-    isHint,
-    hasSocialMedia,
-    reason,
-    excludeTested = false,
-    excludeLoginRequired = false
-  } = options
+  const { count = 1, ruleType, isHint, hasSocialMedia, reason, excludeLoginRequired = false } = options
 
   // Filter database entries directly (same logic as getRandomResult)
   const filtered: CategorizedUrl[] = []
@@ -376,17 +323,10 @@ export function getRandomUrls(options: {
         continue
       }
 
-      // Exclude tested URLs if requested
-      if (excludeTested) {
-        const testedUrls = getTestedUrls()
-        if (testedUrls.has(result.url)) {
-          continue
-        }
-      }
-
-      // ALWAYS exclude bad links (URLs that fail to navigate)
+      // ALWAYS exclude bad links (URLs that fail to navigate) - applies to hints and all other URLs
       const badLinks = getBadLinks()
-      if (badLinks.has(result.url)) {
+      const normalizedUrl = normalizeUrl(result.url)
+      if (badLinks.has(normalizedUrl)) {
         continue
       }
 
@@ -400,7 +340,7 @@ export function getRandomUrls(options: {
 
   // Fail fast if we don't have enough URLs
   if (result.length < count) {
-    const filters = Object.entries({ ruleType, isHint, hasSocialMedia, reason, excludeTested, excludeLoginRequired })
+    const filters = Object.entries({ ruleType, isHint, hasSocialMedia, reason, excludeLoginRequired })
       .filter(([, value]) => value !== undefined && value !== false)
       .map(([key, value]) => `${key}=${value}`)
       .join(", ")
@@ -419,9 +359,8 @@ export function getTestUrlWithConditions(options: {
   ruleType: "urlOnly" | "urlDomFull" | "urlDomInline"
   expectBanner?: boolean
   expectHint?: boolean
-  excludeTested?: boolean
 }): CategorizedUrl {
-  const { ruleType, expectBanner, expectHint, excludeTested = false } = options
+  const { ruleType, expectBanner, expectHint } = options
 
   let url: CategorizedUrl
 
@@ -430,7 +369,6 @@ export function getTestUrlWithConditions(options: {
     url = getRandomResult({
       ruleType: "urlOnly",
       isHint: false, // urlOnly rules are never hints
-      excludeTested,
       excludeLoginRequired: true // Exclude LinkedIn URLs (requires login)
     })
   } else if (expectBanner !== undefined || expectHint !== undefined) {
@@ -439,14 +377,12 @@ export function getTestUrlWithConditions(options: {
     url = getRandomResult({
       ruleType,
       isHint,
-      excludeTested,
       excludeLoginRequired: true
     })
   } else {
     // No specific expectation, return any URL of this rule type
     url = getRandomResult({
       ruleType,
-      excludeTested,
       excludeLoginRequired: true
     })
   }
@@ -459,59 +395,35 @@ export function getTestUrlWithConditions(options: {
 }
 
 /**
- * Get URLs covering all unique cases
+ * Normalize URL for comparison (remove www, trailing slash, etc.)
  */
-export function getUrlsForCoverage(): {
-  urlOnly: CategorizedUrl[]
-  urlDomFull: CategorizedUrl[]
-  urlDomInline: CategorizedUrl[]
-  hints: CategorizedUrl[]
-  banners: CategorizedUrl[]
-  socialMedia: CategorizedUrl[]
-  regularWebsites: CategorizedUrl[]
-  reasons: Record<string, CategorizedUrl[]>
-} {
-  const all = getCategorizedUrls()
-
-  return {
-    urlOnly: all.filter((u) => u.ruleType === "urlOnly").slice(0, 10),
-    urlDomFull: all.filter((u) => u.ruleType === "urlDomFull").slice(0, 10),
-    urlDomInline: all.filter((u) => u.ruleType === "urlDomInline").slice(0, 10),
-    hints: all.filter((u) => u.isHint).slice(0, 10),
-    banners: all.filter((u) => !u.isHint).slice(0, 10),
-    socialMedia: all.filter((u) => u.hasSocialMedia).slice(0, 10),
-    regularWebsites: all.filter((u) => !u.hasSocialMedia).slice(0, 10),
-    reasons: {
-      f: all.filter((u) => u.reasons.includes("f")).slice(0, 5),
-      i: all.filter((u) => u.reasons.includes("i")).slice(0, 5),
-      h: all.filter((u) => u.reasons.includes("h")).slice(0, 5),
-      b: all.filter((u) => u.reasons.includes("b")).slice(0, 5),
-      u: all.filter((u) => u.reasons.includes("u")).slice(0, 5)
-    }
-  }
-}
-
-/**
- * Get tested URLs from coverage tracking
- */
-function getTestedUrls(): Set<string> {
+function normalizeUrl(url: string): string {
   try {
-    const coveragePath = path.resolve(__dirname, "coverage-data.json")
-    const coverage = JSON.parse(readFileSync(coveragePath, "utf-8"))
-    return new Set(coverage.testedUrls || [])
+    const urlObj = new URL(url)
+    // Remove www prefix from hostname
+    let hostname = urlObj.hostname
+    if (hostname.startsWith("www.")) {
+      hostname = hostname.substring(4)
+    }
+    // Reconstruct URL without www and trailing slash
+    return `${urlObj.protocol}//${hostname}${urlObj.pathname.replace(/\/$/, "")}${urlObj.search}${urlObj.hash}`
   } catch {
-    return new Set()
+    // If URL parsing fails, return original
+    return url
   }
 }
 
 /**
  * Get bad links (URLs that fail to navigate) from badlinks.json
+ * These URLs are excluded from all test URL selection, including hints
+ * URLs are normalized (www removed) for comparison
  */
 function getBadLinks(): Set<string> {
   try {
     const badLinksPath = path.resolve(__dirname, "badlinks.json")
     const badLinks: string[] = JSON.parse(readFileSync(badLinksPath, "utf-8"))
-    return new Set(badLinks)
+    // Normalize all bad links for comparison
+    return new Set(badLinks.map(normalizeUrl))
   } catch {
     return new Set()
   }
@@ -520,25 +432,27 @@ function getBadLinks(): Set<string> {
 /**
  * Add a URL to bad links file
  * FAILS HARD if file cannot be written
+ * URL is normalized before adding
  */
 export function addBadLink(url: string): void {
   console.log(`[TEST] Adding bad link: ${url}`)
   const badLinksPath = path.resolve(__dirname, "badlinks.json")
+  const normalizedUrl = normalizeUrl(url)
   const badLinks = getBadLinks()
 
-  // Don't add duplicates
-  if (badLinks.has(url)) {
-    console.log(`[TEST] URL already in bad links: ${url}`)
+  // Don't add duplicates (check normalized)
+  if (badLinks.has(normalizedUrl)) {
+    console.log(`[TEST] URL already in bad links: ${normalizedUrl}`)
     return
   }
 
-  // Add to set and write back
-  badLinks.add(url)
+  // Add normalized URL to set and write back
+  badLinks.add(normalizedUrl)
   const badLinksArray = Array.from(badLinks).sort()
 
   try {
     writeFileSync(badLinksPath, JSON.stringify(badLinksArray, null, 2) + "\n", "utf-8")
-    console.log(`[TEST] Successfully added bad link: ${url}`)
+    console.log(`[TEST] Successfully added bad link: ${normalizedUrl}`)
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error)
     throw new Error(`Failed to write bad links file: ${errorMessage}`)
@@ -650,11 +564,8 @@ export function getHintNameForUrl(url: string): string | null {
  * EXPLICIT: Returns a URL that will show the alternatives button
  * FAILS HARD if no such URL exists
  */
-export function getUrlWithAlternatives(options?: {
-  excludeTested?: boolean
-  excludeLoginRequired?: boolean
-}): CategorizedUrl {
-  const { excludeTested = false, excludeLoginRequired = false } = options || {}
+export function getUrlWithAlternatives(options?: { excludeLoginRequired?: boolean }): CategorizedUrl {
+  const { excludeLoginRequired = false } = options || {}
 
   // Find entries in database that have alternatives
   const entriesWithAlternatives = database.filter(
@@ -678,19 +589,15 @@ export function getUrlWithAlternatives(options?: {
     filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
   }
 
-  if (excludeTested) {
-    const testedUrls = getTestedUrls()
-    filtered = filtered.filter((u) => !testedUrls.has(u.url))
-  }
-
   // ALWAYS exclude bad links (URLs that fail to navigate)
   const badLinks = getBadLinks()
-  filtered = filtered.filter((u) => !badLinks.has(u.url))
+  filtered = filtered.filter((u) => {
+    const normalizedUrl = normalizeUrl(u.url)
+    return !badLinks.has(normalizedUrl)
+  })
 
   if (filtered.length === 0) {
-    throw new Error(
-      `No URLs with alternatives found matching criteria. excludeTested=${excludeTested}, excludeLoginRequired=${excludeLoginRequired}`
-    )
+    throw new Error(`No URLs with alternatives found matching criteria. excludeLoginRequired=${excludeLoginRequired}`)
   }
 
   // Return random one
@@ -703,11 +610,8 @@ export function getUrlWithAlternatives(options?: {
  * EXPLICIT: Returns a URL that will show the Support Palestine button
  * FAILS HARD if no such URL exists
  */
-export function getUrlWithoutAlternatives(options?: {
-  excludeTested?: boolean
-  excludeLoginRequired?: boolean
-}): CategorizedUrl {
-  const { excludeTested = false, excludeLoginRequired = false } = options || {}
+export function getUrlWithoutAlternatives(options?: { excludeLoginRequired?: boolean }): CategorizedUrl {
+  const { excludeLoginRequired = false } = options || {}
 
   // Find entries in database that DON'T have alternatives
   const entriesWithoutAlternatives = database.filter(
@@ -731,18 +635,16 @@ export function getUrlWithoutAlternatives(options?: {
     filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
   }
 
-  if (excludeTested) {
-    const testedUrls = getTestedUrls()
-    filtered = filtered.filter((u) => !testedUrls.has(u.url))
-  }
-
   // ALWAYS exclude bad links (URLs that fail to navigate)
   const badLinks = getBadLinks()
-  filtered = filtered.filter((u) => !badLinks.has(u.url))
+  filtered = filtered.filter((u) => {
+    const normalizedUrl = normalizeUrl(u.url)
+    return !badLinks.has(normalizedUrl)
+  })
 
   if (filtered.length === 0) {
     throw new Error(
-      `No URLs without alternatives found matching criteria. excludeTested=${excludeTested}, excludeLoginRequired=${excludeLoginRequired}`
+      `No URLs without alternatives found matching criteria. excludeLoginRequired=${excludeLoginRequired}`
     )
   }
 

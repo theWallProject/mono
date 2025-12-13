@@ -1,20 +1,24 @@
 import type { BrowserContext } from "playwright"
-import { beforeAll, describe, expect, it } from "vitest"
+import { beforeEach, describe, expect, it } from "vitest"
 
 import { getRandomUrls, getTestUrlWithConditions, type CategorizedUrl } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
-import { isBannerDisplayed, isHintsToastShown, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
+import {
+  isBannerDisplayed,
+  isHintsToastShown,
+  navigateToUrl,
+  waitForExtensionProcessing,
+  waitUntilHintShown
+} from "../utils/extension"
 
-describe("Rule Types", () => {
+describe("Rule Types", (): void => {
   let context: BrowserContext
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     const result = await launchBrowserWithExtension()
     context = result.context
   })
-
-  // Browser cleanup is handled globally in test-mode.ts
 
   it("should handle urlOnly rules correctly", async () => {
     // urlOnly rules should ALWAYS show banners, never hints
@@ -27,8 +31,7 @@ describe("Rule Types", () => {
       attempts++
       const testUrl = getTestUrlWithConditions({
         ruleType: "urlOnly",
-        expectBanner: true,
-        excludeTested: true
+        expectBanner: true
       })
 
       const page = await context.newPage()
@@ -76,8 +79,7 @@ describe("Rule Types", () => {
     for (let i = 0; i < 3; i++) {
       const url = getTestUrlWithConditions({
         ruleType: "urlDomFull",
-        expectBanner: true,
-        excludeTested: true
+        expectBanner: true
       })
 
       testUrls.push(url)
@@ -109,8 +111,7 @@ describe("Rule Types", () => {
     for (let i = 0; i < 3; i++) {
       const url = getTestUrlWithConditions({
         ruleType: "urlDomInline",
-        expectBanner: true,
-        excludeTested: true
+        expectBanner: true
       })
       testUrls.push(url)
     }
@@ -139,7 +140,7 @@ describe("Rule Types", () => {
 
   it("should handle special .il domains correctly", async () => {
     // Get URLs that end with .il
-    const testUrls = getRandomUrls({ count: 3, reason: "u", excludeTested: true, excludeLoginRequired: true })
+    const testUrls = getRandomUrls({ count: 3, reason: "u", excludeLoginRequired: true })
 
     for (const testUrl of testUrls) {
       expect(testUrl.url.includes(".il")).toBe(true)
@@ -152,7 +153,7 @@ describe("Rule Types", () => {
 
         // .il domains should show hints
         await page.waitForTimeout(3000)
-        const toastVisible = await isHintsToastShown(page)
+        const toastVisible = await waitUntilHintShown(page)
         expect(toastVisible).toBe(true)
 
         markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
@@ -176,7 +177,7 @@ describe("Rule Types", () => {
         count: 1,
         hasSocialMedia: true,
         isHint: false,
-        excludeTested: true,
+
         excludeLoginRequired: true
       })
 
@@ -219,8 +220,7 @@ describe("Rule Types", () => {
       // All rule types should show banners when configured correctly
       const testUrl = getTestUrlWithConditions({
         ruleType,
-        expectBanner: true,
-        excludeTested: true
+        expectBanner: true
       })
 
       const page = await context.newPage()

@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeAll, describe, expect, it } from "vitest"
+import { beforeEach, describe, expect, it } from "vitest"
 
 import { HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -10,15 +10,13 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
   let context: BrowserContext
   let extensionId: string
 
-  beforeAll(async () => {
+  beforeEach(async () => {
     console.log("[TEST] Setting up browser with extension")
     const result = await launchBrowserWithExtension()
     context = result.context
     extensionId = result.extensionId
     console.log("[TEST] Browser setup complete")
   })
-
-  // Browser cleanup is handled globally in test-mode.ts
 
   describe("Popup Opening", () => {
     it("should open popup correctly", async () => {
