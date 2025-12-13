@@ -3,6 +3,23 @@ import path from "path"
 import { fileURLToPath } from "url"
 import { chromium, type Browser, type BrowserContext } from "playwright"
 
+// Global store for browser contexts (so we can pause them on failure)
+const browserContexts: BrowserContext[] = []
+
+/**
+ * Register a browser context (called when browser is launched)
+ */
+export function registerBrowserContext(context: BrowserContext): void {
+  browserContexts.push(context)
+}
+
+/**
+ * Get all registered browser contexts
+ */
+export function getBrowserContexts(): BrowserContext[] {
+  return browserContexts
+}
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -36,6 +53,9 @@ export async function launchBrowserWithExtension(): Promise<{
     devtools: true, // Open devtools automatically
     args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`]
   })
+
+  // Register context so we can pause it on test failure
+  registerBrowserContext(context)
 
   // Auto-deny all permission requests for all pages
   // This blocks notifications, geolocation, camera, microphone, etc.
@@ -110,7 +130,9 @@ async function getExtensionIdFromRuntime(context: BrowserContext): Promise<strin
       await popupPage.goto(popupUrl, { waitUntil: "domcontentloaded", timeout: 5000 })
 
       // Use the official Chrome API to get the extension ID
+      // Note: chrome is always available in extension pages, but we check for safety
       const verifiedId = await popupPage.evaluate(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- ok here
         if (typeof chrome === "undefined" || !chrome.runtime || !chrome.runtime.id) {
           throw new Error("chrome.runtime.id is not available. Extension context may not be accessible.")
         }
@@ -135,13 +157,4 @@ async function getExtensionIdFromRuntime(context: BrowserContext): Promise<strin
  */
 export function getExtensionPopupUrl(extensionId: string): string {
   return `chrome-extension://${extensionId}/popup.html`
-}
-
-/**
- * Cleanup browser instance
- */
-export async function closeBrowser(context: BrowserContext | undefined): Promise<void> {
-  if (context) {
-    await context.close()
-  }
 }

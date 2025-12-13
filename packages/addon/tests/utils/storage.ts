@@ -132,6 +132,38 @@ export async function simulateFreshInstall(context: BrowserContext, extensionId:
 }
 
 /**
+ * Get a specific storage value
+ */
+export async function getStorageValue<T>(
+  context: BrowserContext,
+  extensionId: string,
+  key: string
+): Promise<T | undefined> {
+  const page = await context.newPage()
+  try {
+    const popupUrl = getExtensionPopupUrl(extensionId)
+    await page.goto(popupUrl)
+    const value = await page.evaluate((storageKey: string) => {
+      return new Promise<T | undefined>((resolve) => {
+        chrome.storage.local.get([storageKey], (items) => {
+          const itemValue = items[storageKey]
+          if (itemValue === undefined) {
+            resolve(undefined)
+            return
+          }
+          // Chrome storage API returns any - we trust the generic type T
+          // In production, you might want to add runtime validation based on T
+          resolve(itemValue as T)
+        })
+      })
+    }, key)
+    return value
+  } finally {
+    await page.close()
+  }
+}
+
+/**
  * Simulate existing user (set common settings)
  */
 export async function simulateExistingUser(

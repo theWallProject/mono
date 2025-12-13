@@ -3,6 +3,7 @@ import React from "react"
 import { createRoot, type Root } from "react-dom/client"
 
 import { error, log } from "../helpers"
+import { isElementNode, isHTMLElement, isNode } from "../helpers/typeGuards"
 import { findRuleOfType } from "../rules"
 import type { RuleOfType } from "../rules/types"
 import { MessageTypes, type Message, type MessageResponseMap, type UrlTestResult } from "../types"
@@ -58,7 +59,7 @@ export class DomScanner {
       log(`[Scanner] Initializing for URL: ${url}`)
 
       // Get urlDomInline rule for this page
-      const inlineRule = findRuleOfType(url, "urlDomInline")
+      const inlineRule = findRuleOfType<"urlDomInline">(url, "urlDomInline")
       if (!inlineRule) {
         // Silently return if no rule found (expected for many pages)
         return
@@ -195,18 +196,16 @@ export class DomScanner {
 
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === globalThis.Node.ELEMENT_NODE) {
-            const element = node as globalThis.Element
-
+          if (isElementNode(node)) {
             // Check if the added node is an item container
-            if (element.matches && element.matches(this.rule!.itemSelector)) {
+            if (node.matches && node.matches(this.rule!.itemSelector)) {
               // Removed observer.observe() call
-              this.queueItemForProcessing(element)
+              this.queueItemForProcessing(node)
               hasNewItems = true
             }
 
             // Check if any item containers were added within this node
-            const items = element.querySelectorAll?.(this.rule!.itemSelector)
+            const items = node.querySelectorAll?.(this.rule!.itemSelector)
             items?.forEach((item) => {
               // Removed observer.observe() call
               this.queueItemForProcessing(item)
@@ -503,10 +502,10 @@ export class DomScanner {
    */
   private setupHoverHandler(itemElement: globalThis.Element): void {
     try {
-      const element = itemElement as globalThis.HTMLElement
-      if (!element) {
+      if (!isHTMLElement(itemElement)) {
         return
       }
+      const element = itemElement
 
       // Remove existing handlers if any (to prevent duplicates)
       const existing = this.eventListeners.get(itemElement)
@@ -530,12 +529,13 @@ export class DomScanner {
         }
       }
 
-      const handleMouseLeave = (e: globalThis.MouseEvent) => {
+      const handleMouseLeave = (e?: globalThis.MouseEvent) => {
         try {
           // Don't hide tooltip if mouse is moving to tooltip or overlay
-          const relatedTarget = e.relatedTarget as globalThis.Node | null
+          const relatedTarget = e?.relatedTarget
           if (
             relatedTarget &&
+            isNode(relatedTarget) &&
             (this.tooltipContainer?.contains(relatedTarget) ||
               element.querySelector(`.${OVERLAY_CLASS}`)?.contains(relatedTarget))
           ) {
@@ -550,12 +550,12 @@ export class DomScanner {
       // Store handlers for cleanup
       this.eventListeners.set(itemElement, {
         handleMouseEnter,
-        handleMouseLeave: handleMouseLeave as () => void
+        handleMouseLeave
       })
 
       // Add new handlers
       element.addEventListener("mouseenter", handleMouseEnter)
-      element.addEventListener("mouseleave", handleMouseLeave as (e: globalThis.Event) => void)
+      element.addEventListener("mouseleave", handleMouseLeave)
     } catch (e) {
       error(`[Scanner] Error setting up hover handler`, e)
     }
@@ -568,10 +568,9 @@ export class DomScanner {
     try {
       this.eventListeners.forEach((handlers, element) => {
         try {
-          if (element.isConnected) {
-            const htmlElement = element as globalThis.HTMLElement
-            htmlElement.removeEventListener("mouseenter", handlers.handleMouseEnter)
-            htmlElement.removeEventListener("mouseleave", handlers.handleMouseLeave)
+          if (element.isConnected && isHTMLElement(element)) {
+            element.removeEventListener("mouseenter", handlers.handleMouseEnter)
+            element.removeEventListener("mouseleave", handlers.handleMouseLeave)
           }
         } catch {
           // Element might have been removed, ignore

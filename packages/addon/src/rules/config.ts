@@ -1,5 +1,5 @@
 import { log } from "../helpers"
-import type { Rule } from "./types"
+import type { Rule, RuleOfType } from "./types"
 
 /**
  * Unified configuration for all rule types
@@ -59,7 +59,7 @@ export const isUrlOnlyRule = (url: string): boolean => {
  * Find rule of a specific type
  * Type-safe helper that narrows the return type
  */
-export function findRuleOfType<T extends Rule["type"]>(url: string, type: T): Extract<Rule, { type: T }> | null {
+export function findRuleOfType<T extends Rule["type"]>(url: string, type: T): RuleOfType<T> | null {
   const rule = findMatchingRule(url)
-  return rule?.type === type ? (rule as Extract<Rule, { type: T }>) : null
+  return rule?.type === type ? (rule as RuleOfType<T>) : null
 }

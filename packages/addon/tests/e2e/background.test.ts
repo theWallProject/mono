@@ -1,8 +1,8 @@
 import type { BrowserContext } from "playwright"
-import { afterAll, beforeAll, describe, expect, it } from "vitest"
+import { beforeAll, describe, expect, it } from "vitest"
 
-import { getRandomUrl, getRandomUrls } from "../fixtures/test-urls"
-import { closeBrowser, launchBrowserWithExtension } from "../utils/browser"
+import { getRandomResult, getRandomUrls } from "../fixtures/test-urls"
+import { launchBrowserWithExtension } from "../utils/browser"
 import { isBannerDisplayed, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
 import { clearAllStorage } from "../utils/storage"
 
@@ -16,9 +16,7 @@ describe("Background Script", () => {
     extensionId = result.extensionId
   })
 
-  afterAll(async () => {
-    await closeBrowser(context)
-  })
+  // Browser cleanup is handled globally in test-mode.ts
 
   it("should load background script correctly", async () => {
     // Background script loads automatically with extension
@@ -36,7 +34,7 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab updates", async () => {
-    const testUrl = getRandomUrl({ isHint: false, excludeTested: true })
+    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -54,7 +52,7 @@ describe("Background Script", () => {
   })
 
   it("should trigger URL testing on tab activation", async () => {
-    const testUrl = getRandomUrl({ isHint: false, excludeTested: true })
+    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
 
     // Create two tabs
     const page1 = await context.newPage()
@@ -85,13 +83,10 @@ describe("Background Script", () => {
     // Test message handling by checking if extension responds to URL tests
     const page = await context.newPage()
     try {
-      const testUrl = getRandomUrls({ count: 1, isHint: false, excludeTested: true })[0]
+      const testUrl = getRandomUrls({ count: 1, isHint: false, excludeTested: true, excludeLoginRequired: true })[0]
+      expect(testUrl).toBeDefined()
 
-      if (!testUrl) {
-        return
-      }
-
-      await navigateToUrl(page, testUrl.url)
+      await navigateToUrl(page, testUrl!.url)
       await waitForExtensionProcessing(page)
 
       // Message should be handled and banner should appear

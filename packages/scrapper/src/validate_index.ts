@@ -7,6 +7,7 @@ import inquirer from "inquirer"
 
 import { error, log } from "./helper"
 import { addNewEntryLinksForAdditions, run as validateUrls } from "./tasks/validate_urls"
+import { loadModule } from "./utils/moduleLoader"
 
 process.on("unhandledRejection", (reason) => {
   error("DATA_ERROR Unhandled Rejection:", reason)
@@ -22,12 +23,11 @@ const manualDeleteIdsPath = path.join(__dirname, "./tasks/manual_resolve/manualD
 
 const loadManualDeleteIds = (): string[] => {
   const modulePath = path.resolve(manualDeleteIdsPath)
-  const resolvedPath = require.resolve(modulePath)
-  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-  delete require.cache[resolvedPath]
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const module = require(modulePath)
-  const deleteIds = (module.manualDeleteIds || []) satisfies string[]
+  const module = loadModule<{ manualDeleteIds?: string[] }>(modulePath)
+  const deleteIds = module.manualDeleteIds || []
+  if (!Array.isArray(deleteIds)) {
+    throw new Error("manualDeleteIds is not an array")
+  }
   return deleteIds
 }
 
@@ -109,11 +109,7 @@ const promptForCompanyName = async (
 const loadManualAdditions = (): Array<{ name: string }> => {
   const manualAdditionsPath = path.join(__dirname, "./tasks/manual_resolve/manualAdditions.ts")
   const modulePath = path.resolve(manualAdditionsPath)
-  const resolvedPath = require.resolve(modulePath)
-  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-  delete require.cache[resolvedPath]
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const module = require(modulePath)
+  const module = loadModule<{ manualAdditions?: Array<{ name: string }> }>(modulePath)
   const additions = module.manualAdditions || []
   if (!Array.isArray(additions)) {
     throw new Error("manualAdditions is not an array")

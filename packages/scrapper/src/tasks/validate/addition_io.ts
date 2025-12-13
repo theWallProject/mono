@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 
 import { log } from "../../helper"
+import { loadModule } from "../../utils/moduleLoader"
 import type { ManualAdditionItem } from "../manual_resolve/manualAdditions"
 
 const manualAdditionsPath = path.join(__dirname, "../manual_resolve/manualAdditions.ts")
@@ -39,12 +40,11 @@ const formatValue = (item: ManualAdditionItem): string => {
 
 export const loadManualAdditions = (): ManualAdditionItem[] => {
   const modulePath = path.resolve(manualAdditionsPath)
-  const resolvedPath = require.resolve(modulePath)
-  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-  delete require.cache[resolvedPath]
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const module = require(modulePath)
-  const additions = (module.manualAdditions || []) satisfies ManualAdditionItem[]
+  const module = loadModule<{ manualAdditions?: ManualAdditionItem[] }>(modulePath)
+  const additions = module.manualAdditions || []
+  if (!Array.isArray(additions)) {
+    throw new Error("manualAdditions is not an array")
+  }
   return additions
 }
 

@@ -59,7 +59,7 @@ export const Banner = () => {
     const now = Date.now()
     for (const key in allItems) {
       if (key.startsWith(HINT_SHOWN_PREFIX)) {
-        const lastShownTimestamp = allItems[key] as number
+        const lastShownTimestamp = allItems[key]
         if (typeof lastShownTimestamp === "number" && now - lastShownTimestamp >= THREE_DAYS_MS) {
           keysToRemove.push(key)
         }
@@ -425,7 +425,7 @@ export const Banner = () => {
         }}
       />
       {testResult && !testResult.isDismissed ? (
-        <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir") as "ltr" | "rtl"}>
+        <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
           <img src="https://the-wall.win/bg.gif?rec=1&action_name=wall" alt="" />
           <div
             className={style.bgLayer}

@@ -1,8 +1,8 @@
-import { readFileSync } from "fs"
+import { readFileSync, writeFileSync } from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
 import type { FinalDBFileType } from "@theWallProject/common"
-import { getMainDomain } from "@theWallProject/common"
+import { findInDatabaseByDomain, findInDatabaseBySelector, getMainDomain, getSelectorKey } from "@theWallProject/common"
 
 import { findMatchingRule } from "../../src/rules"
 
@@ -26,17 +26,14 @@ export interface CategorizedUrl {
 }
 
 /**
- * Categorize a URL from database entry
- * IMPORTANT: isHint is determined by entry.isHint && entry.hintText (same logic as formatResult in common package)
- * NOT by reason "h" in the reasons array
+ * Extract all results from database entry
+ * Extracts all fields (ws, fb, li, tw, ig, gh, ytp, ytc, tt, th) that exist in the entry
  */
-function categorizeUrl(entry: FinalDBFileType): CategorizedUrl[] {
-  const urls: CategorizedUrl[] = []
-
-  // Determine if this entry is a hint (same logic as formatResult in common package)
+function extractResults(entry: FinalDBFileType): CategorizedUrl[] {
+  const results: CategorizedUrl[] = []
   const isHint = !!(entry.isHint && entry.hintText)
 
-  // Website URL
+  // Extract website URL
   if (entry.ws) {
     const url = `https://${entry.ws}`
     const rule = findMatchingRule(url)
@@ -46,7 +43,7 @@ function categorizeUrl(entry: FinalDBFileType): CategorizedUrl[] {
         : "urlDomInline"
       : "urlOnly"
 
-    urls.push({
+    results.push({
       url,
       ruleType,
       reasons: entry.r,
@@ -56,63 +53,263 @@ function categorizeUrl(entry: FinalDBFileType): CategorizedUrl[] {
     })
   }
 
-  // Social media URLs
-  const socialMediaFields: Array<keyof FinalDBFileType> = ["fb", "li", "tw", "ig", "gh", "ytp", "ytc"]
-  for (const field of socialMediaFields) {
-    const value = entry[field]
-    if (typeof value === "string" && value) {
-      let url = ""
-      let domain = ""
+  // Extract social media URLs from database fields
+  if (entry.fb) {
+    const url = `https://www.facebook.com/${entry.fb}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "facebook.com",
+      hasSocialMedia: true
+    })
+  }
 
-      switch (field) {
-        case "fb":
-          url = `https://www.facebook.com/${value}`
-          domain = "facebook.com"
-          break
-        case "li":
-          url = `https://www.linkedin.com/company/${value}`
-          domain = "linkedin.com"
-          break
-        case "tw":
-          url = `https://www.twitter.com/${value}`
-          domain = "twitter.com"
-          break
-        case "ig":
-          url = `https://www.instagram.com/${value}`
-          domain = "instagram.com"
-          break
-        case "gh":
-          url = `https://www.github.com/${value}`
-          domain = "github.com"
-          break
-        case "ytp":
-        case "ytc":
-          url = `https://www.youtube.com/@${value}`
-          domain = "youtube.com"
-          break
+  if (entry.li) {
+    const url = `https://www.linkedin.com/company/${entry.li}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "linkedin.com",
+      hasSocialMedia: true
+    })
+  }
+
+  if (entry.tw) {
+    const url = `https://www.twitter.com/${entry.tw}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "twitter.com",
+      hasSocialMedia: true
+    })
+  }
+
+  if (entry.ig) {
+    const url = `https://www.instagram.com/${entry.ig}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "instagram.com",
+      hasSocialMedia: true
+    })
+  }
+
+  if (entry.gh) {
+    const url = `https://www.github.com/${entry.gh}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "github.com",
+      hasSocialMedia: true
+    })
+  }
+
+  if (entry.ytp) {
+    const url = `https://www.youtube.com/@${entry.ytp}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "youtube.com",
+      hasSocialMedia: true
+    })
+  }
+
+  if (entry.ytc) {
+    const url = `https://www.youtube.com/@${entry.ytc}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "youtube.com",
+      hasSocialMedia: true
+    })
+  }
+
+  if (entry.tt) {
+    const url = `https://www.tiktok.com/@${entry.tt}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "tiktok.com",
+      hasSocialMedia: true
+    })
+  }
+
+  if (entry.th) {
+    const url = `https://www.threads.net/@${entry.th}`
+    const rule = findMatchingRule(url)
+    const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
+      ? rule.type === "urlDomFull"
+        ? "urlDomFull"
+        : "urlDomInline"
+      : "urlOnly"
+    results.push({
+      url,
+      ruleType,
+      reasons: entry.r,
+      isHint,
+      domain: "threads.net",
+      hasSocialMedia: true
+    })
+  }
+
+  return results
+}
+
+/**
+ * Get a random result from the database using filters
+ * Returns the exact same result for the same filters (deterministic)
+ */
+export function getRandomResult(options?: {
+  ruleType?: "urlOnly" | "urlDomFull" | "urlDomInline"
+  isHint?: boolean
+  hasSocialMedia?: boolean
+  reason?: string
+  excludeTested?: boolean
+  excludeLoginRequired?: boolean
+}): CategorizedUrl {
+  const {
+    ruleType,
+    isHint,
+    hasSocialMedia,
+    reason,
+    excludeTested = false,
+    excludeLoginRequired = false
+  } = options || {}
+
+  // Filter database entries directly
+  const filtered: CategorizedUrl[] = []
+
+  for (const entry of database) {
+    const results = extractResults(entry)
+
+    for (const result of results) {
+      // Exclude LinkedIn URLs if excludeLoginRequired is true (but keep other URLs from same entry)
+      if (excludeLoginRequired && result.domain === "linkedin.com") {
+        continue
       }
 
-      if (url) {
-        const rule = findMatchingRule(url)
-        const ruleType: "urlOnly" | "urlDomFull" | "urlDomInline" = rule
-          ? rule.type === "urlDomFull"
-            ? "urlDomFull"
-            : "urlDomInline"
-          : "urlOnly"
-
-        urls.push({
-          url,
-          ruleType,
-          reasons: entry.r,
-          isHint,
-          domain,
-          hasSocialMedia: true
-        })
+      // Apply filters
+      if (ruleType && result.ruleType !== ruleType) {
+        continue
       }
+      if (isHint !== undefined && result.isHint !== isHint) {
+        continue
+      }
+      if (hasSocialMedia !== undefined && result.hasSocialMedia !== hasSocialMedia) {
+        continue
+      }
+      if (reason && !result.reasons.includes(reason)) {
+        continue
+      }
+
+      // Exclude tested URLs if requested
+      if (excludeTested) {
+        const testedUrls = getTestedUrls()
+        if (testedUrls.has(result.url)) {
+          continue
+        }
+      }
+
+      // ALWAYS exclude bad links (URLs that fail to navigate)
+      const badLinks = getBadLinks()
+      if (badLinks.has(result.url)) {
+        continue
+      }
+
+      filtered.push(result)
     }
   }
 
-  return urls
+  // Fail fast if no results
+  if (filtered.length === 0) {
+    const filterEntries: string[] = []
+    if (options) {
+      for (const [key, value] of Object.entries(options)) {
+        if (typeof value !== "undefined") {
+          filterEntries.push(`${key}=${value}`)
+        }
+      }
+    }
+    const filters = filterEntries.length > 0 ? filterEntries.join(", ") : "none"
+    throw new Error(`No results found matching criteria: ${filters}`)
+  }
+
+  // Sort by URL for deterministic selection, then pick based on a consistent index
+  // Using a simple hash of filter options to determine which result to pick
+  const sorted = filtered.sort((a, b) => a.url.localeCompare(b.url))
+  const filterHash = JSON.stringify(options || {})
+  let hash = 0
+  for (let i = 0; i < filterHash.length; i++) {
+    const char = filterHash.charCodeAt(i)
+    hash = (hash << 5) - hash + char
+    hash = hash & hash // Convert to 32-bit integer
+  }
+  const index = Math.abs(hash) % sorted.length
+  return sorted[index]!
 }
 
 /**
@@ -124,7 +321,7 @@ function getCategorizedUrls(): CategorizedUrl[] {
   if (!categorizedUrls) {
     categorizedUrls = []
     for (const entry of database) {
-      categorizedUrls.push(...categorizeUrl(entry))
+      categorizedUrls.push(...extractResults(entry))
     }
   }
   return categorizedUrls
@@ -132,7 +329,7 @@ function getCategorizedUrls(): CategorizedUrl[] {
 
 /**
  * Get random URLs by category
- * Uses getRandomUrl internally when count > 1 to ensure consistency
+ * Returns deterministic results (same filters = same results)
  */
 export function getRandomUrls(options: {
   count?: number
@@ -153,43 +350,53 @@ export function getRandomUrls(options: {
     excludeLoginRequired = false
   } = options
 
-  // For single URL, use getRandomUrl which guarantees a result
-  if (count === 1) {
-    return [getRandomUrl({ ruleType, isHint, hasSocialMedia, reason, excludeTested, excludeLoginRequired })]
+  // Filter database entries directly (same logic as getRandomResult)
+  const filtered: CategorizedUrl[] = []
+
+  for (const entry of database) {
+    const results = extractResults(entry)
+
+    for (const result of results) {
+      // Exclude LinkedIn URLs if excludeLoginRequired is true (but keep other URLs from same entry)
+      if (excludeLoginRequired && result.domain === "linkedin.com") {
+        continue
+      }
+
+      // Apply filters
+      if (ruleType && result.ruleType !== ruleType) {
+        continue
+      }
+      if (isHint !== undefined && result.isHint !== isHint) {
+        continue
+      }
+      if (hasSocialMedia !== undefined && result.hasSocialMedia !== hasSocialMedia) {
+        continue
+      }
+      if (reason && !result.reasons.includes(reason)) {
+        continue
+      }
+
+      // Exclude tested URLs if requested
+      if (excludeTested) {
+        const testedUrls = getTestedUrls()
+        if (testedUrls.has(result.url)) {
+          continue
+        }
+      }
+
+      // ALWAYS exclude bad links (URLs that fail to navigate)
+      const badLinks = getBadLinks()
+      if (badLinks.has(result.url)) {
+        continue
+      }
+
+      filtered.push(result)
+    }
   }
 
-  // For multiple URLs, use the original logic but ensure we have enough
-  let filtered = getCategorizedUrls()
-
-  // Apply filters
-  if (ruleType) {
-    filtered = filtered.filter((u) => u.ruleType === ruleType)
-  }
-  if (isHint !== undefined) {
-    filtered = filtered.filter((u) => u.isHint === isHint)
-  }
-  if (hasSocialMedia !== undefined) {
-    filtered = filtered.filter((u) => u.hasSocialMedia === hasSocialMedia)
-  }
-  if (reason) {
-    filtered = filtered.filter((u) => u.reasons.includes(reason))
-  }
-
-  // Exclude URLs that require login (LinkedIn, Facebook, etc.)
-  if (excludeLoginRequired) {
-    const loginRequiredDomains = ["linkedin.com", "facebook.com", "twitter.com", "instagram.com"]
-    filtered = filtered.filter((u) => !loginRequiredDomains.some((domain) => u.url.includes(domain)))
-  }
-
-  // Exclude tested URLs if requested
-  if (excludeTested) {
-    const testedUrls = getTestedUrls()
-    filtered = filtered.filter((u) => !testedUrls.has(u.url))
-  }
-
-  // Shuffle and take count
-  const shuffled = [...filtered].sort(() => Math.random() - 0.5)
-  const result = shuffled.slice(0, Math.min(count, shuffled.length))
+  // Sort by URL for deterministic selection
+  const sorted = filtered.sort((a, b) => a.url.localeCompare(b.url))
+  const result = sorted.slice(0, Math.min(count, sorted.length))
 
   // Fail fast if we don't have enough URLs
   if (result.length < count) {
@@ -204,39 +411,9 @@ export function getRandomUrls(options: {
 }
 
 /**
- * Get a single random URL
- * Throws an error if no URL matches the criteria (fail fast)
- */
-export function getRandomUrl(options?: {
-  ruleType?: "urlOnly" | "urlDomFull" | "urlDomInline"
-  isHint?: boolean
-  hasSocialMedia?: boolean
-  reason?: string
-  excludeTested?: boolean
-  excludeLoginRequired?: boolean
-}): CategorizedUrl {
-  const urls = getRandomUrls({ ...options, count: 1 })
-  if (urls.length === 0) {
-    const filterEntries: string[] = []
-    if (options) {
-      for (const [key, value] of Object.entries(options)) {
-        // Only include defined values in filter string
-        if (typeof value !== "undefined") {
-          filterEntries.push(`${key}=${value}`)
-        }
-      }
-    }
-    const filters = filterEntries.length > 0 ? filterEntries.join(", ") : "none"
-    throw new Error(`No URLs found matching criteria: ${filters}`)
-  }
-  // TypeScript doesn't narrow array access, but we've checked length > 0
-  return urls[0]!
-}
-
-/**
  * Get a random URL with specific conditions for testing
  * Ensures the URL matches the expected behavior for the rule type
- * Excludes URLs that require login (LinkedIn, Facebook, etc.)
+ * Excludes LinkedIn URLs (requires login)
  */
 export function getTestUrlWithConditions(options: {
   ruleType: "urlOnly" | "urlDomFull" | "urlDomInline"
@@ -250,16 +427,16 @@ export function getTestUrlWithConditions(options: {
 
   // urlOnly rules should ALWAYS show banners, never hints
   if (ruleType === "urlOnly") {
-    url = getRandomUrl({
+    url = getRandomResult({
       ruleType: "urlOnly",
       isHint: false, // urlOnly rules are never hints
       excludeTested,
-      excludeLoginRequired: true // Exclude social media URLs that require login
+      excludeLoginRequired: true // Exclude LinkedIn URLs (requires login)
     })
   } else if (expectBanner !== undefined || expectHint !== undefined) {
     // urlDomFull and urlDomInline can be either banners or hints
     const isHint = expectHint === true
-    url = getRandomUrl({
+    url = getRandomResult({
       ruleType,
       isHint,
       excludeTested,
@@ -267,7 +444,7 @@ export function getTestUrlWithConditions(options: {
     })
   } else {
     // No specific expectation, return any URL of this rule type
-    url = getRandomUrl({
+    url = getRandomResult({
       ruleType,
       excludeTested,
       excludeLoginRequired: true
@@ -325,6 +502,253 @@ function getTestedUrls(): Set<string> {
   } catch {
     return new Set()
   }
+}
+
+/**
+ * Get bad links (URLs that fail to navigate) from badlinks.json
+ */
+function getBadLinks(): Set<string> {
+  try {
+    const badLinksPath = path.resolve(__dirname, "badlinks.json")
+    const badLinks: string[] = JSON.parse(readFileSync(badLinksPath, "utf-8"))
+    return new Set(badLinks)
+  } catch {
+    return new Set()
+  }
+}
+
+/**
+ * Add a URL to bad links file
+ * FAILS HARD if file cannot be written
+ */
+export function addBadLink(url: string): void {
+  console.log(`[TEST] Adding bad link: ${url}`)
+  const badLinksPath = path.resolve(__dirname, "badlinks.json")
+  const badLinks = getBadLinks()
+
+  // Don't add duplicates
+  if (badLinks.has(url)) {
+    console.log(`[TEST] URL already in bad links: ${url}`)
+    return
+  }
+
+  // Add to set and write back
+  badLinks.add(url)
+  const badLinksArray = Array.from(badLinks).sort()
+
+  try {
+    writeFileSync(badLinksPath, JSON.stringify(badLinksArray, null, 2) + "\n", "utf-8")
+    console.log(`[TEST] Successfully added bad link: ${url}`)
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    throw new Error(`Failed to write bad links file: ${errorMessage}`)
+  }
+}
+
+/**
+ * Get hint name (database entry name) for a URL
+ * This is used as the hint ID for storage tracking
+ * Uses the same lookup logic as storage.ts
+ */
+export function getHintNameForUrl(url: string): string | null {
+  const domain = getMainDomain(url)
+
+  // Handle .il domains separately
+  if (domain.endsWith(".il")) {
+    return domain // For .il domains, the domain itself is used
+  }
+
+  // Use shared pure functions for rule matching (same logic as storage.ts)
+  const rule = findMatchingRule(url)
+
+  if (rule && rule.type !== "urlOnly") {
+    // For urlDomFull and urlDomInline rules, we need to extract selector differently
+    // The addon's Rule type doesn't have domain, so we extract from URL pattern
+    // Extract selector from URL using the rule's urlPattern
+    const urlMatch = url.match(rule.urlPattern)
+    if (!urlMatch || urlMatch.length < 2) {
+      // Fall back to domain lookup
+      const findResult = findInDatabaseByDomain(domain, database)
+      if (findResult && findResult.isHint && findResult.hintText) {
+        return findResult.n
+      }
+      return null
+    }
+
+    // Get selector from regex match (first capture group)
+    const selector = urlMatch[1] || null
+    if (!selector) {
+      // Fall back to domain lookup
+      const findResult = findInDatabaseByDomain(domain, database)
+      if (findResult && findResult.isHint && findResult.hintText) {
+        return findResult.n
+      }
+      return null
+    }
+
+    // Determine selectorKey from domain
+    // Map domain to selectorKey (same logic as getSelectorKey but we need to handle it here)
+    let selectorKey: string
+    if (domain === "youtube.com") {
+      // YouTube needs URL to determine ytp vs ytc
+      selectorKey = url.includes("/channel/") ? "ytc" : "ytp"
+    } else if (domain === "linkedin.com") {
+      selectorKey = "li"
+    } else if (domain === "facebook.com") {
+      selectorKey = "fb"
+    } else if (domain === "twitter.com" || domain === "x.com") {
+      selectorKey = "tw"
+    } else if (domain === "instagram.com") {
+      selectorKey = "ig"
+    } else if (domain === "github.com") {
+      selectorKey = "gh"
+    } else if (domain === "tiktok.com") {
+      selectorKey = "tt"
+    } else if (domain === "threads.com") {
+      selectorKey = "th"
+    } else {
+      // Unknown domain, fall back to domain lookup
+      const findResult = findInDatabaseByDomain(domain, database)
+      if (findResult && findResult.isHint && findResult.hintText) {
+        return findResult.n
+      }
+      return null
+    }
+
+    // "il" is not a database field, skip database lookup
+    if (selectorKey === "il") {
+      return null
+    }
+
+    // Use shared pure function for database lookup
+    // We need to cast domain to SpecialDomains for the function call
+    const specialDomain = domain as Parameters<typeof getSelectorKey>[0]
+    const findResult = findInDatabaseBySelector(
+      selector,
+      selectorKey as Parameters<typeof findInDatabaseBySelector>[1],
+      specialDomain,
+      database
+    )
+
+    if (findResult && findResult.isHint && findResult.hintText) {
+      return findResult.n // Return the name field which is used as hint ID
+    }
+  }
+
+  // For urlOnly rules or no matching rule, check by domain (website lookup)
+  const findResult = findInDatabaseByDomain(domain, database)
+
+  if (findResult && findResult.isHint && findResult.hintText) {
+    return findResult.n // Return the name field which is used as hint ID
+  }
+
+  return null
+}
+
+/**
+ * Get a URL that HAS alternatives in the database
+ * EXPLICIT: Returns a URL that will show the alternatives button
+ * FAILS HARD if no such URL exists
+ */
+export function getUrlWithAlternatives(options?: {
+  excludeTested?: boolean
+  excludeLoginRequired?: boolean
+}): CategorizedUrl {
+  const { excludeTested = false, excludeLoginRequired = false } = options || {}
+
+  // Find entries in database that have alternatives
+  const entriesWithAlternatives = database.filter(
+    (entry) => entry.alt && Array.isArray(entry.alt) && entry.alt.length > 0 && !entry.isHint
+  )
+
+  if (entriesWithAlternatives.length === 0) {
+    throw new Error("No entries with alternatives found in database. Cannot test alternatives button.")
+  }
+
+  // Get URLs from entries with alternatives
+  const allUrlsWithAlternatives: CategorizedUrl[] = []
+  for (const entry of entriesWithAlternatives) {
+    allUrlsWithAlternatives.push(...extractResults(entry))
+  }
+
+  // Filter based on options
+  let filtered = allUrlsWithAlternatives.filter((url) => !url.isHint)
+
+  if (excludeLoginRequired) {
+    filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
+  }
+
+  if (excludeTested) {
+    const testedUrls = getTestedUrls()
+    filtered = filtered.filter((u) => !testedUrls.has(u.url))
+  }
+
+  // ALWAYS exclude bad links (URLs that fail to navigate)
+  const badLinks = getBadLinks()
+  filtered = filtered.filter((u) => !badLinks.has(u.url))
+
+  if (filtered.length === 0) {
+    throw new Error(
+      `No URLs with alternatives found matching criteria. excludeTested=${excludeTested}, excludeLoginRequired=${excludeLoginRequired}`
+    )
+  }
+
+  // Return random one
+  const shuffled = [...filtered].sort(() => Math.random() - 0.5)
+  return shuffled[0]!
+}
+
+/**
+ * Get a URL that DOES NOT have alternatives in the database
+ * EXPLICIT: Returns a URL that will show the Support Palestine button
+ * FAILS HARD if no such URL exists
+ */
+export function getUrlWithoutAlternatives(options?: {
+  excludeTested?: boolean
+  excludeLoginRequired?: boolean
+}): CategorizedUrl {
+  const { excludeTested = false, excludeLoginRequired = false } = options || {}
+
+  // Find entries in database that DON'T have alternatives
+  const entriesWithoutAlternatives = database.filter(
+    (entry) => (!entry.alt || !Array.isArray(entry.alt) || entry.alt.length === 0) && !entry.isHint
+  )
+
+  if (entriesWithoutAlternatives.length === 0) {
+    throw new Error("No entries without alternatives found in database. Cannot test Support Palestine button.")
+  }
+
+  // Get URLs from entries without alternatives
+  const allUrlsWithoutAlternatives: CategorizedUrl[] = []
+  for (const entry of entriesWithoutAlternatives) {
+    allUrlsWithoutAlternatives.push(...extractResults(entry))
+  }
+
+  // Filter based on options
+  let filtered = allUrlsWithoutAlternatives.filter((url) => !url.isHint)
+
+  if (excludeLoginRequired) {
+    filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
+  }
+
+  if (excludeTested) {
+    const testedUrls = getTestedUrls()
+    filtered = filtered.filter((u) => !testedUrls.has(u.url))
+  }
+
+  // ALWAYS exclude bad links (URLs that fail to navigate)
+  const badLinks = getBadLinks()
+  filtered = filtered.filter((u) => !badLinks.has(u.url))
+
+  if (filtered.length === 0) {
+    throw new Error(
+      `No URLs without alternatives found matching criteria. excludeTested=${excludeTested}, excludeLoginRequired=${excludeLoginRequired}`
+    )
+  }
+
+  // Return random one
+  const shuffled = [...filtered].sort(() => Math.random() - 0.5)
+  return shuffled[0]!
 }
 
 /**

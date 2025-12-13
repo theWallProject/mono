@@ -2,7 +2,7 @@ import type { BrowserContext } from "playwright"
 import { afterAll, beforeAll, describe, expect, it } from "vitest"
 
 import { HINT_DISMISSED_PERM_PREFIX, HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
-import { closeBrowser, launchBrowserWithExtension } from "../utils/browser"
+import { launchBrowserWithExtension } from "../utils/browser"
 import { backupStorage, restoreStorage, simulateExistingUser, verifyStorage } from "../utils/storage"
 
 describe("Settings Persistence", () => {
@@ -18,8 +18,9 @@ describe("Settings Persistence", () => {
   })
 
   afterAll(async () => {
+    // Test-specific cleanup: restore storage
     await restoreStorage(context, extensionId, storageBackup)
-    await closeBrowser(context)
+    // Browser cleanup is handled globally in test-mode.ts
   })
 
   it("should persist hints system toggle across sessions", async () => {

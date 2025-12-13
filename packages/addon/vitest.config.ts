@@ -21,8 +21,9 @@ export default defineConfig({
         singleFork: true
       }
     },
-    // Stop on first failure for easier debugging
-    bail: 1,
+    // Continue running all tests even if some fail
+    bail: 0,
+    reporters: ["verbose"],
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],

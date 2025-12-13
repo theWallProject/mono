@@ -6,7 +6,7 @@ import {
   formatResult,
   getMainDomain,
   getSelectorKey,
-  type FinalDBFileType
+  type UrlCheckResult
 } from "@theWallProject/common"
 
 import ALL from "./db/ALL.json"
@@ -17,6 +17,27 @@ import { type UrlTestResult } from "./types"
 
 const ONE_MIN = 60 * 1000
 const ONE_MONTH = 30 * 24 * 60 * ONE_MIN
+
+/**
+ * Convert UrlCheckResult to UrlTestResult by adding dismissal tracking
+ */
+function toUrlTestResult(baseResult: UrlCheckResult, isDismissed: boolean): UrlTestResult {
+  if (!baseResult) {
+    return undefined
+  }
+
+  if (baseResult.isHint) {
+    return {
+      ...baseResult,
+      isDismissed
+    }
+  }
+
+  return {
+    ...baseResult,
+    isDismissed
+  }
+}
 
 const checkIsDissmissed = async (testKey: string) => {
   let isDismissed: boolean
@@ -121,7 +142,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
         log(`storage: isUrlFlagged testing for id ${selector} in field ${selectorKey}`)
 
         // Use shared pure function for database lookup
-        const findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, ALL as FinalDBFileType[])
+        const findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, ALL)
 
         log("isUrlFlagged findResult:", findResult)
 
@@ -140,10 +161,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
               rule: baseResult.rule
             })
           } else if (baseResult) {
-            resolve({
-              ...baseResult,
-              isDismissed: false
-            } as UrlTestResult)
+            resolve(toUrlTestResult(baseResult, false))
           } else {
             resolve(undefined)
           }
@@ -152,7 +170,8 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
         }
       } else {
         // No matching rule, check by domain (website lookup)
-        const findResult = findInDatabaseByDomain(domain, ALL as FinalDBFileType[])
+
+        const findResult = findInDatabaseByDomain(domain, ALL)
 
         log("storage: isUrlFlagged onsuccess", findResult)
 
@@ -174,10 +193,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
               rule: baseResult.rule
             })
           } else if (baseResult) {
-            resolve({
-              ...baseResult,
-              isDismissed
-            } as UrlTestResult)
+            resolve(toUrlTestResult(baseResult, isDismissed))
           } else {
             resolve(undefined)
           }

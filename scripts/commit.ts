@@ -96,13 +96,23 @@ async function selectModel(availableModels: string[]): Promise<string> {
     // No config file or invalid config - use default index 0
   }
 
-  const { model } = await prompts({
-    type: "select",
-    name: "model",
-    message: "Select an Ollama model:",
-    choices: availableModels.map((name) => ({ title: name, value: name })),
-    initial: initialIndex
-  })
+  const { model } = await prompts(
+    {
+      type: "select",
+      name: "model",
+      message: "Select an Ollama model:",
+      choices: availableModels.map((name) => ({ title: name, value: name })),
+      initial: initialIndex,
+      stdin: process.stdin,
+      stdout: process.stdout
+    },
+    {
+      onCancel: () => {
+        console.log("\nCancelled by user. Exiting.")
+        process.exit(1)
+      }
+    }
+  )
 
   if (!model || typeof model !== "string") {
     console.error("❌ No model selected.")
@@ -413,6 +423,17 @@ async function commitChanges(message: string, noVerify = false): Promise<void> {
 }
 
 async function main() {
+  // Ensure stdin is ready
+  if (process.stdin.isPaused()) {
+    process.stdin.resume()
+  }
+
+  if (!process.stdin.isTTY) {
+    console.error("\nERROR: stdin is not a TTY. Cannot prompt for confirmation.")
+    console.error("This script requires an interactive terminal.")
+    process.exit(1)
+  }
+
   // Check for fast mode flag
   const fastMode = process.argv.includes("--fast") || process.argv.includes("-f")
 
@@ -421,14 +442,35 @@ async function main() {
   if (cachedMessage) {
     console.log("💾 Found cached commit message from previous run.")
     console.log("\n" + cachedMessage + "\n")
-    const { useCached } = await prompts({
-      type: "confirm",
-      name: "useCached",
-      message: "Use cached message with --no-verify?",
-      initial: true
-    })
+    const { action } = await prompts(
+      {
+        type: "select",
+        name: "action",
+        message: "What would you like to do?",
+        choices: [
+          { title: "Rerun (generate new message)", value: "rerun" },
+          { title: "Use cached message (normal)", value: "use-cached" },
+          { title: "Use cached message with --no-verify", value: "no-verify" }
+        ],
+        initial: 0,
+        stdin: process.stdin,
+        stdout: process.stdout
+      },
+      {
+        onCancel: () => {
+          console.log("\nCancelled by user. Exiting.")
+          process.exit(1)
+        }
+      }
+    )
 
-    if (useCached) {
+    if (!action) {
+      // User cancelled
+      clearCachedMessage()
+      process.exit(0)
+    }
+
+    if (action === "no-verify") {
       try {
         await commitChanges(cachedMessage, true)
         clearCachedMessage()
@@ -438,7 +480,20 @@ async function main() {
         console.error(`❌ Commit failed: ${error instanceof Error ? error.message : String(error)}`)
         process.exit(1)
       }
+    } else if (action === "use-cached") {
+      try {
+        await commitChanges(cachedMessage, false)
+        clearCachedMessage()
+        console.log("✅ Changes committed with cached message.")
+        return
+      } catch (error: unknown) {
+        console.error(`❌ Commit failed: ${error instanceof Error ? error.message : String(error)}`)
+        // Keep cached message for retry
+        console.log("💾 Message saved to cache. Run the command again to retry.")
+        throw error
+      }
     } else {
+      // action === "rerun" - clear cache and continue with normal flow
       clearCachedMessage()
     }
   }
@@ -496,12 +551,22 @@ async function main() {
   // Save message to cache
   saveCachedMessage(commitMessage)
 
-  const { confirm } = await prompts({
-    type: "confirm",
-    name: "confirm",
-    message: "Looks good?",
-    initial: true
-  })
+  const { confirm } = await prompts(
+    {
+      type: "confirm",
+      name: "confirm",
+      message: "Looks good?",
+      initial: true,
+      stdin: process.stdin,
+      stdout: process.stdout
+    },
+    {
+      onCancel: () => {
+        console.log("\nCancelled by user. Exiting.")
+        process.exit(1)
+      }
+    }
+  )
 
   if (confirm) {
     try {

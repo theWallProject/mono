@@ -114,7 +114,7 @@ export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 20
   useEffect(() => {
     if (texts.length === 0) return
 
-    let timeoutId: NodeJS.Timeout
+    let timeoutId: ReturnType<typeof setTimeout>
 
     const nextText = () => {
       const nextIndex = (currentIndex + 1) % texts.length

@@ -23,6 +23,7 @@
     "bot:deploy": "pwsh -File scripts/deploy-bot.ps1 -Mode deploy",
     "commit": "tsx scripts/commit.ts",
     "commit:fast": "tsx scripts/commit.ts --fast",
+    "commit-lint": "tsx scripts/eslint-warning-approval.ts",
     "prepare": "husky",
     "test:addon": "pnpm --filter @theWallProject/addon test",
     "test:addon:e2e": "pnpm --filter @theWallProject/addon test:e2e"
@@ -32,7 +33,7 @@
     "pnpm": ">=8"
   },
   "dependencies": {
-    "zod": "^3.23.8"
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
@@ -53,6 +54,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "3.6.2",
+    "kleur": "^3.0.3",
     "prompts": "^2.4.2",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.6",

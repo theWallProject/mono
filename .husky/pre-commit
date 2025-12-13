@@ -1,3 +1,6 @@
+# Source common utilities (includes TTY workaround for Windows)
+. "$(dirname "$0")/common.sh"
+
 # Initialize fnm (Fast Node Manager) environment
 # Git hooks run in minimal environment, so we need to set up fnm
 if command -v fnm >/dev/null 2>&1; then
@@ -11,6 +14,9 @@ if ! command -v pnpm >/dev/null 2>&1; then
     export PATH="$PATH:$(pwd)/node_modules/.bin"
   fi
 fi
+
+# Run ESLint warning approval check before commit
+pnpm commit-lint || exit 1
 
 # Run build for all packages
 pnpm build || exit 1

@@ -104,9 +104,13 @@ export const getWhatsNewShownVersions = async (): Promise<string[]> => {
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.get([WHATS_NEW_SHOWN_VERSIONS_KEY], (result) => {
-        const versions = (result[WHATS_NEW_SHOWN_VERSIONS_KEY] as string[]) || []
-        log(`getWhatsNewShownVersions got ${versions.length} versions`, versions)
-        resolve(versions)
+        const keysArray = result[WHATS_NEW_SHOWN_VERSIONS_KEY] || []
+        if (!Array.isArray(keysArray)) {
+          throw new Error(`getWhatsNewShownVersions got invalid value`)
+        }
+
+        log(`getWhatsNewShownVersions got ${keysArray.length} versions`, keysArray)
+        resolve(keysArray)
       })
     } catch (e) {
       error(`getWhatsNewShownVersions error`, e)

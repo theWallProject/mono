@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/no-require-imports -- JavaScript file requires CommonJS require syntax */
 const fs = require("fs")
 const path = require("path")
 

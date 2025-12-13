@@ -1,8 +1,8 @@
 import type { BrowserContext } from "playwright"
-import { afterAll, beforeAll, describe, expect, it } from "vitest"
+import { beforeAll, describe, expect, it } from "vitest"
 
 import { getRandomUrls, getTestUrlWithConditions, type CategorizedUrl } from "../fixtures/test-urls"
-import { closeBrowser, launchBrowserWithExtension } from "../utils/browser"
+import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
 import { isBannerDisplayed, isHintsToastShown, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
 
@@ -14,9 +14,7 @@ describe("Rule Types", () => {
     context = result.context
   })
 
-  afterAll(async () => {
-    await closeBrowser(context)
-  })
+  // Browser cleanup is handled globally in test-mode.ts
 
   it("should handle urlOnly rules correctly", async () => {
     // urlOnly rules should ALWAYS show banners, never hints
@@ -43,11 +41,7 @@ describe("Rule Types", () => {
         )
 
         const loaded = await navigateToUrl(page, testUrl.url)
-
-        if (!loaded) {
-          console.log(`[TEST] URL failed to load, trying another one...`)
-          continue
-        }
+        expect(loaded).toBe(true)
 
         await waitForExtensionProcessing(page)
 
@@ -55,16 +49,7 @@ describe("Rule Types", () => {
         console.log(`[TEST] Checking for banner after processing...`)
         const bannerVisible = await isBannerDisplayed(page)
         console.log(`[TEST] Banner visible result: ${bannerVisible}`)
-
-        if (!bannerVisible) {
-          // Take a screenshot for debugging
-          const screenshot = await page.screenshot({ fullPage: true }).catch(() => null)
-          if (screenshot) {
-            console.log("[TEST] Screenshot taken (base64 length):", screenshot.length)
-          }
-          console.log(`[TEST] Banner not found, trying another URL...`)
-          continue
-        }
+        expect(bannerVisible).toBe(true)
 
         expect(bannerVisible).toBe(true)
 
@@ -99,24 +84,19 @@ describe("Rule Types", () => {
     }
 
     for (const testUrl of testUrls) {
-      if (!testUrl) {
-        continue
-      }
+      expect(testUrl).toBeDefined()
 
       const page = await context.newPage()
       try {
-        const loaded = await navigateToUrl(page, testUrl.url)
-        if (!loaded) {
-          console.log(`[TEST] Skipping URL - redirected to login/auth page`)
-          continue
-        }
+        const loaded = await navigateToUrl(page, testUrl!.url)
+        expect(loaded).toBe(true)
         await waitForExtensionProcessing(page)
 
         // urlDomFull rules should show banner when extracted URL is flagged
         const bannerVisible = await isBannerDisplayed(page)
         expect(bannerVisible).toBe(true)
 
-        markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
+        markUrlAsTested(testUrl!.url, testUrl!.ruleType, testUrl!.reasons)
       } finally {
         await page.close()
       }
@@ -139,10 +119,7 @@ describe("Rule Types", () => {
       const page = await context.newPage()
       try {
         const loaded = await navigateToUrl(page, testUrl.url)
-        if (!loaded) {
-          console.log(`[TEST] Skipping URL - redirected to login/auth page`)
-          continue
-        }
+        expect(loaded).toBe(true)
         await waitForExtensionProcessing(page)
 
         // urlDomInline rules trigger DOM scanning
@@ -162,20 +139,15 @@ describe("Rule Types", () => {
 
   it("should handle special .il domains correctly", async () => {
     // Get URLs that end with .il
-    const testUrls = getRandomUrls({ count: 3, reason: "u", excludeTested: true })
+    const testUrls = getRandomUrls({ count: 3, reason: "u", excludeTested: true, excludeLoginRequired: true })
 
     for (const testUrl of testUrls) {
-      if (!testUrl.url.includes(".il")) {
-        continue
-      }
+      expect(testUrl.url.includes(".il")).toBe(true)
 
       const page = await context.newPage()
       try {
         const loaded = await navigateToUrl(page, testUrl.url)
-        if (!loaded) {
-          console.log(`[TEST] Skipping URL - redirected to login/auth page`)
-          continue
-        }
+        expect(loaded).toBe(true)
         await waitForExtensionProcessing(page)
 
         // .il domains should show hints
@@ -205,7 +177,7 @@ describe("Rule Types", () => {
         hasSocialMedia: true,
         isHint: false,
         excludeTested: true,
-        excludeLoginRequired: false
+        excludeLoginRequired: true
       })
 
       if (testUrls.length === 0) {
@@ -213,34 +185,23 @@ describe("Rule Types", () => {
       }
 
       const testUrl = testUrls[0]
-      if (!testUrl) {
-        throw new Error("No test URL available")
-      }
+      expect(testUrl).toBeDefined()
       const page = await context.newPage()
       try {
-        const loaded = await navigateToUrl(page, testUrl.url)
-
-        if (!loaded) {
-          console.log(`[TEST] Social media URL failed to load, trying another one...`)
-          continue
-        }
+        const loaded = await navigateToUrl(page, testUrl!.url)
+        expect(loaded).toBe(true)
 
         await waitForExtensionProcessing(page)
 
         // Social media URLs should show banners
         const bannerVisible = await isBannerDisplayed(page)
-        if (!bannerVisible) {
-          console.log(`[TEST] Banner not found, trying another URL...`)
-          continue
-        }
-
         expect(bannerVisible).toBe(true)
 
         // Verify no hint toast appears
         const toastVisible = await isHintsToastShown(page)
         expect(toastVisible).toBe(false)
 
-        markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
+        markUrlAsTested(testUrl!.url, testUrl!.ruleType, testUrl!.reasons)
         successCount++
       } finally {
         await page.close()
@@ -265,10 +226,7 @@ describe("Rule Types", () => {
       const page = await context.newPage()
       try {
         const loaded = await navigateToUrl(page, testUrl.url)
-        if (!loaded) {
-          console.log(`[TEST] Skipping URL - redirected to login/auth page`)
-          continue
-        }
+        expect(loaded).toBe(true)
         await waitForExtensionProcessing(page)
 
         // All rule types should show banners when configured correctly

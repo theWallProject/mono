@@ -40,12 +40,12 @@ const validateUrl = async (url: string): Promise<ValidationResult> => {
       url,
       result: response.status
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (e: any) {
-    error(`Error validating URL ${url}:`, e.code || e.message)
+  } catch (e: unknown) {
+    const errorObj = e instanceof Error ? e : new Error(String(e))
+    error(`Error validating URL ${url}:`, errorObj.message)
     return {
       url: url,
-      result: `error ${e instanceof Error ? e.message : "Unknown error"}`
+      result: `error ${errorObj.message}`
     }
   }
 }

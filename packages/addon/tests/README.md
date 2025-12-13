@@ -44,7 +44,7 @@ import type { BrowserContext } from "playwright"
 import { afterAll, beforeAll, describe, it } from "vitest"
 
 import { getRandomUrls } from "../fixtures/test-urls"
-import { closeBrowser, launchBrowserWithExtension } from "../utils/browser"
+import { launchBrowserWithExtension } from "../utils/browser"
 
 describe("My Feature", () => {
   let context: BrowserContext
@@ -56,9 +56,7 @@ describe("My Feature", () => {
     extensionId = result.extensionId
   })
 
-  afterAll(async () => {
-    await closeBrowser(context)
-  })
+  // Browser cleanup is handled globally in test-mode.ts
 
   it("should work", async () => {
     const testUrl = getRandomUrls({ count: 1 })[0]
@@ -114,6 +112,7 @@ const hasHint = await isHintsToastShown(page)
 - **Debug mode**: `pnpm test:debug` - Node.js inspector
 - **Browser visible**: Tests run non-headless by default
 - **Pause execution**: Add `await page.pause()` in test
+- **Browser stays open on failure**: If any test fails, the browser remains open for debugging - press Ctrl+C to stop
 
 ## Troubleshooting
 

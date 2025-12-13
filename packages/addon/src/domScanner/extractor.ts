@@ -1,4 +1,5 @@
 import { error, log } from "../helpers"
+import { isHTMLElement } from "../helpers/typeGuards"
 import type { RuleOfType } from "../rules/types"
 import type { ExtractedItem } from "./types"
 
@@ -31,15 +32,22 @@ export const extractItems = (rule: RuleOfType<"urlDomInline">): ExtractedItem[] 
     elementsToProcess.forEach((itemElement) => {
       try {
         // Find link within this item container
-        const linkElement = itemElement.querySelector(rule.linkSelector) as globalThis.HTMLElement | null
+        const foundElement = itemElement.querySelector(rule.linkSelector)
 
-        if (!linkElement) {
+        if (!foundElement) {
           log(
             `[Extractor] No link found in item container using selector: ${rule.linkSelector}. Item element:`,
             itemElement
           )
           return
         }
+
+        if (!isHTMLElement(foundElement)) {
+          error(`[Extractor] Found element is not HTMLElement`)
+          return
+        }
+
+        const linkElement: HTMLElement = foundElement
 
         // Extract URL from link element
         const linkAttribute = rule.linkAttribute || "href"
@@ -93,12 +101,19 @@ export const extractUrlFromItem = (
   rule: RuleOfType<"urlDomInline">
 ): ExtractedItem | null => {
   try {
-    const linkElement = itemElement.querySelector(rule.linkSelector) as globalThis.HTMLElement | null
+    const foundElement = itemElement.querySelector(rule.linkSelector)
 
-    if (!linkElement) {
+    if (!foundElement) {
       log(`[Extractor] No link element found in item container using selector: ${rule.linkSelector}`)
       return null
     }
+
+    if (!isHTMLElement(foundElement)) {
+      error(`[Extractor] Found element is not HTMLElement`)
+      return null
+    }
+
+    const linkElement: HTMLElement = foundElement
 
     const linkAttribute = rule.linkAttribute || "href"
     const urlAttribute = linkElement.getAttribute(linkAttribute)

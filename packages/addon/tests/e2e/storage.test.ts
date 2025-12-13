@@ -1,8 +1,8 @@
 import type { BrowserContext } from "playwright"
-import { afterAll, beforeAll, describe, expect, it } from "vitest"
+import { beforeAll, describe, expect, it } from "vitest"
 
 import { HINT_DISMISSED_PERM_PREFIX, HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
-import { closeBrowser, launchBrowserWithExtension } from "../utils/browser"
+import { launchBrowserWithExtension } from "../utils/browser"
 import {
   backupStorage,
   clearAllStorage,
@@ -23,9 +23,7 @@ describe("Storage Operations", () => {
     extensionId = result.extensionId
   })
 
-  afterAll(async () => {
-    await closeBrowser(context)
-  })
+  // Browser cleanup is handled globally in test-mode.ts
 
   it("should store dismissal correctly", async () => {
     await clearAllStorage(context, extensionId)

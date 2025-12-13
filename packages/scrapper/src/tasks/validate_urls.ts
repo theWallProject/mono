@@ -18,6 +18,7 @@ import { BrowserContext, chromium, Page } from "playwright"
 
 import { error, log } from "../helper"
 import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../types"
+import { loadModule } from "../utils/moduleLoader"
 import type { ManualAdditionItem } from "./manual_resolve/manualAdditions"
 import { loadManualAdditions, saveManualAdditions } from "./validate/addition_io"
 
@@ -42,12 +43,11 @@ const isProcessed = (
 
 const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
   const modulePath = path.resolve(manualOverridesPath)
-  const resolvedPath = require.resolve(modulePath)
-  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-  delete require.cache[resolvedPath]
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const module = require(modulePath)
-  const overrides = (module.manualOverrides || {}) satisfies Record<string, ManualOverrideValue>
+  const module = loadModule<{ manualOverrides?: Record<string, ManualOverrideValue> }>(modulePath)
+  const overrides = module.manualOverrides || {}
+  if (typeof overrides !== "object" || overrides === null || Array.isArray(overrides)) {
+    throw new Error("manualOverrides is not a valid record")
+  }
   return overrides
 }
 

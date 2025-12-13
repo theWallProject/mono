@@ -53,11 +53,9 @@ const formatValue = (value: ManualOverrideValue): string => {
 export const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
   const modulePath = path.resolve(manualOverridesPath)
   const resolvedPath = require.resolve(modulePath)
-  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
   delete require.cache[resolvedPath]
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const module = require(modulePath)
-  const overrides = (module.manualOverrides || {}) satisfies Record<string, ManualOverrideValue>
+  const overrides = module.manualOverrides satisfies Record<string, ManualOverrideValue>
   return overrides
 }
 

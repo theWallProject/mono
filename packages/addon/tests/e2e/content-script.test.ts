@@ -1,8 +1,8 @@
 import type { BrowserContext } from "playwright"
-import { afterAll, beforeAll, describe, expect, it } from "vitest"
+import { beforeAll, describe, expect, it } from "vitest"
 
-import { CLEAN_URLS, getRandomUrl } from "../fixtures/test-urls"
-import { closeBrowser, launchBrowserWithExtension } from "../utils/browser"
+import { CLEAN_URLS, getRandomResult } from "../fixtures/test-urls"
+import { launchBrowserWithExtension } from "../utils/browser"
 import { isBannerDisplayed, navigateToUrl, waitForExtensionProcessing } from "../utils/extension"
 
 describe("Content Script", () => {
@@ -13,9 +13,7 @@ describe("Content Script", () => {
     context = result.context
   })
 
-  afterAll(async () => {
-    await closeBrowser(context)
-  })
+  // Browser cleanup is handled globally in test-mode.ts
 
   it("should inject content script correctly", async () => {
     const page = await context.newPage()
@@ -32,7 +30,7 @@ describe("Content Script", () => {
   })
 
   it("should initialize DOM scanner for urlDomInline rules", async () => {
-    const testUrl = getRandomUrl({ ruleType: "urlDomInline", excludeTested: true })
+    const testUrl = getRandomResult({ ruleType: "urlDomInline", excludeTested: true, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -51,7 +49,7 @@ describe("Content Script", () => {
   })
 
   it("should render banner component", async () => {
-    const testUrl = getRandomUrl({ isHint: false, excludeTested: true })
+    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -66,7 +64,7 @@ describe("Content Script", () => {
   })
 
   it("should trigger URL testing on page load", async () => {
-    const testUrl = getRandomUrl({ isHint: false, excludeTested: true })
+    const testUrl = getRandomResult({ isHint: false, excludeTested: true, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {

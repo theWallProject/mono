@@ -9,6 +9,8 @@ import reactHooks from "eslint-plugin-react-hooks"
 import vitest from "eslint-plugin-vitest"
 import globals from "globals"
 
+import suppressApprovedPlugin from "./scripts/eslint-suppress-approved.js"
+
 // Global ignores for all packages
 const globalIgnores = {
   ignores: [
@@ -38,7 +40,8 @@ const baseConfig = {
   },
   plugins: {
     "@typescript-eslint": tseslint,
-    "eslint-comments": eslintComments
+    "eslint-comments": eslintComments,
+    "suppress-approved": suppressApprovedPlugin
   },
   rules: {
     // JavaScript recommended rules (shared)
@@ -47,6 +50,8 @@ const baseConfig = {
     ...tseslint.configs.recommended.rules,
     // Common TypeScript rules for all packages
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-dynamic-delete": "warn",
+    "@typescript-eslint/no-require-imports": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/consistent-type-assertions": [
       "warn",
@@ -92,6 +97,10 @@ const nodeConfig = {
         assertionStyle: "never"
       }
     ],
+    // Allow dynamic delete for require.cache (legitimate use case for hot-reloading)
+    "@typescript-eslint/no-dynamic-delete": "warn",
+    // Allow require() in Node.js (legitimate for dynamic module loading and cache management)
+    "@typescript-eslint/no-require-imports": "warn",
     // Promise-specific rules (only for Node.js packages)
     "promise/always-return": "error",
     "promise/no-return-wrap": "error",
@@ -115,33 +124,10 @@ const reactConfig = {
   languageOptions: {
     globals: {
       // Browser/Extension globals (only for React package)
+      ...globals.browser,
+      // Extension-specific globals
       browser: true,
       chrome: true,
-      window: true,
-      document: true,
-      console: true,
-      setTimeout: true,
-      clearTimeout: true,
-      setInterval: true,
-      clearInterval: true,
-      requestAnimationFrame: true,
-      cancelAnimationFrame: true,
-      fetch: true,
-      URL: true,
-      HTMLCanvasElement: true,
-      HTMLButtonElement: true,
-      HTMLDivElement: true,
-      Image: true,
-      File: true,
-      navigator: true,
-      location: true,
-      WebSocket: true,
-      MessageChannel: true,
-      performance: true,
-      atob: true,
-      btoa: true,
-      NodeJS: true,
-      MouseEvent: true,
       // Plasmo provides process.env (https://docs.plasmo.com/framework/env)
       process: "readonly"
     }
@@ -255,7 +241,7 @@ const testConfig = {
     "no-empty": ["error", { allowEmptyCatch: true }],
     // Prevent tests with only comments
     "no-empty-function": ["warn", { allow: ["arrowFunctions"] }],
-    // ⚠️ ABSOLUTE LAST RESORT - Only use when no plugin rule exists
+    // ?? ABSOLUTE LAST RESORT - Only use when no plugin rule exists
     // This is a hacky workaround. Always search for proper ESLint plugins first!
     // No plugin exists for detecting useless assertions like expect(true).toBe(true)
     // Checked: eslint-plugin-vitest, eslint-plugin-jest, eslint-plugin-testing-library
@@ -309,4 +295,36 @@ const fileOverrides = [
   }
 ]
 
-export default [globalIgnores, baseConfig, nodeConfig, reactConfig, testConfig, ...fileOverrides]
+// Processor configs to filter approved warnings
+const processorConfigs = [
+  {
+    files: ["**/*.js"],
+    plugins: {
+      "suppress-approved": suppressApprovedPlugin
+    },
+    processor: "suppress-approved/js"
+  },
+  {
+    files: ["**/*.ts"],
+    plugins: {
+      "suppress-approved": suppressApprovedPlugin
+    },
+    processor: "suppress-approved/ts"
+  },
+  {
+    files: ["**/*.jsx"],
+    plugins: {
+      "suppress-approved": suppressApprovedPlugin
+    },
+    processor: "suppress-approved/jsx"
+  },
+  {
+    files: ["**/*.tsx"],
+    plugins: {
+      "suppress-approved": suppressApprovedPlugin
+    },
+    processor: "suppress-approved/tsx"
+  }
+]
+
+export default [globalIgnores, baseConfig, nodeConfig, reactConfig, testConfig, ...fileOverrides, ...processorConfigs]
