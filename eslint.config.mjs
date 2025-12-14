@@ -41,6 +41,7 @@ const baseConfig = {
   plugins: {
     "@typescript-eslint": tseslint,
     "eslint-comments": eslintComments,
+    promise,
     "suppress-approved": suppressApprovedPlugin
   },
   rules: {
@@ -62,6 +63,20 @@ const baseConfig = {
     // Common JavaScript rules for all packages
     "prefer-const": "error",
     "no-var": "error",
+    // Promise rules for all packages
+    "promise/always-return": "error",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "promise/catch-or-return": "error",
+    "promise/no-native": "off",
+    "promise/no-nesting": "warn",
+    "promise/no-promise-in-callback": "warn",
+    "promise/no-callback-in-promise": "warn",
+    "promise/avoid-new": "off",
+    "promise/no-new-statics": "error",
+    "promise/no-return-in-finally": "warn",
+    "promise/valid-params": "warn",
+    "promise/no-multiple-resolved": "error",
     // Warn on all eslint-disable comments
     "eslint-comments/no-use": ["warn", { allow: [] }],
     "eslint-comments/no-unlimited-disable": "warn",

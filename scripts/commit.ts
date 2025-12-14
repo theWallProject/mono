@@ -551,12 +551,17 @@ async function main() {
   // Save message to cache
   saveCachedMessage(commitMessage)
 
-  const { confirm } = await prompts(
+  const { action } = await prompts(
     {
-      type: "confirm",
-      name: "confirm",
+      type: "select",
+      name: "action",
       message: "Looks good?",
-      initial: true,
+      choices: [
+        { title: "Commit (normal)", value: "commit" },
+        { title: "Commit with --no-verify", value: "no-verify" },
+        { title: "Abort", value: "abort" }
+      ],
+      initial: 0,
       stdin: process.stdin,
       stdout: process.stdout
     },
@@ -568,20 +573,22 @@ async function main() {
     }
   )
 
-  if (confirm) {
-    try {
-      await commitChanges(commitMessage, fastMode)
-      clearCachedMessage()
-      console.log(fastMode ? "✅ Changes committed (--no-verify)." : "✅ Changes committed.")
-    } catch (error: unknown) {
-      // Keep cached message for retry
-      console.error(`❌ Commit failed: ${error instanceof Error ? error.message : String(error)}`)
-      console.log("💾 Message saved to cache. Run the command again to retry with --no-verify.")
-      throw error
-    }
-  } else {
+  if (!action || action === "abort") {
     clearCachedMessage()
     console.log("🙅 Commit aborted.")
+    return
+  }
+
+  const useNoVerify = action === "no-verify" || fastMode
+  try {
+    await commitChanges(commitMessage, useNoVerify)
+    clearCachedMessage()
+    console.log(useNoVerify ? "✅ Changes committed (--no-verify)." : "✅ Changes committed.")
+  } catch (error: unknown) {
+    // Keep cached message for retry
+    console.error(`❌ Commit failed: ${error instanceof Error ? error.message : String(error)}`)
+    console.log("💾 Message saved to cache. Run the command again to retry with --no-verify.")
+    throw error
   }
 }
 

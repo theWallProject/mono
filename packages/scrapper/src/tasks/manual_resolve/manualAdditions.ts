@@ -303,7 +303,44 @@ export const manualAdditions: ManualAdditionItem[] = [
     fb: ["https://www.facebook.com/Siemens"],
     tw: ["https://x.com/Siemens"]
   },
-  { name: "Wixsite (hosting)", reasons: ["b"], ws: ["wixsite.com"], li: [""], fb: [""], tw: [""] },
+  {
+    name: "Texaco",
+    ws: [
+      "https://www.texaco.com",
+      "https://starrewards.valero.com",
+      "https://www.chevrontexacocards.com/Chevron",
+      "https://www.texacoinhawaii.com"
+    ],
+    reasons: ["b"],
+    ig: ["https://www.instagram.com/texacolubricants/?hl=en"],
+    ytp: [
+      "https://www.youtube.com/@TexacoLubricantsTV",
+      "https://www.youtube.com/@Texaco_Srbija",
+      "https://www.youtube.com/@texacoinhawaii"
+    ],
+    tt: [
+      "https://www.tiktok.com/@edsllanosdecalibio",
+      "https://www.tiktok.com/@texaco.cienaguita",
+      "https://www.tiktok.com/@texaco.k1165.sepa2",
+      "https://www.tiktok.com/@texaco.peten",
+      "https://www.tiktok.com/@texacocontechroncolombia",
+      "https://www.tiktok.com/@texacoguatemala",
+      "https://www.tiktok.com/@texacolaesmeralda",
+      "https://www.tiktok.com/@texacolasamericas",
+      "https://www.tiktok.com/@texacowithtechron"
+    ],
+    urls: [
+      "https://apps.apple.com/us/app/texaco/id1451359429",
+      "https://www.texacolubricants.com/en_uk/home/Our-People.html",
+      "https://www.texacolubricants.com/en_uk/home/products/by_brand/delo.html?src-tab=products",
+      "https://www.texacolubricants.com/en_uk/home/products/by_brand/havoline.html?src-tab=products",
+      "https://www.texacolubricants.com/en_uk/home/products/by_brand/hdax.html?src-tab=products",
+      "https://www.texacolubricants.com/en_uk/home/products/by_brand/techron.html?src-tab=products"
+    ],
+    android_app_ids: ["com.polarislabs.horizon.texacolubewatch.android"],
+    _processed: true
+  },
+  { name: "Wixsite (hosting)", reasons: ["h"], ws: ["wixsite.com"], li: [""], fb: [""], tw: [""] },
   {
     name: "Wordtune",
     reasons: ["h"],
