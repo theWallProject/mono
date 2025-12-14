@@ -552,6 +552,61 @@ export const manualAdditions: ManualAdditionItem[] = [
     tw: ["https://x.com/puma"]
   },
   {
+    name: "Reebok",
+    ws: ["https://www.reebok.com", "https://www.reebok.eu", "https://reebok.abfrl.in"],
+    reasons: ["b"],
+    fb: ["https://www.facebook.com/ReebokAustriaGermanySwitzerland", "https://www.facebook.com/Reebok"],
+    ig: [
+      "https://www.instagram.com/reebokargentina",
+      "https://www.instagram.com/reebokclubsp",
+      "https://www.instagram.com/reebokcolombia",
+      "https://www.instagram.com/reebokcostarica",
+      "https://www.instagram.com/reebokeurope",
+      "https://www.instagram.com/reebokindia",
+      "https://www.instagram.com/reebokindonesia",
+      "https://www.instagram.com/reebokkorea",
+      "https://www.instagram.com/reebokphilippines",
+      "https://www.instagram.com/reeboktr"
+    ],
+    ytp: [
+      "https://www.youtube.com/@ReeSport",
+      "https://www.youtube.com/@Reebok",
+      "https://www.youtube.com/@Reebok-SouthAfrica",
+      "https://www.youtube.com/@ReebokIndia",
+      "https://www.youtube.com/@ReebokIndonesiaOfficial",
+      "https://www.youtube.com/@ReebokMalaysia",
+      "https://www.youtube.com/@ReebokSingapore",
+      "https://www.youtube.com/@ReebokThailand",
+      "https://www.youtube.com/@ReebokUniverse1",
+      "https://www.youtube.com/@ReebokVietnam",
+      "https://www.youtube.com/@ReebokWork",
+      "https://www.youtube.com/@reebokkorea4713",
+      "https://www.youtube.com/@reebokphilippines9567",
+      "https://www.youtube.com/@reebokrussia",
+      "https://www.youtube.com/@reeboksouthafrica4423",
+      "https://www.youtube.com/@reeboktaiwan7500",
+      "https://www.youtube.com/@reebokukraine5769"
+    ],
+    tt: [
+      "https://www.tiktok.com/@reebok",
+      "https://www.tiktok.com/@reebok.indonesia",
+      "https://www.tiktok.com/@reebok_music",
+      "https://www.tiktok.com/@reebokbrandhouse",
+      "https://www.tiktok.com/@reebokeu",
+      "https://www.tiktok.com/@reebokmx",
+      "https://www.tiktok.com/@reeboksouthafrica",
+      "https://www.tiktok.com/@reebokwatchmalaysia"
+    ],
+    urls: ["https://apps.apple.com/us/app/reebok/id6740590880"],
+    android_app_ids: [
+      "co.vitalist.reebokconnect",
+      "com.changyow.iconsole4th",
+      "com.rfeinternational.app_rbk",
+      "com.tru.connect"
+    ],
+    _processed: true
+  },
+  {
     name: "Sabra",
     reasons: ["b"],
     ws: ["https://sabra.com/"],
