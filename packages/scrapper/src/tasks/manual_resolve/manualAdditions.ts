@@ -118,6 +118,79 @@ export const manualAdditions: ManualAdditionItem[] = [
     _processed: true
   },
   {
+    name: "Carrefour",
+    reasons: ["b"],
+    ws: ["https://www.carrefour.com"],
+    fb: [
+      "https://www.facebook.com/Carrefour.Iraq",
+      "https://www.facebook.com/CarrefourGeorgia",
+      "https://www.facebook.com/Carrefoursaudi",
+      "https://www.facebook.com/carrefour",
+      "https://www.facebook.com/carrefouregypt"
+    ],
+    ig: [
+      "https://www.instagram.com/carrefoures",
+      "https://www.instagram.com/carrefourfrance",
+      "https://www.instagram.com/carrefoursa"
+    ],
+    gh: ["https://github.com/Carrefour-Group"],
+    ytp: [
+      "https://www.youtube.com/@C4TVShow",
+      "https://www.youtube.com/@CarrefourBE",
+      "https://www.youtube.com/@CarrefourEgypt1",
+      "https://www.youtube.com/@CarrefourFrance",
+      "https://www.youtube.com/@CarrefourItaliaOfficial",
+      "https://www.youtube.com/@CarrefourPL",
+      "https://www.youtube.com/@CarrefourRomania",
+      "https://www.youtube.com/@CarrefourUAE",
+      "https://www.youtube.com/@GrupoCarrefourBrasil",
+      "https://www.youtube.com/@carrefour",
+      "https://www.youtube.com/@carrefour_israel",
+      "https://www.youtube.com/@carrefourargentina",
+      "https://www.youtube.com/@carrefourbrasil",
+      "https://www.youtube.com/@carrefourcuracao",
+      "https://www.youtube.com/@carrefourpakistan9493",
+      "https://www.youtube.com/@carrefouruganda",
+      "https://www.youtube.com/c/CarrefourTunisiehypermarch%C3%A9"
+    ],
+    tt: [
+      "https://www.tiktok.com/@carrefour.egypt",
+      "https://www.tiktok.com/@carrefour.israel",
+      "https://www.tiktok.com/@carrefour.laval0",
+      "https://www.tiktok.com/@carrefour.maurice",
+      "https://www.tiktok.com/@carrefour_chalon_sud",
+      "https://www.tiktok.com/@carrefour_polynesie",
+      "https://www.tiktok.com/@carrefour_rosnysousbois",
+      "https://www.tiktok.com/@carrefourargentina",
+      "https://www.tiktok.com/@carrefourbh",
+      "https://www.tiktok.com/@carrefourbrasil",
+      "https://www.tiktok.com/@carrefourci",
+      "https://www.tiktok.com/@carrefourfortresswaly",
+      "https://www.tiktok.com/@carrefourfrance",
+      "https://www.tiktok.com/@carrefourmaroc",
+      "https://www.tiktok.com/@carrefourpakistan",
+      "https://www.tiktok.com/@carrefourromania",
+      "https://www.tiktok.com/@carrefoursakurumsal",
+      "https://www.tiktok.com/@carrefoursaudi",
+      "https://www.tiktok.com/@carrefourtaiwan",
+      "https://www.tiktok.com/@carrefouruae",
+      "https://www.tiktok.com/search/user?q=Carrefour"
+    ],
+    urls: [
+      "https://apps.apple.com/us/app/carrefour-argentina/id6472512419",
+      "https://apps.apple.com/us/app/carrefour-banco/id1488627762",
+      "https://apps.apple.com/us/app/carrefour-destreland-contact/id1487957089",
+      "https://apps.apple.com/us/app/carrefour-france/id378305156",
+      "https://apps.apple.com/us/app/carrefour-maroc/id1644896168",
+      "https://apps.apple.com/us/app/carrefour-martinique/id1436006846",
+      "https://apps.apple.com/us/app/carrefour-r%C3%A9union/id1480709890",
+      "https://apps.apple.com/us/app/carrefoursa-online-al%C4%B1%C5%9Fveri%C5%9F/id1460593315",
+      "https://apps.apple.com/us/app/maf-carrefour-online-shopping/id626805470"
+    ],
+    android_app_ids: ["com.aswat.carrefouruae", "com.carrefourgu", "mn.io.carrefour"],
+    _processed: true
+  },
+  {
     name: "Chevron",
     reasons: ["b"],
     ws: [
@@ -459,8 +532,6 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.tiktok.com/@windows",
       "https://www.tiktok.com/search/user?q=Microsoft"
     ],
-    android_dev_id: "com.microsoft",
-    stock_symbol: "MSFT",
     urls: [
       "https://chromewebstore.google.com/detail/add-to-microsoft-to-do/loblkkbfciiklgoblkigehhghfjfjede",
       "https://chromewebstore.google.com/detail/microsoft-bing-homepage-s/ddojnmkongaimkdddgmcccldlfhokcfb",
@@ -469,6 +540,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://chromewebstore.google.com/search/Microsoft",
       "https://play.google.com/store/apps/dev?id=6720847872553662727"
     ],
+    android_dev_id: "com.microsoft",
     _processed: true
   },
   {
