@@ -663,6 +663,84 @@ export const manualAdditions: ManualAdditionItem[] = [
     tw: ["https://x.com/puma"]
   },
   {
+    name: "RE/MAX",
+    reasons: ["b"],
+    ws: ["https://www.remax.com", "https://www.remax.my"],
+    fb: [
+      "https://www.facebook.com/1st.choiceegypt",
+      "https://www.facebook.com/EverestRealEstate",
+      "https://www.facebook.com/REMAXNewZealand",
+      "https://www.facebook.com/REMAXSuccessToowoomba",
+      "https://www.facebook.com/RemaxGoldenHouse",
+      "https://www.facebook.com/RemaxPrestigeCA",
+      "https://www.facebook.com/RemaxResultsMorningside",
+      "https://www.facebook.com/RemaxWA",
+      "https://www.facebook.com/TheAddressRemax",
+      "https://www.facebook.com/remax",
+      "https://www.facebook.com/remax.mn",
+      "https://www.facebook.com/remaxhubinmongolia",
+      "https://www.facebook.com/remaxmyhq",
+      "https://www.facebook.com/remaxportugal"
+    ],
+    ig: [
+      "https://www.instagram.com/kibrisremaxplus2",
+      "https://www.instagram.com/remax",
+      "https://www.instagram.com/remax.kaya",
+      "https://www.instagram.com/remax_oldenburg",
+      "https://www.instagram.com/remaxbr",
+      "https://www.instagram.com/remaxlitoral.arg",
+      "https://www.instagram.com/remaxtitanium"
+    ],
+    ytp: [
+      "https://www.youtube.com/@Belizerealestatesearchrcolon",
+      "https://www.youtube.com/@REMAXAustralia",
+      "https://www.youtube.com/@REMAXBannerRealEstate",
+      "https://www.youtube.com/@REMAXPhilippines2012",
+      "https://www.youtube.com/@REMAXRomania",
+      "https://www.youtube.com/@RemaxPoland",
+      "https://www.youtube.com/@RemaxTurkiye",
+      "https://www.youtube.com/@remaxaddress3465",
+      "https://www.youtube.com/@remaxbrasil",
+      "https://www.youtube.com/@remaxdazzle5849",
+      "https://www.youtube.com/@remaxitalia",
+      "https://www.youtube.com/@remaxmidlandskzn",
+      "https://www.youtube.com/@remaxmongolia8086",
+      "https://www.youtube.com/@remaxnewsroom",
+      "https://www.youtube.com/@remaxofsa",
+      "https://www.youtube.com/@remaxonesa4110",
+      "https://www.youtube.com/@remaxsingapore",
+      "https://www.youtube.com/@remaxslovenia",
+      "https://www.youtube.com/REMAX"
+    ],
+    tt: [
+      "https://www.tiktok.com/@miss_yan_yan",
+      "https://www.tiktok.com/@remax.100.michiana",
+      "https://www.tiktok.com/@remax.canada",
+      "https://www.tiktok.com/@remax.imperia",
+      "https://www.tiktok.com/@remax.properties",
+      "https://www.tiktok.com/@remax_10",
+      "https://www.tiktok.com/@remaxevolutionbrasov",
+      "https://www.tiktok.com/@remaxonroatan"
+    ],
+    urls: [
+      "https://apps.apple.com/us/app/re-max-experience-home-search/id1566709401",
+      "https://apps.apple.com/us/app/re-max-max-connect/id1546225772",
+      "https://apps.apple.com/us/app/re-max-properties-lb/id6503909000",
+      "https://chromewebstore.google.com/detail/mymax-by-remax-turkiye/ahbmggfpfglepifhpbebbgkapfegddpp"
+    ],
+    android_app_ids: [
+      "com.allygent.remaxcenter",
+      "com.gryphtech.globalreferralprod",
+      "com.remax.ahappremax",
+      "com.remax.myremax",
+      "com.remax.remax_tripoli",
+      "com.remax.stickersApp",
+      "com.remax.university",
+      "tenant.ourproperty.com.remaxTENANT"
+    ],
+    _processed: true
+  },
+  {
     name: "Reebok",
     reasons: ["b"],
     ws: ["https://www.reebok.com", "https://www.reebok.eu", "https://reebok.abfrl.in"],
