@@ -22,7 +22,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   {
     name: "AXA",
     reasons: ["b"],
-    ws: ["https://www.axa.com/"],
+    ws: ["https://www.axa.com", "https://www.axa.com.hk"],
     li: [
       "https://www.linkedin.com/company/axa/",
       "https://www.linkedin.com/company/axa-wealth/",
@@ -52,9 +52,38 @@ export const manualAdditions: ManualAdditionItem[] = [
     fb: [
       "https://www.facebook.com/AXA.de/",
       "https://www.facebook.com/AXAAssuranceMaroc",
-      "https://www.facebook.com/axainsurance"
+      "https://www.facebook.com/axainsurance",
+      "https://www.facebook.com/AXAHongKong"
     ],
-    tw: ["https://x.com/AXA"]
+    tw: ["https://x.com/AXA"],
+    ig: [
+      "https://www.instagram.com/axa",
+      "https://www.instagram.com/axa_global",
+      "https://www.instagram.com/axa_egypt",
+      "https://www.instagram.com/axahealth",
+      "https://www.instagram.com/axa_uk"
+    ],
+    ytp: [
+      "https://www.youtube.com/@AXA",
+      "https://www.youtube.com/@AXAIRL",
+      "https://www.youtube.com/@AXAGBS",
+      "https://www.youtube.com/@AXAHongKongVideos",
+      "https://www.youtube.com/@axauk",
+      "https://www.youtube.com/@AXAPHofficial",
+      "https://www.youtube.com/@AXANICoUK",
+      "https://www.youtube.com/@AXAHealth"
+    ],
+    tt: ["https://www.tiktok.com/@axa.com/"],
+    th: ["https://www.threads.com/@axa.com/"],
+    android_dev_id: "com.axa",
+    android_app_ids: [
+      "de.axa.noa",
+      "com.rise_world.axa",
+      "com.agh.ipmi.prod",
+      "com.axaassistance.cardmemberbenefits",
+      "ch.swisscharge.axa.sc",
+      "com.axabanque.fr"
+    ]
   },
   {
     name: "Caltex",
@@ -336,6 +365,89 @@ export const manualAdditions: ManualAdditionItem[] = [
     _processed: true
   },
   {
+    name: "Disney+",
+    reasons: ["b"],
+    ws: ["https://www.disneyplus.com"],
+    fb: [
+      "https://www.facebook.com/DisneyCareers",
+      "https://www.facebook.com/DisneyInArabic",
+      "https://www.facebook.com/DisneyIsMyLifePage",
+      "https://www.facebook.com/DisneyOnIceUK",
+      "https://www.facebook.com/DisneyPlusDE",
+      "https://www.facebook.com/DisneyPlusQuotes",
+      "https://www.facebook.com/DisneyStoreDE",
+      "https://www.facebook.com/disneymiddleast",
+      "https://www.facebook.com/whatsondisneyplus"
+    ],
+    ig: ["https://www.instagram.com/disneyplus", "https://www.instagram.com/disneyplusuk"],
+    ytp: [
+      "https://www.youtube.com/@DisneyJuniorIT",
+      "https://www.youtube.com/@DisneyPlusFR",
+      "https://www.youtube.com/@DisneyPlusHK",
+      "https://www.youtube.com/@DisneyPlusJP",
+      "https://www.youtube.com/@DisneyPlusKR",
+      "https://www.youtube.com/@DisneyPlusTR",
+      "https://www.youtube.com/@DisneyPlusThailand",
+      "https://www.youtube.com/@WhatsOnDisneyPlus",
+      "https://www.youtube.com/@disneyplus",
+      "https://www.youtube.com/@disneyplus-uk",
+      "https://www.youtube.com/@disneyplus_indonesia",
+      "https://www.youtube.com/@disneyplusbr",
+      "https://www.youtube.com/@disneypluses",
+      "https://www.youtube.com/@disneypluseu5125",
+      "https://www.youtube.com/@disneyplusla",
+      "https://www.youtube.com/@disneyplussg",
+      "https://www.youtube.com/@disneyplustw9861",
+      "https://www.youtube.com/@unofficialdisneyplusstarasia",
+      "https://www.youtube.com/disneyplusmy",
+      "https://www.youtube.com/disneyplusph"
+    ],
+    tt: [
+      "https://www.tiktok.com/@disney",
+      "https://www.tiktok.com/@disney.plus_x",
+      "https://www.tiktok.com/@disneychannelplus",
+      "https://www.tiktok.com/@disneyde",
+      "https://www.tiktok.com/@disneyjr",
+      "https://www.tiktok.com/@disneylat",
+      "https://www.tiktok.com/@disneyplus",
+      "https://www.tiktok.com/@disneyplus.tw",
+      "https://www.tiktok.com/@disneyplusbr",
+      "https://www.tiktok.com/@disneyplusde",
+      "https://www.tiktok.com/@disneypluses",
+      "https://www.tiktok.com/@disneyplusfr",
+      "https://www.tiktok.com/@disneyplusid",
+      "https://www.tiktok.com/@disneyplusit",
+      "https://www.tiktok.com/@disneyplusjp",
+      "https://www.tiktok.com/@disneypluskr",
+      "https://www.tiktok.com/@disneyplusla",
+      "https://www.tiktok.com/@disneyplusmy",
+      "https://www.tiktok.com/@disneypluspeliculas",
+      "https://www.tiktok.com/@disneyplusph",
+      "https://www.tiktok.com/@disneyplusth",
+      "https://www.tiktok.com/@disneyplustr",
+      "https://www.tiktok.com/@disneyplusuk",
+      "https://www.tiktok.com/@disneystudiosjp",
+      "https://www.tiktok.com/@percyseries"
+    ],
+    urls: [
+      "https://apps.apple.com/us/app/disney-magic-kingdoms/id731592936",
+      "https://apps.apple.com/us/app/disney-store/id462423445",
+      "https://apps.apple.com/us/app/disney/id1446075923",
+      "https://apps.apple.com/us/app/disneyland/id1022164656",
+      "https://apps.apple.com/us/app/my-disney-experience/id547436543"
+    ],
+    android_app_ids: [
+      "com.disney.d23fanclub_goo",
+      "com.disney.starwarshub_goo",
+      "com.disney.teamofheroes.goo",
+      "com.disney.wdpro.dlr",
+      "com.disney.wdw.android",
+      "in.startv.hotstar.dplus",
+      "in.startv.hotstar.dplus.tv"
+    ],
+    _processed: true
+  },
+  {
     name: "HP",
     reasons: ["b"],
     ws: [
@@ -537,7 +649,6 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://chromewebstore.google.com/detail/microsoft-bing-homepage-s/ddojnmkongaimkdddgmcccldlfhokcfb",
       "https://chromewebstore.google.com/detail/microsoft-bing-search-wit/fbgcedjacmlbgleddnoacbnijgmiolem",
       "https://chromewebstore.google.com/detail/microsoft-single-sign-on/ppnbnpeolgkicgegkbkbjmhlideopiji",
-      "https://chromewebstore.google.com/search/Microsoft",
       "https://play.google.com/store/apps/dev?id=6720847872553662727"
     ],
     android_dev_id: "com.microsoft",
@@ -553,8 +664,8 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Reebok",
-    ws: ["https://www.reebok.com", "https://www.reebok.eu", "https://reebok.abfrl.in"],
     reasons: ["b"],
+    ws: ["https://www.reebok.com", "https://www.reebok.eu", "https://reebok.abfrl.in"],
     fb: ["https://www.facebook.com/ReebokAustriaGermanySwitzerland", "https://www.facebook.com/Reebok"],
     ig: [
       "https://www.instagram.com/reebokargentina",
@@ -634,6 +745,81 @@ export const manualAdditions: ManualAdditionItem[] = [
     ],
     fb: ["https://www.facebook.com/Siemens"],
     tw: ["https://x.com/Siemens"]
+  },
+  {
+    name: "SodaStream",
+    reasons: ["b"],
+    ws: ["https://www.sodastream.com"],
+    fb: [
+      "https://www.facebook.com/SodaDoma",
+      "https://www.facebook.com/SodaStream",
+      "https://www.facebook.com/SodaStream.France",
+      "https://www.facebook.com/SodaStreamDeutschland",
+      "https://www.facebook.com/SodaStreamMagyarorszag",
+      "https://www.facebook.com/SodaStreamMalta",
+      "https://www.facebook.com/SodaStreamNL",
+      "https://www.facebook.com/SodaStreamNZ",
+      "https://www.facebook.com/SodaStreamOesterreich",
+      "https://www.facebook.com/SodastreamItalia",
+      "https://www.facebook.com/Sodastreamuk",
+      "https://www.facebook.com/sodadk",
+      "https://www.facebook.com/sodastream.sg",
+      "https://www.facebook.com/sodastream.ua"
+    ],
+    ig: [
+      "https://www.instagram.com/sodastream",
+      "https://www.instagram.com/sodastream_santiago_chile",
+      "https://www.instagram.com/sodastreamarg",
+      "https://www.instagram.com/sodastreambe",
+      "https://www.instagram.com/sodastreambr",
+      "https://www.instagram.com/sodastreamcz",
+      "https://www.instagram.com/sodastreamde",
+      "https://www.instagram.com/sodastreamnl",
+      "https://www.instagram.com/sodastreampolska",
+      "https://www.instagram.com/sodastreamportugal",
+      "https://www.instagram.com/sodastreamsuomi",
+      "https://www.instagram.com/sodastreamsverige"
+    ],
+    ytp: [
+      "https://www.youtube.com/@SodaStream.Slovakia",
+      "https://www.youtube.com/@SodaStreamDE",
+      "https://www.youtube.com/@SodaStreamHungary",
+      "https://www.youtube.com/@SodaStreamNZ",
+      "https://www.youtube.com/@SodaStreamPL",
+      "https://www.youtube.com/@SodaStreamSingapore",
+      "https://www.youtube.com/@SodaStreamTaiwan",
+      "https://www.youtube.com/@SodaStreamUK",
+      "https://www.youtube.com/@SodastreamArgentina",
+      "https://www.youtube.com/@SodastreamBelgie",
+      "https://www.youtube.com/@SodastreamCanada",
+      "https://www.youtube.com/@SodastreamFrance",
+      "https://www.youtube.com/@sodastream",
+      "https://www.youtube.com/@sodastream2187",
+      "https://www.youtube.com/@sodastreamit",
+      "https://www.youtube.com/@sodastreampoland4056",
+      "https://www.youtube.com/@sodastreamportugal1243",
+      "https://www.youtube.com/@sodastreamsingapore2930",
+      "https://www.youtube.com/@sodastreamukie"
+    ],
+    tt: [
+      "https://www.tiktok.com/@sodastream",
+      "https://www.tiktok.com/@sodastream.benlux",
+      "https://www.tiktok.com/@sodastream.es",
+      "https://www.tiktok.com/@sodastream.france",
+      "https://www.tiktok.com/@sodastream.magyarorszag",
+      "https://www.tiktok.com/@sodastreamarg",
+      "https://www.tiktok.com/@sodastreamau",
+      "https://www.tiktok.com/@sodastreamcanada",
+      "https://www.tiktok.com/@sodastreamdach",
+      "https://www.tiktok.com/@sodastreamgermany",
+      "https://www.tiktok.com/@sodastreamit",
+      "https://www.tiktok.com/@sodastreamnordics",
+      "https://www.tiktok.com/@sodastreamnz",
+      "https://www.tiktok.com/@sodastreampolska",
+      "https://www.tiktok.com/@sodastreamsg",
+      "https://www.tiktok.com/@sodastreamuk"
+    ],
+    _processed: true
   },
   {
     name: "Texaco",
