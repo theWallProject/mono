@@ -209,6 +209,61 @@ export const manualAdditions: ManualAdditionItem[] = [
     _processed: true
   },
   {
+    name: "Dell",
+    ws: ["https://www.dell.com", "https://mlink-dell.com"],
+    reasons: ["b"],
+    li: [
+      "https://www.linkedin.com/company/alienware",
+      "https://www.linkedin.com/company/credant-technologies",
+      "https://www.linkedin.com/company/dell-compellent",
+      "https://www.linkedin.com/company/delltechnologies",
+      "https://www.linkedin.com/company/emc-corporation",
+      "https://www.linkedin.com/company/gale-technologies",
+      "https://www.linkedin.com/company/virtustream",
+      "https://www.linkedin.com/company/xtremio",
+      "https://www.linkedin.com/showcase/dell-tech-partner"
+    ],
+    fb: [
+      "https://www.facebook.com/Dell",
+      "https://www.facebook.com/DellRefurbished",
+      "https://www.facebook.com/DellTechCareers",
+      "https://www.facebook.com/DellTechnologies"
+    ],
+    ig: ["https://www.instagram.com/dell"],
+    gh: ["https://github.com/dell"],
+    ytp: [
+      "https://www.youtube.com/@Dell",
+      "https://www.youtube.com/@DellTWvlog",
+      "https://www.youtube.com/@DellTechnologies",
+      "https://www.youtube.com/@DellTechnologies-India",
+      "https://www.youtube.com/@DellsuporteBrasil",
+      "https://www.youtube.com/@TechSupportDell",
+      "https://www.youtube.com/@dellnobrasil",
+      "https://www.youtube.com/c/DellEnterpriseSupport"
+    ],
+    tt: ["https://www.tiktok.com/@dell"],
+    th: ["https://www.threads.com/@dell"],
+    urls: [
+      "https://apps.apple.com/us/app/dell-ar-assistant/id1521610787",
+      "https://apps.apple.com/us/app/dell-audio/id6472411862",
+      "https://finance.yahoo.com/quote/DELL",
+      "https://play.google.com/store/apps/developer?id=Dell+Inc.",
+      "https://www.reddit.com/r/Dell"
+    ],
+    android_dev_id: "com.dell",
+    stock_symbol: "DELL",
+    android_app_ids: [
+      "com.dell.PartnerProgram",
+      "com.dell.ahapp",
+      "com.dell.dellaudio",
+      "com.dell.dfsm.mobile",
+      "com.dell.omm",
+      "com.emc.cloudiq",
+      "com.emc.mobileapps.elabnavigator"
+    ],
+    _processed: true
+  },
+  {
     name: "HP",
     reasons: ["b"],
     ws: [
@@ -261,6 +316,69 @@ export const manualAdditions: ManualAdditionItem[] = [
     ]
   },
   {
+    name: "Intel",
+    reasons: ["b"],
+    ws: [
+      "https://www.intel.com",
+      "https://www.exploreintel.com",
+      "https://www.intel.la",
+      "https://www.intelcapital.com",
+      "https://www.altera.com"
+    ],
+    li: [
+      "https://www.linkedin.com/company/intel-corporation",
+      "https://www.linkedin.com/company/intel-ignite",
+      "https://www.linkedin.com/company/intel-labs",
+      "https://www.linkedin.com/showcase/intel-business",
+      "https://www.linkedin.com/showcase/intel-developer-zone",
+      "https://www.linkedin.com/showcase/intel-developer",
+      "https://www.linkedin.com/showcase/intel-foundry",
+      "https://www.linkedin.com/showcase/intel-network-and-edge",
+      "https://www.linkedin.com/showcase/intel-software",
+      "https://www.linkedin.com/showcase/intelfabric",
+      "https://www.linkedin.com/showcase/openatintel"
+    ],
+    fb: ["https://www.facebook.com/Intel"],
+    tw: ["https://x.com/IntelSupport", "https://x.com/intel"],
+    ig: ["https://www.instagram.com/intel", "https://www.instagram.com/inteluk"],
+    gh: ["https://github.com/intel", "https://github.com/search?q=Intel&type=users"],
+    ytp: [
+      "https://www.youtube.com/@Intel",
+      "https://www.youtube.com/@IntelFoundersTeam",
+      "https://www.youtube.com/@IntelGraphics",
+      "https://www.youtube.com/@IntelIndonesiaID",
+      "https://www.youtube.com/@IntelIreland",
+      "https://www.youtube.com/@IntelNewsroom",
+      "https://www.youtube.com/@IntelSoftware",
+      "https://www.youtube.com/@IntelTechnology",
+      "https://www.youtube.com/@intelbusiness",
+      "https://www.youtube.com/@intelindia",
+      "https://www.youtube.com/@intelkorea",
+      "https://www.youtube.com/@intelscope",
+      "https://www.youtube.com/@intelthailand2902",
+      "https://www.youtube.com/c/Intel"
+    ],
+    tt: ["https://www.tiktok.com/@intel", "https://www.tiktok.com/@intelgamingofficial"],
+    urls: [
+      "https://x.com/intel/affiliates",
+      "https://play.google.com/store/apps/developer?id=Intel+Corporation",
+      "https://edition.cnn.com/markets/stocks/INTC",
+      "https://finance.yahoo.com/quote/INTC",
+      "https://www.apple.com/us/search/Intel?src=globalnav",
+      "https://www.cnbc.com/quotes/INTC",
+      "https://www.forbes.com/companies/intel",
+      "https://www.marketwatch.com/investing/stock/intc",
+      "https://www.mida.gov.my/success-stories/intel-microelectronics",
+      "https://www.pcmag.com/brands/intel",
+      "https://www.reddit.com/r/intel",
+      "https://www.reuters.com/company/intel-corp",
+      "https://www.scmp.com/topics/intel",
+      "https://www.tradingview.com/symbols/NASDAQ-INTC"
+    ],
+    android_dev_id: "com.intel",
+    _processed: true
+  },
+  {
     name: "Jedyapps",
     reasons: ["h"],
     ws: ["https://www.jedyapps.com/"],
@@ -305,13 +423,13 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Texaco",
+    reasons: ["b"],
     ws: [
       "https://www.texaco.com",
       "https://starrewards.valero.com",
       "https://www.chevrontexacocards.com/Chevron",
       "https://www.texacoinhawaii.com"
     ],
-    reasons: ["b"],
     ig: ["https://www.instagram.com/texacolubricants/?hl=en"],
     ytp: [
       "https://www.youtube.com/@TexacoLubricantsTV",
