@@ -1,6 +1,7 @@
 import js from "@eslint/js"
 import tseslint from "@typescript-eslint/eslint-plugin"
 import tsparser from "@typescript-eslint/parser"
+import suppressApprovedPlugin from "@vibelint/eslint-plugin-suppress-approved"
 import eslintComments from "eslint-plugin-eslint-comments"
 import importPlugin from "eslint-plugin-import"
 import promise from "eslint-plugin-promise"
@@ -8,7 +9,6 @@ import react from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import vitest from "eslint-plugin-vitest"
 import globals from "globals"
-
 
 // Global ignores for all packages
 const globalIgnores = {
@@ -308,4 +308,12 @@ const fileOverrides = [
   }
 ]
 
-export default [globalIgnores, baseConfig, nodeConfig, reactConfig, testConfig, ...fileOverrides]
+export default [
+  globalIgnores,
+  baseConfig,
+  nodeConfig,
+  reactConfig,
+  testConfig,
+  ...fileOverrides,
+  ...suppressApprovedPlugin.configs.recommended
+]
