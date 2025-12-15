@@ -24,8 +24,8 @@
     "prepare": "husky",
     "test:addon": "pnpm --filter @theWallProject/addon test",
     "test:addon:e2e": "pnpm --filter @theWallProject/addon test:e2e",
-    "commit": "vibelint-roasted-commit",
-    "commit-lint": "vibelint-eslint-warning-approval"
+    "commit": "vibelint-wizard && git add .eslint-warnings-cache.json && vibelint-commit",
+    "commit-wizard": "vibelint-wizard"
   },
   "engines": {
     "node": ">=18",
@@ -40,6 +40,9 @@
     "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
+    "@vibelint/eslint-plugin-vibelint": "^0.1.18",
+    "@vibelint/vibelint-commit": "^0.1.18",
+    "@vibelint/vibelint-wizard": "^0.1.18",
     "cross-env": "^10.1.0",
     "eslint": "^9.37.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
