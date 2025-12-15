@@ -9,7 +9,6 @@ import reactHooks from "eslint-plugin-react-hooks"
 import vitest from "eslint-plugin-vitest"
 import globals from "globals"
 
-import suppressApprovedPlugin from "./scripts/eslint-suppress-approved.js"
 
 // Global ignores for all packages
 const globalIgnores = {
@@ -41,8 +40,7 @@ const baseConfig = {
   plugins: {
     "@typescript-eslint": tseslint,
     "eslint-comments": eslintComments,
-    promise,
-    "suppress-approved": suppressApprovedPlugin
+    promise
   },
   rules: {
     // JavaScript recommended rules (shared)
@@ -310,36 +308,4 @@ const fileOverrides = [
   }
 ]
 
-// Processor configs to filter approved warnings
-const processorConfigs = [
-  {
-    files: ["**/*.js"],
-    plugins: {
-      "suppress-approved": suppressApprovedPlugin
-    },
-    processor: "suppress-approved/js"
-  },
-  {
-    files: ["**/*.ts"],
-    plugins: {
-      "suppress-approved": suppressApprovedPlugin
-    },
-    processor: "suppress-approved/ts"
-  },
-  {
-    files: ["**/*.jsx"],
-    plugins: {
-      "suppress-approved": suppressApprovedPlugin
-    },
-    processor: "suppress-approved/jsx"
-  },
-  {
-    files: ["**/*.tsx"],
-    plugins: {
-      "suppress-approved": suppressApprovedPlugin
-    },
-    processor: "suppress-approved/tsx"
-  }
-]
-
-export default [globalIgnores, baseConfig, nodeConfig, reactConfig, testConfig, ...fileOverrides, ...processorConfigs]
+export default [globalIgnores, baseConfig, nodeConfig, reactConfig, testConfig, ...fileOverrides]
