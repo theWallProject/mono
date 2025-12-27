@@ -11,6 +11,7 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
   findInDatabaseByDomain,
+  findInDatabaseBySelector,
   getMainDomain,
   type FinalDBFileType
 } from "./index"
@@ -1051,5 +1052,112 @@ describe("findInDatabaseByDomain with subdomain support", () => {
       const dbWithMissingWs: FinalDBFileType[] = [{ id: "1", r: ["h"], n: "No Website" }]
       expect(findInDatabaseByDomain("wix.com", dbWithMissingWs)).toBeNull()
     })
+  })
+
+  describe("Array hints support", () => {
+    it("should match any domain in ws array for hints", () => {
+      const hintDb: FinalDBFileType[] = [
+        { id: "hint_BBC", ws: ["bbc.com", "bbc.co.uk"], r: [], n: "BBC", isHint: true }
+      ]
+
+      const result1 = findInDatabaseByDomain("bbc.com", hintDb)
+      expect(result1?.id).toBe("hint_BBC")
+
+      const result2 = findInDatabaseByDomain("bbc.co.uk", hintDb)
+      expect(result2?.id).toBe("hint_BBC")
+    })
+
+    it("should NOT match domains not in ws array", () => {
+      const hintDb: FinalDBFileType[] = [
+        { id: "hint_BBC", ws: ["bbc.com", "bbc.co.uk"], r: [], n: "BBC", isHint: true }
+      ]
+
+      const result = findInDatabaseByDomain("bbc.net", hintDb)
+      expect(result).toBeNull()
+    })
+
+    it("should handle subdomain matching with array hints", () => {
+      const hintDb: FinalDBFileType[] = [
+        { id: "hint_example", ws: ["example.com", "test.com"], r: [], n: "Example", isHint: true }
+      ]
+
+      // Subdomain should match base domain in array
+      const result = findInDatabaseByDomain("fr.example.com", hintDb)
+      expect(result?.id).toBe("hint_example")
+    })
+  })
+})
+
+describe("findInDatabaseBySelector with array hints", () => {
+  it("should match any GitHub username in gh array for hints", () => {
+    const hintDb: FinalDBFileType[] = [
+      {
+        id: "hint_microsoft",
+        gh: ["microsoft", "microsoftgraph", "MicrosoftDocs"],
+        r: [],
+        n: "Microsoft",
+        isHint: true
+      }
+    ]
+
+    const result1 = findInDatabaseBySelector("microsoft", "gh", "github.com", hintDb)
+    expect(result1?.id).toBe("hint_microsoft")
+
+    const result2 = findInDatabaseBySelector("microsoftgraph", "gh", "github.com", hintDb)
+    expect(result2?.id).toBe("hint_microsoft")
+
+    const result3 = findInDatabaseBySelector("MicrosoftDocs", "gh", "github.com", hintDb)
+    expect(result3?.id).toBe("hint_microsoft")
+  })
+
+  it("should match any YouTube profile in ytp array for hints (case-insensitive)", () => {
+    const hintDb: FinalDBFileType[] = [
+      {
+        id: "hint_microsoft",
+        ytp: ["@Microsoft", "@MicrosoftAzure", "@MicrosoftDeveloper"],
+        r: [],
+        n: "Microsoft",
+        isHint: true
+      }
+    ]
+
+    // Case-insensitive matching for YouTube
+    const result1 = findInDatabaseBySelector("@microsoft", "ytp", "youtube.com", hintDb)
+    expect(result1?.id).toBe("hint_microsoft")
+
+    const result2 = findInDatabaseBySelector("MICROSOFTAZURE", "ytp", "youtube.com", hintDb)
+    expect(result2?.id).toBe("hint_microsoft")
+
+    // With @ prefix
+    const result3 = findInDatabaseBySelector("@MicrosoftDeveloper", "ytp", "youtube.com", hintDb)
+    expect(result3?.id).toBe("hint_microsoft")
+  })
+
+  it("should NOT match selectors not in array", () => {
+    const hintDb: FinalDBFileType[] = [
+      {
+        id: "hint_microsoft",
+        gh: ["microsoft", "microsoftgraph"],
+        r: [],
+        n: "Microsoft",
+        isHint: true
+      }
+    ]
+
+    const result = findInDatabaseBySelector("apple", "gh", "github.com", hintDb)
+    expect(result).toBeNull()
+  })
+
+  it("should still work with string selectors (non-hint entries)", () => {
+    const mixedDb: FinalDBFileType[] = [
+      { id: "regular_wix", gh: "wix", r: ["h"], n: "Wix" },
+      { id: "hint_microsoft", gh: ["microsoft", "microsoftgraph"], r: [], n: "Microsoft", isHint: true }
+    ]
+
+    const result1 = findInDatabaseBySelector("wix", "gh", "github.com", mixedDb)
+    expect(result1?.id).toBe("regular_wix")
+
+    const result2 = findInDatabaseBySelector("microsoft", "gh", "github.com", mixedDb)
+    expect(result2?.id).toBe("hint_microsoft")
   })
 })

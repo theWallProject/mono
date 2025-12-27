@@ -106,31 +106,36 @@ type APIEndpointRule = {
  * 1. Modify this Zod schema
  * 2. Run `pnpm run generate-schema` to regenerate the JSON schema file
  * 3. The build will validate ALL.json files against the generated schema
+ *
+ * HINT ENTRIES:
+ * For hint entries (isHint: true), link fields can be strings OR arrays of strings.
+ * This allows a single hint to cover multiple social media profiles/websites.
+ * Regular entries (isHint: false or undefined) must use strings only.
  */
 export const FinalDBFileSchema = z
   .object({
     /** id */
     id: z.string(),
-    /** website */
-    ws: z.string().optional(),
-    /** linkedin */
-    li: z.string().optional(),
-    /** facebook */
-    fb: z.string().optional(),
-    /** twitter */
-    tw: z.string().optional(),
-    /** instagram */
-    ig: z.string().optional(),
-    /** github */
-    gh: z.string().optional(),
-    /** youtube profile */
-    ytp: z.string().optional(),
-    /** youtube channel */
-    ytc: z.string().optional(),
-    /** tiktok */
-    tt: z.string().optional(),
-    /** threads */
-    th: z.string().optional(),
+    /** website - string for regular entries, string or array for hints */
+    ws: z.union([z.string(), z.array(z.string())]).optional(),
+    /** linkedin - string for regular entries, string or array for hints */
+    li: z.union([z.string(), z.array(z.string())]).optional(),
+    /** facebook - string for regular entries, string or array for hints */
+    fb: z.union([z.string(), z.array(z.string())]).optional(),
+    /** twitter - string for regular entries, string or array for hints */
+    tw: z.union([z.string(), z.array(z.string())]).optional(),
+    /** instagram - string for regular entries, string or array for hints */
+    ig: z.union([z.string(), z.array(z.string())]).optional(),
+    /** github - string for regular entries, string or array for hints */
+    gh: z.union([z.string(), z.array(z.string())]).optional(),
+    /** youtube profile - string for regular entries, string or array for hints */
+    ytp: z.union([z.string(), z.array(z.string())]).optional(),
+    /** youtube channel - string for regular entries, string or array for hints */
+    ytc: z.union([z.string(), z.array(z.string())]).optional(),
+    /** tiktok - string for regular entries, string or array for hints */
+    tt: z.union([z.string(), z.array(z.string())]).optional(),
+    /** threads - string for regular entries, string or array for hints */
+    th: z.union([z.string(), z.array(z.string())]).optional(),
     /** reasons */
     r: z.array(APIListOfReasonsSchema),
     /** name */
@@ -334,11 +339,12 @@ export function extractSelector(url: string, rule: (typeof CONFIG.rules)[number]
 }
 
 /**
- * Finds a matching database entry by selector and selector key.
+ * Finds a matching database entry by selector (username, profile name, etc.).
+ * Supports both string and array values for hint entries.
  * Pure function with no side effects.
- * @param selector - The selector to match (e.g., username)
- * @param selectorKey - The database field key (e.g., "fb", "tw")
- * @param domain - The domain for case-insensitive comparison logic
+ * @param selector - The selector to search for (e.g., username, profile name)
+ * @param selectorKey - The database field key to search in
+ * @param domain - The domain being checked (for case-sensitivity rules)
  * @param database - The database array to search
  * @returns The matching database entry or null
  */
@@ -355,21 +361,29 @@ export function findInDatabaseBySelector(
 
   const findResult = database.find((row) => {
     const dbValue = row[selectorKey]
-    if (!dbValue || typeof dbValue !== "string") {
+    if (!dbValue) {
       return false
     }
 
-    // Normalize: strip @ prefix from both values
-    // For YouTube, Twitter, LinkedIn: also compare case-insensitively
-    const normalizedDbValue = dbValue.replace(/^@/i, "")
+    // Handle both string and array values (for hints)
+    const dbValues = Array.isArray(dbValue) ? dbValue : [dbValue]
+
+    // Normalize selector: strip @ prefix
     const normalizedSelector = selector.replace(/^@/i, "")
 
     // Case-insensitive comparison for YouTube, Twitter, LinkedIn
     const isCaseInsensitive = domain === "youtube.com" || domain === "twitter.com" || domain === "linkedin.com"
 
-    return isCaseInsensitive
-      ? normalizedDbValue.toLowerCase() === normalizedSelector.toLowerCase()
-      : normalizedDbValue === normalizedSelector
+    return dbValues.some((value) => {
+      if (typeof value !== "string") return false
+
+      // Normalize db value: strip @ prefix
+      const normalizedDbValue = value.replace(/^@/i, "")
+
+      return isCaseInsensitive
+        ? normalizedDbValue.toLowerCase() === normalizedSelector.toLowerCase()
+        : normalizedDbValue === normalizedSelector
+    })
   })
 
   return findResult || null
@@ -414,6 +428,7 @@ function isSubdomainOf(testDomain: string, baseDomain: string): boolean {
  * Supports subdomain matching: if a base domain is stored (e.g., "wix.com"),
  * it will match all subdomains (e.g., "fr.wix.com", "careers.wix.com").
  * If a subdomain is explicitly stored (e.g., "fr.wix.com"), only that exact subdomain matches.
+ * Supports both string and array values for hint entries.
  * Pure function with no side effects.
  * @param domain - The domain to search for
  * @param database - The database array to search
@@ -421,7 +436,13 @@ function isSubdomainOf(testDomain: string, baseDomain: string): boolean {
  */
 export function findInDatabaseByDomain(domain: string, database: FinalDBFileType[]): FinalDBFileType | null {
   // First pass: check for exact match (prioritizes exact subdomain matches over base domain matches)
-  const exactMatch = database.find((row) => row.ws === domain)
+  const exactMatch = database.find((row) => {
+    if (!row.ws) return false
+
+    // Handle both string and array values (for hints)
+    const wsValues = Array.isArray(row.ws) ? row.ws : [row.ws]
+    return wsValues.includes(domain)
+  })
   if (exactMatch) return exactMatch
 
   // Second pass: check for subdomain match (only if no exact match found)
@@ -429,7 +450,10 @@ export function findInDatabaseByDomain(domain: string, database: FinalDBFileType
   // Example: stored="wix.com", input="fr.wix.com" → should match
   const subdomainMatch = database.find((row) => {
     if (!row.ws) return false
-    return isSubdomainOf(domain, row.ws)
+
+    // Handle both string and array values (for hints)
+    const wsValues = Array.isArray(row.ws) ? row.ws : [row.ws]
+    return wsValues.some((wsValue) => isSubdomainOf(domain, wsValue))
   })
 
   return subdomainMatch || null
@@ -458,6 +482,10 @@ export function formatResult(findResult: FinalDBFileType, selector: string, sele
     }
   }
 
+  // For regular entries, extract string value from ws (should always be string, not array)
+  // If it's an array (shouldn't happen for non-hints), take first value
+  const link = Array.isArray(findResult.ws) ? findResult.ws[0] : findResult.ws
+
   return {
     isHint: false,
     reasons: findResult.r,
@@ -465,7 +493,7 @@ export function formatResult(findResult: FinalDBFileType, selector: string, sele
     alt: findResult.alt,
     stockSymbol: findResult.s,
     comment: findResult.c,
-    link: findResult.ws,
+    link,
     rule: {
       selector,
       key: selectorKey
