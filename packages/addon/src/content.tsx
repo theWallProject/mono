@@ -47,68 +47,74 @@ const Content = () => {
 
       log("[Content] useEffect running, setting up scanner")
       // Initialize scanner after a delay
-      initTimeout = window.setTimeout(async () => {
-        try {
-          log("[Content] Initializing DOM scanner")
-          scannerRef.current = new DomScanner()
-          log("[Content] DomScanner instance created, calling initialize()")
-          await scannerRef.current.initialize()
-          log("[Content] initialize() called successfully")
-        } catch (e) {
-          log("[Content] Failed to initialize DOM scanner", e)
-          // Fail-safe: scanner just won't run, page still works
-        }
+      initTimeout = window.setTimeout(() => {
+        void (async () => {
+          try {
+            log("[Content] Initializing DOM scanner")
+            scannerRef.current = new DomScanner()
+            log("[Content] DomScanner instance created, calling initialize()")
+            await scannerRef.current.initialize()
+            log("[Content] initialize() called successfully")
+          } catch (e) {
+            log("[Content] Failed to initialize DOM scanner", e)
+            // Fail-safe: scanner just won't run, page still works
+          }
+        })()
       }, 1500) // Wait 1.5 seconds after page load
     }
 
-    initializeContent()
+    void initializeContent()
 
     // Handle navigation
-    const handleNavigation = async () => {
-      const currentUrl = window.location.href
-      const rule = await findMatchingRule(currentUrl)
+    const handleNavigation = () => {
+      void (async () => {
+        const currentUrl = window.location.href
+        const rule = await findMatchingRule(currentUrl)
 
-      // Cancel any pending navigation timeout
-      if (navigationTimeoutRef.current !== null) {
-        clearTimeout(navigationTimeoutRef.current)
-        navigationTimeoutRef.current = null
-      }
-
-      // Stop scanner if page no longer has urlDomInline rule
-      if (!rule || rule.type !== "urlDomInline") {
-        if (scannerRef.current) {
-          scannerRef.current.stop()
-          scannerRef.current = null
-        }
-        // Don't re-initialize if it's urlOnly or urlDomFull (Banner handles these)
-        if (rule && (rule.type === "urlOnly" || rule.type === "urlDomFull")) {
-          return
-        }
-      }
-
-      try {
-        if (scannerRef.current) {
-          scannerRef.current.stop()
-          scannerRef.current = null
-        }
-
-        // Re-initialize after navigation (only for urlDomInline rules)
-        navigationTimeoutRef.current = window.setTimeout(async () => {
+        // Cancel any pending navigation timeout
+        if (navigationTimeoutRef.current !== null) {
+          clearTimeout(navigationTimeoutRef.current)
           navigationTimeoutRef.current = null
-          const newUrl = window.location.href
-          const newRule = await findMatchingRule(newUrl)
-          if (newRule?.type === "urlDomInline") {
-            try {
-              scannerRef.current = new DomScanner()
-              await scannerRef.current.initialize()
-            } catch (e) {
-              log("[Content] Error re-initializing scanner after navigation", e)
-            }
+        }
+
+        // Stop scanner if page no longer has urlDomInline rule
+        if (!rule || rule.type !== "urlDomInline") {
+          if (scannerRef.current) {
+            scannerRef.current.stop()
+            scannerRef.current = null
           }
-        }, 1500)
-      } catch (e) {
-        log("[Content] Error handling navigation", e)
-      }
+          // Don't re-initialize if it's urlOnly or urlDomFull (Banner handles these)
+          if (rule && (rule.type === "urlOnly" || rule.type === "urlDomFull")) {
+            return
+          }
+        }
+
+        try {
+          if (scannerRef.current) {
+            scannerRef.current.stop()
+            scannerRef.current = null
+          }
+
+          // Re-initialize after navigation (only for urlDomInline rules)
+          navigationTimeoutRef.current = window.setTimeout(() => {
+            void (async () => {
+              navigationTimeoutRef.current = null
+              const newUrl = window.location.href
+              const newRule = await findMatchingRule(newUrl)
+              if (newRule?.type === "urlDomInline") {
+                try {
+                  scannerRef.current = new DomScanner()
+                  await scannerRef.current.initialize()
+                } catch (e) {
+                  log("[Content] Error re-initializing scanner after navigation", e)
+                }
+              }
+            })()
+          }, 1500)
+        } catch (e) {
+          log("[Content] Error handling navigation", e)
+        }
+      })()
     }
 
     // Listen for navigation events

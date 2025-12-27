@@ -1,5 +1,5 @@
-import fs from "fs"
 import path from "path"
+import { formatAndWrite } from "@theWallProject/common"
 
 import { log } from "../../helper"
 import { loadModule } from "../../utils/moduleLoader"
@@ -71,6 +71,6 @@ export const saveManualAdditions = async (additions: ManualAdditionItem[]): Prom
 
   content += "]\n"
 
-  fs.writeFileSync(manualAdditionsPath, content, "utf-8")
+  await formatAndWrite(manualAdditionsPath, content, { parser: "typescript" })
   log(`Saved manualAdditions to ${manualAdditionsPath}`)
 }

@@ -1,9 +1,9 @@
-import { copyFileSync, existsSync, mkdirSync, writeFileSync } from "fs"
+import { copyFileSync, existsSync, mkdirSync } from "fs"
 import { join } from "path"
 import { z } from "zod"
 import { zodToJsonSchema } from "zod-to-json-schema"
 
-import { FinalDBFileSchema } from "../src/index"
+import { FinalDBFileSchema, formatAndWrite } from "../src/index"
 
 /**
  * Schema generation script - generates JSON schema from Zod schema.
@@ -86,16 +86,23 @@ if (!finalSchema.$schema) {
 finalSchema.description =
   "Schema for ALL.json database file. ⚠️ AUTO-GENERATED - Do not edit manually. Generated from Zod schema (FinalDBFileSchema). Run 'pnpm run generate-schema' in common package to regenerate."
 
-const outputPath = join(__dirname, "../src/schemas/all.generated.schema.json")
-writeFileSync(outputPath, JSON.stringify(finalSchema, null, 2))
+async function generateSchema() {
+  const outputPath = join(__dirname, "../src/schemas/all.generated.schema.json")
+  await formatAndWrite(outputPath, finalSchema, { parser: "json" })
 
-console.log(`✅ Generated JSON schema at ${outputPath}`)
+  console.log(`✅ Generated JSON schema at ${outputPath}`)
 
-// Copy to Android assets folder
-const androidAssetsPath = join(__dirname, "../../android/app/src/main/assets/all.generated.schema.json")
-const androidAssetsDir = join(__dirname, "../../android/app/src/main/assets")
-if (!existsSync(androidAssetsDir)) {
-  mkdirSync(androidAssetsDir, { recursive: true })
+  // Copy to Android assets folder
+  const androidAssetsPath = join(__dirname, "../../android/app/src/main/assets/all.generated.schema.json")
+  const androidAssetsDir = join(__dirname, "../../android/app/src/main/assets")
+  if (!existsSync(androidAssetsDir)) {
+    mkdirSync(androidAssetsDir, { recursive: true })
+  }
+  copyFileSync(outputPath, androidAssetsPath)
+  console.log(`✅ Copied schema to Android assets at ${androidAssetsPath}`)
 }
-copyFileSync(outputPath, androidAssetsPath)
-console.log(`✅ Copied schema to Android assets at ${androidAssetsPath}`)
+
+generateSchema().catch((error) => {
+  console.error("Failed to generate schema:", error)
+  process.exit(1)
+})

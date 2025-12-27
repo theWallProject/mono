@@ -547,3 +547,6 @@ export function getSelectorKey(domain: SpecialDomains, url?: string): LinkField 
 
 // Export blacklist schemas
 export { BlacklistItemSchema, BlacklistSchema, type BlacklistItem, type Blacklist } from "./schemas/blacklist"
+
+// Export formatting utilities
+export { formatAndWrite, type WriteOptions } from "./utils/formatAndWrite"

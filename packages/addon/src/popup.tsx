@@ -45,7 +45,7 @@ function Popup() {
 
       setIsLoading(false)
     }
-    checkHintsStatus()
+    void checkHintsStatus()
   }, [])
 
   const toggleHintsSystem = async () => {
@@ -340,7 +340,9 @@ function Popup() {
           <div style={sectionTitleStyle}>Settings</div>
           <button
             type="button"
-            onClick={toggleHintsSystem}
+            onClick={() => {
+              void toggleHintsSystem()
+            }}
             disabled={isToggling || isResetting || isTogglingLinkedIn}
             style={isToggling || isResetting || isTogglingLinkedIn ? disabledButtonStyle : buttonStyle}
             onMouseEnter={(e) => {
@@ -361,7 +363,9 @@ function Popup() {
           </button>
           <div
             style={checkboxContainerStyle}
-            onClick={toggleLinkedInJobProcessing}
+            onClick={() => {
+              void toggleLinkedInJobProcessing()
+            }}
             onMouseEnter={(e) => {
               if (!isTogglingLinkedIn && !isToggling && !isResetting) {
                 e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
@@ -377,7 +381,9 @@ function Popup() {
             <input
               type="checkbox"
               checked={linkedinJobProcessingEnabled}
-              onChange={toggleLinkedInJobProcessing}
+              onChange={() => {
+                void toggleLinkedInJobProcessing()
+              }}
               onClick={(e) => e.stopPropagation()}
               disabled={isTogglingLinkedIn || isToggling || isResetting}
               style={checkboxStyle}
@@ -388,7 +394,9 @@ function Popup() {
           </div>
           <button
             type="button"
-            onClick={resetDismissedHints}
+            onClick={() => {
+              void resetDismissedHints()
+            }}
             disabled={isToggling || isResetting || isTogglingLinkedIn}
             style={
               isToggling || isResetting || isTogglingLinkedIn

@@ -25,7 +25,12 @@ const globalIgnores = {
     "packages/scrapper/dist/**",
     "**/coverage/**",
     "**/playwright-report/**",
-    "**/.playwright/**"
+    "**/.playwright/**",
+    // Files not in tsconfig.json projects
+    "packages/common/scripts/**",
+    "packages/common/vitest.config.ts",
+    "packages/scrapper/src/tmp.js",
+    "packages/telegram-bot/scripts/**"
   ]
 }
 
@@ -35,7 +40,16 @@ const baseConfig = {
   languageOptions: {
     parser: tsparser,
     ecmaVersion: "latest",
-    sourceType: "module"
+    sourceType: "module",
+    parserOptions: {
+      project: [
+        "packages/addon/tsconfig.json",
+        "packages/common/tsconfig.json",
+        "packages/scrapper/tsconfig.json",
+        "packages/telegram-bot/tsconfig.json"
+      ],
+      tsconfigRootDir: import.meta.dirname || process.cwd()
+    }
   },
   plugins: {
     "@typescript-eslint": tseslint,
@@ -58,6 +72,12 @@ const baseConfig = {
         assertionStyle: "never"
       }
     ],
+    // CRITICAL: Type-aware promise rules (requires parserOptions.project)
+    "@typescript-eslint/no-floating-promises": "error", // Catch unawaited promises
+    "@typescript-eslint/no-misused-promises": "error", // Prevent async in wrong contexts
+    "@typescript-eslint/await-thenable": "error", // Prevent awaiting non-promises
+    "@typescript-eslint/promise-function-async": "warn", // Functions returning promises should be async
+    "@typescript-eslint/require-await": "warn", // Async functions should use await
     // Common JavaScript rules for all packages
     "prefer-const": "error",
     "no-var": "error",
@@ -75,6 +95,7 @@ const baseConfig = {
     "promise/no-return-in-finally": "warn",
     "promise/valid-params": "warn",
     "promise/no-multiple-resolved": "error",
+    "promise/prefer-await-to-then": "warn", // Prefer async/await over .then()
     // Warn on all eslint-disable comments
     "eslint-comments/no-use": ["warn", { allow: [] }],
     "eslint-comments/no-unlimited-disable": "warn",
@@ -84,7 +105,7 @@ const baseConfig = {
   }
 }
 
-// Node.js specific overrides - only adds Node globals and promise rules
+// Node.js specific overrides - only adds Node globals and strict TypeScript rules
 const nodeConfig = {
   files: [
     "packages/scrapper/**/*.{js,ts}",
@@ -96,9 +117,6 @@ const nodeConfig = {
     globals: {
       ...globals.node
     }
-  },
-  plugins: {
-    promise
   },
   rules: {
     // Override base TypeScript rules with strict rules for Node.js packages
@@ -113,21 +131,8 @@ const nodeConfig = {
     // Allow dynamic delete for require.cache (legitimate use case for hot-reloading)
     "@typescript-eslint/no-dynamic-delete": "warn",
     // Allow require() in Node.js (legitimate for dynamic module loading and cache management)
-    "@typescript-eslint/no-require-imports": "warn",
-    // Promise-specific rules (only for Node.js packages)
-    "promise/always-return": "error",
-    "promise/no-return-wrap": "error",
-    "promise/param-names": "error",
-    "promise/catch-or-return": "error",
-    "promise/no-native": "off",
-    "promise/no-nesting": "warn",
-    "promise/no-promise-in-callback": "warn",
-    "promise/no-callback-in-promise": "warn",
-    "promise/avoid-new": "off",
-    "promise/no-new-statics": "error",
-    "promise/no-return-in-finally": "warn",
-    "promise/valid-params": "warn",
-    "promise/no-multiple-resolved": "error"
+    "@typescript-eslint/no-require-imports": "warn"
+    // Promise rules inherited from baseConfig (no need to duplicate)
   }
 }
 

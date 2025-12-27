@@ -104,7 +104,7 @@ const formatValue = (value: ManualOverrideValue): string => {
   }
 }
 
-const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>) => {
+const saveManualOverrides = (overrides: Record<string, ManualOverrideValue>) => {
   const keys = Object.keys(overrides).sort()
   let content = 'import { ManualOverrideFields } from "../../types";\n\n'
   content +=
@@ -881,7 +881,7 @@ const validateItemLinks = async (
       }
 
       // Simply read from persistentTabUrls - tab->URL mappings prepared by events
-      ;(async () => {
+      void (async () => {
         // Wait for pending tab close checks before collecting
         await waitForPendingChecks()
 
@@ -1317,7 +1317,7 @@ const sortByReasonAndCbRank = (items: CrunchbaseScrappedItemType[]): CrunchbaseS
 /**
  * Prompts the user for a company name with a default value prefilled
  */
-const promptForCompanyName = (defaultCompany: string): Promise<string> => {
+const promptForCompanyName = async (defaultCompany: string): Promise<string> => {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -1727,7 +1727,7 @@ export async function addNewEntryLinksForAdditions(
 
         isContextClosing = true
         log(`  [DEBUG] cleanup() called with reason: ${reason}`)
-        ;(async () => {
+        void (async () => {
           await waitForPendingChecks()
 
           log(`  [DEBUG] Collecting from tab->URL mappings...`)
@@ -2193,7 +2193,7 @@ export async function run() {
     }
 
     // Save after each item
-    await saveManualOverrides(currentOverrides)
+    saveManualOverrides(currentOverrides)
 
     // CRITICAL: Ensure file is fully written and readable before proceeding
     // Verify the file exists and is readable to ensure it's saved on disk

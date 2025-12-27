@@ -56,7 +56,7 @@ function getImageDataUrl(canvas: HTMLCanvasElement): string {
 async function shareImage(imageDataUrl: string, title: string, text: string) {
   try {
     // Create a Blob object from the Data URL
-    const blob = await fetch(imageDataUrl).then((res) => res.blob())
+    const blob = await fetch(imageDataUrl).then(async (res) => res.blob())
 
     // Create a file object for sharing
     const file = new File([blob], "generated-image.png", { type: "image/png" })

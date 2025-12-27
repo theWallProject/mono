@@ -3,6 +3,7 @@ import path from "path"
 import {
   APIListOfReasonsSchema,
   BlacklistSchema,
+  formatAndWrite,
   type BlacklistItem,
   type valuesOfListOfReasons
 } from "@theWallProject/common"
@@ -112,11 +113,6 @@ export async function generateAndroidBlacklist() {
 
   // Write to Android assets directory
   const outputPath = path.join(__dirname, "../../../android/app/src/main/assets/blacklist.json")
-  const outputDir = path.dirname(outputPath)
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true })
-  }
-
-  fs.writeFileSync(outputPath, JSON.stringify(blacklist, null, 2) + "\n")
+  await formatAndWrite(outputPath, blacklist, { parser: "json" })
   console.log(`✅ Generated blacklist.json with ${blacklist.length} entries at ${outputPath}`)
 }

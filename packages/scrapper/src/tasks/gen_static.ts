@@ -1,5 +1,5 @@
-import fs from "fs"
 import path from "path"
+import { formatAndWrite } from "@theWallProject/common"
 
 import { cleanWebsite, log } from "../helper"
 import { Hints } from "../static_data/hints"
@@ -7,7 +7,7 @@ import { CompressedManualItemSchema, ManualEntriesType } from "../types"
 
 const outputFilePath = path.join(__dirname, "../../results/1_batches/static/MANUAL.json")
 
-const injectStaticRows = () => {
+const injectStaticRows = async () => {
   const merged: ManualEntriesType = []
   log("Starting injectStaticRows - processing Hints")
 
@@ -255,41 +255,19 @@ const injectStaticRows = () => {
 
   const sortedArray = merged.sort((a, b) => a.name.localeCompare(b.name))
 
-  saveJsonToFile(sortedArray, outputFilePath)
+  await saveJsonToFile(sortedArray, outputFilePath)
   log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
 
   return sortedArray
 }
 
-const saveJsonToFile = (data: unknown, outputFilePath: string) => {
+const saveJsonToFile = async (data: string | object, outputFilePath: string) => {
   try {
     const jsonString = JSON.stringify(data, null, 2)
     log(`JSON size: ${(jsonString.length / 1024 / 1024).toFixed(2)} MB`)
 
-    // Ensure directory exists
-    const dir = path.dirname(outputFilePath)
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true })
-    }
-
-    // Atomic write: write to temp file, then rename
-    const tempPath = `${outputFilePath}.tmp`
-
-    // Remove temp file if it exists from previous failed attempt
-    if (fs.existsSync(tempPath)) {
-      fs.unlinkSync(tempPath)
-    }
-
-    fs.writeFileSync(tempPath, jsonString, "utf-8")
-    log(`Temp file written: ${tempPath}`)
-
-    // Remove old file if exists
-    if (fs.existsSync(outputFilePath)) {
-      fs.unlinkSync(outputFilePath)
-    }
-
-    // Rename temp to final
-    fs.renameSync(tempPath, outputFilePath)
+    // Write with atomic write and prettier formatting
+    await formatAndWrite(outputFilePath, data, { atomic: true, parser: "json" })
     log(`Data successfully written to ${outputFilePath}`)
   } catch (err) {
     console.error(`Failed to write ${outputFilePath}:`, err)
@@ -303,5 +281,5 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
 }
 
 export async function run() {
-  injectStaticRows()
+  await injectStaticRows()
 }

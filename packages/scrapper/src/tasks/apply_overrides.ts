@@ -30,4 +30,7 @@ async function main() {
   }
 }
 
-main()
+main().catch((err) => {
+  error("Fatal error in main():", err)
+  process.exit(1)
+})

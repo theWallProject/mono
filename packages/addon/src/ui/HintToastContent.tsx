@@ -165,12 +165,14 @@ export const HintToastContent = ({
           <>
             <button
               type="button"
-              onClick={async (e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                track("Button", "Click", "hint_dismiss_this")
-                onDismiss()
-                await onDismissPermanently(hintId)
+              onClick={(e) => {
+                void (async () => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  track("Button", "Click", "hint_dismiss_this")
+                  onDismiss()
+                  await onDismissPermanently(hintId)
+                })()
               }}
               onMouseDown={(e) => {
                 e.preventDefault()
@@ -203,12 +205,14 @@ export const HintToastContent = ({
             </button>
             <button
               type="button"
-              onClick={async (e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                track("Button", "Click", "hint_disable_all")
-                onDismiss()
-                await onDisableAll()
+              onClick={(e) => {
+                void (async () => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  track("Button", "Click", "hint_disable_all")
+                  onDismiss()
+                  await onDisableAll()
+                })()
               }}
               onMouseDown={(e) => {
                 e.preventDefault()

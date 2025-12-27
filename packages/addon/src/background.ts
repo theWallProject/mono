@@ -9,7 +9,7 @@ import { MessageTypes, type Message, type MessageResponseMap, type SendResponse 
 // User controls which versions trigger it by adding versions to this array
 const WHATS_NEW_VERSIONS = ["1.6.0"]
 
-chrome.runtime.onInstalled.addListener(async (details) => {
+chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)
   chrome.storage.session.clear(() => {
     log("cleared session [onInstalled]...")
@@ -17,33 +17,35 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 
   // Check if we should show "what's new" page
   if (details.reason === "install" || details.reason === "update") {
-    try {
-      const manifest = chrome.runtime.getManifest()
-      const currentVersion = manifest.version
-      log(`Checking what's new for version ${currentVersion}`)
+    void (async () => {
+      try {
+        const manifest = chrome.runtime.getManifest()
+        const currentVersion = manifest.version
+        log(`Checking what's new for version ${currentVersion}`)
 
-      // Check if this version should trigger the "what's new" page
-      if (WHATS_NEW_VERSIONS.includes(currentVersion)) {
-        // Check if this version has already been shown
-        const shownVersions = await getWhatsNewShownVersions()
-        if (!shownVersions.includes(currentVersion)) {
-          log(`Opening what's new page for version ${currentVersion}`)
-          // Open the what's new page
-          chrome.tabs.create({
-            url: chrome.runtime.getURL("tabs/whats-new.html")
-          })
-          // Mark this version as shown
-          await markWhatsNewVersionAsShown(currentVersion)
+        // Check if this version should trigger the "what's new" page
+        if (WHATS_NEW_VERSIONS.includes(currentVersion)) {
+          // Check if this version has already been shown
+          const shownVersions = await getWhatsNewShownVersions()
+          if (!shownVersions.includes(currentVersion)) {
+            log(`Opening what's new page for version ${currentVersion}`)
+            // Open the what's new page
+            await chrome.tabs.create({
+              url: chrome.runtime.getURL("tabs/whats-new.html")
+            })
+            // Mark this version as shown
+            await markWhatsNewVersionAsShown(currentVersion)
+          } else {
+            log(`Version ${currentVersion} already shown, skipping what's new page`)
+          }
         } else {
-          log(`Version ${currentVersion} already shown, skipping what's new page`)
+          log(`Version ${currentVersion} not in WHATS_NEW_VERSIONS, skipping`)
         }
-      } else {
-        log(`Version ${currentVersion} not in WHATS_NEW_VERSIONS, skipping`)
+      } catch (e) {
+        error("Error checking what's new page:", e)
+        // Don't fail hard - just log the error
       }
-    } catch (e) {
-      error("Error checking what's new page:", e)
-      // Don't fail hard - just log the error
-    }
+    })()
   }
 
   // const manifest = chrome.runtime.getManifest()
@@ -94,7 +96,7 @@ function isSpecialUrl(url: string) {
   }
 }
 
-const testTabUrl = async (tabId: number, url: string) => {
+const testTabUrl = (tabId: number, url: string) => {
   if (isSpecialUrl(url)) {
     log(`testTabUrl ignoring special url [${url}]`)
     return
@@ -121,7 +123,7 @@ const testTabUrl = async (tabId: number, url: string) => {
   )
 }
 
-chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   const url = tab.url
   log(`chrome.tabs.onUpdated [${tabId}]`, { url, changeInfo, tab })
 
@@ -135,7 +137,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     (changeInfo.url || changeInfo.status === "complete")
   ) {
     // setTimeout(() => {
-    await testTabUrl(tabId, url)
+    testTabUrl(tabId, url)
     // }, 3000)
   } else {
     warn(`chrome.tabs.onUpdated [${tabId}] was ignored`)
@@ -147,7 +149,7 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
   log("chrome.tabs.onActivated", activeInfo)
 
   // Check the active tab's loading status and proceed
-  chrome.tabs.get(activeInfo.tabId, async (tab) => {
+  chrome.tabs.get(activeInfo.tabId, (tab) => {
     if (chrome.runtime.lastError) {
       error("chrome.tabs.onActivated had lastError:", chrome.runtime.lastError)
       return
@@ -163,12 +165,12 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
     if (tab.status === "complete") {
       log("chrome.tabs.onActivated tab was already completed, testing")
 
-      await testTabUrl(activeInfo.tabId, url)
+      testTabUrl(activeInfo.tabId, url)
     } else {
       log("chrome.tabs.onActivated tab wasnt completed, setting handler")
 
       // Otherwise, wait for it to finish loading
-      const onUpdatedListener = async (tabId: number, changeInfo: chrome.tabs.OnUpdatedInfo, tab: chrome.tabs.Tab) => {
+      const onUpdatedListener = (tabId: number, changeInfo: chrome.tabs.OnUpdatedInfo, tab: chrome.tabs.Tab) => {
         log(`chrome.tabs.onActivated onUpdatedListener`, {
           tabId,
           changeInfo,
@@ -176,7 +178,7 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
         })
 
         if (tabId === activeInfo.tabId && changeInfo.status === "complete" && tab.url) {
-          await testTabUrl(tabId, tab.url)
+          testTabUrl(tabId, tab.url)
 
           // Remove the listener to prevent duplicate calls
           chrome.tabs.onUpdated.removeListener(onUpdatedListener)

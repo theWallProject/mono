@@ -139,7 +139,7 @@ export async function run() {
   log("Continuing after login...")
   const stageCounts = []
 
-  for await (const stage of filterStages) {
+  for (const stage of filterStages) {
     log("processing stage:", stage)
 
     let batchNum = 1
@@ -213,7 +213,7 @@ export async function run() {
         warn(`Size mismatch [${from}]: ${results.length} !== ${countFromResultsInfo}`)
       }
 
-      await saveResultsToFile(results, `${stage.fileName}_${batchNum}.json`)
+      saveResultsToFile(results, `${stage.fileName}_${batchNum}.json`)
       batchNum += 1
     }
 
@@ -225,7 +225,7 @@ export async function run() {
   // await browser.close();
 }
 
-async function saveResultsToFile(results: CrunchbaseScrappedItemType[], fileName: string) {
+function saveResultsToFile(results: CrunchbaseScrappedItemType[], fileName: string) {
   const filePath = path.join(__dirname, "../../results/1_batches/cb/", fileName)
 
   log(`scraping complete. Saving ${results.length} rows to [${filePath}]...`)

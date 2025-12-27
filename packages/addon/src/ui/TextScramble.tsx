@@ -81,7 +81,7 @@ export const TextScramble: React.FC<TextScrambleProps> = ({ texts, interval = 20
   }
 
   // Set text function - defined within component as it needs access to refs and other functions
-  const setText = (newText: string): Promise<void> => {
+  const setText = async (newText: string): Promise<void> => {
     if (!elementRef.current || isAnimatingRef.current) return Promise.resolve()
 
     isAnimatingRef.current = true

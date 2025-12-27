@@ -1,7 +1,6 @@
 import { execSync } from "child_process"
-import fs from "fs"
 import path from "path"
-import { APIListOfReasonsSchema } from "@theWallProject/common"
+import { APIListOfReasonsSchema, formatAndWrite } from "@theWallProject/common"
 import type { APIListOfReasonsValues } from "@theWallProject/common"
 import inquirer from "inquirer"
 
@@ -31,7 +30,7 @@ const loadManualDeleteIds = (): string[] => {
   return deleteIds
 }
 
-const saveManualDeleteIds = (deleteIds: string[]): void => {
+const saveManualDeleteIds = async (deleteIds: string[]): Promise<void> => {
   // Sort and deduplicate
   const sortedIds = Array.from(new Set(deleteIds)).sort()
 
@@ -41,7 +40,7 @@ const saveManualDeleteIds = (deleteIds: string[]): void => {
   }
   content += "]\n"
 
-  fs.writeFileSync(manualDeleteIdsPath, content, "utf-8")
+  await formatAndWrite(manualDeleteIdsPath, content, { parser: "typescript" })
   log(`Saved manualDeleteIds to ${manualDeleteIdsPath}`)
 }
 
@@ -129,7 +128,7 @@ const handleDeleteAction = async (): Promise<void> => {
   }
 
   const updatedDeleteIds = [...currentDeleteIds, companyId]
-  saveManualDeleteIds(updatedDeleteIds)
+  await saveManualDeleteIds(updatedDeleteIds)
   log(`✅ Added "${companyId}" to manualDeleteIds.ts`)
 }
 
@@ -269,4 +268,7 @@ const main = async () => {
   }
 }
 
-main()
+main().catch((err) => {
+  error("Fatal error in main():", err)
+  process.exit(1)
+})

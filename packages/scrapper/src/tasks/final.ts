@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path"
-import { FinalDBFileType, type LinkField } from "@theWallProject/common"
+import { FinalDBFileType, formatAndWrite, type LinkField } from "@theWallProject/common"
 import { z } from "zod"
 
 import { log } from "../helper"
@@ -13,7 +13,7 @@ const mergedDataPath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL
 
 const outputFilePath = path.join(__dirname, `../../results/4_final/${DBFileNames.ALL}.json`)
 
-const loadJsonFiles = (folderPath: string) => {
+const loadJsonFiles = async (folderPath: string) => {
   // Load merged data to get stock symbol, hints, and Android fields
   const mergedDataContent = fs.readFileSync(mergedDataPath, "utf-8")
   const mergedData = MergedDataFileSchema.parse(JSON.parse(mergedDataContent))
@@ -90,39 +90,17 @@ const loadJsonFiles = (folderPath: string) => {
 
   const sortedArray = combinedArray.sort((a, b) => a.n.localeCompare(b.n))
 
-  saveJsonToFile(sortedArray, outputFilePath)
+  await saveJsonToFile(sortedArray, outputFilePath)
   log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
 }
 
-const saveJsonToFile = (data: unknown, outputFilePath: string) => {
+const saveJsonToFile = async (data: string | object, outputFilePath: string) => {
   try {
     const jsonString = JSON.stringify(data, null, 2)
     log(`Final JSON size: ${(jsonString.length / 1024 / 1024).toFixed(2)} MB`)
 
-    // Ensure directory exists
-    const dir = path.dirname(outputFilePath)
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true })
-    }
-
-    // Atomic write: write to temp file, then rename
-    const tempPath = `${outputFilePath}.tmp`
-
-    // Remove temp file if it exists from previous failed attempt
-    if (fs.existsSync(tempPath)) {
-      fs.unlinkSync(tempPath)
-    }
-
-    fs.writeFileSync(tempPath, jsonString, "utf-8")
-    log(`Temp file written: ${tempPath}`)
-
-    // Remove old file if exists
-    if (fs.existsSync(outputFilePath)) {
-      fs.unlinkSync(outputFilePath)
-    }
-
-    // Rename temp to final
-    fs.renameSync(tempPath, outputFilePath)
+    // Write with atomic write and prettier formatting
+    await formatAndWrite(outputFilePath, data, { atomic: true, parser: "json" })
     log(`Final data successfully written to ${outputFilePath}`)
 
     // Copy ALL.json to all destinations right after it's generated
@@ -166,7 +144,7 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
 }
 
 export async function run() {
-  return loadJsonFiles(folderPath)
+  return await loadJsonFiles(folderPath)
 }
 function keyFromFileName(fileName: string): LinkField {
   switch (fileName.split(".")[0]) {

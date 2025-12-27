@@ -11,6 +11,7 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
   APIListOfReasonsSchema,
+  formatAndWrite,
   getMainDomain,
   type LinkField,
   type valuesOfListOfReasons
@@ -114,7 +115,7 @@ const mergedCBPath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.js
 
 const outputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
 
-const loadJsonFiles = (folderPath: string) => {
+const loadJsonFiles = async (folderPath: string) => {
   const mergedCBContent = fs.readFileSync(mergedCBPath, "utf-8")
 
   const combinedArray = CrunchbaseScrappedItemsSchema.parse(JSON.parse(mergedCBContent))
@@ -435,6 +436,7 @@ const loadJsonFiles = (folderPath: string) => {
   // The first URL of each field is kept on a single base entry, and extra URLs
   // are emitted as separate minimal entries (similar to manualOverrides handling).
   for (const addition of manualAdditions) {
+    const additionalItemsCountBefore = additionalItems.length
     const existingIndex = processedItems.findIndex((item) => item.name === addition.name)
 
     // Type guard to check if addition has ManualOverrideFields
@@ -628,10 +630,9 @@ const loadJsonFiles = (folderPath: string) => {
       }
     }
 
+    const extraUrlsForThisEntry = additionalItems.length - additionalItemsCountBefore
     log(
-      `Added manualAddition: ${addition.name} - base entry created with ${fieldUrls.size} field(s) and ${
-        additionalItems.length
-      } extra URL(s) so far`
+      `Added manualAddition: ${addition.name} - base entry created with ${fieldUrls.size} field(s) and ${extraUrlsForThisEntry} extra URL(s)`
     )
   }
 
@@ -640,41 +641,19 @@ const loadJsonFiles = (folderPath: string) => {
 
   const sortedArray = manuallyUpdatedArray.sort((a, b) => a.name.localeCompare(b.name))
 
-  saveJsonToFile(sortedArray, outputFilePath)
+  await saveJsonToFile(sortedArray, outputFilePath)
   log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
 
   return sortedArray
 }
 
-const saveJsonToFile = (data: unknown, outputFilePath: string) => {
+const saveJsonToFile = async (data: string | object, outputFilePath: string) => {
   try {
     const jsonString = JSON.stringify(data, null, 2)
     log(`JSON size: ${(jsonString.length / 1024 / 1024).toFixed(2)} MB`)
 
-    // Ensure directory exists
-    const dir = path.dirname(outputFilePath)
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true })
-    }
-
-    // Atomic write: write to temp file, then rename
-    const tempPath = `${outputFilePath}.tmp`
-
-    // Remove temp file if it exists from previous failed attempt
-    if (fs.existsSync(tempPath)) {
-      fs.unlinkSync(tempPath)
-    }
-
-    fs.writeFileSync(tempPath, jsonString, "utf-8")
-    log(`Temp file written: ${tempPath}`)
-
-    // Remove old file if exists
-    if (fs.existsSync(outputFilePath)) {
-      fs.unlinkSync(outputFilePath)
-    }
-
-    // Rename temp to final
-    fs.renameSync(tempPath, outputFilePath)
+    // Write with atomic write and prettier formatting
+    await formatAndWrite(outputFilePath, data, { atomic: true, parser: "json" })
     log(`Data successfully written to ${outputFilePath}`)
   } catch (err) {
     error(`Failed to write ${outputFilePath}:`, err)
@@ -705,5 +684,5 @@ const saveJsonToFile = (data: unknown, outputFilePath: string) => {
 // }
 
 export async function run() {
-  return loadJsonFiles(folderPath)
+  return await loadJsonFiles(folderPath)
 }

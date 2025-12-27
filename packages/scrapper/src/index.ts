@@ -105,5 +105,8 @@ const main = async () => {
 // Only run main() if this file is executed directly (not imported)
 if (require.main === module) {
   // process.stdin.once("data", () => log("done"));
-  main()
+  main().catch((err) => {
+    error("Fatal error in main():", err)
+    process.exit(1)
+  })
 }

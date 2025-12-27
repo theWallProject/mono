@@ -23,6 +23,7 @@ const report = () => {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/require-await -- Function must be async for API consistency with other tasks
 export async function run() {
   report()
 }

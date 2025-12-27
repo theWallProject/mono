@@ -1,5 +1,5 @@
-import fs from "fs"
 import path from "path"
+import { formatAndWrite } from "@theWallProject/common"
 
 import { error, log, warn } from "../helper"
 import {
@@ -124,7 +124,11 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
     }
   }
 
-  fs.writeFileSync(outputFilePath, JSON.stringify(result.sort((a, b) => a.selector.localeCompare(b.selector))), "utf-8")
+  await formatAndWrite(
+    outputFilePath,
+    result.sort((a, b) => a.selector.localeCompare(b.selector)),
+    { parser: "json" }
+  )
 
   log(`Wrote ${mergedDB.length} rows...`)
 }

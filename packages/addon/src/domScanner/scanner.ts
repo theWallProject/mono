@@ -251,7 +251,7 @@ export class DomScanner {
 
     this.processingTimeout = window.setTimeout(() => {
       this.processingTimeout = null
-      this.processQueue()
+      void this.processQueue()
     }, PROCESSING_DELAY_MS)
   }
 
@@ -492,7 +492,7 @@ export class DomScanner {
         }))
 
       if (queuedItems.length > 0) {
-        this.checkUrlsSequentially(queuedItems)
+        void this.checkUrlsSequentially(queuedItems)
       }
     }
   }

@@ -541,6 +541,7 @@ export async function waitForExternalLink(
   return new Promise<Page>((resolve, reject) => {
     const startTime = Date.now()
 
+    // eslint-disable-next-line @typescript-eslint/require-await -- No async operations, but returns Promise for error handling with .catch()
     const checkPages = async (): Promise<void> => {
       const pages = context.pages()
       for (const page of pages) {

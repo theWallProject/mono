@@ -99,7 +99,7 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
   return new Promise((resolve) => {
     const executeAsync = async () => {
       // Use shared pure functions for rule matching
-      const rule = await findMatchingRule(url)
+      const rule = findMatchingRule(url)
 
       if (rule) {
         log("storage: isUrlFlagged [rule]", { rule })
@@ -202,6 +202,6 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
         }
       }
     }
-    executeAsync()
+    void executeAsync()
   })
 }

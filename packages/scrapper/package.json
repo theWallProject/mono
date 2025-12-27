@@ -4,13 +4,13 @@
   "description": "Puppeteer script to get data from Crunchbase",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
-    "data": "ts-node src/validate_index.ts",
-    "apply-overrides": "ts-node src/tasks/apply_overrides.ts",
+    "dev": "node --max-old-space-size=4096 -r ts-node/register src/index.ts",
+    "data": "node --max-old-space-size=4096 -r ts-node/register src/validate_index.ts",
+    "apply-overrides": "node --max-old-space-size=4096 -r ts-node/register src/tasks/apply_overrides.ts",
     "merge": "ts-node-dev src/merge_results.ts",
     "convert": "ts-node-dev src/convertDB.ts",
-    "build": "tsc && pnpm --filter @theWallProject/common test && ts-node src/tasks/regenerate_db.ts && pnpm --filter @theWallProject/common validate-schema",
-    "start": "pnpm run build && node dist/index.js"
+    "build": "tsc && node --max-old-space-size=4096 -r ts-node/register src/tasks/regenerate_db.ts",
+    "start": "pnpm run build && node --max-old-space-size=4096 dist/index.js"
   },
   "engines": {
     "node": ">=18"

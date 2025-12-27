@@ -1,5 +1,5 @@
-import fs from "fs"
 import path from "path"
+import { formatAndWrite } from "@theWallProject/common"
 
 import { log } from "../../helper"
 import type { ManualOverrideValue } from "./types"
@@ -89,6 +89,6 @@ export const saveManualOverrides = async (overrides: Record<string, ManualOverri
 
   content += "};\n"
 
-  fs.writeFileSync(manualOverridesPath, content, "utf-8")
+  await formatAndWrite(manualOverridesPath, content, { parser: "typescript" })
   log(`Saved manualOverrides to ${manualOverridesPath}`)
 }

@@ -1,4 +1,3 @@
-import fs from "fs"
 import path from "path"
 import {
   API_ENDPOINT_RULE_FACEBOOK,
@@ -9,7 +8,8 @@ import {
   API_ENDPOINT_RULE_TIKTOK,
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
-  API_ENDPOINT_RULE_YOUTUBE_PROFILE
+  API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+  formatAndWrite
 } from "@theWallProject/common"
 
 import { error, log, warn } from "../helper"
@@ -21,7 +21,7 @@ import {
   NetworksFlatItemsType
 } from "../types"
 
-const extractSocialLinks = (data: MergedDataItem[]) => {
+const extractSocialLinks = async (data: MergedDataItem[]) => {
   const linkedinFlagged: NetworksFlatItemsType = []
   const facebookFlagged: NetworksFlatItemsType = []
   const twitterFlagged: NetworksFlatItemsType = []
@@ -290,47 +290,39 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
     }
   })
 
-  saveJsonToFile(
+  await saveJsonToFile(
     linkedinFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_LI_COMPANY}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     facebookFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_FACEBOOK}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     twitterFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_TWITTER}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     instagramFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_INSTAGRAM}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     githubFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_GITHUB}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     youtubeProfileFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_YOUTUBE_PROFILE}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     youtubeChannelFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_YOUTUBE_CHANNEL}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     tiktokFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_TIKTOK}.json`)
   )
-
-  saveJsonToFile(
+  await saveJsonToFile(
     threadsFlagged.sort((a, b) => a.name.localeCompare(b.name)),
     path.join(__dirname, `../../results/3_networks/${DBFileNames.FLAGGED_THREADS}.json`)
   )
@@ -346,8 +338,8 @@ const extractSocialLinks = (data: MergedDataItem[]) => {
   log(`Wrote ${threadsFlagged.length} th rows..`)
 }
 
-const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
+const saveJsonToFile = async (data: string | object, outputFilePath: string) => {
+  await formatAndWrite(outputFilePath, data, { parser: "json" })
   log(`Data successfully written to ${outputFilePath}`)
 }
 
@@ -356,5 +348,5 @@ export async function run(merged: CrunchbaseScrappedItemsType | MergedDataItem[]
   // This will throw immediately if validation fails
   MergedDataFileSchema.parse(merged)
 
-  extractSocialLinks(merged)
+  await extractSocialLinks(merged)
 }

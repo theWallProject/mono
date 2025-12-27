@@ -1,6 +1,7 @@
 import { existsSync } from "fs"
-import { mkdir, rm, writeFile } from "fs/promises"
+import { mkdir, rm } from "fs/promises"
 import * as path from "path"
+import { formatAndWrite } from "@theWallProject/common"
 
 import { TRANSLATIONS } from "./DB.ts"
 
@@ -54,7 +55,7 @@ const generateLocaleFiles = async (translations: Record<string, Record<string, s
     await ensureDirExists(langDir)
 
     const filePath = path.join(langDir, "messages.json")
-    await writeFile(filePath, JSON.stringify(messages, null, 2), "utf-8")
+    await formatAndWrite(filePath, messages, { parser: "json" })
     console.log(`Generated: ${filePath}`)
   }
 }

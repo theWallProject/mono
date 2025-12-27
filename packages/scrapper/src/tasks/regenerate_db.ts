@@ -4,7 +4,7 @@ import { runUpdateSteps } from "../index"
 // Run the pipeline without scraping, validation, or copying to addon
 // This ensures hints are merged into the database
 
-;(async () => {
+void (async () => {
   try {
     log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Starting database regeneration...")
     await runUpdateSteps({

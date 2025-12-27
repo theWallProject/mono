@@ -14,7 +14,21 @@ export const microsoftBdsHints: CompressedManualItemType[] = [
   {
     name: "Microsoft",
     reasons: [],
-    ws: ["https://www.microsoft.com"],
+    ws: [
+      "https://www.microsoft.com",
+      "https://www.office.com",
+      "https://www.outlook.com",
+      "https://www.live.com",
+      "https://www.xbox.com",
+      "https://www.bing.com",
+      "https://www.msn.com",
+      "https://www.azure.com",
+      "https://www.visualstudio.com",
+      "https://www.onedrive.com",
+      "https://www.skype.com",
+      "https://www.windows.com",
+      "https://www.surface.com"
+    ],
     fb: [
       "https://www.facebook.com/MicrosoftAfrica",
       "https://www.facebook.com/MicrosoftDE",

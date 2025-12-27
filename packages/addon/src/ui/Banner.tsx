@@ -204,23 +204,25 @@ export const Banner = () => {
 
   // Test URL on initial mount
   useEffect(() => {
-    testCurrentUrl()
+    void testCurrentUrl()
   }, [testCurrentUrl])
 
   // Re-test URL when navigation occurs on pages with rules (SPA navigation)
   useEffect(() => {
     let lastUrl = window.location.href
-    const checkInterval = setInterval(async () => {
-      if (window.location.href !== lastUrl) {
-        lastUrl = window.location.href
-        // Re-test if there's a urlDomFull rule or if it's URL-only (default fallback)
-        const urlDomFullRule = await findRuleOfType(lastUrl, "urlDomFull")
-        const isUrlOnly = await isUrlOnlyRule(lastUrl)
-        if (urlDomFullRule || isUrlOnly) {
-          log("[Banner] URL changed on page with rule, re-testing")
-          testCurrentUrl()
+    const checkInterval = setInterval(() => {
+      void (async () => {
+        if (window.location.href !== lastUrl) {
+          lastUrl = window.location.href
+          // Re-test if there's a urlDomFull rule or if it's URL-only (default fallback)
+          const urlDomFullRule = await findRuleOfType(lastUrl, "urlDomFull")
+          const isUrlOnly = await isUrlOnlyRule(lastUrl)
+          if (urlDomFullRule || isUrlOnly) {
+            log("[Banner] URL changed on page with rule, re-testing")
+            void testCurrentUrl()
+          }
         }
-      }
+      })()
     }, 1000)
 
     return () => {
@@ -234,7 +236,7 @@ export const Banner = () => {
       log("[Banner] Received message:", message)
       if (message.action === MessageTypes.RequestUrlTest) {
         log("[Banner] RequestUrlTest received, testing current URL")
-        testCurrentUrl()
+        void testCurrentUrl()
       }
       return true // Indicate we will send a response asynchronously
     }
@@ -290,7 +292,7 @@ export const Banner = () => {
       }
 
       isCheckingHintRef.current = true
-      ;(async () => {
+      void (async () => {
         // Check all conditions before showing
         const [systemDisabled, permanentlyDismissed, shownRecently] = await Promise.all([
           isHintsSystemDisabled(),

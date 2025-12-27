@@ -33,7 +33,7 @@ describe.skip("Multi-Tab Scenarios", () => {
       const popupUrl = `chrome-extension://${extensionId}/popup.html`
       await page.goto(popupUrl, { waitUntil: "domcontentloaded", timeout: 5000 })
       await page.evaluate(
-        ({
+        async ({
           hintShownPrefix,
           hintDismissedPermPrefix
         }: {

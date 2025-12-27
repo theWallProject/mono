@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "path"
+import { formatAndWrite } from "@theWallProject/common"
 
 import { log, warn } from "../helper"
 import { CrunchbaseScrappedItemsSchema, CrunchbaseScrappedItemType } from "../types"
@@ -8,7 +9,7 @@ const folderPath = path.join(__dirname, "../../results/1_batches/cb")
 
 const outputFilePath = path.join(__dirname, "../../results/2_merged/1_MERGED_CB.json")
 
-const loadJsonFiles = (folderPath: string) => {
+const loadJsonFiles = async (folderPath: string) => {
   const files = fs.readdirSync(folderPath).filter((file) => file.endsWith(".json"))
 
   const combinedArray: CrunchbaseScrappedItemType[] = []
@@ -64,17 +65,17 @@ const loadJsonFiles = (folderPath: string) => {
 
   const sortedArray = combinedArray.sort((a, b) => a.name.localeCompare(b.name))
 
-  saveJsonToFile(sortedArray, outputFilePath)
+  await saveJsonToFile(sortedArray, outputFilePath)
   log(`Wrote ${sortedArray.length} rows to ${outputFilePath}...`)
 }
 
-const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
+const saveJsonToFile = async (data: string | object, outputFilePath: string) => {
+  await formatAndWrite(outputFilePath, data, { parser: "json" })
   log(`Data successfully written to ${outputFilePath}`)
 }
 
 export async function run() {
-  return loadJsonFiles(folderPath)
+  return await loadJsonFiles(folderPath)
 }
 
 function mergeObjects(obj1: CrunchbaseScrappedItemType, obj2: CrunchbaseScrappedItemType): CrunchbaseScrappedItemType {
