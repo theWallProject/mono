@@ -53,8 +53,44 @@ const injectStaticRows = () => {
 }
 
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
-  log(`Data successfully written to ${outputFilePath}`)
+  try {
+    const jsonString = JSON.stringify(data, null, 2)
+    log(`JSON size: ${(jsonString.length / 1024 / 1024).toFixed(2)} MB`)
+
+    // Ensure directory exists
+    const dir = path.dirname(outputFilePath)
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true })
+    }
+
+    // Atomic write: write to temp file, then rename
+    const tempPath = `${outputFilePath}.tmp`
+
+    // Remove temp file if it exists from previous failed attempt
+    if (fs.existsSync(tempPath)) {
+      fs.unlinkSync(tempPath)
+    }
+
+    fs.writeFileSync(tempPath, jsonString, "utf-8")
+    log(`Temp file written: ${tempPath}`)
+
+    // Remove old file if exists
+    if (fs.existsSync(outputFilePath)) {
+      fs.unlinkSync(outputFilePath)
+    }
+
+    // Rename temp to final
+    fs.renameSync(tempPath, outputFilePath)
+    log(`Data successfully written to ${outputFilePath}`)
+  } catch (err) {
+    console.error(`Failed to write ${outputFilePath}:`, err)
+    if (err instanceof Error) {
+      console.error(`Error name: ${err.name}`)
+      console.error(`Error message: ${err.message}`)
+      console.error(`Error stack: ${err.stack}`)
+    }
+    throw err
+  }
 }
 
 export async function run() {

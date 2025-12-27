@@ -95,38 +95,74 @@ const loadJsonFiles = (folderPath: string) => {
 }
 
 const saveJsonToFile = (data: unknown, outputFilePath: string) => {
-  fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2), "utf-8")
-  log(`Final data successfully written to ${outputFilePath}`)
+  try {
+    const jsonString = JSON.stringify(data, null, 2)
+    log(`Final JSON size: ${(jsonString.length / 1024 / 1024).toFixed(2)} MB`)
 
-  // Copy ALL.json to all destinations right after it's generated
-  const allJsonPath = outputFilePath
+    // Ensure directory exists
+    const dir = path.dirname(outputFilePath)
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true })
+    }
 
-  // Copy to addon
-  const addonTarget = path.join(__dirname, `../../../addon/src/db/ALL.json`)
-  const addonDir = path.dirname(addonTarget)
-  if (!fs.existsSync(addonDir)) {
-    fs.mkdirSync(addonDir, { recursive: true })
+    // Atomic write: write to temp file, then rename
+    const tempPath = `${outputFilePath}.tmp`
+
+    // Remove temp file if it exists from previous failed attempt
+    if (fs.existsSync(tempPath)) {
+      fs.unlinkSync(tempPath)
+    }
+
+    fs.writeFileSync(tempPath, jsonString, "utf-8")
+    log(`Temp file written: ${tempPath}`)
+
+    // Remove old file if exists
+    if (fs.existsSync(outputFilePath)) {
+      fs.unlinkSync(outputFilePath)
+    }
+
+    // Rename temp to final
+    fs.renameSync(tempPath, outputFilePath)
+    log(`Final data successfully written to ${outputFilePath}`)
+
+    // Copy ALL.json to all destinations right after it's generated
+    const allJsonPath = outputFilePath
+
+    // Copy to addon
+    const addonTarget = path.join(__dirname, `../../../addon/src/db/ALL.json`)
+    const addonDir = path.dirname(addonTarget)
+    if (!fs.existsSync(addonDir)) {
+      fs.mkdirSync(addonDir, { recursive: true })
+    }
+    fs.copyFileSync(allJsonPath, addonTarget)
+    log(`Copied ALL.json to addon: ${addonTarget}`)
+
+    // Copy to Android assets
+    const androidTarget = path.join(__dirname, `../../../android/app/src/main/assets/ALL.json`)
+    const androidDir = path.dirname(androidTarget)
+    if (!fs.existsSync(androidDir)) {
+      fs.mkdirSync(androidDir, { recursive: true })
+    }
+    fs.copyFileSync(allJsonPath, androidTarget)
+    log(`Copied ALL.json to Android assets: ${androidTarget}`)
+
+    // Copy to telegram-bot
+    const telegramTarget = path.join(__dirname, `../../../telegram-bot/db/ALL.json`)
+    const telegramDir = path.dirname(telegramTarget)
+    if (!fs.existsSync(telegramDir)) {
+      fs.mkdirSync(telegramDir, { recursive: true })
+    }
+    fs.copyFileSync(allJsonPath, telegramTarget)
+    log(`Copied ALL.json to telegram-bot: ${telegramTarget}`)
+  } catch (err) {
+    console.error(`Failed to write or copy ${outputFilePath}:`, err)
+    if (err instanceof Error) {
+      console.error(`Error name: ${err.name}`)
+      console.error(`Error message: ${err.message}`)
+      console.error(`Error stack: ${err.stack}`)
+    }
+    throw err
   }
-  fs.copyFileSync(allJsonPath, addonTarget)
-  log(`Copied ALL.json to addon: ${addonTarget}`)
-
-  // Copy to Android assets
-  const androidTarget = path.join(__dirname, `../../../android/app/src/main/assets/ALL.json`)
-  const androidDir = path.dirname(androidTarget)
-  if (!fs.existsSync(androidDir)) {
-    fs.mkdirSync(androidDir, { recursive: true })
-  }
-  fs.copyFileSync(allJsonPath, androidTarget)
-  log(`Copied ALL.json to Android assets: ${androidTarget}`)
-
-  // Copy to telegram-bot
-  const telegramTarget = path.join(__dirname, `../../../telegram-bot/db/ALL.json`)
-  const telegramDir = path.dirname(telegramTarget)
-  if (!fs.existsSync(telegramDir)) {
-    fs.mkdirSync(telegramDir, { recursive: true })
-  }
-  fs.copyFileSync(allJsonPath, telegramTarget)
-  log(`Copied ALL.json to telegram-bot: ${telegramTarget}`)
 }
 
 export async function run() {
