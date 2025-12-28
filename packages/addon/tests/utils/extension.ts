@@ -1,6 +1,5 @@
 import type { BrowserContext, Page } from "playwright"
 
-import { addBadLink } from "../fixtures/test-urls"
 import { getExtensionPopupUrl } from "./browser"
 
 /**
@@ -22,17 +21,9 @@ export async function safeClosePage(page: Page): Promise<void> {
  * Navigate to a URL with a reliable wait strategy
  * Uses "load" instead of "networkidle" to avoid timeouts on sites with continuous network activity
  * Returns true if the page loaded successfully, false if it failed or redirected to a login page
- * Automatically adds URLs to bad list if they redirect
  */
 export async function navigateToUrl(page: Page, url: string, timeout = 30000): Promise<boolean> {
   try {
-    // Ensure page is ready before navigation
-    const currentUrl = page.url()
-    if (currentUrl === "about:blank") {
-      // Page is on about:blank, ready to navigate
-      console.log(`[TEST] Page is on about:blank, navigating to: ${url}`)
-    }
-
     await page.goto(url, { waitUntil: "domcontentloaded", timeout })
     console.log(`[TEST] Page navigated to: ${url}`)
 
@@ -40,101 +31,19 @@ export async function navigateToUrl(page: Page, url: string, timeout = 30000): P
     const finalUrl = page.url()
     if (finalUrl === "about:blank") {
       console.log(`[TEST] Navigation to ${url} resulted in about:blank - navigation failed`)
-      addBadLink(url)
       return false
     }
+
+    // Wait for page to be ready
+    await page.waitForLoadState("domcontentloaded", { timeout: 5000 })
+    console.log(`[TEST] Page loaded successfully: ${url}`)
+    return true
   } catch (error) {
     // Handle network errors (DNS failures, timeouts, etc.)
     const errorMessage = error instanceof Error ? error.message : String(error)
-    const errorMessageLower = errorMessage.toLowerCase()
-    if (
-      errorMessageLower.includes("err_name_not_resolved") ||
-      errorMessageLower.includes("net::err") ||
-      errorMessageLower.includes("timeout") ||
-      errorMessageLower.includes("timeouterror") ||
-      errorMessageLower.includes("navigation timeout")
-    ) {
-      console.log(`[TEST] Failed to load URL (network error): ${url} - ${errorMessage}`)
-      // Check if page is stuck on about:blank
-      const stuckUrl = page.url()
-      if (stuckUrl === "about:blank") {
-        console.log(`[TEST] Page is stuck on about:blank after navigation failure`)
-      }
-      addBadLink(url)
-      return false
-    }
-    // Re-throw other errors
-    throw error
-  }
-
-  // Check if page redirected to login/auth page
-  // Wait for navigation to complete using smart waiting
-  try {
-    await page.waitForLoadState("domcontentloaded", { timeout: 5000 })
-  } catch (error) {
-    // If page doesn't load, it might be stuck
-    const stuckUrl = page.url()
-    if (stuckUrl === "about:blank") {
-      console.log(`[TEST] Page stuck on about:blank after navigation`)
-      addBadLink(url)
-      return false
-    }
-    // Re-throw if it's a different issue
-    throw error
-  }
-
-  const currentUrl = page.url()
-  console.log(`[TEST] Current URL: ${currentUrl}`)
-  // Check if still on about:blank (shouldn't happen but safety check)
-  if (currentUrl === "about:blank") {
-    console.log(`[TEST] Page still on about:blank after navigation to ${url}`)
-    addBadLink(url)
+    console.log(`[TEST] Failed to load URL: ${url} - ${errorMessage}`)
     return false
   }
-
-  // Check if URL was redirected to a different domain
-  try {
-    const requestedHost = new URL(url).hostname
-    const currentHost = new URL(currentUrl).hostname
-
-    // Normalize hostnames (remove www prefix for comparison)
-    const normalizeHost = (host: string): string => {
-      return host.startsWith("www.") ? host.substring(4) : host
-    }
-
-    const normalizedRequested = normalizeHost(requestedHost)
-    const normalizedCurrent = normalizeHost(currentHost)
-
-    // If hostname changed (ignoring www), it's a redirect
-    if (normalizedRequested !== normalizedCurrent) {
-      console.log(`[TEST] URL redirected to different domain: ${currentUrl} (original: ${url})`)
-      addBadLink(url)
-      return false
-    }
-  } catch {
-    // If URL parsing fails, skip redirect check
-  }
-
-  // Check for common login/auth page patterns
-  const isLoginPage =
-    currentUrl.includes("/authwall") ||
-    currentUrl.includes("/login") ||
-    currentUrl.includes("/signin") ||
-    currentUrl.includes("/auth?") ||
-    currentUrl.includes("authwall") ||
-    (currentUrl.includes("linkedin.com") &&
-      !currentUrl.includes("/company/") &&
-      !currentUrl.includes("/in/") &&
-      !currentUrl.includes("/feed"))
-
-  if (isLoginPage) {
-    console.log(`[TEST] Page redirected to login/auth page: ${currentUrl} (original: ${url})`)
-    addBadLink(url)
-    return false
-  }
-
-  console.log(`[TEST] Page is not a login/auth page: ${currentUrl} (original: ${url})`)
-  return true
 }
 
 /**

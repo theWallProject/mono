@@ -104,6 +104,7 @@ export const microsoftBdsHints: CompressedManualItemType[] = [
     android_dev_id: "com.microsoft",
     isHint: true,
     hintText: "Hey, Microsoft is on the BDS list.",
-    hintUrl: "https://bdsmovement.net/microsoft"
+    hintUrl: "https://bdsmovement.net/microsoft",
+    hintCompanyId: "microsoft_bds"
   }
 ]

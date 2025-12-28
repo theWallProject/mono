@@ -118,6 +118,8 @@ const MergedDataItemSchema = CrunchbaseScrappedItemSchema.extend({
   hintText: z.string().optional(),
   /** hint URL */
   hintUrl: z.string().optional(),
+  /** hint company ID for company-level dismissal */
+  hintCompanyId: z.string().optional(),
   /** Android app ID for hints (e.g., "com.xxx.yyy") */
   hint_android_id: z.string().optional(),
   /** Android developer ID like "com.wix" (not full app package IDs) */
@@ -145,6 +147,8 @@ export const CompressedManualItemSchema = z
     isHint: z.boolean().optional(),
     hintText: z.string().optional(),
     hintUrl: z.string().optional(),
+    /** hint company ID for company-level dismissal */
+    hintCompanyId: z.string().optional(),
     /** Android app ID for hints (e.g., "com.xxx.yyy") */
     hint_android_id: z.string().optional(),
     /** Android developer ID like "com.wix" (not full app package IDs) */
@@ -205,6 +209,8 @@ export const ManualEntrySchema = z
     isHint: z.boolean().optional(),
     hintText: z.string().optional(),
     hintUrl: z.string().optional(),
+    /** hint company ID for company-level dismissal */
+    hintCompanyId: z.string().optional(),
     /** Android app ID for hints (e.g., "com.xxx.yyy") */
     hint_android_id: z.string().optional(),
     /** Android developer ID like "com.wix" (not full app package IDs) */

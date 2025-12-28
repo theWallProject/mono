@@ -3,6 +3,7 @@ import { error, log } from "./helpers"
 // LocalStorage key constants
 export const HINT_SHOWN_PREFIX = "hint_shown_"
 export const HINT_DISMISSED_PERM_PREFIX = "hint_dismissed_perm_"
+export const HINT_COMPANY_DISMISSED_PERM_PREFIX = "hint_company_dismissed_perm_"
 export const HINTS_SYSTEM_DISABLED_KEY = "hints_system_disabled"
 export const WHATS_NEW_SHOWN_VERSIONS_KEY = "whats_new_shown_versions"
 export const LINKEDIN_JOB_PROCESSING_ENABLED_KEY = "linkedin_job_processing_enabled"

@@ -59,6 +59,7 @@ export type UrlCheckResult =
       name: string
       hintText: string
       hintUrl: string
+      hintCompanyId?: string
       rule: {
         selector: string
         key: LinkField
@@ -163,6 +164,8 @@ export const FinalDBFileSchema = z
     hintText: z.string().optional(),
     /** hint URL */
     hintUrl: z.string().optional(),
+    /** hint company ID for company-level dismissal */
+    hintCompanyId: z.string().optional(),
     /** Android app ID for hints (e.g., "com.xxx.yyy") */
     hint_android_id: z.string().optional(),
     /** Android developer ID like "com.wix" (not full app package IDs) */
@@ -475,6 +478,7 @@ export function formatResult(findResult: FinalDBFileType, selector: string, sele
       name: findResult.n,
       hintText: findResult.hintText,
       hintUrl: findResult.hintUrl || "",
+      hintCompanyId: findResult.hintCompanyId,
       rule: {
         selector,
         key: selectorKey

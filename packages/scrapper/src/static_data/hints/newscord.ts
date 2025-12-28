@@ -8,6 +8,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, The BBC is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["bbc.mobile.news.ww"]
   },
@@ -18,6 +19,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, CNN is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["com.cnn.mobile.android.phone"]
   },
@@ -28,6 +30,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, Fox News is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["com.foxnews.international"]
   },
@@ -38,6 +41,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, The New York Times is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["com.nytimes.android"]
   },
@@ -48,6 +52,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, The Wall Street Journal is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["wsj.reader_sp"]
   },
@@ -58,6 +63,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, Sky News is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["com.bskyb.skynews.android"]
   },
@@ -68,6 +74,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, The Washington Post is biased. Use Newscord to get the full picture.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["com.washingtonpost.android"]
   },
@@ -78,6 +85,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, The Guardian is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["com.guardian"]
   },
@@ -88,6 +96,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, DW is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["com.idmedia.android.newsportal", "dw.com.androidtv.live"]
   },
@@ -98,6 +107,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, Tagesschau is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord",
     android_app_ids: ["de.tagesschau"]
   },
@@ -108,6 +118,7 @@ export const newscordHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, Associated Press is biased. Use Newscord for more balanced news.",
     hintUrl: "https://newscord.org/?referral=the-wall&url={{url}}",
+    hintCompanyId: "newscord_media_bias",
     hint_android_id: "com.newscord.newscord"
   }
 ]

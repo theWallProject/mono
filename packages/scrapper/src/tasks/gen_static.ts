@@ -32,6 +32,7 @@ const injectStaticRows = async () => {
       isHint,
       hintText,
       hintUrl,
+      hintCompanyId,
       hint_android_id,
       android_dev_id,
       android_app_ids
@@ -55,6 +56,7 @@ const injectStaticRows = async () => {
           isHint: true,
           hintText: hintText,
           hintUrl: hintUrl,
+          ...(hintCompanyId ? { hintCompanyId } : {}),
           ...(hint_android_id ? { hint_android_id } : {}),
           ...(android_dev_id ? { android_dev_id } : {}),
           ...(android_app_ids ? { android_app_ids } : {})
@@ -74,6 +76,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -95,6 +98,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -116,6 +120,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -137,6 +142,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -158,6 +164,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -179,6 +186,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -200,6 +208,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -221,6 +230,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})
@@ -242,6 +252,7 @@ const injectStaticRows = async () => {
               isHint: true,
               hintText: hintText,
               hintUrl: hintUrl,
+              ...(hintCompanyId ? { hintCompanyId } : {}),
               ...(hint_android_id ? { hint_android_id } : {}),
               ...(android_dev_id ? { android_dev_id } : {}),
               ...(android_app_ids ? { android_app_ids } : {})

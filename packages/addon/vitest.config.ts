@@ -13,6 +13,7 @@ export default defineConfig({
     exclude: ["node_modules", "build", ".plasmo"],
     testTimeout: 180000, // 3 minutes - tests may try multiple URLs
     hookTimeout: 120000, // 2 minutes
+    retry: 0, // No retries - tests must pass on first attempt
     setupFiles: ["./tests/utils/test-mode.ts"], // Enable test mode before tests run
     // Run tests serially (one at a time) to avoid conflicts
     pool: "forks",

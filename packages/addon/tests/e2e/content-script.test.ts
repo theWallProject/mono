@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeEach, describe, expect, it } from "vitest"
+import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
 import { CLEAN_URLS, getRandomResult } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -11,6 +11,12 @@ describe("Content Script", () => {
   beforeEach(async () => {
     const result = await launchBrowserWithExtension()
     context = result.context
+  })
+
+  afterEach(async () => {
+    if (context) {
+      await context.close().catch(() => {})
+    }
   })
 
   it("should inject content script correctly", async () => {

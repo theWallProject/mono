@@ -14,6 +14,7 @@ import { ShareButton } from "../share_button/ShareButton"
 import {
   getAllLocalStorageItems,
   getLocalStorageItem,
+  HINT_COMPANY_DISMISSED_PERM_PREFIX,
   HINT_DISMISSED_PERM_PREFIX,
   HINT_SHOWN_PREFIX,
   HINTS_SYSTEM_DISABLED_KEY,
@@ -76,17 +77,36 @@ export const Banner = () => {
     return disabled === true
   }
 
-  // Check if a hint is dismissed permanently
-  const isHintDismissedPermanently = async (hintId: string): Promise<boolean> => {
-    const storageKey = `${HINT_DISMISSED_PERM_PREFIX}${hintId}`
-    const dismissed = await getLocalStorageItem<boolean>(storageKey)
-    return dismissed === true
+  // Check if a hint is dismissed permanently (either by hint ID or company ID)
+  const isHintDismissedPermanently = async (hintId: string, hintCompanyId?: string): Promise<boolean> => {
+    // Check per-hint-ID dismissal first (backward compatibility)
+    const hintStorageKey = `${HINT_DISMISSED_PERM_PREFIX}${hintId}`
+    const hintDismissed = await getLocalStorageItem<boolean>(hintStorageKey)
+    if (hintDismissed === true) {
+      return true
+    }
+
+    // Check company-level if hintCompanyId exists
+    if (hintCompanyId) {
+      const companyStorageKey = `${HINT_COMPANY_DISMISSED_PERM_PREFIX}${hintCompanyId}`
+      const companyDismissed = await getLocalStorageItem<boolean>(companyStorageKey)
+      if (companyDismissed === true) {
+        return true
+      }
+    }
+
+    return false
   }
 
-  // Dismiss hint permanently
-  const dismissHintPermanently = async (hintId: string) => {
-    const storageKey = `${HINT_DISMISSED_PERM_PREFIX}${hintId}`
+  // Dismiss hint permanently (use company ID if available, otherwise hint ID)
+  const dismissHintPermanently = async (hintId: string, hintCompanyId?: string) => {
+    // Use company-level dismissal if hintCompanyId exists, otherwise per-hint-ID
+    const storageKey = hintCompanyId
+      ? `${HINT_COMPANY_DISMISSED_PERM_PREFIX}${hintCompanyId}`
+      : `${HINT_DISMISSED_PERM_PREFIX}${hintId}`
+
     await setLocalStorageItem(storageKey, true)
+
     if (toastIdRef.current) {
       toast.dismiss(toastIdRef.current)
       toastIdRef.current = null
@@ -296,7 +316,7 @@ export const Banner = () => {
         // Check all conditions before showing
         const [systemDisabled, permanentlyDismissed, shownRecently] = await Promise.all([
           isHintsSystemDisabled(),
-          isHintDismissedPermanently(hintId),
+          isHintDismissedPermanently(hintId, testResult.hintCompanyId),
           wasHintShownRecently(hintId)
         ])
 
@@ -347,6 +367,7 @@ export const Banner = () => {
           (t) => (
             <HintToastContent
               hintId={hintId}
+              hintCompanyId={testResult.hintCompanyId}
               processedHintText={processedHintText}
               processedHintUrl={processedHintUrl}
               onDismiss={() => {

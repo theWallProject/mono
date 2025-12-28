@@ -56,6 +56,7 @@ const loadJsonFiles = async (folderPath: string) => {
           ...(mergedItem?.isHint ? { isHint: true } : {}),
           ...(mergedItem?.hintText ? { hintText: mergedItem.hintText } : {}),
           ...(mergedItem?.hintUrl ? { hintUrl: mergedItem.hintUrl } : {}),
+          ...(mergedItem?.hintCompanyId ? { hintCompanyId: mergedItem.hintCompanyId } : {}),
           ...(mergedItem?.hint_android_id ? { hint_android_id: mergedItem.hint_android_id } : {}),
           ...(mergedItem?.android_dev_id ? { android_dev_id: mergedItem.android_dev_id } : {}),
           ...(mergedItem?.android_app_ids ? { android_app_ids: mergedItem.android_app_ids } : {})

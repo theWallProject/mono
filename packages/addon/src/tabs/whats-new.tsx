@@ -5,7 +5,7 @@ import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp"
 import React, { useEffect } from "react"
 
 import backgroundImage from "../../assets/images/flag-bg.jpg"
-import hintsOptionsImage from "../../assets/images/hints-options.png"
+import linkedinJobsOptionsImage from "../../assets/images/linkedin.png"
 import theWallWhite from "../../assets/images/the-wall-white.png"
 import { getExtensionURL, track } from "../helpers"
 import { getI18nMessage } from "../helpers/i18n-keys"
@@ -88,57 +88,84 @@ function WhatsNew() {
         <div className={styles.content}>
           {/* Version number */}
           <div className={styles.versionSection}>
-            <p className={styles.version}>Version 1.5.4</p>
+            <p className={styles.version}>Version 1.7.0</p>
           </div>
+
+          {/* Donation Message */}
+          <section className={`${styles.featureSection} ${styles.donationSection}`}>
+            <h2 className={styles.sectionTitle}>💝 Support The Wall</h2>
+            <p className={styles.featureText}>
+              The Wall is a passion project that takes countless hours to develop and maintain—time I could be spending
+              on freelancing. AI tools and infrastructure also come with real costs. Your monthly support, no matter how
+              small, helps me dedicate more time to building features that matter for Palestine. Every contribution
+              makes a difference.
+            </p>
+            <div style={{ marginTop: "20px" }}>
+              <button className={`${styles.donateButton} ${styles.largeDonateButton}`} onClick={handleDonate}>
+                ☕ Support on Ko-fi
+              </button>
+            </div>
+          </section>
 
           {/* Static feature sections */}
           <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>New Platform Support</h2>
-            <p className={styles.featureText}>We now support many new platforms including:</p>
-            <div className={styles.platformList}>
-              <span className={styles.platformItem}>YouTube</span>
-              <span className={styles.platformItem}>TikTok</span>
-              <span className={styles.platformItem}>GitHub</span>
-              <span className={styles.platformItem}>Instagram</span>
-              <span className={styles.platformItem}>Threads</span>
-              <span className={styles.platformItem}>And more coming soon!</span>
-            </div>
-            <p className={styles.noteText}>Note: Platform support is not yet available for all websites.</p>
-          </section>
-
-          <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>New Hints System</h2>
+            <h2 className={styles.sectionTitle}>🛡️ Full BDS Support</h2>
             <p className={styles.featureText}>
-              Introducing a new hints system to support better actions, in collaboration with other{" "}
-              <a
-                href="https://techforpalestine.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.externalLink}>
-                TechForPalestine
-              </a>{" "}
-              projects like{" "}
-              <a href="https://thaura.ai" target="_blank" rel="noopener noreferrer" className={styles.externalLink}>
-                Thaura
-              </a>{" "}
-              and{" "}
-              <a href="https://newscord.org/" target="_blank" rel="noopener noreferrer" className={styles.externalLink}>
-                Newscord
-              </a>
-              .
+              The Wall now includes comprehensive BDS (Boycott, Divestment, Sanctions) support. Companies on the BDS
+              list, including Microsoft, now appear as hints with suggested alternatives. Official BDS labeling in the
+              interface is coming soon.
             </p>
           </section>
 
           <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>Hints Control Options</h2>
-            <p className={styles.featureText}>New options to control the hints system. More options coming soon!</p>
-            <div className={styles.optionsImageContainer}>
+            <h2 className={styles.sectionTitle}>💼 LinkedIn Job Listings (Experimental)</h2>
+            <p className={styles.featureText}>
+              New experimental feature to scan LinkedIn job listing pages for flagged companies. This feature can be
+              enabled in the extension options. We&apos;re actively improving detection accuracy and performance.
+            </p>
+            <div className={styles.imageContainer}>
               <img
-                src={getExtensionURL(hintsOptionsImage)}
-                alt="Hints Control Options"
-                className={styles.optionsImage}
+                src={getExtensionURL(linkedinJobsOptionsImage)}
+                alt="LinkedIn Job Listings Feature"
+                className={styles.featureImage}
               />
             </div>
+          </section>
+
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>📹 Enhanced YouTube Support</h2>
+            <p className={styles.featureText}>
+              The Wall now works on YouTube video pages, not just channel profiles. You&apos;ll see warnings for flagged
+              content wherever you watch.
+            </p>
+          </section>
+
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>✨ Fresh New Design</h2>
+            <p className={styles.featureText}>
+              We&apos;ve launched a redesigned website at{" "}
+              <a href="https://the-wall.win" target="_blank" rel="noopener noreferrer" className={styles.externalLink}>
+                the-wall.win
+              </a>
+              . The extension interface and a new icon are being updated to match the new brand identity.
+            </p>
+          </section>
+
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>🚀 Coming Soon</h2>
+            <p className={styles.featureText}>We&apos;re working on exciting new ways to use The Wall:</p>
+            <ul className={styles.featureList}>
+              <li>Android app for mobile protection</li>
+              <li>Telegram bot for instant company checks</li>
+            </ul>
+          </section>
+
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>⚡ Technical Improvements</h2>
+            <p className={styles.featureText}>
+              Behind the scenes, we&apos;ve made significant improvements including automated testing, better error
+              handling, and performance optimizations to ensure The Wall runs smoothly and reliably.
+            </p>
           </section>
         </div>
 

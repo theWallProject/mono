@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeEach, describe, expect, it } from "vitest"
+import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
 import { HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -16,6 +16,12 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
     context = result.context
     extensionId = result.extensionId
     console.log("[TEST] Browser setup complete")
+  })
+
+  afterEach(async () => {
+    if (context) {
+      await context.close().catch(() => {})
+    }
   })
 
   describe("Popup Opening", () => {

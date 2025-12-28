@@ -1,7 +1,7 @@
 import type { BrowserContext } from "playwright"
-import { beforeEach, describe, expect, it } from "vitest"
+import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
-import { addBadLink, getRandomResult } from "../fixtures/test-urls"
+import { getRandomResult } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
 import { isHintsToastShown, navigateToUrl, waitFor, waitUntilHintShown } from "../utils/extension"
@@ -17,6 +17,12 @@ describe("Hints System - Single Tab Isolated Tests", () => {
     context = result.context
     extensionId = result.extensionId
     console.log("[TEST] Browser setup complete")
+  })
+
+  afterEach(async () => {
+    if (context) {
+      await context.close().catch(() => {})
+    }
   })
 
   it("should show hints toast on hint URLs", async () => {
@@ -83,8 +89,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
       console.log("[TEST] Second visit - navigating back to same hint URL")
       const nav3Success = await navigateToUrl(page, testUrl.url)
       if (!nav3Success) {
-        console.log(`[TEST] Navigation failed, adding to bad links and skipping test: ${testUrl.url}`)
-        addBadLink(testUrl.url)
+        console.log(`[TEST] Navigation failed, skipping test: ${testUrl.url}`)
         return // Skip this test
       }
       // await waitForExtensionProcessing(page)
@@ -121,8 +126,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
       console.log(`[TEST] Navigating to hint URL: ${testUrl.url}`)
       const navSuccess = await navigateToUrl(page, testUrl.url)
       if (!navSuccess) {
-        console.log(`[TEST] Navigation failed, adding to bad links and skipping test: ${testUrl.url}`)
-        addBadLink(testUrl.url)
+        console.log(`[TEST] Navigation failed, skipping test: ${testUrl.url}`)
         return // Skip this test
       }
 
@@ -156,8 +160,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
       console.log(`[TEST] Navigating to hint URL: ${testUrl.url}`)
       const navSuccess = await navigateToUrl(page, testUrl.url)
       if (!navSuccess) {
-        console.log(`[TEST] Navigation failed, adding to bad links and skipping test: ${testUrl.url}`)
-        addBadLink(testUrl.url)
+        console.log(`[TEST] Navigation failed, skipping test: ${testUrl.url}`)
         return // Skip this test
       }
 

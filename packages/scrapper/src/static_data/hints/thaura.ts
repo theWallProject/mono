@@ -7,6 +7,7 @@ export const thauraHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, Have you tried Thaura.ai? It's a great alternative to ChatGPT.",
     hintUrl: "https://thaura.ai/?referral=the-wall",
+    hintCompanyId: "thaura_ai_chat",
     hint_android_id: "com.thaura.app",
     android_app_ids: ["com.openai.chatgpt"]
   },
@@ -16,6 +17,7 @@ export const thauraHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, Have you tried Thaura.ai? It's a great alternative to Claude.",
     hintUrl: "https://thaura.ai/?referral=the-wall",
+    hintCompanyId: "thaura_ai_chat",
     hint_android_id: "com.thaura.app",
     android_app_ids: ["com.anthropic.claude"]
   },
@@ -34,6 +36,7 @@ export const thauraHints: CompressedManualItemType[] = [
     isHint: true,
     hintText: "Hey, Have you tried Thaura.ai? It's a great alternative to Grok.",
     hintUrl: "https://thaura.ai/?referral=the-wall",
+    hintCompanyId: "thaura_ai_chat",
     hint_android_id: "com.thaura.app",
     android_app_ids: ["ai.x.grok"]
   }

@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeEach, describe, expect, it } from "vitest"
+import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
 import { HINT_DISMISSED_PERM_PREFIX, HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -13,6 +13,12 @@ describe("Settings Persistence", () => {
     const result = await launchBrowserWithExtension()
     context = result.context
     extensionId = result.extensionId
+  })
+
+  afterEach(async () => {
+    if (context) {
+      await context.close().catch(() => {})
+    }
   })
 
   it("should persist hints system toggle across sessions", async () => {

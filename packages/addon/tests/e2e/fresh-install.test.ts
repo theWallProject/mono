@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeEach, describe, expect, it } from "vitest"
+import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
 import { HINTS_SYSTEM_DISABLED_KEY } from "../../src/storageHelpers"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -14,6 +14,12 @@ describe("Fresh Install Scenarios", () => {
     const result = await launchBrowserWithExtension()
     context = result.context
     extensionId = result.extensionId
+  })
+
+  afterEach(async () => {
+    if (context) {
+      await context.close().catch(() => {})
+    }
   })
 
   it("should behave correctly on first install with no storage", async () => {

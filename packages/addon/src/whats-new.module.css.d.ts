@@ -6,12 +6,19 @@ declare const styles: {
   readonly content: string
   readonly contentWrapper: string
   readonly donateButton: string
+  readonly donationSection: string
   readonly externalLink: string
+  readonly fadeInUp: string
+  readonly featureImage: string
+  readonly featureList: string
   readonly featureSection: string
   readonly featureText: string
   readonly footer: string
   readonly footerActions: string
+  readonly gradientShift: string
   readonly header: string
+  readonly imageContainer: string
+  readonly largeDonateButton: string
   readonly link: string
   readonly noteText: string
   readonly optionsImage: string
@@ -19,11 +26,13 @@ declare const styles: {
   readonly platformItem: string
   readonly platformList: string
   readonly pluginName: string
+  readonly pulseGlow: string
   readonly sectionTitle: string
   readonly shareButton: string
   readonly shareButtons: string
   readonly shareLabel: string
   readonly shareSection: string
+  readonly shimmer: string
   readonly theWallLogo: string
   readonly title: string
   readonly version: string

@@ -136,6 +136,7 @@ Softer warnings for companies/services without Israeli connections (e.g., media 
 - `isHint: true` - Flag
 - `hintText` - Display message
 - `hintUrl` - Alternative link (supports `{{url}}` placeholder)
+- `hintCompanyId` - Company ID for company-level dismissal (e.g., "newscord_media_bias", "thaura_ai_chat")
 - `hint_android_id` / `android_app_ids` - Android apps
 - Link fields (`ws`, `li`, `fb`, etc.) - Strings in ALL.json, arrays in source
 
@@ -154,6 +155,20 @@ Softer warnings for companies/services without Israeli connections (e.g., media 
 **Common use cases:** News sites → Newscord, AI chat → Thaura.ai
 
 **Type safety:** `UrlCheckResult` is discriminated union based on `isHint` property.
+
+**Hint Dismissal Behavior:**
+
+- **Company-Level Dismissal**: Hints with `hintCompanyId` are dismissed company-wide. Dismissing BBC also dismisses CNN, NYT, etc. (all share "newscord_media_bias")
+  - Storage key: `hint_company_dismissed_perm_{hintCompanyId}`
+  - Example: `hint_company_dismissed_perm_newscord_media_bias`
+- **Per-Hint-ID Dismissal**: Hints without `hintCompanyId` (e.g., .il domains) are dismissed individually
+  - Storage key: `hint_dismissed_perm_{hintId}`
+  - Example: `hint_dismissed_perm_hint_ws_BBC_0`
+- **Backward Compatibility**: Check both storage keys - per-hint-ID first (for old dismissals), then company-level
+- **Company Groupings**:
+  - `newscord_media_bias`: All news site hints (BBC, CNN, Fox News, NYT, WSJ, etc.)
+  - `thaura_ai_chat`: All AI chat hints (ChatGPT, Claude, Grok)
+  - `microsoft_bds`: Microsoft BDS hint
 
 ## Important Patterns
 

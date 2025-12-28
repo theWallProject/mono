@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs"
+import { readFileSync } from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
 import type { FinalDBFileType } from "@theWallProject/common"
@@ -258,15 +258,17 @@ export async function getRandomResult(options?: {
         continue
       }
 
-      // ALWAYS exclude bad links (URLs that fail to navigate) - applies to hints and all other URLs
-      const badLinks = getBadLinks()
-      const normalizedUrl = normalizeUrl(result.url)
-      if (badLinks.has(normalizedUrl)) {
-        continue
-      }
-
       filtered.push(result)
     }
+  }
+
+  // Fail fast if no URLs found
+  if (filtered.length === 0) {
+    const filters = Object.entries({ ruleType, isHint, hasSocialMedia, reason, excludeLoginRequired })
+      .filter(([, value]) => value !== undefined && value !== false)
+      .map(([key, value]) => `${key}=${value}`)
+      .join(", ")
+    throw new Error(`No URLs found matching filters: ${filters || "none"}`)
   }
 
   // Sort by URL for deterministic selection, then pick based on a consistent index
@@ -320,13 +322,6 @@ export async function getRandomUrls(options: {
         continue
       }
       if (reason && !result.reasons.includes(reason)) {
-        continue
-      }
-
-      // ALWAYS exclude bad links (URLs that fail to navigate) - applies to hints and all other URLs
-      const badLinks = getBadLinks()
-      const normalizedUrl = normalizeUrl(result.url)
-      if (badLinks.has(normalizedUrl)) {
         continue
       }
 
@@ -394,70 +389,6 @@ export async function getTestUrlWithConditions(options: {
   return url
 }
 
-/**
- * Normalize URL for comparison (remove www, trailing slash, etc.)
- */
-function normalizeUrl(url: string): string {
-  try {
-    const urlObj = new URL(url)
-    // Remove www prefix from hostname
-    let hostname = urlObj.hostname
-    if (hostname.startsWith("www.")) {
-      hostname = hostname.substring(4)
-    }
-    // Reconstruct URL without www and trailing slash
-    return `${urlObj.protocol}//${hostname}${urlObj.pathname.replace(/\/$/, "")}${urlObj.search}${urlObj.hash}`
-  } catch {
-    // If URL parsing fails, return original
-    return url
-  }
-}
-
-/**
- * Get bad links (URLs that fail to navigate) from badlinks.json
- * These URLs are excluded from all test URL selection, including hints
- * URLs are normalized (www removed) for comparison
- */
-function getBadLinks(): Set<string> {
-  try {
-    const badLinksPath = path.resolve(__dirname, "badlinks.json")
-    const badLinks: string[] = JSON.parse(readFileSync(badLinksPath, "utf-8"))
-    // Normalize all bad links for comparison
-    return new Set(badLinks.map(normalizeUrl))
-  } catch {
-    return new Set()
-  }
-}
-
-/**
- * Add a URL to bad links file
- * FAILS HARD if file cannot be written
- * URL is normalized before adding
- */
-export function addBadLink(url: string): void {
-  console.log(`[TEST] Adding bad link: ${url}`)
-  const badLinksPath = path.resolve(__dirname, "badlinks.json")
-  const normalizedUrl = normalizeUrl(url)
-  const badLinks = getBadLinks()
-
-  // Don't add duplicates (check normalized)
-  if (badLinks.has(normalizedUrl)) {
-    console.log(`[TEST] URL already in bad links: ${normalizedUrl}`)
-    return
-  }
-
-  // Add normalized URL to set and write back
-  badLinks.add(normalizedUrl)
-  const badLinksArray = Array.from(badLinks).sort()
-
-  try {
-    writeFileSync(badLinksPath, JSON.stringify(badLinksArray, null, 2) + "\n", "utf-8")
-    console.log(`[TEST] Successfully added bad link: ${normalizedUrl}`)
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : String(error)
-    throw new Error(`Failed to write bad links file: ${errorMessage}`)
-  }
-}
 
 /**
  * Get hint name (database entry name) for a URL
@@ -589,13 +520,6 @@ export async function getUrlWithAlternatives(options?: { excludeLoginRequired?: 
     filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
   }
 
-  // ALWAYS exclude bad links (URLs that fail to navigate)
-  const badLinks = getBadLinks()
-  filtered = filtered.filter((u) => {
-    const normalizedUrl = normalizeUrl(u.url)
-    return !badLinks.has(normalizedUrl)
-  })
-
   if (filtered.length === 0) {
     throw new Error(`No URLs with alternatives found matching criteria. excludeLoginRequired=${excludeLoginRequired}`)
   }
@@ -634,13 +558,6 @@ export async function getUrlWithoutAlternatives(options?: { excludeLoginRequired
   if (excludeLoginRequired) {
     filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
   }
-
-  // ALWAYS exclude bad links (URLs that fail to navigate)
-  const badLinks = getBadLinks()
-  filtered = filtered.filter((u) => {
-    const normalizedUrl = normalizeUrl(u.url)
-    return !badLinks.has(normalizedUrl)
-  })
 
   if (filtered.length === 0) {
     throw new Error(

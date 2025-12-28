@@ -1,5 +1,5 @@
 import type { BrowserContext } from "playwright"
-import { beforeEach, describe, expect, it } from "vitest"
+import { afterEach, beforeEach, describe, expect, it } from "vitest"
 
 import { getRandomResult, getRandomUrls } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
@@ -14,6 +14,12 @@ describe("Background Script", () => {
     const result = await launchBrowserWithExtension()
     context = result.context
     extensionId = result.extensionId
+  })
+
+  afterEach(async () => {
+    if (context) {
+      await context.close().catch(() => {})
+    }
   })
 
   it("should load background script correctly", async () => {

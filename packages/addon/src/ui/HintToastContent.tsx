@@ -6,6 +6,7 @@ import { getI18nMessage } from "../helpers/i18n-keys"
 
 export const HintToastContent = ({
   hintId,
+  hintCompanyId,
   processedHintText,
   processedHintUrl,
   onDismiss,
@@ -13,10 +14,11 @@ export const HintToastContent = ({
   onDisableAll
 }: {
   hintId: string
+  hintCompanyId?: string
   processedHintText: string
   processedHintUrl?: string
   onDismiss: () => void
-  onDismissPermanently: (hintId: string) => Promise<void>
+  onDismissPermanently: (hintId: string, hintCompanyId?: string) => Promise<void>
   onDisableAll: () => Promise<boolean>
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -171,7 +173,7 @@ export const HintToastContent = ({
                   e.stopPropagation()
                   track("Button", "Click", "hint_dismiss_this")
                   onDismiss()
-                  await onDismissPermanently(hintId)
+                  await onDismissPermanently(hintId, hintCompanyId)
                 })()
               }}
               onMouseDown={(e) => {
