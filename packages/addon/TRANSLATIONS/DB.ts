@@ -87,16 +87,38 @@ export const TRANSLATIONS = {
     zh_CN: "$1总部位于以色列！",
     zh_TW: "$1總部位於以色列！"
   },
-  reasonBDS: {
-    en: "$1 is listed on the BDS Boycott list",
-    ar: "تنبيه: $1 مدرج في قائمة المقاطعة الخاصة بحركة BDS",
-    id: "$1 terdaftar dalam daftar Boikot BDS",
-    ms: "$1 terdaftar dalam daftar Boikot BDS",
-    bn: "$1 এর বোয়াইট করা যায় এমন তালিকায় রয়েছে",
-    fr: "$1 figure sur la liste du boycott BDS",
-    nl: "$1 staat op de BDS-Boycotlijst",
-    zh_CN: "$1被列入BDS抵制名单",
-    zh_TW: "$1被列入BDS抵制名單"
+  reasonBDSPriority: {
+    en: "$1 is a priority target on the BDS Boycott list",
+    ar: "تنبيه: $1 هدف أولوي في قائمة المقاطعة الخاصة بحركة BDS",
+    id: "$1 adalah target prioritas dalam daftar Boikot BDS",
+    ms: "$1 adalah sasaran keutamaan dalam daftar Boikot BDS",
+    bn: "$1 BDS বয়কট তালিকায় অগ্রাধিকার লক্ষ্য",
+    fr: "$1 est une cible prioritaire sur la liste du boycott BDS",
+    nl: "$1 is een prioritair doelwit op de BDS-Boycotlijst",
+    zh_CN: "$1是BDS抵制名单上的优先目标",
+    zh_TW: "$1是BDS抵制名單上的優先目標"
+  },
+  reasonBDSGrassroots: {
+    en: "$1 is a grassroots target on the BDS Boycott list",
+    ar: "تنبيه: $1 هدف شعبي في قائمة المقاطعة الخاصة بحركة BDS",
+    id: "$1 adalah target akar rumput dalam daftar Boikot BDS",
+    ms: "$1 adalah sasaran akar umbi dalam daftar Boikot BDS",
+    bn: "$1 BDS বয়কট তালিকায় তৃণমূল লক্ষ্য",
+    fr: "$1 est une cible populaire sur la liste du boycott BDS",
+    nl: "$1 is een grassroots doelwit op de BDS-Boycotlijst",
+    zh_CN: "$1是BDS抵制名单上的草根目标",
+    zh_TW: "$1是BDS抵制名單上的草根目標"
+  },
+  reasonBDSPressure: {
+    en: "$1 is a pressure target on the BDS Boycott list",
+    ar: "تنبيه: $1 هدف ضغط في قائمة المقاطعة الخاصة بحركة BDS",
+    id: "$1 adalah target tekanan dalam daftar Boikot BDS",
+    ms: "$1 adalah sasaran tekanan dalam daftar Boikot BDS",
+    bn: "$1 BDS বয়কট তালিকায় চাপ লক্ষ্য",
+    fr: "$1 est une cible de pression sur la liste du boycott BDS",
+    nl: "$1 is een drukdoelwit op de BDS-Boycotlijst",
+    zh_CN: "$1是BDS抵制名单上的施压目标",
+    zh_TW: "$1是BDS抵制名單上的施壓目標"
   },
   modalShareMobileImage: {
     en: "Share image",

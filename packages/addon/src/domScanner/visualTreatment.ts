@@ -472,7 +472,9 @@ const parseReasonCodes = (reasonsStr: string): valuesOfListOfReasons[] => {
     // Validate using Zod schema
     const result = APIListOfReasonsSchema.safeParse(trimmedCode)
     if (!result.success) {
-      throw new Error(`Invalid reason code: ${trimmedCode}. Valid codes are: h, f, i, u, b`)
+      throw new Error(
+        `Invalid reason code: ${trimmedCode}. Valid codes are: h, f, i, u, BDS_PRIO, BDS_GRASS, BDS_PRESSURE`
+      )
     }
     // After successful Zod validation, result.data is guaranteed to be one of the enum values.
     // However, TypeScript's type narrowing for Zod enums can be problematic.
@@ -484,7 +486,9 @@ const parseReasonCodes = (reasonsStr: string): valuesOfListOfReasons[] => {
       validatedValue === "f" ||
       validatedValue === "i" ||
       validatedValue === "u" ||
-      validatedValue === "b"
+      validatedValue === "BDS_PRIO" ||
+      validatedValue === "BDS_GRASS" ||
+      validatedValue === "BDS_PRESSURE"
     ) {
       return validatedValue
     }

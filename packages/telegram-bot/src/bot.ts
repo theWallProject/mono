@@ -62,8 +62,12 @@ export async function handleInlineQueryBot(ctx: Context): Promise<void> {
                 return t("reasons.short.i")
               case "u":
                 return t("reasons.short.u")
-              case "b":
-                return t("reasons.short.b")
+              case "BDS_PRIO":
+                return t("reasons.short.BDS_PRIO")
+              case "BDS_GRASS":
+                return t("reasons.short.BDS_GRASS")
+              case "BDS_PRESSURE":
+                return t("reasons.short.BDS_PRESSURE")
               default: {
                 const _exhaustive: never = r
                 throw new Error(`Unexpected reason: ${_exhaustive}`)

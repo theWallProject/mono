@@ -13,8 +13,12 @@ export const APIListOfReasons = {
   InvestorNotFounderInIL: "i",
   /** Url */
   Url: "u",
-  /** BDS */
-  BDS: "b"
+  /** BDS Priority - Consumer boycott priority targets */
+  BDSPriority: "BDS_PRIO",
+  /** BDS Grassroots - Grassroots organic boycott targets */
+  BDSGrassroots: "BDS_GRASS",
+  /** BDS Pressure - Pressure targets */
+  BDSPressure: "BDS_PRESSURE"
 } as const
 
 export type valuesOfListOfReasons = (typeof APIListOfReasons)[keyof typeof APIListOfReasons]
@@ -27,7 +31,9 @@ export const APIListOfReasonsSchema = z.enum([
   APIListOfReasons.FounderInIL,
   APIListOfReasons.InvestorNotFounderInIL,
   APIListOfReasons.Url,
-  APIListOfReasons.BDS
+  APIListOfReasons.BDSPriority,
+  APIListOfReasons.BDSGrassroots,
+  APIListOfReasons.BDSPressure
 ])
 
 export type APIListOfReasonsValues = z.infer<typeof APIListOfReasonsSchema>

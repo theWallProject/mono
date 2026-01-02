@@ -13,7 +13,7 @@ export type ManualAdditionItem = {
 export const manualAdditions: ManualAdditionItem[] = [
   {
     name: "AHAV",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.ahava.com"],
     li: ["https://www.linkedin.com/company/dead-sea-laboratories-ahava"],
     fb: ["https://www.facebook.com/ahavagermany"],
@@ -21,7 +21,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "AXA",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.axa.com", "https://www.axa.com.hk"],
     li: [
       "https://www.linkedin.com/company/axa/",
@@ -87,7 +87,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Caltex",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.caltex.com", "https://caltexlubricants.com"],
     fb: ["https://www.facebook.com/CaltexLubricantsEG", "https://www.facebook.com/CaltexSingapore"],
     tw: ["https://x.com/CaltexSingapore"],
@@ -148,7 +148,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Carrefour",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.carrefour.com"],
     fb: [
       "https://www.facebook.com/Carrefour.Iraq",
@@ -221,7 +221,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Chevron",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: [
       "https://www.chevron.com",
       "https://www.chevronlubricants.com",
@@ -312,7 +312,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Dell",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.dell.com", "https://mlink-dell.com"],
     li: [
       "https://www.linkedin.com/company/alienware",
@@ -366,7 +366,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Disney+",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.disneyplus.com"],
     fb: [
       "https://www.facebook.com/DisneyCareers",
@@ -449,7 +449,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "HP",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: [
       "https://www.hp.com",
       "https://www.omen.com",
@@ -501,7 +501,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Intel",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: [
       "https://www.intel.com",
       "https://www.exploreintel.com",
@@ -570,7 +570,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Puma",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.puma.com"],
     li: ["https://www.linkedin.com/company/puma/"],
     fb: ["https://www.facebook.com/PumaGermany/"],
@@ -578,7 +578,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "RE/MAX",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.remax.com", "https://www.remax.my"],
     fb: [
       "https://www.facebook.com/1st.choiceegypt",
@@ -656,7 +656,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Reebok",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.reebok.com", "https://www.reebok.eu", "https://reebok.abfrl.in"],
     fb: ["https://www.facebook.com/ReebokAustriaGermanySwitzerland", "https://www.facebook.com/Reebok"],
     ig: [
@@ -711,7 +711,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Sabra",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://sabra.com/"],
     li: ["https://www.linkedin.com/company/sabra-dipping-company-llc/"],
     fb: ["https://www.facebook.com/Sabra/"],
@@ -719,7 +719,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Siemens",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.siemens.com", "https://www.siemens-stiftung.org"],
     li: [
       "https://www.linkedin.com/company/enlighted-inc",
@@ -740,7 +740,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "SodaStream",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: ["https://www.sodastream.com"],
     fb: [
       "https://www.facebook.com/SodaDoma",
@@ -815,7 +815,7 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Texaco",
-    reasons: ["b"],
+    reasons: ["BDS_PRIO"],
     ws: [
       "https://www.texaco.com",
       "https://starrewards.valero.com",

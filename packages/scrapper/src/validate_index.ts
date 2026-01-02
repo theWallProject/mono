@@ -142,7 +142,9 @@ const promptForReasons = async (): Promise<APIListOfReasonsValues[]> => {
         { name: "h - Headquartered in Israel", value: "h" },
         { name: "f - Founded by Israeli entrepreneurs", value: "f" },
         { name: "i - Significant investment from Israeli VCs", value: "i" },
-        { name: "b - On the BDS boycott list", value: "b" }
+        { name: "BDS_PRIO - Priority target on BDS boycott list", value: "BDS_PRIO" },
+        { name: "BDS_GRASS - Grassroots target on BDS boycott list", value: "BDS_GRASS" },
+        { name: "BDS_PRESSURE - Pressure target on BDS boycott list", value: "BDS_PRESSURE" }
       ],
       validate: (input: string[]) => {
         if (!Array.isArray(input) || input.length === 0) {

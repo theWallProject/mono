@@ -18,7 +18,9 @@ interface CoverageData {
     f: number
     i: number
     h: number
-    b: number
+    BDS_PRIO: number
+    BDS_GRASS: number
+    BDS_PRESSURE: number
     u: number
   }
   lastUpdated: string
@@ -28,7 +30,15 @@ interface CoverageData {
  * Type guard to check if a string is a valid reason key
  */
 function isValidReasonKey(reason: string): reason is keyof CoverageData["testedByReason"] {
-  return reason === "f" || reason === "i" || reason === "h" || reason === "b" || reason === "u"
+  return (
+    reason === "f" ||
+    reason === "i" ||
+    reason === "h" ||
+    reason === "BDS_PRIO" ||
+    reason === "BDS_GRASS" ||
+    reason === "BDS_PRESSURE" ||
+    reason === "u"
+  )
 }
 
 /**
@@ -54,7 +64,9 @@ function loadCoverage(): CoverageData {
       f: 0,
       i: 0,
       h: 0,
-      b: 0,
+      BDS_PRIO: 0,
+      BDS_GRASS: 0,
+      BDS_PRESSURE: 0,
       u: 0
     },
     lastUpdated: new Date().toISOString()
@@ -147,7 +159,9 @@ export function resetCoverage(): void {
       f: 0,
       i: 0,
       h: 0,
-      b: 0,
+      BDS_PRIO: 0,
+      BDS_GRASS: 0,
+      BDS_PRESSURE: 0,
       u: 0
     },
     lastUpdated: new Date().toISOString()
@@ -173,7 +187,9 @@ export function generateCoverageReport(): string {
     `  Founder (f): ${stats.byReason.f}`,
     `  Investor (i): ${stats.byReason.i}`,
     `  Headquarters (h): ${stats.byReason.h}`,
-    `  BDS (b): ${stats.byReason.b}`,
+    `  BDS Priority (BDS_PRIO): ${stats.byReason.BDS_PRIO}`,
+    `  BDS Grassroots (BDS_GRASS): ${stats.byReason.BDS_GRASS}`,
+    `  BDS Pressure (BDS_PRESSURE): ${stats.byReason.BDS_PRESSURE}`,
     `  URL (.il) (u): ${stats.byReason.u}`,
     "",
     `Last Updated: ${stats.lastUpdated}`

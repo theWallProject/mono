@@ -20,8 +20,12 @@ export function getReasonI18nKey(reason: valuesOfListOfReasons): ReasonI18nKey {
       return "reasonInvestor"
     case "h":
       return "reasonHeadquarter"
-    case "b":
-      return "reasonBDS"
+    case "BDS_PRIO":
+      return "reasonBDSPriority"
+    case "BDS_GRASS":
+      return "reasonBDSGrassroots"
+    case "BDS_PRESSURE":
+      return "reasonBDSPressure"
     default: {
       // Exhaustiveness check: if all cases are handled, reason should be never
       const _exhaustive: never = reason

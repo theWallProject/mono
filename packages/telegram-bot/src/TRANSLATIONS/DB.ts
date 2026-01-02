@@ -128,16 +128,38 @@ export const TRANSLATIONS = {
     zh_CN: "这个网址以.il结尾，这意味着这是一个以色列网站！",
     zh_TW: "這個網址以.il結尾，這意味著這是一個以色列網站！"
   },
-  "reasons.b": {
-    en: "Listed on the BDS Boycott list",
-    ar: "مدرج في قائمة المقاطعة الخاصة بحركة BDS",
-    id: "Terdaftar dalam daftar Boikot BDS",
-    ms: "Terdaftar dalam daftar Boikot BDS",
-    bn: "BDS বয়কট তালিকায় তালিকাভুক্ত",
-    fr: "Figure sur la liste du boycott BDS",
-    nl: "Staat op de BDS-Boycotlijst",
-    zh_CN: "被列入BDS抵制名单",
-    zh_TW: "被列入BDS抵制名單"
+  "reasons.BDS_PRIO": {
+    en: "Priority target on the BDS Boycott list",
+    ar: "هدف أولوي في قائمة المقاطعة الخاصة بحركة BDS",
+    id: "Target prioritas dalam daftar Boikot BDS",
+    ms: "Sasaran keutamaan dalam daftar Boikot BDS",
+    bn: "BDS বয়কট তালিকায় অগ্রাধিকার লক্ষ্য",
+    fr: "Cible prioritaire sur la liste du boycott BDS",
+    nl: "Prioritair doelwit op de BDS-Boycotlijst",
+    zh_CN: "BDS抵制名单上的优先目标",
+    zh_TW: "BDS抵制名單上的優先目標"
+  },
+  "reasons.BDS_GRASS": {
+    en: "Grassroots target on the BDS Boycott list",
+    ar: "هدف شعبي في قائمة المقاطعة الخاصة بحركة BDS",
+    id: "Target akar rumput dalam daftar Boikot BDS",
+    ms: "Sasaran akar umbi dalam daftar Boikot BDS",
+    bn: "BDS বয়কট তালিকায় তৃণমূল লক্ষ্য",
+    fr: "Cible populaire sur la liste du boycott BDS",
+    nl: "Grassroots doelwit op de BDS-Boycotlijst",
+    zh_CN: "BDS抵制名单上的草根目标",
+    zh_TW: "BDS抵制名單上的草根目標"
+  },
+  "reasons.BDS_PRESSURE": {
+    en: "Pressure target on the BDS Boycott list",
+    ar: "هدف ضغط في قائمة المقاطعة الخاصة بحركة BDS",
+    id: "Target tekanan dalam daftar Boikot BDS",
+    ms: "Sasaran tekanan dalam daftar Boikot BDS",
+    bn: "BDS বয়কট তালিকায় চাপ লক্ষ্য",
+    fr: "Cible de pression sur la liste du boycott BDS",
+    nl: "Drukdoelwit op de BDS-Boycotlijst",
+    zh_CN: "BDS抵制名单上的施压目标",
+    zh_TW: "BDS抵制名單上的施壓目標"
   },
   "reasons.short.h": {
     en: "HQ in Israel",
@@ -183,16 +205,38 @@ export const TRANSLATIONS = {
     zh_CN: "以色列网站",
     zh_TW: "以色列網站"
   },
-  "reasons.short.b": {
-    en: "BDS listed",
-    ar: "مدرج في BDS",
-    id: "Terdaftar di BDS",
-    ms: "Terdaftar di BDS",
-    bn: "BDS তালিকাভুক্ত",
-    fr: "Listé BDS",
-    nl: "BDS-gelist",
-    zh_CN: "BDS名单",
-    zh_TW: "BDS名單"
+  "reasons.short.BDS_PRIO": {
+    en: "BDS Priority",
+    ar: "أولوية BDS",
+    id: "Prioritas BDS",
+    ms: "Keutamaan BDS",
+    bn: "BDS অগ্রাধিকার",
+    fr: "Priorité BDS",
+    nl: "BDS-prioriteit",
+    zh_CN: "BDS优先",
+    zh_TW: "BDS優先"
+  },
+  "reasons.short.BDS_GRASS": {
+    en: "BDS Grassroots",
+    ar: "BDS شعبي",
+    id: "BDS Akar Rumput",
+    ms: "BDS Akar Umbi",
+    bn: "BDS তৃণমূল",
+    fr: "BDS Populaire",
+    nl: "BDS-grassroots",
+    zh_CN: "BDS草根",
+    zh_TW: "BDS草根"
+  },
+  "reasons.short.BDS_PRESSURE": {
+    en: "BDS Pressure",
+    ar: "ضغط BDS",
+    id: "Tekanan BDS",
+    ms: "Tekanan BDS",
+    bn: "BDS চাপ",
+    fr: "Pression BDS",
+    nl: "BDS-druk",
+    zh_CN: "BDS施压",
+    zh_TW: "BDS施壓"
   },
   "help.noUrl": {
     en: "Please send me a URL to check. I can check if a link is safe or flagged.",

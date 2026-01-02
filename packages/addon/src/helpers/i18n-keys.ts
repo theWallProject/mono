@@ -19,7 +19,14 @@ export type I18nMessageKey = keyof typeof messagesEn
 /**
  * Expected reason keys - if any of these don't exist in messages.json, TypeScript will error.
  */
-type ExpectedReasonKeys = "reasonUrlIL" | "reasonFounder" | "reasonInvestor" | "reasonHeadquarter" | "reasonBDS"
+type ExpectedReasonKeys =
+  | "reasonUrlIL"
+  | "reasonFounder"
+  | "reasonInvestor"
+  | "reasonHeadquarter"
+  | "reasonBDSPriority"
+  | "reasonBDSGrassroots"
+  | "reasonBDSPressure"
 
 /**
  * Union type of reason-related i18n message keys.

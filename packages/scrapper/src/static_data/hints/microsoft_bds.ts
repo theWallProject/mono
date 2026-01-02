@@ -103,8 +103,8 @@ export const microsoftBdsHints: CompressedManualItemType[] = [
     ],
     android_dev_id: "com.microsoft",
     isHint: true,
-    hintText: "Hey, Microsoft is on the BDS list.",
+    hintText: "Microsoft is a BDS consumer boycott priority - directly complicit in Israeli apartheid.",
     hintUrl: "https://bdsmovement.net/microsoft",
-    hintCompanyId: "microsoft_bds"
+    hintCompanyId: "microsoft_bds_prio"
   }
 ]

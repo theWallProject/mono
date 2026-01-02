@@ -481,7 +481,7 @@ export const Banner = () => {
                   }
 
                   const reasonKey = getReasonI18nKey(reason)
-                  const substitutions = reason === "h" || reason === "b" ? [testResult.name] : [companyName]
+                  const substitutions = reason === "h" || reason === "BDS_PRIO" || reason === "BDS_GRASS" || reason === "BDS_PRESSURE" ? [testResult.name] : [companyName]
                   return <div key={reason}>{getI18nMessage(reasonKey, substitutions)}</div>
                 })}
                 {/* // todo: use or delete */}
