@@ -186,6 +186,17 @@ export const TRANSLATIONS = {
     zh_CN: "显示替代品",
     zh_TW: "顯示替代品"
   },
+  modalShowBDSGuide: {
+    en: "Show BDS Guide",
+    ar: "عرض دليل BDS",
+    id: "Tampilkan Panduan BDS",
+    ms: "Tunjukkan Panduan BDS",
+    bn: "BDS গাইড দেখান",
+    fr: "Afficher le guide BDS",
+    nl: "BDS-gids tonen",
+    zh_CN: "显示BDS指南",
+    zh_TW: "顯示BDS指南"
+  },
   sharingMessageText: {
     en: 'I avoided an Israeli website by using "The Wall - Boycott assistant" browser addon. Try it!',
     ar: 'لقد تجنبت موقعًا تابعًا للكيان الصهيوني باستخدام إضافة "الجدار". جرّبه الآن!',

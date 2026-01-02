@@ -40,6 +40,7 @@ export type TR_NAME =
   | "support_pal"
   | "support_ko_fi"
   | "show_alternatives"
+  | "show_bds_guide"
   | "report_mistake"
   | "share_fb"
   | "share_tw"

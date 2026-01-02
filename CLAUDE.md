@@ -11,7 +11,8 @@ The Wall is a monorepo containing a browser extension, Telegram bot, data scrape
 The Wall helps users identify companies with Israeli connections through:
 
 1. **Database of companies categorized by relationship to Israel:**
-   - `h` (HeadQuarter), `f` (Founder), `i` (Investor), `b` (BDS), `u` (URL)
+   - `h` (HeadQuarter), `f` (Founder), `i` (Investor), `u` (URL)
+   - BDS categories: `BDS_PRIO` (Consumer boycott priority), `BDS_GRASS` (Grassroots organic), `BDS_PRESSURE` (Pressure targets)
 
 2. **Browser Extension**: Monitors websites, social media profiles (LinkedIn, Facebook, Twitter/X, Instagram, GitHub, YouTube, TikTok, Threads), and job listings. Shows visual warnings and suggests alternatives.
 
@@ -122,6 +123,30 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 
 **Handlers:** `urlCheckerBot()`, `handleInlineQueryBot()`, `urlExtractorBot()`
 
+## Translations
+
+The addon supports multiple languages: English, Arabic, Indonesian, Malay, Bengali, French, Dutch, Simplified Chinese, Traditional Chinese.
+
+**Workflow for adding/updating translations:**
+
+1. Edit `packages/addon/TRANSLATIONS/DB.ts` - Add new translation keys with all language variants
+2. Run `pnpm run trans` (in addon package) or `cd packages/addon && pnpm run trans`
+3. This generates locale files in `packages/addon/locales/{lang}/messages.json`
+
+**Key files:**
+
+- `packages/addon/TRANSLATIONS/DB.ts` - Source of truth for all translations
+- `packages/addon/TRANSLATIONS/generate.ts` - Script that generates locale files
+- `packages/addon/src/helpers/i18n-keys.ts` - TypeScript types for translation keys
+
+**Using translations in code:**
+
+```typescript
+import { getI18nMessage } from "~/helpers/i18n-keys"
+// Type-safe: getI18nMessage("modalShowAlternatives")
+// With substitutions: getI18nMessage("reasonFounder", [companyName])
+```
+
 ## Hints System
 
 Softer warnings for companies/services without Israeli connections (e.g., media bias).
@@ -168,7 +193,7 @@ Softer warnings for companies/services without Israeli connections (e.g., media 
 - **Company Groupings**:
   - `newscord_media_bias`: All news site hints (BBC, CNN, Fox News, NYT, WSJ, etc.)
   - `thaura_ai_chat`: All AI chat hints (ChatGPT, Claude, Grok)
-  - `microsoft_bds`: Microsoft BDS hint
+  - `microsoft_bds_prio`: Microsoft BDS consumer boycott priority hint
 
 ## Important Patterns
 

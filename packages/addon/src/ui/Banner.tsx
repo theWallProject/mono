@@ -481,7 +481,10 @@ export const Banner = () => {
                   }
 
                   const reasonKey = getReasonI18nKey(reason)
-                  const substitutions = reason === "h" || reason === "BDS_PRIO" || reason === "BDS_GRASS" || reason === "BDS_PRESSURE" ? [testResult.name] : [companyName]
+                  const substitutions =
+                    reason === "h" || reason === "BDS_PRIO" || reason === "BDS_GRASS" || reason === "BDS_PRESSURE"
+                      ? [testResult.name]
+                      : [companyName]
                   return <div key={reason}>{getI18nMessage(reasonKey, substitutions)}</div>
                 })}
                 {/* // todo: use or delete */}
@@ -508,7 +511,24 @@ export const Banner = () => {
                     boxShadow: "3px 2px 7px #c72222"
                   }}
                 />
-                {testResult.alt ? (
+                {testResult.reasons.some(
+                  (r) => r === "BDS_PRIO" || r === "BDS_GRASS" || r === "BDS_PRESSURE"
+                ) ? (
+                  <Button
+                    title={getI18nMessage("modalShowBDSGuide")}
+                    onClick={() => {
+                      track("Button", "Click", "show_bds_guide")
+                      setTimeout(() => {
+                        window.location.href = "https://bdsmovement.net/Guide-to-BDS-Boycott"
+                      }, 500)
+                    }}
+                    onMouseEnter={() => setIsSharing(true)}
+                    onMouseLeave={() => setIsSharing(false)}
+                    btnStyle={{
+                      boxShadow: "3px 2px 7px #74d136"
+                    }}
+                  />
+                ) : testResult.alt ? (
                   <Button
                     title={getI18nMessage("modalShowAlternatives")}
                     onClick={() => {
