@@ -377,6 +377,65 @@ const isSearchPageUrl = (url: string): boolean => {
   return searchPatterns.some((pattern) => pattern.test(url))
 }
 
+/**
+ * Extracts the domain from a URL, removing protocol, www prefix, and path
+ * Example: "https://www.example.com/page" -> "example.com"
+ */
+const extractDomainFromUrl = (url: string): string | null => {
+  try {
+    const urlObj = new URL(url.startsWith("http") ? url : `https://${url}`)
+    let domain = urlObj.hostname
+    // Remove www. prefix
+    if (domain.startsWith("www.")) {
+      domain = domain.slice(4)
+    }
+    return domain
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Cleans a URL by removing trailing slashes and query parameters
+ * Example: "https://linkedin.com/company/foo/?bar=1" -> "https://linkedin.com/company/foo"
+ */
+const cleanUrl = (url: string): string => {
+  try {
+    const urlObj = new URL(url.startsWith("http") ? url : `https://${url}`)
+    // Remove query params and hash
+    urlObj.search = ""
+    urlObj.hash = ""
+    // Get URL string and remove trailing slashes (but keep single slash for root)
+    let cleaned = urlObj.toString()
+    // Remove trailing slashes but preserve protocol://host format
+    while (cleaned.endsWith("/") && !cleaned.endsWith("://")) {
+      cleaned = cleaned.slice(0, -1)
+    }
+    return cleaned
+  } catch {
+    // Fallback for non-URL strings: just remove trailing slashes and query params
+    let cleaned = (url.split("?")[0] ?? "").split("#")[0] ?? ""
+    while (cleaned.endsWith("/")) {
+      cleaned = cleaned.slice(0, -1)
+    }
+    return cleaned || url
+  }
+}
+
+/**
+ * Cleans, deduplicates, and sorts an array of URLs
+ */
+const cleanDedupeAndSort = (arr: string[]): string[] => {
+  return [...new Set(arr.map(cleanUrl))].sort()
+}
+
+/**
+ * Deduplicates and sorts an array of strings
+ */
+const dedupeAndSort = (arr: string[]): string[] => {
+  return [...new Set(arr)].sort()
+}
+
 type OverrideWithUrls = {
   ws?: string | string[]
   li?: string | string[]
@@ -2483,6 +2542,9 @@ function categorizeAndMergeUrls(urls: string[], existing: CategorizedUrls): Cate
 
 /**
  * Saves the current state of the entry to manualAdditions.ts
+ * - Extracts domain-only for ws entries
+ * - Deduplicates all arrays
+ * - Sorts all arrays alphabetically
  */
 async function saveEntryProgress(
   companyName: string,
@@ -2498,22 +2560,45 @@ async function saveEntryProgress(
   // Find existing entry index
   const existingIndex = currentAdditions.findIndex((item) => item.name === companyName)
 
+  // Process ws: extract domain-only, dedupe, sort
+  let processedWs: string[] | undefined
+  if (categorized.ws?.length) {
+    const domains = categorized.ws.map((url) => extractDomainFromUrl(url)).filter((d): d is string => d !== null)
+    processedWs = dedupeAndSort(domains)
+  }
+
+  // Process all URL arrays: clean (remove trailing slashes and query params), dedupe, sort
+  const processedUrls = categorized.urls?.length ? cleanDedupeAndSort(categorized.urls) : undefined
+  const processedLi = categorized.li?.length ? cleanDedupeAndSort(categorized.li) : undefined
+  const processedFb = categorized.fb?.length ? cleanDedupeAndSort(categorized.fb) : undefined
+  const processedTw = categorized.tw?.length ? cleanDedupeAndSort(categorized.tw) : undefined
+  const processedIg = categorized.ig?.length ? cleanDedupeAndSort(categorized.ig) : undefined
+  const processedGh = categorized.gh?.length ? cleanDedupeAndSort(categorized.gh) : undefined
+  const processedYtp = categorized.ytp?.length ? cleanDedupeAndSort(categorized.ytp) : undefined
+  const processedYtc = categorized.ytc?.length ? cleanDedupeAndSort(categorized.ytc) : undefined
+  const processedTt = categorized.tt?.length ? cleanDedupeAndSort(categorized.tt) : undefined
+  const processedTh = categorized.th?.length ? cleanDedupeAndSort(categorized.th) : undefined
+  // android_app_ids are not URLs, just dedupe and sort
+  const processedAndroidAppIds = categorized.android_app_ids?.length
+    ? dedupeAndSort(categorized.android_app_ids)
+    : undefined
+
   const addition: ManualAdditionItem = {
     name: companyName,
     reasons,
     ...(isComplete && { _processed: true }),
-    ...(categorized.urls?.length && { urls: categorized.urls }),
-    ...(categorized.ws?.length && { ws: categorized.ws }),
-    ...(categorized.li?.length && { li: categorized.li }),
-    ...(categorized.fb?.length && { fb: categorized.fb }),
-    ...(categorized.tw?.length && { tw: categorized.tw }),
-    ...(categorized.ig?.length && { ig: categorized.ig }),
-    ...(categorized.gh?.length && { gh: categorized.gh }),
-    ...(categorized.ytp?.length && { ytp: categorized.ytp }),
-    ...(categorized.ytc?.length && { ytc: categorized.ytc }),
-    ...(categorized.tt?.length && { tt: categorized.tt }),
-    ...(categorized.th?.length && { th: categorized.th }),
-    ...(categorized.android_app_ids?.length && { android_app_ids: categorized.android_app_ids })
+    ...(processedUrls?.length && { urls: processedUrls }),
+    ...(processedWs?.length && { ws: processedWs }),
+    ...(processedLi?.length && { li: processedLi }),
+    ...(processedFb?.length && { fb: processedFb }),
+    ...(processedTw?.length && { tw: processedTw }),
+    ...(processedIg?.length && { ig: processedIg }),
+    ...(processedGh?.length && { gh: processedGh }),
+    ...(processedYtp?.length && { ytp: processedYtp }),
+    ...(processedYtc?.length && { ytc: processedYtc }),
+    ...(processedTt?.length && { tt: processedTt }),
+    ...(processedTh?.length && { th: processedTh }),
+    ...(processedAndroidAppIds?.length && { android_app_ids: processedAndroidAppIds })
   }
 
   if (existingIndex >= 0) {
