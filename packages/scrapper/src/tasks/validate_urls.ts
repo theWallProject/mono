@@ -324,6 +324,59 @@ const categorizeUrl = (url: string): LinkField | null => {
   }
 }
 
+/**
+ * Checks if a URL is a search page URL that should be filtered out.
+ * These are the initial search pages opened by the scraper, not actual profile/company pages.
+ */
+const isSearchPageUrl = (url: string): boolean => {
+  const searchPatterns = [
+    // General search engines
+    /ecosia\.org\/search\?/i,
+    /google\.com\/search\?/i,
+    /bing\.com\/search\?/i,
+    /duckduckgo\.com\/\?q=/i,
+
+    // GitHub search
+    /github\.com\/search\?/i,
+
+    // YouTube search
+    /youtube\.com\/results\?search_query=/i,
+
+    // TikTok search
+    /tiktok\.com\/search\//i,
+
+    // Play Store search
+    /play\.google\.com\/store\/search\?/i,
+
+    // Apple Store search
+    /apple\.com\/[a-z]{2}\/search\//i,
+
+    // Chrome Web Store search
+    /chromewebstore\.google\.com\/search\//i,
+
+    // Facebook search
+    /facebook\.com\/search\/(pages|posts|people|groups|events)\//i,
+    /facebook\.com\/search\/pages\/\?q=/i,
+
+    // Threads search
+    /threads\.(com|net)\/search/i,
+
+    // Instagram search/explore
+    /instagram\.com\/explore\/search\//i,
+
+    // LinkedIn search
+    /linkedin\.com\/search\/results\//i,
+
+    // npm search
+    /npmjs\.com\/search\?/i,
+
+    // VSCode Marketplace search
+    /marketplace\.visualstudio\.com\/search\?/i
+  ]
+
+  return searchPatterns.some((pattern) => pattern.test(url))
+}
+
 type OverrideWithUrls = {
   ws?: string | string[]
   li?: string | string[]
@@ -1973,6 +2026,591 @@ export async function addNewEntryLinksForAdditions(
       }
     }
   }
+}
+
+/**
+ * Collects URLs from a browser session for a single platform
+ * Returns the collected URLs when browser closes
+ */
+async function collectUrlsFromBrowser(
+  browserContext: BrowserContext,
+  initialPages: Page[]
+): Promise<string[]> {
+  const persistentTabUrls = new Map<Page, string>()
+  const tabUrlHistory = new Map<Page, Set<string>>()
+  const userClosedUrls = new Set<string>()
+  const pendingTabCloseChecks = new Set<NodeJS.Timeout>()
+  let isContextClosing = false
+  const TAB_CLOSE_DELAY_MS = 3000
+
+  const isBrowserStillOpen = (tab: Page): boolean => {
+    try {
+      const tabContext = tab.context()
+      if (tabContext) {
+        const browser = tabContext.browser()
+        if (browser !== null && browser.isConnected()) {
+          return true
+        }
+      }
+    } catch {
+      // Context closed
+    }
+
+    try {
+      const mainBrowser = browserContext.browser()
+      return mainBrowser !== null && mainBrowser.isConnected()
+    } catch {
+      return false
+    }
+  }
+
+  const setupTabCloseHandler = (tab: Page) => {
+    tab.on("close", () => {
+      const url = persistentTabUrls.get(tab)
+      const urlHistory = tabUrlHistory.get(tab) || new Set<string>()
+
+      if (!isContextClosing) {
+        tabUrlHistory.delete(tab)
+      }
+
+      if (!url || url === "about:blank") {
+        return
+      }
+
+      let isShuttingDown = isContextClosing
+      if (!isShuttingDown) {
+        try {
+          const tabContext = tab.context()
+          isShuttingDown = !tabContext || tabContext.browser() === null
+        } catch {
+          isShuttingDown = true
+        }
+      }
+
+      if (isShuttingDown) {
+        return
+      }
+
+      const timeoutId = setTimeout(() => {
+        pendingTabCloseChecks.delete(timeoutId)
+
+        if (isBrowserStillOpen(tab) && !isContextClosing) {
+          for (const historyUrl of urlHistory) {
+            userClosedUrls.add(historyUrl)
+          }
+        }
+      }, TAB_CLOSE_DELAY_MS)
+
+      pendingTabCloseChecks.add(timeoutId)
+    })
+  }
+
+  const waitForPendingChecks = async () => {
+    if (pendingTabCloseChecks.size > 0) {
+      const maxWait = TAB_CLOSE_DELAY_MS + 1000
+      const startTime = Date.now()
+
+      while (pendingTabCloseChecks.size > 0 && Date.now() - startTime < maxWait) {
+        await new Promise((resolve) => setTimeout(resolve, 100))
+      }
+
+      if (pendingTabCloseChecks.size > 0) {
+        for (const timeoutId of pendingTabCloseChecks) {
+          clearTimeout(timeoutId)
+        }
+        pendingTabCloseChecks.clear()
+      }
+    }
+  }
+
+  // Initialize with initial pages
+  for (const tab of initialPages) {
+    tabUrlHistory.set(tab, new Set<string>())
+    try {
+      const url = tab.url()
+      if (url && url !== "about:blank") {
+        persistentTabUrls.set(tab, url)
+        const history = tabUrlHistory.get(tab)
+        if (history) {
+          history.add(url)
+        }
+      }
+    } catch {
+      // Tab might not have URL yet
+    }
+  }
+
+  const updateTabUrl = (tab: Page) => {
+    try {
+      if (tab.isClosed()) {
+        return
+      }
+      const tabUrl = tab.url()
+      if (tabUrl && tabUrl !== "about:blank") {
+        const oldUrl = persistentTabUrls.get(tab)
+        persistentTabUrls.set(tab, tabUrl)
+
+        if (!tabUrlHistory.has(tab)) {
+          tabUrlHistory.set(tab, new Set<string>())
+        }
+        const history = tabUrlHistory.get(tab)
+        if (history) {
+          if (oldUrl && oldUrl !== tabUrl && oldUrl !== "about:blank") {
+            history.add(oldUrl)
+          }
+          history.add(tabUrl)
+        }
+      }
+    } catch {
+      // Tab might be closing
+    }
+  }
+
+  // Set up navigation listeners for initial pages
+  for (const tab of initialPages) {
+    try {
+      updateTabUrl(tab)
+      tab.on("framenavigated", () => updateTabUrl(tab))
+      tab.on("load", () => updateTabUrl(tab))
+      setupTabCloseHandler(tab)
+    } catch {
+      // Tab might not have a URL yet
+    }
+  }
+
+  // Listen for new tabs
+  browserContext.on("page", (tab) => {
+    try {
+      tabUrlHistory.set(tab, new Set<string>())
+
+      try {
+        const initialUrl = tab.url()
+        if (initialUrl && initialUrl !== "about:blank") {
+          persistentTabUrls.set(tab, initialUrl)
+          const history = tabUrlHistory.get(tab)
+          if (history) {
+            history.add(initialUrl)
+          }
+        }
+      } catch {
+        // Tab might not have URL yet
+      }
+
+      tab.on("framenavigated", () => updateTabUrl(tab))
+      tab.on("load", () => updateTabUrl(tab))
+      setupTabCloseHandler(tab)
+    } catch (e) {
+      log(`  [DEBUG] Error in tab event handler: ${e}`)
+    }
+  })
+
+  // Wait for browser close and collect URLs
+  return new Promise<string[]>((resolve) => {
+    let resolved = false
+    let pollInterval: NodeJS.Timeout | null = null
+
+    const collectUrls = (): string[] => {
+      const extraUrls: string[] = []
+
+      for (const [, url] of persistentTabUrls.entries()) {
+        if (!url || url === "about:blank") {
+          continue
+        }
+
+        if (userClosedUrls.has(url)) {
+          continue
+        }
+
+        // Filter out search page URLs (initial search pages, not actual profiles)
+        if (isSearchPageUrl(url)) {
+          continue
+        }
+
+        extraUrls.push(removeTrailingSlash(url))
+      }
+
+      extraUrls.sort()
+      return extraUrls
+    }
+
+    const cleanup = () => {
+      if (resolved) {
+        return
+      }
+      resolved = true
+      if (pollInterval) {
+        clearInterval(pollInterval)
+        pollInterval = null
+      }
+
+      isContextClosing = true
+
+      void (async () => {
+        await waitForPendingChecks()
+        const urls = collectUrls()
+        resolve(urls)
+      })()
+    }
+
+    const browser = browserContext.browser()
+    if (!browser) {
+      cleanup()
+      return
+    }
+
+    browser.once("disconnected", () => {
+      isContextClosing = true
+      cleanup()
+    })
+
+    browserContext.once("close", () => {
+      isContextClosing = true
+      cleanup()
+    })
+
+    // Poll for browser close as fallback
+    pollInterval = setInterval(() => {
+      try {
+        const browser = browserContext.browser()
+        if (!browser || !browser.isConnected()) {
+          cleanup()
+        }
+      } catch {
+        cleanup()
+      }
+    }, 1000)
+  })
+}
+
+/**
+ * Launches a browser for a single platform and collects URLs
+ */
+async function collectUrlsForPlatform(
+  serviceName: string,
+  searchUrl: string,
+  userDataDir: string,
+  extensionDir: string
+): Promise<string[]> {
+  let browserContext: BrowserContext | null = null
+
+  try {
+    const browserArgs = [
+      "--start-maximized",
+      "--disable-blink-features=AutomationControlled",
+      "--disable-dev-shm-usage",
+      "--no-sandbox",
+      "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    ]
+
+    const absoluteExtensionDir = path.resolve(extensionDir)
+    browserArgs.push(`--disable-extensions-except=${absoluteExtensionDir}`)
+    browserArgs.push(`--load-extension=${absoluteExtensionDir}`)
+
+    browserContext = await chromium.launchPersistentContext(userDataDir, {
+      headless: false,
+      args: browserArgs,
+      viewport: { width: 1280, height: 720 },
+      ignoreHTTPSErrors: true
+    })
+
+    // Remove webdriver property from all pages
+    const pages = browserContext.pages()
+    for (const page of pages) {
+      await page.addInitScript(() => {
+        Object.defineProperty(navigator, "webdriver", { get: () => false })
+        Object.defineProperty(navigator, "plugins", { get: () => [1, 2, 3, 4, 5] })
+        Object.defineProperty(navigator, "languages", { get: () => ["en-US", "en"] })
+        Object.defineProperty(window, "chrome", { value: { runtime: {} }, writable: true, configurable: true })
+      })
+    }
+
+    browserContext.on("page", (page) => {
+      // Use void to handle the async without awaiting (event handlers can't be async)
+      // Wrap in try-catch to handle pages that close immediately (e.g., during browser shutdown)
+      void (async () => {
+        try {
+          if (!page.isClosed()) {
+            await page.addInitScript(() => {
+              Object.defineProperty(navigator, "webdriver", { get: () => false })
+              Object.defineProperty(navigator, "plugins", { get: () => [1, 2, 3, 4, 5] })
+              Object.defineProperty(navigator, "languages", { get: () => ["en-US", "en"] })
+              Object.defineProperty(window, "chrome", { value: { runtime: {} }, writable: true, configurable: true })
+            })
+          }
+        } catch {
+          // Page/context might be closed during browser shutdown - ignore
+        }
+      })()
+    })
+
+    // Open the search page
+    const searchPage = await browserContext.newPage()
+    log(`  🔍 Opening ${serviceName} search...`)
+
+    try {
+      await searchPage.goto(searchUrl, {
+        waitUntil: "domcontentloaded",
+        timeout: 30000
+      })
+      log(`  ✓ ${serviceName} search tab opened`)
+    } catch (e) {
+      log(`  [DEBUG] Could not navigate ${serviceName} search tab: ${e}`)
+    }
+
+    // Close any empty tabs
+    const allPages = browserContext.pages()
+    for (const page of allPages) {
+      try {
+        if (!page.isClosed() && page !== searchPage) {
+          const url = page.url()
+          if (url === "about:blank" || url === "") {
+            await page.close()
+          }
+        }
+      } catch {
+        // Page might already be closed
+      }
+    }
+
+    log(`  ⏳ ${serviceName}: Open tabs, then close browser to continue...`)
+
+    // Collect URLs when browser closes
+    const urls = await collectUrlsFromBrowser(browserContext, [searchPage])
+
+    return urls
+  } finally {
+    if (browserContext) {
+      try {
+        const browser = browserContext.browser()
+        const isConnected = browser?.isConnected() ?? false
+        if (isConnected) {
+          await browserContext.close()
+        }
+      } catch {
+        // Browser context already closed, ignore
+      }
+    }
+  }
+}
+
+/**
+ * Categorizes URLs and merges them into a CategorizedUrls object
+ */
+function categorizeAndMergeUrls(urls: string[], existing: CategorizedUrls): CategorizedUrls {
+  const result = { ...existing }
+  const seenUrls = new Map<ScrapperLinkField | "urls", Set<string>>()
+
+  // Initialize seen sets from existing data
+  if (result.li) seenUrls.set("li", new Set(result.li))
+  if (result.fb) seenUrls.set("fb", new Set(result.fb))
+  if (result.tw) seenUrls.set("tw", new Set(result.tw))
+  if (result.ig) seenUrls.set("ig", new Set(result.ig))
+  if (result.gh) seenUrls.set("gh", new Set(result.gh))
+  if (result.ytp) seenUrls.set("ytp", new Set(result.ytp))
+  if (result.ytc) seenUrls.set("ytc", new Set(result.ytc))
+  if (result.tt) seenUrls.set("tt", new Set(result.tt))
+  if (result.th) seenUrls.set("th", new Set(result.th))
+  if (result.ws) seenUrls.set("ws", new Set(result.ws))
+  if (result.urls) seenUrls.set("urls", new Set(result.urls))
+  if (result.android_app_ids) {
+    // android_app_ids is not a link field, handle separately
+  }
+
+  for (const url of urls) {
+    // Check if this is a Play Store app details URL
+    const androidAppId = extractAndroidAppId(url)
+    if (androidAppId) {
+      if (!result.android_app_ids) result.android_app_ids = []
+      if (!result.android_app_ids.includes(androidAppId)) {
+        result.android_app_ids.push(androidAppId)
+      }
+      continue
+    }
+
+    const category = categorizeUrl(url)
+    let categoryKey: ScrapperLinkField | "urls"
+    if (category === null || category === "il") {
+      categoryKey = "urls"
+    } else {
+      categoryKey = category
+    }
+    const cleanedUrl = removeTrailingSlash(url)
+
+    if (!seenUrls.has(categoryKey)) {
+      seenUrls.set(categoryKey, new Set<string>())
+    }
+    const seen = seenUrls.get(categoryKey)
+    if (!seen) continue
+
+    if (seen.has(cleanedUrl)) {
+      continue
+    }
+
+    seen.add(cleanedUrl)
+
+    if (category === "li") {
+      if (!result.li) result.li = []
+      result.li.push(cleanedUrl)
+    } else if (category === "fb") {
+      if (!result.fb) result.fb = []
+      result.fb.push(cleanedUrl)
+    } else if (category === "tw") {
+      if (!result.tw) result.tw = []
+      result.tw.push(cleanedUrl)
+    } else if (category === "ig") {
+      if (!result.ig) result.ig = []
+      result.ig.push(cleanedUrl)
+    } else if (category === "gh") {
+      if (!result.gh) result.gh = []
+      result.gh.push(cleanedUrl)
+    } else if (category === "ytp") {
+      if (!result.ytp) result.ytp = []
+      result.ytp.push(cleanedUrl)
+    } else if (category === "ytc") {
+      if (!result.ytc) result.ytc = []
+      result.ytc.push(cleanedUrl)
+    } else if (category === "tt") {
+      if (!result.tt) result.tt = []
+      result.tt.push(cleanedUrl)
+    } else if (category === "th") {
+      if (!result.th) result.th = []
+      result.th.push(cleanedUrl)
+    } else {
+      if (!result.urls) result.urls = []
+      result.urls.push(cleanedUrl)
+    }
+  }
+
+  return result
+}
+
+/**
+ * Saves the current state of the entry to manualAdditions.ts
+ */
+async function saveEntryProgress(
+  companyName: string,
+  reasons: valuesOfListOfReasons[],
+  categorized: CategorizedUrls,
+  isComplete: boolean
+): Promise<void> {
+  const manualAdditionsPath = path.join(__dirname, "./manual_resolve/manualAdditions.ts")
+
+  // Load current additions
+  const currentAdditions = loadManualAdditions()
+
+  // Find existing entry index
+  const existingIndex = currentAdditions.findIndex((item) => item.name === companyName)
+
+  const addition: ManualAdditionItem = {
+    name: companyName,
+    reasons,
+    ...(isComplete && { _processed: true }),
+    ...(categorized.urls?.length && { urls: categorized.urls }),
+    ...(categorized.ws?.length && { ws: categorized.ws }),
+    ...(categorized.li?.length && { li: categorized.li }),
+    ...(categorized.fb?.length && { fb: categorized.fb }),
+    ...(categorized.tw?.length && { tw: categorized.tw }),
+    ...(categorized.ig?.length && { ig: categorized.ig }),
+    ...(categorized.gh?.length && { gh: categorized.gh }),
+    ...(categorized.ytp?.length && { ytp: categorized.ytp }),
+    ...(categorized.ytc?.length && { ytc: categorized.ytc }),
+    ...(categorized.tt?.length && { tt: categorized.tt }),
+    ...(categorized.th?.length && { th: categorized.th }),
+    ...(categorized.android_app_ids?.length && { android_app_ids: categorized.android_app_ids })
+  }
+
+  if (existingIndex >= 0) {
+    // Update existing entry
+    currentAdditions[existingIndex] = addition
+  } else {
+    // Add new entry
+    currentAdditions.push(addition)
+  }
+
+  await saveManualAdditions(currentAdditions)
+
+  // Verify the file is saved
+  try {
+    const exists = fs.existsSync(manualAdditionsPath)
+    if (!exists) {
+      throw new Error(`manualAdditions file not found after save: ${manualAdditionsPath}`)
+    }
+    fs.readFileSync(manualAdditionsPath, "utf-8")
+  } catch (e) {
+    error(`  ⚠️  Failed to verify manualAdditions save: ${e}`)
+    throw new Error(`Cannot proceed: manualAdditions file not saved correctly`)
+  }
+}
+
+/**
+ * Adds a new entry to manualAdditions.ts by opening each platform in a separate browser session.
+ * This makes it easier to manage tabs and prevents browser from becoming overwhelmed.
+ * Progress is saved after each platform completes.
+ */
+export async function addNewEntryLinksForAdditionsSequential(
+  companyName: string,
+  reasons: valuesOfListOfReasons[]
+): Promise<void> {
+  const userDataDir = path.join(__dirname, "../../.browser-profile")
+  const extensionDir = path.join(__dirname, "../../../addon/build/chrome-mv3-dev")
+  const extensionManifestPath = path.join(extensionDir, "manifest.json")
+
+  if (!fs.existsSync(extensionManifestPath)) {
+    throw new Error(
+      `Extension manifest not found at: ${extensionManifestPath}. ` +
+        `Please ensure the extension is built at: ${extensionDir}`
+    )
+  }
+
+  log(`\nAdding new entry for: ${companyName}`)
+  log(`\n📋 You will search ${searchServices.length} platforms one by one.`)
+  log(`   For each platform: open relevant tabs, then close the browser to proceed.`)
+  log(`   Progress is saved after each platform.\n`)
+
+  // Track all categorized URLs across platforms
+  let categorized: CategorizedUrls = {}
+
+  for (let i = 0; i < searchServices.length; i++) {
+    const service = searchServices[i]
+    if (!service) continue
+
+    log(`\n[${i + 1}/${searchServices.length}] ${service.name}`)
+    log("=".repeat(50))
+
+    const searchUrl = service.urlTemplate(companyName)
+    const urls = await collectUrlsForPlatform(service.name, searchUrl, userDataDir, extensionDir)
+
+    if (urls.length > 0) {
+      log(`  📎 Collected ${urls.length} URL(s) from ${service.name}`)
+      // Categorize and merge new URLs
+      categorized = categorizeAndMergeUrls(urls, categorized)
+    } else {
+      log(`  ✓ No URLs collected from ${service.name}`)
+    }
+
+    // Save progress after each platform
+    const isComplete = i === searchServices.length - 1
+    await saveEntryProgress(companyName, reasons, categorized, isComplete)
+    log(`  💾 Progress saved (${i + 1}/${searchServices.length} platforms)`)
+  }
+
+  log("\n" + "=".repeat(50))
+  log(`✓ All platforms processed.`)
+
+  // Log final categorized URLs summary
+  if (categorized.li?.length) log(`  ✓ ${categorized.li.length} LinkedIn URL(s)`)
+  if (categorized.fb?.length) log(`  ✓ ${categorized.fb.length} Facebook URL(s)`)
+  if (categorized.tw?.length) log(`  ✓ ${categorized.tw.length} Twitter/X URL(s)`)
+  if (categorized.ig?.length) log(`  ✓ ${categorized.ig.length} Instagram URL(s)`)
+  if (categorized.gh?.length) log(`  ✓ ${categorized.gh.length} GitHub URL(s)`)
+  if (categorized.ytp?.length) log(`  ✓ ${categorized.ytp.length} YouTube Profile URL(s)`)
+  if (categorized.ytc?.length) log(`  ✓ ${categorized.ytc.length} YouTube Channel URL(s)`)
+  if (categorized.tt?.length) log(`  ✓ ${categorized.tt.length} TikTok URL(s)`)
+  if (categorized.th?.length) log(`  ✓ ${categorized.th.length} Threads URL(s)`)
+  if (categorized.android_app_ids?.length) log(`  ✓ ${categorized.android_app_ids.length} Android app ID(s)`)
+  if (categorized.urls?.length) log(`  ✓ ${categorized.urls.length} other URL(s)`)
+
+  log(`\n✓ Entry added for ${companyName}`)
 }
 
 export async function run() {

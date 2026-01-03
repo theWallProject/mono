@@ -5,7 +5,11 @@ import type { APIListOfReasonsValues } from "@theWallProject/common"
 import inquirer from "inquirer"
 
 import { error, log } from "./helper"
-import { addNewEntryLinksForAdditions, run as validateUrls } from "./tasks/validate_urls"
+import {
+  addNewEntryLinksForAdditions,
+  addNewEntryLinksForAdditionsSequential,
+  run as validateUrls
+} from "./tasks/validate_urls"
 import { loadModule } from "./utils/moduleLoader"
 
 process.on("unhandledRejection", (reason) => {
@@ -167,6 +171,28 @@ const promptForReasons = async (): Promise<APIListOfReasonsValues[]> => {
   return validatedReasons
 }
 
+const promptForBrowserMode = async (): Promise<"sequential" | "all-at-once"> => {
+  const { mode } = await inquirer.prompt<{ mode: "sequential" | "all-at-once" }>([
+    {
+      type: "list",
+      name: "mode",
+      message: "Choose browser mode:",
+      choices: [
+        {
+          name: "Sequential (one platform at a time - easier to manage tabs)",
+          value: "sequential"
+        },
+        {
+          name: "All at once (all platforms open together - faster but more tabs)",
+          value: "all-at-once"
+        }
+      ],
+      default: "sequential"
+    }
+  ])
+  return mode
+}
+
 const handleAddAdditionAction = async (): Promise<void> => {
   const currentAdditions = loadManualAdditions()
   log(`\nCurrent manualAdditions: ${currentAdditions.length} entries`)
@@ -179,9 +205,14 @@ const handleAddAdditionAction = async (): Promise<void> => {
   }
 
   const reasons = await promptForReasons()
+  const browserMode = await promptForBrowserMode()
 
   try {
-    await addNewEntryLinksForAdditions(companyName, reasons)
+    if (browserMode === "sequential") {
+      await addNewEntryLinksForAdditionsSequential(companyName, reasons)
+    } else {
+      await addNewEntryLinksForAdditions(companyName, reasons)
+    }
     log(`✅ Added new entry "${companyName}" to manualAdditions.ts`)
   } catch (err) {
     error("Add entry error:", err)

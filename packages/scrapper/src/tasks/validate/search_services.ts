@@ -56,7 +56,7 @@ export const searchServices: SearchService[] = [
 ]
 
 /**
- * Opens search pages for all configured search services
+ * Opens search pages for all configured search services (all at once)
  */
 export const openSearchPages = async (context: BrowserContext, query: string, pages: Page[]): Promise<void> => {
   // Open all search tabs first (without waiting for navigation)
@@ -93,4 +93,29 @@ export const openSearchPages = async (context: BrowserContext, query: string, pa
 
   // Wait for all navigations to complete (but they're already running in parallel)
   await Promise.all(navigationPromises)
+}
+
+/**
+ * Opens a single search page for a specific service
+ */
+export const openSingleSearchPage = async (
+  context: BrowserContext,
+  service: SearchService,
+  query: string
+): Promise<Page> => {
+  const searchPage = await context.newPage()
+  const searchUrl = service.urlTemplate(query)
+  log(`  🔍 Opening ${service.name} search for "${query}"`)
+
+  try {
+    await searchPage.goto(searchUrl, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000
+    })
+    log(`  ✓ ${service.name} search tab opened`)
+  } catch (e) {
+    log(`  [DEBUG] Could not navigate ${service.name} search tab: ${e}`)
+  }
+
+  return searchPage
 }
