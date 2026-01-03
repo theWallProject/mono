@@ -8,14 +8,14 @@ export const HINTS_SYSTEM_DISABLED_KEY = "hints_system_disabled"
 export const WHATS_NEW_SHOWN_VERSIONS_KEY = "whats_new_shown_versions"
 export const LINKEDIN_JOB_PROCESSING_ENABLED_KEY = "linkedin_job_processing_enabled"
 
-export const getStorageItem = async <T>(key: string): Promise<T | null> => {
+export const getStorageItem = async (key: string) => {
   log(`getStorageItem getting key[${key}]`)
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.session.get([key], (result) => {
         log(`getStorageItem got key[${key}] result`, result[key])
 
-        resolve((result[key] as T | PromiseLike<T | null> | null) || null)
+        resolve(result[key] || null)
       })
     } catch (e) {
       error(`getStorageItem error: ${key}`, e)
@@ -40,14 +40,14 @@ export const setStorageItem = async <T>(key: string, value: T): Promise<void> =>
   })
 }
 
-export const getLocalStorageItem = async <T>(key: string): Promise<T | null> => {
+export const getLocalStorageItem = async (key: string) => {
   log(`getLocalStorageItem getting key[${key}]`)
   return new Promise((resolve, reject) => {
     try {
       chrome.storage.local.get([key], (result) => {
         log(`getLocalStorageItem got key[${key}] result`, result[key])
 
-        resolve((result[key] as T) || null)
+        resolve(result[key] || null)
       })
     } catch (e) {
       error(`getLocalStorageItem error: ${key}`, e)

@@ -11,7 +11,7 @@ export async function backupStorage(context: BrowserContext, extensionId: string
   try {
     const popupUrl = getExtensionPopupUrl(extensionId)
     await page.goto(popupUrl)
-    return await page.evaluate(() => {
+    return await page.evaluate(async () => {
       return new Promise<Record<string, unknown>>((resolve) => {
         chrome.storage.local.get(null, (items) => {
           resolve(items)
@@ -35,7 +35,7 @@ export async function restoreStorage(
   try {
     const popupUrl = getExtensionPopupUrl(extensionId)
     await page.goto(popupUrl)
-    await page.evaluate((storageData: Record<string, unknown>) => {
+    await page.evaluate(async (storageData: Record<string, unknown>) => {
       return new Promise<void>((resolve) => {
         chrome.storage.local.set(storageData, () => {
           resolve()
@@ -55,7 +55,7 @@ export async function clearAllStorage(context: BrowserContext, extensionId: stri
   try {
     const popupUrl = getExtensionPopupUrl(extensionId)
     await page.goto(popupUrl)
-    await page.evaluate(() => {
+    await page.evaluate(async () => {
       return new Promise<void>((resolve) => {
         chrome.storage.local.clear(() => {
           chrome.storage.session.clear(() => {
@@ -81,7 +81,7 @@ export async function setSettings(
   try {
     const popupUrl = getExtensionPopupUrl(extensionId)
     await page.goto(popupUrl)
-    await page.evaluate((settingsData: Record<string, unknown>) => {
+    await page.evaluate(async (settingsData: Record<string, unknown>) => {
       return new Promise<void>((resolve) => {
         chrome.storage.local.set(settingsData, () => {
           resolve()
@@ -105,7 +105,7 @@ export async function verifyStorage(
   try {
     const popupUrl = getExtensionPopupUrl(extensionId)
     await page.goto(popupUrl)
-    const actual = await page.evaluate(() => {
+    const actual = await page.evaluate(async () => {
       return new Promise<Record<string, unknown>>((resolve) => {
         chrome.storage.local.get(null, (items) => {
           resolve(items)
@@ -134,17 +134,13 @@ export async function simulateFreshInstall(context: BrowserContext, extensionId:
 /**
  * Get a specific storage value
  */
-export async function getStorageValue<T>(
-  context: BrowserContext,
-  extensionId: string,
-  key: string
-): Promise<T | undefined> {
+export async function getStorageValue(context: BrowserContext, extensionId: string, key: string) {
   const page = await context.newPage()
   try {
     const popupUrl = getExtensionPopupUrl(extensionId)
     await page.goto(popupUrl)
-    const value = await page.evaluate((storageKey: string) => {
-      return new Promise<T | undefined>((resolve) => {
+    const value = await page.evaluate(async (storageKey: string) => {
+      return new Promise((resolve) => {
         chrome.storage.local.get([storageKey], (items) => {
           const itemValue = items[storageKey]
           if (itemValue === undefined) {
@@ -153,7 +149,7 @@ export async function getStorageValue<T>(
           }
           // Chrome storage API returns any - we trust the generic type T
           // In production, you might want to add runtime validation based on T
-          resolve(itemValue as T)
+          resolve(itemValue)
         })
       })
     }, key)

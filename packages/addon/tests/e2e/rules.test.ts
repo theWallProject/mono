@@ -21,9 +21,7 @@ describe("Rule Types", (): void => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   it("should handle urlOnly rules correctly", async () => {

@@ -20,9 +20,7 @@ describe("Hints System - Single Tab Isolated Tests", () => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   it("should show hints toast on hint URLs", async () => {

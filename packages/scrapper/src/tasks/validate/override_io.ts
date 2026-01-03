@@ -53,7 +53,7 @@ const formatValue = (value: ManualOverrideValue): string => {
 export const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
   const modulePath = path.resolve(manualOverridesPath)
   const resolvedPath = require.resolve(modulePath)
-  delete require.cache[resolvedPath]
+  Reflect.deleteProperty(require.cache, resolvedPath)
   const module = require(modulePath)
   const overrides = module.manualOverrides satisfies Record<string, ManualOverrideValue>
   return overrides

@@ -24,9 +24,7 @@ describe("Storage Operations", () => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   it("should store dismissal correctly", async () => {

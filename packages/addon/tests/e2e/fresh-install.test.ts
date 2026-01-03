@@ -17,9 +17,7 @@ describe("Fresh Install Scenarios", () => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   it("should behave correctly on first install with no storage", async () => {

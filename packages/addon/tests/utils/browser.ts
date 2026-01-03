@@ -59,19 +59,21 @@ export async function launchBrowserWithExtension(): Promise<{
 
   // Auto-deny all permission requests for all pages
   // This blocks notifications, geolocation, camera, microphone, etc.
-  context.on("page", async (page) => {
+  context.on("page", (page) => {
     // Wait for page to have a valid URL, then deny all permissions
-    page.once("domcontentloaded", async () => {
-      try {
-        const url = page.url()
-        // Only deny permissions for http/https URLs (skip chrome://, about:, etc.)
-        if (url.startsWith("http://") || url.startsWith("https://")) {
-          const origin = new URL(url).origin
-          await context.grantPermissions([], { origin })
+    page.once("domcontentloaded", () => {
+      void (async () => {
+        try {
+          const url = page.url()
+          // Only deny permissions for http/https URLs (skip chrome://, about:, etc.)
+          if (url.startsWith("http://") || url.startsWith("https://")) {
+            const origin = new URL(url).origin
+            await context.grantPermissions([], { origin })
+          }
+        } catch {
+          // Ignore errors (invalid URLs, etc.)
         }
-      } catch {
-        // Ignore errors (invalid URLs, etc.)
-      }
+      })()
     })
   })
 

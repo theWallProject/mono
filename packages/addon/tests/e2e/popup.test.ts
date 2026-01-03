@@ -19,9 +19,7 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   describe("Popup Opening", () => {
@@ -232,7 +230,7 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
 
         // Verify storage
         console.log("[TEST] Verifying setting in storage")
-        const storageValue = await getStorageValue<boolean>(context, extensionId, HINTS_SYSTEM_DISABLED_KEY)
+        const storageValue = await getStorageValue(context, extensionId, HINTS_SYSTEM_DISABLED_KEY)
         expect(storageValue).toBe(true)
       } finally {
         await popup1.close()

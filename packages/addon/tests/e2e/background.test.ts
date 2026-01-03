@@ -17,9 +17,7 @@ describe("Background Script", () => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   it("should load background script correctly", async () => {

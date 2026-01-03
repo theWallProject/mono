@@ -16,9 +16,7 @@ describe("Settings Persistence", () => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   it("should persist hints system toggle across sessions", async () => {

@@ -36,11 +36,11 @@ function Popup() {
 
     // Check if hints system is disabled on mount
     const checkHintsStatus = async () => {
-      const disabled = await getLocalStorageItem<boolean>(HINTS_SYSTEM_DISABLED_KEY)
+      const disabled = await getLocalStorageItem(HINTS_SYSTEM_DISABLED_KEY)
       setHintsDisabled(disabled === true)
 
       // Check LinkedIn job processing setting (defaults to false/disabled)
-      const enabled = await getLocalStorageItem<boolean>(LINKEDIN_JOB_PROCESSING_ENABLED_KEY)
+      const enabled = await getLocalStorageItem(LINKEDIN_JOB_PROCESSING_ENABLED_KEY)
       setLinkedinJobProcessingEnabled(enabled === true)
 
       setIsLoading(false)

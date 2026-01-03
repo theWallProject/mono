@@ -1,8 +1,8 @@
 import { readFileSync } from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
-import type { FinalDBFileType } from "@theWallProject/common"
-import { findInDatabaseByDomain, findInDatabaseBySelector, getMainDomain, getSelectorKey } from "@theWallProject/common"
+import type { FinalDBFileType, LinkField, SpecialDomains } from "@theWallProject/common"
+import { findInDatabaseByDomain, findInDatabaseBySelector, getMainDomain } from "@theWallProject/common"
 
 import { findMatchingRule } from "../../src/rules"
 
@@ -432,24 +432,37 @@ export async function getHintNameForUrl(url: string): Promise<string | null> {
 
     // Determine selectorKey from domain
     // Map domain to selectorKey (same logic as getSelectorKey but we need to handle it here)
-    let selectorKey: string
+    // Use properly typed variables to avoid type assertions
+    let selectorKey: LinkField
+    let specialDomain: SpecialDomains
     if (domain === "youtube.com") {
       // YouTube needs URL to determine ytp vs ytc
       selectorKey = url.includes("/channel/") ? "ytc" : "ytp"
+      specialDomain = domain
     } else if (domain === "linkedin.com") {
       selectorKey = "li"
+      specialDomain = domain
     } else if (domain === "facebook.com") {
       selectorKey = "fb"
-    } else if (domain === "twitter.com" || domain === "x.com") {
+      specialDomain = domain
+    } else if (domain === "twitter.com") {
       selectorKey = "tw"
+      specialDomain = domain
+    } else if (domain === "x.com") {
+      selectorKey = "tw"
+      specialDomain = domain
     } else if (domain === "instagram.com") {
       selectorKey = "ig"
+      specialDomain = domain
     } else if (domain === "github.com") {
       selectorKey = "gh"
+      specialDomain = domain
     } else if (domain === "tiktok.com") {
       selectorKey = "tt"
+      specialDomain = domain
     } else if (domain === "threads.com") {
       selectorKey = "th"
+      specialDomain = domain
     } else {
       // Unknown domain, fall back to domain lookup
       const findResult = findInDatabaseByDomain(domain, database)
@@ -459,20 +472,8 @@ export async function getHintNameForUrl(url: string): Promise<string | null> {
       return null
     }
 
-    // "il" is not a database field, skip database lookup
-    if (selectorKey === "il") {
-      return null
-    }
-
     // Use shared pure function for database lookup
-    // We need to cast domain to SpecialDomains for the function call
-    const specialDomain = domain as Parameters<typeof getSelectorKey>[0]
-    const findResult = findInDatabaseBySelector(
-      selector,
-      selectorKey as Parameters<typeof findInDatabaseBySelector>[1],
-      specialDomain,
-      database
-    )
+    const findResult = findInDatabaseBySelector(selector, selectorKey, specialDomain, database)
 
     if (findResult && findResult.isHint && findResult.hintText) {
       return findResult.n // Return the name field which is used as hint ID

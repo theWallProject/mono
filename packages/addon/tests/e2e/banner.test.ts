@@ -112,11 +112,9 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       const newPagePromise = context.waitForEvent("page", { timeout: 3000 }).catch(() => null)
       await shareLink.click()
 
-      // Wait for new page if it opens
+      // Wait for new page if it opens, then close it
       const newPage = await newPagePromise
-      if (newPage) {
-        await newPage.close()
-      }
+      await newPage?.close()
 
       console.log(`[TEST] ✓ Share button is clickable`)
     })

@@ -297,7 +297,7 @@ export async function setStorageValue(
     const popupUrl = getExtensionPopupUrl(extensionId)
     await page.goto(popupUrl)
     await page.evaluate(
-      ({ storageKey, storageValue }: { storageKey: string; storageValue: unknown }) => {
+      async ({ storageKey, storageValue }: { storageKey: string; storageValue: unknown }) => {
         // Code runs in extension context - chrome API exists here
         return new Promise<void>((resolve) => {
           chrome.storage.local.set({ [storageKey]: storageValue }, () => {

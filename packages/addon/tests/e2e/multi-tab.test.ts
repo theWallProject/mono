@@ -112,7 +112,7 @@ describe.skip("Multi-Tab Scenarios", () => {
 
       // Test banner URLs - fail fast if banners don't show
       for (const { page, testUrl } of bannerPages) {
-        await waitFor(() => isBannerDisplayed(page), {
+        await waitFor(async () => isBannerDisplayed(page), {
           timeout: 10000,
           description: `banner to appear for ${testUrl.url}`
         })
@@ -182,7 +182,7 @@ describe.skip("Multi-Tab Scenarios", () => {
       await waitForExtensionProcessing(page2)
 
       // First tab should show banner (flaggedUrl.isHint is false)
-      await waitFor(() => isBannerDisplayed(page1), {
+      await waitFor(async () => isBannerDisplayed(page1), {
         timeout: 10000,
         description: "banner to appear on page1"
       })

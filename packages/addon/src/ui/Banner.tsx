@@ -43,8 +43,8 @@ export const Banner = () => {
   // Check if a hint was shown recently (within 3 days)
   const wasHintShownRecently = async (hintId: string): Promise<boolean> => {
     const storageKey = `${HINT_SHOWN_PREFIX}${hintId}`
-    const lastShownTimestamp = await getLocalStorageItem<number>(storageKey)
-    if (!lastShownTimestamp) return false
+    const lastShownTimestamp = await getLocalStorageItem(storageKey)
+    if (!lastShownTimestamp || typeof lastShownTimestamp !== "number") return false
     const now = Date.now()
     return now - lastShownTimestamp < THREE_DAYS_MS
   }
@@ -73,7 +73,7 @@ export const Banner = () => {
 
   // Check if hints system is disabled globally
   const isHintsSystemDisabled = async (): Promise<boolean> => {
-    const disabled = await getLocalStorageItem<boolean>(HINTS_SYSTEM_DISABLED_KEY)
+    const disabled = await getLocalStorageItem(HINTS_SYSTEM_DISABLED_KEY)
     return disabled === true
   }
 
@@ -81,7 +81,7 @@ export const Banner = () => {
   const isHintDismissedPermanently = async (hintId: string, hintCompanyId?: string): Promise<boolean> => {
     // Check per-hint-ID dismissal first (backward compatibility)
     const hintStorageKey = `${HINT_DISMISSED_PERM_PREFIX}${hintId}`
-    const hintDismissed = await getLocalStorageItem<boolean>(hintStorageKey)
+    const hintDismissed = await getLocalStorageItem(hintStorageKey)
     if (hintDismissed === true) {
       return true
     }
@@ -89,7 +89,7 @@ export const Banner = () => {
     // Check company-level if hintCompanyId exists
     if (hintCompanyId) {
       const companyStorageKey = `${HINT_COMPANY_DISMISSED_PERM_PREFIX}${hintCompanyId}`
-      const companyDismissed = await getLocalStorageItem<boolean>(companyStorageKey)
+      const companyDismissed = await getLocalStorageItem(companyStorageKey)
       if (companyDismissed === true) {
         return true
       }
@@ -511,9 +511,7 @@ export const Banner = () => {
                     boxShadow: "3px 2px 7px #c72222"
                   }}
                 />
-                {testResult.reasons.some(
-                  (r) => r === "BDS_PRIO" || r === "BDS_GRASS" || r === "BDS_PRESSURE"
-                ) ? (
+                {testResult.reasons.some((r) => r === "BDS_PRIO" || r === "BDS_GRASS" || r === "BDS_PRESSURE") ? (
                   <Button
                     title={getI18nMessage("modalShowBDSGuide")}
                     onClick={() => {

@@ -4,7 +4,7 @@
  */
 export function clearRequireCache(modulePath: string): void {
   const resolvedPath = require.resolve(modulePath)
-  delete require.cache[resolvedPath]
+  Reflect.deleteProperty(require.cache, resolvedPath)
 }
 
 /**

@@ -95,7 +95,7 @@ const baseConfig = {
     "promise/no-return-in-finally": "warn",
     "promise/valid-params": "warn",
     "promise/no-multiple-resolved": "error",
-    "promise/prefer-await-to-then": "warn", // Prefer async/await over .then()
+    "promise/prefer-await-to-then": "off", // Prefer async/await over .then()
     // Warn on all eslint-disable comments
     "eslint-comments/no-use": ["warn", { allow: [] }],
     "eslint-comments/no-unlimited-disable": "warn",

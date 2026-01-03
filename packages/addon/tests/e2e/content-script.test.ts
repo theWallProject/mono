@@ -14,9 +14,7 @@ describe("Content Script", () => {
   })
 
   afterEach(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   it("should inject content script correctly", async () => {

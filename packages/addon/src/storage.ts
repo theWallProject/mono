@@ -43,9 +43,9 @@ const checkIsDissmissed = async (testKey: string) => {
   let isDismissed: boolean
 
   try {
-    const dismissedTS = await getStorageItem<number>(testKey)
+    const dismissedTS = await getStorageItem(testKey)
 
-    if (dismissedTS) {
+    if (dismissedTS && typeof dismissedTS === "number") {
       //compare dismissedTS which is a timestamp to see if it is older than 1 month
       const now = new Date()
       const difference = new Date(now.getTime() - dismissedTS)
