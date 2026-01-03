@@ -143,6 +143,7 @@ The addon supports multiple languages: English, Arabic, Indonesian, Malay, Benga
 
 ```typescript
 import { getI18nMessage } from "~/helpers/i18n-keys"
+
 // Type-safe: getI18nMessage("modalShowAlternatives")
 // With substitutions: getI18nMessage("reasonFounder", [companyName])
 ```

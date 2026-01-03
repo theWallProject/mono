@@ -24,9 +24,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
   })
 
   afterAll(async () => {
-    if (context) {
-      await context.close().catch(() => {})
-    }
+    await context.close().catch(() => {})
   })
 
   describe("Banner - All Standard Features (Single URL)", () => {

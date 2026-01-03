@@ -2032,10 +2032,7 @@ export async function addNewEntryLinksForAdditions(
  * Collects URLs from a browser session for a single platform
  * Returns the collected URLs when browser closes
  */
-async function collectUrlsFromBrowser(
-  browserContext: BrowserContext,
-  initialPages: Page[]
-): Promise<string[]> {
+async function collectUrlsFromBrowser(browserContext: BrowserContext, initialPages: Page[]): Promise<string[]> {
   const persistentTabUrls = new Map<Page, string>()
   const tabUrlHistory = new Map<Page, Set<string>>()
   const userClosedUrls = new Set<string>()
