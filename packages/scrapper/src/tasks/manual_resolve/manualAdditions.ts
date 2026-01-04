@@ -20,6 +20,81 @@ export const manualAdditions: ManualAdditionItem[] = [
     tw: [""]
   },
   {
+    name: "Airbnb",
+    reasons: ["BDS_PRESSURE"],
+    ws: [
+      "https://www.airbnb.com",
+      "https://www.airbnb.org",
+      "https://www.airbnb.co.in",
+      "https://community.withairbnb.com",
+      "https://insideairbnb.com"
+    ],
+    fb: [
+      "https://www.facebook.com/AirbnbDeutschland",
+      "https://www.facebook.com/AirbnbKualaLumpur",
+      "https://www.facebook.com/KLAIRBNBManagement",
+      "https://www.facebook.com/airbnboftheday"
+    ],
+    ig: [
+      "https://www.instagram.com/airbnb",
+      "https://www.instagram.com/airbnbautomated",
+      "https://www.instagram.com/airbnbilegeziyorum",
+      "https://www.instagram.com/bnbindubai",
+      "https://www.instagram.com/nile_airbnbs",
+      "https://www.instagram.com/optimizemyairbnb",
+      "https://www.instagram.com/top.airbnb.brasil"
+    ],
+    gh: ["https://github.com/airbnb"],
+    ytp: [
+      "https://www.youtube.com/@AirbnbHostTemplate",
+      "https://www.youtube.com/@AirbnbMaxProfit",
+      "https://www.youtube.com/@AirbnbRentalEmpire",
+      "https://www.youtube.com/@AirbnbUncovered",
+      "https://www.youtube.com/@JorgeContrerasyoutube",
+      "https://www.youtube.com/@OptimizeMyAirbnb",
+      "https://www.youtube.com/@STRSpecialist",
+      "https://www.youtube.com/@Silicon.Valley.Airbnb",
+      "https://www.youtube.com/@ThanksForVisiting",
+      "https://www.youtube.com/@airbnb",
+      "https://www.youtube.com/@airbnbabcs2050",
+      "https://www.youtube.com/@airbnbreviewer",
+      "https://www.youtube.com/@airbnbuniversity9745",
+      "https://www.youtube.com/@top10airbnb",
+      "https://www.youtube.com/airbnb"
+    ],
+    tt: [
+      "https://www.tiktok.com/@airbnb",
+      "https://www.tiktok.com/@airbnbheaven",
+      "https://www.tiktok.com/@airbnbmastery101",
+      "https://www.tiktok.com/@airbndguide",
+      "https://www.tiktok.com/@diani_ukunda_airbnb_host",
+      "https://www.tiktok.com/@ernsuperhost",
+      "https://www.tiktok.com/@findyourgetaway",
+      "https://www.tiktok.com/@giulliannasairbnb_miami",
+      "https://www.tiktok.com/@halliemaarie",
+      "https://www.tiktok.com/@jooodoairbnb",
+      "https://www.tiktok.com/@mountainmamacabins",
+      "https://www.tiktok.com/@selfbnb"
+    ],
+    th: [
+      "https://www.threads.com/@adamhindleyofficial",
+      "https://www.threads.com/@airbnb",
+      "https://www.threads.com/@jonnellatkins",
+      "https://www.threads.com/@myairbnb.my"
+    ],
+    urls: [
+      "https://apps.apple.com/us/app/airbnb/id401626263",
+      "https://chromewebstore.google.com/detail/airbnb-dark-mode/fbanmddmbnpfmkdaclfnecpdganjpimg",
+      "https://chromewebstore.google.com/detail/airbnb-no-split-stays/cmkhgldhdejnmbijbjnamnngakonpkpm",
+      "https://chromewebstore.google.com/detail/airplus-advanced-options/bdcdjfoindheggeigmgocjlglbphnkdn",
+      "https://chromewebstore.google.com/detail/bnb-toolbox-scraper-for-a/aglgekjeoncjfdddoeglnjomllloplcl",
+      "https://chromewebstore.google.com/detail/compare-airbnb-side-to-si/jioffghkcmonpgnbjfpnpmamblmijkop",
+      "https://chromewebstore.google.com/detail/hichee-airbnbbookingvrbo/ikoocbbcgemiakcmeepjmlgipjeeibon"
+    ],
+    android_app_ids: ["com.airbnb.android"],
+    _processed: true
+  },
+  {
     name: "Amazon",
     reasons: ["BDS_PRESSURE"],
     ws: [

@@ -463,6 +463,10 @@ const searchServices: SearchService[] = [
     urlTemplate: (query) => `https://www.ecosia.org/search?q=${encodeURIComponent(query)}`
   },
   {
+    name: "LinkedIn",
+    urlTemplate: (query) => `https://www.linkedin.com/search/results/companies/?keywords=${encodeURIComponent(query)}`
+  },
+  {
     name: "GitHub",
     urlTemplate: (query) => `https://github.com/search?q=${encodeURIComponent(query)}&type=users`
   },
@@ -490,6 +494,10 @@ const searchServices: SearchService[] = [
   {
     name: "Facebook",
     urlTemplate: (query) => `https://www.facebook.com/search/pages/?q=${encodeURIComponent(query)}`
+  },
+  {
+    name: "X (Twitter)",
+    urlTemplate: (query) => `https://x.com/search?q=${encodeURIComponent(query)}&f=user`
   },
   {
     name: "Threads",
