@@ -1105,6 +1105,91 @@ export const manualAdditions: ManualAdditionItem[] = [
     _processed: true
   },
   {
+    name: "Expedia",
+    reasons: ["BDS_PRESSURE"],
+    ws: [
+      "https://www.expedia.com",
+      "https://expediagroup.com",
+      "https://www.expedia.com.my",
+      "https://www.expediapartnercentral.com"
+    ],
+    li: [
+      "https://www.linkedin.com/company/expedia-cruises",
+      "https://www.linkedin.com/company/expedia-cruises-flower-mound",
+      "https://www.linkedin.com/company/expedia-cruises-sarasota-florida",
+      "https://www.linkedin.com/company/expedia-ltd",
+      "https://www.linkedin.com/company/expediagroup/posts",
+      "https://www.linkedin.com/showcase/expedia",
+      "https://www.linkedin.com/showcase/expedia-group-advertising",
+      "https://www.linkedin.com/showcase/expedia-group-partnerships"
+    ],
+    fb: ["https://www.facebook.com/Expedia.de"],
+    tw: [
+      "https://x.com/Expedia",
+      "https://x.com/ExpediaAsia",
+      "https://x.com/ExpediaDE",
+      "https://x.com/ExpediaGroup",
+      "https://x.com/ExpediaHelp",
+      "https://x.com/ExpediaUK",
+      "https://x.com/expedia_au",
+      "https://x.com/lifeatEG"
+    ],
+    ig: [
+      "https://www.instagram.com/ecdalhousieaspen",
+      "https://www.instagram.com/expedia",
+      "https://www.instagram.com/expediaaholidays",
+      "https://www.instagram.com/expediacruises",
+      "https://www.instagram.com/expediacruisescharlotte",
+      "https://www.instagram.com/expediacruisesduncan",
+      "https://www.instagram.com/expediacruiseswestorlando",
+      "https://www.instagram.com/expediade",
+      "https://www.instagram.com/expediagroup",
+      "https://www.instagram.com/expediamx",
+      "https://www.instagram.com/expediaprotrav",
+      "https://www.instagram.com/expediatrips",
+      "https://www.instagram.com/expediaza_lps"
+    ],
+    ytp: [
+      "https://www.youtube.com/@ExpediaCruisesFranchise",
+      "https://www.youtube.com/@ExpediaGroupAdvertising",
+      "https://www.youtube.com/@ExpediaInc",
+      "https://www.youtube.com/@ExpediaJapan",
+      "https://www.youtube.com/@ExpediaKorea",
+      "https://www.youtube.com/@ExpediaNL",
+      "https://www.youtube.com/@ExpediaSEA",
+      "https://www.youtube.com/@ExpediaThailand_th",
+      "https://www.youtube.com/@Expediacomau",
+      "https://www.youtube.com/@ExpediaforProperties",
+      "https://www.youtube.com/@eceastyork",
+      "https://www.youtube.com/@expediaca",
+      "https://www.youtube.com/@expediacroisieresamontreal8910",
+      "https://www.youtube.com/@expediacruises2501",
+      "https://www.youtube.com/@expediacruisesAZ",
+      "https://www.youtube.com/@expediacruisesWA",
+      "https://www.youtube.com/@expediacruisescentralalberta",
+      "https://www.youtube.com/@expediacruisesinfrisco7733",
+      "https://www.youtube.com/@expediacruisesmapleridge2322",
+      "https://www.youtube.com/@expediacruisessherwoodpark7338",
+      "https://www.youtube.com/@expediafrica",
+      "https://www.youtube.com/@expediaindia677",
+      "https://www.youtube.com/@expediauk",
+      "https://www.youtube.com/user/Expedia/custom"
+    ],
+    tt: ["https://www.tiktok.com/@expedia"],
+    th: [
+      "https://www.threads.com/@expedia",
+      "https://www.threads.com/@expediagroup",
+      "https://www.threads.com/@expediajp",
+      "https://www.threads.com/@expediamx"
+    ],
+    urls: [
+      "https://apps.apple.com/us/app/expedia-hotels-flights-cars/id427916203",
+      "https://chromewebstore.google.com/detail/expedia-price-scraper/hkohddkblmjfdhlkhnbjoaekkncagcno"
+    ],
+    android_app_ids: ["com.expedia.bookings", "com.expediapartnercentral"],
+    _processed: true
+  },
+  {
     name: "HP",
     reasons: ["BDS_PRIO"],
     ws: [
