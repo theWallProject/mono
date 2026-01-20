@@ -9,6 +9,7 @@ import com.thewall.android.data.models.AllItem
 import com.thewall.android.data.models.RuleInfo
 import com.thewall.android.data.models.UrlCheckResult
 import com.thewall.android.util.readFile
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.URI
@@ -123,9 +124,12 @@ class UrlChecker(private val context: Context) {
      * It runs the entire check on a background thread to prevent blocking the UI.
      */
     suspend fun checkUrl(url: String): UrlCheckResult? = withContext(Dispatchers.Default) {
+        Log.d("UrlChecker", "checkUrl called with: $url")
         val db = getDatabase() // Load the database if needed (uses Dispatchers.IO).
+        Log.d("UrlChecker", "Database loaded with ${db.size} entries")
 
         val rule = findMatchingRule(url)
+        Log.d("UrlChecker", "Matching rule: ${rule?.domain ?: "none"}")
         if (rule != null) {
             val selector = extractSelector(url, rule)
             if (selector != null) {
@@ -133,6 +137,7 @@ class UrlChecker(private val context: Context) {
                 if (selectorKey != null) {
                     val findResult = findInDatabaseBySelector(selector, selectorKey, rule.domain, db)
                     if (findResult != null) {
+                        Log.d("UrlChecker", "Found by selector: ${findResult.n}")
                         return@withContext formatResult(findResult, selector, selectorKey)
                     }
                 }
@@ -140,13 +145,16 @@ class UrlChecker(private val context: Context) {
         }
 
         val domain = getMainDomain(url)
+        Log.d("UrlChecker", "Main domain extracted: '$domain'")
         if (domain.isNotEmpty()) {
             val findResult = findInDatabaseByDomain(domain, db)
+            Log.d("UrlChecker", "findInDatabaseByDomain result: ${findResult?.n ?: "null"}, isHint: ${findResult?.isHint}")
             if (findResult != null) {
                 return@withContext formatResult(findResult, domain, "ws")
             }
         }
 
+        Log.d("UrlChecker", "No match found, returning null")
         return@withContext null
     }
 
@@ -277,9 +285,14 @@ class UrlChecker(private val context: Context) {
      * If a subdomain is explicitly stored (e.g., "fr.wix.com"), only that exact subdomain matches.
      */
     private fun findInDatabaseByDomain(domain: String, database: List<AllItem>): AllItem? {
+        Log.d("UrlChecker", "findInDatabaseByDomain: searching for '$domain'")
         // First pass: check for exact match (prioritizes exact subdomain matches over base domain matches)
         val exactMatch = database.find { it.ws == domain }
-        if (exactMatch != null) return exactMatch
+        if (exactMatch != null) {
+            Log.d("UrlChecker", "findInDatabaseByDomain: exact match found - ${exactMatch.id}")
+            return exactMatch
+        }
+        Log.d("UrlChecker", "findInDatabaseByDomain: no exact match, trying subdomain")
 
         // Second pass: check for subdomain match (only if no exact match found)
         // If stored rule is base domain (no subdomain), check if input is its subdomain

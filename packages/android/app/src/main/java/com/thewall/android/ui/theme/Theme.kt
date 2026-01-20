@@ -7,16 +7,36 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val WallDarkColorScheme = darkColorScheme(
+    primary = WallPrimary,
+    onPrimary = WallTextOnPrimary,
+    primaryContainer = WallPrimaryDark,
+    onPrimaryContainer = WallTextSecondary,
+    secondary = WallGreen,
+    onSecondary = WallTextOnPrimary,
+    secondaryContainer = WallGreenDark,
+    onSecondaryContainer = WallTextOnPrimary,
+    tertiary = WallOrange,
+    onTertiary = WallTextDark,
+    tertiaryContainer = WallOrangeDark,
+    onTertiaryContainer = WallTextOnPrimary,
+    error = WallPrimary,
+    onError = WallTextOnPrimary,
+    errorContainer = WallErrorBg,
+    onErrorContainer = WallPrimaryDark,
+    background = WallBackground,
+    onBackground = WallTextOnPrimary,
+    surface = WallSurface,
+    onSurface = WallTextOnPrimary,
+    surfaceVariant = WallSurfaceVariant,
+    onSurfaceVariant = WallTextSecondary,
+    outline = WallPrimary.copy(alpha = 0.5f)
 )
 
 @Composable
 fun TheWallBoycottAssistantTheme(
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Disable dynamic color to use consistent brand colors
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -24,8 +44,7 @@ fun TheWallBoycottAssistantTheme(
             val context = LocalContext.current
             dynamicDarkColorScheme(context)
         }
-
-        else -> DarkColorScheme
+        else -> WallDarkColorScheme
     }
 
     MaterialTheme(

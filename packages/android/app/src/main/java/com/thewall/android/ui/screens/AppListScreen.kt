@@ -12,9 +12,11 @@ import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Delete
@@ -25,7 +27,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -37,6 +39,7 @@ import com.thewall.android.data.models.AllItem
 import com.thewall.android.data.models.Reason
 import com.thewall.android.data.models.ReasonLevel
 import com.thewall.android.data.reasonsMap
+import com.thewall.android.ui.theme.*
 import com.thewall.android.util.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -78,7 +81,8 @@ private suspend fun performAppScan(context: Context): AppScanResults = withConte
                     (item.androidDevId?.let { app.packageName.startsWith(it) } == true)
         }
         val matchingHintItem = hints.find { item ->
-            (item.androidAppIds?.contains(app.packageName) == true)
+            (item.androidAppIds?.contains(app.packageName) == true) ||
+                    (item.androidDevId?.let { app.packageName.startsWith(it) } == true)
         }
 
         when {
@@ -175,15 +179,18 @@ fun AppListScreen() {
             title = { Text("Permission Required") },
             text = { Text("To notify you about newly installed boycotted apps in the background, this app requires notification permissions.") },
             confirmButton = {
-                Button(onClick = {
-                    showPermissionRationale = false
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                        requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                    }
-                }) { Text("Continue") }
+                Button(
+                    onClick = {
+                        showPermissionRationale = false
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = WallPrimary)
+                ) { Text("Continue") }
             },
             dismissButton = {
-                Button(onClick = { showPermissionRationale = false }) { Text("Cancel") }
+                TextButton(onClick = { showPermissionRationale = false }) { Text("Cancel") }
             }
         )
     }
@@ -192,9 +199,17 @@ fun AppListScreen() {
         topBar = {
             TopAppBar(
                 title = { Text("Scanned Apps", fontWeight = FontWeight.Bold) },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = WallSurface,
+                    titleContentColor = WallTextOnPrimary
+                ),
                 actions = {
                     IconButton(onClick = { askForNotificationPermission() }, enabled = !isLoading) {
-                        Icon(Icons.Default.Refresh, contentDescription = "Refresh Scan")
+                        Icon(
+                            Icons.Default.Refresh,
+                            contentDescription = "Refresh Scan",
+                            tint = WallPrimary
+                        )
                     }
                 }
             )
@@ -202,7 +217,7 @@ fun AppListScreen() {
     ) { paddingValues ->
         if (isLoading) {
             Box(modifier = Modifier.fillMaxSize().padding(paddingValues), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
+                CircularProgressIndicator(color = WallPrimary)
             }
         } else {
             LazyColumn(
@@ -211,12 +226,32 @@ fun AppListScreen() {
             ) {
                 if (blacklistedApps.isEmpty() && hintedApps.isEmpty()) {
                     item {
-                        Text(
-                            "Device is Clean!",
-                            style = MaterialTheme.typography.titleLarge,
-                            color = Color(0xFF006400),
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 16.dp),
+                            colors = CardDefaults.cardColors(containerColor = WallSuccessBg),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(16.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    Icons.Default.CheckCircle,
+                                    contentDescription = null,
+                                    tint = WallGreen,
+                                    modifier = Modifier.size(32.dp)
+                                )
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Text(
+                                    "Device is Clean!",
+                                    style = MaterialTheme.typography.titleLarge,
+                                    color = WallGreen,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
                     }
                 }
 
@@ -227,7 +262,7 @@ fun AppListScreen() {
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
                             fontWeight = FontWeight.Bold,
-                            color = Color.Red
+                            color = WallPrimary
                         )
                     }
                     items(blacklistedApps) { (app, itemInfo) ->
@@ -246,7 +281,7 @@ fun AppListScreen() {
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFFFFA500) // Orange
+                            color = WallOrange
                         )
                     }
                     items(hintedApps) { (app, itemInfo) ->
@@ -290,8 +325,8 @@ fun AppInfoCard(
     val effectiveLevel = itemInfo?.getEffectiveLevel(reasonsMap)
 
     val cardColor = when (effectiveLevel) {
-        ReasonLevel.ERROR -> Color.Red.copy(alpha = 0.2f)
-        ReasonLevel.WARNING -> Color.Yellow.copy(alpha = 0.3f)
+        ReasonLevel.ERROR -> WallErrorBg
+        ReasonLevel.WARNING -> WallWarningBg
         null -> MaterialTheme.colorScheme.surfaceVariant
     }
 
@@ -302,14 +337,17 @@ fun AppInfoCard(
     }
 
     val iconColor = when (effectiveLevel) {
-        ReasonLevel.ERROR -> Color.Red
-        ReasonLevel.WARNING -> Color(0xFFFFA500) // Orange
-        null -> Color.Green
+        ReasonLevel.ERROR -> WallPrimary
+        ReasonLevel.WARNING -> WallOrange
+        null -> WallGreen
     }
 
     Card(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
-        colors = CardDefaults.cardColors(containerColor = cardColor)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        colors = CardDefaults.cardColors(containerColor = cardColor),
+        shape = RoundedCornerShape(12.dp)
     ) {
         Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(
@@ -323,35 +361,57 @@ fun AppInfoCard(
                 Image(
                     painter = rememberDrawablePainter(drawable = it),
                     contentDescription = "$appName icon",
-                    modifier = Modifier.size(40.dp)
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(RoundedCornerShape(8.dp))
                 )
             }
             Spacer(modifier = Modifier.width(12.dp))
 
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = appName, fontWeight = FontWeight.Bold)
+                Text(
+                    text = appName,
+                    fontWeight = FontWeight.Bold,
+                    color = WallTextDark
+                )
                 if (itemInfo != null) {
                     if (itemInfo.isHint == true) {
                         Text(
                             text = itemInfo.hintText ?: "Suggestion available",
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall,
+                            color = WallTextDarkSecondary
                         )
                     } else {
                         val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
-                        val reasonMessages = reasons.joinToString(separator = "\n") { "- ${it.message}" }
-                        Text(text = reasonMessages, style = MaterialTheme.typography.bodySmall)
+                        val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
+                        Text(
+                            text = reasonMessages,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = WallTextDarkSecondary
+                        )
                     }
                 } else {
-                    Text(text = app.packageName, style = MaterialTheme.typography.bodySmall)
+                    Text(
+                        text = app.packageName,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WallTextDarkSecondary.copy(alpha = 0.6f)
+                    )
                 }
             }
 
             if (itemInfo != null) {
                 if (itemInfo.isHint == true && itemInfo.hintAndroidId != null) {
-                    Button(onClick = {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${itemInfo.hintAndroidId}"))
-                        context.startActivity(intent)
-                    }) {
+                    Button(
+                        onClick = {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${itemInfo.hintAndroidId}"))
+                            context.startActivity(intent)
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = WallGreen,
+                            contentColor = WallTextOnPrimary
+                        ),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
                         Text("Install")
                     }
                 } else {
@@ -359,7 +419,7 @@ fun AppInfoCard(
                         Icon(
                             Icons.Default.Delete,
                             contentDescription = "Uninstall App",
-                            tint = Color.Red.copy(alpha = 0.7f)
+                            tint = WallPrimary.copy(alpha = 0.8f)
                         )
                     }
                 }

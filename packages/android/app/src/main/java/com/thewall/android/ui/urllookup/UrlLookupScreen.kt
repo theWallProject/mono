@@ -3,6 +3,7 @@ package com.thewall.android.ui.urllookup
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,8 +19,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Error
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -27,6 +30,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -37,7 +41,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
@@ -47,6 +50,7 @@ import com.thewall.android.data.models.ReasonLevel
 import com.thewall.android.data.logic.UrlChecker
 import com.thewall.android.data.models.UrlCheckResult
 import com.thewall.android.data.reasonsMap
+import com.thewall.android.ui.theme.*
 import kotlinx.coroutines.launch
 
 @Composable
@@ -68,7 +72,12 @@ fun UrlLookupScreen(
         hasSearched = true
         scope.launch {
             try {
+                Log.d("UrlLookup", "Checking URL: $checkUrl")
                 result = urlChecker.checkUrl(checkUrl)
+                Log.d("UrlLookup", "Result: $result")
+            } catch (e: Exception) {
+                Log.e("UrlLookup", "Error checking URL: ${e.message}", e)
+                result = null
             } finally {
                 isLoading = false
             }
@@ -98,21 +107,37 @@ fun UrlLookupScreen(
             value = url,
             onValueChange = { url = it },
             label = { Text("Enter a website or social media URL") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = WallPrimary,
+                focusedLabelColor = WallPrimary,
+                cursorColor = WallPrimary
+            ),
+            shape = RoundedCornerShape(12.dp)
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(12.dp))
         Button(
             onClick = { performCheck(url) },
-            modifier = Modifier.fillMaxWidth(),
-            enabled = !isLoading
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(52.dp),
+            enabled = !isLoading,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = WallPrimary,
+                contentColor = WallTextOnPrimary
+            ),
+            shape = RoundedCornerShape(12.dp)
         ) {
-            Text("Check URL")
+            Text(
+                "Check URL",
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
+            )
         }
         Spacer(modifier = Modifier.height(16.dp))
 
         if (isLoading) {
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
+                CircularProgressIndicator(color = WallPrimary)
             }
         } else if (hasSearched) {
             when (val res = result) {
@@ -143,7 +168,8 @@ fun UrlLookupScreen(
                 }
                 context.startActivity(Intent.createChooser(intent, "Send Email"))
             },
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            shape = RoundedCornerShape(8.dp)
         ) {
             Text("Report an Issue")
         }
@@ -155,13 +181,13 @@ fun NoMatchResultCard() {
     ResultCard(
         icon = Icons.Default.CheckCircle,
         title = "Seems OK",
-        titleColor = Color(0xFF006400),
-        containerColor = Color(0xFFE8F5E9)
+        titleColor = WallGreen,
+        containerColor = WallSuccessBg
     ) {
         Text(
             "This URL does not appear in our database.",
             style = MaterialTheme.typography.bodyLarge,
-            color = Color.Black.copy(alpha = 0.87f)
+            color = WallTextDarkSecondary
         )
     }
 }
@@ -174,10 +200,8 @@ fun MatchResultCard(result: UrlCheckResult.Match) {
 
     val icon = if (overallLevel == ReasonLevel.ERROR) Icons.Default.Error else Icons.Default.Warning
     val title = result.name
-    val titleColor = if (overallLevel == ReasonLevel.ERROR) Color(0xFFB00020) else Color(0xFFFFA000)
-    val containerColor =
-        if (overallLevel == ReasonLevel.ERROR) Color(0xFFFDE7E9) else Color(0xFFFFF8E1)
-    val bodyTextColor = Color.Black.copy(alpha = 0.87f)
+    val titleColor = if (overallLevel == ReasonLevel.ERROR) WallPrimary else WallOrange
+    val containerColor = if (overallLevel == ReasonLevel.ERROR) WallErrorBg else WallWarningBg
 
     ResultCard(icon, title, titleColor, containerColor) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -185,7 +209,7 @@ fun MatchResultCard(result: UrlCheckResult.Match) {
                 Text(
                     "• ${reason.message}",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = bodyTextColor
+                    color = WallTextDarkSecondary
                 )
             }
             result.comment?.let {
@@ -193,7 +217,7 @@ fun MatchResultCard(result: UrlCheckResult.Match) {
                     "Comment: $it",
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
-                    color = bodyTextColor
+                    color = WallTextDarkSecondary
                 )
             }
         }
@@ -202,20 +226,23 @@ fun MatchResultCard(result: UrlCheckResult.Match) {
 
 @Composable
 fun HintResultCard(result: UrlCheckResult.Hint) {
-    val bodyTextColor = Color.Black.copy(alpha = 0.87f)
     ResultCard(
-        icon = Icons.Default.Warning,
+        icon = Icons.Default.Info,
         title = "Hint: ${result.name}",
-        titleColor = Color.Black,
-        containerColor = Color(0xFFE1F5FE) // Light Blue
+        titleColor = WallTextDark,
+        containerColor = WallHintBg
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text(result.hintText, style = MaterialTheme.typography.bodyLarge, color = bodyTextColor)
+            Text(
+                result.hintText,
+                style = MaterialTheme.typography.bodyLarge,
+                color = WallTextDarkSecondary
+            )
             result.hintUrl.let {
                 Text(
                     "Suggestion: $it",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = bodyTextColor.copy(alpha = 0.7f)
+                    color = WallTextDarkSecondary.copy(alpha = 0.7f)
                 )
             }
         }
@@ -227,8 +254,8 @@ fun HintResultCard(result: UrlCheckResult.Hint) {
 fun ResultCard(
     icon: ImageVector,
     title: String,
-    titleColor: Color,
-    containerColor: Color,
+    titleColor: androidx.compose.ui.graphics.Color,
+    containerColor: androidx.compose.ui.graphics.Color,
     content: @Composable () -> Unit
 ) {
     Card(

@@ -15,5 +15,8 @@ val reasonsMap = mapOf(
     "h" to Reason("Headquartered in Israel", ReasonLevel.ERROR),
     "i" to Reason("Significant investment from Israeli VCs", ReasonLevel.WARNING),
     "f" to Reason("Founded by Israeli entrepreneurs", ReasonLevel.ERROR),
-    "b" to Reason("On the BDS boycott list", ReasonLevel.ERROR)
+    "u" to Reason("Israeli domain or URL", ReasonLevel.ERROR),
+    "BDS_PRIO" to Reason("BDS Consumer Boycott Priority", ReasonLevel.ERROR),
+    "BDS_GRASS" to Reason("BDS Grassroots Boycott Target", ReasonLevel.ERROR),
+    "BDS_PRESSURE" to Reason("BDS Pressure Target", ReasonLevel.WARNING)
 )
