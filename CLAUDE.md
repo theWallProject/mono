@@ -50,7 +50,24 @@ pnpm commit                    # VibElint commit workflow (required by hooks)
 # Telegram Bot
 pnpm bot:dev                   # Development (polling)
 pnpm bot:deploy                # Deploy to production
+
+# Android App
+cd packages/android
+pnpm build                     # Debug APK
+pnpm build:release             # Release APK
+pnpm clean                     # Clean build artifacts
+pnpm lint                      # Run Android lint
 ```
+
+### Android Build Requirements
+
+The Android app requires:
+- **Bash**: Git Bash on Windows, or native bash on macOS/Linux
+- **Java 17+**: Auto-detected from Android Studio's bundled JDK, or set `JAVA_HOME`
+- **Gradle 9.1.0**: Configured in `gradle/wrapper/gradle-wrapper.properties`
+- **Android SDK**: Set `ANDROID_HOME` or configure in `local.properties`
+
+The build scripts auto-detect Android Studio's JDK on Windows (`C:\Program Files\Android\Android Studio\jbr`).
 
 ## Architecture
 
@@ -61,10 +78,11 @@ common (base - pure functions, schemas)
   ↑
   ├── addon (Plasmo browser extension)
   ├── scrapper (data pipeline)
-  └── telegram-bot (Telegraf + Express)
+  ├── telegram-bot (Telegraf + Express)
+  └── android (Jetpack Compose app - standalone)
 ```
 
-All use `workspace:*` dependencies. Common must build first.
+All use `workspace:*` dependencies. Common must build first. Android is standalone (no workspace deps).
 
 ### Common Package
 
@@ -122,6 +140,27 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 **Modes:** Webhook (production, needs `WEBHOOK_URL`) or Polling (dev)
 
 **Handlers:** `urlCheckerBot()`, `handleInlineQueryBot()`, `urlExtractorBot()`
+
+### Android Package
+
+**Framework:** Jetpack Compose with Material 3
+
+**Key screens:**
+- `StartScreen` - Entry point with shield icon and CTA
+- `AppListScreen` - Scans installed apps against database
+- `UrlLookupScreen` - Manual URL checking
+
+**Design system:** Dark mode first with brand colors defined in:
+- `ui/theme/Color.kt` - Color palette (burnt orange primary, status colors)
+- `ui/theme/Theme.kt` - Material 3 color scheme mappings
+
+**Status card colors (dark mode):**
+- Error: `#2D1A17` background, `#FF6B4D` accent
+- Warning: `#2D2617` background, `#FFD54F` accent
+- Success: `#172D1F` background, `#4CAF50` accent
+- Hint: `#172A33` background, `#4FC3F7` accent
+
+**Data:** Embeds same `ALL.json` database, parsed at runtime
 
 ## Translations
 
@@ -257,3 +296,5 @@ Addon uses `~*` → `./src/*`
 - `packages/addon/src/content.tsx` - Content script entry
 - `packages/scrapper/src/index.ts` - Pipeline orchestration
 - `packages/scrapper/results/4_final/ALL.json` - Master database
+- `packages/android/app/src/main/java/com/thewall/android/ui/theme/Color.kt` - Android color palette
+- `packages/android/app/src/main/java/com/thewall/android/ui/screens/AppListScreen.kt` - App scanner UI

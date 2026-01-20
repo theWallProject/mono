@@ -1,5 +1,6 @@
 package com.thewall.android.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,21 +13,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.thewall.android.R
 import com.thewall.android.ui.theme.WallPrimary
 import com.thewall.android.ui.theme.WallTextOnPrimary
 import com.thewall.android.ui.theme.WallTextSecondary
@@ -40,7 +40,7 @@ fun StartScreen(onScanClicked: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Shield Icon in Circle
+        // Official Wall Icon in Circle
         Box(
             modifier = Modifier
                 .size(120.dp)
@@ -48,11 +48,10 @@ fun StartScreen(onScanClicked: () -> Unit) {
                 .background(WallPrimary),
             contentAlignment = Alignment.Center
         ) {
-            Icon(
-                imageVector = Icons.Default.Shield,
-                contentDescription = "Shield",
-                tint = WallTextOnPrimary,
-                modifier = Modifier.size(64.dp)
+            Image(
+                painter = painterResource(id = R.drawable.ic_wall_logo),
+                contentDescription = "The Wall Logo",
+                modifier = Modifier.size(58.dp)
             )
         }
 

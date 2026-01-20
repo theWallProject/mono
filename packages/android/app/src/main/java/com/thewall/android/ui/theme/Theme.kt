@@ -8,29 +8,41 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val WallDarkColorScheme = darkColorScheme(
+    // Primary (Brand - Burnt Orange)
     primary = WallPrimary,
     onPrimary = WallTextOnPrimary,
-    primaryContainer = WallPrimaryDark,
-    onPrimaryContainer = WallTextSecondary,
-    secondary = WallGreen,
+    primaryContainer = WallPrimaryContainer,
+    onPrimaryContainer = WallOnPrimaryContainer,
+
+    // Secondary (Success - Green)
+    secondary = WallSecondary,
     onSecondary = WallTextOnPrimary,
-    secondaryContainer = WallGreenDark,
-    onSecondaryContainer = WallTextOnPrimary,
-    tertiary = WallOrange,
-    onTertiary = WallTextDark,
-    tertiaryContainer = WallOrangeDark,
-    onTertiaryContainer = WallTextOnPrimary,
+    secondaryContainer = WallSecondaryContainer,
+    onSecondaryContainer = WallOnSecondaryContainer,
+
+    // Tertiary (Warning - Amber)
+    tertiary = WallTertiary,
+    onTertiary = WallBackground,
+    tertiaryContainer = WallTertiaryContainer,
+    onTertiaryContainer = WallOnTertiaryContainer,
+
+    // Error (uses brand primary for consistency)
     error = WallPrimary,
     onError = WallTextOnPrimary,
-    errorContainer = WallErrorBg,
-    onErrorContainer = WallPrimaryDark,
+    errorContainer = WallErrorContainer,
+    onErrorContainer = WallOnErrorContainer,
+
+    // Background & Surface
     background = WallBackground,
-    onBackground = WallTextOnPrimary,
+    onBackground = WallOnSurface,
     surface = WallSurface,
-    onSurface = WallTextOnPrimary,
+    onSurface = WallOnSurface,
     surfaceVariant = WallSurfaceVariant,
-    onSurfaceVariant = WallTextSecondary,
-    outline = WallPrimary.copy(alpha = 0.5f)
+    onSurfaceVariant = WallOnSurfaceVariant,
+
+    // Outline
+    outline = WallOutline,
+    outlineVariant = WallOutline.copy(alpha = 0.5f)
 )
 
 @Composable

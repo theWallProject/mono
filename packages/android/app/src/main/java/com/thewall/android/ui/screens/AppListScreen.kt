@@ -230,7 +230,7 @@ fun AppListScreen() {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 16.dp),
-                            colors = CardDefaults.cardColors(containerColor = WallSuccessBg),
+                            colors = CardDefaults.cardColors(containerColor = WallSuccessContainer),
                             shape = RoundedCornerShape(12.dp)
                         ) {
                             Row(
@@ -240,14 +240,14 @@ fun AppListScreen() {
                                 Icon(
                                     Icons.Default.CheckCircle,
                                     contentDescription = null,
-                                    tint = WallGreen,
+                                    tint = WallSuccessAccent,
                                     modifier = Modifier.size(32.dp)
                                 )
                                 Spacer(modifier = Modifier.width(12.dp))
                                 Text(
                                     "Device is Clean!",
                                     style = MaterialTheme.typography.titleLarge,
-                                    color = WallGreen,
+                                    color = WallSuccessAccent,
                                     fontWeight = FontWeight.Bold
                                 )
                             }
@@ -281,7 +281,7 @@ fun AppListScreen() {
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
                             fontWeight = FontWeight.Bold,
-                            color = WallOrange
+                            color = WallWarningAccent
                         )
                     }
                     items(hintedApps) { (app, itemInfo) ->
@@ -323,23 +323,45 @@ fun AppInfoCard(
     val appIcon = remember(app) { app.applicationInfo?.loadIcon(pm) }
 
     val effectiveLevel = itemInfo?.getEffectiveLevel(reasonsMap)
+    val isHint = itemInfo?.isHint == true
 
-    val cardColor = when (effectiveLevel) {
-        ReasonLevel.ERROR -> WallErrorBg
-        ReasonLevel.WARNING -> WallWarningBg
-        null -> MaterialTheme.colorScheme.surfaceVariant
+    // Dark container colors based on status
+    val cardColor = when {
+        isHint -> WallHintContainer
+        effectiveLevel == ReasonLevel.ERROR -> WallErrorContainer
+        effectiveLevel == ReasonLevel.WARNING -> WallWarningContainer
+        else -> WallNeutralContainer
     }
 
-    val icon = when (effectiveLevel) {
-        ReasonLevel.ERROR -> Icons.Default.Warning
-        ReasonLevel.WARNING -> Icons.Default.Info
-        null -> Icons.Default.CheckCircle
+    val icon = when {
+        isHint -> Icons.Default.Info
+        effectiveLevel == ReasonLevel.ERROR -> Icons.Default.Warning
+        effectiveLevel == ReasonLevel.WARNING -> Icons.Default.Warning
+        else -> Icons.Default.CheckCircle
     }
 
-    val iconColor = when (effectiveLevel) {
-        ReasonLevel.ERROR -> WallPrimary
-        ReasonLevel.WARNING -> WallOrange
-        null -> WallGreen
+    // Accent colors for icons on dark backgrounds
+    val iconColor = when {
+        isHint -> WallHintAccent
+        effectiveLevel == ReasonLevel.ERROR -> WallErrorAccent
+        effectiveLevel == ReasonLevel.WARNING -> WallWarningAccent
+        else -> WallSuccessAccent
+    }
+
+    // Title text color (same as icon for emphasis)
+    val titleColor = when {
+        isHint -> WallHintAccent
+        effectiveLevel == ReasonLevel.ERROR -> WallErrorAccent
+        effectiveLevel == ReasonLevel.WARNING -> WallWarningAccent
+        else -> WallOnSurface
+    }
+
+    // Body text color (lighter variant for readability)
+    val bodyColor = when {
+        isHint -> WallOnHintContainer
+        effectiveLevel == ReasonLevel.ERROR -> WallOnErrorContainer
+        effectiveLevel == ReasonLevel.WARNING -> WallOnWarningContainer
+        else -> WallOnNeutralContainer
     }
 
     Card(
@@ -372,14 +394,14 @@ fun AppInfoCard(
                 Text(
                     text = appName,
                     fontWeight = FontWeight.Bold,
-                    color = WallTextDark
+                    color = titleColor
                 )
                 if (itemInfo != null) {
                     if (itemInfo.isHint == true) {
                         Text(
                             text = itemInfo.hintText ?: "Suggestion available",
                             style = MaterialTheme.typography.bodySmall,
-                            color = WallTextDarkSecondary
+                            color = bodyColor
                         )
                     } else {
                         val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
@@ -387,14 +409,14 @@ fun AppInfoCard(
                         Text(
                             text = reasonMessages,
                             style = MaterialTheme.typography.bodySmall,
-                            color = WallTextDarkSecondary
+                            color = bodyColor
                         )
                     }
                 } else {
                     Text(
                         text = app.packageName,
                         style = MaterialTheme.typography.bodySmall,
-                        color = WallTextDarkSecondary.copy(alpha = 0.6f)
+                        color = bodyColor.copy(alpha = 0.6f)
                     )
                 }
             }
@@ -407,7 +429,7 @@ fun AppInfoCard(
                             context.startActivity(intent)
                         },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = WallGreen,
+                            containerColor = WallSecondary,
                             contentColor = WallTextOnPrimary
                         ),
                         shape = RoundedCornerShape(8.dp)
@@ -419,7 +441,7 @@ fun AppInfoCard(
                         Icon(
                             Icons.Default.Delete,
                             contentDescription = "Uninstall App",
-                            tint = WallPrimary.copy(alpha = 0.8f)
+                            tint = WallErrorAccent.copy(alpha = 0.8f)
                         )
                     }
                 }

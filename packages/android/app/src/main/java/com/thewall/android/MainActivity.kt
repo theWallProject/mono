@@ -11,7 +11,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Scanner
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -164,7 +163,7 @@ class MainActivity : ComponentActivity() {
             bottomBar = {
                 NavigationBar {
                     NavigationBarItem(
-                        icon = { Icon(Icons.Filled.Scanner, contentDescription = "Scan Apps") },
+                        icon = { Icon(Icons.Filled.Search, contentDescription = "Scan Apps") },
                         label = { Text("Scan Apps") },
                         selected = currentScreen is Screen.List,
                         onClick = { currentScreen = Screen.List }

@@ -181,13 +181,14 @@ fun NoMatchResultCard() {
     ResultCard(
         icon = Icons.Default.CheckCircle,
         title = "Seems OK",
-        titleColor = WallGreen,
-        containerColor = WallSuccessBg
+        titleColor = WallSuccessAccent,
+        containerColor = WallSuccessContainer,
+        bodyColor = WallOnSuccessContainer
     ) {
         Text(
             "This URL does not appear in our database.",
             style = MaterialTheme.typography.bodyLarge,
-            color = WallTextDarkSecondary
+            color = WallOnSuccessContainer
         )
     }
 }
@@ -200,16 +201,17 @@ fun MatchResultCard(result: UrlCheckResult.Match) {
 
     val icon = if (overallLevel == ReasonLevel.ERROR) Icons.Default.Error else Icons.Default.Warning
     val title = result.name
-    val titleColor = if (overallLevel == ReasonLevel.ERROR) WallPrimary else WallOrange
-    val containerColor = if (overallLevel == ReasonLevel.ERROR) WallErrorBg else WallWarningBg
+    val titleColor = if (overallLevel == ReasonLevel.ERROR) WallErrorAccent else WallWarningAccent
+    val containerColor = if (overallLevel == ReasonLevel.ERROR) WallErrorContainer else WallWarningContainer
+    val bodyColor = if (overallLevel == ReasonLevel.ERROR) WallOnErrorContainer else WallOnWarningContainer
 
-    ResultCard(icon, title, titleColor, containerColor) {
+    ResultCard(icon, title, titleColor, containerColor, bodyColor) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             mappedReasons.forEach { reason ->
                 Text(
                     "• ${reason.message}",
                     style = MaterialTheme.typography.bodyLarge,
-                    color = WallTextDarkSecondary
+                    color = bodyColor
                 )
             }
             result.comment?.let {
@@ -217,7 +219,7 @@ fun MatchResultCard(result: UrlCheckResult.Match) {
                     "Comment: $it",
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
-                    color = WallTextDarkSecondary
+                    color = bodyColor
                 )
             }
         }
@@ -229,20 +231,21 @@ fun HintResultCard(result: UrlCheckResult.Hint) {
     ResultCard(
         icon = Icons.Default.Info,
         title = "Hint: ${result.name}",
-        titleColor = WallTextDark,
-        containerColor = WallHintBg
+        titleColor = WallHintAccent,
+        containerColor = WallHintContainer,
+        bodyColor = WallOnHintContainer
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(
                 result.hintText,
                 style = MaterialTheme.typography.bodyLarge,
-                color = WallTextDarkSecondary
+                color = WallOnHintContainer
             )
             result.hintUrl.let {
                 Text(
                     "Suggestion: $it",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = WallTextDarkSecondary.copy(alpha = 0.7f)
+                    color = WallOnHintContainer.copy(alpha = 0.7f)
                 )
             }
         }
@@ -256,13 +259,14 @@ fun ResultCard(
     title: String,
     titleColor: androidx.compose.ui.graphics.Color,
     containerColor: androidx.compose.ui.graphics.Color,
+    bodyColor: androidx.compose.ui.graphics.Color = WallOnSurfaceVariant,
     content: @Composable () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = containerColor),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
