@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import icon16 from "../../assets/icon16.png"
+import shieldIcon from "../../assets/images/shield-icon.svg"
 import { getExtensionURL, track } from "../helpers"
 import { getI18nMessage } from "../helpers/i18n-keys"
 
@@ -32,12 +32,12 @@ export const HintToastContent = ({
         e.stopPropagation()
       }}
       style={{
-        background: "#1b1b1b",
+        background: "#b72b00",
         padding: "12px 16px",
-        color: "#e9e9e9",
+        color: "#ffffff",
         fontSize: "14px",
         lineHeight: "1.5",
-        fontFamily: "sans-serif",
+        fontFamily: "'Inter', sans-serif",
         fontWeight: "400",
         display: "flex",
         alignItems: "center",
@@ -46,17 +46,19 @@ export const HintToastContent = ({
         maxWidth: "100%",
         boxSizing: "border-box",
         position: "relative",
-        borderRadius: "8px",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.5)",
-        border: "1px solid #333"
+        borderRadius: "12px",
+        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
+        border: "1px solid #932300"
       }}>
       <img
-        src={getExtensionURL(icon16)}
+        src={getExtensionURL(shieldIcon)}
         alt="The Wall"
         style={{
-          width: "20px",
-          height: "20px",
-          flexShrink: 0
+          width: "24px",
+          height: "24px",
+          flexShrink: 0,
+          objectFit: "contain",
+          filter: "brightness(0) invert(1)"
         }}
       />
       <span
@@ -89,10 +91,10 @@ export const HintToastContent = ({
             e.stopPropagation()
           }}
           style={{
-            background: "rgba(255, 255, 255, 0.1)",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            borderRadius: "4px",
-            color: "#e9e9e9",
+            background: "rgba(255, 225, 205, 0.2)",
+            border: "1px solid rgba(255, 225, 205, 0.3)",
+            borderRadius: "6px",
+            color: "#ffe1cd",
             cursor: "pointer",
             padding: "4px 6px",
             fontSize: "14px",
@@ -101,17 +103,17 @@ export const HintToastContent = ({
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
-            width: "24px",
-            height: "24px",
+            width: "28px",
+            height: "28px",
             fontFamily: "inherit",
             marginLeft: "4px"
           }}
           title="Open link"
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
+            e.currentTarget.style.background = "rgba(255, 225, 205, 0.3)"
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
+            e.currentTarget.style.background = "rgba(255, 225, 205, 0.2)"
           }}>
           🔗
         </button>
@@ -137,29 +139,29 @@ export const HintToastContent = ({
               e.stopPropagation()
             }}
             style={{
-              background: "rgba(255, 255, 255, 0.1)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              borderRadius: "4px",
-              color: "#e9e9e9",
+              background: "rgba(255, 225, 205, 0.2)",
+              border: "1px solid rgba(255, 225, 205, 0.3)",
+              borderRadius: "6px",
+              color: "#ffe1cd",
               cursor: "pointer",
-              padding: "3px 6px",
+              padding: "4px 8px",
               fontSize: "11px",
               lineHeight: "1.2",
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0,
-              fontFamily: "sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: "500",
               whiteSpace: "nowrap",
               letterSpacing: "0.02em",
               transition: "all 0.2s ease"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
+              e.currentTarget.style.background = "rgba(255, 225, 205, 0.3)"
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
+              e.currentTarget.style.background = "rgba(255, 225, 205, 0.2)"
             }}>
             {chrome.i18n.getMessage("hintDismiss")}
           </button>
@@ -181,12 +183,12 @@ export const HintToastContent = ({
                 e.stopPropagation()
               }}
               style={{
-                background: "rgba(255, 255, 255, 0.1)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                borderRadius: "4px",
-                color: "#e9e9e9",
+                background: "rgba(255, 225, 205, 0.2)",
+                border: "1px solid rgba(255, 225, 205, 0.3)",
+                borderRadius: "6px",
+                color: "#ffe1cd",
                 cursor: "pointer",
-                padding: "3px 6px",
+                padding: "4px 8px",
                 fontSize: "11px",
                 lineHeight: "1",
                 display: "inline-flex",
@@ -198,10 +200,10 @@ export const HintToastContent = ({
                 animation: "hintButtonFadeIn 0.3s ease forwards"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
+                e.currentTarget.style.background = "rgba(255, 225, 205, 0.3)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
+                e.currentTarget.style.background = "rgba(255, 225, 205, 0.2)"
               }}>
               {getI18nMessage("hintDismissThis")}
             </button>
@@ -221,12 +223,12 @@ export const HintToastContent = ({
                 e.stopPropagation()
               }}
               style={{
-                background: "rgba(255, 255, 255, 0.1)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                borderRadius: "4px",
-                color: "#e9e9e9",
+                background: "rgba(255, 225, 205, 0.2)",
+                border: "1px solid rgba(255, 225, 205, 0.3)",
+                borderRadius: "6px",
+                color: "#ffe1cd",
                 cursor: "pointer",
-                padding: "3px 6px",
+                padding: "4px 8px",
                 fontSize: "11px",
                 lineHeight: "1",
                 display: "inline-flex",
@@ -238,10 +240,10 @@ export const HintToastContent = ({
                 animation: "hintButtonFadeIn 0.3s ease 0.1s forwards"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
+                e.currentTarget.style.background = "rgba(255, 225, 205, 0.3)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
+                e.currentTarget.style.background = "rgba(255, 225, 205, 0.2)"
               }}>
               {getI18nMessage("hintDisableAll")}
             </button>

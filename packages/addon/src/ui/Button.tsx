@@ -1,4 +1,4 @@
-import React, { type CSSProperties, type FC, type MouseEventHandler } from "react"
+import React, { type FC, type MouseEventHandler } from "react"
 
 import style from "./style.module.css"
 
@@ -7,15 +7,12 @@ const Button: FC<{
   onClick: () => void
   onMouseEnter?: MouseEventHandler<HTMLButtonElement>
   onMouseLeave?: MouseEventHandler<HTMLButtonElement>
-  btnStyle?: CSSProperties
-}> = ({ title, onClick, onMouseEnter, onMouseLeave, btnStyle }) => {
+  variant?: "primary" | "secondary"
+}> = ({ title, onClick, onMouseEnter, onMouseLeave, variant = "primary" }) => {
+  const className = variant === "secondary" ? `${style.button} ${style.buttonSecondary}` : style.button
+
   return (
-    <button
-      onClick={onClick}
-      className={style.button}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      style={btnStyle}>
+    <button onClick={onClick} className={className} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title}
     </button>
   )

@@ -1,7 +1,7 @@
 import type { valuesOfListOfReasons } from "@theWallProject/common"
 import React, { useEffect, useRef, useState } from "react"
 
-import theWallWhite from "../../assets/images/the-wall-white.png"
+import shieldIcon from "../../assets/images/shield-icon.svg"
 import { getExtensionURL } from "../helpers"
 import { getI18nMessage } from "../helpers/i18n-keys"
 import { getReasonI18nKey } from "../helpers/reasonMap"
@@ -116,7 +116,7 @@ export const HoverTooltip: React.FC<HoverTooltipProps> = ({ name, reasons, targe
         left: `${position.left}px`
       }}>
       <div className={style["wallDomTooltipHeader"]}>
-        <img src={getExtensionURL(theWallWhite)} alt="The Wall" className={style["wallDomTooltipLogo"]} />
+        <img src={getExtensionURL(shieldIcon)} alt="The Wall" className={style["wallDomTooltipLogo"]} />
         <div className={style.wallDomTooltipName}>{extensionName}</div>
       </div>
       {reasons && reasons.length > 0 && (

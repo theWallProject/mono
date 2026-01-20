@@ -63,8 +63,8 @@ async function isRuleEnabled(ruleId: RuleIds): Promise<boolean> {
   if (hasSettingKey(ruleId)) {
     const settingKey = RULE_SETTING_KEYS[ruleId]
     const enabled = await getLocalStorageItem(settingKey)
-    // Default to false (disabled) when setting is null/undefined
-    return enabled === true
+    // Default to true (enabled) when setting is null/undefined
+    return enabled !== false
   }
   // Rule has no setting, enabled by default
   return true

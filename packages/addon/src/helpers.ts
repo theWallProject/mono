@@ -47,6 +47,7 @@ export type TR_NAME =
   | "share_li"
   | "share_wa"
   | "share_tg"
+  | "share_ig"
   | "hint_link"
   | "hint_expand"
   | "hint_dismiss_this"

@@ -4,7 +4,7 @@ import { FaTelegram } from "@react-icons/all-files/fa/FaTelegram"
 import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp"
 import React, { useEffect, useState } from "react"
 
-import icon16 from "../assets/icon16.png"
+import shieldIcon from "../assets/images/shield-icon.svg"
 import { getExtensionURL, track } from "./helpers"
 import { getI18nMessage } from "./helpers/i18n-keys"
 import {
@@ -20,7 +20,7 @@ import {
 
 function Popup() {
   const [hintsDisabled, setHintsDisabled] = useState<boolean>(false)
-  const [linkedinJobProcessingEnabled, setLinkedinJobProcessingEnabled] = useState<boolean>(false)
+  const [linkedinJobProcessingEnabled, setLinkedinJobProcessingEnabled] = useState<boolean>(true)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isToggling, setIsToggling] = useState<boolean>(false)
   const [isTogglingLinkedIn, setIsTogglingLinkedIn] = useState<boolean>(false)
@@ -28,20 +28,23 @@ function Popup() {
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
 
   useEffect(() => {
-    // Remove default browser margins/padding
+    // Remove default browser margins/padding and set background
     document.documentElement.style.margin = "0"
     document.documentElement.style.padding = "0"
+    document.documentElement.style.background = "#b72b00"
     document.body.style.margin = "0"
     document.body.style.padding = "0"
+    document.body.style.background = "#b72b00"
 
     // Check if hints system is disabled on mount
     const checkHintsStatus = async () => {
       const disabled = await getLocalStorageItem(HINTS_SYSTEM_DISABLED_KEY)
       setHintsDisabled(disabled === true)
 
-      // Check LinkedIn job processing setting (defaults to false/disabled)
+      // Check LinkedIn job processing setting (defaults to true/enabled)
       const enabled = await getLocalStorageItem(LINKEDIN_JOB_PROCESSING_ENABLED_KEY)
-      setLinkedinJobProcessingEnabled(enabled === true)
+      // Default to true if not explicitly set to false
+      setLinkedinJobProcessingEnabled(enabled !== false)
 
       setIsLoading(false)
     }
@@ -134,18 +137,13 @@ function Popup() {
     }
   }
 
-  const handleContact = () => {
-    track("Button", "Click", "options_contact")
-    window.open("mailto:the.wall.addon@proton.me?subject=Contact - The Wall Extension", "_blank")
-  }
-
   const containerStyle: React.CSSProperties = {
     minWidth: 300,
     margin: 0,
     padding: 0,
-    background: "#1b1b1b",
-    color: "#e9e9e9",
-    fontFamily: "sans-serif",
+    background: "#b72b00",
+    color: "#ffffff",
+    fontFamily: "'Inter', sans-serif",
     display: "flex",
     flexDirection: "column",
     minHeight: "100%"
@@ -156,15 +154,17 @@ function Popup() {
     alignItems: "center",
     gap: "12px",
     padding: "16px 16px",
-    borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
-    background: "rgba(255, 255, 255, 0.03)",
+    borderBottom: "1px solid rgba(255, 225, 205, 0.15)",
+    background: "rgba(255, 255, 255, 0.05)",
     flexShrink: 0
   }
 
   const iconStyle: React.CSSProperties = {
-    width: "22px",
-    height: "22px",
-    flexShrink: 0
+    width: "26px",
+    height: "26px",
+    flexShrink: 0,
+    filter: "brightness(0) invert(1)",
+    objectFit: "contain"
   }
 
   const titleStyle: React.CSSProperties = {
@@ -189,21 +189,21 @@ function Popup() {
     fontWeight: "600",
     textTransform: "uppercase",
     letterSpacing: "0.05em",
-    color: "rgba(233, 233, 233, 0.5)",
+    color: "rgba(255, 225, 205, 0.7)",
     marginBottom: "8px",
     paddingLeft: "2px"
   }
 
   const buttonStyle: React.CSSProperties = {
-    background: "rgba(255, 255, 255, 0.08)",
-    border: "1px solid rgba(255, 255, 255, 0.15)",
+    background: "#ffffff",
+    border: "none",
     borderRadius: "8px",
-    color: "#e9e9e9",
+    color: "#b72b00",
     cursor: "pointer",
     padding: "10px 14px",
     fontSize: "13px",
     lineHeight: "1.5",
-    fontFamily: "sans-serif",
+    fontFamily: "'Inter', sans-serif",
     fontWeight: "500",
     width: "100%",
     marginBottom: "8px",
@@ -212,7 +212,8 @@ function Popup() {
     textAlign: "left",
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)"
   }
 
   const lastButtonStyle: React.CSSProperties = {
@@ -222,7 +223,7 @@ function Popup() {
 
   const dividerStyle: React.CSSProperties = {
     height: "1px",
-    background: "rgba(255, 255, 255, 0.08)",
+    background: "rgba(255, 225, 205, 0.15)",
     margin: "16px 0",
     border: "none"
   }
@@ -237,45 +238,27 @@ function Popup() {
 
   const shareIconStyle: React.CSSProperties = {
     cursor: "pointer",
-    padding: "6px",
-    borderRadius: "6px",
+    padding: "8px",
+    borderRadius: "8px",
     transition: "all 0.2s ease",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
-  }
-
-  const footerStyle: React.CSSProperties = {
-    padding: "12px 16px",
-    borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-    background: "rgba(255, 255, 255, 0.02)",
-    display: "flex",
-    flexDirection: "column",
-    gap: "8px",
-    flexShrink: 0
-  }
-
-  const footerLinkStyle: React.CSSProperties = {
-    color: "rgba(233, 233, 233, 0.7)",
-    fontSize: "11px",
-    textDecoration: "none",
-    cursor: "pointer",
-    transition: "color 0.2s ease",
-    textAlign: "center"
+    justifyContent: "center",
+    background: "rgba(255, 255, 255, 0.1)"
   }
 
   const loadingStyle: React.CSSProperties = {
     padding: "12px 14px",
     textAlign: "center",
     fontSize: "13px",
-    color: "rgba(233, 233, 233, 0.6)"
+    color: "rgba(255, 225, 205, 0.7)"
   }
 
   const successMessageStyle: React.CSSProperties = {
     padding: "8px 14px",
-    background: "rgba(116, 209, 54, 0.15)",
-    borderTop: "1px solid rgba(116, 209, 54, 0.3)",
-    color: "#74d136",
+    background: "rgba(255, 255, 255, 0.15)",
+    borderTop: "1px solid rgba(255, 255, 255, 0.2)",
+    color: "#ffffff",
     fontSize: "12px",
     textAlign: "center",
     fontWeight: "500"
@@ -292,29 +275,30 @@ function Popup() {
     alignItems: "center",
     gap: "10px",
     padding: "10px 14px",
-    background: "rgba(255, 255, 255, 0.08)",
-    border: "1px solid rgba(255, 255, 255, 0.15)",
+    background: "#ffffff",
+    border: "none",
     borderRadius: "8px",
     marginBottom: "8px",
     cursor: "pointer",
     transition: "all 0.2s ease",
-    boxSizing: "border-box"
+    boxSizing: "border-box",
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)"
   }
 
   const checkboxStyle: React.CSSProperties = {
     width: "18px",
     height: "18px",
     cursor: "pointer",
-    accentColor: "#74d136",
+    accentColor: "#b72b00",
     flexShrink: 0
   }
 
   const checkboxLabelStyle: React.CSSProperties = {
     fontSize: "13px",
     lineHeight: "1.5",
-    fontFamily: "sans-serif",
+    fontFamily: "'Inter', sans-serif",
     fontWeight: "500",
-    color: "#e9e9e9",
+    color: "#b72b00",
     flex: 1,
     cursor: "pointer",
     userSelect: "none"
@@ -331,36 +315,42 @@ function Popup() {
   return (
     <div style={containerStyle}>
       <div style={headerStyle}>
-        <img src={getExtensionURL(icon16)} alt="The Wall" style={iconStyle} />
+        <img src={getExtensionURL(shieldIcon)} alt="The Wall" style={iconStyle} />
         <h1 style={titleStyle}>{chrome.i18n.getMessage("extensionName")}</h1>
       </div>
       <div style={contentStyle}>
         {/* Settings Section */}
         <div style={sectionStyle}>
           <div style={sectionTitleStyle}>Settings</div>
-          <button
-            type="button"
+          <div
+            style={checkboxContainerStyle}
             onClick={() => {
               void toggleHintsSystem()
             }}
-            disabled={isToggling || isResetting || isTogglingLinkedIn}
-            style={isToggling || isResetting || isTogglingLinkedIn ? disabledButtonStyle : buttonStyle}
             onMouseEnter={(e) => {
-              if (!isToggling && !isResetting) {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)"
+              if (!isToggling && !isResetting && !isTogglingLinkedIn) {
                 e.currentTarget.style.transform = "translateY(-1px)"
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.2)"
               }
             }}
             onMouseLeave={(e) => {
-              if (!isToggling && !isResetting) {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)"
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)"
+              if (!isToggling && !isResetting && !isTogglingLinkedIn) {
                 e.currentTarget.style.transform = "translateY(0)"
+                e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.15)"
               }
             }}>
-            {isToggling ? "Processing..." : hintsDisabled ? "Enable Hints System" : "Disable Hints System"}
-          </button>
+            <input
+              type="checkbox"
+              checked={!hintsDisabled}
+              onChange={() => {
+                void toggleHintsSystem()
+              }}
+              onClick={(e) => e.stopPropagation()}
+              disabled={isToggling || isResetting || isTogglingLinkedIn}
+              style={checkboxStyle}
+            />
+            <label style={checkboxLabelStyle}>{isToggling ? "Processing..." : "Enable Hints"}</label>
+          </div>
           <div
             style={checkboxContainerStyle}
             onClick={() => {
@@ -368,14 +358,14 @@ function Popup() {
             }}
             onMouseEnter={(e) => {
               if (!isTogglingLinkedIn && !isToggling && !isResetting) {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)"
+                e.currentTarget.style.transform = "translateY(-1px)"
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.2)"
               }
             }}
             onMouseLeave={(e) => {
               if (!isTogglingLinkedIn && !isToggling && !isResetting) {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)"
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)"
+                e.currentTarget.style.transform = "translateY(0)"
+                e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.15)"
               }
             }}>
             <input
@@ -389,7 +379,7 @@ function Popup() {
               style={checkboxStyle}
             />
             <label style={checkboxLabelStyle}>
-              {isTogglingLinkedIn ? "Processing..." : "BETA - Detect LinkedIn Job pages"}
+              {isTogglingLinkedIn ? "Processing..." : "Detect LinkedIn Job pages"}
             </label>
           </div>
           <button
@@ -405,16 +395,14 @@ function Popup() {
             }
             onMouseEnter={(e) => {
               if (!isToggling && !isResetting) {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)"
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)"
                 e.currentTarget.style.transform = "translateY(-1px)"
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.2)"
               }
             }}
             onMouseLeave={(e) => {
               if (!isToggling && !isResetting) {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)"
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)"
                 e.currentTarget.style.transform = "translateY(0)"
+                e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.15)"
               }
             }}>
             {isResetting ? "Resetting..." : "Reset All Dismissed Hints"}
@@ -431,14 +419,12 @@ function Popup() {
             onClick={handleDonate}
             style={buttonStyle}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(255, 94, 91, 0.15)"
-              e.currentTarget.style.borderColor = "rgba(255, 94, 91, 0.3)"
               e.currentTarget.style.transform = "translateY(-1px)"
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.2)"
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)"
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)"
               e.currentTarget.style.transform = "translateY(0)"
+              e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.15)"
             }}>
             {getI18nMessage("modalDonateButton")}
           </button>
@@ -454,29 +440,29 @@ function Popup() {
               style={shareIconStyle}
               onClick={() => handleShare("fb")}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(59, 89, 152, 0.2)"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
                 e.currentTarget.style.transform = "scale(1.1)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
                 e.currentTarget.style.transform = "scale(1)"
               }}
               aria-label="Share on Facebook">
-              <FaFacebook size={22} color="#3b5998" />
+              <FaFacebook size={22} color="#ffffff" />
             </div>
             <div
               style={shareIconStyle}
               onClick={() => handleShare("tw")}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(136, 153, 172, 0.2)"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
                 e.currentTarget.style.transform = "scale(1.1)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
                 e.currentTarget.style.transform = "scale(1)"
               }}
               aria-label="Share on X (Twitter)">
-              <svg width={22} height={22} viewBox="0 0 24 24" fill="#8899ac">
+              <svg width={22} height={22} viewBox="0 0 24 24" fill="#ffffff">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </div>
@@ -484,87 +470,70 @@ function Popup() {
               style={shareIconStyle}
               onClick={() => handleShare("li")}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(14, 118, 168, 0.2)"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
                 e.currentTarget.style.transform = "scale(1.1)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
                 e.currentTarget.style.transform = "scale(1)"
               }}
               aria-label="Share on LinkedIn">
-              <FaLinkedin size={22} color="#0e76a8" />
+              <FaLinkedin size={22} color="#ffffff" />
             </div>
             <div
               style={shareIconStyle}
               onClick={() => handleShare("wa")}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(37, 211, 102, 0.2)"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
                 e.currentTarget.style.transform = "scale(1.1)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
                 e.currentTarget.style.transform = "scale(1)"
               }}
               aria-label="Share on WhatsApp">
-              <FaWhatsapp size={22} color="#25D366" />
+              <FaWhatsapp size={22} color="#ffffff" />
             </div>
             <div
               style={shareIconStyle}
               onClick={() => handleShare("tg")}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(0, 136, 204, 0.2)"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.2)"
                 e.currentTarget.style.transform = "scale(1.1)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent"
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
                 e.currentTarget.style.transform = "scale(1)"
               }}
               aria-label="Share on Telegram">
-              <FaTelegram size={22} color="#0088cc" />
+              <FaTelegram size={22} color="#ffffff" />
             </div>
           </div>
+          <a
+            href="https://the-wall.win"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "rgba(255, 225, 205, 0.6)",
+              fontSize: "11px",
+              textDecoration: "none",
+              textAlign: "center",
+              display: "block",
+              marginTop: "8px",
+              transition: "color 0.2s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#ffffff"
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "rgba(255, 225, 205, 0.6)"
+            }}>
+            the-wall.win
+          </a>
         </div>
       </div>
 
       {successMessage && <div style={successMessageStyle}>✓ {successMessage}</div>}
-
-      {/* Footer */}
-      <div style={footerStyle}>
-        <button
-          type="button"
-          onClick={handleContact}
-          style={{
-            ...buttonStyle,
-            marginBottom: "6px",
-            fontSize: "12px",
-            padding: "8px 12px",
-            background: "rgba(255, 255, 255, 0.06)",
-            borderColor: "rgba(255, 255, 255, 0.12)"
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
-            e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)"
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "rgba(255, 255, 255, 0.06)"
-            e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.12)"
-          }}>
-          Contact Us
-        </button>
-        <a
-          href="https://the-wall.win"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={footerLinkStyle}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "rgba(233, 233, 233, 0.9)"
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "rgba(233, 233, 233, 0.7)"
-          }}>
-          the-wall.win
-        </a>
-      </div>
     </div>
   )
 }

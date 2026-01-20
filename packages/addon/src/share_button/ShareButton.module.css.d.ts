@@ -1,7 +1,8 @@
 declare const styles: {
   readonly dropdown: string
-  readonly shareButton: string
+  readonly pillBadge: string
   readonly shareButtonContainer: string
-  readonly shareOption: string
+  readonly shareIcon: string
+  readonly visible: string
 }
 export = styles

@@ -1,17 +1,30 @@
 declare const styles: {
+  readonly altButtonWrapper: string
   readonly altLink: string
   readonly altPopupItem: string
   readonly altPopupList: string
   readonly altPopupMenu: string
   readonly bgLayer: string
+  readonly bgOverlay: string
   readonly bottomBar: string
+  readonly bottomShareBar: string
   readonly button: string
+  readonly buttonFadeIn: string
+  readonly buttonSecondary: string
   readonly buttonsWrapper: string
   readonly container: string
   readonly modalContainer: string
   readonly modalContentWrapper: string
+  readonly modalFadeIn: string
   readonly modalMargin: string
-  readonly shimmer: string
-  readonly theWallLogo: string
+  readonly modalWrapper: string
+  readonly overlayFadeIn: string
+  readonly pillBadge: string
+  readonly pillBadgeContainerLeft: string
+  readonly pillBadgeContainerRight: string
+  readonly shieldCircleBg: string
+  readonly shieldIcon: string
+  readonly visible: string
+  readonly warningButton: string
 }
 export = styles
