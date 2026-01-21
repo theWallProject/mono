@@ -10,13 +10,17 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Link
+import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -27,10 +31,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import com.thewall.android.ui.theme.WallPrimary
+import com.thewall.android.ui.theme.WallTextOnPrimary
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
@@ -38,6 +48,7 @@ import com.thewall.android.background.ScanWorker
 import com.thewall.android.ui.screens.AppListScreen
 import com.thewall.android.ui.screens.PermissionRequestScreen
 import com.thewall.android.ui.screens.StartScreen
+import com.thewall.android.ui.screens.SupportScreen
 import com.thewall.android.ui.theme.TheWallBoycottAssistantTheme
 import com.thewall.android.ui.urllookup.UrlLookupScreen
 import java.util.concurrent.TimeUnit
@@ -161,18 +172,88 @@ class MainActivity : ComponentActivity() {
 
         Scaffold(
             bottomBar = {
-                NavigationBar {
+                val isListSelected = currentScreen is Screen.List
+                val isUrlSelected = currentScreen is Screen.UrlLookup
+                val isSupportSelected = currentScreen is Screen.Support
+
+                NavigationBar(
+                    containerColor = WallPrimary,
+                    contentColor = WallTextOnPrimary
+                ) {
                     NavigationBarItem(
-                        icon = { Icon(Icons.Filled.Search, contentDescription = "Scan Apps") },
-                        label = { Text("Scan Apps") },
-                        selected = currentScreen is Screen.List,
-                        onClick = { currentScreen = Screen.List }
+                        icon = {
+                            Icon(
+                                Icons.Filled.PhoneAndroid,
+                                contentDescription = "My Apps",
+                                modifier = Modifier.size(if (isListSelected) 28.dp else 24.dp)
+                            )
+                        },
+                        label = {
+                            Text(
+                                "My Apps",
+                                fontSize = 14.sp,
+                                fontWeight = if (isListSelected) FontWeight.Bold else FontWeight.Normal
+                            )
+                        },
+                        selected = isListSelected,
+                        onClick = { currentScreen = Screen.List },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = WallTextOnPrimary,
+                            selectedTextColor = WallTextOnPrimary,
+                            unselectedIconColor = WallTextOnPrimary.copy(alpha = 0.7f),
+                            unselectedTextColor = WallTextOnPrimary.copy(alpha = 0.7f),
+                            indicatorColor = Color.Transparent
+                        )
                     )
                     NavigationBarItem(
-                        icon = { Icon(Icons.Filled.Search, contentDescription = "URL Lookup") },
-                        label = { Text("URL Lookup") },
-                        selected = currentScreen is Screen.UrlLookup,
-                        onClick = { currentScreen = Screen.UrlLookup }
+                        icon = {
+                            Icon(
+                                Icons.Filled.Link,
+                                contentDescription = "Check URL",
+                                modifier = Modifier.size(if (isUrlSelected) 28.dp else 24.dp)
+                            )
+                        },
+                        label = {
+                            Text(
+                                "Check URL",
+                                fontSize = 14.sp,
+                                fontWeight = if (isUrlSelected) FontWeight.Bold else FontWeight.Normal
+                            )
+                        },
+                        selected = isUrlSelected,
+                        onClick = { currentScreen = Screen.UrlLookup },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = WallTextOnPrimary,
+                            selectedTextColor = WallTextOnPrimary,
+                            unselectedIconColor = WallTextOnPrimary.copy(alpha = 0.7f),
+                            unselectedTextColor = WallTextOnPrimary.copy(alpha = 0.7f),
+                            indicatorColor = Color.Transparent
+                        )
+                    )
+                    NavigationBarItem(
+                        icon = {
+                            Icon(
+                                Icons.Filled.Favorite,
+                                contentDescription = "Support",
+                                modifier = Modifier.size(if (isSupportSelected) 28.dp else 24.dp)
+                            )
+                        },
+                        label = {
+                            Text(
+                                "Support",
+                                fontSize = 14.sp,
+                                fontWeight = if (isSupportSelected) FontWeight.Bold else FontWeight.Normal
+                            )
+                        },
+                        selected = isSupportSelected,
+                        onClick = { currentScreen = Screen.Support },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = WallTextOnPrimary,
+                            selectedTextColor = WallTextOnPrimary,
+                            unselectedIconColor = WallTextOnPrimary.copy(alpha = 0.7f),
+                            unselectedTextColor = WallTextOnPrimary.copy(alpha = 0.7f),
+                            indicatorColor = Color.Transparent
+                        )
                     )
                 }
             }
@@ -200,6 +281,7 @@ class MainActivity : ComponentActivity() {
                         initialUrl = initialUrl,
                         onUrlHandled = onUrlHandled
                     )
+                    is Screen.Support -> SupportScreen()
                 }
             }
         }
@@ -209,6 +291,7 @@ class MainActivity : ComponentActivity() {
 sealed class Screen {
     object List : Screen()
     object UrlLookup : Screen()
+    object Support : Screen()
 }
 
 enum class ScanState {

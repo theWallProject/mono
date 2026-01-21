@@ -20,9 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -176,8 +174,8 @@ fun AppListScreen() {
     if (showPermissionRationale) {
         AlertDialog(
             onDismissRequest = { showPermissionRationale = false },
-            title = { Text("Permission Required") },
-            text = { Text("To notify you about newly installed boycotted apps in the background, this app requires notification permissions.") },
+            title = { Text("Stay Informed") },
+            text = { Text("Enable notifications to get alerts when you install an app that conflicts with your values. Knowledge is power.") },
             confirmButton = {
                 Button(
                     onClick = {
@@ -186,7 +184,10 @@ fun AppListScreen() {
                             requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
                         }
                     },
-                    colors = ButtonDefaults.buttonColors(containerColor = WallPrimary)
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WallPrimaryDark,
+                        contentColor = WallTextOnPrimary
+                    )
                 ) { Text("Continue") }
             },
             dismissButton = {
@@ -196,22 +197,25 @@ fun AppListScreen() {
     }
 
     Scaffold(
+        containerColor = WallBackground,
         topBar = {
             TopAppBar(
-                title = { Text("Scanned Apps", fontWeight = FontWeight.Bold) },
+                title = { Text("Your App Audit", fontWeight = FontWeight.Bold) },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = WallSurface,
-                    titleContentColor = WallTextOnPrimary
+                    containerColor = WallPrimary,
+                    titleContentColor = WallTextOnPrimary,
+                    scrolledContainerColor = WallPrimary
                 ),
                 actions = {
                     IconButton(onClick = { askForNotificationPermission() }, enabled = !isLoading) {
                         Icon(
                             Icons.Default.Refresh,
                             contentDescription = "Refresh Scan",
-                            tint = WallPrimary
+                            tint = WallTextOnPrimary
                         )
                     }
-                }
+                },
+                modifier = Modifier.height(56.dp)
             )
         }
     ) { paddingValues ->
@@ -244,12 +248,19 @@ fun AppListScreen() {
                                     modifier = Modifier.size(32.dp)
                                 )
                                 Spacer(modifier = Modifier.width(12.dp))
-                                Text(
-                                    "Device is Clean!",
-                                    style = MaterialTheme.typography.titleLarge,
-                                    color = WallSuccessAccent,
-                                    fontWeight = FontWeight.Bold
-                                )
+                                Column {
+                                    Text(
+                                        "You're Making a Difference!",
+                                        style = MaterialTheme.typography.titleLarge,
+                                        color = WallSuccessAccent,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Text(
+                                        "No flagged apps found. Your choices matter.",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = WallSuccessAccent.copy(alpha = 0.8f)
+                                    )
+                                }
                             }
                         }
                     }
@@ -258,11 +269,11 @@ fun AppListScreen() {
                 if (blacklistedApps.isNotEmpty()) {
                     item {
                         Text(
-                            "Caught Apps",
+                            "Flagged for Action",
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
                             fontWeight = FontWeight.Bold,
-                            color = WallPrimary
+                            color = WallErrorAccent
                         )
                     }
                     items(blacklistedApps) { (app, itemInfo) ->
@@ -277,11 +288,11 @@ fun AppListScreen() {
                     item {
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            "Suggestions",
+                            "Better Alternatives Available",
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
                             fontWeight = FontWeight.Bold,
-                            color = WallWarningAccent
+                            color = WallHintAccent
                         )
                     }
                     items(hintedApps) { (app, itemInfo) ->
@@ -296,10 +307,11 @@ fun AppListScreen() {
                     item {
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            "All Other Apps",
+                            "Aligned With Your Values",
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.Bold,
+                            color = WallNeutralAccent
                         )
                     }
                     items(otherApps) { app ->
@@ -333,27 +345,20 @@ fun AppInfoCard(
         else -> WallNeutralContainer
     }
 
-    val icon = when {
-        isHint -> Icons.Default.Info
-        effectiveLevel == ReasonLevel.ERROR -> Icons.Default.Warning
-        effectiveLevel == ReasonLevel.WARNING -> Icons.Default.Warning
-        else -> Icons.Default.CheckCircle
+    // Accent colors for app icon background tint (subtle blend)
+    val iconBgColor = when {
+        isHint -> WallHintAccent.copy(alpha = 0.15f)
+        effectiveLevel == ReasonLevel.ERROR -> WallErrorAccent.copy(alpha = 0.15f)
+        effectiveLevel == ReasonLevel.WARNING -> WallWarningAccent.copy(alpha = 0.15f)
+        else -> WallNeutralAccent.copy(alpha = 0.1f)
     }
 
-    // Accent colors for icons on dark backgrounds
-    val iconColor = when {
-        isHint -> WallHintAccent
-        effectiveLevel == ReasonLevel.ERROR -> WallErrorAccent
-        effectiveLevel == ReasonLevel.WARNING -> WallWarningAccent
-        else -> WallSuccessAccent
-    }
-
-    // Title text color (same as icon for emphasis)
+    // Title text color - matches section header colors
     val titleColor = when {
         isHint -> WallHintAccent
         effectiveLevel == ReasonLevel.ERROR -> WallErrorAccent
         effectiveLevel == ReasonLevel.WARNING -> WallWarningAccent
-        else -> WallOnSurface
+        else -> WallNeutralAccent
     }
 
     // Body text color (lighter variant for readability)
@@ -372,21 +377,23 @@ fun AppInfoCard(
         shape = RoundedCornerShape(12.dp)
     ) {
         Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Icon(
-                imageVector = icon,
-                contentDescription = "Status Icon",
-                tint = iconColor,
-                modifier = Modifier.padding(end = 8.dp)
-            )
-
+            // App icon with tinted background to blend with row
             appIcon?.let {
-                Image(
-                    painter = rememberDrawablePainter(drawable = it),
-                    contentDescription = "$appName icon",
+                Box(
                     modifier = Modifier
-                        .size(40.dp)
-                        .clip(RoundedCornerShape(8.dp))
-                )
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(iconBgColor),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = rememberDrawablePainter(drawable = it),
+                        contentDescription = "$appName icon",
+                        modifier = Modifier
+                            .size(40.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                    )
+                }
             }
             Spacer(modifier = Modifier.width(12.dp))
 
@@ -399,7 +406,7 @@ fun AppInfoCard(
                 if (itemInfo != null) {
                     if (itemInfo.isHint == true) {
                         Text(
-                            text = itemInfo.hintText ?: "Suggestion available",
+                            text = itemInfo.hintText ?: "A better alternative exists",
                             style = MaterialTheme.typography.bodySmall,
                             color = bodyColor
                         )
@@ -429,19 +436,19 @@ fun AppInfoCard(
                             context.startActivity(intent)
                         },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = WallSecondary,
+                            containerColor = WallPrimaryDark,
                             contentColor = WallTextOnPrimary
                         ),
                         shape = RoundedCornerShape(8.dp)
                     ) {
-                        Text("Install")
+                        Text("Switch")
                     }
                 } else {
                     IconButton(onClick = { onUninstallClicked(app.packageName) }) {
                         Icon(
                             Icons.Default.Delete,
                             contentDescription = "Uninstall App",
-                            tint = WallErrorAccent.copy(alpha = 0.8f)
+                            tint = WallPrimary
                         )
                     }
                 }

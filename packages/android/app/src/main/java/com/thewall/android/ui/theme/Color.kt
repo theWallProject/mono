@@ -35,22 +35,23 @@ val WallOrange = WallTertiary
 val WallOrangeDark = Color(0xFFE69500)
 
 // =============================================================================
-// Hint/Info Colors (Blue)
+// Hint Colors (Pink/Rose - softer warnings)
 // =============================================================================
-val WallInfo = Color(0xFF4FC3F7)               // Info/hint states
-val WallInfoContainer = Color(0xFF172A33)      // Dark hint containers
-val WallOnInfoContainer = Color(0xFFB3E5FC)    // Text on hint containers
-val WallHintAccent = Color(0xFF4FC3F7)         // Icons on dark hint cards
+val WallInfo = Color(0xFFE57373)               // Info/hint states - rose/pink
+val WallInfoContainer = Color(0xFFFFEBEE)      // Light pink containers
+val WallOnInfoContainer = Color(0xFF6D4C4C)    // Dark rose text on hint containers
+val WallHintAccent = Color(0xFFE91E63)         // Pink accent for hints (visible on white)
 
 // =============================================================================
-// Surface Colors
+// Surface Colors (Light theme with white backgrounds)
 // =============================================================================
-val WallBackground = Color(0xFF0F0F0F)         // App background
-val WallSurface = Color(0xFF1A1A1A)            // Cards, sheets
-val WallSurfaceVariant = Color(0xFF242424)     // Elevated surfaces, inputs
-val WallOnSurface = Color(0xFFFFFFFF)          // Primary text
-val WallOnSurfaceVariant = Color(0xFFB3B3B3)   // Secondary text
-val WallOutline = Color(0xFF404040)            // Borders, dividers
+val WallBackground = Color(0xFFFFFFFF)         // White app background
+val WallSurface = Color(0xFFFFFFFF)            // White cards, sheets
+val WallSurfaceVariant = Color(0xFFF5F5F5)     // Light gray elevated surfaces
+val WallSurfaceDark = Color(0xFF932300)        // Dark orange surface (TopAppBar, menus)
+val WallOnSurface = Color(0xFF1A1A1A)          // Dark text on white
+val WallOnSurfaceVariant = Color(0xFF666666)   // Secondary text
+val WallOutline = Color(0xFFE0E0E0)            // Light borders, dividers
 
 // =============================================================================
 // Text Colors
@@ -66,33 +67,33 @@ val WallBadgeText = Color(0xFF932300)          // Text on light badges
 val WallBadgeBgDark = Color(0xFF3D2E26)        // Dark mode badges
 
 // =============================================================================
-// Status Card Colors (Dark Mode)
+// Status Card Colors (Light Mode)
 // =============================================================================
 
-// Error (Caught) - Dark red tinted
-val WallErrorContainer = Color(0xFF2D1A17)     // Dark error card background
-val WallErrorAccent = Color(0xFFFF6B4D)        // Error icon/title color
-val WallOnErrorContainer = Color(0xFFFFB4A1)   // Error body text
+// Error (Israeli Apps) - Bright red
+val WallErrorContainer = Color(0xFFFFEBEE)     // Light red card background
+val WallErrorAccent = Color(0xFFD32F2F)        // Bright red accent for titles
+val WallOnErrorContainer = Color(0xFF5D4037)   // Brown body text
 
-// Warning - Dark amber tinted
-val WallWarningContainer = Color(0xFF2D2617)   // Dark warning card background
+// Warning - Light amber tinted
+val WallWarningContainer = Color(0xFFFFF8E1)   // Light amber card background
 // WallWarningAccent already defined above
-val WallOnWarningContainer = Color(0xFFFFE082) // Warning body text
+val WallOnWarningContainer = Color(0xFF5D4037) // Brown body text
 
-// Success - Dark green tinted
-val WallSuccessContainer = Color(0xFF172D1F)   // Dark success card background
+// Success - Light green tinted
+val WallSuccessContainer = Color(0xFFE8F5E9)   // Light green card background
 // WallSuccessAccent already defined above
-val WallOnSuccessContainer = Color(0xFF8BDFB3) // Success body text
+val WallOnSuccessContainer = Color(0xFF2E7D32) // Green body text
 
-// Hint - Dark blue tinted
-val WallHintContainer = Color(0xFF172A33)      // Dark hint card background
+// Hint - Light pink tinted (rose/salmon)
+val WallHintContainer = Color(0xFFFFEBEE)      // Light pink hint card background
 // WallHintAccent already defined above
-val WallOnHintContainer = Color(0xFFB3E5FC)    // Hint body text
+val WallOnHintContainer = Color(0xFF6D4C4C)    // Dark rose body text
 
-// Neutral - Elevated surface
-val WallNeutralContainer = Color(0xFF242424)   // Neutral card background
-val WallNeutralAccent = Color(0xFFB3B3B3)      // Neutral icon color
-val WallOnNeutralContainer = Color(0xFFB3B3B3) // Neutral body text
+// Neutral/Safe - Light elevated surface
+val WallNeutralContainer = Color(0xFFF5F5F5)   // Light gray card background
+val WallNeutralAccent = Color(0xFF4CAF50)      // Green for safe apps
+val WallOnNeutralContainer = Color(0xFF666666) // Gray body text
 
 // =============================================================================
 // Legacy Status Background Colors (kept for reference, prefer dark containers)

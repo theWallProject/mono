@@ -20,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -106,7 +107,7 @@ fun UrlLookupScreen(
         OutlinedTextField(
             value = url,
             onValueChange = { url = it },
-            label = { Text("Enter a website or social media URL") },
+            label = { Text("Paste a link to check") },
             modifier = Modifier.fillMaxWidth(),
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = WallPrimary,
@@ -129,11 +130,47 @@ fun UrlLookupScreen(
             shape = RoundedCornerShape(12.dp)
         ) {
             Text(
-                "Check URL",
+                "Check This Link",
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
+
+        // Share functionality tip
+        if (!hasSearched) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
+            ) {
+                Row(
+                    modifier = Modifier.padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        Icons.Default.Share,
+                        contentDescription = null,
+                        tint = WallPrimary,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Column {
+                        Text(
+                            text = "Pro Tip",
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.SemiBold,
+                            color = WallOnSurface
+                        )
+                        Text(
+                            text = "Share links directly from other apps to The Wall app to check them instantly. Knowledge is power.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = WallOnSurfaceVariant
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
 
         if (isLoading) {
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
@@ -162,8 +199,8 @@ fun UrlLookupScreen(
 
                 val intent = Intent(Intent.ACTION_SENDTO).apply {
                     data = Uri.parse("mailto:")
-                    putExtra(Intent.EXTRA_EMAIL, arrayOf("dummy@example.com"))
-                    putExtra(Intent.EXTRA_SUBJECT, subject)
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
+                    putExtra(Intent.EXTRA_SUBJECT, "Contact - The Wall Extension")
                     putExtra(Intent.EXTRA_TEXT, body)
                 }
                 context.startActivity(Intent.createChooser(intent, "Send Email"))
@@ -171,7 +208,7 @@ fun UrlLookupScreen(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             shape = RoundedCornerShape(8.dp)
         ) {
-            Text("Report an Issue")
+            Text("Something Wrong? Let Us Know")
         }
     }
 }
@@ -180,13 +217,13 @@ fun UrlLookupScreen(
 fun NoMatchResultCard() {
     ResultCard(
         icon = Icons.Default.CheckCircle,
-        title = "Seems OK",
+        title = "Looking Good",
         titleColor = WallSuccessAccent,
         containerColor = WallSuccessContainer,
         bodyColor = WallOnSuccessContainer
     ) {
         Text(
-            "This URL does not appear in our database.",
+            "This link isn't flagged in our database. Browse freely.",
             style = MaterialTheme.typography.bodyLarge,
             color = WallOnSuccessContainer
         )

@@ -5,12 +5,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -24,12 +26,33 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thewall.android.R
 import com.thewall.android.ui.theme.WallPrimary
 import com.thewall.android.ui.theme.WallTextOnPrimary
-import com.thewall.android.ui.theme.WallTextSecondary
+
+/**
+ * Reusable Wall logo component - orange circle with white shield.
+ * Shield fills 60% of the circle diameter.
+ */
+@Composable
+fun WallLogo(size: Dp, modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .size(size)
+            .clip(CircleShape)
+            .background(WallPrimary),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.ic_wall_shield),
+            contentDescription = "The Wall Logo",
+            modifier = Modifier.size(size * 0.6f)
+        )
+    }
+}
 
 @Composable
 fun StartScreen(onScanClicked: () -> Unit) {
@@ -40,49 +63,44 @@ fun StartScreen(onScanClicked: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Official Wall Icon in Circle
-        Box(
-            modifier = Modifier
-                .size(120.dp)
-                .clip(CircleShape)
-                .background(WallPrimary),
-            contentAlignment = Alignment.Center
+        // Logo and Title Row - Icon on left, Text on right
+        Row(
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_wall_logo),
-                contentDescription = "The Wall Logo",
-                modifier = Modifier.size(58.dp)
-            )
+            WallLogo(size = 100.dp)
+
+            Spacer(modifier = Modifier.width(20.dp))
+
+            // Text Column
+            Column {
+                // App Name
+                Text(
+                    text = "The Wall",
+                    style = MaterialTheme.typography.displaySmall.copy(
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    ),
+                    color = MaterialTheme.colorScheme.onBackground
+                )
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                // Tagline
+                Text(
+                    text = "Boycott Assistant",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
+            }
         }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        // App Name
-        Text(
-            text = "The Wall",
-            style = MaterialTheme.typography.displaySmall.copy(
-                fontWeight = FontWeight.Bold,
-                letterSpacing = 1.sp
-            ),
-            color = MaterialTheme.colorScheme.onBackground
-        )
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        // Tagline
-        Text(
-            text = "Boycott Assistant",
-            style = MaterialTheme.typography.titleMedium,
-            color = WallTextSecondary
-        )
 
         Spacer(modifier = Modifier.height(48.dp))
 
         // Description
         Text(
-            text = "Scan your installed apps to identify companies with Israeli connections and discover ethical alternatives.",
+            text = "Take a stand with every tap. Scan your apps, uncover connections to Israeli apartheid, and switch to ethical alternatives that align with your values.",
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+            color = MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = 16.dp)
         )

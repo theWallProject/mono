@@ -12,11 +12,11 @@ import com.thewall.android.data.models.ReasonLevel
 // This is used by both the App Scanner and the URL Lookup features.
 // ----------------------------------------------------------------------------------
 val reasonsMap = mapOf(
-    "h" to Reason("Headquartered in Israel", ReasonLevel.ERROR),
-    "i" to Reason("Significant investment from Israeli VCs", ReasonLevel.WARNING),
-    "f" to Reason("Founded by Israeli entrepreneurs", ReasonLevel.ERROR),
-    "u" to Reason("Israeli domain or URL", ReasonLevel.ERROR),
-    "BDS_PRIO" to Reason("BDS Consumer Boycott Priority", ReasonLevel.ERROR),
-    "BDS_GRASS" to Reason("BDS Grassroots Boycott Target", ReasonLevel.ERROR),
-    "BDS_PRESSURE" to Reason("BDS Pressure Target", ReasonLevel.WARNING)
+    "h" to Reason("Headquarters: Israel", ReasonLevel.ERROR),
+    "i" to Reason("Has one or more Israeli investors", ReasonLevel.WARNING),
+    "f" to Reason("Founder from Israel", ReasonLevel.ERROR),
+    "u" to Reason("Israeli URL", ReasonLevel.ERROR),
+    "BDS_PRIO" to Reason("BDS Priority Target — Consumer Boycott", ReasonLevel.ERROR),
+    "BDS_GRASS" to Reason("BDS Target — Grassroots Campaign", ReasonLevel.ERROR),
+    "BDS_PRESSURE" to Reason("BDS Target — Pressure Campaign", ReasonLevel.WARNING)
 )

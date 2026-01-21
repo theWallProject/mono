@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -15,6 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.thewall.android.ui.theme.WallPrimaryDark
+import com.thewall.android.ui.theme.WallTextOnPrimary
 
 @Composable
 fun PermissionRequestScreen(onRequestPermission: () -> Unit) {
@@ -26,18 +30,25 @@ fun PermissionRequestScreen(onRequestPermission: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            "Permission Required",
+            "Let's Get You Set Up",
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            "This app needs special permission to scan all installed applications. This is required to check your apps against the boycott list.",
+            "To scan your apps against our local boycott database, we need permission to see what's installed. Your data stays on your device—always.",
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.height(24.dp))
-        Button(onClick = onRequestPermission) {
-            Text("Open Settings")
+        Button(
+            onClick = onRequestPermission,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = WallPrimaryDark,
+                contentColor = WallTextOnPrimary
+            ),
+            shape = RoundedCornerShape(12.dp)
+        ) {
+            Text("Grant Access")
         }
     }
 }
