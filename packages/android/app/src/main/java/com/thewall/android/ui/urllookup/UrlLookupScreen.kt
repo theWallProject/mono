@@ -3,7 +3,7 @@ package com.thewall.android.ui.urllookup
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
-import android.widget.Toast
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Error
@@ -27,6 +29,9 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.ui.window.PopupProperties
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -44,14 +49,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.thewall.android.data.models.AutocompleteSuggestion
 import com.thewall.android.data.models.ReasonLevel
 import com.thewall.android.data.logic.UrlChecker
 import com.thewall.android.data.models.UrlCheckResult
 import com.thewall.android.data.reasonsMap
 import com.thewall.android.ui.theme.*
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
@@ -63,14 +74,18 @@ fun UrlLookupScreen(
     var result by remember { mutableStateOf<UrlCheckResult?>(null) }
     var hasSearched by remember { mutableStateOf(false) }
     var isLoading by remember { mutableStateOf(false) }
+    var suggestions by remember { mutableStateOf<List<AutocompleteSuggestion>>(emptyList()) }
+    var showSuggestions by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val urlChecker = remember { UrlChecker(context) }
     val scope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
 
     fun performCheck(checkUrl: String) {
         if (checkUrl.isBlank()) return
         isLoading = true
         hasSearched = true
+        showSuggestions = false
         scope.launch {
             try {
                 Log.d("UrlLookup", "Checking URL: $checkUrl")
@@ -82,6 +97,34 @@ fun UrlLookupScreen(
             } finally {
                 isLoading = false
             }
+        }
+    }
+
+    // Debounced autocomplete search (only when typing, not after selecting a suggestion)
+    LaunchedEffect(url) {
+        // Don't show autocomplete if search is loading or already performed
+        if (isLoading) {
+            return@LaunchedEffect
+        }
+
+        if (url.length >= 4) {
+            delay(300) // 300ms debounce
+            // Check again after delay in case state changed
+            if (isLoading) {
+                return@LaunchedEffect
+            }
+            try {
+                val results = urlChecker.searchAutocomplete(url)
+                suggestions = results
+                showSuggestions = results.isNotEmpty()
+            } catch (e: Exception) {
+                Log.e("UrlLookup", "Error fetching suggestions: ${e.message}", e)
+                suggestions = emptyList()
+                showSuggestions = false
+            }
+        } else {
+            suggestions = emptyList()
+            showSuggestions = false
         }
     }
 
@@ -103,19 +146,43 @@ fun UrlLookupScreen(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
+            .verticalScroll(scrollState)
     ) {
-        OutlinedTextField(
-            value = url,
-            onValueChange = { url = it },
-            label = { Text("Paste a link to check") },
-            modifier = Modifier.fillMaxWidth(),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = WallPrimary,
-                focusedLabelColor = WallPrimary,
-                cursorColor = WallPrimary
-            ),
-            shape = RoundedCornerShape(12.dp)
-        )
+        // Search field with autocomplete dropdown
+        Box {
+            OutlinedTextField(
+                value = url,
+                onValueChange = { url = it },
+                label = { Text("Search company or paste URL") },
+                modifier = Modifier.fillMaxWidth(),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = WallPrimary,
+                    focusedLabelColor = WallPrimary,
+                    cursorColor = WallPrimary
+                ),
+                shape = RoundedCornerShape(12.dp),
+                singleLine = true
+            )
+
+            DropdownMenu(
+                expanded = showSuggestions && suggestions.isNotEmpty(),
+                onDismissRequest = { showSuggestions = false },
+                modifier = Modifier.fillMaxWidth(0.9f),
+                properties = PopupProperties(focusable = false)
+            ) {
+                suggestions.forEach { suggestion ->
+                    DropdownMenuItem(
+                        text = { Text(suggestion.displayText) },
+                        onClick = {
+                            url = suggestion.fillValue
+                            showSuggestions = false
+                            performCheck(suggestion.fillValue)
+                        }
+                    )
+                }
+            }
+        }
+
         Spacer(modifier = Modifier.height(12.dp))
         Button(
             onClick = { performCheck(url) },
@@ -130,61 +197,40 @@ fun UrlLookupScreen(
             shape = RoundedCornerShape(12.dp)
         ) {
             Text(
-                "Check This Link",
+                "Check",
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Share functionality tip
-        if (!hasSearched) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
-            ) {
-                Row(
-                    modifier = Modifier.padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        Icons.Default.Share,
-                        contentDescription = null,
-                        tint = WallPrimary,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(modifier = Modifier.width(12.dp))
-                    Column {
-                        Text(
-                            text = "Pro Tip",
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.SemiBold,
-                            color = WallOnSurface
-                        )
-                        Text(
-                            text = "Share links directly from other apps to The Wall app to check them instantly. Knowledge is power.",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = WallOnSurfaceVariant
-                        )
-                    }
-                }
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-        }
-
+        // Result section (right after button)
         if (isLoading) {
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator(color = WallPrimary)
             }
+            Spacer(modifier = Modifier.height(16.dp))
         } else if (hasSearched) {
             when (val res = result) {
                 is UrlCheckResult.Match -> MatchResultCard(res)
                 is UrlCheckResult.Hint -> HintResultCard(res)
                 null -> NoMatchResultCard()
             }
+            Spacer(modifier = Modifier.height(16.dp))
         }
 
-        // This spacer pushes the button to the bottom of the screen
+        // Help section (always visible)
+        HelpSection(
+            onExampleClick = { example ->
+                url = example
+                performCheck(example)
+            }
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // Pro Tip section (right after help)
+        ProTipCard()
+
+        // This spacer pushes the button to the bottom
         Spacer(Modifier.weight(1f))
 
         OutlinedButton(
@@ -209,6 +255,151 @@ fun UrlLookupScreen(
             shape = RoundedCornerShape(8.dp)
         ) {
             Text("Something Wrong? Let Us Know")
+        }
+    }
+}
+
+@Composable
+fun HelpSection(onExampleClick: (String) -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "What can you search?",
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.SemiBold,
+                color = WallOnSurface
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+
+            HelpExampleRow(
+                label = "Company:",
+                example = "Wix",
+                onClick = { onExampleClick("Wix") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "Website:",
+                example = "fiverr.com",
+                onClick = { onExampleClick("fiverr.com") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "LinkedIn:",
+                example = "linkedin.com/company/mondaydotcom",
+                onClick = { onExampleClick("linkedin.com/company/mondaydotcom") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "Facebook:",
+                example = "facebook.com/wix",
+                onClick = { onExampleClick("facebook.com/wix") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "Twitter/X:",
+                example = "x.com/fiverr",
+                onClick = { onExampleClick("x.com/fiverr") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "Instagram:",
+                example = "instagram.com/wix",
+                onClick = { onExampleClick("instagram.com/wix") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "GitHub:",
+                example = "github.com/wix",
+                onClick = { onExampleClick("github.com/wix") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "YouTube:",
+                example = "youtube.com/@mondaydotcom",
+                onClick = { onExampleClick("youtube.com/@mondaydotcom") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "TikTok:",
+                example = "tiktok.com/@fiverr",
+                onClick = { onExampleClick("tiktok.com/@fiverr") }
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            HelpExampleRow(
+                label = "Threads:",
+                example = "threads.com/@wix",
+                onClick = { onExampleClick("threads.com/@wix") }
+            )
+        }
+    }
+}
+
+@Composable
+fun HelpExampleRow(
+    label: String,
+    example: String,
+    onClick: () -> Unit
+) {
+    Row {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyMedium,
+            color = WallOnSurfaceVariant
+        )
+        Spacer(modifier = Modifier.width(4.dp))
+        Text(
+            text = buildAnnotatedString {
+                withStyle(
+                    style = SpanStyle(
+                        color = WallPrimary,
+                        textDecoration = TextDecoration.Underline,
+                        fontWeight = FontWeight.Medium
+                    )
+                ) {
+                    append(example)
+                }
+            },
+            modifier = Modifier.clickable { onClick() },
+            style = MaterialTheme.typography.bodyMedium
+        )
+    }
+}
+
+@Composable
+fun ProTipCard() {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
+    ) {
+        Row(
+            modifier = Modifier.padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Default.Share,
+                contentDescription = null,
+                tint = WallPrimary,
+                modifier = Modifier.size(20.dp)
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Column {
+                Text(
+                    text = "Pro Tip",
+                    style = MaterialTheme.typography.labelMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = WallOnSurface
+                )
+                Text(
+                    text = "Share links from other apps to check them instantly.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WallOnSurfaceVariant
+                )
+            }
         }
     }
 }

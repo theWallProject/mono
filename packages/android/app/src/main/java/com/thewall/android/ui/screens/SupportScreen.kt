@@ -1,5 +1,6 @@
 package com.thewall.android.ui.screens
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.*
@@ -11,8 +12,9 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Report
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -21,12 +23,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.thewall.android.data.billing.BillingConnectionState
+import com.thewall.android.data.billing.BillingManager
 import com.thewall.android.ui.theme.*
 
 @Composable
 fun SupportScreen() {
     val context = LocalContext.current
+    val activity = context as? Activity
     val scrollState = rememberScrollState()
+
+    val billingManager = remember { BillingManager(context) }
+    val isSubscribed by billingManager.isSubscribed.collectAsState()
+    val connectionState by billingManager.connectionState.collectAsState()
+
+    LaunchedEffect(Unit) {
+        billingManager.startConnection()
+    }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            billingManager.endConnection()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -98,9 +117,9 @@ fun SupportScreen() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Support the Project Section
+        // Support the Project Section - Honest Talk
         Text(
-            text = "Support the Project",
+            text = "Let's Get Real",
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = WallOnSurface,
@@ -112,54 +131,140 @@ fun SupportScreen() {
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text(
+                    text = "I lost thousands of dollars by not freelancing during the 2 years I spent building The Wall. Not to mention the increasing AI costs to maintain our database of 20k+ companies.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WallOnSurface,
+                    textAlign = TextAlign.Start
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Text(
+                    text = "I will never put any feature behind a paywall as long as I don't have to. I also don't collect any user data for the safety of my users.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WallOnSurface,
+                    textAlign = TextAlign.Start
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Text(
+                    text = "So instead of promising you a \"special feature\" and profiting off the cause, let's just say paying users help ALL users get new awesome features by buying me more time. It's a win-win.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WallOnSurface,
+                    textAlign = TextAlign.Start
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Premium Subscription Card
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(12.dp),
             colors = CardDefaults.cardColors(containerColor = WallHintContainer)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Icon(
-                    Icons.Default.Favorite,
-                    contentDescription = null,
-                    tint = WallHintAccent,
-                    modifier = Modifier.size(32.dp)
-                )
+                if (isSubscribed) {
+                    Icon(
+                        Icons.Default.Star,
+                        contentDescription = null,
+                        tint = WallHintAccent,
+                        modifier = Modifier.size(32.dp)
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "You're a Supporter!",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = WallHintAccent
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "Thank you for keeping The Wall alive.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WallOnHintContainer,
+                        textAlign = TextAlign.Center
+                    )
+                } else {
+                    Row(
+                        verticalAlignment = Alignment.Bottom,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = "$1",
+                            style = MaterialTheme.typography.headlineLarge,
+                            fontWeight = FontWeight.Bold,
+                            color = WallHintAccent
+                        )
+                        Text(
+                            text = "/month",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = WallOnHintContainer,
+                            modifier = Modifier.padding(bottom = 4.dp, start = 4.dp)
+                        )
+                    }
 
-                Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(4.dp))
 
-                Text(
-                    text = "Donate to make The Wall stronger 🧱",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = WallHintAccent,
-                    textAlign = TextAlign.Center
-                )
+                    Text(
+                        text = "Not even a full coffee. More like a sip of espresso.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WallOnHintContainer,
+                        textAlign = TextAlign.Center
+                    )
 
-                Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(12.dp))
 
-                Text(
-                    text = "Every contribution keeps our database growing and our tools sharp. Together, we're building something powerful.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WallOnHintContainer,
-                    textAlign = TextAlign.Center
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                Button(
-                    onClick = {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ko-fi.com/thewalladdon"))
-                        context.startActivity(intent)
-                    },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WallHintAccent,
-                        contentColor = WallTextOnPrimary
-                    ),
-                    shape = RoundedCornerShape(8.dp)
-                ) {
-                    Text("Support the Cause", fontWeight = FontWeight.SemiBold)
+                    Button(
+                        onClick = {
+                            activity?.let { billingManager.launchSubscriptionFlow(it) }
+                        },
+                        enabled = connectionState == BillingConnectionState.CONNECTED,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = WallHintAccent,
+                            contentColor = WallTextOnPrimary
+                        ),
+                        shape = RoundedCornerShape(8.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(
+                            Icons.Default.Favorite,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Become a Supporter", fontWeight = FontWeight.SemiBold)
+                    }
                 }
             }
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // Ko-fi alternative (less prominent)
+        TextButton(
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ko-fi.com/thewalladdon"))
+                context.startActivity(intent)
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = "Prefer Ko-fi? Donate there instead",
+                style = MaterialTheme.typography.bodySmall,
+                color = WallOnSurfaceVariant
+            )
         }
 
         Spacer(modifier = Modifier.height(24.dp))

@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken
 import com.thewall.android.data.models.APIEndpointConfig
 import com.thewall.android.data.models.APIEndpointRule
 import com.thewall.android.data.models.AllItem
+import com.thewall.android.data.models.AutocompleteSuggestion
 import com.thewall.android.data.models.RuleInfo
 import com.thewall.android.data.models.UrlCheckResult
 import com.thewall.android.util.readFile
@@ -154,8 +155,77 @@ class UrlChecker(private val context: Context) {
             }
         }
 
+        // If input doesn't look like a URL (no dots, no protocol), try company name match
+        val trimmedUrl = url.trim()
+        if (!trimmedUrl.contains(".") && !trimmedUrl.contains("://")) {
+            val nameMatch = db.find { it.n.equals(trimmedUrl, ignoreCase = true) }
+            if (nameMatch != null) {
+                Log.d("UrlChecker", "Found by company name: ${nameMatch.n}")
+                return@withContext formatResult(nameMatch, trimmedUrl, "name")
+            }
+        }
+
         Log.d("UrlChecker", "No match found, returning null")
         return@withContext null
+    }
+
+    /**
+     * Searches the database for autocomplete suggestions based on company name or website.
+     * Returns up to 4 suggestions, avoiding duplicate companies.
+     *
+     * @param query The search query (minimum 4 characters for results)
+     * @return List of autocomplete suggestions (max 4)
+     */
+    suspend fun searchAutocomplete(query: String): List<AutocompleteSuggestion> = withContext(Dispatchers.Default) {
+        if (query.length < 4) {
+            return@withContext emptyList()
+        }
+
+        val db = getDatabase()
+        val lowerQuery = query.lowercase()
+        val results = mutableListOf<AutocompleteSuggestion>()
+        val seenCompanies = mutableSetOf<String>()
+
+        for (item in db) {
+            if (results.size >= 4) break
+
+            val companyNameLower = item.n.lowercase()
+
+            // Check company name match
+            if (companyNameLower.contains(lowerQuery)) {
+                if (seenCompanies.add(companyNameLower)) {
+                    val displayText = if (item.ws != null) {
+                        "${item.n} (${item.ws})"
+                    } else {
+                        item.n
+                    }
+                    results.add(
+                        AutocompleteSuggestion(
+                            displayText = displayText,
+                            fillValue = item.n,
+                            companyName = item.n
+                        )
+                    )
+                }
+                continue
+            }
+
+            // Check website match (only if company not already added)
+            val website = item.ws
+            if (website != null && website.lowercase().contains(lowerQuery)) {
+                if (seenCompanies.add(companyNameLower)) {
+                    results.add(
+                        AutocompleteSuggestion(
+                            displayText = "${item.n} ($website)",
+                            fillValue = website,
+                            companyName = item.n
+                        )
+                    )
+                }
+            }
+        }
+
+        return@withContext results
     }
 
     private fun getMainDomain(url: String): String {

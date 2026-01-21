@@ -69,6 +69,8 @@ The Android app requires:
 
 The build scripts auto-detect Android Studio's JDK on Windows (`C:\Program Files\Android\Android Studio\jbr`).
 
+**IMPORTANT**: Always use `pnpm build` from `packages/android` directory instead of running gradlew directly. The pnpm scripts handle environment setup (JAVA_HOME, paths) automatically.
+
 ## Architecture
 
 ### Package Dependencies
@@ -161,6 +163,12 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 - Hint: `#172A33` background, `#4FC3F7` accent
 
 **Data:** Embeds same `ALL.json` database, parsed at runtime
+
+**In-App Billing:**
+- Uses Google Play Billing Library 7.x for $1/month supporter subscription
+- Product ID: `supporter_monthly` (must be configured in Play Console)
+- `BillingManager` in `data/billing/` handles connection, purchases, and acknowledgment
+- Ko-fi available as fallback for users outside Play Store ecosystem
 
 ## Translations
 

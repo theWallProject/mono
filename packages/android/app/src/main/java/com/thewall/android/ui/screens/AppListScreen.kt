@@ -269,7 +269,7 @@ fun AppListScreen() {
                 if (blacklistedApps.isNotEmpty()) {
                     item {
                         Text(
-                            "Flagged for Action",
+                            "Israeli Apps - REMOVE IMMEDIATELY!",
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
                             fontWeight = FontWeight.Bold,
@@ -288,7 +288,7 @@ fun AppListScreen() {
                     item {
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            "Better Alternatives Available",
+                            "Not Isreali, but better Alternatives Available",
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.padding(bottom = 8.dp),
                             fontWeight = FontWeight.Bold,
