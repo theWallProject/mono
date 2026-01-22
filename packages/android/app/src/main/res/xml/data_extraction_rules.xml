@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-   Sample data extraction rules file; uncomment and customize as necessary.
-   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
-   for details.
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Data extraction rules for Android 12+ (API 31+)
+    See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+
+    The Wall app doesn't store sensitive user data that needs backup.
+    We exclude shared preferences from cloud backup for privacy.
+    Valid domains: file, database, sharedpref, external, root
 -->
 <data-extraction-rules>
     <cloud-backup>
-        <!-- TODO: Use <include> and <exclude> to control what is backed up.
-        <include .../>
-        <exclude .../>
-        -->
+        <!-- Exclude shared preferences from cloud backup (no user data to sync) -->
+        <exclude domain="sharedpref" path="." />
     </cloud-backup>
-    <!--
     <device-transfer>
-        <include .../>
-        <exclude .../>
+        <!-- Allow shared preferences for device-to-device transfer (local only) -->
+        <include domain="sharedpref" path="." />
     </device-transfer>
-    -->
 </data-extraction-rules>
