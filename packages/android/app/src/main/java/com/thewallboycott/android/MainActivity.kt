@@ -63,6 +63,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.thewallboycott.android.background.ScanWorker
 import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.screens.AppListScreen
@@ -352,7 +353,16 @@ class MainActivity : ComponentActivity() {
                 when (currentScreen) {
                     is Screen.List -> {
                         when (scanState) {
-                            ScanState.Idle -> StartScreen(onScanClicked = { scanState = ScanState.Scanning })
+                            ScanState.Idle -> StartScreen(
+                                onScanClicked = { scanState = ScanState.Scanning },
+                                onDebugTrigger = {
+                                    // Easter egg: trigger background scan with forced notifications
+                                    val scanRequest = OneTimeWorkRequestBuilder<ScanWorker>()
+                                        .setInputData(workDataOf(ScanWorker.INPUT_FORCE_NOTIFY to true))
+                                        .build()
+                                    WorkManager.getInstance(context).enqueue(scanRequest)
+                                }
+                            )
                             ScanState.Scanning -> {
                                 if (permissionGranted) {
                                     AppListScreen(externalRefreshTrigger = refreshTrigger)

@@ -43,17 +43,14 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
         const val NAVIGATE_TO_SCREEN_EXTRA = "NAVIGATE_TO_SCREEN"
         const val APP_SCAN_SCREEN = "APP_SCAN"
 
+        /** Input key to force notifications regardless of timing/new app logic */
+        const val INPUT_FORCE_NOTIFY = "force_notify"
+
         private const val CHANNEL_ID = "BACKGROUND_SCAN_CHANNEL"
         private const val PROGRESS_NOTIFICATION_ID = 42
 
         /** Base ID for individual app notifications. Actual ID = BASE + hash of package name */
         private const val APP_NOTIFICATION_BASE_ID = 1000
-
-        /** ID for the summary/group notification */
-        const val SUMMARY_NOTIFICATION_ID = 43
-
-        /** Group key for bundling app notifications */
-        private const val NOTIFICATION_GROUP = "com.thewallboycott.android.BOYCOTTED_APPS"
 
         private const val TAG = "ScanWorker"
     }
@@ -61,7 +58,9 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
     private val prefs = NotificationPreferences(appContext)
 
     override suspend fun doWork(): Result {
-        Log.d(TAG, "Periodic scan worker started.")
+        val forceNotify = inputData.getBoolean(INPUT_FORCE_NOTIFY, false)
+        Log.d(TAG, "Scan worker started. forceNotify=$forceNotify")
+
         val progressNotification = createProgressNotification()
         val foregroundInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
@@ -73,7 +72,7 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
         return withContext(Dispatchers.IO) {
             try {
                 val scanResult = scanInstalledApps()
-                processAndNotify(scanResult)
+                processAndNotify(scanResult, forceNotify)
                 NotificationManagerCompat.from(appContext).cancel(PROGRESS_NOTIFICATION_ID)
                 Result.success()
             } catch (e: Exception) {
@@ -184,8 +183,10 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
      * 1. If there are NEW apps (not seen before) -> notify immediately
      * 2. If no new apps but 2 weeks passed since last notification -> show reminder
      * 3. Otherwise -> don't notify
+     *
+     * @param forceNotify If true, skip timing checks and always notify (for debug trigger)
      */
-    private fun processAndNotify(scanResult: ScanResult) {
+    private fun processAndNotify(scanResult: ScanResult, forceNotify: Boolean = false) {
         // Only notify about blacklisted apps (not hints)
         val currentApps = scanResult.blacklistedApps.map { it.packageName }.toSet()
         val knownApps = prefs.getKnownApps()
@@ -202,7 +203,10 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
             return
         }
 
-        val shouldNotify = when {
+        val shouldNotify = if (forceNotify) {
+            Log.d(TAG, "Force notify enabled. Sending notifications.")
+            true
+        } else when {
             // New apps detected - always notify
             newApps.isNotEmpty() -> {
                 Log.d(TAG, "${newApps.size} new boycotted apps detected. Sending notifications.")
@@ -221,17 +225,16 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
         }
 
         if (shouldNotify) {
-            sendGroupedNotifications(scanResult.blacklistedApps, newApps)
+            sendNotifications(scanResult.blacklistedApps)
             prefs.setLastNotificationTime()
             prefs.setLastNotifiedApps(currentApps)
         }
     }
 
     /**
-     * Sends grouped notifications with individual per-app notifications
-     * and a summary notification.
+     * Sends individual notifications for each detected app.
      */
-    private fun sendGroupedNotifications(apps: List<DetectedApp>, newApps: Set<String>) {
+    private fun sendNotifications(apps: List<DetectedApp>) {
         if (ActivityCompat.checkSelfPermission(appContext, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "Cannot send notifications: POST_NOTIFICATIONS permission not granted.")
             return
@@ -240,24 +243,19 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
         createNotificationChannel()
         val notificationManager = NotificationManagerCompat.from(appContext)
 
-        // Send individual notifications for each app
         apps.forEach { app ->
             val notificationId = APP_NOTIFICATION_BASE_ID + app.packageName.hashCode()
-            val notification = createAppNotification(app, isNew = newApps.contains(app.packageName))
+            val notification = createAppNotification(app)
             notificationManager.notify(notificationId, notification)
         }
 
-        // Send summary notification
-        val summaryNotification = createSummaryNotification(apps, newApps)
-        notificationManager.notify(SUMMARY_NOTIFICATION_ID, summaryNotification)
-
-        Log.d(TAG, "Sent ${apps.size} individual notifications + summary")
+        Log.d(TAG, "Sent ${apps.size} notifications")
     }
 
     /**
      * Creates a notification for a single app with Ignore/Snooze actions.
      */
-    private fun createAppNotification(app: DetectedApp, isNew: Boolean): android.app.Notification {
+    private fun createAppNotification(app: DetectedApp): android.app.Notification {
         val notificationId = APP_NOTIFICATION_BASE_ID + app.packageName.hashCode()
 
         // Content intent - open app to scan screen
@@ -284,78 +282,18 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        val title = if (isNew) "New: ${app.displayName}" else app.displayName
-        val text = app.itemInfo.n // Company/entity name
+        val title = app.displayName
+        val text = "Israeli app detected • ${app.itemInfo.n}"
 
         return NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setContentTitle(title)
             .setContentText(text)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setGroup(NOTIFICATION_GROUP)
             .setAutoCancel(true)
             .setContentIntent(contentPendingIntent)
             .addAction(0, "Ignore", ignorePendingIntent)
             .addAction(0, "Remind Later", snoozePendingIntent)
-            .build()
-    }
-
-    /**
-     * Creates the summary notification that groups all app notifications.
-     */
-    private fun createSummaryNotification(apps: List<DetectedApp>, newApps: Set<String>): android.app.Notification {
-        val contentIntent = Intent(appContext, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            putExtra(NAVIGATE_TO_SCREEN_EXTRA, APP_SCAN_SCREEN)
-        }
-        val contentPendingIntent = PendingIntent.getActivity(
-            appContext, SUMMARY_NOTIFICATION_ID, contentIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-
-        // Dismiss all action
-        val dismissIntent = NotificationActionReceiver.createDismissAllIntent(appContext)
-        val dismissPendingIntent = PendingIntent.getBroadcast(
-            appContext, SUMMARY_NOTIFICATION_ID * 2, dismissIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-
-        // Build title based on new vs existing
-        val newCount = newApps.size
-        val totalCount = apps.size
-        val title = when {
-            newCount == totalCount && newCount == 1 -> "1 New Boycotted App"
-            newCount == totalCount -> "$newCount New Boycotted Apps"
-            newCount > 0 -> "$newCount New, $totalCount Total Boycotted Apps"
-            else -> "$totalCount Boycotted Apps Detected"
-        }
-
-        // Build inbox style for expanded view
-        val inboxStyle = NotificationCompat.InboxStyle()
-            .setBigContentTitle(title)
-
-        // Add lines for up to 6 apps
-        apps.take(6).forEach { app ->
-            val prefix = if (newApps.contains(app.packageName)) "[NEW] " else ""
-            inboxStyle.addLine("$prefix${app.displayName}")
-        }
-
-        if (apps.size > 6) {
-            inboxStyle.setSummaryText("+${apps.size - 6} more")
-        }
-
-        return NotificationCompat.Builder(appContext, CHANNEL_ID)
-            .setContentTitle(title)
-            .setContentText("Tap to view all detected apps")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setStyle(inboxStyle)
-            .setGroup(NOTIFICATION_GROUP)
-            .setGroupSummary(true)
-            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_SUMMARY)
-            .setAutoCancel(true)
-            .setContentIntent(contentPendingIntent)
-            .addAction(0, "Dismiss All", dismissPendingIntent)
             .build()
     }
 
