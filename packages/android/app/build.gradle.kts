@@ -1,32 +1,73 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
+// Load version from version.properties
+val versionPropsFile = rootProject.file("version.properties")
+val versionProps = Properties().apply {
+    if (versionPropsFile.exists()) {
+        versionPropsFile.inputStream().use { load(it) }
+    }
+}
+val appVersionCode = versionProps.getProperty("VERSION_CODE", "1").toInt()
+val appVersionName = versionProps.getProperty("VERSION_NAME", "1.0.0")
+
+// Load keystore properties (for release signing)
+val keystorePropsFile = rootProject.file("keystore.properties")
+val keystoreProps = Properties().apply {
+    if (keystorePropsFile.exists()) {
+        keystorePropsFile.inputStream().use { load(it) }
+    }
+}
+
 android {
-    namespace = "com.thewall.android"
+    namespace = "com.thewallboycott.android"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.thewall.android"
+        applicationId = "com.thewallboycott.android"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = appVersionCode
+        versionName = appVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        // Release signing config - only create if keystore.properties exists
+        if (keystorePropsFile.exists()) {
+            create("release") {
+                storeFile = file(keystoreProps.getProperty("storeFile", ""))
+                storePassword = keystoreProps.getProperty("storePassword", "")
+                keyAlias = keystoreProps.getProperty("keyAlias", "")
+                keyPassword = keystoreProps.getProperty("keyPassword", "")
+            }
+        }
+    }
+
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
+            isDebuggable = true
+        }
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Include native debug symbols for Play Console crash analysis
+            ndk.debugSymbolLevel = "FULL"
+            // Use release signing config if available
+            if (keystorePropsFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
     compileOptions {
@@ -35,12 +76,20 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    lint {
+        // Strict linting - always abort on errors
+        abortOnError = true
+        // No baseline - fix all issues
+        checkAllWarnings = true
     }
 }
 
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
+        allWarningsAsErrors.set(true)
     }
 }
 
@@ -49,6 +98,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.fragment)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -59,6 +109,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.play.billing)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

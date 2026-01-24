@@ -50,7 +50,71 @@ pnpm commit                    # VibElint commit workflow (required by hooks)
 # Telegram Bot
 pnpm bot:dev                   # Development (polling)
 pnpm bot:deploy                # Deploy to production
+
+# Android App
+cd packages/android
+pnpm build                     # Debug APK
+pnpm build:release             # Release APK (unsigned)
+pnpm release                   # Full release workflow (signed APK)
+pnpm release:patch             # Bump patch version + release
+pnpm release:minor             # Bump minor version + release
+pnpm release:major             # Bump major version + release
+pnpm clean                     # Clean build artifacts
+pnpm lint                      # Run Android lint (MUST pass with zero errors)
+pnpm install:prod              # Install release APK to connected device via USB
+pnpm validate:metadata         # Validate Play Store metadata
+pnpm adb:trigger_scan          # Force trigger background scan
+pnpm adb:logcat                # View app logs
 ```
+
+### Android Build Requirements
+
+The Android app requires:
+- **Bash**: Git Bash on Windows, or native bash on macOS/Linux
+- **Java 17+**: Auto-detected from Android Studio's bundled JDK, or set `JAVA_HOME`
+- **Gradle 9.1.0**: Configured in `gradle/wrapper/gradle-wrapper.properties`
+- **Android SDK**: Set `ANDROID_HOME` or configure in `local.properties`
+
+The build scripts auto-detect Android Studio's JDK on Windows (`C:\Program Files\Android\Android Studio\jbr`).
+
+**IMPORTANT**: Always use `pnpm build` from `packages/android` directory instead of running gradlew directly. The pnpm scripts handle environment setup (JAVA_HOME, paths) automatically.
+
+### Android Release Workflow
+
+The Android app uses a streamlined release workflow:
+
+1. **Version management**: `version.properties` tracks VERSION_CODE and VERSION_NAME
+2. **Signing**: Configure `keystore.properties` (see `keystore.properties.template`)
+3. **Release**: Run `pnpm release:patch` (or minor/major) to bump version and build signed APK
+4. **Output**: Signed APK is placed in `release-output/thewall-v{version}.apk`
+
+**First-time setup:**
+```bash
+# Generate keystore (store safely, NOT in repo)
+keytool -genkey -v -keystore ~/.android/thewall-release.keystore -alias thewall -keyalg RSA -keysize 2048 -validity 10000
+
+# Configure project
+cp keystore.properties.template keystore.properties
+# Edit keystore.properties with your values
+```
+
+### Android Strict Linting (MANDATORY)
+
+**CRITICAL: Android lint MUST pass with ZERO errors before any commit or release.**
+
+The Android build is configured with strict linting:
+- `abortOnError = true` - Build fails on any lint error
+- `checkAllWarnings = true` - All warnings are checked
+- **NO lint baselines** - All issues must be fixed, not suppressed
+
+**Rules:**
+1. **NEVER** add `@SuppressLint` annotations without explicit user approval
+2. **NEVER** create lint baselines (`lint-baseline.xml`)
+3. **NEVER** disable lint checks in build.gradle.kts
+4. **ALWAYS** fix the root cause of lint errors
+5. Run `pnpm lint` after any Android code changes
+
+If lint fails, fix the actual issue. Do not work around it.
 
 ## Architecture
 
@@ -61,10 +125,11 @@ common (base - pure functions, schemas)
   ↑
   ├── addon (Plasmo browser extension)
   ├── scrapper (data pipeline)
-  └── telegram-bot (Telegraf + Express)
+  ├── telegram-bot (Telegraf + Express)
+  └── android (Jetpack Compose app - standalone)
 ```
 
-All use `workspace:*` dependencies. Common must build first.
+All use `workspace:*` dependencies. Common must build first. Android is standalone (no workspace deps).
 
 ### Common Package
 
@@ -122,6 +187,33 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 **Modes:** Webhook (production, needs `WEBHOOK_URL`) or Polling (dev)
 
 **Handlers:** `urlCheckerBot()`, `handleInlineQueryBot()`, `urlExtractorBot()`
+
+### Android Package
+
+**Framework:** Jetpack Compose with Material 3
+
+**Key screens:**
+- `StartScreen` - Entry point with shield icon and CTA
+- `AppListScreen` - Scans installed apps against database
+- `UrlLookupScreen` - Manual URL checking
+
+**Design system:** Dark mode first with brand colors defined in:
+- `ui/theme/Color.kt` - Color palette (burnt orange primary, status colors)
+- `ui/theme/Theme.kt` - Material 3 color scheme mappings
+
+**Status card colors (dark mode):**
+- Error: `#2D1A17` background, `#FF6B4D` accent
+- Warning: `#2D2617` background, `#FFD54F` accent
+- Success: `#172D1F` background, `#4CAF50` accent
+- Hint: `#172A33` background, `#4FC3F7` accent
+
+**Data:** Embeds same `ALL.json` database, parsed at runtime
+
+**In-App Billing:**
+- Uses Google Play Billing Library 7.x for $1/month supporter subscription
+- Product ID: `supporter_monthly` (must be configured in Play Console)
+- `BillingManager` in `data/billing/` handles connection, purchases, and acknowledgment
+- Ko-fi available as fallback for users outside Play Store ecosystem
 
 ## Translations
 
@@ -257,3 +349,9 @@ Addon uses `~*` → `./src/*`
 - `packages/addon/src/content.tsx` - Content script entry
 - `packages/scrapper/src/index.ts` - Pipeline orchestration
 - `packages/scrapper/results/4_final/ALL.json` - Master database
+- `packages/android/app/src/main/java/com/thewall/android/ui/theme/Color.kt` - Android color palette
+- `packages/android/app/src/main/java/com/thewall/android/ui/screens/AppListScreen.kt` - App scanner UI
+- `packages/android/app/build.gradle.kts` - Android build config (signing, ProGuard, lint)
+- `packages/android/version.properties` - Version tracking (VERSION_CODE, VERSION_NAME)
+- `packages/android/app/proguard-rules.pro` - R8/ProGuard rules for release builds
+- `packages/android/fastlane/metadata/android/` - Play Store metadata

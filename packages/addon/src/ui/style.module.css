@@ -1,85 +1,144 @@
+/* Design tokens */
+:root {
+  --wall-primary: #b72b00;
+  --wall-primary-dark: #932300;
+  --wall-overlay: rgba(0, 0, 0, 0.8);
+  --wall-text-primary: #ffffff;
+  --wall-text-secondary: #ffe1cd;
+  --wall-button-bg: #ffffff;
+  --wall-button-text: #b72b00;
+  --wall-badge-bg: #ffe1cd;
+  --wall-badge-text: #932300;
+  --wall-green: #1a8754;
+  --wall-green-dark: #146c43;
+}
+
 .container {
   display: flex;
-  font-family: sans-serif;
-  /* font-family: "JimmyCollins", "FFBouya-Normal"; */
-  font-size: 24px;
-  line-height: 1.1;
-  /* position: fixed; */
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
   width: 100vw;
   height: 100vh;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.5s ease;
   position: fixed;
   top: 0;
   left: 0;
 }
 
-/* .ar {
- font-size: 16px;
-} */
-
 .bgLayer {
-  /* opacity: 0.7; */
-  /* background-position: right; */
-  /* background-size: cover; */
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   background-size: cover;
-  /* filter: brightness(0.4); */
-  opacity: 0.95;
-  /* z-index: 999999999 !important; */
+  background-position: center;
+  z-index: -2;
+  opacity: 0.08;
 }
 
-.theWallLogo {
-  opacity: 0.9;
-  width: 19vw;
+.bgOverlay {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
-
   left: 0;
-  filter: drop-shadow(0px 0px 5px black);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+  animation: overlayFadeIn 0.3s ease-out;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.shieldIcon {
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  object-fit: contain;
+}
+
+.shieldCircleBg {
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Wrapper to stack modal and share bar vertically */
+.modalWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modalFadeIn 0.4s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modalContainer {
-  color: #000;
-  max-width: 300px;
-  min-width: 200px;
-  /* top: 370px; */
-
-  /* min-height: 250px; */
+  color: #fff;
+  max-width: 400px;
+  min-width: 320px;
   transition: opacity 0.5s;
-  position: absolute;
-  box-shadow: 3px 3px 41px #7e7e7e;
-  background-color: #1b1b1b;
-  opacity: 0.95;
-  top: 25vh;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  background-color: #b72b00;
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
-.buttonsWrapper {
-  position: absolute;
-  display: flex;
-  bottom: 10;
-  right: 0;
-  /* flex-direction: column;
-  gap: 8px; */
-}
 .modalMargin {
-  margin: 20px 20px 50px 20px;
+  margin: 55px 24px 24px 24px;
 }
 
 .modalContentWrapper {
-  /* text-shadow: 0 0 4px #f44336; */
-  color: #ff6d62;
+  color: #ffffff;
   padding-bottom: 20px;
+  text-align: center;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
 }
 
-.altLink {
-  color: #99ffb7;
-  text-decoration: none;
+.modalContentWrapper > div {
+  margin-bottom: 8px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .button {
@@ -88,118 +147,412 @@
   user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  color: #e9e9e9;
-  background: #252525;
+  color: var(--wall-green);
+  background: #ffffff;
   border: none;
-  border-radius: 9px;
+  border-radius: 8px;
   align-items: center;
-  margin-right: 1rem;
-  font-family: inherit;
-  font-size: 13px;
-  transition: box-shadow 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
   display: flex;
-  box-shadow: 3px 2px 7px #000000;
-  padding: 4px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 12px 24px;
   position: relative;
   overflow: hidden;
+  min-width: 180px;
+  animation: buttonFadeIn 0.3s ease-out backwards;
 }
-/* .ar .button {
-  font-size: 16px;
-} */
+
+.button:first-child {
+  animation-delay: 0.15s;
+}
+
+.button:last-child {
+  animation-delay: 0.2s;
+}
+
+@keyframes buttonFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .button:hover {
-  box-shadow: 6px 6px 12px rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px);
-  transition: all 0.3s ease;
-  background: linear-gradient(90deg, #252525, rgba(255, 255, 255, 0.1), #252525);
-  background-size: 200% 100%;
-  background-position: -200% 0;
-  animation: shimmer 0.8s ease-out;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  background: #f5f5f5;
+  color: var(--wall-green-dark);
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+.buttonSecondary {
+  background: transparent;
+  color: #ffe1cd;
+  border: 1px solid #ffe1cd;
+  box-shadow: none;
+}
+
+.buttonSecondary:hover {
+  background: rgba(255, 225, 205, 0.1);
+  color: #ffffff;
+  box-shadow: none;
+  transform: translateY(-1px);
 }
 
 .bottomBar {
   position: fixed;
-  bottom: 10px;
-  right: 0px;
+  bottom: 16px;
+  right: 16px;
+}
+
+.warningButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.warningButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.warningButton svg,
+.warningButton img {
+  width: 24px;
+  height: 24px;
+}
+
+.altButtonWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Invisible extended hover area */
+.altButtonWrapper::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 
 .altPopupMenu {
-  opacity: 0.98;
-  background: #232323;
-  border-radius: 5px;
-  min-width: 130px;
+  background: #ffffff;
+  border-radius: 12px;
+  min-width: 200px;
   position: absolute;
-  top: 34px;
-  right: 18px;
-  box-shadow: 0 4px 24px #0000004d;
+  top: calc(100% + 8px);
+  left: 50%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   text-align: center;
-  font-size: 19px;
+  font-size: 14px;
+  z-index: 100;
+  overflow: hidden;
+  /* Transition-based animation for reversible effect */
+  opacity: 0;
+  transform: translateX(-50%) translateY(-8px) scale(0.95);
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  pointer-events: none;
+}
+
+.altPopupMenu.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .altPopupList {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 6px 0;
 }
 
 .altPopupItem {
-  padding: 6px;
-  transition: background 0.2s;
+  padding: 0;
+  transition: all 0.15s ease;
+  opacity: 0;
+  transform: translateY(-4px);
 }
+
+.altPopupMenu.visible .altPopupItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.altPopupMenu.visible .altPopupItem:nth-child(1) { transition-delay: 0.02s; }
+.altPopupMenu.visible .altPopupItem:nth-child(2) { transition-delay: 0.04s; }
+.altPopupMenu.visible .altPopupItem:nth-child(3) { transition-delay: 0.06s; }
+.altPopupMenu.visible .altPopupItem:nth-child(4) { transition-delay: 0.08s; }
+.altPopupMenu.visible .altPopupItem:nth-child(5) { transition-delay: 0.1s; }
 
 .altPopupItem:hover {
-  background: #333;
+  background: rgba(26, 135, 84, 0.1);
 }
 
+.altLink {
+  color: var(--wall-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  display: block;
+  padding: 10px 16px;
+}
+
+.altPopupItem:hover .altLink {
+  color: var(--wall-green-dark);
+}
+
+/* Pill badges for share/donate */
+.pillBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffe1cd;
+  color: #932300;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pillBadge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  background: #fff5ed;
+}
+
+.pillBadge svg,
+.pillBadge img {
+  width: 14px;
+  height: 14px;
+}
+
+/* Bottom bar containing donate and share - directly under modal */
+.bottomShareBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  min-width: 320px;
+  margin-top: 16px;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.pillBadgeContainerLeft {
+  display: flex;
+}
+
+.pillBadgeContainerRight {
+  display: flex;
+}
+
+/* Responsive styles */
 @media (min-width: 768px) {
   .container {
-    font-size: 32px;
+    font-size: 22px;
   }
 
-  /* .container.ar {
-    font-size: 23px;
-  } */
   .modalContainer {
-    min-width: 600px;
-    max-width: 700px;
-    top: 40vh;
+    min-width: 480px;
+    max-width: 561px;
   }
+
+  .bottomShareBar {
+    min-width: 480px;
+    max-width: 561px;
+  }
+
+  .shieldIcon {
+    width: 52px;
+    height: 52px;
+    top: -20px;
+  }
+
+  .shieldCircleBg {
+    width: 85px;
+    height: 85px;
+    top: -38px;
+  }
+
+  .modalMargin {
+    margin: 55px 32px 32px 32px;
+  }
+
+  .modalContentWrapper {
+    font-size: 22px;
+  }
+
   .button {
-    font-size: 24px;
-  }
-  .altPopupMenu {
-    top: 48px;
-    min-width: 220px;
-    right: 16px;
-    font-size: 24px;
+    font-size: 16px;
+    padding: 14px 28px;
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    font-size: 38px;
+    font-size: 24px;
   }
-  /* .container.ar {
-    font-size: 64px;
-  } */
+
   .modalContainer {
-    min-width: 600px;
-    max-width: 700px;
-    /* top: 450px; */
+    min-width: 520px;
+    max-width: 561px;
   }
-  .button {
-    font-size: 25px;
+
+  .bottomShareBar {
+    min-width: 520px;
+    max-width: 561px;
   }
-  /* .buttonsWrapper {
-    flex-direction: row;
-  } */
+
+  .shieldIcon {
+    width: 52px;
+    height: 52px;
+    top: -20px;
+  }
+
+  .shieldCircleBg {
+    width: 85px;
+    height: 85px;
+    top: -38px;
+  }
+
+  .modalContentWrapper {
+    font-size: 24px;
+  }
+}
+
+/* Small screens - vertical buttons */
+@media (max-width: 600px) {
+  .buttonsWrapper {
+    flex-direction: column-reverse;
+  }
+
+  .altButtonWrapper {
+    width: 100%;
+  }
+
+  .button,
+  .buttonSecondary {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .modalContainer {
+    min-width: 90vw;
+    max-width: 95vw;
+    margin: 10px;
+  }
+
+  .bottomShareBar {
+    min-width: 90vw;
+    max-width: 95vw;
+    margin-top: 12px;
+    padding: 0;
+  }
+
+  .shieldIcon {
+    width: 44px;
+    height: 44px;
+    top: -20px;
+  }
+
+  .shieldCircleBg {
+    width: 70px;
+    height: 70px;
+    top: -32px;
+  }
+
+  .modalMargin {
+    margin: 40px 16px 20px 16px;
+  }
+
+  .modalContentWrapper {
+    font-size: 16px;
+  }
+
+  .buttonsWrapper {
+    flex-direction: column-reverse;
+  }
+
+  .altButtonWrapper {
+    width: 100%;
+  }
+
+  .button,
+  .buttonSecondary {
+    font-size: 14px;
+    padding: 10px 20px;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .pillBadge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .modalContainer {
+    min-width: 95vw;
+    max-width: 98vw;
+  }
+
+  .modalMargin {
+    margin: 35px 12px 16px 12px;
+  }
+
+  .modalContentWrapper {
+    font-size: 14px;
+  }
+
+  .buttonsWrapper {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .altButtonWrapper {
+    width: 100%;
+  }
+
+  .button,
+  .buttonSecondary {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  .bottomShareBar {
+    min-width: 95vw;
+    max-width: 98vw;
+  }
+
+  .pillBadge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
 }

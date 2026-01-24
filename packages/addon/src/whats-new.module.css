@@ -1,7 +1,5 @@
 .container {
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
@@ -12,17 +10,7 @@
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  background-color: #0a0a0a;
-}
-
-.bgGif {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  z-index: 0;
+  background-color: #b72b00;
 }
 
 .bgLayer {
@@ -32,20 +20,30 @@
   top: 0;
   left: 0;
   background-size: cover;
+  background-position: center;
   opacity: 0.95;
   z-index: 1;
 }
 
-.theWallLogo {
-  opacity: 0.9;
-  width: 19vw;
-  min-width: 120px;
-  max-width: 200px;
+.bgOverlay {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  filter: drop-shadow(0px 0px 5px black);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
+}
+
+.theWallLogo {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  z-index: 10;
+  object-fit: contain;
 }
 
 .contentWrapper {
@@ -56,7 +54,7 @@
   padding: 16px;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgba(10, 10, 10, 0.95);
+  background-color: rgba(183, 43, 0, 0.95);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
@@ -82,13 +80,8 @@
   margin: 0;
   font-size: 36px;
   font-weight: 700;
-  background: linear-gradient(135deg, #ff7a6e 0%, #ffb3a7 50%, #ff7a6e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% auto;
-  animation: gradientShift 3s ease infinite;
-  text-shadow: none;
+  font-family: "Instrument Sans", sans-serif;
+  color: #ffffff;
   letter-spacing: -0.5px;
 }
 
@@ -105,8 +98,8 @@
 .versionSection {
   margin-bottom: 16px;
   padding: 12px 16px;
-  background: linear-gradient(135deg, rgba(255, 109, 98, 0.2) 0%, rgba(255, 154, 139, 0.08) 100%);
-  border: 1px solid rgba(255, 109, 98, 0.4);
+  background: linear-gradient(135deg, rgba(255, 225, 205, 0.2) 0%, rgba(255, 225, 205, 0.08) 100%);
+  border: 1px solid rgba(255, 225, 205, 0.4);
   position: relative;
   overflow: hidden;
 }
@@ -189,8 +182,8 @@
 }
 
 .featureSection:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 109, 98, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 225, 205, 0.4);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
@@ -198,7 +191,8 @@
 .sectionTitle {
   font-size: 18px;
   font-weight: 700;
-  color: #ff8b82;
+  font-family: "Instrument Sans", sans-serif;
+  color: #ffffff;
   margin: 0 0 10px 0;
   display: flex;
   align-items: center;
@@ -211,10 +205,10 @@
   display: inline-block;
   width: 3px;
   height: 20px;
-  background: linear-gradient(180deg, #ff8b82 0%, #ffb3a7 100%);
+  background: linear-gradient(180deg, #ffe1cd 0%, #ffffff 100%);
   border-radius: 2px;
   flex-shrink: 0;
-  box-shadow: 0 0 8px rgba(255, 109, 98, 0.4);
+  box-shadow: 0 0 8px rgba(255, 225, 205, 0.4);
 }
 
 .versionText,
@@ -249,8 +243,8 @@
 }
 
 .platformItem:hover {
-  background: linear-gradient(135deg, rgba(255, 109, 98, 0.25) 0%, rgba(255, 154, 139, 0.15) 100%);
-  border-color: rgba(255, 109, 98, 0.5);
+  background: linear-gradient(135deg, rgba(255, 225, 205, 0.25) 0%, rgba(255, 225, 205, 0.15) 100%);
+  border-color: rgba(255, 225, 205, 0.5);
   transform: translateY(-2px);
 }
 
@@ -272,11 +266,11 @@
 }
 
 .externalLink {
-  color: #ff9b94;
+  color: #ffe1cd;
   text-decoration: none;
   font-weight: 700;
   transition: all 0.2s ease;
-  border-bottom: 2px solid rgba(255, 155, 148, 0.4);
+  border-bottom: 2px solid rgba(255, 225, 205, 0.4);
   padding-bottom: 1px;
   position: relative;
 }
@@ -289,8 +283,8 @@
 }
 
 .externalLink:hover {
-  color: #ffb3ad;
-  border-bottom-color: #ffb3ad;
+  color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .externalLink:hover::after {
@@ -299,7 +293,7 @@
 
 .versionContent {
   background: rgba(255, 255, 255, 0.05);
-  border-left: 3px solid #ff6d62;
+  border-left: 3px solid #ffe1cd;
   padding: 16px;
   border-radius: 4px;
 }
@@ -346,21 +340,19 @@
   user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  color: #fff;
-  background: linear-gradient(135deg, #ff7a6e 0%, #ff6359 100%);
+  color: #b72b00;
+  background: #ffffff;
   border: none;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
-  font-family: inherit;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-  box-shadow:
-    0 4px 16px rgba(255, 109, 98, 0.5),
-    0 0 0 0 rgba(255, 109, 98, 0);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
   position: relative;
   overflow: hidden;
@@ -392,19 +384,18 @@
 .donateButton:hover,
 .contactButton:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow:
-    0 8px 24px rgba(255, 109, 98, 0.5),
-    0 0 0 4px rgba(255, 109, 98, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: #f5f5f5;
 }
 
 .donateButton:active,
 .contactButton:active {
   transform: translateY(-1px) scale(0.98);
-  box-shadow: 0 4px 12px rgba(255, 109, 98, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .link {
-  color: #ff9b94;
+  color: #ffe1cd;
   text-decoration: none;
   font-size: 14px;
   font-weight: 700;
@@ -415,7 +406,7 @@
 }
 
 .link:hover {
-  color: #ffb3ad;
+  color: #ffffff;
   text-decoration: underline;
   transform: translateY(-1px);
 }
@@ -522,6 +513,7 @@
 
   .theWallLogo {
     width: 110px;
+    height: 110px;
     min-width: 90px;
   }
 
@@ -656,8 +648,8 @@
 
 /* Special section styles */
 .donationSection {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 193, 7, 0.08) 100%) !important;
-  border: 1px solid rgba(255, 193, 7, 0.5) !important;
+  background: linear-gradient(135deg, rgba(255, 225, 205, 0.2) 0%, rgba(255, 225, 205, 0.1) 100%) !important;
+  border: 1px solid rgba(255, 225, 205, 0.5) !important;
   position: relative;
   overflow: visible;
 }
@@ -672,19 +664,20 @@
 }
 
 .donationSection .sectionTitle {
-  color: #ffd740 !important;
+  color: #ffffff !important;
 }
 
 .donationSection .sectionTitle::before {
-  background: linear-gradient(180deg, #ffd740 0%, #ffc400 100%) !important;
-  box-shadow: 0 0 8px rgba(255, 215, 64, 0.5) !important;
+  background: linear-gradient(180deg, #ffe1cd 0%, #ffffff 100%) !important;
+  box-shadow: 0 0 8px rgba(255, 225, 205, 0.5) !important;
 }
 
 .largeDonateButton {
   font-size: 15px !important;
   padding: 11px 24px !important;
-  background: linear-gradient(135deg, #ffd740 0%, #ffc400 100%) !important;
-  box-shadow: 0 4px 16px rgba(255, 193, 7, 0.5) !important;
+  background: #ffe1cd !important;
+  color: #932300 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
   animation: pulseGlow 2s ease-in-out infinite !important;
   font-weight: 700 !important;
 }
@@ -692,18 +685,17 @@
 @keyframes pulseGlow {
   0%,
   100% {
-    box-shadow: 0 4px 16px rgba(255, 193, 7, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
   50% {
-    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.7);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
 }
 
 .largeDonateButton:hover {
-  box-shadow:
-    0 6px 24px rgba(255, 193, 7, 0.7),
-    0 0 0 3px rgba(255, 193, 7, 0.2) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3) !important;
   animation: none !important;
+  background: #fff5ed !important;
 }
 
 .featureList {
@@ -725,7 +717,7 @@
   content: "→";
   position: absolute;
   left: 6px;
-  color: #ff8b82;
+  color: #ffe1cd;
   font-weight: bold;
   font-size: 14px;
 }

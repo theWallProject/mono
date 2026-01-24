@@ -4,9 +4,9 @@ import { FaTelegram } from "@react-icons/all-files/fa/FaTelegram"
 import { FaWhatsapp } from "@react-icons/all-files/fa/FaWhatsapp"
 import React, { useEffect } from "react"
 
-import backgroundImage from "../../assets/images/flag-bg.jpg"
+import backgroundImage from "../../assets/images/bg-pattern.png"
 import linkedinJobsOptionsImage from "../../assets/images/linkedin.png"
-import theWallWhite from "../../assets/images/the-wall-white.png"
+import shieldIcon from "../../assets/images/shield-icon.svg"
 import { getExtensionURL, track } from "../helpers"
 import { getI18nMessage } from "../helpers/i18n-keys"
 import styles from "../whats-new.module.css"
@@ -18,7 +18,7 @@ function WhatsNew() {
     document.documentElement.style.padding = "0"
     document.body.style.margin = "0"
     document.body.style.padding = "0"
-    document.body.style.background = "#1b1b1b"
+    document.body.style.background = "#b72b00"
   }, [])
 
   // Get extension name from manifest
@@ -69,13 +69,14 @@ function WhatsNew() {
       <div
         className={styles.bgLayer}
         style={{
-          backgroundColor: "#121212",
+          backgroundColor: "#b72b00",
           backgroundImage: `url(${getExtensionURL(backgroundImage)})`
         }}
       />
+      <div className={styles.bgOverlay} />
 
       {/* The Wall Logo */}
-      <img src={getExtensionURL(theWallWhite)} alt="The Wall Logo" className={styles.theWallLogo} />
+      <img src={getExtensionURL(shieldIcon)} alt="The Wall Logo" className={styles.theWallLogo} />
 
       <div className={styles.contentWrapper}>
         <div className={styles.header}>

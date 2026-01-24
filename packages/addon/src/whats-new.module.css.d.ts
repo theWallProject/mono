@@ -1,6 +1,6 @@
 declare const styles: {
-  readonly bgGif: string
   readonly bgLayer: string
+  readonly bgOverlay: string
   readonly contactButton: string
   readonly container: string
   readonly content: string

@@ -1,0 +1,159 @@
+package com.thewallboycott.android.data.billing
+
+import android.app.Activity
+import android.content.Context
+import com.android.billingclient.api.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+
+/**
+ * Manages Google Play Billing for the $1/month supporter subscription.
+ */
+class BillingManager(context: Context) : PurchasesUpdatedListener {
+
+    companion object {
+        const val PRODUCT_ID_SUPPORTER = "supporter_monthly"
+    }
+
+    private val billingClient = BillingClient.newBuilder(context)
+        .setListener(this)
+        .enablePendingPurchases(
+            PendingPurchasesParams.newBuilder()
+                .enableOneTimeProducts()
+                .enablePrepaidPlans()
+                .build()
+        )
+        .build()
+
+    private val _isSubscribed = MutableStateFlow(false)
+    val isSubscribed: StateFlow<Boolean> = _isSubscribed.asStateFlow()
+
+    private val _connectionState = MutableStateFlow(BillingConnectionState.DISCONNECTED)
+    val connectionState: StateFlow<BillingConnectionState> = _connectionState.asStateFlow()
+
+    private var productDetails: ProductDetails? = null
+
+    fun startConnection() {
+        _connectionState.value = BillingConnectionState.CONNECTING
+        billingClient.startConnection(object : BillingClientStateListener {
+            override fun onBillingSetupFinished(billingResult: BillingResult) {
+                if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                    _connectionState.value = BillingConnectionState.CONNECTED
+                    queryProductDetails()
+                    queryPurchases()
+                } else {
+                    _connectionState.value = BillingConnectionState.ERROR
+                }
+            }
+
+            override fun onBillingServiceDisconnected() {
+                _connectionState.value = BillingConnectionState.DISCONNECTED
+            }
+        })
+    }
+
+    private fun queryProductDetails() {
+        val productList = listOf(
+            QueryProductDetailsParams.Product.newBuilder()
+                .setProductId(PRODUCT_ID_SUPPORTER)
+                .setProductType(BillingClient.ProductType.SUBS)
+                .build()
+        )
+
+        val params = QueryProductDetailsParams.newBuilder()
+            .setProductList(productList)
+            .build()
+
+        billingClient.queryProductDetailsAsync(params) { billingResult, result ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                // Billing 8.x returns ProductDetailsResult, access productDetailsList property
+                val detailsList = result.productDetailsList
+                for (details in detailsList) {
+                    productDetails = details
+                    break
+                }
+            }
+        }
+    }
+
+    private fun queryPurchases() {
+        billingClient.queryPurchasesAsync(
+            QueryPurchasesParams.newBuilder()
+                .setProductType(BillingClient.ProductType.SUBS)
+                .build()
+        ) { billingResult, purchasesList ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                val hasActiveSubscription = purchasesList.any { purchase ->
+                    purchase.products.contains(PRODUCT_ID_SUPPORTER) &&
+                            purchase.purchaseState == Purchase.PurchaseState.PURCHASED
+                }
+                _isSubscribed.value = hasActiveSubscription
+
+                // Acknowledge any unacknowledged purchases
+                purchasesList.forEach { purchase ->
+                    if (!purchase.isAcknowledged && purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
+                        acknowledgePurchase(purchase)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun acknowledgePurchase(purchase: Purchase) {
+        val params = AcknowledgePurchaseParams.newBuilder()
+            .setPurchaseToken(purchase.purchaseToken)
+            .build()
+
+        billingClient.acknowledgePurchase(params) { /* Acknowledged */ }
+    }
+
+    fun launchSubscriptionFlow(activity: Activity): Boolean {
+        val details = productDetails ?: return false
+        val offers = details.subscriptionOfferDetails ?: return false
+        var offerToken: String? = null
+        for (offer in offers) {
+            offerToken = offer.offerToken
+            break
+        }
+        if (offerToken == null) return false
+
+        val productDetailsParamsList = listOf(
+            BillingFlowParams.ProductDetailsParams.newBuilder()
+                .setProductDetails(details)
+                .setOfferToken(offerToken!!)
+                .build()
+        )
+
+        val billingFlowParams = BillingFlowParams.newBuilder()
+            .setProductDetailsParamsList(productDetailsParamsList)
+            .build()
+
+        val result = billingClient.launchBillingFlow(activity, billingFlowParams)
+        return result.responseCode == BillingClient.BillingResponseCode.OK
+    }
+
+    override fun onPurchasesUpdated(billingResult: BillingResult, purchases: List<Purchase>?) {
+        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK && purchases != null) {
+            purchases.forEach { purchase ->
+                if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
+                    _isSubscribed.value = true
+                    if (!purchase.isAcknowledged) {
+                        acknowledgePurchase(purchase)
+                    }
+                }
+            }
+        }
+    }
+
+    fun endConnection() {
+        billingClient.endConnection()
+    }
+}
+
+enum class BillingConnectionState {
+    DISCONNECTED,
+    CONNECTING,
+    CONNECTED,
+    ERROR
+}

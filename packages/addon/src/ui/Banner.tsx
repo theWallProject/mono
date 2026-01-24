@@ -3,12 +3,13 @@ import { toast, Toaster } from "react-hot-toast"
 
 import { getExtensionURL, track } from "~helpers"
 
-import backgroundImage from "../../assets/images/flag-bg.jpg"
-import theWallWhite from "../../assets/images/the-wall-white.png"
+import backgroundImage from "../../assets/images/bg-pattern.png"
+import donateIcon from "../../assets/images/donate-icon.svg"
+import shieldIcon from "../../assets/images/shield-icon.svg"
+import warningIcon from "../../assets/images/warning-icon.svg"
 import { error, log } from "../helpers"
 import { getI18nMessage } from "../helpers/i18n-keys"
 import { getReasonI18nKey } from "../helpers/reasonMap"
-// import { share } from "../image_sharing/image"
 import { findRuleOfType, isUrlOnlyRule, processRule } from "../rules"
 import { ShareButton } from "../share_button/ShareButton"
 import {
@@ -22,17 +23,13 @@ import {
   setLocalStorageItem
 } from "../storageHelpers"
 import { MessageTypes, type Message, type MessageResponseMap } from "../types"
-import { Scene } from "./3d/scene"
 import { Button } from "./Button"
 import { HintToastContent } from "./HintToastContent"
-// import { GraffitiEffect } from "./GraffitiEffect"
 import style from "./style.module.css"
 
 const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000
 
 export const Banner = () => {
-  const [isSharing, setIsSharing] = useState(false)
-  const [isSkipping, setIsSkipping] = useState(false)
   const [areAlternativesShown, setAreAlternativesShown] = useState(false)
 
   const [testResult, setTestResult] = useState<MessageResponseMap[MessageTypes.TestUrl]>()
@@ -138,7 +135,6 @@ export const Banner = () => {
         selector
       },
       () => {
-        // log("onDismissSessionClick: Response from background:", response)
         setTimeout(() => {
           setTestResult(undefined)
         }, 1000)
@@ -272,9 +268,9 @@ export const Banner = () => {
     const styleId = "hint-button-animations"
     if (document.getElementById(styleId)) return
 
-    const style = document.createElement("style")
-    style.id = styleId
-    style.textContent = `
+    const styleEl = document.createElement("style")
+    styleEl.id = styleId
+    styleEl.textContent = `
       @keyframes hintButtonFadeIn {
         from {
           opacity: 0;
@@ -286,7 +282,7 @@ export const Banner = () => {
         }
       }
     `
-    document.head.appendChild(style)
+    document.head.appendChild(styleEl)
 
     return () => {
       const existingStyle = document.getElementById(styleId)
@@ -385,11 +381,11 @@ export const Banner = () => {
             duration: 10000,
             position: "top-center",
             style: {
-              background: "#1b1b1b",
-              color: "#e9e9e9",
-              borderRadius: "8px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.5)",
-              border: "1px solid #333",
+              background: "#b72b00",
+              color: "#ffffff",
+              borderRadius: "12px",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
+              border: "1px solid #932300",
               pointerEvents: "auto"
             }
           }
@@ -422,11 +418,11 @@ export const Banner = () => {
           position="top-center"
           toastOptions={{
             style: {
-              background: "#1b1b1b",
-              color: "#e9e9e9",
-              borderRadius: "8px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.5)",
-              border: "1px solid #333"
+              background: "#b72b00",
+              color: "#ffffff",
+              borderRadius: "12px",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
+              border: "1px solid #932300"
             }
           }}
         />
@@ -440,164 +436,143 @@ export const Banner = () => {
         position="top-center"
         toastOptions={{
           style: {
-            background: "#1b1b1b",
-            color: "#e9e9e9",
-            borderRadius: "8px",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.5)",
-            border: "1px solid #333"
+            background: "#b72b00",
+            color: "#ffffff",
+            borderRadius: "12px",
+            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
+            border: "1px solid #932300"
           }
         }}
       />
       {testResult && !testResult.isDismissed ? (
         <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
           <img src="https://the-wall.win/bg.gif?rec=1&action_name=wall" alt="" />
+          {/* Background pattern layer */}
           <div
             className={style.bgLayer}
             style={{
-              backgroundColor: "#121212",
               backgroundImage: `url(${getExtensionURL(backgroundImage)})`
             }}
           />
-          <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh"
-            }}>
-            <Scene isSharing={isSharing} isSkipping={isSkipping} />
-          </div>
-          <img src={getExtensionURL(theWallWhite)} className={style.theWallLogo} alt="The Wall Logo" />
-          <div className={style.modalContainer}>
-            <div className={style.modalMargin}>
-              <div className={style.modalContentWrapper}>
-                {testResult.reasons.map((reason) => {
-                  const companyName = `"${testResult.name}" ${testResult.stockSymbol ? `(${testResult.stockSymbol})` : ""}`
+          {/* Dark overlay */}
+          <div className={style.bgOverlay} />
 
-                  // Type guard to ensure reason is a valid string literal
-                  if (typeof reason !== "string") {
-                    throw new Error(`Invalid reason type: ${typeof reason}`)
-                  }
+          {/* Wrapper for modal and share bar to stack vertically */}
+          <div className={style.modalWrapper}>
+            {/* Modal container with shield icon */}
+            <div className={style.modalContainer}>
+              {/* Shield circle background */}
+              <div className={style.shieldCircleBg} />
+              {/* Shield icon */}
+              <img src={getExtensionURL(shieldIcon)} className={style.shieldIcon} alt="The Wall Logo" />
 
-                  const reasonKey = getReasonI18nKey(reason)
-                  const substitutions =
-                    reason === "h" || reason === "BDS_PRIO" || reason === "BDS_GRASS" || reason === "BDS_PRESSURE"
-                      ? [testResult.name]
-                      : [companyName]
-                  return <div key={reason}>{getI18nMessage(reasonKey, substitutions)}</div>
-                })}
-                {/* // todo: use or delete */}
-                {testResult.comment ? <div>{testResult.comment}</div> : ""}
+              <div className={style.modalMargin}>
+                <div className={style.modalContentWrapper}>
+                  {testResult.reasons.map((reason) => {
+                    const companyName = `"${testResult.name}" ${testResult.stockSymbol ? `(${testResult.stockSymbol})` : ""}`
+
+                    // Type guard to ensure reason is a valid string literal
+                    if (typeof reason !== "string") {
+                      throw new Error(`Invalid reason type: ${typeof reason}`)
+                    }
+
+                    const reasonKey = getReasonI18nKey(reason)
+                    const substitutions =
+                      reason === "h" || reason === "BDS_PRIO" || reason === "BDS_GRASS" || reason === "BDS_PRESSURE"
+                        ? [testResult.name]
+                        : [companyName]
+                    return <div key={reason}>{getI18nMessage(reasonKey, substitutions)}</div>
+                  })}
+                  {testResult.comment ? <div>{testResult.comment}</div> : ""}
+                </div>
+
+                <div className={style.buttonsWrapper}>
+                  {testResult.reasons.some((r) => r === "BDS_PRIO" || r === "BDS_GRASS" || r === "BDS_PRESSURE") ? (
+                    <Button
+                      title={getI18nMessage("modalShowBDSGuide")}
+                      onClick={() => {
+                        track("Button", "Click", "show_bds_guide")
+                        setTimeout(() => {
+                          window.location.href = "https://bdsmovement.net/Guide-to-BDS-Boycott"
+                        }, 500)
+                      }}
+                    />
+                  ) : testResult.alt ? (
+                    <div
+                      className={style.altButtonWrapper}
+                      onMouseEnter={() => {
+                        track("Button", "Click", "show_alternatives")
+                        setAreAlternativesShown(true)
+                      }}
+                      onMouseLeave={() => setAreAlternativesShown(false)}>
+                      <Button title={getI18nMessage("modalShowAlternatives")} onClick={() => {}} />
+                      <div className={`${style.altPopupMenu} ${areAlternativesShown ? style.visible : ""}`}>
+                        <ul className={style.altPopupList}>
+                          {testResult.alt.map((alt) => (
+                            <li key={alt.ws} className={style.altPopupItem}>
+                              <a href={alt.ws} className={style.altLink}>
+                                {alt.n}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ) : (
+                    <Button
+                      title={getI18nMessage("modalSupportPalestine")}
+                      onClick={() => {
+                        track("Button", "Click", "support_pal")
+
+                        setTimeout(() => {
+                          window.location.href = "https://techforpalestine.org"
+                        }, 500)
+                      }}
+                    />
+                  )}
+                  <Button
+                    title={getI18nMessage("modalDismissSession")}
+                    onClick={() => {
+                      track("Button", "Click", "allow_month")
+
+                      onDismissSessionClick(testResult.rule.key, testResult.rule.selector)
+                    }}
+                    variant="secondary"
+                  />
+                </div>
               </div>
 
-              <div className={style.buttonsWrapper}>
-                <ShareButton
-                  text={getI18nMessage("sharingMessageText")}
-                  url={"https://the-wall.win"}
-                  onMouseEnter={() => setIsSharing(true)}
-                  onMouseLeave={() => setIsSharing(false)}
-                />
-                <Button
-                  title={getI18nMessage("modalDismissSession")}
-                  onClick={() => {
-                    track("Button", "Click", "allow_month")
-
-                    onDismissSessionClick(testResult.rule.key, testResult.rule.selector)
-                  }}
-                  onMouseEnter={() => setIsSkipping(true)}
-                  onMouseLeave={() => setIsSkipping(false)}
-                  btnStyle={{
-                    boxShadow: "3px 2px 7px #c72222"
-                  }}
-                />
-                {testResult.reasons.some((r) => r === "BDS_PRIO" || r === "BDS_GRASS" || r === "BDS_PRESSURE") ? (
-                  <Button
-                    title={getI18nMessage("modalShowBDSGuide")}
-                    onClick={() => {
-                      track("Button", "Click", "show_bds_guide")
-                      setTimeout(() => {
-                        window.location.href = "https://bdsmovement.net/Guide-to-BDS-Boycott"
-                      }, 500)
-                    }}
-                    onMouseEnter={() => setIsSharing(true)}
-                    onMouseLeave={() => setIsSharing(false)}
-                    btnStyle={{
-                      boxShadow: "3px 2px 7px #74d136"
-                    }}
-                  />
-                ) : testResult.alt ? (
-                  <Button
-                    title={getI18nMessage("modalShowAlternatives")}
-                    onClick={() => {
-                      track("Button", "Click", "show_alternatives")
-                      setAreAlternativesShown(true)
-                    }}
-                    onMouseEnter={() => setIsSharing(true)}
-                    onMouseLeave={() => setIsSharing(false)}
-                    btnStyle={{
-                      boxShadow: "3px 2px 7px #74d136"
-                    }}
-                  />
-                ) : (
-                  <Button
-                    title={getI18nMessage("modalSupportPalestine")}
-                    onClick={() => {
-                      track("Button", "Click", "support_pal")
-
-                      setTimeout(() => {
-                        window.location.href = "https://techforpalestine.org"
-                      }, 500)
-                    }}
-                    onMouseEnter={() => setIsSharing(true)}
-                    onMouseLeave={() => setIsSharing(false)}
-                    btnStyle={{
-                      boxShadow: "3px 2px 7px #74d136"
-                    }}
-                  />
-                )}
-                {areAlternativesShown && testResult.alt && (
-                  <div className={style.altPopupMenu}>
-                    <ul className={style.altPopupList}>
-                      {testResult.alt.map((alt) => (
-                        <li key={alt.ws} className={style.altPopupItem}>
-                          <a href={alt.ws} className={style.altLink}>
-                            {alt.n}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+              {/* Report button inside modal */}
+              <div className={style.bottomBar}>
+                <button
+                  type="button"
+                  className={style.warningButton}
+                  onClick={handleReportMistakeClick}
+                  title={getI18nMessage("buttomBarButtonReport")}>
+                  <img src={getExtensionURL(warningIcon)} alt="Report" />
+                </button>
               </div>
             </div>
-          </div>
 
-          <div className={style.bottomBar}>
-            <Button title={getI18nMessage("buttomBarButtonReport")} onClick={handleReportMistakeClick} />
-          </div>
+            {/* Donate and share - directly under modal */}
+            <div className={style.bottomShareBar}>
+              <div className={style.pillBadgeContainerLeft}>
+                <button
+                  type="button"
+                  className={style.pillBadge}
+                  onClick={() => {
+                    track("Button", "Click", "support_ko_fi")
+                    window.open("https://ko-fi.com/thewalladdon", "_blank")
+                  }}>
+                  <img src={getExtensionURL(donateIcon)} alt="" />
+                  {getI18nMessage("modalDonateButton")}
+                </button>
+              </div>
 
-          <div
-            style={{
-              position: "absolute",
-              left: "5vw",
-              bottom: "12vh",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px"
-            }}>
-            <Button
-              title={getI18nMessage("modalDonateButton")}
-              onClick={() => {
-                track("Button", "Click", "support_ko_fi")
-                window.open("https://ko-fi.com/thewalladdon", "_blank")
-              }}
-              onMouseEnter={() => setIsSharing(true)}
-              onMouseLeave={() => setIsSharing(false)}
-              btnStyle={{
-                boxShadow: "3px 2px 6px #ff5e5b"
-              }}
-            />
+              <div className={style.pillBadgeContainerRight}>
+                <ShareButton text={getI18nMessage("sharingMessageText")} url={"https://the-wall.win"} />
+              </div>
+            </div>
           </div>
         </div>
       ) : null}
