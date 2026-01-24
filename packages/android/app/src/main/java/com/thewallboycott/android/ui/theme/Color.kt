@@ -90,6 +90,11 @@ val WallHintContainer = Color(0xFFFFFDE7)      // Light yellow hint card backgro
 // WallHintAccent already defined above
 val WallOnHintContainer = Color(0xFF5D4E37)    // Warm brown body text
 
+// BDS - Lighter red (On the BDS List)
+val WallBdsContainer = Color(0xFFFCE4EC)       // Very light pink/red BDS card background
+val WallBdsAccent = Color(0xFFE57373)          // Lighter red accent for BDS titles
+val WallOnBdsContainer = Color(0xFF5D4037)     // Brown body text
+
 // Neutral/Safe - Light elevated surface
 val WallNeutralContainer = Color(0xFFF5F5F5)   // Light gray card background
 val WallNeutralAccent = Color(0xFF4CAF50)      // Green for safe apps

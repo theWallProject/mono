@@ -61,7 +61,10 @@ pnpm release:minor             # Bump minor version + release
 pnpm release:major             # Bump major version + release
 pnpm clean                     # Clean build artifacts
 pnpm lint                      # Run Android lint (MUST pass with zero errors)
+pnpm install:prod              # Install release APK to connected device via USB
 pnpm validate:metadata         # Validate Play Store metadata
+pnpm adb:trigger_scan          # Force trigger background scan
+pnpm adb:logcat                # View app logs
 ```
 
 ### Android Build Requirements

@@ -192,14 +192,22 @@ class ShareManager(private val context: Context) {
     }
 
     /**
+     * Data class for flagged apps additional info.
+     */
+    data class FlaggedAppsData(val count: Int, val appNames: List<String> = emptyList())
+
+    /**
      * Execute a share with text and image.
      */
     fun shareWithImage(content: ShareContent, imageTemplate: ImageTemplate, additionalData: Any? = null) {
         val bitmap = when (imageTemplate) {
             ImageTemplate.CLEAN_SCAN -> imageGenerator.generateCleanScanImage()
             ImageTemplate.FLAGGED_APPS -> {
-                val count = (additionalData as? Int) ?: 1
-                imageGenerator.generateFlaggedAppsImage(count)
+                when (additionalData) {
+                    is FlaggedAppsData -> imageGenerator.generateFlaggedAppsImage(additionalData.count, additionalData.appNames)
+                    is Int -> imageGenerator.generateFlaggedAppsImage(additionalData)
+                    else -> imageGenerator.generateFlaggedAppsImage(1)
+                }
             }
             ImageTemplate.APP_REMOVED -> {
                 val appName = (additionalData as? String) ?: "App"
@@ -209,14 +217,9 @@ class ShareManager(private val context: Context) {
             ImageTemplate.GENERAL -> imageGenerator.generateGeneralImage()
         }
 
-        if (bitmap != null) {
-            val imageUri = saveBitmapAndGetUri(bitmap)
-            if (imageUri != null) {
-                shareWithImageUri(content.shareText, imageUri)
-            } else {
-                // Fallback to text-only share
-                shareText(content)
-            }
+        val imageUri = saveBitmapAndGetUri(bitmap)
+        if (imageUri != null) {
+            shareWithImageUri(content.shareText, imageUri)
         } else {
             // Fallback to text-only share
             shareText(content)

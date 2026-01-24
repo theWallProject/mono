@@ -11,14 +11,18 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Link
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.PhoneAndroid
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -26,12 +30,24 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
+import androidx.compose.ui.res.painterResource
+import com.thewallboycott.android.R
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.Saver
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -44,9 +60,11 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.thewallboycott.android.ui.theme.WallPrimary
 import com.thewallboycott.android.ui.theme.WallTextOnPrimary
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.thewallboycott.android.background.ScanWorker
+import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.screens.AppListScreen
 import com.thewallboycott.android.ui.screens.PermissionRequestScreen
 import com.thewallboycott.android.ui.screens.StartScreen
@@ -101,6 +119,11 @@ class MainActivity : ComponentActivity() {
         intent?.getStringExtra(ScanWorker.NAVIGATE_TO_SCREEN_EXTRA)?.let {
             navigateToScreen = it
         }
+        // Debug: trigger scan via ADB
+        if (intent?.hasExtra("TRIGGER_SCAN") == true) {
+            val scanRequest = OneTimeWorkRequestBuilder<ScanWorker>().build()
+            WorkManager.getInstance(this).enqueue(scanRequest)
+        }
     }
 
     private fun schedulePeriodicScan() {
@@ -136,7 +159,7 @@ class MainActivity : ComponentActivity() {
         onUrlHandled: () -> Unit,
         onNavigationHandled: () -> Unit
     ) {
-        var currentScreen by remember {
+        var currentScreen by rememberSaveable(stateSaver = Screen.Saver) {
             val defaultScreen = when {
                 initialUrl != null -> Screen.UrlLookup
                 navigateToScreen == ScanWorker.APP_SCAN_SCREEN -> Screen.List
@@ -144,11 +167,13 @@ class MainActivity : ComponentActivity() {
             }
             mutableStateOf(defaultScreen)
         }
-        var scanState by remember {
-            val initialState = if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) ScanState.Scanning else ScanState.Idle
-            mutableStateOf(initialState)
+        var scanState by rememberSaveable {
+            mutableStateOf(if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) ScanState.Scanning else ScanState.Idle)
         }
-        var permissionGranted by remember { mutableStateOf(hasQueryAllPackagesPermission()) }
+        var permissionGranted by rememberSaveable { mutableStateOf(hasQueryAllPackagesPermission()) }
+        var refreshTrigger by rememberSaveable { mutableIntStateOf(0) }
+        val context = LocalContext.current
+        val shareManager = remember { ShareManager(context) }
 
         // Effect to handle navigation from intent extras
         if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) {
@@ -180,6 +205,57 @@ class MainActivity : ComponentActivity() {
         }
 
         Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                            Image(
+                                painter = painterResource(id = R.drawable.ic_wall_shield),
+                                contentDescription = "The Wall",
+                                modifier = Modifier.size(28.dp),
+                                colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(WallTextOnPrimary)
+                            )
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Text(
+                                text = when (currentScreen) {
+                                    is Screen.List -> "The Wall"
+                                    is Screen.UrlLookup -> "Lookup"
+                                    is Screen.Support -> "Support"
+                                },
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    },
+                    actions = {
+                        // Refresh button - only for My Apps screen when scanning
+                        if (currentScreen is Screen.List && scanState == ScanState.Scanning) {
+                            IconButton(onClick = { refreshTrigger++ }) {
+                                Icon(
+                                    Icons.Filled.Refresh,
+                                    contentDescription = "Refresh",
+                                    tint = WallTextOnPrimary
+                                )
+                            }
+                        }
+                        // Share button - for all screens
+                        IconButton(onClick = {
+                            val content = shareManager.getGeneralContent()
+                            shareManager.shareText(content)
+                        }) {
+                            Icon(
+                                Icons.Filled.Share,
+                                contentDescription = "Share",
+                                tint = WallTextOnPrimary
+                            )
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = WallPrimary,
+                        titleContentColor = WallTextOnPrimary,
+                        scrolledContainerColor = WallPrimary
+                    )
+                )
+            },
             bottomBar = {
                 val isListSelected = currentScreen is Screen.List
                 val isUrlSelected = currentScreen is Screen.UrlLookup
@@ -217,14 +293,14 @@ class MainActivity : ComponentActivity() {
                     NavigationBarItem(
                         icon = {
                             Icon(
-                                Icons.Filled.Link,
-                                contentDescription = "Check URL",
+                                Icons.Filled.Search,
+                                contentDescription = "Lookup",
                                 modifier = Modifier.size(if (isUrlSelected) 28.dp else 24.dp)
                             )
                         },
                         label = {
                             Text(
-                                "Check URL",
+                                "Lookup",
                                 fontSize = 14.sp,
                                 fontWeight = if (isUrlSelected) FontWeight.Bold else FontWeight.Normal
                             )
@@ -279,7 +355,7 @@ class MainActivity : ComponentActivity() {
                             ScanState.Idle -> StartScreen(onScanClicked = { scanState = ScanState.Scanning })
                             ScanState.Scanning -> {
                                 if (permissionGranted) {
-                                    AppListScreen()
+                                    AppListScreen(externalRefreshTrigger = refreshTrigger)
                                 } else {
                                     PermissionRequestScreen(onRequestPermission = ::requestQueryAllPackagesPermission)
                                 }
@@ -298,9 +374,29 @@ class MainActivity : ComponentActivity() {
 }
 
 sealed class Screen {
-    object List : Screen()
-    object UrlLookup : Screen()
-    object Support : Screen()
+    data object List : Screen()
+    data object UrlLookup : Screen()
+    data object Support : Screen()
+
+    companion object {
+        val Saver: Saver<Screen, String> = Saver(
+            save = { screen ->
+                when (screen) {
+                    List -> "list"
+                    UrlLookup -> "url"
+                    Support -> "support"
+                }
+            },
+            restore = { value ->
+                when (value) {
+                    "list" -> List
+                    "url" -> UrlLookup
+                    "support" -> Support
+                    else -> List
+                }
+            }
+        )
+    }
 }
 
 enum class ScanState {

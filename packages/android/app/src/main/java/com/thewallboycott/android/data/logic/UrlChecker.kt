@@ -153,15 +153,35 @@ class UrlChecker(private val context: Context) {
             if (findResult != null) {
                 return@withContext formatResult(findResult, domain, "ws")
             }
+
+            // Check for .il domains (Israeli TLD)
+            if (domain.endsWith(".il")) {
+                Log.d("UrlChecker", "Detected .il domain: $domain")
+                return@withContext UrlCheckResult.Match(
+                    reasons = listOf("u"),
+                    name = domain,
+                    alt = null,
+                    stockSymbol = null,
+                    comment = "Israeli domain (.il)",
+                    link = domain,
+                    rule = RuleInfo(domain, "il")
+                )
+            }
         }
 
-        // If input doesn't look like a URL (no dots, no protocol), try company name match
+        // If input doesn't look like a URL (no dots, no protocol), try company name or stock symbol match
         val trimmedUrl = url.trim()
         if (!trimmedUrl.contains(".") && !trimmedUrl.contains("://")) {
             val nameMatch = db.find { it.n.equals(trimmedUrl, ignoreCase = true) }
             if (nameMatch != null) {
                 Log.d("UrlChecker", "Found by company name: ${nameMatch.n}")
                 return@withContext formatResult(nameMatch, trimmedUrl, "name")
+            }
+            // Try stock symbol match
+            val symbolMatch = db.find { it.s?.equals(trimmedUrl, ignoreCase = true) == true }
+            if (symbolMatch != null) {
+                Log.d("UrlChecker", "Found by stock symbol: ${symbolMatch.n}")
+                return@withContext formatResult(symbolMatch, trimmedUrl, "symbol")
             }
         }
 
@@ -222,6 +242,21 @@ class UrlChecker(private val context: Context) {
                         )
                     )
                 }
+                continue
+            }
+
+            // Check stock symbol match
+            val stockSymbol = item.s
+            if (stockSymbol != null && stockSymbol.lowercase().contains(lowerQuery)) {
+                if (seenCompanies.add(companyNameLower)) {
+                    results.add(
+                        AutocompleteSuggestion(
+                            displayText = "${item.n} ($stockSymbol)",
+                            fillValue = item.n,
+                            companyName = item.n
+                        )
+                    )
+                }
             }
         }
 
@@ -235,7 +270,7 @@ class UrlChecker(private val context: Context) {
             } else {
                 URI("https://$url")
             }
-            var domain = uri.host ?: ""
+            var domain = uri.host?.lowercase() ?: ""
             if (domain.startsWith("www.")) {
                 domain = domain.substring(4)
             }
@@ -355,9 +390,10 @@ class UrlChecker(private val context: Context) {
      * If a subdomain is explicitly stored (e.g., "fr.wix.com"), only that exact subdomain matches.
      */
     private fun findInDatabaseByDomain(domain: String, database: List<AllItem>): AllItem? {
-        Log.d("UrlChecker", "findInDatabaseByDomain: searching for '$domain'")
-        // First pass: check for exact match (prioritizes exact subdomain matches over base domain matches)
-        val exactMatch = database.find { it.ws == domain }
+        val lowerDomain = domain.lowercase()
+        Log.d("UrlChecker", "findInDatabaseByDomain: searching for '$lowerDomain'")
+        // First pass: check for exact match (case-insensitive)
+        val exactMatch = database.find { it.ws?.lowercase() == lowerDomain }
         if (exactMatch != null) {
             Log.d("UrlChecker", "findInDatabaseByDomain: exact match found - ${exactMatch.id}")
             return exactMatch
@@ -368,8 +404,8 @@ class UrlChecker(private val context: Context) {
         // If stored rule is base domain (no subdomain), check if input is its subdomain
         // Example: stored="wix.com", input="fr.wix.com" → should match
         return database.find { row ->
-            val storedDomain = row.ws ?: return@find false
-            isSubdomainOf(domain, storedDomain)
+            val storedDomain = row.ws?.lowercase() ?: return@find false
+            isSubdomainOf(lowerDomain, storedDomain)
         }
     }
 

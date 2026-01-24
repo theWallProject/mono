@@ -62,6 +62,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Include native debug symbols for Play Console crash analysis
+            ndk.debugSymbolLevel = "FULL"
             // Use release signing config if available
             if (keystorePropsFile.exists()) {
                 signingConfig = signingConfigs.getByName("release")
@@ -87,6 +89,7 @@ android {
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
+        allWarningsAsErrors.set(true)
     }
 }
 

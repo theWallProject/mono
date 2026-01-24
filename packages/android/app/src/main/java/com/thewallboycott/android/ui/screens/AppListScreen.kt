@@ -16,10 +16,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
@@ -44,6 +49,7 @@ import com.thewallboycott.android.share.ShareScenario
 import com.thewallboycott.android.ui.components.ShareBottomSheet
 import com.thewallboycott.android.ui.components.SharePromptCard
 import com.thewallboycott.android.ui.theme.*
+import androidx.compose.runtime.derivedStateOf
 import com.thewallboycott.android.util.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -52,9 +58,16 @@ import kotlinx.coroutines.withContext
 
 private data class AppScanResults(
     val blacklisted: List<Pair<PackageInfo, AllItem>>,
+    val bdsApps: List<Pair<PackageInfo, AllItem>>,
     val hinted: List<Pair<PackageInfo, AllItem>>,
     val other: List<PackageInfo>
 )
+
+private val BDS_REASONS = setOf("BDS_PRIO", "BDS_GRASS", "BDS_PRESSURE")
+
+private fun AllItem.isBdsOnly(): Boolean {
+    return r.isNotEmpty() && r.all { it in BDS_REASONS }
+}
 
 private suspend fun performAppScan(context: Context): AppScanResults = withContext(Dispatchers.IO) {
     Log.d("AppListScreen", "Background thread started for app scan")
@@ -73,6 +86,7 @@ private suspend fun performAppScan(context: Context): AppScanResults = withConte
     Log.d("AppListScreen", "Found ${installedApps.size} installed apps")
 
     val blacklistedApps = mutableListOf<Pair<PackageInfo, AllItem>>()
+    val bdsApps = mutableListOf<Pair<PackageInfo, AllItem>>()
     val hintedApps = mutableListOf<Pair<PackageInfo, AllItem>>()
     val otherApps = mutableListOf<PackageInfo>()
 
@@ -91,13 +105,20 @@ private suspend fun performAppScan(context: Context): AppScanResults = withConte
         }
 
         when {
-            matchingBlacklistItem != null -> blacklistedApps.add(app to matchingBlacklistItem)
+            matchingBlacklistItem != null -> {
+                // Separate BDS-only apps from Israeli apps
+                if (matchingBlacklistItem.isBdsOnly()) {
+                    bdsApps.add(app to matchingBlacklistItem)
+                } else {
+                    blacklistedApps.add(app to matchingBlacklistItem)
+                }
+            }
             matchingHintItem != null -> hintedApps.add(app to matchingHintItem)
             else -> otherApps.add(app)
         }
     }
 
-    AppScanResults(blacklistedApps, hintedApps, otherApps)
+    AppScanResults(blacklistedApps, bdsApps, hintedApps, otherApps)
 }
 
 
@@ -110,15 +131,15 @@ fun AllItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppListScreen() {
+fun AppListScreen(externalRefreshTrigger: Int = 0) {
     var isLoading by remember { mutableStateOf(true) }
     var blacklistedApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
+    var bdsApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
     var hintedApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
     var otherApps by remember { mutableStateOf<List<PackageInfo>>(emptyList()) }
-    var refreshTrigger by remember { mutableStateOf(0) }
+    var internalRefreshTrigger by remember { mutableStateOf(0) }
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    var showPermissionRationale by remember { mutableStateOf(false) }
 
     // Share functionality
     val shareManager = remember { ShareManager(context) }
@@ -129,33 +150,24 @@ fun AppListScreen() {
     var removedAppName by remember { mutableStateOf<String?>(null) }
     var showGeneralShareSheet by remember { mutableStateOf(false) }
     var scanCompleted by remember { mutableStateOf(false) }
+    var notificationPermissionGranted by remember {
+        mutableStateOf(
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+            } else true
+        )
+    }
+    var notificationCardDismissed by remember { mutableStateOf(false) }
 
     fun refresh() {
-        refreshTrigger++
+        internalRefreshTrigger++
     }
 
     val requestPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
+        notificationPermissionGranted = isGranted
         if (isGranted) {
-            refresh()
-        }
-    }
-
-    fun askForNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            when {
-                ContextCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED -> {
-                    refresh()
-                }
-                else -> {
-                    showPermissionRationale = true
-                }
-            }
-        } else {
             refresh()
         }
     }
@@ -174,9 +186,12 @@ fun AppListScreen() {
         refresh()
     }
 
-    LaunchedEffect(refreshTrigger) {
-        if (refreshTrigger > 0) {
-            Log.d("AppListScreen", "LaunchedEffect started (trigger: $refreshTrigger)")
+    // Combine internal and external triggers
+    val combinedTrigger = internalRefreshTrigger + externalRefreshTrigger
+
+    LaunchedEffect(combinedTrigger) {
+        if (combinedTrigger > 0) {
+            Log.d("AppListScreen", "LaunchedEffect started (trigger: $combinedTrigger)")
             isLoading = true
             scanCompleted = false
             showSharePrompt = false
@@ -184,6 +199,7 @@ fun AppListScreen() {
                 val results = performAppScan(context)
                 withContext(Dispatchers.Main) {
                     blacklistedApps = results.blacklisted
+                    bdsApps = results.bdsApps
                     hintedApps = results.hinted
                     otherApps = results.other
                     isLoading = false
@@ -192,7 +208,7 @@ fun AppListScreen() {
 
                     // Determine share scenario after scan completes (with delay)
                     delay(1500) // 1.5s delay as per plan
-                    val flaggedCount = results.blacklisted.size
+                    val flaggedCount = results.blacklisted.size + results.bdsApps.size
                     if (flaggedCount == 0 && results.hinted.isEmpty()) {
                         // No apps found - celebration moment
                         if (shareManager.shouldShowNoAppsPrompt()) {
@@ -217,280 +233,320 @@ fun AppListScreen() {
         refresh()
     }
 
-    if (showPermissionRationale) {
-        AlertDialog(
-            onDismissRequest = { showPermissionRationale = false },
-            title = { Text("Stay Informed") },
-            text = { Text("Enable notifications to get alerts when you install an app that conflicts with your values. Knowledge is power.") },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        showPermissionRationale = false
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                        }
-                    },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = WallPrimaryDark,
-                        contentColor = WallTextOnPrimary
-                    )
-                ) { Text("Continue") }
-            },
-            dismissButton = {
-                TextButton(onClick = { showPermissionRationale = false }) { Text("Cancel") }
-            }
-        )
-    }
-
-    Scaffold(
-        containerColor = WallPrimary,
-        topBar = {
-            TopAppBar(
-                title = { Text("Remove Israeli Apps", fontWeight = FontWeight.Bold) },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = WallPrimary,
-                    titleContentColor = WallTextOnPrimary,
-                    scrolledContainerColor = WallPrimary
-                ),
-                actions = {
-                    // General share button
-                    IconButton(
-                        onClick = { showGeneralShareSheet = true },
-                        enabled = !isLoading
-                    ) {
-                        Icon(
-                            Icons.Default.Share,
-                            contentDescription = "Share The Wall",
-                            tint = WallTextOnPrimary
-                        )
-                    }
-                    IconButton(onClick = { askForNotificationPermission() }, enabled = !isLoading) {
-                        Icon(
-                            Icons.Default.Refresh,
-                            contentDescription = "Refresh Scan",
-                            tint = WallTextOnPrimary
-                        )
-                    }
-                }
-            )
-        }
-    ) { paddingValues ->
+    Box(modifier = Modifier.fillMaxSize().background(WallBackground)) {
         if (isLoading) {
             Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .background(WallBackground),
+                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator(color = WallPrimary)
             }
         } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .background(WallBackground),
-                contentPadding = PaddingValues(16.dp)
-            ) {
-                // Always show Israeli Apps section
-                item {
-                    Text(
-                        if (blacklistedApps.isNotEmpty()) "Israeli Apps - EWWW!" else "Israeli Apps",
-                        style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.padding(bottom = 8.dp),
-                        fontWeight = FontWeight.Bold,
-                        color = WallErrorAccent
-                    )
-                }
+            val listState = rememberLazyListState()
+            val canScrollDown by remember {
+                derivedStateOf { listState.canScrollForward }
+            }
 
-                if (blacklistedApps.isEmpty()) {
-                    // Show success card when no Israeli apps found
-                    item {
-                        Card(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(bottom = 8.dp),
-                            colors = CardDefaults.cardColors(containerColor = WallSuccessContainer),
-                            shape = RoundedCornerShape(12.dp)
-                        ) {
-                            Column(
-                                modifier = Modifier.padding(16.dp)
+            // Filter hints to only show those with Switch action (hintAndroidId)
+            val hintsWithSwitch = hintedApps.filter { (_, itemInfo) -> itemInfo.hintAndroidId != null }
+
+            Box(modifier = Modifier.fillMaxSize()) {
+                LazyColumn(
+                    state = listState,
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(16.dp)
+                ) {
+                    // Notification permission card at top - show if not granted and not dismissed
+                    if (!notificationPermissionGranted && !notificationCardDismissed && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        item {
+                            Card(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 16.dp),
+                                shape = RoundedCornerShape(12.dp),
+                                colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
                             ) {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    Icon(
-                                        Icons.Default.CheckCircle,
-                                        contentDescription = null,
-                                        tint = WallSuccessAccent,
-                                        modifier = Modifier.size(32.dp)
-                                    )
-                                    Spacer(modifier = Modifier.width(12.dp))
-                                    Column(modifier = Modifier.weight(1f)) {
-                                        Text(
-                                            "You're Making a Difference!",
-                                            style = MaterialTheme.typography.titleLarge,
-                                            color = WallSuccessAccent,
-                                            fontWeight = FontWeight.Bold
+                                Column(modifier = Modifier.padding(16.dp)) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier.fillMaxWidth()
+                                    ) {
+                                        Icon(
+                                            Icons.Default.Notifications,
+                                            contentDescription = null,
+                                            tint = WallPrimary,
+                                            modifier = Modifier.size(24.dp)
                                         )
+                                        Spacer(modifier = Modifier.width(12.dp))
                                         Text(
-                                            "No flagged apps found. Your choices matter.",
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            color = WallSuccessAccent.copy(alpha = 0.8f)
+                                            text = "Auto-Scan New Apps",
+                                            style = MaterialTheme.typography.titleMedium,
+                                            fontWeight = FontWeight.Bold,
+                                            color = WallOnSurface,
+                                            modifier = Modifier.weight(1f)
+                                        )
+                                        IconButton(
+                                            onClick = { notificationCardDismissed = true },
+                                            modifier = Modifier.size(24.dp)
+                                        ) {
+                                            Icon(
+                                                Icons.Default.Close,
+                                                contentDescription = "Dismiss",
+                                                tint = WallOnSurfaceVariant,
+                                                modifier = Modifier.size(18.dp)
+                                            )
+                                        }
+                                    }
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Text(
+                                        text = "When you install a new app, we'll automatically check it against our database and notify you if it's flagged. Saves you the manual lookup.",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = WallOnSurfaceVariant
+                                    )
+                                    Spacer(modifier = Modifier.height(12.dp))
+                                    Button(
+                                        onClick = {
+                                            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                                        },
+                                        modifier = Modifier.fillMaxWidth(),
+                                        colors = ButtonDefaults.buttonColors(
+                                            containerColor = WallPrimary,
+                                            contentColor = WallTextOnPrimary
+                                        ),
+                                        shape = RoundedCornerShape(8.dp)
+                                    ) {
+                                        Icon(
+                                            Icons.Default.Notifications,
+                                            contentDescription = null,
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                        Text(
+                                            "Turn On Auto-Scan",
+                                            fontWeight = FontWeight.SemiBold
                                         )
                                     }
-                                }
-                                Spacer(modifier = Modifier.height(12.dp))
-                                Button(
-                                    onClick = {
-                                        val content = shareManager.getChallengeContent()
-                                        shareManager.shareText(content)
-                                    },
-                                    modifier = Modifier.fillMaxWidth(),
-                                    colors = ButtonDefaults.buttonColors(
-                                        containerColor = WallSuccessAccent,
-                                        contentColor = WallSuccessContainer
-                                    ),
-                                    shape = RoundedCornerShape(8.dp)
-                                ) {
-                                    Icon(
-                                        Icons.Default.Share,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(18.dp)
-                                    )
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                    Text(
-                                        "Dare a Friend to Scan Theirs",
-                                        fontWeight = FontWeight.SemiBold
-                                    )
                                 }
                             }
                         }
                     }
 
-                    // Share prompt for "no apps found" scenario (inside the section)
-                    if (showSharePrompt && shareScenario == ShareScenario.NO_APPS_FOUND) {
+                    // Israeli Apps section - only show title if there are flagged apps
+                    if (blacklistedApps.isNotEmpty()) {
                         item {
-                            SharePromptCard(
-                                content = shareManager.getNoAppsFoundContent(),
-                                onShareClick = {
-                                    val content = shareManager.getNoAppsFoundContent()
-                                    shareManager.shareText(content)
-                                },
-                                onDismiss = {
-                                    showSharePrompt = false
-                                    shareManager.dismissNoAppsPrompt()
-                                },
-                                scenario = ShareScenario.NO_APPS_FOUND
+                            Text(
+                                "Israeli Apps - EWWW!",
+                                style = MaterialTheme.typography.headlineSmall,
+                                modifier = Modifier.padding(bottom = 8.dp),
+                                fontWeight = FontWeight.Bold,
+                                color = WallErrorAccent
                             )
                         }
-                    }
-                } else {
-                    // Show blacklisted apps
-                    items(blacklistedApps) { (app, itemInfo) ->
-                        val pm = context.packageManager
-                        val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
-                        AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
-                            pendingUninstallAppName = appName
-                            val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
-                            uninstallLauncher.launch(intent)
-                        })
-                    }
 
-                    // Share prompt for "apps found" scenario
-                    if (showSharePrompt && shareScenario == ShareScenario.APPS_FOUND) {
+                        // Show blacklisted apps
+                        items(blacklistedApps) { (app, itemInfo) ->
+                            val pm = context.packageManager
+                            val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
+                            AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
+                                pendingUninstallAppName = appName
+                                val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
+                                uninstallLauncher.launch(intent)
+                            })
+                        }
+
+                        // Share prompt - always show when there are flagged apps
                         item {
                             val firstAppName = blacklistedApps.firstOrNull()?.let { (app, _) ->
                                 app.applicationInfo?.loadLabel(context.packageManager)?.toString()
                             }
                             SharePromptCard(
                                 content = shareManager.getAppsFoundContent(
-                                    flaggedCount = blacklistedApps.size,
+                                    flaggedCount = blacklistedApps.size + bdsApps.size,
                                     firstAppName = firstAppName
                                 ),
                                 onShareClick = {
                                     val content = shareManager.getAppsFoundContent(
-                                        flaggedCount = blacklistedApps.size,
+                                        flaggedCount = blacklistedApps.size + bdsApps.size,
                                         firstAppName = firstAppName
                                     )
                                     shareManager.shareText(content)
                                 },
                                 onDismiss = {
-                                    showSharePrompt = false
-                                    shareManager.dismissAppsFoundPrompt()
+                                    // No-op, always visible
                                 },
                                 scenario = ShareScenario.APPS_FOUND
                             )
                         }
                     }
-                }
 
-                if (hintedApps.isNotEmpty()) {
+                    // BDS Section - "On the BDS List"
+                    if (bdsApps.isNotEmpty()) {
+                        item {
+                            Spacer(modifier = Modifier.height(if (blacklistedApps.isNotEmpty()) 16.dp else 0.dp))
+                            Text(
+                                "On the BDS List",
+                                style = MaterialTheme.typography.headlineSmall,
+                                modifier = Modifier.padding(bottom = 8.dp),
+                                fontWeight = FontWeight.Bold,
+                                color = WallBdsAccent
+                            )
+                        }
+                        items(bdsApps) { (app, itemInfo) ->
+                            val pm = context.packageManager
+                            val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
+                            BdsAppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
+                                pendingUninstallAppName = appName
+                                val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
+                                uninstallLauncher.launch(intent)
+                            })
+                        }
+                    }
+
+                    // Success card - only show when no flagged apps
+                    if (blacklistedApps.isEmpty() && bdsApps.isEmpty()) {
+                        item {
+                            Card(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 8.dp),
+                                colors = CardDefaults.cardColors(containerColor = WallSuccessContainer),
+                                shape = RoundedCornerShape(12.dp)
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(16.dp)
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Icon(
+                                            Icons.Default.CheckCircle,
+                                            contentDescription = null,
+                                            tint = WallSuccessAccent,
+                                            modifier = Modifier.size(32.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(12.dp))
+                                        Column(modifier = Modifier.weight(1f)) {
+                                            Text(
+                                                "You're Making a Difference!",
+                                                style = MaterialTheme.typography.titleLarge,
+                                                color = WallSuccessAccent,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                            Text(
+                                                "No flagged apps found. Your choices matter.",
+                                                style = MaterialTheme.typography.bodyMedium,
+                                                color = WallSuccessAccent.copy(alpha = 0.8f)
+                                            )
+                                        }
+                                    }
+                                    Spacer(modifier = Modifier.height(12.dp))
+                                    Button(
+                                        onClick = {
+                                            val content = shareManager.getChallengeContent()
+                                            shareManager.shareText(content)
+                                        },
+                                        modifier = Modifier.fillMaxWidth(),
+                                        colors = ButtonDefaults.buttonColors(
+                                            containerColor = WallSuccessAccent,
+                                            contentColor = WallSuccessContainer
+                                        ),
+                                        shape = RoundedCornerShape(8.dp)
+                                    ) {
+                                        Icon(
+                                            Icons.Default.Share,
+                                            contentDescription = null,
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                        Text(
+                                            "Dare a Friend to Scan Theirs",
+                                            fontWeight = FontWeight.SemiBold
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        // Share prompt for "no apps found" scenario
+                        if (showSharePrompt && shareScenario == ShareScenario.NO_APPS_FOUND) {
+                            item {
+                                SharePromptCard(
+                                    content = shareManager.getNoAppsFoundContent(),
+                                    onShareClick = {
+                                        val content = shareManager.getNoAppsFoundContent()
+                                        shareManager.shareText(content)
+                                    },
+                                    onDismiss = {
+                                        showSharePrompt = false
+                                        shareManager.dismissNoAppsPrompt()
+                                    },
+                                    scenario = ShareScenario.NO_APPS_FOUND
+                                )
+                            }
+                        }
+                    }
+
+                    // Better Alternatives section - only show items with Switch action
+                    if (hintsWithSwitch.isNotEmpty()) {
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                "Better Alternatives Available",
+                                style = MaterialTheme.typography.headlineSmall,
+                                modifier = Modifier.padding(bottom = 8.dp),
+                                fontWeight = FontWeight.Bold,
+                                color = WallHintAccent
+                            )
+                        }
+                        items(hintsWithSwitch) { (app, itemInfo) ->
+                            val pm = context.packageManager
+                            val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
+                            AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
+                                pendingUninstallAppName = appName
+                                val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
+                                uninstallLauncher.launch(intent)
+                            })
+                        }
+                    }
+
+                    if (otherApps.isNotEmpty()) {
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                "Aligned With Your Values",
+                                style = MaterialTheme.typography.headlineSmall,
+                                modifier = Modifier.padding(bottom = 8.dp),
+                                fontWeight = FontWeight.Bold,
+                                color = WallNeutralAccent
+                            )
+                        }
+                        items(otherApps) { app ->
+                            AppInfoCard(app = app, itemInfo = null, onUninstallClicked = {})
+                        }
+                    }
+
+                    // Bottom padding
                     item {
                         Spacer(modifier = Modifier.height(16.dp))
-                        Text(
-                            "Better Alternatives Available",
-                            style = MaterialTheme.typography.headlineSmall,
-                            modifier = Modifier.padding(bottom = 8.dp),
-                            fontWeight = FontWeight.Bold,
-                            color = WallHintAccent
-                        )
-                    }
-                    items(hintedApps) { (app, itemInfo) ->
-                        val pm = context.packageManager
-                        val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
-                        AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
-                            pendingUninstallAppName = appName
-                            val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
-                            uninstallLauncher.launch(intent)
-                        })
                     }
                 }
 
-                if (otherApps.isNotEmpty()) {
-                    item {
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Text(
-                            "Aligned With Your Values",
-                            style = MaterialTheme.typography.headlineSmall,
-                            modifier = Modifier.padding(bottom = 8.dp),
-                            fontWeight = FontWeight.Bold,
-                            color = WallNeutralAccent
-                        )
-                    }
-                    items(otherApps) { app ->
-                        AppInfoCard(app = app, itemInfo = null, onUninstallClicked = {})
-                    }
-                }
-
-                // Warn your friends button - always visible at the end
-                item {
-                    Spacer(modifier = Modifier.height(24.dp))
-                    Button(
-                        onClick = {
-                            val content = shareManager.getGeneralContent()
-                            shareManager.shareText(content)
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = WallPrimary,
-                            contentColor = WallTextOnPrimary
-                        ),
-                        shape = RoundedCornerShape(12.dp)
-                    ) {
-                        Icon(
-                            Icons.Default.Share,
-                            contentDescription = null,
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(
-                            "Warn Your Friends",
-                            fontWeight = FontWeight.SemiBold
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(16.dp))
+                // Scroll fade indicator at bottom (shorter version - 40dp)
+                if (canScrollDown) {
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .fillMaxWidth()
+                            .height(40.dp)
+                            .background(
+                                Brush.verticalGradient(
+                                    colors = listOf(
+                                        Color.Transparent,
+                                        WallBackground
+                                    )
+                                )
+                            )
+                    )
                 }
             }
         }
@@ -640,7 +696,7 @@ fun AppInfoCard(
                             context.startActivity(intent)
                         },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = WallPrimaryDark,
+                            containerColor = WallSecondary,
                             contentColor = WallTextOnPrimary
                         ),
                         shape = RoundedCornerShape(8.dp)
@@ -656,6 +712,71 @@ fun AppInfoCard(
                         )
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun BdsAppInfoCard(
+    app: PackageInfo,
+    itemInfo: AllItem,
+    onUninstallClicked: (String) -> Unit
+) {
+    val context = LocalContext.current
+    val pm = context.packageManager
+    val appName = remember(app) { app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName }
+    val appIcon = remember(app) { app.applicationInfo?.loadIcon(pm) }
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        colors = CardDefaults.cardColors(containerColor = WallBdsContainer),
+        shape = RoundedCornerShape(12.dp)
+    ) {
+        Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            // App icon with tinted background
+            appIcon?.let {
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(WallBdsAccent.copy(alpha = 0.15f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = rememberDrawablePainter(drawable = it),
+                        contentDescription = "$appName icon",
+                        modifier = Modifier
+                            .size(40.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.width(12.dp))
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = appName,
+                    fontWeight = FontWeight.Bold,
+                    color = WallBdsAccent
+                )
+                val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
+                val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
+                Text(
+                    text = reasonMessages,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WallOnBdsContainer
+                )
+            }
+
+            IconButton(onClick = { onUninstallClicked(app.packageName) }) {
+                Icon(
+                    Icons.Default.Delete,
+                    contentDescription = "Uninstall App",
+                    tint = WallBdsAccent
+                )
             }
         }
     }

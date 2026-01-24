@@ -3,15 +3,16 @@ package com.thewallboycott.android.ui.screens
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Report
 import androidx.compose.material.icons.filled.Star
@@ -23,13 +24,14 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import com.thewallboycott.android.R
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thewallboycott.android.data.billing.BillingConnectionState
 import com.thewallboycott.android.data.billing.BillingManager
-import com.thewallboycott.android.share.ImageTemplate
 import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.components.SupporterShareDialog
 import com.thewallboycott.android.ui.theme.*
@@ -83,126 +85,120 @@ fun SupportScreen() {
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Support the Project Section - Honest Talk
-        Text(
-            text = "Let's Get Real",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = WallOnSurface,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 12.dp)
-        )
-
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
-        ) {
-            Column(
-                modifier = Modifier.padding(16.dp)
+            // Donation Section
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
             ) {
-                Text(
-                    text = "I lost thousands of dollars by not freelancing during the 2 years I spent building The Wall. Not to mention the increasing AI costs to maintain our database of 20k+ companies.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WallOnSurface,
-                    textAlign = TextAlign.Start
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                Text(
-                    text = "I will never put any feature behind a paywall as long as I don't have to. I also don't collect any user data for the safety of my users.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WallOnSurface,
-                    textAlign = TextAlign.Start
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                Text(
-                    text = "So instead of promising you a \"special feature\" and profiting off the cause, let's just say paying users help ALL users get new awesome features by buying me more time. It's a win-win.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WallOnSurface,
-                    textAlign = TextAlign.Start
-                )
-            }
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Premium Subscription Card
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = WallHintContainer)
-        ) {
-            Column(
-                modifier = Modifier.padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                if (isSubscribed) {
-                    Icon(
-                        Icons.Default.Star,
-                        contentDescription = null,
-                        tint = WallHintAccent,
-                        modifier = Modifier.size(32.dp)
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
                     Text(
-                        text = "You're a Supporter!",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = WallHintAccent
-                    )
-                    Spacer(modifier = Modifier.height(4.dp))
-                    Text(
-                        text = "Thank you for keeping The Wall alive.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = WallOnHintContainer,
-                        textAlign = TextAlign.Center
-                    )
-                } else {
-                    Row(
-                        verticalAlignment = Alignment.Bottom,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            text = "$1",
-                            style = MaterialTheme.typography.headlineLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = WallHintAccent
-                        )
-                        Text(
-                            text = "/month",
-                            style = MaterialTheme.typography.bodyLarge,
-                            color = WallOnHintContainer,
-                            modifier = Modifier.padding(bottom = 4.dp, start = 4.dp)
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(4.dp))
-
-                    Text(
-                        text = "Not even a full coffee. More like a sip of espresso.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = WallOnHintContainer,
-                        textAlign = TextAlign.Center
+                        text = "The Wall tools are free. All of them—every tool standing today and every one we'll build tomorrow. No ads. No tracking. No premium tier. Just quality tools that hit hard.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WallOnSurface,
+                        textAlign = TextAlign.Start
                     )
 
                     Spacer(modifier = Modifier.height(12.dp))
 
+                    Text(
+                        text = "Your donation doesn't unlock features—it unlocks hours. More money, more dev time, better tools, faster updates. Simple math.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WallOnSurface,
+                        textAlign = TextAlign.Start
+                    )
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    Text(
+                        text = "And every dollar? It's a digital bullet fired straight into the heart of an occupation that wants us gone. You're not funding an app—you're funding defiance, written in code.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WallOnSurface,
+                        textAlign = TextAlign.Start
+                    )
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    Text(
+                        text = "We're building a wall around their economy. Each dollar is a brick that helps seal it shut.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WallPrimary,
+                        fontWeight = FontWeight.SemiBold,
+                        textAlign = TextAlign.Start
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Donate Wall Image with Button Overlay
+            if (isSubscribed) {
+                // Supporter Card
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(containerColor = WallHintContainer)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Icon(
+                            Icons.Default.Star,
+                            contentDescription = null,
+                            tint = WallHintAccent,
+                            modifier = Modifier.size(32.dp)
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "You're a Supporter!",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = WallHintAccent
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = "Thank you for keeping The Wall alive.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = WallOnHintContainer,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+            } else {
+                // Donate wall image with button overlay
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .widthIn(max = 400.dp)
+                        .aspectRatio(1f),
+                    contentAlignment = Alignment.Center
+                ) {
+                    // Background wall image
+                    Image(
+                        painter = painterResource(id = R.drawable.donate_wall),
+                        contentDescription = "Donate a brick",
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Fit
+                    )
+
+                    // Button positioned over the hole (slightly above center)
                     Button(
                         onClick = {
                             activity?.let { billingManager.launchSubscriptionFlow(it) }
                         },
                         enabled = connectionState == BillingConnectionState.CONNECTED,
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = WallHintAccent,
+                            containerColor = WallPrimary,
                             contentColor = WallTextOnPrimary
                         ),
                         shape = RoundedCornerShape(8.dp),
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .offset(y = (2).dp)
+                            .padding(horizontal = 16.dp)
                     ) {
                         Icon(
                             Icons.Default.Favorite,
@@ -210,28 +206,37 @@ fun SupportScreen() {
                             modifier = Modifier.size(18.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Become a Supporter", fontWeight = FontWeight.SemiBold)
+                        Text("$1/month", fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
-        }
 
-        Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
-        // Ko-fi alternative (less prominent)
-        TextButton(
-            onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ko-fi.com/thewalladdon"))
-                context.startActivity(intent)
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(
-                text = "Prefer Ko-fi? Donate there instead",
-                style = MaterialTheme.typography.bodySmall,
-                color = WallOnSurfaceVariant
-            )
-        }
+            // Ko-fi alternative
+            OutlinedButton(
+                onClick = {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ko-fi.com/thewalladdon"))
+                    context.startActivity(intent)
+                },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(8.dp),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = WallOnSurfaceVariant
+                )
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.kofi_logo),
+                    contentDescription = "Ko-fi",
+                    modifier = Modifier.height(24.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Prefer Ko-fi? Donate there",
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Medium
+                )
+            }
 
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -360,33 +365,22 @@ fun SupportScreen() {
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        // Scroll indicator - fade gradient at bottom when more content available
+        // Scroll indicator - fade gradient at bottom when more content available (shorter version)
         if (canScrollDown) {
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .fillMaxWidth()
-                    .height(80.dp)
+                    .height(40.dp)
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
                                 Color.Transparent,
-                                WallBackground.copy(alpha = 0.9f),
                                 WallBackground
                             )
                         )
-                    ),
-                contentAlignment = Alignment.BottomCenter
-            ) {
-                Icon(
-                    Icons.Default.KeyboardArrowDown,
-                    contentDescription = "Scroll for more",
-                    tint = WallOnSurfaceVariant,
-                    modifier = Modifier
-                        .padding(bottom = 8.dp)
-                        .size(24.dp)
-                )
-            }
+                    )
+            )
         }
     }
 
@@ -416,26 +410,36 @@ private fun ActionCard(
         onClick = onClick
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Icon(
-                icon,
-                contentDescription = null,
-                tint = WallPrimary,
-                modifier = Modifier.size(28.dp)
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.SemiBold,
-                color = WallOnSurface
-            )
+            // Icon and title in a row, centered
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Icon(
+                    icon,
+                    contentDescription = null,
+                    tint = WallPrimary,
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = WallOnSurface
+                )
+            }
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = subtitle,
                 style = MaterialTheme.typography.bodySmall,
-                color = WallOnSurfaceVariant
+                color = WallOnSurfaceVariant,
+                textAlign = TextAlign.Center
             )
         }
     }

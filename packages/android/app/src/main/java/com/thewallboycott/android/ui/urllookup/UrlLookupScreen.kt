@@ -3,6 +3,7 @@ package com.thewallboycott.android.ui.urllookup
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +19,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Error
@@ -26,6 +30,7 @@ import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -38,6 +43,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -138,6 +144,7 @@ fun UrlLookupScreen(
                 "ShareDebug",
                 "UrlLookupScreen: LaunchedEffect received initialUrl: '$initialUrl'"
             )
+            url = initialUrl // Update the textbox with the shared URL
             performCheck(initialUrl)
             onUrlHandled() // Notify the activity that the URL has been processed
         } else {
@@ -145,14 +152,27 @@ fun UrlLookupScreen(
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-            .verticalScroll(scrollState)
-    ) {
-        // Search field with autocomplete dropdown
-        Box {
+    val canScrollDown by remember {
+        derivedStateOf { scrollState.value < scrollState.maxValue }
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .verticalScroll(scrollState)
+        ) {
+        // Description text
+        Text(
+            text = "Check any company, website, or social profile for Zionist ties before you commit.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = WallOnSurfaceVariant,
+            modifier = Modifier.padding(bottom = 12.dp)
+        )
+
+        // Search field with autocomplete suggestions
+        Column {
             OutlinedTextField(
                 value = url,
                 onValueChange = { url = it },
@@ -167,21 +187,36 @@ fun UrlLookupScreen(
                 singleLine = true
             )
 
-            DropdownMenu(
-                expanded = showSuggestions && suggestions.isNotEmpty(),
-                onDismissRequest = { showSuggestions = false },
-                modifier = Modifier.fillMaxWidth(0.9f),
-                properties = PopupProperties(focusable = false)
+            // Suggestions list - shown inline without popup animation
+            androidx.compose.animation.AnimatedVisibility(
+                visible = showSuggestions && suggestions.isNotEmpty(),
+                enter = androidx.compose.animation.fadeIn() + androidx.compose.animation.expandVertically(),
+                exit = androidx.compose.animation.fadeOut() + androidx.compose.animation.shrinkVertically()
             ) {
-                suggestions.forEach { suggestion ->
-                    DropdownMenuItem(
-                        text = { Text(suggestion.displayText) },
-                        onClick = {
-                            url = suggestion.fillValue
-                            showSuggestions = false
-                            performCheck(suggestion.fillValue)
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 4.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                ) {
+                    Column {
+                        suggestions.forEach { suggestion ->
+                            Text(
+                                text = suggestion.displayText,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable {
+                                        url = suggestion.fillValue
+                                        showSuggestions = false
+                                        performCheck(suggestion.fillValue)
+                                    }
+                                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                                color = WallOnSurface
+                            )
                         }
-                    )
+                    }
                 }
             }
         }
@@ -213,6 +248,28 @@ fun UrlLookupScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
         } else if (hasSearched) {
+            // Helper function to send report email
+            fun sendReportEmail(isFlagged: Boolean, resultName: String?) {
+                val subject = if (isFlagged) {
+                    "[FLAGGED] Report mistake: ${resultName ?: url}"
+                } else {
+                    "[NOT FLAGGED] Report mistake: $url"
+                }
+                val body = buildString {
+                    append("URL: $url\n")
+                    append("Result type: ${if (isFlagged) "Flagged" else "Not flagged"}\n")
+                    if (resultName != null) append("Matched name: $resultName\n")
+                    append("\n[Please describe the mistake here]")
+                }
+                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:")
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
+                    putExtra(Intent.EXTRA_SUBJECT, subject)
+                    putExtra(Intent.EXTRA_TEXT, body)
+                }
+                context.startActivity(Intent.createChooser(intent, "Report Mistake"))
+            }
+
             when (val res = result) {
                 is UrlCheckResult.Match -> MatchResultCard(
                     result = res,
@@ -220,21 +277,24 @@ fun UrlLookupScreen(
                         val reasonSummary = res.reasons.mapNotNull { reasonsMap[it]?.message }.firstOrNull()
                         val content = shareManager.getUrlMatchContent(res.name, reasonSummary)
                         shareManager.shareText(content)
-                    }
+                    },
+                    onReportClick = { sendReportEmail(isFlagged = true, resultName = res.name) }
                 )
                 is UrlCheckResult.Hint -> HintResultCard(
                     result = res,
                     onShareClick = {
                         val content = shareManager.getUrlMatchContent(res.name, res.hintText)
                         shareManager.shareText(content)
-                    }
+                    },
+                    onReportClick = { sendReportEmail(isFlagged = true, resultName = res.name) }
                 )
                 null -> NoMatchResultCard(
                     searchedUrl = url,
                     onShareClick = {
                         val content = shareManager.getUrlCleanContent(url)
                         shareManager.shareText(content)
-                    }
+                    },
+                    onReportClick = { sendReportEmail(isFlagged = false, resultName = null) }
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -252,33 +312,27 @@ fun UrlLookupScreen(
         // Pro Tip section (right after help)
         ProTipCard()
 
-        // This spacer pushes the button to the bottom
-        Spacer(Modifier.weight(1f))
-
-        OutlinedButton(
-            onClick = {
-                val subject =
-                    if (url.isNotBlank()) "Report error for: $url" else "Report from URL Lookup Screen"
-                val body = if (url.isNotBlank()) {
-                    "I believe there is an error with the result for this URL: $url\n\n[Please add more details here]"
-                } else {
-                    "I encountered an issue on the URL Lookup screen.\n\n[Please add more details here]"
-                }
-
-                val intent = Intent(Intent.ACTION_SENDTO).apply {
-                    data = Uri.parse("mailto:")
-                    putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
-                    putExtra(Intent.EXTRA_SUBJECT, "Contact - The Wall Extension")
-                    putExtra(Intent.EXTRA_TEXT, body)
-                }
-                context.startActivity(Intent.createChooser(intent, "Send Email"))
-            },
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            shape = RoundedCornerShape(8.dp)
-        ) {
-            Text("Something Wrong? Let Us Know")
-        }
+        Spacer(modifier = Modifier.height(16.dp))
     }
+
+    // Scroll fade indicator at bottom (shorter version - 40dp)
+    if (canScrollDown) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .height(40.dp)
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color.Transparent,
+                            WallBackground
+                        )
+                    )
+                )
+        )
+    }
+}
 }
 
 @Composable
@@ -429,7 +483,8 @@ fun ProTipCard() {
 @Composable
 fun NoMatchResultCard(
     searchedUrl: String = "",
-    onShareClick: () -> Unit = {}
+    onShareClick: () -> Unit = {},
+    onReportClick: () -> Unit = {}
 ) {
     ResultCard(
         icon = Icons.Default.CheckCircle,
@@ -437,7 +492,8 @@ fun NoMatchResultCard(
         titleColor = WallSuccessAccent,
         containerColor = WallSuccessContainer,
         bodyColor = WallOnSuccessContainer,
-        onShareClick = onShareClick
+        onShareClick = onShareClick,
+        onReportClick = onReportClick
     ) {
         Text(
             "This link isn't flagged in our database. Browse freely.",
@@ -450,7 +506,8 @@ fun NoMatchResultCard(
 @Composable
 fun MatchResultCard(
     result: UrlCheckResult.Match,
-    onShareClick: () -> Unit = {}
+    onShareClick: () -> Unit = {},
+    onReportClick: () -> Unit = {}
 ) {
     val mappedReasons = result.reasons.mapNotNull { reasonsMap[it] }
     val overallLevel =
@@ -462,7 +519,7 @@ fun MatchResultCard(
     val containerColor = if (overallLevel == ReasonLevel.ERROR) WallErrorContainer else WallWarningContainer
     val bodyColor = if (overallLevel == ReasonLevel.ERROR) WallOnErrorContainer else WallOnWarningContainer
 
-    ResultCard(icon, title, titleColor, containerColor, bodyColor, onShareClick) {
+    ResultCard(icon, title, titleColor, containerColor, bodyColor, onShareClick, onReportClick) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             mappedReasons.forEach { reason ->
                 Text(
@@ -486,7 +543,8 @@ fun MatchResultCard(
 @Composable
 fun HintResultCard(
     result: UrlCheckResult.Hint,
-    onShareClick: () -> Unit = {}
+    onShareClick: () -> Unit = {},
+    onReportClick: () -> Unit = {}
 ) {
     ResultCard(
         icon = Icons.Default.Info,
@@ -494,7 +552,8 @@ fun HintResultCard(
         titleColor = WallHintAccent,
         containerColor = WallHintContainer,
         bodyColor = WallOnHintContainer,
-        onShareClick = onShareClick
+        onShareClick = onShareClick,
+        onReportClick = onReportClick
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(
@@ -522,6 +581,7 @@ fun ResultCard(
     containerColor: androidx.compose.ui.graphics.Color,
     bodyColor: androidx.compose.ui.graphics.Color = WallOnSurfaceVariant,
     onShareClick: () -> Unit = {},
+    onReportClick: () -> Unit = {},
     content: @Composable () -> Unit
 ) {
     Card(
@@ -552,11 +612,27 @@ fun ResultCard(
             Spacer(modifier = Modifier.height(12.dp))
             content()
             Spacer(modifier = Modifier.height(12.dp))
-            ShareButton(
-                onClick = onShareClick,
-                text = "Share",
-                accentColor = titleColor
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                ShareButton(
+                    onClick = onShareClick,
+                    text = "Share",
+                    accentColor = titleColor
+                )
+                TextButton(
+                    onClick = onReportClick,
+                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        text = "Report mistake",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = bodyColor.copy(alpha = 0.7f)
+                    )
+                }
+            }
         }
     }
 }

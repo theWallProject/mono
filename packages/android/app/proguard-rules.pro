@@ -13,8 +13,8 @@
 # Keep all data models for Gson serialization
 # ============================================================
 
--keep class com.thewall.android.data.models.** { *; }
--keepclassmembers class com.thewall.android.data.models.** { *; }
+-keep class com.thewallboycott.android.data.models.** { *; }
+-keepclassmembers class com.thewallboycott.android.data.models.** { *; }
 
 # ============================================================
 # GOOGLE PLAY BILLING
@@ -126,7 +126,7 @@
 # ============================================================
 
 # Keep custom Application class
--keep class com.thewall.android.** extends android.app.Application { *; }
+-keep class com.thewallboycott.android.** extends android.app.Application { *; }
 
 # Keep Activities
 -keep class * extends android.app.Activity

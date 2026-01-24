@@ -4,7 +4,6 @@ import androidx.compose.animation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -43,7 +42,7 @@ fun SharePromptCard(
     // Determine colors based on scenario
     val (containerColor, accentColor) = when (scenario) {
         ShareScenario.NO_APPS_FOUND -> WallSuccessContainer to WallSuccessAccent
-        ShareScenario.APPS_FOUND -> WallErrorContainer to WallErrorAccent
+        ShareScenario.APPS_FOUND -> WallSuccessContainer to WallSuccessAccent
         ShareScenario.APP_REMOVED -> WallHintContainer to WallHintAccent
         ShareScenario.NEW_SUPPORTER -> WallHintContainer to WallHintAccent
         else -> WallSurfaceVariant to WallPrimary
@@ -66,53 +65,28 @@ fun SharePromptCard(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.Top
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Column(
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                Icons.Default.Share,
-                                contentDescription = null,
-                                tint = accentColor,
-                                modifier = Modifier.size(24.dp)
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = content.headline,
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold,
-                                color = accentColor
-                            )
-                        }
-                        Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = content.subtext,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = WallOnSurface.copy(alpha = 0.7f)
-                        )
-                    }
-
-                    IconButton(
-                        onClick = {
-                            visible = false
-                            onDismiss()
-                        },
-                        modifier = Modifier.size(32.dp)
-                    ) {
-                        Icon(
-                            Icons.Default.Close,
-                            contentDescription = "Dismiss",
-                            tint = WallOnSurfaceVariant,
-                            modifier = Modifier.size(20.dp)
-                        )
-                    }
+                    Icon(
+                        Icons.Default.Share,
+                        contentDescription = null,
+                        tint = accentColor,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = content.headline,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = accentColor
+                    )
                 }
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = content.subtext,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WallOnSurface.copy(alpha = 0.7f)
+                )
 
                 Spacer(modifier = Modifier.height(12.dp))
 
