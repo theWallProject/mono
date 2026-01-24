@@ -23,6 +23,9 @@
     <!-- Remove legacy LVL permission added by Play Billing library - not used by modern billing -->
     <uses-permission android:name="com.android.vending.CHECK_LICENSE" tools:node="remove" />
 
+    <!-- Required for exact alarms (Android 12+) - used for snooze/remind later -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -66,6 +69,11 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <!-- Receiver for notification action buttons (Ignore, Remind Later, Dismiss All) -->
+        <receiver
+            android:name=".background.NotificationActionReceiver"
+            android:exported="false" />
 
     </application>
 
