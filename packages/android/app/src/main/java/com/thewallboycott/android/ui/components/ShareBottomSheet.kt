@@ -6,9 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.TextFields
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,6 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
 import com.thewallboycott.android.share.ImageTemplate
 import com.thewallboycott.android.share.ShareContent
 import com.thewallboycott.android.share.ShareImageGenerator
@@ -28,20 +27,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
- * A full share experience bottom sheet with image preview and share options.
+ * A share dialog with image preview.
+ * Always shares with image+text when an image template is provided.
  *
  * @param content The share content
  * @param shareManager The share manager for executing shares
  * @param imageTemplate Optional image template to show preview
  * @param imageData Additional data for image generation (count for flagged, name for removed)
- * @param onDismiss Called when the sheet is dismissed
+ * @param onDismiss Called when the dialog is dismissed
  * @param onShareComplete Called after a successful share
  */
-private enum class ShareMode { IMAGE, TEXT }
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ShareBottomSheet(
+fun ShareDialog(
     content: ShareContent,
     shareManager: ShareManager,
     imageTemplate: ImageTemplate?,
@@ -54,9 +51,6 @@ fun ShareBottomSheet(
 
     // Generate preview image if template is provided
     var previewBitmap by remember { mutableStateOf<Bitmap?>(null) }
-
-    // Default to IMAGE mode if image is available, otherwise TEXT
-    var selectedMode by remember { mutableStateOf(if (imageTemplate != null) ShareMode.IMAGE else ShareMode.TEXT) }
 
     LaunchedEffect(imageTemplate) {
         if (imageTemplate != null) {
@@ -78,137 +72,85 @@ fun ShareBottomSheet(
         }
     }
 
-    ModalBottomSheet(
+    AlertDialog(
         onDismissRequest = onDismiss,
+        properties = DialogProperties(usePlatformDefaultWidth = false),
+        modifier = Modifier
+            .fillMaxWidth(0.9f)
+            .wrapContentHeight(),
         containerColor = WallSurface,
-        contentColor = WallOnSurface
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp)
-                .padding(bottom = 32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Header
+        title = {
             Text(
                 text = content.headline,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = WallPrimary,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
             )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Mode selector (only if image is available)
-            if (imageTemplate != null && previewBitmap != null) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(WallSurfaceVariant)
-                        .padding(4.dp),
-                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
-                    // Image tab
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .clip(RoundedCornerShape(8.dp))
-                            .background(if (selectedMode == ShareMode.IMAGE) WallPrimary else WallSurfaceVariant)
-                            .padding(vertical = 10.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        TextButton(
-                            onClick = { selectedMode = ShareMode.IMAGE },
-                            colors = ButtonDefaults.textButtonColors(
-                                contentColor = if (selectedMode == ShareMode.IMAGE) WallTextOnPrimary else WallOnSurfaceVariant
-                            )
-                        ) {
-                            Icon(
-                                Icons.Default.Image,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text("Image", fontWeight = FontWeight.Medium)
-                        }
-                    }
-
-                    // Text tab
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .clip(RoundedCornerShape(8.dp))
-                            .background(if (selectedMode == ShareMode.TEXT) WallPrimary else WallSurfaceVariant)
-                            .padding(vertical = 10.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        TextButton(
-                            onClick = { selectedMode = ShareMode.TEXT },
-                            colors = ButtonDefaults.textButtonColors(
-                                contentColor = if (selectedMode == ShareMode.TEXT) WallTextOnPrimary else WallOnSurfaceVariant
-                            )
-                        ) {
-                            Icon(
-                                Icons.Default.TextFields,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text("Text", fontWeight = FontWeight.Medium)
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-            }
-
-            // Content based on selected mode
-            if (selectedMode == ShareMode.IMAGE && previewBitmap != null) {
+        },
+        text = {
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 // Image preview
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(1f)
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(WallSurfaceVariant),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        bitmap = previewBitmap!!.asImageBitmap(),
-                        contentDescription = "Share preview",
+                if (previewBitmap != null) {
+                    Box(
                         modifier = Modifier
-                            .fillMaxSize()
+                            .fillMaxWidth()
+                            .aspectRatio(1f)
                             .clip(RoundedCornerShape(16.dp))
-                    )
-                }
-            } else {
-                // Text preview
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp)
+                            .background(WallSurfaceVariant),
+                        contentAlignment = Alignment.Center
                     ) {
-                        Text(
-                            text = content.shareText,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = WallOnSurface
+                        Image(
+                            bitmap = previewBitmap!!.asImageBitmap(),
+                            contentDescription = "Share preview",
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .clip(RoundedCornerShape(16.dp))
+                        )
+                    }
+                } else if (imageTemplate == null) {
+                    // Text-only preview (no image template provided)
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp)
+                        ) {
+                            Text(
+                                text = content.shareText,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = WallOnSurface
+                            )
+                        }
+                    }
+                } else {
+                    // Loading state while generating image
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .aspectRatio(1f)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(WallSurfaceVariant),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator(
+                            color = WallPrimary,
+                            modifier = Modifier.size(48.dp)
                         )
                     }
                 }
             }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            // Share button
+        },
+        confirmButton = {
             Button(
                 onClick = {
-                    if (selectedMode == ShareMode.IMAGE && imageTemplate != null) {
+                    if (imageTemplate != null) {
                         shareManager.shareWithImage(content, imageTemplate, imageData)
                     } else {
                         shareManager.shareText(content)
@@ -216,7 +158,6 @@ fun ShareBottomSheet(
                     onShareComplete()
                     onDismiss()
                 },
-                modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = WallPrimary,
                     contentColor = WallTextOnPrimary
@@ -234,20 +175,16 @@ fun ShareBottomSheet(
                     fontWeight = FontWeight.SemiBold
                 )
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Not now button
-            TextButton(
-                onClick = onDismiss
-            ) {
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
                 Text(
                     text = "Not now",
                     color = WallOnSurfaceVariant
                 )
             }
         }
-    }
+    )
 }
 
 /**

@@ -65,7 +65,9 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.thewallboycott.android.background.ScanWorker
+import com.thewallboycott.android.data.OnboardingPreferences
 import com.thewallboycott.android.share.ShareManager
+import com.thewallboycott.android.ui.onboarding.OnboardingScreen
 import com.thewallboycott.android.ui.screens.AppListScreen
 import com.thewallboycott.android.ui.screens.PermissionRequestScreen
 import com.thewallboycott.android.ui.screens.StartScreen
@@ -98,12 +100,31 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             TheWallBoycottAssistantTheme {
-                MainScreen(
-                    initialUrl = sharedUrl,
-                    navigateToScreen = navigateToScreen,
-                    onUrlHandled = { sharedUrl = null },
-                    onNavigationHandled = { navigateToScreen = null }
-                )
+                val onboardingPrefs = remember { OnboardingPreferences(this@MainActivity) }
+                var showOnboarding by rememberSaveable {
+                    mutableStateOf(!onboardingPrefs.isOnboardingCompleted())
+                }
+                var startScanAfterOnboarding by rememberSaveable { mutableStateOf(false) }
+
+                if (showOnboarding) {
+                    OnboardingScreen(
+                        onComplete = {
+                            onboardingPrefs.setOnboardingCompleted()
+                            startScanAfterOnboarding = true
+                            showOnboarding = false
+                        }
+                    )
+                } else {
+                    MainScreen(
+                        initialUrl = sharedUrl,
+                        navigateToScreen = if (startScanAfterOnboarding) ScanWorker.APP_SCAN_SCREEN else navigateToScreen,
+                        onUrlHandled = { sharedUrl = null },
+                        onNavigationHandled = {
+                            startScanAfterOnboarding = false
+                            navigateToScreen = null
+                        }
+                    )
+                }
             }
         }
     }

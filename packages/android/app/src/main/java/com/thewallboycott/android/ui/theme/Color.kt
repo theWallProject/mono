@@ -11,28 +11,28 @@ val WallPrimaryContainer = Color(0xFF3D1A12)  // Dark tinted error containers
 val WallOnPrimaryContainer = Color(0xFFFFB4A1) // Text on error containers
 
 // =============================================================================
-// Success Colors (Green)
+// Success Colors (Green) - Unified to single green palette
 // =============================================================================
-val WallSecondary = Color(0xFF1A8754)          // Success states, "Install" buttons
-val WallSecondaryContainer = Color(0xFF172D1F) // Dark success containers
-val WallOnSecondaryContainer = Color(0xFF8BDFB3) // Text on success containers
-val WallSuccessAccent = Color(0xFF4CAF50)      // Icons on dark success cards
+val WallSecondary = Color(0xFF2E7D32)          // Primary green - buttons, success states
+val WallSecondaryContainer = Color(0xFFE8F5E9) // Light green containers
+val WallOnSecondaryContainer = Color(0xFF1B5E20) // Dark green text on containers
+val WallSuccessAccent = Color(0xFF2E7D32)      // Unified green accent (was #4CAF50)
 
 // Legacy aliases for compatibility
 val WallGreen = WallSecondary
-val WallGreenDark = Color(0xFF146C43)
+val WallGreenDark = Color(0xFF1B5E20)
 
 // =============================================================================
-// Warning Colors (Amber)
+// Warning/Error Colors (Unified Dark Red - matches brand)
 // =============================================================================
-val WallTertiary = Color(0xFFE6A700)            // Warning states
-val WallTertiaryContainer = Color(0xFF2D2617)  // Dark warning containers
-val WallOnTertiaryContainer = Color(0xFFFFE082) // Text on warning containers
-val WallWarningAccent = Color(0xFFFFD54F)      // Icons on dark warning cards
+val WallTertiary = WallPrimary                  // Unified to brand color
+val WallTertiaryContainer = Color(0xFFFFEDE9)   // Light tinted container (matches error)
+val WallOnTertiaryContainer = Color(0xFF5D4037) // Brown body text
+val WallWarningAccent = WallPrimary             // Unified to brand dark red
 
 // Legacy aliases for compatibility
 val WallOrange = WallTertiary
-val WallOrangeDark = Color(0xFFE69500)
+val WallOrangeDark = WallPrimaryDark
 
 // =============================================================================
 // Hint Colors (Golden Yellow - alternatives/suggestions)
@@ -70,20 +70,19 @@ val WallBadgeBgDark = Color(0xFF3D2E26)        // Dark mode badges
 // Status Card Colors (Light Mode)
 // =============================================================================
 
-// Error (Israeli Apps) - Bright red
-val WallErrorContainer = Color(0xFFFFEBEE)     // Light red card background
-val WallErrorAccent = Color(0xFFD32F2F)        // Bright red accent for titles
+// Error/Warning (Israeli Apps) - Unified dark red (brand color)
+val WallErrorContainer = Color(0xFFFFEDE9)     // Light tinted red card background
+val WallErrorAccent = WallPrimary              // Brand dark red for titles
 val WallOnErrorContainer = Color(0xFF5D4037)   // Brown body text
 
-// Warning - Light amber tinted
-val WallWarningContainer = Color(0xFFFFF8E1)   // Light amber card background
-// WallWarningAccent already defined above
-val WallOnWarningContainer = Color(0xFF5D4037) // Brown body text
+// Warning - Same as Error (unified)
+val WallWarningContainer = WallErrorContainer  // Same as error container
+val WallOnWarningContainer = WallOnErrorContainer // Same as error text
 
 // Success - Light green tinted
 val WallSuccessContainer = Color(0xFFE8F5E9)   // Light green card background
-// WallSuccessAccent already defined above
-val WallOnSuccessContainer = Color(0xFF2E7D32) // Green body text
+// WallSuccessAccent already defined above (0xFF2E7D32)
+val WallOnSuccessContainer = Color(0xFF1B5E20) // Darker green body text
 
 // Hint - Light yellow/golden (alternatives/suggestions)
 val WallHintContainer = Color(0xFFFFFDE7)      // Light yellow hint card background
@@ -97,7 +96,7 @@ val WallOnBdsContainer = Color(0xFF5D4037)     // Brown body text
 
 // Neutral/Safe - Light elevated surface
 val WallNeutralContainer = Color(0xFFF5F5F5)   // Light gray card background
-val WallNeutralAccent = Color(0xFF4CAF50)      // Green for safe apps
+val WallNeutralAccent = Color(0xFF388E3C)      // Slightly different green for safe apps
 val WallOnNeutralContainer = Color(0xFF666666) // Gray body text
 
 // =============================================================================

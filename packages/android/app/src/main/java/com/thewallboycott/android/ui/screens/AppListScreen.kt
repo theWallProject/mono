@@ -24,6 +24,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Share
@@ -46,7 +47,7 @@ import com.thewallboycott.android.data.reasonsMap
 import com.thewallboycott.android.share.ImageTemplate
 import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.share.ShareScenario
-import com.thewallboycott.android.ui.components.ShareBottomSheet
+import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.components.SharePromptCard
 import com.thewallboycott.android.ui.theme.*
 import androidx.compose.runtime.derivedStateOf
@@ -146,6 +147,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
     var showSharePrompt by remember { mutableStateOf(false) }
     var shareScenario by remember { mutableStateOf<ShareScenario?>(null) }
     var pendingUninstallAppName by remember { mutableStateOf<String?>(null) }
+    var pendingUninstallPackageName by remember { mutableStateOf<String?>(null) }
     var showAppRemovedSheet by remember { mutableStateOf(false) }
     var removedAppName by remember { mutableStateOf<String?>(null) }
     var showGeneralShareSheet by remember { mutableStateOf(false) }
@@ -176,13 +178,29 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
         contract = ActivityResultContracts.StartActivityForResult()
     ) {
         Log.d("AppListScreen", "Returned from uninstall prompt. Refreshing list.")
-        // Always show share prompt after returning from uninstall
         val appName = pendingUninstallAppName
-        if (appName != null) {
-            removedAppName = appName
-            showAppRemovedSheet = true
+        val packageName = pendingUninstallPackageName
+
+        // Only show share prompt if the app was actually uninstalled
+        if (appName != null && packageName != null) {
+            val isStillInstalled = try {
+                context.packageManager.getPackageInfo(packageName, 0)
+                true
+            } catch (_: PackageManager.NameNotFoundException) {
+                false
+            }
+
+            if (!isStillInstalled) {
+                Log.d("AppListScreen", "App $appName was uninstalled, showing share prompt")
+                removedAppName = appName
+                showAppRemovedSheet = true
+            } else {
+                Log.d("AppListScreen", "App $appName uninstall was cancelled")
+            }
         }
+
         pendingUninstallAppName = null
+        pendingUninstallPackageName = null
         refresh()
     }
 
@@ -349,6 +367,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                             val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
                             AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
+                                pendingUninstallPackageName = packageName
                                 val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
                                 uninstallLauncher.launch(intent)
                             })
@@ -396,6 +415,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                             val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
                             BdsAppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
+                                pendingUninstallPackageName = packageName
                                 val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
                                 uninstallLauncher.launch(intent)
                             })
@@ -495,14 +515,15 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                 style = MaterialTheme.typography.headlineSmall,
                                 modifier = Modifier.padding(bottom = 8.dp),
                                 fontWeight = FontWeight.Bold,
-                                color = WallHintAccent
+                                color = WallSecondary
                             )
                         }
                         items(hintsWithSwitch) { (app, itemInfo) ->
                             val pm = context.packageManager
                             val appName = app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
-                            AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
+                            HintAppCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
+                                pendingUninstallPackageName = packageName
                                 val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
                                 uninstallLauncher.launch(intent)
                             })
@@ -552,9 +573,9 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
         }
     }
 
-    // Bottom sheet for app removed share prompt
+    // Dialog for app removed share prompt
     if (showAppRemovedSheet && removedAppName != null) {
-        ShareBottomSheet(
+        ShareDialog(
             content = shareManager.getAppRemovedContent(removedAppName!!),
             shareManager = shareManager,
             imageTemplate = ImageTemplate.APP_REMOVED,
@@ -571,9 +592,9 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
         )
     }
 
-    // Bottom sheet for general share
+    // Dialog for general share
     if (showGeneralShareSheet) {
-        ShareBottomSheet(
+        ShareDialog(
             content = shareManager.getGeneralContent(),
             shareManager = shareManager,
             imageTemplate = ImageTemplate.GENERAL,
@@ -712,6 +733,34 @@ fun AppInfoCard(
                         )
                     }
                 }
+            } else {
+                // Flag/report button for safe apps
+                IconButton(
+                    onClick = {
+                        val subject = "Report: $appName"
+                        val body = """
+                            |I'd like to report this app for review:
+                            |
+                            |App Name: $appName
+                            |Package ID: ${app.packageName}
+                            |
+                            |Reason for report:
+                            |
+                        """.trimMargin()
+                        val intent = Intent(Intent.ACTION_SENDTO).apply {
+                            data = Uri.parse("mailto:app@thewall.bot")
+                            putExtra(Intent.EXTRA_SUBJECT, subject)
+                            putExtra(Intent.EXTRA_TEXT, body)
+                        }
+                        context.startActivity(Intent.createChooser(intent, "Report App"))
+                    }
+                ) {
+                    Icon(
+                        Icons.Default.Flag,
+                        contentDescription = "Report App",
+                        tint = WallOnSurfaceVariant
+                    )
+                }
             }
         }
     }
@@ -777,6 +826,124 @@ fun BdsAppInfoCard(
                     contentDescription = "Uninstall App",
                     tint = WallBdsAccent
                 )
+            }
+        }
+    }
+}
+
+/**
+ * Card for hint apps (Better Alternatives Available section).
+ * Shows the installed app with delete button, and a nested sub-card
+ * promoting the alternative with a Switch button.
+ */
+@Composable
+fun HintAppCard(
+    app: PackageInfo,
+    itemInfo: AllItem,
+    onUninstallClicked: (String) -> Unit
+) {
+    val context = LocalContext.current
+    val pm = context.packageManager
+    val appName = remember(app) { app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName }
+    val appIcon = remember(app) { app.applicationInfo?.loadIcon(pm) }
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        colors = CardDefaults.cardColors(containerColor = WallNeutralContainer),
+        shape = RoundedCornerShape(12.dp)
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            // Main row: Installed app with delete button
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                // App icon with subtle background
+                appIcon?.let {
+                    Box(
+                        modifier = Modifier
+                            .size(44.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(WallOnNeutralContainer.copy(alpha = 0.08f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = rememberDrawablePainter(drawable = it),
+                            contentDescription = "$appName icon",
+                            modifier = Modifier
+                                .size(36.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = appName,
+                        fontWeight = FontWeight.SemiBold,
+                        color = WallOnSurface
+                    )
+                    Text(
+                        text = "Installed",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WallOnNeutralContainer
+                    )
+                }
+
+                // Delete button (same as blacklist items)
+                IconButton(onClick = { onUninstallClicked(app.packageName) }) {
+                    Icon(
+                        Icons.Default.Delete,
+                        contentDescription = "Uninstall App",
+                        tint = WallPrimary
+                    )
+                }
+            }
+
+            // Nested alternative sub-card
+            if (itemInfo.hintAndroidId != null) {
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Alternative card with green theme
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = WallSecondaryContainer),
+                    shape = RoundedCornerShape(10.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = itemInfo.hintText ?: "A better alternative exists",
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = FontWeight.Medium,
+                            color = WallOnSecondaryContainer,
+                            modifier = Modifier.weight(1f)
+                        )
+
+                        Spacer(modifier = Modifier.width(12.dp))
+
+                        // Switch button
+                        Button(
+                            onClick = {
+                                val intent = Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("market://details?id=${itemInfo.hintAndroidId}")
+                                )
+                                context.startActivity(intent)
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = WallSecondary,
+                                contentColor = WallTextOnPrimary
+                            ),
+                            shape = RoundedCornerShape(8.dp),
+                            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                        ) {
+                            Text("Switch", fontWeight = FontWeight.SemiBold)
+                        }
+                    }
+                }
             }
         }
     }
