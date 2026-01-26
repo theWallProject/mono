@@ -9,6 +9,15 @@ import com.thewallboycott.android.R
 /**
  * Generates share images using Canvas rendering.
  * Creates Instagram-friendly 1080x1080 square images with branded templates.
+ *
+ * All templates follow a unified design:
+ * - Orange background (#B72B00)
+ * - White shield icon (no circle) at y=180
+ * - Header text (white, 42px) at y=360-410
+ * - Optional app icon (120px) at y=540
+ * - App name (Israeli blue #0038B8, 72px bold) at y=700 (or y=600 if no icon)
+ * - CTA text (white, 36px) at y=820-865
+ * - Footer with darker orange background at y=980-1080
  */
 class ShareImageGenerator(private val context: Context) {
 
@@ -17,26 +26,14 @@ class ShareImageGenerator(private val context: Context) {
         private const val IMAGE_SIZE = 1080
 
         // Brand colors
-        private const val COLOR_PRIMARY = 0xFFB72B00.toInt()       // Burnt orange
-        private const val COLOR_PRIMARY_DARK = 0xFF932300.toInt()
+        private const val COLOR_PRIMARY = 0xFFB72B00.toInt()       // Burnt orange (WallPrimary)
+        private const val COLOR_PRIMARY_DARK = 0xFF932300.toInt()  // Darker orange for footer
         private const val COLOR_WHITE = 0xFFFFFFFF.toInt()
-        private const val COLOR_TEXT_DARK = 0xFF1A1A1A.toInt()
-
-        // Template-specific colors
-        private const val COLOR_GREEN_LIGHT = 0xFFE8F5E9.toInt()
-        private const val COLOR_GREEN_DARK = 0xFFC8E6C9.toInt()
-        private const val COLOR_GREEN_ACCENT = 0xFF4CAF50.toInt()
-
-        private const val COLOR_RED_LIGHT = 0xFFFFEBEE.toInt()
-        private const val COLOR_RED_DARK = 0xFFFFCDD2.toInt()
-        private const val COLOR_RED_ACCENT = 0xFFD32F2F.toInt()
-
-        private const val COLOR_GOLD_LIGHT = 0xFFFFF8E1.toInt()
-        private const val COLOR_GOLD_DARK = 0xFFFFE082.toInt()
-        private const val COLOR_GOLD_ACCENT = 0xFFF9A825.toInt()
+        private const val COLOR_ISRAELI_BLUE = 0xFF0038B8.toInt()  // Israeli flag blue for app names
+        private const val COLOR_SUCCESS_GREEN = 0xFF4CAF50.toInt() // Success green for clean scan
 
         // Footer text
-        private const val FOOTER_URL = "the-wall.win/android"
+        private const val FOOTER_URL = "the-wall.win"
     }
 
     // ========================================================================
@@ -45,43 +42,50 @@ class ShareImageGenerator(private val context: Context) {
 
     /**
      * Generate the "Clean Scan" image template.
-     * Green gradient, large "0" with checkmark, shield logo, "CLEAN SCAN" badge.
+     * Header: "My phone is clean!"
+     * App Name Area: "0 israeli apps found"
+     * CTA: "Scan YOUR phone and see for yourself!"
      */
     fun generateCleanScanImage(): Bitmap {
         val bitmap = Bitmap.createBitmap(IMAGE_SIZE, IMAGE_SIZE, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
-        // Draw green gradient background
-        drawGradientBackground(canvas, COLOR_GREEN_LIGHT, COLOR_GREEN_DARK)
+        // Draw solid orange background
+        canvas.drawColor(COLOR_PRIMARY)
 
-        // Draw shield logo at top
-        drawShieldLogo(canvas, IMAGE_SIZE / 2f, 200f, 120f)
+        // Draw logo centered at y=180
+        drawLogo(canvas, 180f, 750f)
 
-        // Draw large "0" in center
-        val zeroPaint = Paint().apply {
-            color = COLOR_GREEN_ACCENT
-            textSize = 300f
+        // Draw header text at y=420
+        val headerPaint = Paint().apply {
+            color = COLOR_WHITE
+            textSize = 52f
             textAlign = Paint.Align.CENTER
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("0", IMAGE_SIZE / 2f, IMAGE_SIZE / 2f + 60f, zeroPaint)
+        canvas.drawText("My phone is clean!", IMAGE_SIZE / 2f, 420f, headerPaint)
 
-        // Draw checkmark next to the 0
-        drawCheckmark(canvas, IMAGE_SIZE / 2f + 180f, IMAGE_SIZE / 2f - 60f, 60f)
-
-        // Draw "CLEAN SCAN" badge
-        drawBadge(canvas, "CLEAN SCAN", IMAGE_SIZE / 2f, 720f, COLOR_GREEN_ACCENT)
-
-        // Draw subtitle
-        val subtitlePaint = Paint().apply {
-            color = COLOR_TEXT_DARK
-            textSize = 48f
+        // Draw "0 Israeli apps found 🎉" in success green at y=600
+        val appNamePaint = Paint().apply {
+            color = COLOR_SUCCESS_GREEN
+            textSize = 72f
             textAlign = Paint.Align.CENTER
-            typeface = Typeface.DEFAULT
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("No flagged apps found", IMAGE_SIZE / 2f, 820f, subtitlePaint)
+        canvas.drawText("0 Israeli apps found 🎉", IMAGE_SIZE / 2f, 600f, appNamePaint)
+
+        // Draw CTA text at y=820
+        val ctaPaint = Paint().apply {
+            color = COLOR_WHITE
+            textSize = 36f
+            textAlign = Paint.Align.CENTER
+            typeface = Typeface.DEFAULT
+            alpha = 230
+            isAntiAlias = true
+        }
+        canvas.drawText("Scan YOUR phone and see for yourself!", IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -91,77 +95,108 @@ class ShareImageGenerator(private val context: Context) {
 
     /**
      * Generate the "Flagged Apps" image template.
-     * Red gradient, warning icon, count display, and up to 3 app names.
+     * Header: "I found {count} israeli app{s} on my phone!"
+     * App Name Area: Up to 2 app names in Israeli blue with icons on the left, "and more!" if more than 2
+     * CTA: "Scan your phone NOW and protect yourself!"
      */
-    fun generateFlaggedAppsImage(count: Int, appNames: List<String> = emptyList()): Bitmap {
+    fun generateFlaggedAppsImage(
+        count: Int,
+        appNames: List<String> = emptyList(),
+        appIcons: List<Bitmap?> = emptyList()
+    ): Bitmap {
         val bitmap = Bitmap.createBitmap(IMAGE_SIZE, IMAGE_SIZE, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
-        // Draw red gradient background
-        drawGradientBackground(canvas, COLOR_RED_LIGHT, COLOR_RED_DARK)
+        // Draw solid orange background
+        canvas.drawColor(COLOR_PRIMARY)
 
-        // Draw shield logo at top
-        drawShieldLogo(canvas, IMAGE_SIZE / 2f, 180f, 100f)
+        // Draw logo centered at y=180
+        drawLogo(canvas, 180f, 750f)
 
-        // Draw "Now you know" text
-        val knowPaint = Paint().apply {
-            color = COLOR_TEXT_DARK
+        // Draw header text at y=420
+        val headerPaint = Paint().apply {
+            color = COLOR_WHITE
             textSize = 48f
             textAlign = Paint.Align.CENTER
-            typeface = Typeface.DEFAULT
-            isAntiAlias = true
-        }
-        canvas.drawText("Now you know", IMAGE_SIZE / 2f, 340f, knowPaint)
-
-        // Draw count prominently
-        val countPaint = Paint().apply {
-            color = COLOR_RED_ACCENT
-            textSize = 160f
-            textAlign = Paint.Align.CENTER
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText(count.toString(), IMAGE_SIZE / 2f, 500f, countPaint)
+        val plural = if (count == 1) "" else "s"
+        canvas.drawText("I found $count Israeli app$plural on my phone!", IMAGE_SIZE / 2f, 420f, headerPaint)
 
-        // Draw "apps flagged" below count
-        val labelPaint = Paint().apply {
-            color = COLOR_RED_ACCENT
-            textSize = 44f
-            textAlign = Paint.Align.CENTER
+        // Draw app names in Israeli blue with icons
+        val appNamePaint = Paint().apply {
+            color = COLOR_ISRAELI_BLUE
+            textSize = 56f
+            textAlign = Paint.Align.LEFT
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText(if (count == 1) "app flagged" else "apps flagged", IMAGE_SIZE / 2f, 560f, labelPaint)
 
-        // Draw app names (up to 3)
+        // Calculate starting Y position based on number of items to display
+        val hasMoreThanTwo = appNames.size > 2
+        val displayCount = minOf(appNames.size, 2)
+        val totalLines = displayCount + if (hasMoreThanTwo) 1 else 0
+        val lineHeight = 90f // Increased for icon + spacing
+        val iconSize = 64f
+        val iconTextGap = 16f
+        val startY = 580f - ((totalLines - 1) * lineHeight / 2f)
+
+        // Draw first app with icon
         if (appNames.isNotEmpty()) {
-            val namePaint = Paint().apply {
-                color = COLOR_TEXT_DARK
-                textSize = 36f
+            val displayName = truncateAppName(appNames[0], 16)
+            val textWidth = appNamePaint.measureText(displayName)
+            val totalWidth = iconSize + iconTextGap + textWidth
+            val startX = (IMAGE_SIZE - totalWidth) / 2f
+
+            // Draw icon if available
+            val icon1 = appIcons.getOrNull(0)
+            if (icon1 != null) {
+                drawAppIcon(canvas, icon1, startX + iconSize / 2f, startY - iconSize / 4f, iconSize)
+            }
+            // Draw app name
+            canvas.drawText(displayName, startX + iconSize + iconTextGap, startY, appNamePaint)
+        }
+
+        // Draw second app with icon if exists
+        if (appNames.size >= 2) {
+            val displayName = truncateAppName(appNames[1], 16)
+            val textWidth = appNamePaint.measureText(displayName)
+            val totalWidth = iconSize + iconTextGap + textWidth
+            val startX = (IMAGE_SIZE - totalWidth) / 2f
+            val y = startY + lineHeight
+
+            // Draw icon if available
+            val icon2 = appIcons.getOrNull(1)
+            if (icon2 != null) {
+                drawAppIcon(canvas, icon2, startX + iconSize / 2f, y - iconSize / 4f, iconSize)
+            }
+            // Draw app name
+            canvas.drawText(displayName, startX + iconSize + iconTextGap, y, appNamePaint)
+        }
+
+        // Draw "and more!" if more than 2 apps
+        if (hasMoreThanTwo) {
+            val morePaint = Paint().apply {
+                color = COLOR_WHITE
+                textSize = 40f
                 textAlign = Paint.Align.CENTER
-                typeface = Typeface.DEFAULT
+                typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
                 isAntiAlias = true
             }
-            val displayNames = appNames.take(3)
-            val namesText = displayNames.joinToString(" • ")
-            val truncatedText = if (namesText.length > 50) namesText.take(47) + "..." else namesText
-            canvas.drawText(truncatedText, IMAGE_SIZE / 2f, 640f, namePaint)
-
-            if (appNames.size > 3) {
-                val morePaint = Paint().apply {
-                    color = COLOR_TEXT_DARK
-                    textSize = 32f
-                    textAlign = Paint.Align.CENTER
-                    typeface = Typeface.DEFAULT
-                    alpha = 180
-                    isAntiAlias = true
-                }
-                canvas.drawText("and ${appNames.size - 3} more...", IMAGE_SIZE / 2f, 690f, morePaint)
-            }
+            canvas.drawText("and more!", IMAGE_SIZE / 2f, startY + lineHeight * 2, morePaint)
         }
 
-        // Draw badge
-        drawBadge(canvas, "SCAN YOUR PHONE", IMAGE_SIZE / 2f, 780f, COLOR_RED_ACCENT)
+        // Draw CTA text at y=820
+        val ctaPaint = Paint().apply {
+            color = COLOR_WHITE
+            textSize = 36f
+            textAlign = Paint.Align.CENTER
+            typeface = Typeface.DEFAULT
+            alpha = 230
+            isAntiAlias = true
+        }
+        canvas.drawText("Scan your phone NOW and protect yourself!", IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -171,54 +206,61 @@ class ShareImageGenerator(private val context: Context) {
 
     /**
      * Generate the "App Removed" image template.
-     * Green gradient, checkmark, clearer messaging with prominent app name.
+     * Header: "I removed this israeli app from my phone:"
+     * App Icon: Optional, displayed at y=480
+     * App Name: In Israeli blue at y=700 (or y=600 if no icon)
+     * CTA: "Scan your phone NOW and protect yourself!"
      */
-    fun generateAppRemovedImage(appName: String): Bitmap {
+    fun generateAppRemovedImage(appName: String, appIcon: Bitmap? = null): Bitmap {
         val bitmap = Bitmap.createBitmap(IMAGE_SIZE, IMAGE_SIZE, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
-        // Draw green gradient background
-        drawGradientBackground(canvas, COLOR_GREEN_LIGHT, COLOR_GREEN_DARK)
+        // Draw solid orange background
+        canvas.drawColor(COLOR_PRIMARY)
 
-        // Draw shield logo at top
-        drawShieldLogo(canvas, IMAGE_SIZE / 2f, 180f, 100f)
+        // Draw logo centered at y=180
+        drawLogo(canvas, 180f, 750f)
 
-        // Draw large checkmark in a circle
-        drawSuccessCircle(canvas, IMAGE_SIZE / 2f, 400f, 90f)
-
-        // Draw "I uninstalled" text
-        val actionPaint = Paint().apply {
-            color = COLOR_TEXT_DARK
-            textSize = 44f
+        // Draw header text at y=420
+        val headerPaint = Paint().apply {
+            color = COLOR_WHITE
+            textSize = 42f
             textAlign = Paint.Align.CENTER
-            typeface = Typeface.DEFAULT
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("I uninstalled", IMAGE_SIZE / 2f, 580f, actionPaint)
+        canvas.drawText("I removed this Israeli app from my phone:", IMAGE_SIZE / 2f, 420f, headerPaint)
 
-        // Draw app name prominently (larger)
-        val displayName = if (appName.length > 18) appName.take(15) + "..." else appName
-        val namePaint = Paint().apply {
-            color = COLOR_GREEN_ACCENT
+        // Draw app icon if available at y=540
+        val appNameY: Float
+        if (appIcon != null) {
+            drawAppIcon(canvas, appIcon, IMAGE_SIZE / 2f, 540f, 120f)
+            appNameY = 720f
+        } else {
+            appNameY = 600f
+        }
+
+        // Draw app name in white
+        val appNamePaint = Paint().apply {
+            color = COLOR_WHITE
             textSize = 72f
             textAlign = Paint.Align.CENTER
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText(displayName, IMAGE_SIZE / 2f, 680f, namePaint)
+        val displayName = truncateAppName(appName, 18)
+        canvas.drawText(displayName, IMAGE_SIZE / 2f, appNameY, appNamePaint)
 
-        // Draw subtitle
-        val subtitlePaint = Paint().apply {
-            color = COLOR_TEXT_DARK
-            textSize = 40f
+        // Draw CTA text at y=865
+        val ctaPaint = Paint().apply {
+            color = COLOR_WHITE
+            textSize = 36f
             textAlign = Paint.Align.CENTER
             typeface = Typeface.DEFAULT
+            alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText("One less app funding apartheid", IMAGE_SIZE / 2f, 760f, subtitlePaint)
-
-        // Draw badge
-        drawBadge(canvas, "THANKS TO THE WALL", IMAGE_SIZE / 2f, 850f, COLOR_GREEN_ACCENT)
+        canvas.drawText("Scan your phone NOW and protect yourself!", IMAGE_SIZE / 2f, 865f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -228,43 +270,50 @@ class ShareImageGenerator(private val context: Context) {
 
     /**
      * Generate the "Supporter" image template.
-     * Gold gradient, star badge, premium feel.
+     * Header: "I support the resistance!"
+     * App Name Area: "THE WALL"
+     * CTA: "$1/month keeps the app free for everyone"
      */
     fun generateSupporterImage(): Bitmap {
         val bitmap = Bitmap.createBitmap(IMAGE_SIZE, IMAGE_SIZE, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
-        // Draw gold gradient background
-        drawGradientBackground(canvas, COLOR_GOLD_LIGHT, COLOR_GOLD_DARK)
+        // Draw solid orange background
+        canvas.drawColor(COLOR_PRIMARY)
 
-        // Draw shield logo at top
-        drawShieldLogo(canvas, IMAGE_SIZE / 2f, 200f, 120f)
+        // Draw logo centered at y=180
+        drawLogo(canvas, 180f, 750f)
 
-        // Draw star
-        drawStar(canvas, IMAGE_SIZE / 2f, IMAGE_SIZE / 2f - 60f, 100f)
-
-        // Draw "SUPPORTER" badge
-        drawBadge(canvas, "SUPPORTER", IMAGE_SIZE / 2f, 680f, COLOR_GOLD_ACCENT)
-
-        // Draw subtitle
-        val subtitlePaint = Paint().apply {
-            color = COLOR_TEXT_DARK
-            textSize = 44f
-            textAlign = Paint.Align.CENTER
-            typeface = Typeface.DEFAULT
-            isAntiAlias = true
-        }
-        canvas.drawText("Keeping The Wall alive", IMAGE_SIZE / 2f, 780f, subtitlePaint)
-
-        // Draw "$1/month" badge
-        val pricePaint = Paint().apply {
-            color = COLOR_GOLD_ACCENT
-            textSize = 36f
+        // Draw header text at y=420
+        val headerPaint = Paint().apply {
+            color = COLOR_WHITE
+            textSize = 52f
             textAlign = Paint.Align.CENTER
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("$1/month makes a difference", IMAGE_SIZE / 2f, 840f, pricePaint)
+        canvas.drawText("I support the resistance!", IMAGE_SIZE / 2f, 420f, headerPaint)
+
+        // Draw subtitle in Israeli blue at y=560
+        val subtitlePaint = Paint().apply {
+            color = COLOR_ISRAELI_BLUE
+            textSize = 64f
+            textAlign = Paint.Align.CENTER
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+            isAntiAlias = true
+        }
+        canvas.drawText("Monthly Supporter", IMAGE_SIZE / 2f, 560f, subtitlePaint)
+
+        // Draw CTA text at y=820
+        val ctaPaint = Paint().apply {
+            color = COLOR_WHITE
+            textSize = 36f
+            textAlign = Paint.Align.CENTER
+            typeface = Typeface.DEFAULT
+            alpha = 230
+            isAntiAlias = true
+        }
+        canvas.drawText("\$1/month keeps the app free for everyone", IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -274,56 +323,50 @@ class ShareImageGenerator(private val context: Context) {
 
     /**
      * Generate the "General" share image template.
-     * Shield logo, database size badge, brand colors.
+     * Header: "Know what's on your phone"
+     * App Name Area: "THE WALL"
+     * CTA: "20,000+ companies tracked. One tap to know."
      */
     fun generateGeneralImage(): Bitmap {
         val bitmap = Bitmap.createBitmap(IMAGE_SIZE, IMAGE_SIZE, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
-        // Draw white background
-        canvas.drawColor(COLOR_WHITE)
+        // Draw solid orange background
+        canvas.drawColor(COLOR_PRIMARY)
 
-        // Draw primary color header band
+        // Draw logo centered at y=180
+        drawLogo(canvas, 180f, 750f)
+
+        // Draw header text at y=420
         val headerPaint = Paint().apply {
-            color = COLOR_PRIMARY
-        }
-        canvas.drawRect(0f, 0f, IMAGE_SIZE.toFloat(), 350f, headerPaint)
-
-        // Draw shield logo in header (with white border for visibility on primary background)
-        drawShieldLogo(canvas, IMAGE_SIZE / 2f, 180f, 140f, showBorder = true)
-
-        // Draw app name
-        val titlePaint = Paint().apply {
-            color = COLOR_PRIMARY
-            textSize = 72f
+            color = COLOR_WHITE
+            textSize = 52f
             textAlign = Paint.Align.CENTER
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("THE WALL", IMAGE_SIZE / 2f, 480f, titlePaint)
+        canvas.drawText("Know what's on your phone", IMAGE_SIZE / 2f, 420f, headerPaint)
 
-        // Draw tagline
-        val taglinePaint = Paint().apply {
-            color = COLOR_TEXT_DARK
-            textSize = 44f
+        // Draw subtitle in Israeli blue at y=560
+        val subtitlePaint = Paint().apply {
+            color = COLOR_ISRAELI_BLUE
+            textSize = 64f
             textAlign = Paint.Align.CENTER
-            typeface = Typeface.DEFAULT
+            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("Boycott Assistant", IMAGE_SIZE / 2f, 550f, taglinePaint)
+        canvas.drawText("Scan Now", IMAGE_SIZE / 2f, 560f, subtitlePaint)
 
-        // Draw database size badge
-        drawBadge(canvas, "20,000+ Companies Tracked", IMAGE_SIZE / 2f, 680f, COLOR_PRIMARY)
-
-        // Draw features
-        val featurePaint = Paint().apply {
-            color = COLOR_TEXT_DARK
+        // Draw CTA text at y=820
+        val ctaPaint = Paint().apply {
+            color = COLOR_WHITE
             textSize = 36f
             textAlign = Paint.Align.CENTER
             typeface = Typeface.DEFAULT
+            alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText("Scan apps • Check URLs • Stay informed", IMAGE_SIZE / 2f, 780f, featurePaint)
+        canvas.drawText("20,000+ companies tracked. One tap to know.", IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -335,258 +378,82 @@ class ShareImageGenerator(private val context: Context) {
     // Helper Drawing Methods
     // ========================================================================
 
-    private fun drawGradientBackground(canvas: Canvas, colorStart: Int, colorEnd: Int) {
-        val gradient = LinearGradient(
-            0f, 0f, 0f, IMAGE_SIZE.toFloat(),
-            colorStart, colorEnd,
-            Shader.TileMode.CLAMP
-        )
-        val paint = Paint().apply {
-            shader = gradient
-        }
-        canvas.drawRect(0f, 0f, IMAGE_SIZE.toFloat(), IMAGE_SIZE.toFloat(), paint)
+    // Cached logo bitmap to avoid regenerating on every share image
+    private var cachedLogoBitmap: Bitmap? = null
+
+    /**
+     * Draw the full "THE WALL - Boycott Assistance" logo centered horizontally.
+     * Logo aspect ratio is 351:107 (about 3.28:1)
+     * @param cy Center Y position for the logo
+     * @param width Desired width of the logo
+     */
+    private fun drawLogo(canvas: Canvas, cy: Float, width: Float) {
+        // Use cached bitmap if available, otherwise create it
+        val logoBitmap = cachedLogoBitmap ?: run {
+            val drawable = ContextCompat.getDrawable(context, R.drawable.ic_share_logo)
+            drawable?.toBitmap(351, 107)?.also { cachedLogoBitmap = it }
+        } ?: return
+
+        // Calculate scaled dimensions maintaining aspect ratio (351:107)
+        val aspectRatio = 351f / 107f
+        val scaledWidth = width
+        val scaledHeight = width / aspectRatio
+
+        // Scale the bitmap
+        val scaledBitmap = Bitmap.createScaledBitmap(logoBitmap, scaledWidth.toInt(), scaledHeight.toInt(), true)
+
+        // Center horizontally
+        val left = (IMAGE_SIZE - scaledWidth) / 2f
+        val top = cy - scaledHeight / 2f
+
+        canvas.drawBitmap(scaledBitmap, left, top, null)
     }
 
     /**
-     * Draw the consistent brand logo: primary color circle with white shield.
-     * @param showBorder If true, adds a white border for visibility on dark backgrounds.
+     * Draw an app icon with rounded corners.
+     * @param icon The app icon bitmap
+     * @param cx Center x position
+     * @param cy Center y position
+     * @param size Size of the icon (width/height)
      */
-    private fun drawShieldLogo(canvas: Canvas, cx: Float, cy: Float, size: Float, showBorder: Boolean = false) {
-        // Draw white border/ring behind the circle for visibility (when on primary color backgrounds)
-        if (showBorder) {
-            val borderPaint = Paint().apply {
-                color = COLOR_WHITE
-                style = Paint.Style.FILL
-                isAntiAlias = true
-            }
-            canvas.drawCircle(cx, cy, size + 8f, borderPaint)
-        }
+    private fun drawAppIcon(canvas: Canvas, icon: Bitmap, cx: Float, cy: Float, size: Float) {
+        // Scale icon to desired size
+        val scaledIcon = Bitmap.createScaledBitmap(icon, size.toInt(), size.toInt(), true)
 
-        // Draw primary color circle background
-        val bgPaint = Paint().apply {
-            color = COLOR_PRIMARY
-            style = Paint.Style.FILL
-            isAntiAlias = true
-        }
-        canvas.drawCircle(cx, cy, size, bgPaint)
+        // Create rounded corners
+        val output = Bitmap.createBitmap(size.toInt(), size.toInt(), Bitmap.Config.ARGB_8888)
+        val iconCanvas = Canvas(output)
 
-        // Load and draw the white shield icon
-        val drawable = ContextCompat.getDrawable(context, R.drawable.ic_wall_shield)
-        if (drawable != null) {
-            drawable.setTint(COLOR_WHITE)
-            val iconSize = (size * 1.2f).toInt()
-            val iconBitmap = drawable.toBitmap(iconSize, (iconSize * 1.2f).toInt())
-            val left = cx - iconSize / 2f
-            val top = cy - iconSize / 2f
-            canvas.drawBitmap(iconBitmap, left, top, null)
-        }
-    }
-
-    private fun drawCheckmark(canvas: Canvas, cx: Float, cy: Float, size: Float) {
         val paint = Paint().apply {
-            color = COLOR_GREEN_ACCENT
-            style = Paint.Style.STROKE
-            strokeWidth = size / 4
-            strokeCap = Paint.Cap.ROUND
-            strokeJoin = Paint.Join.ROUND
             isAntiAlias = true
         }
 
-        val path = Path().apply {
-            moveTo(cx - size * 0.5f, cy)
-            lineTo(cx - size * 0.1f, cy + size * 0.4f)
-            lineTo(cx + size * 0.5f, cy - size * 0.4f)
-        }
-        canvas.drawPath(path, paint)
+        // Draw rounded rect clip
+        val rect = RectF(0f, 0f, size, size)
+        val cornerRadius = size * 0.2f // 20% corner radius
+        iconCanvas.drawRoundRect(rect, cornerRadius, cornerRadius, paint)
+
+        // Apply source-in to clip the icon
+        paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+        iconCanvas.drawBitmap(scaledIcon, 0f, 0f, paint)
+
+        // Draw the rounded icon on main canvas
+        val left = cx - size / 2f
+        val top = cy - size / 2f
+        canvas.drawBitmap(output, left, top, null)
+
+        // Clean up
+        scaledIcon.recycle()
+        output.recycle()
     }
 
-    private fun drawSuccessCircle(canvas: Canvas, cx: Float, cy: Float, size: Float) {
-        // Draw filled circle background
-        val circlePaint = Paint().apply {
-            color = COLOR_GREEN_ACCENT
-            style = Paint.Style.FILL
-            isAntiAlias = true
-        }
-        canvas.drawCircle(cx, cy, size, circlePaint)
-
-        // Draw white checkmark inside
-        val checkPaint = Paint().apply {
-            color = COLOR_WHITE
-            style = Paint.Style.STROKE
-            strokeWidth = size / 5
-            strokeCap = Paint.Cap.ROUND
-            strokeJoin = Paint.Join.ROUND
-            isAntiAlias = true
-        }
-        val path = Path().apply {
-            moveTo(cx - size * 0.4f, cy)
-            lineTo(cx - size * 0.1f, cy + size * 0.35f)
-            lineTo(cx + size * 0.45f, cy - size * 0.35f)
-        }
-        canvas.drawPath(path, checkPaint)
-    }
-
-    private fun drawWarningIcon(canvas: Canvas, cx: Float, cy: Float, size: Float) {
-        val paint = Paint().apply {
-            color = COLOR_RED_ACCENT
-            style = Paint.Style.FILL
-            isAntiAlias = true
-        }
-
-        // Draw triangle
-        val path = Path().apply {
-            moveTo(cx, cy - size)
-            lineTo(cx + size, cy + size * 0.7f)
-            lineTo(cx - size, cy + size * 0.7f)
-            close()
-        }
-        canvas.drawPath(path, paint)
-
-        // Draw exclamation mark
-        val textPaint = Paint().apply {
-            color = COLOR_WHITE
-            textSize = size * 1.2f
-            textAlign = Paint.Align.CENTER
-            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-            isAntiAlias = true
-        }
-        canvas.drawText("!", cx, cy + size * 0.3f, textPaint)
-    }
-
-    private fun drawCrossedOutIcon(canvas: Canvas, cx: Float, cy: Float, size: Float) {
-        // Draw app icon placeholder (rounded square)
-        val paint = Paint().apply {
-            color = 0xFFE0E0E0.toInt()
-            style = Paint.Style.FILL
-            isAntiAlias = true
-        }
-        val rect = RectF(cx - size, cy - size, cx + size, cy + size)
-        canvas.drawRoundRect(rect, 24f, 24f, paint)
-
-        // Draw X over it
-        val xPaint = Paint().apply {
-            color = COLOR_RED_ACCENT
-            style = Paint.Style.STROKE
-            strokeWidth = 16f
-            strokeCap = Paint.Cap.ROUND
-            isAntiAlias = true
-        }
-        canvas.drawLine(cx - size * 0.7f, cy - size * 0.7f, cx + size * 0.7f, cy + size * 0.7f, xPaint)
-        canvas.drawLine(cx + size * 0.7f, cy - size * 0.7f, cx - size * 0.7f, cy + size * 0.7f, xPaint)
-    }
-
-    private fun drawRemovalX(canvas: Canvas, cx: Float, cy: Float, size: Float) {
-        // Draw a large, bold X without any background box
-        val xPaint = Paint().apply {
-            color = COLOR_RED_ACCENT
-            style = Paint.Style.STROKE
-            strokeWidth = 24f
-            strokeCap = Paint.Cap.ROUND
-            isAntiAlias = true
-        }
-        // Draw the X
-        canvas.drawLine(cx - size, cy - size, cx + size, cy + size, xPaint)
-        canvas.drawLine(cx + size, cy - size, cx - size, cy + size, xPaint)
-
-        // Draw a subtle circle behind for visual balance
-        val circlePaint = Paint().apply {
-            color = COLOR_RED_ACCENT
-            style = Paint.Style.STROKE
-            strokeWidth = 8f
-            isAntiAlias = true
-        }
-        canvas.drawCircle(cx, cy, size * 1.3f, circlePaint)
-    }
-
-    private fun drawStar(canvas: Canvas, cx: Float, cy: Float, size: Float) {
-        val paint = Paint().apply {
-            color = COLOR_GOLD_ACCENT
-            style = Paint.Style.FILL
-            isAntiAlias = true
-        }
-
-        val path = Path()
-        val outerRadius = size
-        val innerRadius = size * 0.4f
-        val points = 5
-
-        for (i in 0 until points * 2) {
-            val radius = if (i % 2 == 0) outerRadius else innerRadius
-            val angle = Math.PI * i / points - Math.PI / 2
-            val x = cx + (radius * Math.cos(angle)).toFloat()
-            val y = cy + (radius * Math.sin(angle)).toFloat()
-            if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
-        }
-        path.close()
-        canvas.drawPath(path, paint)
-    }
-
-    private fun drawBadge(canvas: Canvas, text: String, cx: Float, cy: Float, color: Int) {
-        val textPaint = Paint().apply {
-            this.color = COLOR_WHITE
-            textSize = 40f
-            textAlign = Paint.Align.CENTER
-            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-            isAntiAlias = true
-        }
-
-        // Measure text for badge size
-        val textWidth = textPaint.measureText(text)
-        val paddingH = 40f
-        val paddingV = 20f
-
-        // Draw badge background
-        val bgPaint = Paint().apply {
-            this.color = color
-            isAntiAlias = true
-        }
-        val rect = RectF(
-            cx - textWidth / 2 - paddingH,
-            cy - paddingV - 20f,
-            cx + textWidth / 2 + paddingH,
-            cy + paddingV
-        )
-        canvas.drawRoundRect(rect, 30f, 30f, bgPaint)
-
-        // Draw text
-        canvas.drawText(text, cx, cy, textPaint)
-    }
-
-    private fun drawStamp(canvas: Canvas, text: String, cx: Float, cy: Float) {
-        val textPaint = Paint().apply {
-            color = COLOR_GREEN_ACCENT
-            textSize = 56f
-            textAlign = Paint.Align.CENTER
-            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-            isAntiAlias = true
-        }
-
-        // Draw border
-        val borderPaint = Paint().apply {
-            color = COLOR_GREEN_ACCENT
-            style = Paint.Style.STROKE
-            strokeWidth = 6f
-            isAntiAlias = true
-        }
-
-        val textWidth = textPaint.measureText(text)
-        val padding = 30f
-        val rect = RectF(
-            cx - textWidth / 2 - padding,
-            cy - 40f,
-            cx + textWidth / 2 + padding,
-            cy + 20f
-        )
-        canvas.drawRoundRect(rect, 8f, 8f, borderPaint)
-
-        // Draw text
-        canvas.drawText(text, cx, cy, textPaint)
-    }
-
+    /**
+     * Draw the footer with darker orange background and URL.
+     */
     private fun drawFooter(canvas: Canvas) {
-        // Draw footer background
+        // Draw darker orange footer background (y=980-1080, so 100px height)
         val footerBgPaint = Paint().apply {
-            color = COLOR_PRIMARY
+            color = COLOR_PRIMARY_DARK
         }
         canvas.drawRect(0f, IMAGE_SIZE - 100f, IMAGE_SIZE.toFloat(), IMAGE_SIZE.toFloat(), footerBgPaint)
 
@@ -599,5 +466,16 @@ class ShareImageGenerator(private val context: Context) {
             isAntiAlias = true
         }
         canvas.drawText(FOOTER_URL, IMAGE_SIZE / 2f, IMAGE_SIZE - 40f, urlPaint)
+    }
+
+    /**
+     * Truncate app name if too long, adding ellipsis.
+     */
+    private fun truncateAppName(name: String, maxLength: Int): String {
+        return if (name.length > maxLength) {
+            name.take(maxLength - 3) + "..."
+        } else {
+            name
+        }
     }
 }

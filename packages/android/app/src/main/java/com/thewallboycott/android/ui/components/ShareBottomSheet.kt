@@ -18,10 +18,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
+import com.thewallboycott.android.share.AppRemovedData
 import com.thewallboycott.android.share.ImageTemplate
 import com.thewallboycott.android.share.ShareContent
 import com.thewallboycott.android.share.ShareImageGenerator
 import com.thewallboycott.android.share.ShareManager
+import com.thewallboycott.android.share.ShareManager.FlaggedAppsData
 import com.thewallboycott.android.ui.theme.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -58,12 +60,22 @@ fun ShareDialog(
                 when (imageTemplate) {
                     ImageTemplate.CLEAN_SCAN -> imageGenerator.generateCleanScanImage()
                     ImageTemplate.FLAGGED_APPS -> {
-                        val count = (imageData as? Int) ?: 1
-                        imageGenerator.generateFlaggedAppsImage(count)
+                        when (imageData) {
+                            is FlaggedAppsData -> imageGenerator.generateFlaggedAppsImage(
+                                imageData.count,
+                                imageData.appNames,
+                                imageData.appIcons
+                            )
+                            is Int -> imageGenerator.generateFlaggedAppsImage(imageData)
+                            else -> imageGenerator.generateFlaggedAppsImage(1)
+                        }
                     }
                     ImageTemplate.APP_REMOVED -> {
-                        val appName = (imageData as? String) ?: "App"
-                        imageGenerator.generateAppRemovedImage(appName)
+                        when (imageData) {
+                            is AppRemovedData -> imageGenerator.generateAppRemovedImage(imageData.appName, imageData.appIcon)
+                            is String -> imageGenerator.generateAppRemovedImage(imageData)
+                            else -> imageGenerator.generateAppRemovedImage("App")
+                        }
                     }
                     ImageTemplate.SUPPORTER -> imageGenerator.generateSupporterImage()
                     ImageTemplate.GENERAL -> imageGenerator.generateGeneralImage()

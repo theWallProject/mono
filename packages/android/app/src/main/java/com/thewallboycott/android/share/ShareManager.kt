@@ -9,6 +9,15 @@ import java.io.File
 import java.io.FileOutputStream
 
 /**
+ * Data class for app removed share scenario.
+ * Contains the app name and optional icon bitmap (captured before uninstall).
+ */
+data class AppRemovedData(
+    val appName: String,
+    val appIcon: Bitmap? = null
+)
+
+/**
  * Central orchestration for all sharing functionality.
  * Manages content generation, frequency caps, and share intents.
  */
@@ -193,8 +202,15 @@ class ShareManager(private val context: Context) {
 
     /**
      * Data class for flagged apps additional info.
+     * @param count Total number of flagged apps
+     * @param appNames List of app names to display (up to 2)
+     * @param appIcons List of app icons corresponding to appNames (same order)
      */
-    data class FlaggedAppsData(val count: Int, val appNames: List<String> = emptyList())
+    data class FlaggedAppsData(
+        val count: Int,
+        val appNames: List<String> = emptyList(),
+        val appIcons: List<Bitmap?> = emptyList()
+    )
 
     /**
      * Execute a share with text and image.
@@ -204,14 +220,21 @@ class ShareManager(private val context: Context) {
             ImageTemplate.CLEAN_SCAN -> imageGenerator.generateCleanScanImage()
             ImageTemplate.FLAGGED_APPS -> {
                 when (additionalData) {
-                    is FlaggedAppsData -> imageGenerator.generateFlaggedAppsImage(additionalData.count, additionalData.appNames)
+                    is FlaggedAppsData -> imageGenerator.generateFlaggedAppsImage(
+                        additionalData.count,
+                        additionalData.appNames,
+                        additionalData.appIcons
+                    )
                     is Int -> imageGenerator.generateFlaggedAppsImage(additionalData)
                     else -> imageGenerator.generateFlaggedAppsImage(1)
                 }
             }
             ImageTemplate.APP_REMOVED -> {
-                val appName = (additionalData as? String) ?: "App"
-                imageGenerator.generateAppRemovedImage(appName)
+                when (additionalData) {
+                    is AppRemovedData -> imageGenerator.generateAppRemovedImage(additionalData.appName, additionalData.appIcon)
+                    is String -> imageGenerator.generateAppRemovedImage(additionalData)
+                    else -> imageGenerator.generateAppRemovedImage("App")
+                }
             }
             ImageTemplate.SUPPORTER -> imageGenerator.generateSupporterImage()
             ImageTemplate.GENERAL -> imageGenerator.generateGeneralImage()

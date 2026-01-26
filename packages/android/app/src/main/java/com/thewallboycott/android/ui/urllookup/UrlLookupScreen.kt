@@ -67,8 +67,11 @@ import com.thewallboycott.android.data.models.ReasonLevel
 import com.thewallboycott.android.data.logic.UrlChecker
 import com.thewallboycott.android.data.models.UrlCheckResult
 import com.thewallboycott.android.data.reasonsMap
+import com.thewallboycott.android.share.ImageTemplate
+import com.thewallboycott.android.share.ShareContent
 import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.components.ShareButton
+import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.theme.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -87,6 +90,8 @@ fun UrlLookupScreen(
     val context = LocalContext.current
     val urlChecker = remember { UrlChecker(context) }
     val shareManager = remember { ShareManager(context) }
+    var showShareDialog by remember { mutableStateOf(false) }
+    var shareContent by remember { mutableStateOf<ShareContent?>(null) }
     val scope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
 
@@ -275,24 +280,24 @@ fun UrlLookupScreen(
                     result = res,
                     onShareClick = {
                         val reasonSummary = res.reasons.mapNotNull { reasonsMap[it]?.message }.firstOrNull()
-                        val content = shareManager.getUrlMatchContent(res.name, reasonSummary)
-                        shareManager.shareText(content)
+                        shareContent = shareManager.getUrlMatchContent(res.name, reasonSummary)
+                        showShareDialog = true
                     },
                     onReportClick = { sendReportEmail(isFlagged = true, resultName = res.name) }
                 )
                 is UrlCheckResult.Hint -> HintResultCard(
                     result = res,
                     onShareClick = {
-                        val content = shareManager.getUrlMatchContent(res.name, res.hintText)
-                        shareManager.shareText(content)
+                        shareContent = shareManager.getUrlMatchContent(res.name, res.hintText)
+                        showShareDialog = true
                     },
                     onReportClick = { sendReportEmail(isFlagged = true, resultName = res.name) }
                 )
                 null -> NoMatchResultCard(
                     searchedUrl = url,
                     onShareClick = {
-                        val content = shareManager.getUrlCleanContent(url)
-                        shareManager.shareText(content)
+                        shareContent = shareManager.getUrlCleanContent(url)
+                        showShareDialog = true
                     },
                     onReportClick = { sendReportEmail(isFlagged = false, resultName = null) }
                 )
@@ -330,6 +335,23 @@ fun UrlLookupScreen(
                         )
                     )
                 )
+        )
+    }
+
+    // Share dialog for URL lookup results
+    if (showShareDialog && shareContent != null) {
+        ShareDialog(
+            content = shareContent!!,
+            shareManager = shareManager,
+            imageTemplate = ImageTemplate.GENERAL,
+            onDismiss = {
+                showShareDialog = false
+                shareContent = null
+            },
+            onShareComplete = {
+                showShareDialog = false
+                shareContent = null
+            }
         )
     }
 }

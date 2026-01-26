@@ -6,9 +6,11 @@ import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.util.Log
+import androidx.core.graphics.drawable.toBitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -44,6 +46,7 @@ import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.data.models.Reason
 import com.thewallboycott.android.data.models.ReasonLevel
 import com.thewallboycott.android.data.reasonsMap
+import com.thewallboycott.android.share.AppRemovedData
 import com.thewallboycott.android.share.ImageTemplate
 import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.share.ShareScenario
@@ -148,9 +151,13 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
     var shareScenario by remember { mutableStateOf<ShareScenario?>(null) }
     var pendingUninstallAppName by remember { mutableStateOf<String?>(null) }
     var pendingUninstallPackageName by remember { mutableStateOf<String?>(null) }
+    var pendingUninstallAppIcon by remember { mutableStateOf<Bitmap?>(null) }
     var showAppRemovedSheet by remember { mutableStateOf(false) }
     var removedAppName by remember { mutableStateOf<String?>(null) }
+    var removedAppIcon by remember { mutableStateOf<Bitmap?>(null) }
     var showGeneralShareSheet by remember { mutableStateOf(false) }
+    var showFlaggedAppsShareDialog by remember { mutableStateOf(false) }
+    var showCleanScanShareDialog by remember { mutableStateOf(false) }
     var scanCompleted by remember { mutableStateOf(false) }
     var notificationPermissionGranted by remember {
         mutableStateOf(
@@ -180,6 +187,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
         Log.d("AppListScreen", "Returned from uninstall prompt. Refreshing list.")
         val appName = pendingUninstallAppName
         val packageName = pendingUninstallPackageName
+        val appIcon = pendingUninstallAppIcon
 
         // Only show share prompt if the app was actually uninstalled
         if (appName != null && packageName != null) {
@@ -193,6 +201,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
             if (!isStillInstalled) {
                 Log.d("AppListScreen", "App $appName was uninstalled, showing share prompt")
                 removedAppName = appName
+                removedAppIcon = appIcon
                 showAppRemovedSheet = true
             } else {
                 Log.d("AppListScreen", "App $appName uninstall was cancelled")
@@ -201,6 +210,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
 
         pendingUninstallAppName = null
         pendingUninstallPackageName = null
+        pendingUninstallAppIcon = null
         refresh()
     }
 
@@ -368,6 +378,12 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                             AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
                                 pendingUninstallPackageName = packageName
+                                // Cache icon before uninstall (icon becomes unavailable after uninstall)
+                                pendingUninstallAppIcon = try {
+                                    app.applicationInfo?.loadIcon(pm)?.toBitmap()
+                                } catch (_: Exception) {
+                                    null
+                                }
                                 val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
                                 uninstallLauncher.launch(intent)
                             })
@@ -384,11 +400,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                     firstAppName = firstAppName
                                 ),
                                 onShareClick = {
-                                    val content = shareManager.getAppsFoundContent(
-                                        flaggedCount = blacklistedApps.size + bdsApps.size,
-                                        firstAppName = firstAppName
-                                    )
-                                    shareManager.shareText(content)
+                                    showFlaggedAppsShareDialog = true
                                 },
                                 onDismiss = {
                                     // No-op, always visible
@@ -416,6 +428,12 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                             BdsAppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
                                 pendingUninstallPackageName = packageName
+                                // Cache icon before uninstall (icon becomes unavailable after uninstall)
+                                pendingUninstallAppIcon = try {
+                                    app.applicationInfo?.loadIcon(pm)?.toBitmap()
+                                } catch (_: Exception) {
+                                    null
+                                }
                                 val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
                                 uninstallLauncher.launch(intent)
                             })
@@ -462,8 +480,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                     Spacer(modifier = Modifier.height(12.dp))
                                     Button(
                                         onClick = {
-                                            val content = shareManager.getChallengeContent()
-                                            shareManager.shareText(content)
+                                            showCleanScanShareDialog = true
                                         },
                                         modifier = Modifier.fillMaxWidth(),
                                         colors = ButtonDefaults.buttonColors(
@@ -493,8 +510,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                 SharePromptCard(
                                     content = shareManager.getNoAppsFoundContent(),
                                     onShareClick = {
-                                        val content = shareManager.getNoAppsFoundContent()
-                                        shareManager.shareText(content)
+                                        showCleanScanShareDialog = true
                                     },
                                     onDismiss = {
                                         showSharePrompt = false
@@ -524,6 +540,12 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                             HintAppCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
                                 pendingUninstallPackageName = packageName
+                                // Cache icon before uninstall (icon becomes unavailable after uninstall)
+                                pendingUninstallAppIcon = try {
+                                    app.applicationInfo?.loadIcon(pm)?.toBitmap()
+                                } catch (_: Exception) {
+                                    null
+                                }
                                 val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
                                 uninstallLauncher.launch(intent)
                             })
@@ -579,15 +601,17 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
             content = shareManager.getAppRemovedContent(removedAppName!!),
             shareManager = shareManager,
             imageTemplate = ImageTemplate.APP_REMOVED,
-            imageData = removedAppName,
+            imageData = AppRemovedData(removedAppName!!, removedAppIcon),
             onDismiss = {
                 showAppRemovedSheet = false
                 shareManager.dismissAppRemovedPrompt()
                 removedAppName = null
+                removedAppIcon = null
             },
             onShareComplete = {
                 showAppRemovedSheet = false
                 removedAppName = null
+                removedAppIcon = null
             }
         )
     }
@@ -600,6 +624,51 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
             imageTemplate = ImageTemplate.GENERAL,
             onDismiss = { showGeneralShareSheet = false },
             onShareComplete = { showGeneralShareSheet = false }
+        )
+    }
+
+    // Dialog for flagged apps share
+    if (showFlaggedAppsShareDialog) {
+        val pm = context.packageManager
+        val firstAppName = blacklistedApps.firstOrNull()?.let { (app, _) ->
+            app.applicationInfo?.loadLabel(pm)?.toString()
+        }
+        val allFlaggedApps = blacklistedApps + bdsApps
+        val allAppNames = allFlaggedApps.map { (app, _) ->
+            app.applicationInfo?.loadLabel(pm)?.toString() ?: app.packageName
+        }
+        val allAppIcons = allFlaggedApps.map { (app, _) ->
+            try {
+                app.applicationInfo?.loadIcon(pm)?.toBitmap()
+            } catch (_: Exception) {
+                null
+            }
+        }
+        ShareDialog(
+            content = shareManager.getAppsFoundContent(
+                flaggedCount = allFlaggedApps.size,
+                firstAppName = firstAppName
+            ),
+            shareManager = shareManager,
+            imageTemplate = ImageTemplate.FLAGGED_APPS,
+            imageData = ShareManager.FlaggedAppsData(
+                count = allFlaggedApps.size,
+                appNames = allAppNames,
+                appIcons = allAppIcons
+            ),
+            onDismiss = { showFlaggedAppsShareDialog = false },
+            onShareComplete = { showFlaggedAppsShareDialog = false }
+        )
+    }
+
+    // Dialog for clean scan share (challenge / no apps found)
+    if (showCleanScanShareDialog) {
+        ShareDialog(
+            content = shareManager.getChallengeContent(),
+            shareManager = shareManager,
+            imageTemplate = ImageTemplate.CLEAN_SCAN,
+            onDismiss = { showCleanScanShareDialog = false },
+            onShareComplete = { showCleanScanShareDialog = false }
         )
     }
 }

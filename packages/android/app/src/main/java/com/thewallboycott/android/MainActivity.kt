@@ -66,7 +66,9 @@ import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.thewallboycott.android.background.ScanWorker
 import com.thewallboycott.android.data.OnboardingPreferences
+import com.thewallboycott.android.share.ImageTemplate
 import com.thewallboycott.android.share.ShareManager
+import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.onboarding.OnboardingScreen
 import com.thewallboycott.android.ui.screens.AppListScreen
 import com.thewallboycott.android.ui.screens.PermissionRequestScreen
@@ -196,6 +198,7 @@ class MainActivity : ComponentActivity() {
         var refreshTrigger by rememberSaveable { mutableIntStateOf(0) }
         val context = LocalContext.current
         val shareManager = remember { ShareManager(context) }
+        var showGeneralShareDialog by remember { mutableStateOf(false) }
 
         // Effect to handle navigation from intent extras
         if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) {
@@ -261,8 +264,7 @@ class MainActivity : ComponentActivity() {
                         }
                         // Share button - for all screens
                         IconButton(onClick = {
-                            val content = shareManager.getGeneralContent()
-                            shareManager.shareText(content)
+                            showGeneralShareDialog = true
                         }) {
                             Icon(
                                 Icons.Filled.Share,
@@ -400,6 +402,17 @@ class MainActivity : ComponentActivity() {
                     is Screen.Support -> SupportScreen()
                 }
             }
+        }
+
+        // General share dialog
+        if (showGeneralShareDialog) {
+            ShareDialog(
+                content = shareManager.getGeneralContent(),
+                shareManager = shareManager,
+                imageTemplate = ImageTemplate.GENERAL,
+                onDismiss = { showGeneralShareDialog = false },
+                onShareComplete = { showGeneralShareDialog = false }
+            )
         }
     }
 }
