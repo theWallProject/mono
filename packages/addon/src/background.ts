@@ -7,7 +7,7 @@ import { MessageTypes, type Message, type MessageResponseMap, type SendResponse 
 
 // Versions that should trigger the "what's new" page
 // User controls which versions trigger it by adding versions to this array
-const WHATS_NEW_VERSIONS = ["1.7.0"]
+const WHATS_NEW_VERSIONS = ["1.7.0", "1.9.0"]
 
 chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)

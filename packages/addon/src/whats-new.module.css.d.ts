@@ -1,6 +1,8 @@
 declare const styles: {
+  readonly badgeShimmer: string
   readonly bgLayer: string
   readonly bgOverlay: string
+  readonly comingSoonBadge: string
   readonly contactButton: string
   readonly container: string
   readonly content: string
@@ -17,6 +19,7 @@ declare const styles: {
   readonly footerActions: string
   readonly gradientShift: string
   readonly header: string
+  readonly highlightSection: string
   readonly imageContainer: string
   readonly largeDonateButton: string
   readonly link: string
