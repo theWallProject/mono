@@ -292,143 +292,135 @@ export const Banner = () => {
     }
   }, [])
 
-  // Show toast when hint result is received
-  useEffect(() => {
-    log("[Hint Toast] testResult:", testResult)
+  // Helper to show hint toast
+  const showHintToast = useCallback(
+    async (hintId: string, hintCompanyId: string | undefined, hintText: string, hintUrl: string | undefined) => {
+      // Check all conditions before showing
+      const [systemDisabled, permanentlyDismissed, shownRecently] = await Promise.all([
+        isHintsSystemDisabled(),
+        isHintDismissedPermanently(hintId, hintCompanyId),
+        wasHintShownRecently(hintId)
+      ])
 
-    if (testResult?.isHint === true && !testResult.isDismissed && testResult.name) {
-      // Use hint name as the unique ID
-      const hintId = testResult.name
-      log("[Hint Toast] Processing hint:", hintId)
+      log("[Hint Toast] Conditions check:", {
+        hintId,
+        systemDisabled,
+        permanentlyDismissed,
+        shownRecently
+      })
 
-      // Check if this hint was already shown recently
-      if (isCheckingHintRef.current) {
-        log("[Hint Toast] Already checking, skipping")
-        return // Prevent multiple simultaneous checks
-      }
-
-      isCheckingHintRef.current = true
-      void (async () => {
-        // Check all conditions before showing
-        const [systemDisabled, permanentlyDismissed, shownRecently] = await Promise.all([
-          isHintsSystemDisabled(),
-          isHintDismissedPermanently(hintId, testResult.hintCompanyId),
-          wasHintShownRecently(hintId)
-        ])
-
-        log("[Hint Toast] Conditions check:", {
-          hintId,
+      if (systemDisabled || permanentlyDismissed || shownRecently) {
+        log("[Hint Toast] Blocked from showing:", {
           systemDisabled,
           permanentlyDismissed,
           shownRecently
         })
+        return
+      }
 
-        isCheckingHintRef.current = false
+      log("[Hint Toast] All checks passed, showing toast")
 
-        if (systemDisabled || permanentlyDismissed || shownRecently) {
-          // Don't show toast if any condition prevents it
-          log("[Hint Toast] Blocked from showing:", {
-            systemDisabled,
-            permanentlyDismissed,
-            shownRecently
-          })
-          // Don't dismiss existing toast if blocked - it might be showing
-          return
-        }
+      // Mark this hint as shown
+      await markHintAsShown(hintId)
 
-        log("[Hint Toast] All checks passed, showing toast")
-
-        // Mark this hint as shown
-        await markHintAsShown(hintId)
-
-        // Dismiss any existing hint toast to prevent duplicates
-        if (toastIdRef.current) {
-          toast.dismiss(toastIdRef.current)
-          toastIdRef.current = null
-        }
-
-        const currentUrl = window.location.href
-        const processedHintUrl = replacePlaceholders(testResult.hintUrl, currentUrl, true)
-        const processedHintText = replacePlaceholders(testResult.hintText, currentUrl, false)
-        const toastId = `hint-${hintId}-${Date.now()}`
-
-        log("[Hint Toast] Creating toast with:", {
-          hintId,
-          processedHintText,
-          processedHintUrl,
-          toastId
-        })
-
-        const id = toast.custom(
-          (t) => (
-            <HintToastContent
-              hintId={hintId}
-              hintCompanyId={testResult.hintCompanyId}
-              processedHintText={processedHintText}
-              processedHintUrl={processedHintUrl}
-              onDismiss={() => {
-                toast.dismiss(t.id)
-                if (toastIdRef.current === t.id) {
-                  toastIdRef.current = null
-                }
-              }}
-              onDismissPermanently={dismissHintPermanently}
-              onDisableAll={disableHintsSystem}
-            />
-          ),
-          {
-            id: toastId,
-            duration: 10000,
-            position: "top-center",
-            style: {
-              background: "#b72b00",
-              color: "#ffffff",
-              borderRadius: "12px",
-              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
-              border: "1px solid #932300",
-              pointerEvents: "auto"
-            }
-          }
-        )
-
-        log("[Hint Toast] Toast created with ID:", id)
-        toastIdRef.current = id
-      })()
-    } else if (testResult === undefined || (testResult && !testResult.isHint)) {
-      // Only dismiss toast if testResult is undefined or no longer a hint
-      // Don't dismiss if testResult.isHint is still true but blocked
+      // Dismiss any existing hint toast to prevent duplicates
       if (toastIdRef.current) {
-        log("[Hint Toast] Dismissing toast - testResult changed to non-hint")
         toast.dismiss(toastIdRef.current)
         toastIdRef.current = null
       }
+
+      const currentUrl = window.location.href
+      const processedHintUrl = replacePlaceholders(hintUrl, currentUrl, true)
+      const processedHintText = replacePlaceholders(hintText, currentUrl, false)
+      const toastId = `hint-${hintId}-${Date.now()}`
+
+      log("[Hint Toast] Creating toast with:", {
+        hintId,
+        processedHintText,
+        processedHintUrl,
+        toastId
+      })
+
+      const id = toast.custom(
+        (t) => (
+          <HintToastContent
+            hintId={hintId}
+            hintCompanyId={hintCompanyId}
+            processedHintText={processedHintText}
+            processedHintUrl={processedHintUrl}
+            onDismiss={() => {
+              toast.dismiss(t.id)
+              if (toastIdRef.current === t.id) {
+                toastIdRef.current = null
+              }
+            }}
+            onDismissPermanently={dismissHintPermanently}
+            onDisableAll={disableHintsSystem}
+          />
+        ),
+        {
+          id: toastId,
+          duration: 10000,
+          position: "top-center",
+          style: {
+            background: "#b72b00",
+            color: "#ffffff",
+            borderRadius: "12px",
+            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
+            border: "1px solid #932300",
+            pointerEvents: "auto"
+          }
+        }
+      )
+
+      log("[Hint Toast] Toast created with ID:", id)
+      toastIdRef.current = id
+    },
+    []
+  )
+
+  // Show toast when hint result is received (standalone hint or domain hint)
+  useEffect(() => {
+    log("[Hint Toast] testResult:", testResult)
+
+    // Check if this is a standalone hint
+    if (testResult?.isHint === true && !testResult.isDismissed && testResult.name) {
+      const hintId = testResult.name
+      log("[Hint Toast] Processing standalone hint:", hintId)
+
+      if (isCheckingHintRef.current) {
+        log("[Hint Toast] Already checking, skipping")
+        return
+      }
+
+      isCheckingHintRef.current = true
+      void showHintToast(hintId, testResult.hintCompanyId, testResult.hintText || "", testResult.hintUrl).finally(
+        () => {
+          isCheckingHintRef.current = false
+        }
+      )
+    }
+    // Check if there's a domain hint (shown when viewing flagged company on hint-enabled domain)
+    else if (testResult && !testResult.isHint && testResult.domainHint) {
+      const { domainHint } = testResult
+      const hintId = domainHint.name || "domain_hint"
+      log("[Hint Toast] Processing domain hint:", hintId)
+
+      if (isCheckingHintRef.current) {
+        log("[Hint Toast] Already checking, skipping")
+        return
+      }
+
+      isCheckingHintRef.current = true
+      void showHintToast(hintId, domainHint.hintCompanyId, domainHint.hintText, domainHint.hintUrl).finally(() => {
+        isCheckingHintRef.current = false
+      })
     }
 
     return () => {
-      // Cleanup on unmount only - don't dismiss on testResult changes
-      // The toast should persist until user dismisses it or component unmounts
+      // Cleanup on unmount only
     }
-  }, [testResult])
-
-  // If it's a hint, show toast and return early (no full modal)
-  if (testResult?.isHint === true) {
-    return (
-      <>
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            style: {
-              background: "#b72b00",
-              color: "#ffffff",
-              borderRadius: "12px",
-              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.4)",
-              border: "1px solid #932300"
-            }
-          }}
-        />
-      </>
-    )
-  }
+  }, [testResult, showHintToast])
 
   return (
     <>
@@ -444,7 +436,7 @@ export const Banner = () => {
           }
         }}
       />
-      {testResult && !testResult.isDismissed ? (
+      {testResult && !testResult.isDismissed && !testResult.isHint ? (
         <div className={style.container} dir={chrome.i18n.getMessage("@@bidi_dir")}>
           <img src="https://the-wall.win/bg.gif?rec=1&action_name=wall" alt="" />
           {/* Background pattern layer */}

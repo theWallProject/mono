@@ -10,6 +10,7 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+  findHintByDomain,
   findInDatabaseByDomain,
   findInDatabaseBySelector,
   getMainDomain,
@@ -1159,5 +1160,101 @@ describe("findInDatabaseBySelector with array hints", () => {
 
     const result2 = findInDatabaseBySelector("microsoft", "gh", "github.com", mixedDb)
     expect(result2?.id).toBe("hint_microsoft")
+  })
+})
+
+describe("findHintByDomain", () => {
+  const mockHintDb: FinalDBFileType[] = [
+    {
+      id: "hint_upscrolled",
+      ws: ["https://instagram.com", "https://tiktok.com", "https://facebook.com", "https://threads.net"],
+      r: [],
+      n: "Upscrolled",
+      isHint: true,
+      hintText: "Try Upscrolled!",
+      hintUrl: "https://upscrolled.com",
+      hintCompanyId: "upscrolled_social"
+    },
+    {
+      id: "hint_newscord",
+      ws: ["https://bbc.com", "https://cnn.com"],
+      r: [],
+      n: "Newscord",
+      isHint: true,
+      hintText: "Try Newscord!",
+      hintUrl: "https://newscord.org"
+    },
+    { id: "regular_wix", ws: "wix.com", r: ["h"], n: "Wix" }
+  ]
+
+  describe("Positive cases", () => {
+    it("should find hint for instagram.com", () => {
+      const result = findHintByDomain("instagram.com", mockHintDb)
+      expect(result?.id).toBe("hint_upscrolled")
+      expect(result?.isHint).toBe(true)
+    })
+
+    it("should find hint for tiktok.com", () => {
+      const result = findHintByDomain("tiktok.com", mockHintDb)
+      expect(result?.id).toBe("hint_upscrolled")
+    })
+
+    it("should find hint for facebook.com", () => {
+      const result = findHintByDomain("facebook.com", mockHintDb)
+      expect(result?.id).toBe("hint_upscrolled")
+    })
+
+    it("should find hint for threads.net", () => {
+      const result = findHintByDomain("threads.net", mockHintDb)
+      expect(result?.id).toBe("hint_upscrolled")
+    })
+
+    it("should find hint for bbc.com", () => {
+      const result = findHintByDomain("bbc.com", mockHintDb)
+      expect(result?.id).toBe("hint_newscord")
+    })
+
+    it("should find hint for cnn.com", () => {
+      const result = findHintByDomain("cnn.com", mockHintDb)
+      expect(result?.id).toBe("hint_newscord")
+    })
+
+    it("should handle www prefix", () => {
+      const result = findHintByDomain("www.instagram.com", mockHintDb)
+      expect(result?.id).toBe("hint_upscrolled")
+    })
+  })
+
+  describe("Negative cases", () => {
+    it("should NOT find hint for non-hint entries", () => {
+      const result = findHintByDomain("wix.com", mockHintDb)
+      expect(result).toBeNull()
+    })
+
+    it("should NOT find hint for domains not in any hint", () => {
+      const result = findHintByDomain("youtube.com", mockHintDb)
+      expect(result).toBeNull()
+    })
+
+    it("should NOT find hint for empty database", () => {
+      const result = findHintByDomain("instagram.com", [])
+      expect(result).toBeNull()
+    })
+  })
+
+  describe("Edge cases", () => {
+    it("should return hint with all properties intact", () => {
+      const result = findHintByDomain("instagram.com", mockHintDb)
+      expect(result).not.toBeNull()
+      expect(result?.hintText).toBe("Try Upscrolled!")
+      expect(result?.hintUrl).toBe("https://upscrolled.com")
+      expect(result?.hintCompanyId).toBe("upscrolled_social")
+    })
+
+    it("should handle hint without hintCompanyId", () => {
+      const result = findHintByDomain("bbc.com", mockHintDb)
+      expect(result).not.toBeNull()
+      expect(result?.hintCompanyId).toBeUndefined()
+    })
   })
 })

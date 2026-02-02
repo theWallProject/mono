@@ -1,11 +1,14 @@
 import {
   extractSelector,
+  findHintByDomain,
   findInDatabaseByDomain,
   findInDatabaseBySelector,
   findMatchingRule,
+  formatDomainHint,
   formatResult,
   getMainDomain,
   getSelectorKey,
+  type DomainHint,
   type UrlCheckResult
 } from "@theWallProject/common"
 
@@ -19,9 +22,13 @@ const ONE_MIN = 60 * 1000
 const ONE_MONTH = 30 * 24 * 60 * ONE_MIN
 
 /**
- * Convert UrlCheckResult to UrlTestResult by adding dismissal tracking
+ * Convert UrlCheckResult to UrlTestResult by adding dismissal tracking and optional domain hint
  */
-function toUrlTestResult(baseResult: UrlCheckResult, isDismissed: boolean): UrlTestResult {
+function toUrlTestResult(
+  baseResult: UrlCheckResult,
+  isDismissed: boolean,
+  domainHint?: DomainHint
+): UrlTestResult {
   if (!baseResult) {
     return undefined
   }
@@ -35,8 +42,17 @@ function toUrlTestResult(baseResult: UrlCheckResult, isDismissed: boolean): UrlT
 
   return {
     ...baseResult,
-    isDismissed
+    isDismissed,
+    ...(domainHint ? { domainHint } : {})
   }
+}
+
+/**
+ * Find a domain hint for the given domain and return it formatted as DomainHint.
+ * Used to show platform hints as toasts when viewing flagged companies on hint-enabled domains.
+ */
+function getDomainHintForUrl(domain: string): DomainHint | undefined {
+  return formatDomainHint(findHintByDomain(domain, ALL))
 }
 
 const checkIsDissmissed = async (testKey: string) => {
@@ -161,12 +177,31 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
               rule: baseResult.rule
             })
           } else if (baseResult) {
-            resolve(toUrlTestResult(baseResult, false))
+            // Check for a domain hint to show as toast
+            const domainHint = getDomainHintForUrl(domain)
+            resolve(toUrlTestResult(baseResult, false, domainHint))
           } else {
             resolve(undefined)
           }
         } else {
-          resolve(undefined)
+          // No flagged company found, but check for a standalone domain hint
+          const hint = findHintByDomain(domain, ALL)
+          if (hint && hint.hintText && hint.hintUrl) {
+            resolve({
+              isHint: true,
+              name: hint.n,
+              hintText: hint.hintText,
+              hintUrl: hint.hintUrl,
+              hintCompanyId: hint.hintCompanyId,
+              isDismissed: false,
+              rule: {
+                selector: domain,
+                key: "ws"
+              }
+            })
+          } else {
+            resolve(undefined)
+          }
         }
       } else {
         // No matching rule, check by domain (website lookup)
@@ -193,12 +228,31 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
               rule: baseResult.rule
             })
           } else if (baseResult) {
-            resolve(toUrlTestResult(baseResult, isDismissed))
+            // Check for a domain hint to show as toast
+            const domainHint = getDomainHintForUrl(domain)
+            resolve(toUrlTestResult(baseResult, isDismissed, domainHint))
           } else {
             resolve(undefined)
           }
         } else {
-          resolve(undefined)
+          // No flagged company found, but check for a standalone domain hint
+          const hint = findHintByDomain(domain, ALL)
+          if (hint && hint.hintText && hint.hintUrl) {
+            resolve({
+              isHint: true,
+              name: hint.n,
+              hintText: hint.hintText,
+              hintUrl: hint.hintUrl,
+              hintCompanyId: hint.hintCompanyId,
+              isDismissed: false,
+              rule: {
+                selector: domain,
+                key: "ws"
+              }
+            })
+          } else {
+            resolve(undefined)
+          }
         }
       }
     }

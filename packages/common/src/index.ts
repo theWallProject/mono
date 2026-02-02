@@ -86,6 +86,18 @@ export type UrlCheckResult =
     }
   | undefined
 
+/**
+ * Domain hint info - shown when a flagged company is viewed on a domain with an associated hint.
+ * For example: instagram.com/wix → Wix flagged + Upscrolled suggestion for Instagram.
+ * Shared across addon and telegram-bot packages.
+ */
+export type DomainHint = {
+  hintText: string
+  hintUrl: string
+  hintCompanyId?: string
+  name: string
+}
+
 export type SpecialDomains =
   | "linkedin.com"
   | "facebook.com"
@@ -466,6 +478,51 @@ export function findInDatabaseByDomain(domain: string, database: FinalDBFileType
   })
 
   return subdomainMatch || null
+}
+
+/**
+ * Finds a hint that applies to the given domain (via ws field).
+ * Used to show platform hints inside banners for flagged companies.
+ * For example: Instagram → Upscrolled, BBC → Newscord, ChatGPT → Thaura
+ * Pure function with no side effects.
+ * @param domain - The domain to search for (e.g., "instagram.com")
+ * @param database - The database array to search
+ * @returns The matching hint entry or null if no hint applies
+ */
+export function findHintByDomain(domain: string, database: FinalDBFileType[]): FinalDBFileType | null {
+  const result = database.find((row) => {
+    if (!row.isHint || !row.ws) return false
+
+    // Handle both string and array values (for hints)
+    const wsValues = Array.isArray(row.ws) ? row.ws : [row.ws]
+
+    return wsValues.some((wsValue) => {
+      const wsDomain = getMainDomain(wsValue)
+      // Check if domains match (handles both "instagram.com" and "www.instagram.com")
+      return domain.includes(wsDomain) || wsDomain.includes(domain)
+    })
+  })
+
+  return result || null
+}
+
+/**
+ * Formats a database hint entry into a DomainHint.
+ * Returns undefined if the entry is not a valid hint.
+ * Pure function with no side effects.
+ * @param hint - The database entry to format (from findHintByDomain)
+ * @returns DomainHint or undefined if the entry is invalid
+ */
+export function formatDomainHint(hint: FinalDBFileType | null): DomainHint | undefined {
+  if (!hint || !hint.hintText || !hint.hintUrl) {
+    return undefined
+  }
+  return {
+    hintText: hint.hintText,
+    hintUrl: hint.hintUrl,
+    hintCompanyId: hint.hintCompanyId,
+    name: hint.n
+  }
 }
 
 /**

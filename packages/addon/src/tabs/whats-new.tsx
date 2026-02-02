@@ -74,21 +74,19 @@ function WhatsNew() {
       />
       <div className={styles.bgOverlay} />
 
-      {/* The Wall Logo */}
-      <img src={getExtensionURL(shieldIcon)} alt="The Wall Logo" className={styles.theWallLogo} />
-
       <div className={styles.contentWrapper}>
         <div className={styles.header}>
-          <div>
-            <p className={styles.pluginName}>{extensionName}</p>
-            <h1 className={styles.title}>What&apos;s New</h1>
-          </div>
+          <h1 className={styles.title}>What&apos;s New</h1>
         </div>
 
         <div className={styles.content}>
           {/* Version number */}
           <div className={styles.versionSection}>
-            <p className={styles.version}>Version 1.9.0</p>
+            <img src={getExtensionURL(shieldIcon)} alt="The Wall Logo" className={styles.theWallLogo} />
+            <div className={styles.versionContent}>
+              <h2 className={styles.sectionTitle}>{extensionName}</h2>
+              <p className={styles.version}>Version 1.9.0 🎉</p>
+            </div>
           </div>
 
           {/* Donation Message */}

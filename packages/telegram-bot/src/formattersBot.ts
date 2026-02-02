@@ -7,6 +7,7 @@ import type { UrlCheckResult, valuesOfListOfReasons } from "@theWallProject/comm
 import type { Context } from "telegraf"
 
 import { getT, type TFunction } from "./translations.js"
+import type { DomainHint, UrlCheckResultWithDomainHint } from "./urlCheckerBot.js"
 
 /**
  * Formats a reason code into a human-readable message.
@@ -73,9 +74,26 @@ export function formatInlineResultForBot(result: Extract<UrlCheckResult, { isHin
 }
 
 /**
+ * Formats a domain hint for display (shown as additional info when viewing flagged content on hint-enabled domains).
+ */
+function formatDomainHintForBot(domainHint: DomainHint, t: TFunction): string {
+  const parts: string[] = ["", "─────────────────", `💡 *${t("domainHint.header")}*`, domainHint.hintText]
+
+  if (domainHint.hintUrl) {
+    parts.push(`${domainHint.hintUrl}`)
+  }
+
+  return parts.join("\n")
+}
+
+/**
  * Formats a flagged result for message reply (detailed).
  */
-export function formatMessageReplyForBot(result: Extract<UrlCheckResult, { isHint?: false }>, t: TFunction): string {
+export function formatMessageReplyForBot(
+  result: Extract<UrlCheckResult, { isHint?: false }>,
+  t: TFunction,
+  domainHint?: DomainHint
+): string {
   const parts: string[] = [`${t("flagged.header")}: *${result.name}*`]
 
   if (result.stockSymbol) {
@@ -97,6 +115,11 @@ export function formatMessageReplyForBot(result: Extract<UrlCheckResult, { isHin
   parts.push("")
   parts.push(t("flagged.learnMore"))
 
+  // Add domain hint if present (e.g., when viewing Wix on Instagram, suggest Upscrolled)
+  if (domainHint) {
+    parts.push(formatDomainHintForBot(domainHint, t))
+  }
+
   return parts.join("\n")
 }
 
@@ -104,7 +127,11 @@ export function formatMessageReplyForBot(result: Extract<UrlCheckResult, { isHin
  * Formats a result for Telegram display.
  * @throws Error if result type is unexpected
  */
-export function formatResultForBot(result: UrlCheckResult, format: "inline" | "message", ctx: Context): string {
+export function formatResultForBot(
+  result: UrlCheckResultWithDomainHint,
+  format: "inline" | "message",
+  ctx: Context
+): string {
   const t = getT(ctx)
 
   if (result === undefined) {
@@ -115,9 +142,12 @@ export function formatResultForBot(result: UrlCheckResult, format: "inline" | "m
     return formatHintForBot(result, t)
   }
 
+  // Extract domain hint if present
+  const domainHint = "domainHint" in result ? result.domainHint : undefined
+
   if (format === "inline") {
     return formatInlineResultForBot(result, t)
   }
 
-  return formatMessageReplyForBot(result, t)
+  return formatMessageReplyForBot(result, t, domainHint)
 }

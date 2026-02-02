@@ -1,4 +1,7 @@
-import type { UrlCheckResult } from "@theWallProject/common"
+import type { DomainHint, UrlCheckResult } from "@theWallProject/common"
+
+// Re-export DomainHint for backward compatibility within addon
+export type { DomainHint }
 
 export enum MessageTypes {
   TestUrl = "TestUrl",
@@ -18,6 +21,8 @@ export type UrlTestResult =
       isDismissed?: boolean
       hintUrl?: string
       hintText?: string
+      /** Domain hint to show as toast when a flagged company is on a domain with a hint */
+      domainHint?: DomainHint
     })
   | undefined
 

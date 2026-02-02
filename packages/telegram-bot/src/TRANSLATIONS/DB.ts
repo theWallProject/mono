@@ -326,6 +326,17 @@ export const TRANSLATIONS = {
     zh_CN: "替代品：",
     zh_TW: "替代品："
   },
+  "domainHint.header": {
+    en: "Consider switching platforms",
+    ar: "فكر في تغيير المنصة",
+    id: "Pertimbangkan untuk beralih platform",
+    ms: "Pertimbangkan untuk beralih platform",
+    bn: "প্ল্যাটফর্ম পরিবর্তন করার কথা বিবেচনা করুন",
+    fr: "Envisagez de changer de plateforme",
+    nl: "Overweeg om van platform te wisselen",
+    zh_CN: "考虑更换平台",
+    zh_TW: "考慮更換平台"
+  },
   "advertising.addon": {
     en: "Do you like this bot? You will LOVE the browser addon! Download it now from the-wall.win 🧱🍉",
     ar: "هل يعجبك البوت؟ ستحب إضافة المتصفح! حمّل الآن من the-wall.win 🧱🍉",

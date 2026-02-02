@@ -54,6 +54,7 @@ export type TR_NAME =
   | "hint_disable_all"
   | "hint_toggle_system"
   | "hint_reset_dismissed"
+  | "domain_hint_link"
   | "options_donate"
   | "options_share_fb"
   | "options_share_tw"
