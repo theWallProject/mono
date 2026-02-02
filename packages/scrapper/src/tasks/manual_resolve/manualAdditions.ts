@@ -1798,6 +1798,22 @@ export const manualAdditions: ManualAdditionItem[] = [
     _processed: true
   },
   {
+    name: "Private Internet Access",
+    reasons: ["f"],
+    ws: ["https://www.privateinternetaccess.com"],
+    li: ["https://www.linkedin.com/company/private-internet-access"],
+    fb: ["https://www.facebook.com/privateinternetaccess"],
+    tw: ["https://x.com/buyvpnservice"],
+    gh: ["https://github.com/pia-foss"],
+    ytp: ["https://www.youtube.com/@Privateinternetaccess"],
+    urls: [
+      "https://apps.apple.com/us/app/vpn-by-private-internet-access/id955626407",
+      "https://chromewebstore.google.com/detail/private-internet-access-%E2%80%93/jplnlifepflhkbkgonidnobkakhmpnmh"
+    ],
+    android_app_ids: ["com.privateinternetaccess.android", "nu.tommie.inbrowser"],
+    _processed: true
+  },
+  {
     name: "Puma",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.puma.com"],

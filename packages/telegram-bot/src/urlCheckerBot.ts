@@ -29,9 +29,7 @@ export type { DomainHint }
 /**
  * Extended result type that includes optional domain hint.
  */
-export type UrlCheckResultWithDomainHint =
-  | (UrlCheckResult & { domainHint?: DomainHint })
-  | undefined
+export type UrlCheckResultWithDomainHint = (UrlCheckResult & { domainHint?: DomainHint }) | undefined
 
 const require = createRequire(import.meta.url)
 // Use CommonJS-style require to load JSON without import assertions (works in Node 20 ESM)

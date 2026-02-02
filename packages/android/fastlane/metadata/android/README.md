@@ -19,12 +19,12 @@ en-US/
 
 ## Character Limits
 
-| Field | Max Characters |
-|-------|---------------|
-| Title | 30 |
-| Short description | 80 |
-| Full description | 4,000 |
-| Changelog (per version) | 500 |
+| Field                   | Max Characters |
+| ----------------------- | -------------- |
+| Title                   | 30             |
+| Short description       | 80             |
+| Full description        | 4,000          |
+| Changelog (per version) | 500            |
 
 ## Updating Metadata
 

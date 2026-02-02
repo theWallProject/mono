@@ -24,11 +24,7 @@ const ONE_MONTH = 30 * 24 * 60 * ONE_MIN
 /**
  * Convert UrlCheckResult to UrlTestResult by adding dismissal tracking and optional domain hint
  */
-function toUrlTestResult(
-  baseResult: UrlCheckResult,
-  isDismissed: boolean,
-  domainHint?: DomainHint
-): UrlTestResult {
+function toUrlTestResult(baseResult: UrlCheckResult, isDismissed: boolean, domainHint?: DomainHint): UrlTestResult {
   if (!baseResult) {
     return undefined
   }

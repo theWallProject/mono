@@ -70,6 +70,7 @@ pnpm adb:logcat                # View app logs
 ### Android Build Requirements
 
 The Android app requires:
+
 - **Bash**: Git Bash on Windows, or native bash on macOS/Linux
 - **Java 17+**: Auto-detected from Android Studio's bundled JDK, or set `JAVA_HOME`
 - **Gradle 9.1.0**: Configured in `gradle/wrapper/gradle-wrapper.properties`
@@ -89,6 +90,7 @@ The Android app uses a streamlined release workflow:
 4. **Output**: Signed APK is placed in `release-output/thewall-v{version}.apk`
 
 **First-time setup:**
+
 ```bash
 # Generate keystore (store safely, NOT in repo)
 keytool -genkey -v -keystore ~/.android/thewall-release.keystore -alias thewall -keyalg RSA -keysize 2048 -validity 10000
@@ -103,11 +105,13 @@ cp keystore.properties.template keystore.properties
 **CRITICAL: Android lint MUST pass with ZERO errors before any commit or release.**
 
 The Android build is configured with strict linting:
+
 - `abortOnError = true` - Build fails on any lint error
 - `checkAllWarnings = true` - All warnings are checked
 - **NO lint baselines** - All issues must be fixed, not suppressed
 
 **Rules:**
+
 1. **NEVER** add `@SuppressLint` annotations without explicit user approval
 2. **NEVER** create lint baselines (`lint-baseline.xml`)
 3. **NEVER** disable lint checks in build.gradle.kts
@@ -193,15 +197,18 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 **Framework:** Jetpack Compose with Material 3
 
 **Key screens:**
+
 - `StartScreen` - Entry point with shield icon and CTA
 - `AppListScreen` - Scans installed apps against database
 - `UrlLookupScreen` - Manual URL checking
 
 **Design system:** Dark mode first with brand colors defined in:
+
 - `ui/theme/Color.kt` - Color palette (burnt orange primary, status colors)
 - `ui/theme/Theme.kt` - Material 3 color scheme mappings
 
 **Status card colors (dark mode):**
+
 - Error: `#2D1A17` background, `#FF6B4D` accent
 - Warning: `#2D2617` background, `#FFD54F` accent
 - Success: `#172D1F` background, `#4CAF50` accent
@@ -210,6 +217,7 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 **Data:** Embeds same `ALL.json` database, parsed at runtime
 
 **In-App Billing:**
+
 - Uses Google Play Billing Library 7.x for $1/month supporter subscription
 - Product ID: `supporter_monthly` (must be configured in Play Console)
 - `BillingManager` in `data/billing/` handles connection, purchases, and acknowledgment

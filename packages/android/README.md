@@ -19,6 +19,7 @@ A consumer transparency tool that helps you understand the companies behind the 
 > **Note**: All `pnpm` commands must be run from Git Bash on Windows, not Command Prompt or PowerShell.
 >
 > If JAVA_HOME errors occur in Git Bash, set it manually first:
+>
 > ```bash
 > export JAVA_HOME="/c/Program Files/Android/Android Studio/jbr"
 > ```
@@ -43,16 +44,19 @@ pnpm clean
 1. Generate a release keystore:
 
    **Windows (PowerShell):**
+
    ```powershell
    & "C:\Program Files\Android\Android Studio\jbr\bin\keytool.exe" -genkey -v -keystore "$env:USERPROFILE\.android\thewall-release.keystore" -alias thewall -keyalg RSA -keysize 2048 -validity 10000
    ```
 
    **Windows (Command Prompt):**
+
    ```cmd
    "C:\Program Files\Android\Android Studio\jbr\bin\keytool.exe" -genkey -v -keystore %USERPROFILE%\.android\thewall-release.keystore -alias thewall -keyalg RSA -keysize 2048 -validity 10000
    ```
 
    **macOS/Linux:**
+
    ```bash
    keytool -genkey -v -keystore ~/.android/thewall-release.keystore -alias thewall -keyalg RSA -keysize 2048 -validity 10000
    ```
@@ -62,16 +66,19 @@ pnpm clean
 2. Configure signing:
 
    **Windows (Command Prompt):**
+
    ```cmd
    copy keystore.properties.template keystore.properties
    ```
 
    **Windows (PowerShell) / macOS / Linux:**
+
    ```bash
    cp keystore.properties.template keystore.properties
    ```
 
 3. Edit `keystore.properties` with your keystore path and passwords:
+
    ```properties
    storeFile=C:/Users/yourname/.android/thewall-release.keystore
    storePassword=your_password
@@ -96,12 +103,14 @@ pnpm release
 ```
 
 Output:
+
 - `release-output/thewall-v{version}.aab` - **Upload this to Play Store**
 - `release-output/thewall-v{version}.apk` - For testing/sideloading
 
 ### Version Management
 
 Version is tracked in `version.properties`:
+
 - `VERSION_CODE`: Integer that increments with each release
 - `VERSION_NAME`: Semantic version (e.g., 1.0.0)
 
@@ -168,12 +177,12 @@ Version is tracked in `version.properties`:
 
 ### Troubleshooting
 
-| Error | Solution |
-|-------|----------|
-| `JAVA_HOME is not set` | Run `export JAVA_HOME="/c/Program Files/Android/Android Studio/jbr"` |
-| `Keystore file not found` | Use forward slashes in path: `C:/Users/...` not `C:\Users\...` |
-| `Package name already exists` | Change `applicationId` in `app/build.gradle.kts` |
-| Release command fails in PowerShell | Run from Git Bash instead |
+| Error                               | Solution                                                             |
+| ----------------------------------- | -------------------------------------------------------------------- |
+| `JAVA_HOME is not set`              | Run `export JAVA_HOME="/c/Program Files/Android/Android Studio/jbr"` |
+| `Keystore file not found`           | Use forward slashes in path: `C:/Users/...` not `C:\Users\...`       |
+| `Package name already exists`       | Change `applicationId` in `app/build.gradle.kts`                     |
+| Release command fails in PowerShell | Run from Git Bash instead                                            |
 
 ## Play Store Metadata
 
@@ -193,6 +202,7 @@ en-US/
 ```
 
 Validate metadata before release:
+
 ```bash
 pnpm validate:metadata
 ```
