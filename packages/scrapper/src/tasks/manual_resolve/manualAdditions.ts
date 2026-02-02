@@ -2079,6 +2079,14 @@ export const manualAdditions: ManualAdditionItem[] = [
     android_app_ids: ["com.polarislabs.horizon.texacolubewatch.android"],
     _processed: true
   },
+  {
+    name: "Webselenese",
+    reasons: ["h"],
+    li: ["https://www.linkedin.com/company/webselenese"],
+    gh: ["https://github.com/Webselenese-AI"],
+    urls: ["https://www.webselenese.com"],
+    _processed: true
+  },
   { name: "Wixsite (hosting)", reasons: ["h"], ws: ["wixsite.com"], li: [""], fb: [""], tw: [""] },
   {
     name: "Wordtune",
