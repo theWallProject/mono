@@ -828,6 +828,40 @@ export const manualAdditions: ManualAdditionItem[] = [
     _processed: true
   },
   {
+    name: "CyberGhost",
+    reasons: ["f"],
+    ws: ["https://www.cyberghostvpn.com"],
+    li: ["https://www.linkedin.com/company/cyberghost"],
+    fb: ["https://www.facebook.com/cyberghostEN"],
+    tw: ["https://x.com/CyberGhost_EN"],
+    ig: ["https://www.instagram.com/cyberghost_private_life"],
+    ytp: ["https://www.youtube.com/@CyberghostvpnOfficial", "https://www.youtube.com/c/CyberghostvpnOfficial"],
+    tt: ["https://www.tiktok.com/@cyberghostvpnofficial"],
+    urls: [
+      "https://addons.mozilla.org/en-US/firefox/addon/cyberghost-cookie-cleaner",
+      "https://addons.mozilla.org/en-US/firefox/addon/cyberghost-vpn-free-proxy",
+      "https://addons.mozilla.org/en-US/firefox/user/13716131",
+      // todo: ignore us/gt parts in regex
+      "https://apps.apple.com/gt/app/cyberghost-safe-private-vpn/id583009522",
+      "https://apps.apple.com/us/app/cyberghost-safe-private-vpn/id583009522",
+      "https://apps.microsoft.com/detail/xpdch2pggkq7t7",
+      "https://chromewebstore.google.com/detail/cyberghost-cookie-cleaner/pbkgifljdgkhlmlmgbalmcknbhbggmei",
+      "https://chromewebstore.google.com/detail/cyberghost-vpn-%E2%80%93-proxy-fo/ffbkglfijbcbgblgflchnbphjdllaogb",
+      "https://cyberghost-vpn.en.softonic.com",
+      "https://vimeo.com/cyberghost",
+      "https://www.cyberghostvpn.com/download/amazon-firestick-vpn",
+      "https://www.cyberghostvpn.com/download/android-tv-vpn",
+      "https://www.cyberghostvpn.com/download/apple-tv-vpn",
+      "https://www.cyberghostvpn.com/download/linux-vpn",
+      "https://www.cyberghostvpn.com/download/macos-vpn",
+      "https://www.cyberghostvpn.com/download/vpn-smart-tv",
+      "https://www.cyberghostvpn.com/gaming-vpn",
+      "https://www.pcmag.com/reviews/cyberghost-vpn"
+    ],
+    android_app_ids: ["de.mobileconcepts.cyberghost"],
+    _processed: true
+  },
+  {
     name: "Dell",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.dell.com", "https://mlink-dell.com"],
@@ -1191,8 +1225,8 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "ExpressVPN",
-    ws: ["https://www.expressvpn.com"],
     reasons: ["f"],
+    ws: ["https://www.expressvpn.com"],
     li: ["https://www.linkedin.com/company/expressvpn"],
     fb: ["https://www.facebook.com/ExpressVPN"],
     tw: [
@@ -1346,8 +1380,8 @@ export const manualAdditions: ManualAdditionItem[] = [
   },
   {
     name: "Kape Technologies",
-    ws: ["https://www.kape.com"],
     reasons: ["f"],
+    ws: ["https://www.kape.com"],
     li: ["https://www.linkedin.com/company/kape-technologies"],
     gh: ["https://github.com/kapedata"],
     urls: [
