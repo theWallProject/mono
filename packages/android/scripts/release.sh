@@ -12,6 +12,7 @@ SCRIPT_DIR="$(dirname "$0")"
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Set JAVA_HOME if not already set (MUST be done first)
@@ -42,15 +43,20 @@ echo ""
 
 # Parse arguments
 BUMP_TYPE=""
+SKIP_SCREENSHOTS=false
 while [[ $# -gt 0 ]]; do
     case $1 in
         --bump)
             BUMP_TYPE="$2"
             shift 2
             ;;
+        --no-screenshots)
+            SKIP_SCREENSHOTS=true
+            shift
+            ;;
         *)
             echo -e "${RED}Unknown option: $1${NC}"
-            echo "Usage: release.sh [--bump patch|minor|major]"
+            echo "Usage: release.sh [--bump patch|minor|major] [--no-screenshots]"
             exit 1
             ;;
     esac
@@ -81,6 +87,21 @@ if [ -n "$BUMP_TYPE" ]; then
     echo -e "${YELLOW}Bumping version ($BUMP_TYPE)...${NC}"
     bash "$SCRIPT_DIR/bump-version.sh" "$BUMP_TYPE"
     echo ""
+fi
+
+# Screenshots step
+if [ "$SKIP_SCREENSHOTS" = false ]; then
+    echo -e "${YELLOW}Refresh screenshots?${NC}"
+    echo "This requires emulators running with the app installed."
+    read -p "Take new screenshots? (y/N): " TAKE_SCREENSHOTS
+    if [[ "$TAKE_SCREENSHOTS" =~ ^[Yy]$ ]]; then
+        echo ""
+        bash "$SCRIPT_DIR/screenshots.sh"
+        echo ""
+    else
+        echo -e "${CYAN}Skipping screenshots.${NC}"
+        echo ""
+    fi
 fi
 
 # Read current version

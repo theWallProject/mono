@@ -63,6 +63,8 @@ pnpm clean                     # Clean build artifacts
 pnpm lint                      # Run Android lint (MUST pass with zero errors)
 pnpm install:prod              # Install release APK to connected device via USB
 pnpm validate:metadata         # Validate Play Store metadata
+pnpm screenshots               # Refresh Play Store screenshots (interactive)
+pnpm screenshots:list          # List available emulators
 pnpm adb:trigger_scan          # Force trigger background scan
 pnpm adb:logcat                # View app logs
 ```
@@ -86,8 +88,16 @@ The Android app uses a streamlined release workflow:
 
 1. **Version management**: `version.properties` tracks VERSION_CODE and VERSION_NAME
 2. **Signing**: Configure `keystore.properties` (see `keystore.properties.template`)
-3. **Release**: Run `pnpm release:patch` (or minor/major) to bump version and build signed APK
-4. **Output**: Signed APK is placed in `release-output/thewall-v{version}.apk`
+3. **Screenshots**: Release prompts to refresh screenshots (requires emulators running)
+4. **Release**: Run `pnpm release:patch` (or minor/major) to bump version and build signed APK
+5. **Output**: Signed APK is placed in `release-output/thewall-v{version}.apk`
+
+**Screenshot capture (fully automated):**
+- Start phone and tablet emulators (app will be auto-installed)
+- Run `pnpm screenshots` - builds APK, installs, navigates through all screens, captures 4 shots per device
+- Auto-detects phone vs tablet based on screen size
+- Use `pnpm screenshots:phone` or `pnpm screenshots:tablet` for single device
+- Use `--no-screenshots` flag with release commands to skip the prompt
 
 **First-time setup:**
 

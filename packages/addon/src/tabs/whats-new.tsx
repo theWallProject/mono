@@ -85,9 +85,76 @@ function WhatsNew() {
             <img src={getExtensionURL(shieldIcon)} alt="The Wall Logo" className={styles.theWallLogo} />
             <div className={styles.versionContent}>
               <h2 className={styles.sectionTitle}>{extensionName}</h2>
-              <p className={styles.version}>Version 1.9.0 🎉</p>
+              <p className={styles.version}>Version 1.10.0 🎉</p>
             </div>
           </div>
+
+          {/* Upscrolled Feature */}
+          <section className={styles.featureSection}>
+            <a href="https://upscrolled.com/?ref=thewall" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://upscrolled.com/wp-content/uploads/2022/01/logo.png"
+                alt="Upscrolled"
+                style={{ maxWidth: "180px", marginBottom: "12px" }}
+              />
+            </a>
+            <h2 className={styles.sectionTitle}>Social Media, Unchained</h2>
+            <p className={styles.featureText}>
+              We now suggest{" "}
+              <a
+                href="https://upscrolled.com/?ref=thewall"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#b72b00", fontWeight: "600" }}>
+                Upscrolled
+              </a>{" "}
+              when you visit Instagram, TikTok, Facebook, or Threads. This Palestinian-founded platform has seen
+              incredible success - millions of users in just days! With chronological feeds, transparent algorithms, and
+              no shadowbanning, it&apos;s social media the way it should be. Support their mission for digital freedom.
+            </p>
+          </section>
+
+          {/* VPN Detection */}
+          <section className={styles.featureSection}>
+            <h2 className={styles.sectionTitle}>Israeli VPN Detection</h2>
+            <p className={styles.featureText}>
+              Did you know many popular VPNs have Israeli founders? We now detect ExpressVPN, CyberGhost, ZenMate,
+              Private Internet Access, and more. Your privacy tool shouldn&apos;t fund oppression.
+            </p>
+            <a
+              href="https://boycat.io/vpn/order?via=theWall"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.boycatCta}>
+              <img
+                src="https://boycat.io/boycat-yes.png"
+                alt="BoycatVPN"
+                style={{ width: "80px", height: "80px", borderRadius: "12px", flexShrink: 0 }}
+              />
+              <div style={{ textAlign: "left" }}>
+                <span
+                  style={{
+                    display: "block",
+                    color: "#ffffff",
+                    fontSize: "28px",
+                    fontWeight: "800",
+                    marginBottom: "4px",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.2)"
+                  }}>
+                  Switch to BoycatVPN
+                </span>
+                <span
+                  style={{
+                    display: "block",
+                    color: "#90EE90",
+                    fontSize: "20px",
+                    fontWeight: "700"
+                  }}>
+                  Get 1 Month FREE with our link!
+                </span>
+              </div>
+            </a>
+          </section>
 
           {/* Donation Message */}
           <section className={`${styles.featureSection} ${styles.donationSection}`}>
@@ -102,47 +169,6 @@ function WhatsNew() {
                 Support on Ko-fi
               </button>
             </div>
-          </section>
-
-          {/* Complete UI Redesign - Highlight Section */}
-          <section className={`${styles.featureSection} ${styles.highlightSection}`}>
-            <h2 className={styles.sectionTitle}>Complete UI Redesign</h2>
-            <p className={styles.featureText}>
-              The Wall has been completely reimagined with a new shield icon, refined warning banners, and polished hint
-              toasts. We swapped heavy 3D graphics for clean SVGs and added subtle glassmorphism effects. Cleaner,
-              faster, and easier on the eyes.
-            </p>
-          </section>
-
-          {/* Android App Coming Soon */}
-          <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>
-              Android App <span className={styles.comingSoonBadge}>Coming Soon</span>
-            </h2>
-            <p className={styles.featureText}>
-              The Wall is coming to Android! Our mobile app lets you scan your installed apps against our database and
-              check URLs on the go. Built with the same comprehensive database you trust, now in your pocket. Stay tuned
-              for the official release!
-            </p>
-          </section>
-
-          {/* LinkedIn Job Scanning - Now Stable */}
-          <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>LinkedIn Job Scanning</h2>
-            <p className={styles.featureText}>
-              Scan LinkedIn job listings to identify flagged companies during your job search. This feature is now
-              enabled by default for all users—no configuration needed. You can toggle it in the extension popup if
-              needed.
-            </p>
-          </section>
-
-          {/* Enhanced YouTube Support */}
-          <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>Enhanced YouTube Support</h2>
-            <p className={styles.featureText}>
-              The Wall now works on YouTube video pages, not just channel profiles. You&apos;ll see warnings for flagged
-              content wherever you watch.
-            </p>
           </section>
         </div>
 

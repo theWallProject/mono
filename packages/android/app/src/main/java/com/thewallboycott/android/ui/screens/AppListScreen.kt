@@ -726,109 +726,160 @@ fun AppInfoCard(
         colors = CardDefaults.cardColors(containerColor = cardColor),
         shape = RoundedCornerShape(12.dp)
     ) {
-        Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            // App icon with tinted background to blend with row
-            appIcon?.let {
-                Box(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(iconBgColor),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = rememberDrawablePainter(drawable = it),
-                        contentDescription = "$appName icon",
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                // App icon with tinted background to blend with row
+                appIcon?.let {
+                    Box(
                         modifier = Modifier
-                            .size(40.dp)
-                            .clip(RoundedCornerShape(8.dp))
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.width(12.dp))
-
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = appName,
-                    fontWeight = FontWeight.Bold,
-                    color = titleColor
-                )
-                if (itemInfo != null) {
-                    if (itemInfo.isHint == true) {
-                        Text(
-                            text = itemInfo.hintText ?: "A better alternative exists",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = bodyColor
-                        )
-                    } else {
-                        val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
-                        val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
-                        Text(
-                            text = reasonMessages,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = bodyColor
-                        )
-                    }
-                } else {
-                    Text(
-                        text = app.packageName,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = bodyColor.copy(alpha = 0.6f)
-                    )
-                }
-            }
-
-            if (itemInfo != null) {
-                if (itemInfo.isHint == true && itemInfo.hintAndroidId != null) {
-                    Button(
-                        onClick = {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${itemInfo.hintAndroidId}"))
-                            context.startActivity(intent)
-                        },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = WallSecondary,
-                            contentColor = WallTextOnPrimary
-                        ),
-                        shape = RoundedCornerShape(8.dp)
+                            .size(48.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(iconBgColor),
+                        contentAlignment = Alignment.Center
                     ) {
-                        Text("Switch")
-                    }
-                } else {
-                    IconButton(onClick = { onUninstallClicked(app.packageName) }) {
-                        Icon(
-                            Icons.Default.Delete,
-                            contentDescription = "Uninstall App",
-                            tint = WallPrimary
+                        Image(
+                            painter = rememberDrawablePainter(drawable = it),
+                            contentDescription = "$appName icon",
+                            modifier = Modifier
+                                .size(40.dp)
+                                .clip(RoundedCornerShape(8.dp))
                         )
                     }
                 }
-            } else {
-                // Flag/report button for safe apps
-                IconButton(
-                    onClick = {
-                        val subject = "Report: $appName"
-                        val body = """
-                            |I'd like to report this app for review:
-                            |
-                            |App Name: $appName
-                            |Package ID: ${app.packageName}
-                            |
-                            |Reason for report:
-                            |
-                        """.trimMargin()
-                        val intent = Intent(Intent.ACTION_SENDTO).apply {
-                            data = Uri.parse("mailto:app@thewall.bot")
-                            putExtra(Intent.EXTRA_SUBJECT, subject)
-                            putExtra(Intent.EXTRA_TEXT, body)
-                        }
-                        context.startActivity(Intent.createChooser(intent, "Report App"))
-                    }
-                ) {
-                    Icon(
-                        Icons.Default.Flag,
-                        contentDescription = "Report App",
-                        tint = WallOnSurfaceVariant
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = appName,
+                        fontWeight = FontWeight.Bold,
+                        color = titleColor
                     )
+                    if (itemInfo != null) {
+                        if (itemInfo.isHint == true) {
+                            Text(
+                                text = itemInfo.hintText ?: "A better alternative exists",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = bodyColor
+                            )
+                        } else {
+                            val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
+                            val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
+                            Text(
+                                text = reasonMessages,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = bodyColor
+                            )
+                        }
+                    } else {
+                        Text(
+                            text = app.packageName,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = bodyColor.copy(alpha = 0.6f)
+                        )
+                    }
+                }
+
+                if (itemInfo != null) {
+                    if (itemInfo.isHint == true && itemInfo.hintAndroidId != null) {
+                        Button(
+                            onClick = {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${itemInfo.hintAndroidId}"))
+                                context.startActivity(intent)
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = WallSecondary,
+                                contentColor = WallTextOnPrimary
+                            ),
+                            shape = RoundedCornerShape(8.dp)
+                        ) {
+                            Text("Switch")
+                        }
+                    } else {
+                        IconButton(onClick = { onUninstallClicked(app.packageName) }) {
+                            Icon(
+                                Icons.Default.Delete,
+                                contentDescription = "Uninstall App",
+                                tint = WallPrimary
+                            )
+                        }
+                    }
+                } else {
+                    // Flag/report button for safe apps
+                    IconButton(
+                        onClick = {
+                            val subject = "Report: $appName"
+                            val body = """
+                                |I'd like to report this app for review:
+                                |
+                                |App Name: $appName
+                                |Package ID: ${app.packageName}
+                                |
+                                |Reason for report:
+                                |
+                            """.trimMargin()
+                            val intent = Intent(Intent.ACTION_SENDTO).apply {
+                                data = Uri.parse("mailto:app@thewall.bot")
+                                putExtra(Intent.EXTRA_SUBJECT, subject)
+                                putExtra(Intent.EXTRA_TEXT, body)
+                            }
+                            context.startActivity(Intent.createChooser(intent, "Report App"))
+                        }
+                    ) {
+                        Icon(
+                            Icons.Default.Flag,
+                            contentDescription = "Report App",
+                            tint = WallOnSurfaceVariant
+                        )
+                    }
+                }
+            }
+
+            // Show alternatives sub-card if available
+            if (itemInfo != null && !itemInfo.alt.isNullOrEmpty()) {
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = WallSecondaryContainer),
+                    shape = RoundedCornerShape(10.dp)
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(
+                            text = "Try These Instead:",
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            color = WallOnSecondaryContainer
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        itemInfo.alt.forEach { alternative ->
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(vertical = 4.dp)
+                            ) {
+                                Text(
+                                    text = alternative.n,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = WallOnSecondaryContainer,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                Button(
+                                    onClick = {
+                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(alternative.ws))
+                                        context.startActivity(intent)
+                                    },
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = WallSecondary,
+                                        contentColor = WallTextOnPrimary
+                                    ),
+                                    shape = RoundedCornerShape(8.dp),
+                                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                                ) {
+                                    Text("View", fontWeight = FontWeight.SemiBold)
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -853,48 +904,99 @@ fun BdsAppInfoCard(
         colors = CardDefaults.cardColors(containerColor = WallBdsContainer),
         shape = RoundedCornerShape(12.dp)
     ) {
-        Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            // App icon with tinted background
-            appIcon?.let {
-                Box(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(WallBdsAccent.copy(alpha = 0.15f)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        painter = rememberDrawablePainter(drawable = it),
-                        contentDescription = "$appName icon",
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                // App icon with tinted background
+                appIcon?.let {
+                    Box(
                         modifier = Modifier
-                            .size(40.dp)
-                            .clip(RoundedCornerShape(8.dp))
+                            .size(48.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(WallBdsAccent.copy(alpha = 0.15f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            painter = rememberDrawablePainter(drawable = it),
+                            contentDescription = "$appName icon",
+                            modifier = Modifier
+                                .size(40.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = appName,
+                        fontWeight = FontWeight.Bold,
+                        color = WallBdsAccent
+                    )
+                    val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
+                    val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
+                    Text(
+                        text = reasonMessages,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WallOnBdsContainer
+                    )
+                }
+
+                IconButton(onClick = { onUninstallClicked(app.packageName) }) {
+                    Icon(
+                        Icons.Default.Delete,
+                        contentDescription = "Uninstall App",
+                        tint = WallBdsAccent
                     )
                 }
             }
-            Spacer(modifier = Modifier.width(12.dp))
 
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = appName,
-                    fontWeight = FontWeight.Bold,
-                    color = WallBdsAccent
-                )
-                val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
-                val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
-                Text(
-                    text = reasonMessages,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = WallOnBdsContainer
-                )
-            }
+            // Show alternatives sub-card if available
+            if (!itemInfo.alt.isNullOrEmpty()) {
+                Spacer(modifier = Modifier.height(8.dp))
 
-            IconButton(onClick = { onUninstallClicked(app.packageName) }) {
-                Icon(
-                    Icons.Default.Delete,
-                    contentDescription = "Uninstall App",
-                    tint = WallBdsAccent
-                )
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = WallSecondaryContainer),
+                    shape = RoundedCornerShape(10.dp)
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(
+                            text = "Try These Instead:",
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            color = WallOnSecondaryContainer
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        itemInfo.alt.forEach { alternative ->
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(vertical = 4.dp)
+                            ) {
+                                Text(
+                                    text = alternative.n,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = WallOnSecondaryContainer,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                Button(
+                                    onClick = {
+                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(alternative.ws))
+                                        context.startActivity(intent)
+                                    },
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = WallSecondary,
+                                        contentColor = WallTextOnPrimary
+                                    ),
+                                    shape = RoundedCornerShape(8.dp),
+                                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                                ) {
+                                    Text("View", fontWeight = FontWeight.SemiBold)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

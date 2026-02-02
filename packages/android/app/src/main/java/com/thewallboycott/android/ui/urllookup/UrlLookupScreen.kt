@@ -62,6 +62,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.thewallboycott.android.data.models.Alternative
 import com.thewallboycott.android.data.models.AutocompleteSuggestion
 import com.thewallboycott.android.data.models.ReasonLevel
 import com.thewallboycott.android.data.logic.UrlChecker
@@ -531,6 +532,7 @@ fun MatchResultCard(
     onShareClick: () -> Unit = {},
     onReportClick: () -> Unit = {}
 ) {
+    val context = LocalContext.current
     val mappedReasons = result.reasons.mapNotNull { reasonsMap[it] }
     val overallLevel =
         if (mappedReasons.any { it.level == ReasonLevel.ERROR }) ReasonLevel.ERROR else ReasonLevel.WARNING
@@ -557,6 +559,55 @@ fun MatchResultCard(
                     fontWeight = FontWeight.Bold,
                     color = bodyColor
                 )
+            }
+
+            // Show alternatives sub-card if available
+            if (!result.alt.isNullOrEmpty()) {
+                Spacer(modifier = Modifier.height(4.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = WallSecondaryContainer),
+                    shape = RoundedCornerShape(10.dp)
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(
+                            text = "Try These Instead:",
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            color = WallOnSecondaryContainer
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        result.alt.forEach { alternative ->
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(vertical = 4.dp)
+                            ) {
+                                Text(
+                                    text = alternative.n,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = WallOnSecondaryContainer,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                Button(
+                                    onClick = {
+                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(alternative.ws))
+                                        context.startActivity(intent)
+                                    },
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = WallSecondary,
+                                        contentColor = WallTextOnPrimary
+                                    ),
+                                    shape = RoundedCornerShape(8.dp),
+                                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
+                                ) {
+                                    Text("View", fontWeight = FontWeight.SemiBold)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
