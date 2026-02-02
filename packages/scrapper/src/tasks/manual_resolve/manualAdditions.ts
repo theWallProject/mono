@@ -858,6 +858,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.pcmag.com/reviews/cyberghost-vpn"
     ],
     android_app_ids: ["de.mobileconcepts.cyberghost"],
+    alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
     _processed: true
   },
   {
@@ -1386,9 +1387,9 @@ export const manualAdditions: ManualAdditionItem[] = [
     urls: [
       "https://www.instagram.com/explore",
       "https://www.kape.com",
-      "https://www.reddit.com/r/Express_VPN/comments/pp6lwf/former_malware_distributor_kape_technologies_now",
-      "https://x.com/search"
+      "https://www.reddit.com/r/Express_VPN/comments/pp6lwf/former_malware_distributor_kape_technologies_now"
     ],
+    alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
     _processed: true
   },
   {
@@ -1811,6 +1812,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://chromewebstore.google.com/detail/private-internet-access-%E2%80%93/jplnlifepflhkbkgonidnobkakhmpnmh"
     ],
     android_app_ids: ["com.privateinternetaccess.android", "nu.tommie.inbrowser"],
+    alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
     _processed: true
   },
   {
@@ -2137,6 +2139,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://microsoftedge.microsoft.com/addons/detail/zenmate-free-vpn-%E2%80%93-best-v/kepdippgcikacmcdaijnponnfgljfbea",
       "https://www.npmjs.com/~zenmate"
     ],
+    alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
     _processed: true
   }
 ]
