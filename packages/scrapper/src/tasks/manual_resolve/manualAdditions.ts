@@ -841,7 +841,6 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://addons.mozilla.org/en-US/firefox/addon/cyberghost-cookie-cleaner",
       "https://addons.mozilla.org/en-US/firefox/addon/cyberghost-vpn-free-proxy",
       "https://addons.mozilla.org/en-US/firefox/user/13716131",
-      // todo: ignore us/gt parts in regex
       "https://apps.apple.com/gt/app/cyberghost-safe-private-vpn/id583009522",
       "https://apps.apple.com/us/app/cyberghost-safe-private-vpn/id583009522",
       "https://apps.microsoft.com/detail/xpdch2pggkq7t7",
@@ -2095,6 +2094,24 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://chromewebstore.google.com/detail/wordtune-ai-paraphrasing/nllcnknpjnininklegdoijpljgdjkijc",
       "https://microsoftedge.microsoft.com/addons/detail/wordtune-ai-paraphrasing/fgngodlaekdlibajobmkaklibdggemdd",
       "https://www.linkedin.com/newsletters/6995001803318681600"
+    ],
+    _processed: true
+  },
+  {
+    name: "ZenMate",
+    reasons: ["f"],
+    ws: ["https://zenmate.com"],
+    li: ["https://www.linkedin.com/company/zenguard-gmbh"],
+    fb: ["https://www.facebook.com/zenmate.io"],
+    tw: ["https://x.com/ZenMate"],
+    gh: ["https://github.com/zenmate"],
+    ytp: ["https://www.youtube.com/@zenmateofficial1959"],
+    urls: [
+      "https://account.zenmate.com",
+      "https://addons.mozilla.org/en-US/firefox/addon/zenmate-free-vpn-best",
+      "https://chromewebstore.google.com/detail/zenmate-gratis-vpn-chrome/edmnlkifbknbpkdlhmmhmhegdbacpfdg",
+      "https://microsoftedge.microsoft.com/addons/detail/zenmate-free-vpn-%E2%80%93-best-v/kepdippgcikacmcdaijnponnfgljfbea",
+      "https://www.npmjs.com/~zenmate"
     ],
     _processed: true
   }
