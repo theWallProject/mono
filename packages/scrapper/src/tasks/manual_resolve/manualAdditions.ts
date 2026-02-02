@@ -1190,6 +1190,40 @@ export const manualAdditions: ManualAdditionItem[] = [
     _processed: true
   },
   {
+    name: "ExpressVPN",
+    ws: ["https://www.expressvpn.com"],
+    reasons: ["f"],
+    li: ["https://www.linkedin.com/company/expressvpn"],
+    fb: ["https://www.facebook.com/ExpressVPN"],
+    tw: [
+      "https://x.com/2018ExpressVPN",
+      "https://x.com/ExpressVPN_DE",
+      "https://x.com/ExpressVPN_ES",
+      "https://x.com/ExpressVPN_IT",
+      "https://x.com/ExpressVPN_PT",
+      "https://x.com/Us_Expressvpn",
+      "https://x.com/expressvpn",
+      "https://x.com/expressvpn_cn"
+    ],
+    ig: ["https://www.instagram.com/expressvpn"],
+    gh: ["https://github.com/expressvpn"],
+    ytp: ["https://www.youtube.com/@ExpressVPN", "https://www.youtube.com/@ExpressVPNStudios"],
+    tt: ["https://www.tiktok.com/@expressvpn"],
+    th: ["https://www.threads.com/@expressvpn"],
+    urls: [
+      "https://apps.apple.com/us/app/expresskeys-password-manager/id6748346556",
+      "https://apps.apple.com/us/app/expressvpn-secure-fast-vpn/id886492891",
+      "https://apps.apple.com/us/app/holiday-com/id6738407696",
+      "https://apps.apple.com/us/developer/express-vpn/id1687252195",
+      "https://chromewebstore.google.com/detail/expressvpn-%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9-%D0%B2%D0%BF%D0%BD-%D0%B4%D0%BB/odgofcinnahbfjglcjkekbgoccgecklg",
+      "https://chromewebstore.google.com/detail/expressvpn-keys-password/blgcbajigpdfohpgcmbbfnphcgifjopc",
+      "https://chromewebstore.google.com/detail/expressvpn-vpn-proxy-for/fgddmllnllkalaagkghckoinaemmogpe"
+    ],
+    android_app_ids: ["com.expressvpn.vpn", "com.holiday.esim"],
+    alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
+    _processed: true
+  },
+  {
     name: "HP",
     reasons: ["BDS_PRIO"],
     ws: [
@@ -1309,6 +1343,20 @@ export const manualAdditions: ManualAdditionItem[] = [
     reasons: ["h"],
     ws: ["https://www.jedyapps.com/"],
     li: ["https://www.linkedin.com/company/jedyapps"]
+  },
+  {
+    name: "Kape Technologies",
+    ws: ["https://www.kape.com"],
+    reasons: ["f"],
+    li: ["https://www.linkedin.com/company/kape-technologies"],
+    gh: ["https://github.com/kapedata"],
+    urls: [
+      "https://www.instagram.com/explore",
+      "https://www.kape.com",
+      "https://www.reddit.com/r/Express_VPN/comments/pp6lwf/former_malware_distributor_kape_technologies_now",
+      "https://x.com/search"
+    ],
+    _processed: true
   },
   {
     name: "McDonalds",

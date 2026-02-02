@@ -23,7 +23,10 @@ export const upscrolledHints: CompressedManualItemType[] = [
       "com.facebook.lite",
       "com.instagram.android",
       // threads app
-      "com.instagram.barcelona"
+      "com.instagram.barcelona",
+      // tiktok app
+      "com.zhiliaoapp.musically",
+      "com.ss.android.ugc.tiktok.pro"
     ]
   }
 ]
