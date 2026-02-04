@@ -498,8 +498,15 @@ export function findHintByDomain(domain: string, database: FinalDBFileType[]): F
 
     return wsValues.some((wsValue) => {
       const wsDomain = getMainDomain(wsValue)
-      // Check if domains match (handles both "instagram.com" and "www.instagram.com")
-      return domain.includes(wsDomain) || wsDomain.includes(domain)
+      // Check for exact domain match or subdomain relationship
+      // Exact match: "instagram.com" === "instagram.com"
+      // Subdomain: "www.instagram.com" ends with ".instagram.com"
+      // Avoids false positives like "xbox.com" matching "x.com"
+      return (
+        domain === wsDomain ||
+        domain.endsWith(`.${wsDomain}`) ||
+        wsDomain.endsWith(`.${domain}`)
+      )
     })
   })
 

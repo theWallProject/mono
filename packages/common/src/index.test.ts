@@ -1184,7 +1184,18 @@ describe("findHintByDomain", () => {
       hintText: "Try Newscord!",
       hintUrl: "https://newscord.org"
     },
-    { id: "regular_wix", ws: "wix.com", r: ["h"], n: "Wix" }
+    { id: "regular_wix", ws: "wix.com", r: ["h"], n: "Wix" },
+    // Microsoft hint with xbox.com - used to test x.com vs xbox.com substring bug
+    {
+      id: "hint_microsoft",
+      ws: ["https://xbox.com", "https://microsoft.com"],
+      r: [],
+      n: "Microsoft",
+      isHint: true,
+      hintText: "Microsoft is a BDS target",
+      hintUrl: "https://bdsmovement.net/microsoft",
+      hintCompanyId: "microsoft_bds_prio"
+    }
   ]
 
   describe("Positive cases", () => {
@@ -1223,6 +1234,16 @@ describe("findHintByDomain", () => {
       const result = findHintByDomain("www.instagram.com", mockHintDb)
       expect(result?.id).toBe("hint_upscrolled")
     })
+
+    it("should find hint for xbox.com", () => {
+      const result = findHintByDomain("xbox.com", mockHintDb)
+      expect(result?.id).toBe("hint_microsoft")
+    })
+
+    it("should find hint for microsoft.com", () => {
+      const result = findHintByDomain("microsoft.com", mockHintDb)
+      expect(result?.id).toBe("hint_microsoft")
+    })
   })
 
   describe("Negative cases", () => {
@@ -1238,6 +1259,19 @@ describe("findHintByDomain", () => {
 
     it("should NOT find hint for empty database", () => {
       const result = findHintByDomain("instagram.com", [])
+      expect(result).toBeNull()
+    })
+
+    it("should NOT match x.com to xbox.com hint (substring false positive)", () => {
+      // This tests the critical bug where x.com was incorrectly matching xbox.com
+      // because "xbox.com".includes("x.com") returned true with old substring logic
+      const result = findHintByDomain("x.com", mockHintDb)
+      expect(result).toBeNull()
+    })
+
+    it("should NOT match partial domain substrings", () => {
+      // Ensure "book.com" doesn't match "facebook.com" hint
+      const result = findHintByDomain("book.com", mockHintDb)
       expect(result).toBeNull()
     })
   })
