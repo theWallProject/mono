@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
+import com.thewallboycott.android.R
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -118,7 +120,7 @@ fun ShareDialog(
                     ) {
                         Image(
                             bitmap = previewBitmap!!.asImageBitmap(),
-                            contentDescription = "Share preview",
+                            contentDescription = stringResource(R.string.cd_share_preview),
                             modifier = Modifier
                                 .fillMaxSize()
                                 .clip(RoundedCornerShape(16.dp))
@@ -183,7 +185,7 @@ fun ShareDialog(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Share",
+                    text = stringResource(R.string.btn_share),
                     fontWeight = FontWeight.SemiBold
                 )
             }
@@ -191,7 +193,7 @@ fun ShareDialog(
         dismissButton = {
             TextButton(onClick = onDismiss) {
                 Text(
-                    text = "Not now",
+                    text = stringResource(R.string.btn_not_now),
                     color = WallOnSurfaceVariant
                 )
             }
@@ -260,7 +262,7 @@ fun SupporterShareDialog(
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Maybe later", color = WallOnSurfaceVariant)
+                Text(stringResource(R.string.btn_maybe_later), color = WallOnSurfaceVariant)
             }
         }
     )

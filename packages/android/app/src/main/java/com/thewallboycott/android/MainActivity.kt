@@ -37,6 +37,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.thewallboycott.android.R
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -236,16 +237,16 @@ class MainActivity : ComponentActivity() {
                         Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
                             Image(
                                 painter = painterResource(id = R.drawable.ic_wall_shield),
-                                contentDescription = "The Wall",
+                                contentDescription = stringResource(R.string.scan_title),
                                 modifier = Modifier.size(28.dp),
                                 colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(WallTextOnPrimary)
                             )
                             Spacer(modifier = Modifier.width(10.dp))
                             Text(
                                 text = when (currentScreen) {
-                                    is Screen.List -> "The Wall"
-                                    is Screen.UrlLookup -> "Lookup"
-                                    is Screen.Support -> "Support"
+                                    is Screen.List -> stringResource(R.string.scan_title)
+                                    is Screen.UrlLookup -> stringResource(R.string.nav_lookup)
+                                    is Screen.Support -> stringResource(R.string.nav_support)
                                 },
                                 fontWeight = FontWeight.Bold
                             )
@@ -257,7 +258,7 @@ class MainActivity : ComponentActivity() {
                             IconButton(onClick = { refreshTrigger++ }) {
                                 Icon(
                                     Icons.Filled.Refresh,
-                                    contentDescription = "Refresh",
+                                    contentDescription = stringResource(R.string.cd_refresh),
                                     tint = WallTextOnPrimary
                                 )
                             }
@@ -268,7 +269,7 @@ class MainActivity : ComponentActivity() {
                         }) {
                             Icon(
                                 Icons.Filled.Share,
-                                contentDescription = "Share",
+                                contentDescription = stringResource(R.string.cd_share),
                                 tint = WallTextOnPrimary
                             )
                         }
@@ -293,13 +294,13 @@ class MainActivity : ComponentActivity() {
                         icon = {
                             Icon(
                                 Icons.Filled.PhoneAndroid,
-                                contentDescription = "My Apps",
+                                contentDescription = stringResource(R.string.nav_my_apps),
                                 modifier = Modifier.size(if (isListSelected) 28.dp else 24.dp)
                             )
                         },
                         label = {
                             Text(
-                                "My Apps",
+                                stringResource(R.string.nav_my_apps),
                                 fontSize = 14.sp,
                                 fontWeight = if (isListSelected) FontWeight.Bold else FontWeight.Normal
                             )
@@ -318,13 +319,13 @@ class MainActivity : ComponentActivity() {
                         icon = {
                             Icon(
                                 Icons.Filled.Search,
-                                contentDescription = "Lookup",
+                                contentDescription = stringResource(R.string.nav_lookup),
                                 modifier = Modifier.size(if (isUrlSelected) 28.dp else 24.dp)
                             )
                         },
                         label = {
                             Text(
-                                "Lookup",
+                                stringResource(R.string.nav_lookup),
                                 fontSize = 14.sp,
                                 fontWeight = if (isUrlSelected) FontWeight.Bold else FontWeight.Normal
                             )
@@ -343,13 +344,13 @@ class MainActivity : ComponentActivity() {
                         icon = {
                             Icon(
                                 Icons.Filled.Favorite,
-                                contentDescription = "Support",
+                                contentDescription = stringResource(R.string.nav_support),
                                 modifier = Modifier.size(if (isSupportSelected) 28.dp else 24.dp)
                             )
                         },
                         label = {
                             Text(
-                                "Support",
+                                stringResource(R.string.nav_support),
                                 fontSize = 14.sp,
                                 fontWeight = if (isSupportSelected) FontWeight.Bold else FontWeight.Normal
                             )

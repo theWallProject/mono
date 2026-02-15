@@ -64,7 +64,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("My phone is clean!", IMAGE_SIZE / 2f, 420f, headerPaint)
+        canvas.drawText(context.getString(R.string.share_image_clean_header), IMAGE_SIZE / 2f, 420f, headerPaint)
 
         // Draw "0 Israeli apps found 🎉" in success green at y=600
         val appNamePaint = Paint().apply {
@@ -74,7 +74,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("0 Israeli apps found 🎉", IMAGE_SIZE / 2f, 600f, appNamePaint)
+        canvas.drawText(context.getString(R.string.share_image_clean_count), IMAGE_SIZE / 2f, 600f, appNamePaint)
 
         // Draw CTA text at y=820
         val ctaPaint = Paint().apply {
@@ -85,7 +85,7 @@ class ShareImageGenerator(private val context: Context) {
             alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText("Scan YOUR phone and see for yourself!", IMAGE_SIZE / 2f, 820f, ctaPaint)
+        canvas.drawText(context.getString(R.string.share_image_clean_cta), IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -121,8 +121,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        val plural = if (count == 1) "" else "s"
-        canvas.drawText("I found $count Israeli app$plural on my phone!", IMAGE_SIZE / 2f, 420f, headerPaint)
+        canvas.drawText(context.resources.getQuantityString(R.plurals.share_image_flagged_header, count, count), IMAGE_SIZE / 2f, 420f, headerPaint)
 
         // Draw app names in Israeli blue with icons
         val appNamePaint = Paint().apply {
@@ -184,7 +183,7 @@ class ShareImageGenerator(private val context: Context) {
                 typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
                 isAntiAlias = true
             }
-            canvas.drawText("and more!", IMAGE_SIZE / 2f, startY + lineHeight * 2, morePaint)
+            canvas.drawText(context.getString(R.string.share_image_flagged_and_more), IMAGE_SIZE / 2f, startY + lineHeight * 2, morePaint)
         }
 
         // Draw CTA text at y=820
@@ -196,7 +195,7 @@ class ShareImageGenerator(private val context: Context) {
             alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText("Scan your phone NOW and protect yourself!", IMAGE_SIZE / 2f, 820f, ctaPaint)
+        canvas.drawText(context.getString(R.string.share_image_flagged_cta), IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -229,7 +228,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("I removed this Israeli app from my phone:", IMAGE_SIZE / 2f, 420f, headerPaint)
+        canvas.drawText(context.getString(R.string.share_image_removed_header), IMAGE_SIZE / 2f, 420f, headerPaint)
 
         // Draw app icon if available at y=540
         val appNameY: Float
@@ -260,7 +259,7 @@ class ShareImageGenerator(private val context: Context) {
             alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText("Scan your phone NOW and protect yourself!", IMAGE_SIZE / 2f, 865f, ctaPaint)
+        canvas.drawText(context.getString(R.string.share_image_removed_cta), IMAGE_SIZE / 2f, 865f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -292,7 +291,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("I support the resistance!", IMAGE_SIZE / 2f, 420f, headerPaint)
+        canvas.drawText(context.getString(R.string.share_image_supporter_header), IMAGE_SIZE / 2f, 420f, headerPaint)
 
         // Draw subtitle in Israeli blue at y=560
         val subtitlePaint = Paint().apply {
@@ -302,7 +301,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("Monthly Supporter", IMAGE_SIZE / 2f, 560f, subtitlePaint)
+        canvas.drawText(context.getString(R.string.share_image_supporter_subtitle), IMAGE_SIZE / 2f, 560f, subtitlePaint)
 
         // Draw CTA text at y=820
         val ctaPaint = Paint().apply {
@@ -313,7 +312,7 @@ class ShareImageGenerator(private val context: Context) {
             alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText("\$1/month keeps the app free for everyone", IMAGE_SIZE / 2f, 820f, ctaPaint)
+        canvas.drawText(context.getString(R.string.share_image_supporter_cta), IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)
@@ -345,7 +344,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("Know what's on your phone", IMAGE_SIZE / 2f, 420f, headerPaint)
+        canvas.drawText(context.getString(R.string.share_image_general_header), IMAGE_SIZE / 2f, 420f, headerPaint)
 
         // Draw subtitle in Israeli blue at y=560
         val subtitlePaint = Paint().apply {
@@ -355,7 +354,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText("Scan Now", IMAGE_SIZE / 2f, 560f, subtitlePaint)
+        canvas.drawText(context.getString(R.string.share_image_general_subtitle), IMAGE_SIZE / 2f, 560f, subtitlePaint)
 
         // Draw CTA text at y=820
         val ctaPaint = Paint().apply {
@@ -366,7 +365,7 @@ class ShareImageGenerator(private val context: Context) {
             alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText("20,000+ companies tracked. One tap to know.", IMAGE_SIZE / 2f, 820f, ctaPaint)
+        canvas.drawText(context.getString(R.string.share_image_general_cta), IMAGE_SIZE / 2f, 820f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)

@@ -1,5 +1,6 @@
 package com.thewallboycott.android.data
 
+import com.thewallboycott.android.R
 import com.thewallboycott.android.data.models.Reason
 import com.thewallboycott.android.data.models.ReasonLevel
 
@@ -12,11 +13,11 @@ import com.thewallboycott.android.data.models.ReasonLevel
 // This is used by both the App Scanner and the URL Lookup features.
 // ----------------------------------------------------------------------------------
 val reasonsMap = mapOf(
-    "h" to Reason("Headquarters: Israel", ReasonLevel.ERROR),
-    "i" to Reason("Has one or more Israeli investors", ReasonLevel.WARNING),
-    "f" to Reason("Founder from Israel", ReasonLevel.ERROR),
-    "u" to Reason("Israeli URL", ReasonLevel.ERROR),
-    "BDS_PRIO" to Reason("BDS Priority Target — Consumer Boycott", ReasonLevel.ERROR),
-    "BDS_GRASS" to Reason("BDS Target — Grassroots Campaign", ReasonLevel.ERROR),
-    "BDS_PRESSURE" to Reason("BDS Target — Pressure Campaign", ReasonLevel.WARNING)
+    "h" to Reason(R.string.reason_headquarters, ReasonLevel.ERROR),
+    "i" to Reason(R.string.reason_investor, ReasonLevel.WARNING),
+    "f" to Reason(R.string.reason_founder, ReasonLevel.ERROR),
+    "u" to Reason(R.string.reason_url, ReasonLevel.ERROR),
+    "BDS_PRIO" to Reason(R.string.reason_bds_priority, ReasonLevel.ERROR),
+    "BDS_GRASS" to Reason(R.string.reason_bds_grassroots, ReasonLevel.ERROR),
+    "BDS_PRESSURE" to Reason(R.string.reason_bds_pressure, ReasonLevel.WARNING)
 )

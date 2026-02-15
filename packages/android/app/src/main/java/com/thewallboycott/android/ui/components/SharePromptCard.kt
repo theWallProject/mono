@@ -9,8 +9,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.thewallboycott.android.R
 import com.thewallboycott.android.share.ShareContent
 import com.thewallboycott.android.share.ShareScenario
 import com.thewallboycott.android.ui.theme.*
@@ -164,7 +166,7 @@ fun ShareIconButton(
     ) {
         Icon(
             Icons.Default.Share,
-            contentDescription = "Share",
+            contentDescription = stringResource(R.string.cd_share),
             tint = tint
         )
     }

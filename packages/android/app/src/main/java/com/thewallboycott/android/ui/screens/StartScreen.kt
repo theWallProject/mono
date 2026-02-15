@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -63,7 +64,7 @@ fun WallLogo(size: Dp, modifier: Modifier = Modifier) {
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_wall_shield),
-            contentDescription = "The Wall Logo",
+            contentDescription = stringResource(R.string.cd_wall_logo),
             modifier = Modifier.size(size * 0.6f)
         )
     }
@@ -123,7 +124,7 @@ fun StartScreen(
             Column {
                 // App Name
                 Text(
-                    text = "The Wall",
+                    text = stringResource(R.string.scan_title),
                     style = MaterialTheme.typography.displaySmall.copy(
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 1.sp
@@ -135,7 +136,7 @@ fun StartScreen(
 
                 // Tagline
                 Text(
-                    text = "Boycott Assistant",
+                    text = stringResource(R.string.scan_tagline),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onBackground
                 )
@@ -146,7 +147,7 @@ fun StartScreen(
 
         // Description
         Text(
-            text = "Take a stand with every tap. Scan your apps, uncover connections to Israeli apartheid, and switch to ethical alternatives that align with your values.",
+            text = stringResource(R.string.scan_description),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Center,
@@ -168,7 +169,7 @@ fun StartScreen(
             shape = RoundedCornerShape(12.dp)
         ) {
             Text(
-                text = "Scan Installed Apps",
+                text = stringResource(R.string.scan_button),
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.SemiBold
                 )

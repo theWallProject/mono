@@ -17,6 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.thewallboycott.android.R
 import com.thewallboycott.android.ui.theme.WallPrimaryDark
 import com.thewallboycott.android.ui.theme.WallTextOnPrimary
 
@@ -30,13 +32,13 @@ fun PermissionRequestScreen(onRequestPermission: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            "Let's Get You Set Up",
+            stringResource(R.string.permission_headline),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            "To scan your apps against our local boycott database, we need permission to see what's installed. Your data stays on your device—always.",
+            stringResource(R.string.permission_body),
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.height(24.dp))
@@ -48,7 +50,7 @@ fun PermissionRequestScreen(onRequestPermission: () -> Unit) {
             ),
             shape = RoundedCornerShape(12.dp)
         ) {
-            Text("Grant Access")
+            Text(stringResource(R.string.btn_grant_access))
         }
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import androidx.core.content.FileProvider
+import com.thewallboycott.android.R
 import java.io.File
 import java.io.FileOutputStream
 
@@ -119,7 +120,7 @@ class ShareManager(private val context: Context) {
      * Get content for the "no apps found" scenario.
      */
     fun getNoAppsFoundContent(): ShareContent {
-        return ShareContentGenerator.noAppsFound()
+        return ShareContentGenerator.noAppsFound(context)
     }
 
     /**
@@ -127,6 +128,7 @@ class ShareManager(private val context: Context) {
      */
     fun getAppsFoundContent(flaggedCount: Int, firstAppName: String?): ShareContent {
         return ShareContentGenerator.appsFound(
+            context,
             ScanShareData(
                 flaggedCount = flaggedCount,
                 firstAppName = firstAppName
@@ -138,7 +140,7 @@ class ShareManager(private val context: Context) {
      * Get content for the "app removed" scenario.
      */
     fun getAppRemovedContent(appName: String): ShareContent {
-        return ShareContentGenerator.appRemoved(appName)
+        return ShareContentGenerator.appRemoved(context, appName)
     }
 
     /**
@@ -146,6 +148,7 @@ class ShareManager(private val context: Context) {
      */
     fun getUrlMatchContent(companyName: String, reasonSummary: String?): ShareContent {
         return ShareContentGenerator.urlMatchFound(
+            context,
             UrlShareData(
                 companyName = companyName,
                 reasonSummary = reasonSummary,
@@ -158,28 +161,28 @@ class ShareManager(private val context: Context) {
      * Get content for URL clean result.
      */
     fun getUrlCleanContent(companyName: String): ShareContent {
-        return ShareContentGenerator.urlClean(companyName)
+        return ShareContentGenerator.urlClean(context, companyName)
     }
 
     /**
      * Get content for new supporter.
      */
     fun getSupporterContent(): ShareContent {
-        return ShareContentGenerator.newSupporter()
+        return ShareContentGenerator.newSupporter(context)
     }
 
     /**
      * Get content for general sharing.
      */
     fun getGeneralContent(): ShareContent {
-        return ShareContentGenerator.general()
+        return ShareContentGenerator.general(context)
     }
 
     /**
      * Get content for challenge/dare sharing.
      */
     fun getChallengeContent(): ShareContent {
-        return ShareContentGenerator.challenge()
+        return ShareContentGenerator.challenge(context)
     }
 
     // ========================================================================
@@ -195,7 +198,7 @@ class ShareManager(private val context: Context) {
             putExtra(Intent.EXTRA_TEXT, content.shareText)
         }
         context.startActivity(
-            Intent.createChooser(intent, "Share via").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent.createChooser(intent, context.getString(R.string.chooser_share_via)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         )
         recordShare()
     }
@@ -233,7 +236,7 @@ class ShareManager(private val context: Context) {
                 when (additionalData) {
                     is AppRemovedData -> imageGenerator.generateAppRemovedImage(additionalData.appName, additionalData.appIcon)
                     is String -> imageGenerator.generateAppRemovedImage(additionalData)
-                    else -> imageGenerator.generateAppRemovedImage("App")
+                    else -> imageGenerator.generateAppRemovedImage(context.getString(R.string.share_fallback_app_name))
                 }
             }
             ImageTemplate.SUPPORTER -> imageGenerator.generateSupporterImage()
@@ -284,7 +287,7 @@ class ShareManager(private val context: Context) {
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
         context.startActivity(
-            Intent.createChooser(intent, "Share via").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent.createChooser(intent, context.getString(R.string.chooser_share_via)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         )
     }
 

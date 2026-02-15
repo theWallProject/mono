@@ -283,7 +283,7 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
         )
 
         val title = app.displayName
-        val text = "Israeli app detected • ${app.itemInfo.n}"
+        val text = appContext.getString(R.string.scan_worker_notification, app.itemInfo.n)
 
         return NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setContentTitle(title)
@@ -292,8 +292,8 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setAutoCancel(true)
             .setContentIntent(contentPendingIntent)
-            .addAction(0, "Ignore", ignorePendingIntent)
-            .addAction(0, "Remind Later", snoozePendingIntent)
+            .addAction(0, appContext.getString(R.string.notif_action_ignore), ignorePendingIntent)
+            .addAction(0, appContext.getString(R.string.notif_action_remind_later), snoozePendingIntent)
             .build()
     }
 
@@ -309,8 +309,8 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
     private fun createProgressNotification(): android.app.Notification {
         createNotificationChannel()
         return NotificationCompat.Builder(appContext, CHANNEL_ID)
-            .setContentTitle("Background Scan")
-            .setContentText("Scanning apps for matches...")
+            .setContentTitle(appContext.getString(R.string.notif_progress_title))
+            .setContentText(appContext.getString(R.string.notif_progress_text))
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setOngoing(true)
@@ -319,8 +319,8 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Background Scans"
-            val descriptionText = "Notifications for periodic app scans and detected boycotted apps."
+            val name = appContext.getString(R.string.notif_channel_name)
+            val descriptionText = appContext.getString(R.string.notif_channel_description)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText

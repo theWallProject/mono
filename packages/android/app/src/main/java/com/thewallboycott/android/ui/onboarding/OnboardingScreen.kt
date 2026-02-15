@@ -56,6 +56,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -93,25 +94,25 @@ fun OnboardingScreen(
         modifier = Modifier.fillMaxSize(),
         color = WallBackground
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            // Pager with pages
-            HorizontalPager(
-                state = pagerState,
-                modifier = Modifier.fillMaxSize()
-            ) { page ->
-                when (page) {
+Box(modifier = Modifier.fillMaxSize()) {
+             // Pager with pages
+             HorizontalPager(
+                 state = pagerState,
+                 modifier = Modifier.fillMaxSize()
+             ) { page ->
+                 when (page) {
                     0 -> WelcomePage(onNext = ::goToNextPage)
                     1 -> ShareToScanPage(onNext = ::goToNextPage)
                     2 -> NotificationPage(
                         onContinue = {
-                            coroutineScope.launch {
-                                pagerState.animateScrollToPage(3)
-                            }
-                        }
-                    )
-                    3 -> CompletionPage(onComplete = onComplete)
-                }
-            }
+                             coroutineScope.launch {
+                                 pagerState.animateScrollToPage(3)
+                             }
+                         }
+                     )
+                     3 -> CompletionPage(onComplete = onComplete)
+                 }
+             }
 
             // Skip button (top right) - visible on pages 0-2
             if (pagerState.currentPage < PAGE_COUNT - 1) {
@@ -122,7 +123,7 @@ fun OnboardingScreen(
                         .padding(16.dp)
                 ) {
                     Text(
-                        text = "Skip",
+                        text = stringResource(R.string.btn_skip),
                         color = WallOnSurfaceVariant
                     )
                 }
@@ -158,8 +159,8 @@ private fun WelcomePage(onNext: () -> Unit) {
     )
 
     OnboardingPage(
-        headline = "Take a Stand With Every Tap",
-        body = "Scan your apps, uncover Israeli connections, and switch to ethical alternatives that align with your values.",
+        headline = stringResource(R.string.onboarding_welcome_headline),
+        body = stringResource(R.string.onboarding_welcome_body),
         visual = {
             Box(modifier = Modifier.scale(scale)) {
                 WallLogo(size = 100.dp)
@@ -176,15 +177,15 @@ private fun WelcomePage(onNext: () -> Unit) {
                 ) {
                     TrustBadge(
                         icon = Icons.Filled.WifiOff,
-                        label = "Offline"
+                        label = stringResource(R.string.trust_badge_offline)
                     )
                     TrustBadge(
                         icon = Icons.Filled.Lock,
-                        label = "Private"
+                        label = stringResource(R.string.trust_badge_private)
                     )
                     TrustBadge(
                         icon = Icons.Filled.Check,
-                        label = "Free"
+                        label = stringResource(R.string.trust_badge_free)
                     )
                 }
 
@@ -201,7 +202,7 @@ private fun WelcomePage(onNext: () -> Unit) {
                     shape = RoundedCornerShape(12.dp)
                 ) {
                     Text(
-                        text = "Next",
+                        text = stringResource(R.string.btn_next),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.SemiBold
                         )
@@ -219,8 +220,8 @@ private fun WelcomePage(onNext: () -> Unit) {
 @Composable
 private fun ShareToScanPage(onNext: () -> Unit) {
     OnboardingPage(
-        headline = "Check Any Link Instantly",
-        body = "See something suspicious? Share it to The Wall from any app—browser, social media, messages. We'll tell you if it's flagged.",
+        headline = stringResource(R.string.onboarding_share_headline),
+        body = stringResource(R.string.onboarding_share_body),
         visual = {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -236,7 +237,7 @@ private fun ShareToScanPage(onNext: () -> Unit) {
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Share,
-                        contentDescription = "Share",
+                        contentDescription = stringResource(R.string.cd_share),
                         modifier = Modifier.size(32.dp),
                         tint = WallPrimary
                     )
@@ -268,7 +269,7 @@ private fun ShareToScanPage(onNext: () -> Unit) {
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
-                    text = "Next",
+                    text = stringResource(R.string.btn_next),
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.SemiBold
                     )
@@ -309,11 +310,11 @@ private fun NotificationPage(
     }
 
     OnboardingPage(
-        headline = "Never Miss a Flagged App",
+        headline = stringResource(R.string.onboarding_notif_headline),
         body = when (permissionState) {
-            1 -> "Notifications enabled! You'll be alerted when you install a flagged app."
-            2 -> "No worries—you can enable this later in Settings."
-            else -> "When you install a new app, we automatically check it against our database. Get notified instantly if it's on the list."
+            1 -> stringResource(R.string.onboarding_notif_enabled_body)
+            2 -> stringResource(R.string.onboarding_notif_denied_body)
+            else -> stringResource(R.string.onboarding_notif_body)
         },
         visual = {
             // Bell icon with shield overlay
@@ -323,7 +324,7 @@ private fun NotificationPage(
             ) {
                 Icon(
                     imageVector = Icons.Filled.Notifications,
-                    contentDescription = "Notifications",
+                    contentDescription = stringResource(R.string.cd_notifications),
                     modifier = Modifier.size(64.dp),
                     tint = when (permissionState) {
                         1 -> WallSuccessAccent
@@ -378,7 +379,7 @@ private fun NotificationPage(
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Text(
-                            text = "Enable Notifications",
+                            text = stringResource(R.string.notif_enable),
                             style = MaterialTheme.typography.titleMedium.copy(
                                 fontWeight = FontWeight.SemiBold
                             )
@@ -388,7 +389,7 @@ private fun NotificationPage(
                     // Maybe Later text button
                     TextButton(onClick = onContinue) {
                         Text(
-                            text = "Maybe Later",
+                            text = stringResource(R.string.btn_maybe_later),
                             color = WallOnSurfaceVariant
                         )
                     }
@@ -407,8 +408,8 @@ private fun CompletionPage(
     onComplete: () -> Unit
 ) {
     OnboardingPage(
-        headline = "We're Just Getting Started",
-        body = "Our database grows daily with new companies and alternatives. Updates coming with more data, new features, and improved detection.",
+        headline = stringResource(R.string.onboarding_complete_headline),
+        body = stringResource(R.string.onboarding_complete_body),
         visual = {
             Box(
                 modifier = Modifier
@@ -419,7 +420,7 @@ private fun CompletionPage(
             ) {
                 Icon(
                     imageVector = Icons.Filled.RocketLaunch,
-                    contentDescription = "Getting Started",
+                    contentDescription = stringResource(R.string.cd_getting_started),
                     modifier = Modifier.size(48.dp),
                     tint = WallPrimary
                 )
@@ -438,7 +439,7 @@ private fun CompletionPage(
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
-                    text = "Start Scanning",
+                    text = stringResource(R.string.btn_start_scanning),
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.SemiBold
                     )

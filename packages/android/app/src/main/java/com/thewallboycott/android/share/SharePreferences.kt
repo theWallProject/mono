@@ -2,12 +2,13 @@ package com.thewallboycott.android.share
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.thewallboycott.android.R
 
 /**
  * Manages share-related preferences including cooldowns, frequency caps,
  * and tracking for gamification features.
  */
-class SharePreferences(context: Context) {
+class SharePreferences(private val context: Context) {
 
     private val prefs: SharedPreferences = context.getSharedPreferences(
         PREFS_NAME,
@@ -226,12 +227,17 @@ class SharePreferences(context: Context) {
     /**
      * Get the milestone name for a tier.
      */
-    fun getMilestoneName(tier: Int): String = when (tier) {
-        1 -> "First Share"
-        5 -> "Voice of Change"
-        10 -> "Advocate"
-        25 -> "Champion"
-        else -> ""
+    fun getMilestoneNameResId(tier: Int): Int = when (tier) {
+        1 -> R.string.milestone_first_share
+        5 -> R.string.milestone_voice_of_change
+        10 -> R.string.milestone_advocate
+        25 -> R.string.milestone_champion
+        else -> 0
+    }
+
+    fun getMilestoneName(tier: Int): String {
+        val resId = getMilestoneNameResId(tier)
+        return if (resId != 0) context.getString(resId) else ""
     }
 
     /**

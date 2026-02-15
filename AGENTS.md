@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI Agents when working with code in this repository.
 
 ## Project Overview
 
@@ -93,6 +93,7 @@ The Android app uses a streamlined release workflow:
 5. **Output**: Signed APK is placed in `release-output/thewall-v{version}.apk`
 
 **Screenshot capture (fully automated):**
+
 - Start phone and tablet emulators (app will be auto-installed)
 - Run `pnpm screenshots` - builds APK, installs, navigates through all screens, captures 4 shots per device
 - Auto-detects phone vs tablet based on screen size
@@ -233,6 +234,29 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 - `BillingManager` in `data/billing/` handles connection, purchases, and acknowledgment
 - Ko-fi available as fallback for users outside Play Store ecosystem
 
+### Android Localization
+
+All user-facing strings MUST be in `res/values/strings.xml` and referenced via string resources. No hardcoded strings in Kotlin source files.
+
+**In Composables:** Use `stringResource(R.string.xxx)` (Compose-native, auto-recomposes on locale change). Import: `import androidx.compose.ui.res.stringResource`
+
+**In non-Composable code** (ScanWorker, ShareContent, ShareManager, etc.): Use `context.getString(R.string.xxx)` since no Compose scope is available.
+
+**Plurals:** Use `pluralStringResource(R.plurals.xxx, count, count)` in Composables, `context.resources.getQuantityString(R.plurals.xxx, count, count)` outside.
+
+**Rules:**
+
+1. Every user-visible string (labels, buttons, descriptions, notifications, content descriptions, share text) goes in `strings.xml`
+2. Do NOT use `formatted="false"` when the string has format arguments (`%s`, `%d`, `%1$s`)
+3. Do NOT add `formatted="false"` to strings that have no format arguments (it's the default)
+4. Use `%s` for single args, `%1$s`/`%2$s` for multiple args in the same string
+5. Use `<plurals>` for count-dependent strings
+6. Technical strings (log messages, package IDs, URLs, channel IDs) stay in code
+7. Content descriptions (`contentDescription`) should use string resources too
+8. Escape apostrophes as `\'` or wrap the string in `"double quotes"` in XML
+
+**Key file:** `packages/android/app/src/main/res/values/strings.xml`
+
 ## Translations
 
 The addon supports multiple languages: English, Arabic, Indonesian, Malay, Bengali, French, Dutch, Simplified Chinese, Traditional Chinese.
@@ -303,7 +327,7 @@ Softer warnings for companies/services without Israeli connections (e.g., media 
 - **Backward Compatibility**: Check both storage keys - per-hint-ID first (for old dismissals), then company-level
 - **Company Groupings**:
   - `newscord_media_bias`: All news site hints (BBC, CNN, Fox News, NYT, WSJ, etc.)
-  - `thaura_ai_chat`: All AI chat hints (ChatGPT, Claude, Grok)
+  - `thaura_ai_chat`: All AI chat hints
   - `microsoft_bds_prio`: Microsoft BDS consumer boycott priority hint
 
 ## Important Patterns

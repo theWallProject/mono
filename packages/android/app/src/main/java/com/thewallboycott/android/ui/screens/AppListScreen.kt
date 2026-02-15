@@ -36,6 +36,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import com.thewallboycott.android.R
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
@@ -307,7 +309,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                         )
                                         Spacer(modifier = Modifier.width(12.dp))
                                         Text(
-                                            text = "Auto-Scan New Apps",
+                                            text = stringResource(R.string.notif_title),
                                             style = MaterialTheme.typography.titleMedium,
                                             fontWeight = FontWeight.Bold,
                                             color = WallOnSurface,
@@ -319,15 +321,15 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                         ) {
                                             Icon(
                                                 Icons.Default.Close,
-                                                contentDescription = "Dismiss",
+                                                contentDescription = stringResource(R.string.cd_dismiss),
                                                 tint = WallOnSurfaceVariant,
                                                 modifier = Modifier.size(18.dp)
                                             )
                                         }
                                     }
                                     Spacer(modifier = Modifier.height(8.dp))
-                                    Text(
-                                        text = "When you install a new app, we'll automatically check it against our database and notify you if it's flagged. Saves you the manual lookup.",
+                                        Text(
+                                            text = stringResource(R.string.notif_description),
                                         style = MaterialTheme.typography.bodyMedium,
                                         color = WallOnSurfaceVariant
                                     )
@@ -350,7 +352,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                         )
                                         Spacer(modifier = Modifier.width(8.dp))
                                         Text(
-                                            "Turn On Auto-Scan",
+                                            stringResource(R.string.notif_turn_on),
                                             fontWeight = FontWeight.SemiBold
                                         )
                                     }
@@ -363,7 +365,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                     if (blacklistedApps.isNotEmpty()) {
                         item {
                             Text(
-                                "Israeli Apps - EWWW!",
+                                stringResource(R.string.section_israeli_apps),
                                 style = MaterialTheme.typography.headlineSmall,
                                 modifier = Modifier.padding(bottom = 8.dp),
                                 fontWeight = FontWeight.Bold,
@@ -415,7 +417,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                         item {
                             Spacer(modifier = Modifier.height(if (blacklistedApps.isNotEmpty()) 16.dp else 0.dp))
                             Text(
-                                "On the BDS List",
+                                stringResource(R.string.section_bds_list),
                                 style = MaterialTheme.typography.headlineSmall,
                                 modifier = Modifier.padding(bottom = 8.dp),
                                 fontWeight = FontWeight.Bold,
@@ -465,13 +467,13 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                         Spacer(modifier = Modifier.width(12.dp))
                                         Column(modifier = Modifier.weight(1f)) {
                                             Text(
-                                                "You're Making a Difference!",
+                                                stringResource(R.string.status_clean),
                                                 style = MaterialTheme.typography.titleLarge,
                                                 color = WallSuccessAccent,
                                                 fontWeight = FontWeight.Bold
                                             )
                                             Text(
-                                                "No flagged apps found. Your choices matter.",
+                                                stringResource(R.string.status_clean_description),
                                                 style = MaterialTheme.typography.bodyMedium,
                                                 color = WallSuccessAccent.copy(alpha = 0.8f)
                                             )
@@ -496,7 +498,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                                         )
                                         Spacer(modifier = Modifier.width(8.dp))
                                         Text(
-                                            "Dare a Friend to Scan Theirs",
+                                            stringResource(R.string.btn_dare_friend),
                                             fontWeight = FontWeight.SemiBold
                                         )
                                     }
@@ -527,7 +529,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
-                                "Better Alternatives Available",
+                                stringResource(R.string.section_alternatives),
                                 style = MaterialTheme.typography.headlineSmall,
                                 modifier = Modifier.padding(bottom = 8.dp),
                                 fontWeight = FontWeight.Bold,
@@ -556,7 +558,7 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
-                                "Aligned With Your Values",
+                                stringResource(R.string.section_aligned),
                                 style = MaterialTheme.typography.headlineSmall,
                                 modifier = Modifier.padding(bottom = 8.dp),
                                 fontWeight = FontWeight.Bold,
@@ -757,18 +759,21 @@ fun AppInfoCard(
                     if (itemInfo != null) {
                         if (itemInfo.isHint == true) {
                             Text(
-                                text = itemInfo.hintText ?: "A better alternative exists",
+                                text = itemInfo.hintText ?: stringResource(R.string.hint_alternative_exists),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = bodyColor
                             )
                         } else {
                             val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
-                            val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
-                            Text(
-                                text = reasonMessages,
-                                style = MaterialTheme.typography.bodySmall,
-                                color = bodyColor
-                            )
+                            Column {
+                                reasons.forEach { reason ->
+                                    Text(
+                                        text = "• ${stringResource(reason.messageResId)}",
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = bodyColor
+                                    )
+                                }
+                            }
                         }
                     } else {
                         Text(
@@ -792,42 +797,35 @@ fun AppInfoCard(
                             ),
                             shape = RoundedCornerShape(8.dp)
                         ) {
-                            Text("Switch")
+                            Text(stringResource(R.string.btn_switch))
                         }
                     } else {
                         IconButton(onClick = { onUninstallClicked(app.packageName) }) {
                             Icon(
                                 Icons.Default.Delete,
-                                contentDescription = "Uninstall App",
+                                contentDescription = stringResource(R.string.cd_uninstall_app),
                                 tint = WallPrimary
                             )
                         }
                     }
                 } else {
                     // Flag/report button for safe apps
+                    val reportSubject = stringResource(R.string.report_subject, appName)
+                    val reportBody = stringResource(R.string.report_body, appName, app.packageName)
+                    val chooserTitle = stringResource(R.string.chooser_report_app)
                     IconButton(
                         onClick = {
-                            val subject = "Report: $appName"
-                            val body = """
-                                |I'd like to report this app for review:
-                                |
-                                |App Name: $appName
-                                |Package ID: ${app.packageName}
-                                |
-                                |Reason for report:
-                                |
-                            """.trimMargin()
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
                                 data = Uri.parse("mailto:app@thewall.bot")
-                                putExtra(Intent.EXTRA_SUBJECT, subject)
-                                putExtra(Intent.EXTRA_TEXT, body)
+                                putExtra(Intent.EXTRA_SUBJECT, reportSubject)
+                                putExtra(Intent.EXTRA_TEXT, reportBody)
                             }
-                            context.startActivity(Intent.createChooser(intent, "Report App"))
+                            context.startActivity(Intent.createChooser(intent, chooserTitle))
                         }
                     ) {
                         Icon(
                             Icons.Default.Flag,
-                            contentDescription = "Report App",
+                            contentDescription = stringResource(R.string.cd_report_app),
                             tint = WallOnSurfaceVariant
                         )
                     }
@@ -845,7 +843,7 @@ fun AppInfoCard(
                 ) {
                     Column(modifier = Modifier.padding(12.dp)) {
                         Text(
-                            text = "Try These Instead:",
+                            text = stringResource(R.string.btn_try_these_instead),
                             style = MaterialTheme.typography.labelMedium,
                             fontWeight = FontWeight.SemiBold,
                             color = WallOnSecondaryContainer
@@ -875,7 +873,7 @@ fun AppInfoCard(
                                     shape = RoundedCornerShape(8.dp),
                                     contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                                 ) {
-                                    Text("View", fontWeight = FontWeight.SemiBold)
+                                    Text(stringResource(R.string.btn_view), fontWeight = FontWeight.SemiBold)
                                 }
                             }
                         }
@@ -933,18 +931,21 @@ fun BdsAppInfoCard(
                         color = WallBdsAccent
                     )
                     val reasons = itemInfo.r.mapNotNull { reasonsMap[it] }
-                    val reasonMessages = reasons.joinToString(separator = "\n") { "• ${it.message}" }
-                    Text(
-                        text = reasonMessages,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = WallOnBdsContainer
-                    )
+                    Column {
+                        reasons.forEach { reason ->
+                            Text(
+                                text = "• ${stringResource(reason.messageResId)}",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = WallOnBdsContainer
+                            )
+                        }
+                    }
                 }
 
                 IconButton(onClick = { onUninstallClicked(app.packageName) }) {
                     Icon(
                         Icons.Default.Delete,
-                        contentDescription = "Uninstall App",
+                        contentDescription = stringResource(R.string.cd_uninstall_app),
                         tint = WallBdsAccent
                     )
                 }
@@ -961,7 +962,7 @@ fun BdsAppInfoCard(
                 ) {
                     Column(modifier = Modifier.padding(12.dp)) {
                         Text(
-                            text = "Try These Instead:",
+                            text = stringResource(R.string.btn_try_these_instead),
                             style = MaterialTheme.typography.labelMedium,
                             fontWeight = FontWeight.SemiBold,
                             color = WallOnSecondaryContainer
@@ -991,7 +992,7 @@ fun BdsAppInfoCard(
                                     shape = RoundedCornerShape(8.dp),
                                     contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                                 ) {
-                                    Text("View", fontWeight = FontWeight.SemiBold)
+                                    Text(stringResource(R.string.btn_view), fontWeight = FontWeight.SemiBold)
                                 }
                             }
                         }
@@ -1055,7 +1056,7 @@ fun HintAppCard(
                         color = WallOnSurface
                     )
                     Text(
-                        text = "Installed",
+                        text = stringResource(R.string.status_installed),
                         style = MaterialTheme.typography.bodySmall,
                         color = WallOnNeutralContainer
                     )
@@ -1065,7 +1066,7 @@ fun HintAppCard(
                 IconButton(onClick = { onUninstallClicked(app.packageName) }) {
                     Icon(
                         Icons.Default.Delete,
-                        contentDescription = "Uninstall App",
+                        contentDescription = stringResource(R.string.cd_uninstall_app),
                         tint = WallPrimary
                     )
                 }
@@ -1086,7 +1087,7 @@ fun HintAppCard(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = itemInfo.hintText ?: "A better alternative exists",
+                            text = itemInfo.hintText ?: stringResource(R.string.hint_alternative_exists),
                             style = MaterialTheme.typography.bodyMedium,
                             fontWeight = FontWeight.Medium,
                             color = WallOnSecondaryContainer,
@@ -1111,7 +1112,7 @@ fun HintAppCard(
                             shape = RoundedCornerShape(8.dp),
                             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                         ) {
-                            Text("Switch", fontWeight = FontWeight.SemiBold)
+                            Text(stringResource(R.string.btn_switch), fontWeight = FontWeight.SemiBold)
                         }
                     }
                 }

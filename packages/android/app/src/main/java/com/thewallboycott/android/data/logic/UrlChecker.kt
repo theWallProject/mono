@@ -1,6 +1,7 @@
 package com.thewallboycott.android.data.logic
 
 import android.content.Context
+import com.thewallboycott.android.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.thewallboycott.android.data.models.APIEndpointConfig
@@ -162,7 +163,7 @@ class UrlChecker(private val context: Context) {
                     name = domain,
                     alt = null,
                     stockSymbol = null,
-                    comment = "Israeli domain (.il)",
+                    comment = context.getString(R.string.result_comment_israeli_domain),
                     link = domain,
                     rule = RuleInfo(domain, "il")
                 )

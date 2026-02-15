@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.thewallboycott.android.R
 import androidx.compose.ui.text.style.TextAlign
@@ -95,7 +96,7 @@ fun SupportScreen() {
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        text = "The Wall tools are free. All of them—every tool standing today and every one we'll build tomorrow. No ads. No tracking. No premium tier. Just quality tools that hit hard.",
+                        text = stringResource(R.string.support_free_tools),
                         style = MaterialTheme.typography.bodyMedium,
                         color = WallOnSurface,
                         textAlign = TextAlign.Start
@@ -104,7 +105,7 @@ fun SupportScreen() {
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Text(
-                        text = "Your donation doesn't unlock features—it unlocks hours. More money, more dev time, better tools, faster updates. Simple math.",
+                        text = stringResource(R.string.support_donation_hours),
                         style = MaterialTheme.typography.bodyMedium,
                         color = WallOnSurface,
                         textAlign = TextAlign.Start
@@ -113,7 +114,7 @@ fun SupportScreen() {
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Text(
-                        text = "And every dollar? It's a digital bullet fired straight into the heart of an occupation that wants us gone. You're not funding an app—you're funding defiance, written in code.",
+                        text = stringResource(R.string.support_defiance),
                         style = MaterialTheme.typography.bodyMedium,
                         color = WallOnSurface,
                         textAlign = TextAlign.Start
@@ -122,7 +123,7 @@ fun SupportScreen() {
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Text(
-                        text = "We're building a wall around their economy. Each dollar is a brick that helps seal it shut.",
+                        text = stringResource(R.string.support_wall_economy),
                         style = MaterialTheme.typography.bodyMedium,
                         color = WallPrimary,
                         fontWeight = FontWeight.SemiBold,
@@ -153,14 +154,14 @@ fun SupportScreen() {
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "You're a Supporter!",
+                            text = stringResource(R.string.support_supporter_title),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = WallHintAccent
                         )
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
-                            text = "Thank you for keeping The Wall alive.",
+                            text = stringResource(R.string.support_thank_you),
                             style = MaterialTheme.typography.bodySmall,
                             color = WallOnHintContainer,
                             textAlign = TextAlign.Center
@@ -179,7 +180,7 @@ fun SupportScreen() {
                     // Background wall image
                     Image(
                         painter = painterResource(id = R.drawable.donate_wall),
-                        contentDescription = "Donate a brick",
+                        contentDescription = stringResource(R.string.cd_donate_a_brick),
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Fit
                     )
@@ -206,7 +207,7 @@ fun SupportScreen() {
                             modifier = Modifier.size(18.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("$1/month", fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(R.string.support_price_monthly), fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
@@ -227,12 +228,12 @@ fun SupportScreen() {
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.kofi_logo),
-                    contentDescription = "Ko-fi",
+                    contentDescription = stringResource(R.string.cd_kofi),
                     modifier = Modifier.height(24.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Prefer Ko-fi? Donate there",
+                    text = stringResource(R.string.support_kofi_link),
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Medium
                 )
@@ -242,7 +243,7 @@ fun SupportScreen() {
 
         // Contact & Report Section
         Text(
-            text = "Contact & Feedback",
+            text = stringResource(R.string.support_contact_feedback),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = WallOnSurface,
@@ -250,6 +251,12 @@ fun SupportScreen() {
                 .fillMaxWidth()
                 .padding(bottom = 12.dp)
         )
+
+        // Pre-resolve strings for use inside onClick lambdas
+        val emailSubject = stringResource(R.string.support_email_subject)
+        val emailBodyPlaceholder = stringResource(R.string.support_email_body_placeholder)
+        val chooserSendReport = stringResource(R.string.chooser_send_report)
+        val chooserSendEmail = stringResource(R.string.chooser_send_email)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -259,16 +266,16 @@ fun SupportScreen() {
             ActionCard(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Default.Report,
-                title = "Report Issue",
-                subtitle = "Spotted a mistake?",
+                title = stringResource(R.string.support_report_issue),
+                subtitle = stringResource(R.string.support_report_subtitle),
                 onClick = {
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
                         data = Uri.parse("mailto:")
                         putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
-                        putExtra(Intent.EXTRA_SUBJECT, "Contact - The Wall Android")
-                        putExtra(Intent.EXTRA_TEXT, "Please describe the issue:\n\n")
+                        putExtra(Intent.EXTRA_SUBJECT, emailSubject)
+                        putExtra(Intent.EXTRA_TEXT, emailBodyPlaceholder)
                     }
-                    context.startActivity(Intent.createChooser(intent, "Send Report"))
+                    context.startActivity(Intent.createChooser(intent, chooserSendReport))
                 }
             )
 
@@ -276,15 +283,15 @@ fun SupportScreen() {
             ActionCard(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Default.Email,
-                title = "Contact Us",
-                subtitle = "We'd love to hear from you",
+                title = stringResource(R.string.support_contact_us),
+                subtitle = stringResource(R.string.support_contact_subtitle),
                 onClick = {
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
                         data = Uri.parse("mailto:")
                         putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
-                        putExtra(Intent.EXTRA_SUBJECT, "Contact - The Wall Android")
+                        putExtra(Intent.EXTRA_SUBJECT, emailSubject)
                     }
-                    context.startActivity(Intent.createChooser(intent, "Send Email"))
+                    context.startActivity(Intent.createChooser(intent, chooserSendEmail))
                 }
             )
         }
@@ -307,7 +314,7 @@ fun SupportScreen() {
                     Spacer(modifier = Modifier.height(16.dp))
 
                     Text(
-                        text = "Expand Your Impact",
+                        text = stringResource(R.string.support_expand_impact),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         color = WallTextOnPrimary,
@@ -317,7 +324,7 @@ fun SupportScreen() {
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "Boycott while you browse. Our extension flags 20k Israeli-linked companies across social media, so you never accidentally support apartheid.",
+                        text = stringResource(R.string.support_browser_extension),
                         style = MaterialTheme.typography.bodyMedium,
                         color = WallTextOnPrimary.copy(alpha = 0.9f),
                         textAlign = TextAlign.Center
@@ -344,7 +351,7 @@ fun SupportScreen() {
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            "Get the Extension",
+                            stringResource(R.string.support_get_extension),
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 16.sp
                         )
@@ -356,7 +363,7 @@ fun SupportScreen() {
 
             // Footer
             Text(
-                text = "Built with love. Free Palestine.",
+                text = stringResource(R.string.support_credits),
                 style = MaterialTheme.typography.bodySmall,
                 color = WallOnSurfaceVariant,
                 textAlign = TextAlign.Center

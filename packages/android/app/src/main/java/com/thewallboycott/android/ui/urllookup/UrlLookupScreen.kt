@@ -60,8 +60,10 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.thewallboycott.android.R
 import com.thewallboycott.android.data.models.Alternative
 import com.thewallboycott.android.data.models.AutocompleteSuggestion
 import com.thewallboycott.android.data.models.ReasonLevel
@@ -171,7 +173,7 @@ fun UrlLookupScreen(
         ) {
         // Description text
         Text(
-            text = "Check any company, website, or social profile for Zionist ties before you commit.",
+            text = stringResource(R.string.lookup_description),
             style = MaterialTheme.typography.bodyMedium,
             color = WallOnSurfaceVariant,
             modifier = Modifier.padding(bottom = 12.dp)
@@ -182,7 +184,7 @@ fun UrlLookupScreen(
             OutlinedTextField(
                 value = url,
                 onValueChange = { url = it },
-                label = { Text("Search company or paste URL") },
+                label = { Text(stringResource(R.string.lookup_label)) },
                 modifier = Modifier.fillMaxWidth(),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = WallPrimary,
@@ -241,7 +243,7 @@ fun UrlLookupScreen(
             shape = RoundedCornerShape(12.dp)
         ) {
             Text(
-                "Check",
+                stringResource(R.string.btn_check),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
             )
         }
@@ -254,37 +256,62 @@ fun UrlLookupScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
         } else if (hasSearched) {
-            // Helper function to send report email
-            fun sendReportEmail(isFlagged: Boolean, resultName: String?) {
-                val subject = if (isFlagged) {
-                    "[FLAGGED] Report mistake: ${resultName ?: url}"
-                } else {
-                    "[NOT FLAGGED] Report mistake: $url"
-                }
-                val body = buildString {
-                    append("URL: $url\n")
-                    append("Result type: ${if (isFlagged) "Flagged" else "Not flagged"}\n")
-                    if (resultName != null) append("Matched name: $resultName\n")
-                    append("\n[Please describe the mistake here]")
-                }
+            // Pre-resolve string resources at Composable scope for use in lambdas.
+            // Android lint (LocalContextGetResourceValueCall) requires stringResource()
+            // instead of context.getString() inside @Composable functions.
+            val chooserTitle = stringResource(R.string.chooser_report_mistake)
+            val resultFlaggedText = stringResource(R.string.report_result_flagged)
+            val resultNotFlaggedText = stringResource(R.string.report_result_not_flagged)
+
+            // Pre-resolve report email strings for each result type
+            val resultName = when (val res = result) {
+                is UrlCheckResult.Match -> res.name
+                is UrlCheckResult.Hint -> res.name
+                null -> null
+            }
+            val isFlagged = result != null
+            val reportSubject = if (isFlagged) {
+                stringResource(R.string.report_mistake_flagged_subject, resultName ?: url)
+            } else {
+                stringResource(R.string.report_mistake_not_flagged_subject, url)
+            }
+            val matchedNameText = if (resultName != null) {
+                stringResource(R.string.report_matched_name, resultName)
+            } else {
+                ""
+            }
+            val reportBody = stringResource(
+                R.string.report_mistake_body,
+                url,
+                if (isFlagged) resultFlaggedText else resultNotFlaggedText,
+                matchedNameText
+            )
+
+            // Pre-resolve reason summary for Match result
+            val matchReasonSummary = (result as? UrlCheckResult.Match)?.let { res ->
+                res.reasons.mapNotNull { reasonsMap[it]?.messageResId }
+                    .firstOrNull()?.let { id -> stringResource(id) }
+            }
+
+            // Helper function to send report email (uses pre-resolved strings)
+            fun sendReportEmail() {
                 val intent = Intent(Intent.ACTION_SENDTO).apply {
                     data = Uri.parse("mailto:")
                     putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
-                    putExtra(Intent.EXTRA_SUBJECT, subject)
-                    putExtra(Intent.EXTRA_TEXT, body)
+                    putExtra(Intent.EXTRA_SUBJECT, reportSubject)
+                    putExtra(Intent.EXTRA_TEXT, reportBody)
                 }
-                context.startActivity(Intent.createChooser(intent, "Report Mistake"))
+                context.startActivity(Intent.createChooser(intent, chooserTitle))
             }
 
             when (val res = result) {
                 is UrlCheckResult.Match -> MatchResultCard(
                     result = res,
                     onShareClick = {
-                        val reasonSummary = res.reasons.mapNotNull { reasonsMap[it]?.message }.firstOrNull()
-                        shareContent = shareManager.getUrlMatchContent(res.name, reasonSummary)
+                        shareContent = shareManager.getUrlMatchContent(res.name, matchReasonSummary)
                         showShareDialog = true
                     },
-                    onReportClick = { sendReportEmail(isFlagged = true, resultName = res.name) }
+                    onReportClick = { sendReportEmail() }
                 )
                 is UrlCheckResult.Hint -> HintResultCard(
                     result = res,
@@ -292,7 +319,7 @@ fun UrlLookupScreen(
                         shareContent = shareManager.getUrlMatchContent(res.name, res.hintText)
                         showShareDialog = true
                     },
-                    onReportClick = { sendReportEmail(isFlagged = true, resultName = res.name) }
+                    onReportClick = { sendReportEmail() }
                 )
                 null -> NoMatchResultCard(
                     searchedUrl = url,
@@ -300,7 +327,7 @@ fun UrlLookupScreen(
                         shareContent = shareManager.getUrlCleanContent(url)
                         showShareDialog = true
                     },
-                    onReportClick = { sendReportEmail(isFlagged = false, resultName = null) }
+                    onReportClick = { sendReportEmail() }
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -367,7 +394,7 @@ fun HelpSection(onExampleClick: (String) -> Unit) {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = "What can you search?",
+                text = stringResource(R.string.lookup_search_prompt),
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.SemiBold,
                 color = WallOnSurface
@@ -375,61 +402,61 @@ fun HelpSection(onExampleClick: (String) -> Unit) {
             Spacer(modifier = Modifier.height(12.dp))
 
             HelpExampleRow(
-                label = "Company:",
+                label = stringResource(R.string.lookup_example_company),
                 example = "Wix",
                 onClick = { onExampleClick("Wix") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "Website:",
+                label = stringResource(R.string.lookup_example_website),
                 example = "fiverr.com",
                 onClick = { onExampleClick("fiverr.com") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "LinkedIn:",
+                label = stringResource(R.string.lookup_example_linkedin),
                 example = "linkedin.com/company/mondaydotcom",
                 onClick = { onExampleClick("linkedin.com/company/mondaydotcom") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "Facebook:",
+                label = stringResource(R.string.lookup_example_facebook),
                 example = "facebook.com/wix",
                 onClick = { onExampleClick("facebook.com/wix") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "Twitter/X:",
+                label = stringResource(R.string.lookup_example_twitter),
                 example = "x.com/fiverr",
                 onClick = { onExampleClick("x.com/fiverr") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "Instagram:",
+                label = stringResource(R.string.lookup_example_instagram),
                 example = "instagram.com/wix",
                 onClick = { onExampleClick("instagram.com/wix") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "GitHub:",
+                label = stringResource(R.string.lookup_example_github),
                 example = "github.com/wix",
                 onClick = { onExampleClick("github.com/wix") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "YouTube:",
+                label = stringResource(R.string.lookup_example_youtube),
                 example = "youtube.com/@mondaydotcom",
                 onClick = { onExampleClick("youtube.com/@mondaydotcom") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "TikTok:",
+                label = stringResource(R.string.lookup_example_tiktok),
                 example = "tiktok.com/@fiverr",
                 onClick = { onExampleClick("tiktok.com/@fiverr") }
             )
             Spacer(modifier = Modifier.height(6.dp))
             HelpExampleRow(
-                label = "Threads:",
+                label = stringResource(R.string.lookup_example_threads),
                 example = "threads.com/@wix",
                 onClick = { onExampleClick("threads.com/@wix") }
             )
@@ -488,13 +515,13 @@ fun ProTipCard() {
             Spacer(modifier = Modifier.width(10.dp))
             Column {
                 Text(
-                    text = "Pro Tip",
+                    text = stringResource(R.string.lookup_pro_tip),
                     style = MaterialTheme.typography.labelMedium,
                     fontWeight = FontWeight.SemiBold,
                     color = WallOnSurface
                 )
                 Text(
-                    text = "Share links from other apps to check them instantly.",
+                    text = stringResource(R.string.lookup_pro_tip_text),
                     style = MaterialTheme.typography.bodySmall,
                     color = WallOnSurfaceVariant
                 )
@@ -511,7 +538,7 @@ fun NoMatchResultCard(
 ) {
     ResultCard(
         icon = Icons.Default.CheckCircle,
-        title = "Looking Good",
+        title = stringResource(R.string.result_looking_good),
         titleColor = WallSuccessAccent,
         containerColor = WallSuccessContainer,
         bodyColor = WallOnSuccessContainer,
@@ -519,7 +546,7 @@ fun NoMatchResultCard(
         onReportClick = onReportClick
     ) {
         Text(
-            "This link isn't flagged in our database. Browse freely.",
+            stringResource(R.string.result_not_flagged_body),
             style = MaterialTheme.typography.bodyLarge,
             color = WallOnSuccessContainer
         )
@@ -547,14 +574,14 @@ fun MatchResultCard(
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             mappedReasons.forEach { reason ->
                 Text(
-                    "• ${reason.message}",
+                    "• ${stringResource(reason.messageResId)}",
                     style = MaterialTheme.typography.bodyLarge,
                     color = bodyColor
                 )
             }
             result.comment?.let {
                 Text(
-                    "Comment: $it",
+                    stringResource(R.string.result_comment_prefix, it),
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold,
                     color = bodyColor
@@ -572,7 +599,7 @@ fun MatchResultCard(
                 ) {
                     Column(modifier = Modifier.padding(12.dp)) {
                         Text(
-                            text = "Try These Instead:",
+                            text = stringResource(R.string.btn_try_these_instead),
                             style = MaterialTheme.typography.labelMedium,
                             fontWeight = FontWeight.SemiBold,
                             color = WallOnSecondaryContainer
@@ -602,7 +629,7 @@ fun MatchResultCard(
                                     shape = RoundedCornerShape(8.dp),
                                     contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                                 ) {
-                                    Text("View", fontWeight = FontWeight.SemiBold)
+                                    Text(stringResource(R.string.btn_view), fontWeight = FontWeight.SemiBold)
                                 }
                             }
                         }
@@ -621,7 +648,7 @@ fun HintResultCard(
 ) {
     ResultCard(
         icon = Icons.Default.Info,
-        title = "Hint: ${result.name}",
+        title = stringResource(R.string.result_hint_prefix, result.name),
         titleColor = WallHintAccent,
         containerColor = WallHintContainer,
         bodyColor = WallOnHintContainer,
@@ -636,7 +663,7 @@ fun HintResultCard(
             )
             result.hintUrl.let {
                 Text(
-                    "Suggestion: $it",
+                    stringResource(R.string.result_suggestion_prefix, it),
                     style = MaterialTheme.typography.bodyMedium,
                     color = WallOnHintContainer.copy(alpha = 0.7f)
                 )
@@ -692,7 +719,7 @@ fun ResultCard(
             ) {
                 ShareButton(
                     onClick = onShareClick,
-                    text = "Share",
+                    text = stringResource(R.string.btn_share),
                     accentColor = titleColor
                 )
                 TextButton(
@@ -700,7 +727,7 @@ fun ResultCard(
                     contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        text = "Report mistake",
+                        text = stringResource(R.string.btn_report_mistake),
                         style = MaterialTheme.typography.labelSmall,
                         color = bodyColor.copy(alpha = 0.7f)
                     )

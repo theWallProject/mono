@@ -83,6 +83,8 @@ android {
         abortOnError = true
         // No baseline - fix all issues
         checkAllWarnings = true
+        // Check for missing translations (disabled - AGP 8.5+ uses different API)
+        // Enable when migrating to newer AGP with proper translation checks
     }
 }
 
