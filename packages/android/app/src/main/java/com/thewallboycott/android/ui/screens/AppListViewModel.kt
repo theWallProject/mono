@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.thewallboycott.android.data.AppScanner
 import com.thewallboycott.android.data.models.AllItem
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -36,16 +38,25 @@ class AppListViewModel(private val appScanner: AppScanner) : ViewModel() {
 
     companion object {
         private const val TAG = "AppListViewModel"
+        /** Minimum time to show the scanning animation (in milliseconds) */
+        private const val MIN_SCAN_DURATION_MS = 2000L
     }
 
     /**
      * Triggers a scan. Call from LaunchedEffect or on refresh.
+     * Shows scanning animation for at least [MIN_SCAN_DURATION_MS] milliseconds.
      */
     fun scan() {
         _uiState.value = _uiState.value.copy(isLoading = true, scanCompleted = false)
         viewModelScope.launch {
             try {
-                val results = appScanner.scan()
+                // Run scan and minimum delay in parallel
+                val scanDeferred = async { appScanner.scan() }
+                val delayDeferred = async { delay(MIN_SCAN_DURATION_MS) }
+
+                val results = scanDeferred.await()
+                delayDeferred.await() // Ensure minimum delay has passed
+
                 _uiState.value = AppListUiState(
                     isLoading = false,
                     blacklistedApps = results.blacklisted,

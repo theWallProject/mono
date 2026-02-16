@@ -57,10 +57,11 @@ class MainActivity : AppCompatActivity() {
     private var navigateToScreen by mutableStateOf<String?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // Restore saved locale before any UI renders
+        // Restore saved locale BEFORE super.onCreate() to ensure resources
+        // load with the correct language on cold start
         AppPreferences.applyStoredLocale(this)
+
+        super.onCreate(savedInstanceState)
 
         // Enable edge-to-edge with burnt orange status bar
         enableEdgeToEdge(
@@ -163,7 +164,7 @@ class MainActivity : AppCompatActivity() {
             mutableStateOf(defaultScreen)
         }
         var scanState by rememberSaveable {
-            mutableStateOf(if (navigateToScreen == ScanWorker.APP_SCAN_SCREEN) ScanState.Scanning else ScanState.Idle)
+            mutableStateOf(ScanState.Scanning) // Auto-start scanning
         }
         var permissionGranted by rememberSaveable { mutableStateOf(hasQueryAllPackagesPermission()) }
         var refreshTrigger by rememberSaveable { mutableIntStateOf(0) }

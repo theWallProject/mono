@@ -2,11 +2,14 @@ package com.thewallboycott.android.data.billing
 
 import android.app.Activity
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import com.android.billingclient.api.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlin.math.min
 
 /**
  * Manages Google Play Billing for the $1/month supporter subscription.
@@ -28,7 +31,17 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
     companion object {
         private const val TAG = "BillingManager"
         const val PRODUCT_ID_SUPPORTER = "supporter_monthly"
+
+        /** Initial retry delay in milliseconds */
+        private const val RETRY_DELAY_INITIAL_MS = 1000L
+        /** Maximum retry delay in milliseconds (32 seconds) */
+        private const val RETRY_DELAY_MAX_MS = 32000L
+        /** Maximum number of connection retry attempts */
+        private const val MAX_RETRY_ATTEMPTS = 5
     }
+
+    private val handler = Handler(Looper.getMainLooper())
+    private var retryAttempt = 0
 
     private val billingClient = BillingClient.newBuilder(context)
         .setListener(this)
@@ -42,6 +55,10 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
 
     private val _isSubscribed = MutableStateFlow(false)
     val isSubscribed: StateFlow<Boolean> = _isSubscribed.asStateFlow()
+
+    /** Whether a purchase is pending (awaiting payment completion) */
+    private val _isPurchasePending = MutableStateFlow(false)
+    val isPurchasePending: StateFlow<Boolean> = _isPurchasePending.asStateFlow()
 
     private val _connectionState = MutableStateFlow(BillingConnectionState.DISCONNECTED)
     val connectionState: StateFlow<BillingConnectionState> = _connectionState.asStateFlow()
@@ -88,6 +105,7 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
 
                 if (code == BillingClient.BillingResponseCode.OK) {
                     Log.d(TAG, "Billing connection established")
+                    retryAttempt = 0 // Reset retry counter on successful connection
                     _billingStage.value = BillingStage.CONNECTED
                     _connectionState.value = BillingConnectionState.CONNECTED
                     queryProductDetails()
@@ -104,12 +122,45 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
                 Log.w(TAG, "Billing service disconnected")
                 _connectionState.value = BillingConnectionState.DISCONNECTED
                 _billingStage.value = BillingStage.IDLE
-                _diagnosticMessage.value = "Billing service disconnected. Reopen this page to retry."
+                retryConnectionWithBackoff()
             }
         })
     }
 
+    /**
+     * Retries connection with exponential backoff.
+     * Delays: 1s, 2s, 4s, 8s, 16s (max 5 attempts)
+     */
+    private fun retryConnectionWithBackoff() {
+        if (retryAttempt >= MAX_RETRY_ATTEMPTS) {
+            Log.e(TAG, "Max retry attempts ($MAX_RETRY_ATTEMPTS) reached. Giving up.")
+            _diagnosticMessage.value = "Billing service disconnected. Please reopen this page to retry."
+            return
+        }
+
+        val delayMs = min(
+            RETRY_DELAY_INITIAL_MS * (1L shl retryAttempt),
+            RETRY_DELAY_MAX_MS
+        )
+        retryAttempt++
+
+        Log.d(TAG, "Scheduling connection retry #$retryAttempt in ${delayMs}ms")
+        _diagnosticMessage.value = "Reconnecting to billing service..."
+
+        handler.postDelayed({
+            if (_connectionState.value == BillingConnectionState.DISCONNECTED) {
+                Log.d(TAG, "Executing connection retry #$retryAttempt")
+                startConnection()
+            }
+        }, delayMs)
+    }
+
     private fun queryProductDetails() {
+        if (!billingClient.isReady) {
+            Log.w(TAG, "Cannot query products: billing client not ready")
+            return
+        }
+
         _billingStage.value = BillingStage.PRODUCT_QUERY
         Log.d(TAG, "Querying product details for '$PRODUCT_ID_SUPPORTER'...")
 
@@ -173,6 +224,11 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
     }
 
     private fun queryPurchases() {
+        if (!billingClient.isReady) {
+            Log.w(TAG, "Cannot query purchases: billing client not ready")
+            return
+        }
+
         Log.d(TAG, "Querying existing purchases...")
 
         billingClient.queryPurchasesAsync(
@@ -207,6 +263,11 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
     }
 
     private fun acknowledgePurchase(purchase: Purchase) {
+        if (!billingClient.isReady) {
+            Log.w(TAG, "Cannot acknowledge purchase: billing client not ready")
+            return
+        }
+
         Log.d(TAG, "Acknowledging purchase: ${purchase.orderId}")
 
         val params = AcknowledgePurchaseParams.newBuilder()
@@ -234,6 +295,12 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
      *         or null on success. The caller MUST show the error to the user.
      */
     fun launchSubscriptionFlow(activity: Activity): String? {
+        if (!billingClient.isReady) {
+            val msg = "Cannot launch purchase: billing client not ready"
+            Log.e(TAG, msg)
+            return msg
+        }
+
         val details = productDetails
         if (details == null) {
             val msg = "Cannot launch purchase: product details not loaded. " +
@@ -281,29 +348,55 @@ class BillingManager(context: Context) : PurchasesUpdatedListener {
         val code = billingResult.responseCode
         Log.d(TAG, "onPurchasesUpdated: ${responseCodeToName(code)}, ${purchases?.size ?: 0} purchases")
 
-        if (code == BillingClient.BillingResponseCode.OK && purchases != null) {
-            purchases.forEach { purchase ->
-                if (purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
-                    _isSubscribed.value = true
-                    if (!purchase.isAcknowledged) {
-                        acknowledgePurchase(purchase)
+        when (code) {
+            BillingClient.BillingResponseCode.OK -> {
+                purchases?.forEach { purchase ->
+                    when (purchase.purchaseState) {
+                        Purchase.PurchaseState.PURCHASED -> {
+                            _isSubscribed.value = true
+                            _isPurchasePending.value = false
+                            if (!purchase.isAcknowledged) {
+                                acknowledgePurchase(purchase)
+                            }
+                        }
+                        Purchase.PurchaseState.PENDING -> {
+                            // Purchase is pending - payment not yet completed
+                            // (e.g., awaiting parental approval, slow payment method)
+                            Log.d(TAG, "Purchase pending: ${purchase.orderId}")
+                            _isPurchasePending.value = true
+                            _diagnosticMessage.value = "Purchase pending. Payment is being processed..."
+                        }
+                        else -> {
+                            Log.d(TAG, "Purchase in unknown state: ${purchase.purchaseState}")
+                        }
                     }
                 }
             }
-        } else if (code != BillingClient.BillingResponseCode.USER_CANCELED) {
-            // User cancellation is normal, everything else is an error
-            Log.e(
-                TAG,
-                "Purchase update failed: ${responseCodeToName(code)}. " +
+            BillingClient.BillingResponseCode.USER_CANCELED -> {
+                // User cancellation is normal, no error message needed
+                Log.d(TAG, "Purchase cancelled by user")
+            }
+            BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
+                // User already owns this subscription - refresh subscription state
+                Log.d(TAG, "Item already owned, refreshing subscription state")
+                queryPurchases()
+            }
+            else -> {
+                Log.e(
+                    TAG,
+                    "Purchase update failed: ${responseCodeToName(code)}. " +
+                            billingResult.debugMessage
+                )
+                _diagnosticMessage.value = "Purchase failed: ${responseCodeToName(code)}. " +
                         billingResult.debugMessage
-            )
-            _diagnosticMessage.value = "Purchase failed: ${responseCodeToName(code)}. " +
-                    billingResult.debugMessage
+            }
         }
     }
 
     fun endConnection() {
         Log.d(TAG, "Ending billing connection")
+        handler.removeCallbacksAndMessages(null) // Cancel any pending retries
+        retryAttempt = 0
         billingClient.endConnection()
     }
 }

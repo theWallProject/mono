@@ -12,9 +12,13 @@ import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -221,12 +225,7 @@ fun AppListScreen(
 
     Box(modifier = Modifier.fillMaxSize().background(WallBackground)) {
         if (isLoading) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator(color = WallPrimary)
-            }
+            ScanningAnimation()
         } else {
             val listState = rememberLazyListState()
             val canScrollDown by remember {
@@ -1202,6 +1201,172 @@ fun ReplacementOfferCard(
                     }
                 }
             }
+        }
+    }
+}
+
+/**
+ * Animated scanning screen shown while scanning installed apps.
+ * Displays an animated magnifying glass scanning over app icons.
+ */
+@Composable
+fun ScanningAnimation() {
+    val infiniteTransition = rememberInfiniteTransition(label = "scanning")
+
+    // Magnifying glass position animation - moves across the grid
+    val scanProgress by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(3000, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        ),
+        label = "scanProgress"
+    )
+
+    // Pulsing scale for the magnifying glass
+    val pulseScale by infiniteTransition.animateFloat(
+        initialValue = 1f,
+        targetValue = 1.1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(500, easing = FastOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "pulse"
+    )
+
+    // Text pulsing
+    val textAlpha by infiniteTransition.animateFloat(
+        initialValue = 0.5f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(800),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "textAlpha"
+    )
+
+    // Grid configuration
+    val cols = 4
+    val rows = 3
+    val iconSizeDp = 48.dp
+    val spacingDp = 16.dp
+
+    // Calculate current scanning position
+    val totalIcons = cols * rows
+    val currentIconIndex = (scanProgress * totalIcons).toInt().coerceIn(0, totalIcons - 1)
+
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            // App icons grid using Compose layout
+            Box(
+                modifier = Modifier.size(280.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(spacingDp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    for (row in 0 until rows) {
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(spacingDp)
+                        ) {
+                            for (col in 0 until cols) {
+                                val index = row * cols + col
+                                val isCurrentlyScanning = index == currentIconIndex
+
+                                Box(
+                                    modifier = Modifier
+                                        .size(iconSizeDp)
+                                        .graphicsLayer(
+                                            scaleX = if (isCurrentlyScanning) pulseScale else 1f,
+                                            scaleY = if (isCurrentlyScanning) pulseScale else 1f
+                                        )
+                                        .clip(RoundedCornerShape(12.dp))
+                                        .background(WallPrimary.copy(alpha = 0.3f)),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Image(
+                                        painter = androidx.compose.ui.res.painterResource(R.drawable.ic_launcher_foreground),
+                                        contentDescription = null,
+                                        modifier = Modifier.size(40.dp),
+                                        alpha = if (isCurrentlyScanning) 1f else 0.85f
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Magnifying glass overlay
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    val canvasWidth = size.width
+                    val canvasHeight = size.height
+
+                    val iconSize = iconSizeDp.toPx()
+                    val spacing = spacingDp.toPx()
+                    val gridWidth = cols * iconSize + (cols - 1) * spacing
+                    val gridHeight = rows * iconSize + (rows - 1) * spacing
+                    val startX = (canvasWidth - gridWidth) / 2
+                    val startY = (canvasHeight - gridHeight) / 2
+
+                    val currentRow = currentIconIndex / cols
+                    val currentCol = currentIconIndex % cols
+
+                    val magX = startX + currentCol * (iconSize + spacing) + iconSize / 2
+                    val magY = startY + currentRow * (iconSize + spacing) + iconSize / 2
+
+                    // Draw magnifying glass
+                    val glassRadius = 36.dp.toPx() * pulseScale
+                    val handleLength = 24.dp.toPx()
+                    val strokeWidth = 6.dp.toPx()
+
+                    // Glass circle (semi-transparent fill)
+                    drawCircle(
+                        color = WallPrimary.copy(alpha = 0.15f),
+                        radius = glassRadius,
+                        center = androidx.compose.ui.geometry.Offset(magX, magY)
+                    )
+
+                    // Glass circle outline
+                    drawCircle(
+                        color = WallPrimary,
+                        radius = glassRadius,
+                        center = androidx.compose.ui.geometry.Offset(magX, magY),
+                        style = Stroke(width = strokeWidth)
+                    )
+
+                    // Handle
+                    val handleStartX = magX + glassRadius * 0.7f
+                    val handleStartY = magY + glassRadius * 0.7f
+                    val handleEndX = handleStartX + handleLength * 0.7f
+                    val handleEndY = handleStartY + handleLength * 0.7f
+
+                    drawLine(
+                        color = WallPrimary,
+                        start = androidx.compose.ui.geometry.Offset(handleStartX, handleStartY),
+                        end = androidx.compose.ui.geometry.Offset(handleEndX, handleEndY),
+                        strokeWidth = strokeWidth * 1.5f,
+                        cap = androidx.compose.ui.graphics.StrokeCap.Round
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            // Scanning message
+            Text(
+                text = stringResource(R.string.scanning_message),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Medium,
+                color = WallOnSurface.copy(alpha = textAlpha)
+            )
         }
     }
 }

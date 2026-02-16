@@ -133,6 +133,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.play.billing)
+    implementation(libs.lottie.compose)
 
     // Unit tests (JVM-based, no emulator required)
     testImplementation(libs.junit)

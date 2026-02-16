@@ -368,7 +368,7 @@ fun SupportScreen() {
 
                     Button(
                         onClick = {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://the-wall.win"))
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://the-wall.win/#addon"))
                             context.startActivity(intent)
                         },
                         colors = ButtonDefaults.buttonColors(
