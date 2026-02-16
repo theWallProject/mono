@@ -409,7 +409,7 @@ fun AppListScreen(
                                 style = MaterialTheme.typography.headlineSmall,
                                 modifier = Modifier.padding(bottom = 8.dp),
                                 fontWeight = FontWeight.Bold,
-                                color = WallHintAccent
+                                color = WallSuccessAccent
                             )
                         }
                         items(savedOffers, key = { it.packageName }) { offer ->
@@ -1118,7 +1118,7 @@ fun ReplacementOfferCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 4.dp),
-        colors = CardDefaults.cardColors(containerColor = WallHintContainer),
+        colors = CardDefaults.cardColors(containerColor = WallSuccessContainer),
         shape = RoundedCornerShape(12.dp)
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
@@ -1128,9 +1128,9 @@ fun ReplacementOfferCard(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Icon(
-                    Icons.Default.Lightbulb,
+                    Icons.Default.CheckCircle,
                     contentDescription = null,
-                    tint = WallHintAccent,
+                    tint = WallSuccessAccent,
                     modifier = Modifier.size(24.dp)
                 )
                 Spacer(modifier = Modifier.width(12.dp))
@@ -1139,12 +1139,7 @@ fun ReplacementOfferCard(
                     Text(
                         text = stringResource(R.string.replacement_title, offer.appName),
                         fontWeight = FontWeight.Bold,
-                        color = WallHintAccent
-                    )
-                    Text(
-                        text = stringResource(R.string.replacement_subtitle),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = WallOnHintContainer.copy(alpha = 0.8f)
+                        color = WallSuccessAccent
                     )
                 }
 
@@ -1152,7 +1147,7 @@ fun ReplacementOfferCard(
                     Icon(
                         Icons.Default.Close,
                         contentDescription = stringResource(R.string.cd_dismiss),
-                        tint = WallOnHintContainer.copy(alpha = 0.6f)
+                        tint = WallOnSuccessContainer.copy(alpha = 0.6f)
                     )
                 }
             }
