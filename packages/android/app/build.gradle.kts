@@ -134,6 +134,7 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.play.billing)
     implementation(libs.lottie.compose)
+    implementation(libs.androidx.splashscreen)
 
     // Unit tests (JVM-based, no emulator required)
     testImplementation(libs.junit)
