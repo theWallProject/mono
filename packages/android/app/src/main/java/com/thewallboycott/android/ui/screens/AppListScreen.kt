@@ -22,10 +22,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Flag
+import androidx.compose.material.icons.filled.Lightbulb
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
@@ -44,6 +46,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import com.thewallboycott.android.data.AppScanner
 import com.thewallboycott.android.data.AssetDatabaseProvider
+import com.thewallboycott.android.data.OfferPreferences
 import com.thewallboycott.android.data.SystemPackageScanner
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.data.models.Reason
@@ -101,6 +104,9 @@ fun AppListScreen(
     var pendingUninstallAppName by remember { mutableStateOf<String?>(null) }
     var pendingUninstallPackageName by remember { mutableStateOf<String?>(null) }
     var pendingUninstallAppIcon by remember { mutableStateOf<Bitmap?>(null) }
+    var pendingUninstallItemInfo by remember { mutableStateOf<AllItem?>(null) }
+    val offerPrefs = remember { OfferPreferences(context) }
+    var savedOffers by remember { mutableStateOf(offerPrefs.getSavedOffers()) }
     var showAppRemovedSheet by remember { mutableStateOf(false) }
     var removedAppName by remember { mutableStateOf<String?>(null) }
     var removedAppIcon by remember { mutableStateOf<Bitmap?>(null) }
@@ -151,6 +157,20 @@ fun AppListScreen(
                 removedAppName = appName
                 removedAppIcon = appIcon
                 showAppRemovedSheet = true
+
+                // Save offer if the app had alternatives
+                pendingUninstallItemInfo?.let { itemInfo ->
+                    if (!itemInfo.alt.isNullOrEmpty()) {
+                        offerPrefs.saveOffer(
+                            packageName = packageName,
+                            appName = appName,
+                            entityName = itemInfo.n,
+                            alternatives = itemInfo.alt
+                        )
+                        savedOffers = offerPrefs.getSavedOffers()
+                        Log.d("AppListScreen", "Saved offer for $appName with ${itemInfo.alt.size} alternatives")
+                    }
+                }
             } else {
                 Log.d("AppListScreen", "App $appName uninstall was cancelled")
             }
@@ -159,6 +179,7 @@ fun AppListScreen(
         pendingUninstallAppName = null
         pendingUninstallPackageName = null
         pendingUninstallAppIcon = null
+        pendingUninstallItemInfo = null
         refresh()
     }
 
@@ -315,6 +336,7 @@ fun AppListScreen(
                             AppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
                                 pendingUninstallPackageName = packageName
+                                pendingUninstallItemInfo = itemInfo
                                 // Cache icon before uninstall (icon becomes unavailable after uninstall)
                                 pendingUninstallAppIcon = try {
                                     app.applicationInfo?.loadIcon(pm)?.toBitmap()
@@ -365,6 +387,7 @@ fun AppListScreen(
                             BdsAppInfoCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
                                 pendingUninstallPackageName = packageName
+                                pendingUninstallItemInfo = itemInfo
                                 // Cache icon before uninstall (icon becomes unavailable after uninstall)
                                 pendingUninstallAppIcon = try {
                                     app.applicationInfo?.loadIcon(pm)?.toBitmap()
@@ -374,6 +397,29 @@ fun AppListScreen(
                                 val intent = Intent(Intent.ACTION_DELETE, Uri.parse("package:$packageName"))
                                 uninstallLauncher.launch(intent)
                             })
+                        }
+                    }
+
+                    // Replacement cards for uninstalled apps with alternatives
+                    if (savedOffers.isNotEmpty()) {
+                        item {
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                stringResource(R.string.replacement_section_title),
+                                style = MaterialTheme.typography.headlineSmall,
+                                modifier = Modifier.padding(bottom = 8.dp),
+                                fontWeight = FontWeight.Bold,
+                                color = WallHintAccent
+                            )
+                        }
+                        items(savedOffers, key = { it.packageName }) { offer ->
+                            ReplacementOfferCard(
+                                offer = offer,
+                                onDismiss = {
+                                    offerPrefs.removeOffer(offer.packageName)
+                                    savedOffers = offerPrefs.getSavedOffers()
+                                }
+                            )
                         }
                     }
 
@@ -477,6 +523,7 @@ fun AppListScreen(
                             HintAppCard(app = app, itemInfo = itemInfo, onUninstallClicked = { packageName ->
                                 pendingUninstallAppName = appName
                                 pendingUninstallPackageName = packageName
+                                pendingUninstallItemInfo = itemInfo
                                 // Cache icon before uninstall (icon becomes unavailable after uninstall)
                                 pendingUninstallAppIcon = try {
                                     app.applicationInfo?.loadIcon(pm)?.toBitmap()
@@ -1048,6 +1095,114 @@ fun HintAppCard(
                             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                         ) {
                             Text(stringResource(R.string.btn_switch), fontWeight = FontWeight.SemiBold)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Replacement card shown for uninstalled apps that had alternatives.
+ * Appears in place of the removed app to offer alternatives.
+ */
+@Composable
+fun ReplacementOfferCard(
+    offer: OfferPreferences.SavedOffer,
+    onDismiss: () -> Unit
+) {
+    val context = LocalContext.current
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        colors = CardDefaults.cardColors(containerColor = WallHintContainer),
+        shape = RoundedCornerShape(12.dp)
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            // Header row with icon, title and dismiss button
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(
+                    Icons.Default.Lightbulb,
+                    contentDescription = null,
+                    tint = WallHintAccent,
+                    modifier = Modifier.size(24.dp)
+                )
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.replacement_title, offer.appName),
+                        fontWeight = FontWeight.Bold,
+                        color = WallHintAccent
+                    )
+                    Text(
+                        text = stringResource(R.string.replacement_subtitle),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WallOnHintContainer.copy(alpha = 0.8f)
+                    )
+                }
+
+                IconButton(onClick = onDismiss) {
+                    Icon(
+                        Icons.Default.Close,
+                        contentDescription = stringResource(R.string.cd_dismiss),
+                        tint = WallOnHintContainer.copy(alpha = 0.6f)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Alternatives list
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = WallSecondaryContainer),
+                shape = RoundedCornerShape(10.dp)
+            ) {
+                Column(modifier = Modifier.padding(12.dp)) {
+                    Text(
+                        text = stringResource(R.string.btn_try_these_instead),
+                        style = MaterialTheme.typography.labelMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = WallOnSecondaryContainer
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    offer.alternatives.forEach { alt ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 4.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = alt.n,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = WallOnSecondaryContainer,
+                                modifier = Modifier.weight(1f)
+                            )
+                            IconButton(
+                                onClick = {
+                                    val url = if (alt.ws.startsWith("http")) alt.ws else "https://${alt.ws}"
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                    context.startActivity(intent)
+                                },
+                                modifier = Modifier.size(32.dp)
+                            ) {
+                                Icon(
+                                    Icons.AutoMirrored.Filled.OpenInNew,
+                                    contentDescription = stringResource(R.string.cd_open_link),
+                                    tint = WallSecondary,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                            }
                         }
                     }
                 }
