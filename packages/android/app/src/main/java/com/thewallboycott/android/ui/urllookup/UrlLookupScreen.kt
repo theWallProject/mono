@@ -398,8 +398,6 @@ fun HelpSection(onExampleClick: (String) -> Unit) {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
     ) {
-        // Force LTR for the examples — all content is Latin-script URLs/names
-        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
                 text = stringResource(R.string.lookup_search_prompt),
@@ -468,7 +466,6 @@ fun HelpSection(onExampleClick: (String) -> Unit) {
                 example = "threads.com/@wix",
                 onClick = { onExampleClick("threads.com/@wix") }
             )
-        }
         }
     }
 }
