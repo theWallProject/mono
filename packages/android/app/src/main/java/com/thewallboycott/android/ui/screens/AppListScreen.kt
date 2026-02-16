@@ -741,7 +741,7 @@ fun AppInfoCard(
                     ) {
                         Image(
                             painter = rememberDrawablePainter(drawable = it),
-                            contentDescription = "$appName icon",
+                            contentDescription = stringResource(R.string.cd_app_icon, appName),
                             modifier = Modifier
                                 .size(40.dp)
                                 .clip(RoundedCornerShape(8.dp))
@@ -915,7 +915,7 @@ fun BdsAppInfoCard(
                     ) {
                         Image(
                             painter = rememberDrawablePainter(drawable = it),
-                            contentDescription = "$appName icon",
+                            contentDescription = stringResource(R.string.cd_app_icon, appName),
                             modifier = Modifier
                                 .size(40.dp)
                                 .clip(RoundedCornerShape(8.dp))
@@ -1040,7 +1040,7 @@ fun HintAppCard(
                     ) {
                         Image(
                             painter = rememberDrawablePainter(drawable = it),
-                            contentDescription = "$appName icon",
+                            contentDescription = stringResource(R.string.cd_app_icon, appName),
                             modifier = Modifier
                                 .size(36.dp)
                                 .clip(RoundedCornerShape(8.dp))

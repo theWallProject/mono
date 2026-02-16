@@ -76,6 +76,9 @@ import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.components.ShareButton
 import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.theme.*
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -179,50 +182,53 @@ fun UrlLookupScreen(
             modifier = Modifier.padding(bottom = 12.dp)
         )
 
-        // Search field with autocomplete suggestions
-        Column {
-            OutlinedTextField(
-                value = url,
-                onValueChange = { url = it },
-                label = { Text(stringResource(R.string.lookup_label)) },
-                modifier = Modifier.fillMaxWidth(),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = WallPrimary,
-                    focusedLabelColor = WallPrimary,
-                    cursorColor = WallPrimary
-                ),
-                shape = RoundedCornerShape(12.dp),
-                singleLine = true
-            )
+        // Search field with autocomplete suggestions — forced LTR because
+        // input is URLs/company names (Latin script) even in RTL locales.
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+            Column {
+                OutlinedTextField(
+                    value = url,
+                    onValueChange = { url = it },
+                    label = { Text(stringResource(R.string.lookup_label)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = WallPrimary,
+                        focusedLabelColor = WallPrimary,
+                        cursorColor = WallPrimary
+                    ),
+                    shape = RoundedCornerShape(12.dp),
+                    singleLine = true
+                )
 
-            // Suggestions list - shown inline without popup animation
-            androidx.compose.animation.AnimatedVisibility(
-                visible = showSuggestions && suggestions.isNotEmpty(),
-                enter = androidx.compose.animation.fadeIn() + androidx.compose.animation.expandVertically(),
-                exit = androidx.compose.animation.fadeOut() + androidx.compose.animation.shrinkVertically()
-            ) {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 4.dp),
-                    shape = RoundedCornerShape(8.dp),
-                    colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                // Suggestions list - shown inline without popup animation
+                androidx.compose.animation.AnimatedVisibility(
+                    visible = showSuggestions && suggestions.isNotEmpty(),
+                    enter = androidx.compose.animation.fadeIn() + androidx.compose.animation.expandVertically(),
+                    exit = androidx.compose.animation.fadeOut() + androidx.compose.animation.shrinkVertically()
                 ) {
-                    Column {
-                        suggestions.forEach { suggestion ->
-                            Text(
-                                text = suggestion.displayText,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        url = suggestion.fillValue
-                                        showSuggestions = false
-                                        performCheck(suggestion.fillValue)
-                                    }
-                                    .padding(horizontal = 16.dp, vertical = 12.dp),
-                                color = WallOnSurface
-                            )
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 4.dp),
+                        shape = RoundedCornerShape(8.dp),
+                        colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                    ) {
+                        Column {
+                            suggestions.forEach { suggestion ->
+                                Text(
+                                    text = suggestion.displayText,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clickable {
+                                            url = suggestion.fillValue
+                                            showSuggestions = false
+                                            performCheck(suggestion.fillValue)
+                                        }
+                                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                                    color = WallOnSurface
+                                )
+                            }
                         }
                     }
                 }
@@ -392,6 +398,8 @@ fun HelpSection(onExampleClick: (String) -> Unit) {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = WallSurfaceVariant)
     ) {
+        // Force LTR for the examples — all content is Latin-script URLs/names
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
                 text = stringResource(R.string.lookup_search_prompt),
@@ -460,6 +468,7 @@ fun HelpSection(onExampleClick: (String) -> Unit) {
                 example = "threads.com/@wix",
                 onClick = { onExampleClick("threads.com/@wix") }
             )
+        }
         }
     }
 }

@@ -236,6 +236,10 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 
 ### Android Localization
 
+**Currently Supported Languages:** English (default/fallback), Arabic (ar)
+
+The app uses the system language by default. If the device is set to Arabic, the user sees Arabic. Otherwise, English is the fallback. No custom locale logic — this is standard Android locale resolution.
+
 All user-facing strings MUST be in `res/values/strings.xml` and referenced via string resources. No hardcoded strings in Kotlin source files.
 
 **In Composables:** Use `stringResource(R.string.xxx)` (Compose-native, auto-recomposes on locale change). Import: `import androidx.compose.ui.res.stringResource`
@@ -255,7 +259,56 @@ All user-facing strings MUST be in `res/values/strings.xml` and referenced via s
 7. Content descriptions (`contentDescription`) should use string resources too
 8. Escape apostrophes as `\'` or wrap the string in `"double quotes"` in XML
 
-**Key file:** `packages/android/app/src/main/res/values/strings.xml`
+**Key files:**
+
+- `packages/android/app/src/main/res/values/strings.xml` — English (default)
+- `packages/android/app/src/main/res/values-ar/strings.xml` — Arabic
+
+### Adding a New Android Language
+
+All SIX locations must be updated when adding a new language. The build and validation scripts enforce completeness — missing any step will cause failures.
+
+1. Create `res/values-{lang}/strings.xml` with ALL translatable strings (copy from `values/strings.xml` as template, translate every string except those marked `translatable="false"`)
+2. Add the language code to `localeFilters` in `app/build.gradle.kts` (e.g., `localeFilters += setOf("en", "ar", "fr")`)
+3. Add a new entry to the `SupportedLanguage` enum in `data/AppPreferences.kt` with the BCP-47 tag, native name, and English name (e.g., `FRENCH("fr", "Fran\u00e7ais", "French")`)
+4. Add a `<locale android:name="{lang}"/>` entry to `res/xml/locales_config.xml` so Android 13+ shows the language in system per-app language settings
+5. Create `fastlane/metadata/android/{locale}/` directory with:
+   - `title.txt` (max 30 chars)
+   - `short_description.txt` (max 80 chars)
+   - `full_description.txt` (max 4000 chars)
+   - `changelogs/{versionCode}.txt` (max 500 chars)
+   - `images/phoneScreenshots/` (min 2 screenshots for primary locale, optional for others)
+   - `images/tabletScreenshots/` (optional)
+6. Add the fastlane locale code to `REQUIRED_LOCALES` in `scripts/validate-metadata.sh`
+7. Run `pnpm lint` — will FAIL if any translations are missing or extra
+8. Run `pnpm validate:metadata` — will FAIL if fastlane files are missing
+9. For RTL languages (Arabic, Hebrew, Persian, Urdu): use all required plural forms (zero/one/two/few/many/other for Arabic)
+
+### Build Enforcement (Translations & Metadata)
+
+- **`androidResources.localeFilters`** in `app/build.gradle.kts` whitelists supported locales — only these are included from dependencies
+- **`MissingTranslation`** lint rule is an error — build fails if any translatable string in `values/strings.xml` is missing from any `values-{lang}/strings.xml`
+- **`ExtraTranslation`** lint rule is an error — build fails if any locale has strings not present in the default `values/strings.xml`
+- **`validate-metadata.sh`** checks all locales in `REQUIRED_LOCALES` array — fails if fastlane text files are missing or exceed character limits
+- ALL of these must be updated when adding or removing a language
+
+### RTL Support
+
+The app fully supports RTL layouts (Arabic). All Compose layouts are RTL-aware by default.
+
+**Layout rules:**
+
+- NEVER use `left`/`right` padding — use `start`/`end` or symmetric values (e.g., `horizontal`)
+- NEVER use `TextAlign.Left`/`TextAlign.Right` — use `TextAlign.Start`/`TextAlign.End` or `TextAlign.Center`
+- NEVER use `Arrangement.Start` with hardcoded left assumption — Compose `Row` auto-reverses in RTL
+- Use `Icons.AutoMirrored.Filled.*` for directional icons (arrows, chevrons)
+- `Modifier.padding(horizontal = X.dp)` is always safe (symmetric, no directionality)
+
+**Font:** Inter (Latin script) + Noto Sans Arabic (Arabic script) via composite `AppFontFamily` in `Type.kt`. Compose picks the correct font per glyph automatically.
+
+**Canvas rendering (ShareImageGenerator):** Detects RTL via `context.resources.configuration.layoutDirection` and mirrors icon+text row positioning. Most text uses `Paint.Align.CENTER` (symmetric), only the flagged apps template has directional layout.
+
+**Testing RTL:** In Android emulator, enable "Force RTL layout direction" in Developer Options, or set device language to Arabic.
 
 ## Translations
 
@@ -394,6 +447,7 @@ Addon uses `~*` → `./src/*`
 - `packages/android/app/src/main/java/com/thewall/android/ui/theme/Color.kt` - Android color palette
 - `packages/android/app/src/main/java/com/thewall/android/ui/screens/AppListScreen.kt` - App scanner UI
 - `packages/android/app/build.gradle.kts` - Android build config (signing, ProGuard, lint)
+- `packages/android/app/src/main/java/com/thewall/android/data/AppPreferences.kt` - App settings store, SupportedLanguage enum, locale resolution
 - `packages/android/version.properties` - Version tracking (VERSION_CODE, VERSION_NAME)
 - `packages/android/app/proguard-rules.pro` - R8/ProGuard rules for release builds
 - `packages/android/fastlane/metadata/android/` - Play Store metadata

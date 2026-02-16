@@ -12,6 +12,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Report
@@ -33,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.thewallboycott.android.data.billing.BillingConnectionState
 import com.thewallboycott.android.data.billing.BillingManager
+import com.thewallboycott.android.data.billing.BillingStage
 import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.components.SupporterShareDialog
 import com.thewallboycott.android.ui.theme.*
@@ -47,6 +49,11 @@ fun SupportScreen() {
     val shareManager = remember { ShareManager(context) }
     val isSubscribed by billingManager.isSubscribed.collectAsState()
     val connectionState by billingManager.connectionState.collectAsState()
+    val billingStage by billingManager.billingStage.collectAsState()
+    val diagnosticMessage by billingManager.diagnosticMessage.collectAsState()
+
+    // Local error state for launch failures (shown inline, clears on next attempt)
+    var launchError by remember { mutableStateOf<String?>(null) }
 
     // Track previous subscription state to detect new subscriptions
     var wasSubscribed by remember { mutableStateOf(isSubscribed) }
@@ -169,6 +176,14 @@ fun SupportScreen() {
                     }
                 }
             } else {
+                // Billing diagnostic banner — shown when billing has errors
+                // This surfaces configuration issues immediately to both devs and users.
+                val visibleDiagnostic = launchError ?: diagnosticMessage
+                if (visibleDiagnostic != null) {
+                    BillingDiagnosticBanner(message = visibleDiagnostic)
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
+
                 // Donate wall image with button overlay
                 Box(
                     modifier = Modifier
@@ -185,12 +200,31 @@ fun SupportScreen() {
                         contentScale = ContentScale.Fit
                     )
 
-                    // Button positioned over the hole (slightly above center)
+                    // Button text changes based on billing stage to show progress
+                    val buttonText = when {
+                        connectionState == BillingConnectionState.ERROR ->
+                            stringResource(R.string.billing_error_button)
+                        billingStage == BillingStage.CONNECTING ||
+                                billingStage == BillingStage.CONNECTED ||
+                                billingStage == BillingStage.PRODUCT_QUERY ->
+                            stringResource(R.string.billing_loading_button)
+                        else -> stringResource(R.string.support_price_monthly)
+                    }
+
+                    // Button enabled ONLY when product details + offers are verified
                     Button(
                         onClick = {
-                            activity?.let { billingManager.launchSubscriptionFlow(it) }
+                            launchError = null
+                            if (activity != null) {
+                                val error = billingManager.launchSubscriptionFlow(activity)
+                                if (error != null) {
+                                    launchError = error
+                                }
+                            } else {
+                                launchError = "Cannot launch purchase: Activity not available"
+                            }
                         },
-                        enabled = connectionState == BillingConnectionState.CONNECTED,
+                        enabled = billingManager.isReadyToPurchase,
                         colors = ButtonDefaults.buttonColors(
                             containerColor = WallPrimary,
                             contentColor = WallTextOnPrimary
@@ -207,7 +241,7 @@ fun SupportScreen() {
                             modifier = Modifier.size(18.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text(stringResource(R.string.support_price_monthly), fontWeight = FontWeight.SemiBold)
+                        Text(buttonText, fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
@@ -448,6 +482,49 @@ private fun ActionCard(
                 color = WallOnSurfaceVariant,
                 textAlign = TextAlign.Center
             )
+        }
+    }
+}
+
+/**
+ * Visible red diagnostic banner that shows billing errors to the user.
+ * Intentionally prominent so configuration issues are immediately obvious
+ * during development and testing. Includes the raw technical error message
+ * so developers/testers can report the exact failure.
+ */
+@Composable
+private fun BillingDiagnosticBanner(message: String) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = WallErrorContainer)
+    ) {
+        Row(
+            modifier = Modifier.padding(12.dp),
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.Start
+        ) {
+            Icon(
+                Icons.Default.ErrorOutline,
+                contentDescription = null,
+                tint = WallPrimary,
+                modifier = Modifier.size(20.dp)
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Column {
+                Text(
+                    text = stringResource(R.string.billing_diagnostic_title),
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = WallPrimary
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = message,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WallOnErrorContainer
+                )
+            }
         }
     }
 }

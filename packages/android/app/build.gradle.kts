@@ -38,6 +38,12 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Whitelist supported locales — only these languages are included from dependencies.
+    // When adding a new language, you MUST add its code here.
+    androidResources {
+        localeFilters += setOf("en", "ar")
+    }
+
     signingConfigs {
         // Release signing config - only create if keystore.properties exists
         if (keystorePropsFile.exists()) {
@@ -83,8 +89,11 @@ android {
         abortOnError = true
         // No baseline - fix all issues
         checkAllWarnings = true
-        // Check for missing translations (disabled - AGP 8.5+ uses different API)
-        // Enable when migrating to newer AGP with proper translation checks
+        // Enforce translation completeness — build fails if any translatable string
+        // is missing from a locale or if a locale has strings not in the default.
+        // This applies to ALL current and future languages automatically.
+        error += "MissingTranslation"
+        error += "ExtraTranslation"
     }
 }
 
@@ -97,6 +106,7 @@ kotlin {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)

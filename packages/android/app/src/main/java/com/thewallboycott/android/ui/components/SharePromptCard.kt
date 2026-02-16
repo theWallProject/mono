@@ -126,7 +126,7 @@ fun SharePromptCard(
 fun ShareButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    text: String = "Share",
+    text: String = "",
     accentColor: androidx.compose.ui.graphics.Color = WallPrimary
 ) {
     OutlinedButton(

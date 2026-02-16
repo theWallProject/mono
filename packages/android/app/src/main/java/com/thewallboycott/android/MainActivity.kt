@@ -4,8 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -19,6 +18,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -66,6 +66,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.thewallboycott.android.background.ScanWorker
+import com.thewallboycott.android.data.AppPreferences
 import com.thewallboycott.android.data.OnboardingPreferences
 import com.thewallboycott.android.share.ImageTemplate
 import com.thewallboycott.android.share.ShareManager
@@ -74,13 +75,14 @@ import com.thewallboycott.android.ui.onboarding.OnboardingScreen
 import com.thewallboycott.android.ui.screens.AppListScreen
 import com.thewallboycott.android.ui.screens.PermissionRequestScreen
 import com.thewallboycott.android.ui.screens.StartScreen
+import com.thewallboycott.android.ui.screens.SettingsScreen
 import com.thewallboycott.android.ui.screens.SupportScreen
 import com.thewallboycott.android.ui.theme.TheWallBoycottAssistantTheme
 import com.thewallboycott.android.ui.urllookup.UrlLookupScreen
 import java.util.concurrent.TimeUnit
 
 @OptIn(ExperimentalMaterial3Api::class)
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -91,6 +93,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Restore saved locale before any UI renders
+        AppPreferences.applyStoredLocale(this)
 
         // Enable edge-to-edge with burnt orange status bar
         enableEdgeToEdge(
@@ -170,7 +175,7 @@ class MainActivity : ComponentActivity() {
 
     private fun requestQueryAllPackagesPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
+            val intent = Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION).apply {
                 data = "package:$packageName".toUri()
             }
             permissionLauncher.launch(intent)
@@ -247,6 +252,7 @@ class MainActivity : ComponentActivity() {
                                     is Screen.List -> stringResource(R.string.scan_title)
                                     is Screen.UrlLookup -> stringResource(R.string.nav_lookup)
                                     is Screen.Support -> stringResource(R.string.nav_support)
+                                    is Screen.Settings -> stringResource(R.string.settings_title)
                                 },
                                 fontWeight = FontWeight.Bold
                             )
@@ -273,6 +279,14 @@ class MainActivity : ComponentActivity() {
                                 tint = WallTextOnPrimary
                             )
                         }
+                        // Settings button - outermost action, for all screens
+                        IconButton(onClick = { currentScreen = Screen.Settings }) {
+                            Icon(
+                                Icons.Filled.Settings,
+                                contentDescription = stringResource(R.string.cd_settings),
+                                tint = WallTextOnPrimary
+                            )
+                        }
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = WallPrimary,
@@ -282,6 +296,7 @@ class MainActivity : ComponentActivity() {
                 )
             },
             bottomBar = {
+                // When on Settings screen, no bottom nav item is selected
                 val isListSelected = currentScreen is Screen.List
                 val isUrlSelected = currentScreen is Screen.UrlLookup
                 val isSupportSelected = currentScreen is Screen.Support
@@ -401,6 +416,7 @@ class MainActivity : ComponentActivity() {
                         onUrlHandled = onUrlHandled
                     )
                     is Screen.Support -> SupportScreen()
+                    is Screen.Settings -> SettingsScreen()
                 }
             }
         }
@@ -422,6 +438,7 @@ sealed class Screen {
     data object List : Screen()
     data object UrlLookup : Screen()
     data object Support : Screen()
+    data object Settings : Screen()
 
     companion object {
         val Saver: Saver<Screen, String> = Saver(
@@ -430,6 +447,7 @@ sealed class Screen {
                     List -> "list"
                     UrlLookup -> "url"
                     Support -> "support"
+                    Settings -> "settings"
                 }
             },
             restore = { value ->
@@ -437,6 +455,7 @@ sealed class Screen {
                     "list" -> List
                     "url" -> UrlLookup
                     "support" -> Support
+                    "settings" -> Settings
                     else -> List
                 }
             }

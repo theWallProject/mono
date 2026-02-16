@@ -2,6 +2,7 @@ package com.thewallboycott.android.share
 
 import android.content.Context
 import android.graphics.*
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.thewallboycott.android.R
@@ -18,6 +19,9 @@ import com.thewallboycott.android.R
  * - App name (Israeli blue #0038B8, 72px bold) at y=700 (or y=600 if no icon)
  * - CTA text (white, 36px) at y=820-865
  * - Footer with darker orange background at y=980-1080
+ *
+ * RTL-aware: Layout direction is detected from system configuration.
+ * In RTL mode (Arabic), icon+text rows are mirrored (text on left, icon on right).
  */
 class ShareImageGenerator(private val context: Context) {
 
@@ -35,6 +39,10 @@ class ShareImageGenerator(private val context: Context) {
         // Footer text
         private const val FOOTER_URL = "the-wall.win"
     }
+
+    /** Whether the current layout direction is RTL (e.g. Arabic). */
+    private val isRtl: Boolean
+        get() = context.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
 
     // ========================================================================
     // Template Generation Methods
@@ -66,7 +74,7 @@ class ShareImageGenerator(private val context: Context) {
         }
         canvas.drawText(context.getString(R.string.share_image_clean_header), IMAGE_SIZE / 2f, 420f, headerPaint)
 
-        // Draw "0 Israeli apps found 🎉" in success green at y=600
+        // Draw "0 Israeli apps found" in success green at y=600
         val appNamePaint = Paint().apply {
             color = COLOR_SUCCESS_GREEN
             textSize = 72f
@@ -96,7 +104,8 @@ class ShareImageGenerator(private val context: Context) {
     /**
      * Generate the "Flagged Apps" image template.
      * Header: "I found {count} israeli app{s} on my phone!"
-     * App Name Area: Up to 2 app names in Israeli blue with icons on the left, "and more!" if more than 2
+     * App Name Area: Up to 2 app names in Israeli blue with icons, "and more!" if more than 2.
+     * In RTL mode, the icon appears to the right of the text (mirrored layout).
      * CTA: "Scan your phone NOW and protect yourself!"
      */
     fun generateFlaggedAppsImage(
@@ -127,7 +136,6 @@ class ShareImageGenerator(private val context: Context) {
         val appNamePaint = Paint().apply {
             color = COLOR_ISRAELI_BLUE
             textSize = 56f
-            textAlign = Paint.Align.LEFT
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
@@ -141,37 +149,14 @@ class ShareImageGenerator(private val context: Context) {
         val iconTextGap = 16f
         val startY = 580f - ((totalLines - 1) * lineHeight / 2f)
 
-        // Draw first app with icon
+        // Draw first app with icon (RTL-aware)
         if (appNames.isNotEmpty()) {
-            val displayName = truncateAppName(appNames[0], 16)
-            val textWidth = appNamePaint.measureText(displayName)
-            val totalWidth = iconSize + iconTextGap + textWidth
-            val startX = (IMAGE_SIZE - totalWidth) / 2f
-
-            // Draw icon if available
-            val icon1 = appIcons.getOrNull(0)
-            if (icon1 != null) {
-                drawAppIcon(canvas, icon1, startX + iconSize / 2f, startY - iconSize / 4f, iconSize)
-            }
-            // Draw app name
-            canvas.drawText(displayName, startX + iconSize + iconTextGap, startY, appNamePaint)
+            drawAppNameRow(canvas, appNamePaint, appNames[0], appIcons.getOrNull(0), iconSize, iconTextGap, startY)
         }
 
-        // Draw second app with icon if exists
+        // Draw second app with icon if exists (RTL-aware)
         if (appNames.size >= 2) {
-            val displayName = truncateAppName(appNames[1], 16)
-            val textWidth = appNamePaint.measureText(displayName)
-            val totalWidth = iconSize + iconTextGap + textWidth
-            val startX = (IMAGE_SIZE - totalWidth) / 2f
-            val y = startY + lineHeight
-
-            // Draw icon if available
-            val icon2 = appIcons.getOrNull(1)
-            if (icon2 != null) {
-                drawAppIcon(canvas, icon2, startX + iconSize / 2f, y - iconSize / 4f, iconSize)
-            }
-            // Draw app name
-            canvas.drawText(displayName, startX + iconSize + iconTextGap, y, appNamePaint)
+            drawAppNameRow(canvas, appNamePaint, appNames[1], appIcons.getOrNull(1), iconSize, iconTextGap, startY + lineHeight)
         }
 
         // Draw "and more!" if more than 2 apps
@@ -447,6 +432,52 @@ class ShareImageGenerator(private val context: Context) {
     }
 
     /**
+     * Draw an app name row with optional icon, centered horizontally.
+     * RTL-aware: In LTR mode, icon is on the left. In RTL mode, icon is on the right.
+     *
+     * @param canvas The canvas to draw on
+     * @param paint The paint for the app name text
+     * @param name The app name to display
+     * @param icon Optional app icon bitmap
+     * @param iconSize Size of the icon
+     * @param iconTextGap Gap between icon and text
+     * @param y The Y position for the text baseline
+     */
+    private fun drawAppNameRow(
+        canvas: Canvas,
+        paint: Paint,
+        name: String,
+        icon: Bitmap?,
+        iconSize: Float,
+        iconTextGap: Float,
+        y: Float
+    ) {
+        val displayName = truncateAppName(name, 16)
+        val textWidth = paint.measureText(displayName)
+        val totalWidth = iconSize + iconTextGap + textWidth
+        val startX = (IMAGE_SIZE - totalWidth) / 2f
+
+        if (isRtl) {
+            // RTL: text on the left, icon on the right
+            // Text is drawn from the left edge of the centered block
+            paint.textAlign = Paint.Align.LEFT
+            canvas.drawText(displayName, startX, y, paint)
+
+            // Icon is drawn after the text + gap
+            if (icon != null) {
+                drawAppIcon(canvas, icon, startX + textWidth + iconTextGap + iconSize / 2f, y - iconSize / 4f, iconSize)
+            }
+        } else {
+            // LTR: icon on the left, text on the right
+            if (icon != null) {
+                drawAppIcon(canvas, icon, startX + iconSize / 2f, y - iconSize / 4f, iconSize)
+            }
+            paint.textAlign = Paint.Align.LEFT
+            canvas.drawText(displayName, startX + iconSize + iconTextGap, y, paint)
+        }
+    }
+
+    /**
      * Draw the footer with darker orange background and URL.
      */
     private fun drawFooter(canvas: Canvas) {
@@ -472,7 +503,7 @@ class ShareImageGenerator(private val context: Context) {
      */
     private fun truncateAppName(name: String, maxLength: Int): String {
         return if (name.length > maxLength) {
-            name.take(maxLength - 3) + "..."
+            name.take(maxLength - 3) + "\u2026"
         } else {
             name
         }
