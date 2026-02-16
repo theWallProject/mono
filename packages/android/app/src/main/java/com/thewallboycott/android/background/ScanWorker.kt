@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.content.pm.ServiceInfo
 import android.os.Build
@@ -17,13 +16,14 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.thewallboycott.android.MainActivity
 import com.thewallboycott.android.R
+import com.thewallboycott.android.data.AssetDatabaseProvider
+import com.thewallboycott.android.data.DatabaseProvider
 import com.thewallboycott.android.data.NotificationPreferences
+import com.thewallboycott.android.data.PackageScanner
+import com.thewallboycott.android.data.SystemPackageScanner
 import com.thewallboycott.android.data.models.AllItem
-import com.thewallboycott.android.util.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -36,8 +36,12 @@ import kotlinx.coroutines.withContext
  * - Respects ignored and snoozed apps (won't count or notify about them)
  * - Uses grouped notifications with per-app actions (Ignore, Remind Later)
  */
-class ScanWorker(private val appContext: Context, workerParams: WorkerParameters) :
-    CoroutineWorker(appContext, workerParams) {
+class ScanWorker(
+    private val appContext: Context,
+    workerParams: WorkerParameters,
+    private val databaseProvider: DatabaseProvider = AssetDatabaseProvider(appContext),
+    private val packageScanner: PackageScanner = SystemPackageScanner(appContext)
+) : CoroutineWorker(appContext, workerParams) {
 
     companion object {
         const val NAVIGATE_TO_SCREEN_EXTRA = "NAVIGATE_TO_SCREEN"
@@ -105,14 +109,12 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
 
     /**
      * Scans installed apps and returns categorized results.
-     * Excludes system apps and respects ignored/snoozed preferences.
+     * Uses [DatabaseProvider] and [PackageScanner] for data access.
+     * Excludes ignored/snoozed apps for notification purposes.
      */
-    private fun scanInstalledApps(): ScanResult {
+    private suspend fun scanInstalledApps(): ScanResult {
         val pm = appContext.packageManager
-        val assetManager = appContext.assets
-        val allJson = readFile(assetManager, "ALL.json")
-        val allItemsType = object : TypeToken<List<AllItem>>() {}.type
-        val allItems: List<AllItem> = Gson().fromJson(allJson, allItemsType)
+        val allItems = databaseProvider.getAllItems()
 
         // Separate hints from regular blacklist items
         val (hints, blacklist) = allItems.partition { it.isHint == true }
@@ -121,19 +123,15 @@ class ScanWorker(private val appContext: Context, workerParams: WorkerParameters
         val blacklistWithAndroid = blacklist.filter { it.androidDevId != null || it.androidAppIds != null }
         val hintsWithAndroid = hints.filter { it.androidAppIds != null }
 
-        val installedApps = pm.getInstalledPackages(PackageManager.GET_META_DATA)
-        Log.d(TAG, "Found ${installedApps.size} installed apps to scan.")
+        // PackageScanner already filters out system apps
+        val installedApps = packageScanner.getInstalledPackages()
+        Log.d(TAG, "Found ${installedApps.size} installed non-system apps to scan.")
 
         val blacklistedApps = mutableListOf<DetectedApp>()
         val hintedApps = mutableListOf<DetectedApp>()
 
         installedApps.forEach { app ->
             val appInfo = app.applicationInfo ?: return@forEach
-
-            // Skip system apps
-            if ((appInfo.flags and (ApplicationInfo.FLAG_SYSTEM or ApplicationInfo.FLAG_UPDATED_SYSTEM_APP)) != 0) {
-                return@forEach
-            }
 
             // Skip ignored and snoozed apps
             if (prefs.shouldExcludeFromNotification(app.packageName)) {

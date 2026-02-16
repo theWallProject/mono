@@ -3,12 +3,19 @@ package com.thewallboycott.android.share
 import android.content.Context
 import android.content.SharedPreferences
 import com.thewallboycott.android.R
+import com.thewallboycott.android.data.Clock
+import com.thewallboycott.android.data.SystemClock
 
 /**
  * Manages share-related preferences including cooldowns, frequency caps,
  * and tracking for gamification features.
+ *
+ * @param clock Injectable clock for deterministic time-based testing.
  */
-class SharePreferences(private val context: Context) {
+class SharePreferences(
+    private val context: Context,
+    private val clock: Clock = SystemClock
+) {
 
     private val prefs: SharedPreferences = context.getSharedPreferences(
         PREFS_NAME,
@@ -50,7 +57,7 @@ class SharePreferences(private val context: Context) {
     private var currentSessionId: String? = null
 
     fun startNewSession(): String {
-        val newSessionId = System.currentTimeMillis().toString()
+        val newSessionId = clock.currentTimeMillis().toString()
         currentSessionId = newSessionId
         prefs.edit().putString(KEY_SESSION_ID, newSessionId).apply()
         // Reset session-specific flags
@@ -82,7 +89,7 @@ class SharePreferences(private val context: Context) {
 
         // Check cooldown from last dismiss
         val lastDismiss = prefs.getLong(KEY_LAST_DISMISS_NO_APPS, 0)
-        if (System.currentTimeMillis() - lastDismiss < COOLDOWN_7_DAYS) {
+        if (clock.currentTimeMillis() - lastDismiss < COOLDOWN_7_DAYS) {
             return false
         }
 
@@ -103,7 +110,7 @@ class SharePreferences(private val context: Context) {
      */
     fun recordNoAppsDismiss() {
         prefs.edit()
-            .putLong(KEY_LAST_DISMISS_NO_APPS, System.currentTimeMillis())
+            .putLong(KEY_LAST_DISMISS_NO_APPS, clock.currentTimeMillis())
             .apply()
     }
 
@@ -124,7 +131,7 @@ class SharePreferences(private val context: Context) {
 
         // Check cooldown from last dismiss
         val lastDismiss = prefs.getLong(KEY_LAST_DISMISS_APPS_FOUND, 0)
-        if (System.currentTimeMillis() - lastDismiss < COOLDOWN_7_DAYS) {
+        if (clock.currentTimeMillis() - lastDismiss < COOLDOWN_7_DAYS) {
             return false
         }
 
@@ -145,7 +152,7 @@ class SharePreferences(private val context: Context) {
      */
     fun recordAppsFoundDismiss() {
         prefs.edit()
-            .putLong(KEY_LAST_DISMISS_APPS_FOUND, System.currentTimeMillis())
+            .putLong(KEY_LAST_DISMISS_APPS_FOUND, clock.currentTimeMillis())
             .apply()
     }
 
@@ -159,7 +166,7 @@ class SharePreferences(private val context: Context) {
      */
     fun shouldShowAppRemovedPrompt(): Boolean {
         val lastDismiss = prefs.getLong(KEY_LAST_DISMISS_APP_REMOVED, 0)
-        return System.currentTimeMillis() - lastDismiss >= COOLDOWN_24_HOURS
+        return clock.currentTimeMillis() - lastDismiss >= COOLDOWN_24_HOURS
     }
 
     /**
@@ -167,7 +174,7 @@ class SharePreferences(private val context: Context) {
      */
     fun recordAppRemovedDismiss() {
         prefs.edit()
-            .putLong(KEY_LAST_DISMISS_APP_REMOVED, System.currentTimeMillis())
+            .putLong(KEY_LAST_DISMISS_APP_REMOVED, clock.currentTimeMillis())
             .apply()
     }
 

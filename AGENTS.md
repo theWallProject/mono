@@ -61,9 +61,14 @@ pnpm release:minor             # Bump minor version + release
 pnpm release:major             # Bump major version + release
 pnpm clean                     # Clean build artifacts
 pnpm lint                      # Run Android lint (MUST pass with zero errors)
+pnpm test                      # Run all tests + record screenshots + lint (no emulator needed)
+pnpm test:update               # Update screenshot baselines
+pnpm test:verify               # Verify screenshots match baselines (CI mode)
+pnpm test:compare              # Generate HTML diff report for screenshot changes
+pnpm test:screenshots          # Generate only fastlane Play Store screenshots
 pnpm install:prod              # Install release APK to connected device via USB
 pnpm validate:metadata         # Validate Play Store metadata
-pnpm screenshots               # Refresh Play Store screenshots (interactive)
+pnpm screenshots               # Refresh Play Store screenshots (interactive, emulator)
 pnpm screenshots:list          # List available emulators
 pnpm adb:trigger_scan          # Force trigger background scan
 pnpm adb:logcat                # View app logs
@@ -226,6 +231,21 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 - Hint: `#172A33` background, `#4FC3F7` accent
 
 **Data:** Embeds same `ALL.json` database, parsed at runtime
+
+**Architecture for testability:**
+
+- `DatabaseProvider` interface — loads ALL.json; `AssetDatabaseProvider` for production, fake impls for tests
+- `PackageScanner` interface — lists installed packages; `SystemPackageScanner` for production
+- `AppScanner` — core scanning logic using DatabaseProvider + PackageScanner
+- `AppListViewModel` — ViewModel for AppListScreen, delegates to AppScanner
+- `Clock` interface — injectable time source for `NotificationPreferences` and `SharePreferences`
+
+**Testing stack (JVM-based, no emulator):**
+
+- Robolectric 4.16.1 + Roborazzi 1.59.0 + Compose UI Test
+- 118 tests across 16 test classes, all JVM-only
+- Screenshots generated to `app/src/test/snapshots/` and `fastlane/metadata/android/`
+- See `TEST_PLAN.md` for full details
 
 **In-App Billing:**
 

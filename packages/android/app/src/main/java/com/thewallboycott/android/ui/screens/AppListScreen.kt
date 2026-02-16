@@ -1,9 +1,7 @@
 package com.thewallboycott.android.ui.screens
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -28,7 +26,6 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -41,9 +38,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.thewallboycott.android.data.AppScanner
+import com.thewallboycott.android.data.AssetDatabaseProvider
+import com.thewallboycott.android.data.SystemPackageScanner
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.data.models.Reason
 import com.thewallboycott.android.data.models.ReasonLevel
@@ -56,77 +56,9 @@ import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.components.SharePromptCard
 import com.thewallboycott.android.ui.theme.*
 import androidx.compose.runtime.derivedStateOf
-import com.thewallboycott.android.util.readFile
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-
-private data class AppScanResults(
-    val blacklisted: List<Pair<PackageInfo, AllItem>>,
-    val bdsApps: List<Pair<PackageInfo, AllItem>>,
-    val hinted: List<Pair<PackageInfo, AllItem>>,
-    val other: List<PackageInfo>
-)
-
-private val BDS_REASONS = setOf("BDS_PRIO", "BDS_GRASS", "BDS_PRESSURE")
-
-private fun AllItem.isBdsOnly(): Boolean {
-    return r.isNotEmpty() && r.all { it in BDS_REASONS }
-}
-
-private suspend fun performAppScan(context: Context): AppScanResults = withContext(Dispatchers.IO) {
-    Log.d("AppListScreen", "Background thread started for app scan")
-    val gson = Gson()
-    val assetManager = context.assets
-
-    val allJson = readFile(assetManager, "ALL.json")
-    val allItemsType = object : TypeToken<List<AllItem>>() {}.type
-    val allItems = gson.fromJson<List<AllItem>>(allJson, allItemsType)
-    Log.d("AppListScreen", "ALL.json loaded with ${allItems.size} items")
-
-    val (hints, blacklist) = allItems.partition { it.isHint == true }
-    Log.d("AppListScreen", "Separated ${hints.size} hints and ${blacklist.size} blacklist items")
-
-    val installedApps = context.packageManager.getInstalledPackages(PackageManager.GET_META_DATA)
-    Log.d("AppListScreen", "Found ${installedApps.size} installed apps")
-
-    val blacklistedApps = mutableListOf<Pair<PackageInfo, AllItem>>()
-    val bdsApps = mutableListOf<Pair<PackageInfo, AllItem>>()
-    val hintedApps = mutableListOf<Pair<PackageInfo, AllItem>>()
-    val otherApps = mutableListOf<PackageInfo>()
-
-    val nonSystemApps = installedApps.filter {
-        (it.applicationInfo?.flags ?: 0) and (ApplicationInfo.FLAG_SYSTEM or ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) == 0
-    }
-
-    nonSystemApps.forEach { app ->
-        val matchingBlacklistItem = blacklist.find { item ->
-            (item.androidAppIds?.contains(app.packageName) == true) ||
-                    (item.androidDevId?.let { app.packageName.startsWith(it) } == true)
-        }
-        val matchingHintItem = hints.find { item ->
-            (item.androidAppIds?.contains(app.packageName) == true) ||
-                    (item.androidDevId?.let { app.packageName.startsWith(it) } == true)
-        }
-
-        when {
-            matchingBlacklistItem != null -> {
-                // Separate BDS-only apps from Israeli apps
-                if (matchingBlacklistItem.isBdsOnly()) {
-                    bdsApps.add(app to matchingBlacklistItem)
-                } else {
-                    blacklistedApps.add(app to matchingBlacklistItem)
-                }
-            }
-            matchingHintItem != null -> hintedApps.add(app to matchingHintItem)
-            else -> otherApps.add(app)
-        }
-    }
-
-    AppScanResults(blacklistedApps, bdsApps, hintedApps, otherApps)
-}
-
 
 fun AllItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {
     if (this.isHint == true) return ReasonLevel.WARNING
@@ -137,12 +69,26 @@ fun AllItem.getEffectiveLevel(reasonsMap: Map<String, Reason>): ReasonLevel {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppListScreen(externalRefreshTrigger: Int = 0) {
-    var isLoading by remember { mutableStateOf(true) }
-    var blacklistedApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
-    var bdsApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
-    var hintedApps by remember { mutableStateOf<List<Pair<PackageInfo, AllItem>>>(emptyList()) }
-    var otherApps by remember { mutableStateOf<List<PackageInfo>>(emptyList()) }
+fun AppListScreen(
+    externalRefreshTrigger: Int = 0,
+    viewModel: AppListViewModel = run {
+        val context = LocalContext.current
+        viewModel(factory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
+                return AppListViewModel(
+                    AppScanner(AssetDatabaseProvider(context), SystemPackageScanner(context))
+                ) as T
+            }
+        })
+    }
+) {
+    val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val isLoading = state.isLoading
+    val blacklistedApps = state.blacklistedApps
+    val bdsApps = state.bdsApps
+    val hintedApps = state.hintedApps
+    val otherApps = state.otherApps
     var internalRefreshTrigger by remember { mutableStateOf(0) }
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -160,7 +106,6 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
     var showGeneralShareSheet by remember { mutableStateOf(false) }
     var showFlaggedAppsShareDialog by remember { mutableStateOf(false) }
     var showCleanScanShareDialog by remember { mutableStateOf(false) }
-    var scanCompleted by remember { mutableStateOf(false) }
     var notificationPermissionGranted by remember {
         mutableStateOf(
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -222,38 +167,27 @@ fun AppListScreen(externalRefreshTrigger: Int = 0) {
     LaunchedEffect(combinedTrigger) {
         if (combinedTrigger > 0) {
             Log.d("AppListScreen", "LaunchedEffect started (trigger: $combinedTrigger)")
-            isLoading = true
-            scanCompleted = false
             showSharePrompt = false
-            scope.launch {
-                val results = performAppScan(context)
-                withContext(Dispatchers.Main) {
-                    blacklistedApps = results.blacklisted
-                    bdsApps = results.bdsApps
-                    hintedApps = results.hinted
-                    otherApps = results.other
-                    isLoading = false
-                    scanCompleted = true
-                    Log.d("AppListScreen", "isLoading set to false")
+            viewModel.scan()
+        }
+    }
 
-                    // Determine share scenario after scan completes (with delay)
-                    delay(1500) // 1.5s delay as per plan
-                    val flaggedCount = results.blacklisted.size + results.bdsApps.size
-                    if (flaggedCount == 0 && results.hinted.isEmpty()) {
-                        // No apps found - celebration moment
-                        if (shareManager.shouldShowNoAppsPrompt()) {
-                            shareScenario = ShareScenario.NO_APPS_FOUND
-                            showSharePrompt = true
-                            shareManager.markNoAppsPromptShown()
-                        }
-                    } else if (flaggedCount > 0) {
-                        // Apps found - revelation moment
-                        if (shareManager.shouldShowAppsFoundPrompt()) {
-                            shareScenario = ShareScenario.APPS_FOUND
-                            showSharePrompt = true
-                            shareManager.markAppsFoundPromptShown()
-                        }
-                    }
+    // Share scenario logic after scan completes
+    LaunchedEffect(state.scanCompleted) {
+        if (state.scanCompleted) {
+            delay(1500) // 1.5s delay as per plan
+            val flaggedCount = blacklistedApps.size + bdsApps.size
+            if (flaggedCount == 0 && hintedApps.isEmpty()) {
+                if (shareManager.shouldShowNoAppsPrompt()) {
+                    shareScenario = ShareScenario.NO_APPS_FOUND
+                    showSharePrompt = true
+                    shareManager.markNoAppsPromptShown()
+                }
+            } else if (flaggedCount > 0) {
+                if (shareManager.shouldShowAppsFoundPrompt()) {
+                    shareScenario = ShareScenario.APPS_FOUND
+                    showSharePrompt = true
+                    shareManager.markAppsFoundPromptShown()
                 }
             }
         }

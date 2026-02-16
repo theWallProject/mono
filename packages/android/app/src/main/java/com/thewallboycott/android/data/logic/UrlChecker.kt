@@ -2,15 +2,14 @@ package com.thewallboycott.android.data.logic
 
 import android.content.Context
 import com.thewallboycott.android.R
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.thewallboycott.android.data.AssetDatabaseProvider
+import com.thewallboycott.android.data.DatabaseProvider
 import com.thewallboycott.android.data.models.APIEndpointConfig
 import com.thewallboycott.android.data.models.APIEndpointRule
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.data.models.AutocompleteSuggestion
 import com.thewallboycott.android.data.models.RuleInfo
 import com.thewallboycott.android.data.models.UrlCheckResult
-import com.thewallboycott.android.util.readFile
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -29,27 +28,17 @@ import java.net.URI
 // will result in logic divergence between the browser addon and the Android app,
 // leading to different and incorrect results for the same URL.
 // ----------------------------------------------------------------------------------
-class UrlChecker(private val context: Context) {
-
-    // Cache for the parsed database to avoid reloading it every time.
-    private var database: List<AllItem>? = null
+class UrlChecker(
+    private val context: Context,
+    private val databaseProvider: DatabaseProvider = AssetDatabaseProvider(context)
+) {
 
     private val config: APIEndpointConfig by lazy {
         buildApiEndpointConfig()
     }
 
     private suspend fun getDatabase(): List<AllItem> {
-        database?.let { return it }
-        // --- Performance Note ---
-        // This is executed on a background thread by the caller (`checkUrl`).
-        // It loads and parses the large JSON file from assets.
-        return withContext(Dispatchers.IO) {
-            val jsonString = readFile(context.assets, "ALL.json")
-            val listType = object : TypeToken<List<AllItem>>() {}.type
-            val db: List<AllItem> = Gson().fromJson(jsonString, listType)
-            database = db // Cache the result
-            db
-        }
+        return databaseProvider.getAllItems()
     }
 
 

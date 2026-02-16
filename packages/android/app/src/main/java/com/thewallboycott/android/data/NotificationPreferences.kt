@@ -12,8 +12,13 @@ import com.google.gson.reflect.TypeToken
  * - Permanently ignored apps (won't be counted or notified)
  * - Snoozed apps (ignored for 1 month, then back to normal)
  * - Last notification timestamp (for 2-week reminder interval)
+ *
+ * @param clock Injectable clock for deterministic time-based testing.
  */
-class NotificationPreferences(context: Context) {
+class NotificationPreferences(
+    context: Context,
+    private val clock: Clock = SystemClock
+) {
 
     private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     private val gson = Gson()
@@ -131,7 +136,7 @@ class NotificationPreferences(context: Context) {
         }
 
         // Filter out expired snoozes
-        val now = System.currentTimeMillis()
+        val now = clock.currentTimeMillis()
         val active = all.filter { it.value > now }
 
         // If some expired, update storage
@@ -148,7 +153,7 @@ class NotificationPreferences(context: Context) {
      */
     fun snoozeApp(packageName: String) {
         val current = getSnoozedApps().toMutableMap()
-        current[packageName] = System.currentTimeMillis() + SNOOZE_DURATION_MS
+        current[packageName] = clock.currentTimeMillis() + SNOOZE_DURATION_MS
         val json = gson.toJson(current)
         prefs.edit().putString(KEY_SNOOZED_APPS, json).apply()
     }
@@ -190,7 +195,7 @@ class NotificationPreferences(context: Context) {
      * Update last notification timestamp to now.
      */
     fun setLastNotificationTime() {
-        prefs.edit().putLong(KEY_LAST_NOTIFICATION_TIME, System.currentTimeMillis()).apply()
+        prefs.edit().putLong(KEY_LAST_NOTIFICATION_TIME, clock.currentTimeMillis()).apply()
     }
 
     /**
@@ -200,7 +205,7 @@ class NotificationPreferences(context: Context) {
     fun shouldShowReminder(): Boolean {
         val lastTime = getLastNotificationTime()
         if (lastTime == 0L) return true
-        return System.currentTimeMillis() - lastTime >= REMINDER_INTERVAL_MS
+        return clock.currentTimeMillis() - lastTime >= REMINDER_INTERVAL_MS
     }
 
     /**
