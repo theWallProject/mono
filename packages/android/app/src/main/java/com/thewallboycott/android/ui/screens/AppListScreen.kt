@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
+import java.net.URLEncoder
 import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -749,10 +750,10 @@ fun AppInfoCard(
                     val chooserTitle = stringResource(R.string.chooser_report_app)
                     IconButton(
                         onClick = {
+                            val encodedSubject = URLEncoder.encode(reportSubject, "UTF-8").replace("+", "%20")
+                            val encodedBody = URLEncoder.encode(reportBody, "UTF-8").replace("+", "%20")
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
-                                data = Uri.parse("mailto:app@thewall.bot")
-                                putExtra(Intent.EXTRA_SUBJECT, reportSubject)
-                                putExtra(Intent.EXTRA_TEXT, reportBody)
+                                data = Uri.parse("mailto:app@thewall.bot?subject=$encodedSubject&body=$encodedBody")
                             }
                             context.startActivity(Intent.createChooser(intent, chooserTitle))
                         }

@@ -331,17 +331,7 @@ class ShareImageGenerator(private val context: Context) {
         }
         canvas.drawText(context.getString(R.string.share_image_general_header), IMAGE_SIZE / 2f, 420f, headerPaint)
 
-        // Draw subtitle in Israeli blue at y=560
-        val subtitlePaint = Paint().apply {
-            color = COLOR_ISRAELI_BLUE
-            textSize = 64f
-            textAlign = Paint.Align.CENTER
-            typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-            isAntiAlias = true
-        }
-        canvas.drawText(context.getString(R.string.share_image_general_subtitle), IMAGE_SIZE / 2f, 560f, subtitlePaint)
-
-        // Draw CTA text at y=820
+        // Draw CTA text at y=560
         val ctaPaint = Paint().apply {
             color = COLOR_WHITE
             textSize = 36f
@@ -350,7 +340,7 @@ class ShareImageGenerator(private val context: Context) {
             alpha = 230
             isAntiAlias = true
         }
-        canvas.drawText(context.getString(R.string.share_image_general_cta), IMAGE_SIZE / 2f, 820f, ctaPaint)
+        canvas.drawText(context.getString(R.string.share_image_general_cta), IMAGE_SIZE / 2f, 560f, ctaPaint)
 
         // Draw footer
         drawFooter(canvas)

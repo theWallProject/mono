@@ -59,6 +59,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.unit.dp
 import com.thewallboycott.android.R
 import com.thewallboycott.android.ui.screens.WallLogo
@@ -120,6 +121,7 @@ Box(modifier = Modifier.fillMaxSize()) {
                     onClick = onComplete,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
+                        .statusBarsPadding()
                         .padding(16.dp)
                 ) {
                     Text(
