@@ -6,18 +6,21 @@ import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.thewallboycott.android.Screen
 import com.thewallboycott.android.ScanState
 import com.thewallboycott.android.data.AppScanner
 import com.thewallboycott.android.data.DatabaseProvider
+import com.thewallboycott.android.data.OfferPreferences
 import com.thewallboycott.android.data.PackageScanner
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.data.models.Alternative
 import com.thewallboycott.android.testutil.TestDevices
 import com.thewallboycott.android.ui.AppScaffold
 import com.thewallboycott.android.ui.theme.TheWallBoycottAssistantTheme
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -37,6 +40,12 @@ class AppListScreenTest {
 
     @get:Rule
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
+
+    @Before
+    fun setup() {
+        // Clear offer preferences before each test to avoid cross-test contamination
+        OfferPreferences(ApplicationProvider.getApplicationContext()).clear()
+    }
 
     // ==================== Test Data ====================
 
@@ -242,6 +251,106 @@ class AppListScreenTest {
 
         composeTestRule.onRoot().captureRoboImage(
             filePath = "src/test/snapshots/AppListScreen_mixed_phone.png"
+        )
+    }
+
+    // ==================== Replacement Offer Cards ====================
+
+    @Test
+    fun appListScreen_replacementOffers_phone() {
+        // Pre-populate saved offers (simulating previously uninstalled apps)
+        val offerPrefs = OfferPreferences(ApplicationProvider.getApplicationContext())
+        offerPrefs.saveOffer(
+            packageName = "com.wix.android",
+            appName = "Wix",
+            entityName = "Wix",
+            alternatives = listOf(
+                Alternative("Jimdo", "https://www.jimdo.com"),
+                Alternative("Webnode", "https://www.webnode.com")
+            )
+        )
+
+        val viewModel = createViewModel(
+            dbItems = emptyList(),
+            installedPackages = listOf(
+                fakePackage("com.safe.app1", "Safe App 1")
+            )
+        )
+
+        composeTestRule.setContent {
+            TheWallBoycottAssistantTheme {
+                AppScaffold(
+                    currentScreen = Screen.List,
+                    scanState = ScanState.Scanning
+                ) {
+                    AppListScreen(viewModel = viewModel)
+                }
+            }
+        }
+
+        // Wait for the replacement section to appear
+        composeTestRule.waitUntil(timeoutMillis = 10_000) {
+            try {
+                composeTestRule.onNodeWithText("Alternatives for Removed Apps", substring = true).assertExists()
+                true
+            } catch (_: AssertionError) {
+                false
+            }
+        }
+
+        composeTestRule.onRoot().captureRoboImage(
+            filePath = "src/test/snapshots/AppListScreen_replacement_phone.png"
+        )
+    }
+
+    // ==================== Flagged Apps with Alternatives ====================
+
+    @Test
+    fun appListScreen_flaggedWithAlternatives_phone() {
+        val appWithAlternatives = AllItem(
+            id = "test_wix_alt",
+            r = listOf("h"),
+            n = "Wix",
+            ws = "wix.com",
+            androidDevId = "com.wix",
+            alt = listOf(
+                Alternative("Jimdo", "https://www.jimdo.com"),
+                Alternative("Webnode", "https://www.webnode.com"),
+                Alternative("Squarespace", "https://www.squarespace.com")
+            )
+        )
+
+        val viewModel = createViewModel(
+            dbItems = listOf(appWithAlternatives),
+            installedPackages = listOf(
+                fakePackage("com.wix.android", "Wix"),
+                fakePackage("com.safe.app", "Safe App")
+            )
+        )
+
+        composeTestRule.setContent {
+            TheWallBoycottAssistantTheme {
+                AppScaffold(
+                    currentScreen = Screen.List,
+                    scanState = ScanState.Scanning
+                ) {
+                    AppListScreen(viewModel = viewModel)
+                }
+            }
+        }
+
+        // Wait for the alternatives sub-card to appear
+        composeTestRule.waitUntil(timeoutMillis = 10_000) {
+            try {
+                composeTestRule.onNodeWithText("Jimdo", substring = true).assertExists()
+                true
+            } catch (_: AssertionError) {
+                false
+            }
+        }
+
+        composeTestRule.onRoot().captureRoboImage(
+            filePath = "src/test/snapshots/AppListScreen_flagged_alternatives_phone.png"
         )
     }
 }
