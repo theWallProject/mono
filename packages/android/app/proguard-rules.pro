@@ -16,6 +16,15 @@
 -keep class com.thewallboycott.android.data.models.** { *; }
 -keepclassmembers class com.thewallboycott.android.data.models.** { *; }
 
+# Keep Gson-serialized inner data classes outside data.models
+# OfferPreferences$SavedOffer is serialized to SharedPreferences via Gson
+-keep class com.thewallboycott.android.data.OfferPreferences$SavedOffer { *; }
+-keepclassmembers class com.thewallboycott.android.data.OfferPreferences$SavedOffer { *; }
+
+# NotificationPreferences$SnoozedApp is serialized to SharedPreferences via Gson
+-keep class com.thewallboycott.android.data.NotificationPreferences$SnoozedApp { *; }
+-keepclassmembers class com.thewallboycott.android.data.NotificationPreferences$SnoozedApp { *; }
+
 # ============================================================
 # GOOGLE PLAY BILLING
 # ============================================================
