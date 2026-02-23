@@ -67,7 +67,7 @@ class ScanWorker(
 
         val progressNotification = createProgressNotification()
         val foregroundInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
+            ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE)
         } else {
             ForegroundInfo(PROGRESS_NOTIFICATION_ID, progressNotification)
         }

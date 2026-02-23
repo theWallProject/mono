@@ -10,18 +10,12 @@
     <!-- Allows uninstalling apps -->
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
-    <!-- Allows running jobs when the device boots up -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <!-- Allows sending notifications (for Android 13+) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <!-- Required for Foreground Services on modern Android -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
-
-    <!-- Required for exact alarms (Android 12+) - used for snooze/remind later -->
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SHORT_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -54,7 +48,7 @@
         <!-- WorkManager's Foreground Service -->
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
-            android:foregroundServiceType="dataSync"
+            android:foregroundServiceType="shortService"
             tools:node="merge" />
 
         <!-- FileProvider for sharing images -->
