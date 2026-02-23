@@ -68,8 +68,7 @@ pnpm test:compare              # Generate HTML diff report for screenshot change
 pnpm test:screenshots          # Generate fastlane Play Store screenshots for ALL supported languages
 pnpm install:prod              # Install release APK to connected device via USB
 pnpm validate:metadata         # Validate Play Store metadata
-pnpm screenshots               # Refresh Play Store screenshots (interactive, emulator)
-pnpm screenshots:list          # List available emulators
+pnpm screenshots               # Alias for test:screenshots
 pnpm adb:trigger_scan          # Force trigger background scan
 pnpm adb:logcat                # View app logs
 ```
@@ -93,8 +92,8 @@ The Android app uses a streamlined release workflow:
 
 1. **Version management**: `version.properties` tracks VERSION_CODE and VERSION_NAME
 2. **Signing**: Configure `keystore.properties` (see `keystore.properties.template`)
-3. **Screenshots**: Run `pnpm test:screenshots` to generate Play Store screenshots for all supported languages (JVM-based, no emulator needed)
-4. **Release**: Run `pnpm release:patch` (or minor/major) to bump version and build signed APK
+3. **Screenshots**: Automatically generated during release (JVM-based, no emulator needed). Can also be run manually with `pnpm test:screenshots`
+4. **Release**: Run `pnpm release:patch` (or minor/major) to bump version, generate screenshots, and build signed APK
 5. **Output**: Signed APK is placed in `release-output/thewall-v{version}.apk`
 
 **Screenshot generation (JVM-based, all languages):**
@@ -104,11 +103,6 @@ The Android app uses a streamlined release workflow:
 - Output: `fastlane/metadata/android/{locale}/images/{phone|tablet}Screenshots/{1-4}.png`
 - Uses Robolectric + Roborazzi (no emulator needed)
 - If the fastlane locale code differs from the Android tag (e.g., `en` → `en-US`), add a mapping to `FASTLANE_LOCALE_MAP` in `FastlaneScreenshotTest.kt`
-
-**Legacy emulator screenshots (deprecated):**
-
-- `pnpm screenshots` — ADB-based capture on running emulators (en-US only)
-- Use `--no-screenshots` flag with release commands to skip the prompt
 
 **First-time setup:**
 

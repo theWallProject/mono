@@ -89,19 +89,16 @@ if [ -n "$BUMP_TYPE" ]; then
     echo ""
 fi
 
-# Screenshots step
+# Generate Play Store screenshots (JVM-based, no emulator needed)
+
 if [ "$SKIP_SCREENSHOTS" = false ]; then
-    echo -e "${YELLOW}Refresh screenshots?${NC}"
-    echo "This requires emulators running with the app installed."
-    read -p "Take new screenshots? (y/N): " TAKE_SCREENSHOTS
-    if [[ "$TAKE_SCREENSHOTS" =~ ^[Yy]$ ]]; then
-        echo ""
-        bash "$SCRIPT_DIR/screenshots.sh"
-        echo ""
-    else
-        echo -e "${CYAN}Skipping screenshots.${NC}"
-        echo ""
-    fi
+    echo -e "${YELLOW}Generating Play Store screenshots...${NC}"
+    ./gradlew recordRoborazziDebug --tests "*.FastlaneScreenshotTest"
+    echo -e "${GREEN}Screenshots generated!${NC}"
+    echo ""
+else
+    echo -e "${CYAN}Skipping screenshots.${NC}"
+    echo ""
 fi
 
 # Read current version
