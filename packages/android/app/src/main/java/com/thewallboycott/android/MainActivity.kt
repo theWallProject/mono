@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun schedulePeriodicScan() {
-        val scanWorkRequest = PeriodicWorkRequestBuilder<ScanWorker>(15, TimeUnit.MINUTES).build()
+        val scanWorkRequest = PeriodicWorkRequestBuilder<ScanWorker>(6, TimeUnit.HOURS).build()
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(
             "PERIODIC_APP_SCAN",
             ExistingPeriodicWorkPolicy.KEEP,
