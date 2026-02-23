@@ -2,10 +2,9 @@ package com.thewallboycott.android.testutil
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.util.readFile
+import kotlinx.serialization.json.Json
 
 /**
  * Test utility that loads entries from the real ALL.json database.
@@ -16,7 +15,6 @@ import com.thewallboycott.android.util.readFile
  */
 object TestDatabase {
 
-    private val gson = Gson()
     private var cachedItems: List<AllItem>? = null
 
     /**
@@ -25,9 +23,8 @@ object TestDatabase {
      */
     fun loadAll(context: Context = ApplicationProvider.getApplicationContext()): List<AllItem> {
         cachedItems?.let { return it }
-        val json = readFile(context.assets, "ALL.json")
-        val type = object : TypeToken<List<AllItem>>() {}.type
-        val items: List<AllItem> = gson.fromJson(json, type)
+        val jsonString = readFile(context.assets, "ALL.json")
+        val items: List<AllItem> = Json.decodeFromString(jsonString)
         cachedItems = items
         return items
     }

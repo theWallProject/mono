@@ -2,8 +2,7 @@ package com.thewallboycott.android.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import kotlinx.serialization.json.Json
 
 /**
  * Handles persistence for notification-related state.
@@ -21,7 +20,6 @@ class NotificationPreferences(
 ) {
 
     private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-    private val gson = Gson()
 
     companion object {
         private const val PREFS_NAME = "notification_prefs"
@@ -52,9 +50,8 @@ class NotificationPreferences(
      */
     fun getKnownApps(): Set<String> {
         val json = prefs.getString(KEY_KNOWN_APPS, null) ?: return emptySet()
-        val type = object : TypeToken<Set<String>>() {}.type
         return try {
-            gson.fromJson(json, type) ?: emptySet()
+            Json.decodeFromString<Set<String>>(json)
         } catch (e: Exception) {
             emptySet()
         }
@@ -64,7 +61,7 @@ class NotificationPreferences(
      * Save the current set of detected apps as "known".
      */
     fun setKnownApps(apps: Set<String>) {
-        val json = gson.toJson(apps)
+        val json = Json.encodeToString(apps)
         prefs.edit().putString(KEY_KNOWN_APPS, json).apply()
     }
 
@@ -82,9 +79,8 @@ class NotificationPreferences(
      */
     fun getIgnoredApps(): Set<String> {
         val json = prefs.getString(KEY_IGNORED_APPS, null) ?: return emptySet()
-        val type = object : TypeToken<Set<String>>() {}.type
         return try {
-            gson.fromJson(json, type) ?: emptySet()
+            Json.decodeFromString<Set<String>>(json)
         } catch (e: Exception) {
             emptySet()
         }
@@ -96,7 +92,7 @@ class NotificationPreferences(
     fun ignoreApp(packageName: String) {
         val current = getIgnoredApps().toMutableSet()
         current.add(packageName)
-        val json = gson.toJson(current)
+        val json = Json.encodeToString(current)
         prefs.edit().putString(KEY_IGNORED_APPS, json).apply()
 
         // Also remove from snoozed if present
@@ -117,7 +113,7 @@ class NotificationPreferences(
         val current = getIgnoredApps().toMutableSet()
         if (current.contains(packageName)) {
             current.remove(packageName)
-            val json = gson.toJson(current)
+            val json = Json.encodeToString(current)
             prefs.edit().putString(KEY_IGNORED_APPS, json).apply()
         }
     }
@@ -128,9 +124,8 @@ class NotificationPreferences(
      */
     fun getSnoozedApps(): Map<String, Long> {
         val json = prefs.getString(KEY_SNOOZED_APPS, null) ?: return emptyMap()
-        val type = object : TypeToken<Map<String, Long>>() {}.type
         val all: Map<String, Long> = try {
-            gson.fromJson(json, type) ?: emptyMap()
+            Json.decodeFromString<Map<String, Long>>(json)
         } catch (e: Exception) {
             emptyMap()
         }
@@ -141,7 +136,7 @@ class NotificationPreferences(
 
         // If some expired, update storage
         if (active.size != all.size) {
-            val activeJson = gson.toJson(active)
+            val activeJson = Json.encodeToString(active)
             prefs.edit().putString(KEY_SNOOZED_APPS, activeJson).apply()
         }
 
@@ -154,7 +149,7 @@ class NotificationPreferences(
     fun snoozeApp(packageName: String) {
         val current = getSnoozedApps().toMutableMap()
         current[packageName] = clock.currentTimeMillis() + SNOOZE_DURATION_MS
-        val json = gson.toJson(current)
+        val json = Json.encodeToString(current)
         prefs.edit().putString(KEY_SNOOZED_APPS, json).apply()
     }
 
@@ -165,7 +160,7 @@ class NotificationPreferences(
         val current = getSnoozedApps().toMutableMap()
         if (current.containsKey(packageName)) {
             current.remove(packageName)
-            val json = gson.toJson(current)
+            val json = Json.encodeToString(current)
             prefs.edit().putString(KEY_SNOOZED_APPS, json).apply()
         }
     }
@@ -214,9 +209,8 @@ class NotificationPreferences(
      */
     fun getLastNotifiedApps(): Set<String> {
         val json = prefs.getString(KEY_LAST_NOTIFIED_APPS, null) ?: return emptySet()
-        val type = object : TypeToken<Set<String>>() {}.type
         return try {
-            gson.fromJson(json, type) ?: emptySet()
+            Json.decodeFromString<Set<String>>(json)
         } catch (e: Exception) {
             emptySet()
         }
@@ -226,7 +220,7 @@ class NotificationPreferences(
      * Save the apps that were just notified about.
      */
     fun setLastNotifiedApps(apps: Set<String>) {
-        val json = gson.toJson(apps)
+        val json = Json.encodeToString(apps)
         prefs.edit().putString(KEY_LAST_NOTIFIED_APPS, json).apply()
     }
 

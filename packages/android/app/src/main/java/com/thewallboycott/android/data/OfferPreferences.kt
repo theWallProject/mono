@@ -2,9 +2,9 @@ package com.thewallboycott.android.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.thewallboycott.android.data.models.Alternative
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 
 /**
  * Persists saved offers from apps that had alternatives.
@@ -17,7 +17,6 @@ class OfferPreferences(
 ) {
 
     private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-    private val gson = Gson()
 
     companion object {
         private const val PREFS_NAME = "offer_prefs"
@@ -28,6 +27,7 @@ class OfferPreferences(
     /**
      * Represents a saved offer from an app that was detected.
      */
+    @Serializable
     data class SavedOffer(
         /** Package name of the detected app */
         val packageName: String,
@@ -46,9 +46,8 @@ class OfferPreferences(
      */
     fun getSavedOffers(): List<SavedOffer> {
         val json = prefs.getString(KEY_SAVED_OFFERS, null) ?: return emptyList()
-        val type = object : TypeToken<List<SavedOffer>>() {}.type
         return try {
-            val offers: List<SavedOffer> = gson.fromJson(json, type) ?: emptyList()
+            val offers: List<SavedOffer> = Json.decodeFromString(json)
             offers.sortedByDescending { it.savedAt }
         } catch (e: Exception) {
             emptyList()
@@ -81,7 +80,7 @@ class OfferPreferences(
             )
         )
 
-        val json = gson.toJson(current)
+        val json = Json.encodeToString(current)
         prefs.edit().putString(KEY_SAVED_OFFERS, json).apply()
     }
 
@@ -91,7 +90,7 @@ class OfferPreferences(
     fun removeOffer(packageName: String) {
         val current = getSavedOffers().toMutableList()
         current.removeAll { it.packageName == packageName }
-        val json = gson.toJson(current)
+        val json = Json.encodeToString(current)
         prefs.edit().putString(KEY_SAVED_OFFERS, json).apply()
     }
 
@@ -118,7 +117,7 @@ class OfferPreferences(
             alternatives = alternatives,
             savedAt = clock.currentTimeMillis()
         )
-        val json = gson.toJson(offer)
+        val json = Json.encodeToString(offer)
         prefs.edit().putString(KEY_PENDING_OFFER_DIALOG, json).apply()
     }
 
@@ -130,7 +129,7 @@ class OfferPreferences(
         val json = prefs.getString(KEY_PENDING_OFFER_DIALOG, null) ?: return null
         prefs.edit().remove(KEY_PENDING_OFFER_DIALOG).apply()
         return try {
-            gson.fromJson(json, SavedOffer::class.java)
+            Json.decodeFromString<SavedOffer>(json)
         } catch (e: Exception) {
             null
         }
