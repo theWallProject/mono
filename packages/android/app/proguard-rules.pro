@@ -9,23 +9,6 @@
 -renamesourcefileattribute SourceFile
 
 # ============================================================
-# APP DATA MODELS
-# Keep all data models for Gson serialization
-# ============================================================
-
--keep class com.thewallboycott.android.data.models.** { *; }
--keepclassmembers class com.thewallboycott.android.data.models.** { *; }
-
-# Keep Gson-serialized inner data classes outside data.models
-# OfferPreferences$SavedOffer is serialized to SharedPreferences via Gson
--keep class com.thewallboycott.android.data.OfferPreferences$SavedOffer { *; }
--keepclassmembers class com.thewallboycott.android.data.OfferPreferences$SavedOffer { *; }
-
-# NotificationPreferences$SnoozedApp is serialized to SharedPreferences via Gson
--keep class com.thewallboycott.android.data.NotificationPreferences$SnoozedApp { *; }
--keepclassmembers class com.thewallboycott.android.data.NotificationPreferences$SnoozedApp { *; }
-
-# ============================================================
 # GOOGLE PLAY BILLING
 # ============================================================
 
@@ -36,36 +19,6 @@
 -keepclassmembers class * implements com.android.billingclient.api.PurchasesUpdatedListener {
     public <methods>;
 }
-
-# ============================================================
-# GSON
-# ============================================================
-
-# Gson uses generic type information stored in a class file when working with fields
--keepattributes Signature
-
-# For using GSON @Expose annotation
--keepattributes *Annotation*
-
-# Gson specific classes
--dontwarn sun.misc.**
--keep class com.google.gson.stream.** { *; }
-
-# Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
-# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
--keep class * extends com.google.gson.TypeAdapter
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-
-# Prevent R8 from leaving Data object members always null
--keepclassmembers,allowobfuscation class * {
-    @com.google.gson.annotations.SerializedName <fields>;
-}
-
-# Retain generic signatures of TypeToken and its subclasses with R8 version 3.0+
--keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
--keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
 
 # ============================================================
 # JETPACK COMPOSE

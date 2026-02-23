@@ -1,14 +1,13 @@
 package com.thewallboycott.android.data
 
 import android.content.Context
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.util.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.json.Json
 
 /**
  * Provides access to the ALL.json database.
@@ -33,9 +32,8 @@ class AssetDatabaseProvider(private val context: Context) : DatabaseProvider {
             // Double-check after acquiring lock
             cached?.let { return it }
             withContext(Dispatchers.IO) {
-                val json = readFile(context.assets, "ALL.json")
-                val type = object : TypeToken<List<AllItem>>() {}.type
-                val items: List<AllItem> = Gson().fromJson(json, type)
+                val jsonString = readFile(context.assets, "ALL.json")
+                val items: List<AllItem> = Json.decodeFromString(jsonString)
                 cached = items
                 items
             }

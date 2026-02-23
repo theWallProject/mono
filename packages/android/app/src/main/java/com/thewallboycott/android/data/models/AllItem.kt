@@ -1,7 +1,9 @@
 package com.thewallboycott.android.data.models
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class AllItem(
     /** Unique identifier */
     val id: String,
@@ -41,13 +43,15 @@ data class AllItem(
     val hintText: String? = null,
     /** Hint URL */
     val hintUrl: String? = null,
+    /** Hint company ID for company-level dismissal */
+    val hintCompanyId: String? = null,
     /** Android developer ID like "com.wix" (not full app package IDs) */
-    @SerializedName("android_dev_id")
+    @SerialName("android_dev_id")
     val androidDevId: String? = null,
     /** Array of full Android app package IDs for exact matching */
-    @SerializedName("android_app_ids")
+    @SerialName("android_app_ids")
     val androidAppIds: List<String>? = null,
     /** Hint for an alternative Android app */
-    @SerializedName("hint_android_id")
+    @SerialName("hint_android_id")
     val hintAndroidId: String? = null
 )
