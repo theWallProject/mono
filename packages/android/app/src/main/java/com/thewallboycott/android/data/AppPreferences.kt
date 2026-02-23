@@ -1,5 +1,6 @@
 package com.thewallboycott.android.data
 
+import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
@@ -153,16 +154,29 @@ class AppPreferences(context: Context) {
     }
 
     /**
-     * Set the active language and immediately apply it via AppCompat.
-     * This triggers an activity recreation to apply the new locale.
+     * Set the active language, apply it via AppCompat, and recreate the activity.
+     *
+     * On Android 13+ with `singleTask` launch mode, `setApplicationLocales()`
+     * can deliver `onConfigurationChanged` instead of recreating the activity.
+     * When that happens the configuration's layout direction updates (RTL kicks in)
+     * but the activity's base context resources still resolve strings from the
+     * old locale — causing the "RTL layout but English text" flicker.
+     *
+     * To guarantee a clean slate we use `commit()` (synchronous write) so the
+     * preference is persisted before recreation, then explicitly call
+     * `activity.recreate()` as a safety net. If `setApplicationLocales()`
+     * already triggered recreation, the second `recreate()` is a no-op because
+     * the activity is already finishing.
      *
      * @param tag BCP-47 language tag from [SupportedLanguage.tag], or empty string
-     *            for system default. Passing a tag not in [SupportedLanguage] is
-     *            safe — it will be stored but [getEffectiveLanguage] will fall back
-     *            to English.
+     *            for system default.
+     * @param activity The current activity — required to force recreation when
+     *                 AppCompat's implicit recreation is unreliable.
      */
-    fun setLanguage(tag: String) {
-        prefs.edit().putString(KEY_LANGUAGE_TAG, tag).apply()
+    fun setLanguage(tag: String, activity: Activity? = null) {
+        // Synchronous write: the tag must be on disk before the activity
+        // recreates and applyStoredLocale() reads it back in onCreate().
+        prefs.edit().putString(KEY_LANGUAGE_TAG, tag).commit()
 
         if (tag == SYSTEM_DEFAULT_TAG) {
             AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
@@ -171,5 +185,9 @@ class AppPreferences(context: Context) {
                 LocaleListCompat.forLanguageTags(tag)
             )
         }
+
+        // Explicit recreation: guards against singleTask swallowing the
+        // implicit recreation that setApplicationLocales() normally triggers.
+        activity?.recreate()
     }
 }

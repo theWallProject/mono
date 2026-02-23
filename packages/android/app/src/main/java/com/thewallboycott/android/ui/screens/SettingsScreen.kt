@@ -1,5 +1,8 @@
 package com.thewallboycott.android.ui.screens
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -35,6 +38,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -61,12 +65,22 @@ import com.thewallboycott.android.ui.theme.WallSurfaceVariant
 @Composable
 fun SettingsScreen() {
     val context = LocalContext.current
+    val activity = context.findActivity()
     val appPreferences = remember { AppPreferences(context) }
     val scrollState = rememberScrollState()
 
+    // Read LocalConfiguration so this composable recomposes whenever the
+    // system configuration changes (locale, layout direction, etc.).
+    // This is the key fix: without it, a configuration change delivered via
+    // onConfigurationChanged (instead of activity recreation) would update
+    // RTL layout direction but leave stringResource() calls returning stale
+    // values from the previous locale.
+    @Suppress("UNUSED_VARIABLE")
+    val configuration = LocalConfiguration.current
+
     val storedTag = appPreferences.getStoredLanguageTag()
     val isSystemDefault = storedTag.isEmpty()
-    val resolvedSystemLanguage = remember { appPreferences.resolveSystemLanguage() }
+    val resolvedSystemLanguage = appPreferences.resolveSystemLanguage()
 
     val canScrollDown by remember {
         derivedStateOf {
@@ -106,7 +120,7 @@ fun SettingsScreen() {
                         ),
                         icon = { SystemDefaultIcon() },
                         isSelected = isSystemDefault,
-                        onClick = { appPreferences.setLanguage("") }
+                        onClick = { appPreferences.setLanguage("", activity) }
                     )
 
                     HorizontalDivider(
@@ -125,7 +139,7 @@ fun SettingsScreen() {
                             },
                             icon = null,
                             isSelected = !isSystemDefault && storedTag == language.tag,
-                            onClick = { appPreferences.setLanguage(language.tag) }
+                            onClick = { appPreferences.setLanguage(language.tag, activity) }
                         )
 
                         // Divider between language options (not after the last one)
@@ -260,4 +274,17 @@ private fun SystemDefaultIcon() {
         tint = WallOnSurfaceVariant,
         modifier = Modifier.size(24.dp)
     )
+}
+
+/**
+ * Walk the [ContextWrapper] chain to find the hosting [Activity].
+ * Returns null when called from a non-Activity context (e.g. a Service or test).
+ */
+private fun Context.findActivity(): Activity? {
+    var ctx = this
+    while (ctx is ContextWrapper) {
+        if (ctx is Activity) return ctx
+        ctx = ctx.baseContext
+    }
+    return null
 }
