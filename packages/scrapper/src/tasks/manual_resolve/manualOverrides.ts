@@ -4,9 +4,12 @@ export const manualOverrides: Record<
   string,
   | ManualOverrideFields
   | { _processed: true }
+  | { _processed: "auto" }
   | (ManualOverrideFields & { _processed: true })
+  | (ManualOverrideFields & { _processed: "auto" })
   | (ManualOverrideFields & { urls?: string[] })
   | (ManualOverrideFields & { _processed: true; urls?: string[] })
+  | (ManualOverrideFields & { _processed: "auto"; urls?: string[] })
 > = {
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders/" },
   "AI21 Labs": {
@@ -320,6 +323,59 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Playtika: {
+    li: ["https://il.linkedin.com/company/playtika"],
+    fb: [
+      "https://apps.facebook.com/pokerheat",
+      "https://apps.facebook.com/vegas_downtown_slots",
+      "https://www.facebook.com/AnimalsandCoins",
+      "https://www.facebook.com/Playtika"
+    ],
+    tw: ["https://twitter.com/playtika_ltd?lang=he"],
+    ig: ["https://www.instagram.com/playtika"],
+    urls: [
+      "https://play.google.com/store/apps/details?id=air.com.buffalo_studios.newflashbingo",
+      "https://play.google.com/store/apps/details?id=air.com.playtika.cvs",
+      "https://play.google.com/store/apps/details?id=air.com.playtika.slotomania",
+      "https://play.google.com/store/apps/details?id=com.Seriously.BestFiends&hl=en",
+      "https://play.google.com/store/apps/details?id=com.bigblueparrot.pokerfriends",
+      "https://play.google.com/store/apps/details?id=com.innplaylabs.animalkingdomraid&hl=en&gl=US",
+      "https://play.google.com/store/apps/details?id=com.jellybtn.boardkings&hl=iw&gl=US",
+      "https://play.google.com/store/apps/details?id=com.jellybtn.cashkingmobile",
+      "https://play.google.com/store/apps/details?id=com.pacificinteractive.HouseOfFun",
+      "https://play.google.com/store/apps/details?id=com.playtika.caesarscasino",
+      "https://play.google.com/store/apps/details?id=com.playtika.wsop.gp",
+      "https://play.google.com/store/apps/details?id=com.screenshake.dominodreams",
+      "https://play.google.com/store/apps/details?id=com.superplaystudios.dicedreams",
+      "https://play.google.com/store/apps/details?id=com.superplaystudios.disneysolitairedreams&hl=en",
+      "https://play.google.com/store/apps/details?id=com.youdagames.gop3multiplayer&hl=en_US",
+      "https://play.google.com/store/apps/details?id=com.youdagames.monopolypoker&hl=en_US",
+      "https://play.google.com/store/apps/details?id=fi.reworks.redecor&hl=en&gl=US",
+      "https://play.google.com/store/apps/details?id=net.supertreat.solitaire",
+      "https://play.google.com/store/apps/details?id=net.supertreat.solitaire&hl=en"
+    ],
+    android_app_ids: [
+      "air.com.buffalo_studios.newflashbingo",
+      "air.com.playtika.cvs",
+      "air.com.playtika.slotomania",
+      "com.Seriously.BestFiends",
+      "com.bigblueparrot.pokerfriends",
+      "com.innplaylabs.animalkingdomraid",
+      "com.jellybtn.boardkings",
+      "com.jellybtn.cashkingmobile",
+      "com.pacificinteractive.HouseOfFun",
+      "com.playtika.caesarscasino",
+      "com.playtika.wsop.gp",
+      "com.screenshake.dominodreams",
+      "com.superplaystudios.dicedreams",
+      "com.superplaystudios.disneysolitairedreams",
+      "com.youdagames.gop3multiplayer",
+      "com.youdagames.monopolypoker",
+      "fi.reworks.redecor",
+      "net.supertreat.solitaire"
+    ],
+    _processed: true
+  },
   "Protect AI": {
     gh: ["https://github.com/protectai"],
     ytp: ["https://www.youtube.com/@protectai"],
@@ -394,14 +450,8 @@ export const manualOverrides: Record<
     gh: ["https://github.com/Speedata-io"],
     ytp: ["https://www.youtube.com/@Speedata-io"],
     alt: [
-      {
-        n: "ARM Neoverse",
-        ws: "https://www.arm.com/products/silicon-ip-cpu/neoverse/"
-      },
-      {
-        n: "Xilinx Versal ACAP",
-        ws: "https://www.xilinx.com/products/silicon-platforms/versal.html"
-      }
+      { n: "ARM Neoverse", ws: "https://www.arm.com/products/silicon-ip-cpu/neoverse/" },
+      { n: "Xilinx Versal ACAP", ws: "https://www.xilinx.com/products/silicon-platforms/versal.html" }
     ],
     _processed: true
   },

@@ -1,10 +1,21 @@
 import { CrunchbaseScrappedItemType, ManualOverrideFields } from "../../types"
 
+/** Manually verified by a human through the browser workflow */
 export type ProcessedState = {
   _processed: true
 }
 
-export type ManualOverrideValue = (ManualOverrideFields & ProcessedState) | ProcessedState | ManualOverrideFields
+/** Auto-extracted by the Homepage AI Extractor — not yet human-verified */
+export type AutoExtractedState = {
+  _processed: "auto"
+}
+
+export type ManualOverrideValue =
+  | (ManualOverrideFields & ProcessedState)
+  | ProcessedState
+  | (ManualOverrideFields & AutoExtractedState)
+  | AutoExtractedState
+  | ManualOverrideFields
 
 export type OverrideWithUrls = {
   ws?: string | string[]
@@ -36,8 +47,16 @@ export type CategorizedUrls = {
   android_app_ids?: string[] // Android app package IDs extracted from Play Store URLs
 }
 
+/** Returns true only for human-verified entries (_processed: true) */
 export const isProcessed = (
   value: ManualOverrideValue
 ): value is ProcessedState | (Partial<CrunchbaseScrappedItemType> & ProcessedState) => {
   return typeof value === "object" && value !== null && "_processed" in value && value._processed === true
+}
+
+/** Returns true only for auto-extracted entries (_processed: "auto") */
+export const isAutoExtracted = (
+  value: ManualOverrideValue
+): value is AutoExtractedState | (ManualOverrideFields & AutoExtractedState) => {
+  return typeof value === "object" && value !== null && "_processed" in value && value._processed === "auto"
 }

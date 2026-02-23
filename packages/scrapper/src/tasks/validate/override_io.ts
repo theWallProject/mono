@@ -3,7 +3,7 @@ import { formatAndWrite } from "@theWallProject/common"
 
 import { log } from "../../helper"
 import type { ManualOverrideValue } from "./types"
-import { isProcessed } from "./types"
+import { isAutoExtracted, isProcessed } from "./types"
 
 const manualOverridesPath = path.join(__dirname, "../manual_resolve/manualOverrides.ts")
 
@@ -11,7 +11,14 @@ const formatValue = (value: ManualOverrideValue): string => {
   // Fields to exclude from output (handled specially)
   const excludeKeys = new Set(["_processed"])
 
-  if (isProcessed(value)) {
+  // Determine the _processed suffix based on state
+  const processedSuffix: string | null = isProcessed(value)
+    ? "_processed: true"
+    : isAutoExtracted(value)
+      ? '_processed: "auto"'
+      : null
+
+  if (processedSuffix) {
     const fields: string[] = []
 
     // Preserve all fields except _processed
@@ -25,11 +32,9 @@ const formatValue = (value: ManualOverrideValue): string => {
     }
 
     if (fields.length > 0) {
-      // Has changes - include both the fields and the processed state
-      return `{ ${fields.join(", ")}, _processed: true }`
+      return `{ ${fields.join(", ")}, ${processedSuffix} }`
     } else {
-      // No changes - just processed state
-      return `{ _processed: true }`
+      return `{ ${processedSuffix} }`
     }
   } else {
     // Regular override without processed state
@@ -59,23 +64,28 @@ export const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
   return overrides
 }
 
-export const saveManualOverrides = async (overrides: Record<string, ManualOverrideValue>): Promise<void> => {
-  // Load existing overrides to check for new keys
-  const existingOverrides = loadManualOverrides()
-  const existingKeys = new Set(Object.keys(existingOverrides))
-  const newKeys = Object.keys(overrides).filter((key) => !existingKeys.has(key))
+export const saveManualOverrides = async (
+  overrides: Record<string, ManualOverrideValue>,
+  options?: { allowNewKeys?: boolean }
+): Promise<void> => {
+  // Load existing overrides to check for new keys (unless explicitly allowed)
+  if (!options?.allowNewKeys) {
+    const existingOverrides = loadManualOverrides()
+    const existingKeys = new Set(Object.keys(existingOverrides))
+    const newKeys = Object.keys(overrides).filter((key) => !existingKeys.has(key))
 
-  if (newKeys.length > 0) {
-    throw new Error(
-      `Cannot add new keys to manualOverrides.ts: ${newKeys.join(", ")}. ` +
-        "New entries must be added to manualAdditions.ts instead."
-    )
+    if (newKeys.length > 0) {
+      throw new Error(
+        `Cannot add new keys to manualOverrides.ts: ${newKeys.join(", ")}. ` +
+          "New entries must be added to manualAdditions.ts instead."
+      )
+    }
   }
 
   const keys = Object.keys(overrides).sort()
   let content = 'import { ManualOverrideFields } from "../../types";\n\n'
   content +=
-    "export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] })> = {\n"
+    'export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | { _processed: "auto" } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { _processed: "auto" }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] }) | (ManualOverrideFields & { _processed: "auto"; urls?: string[] })> = {\n'
 
   for (const key of keys) {
     const value = overrides[key]
