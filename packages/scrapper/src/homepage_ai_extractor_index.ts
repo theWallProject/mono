@@ -49,7 +49,7 @@ const promptForMode = async (): Promise<Mode> => {
           value: "interactive"
         },
         {
-          name: `Batch (auto-process next ${HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.defaultSize} companies, no review)`,
+          name: "Batch (auto-process companies, no review)",
           value: "batch"
         },
         {

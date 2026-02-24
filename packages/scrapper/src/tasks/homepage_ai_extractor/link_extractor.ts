@@ -1,8 +1,10 @@
 /**
- * Playwright-based homepage fetcher and programmatic link extractor.
+ * Playwright-based homepage fetcher and link extractor.
  *
  * Navigates to a company's website using a headless browser, waits for JS rendering,
- * extracts all links from the DOM, and returns them along with the full page HTML.
+ * and extracts only user-facing clickable links (<a href> elements) from the DOM.
+ * Hidden source-only elements like <link> (stylesheets, canonical, preload) are
+ * intentionally excluded — they are not user-facing and generate noise.
  *
  * Detects and reports:
  *   - Cloudflare challenge pages
@@ -26,7 +28,7 @@ export type LinkExtractionResult = {
   redirected: boolean
   /** Full page HTML */
   html: string
-  /** All unique href links found in the page */
+  /** All unique user-facing clickable links (<a href>) found in the page */
   allLinks: string[]
   /** HTML content of the footer section (if found) */
   footerHtml: string | null
@@ -381,28 +383,17 @@ export const extractLinksFromHomepage = async (
 
     logger.saveHtml(html)
 
-    // Extract all links from the DOM
+    // Extract only user-facing clickable links from the DOM.
+    // We intentionally skip <link> elements (stylesheets, canonical, preload, DNS prefetch, etc.)
+    // and <area> elements (image maps — extremely rare) because they are not visible/clickable
+    // by the user and pollute the link list with noise (asset URLs, CDN domains, etc.).
     const rawLinks = await page.evaluate(() => {
       const links: string[] = []
 
-      // <a href> elements
+      // <a href> elements — the only truly user-facing clickable links
       const anchors = document.querySelectorAll("a[href]")
       for (const anchor of anchors) {
         const href = anchor.getAttribute("href")
-        if (href) links.push(href)
-      }
-
-      // <link> elements (rel="canonical", etc.)
-      const linkElements = document.querySelectorAll("link[href]")
-      for (const link of linkElements) {
-        const href = link.getAttribute("href")
-        if (href) links.push(href)
-      }
-
-      // <area href> elements (image maps)
-      const areas = document.querySelectorAll("area[href]")
-      for (const area of areas) {
-        const href = area.getAttribute("href")
         if (href) links.push(href)
       }
 

@@ -23,7 +23,6 @@ import {
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
   type LinkField
 } from "@theWallProject/common"
-import { z } from "zod"
 
 import { chatCompletion } from "./ai_client"
 import type { CompanyLogger } from "./company_logger"
@@ -66,6 +65,11 @@ const EXCLUDE_PATTERNS = [
 
 /** URLs that are definitely not the company's own social presence */
 const NOISE_PATTERNS = [
+  // File URLs — static assets, not meaningful links
+  /\.(?:js|css|json|xml|rss|atom|woff2?|ttf|eot|otf)(?:\?|$)/i,
+  /\.(?:png|jpe?g|gif|svg|ico|webp|avif|bmp|tiff?)(?:\?|$)/i,
+  /\.(?:pdf|doc|docx|xls|xlsx|pptx?|zip|tar|gz|rar)(?:\?|$)/i,
+  /\.(?:mp3|mp4|webm|ogg|wav|avi|mov|flv|wmv)(?:\?|$)/i,
   // Search result pages
   /ecosia\.org\/search/i,
   /google\.com\/search/i,
@@ -86,6 +90,17 @@ const NOISE_PATTERNS = [
   /twitter\.com\/share/i,
   /linkedin\.com\/shareArticle/i, // LinkedIn share (not company pages)
   /linkedin\.com\/cws\/share/i,
+  // Third-party scripts and widgets
+  /hs-scripts\.com/i, // HubSpot
+  /hsforms\.net/i, // HubSpot forms
+  /google\.com\/recaptcha/i, // reCAPTCHA
+  /gmpg\.org/i, // XHTML Friends Network (WordPress boilerplate)
+  // WordPress / CMS internals
+  /wp-content\//i,
+  /wp-includes\//i,
+  /wp-json/i,
+  /xmlrpc\.php/i,
+  /\/feed\/?$/i,
   // Common utility pages
   /schema\.org/i,
   /w3\.org/i,
@@ -93,8 +108,6 @@ const NOISE_PATTERNS = [
   /gravatar\.com/i,
   /wordpress\.org/i,
   /wordpress\.com\/(?!tag\/)/i, // WordPress.com (not company blogs)
-  /wp-content\//i,
-  /wp-includes\//i,
   // Anchor-only / fragment-only
   /^#/
 ]
@@ -195,56 +208,41 @@ const normalizeForDedup = (url: string): string => {
 }
 
 /**
- * Domains where the full URL path matters because different paths represent
- * genuinely different items (apps, extensions, packages, profiles, etc.).
- * For these, we keep the full URL instead of collapsing to just the origin.
+ * Extracts all href values from raw HTML using a simple regex.
+ * Returns the set of normalized origins found in the HTML.
+ * Used to determine which external links appear in footer/header sections
+ * (company-relevant links) vs. body content (news articles, press mentions, etc.).
  */
-const KEEP_FULL_PATH_DOMAINS = [
-  "play.google.com",
-  "apps.apple.com",
-  "itunes.apple.com",
-  "chromewebstore.google.com",
-  "chrome.google.com",          // Legacy Chrome Web Store
-  "addons.mozilla.org",
-  "microsoftedge.microsoft.com", // Edge Add-ons
-  "marketplace.visualstudio.com",
-  "www.npmjs.com",
-  "npmjs.com",
-  "pypi.org",
-  "hub.docker.com",
-  "store.steampowered.com",
-  "www.producthunt.com",
-  "producthunt.com",
-  "discord.gg",
-  "discord.com",
-  "t.me",                       // Telegram invite links
-  "slack.com",                  // Slack workspace invites
-  "medium.com",                 // Different authors/publications
-  "www.crunchbase.com",
-  "crunchbase.com",
-]
-
-/**
- * Reduces a URL to its origin (scheme + host) for domain-level deduplication,
- * UNLESS the domain is one where different paths represent different items
- * (app stores, extension stores, package registries, etc.).
- *
- * e.g. "https://docs.appcharge.com/guides" → "https://docs.appcharge.com"
- * but  "https://apps.apple.com/app/wix/id1099748482" → kept as-is
- */
-const collapseToOriginIfGeneric = (url: string): string => {
-  try {
-    const parsed = new URL(url)
-    const hostname = parsed.hostname.toLowerCase()
-
-    for (const domain of KEEP_FULL_PATH_DOMAINS) {
-      if (hostname === domain || hostname === `www.${domain}`) {
-        // Keep full URL but strip trailing slash and query params for cleanliness
-        return `${parsed.origin}${parsed.pathname}`.replace(/\/+$/, "")
+const extractOriginsFromHtml = (html: string): Set<string> => {
+  const origins = new Set<string>()
+  // Match href="..." or href='...' — captures the URL inside quotes
+  const hrefRegex = /href=["']([^"']+)["']/gi
+  let match = hrefRegex.exec(html)
+  while (match) {
+    const href = match[1]
+    if (href) {
+      try {
+        const parsed = new URL(href)
+        if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+          origins.add(parsed.origin.toLowerCase())
+        }
+      } catch {
+        // Relative or invalid URL — skip
       }
     }
+    match = hrefRegex.exec(html)
+  }
+  return origins
+}
 
-    return parsed.origin
+/**
+ * Normalizes a URL for the urls bucket: strips trailing slashes, query params, and fragments.
+ * Keeps the full path — dedup via normalizeForDedup handles duplicates.
+ */
+const cleanUrlForStorage = (url: string): string => {
+  try {
+    const parsed = new URL(url)
+    return `${parsed.origin}${parsed.pathname}`.replace(/\/+$/, "")
   } catch {
     return url
   }
@@ -254,117 +252,133 @@ const collapseToOriginIfGeneric = (url: string): string => {
 // AI-powered enhancement
 // ────────────────────────────────────────────────────────────────────────────
 
-/** Zod schema for the AI extraction response */
-const AiExtractionResultSchema = z.object({
-  li: z.array(z.string()).optional(),
-  fb: z.array(z.string()).optional(),
-  tw: z.array(z.string()).optional(),
-  ig: z.array(z.string()).optional(),
-  gh: z.array(z.string()).optional(),
-  ytp: z.array(z.string()).optional(),
-  ytc: z.array(z.string()).optional(),
-  tt: z.array(z.string()).optional(),
-  th: z.array(z.string()).optional(),
-  urls: z.array(z.string()).optional()
-}).strict()
-
-type AiExtractionResult = z.infer<typeof AiExtractionResultSchema>
+/** URL regex for extracting links from AI plain-text response */
+const URL_LINE_REGEX = /^https?:\/\/\S+$/
 
 /**
  * Builds the AI prompt for analyzing uncategorized links + HTML sections.
  * Keeps the prompt focused and under ~4KB of HTML context.
  */
+/** Whether to include header HTML in the AI prompt. Headers are rarely useful
+ *  (mostly navigation menus) and can be very large. Set to true to re-enable. */
+const INCLUDE_HEADER_IN_PROMPT = false
+
+/**
+ * Strips clutter from HTML to reduce token count:
+ * - Removes class and style attributes
+ * - Removes SVG elements entirely (logos, icons — no useful links)
+ * - Collapses whitespace
+ */
+const stripClutterAttributes = (html: string): string => {
+  return html
+    // Strip SVG elements but preserve any <a> tags inside them (may contain links)
+    .replace(/<svg[\s>][\s\S]*?<\/svg>/gi, (svgMatch) => {
+      const anchors: string[] = []
+      const anchorRegex = /<a\s[^>]*href\s*=\s*["'][^"']+["'][^>]*>[\s\S]*?<\/a>/gi
+      let anchorMatch = anchorRegex.exec(svgMatch)
+      while (anchorMatch) {
+        anchors.push(anchorMatch[0])
+        anchorMatch = anchorRegex.exec(svgMatch)
+      }
+      return anchors.join(" ")
+    })
+    // Remove class="..." and style="..." (with either quote type)
+    .replace(/\s+(?:class|style)\s*=\s*"[^"]*"/gi, "")
+    .replace(/\s+(?:class|style)\s*=\s*'[^']*'/gi, "")
+    // Collapse multiple whitespace into single space
+    .replace(/\s{2,}/g, " ")
+    // Remove empty attribute lists that might result (e.g., <div > → <div>)
+    .replace(/\s+>/g, ">")
+}
+
 const buildAiPrompt = (
   companyName: string,
   uncategorizedLinks: string[],
   footerHtml: string | null,
   headerHtml: string | null
 ): string => {
-  // Trim HTML sections to ~4KB each to avoid overwhelming the model
-  const maxHtmlChars = 4000
-  const trimmedFooter = footerHtml ? footerHtml.slice(0, maxHtmlChars) : "(no footer found)"
-  const trimmedHeader = headerHtml ? headerHtml.slice(0, maxHtmlChars) : "(no header found)"
+  // Strip clutter attributes first, then apply size limit
+  const cleanedFooter = footerHtml ? stripClutterAttributes(footerHtml) : null
+  const cleanedHeader = INCLUDE_HEADER_IN_PROMPT && headerHtml
+    ? stripClutterAttributes(headerHtml)
+    : null
+
+  // Size limit per section — must fit within the model's 32K context window
+  const maxHtmlChars = 50_000
+  const trimmedFooter = cleanedFooter ? cleanedFooter.slice(0, maxHtmlChars) : "(no footer found)"
+  const trimmedHeader = cleanedHeader ? cleanedHeader.slice(0, maxHtmlChars) : null
 
   // Only include up to 200 uncategorized links to avoid enormous prompts
   const linksToAnalyze = uncategorizedLinks.slice(0, 200)
 
-  return `You are analyzing the website of "${companyName}" to find their official social media profiles.
+  return `You are filtering links from the website of "${companyName}".
 
-I have already identified some social links using regex. Below are the UNCATEGORIZED links from the page that my regex did NOT match, plus the page's footer and header HTML which may contain social links in non-standard formats.
+Below are external links found on the page that I could not automatically categorize, plus the page's footer and header HTML which may contain additional links I missed.
 
-Your task:
-1. From the uncategorized links, identify any that are official social media profiles for "${companyName}".
-2. From the footer/header HTML, find any social media links I may have missed (they could be in onclick handlers, data attributes, or non-anchor elements).
-3. ONLY include links that are the company's OWN profiles. Do NOT include:
-   - Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
-   - Tracking pixels or analytics URLs
-   - Links to OTHER companies' profiles
-   - Generic platform links (just facebook.com, just twitter.com)
+Your task: return ONLY the links that are official accounts, profiles, products, or properties of "${companyName}" itself.
 
-Categorize each found link into EXACTLY one of these categories:
-- "li"  = LinkedIn company/school page (linkedin.com/company/... or linkedin.com/school/...)
-- "fb"  = Facebook page (facebook.com/CompanyName or facebook.com/profile.php?id=...)
-- "tw"  = Twitter/X profile (x.com/handle or twitter.com/handle)
-- "ig"  = Instagram profile (instagram.com/handle)
-- "gh"  = GitHub organization/user (github.com/orgname)
-- "ytp" = YouTube profile (youtube.com/@handle or youtube.com/c/name or youtube.com/user/name)
-- "ytc" = YouTube channel (youtube.com/channel/UC...)
-- "tt"  = TikTok profile (tiktok.com/@handle)
-- "th"  = Threads profile (threads.net/@handle)
-- "urls" = Other noteworthy URLs (App Store pages, Chrome Web Store extensions, Discord servers, etc.)
+INCLUDE links like:
+- Social media profiles (LinkedIn, Facebook, Twitter/X, Instagram, GitHub, YouTube, TikTok, Threads, etc.)
+- App store listings (Google Play, Apple App Store, Chrome Web Store, Firefox Add-ons, Edge Add-ons, etc.)
+- Package registries (npm, PyPI, Docker Hub, VS Code Marketplace, etc.)
+- Community channels (Telegram, Discord, Slack, Reddit, etc.)
+- Blog platforms (Medium, Dev.to, Substack, etc.)
+- Directory listings (Product Hunt, Crunchbase, Wellfound/AngelList, G2, Capterra, etc.)
+- Any other official presence of "${companyName}" on a third-party platform
+
+EXCLUDE links like:
+- News articles or press mentions ABOUT the company (e.g., techcrunch.com/article-about-company)
+- Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
+- Tracking pixels, analytics, or ad URLs
+- CDN, font, or asset URLs
+- Embedded chatbots or support widgets from third-party services (e.g., Intercom, Drift, HubSpot chat)
+- Cookie consent or privacy tool scripts
+- Links to OTHER companies' profiles or products
+- Generic platform links without a specific profile (e.g., just "facebook.com" or "twitter.com")
+- Design agency credits or "built by" links
+
+CRITICAL: Do NOT invent or guess any URLs. Every link you return MUST appear verbatim in the uncategorized links list or in the footer HTML below. If you are unsure, leave it out.
 
 UNCATEGORIZED LINKS (${linksToAnalyze.length} of ${uncategorizedLinks.length}):
 ${linksToAnalyze.map((link) => `  ${link}`).join("\n")}
 
 FOOTER HTML:
-${trimmedFooter}
+${trimmedFooter}${trimmedHeader ? `\n\nHEADER HTML:\n${trimmedHeader}` : ""}
 
-HEADER HTML:
-${trimmedHeader}
-
-Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences.
-If you find nothing, respond with: {}
-Example response:
-{"li":["https://www.linkedin.com/company/example"],"tw":["https://x.com/example"],"ytp":["https://www.youtube.com/@example"]}`
+Respond with ONLY a plain list of URLs, one per line. No numbering, no bullets, no explanations, no markdown.
+If you find nothing, respond with an empty line.`
 }
 
 /**
- * Parses and validates the AI response JSON using Zod.
- * Throws on malformed responses — this is an UNEXPECTED failure (prompt/code bug).
+ * Parses the AI response as a plain list of URLs (one per line).
+ * Ignores blank lines, numbering, bullets, and any non-URL text.
  */
-const parseAiResponse = (responseText: string, logger: CompanyLogger): AiExtractionResult => {
-  // Strip markdown code fences if present (AI sometimes wraps in ```json ... ```)
-  let cleaned = responseText.trim()
-  if (cleaned.startsWith("```")) {
-    // Remove opening fence (with optional language tag)
-    cleaned = cleaned.replace(/^```(?:json)?\s*\n?/, "")
-    // Remove closing fence
-    cleaned = cleaned.replace(/\n?```\s*$/, "")
-    cleaned = cleaned.trim()
-  }
+const parseAiLinks = (responseText: string, logger: CompanyLogger): string[] => {
+  const lines = responseText.split("\n")
+  const links: string[] = []
 
-  let parsed: unknown
-  try {
-    parsed = JSON.parse(cleaned)
-  } catch {
-    throw new Error(
-      `AI returned non-JSON response. Raw text:\n${responseText.slice(0, 2000)}`
-    )
-  }
+  logger.log(`── Parsing AI response (${lines.length} lines) ──`)
+  for (const rawLine of lines) {
+    // Strip numbering (e.g., "1. ", "- ", "* "), whitespace, and backticks
+    const cleaned = rawLine
+      .trim()
+      .replace(/^[\d]+[.)]\s*/, "")
+      .replace(/^[-*•]\s*/, "")
+      .replace(/`/g, "")
+      .trim()
 
-  const validated = AiExtractionResultSchema.parse(parsed)
+    if (cleaned.length === 0) continue
 
-  const summaryParts: string[] = []
-  const keys = ["li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls"] as const
-  for (const key of keys) {
-    const arr = validated[key]
-    if (arr && arr.length > 0) {
-      summaryParts.push(`${key}:${arr.length}`)
+    if (URL_LINE_REGEX.test(cleaned)) {
+      links.push(cleaned)
+      logger.log(`  AI LINK: ${cleaned}`)
+    } else {
+      logger.log(`  AI IGNORED (not a URL): ${cleaned.slice(0, 200)}`)
     }
   }
-  logger.log(`AI found: ${summaryParts.join(", ") || "(nothing)"}`)
 
-  return validated
+  logger.log(`AI returned ${links.length} valid links`)
+  return links
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -433,6 +447,12 @@ export const categorizeLinks = async (
   const externalLinks = filterInternalLinks(extraction.allLinks, homepageDomain)
   logger.log(`External links: ${externalLinks.length} (of ${extraction.allLinks.length} total)`)
 
+  // Log all external links for debugging
+  logger.log(`── All external links ──`)
+  for (const link of externalLinks) {
+    logger.log(`  EXT: ${link}`)
+  }
+
   // ── Step 1: Programmatic categorization ──
 
   const uncategorizedLinks: string[] = []
@@ -453,11 +473,13 @@ export const categorizeLinks = async (
     return true
   }
 
+  logger.log(`── Step 1: Programmatic categorization ──`)
   for (const link of externalLinks) {
     // Check for Android app IDs first — don't duplicate into urls
     const androidAppId = extractAndroidAppId(link)
     if (androidAppId) {
       addToResult("android_app_ids", androidAppId)
+      logger.log(`  REGEX: android_app_ids <- ${androidAppId} (from ${link})`)
       continue
     }
 
@@ -465,19 +487,22 @@ export const categorizeLinks = async (
     const androidDevId = extractAndroidDevId(link)
     if (androidDevId) {
       result.android_dev_id = androidDevId
+      logger.log(`  REGEX: android_dev_id <- ${androidDevId} (from ${link})`)
       continue
     }
 
     const category = categorizeUrlProgrammatic(link)
     if (category && category !== "il") {
-      addToResult(category, link)
+      const added = addToResult(category, link)
+      logger.log(`  REGEX: ${category} <- ${link}${added ? "" : " (duplicate, skipped)"}`)
     } else {
       uncategorizedLinks.push(link)
+      logger.log(`  UNCATEGORIZED: ${link}`)
     }
   }
 
   logger.log(
-    `Programmatic categorization: ` +
+    `Programmatic result: ` +
       Object.entries(result)
         .filter(([, v]) => v !== undefined)
         .map(([k, v]) => `${k}:${Array.isArray(v) ? v.length : 1}`)
@@ -505,46 +530,46 @@ export const categorizeLinks = async (
       {
         role: "system",
         content:
-          "You are a precise data extraction assistant. You analyze website HTML and links to identify official social media profiles for companies. You respond ONLY with valid JSON, no explanations."
+          "You are a precise link filtering assistant. You examine website links and HTML to identify which links belong to the company's official online presence. You respond ONLY with a plain list of URLs, one per line."
       },
       { role: "user", content: prompt }
     ])
 
     logger.saveAiResponse(aiResponseText)
 
-    const aiResult = parseAiResponse(aiResponseText, logger)
+    const aiLinks = parseAiLinks(aiResponseText, logger)
 
-    // Merge AI results — only add links that programmatic categorization didn't find
-    const aiCategories: Array<keyof AiExtractionResult> = [
-      "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls"
-    ]
+    // Run each AI-returned link through our regex categorization
+    logger.log(`── Categorizing ${aiLinks.length} AI-returned links ──`)
+    for (const link of aiLinks) {
+      aiClaimedNormalized.add(normalizeForDedup(link))
 
-    for (const category of aiCategories) {
-      const aiLinks = aiResult[category]
-      if (!aiLinks || aiLinks.length === 0) continue
+      // Check for Android app IDs
+      const androidAppId = extractAndroidAppId(link)
+      if (androidAppId) {
+        const added = addToResult("android_app_ids", androidAppId)
+        logger.log(`  AI→REGEX: android_app_ids <- ${androidAppId}${added ? "" : " (duplicate, skipped)"}`)
+        continue
+      }
 
-      for (const link of aiLinks) {
-        aiClaimedNormalized.add(normalizeForDedup(link))
+      // Check for Android developer ID
+      const androidDevId = extractAndroidDevId(link)
+      if (androidDevId) {
+        result.android_dev_id = androidDevId
+        logger.log(`  AI→REGEX: android_dev_id <- ${androidDevId}`)
+        continue
+      }
 
-        // Verify the AI's categorization matches our regex for social links
-        // (we trust AI for "urls" bucket, but double-check social categorization)
-        if (category !== "urls") {
-          const programmaticCategory = categorizeUrlProgrammatic(link)
-          if (programmaticCategory && programmaticCategory !== "il" && programmaticCategory !== category) {
-            logger.log(
-              `AI categorized ${link} as "${category}" but regex says "${programmaticCategory}" — using regex result`
-            )
-            addToResult(programmaticCategory, link)
-            continue
-          }
-        }
-
-        // For urls bucket, collapse to origin for generic domains (keep full path for app stores etc.)
-        const urlToAdd = category === "urls" ? collapseToOriginIfGeneric(link) : link
-        const added = addToResult(category, urlToAdd)
-        if (added) {
-          logger.log(`AI added: ${category} <- ${urlToAdd}`)
-        }
+      // Try programmatic categorization (social media regex)
+      const category = categorizeUrlProgrammatic(link)
+      if (category && category !== "il") {
+        const added = addToResult(category, link)
+        logger.log(`  AI→REGEX: ${category} <- ${link}${added ? "" : " (duplicate, skipped)"}`)
+      } else {
+        // Not a recognized social platform — add to urls
+        const cleaned = cleanUrlForStorage(link)
+        const added = addToResult("urls", cleaned)
+        logger.log(`  AI→URLS: ${cleaned}${link !== cleaned ? ` (cleaned from ${link})` : ""}${added ? "" : " (duplicate, skipped)"}`)
       }
     }
   } else {
@@ -552,13 +577,36 @@ export const categorizeLinks = async (
   }
 
   // ── Step 2b: Add remaining uncategorized links to urls for future inspection ──
-  // Any external link that wasn't claimed by regex, AI, or noise filtering goes into urls.
-  // We only store the origin (scheme + host) since we care about domains, not full paths.
+  // ONLY include links whose origin appears in the footer or header HTML.
+  // Links from the page body are typically press mentions, news articles, blog references,
+  // etc. — not the company's own properties. Footer/header links are almost always
+  // company-owned domains, app store pages, or design credits.
+
+  const footerHeaderOrigins = new Set<string>()
+  if (extraction.footerHtml) {
+    for (const origin of extractOriginsFromHtml(extraction.footerHtml)) {
+      footerHeaderOrigins.add(origin)
+    }
+  }
+  if (extraction.headerHtml) {
+    for (const origin of extractOriginsFromHtml(extraction.headerHtml)) {
+      footerHeaderOrigins.add(origin)
+    }
+  }
+
+  logger.log(`── Step 2b: Footer/header uncategorized links ──`)
+  logger.log(`Footer/header origins (${footerHeaderOrigins.size}):`)
+  for (const origin of footerHeaderOrigins) {
+    logger.log(`  FOOTER/HEADER ORIGIN: ${origin}`)
+  }
 
   let addedUncategorizedCount = 0
   for (const link of uncategorizedLinks) {
     // Skip if the AI already claimed this link
-    if (aiClaimedNormalized.has(normalizeForDedup(link))) continue
+    if (aiClaimedNormalized.has(normalizeForDedup(link))) {
+      logger.log(`  SKIP (AI claimed): ${link}`)
+      continue
+    }
 
     // Skip noise URLs — they are not useful for inspection
     let isNoise = false
@@ -568,19 +616,37 @@ export const categorizeLinks = async (
         break
       }
     }
-    if (isNoise) continue
+    if (isNoise) {
+      logger.log(`  SKIP (noise): ${link}`)
+      continue
+    }
 
-    const origin = collapseToOriginIfGeneric(link)
-    if (addToResult("urls", origin)) {
+    // Only include links whose origin appears in the footer or header
+    try {
+      const linkOrigin = new URL(link).origin.toLowerCase()
+      if (!footerHeaderOrigins.has(linkOrigin)) {
+        logger.log(`  SKIP (not in footer/header): ${link}`)
+        continue
+      }
+    } catch {
+      logger.log(`  SKIP (invalid URL): ${link}`)
+      continue
+    }
+
+    const cleaned = cleanUrlForStorage(link)
+    const added = addToResult("urls", cleaned)
+    if (added) {
       addedUncategorizedCount++
+      logger.log(`  ADDED: urls <- ${cleaned}${link !== cleaned ? ` (cleaned from ${link})` : ""}`)
+    } else {
+      logger.log(`  SKIP (duplicate): ${cleaned}`)
     }
   }
-  if (addedUncategorizedCount > 0) {
-    logger.log(`Added ${addedUncategorizedCount} uncategorized domains to urls for future inspection`)
-  }
+  logger.log(`Step 2b result: added ${addedUncategorizedCount} uncategorized domains from footer/header`)
 
   // ── Step 3: Final dedup — remove urls that were already captured in specialized fields ──
 
+  logger.log(`── Step 3: Final dedup ──`)
   if (result.urls && result.urls.length > 0) {
     const specializedUrls = new Set<string>()
     const specializedFields: Array<keyof CategorizedLinks> = [
@@ -596,14 +662,20 @@ export const categorizeLinks = async (
     }
 
     const beforeCount = result.urls.length
-    result.urls = result.urls.filter((url) => !specializedUrls.has(normalizeForDedup(url)))
+    result.urls = result.urls.filter((url) => {
+      if (specializedUrls.has(normalizeForDedup(url))) {
+        logger.log(`  DEDUP REMOVED: ${url} (already in specialized field)`)
+        return false
+      }
+      return true
+    })
     const removedCount = beforeCount - result.urls.length
-    if (removedCount > 0) {
-      logger.log(`Dedup: removed ${removedCount} URLs already in specialized fields`)
-    }
+    logger.log(`Dedup: removed ${removedCount} of ${beforeCount} URLs already in specialized fields`)
     if (result.urls.length === 0) {
       delete result.urls
     }
+  } else {
+    logger.log(`No urls to dedup`)
   }
 
   // Clean up: sort all arrays (explicit field list to avoid type assertions)
@@ -617,8 +689,25 @@ export const categorizeLinks = async (
     }
   }
 
+  // Log final result with every link
+  logger.log(`── FINAL RESULT ──`)
+  const resultFields: Array<keyof CategorizedLinks> = [
+    "ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls", "android_app_ids"
+  ]
+  for (const field of resultFields) {
+    const arr = result[field]
+    if (Array.isArray(arr) && arr.length > 0) {
+      logger.log(`  ${field} (${arr.length}):`)
+      for (const url of arr) {
+        logger.log(`    - ${url}`)
+      }
+    }
+  }
+  if (result.android_dev_id) {
+    logger.log(`  android_dev_id: ${result.android_dev_id}`)
+  }
   logger.log(
-    `Final categorization: ` +
+    `Summary: ` +
       Object.entries(result)
         .filter(([, v]) => v !== undefined)
         .map(([k, v]) => `${k}:${Array.isArray(v) ? v.length : 1}`)

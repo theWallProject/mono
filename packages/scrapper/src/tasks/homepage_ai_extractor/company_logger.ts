@@ -43,8 +43,9 @@ export class CompanyLogger {
   constructor(companyName: string) {
     this.companyName = companyName
     const sanitized = sanitizeCompanyName(companyName)
+    const timestamp = Date.now()
     const baseDir = path.join(__dirname, "../../../", HOMEPAGE_AI_EXTRACTOR_CONFIG.logging.baseDir)
-    this.logDir = path.join(baseDir, sanitized)
+    this.logDir = path.join(baseDir, `${timestamp}_${sanitized}`)
 
     // Create directory tree
     fs.mkdirSync(this.logDir, { recursive: true })
