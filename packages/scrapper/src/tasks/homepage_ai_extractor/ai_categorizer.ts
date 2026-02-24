@@ -194,6 +194,62 @@ const normalizeForDedup = (url: string): string => {
   return url.replace(/\/+$/, "").toLowerCase()
 }
 
+/**
+ * Domains where the full URL path matters because different paths represent
+ * genuinely different items (apps, extensions, packages, profiles, etc.).
+ * For these, we keep the full URL instead of collapsing to just the origin.
+ */
+const KEEP_FULL_PATH_DOMAINS = [
+  "play.google.com",
+  "apps.apple.com",
+  "itunes.apple.com",
+  "chromewebstore.google.com",
+  "chrome.google.com",          // Legacy Chrome Web Store
+  "addons.mozilla.org",
+  "microsoftedge.microsoft.com", // Edge Add-ons
+  "marketplace.visualstudio.com",
+  "www.npmjs.com",
+  "npmjs.com",
+  "pypi.org",
+  "hub.docker.com",
+  "store.steampowered.com",
+  "www.producthunt.com",
+  "producthunt.com",
+  "discord.gg",
+  "discord.com",
+  "t.me",                       // Telegram invite links
+  "slack.com",                  // Slack workspace invites
+  "medium.com",                 // Different authors/publications
+  "www.crunchbase.com",
+  "crunchbase.com",
+]
+
+/**
+ * Reduces a URL to its origin (scheme + host) for domain-level deduplication,
+ * UNLESS the domain is one where different paths represent different items
+ * (app stores, extension stores, package registries, etc.).
+ *
+ * e.g. "https://docs.appcharge.com/guides" → "https://docs.appcharge.com"
+ * but  "https://apps.apple.com/app/wix/id1099748482" → kept as-is
+ */
+const collapseToOriginIfGeneric = (url: string): string => {
+  try {
+    const parsed = new URL(url)
+    const hostname = parsed.hostname.toLowerCase()
+
+    for (const domain of KEEP_FULL_PATH_DOMAINS) {
+      if (hostname === domain || hostname === `www.${domain}`) {
+        // Keep full URL but strip trailing slash and query params for cleanliness
+        return `${parsed.origin}${parsed.pathname}`.replace(/\/+$/, "")
+      }
+    }
+
+    return parsed.origin
+  } catch {
+    return url
+  }
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // AI-powered enhancement
 // ────────────────────────────────────────────────────────────────────────────
@@ -483,9 +539,11 @@ export const categorizeLinks = async (
           }
         }
 
-        const added = addToResult(category, link)
+        // For urls bucket, collapse to origin for generic domains (keep full path for app stores etc.)
+        const urlToAdd = category === "urls" ? collapseToOriginIfGeneric(link) : link
+        const added = addToResult(category, urlToAdd)
         if (added) {
-          logger.log(`AI added: ${category} <- ${link}`)
+          logger.log(`AI added: ${category} <- ${urlToAdd}`)
         }
       }
     }
@@ -495,6 +553,7 @@ export const categorizeLinks = async (
 
   // ── Step 2b: Add remaining uncategorized links to urls for future inspection ──
   // Any external link that wasn't claimed by regex, AI, or noise filtering goes into urls.
+  // We only store the origin (scheme + host) since we care about domains, not full paths.
 
   let addedUncategorizedCount = 0
   for (const link of uncategorizedLinks) {
@@ -511,12 +570,13 @@ export const categorizeLinks = async (
     }
     if (isNoise) continue
 
-    if (addToResult("urls", link)) {
+    const origin = collapseToOriginIfGeneric(link)
+    if (addToResult("urls", origin)) {
       addedUncategorizedCount++
     }
   }
   if (addedUncategorizedCount > 0) {
-    logger.log(`Added ${addedUncategorizedCount} uncategorized links to urls for future inspection`)
+    logger.log(`Added ${addedUncategorizedCount} uncategorized domains to urls for future inspection`)
   }
 
   // ── Step 3: Final dedup — remove urls that were already captured in specialized fields ──

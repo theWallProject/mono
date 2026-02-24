@@ -15,6 +15,7 @@
 
 import fs from "fs"
 import path from "path"
+import * as readline from "readline"
 import { chromium, Page } from "playwright"
 
 import { error, log } from "../../helper"
@@ -133,13 +134,16 @@ type ProcessResult = {
 }
 
 const processCompany = async (
-  item: CrunchbaseScrappedItemType
+  item: CrunchbaseScrappedItemType,
+  websiteUrlOverride?: string
 ): Promise<ProcessResult> => {
   const companyLogger = new CompanyLogger(item.name)
 
   try {
+    const websiteUrl = websiteUrlOverride ?? item.ws
+
     // Check if company has a website URL
-    if (!item.ws || item.ws.trim().length === 0) {
+    if (!websiteUrl || websiteUrl.trim().length === 0) {
       throw new ExpectedExtractionError(
         `Company "${item.name}" has no website URL in Crunchbase data`,
         "NO_WEBSITE"
@@ -147,12 +151,12 @@ const processCompany = async (
     }
 
     companyLogger.log(`Company: ${item.name}`)
-    companyLogger.log(`Website: ${item.ws}`)
+    companyLogger.log(`Website: ${websiteUrl}${websiteUrlOverride ? " (user-provided override)" : ""}`)
     companyLogger.log(`cbRank: ${item.cbRank ?? "N/A"}`)
     companyLogger.log(`Reasons: ${item.reasons?.join(", ") ?? "none"}`)
 
     // Step 1: Fetch homepage and extract links
-    const extraction = await extractLinksFromHomepage(item.ws, companyLogger)
+    const extraction = await extractLinksFromHomepage(websiteUrl, companyLogger)
 
     // Step 2: Categorize links (programmatic + AI)
     const categorized = await categorizeLinks(item.name, extraction, companyLogger)
@@ -433,6 +437,33 @@ const browserReview = async (
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// Interactive prompts
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Prompts the user for an alternative website URL after a fetch failure.
+ * Returns the URL entered, or null if the user wants to skip (empty input).
+ */
+const promptForAlternativeUrl = async (companyName: string, errorType: string): Promise<string | null> => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  })
+
+  return new Promise<string | null>((resolve) => {
+    rl.question(
+      `\nFetch failed for "${companyName}" (${errorType}).\n` +
+        `Enter an alternative website URL (or press Enter to skip): `,
+      (answer) => {
+        rl.close()
+        const trimmed = answer.trim()
+        resolve(trimmed.length > 0 ? trimmed : null)
+      }
+    )
+  })
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // Public API: Interactive mode
 // ────────────────────────────────────────────────────────────────────────────
 
@@ -478,22 +509,33 @@ export const runInteractive = async (companyNameOverride?: string): Promise<stri
   log(`\n[${itemIndex + 1}/${unprocessedItems.length}] Processing: ${selectedItem.name} (cbRank: ${selectedItem.cbRank ?? "N/A"})`)
 
   // Step 1: Headless extraction + AI categorization
-  const result = await processCompany(selectedItem)
+  // In interactive mode, prompt for alternative URL on failure instead of giving up
+  let result = await processCompany(selectedItem)
 
-  if (!result.success) {
-    // Expected failure — add to retry list
+  while (!result.success) {
     log(`\nExpected failure for "${result.companyName}": ${result.errorType} — ${result.errorMessage}`)
-    addToRetryList(
-      result.companyName,
-      selectedItem.ws ?? "",
-      result.errorType ?? "UNKNOWN",
-      result.errorMessage ?? "Unknown error"
-    )
-    log("Added to retry list. Run retry mode later to re-process.")
 
-    // Display statistics
-    displayStatistics(sortedItems, currentOverrides)
-    return result.companyName
+    const alternativeUrl = await promptForAlternativeUrl(
+      result.companyName,
+      result.errorType ?? "UNKNOWN"
+    )
+
+    if (!alternativeUrl) {
+      // User chose to skip — add to retry list
+      addToRetryList(
+        result.companyName,
+        selectedItem.ws ?? "",
+        result.errorType ?? "UNKNOWN",
+        result.errorMessage ?? "Unknown error"
+      )
+      log("Skipped. Added to retry list. Run retry mode later to re-process.")
+
+      displayStatistics(sortedItems, currentOverrides)
+      return result.companyName
+    }
+
+    log(`Retrying "${result.companyName}" with: ${alternativeUrl}`)
+    result = await processCompany(selectedItem, alternativeUrl)
   }
 
   if (!result.override) {

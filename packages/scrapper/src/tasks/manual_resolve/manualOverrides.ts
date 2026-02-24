@@ -54,6 +54,35 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/developer/aidoc-medical-ltd/id1459219008"],
     _processed: true
   },
+  Appcharge: {
+    ws: ["https://www.appcharge.com/"],
+    li: ["https://www.linkedin.com/company/appcharge"],
+    ytp: ["https://www.youtube.com/@Appcharge-HQ"],
+    urls: [
+      "https://www.facebook.com/profile.php?id=61561199398476",
+      "https://business.safety.google/privacy",
+      "https://dashboard.appcharge.com",
+      "https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/analytics-reporting-api",
+      "https://docs.appcharge.com/api-reference/introduction",
+      "https://docs.appcharge.com/guides/events/about-the-events-center",
+      "https://docs.appcharge.com/guides/introduction",
+      "https://docs.appcharge.com/guides/publisher-dashboard/set-up-your-publisher-dashboard",
+      "https://docs.appcharge.com/guides/publisher-dashboard/view-blocked-players#view-blocked-players",
+      "https://docs.appcharge.com/merchant-of-record/finance/supported-regions",
+      "https://docs.appcharge.com/merchant-of-record/policies/about-compliance-at-appcharge#about-compliance-at-appcharge",
+      "https://docs.appcharge.com/sdks/introduction",
+      "https://help.appcharge.com/hc/en-us",
+      "https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Frame_2117131574_2_6500e2ff83.svg",
+      "https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Frame_2117131576_6ad8fdaabc.svg",
+      "https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Vector_4_8686ef3dcf.svg",
+      "https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Warstwa_2_1_31022a79bd.svg",
+      "https://support.comeet.co/section/terms-and-policies",
+      "https://www.cookiebot.com",
+      "https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2",
+      "https://www.google.com/recaptcha/api.js?render=6Lc4DdQrAAAAAALzOxmnL_NT9tI0mkqJHDuz-4Kh"
+    ],
+    _processed: "auto"
+  },
   BioCatch: {
     li: ["https://www.linkedin.com/company/biocatch"],
     fb: ["https://www.facebook.com/behvioral"],
@@ -459,6 +488,7 @@ export const manualOverrides: Record<
     _processed: true
   },
   Somite: { tw: "https://x.com/somiteai" },
+  Sorbet: { ws: ["https://advance.getsorbet.com/login"], _processed: "auto" },
   Speedata: {
     li: ["https://www.linkedin.com/company/speedataio"],
     fb: ["https://www.facebook.com/speedata.io"],
@@ -524,6 +554,14 @@ export const manualOverrides: Record<
       { n: "Swimlane", ws: "https://swimlane.com/" }
     ],
     _processed: true
+  },
+  Traceloop: {
+    ws: ["https://traceloop.com/"],
+    li: ["https://www.linkedin.com/company/traceloop"],
+    tw: ["https://twitter.com/traceloopdev"],
+    gh: ["https://github.com/traceloop/hub", "https://github.com/traceloop/openllmetry"],
+    urls: ["https://app.traceloop.com", "https://status.traceloop.com", "https://trust.traceloop.com"],
+    _processed: "auto"
   },
   "Tre Capital GP Ltd": { tw: [""] },
   "VAST Data": {
