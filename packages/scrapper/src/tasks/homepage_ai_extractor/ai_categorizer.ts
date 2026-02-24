@@ -361,6 +361,10 @@ export const categorizeLinks = async (
 ): Promise<CategorizedLinks> => {
   const result: CategorizedLinks = {}
 
+  // Use the final URL (after redirects) as the company's website
+  result.ws = [extraction.finalUrl]
+  logger.log(`Website (post-redirect): ${extraction.finalUrl}`)
+
   // Get the homepage domain for filtering internal links
   let homepageDomain: string
   try {
@@ -427,6 +431,9 @@ export const categorizeLinks = async (
 
   // ── Step 2: AI-powered enhancement ──
 
+  // Track which uncategorized links the AI claims, so we can add the rest to urls
+  const aiClaimedNormalized = new Set<string>()
+
   if (uncategorizedLinks.length > 0 || extraction.footerHtml || extraction.headerHtml) {
     logger.log("Sending uncategorized links + HTML sections to AI for analysis...")
 
@@ -461,6 +468,8 @@ export const categorizeLinks = async (
       if (!aiLinks || aiLinks.length === 0) continue
 
       for (const link of aiLinks) {
+        aiClaimedNormalized.add(normalizeForDedup(link))
+
         // Verify the AI's categorization matches our regex for social links
         // (we trust AI for "urls" bucket, but double-check social categorization)
         if (category !== "urls") {
@@ -482,6 +491,32 @@ export const categorizeLinks = async (
     }
   } else {
     logger.log("No uncategorized links and no HTML sections — skipping AI analysis")
+  }
+
+  // ── Step 2b: Add remaining uncategorized links to urls for future inspection ──
+  // Any external link that wasn't claimed by regex, AI, or noise filtering goes into urls.
+
+  let addedUncategorizedCount = 0
+  for (const link of uncategorizedLinks) {
+    // Skip if the AI already claimed this link
+    if (aiClaimedNormalized.has(normalizeForDedup(link))) continue
+
+    // Skip noise URLs — they are not useful for inspection
+    let isNoise = false
+    for (const pattern of NOISE_PATTERNS) {
+      if (pattern.test(link)) {
+        isNoise = true
+        break
+      }
+    }
+    if (isNoise) continue
+
+    if (addToResult("urls", link)) {
+      addedUncategorizedCount++
+    }
+  }
+  if (addedUncategorizedCount > 0) {
+    logger.log(`Added ${addedUncategorizedCount} uncategorized links to urls for future inspection`)
   }
 
   // ── Step 3: Final dedup — remove urls that were already captured in specialized fields ──

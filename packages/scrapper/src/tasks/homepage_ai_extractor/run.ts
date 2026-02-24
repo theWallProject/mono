@@ -99,6 +99,7 @@ const categorizedToOverride = (
     _processed: "auto"
   }
 
+  if (categorized.ws && categorized.ws.length > 0) override.ws = categorized.ws
   if (categorized.li && categorized.li.length > 0) override.li = categorized.li
   if (categorized.fb && categorized.fb.length > 0) override.fb = categorized.fb
   if (categorized.tw && categorized.tw.length > 0) override.tw = categorized.tw
@@ -208,7 +209,6 @@ const TAB_CLOSE_DELAY_MS = 3000
 
 const browserReview = async (
   companyName: string,
-  websiteUrl: string,
   categorized: CategorizedLinks
 ): Promise<CategorizedLinks> => {
   const userDataDir = path.join(__dirname, "../../../.browser-profile")
@@ -265,11 +265,9 @@ const browserReview = async (
   // Collect all URLs to open
   const urlsToOpen: Array<{ label: string; url: string }> = []
 
-  // Company website first
-  urlsToOpen.push({ label: "Website", url: websiteUrl })
-
-  // All categorized social links
+  // All categorized links (ws first so the company website opens as the first tab)
   const linkFields: Array<[string, string[] | undefined]> = [
+    ["Website", categorized.ws],
     ["LinkedIn", categorized.li],
     ["Facebook", categorized.fb],
     ["Twitter/X", categorized.tw],
@@ -519,7 +517,6 @@ export const runInteractive = async (companyNameOverride?: string): Promise<stri
   log("\nOpening browser for review...")
   const reviewedCategorized = await browserReview(
     selectedItem.name,
-    selectedItem.ws ?? "",
     overrideAsCategorized
   )
 
