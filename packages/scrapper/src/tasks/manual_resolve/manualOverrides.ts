@@ -207,6 +207,14 @@ export const manualOverrides: Record<
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _processed: true
   },
+  Lightricks: {
+    ws: ["https://lightricks.com", "https://ltx.io"],
+    li: ["https://www.linkedin.com/company/lightricks"],
+    tw: ["https://x.com/Lightricks"],
+    ig: ["https://www.instagram.com/lightricks"],
+    ytc: ["https://www.youtube.com/channel/UCKWhLS9QMr1oNthZL1fZB4A"],
+    _processed: "auto"
+  },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Metis Technologies": { fb: "", tw: "" },
   MoonPay: {
@@ -303,6 +311,13 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.healthcoda",
     _processed: true
+  },
+  Onebeat: {
+    li: ["https://www.linkedin.com/company/1beat"],
+    fb: ["https://www.facebook.com/1beatretail"],
+    tw: ["https://twitter.com/Onebeat4retail"],
+    ytp: ["https://www.youtube.com/@onebeat8428"],
+    _processed: "auto"
   },
   "Ox Security": {
     li: ["https://www.linkedin.com/company/ox-security"],
