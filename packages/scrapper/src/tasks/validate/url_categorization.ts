@@ -99,3 +99,34 @@ export const categorizeUrl = (url: string): LinkField | null => {
     return null
   }
 }
+
+/**
+ * Domains that have regex-based extraction rules in @theWallProject/common.
+ * URLs from these domains that DON'T match their respective regex are not useful
+ * (e.g., linkedin.com/legal/privacy-policy, facebook.com/sharer.php) and should be
+ * dropped entirely rather than ending up in the `urls` leftover array.
+ */
+const REGEX_DOMAINS = new Set([
+  "linkedin.com",
+  "facebook.com",
+  "twitter.com",
+  "x.com",
+  "instagram.com",
+  "github.com",
+  "youtube.com",
+  "tiktok.com",
+  "threads.com"
+])
+
+/**
+ * Checks if a URL belongs to a domain that has regex-based extraction rules.
+ * URLs from these domains that fail regex matching should be silently dropped.
+ */
+export const isFromRegexDomain = (url: string): boolean => {
+  try {
+    const hostname = new URL(url).hostname.replace(/^(www|m|mobile|business|l|lm)\./i, "")
+    return REGEX_DOMAINS.has(hostname)
+  } catch {
+    return false
+  }
+}

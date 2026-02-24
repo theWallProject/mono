@@ -190,12 +190,20 @@ class ShareImageGenerator(private val context: Context) {
 
     /**
      * Generate the "App Removed" image template.
-     * Header: "I removed this israeli app from my phone:"
+     * Header varies by reason:
+     *   - hasAlternatives: "I found a better alternative for this app:"
+     *   - reason "h" (HQ Israel): "I removed this Israeli app from my phone:"
+     *   - else: "I removed this flagged app from my phone:"
      * App Icon: Optional, displayed at y=480
-     * App Name: In Israeli blue at y=700 (or y=600 if no icon)
+     * App Name: In white at y=700 (or y=600 if no icon)
      * CTA: "Scan your phone NOW and protect yourself!"
      */
-    fun generateAppRemovedImage(appName: String, appIcon: Bitmap? = null): Bitmap {
+    fun generateAppRemovedImage(
+        appName: String,
+        appIcon: Bitmap? = null,
+        reasons: List<String> = emptyList(),
+        hasAlternatives: Boolean = false
+    ): Bitmap {
         val bitmap = Bitmap.createBitmap(IMAGE_SIZE, IMAGE_SIZE, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
 
@@ -205,7 +213,12 @@ class ShareImageGenerator(private val context: Context) {
         // Draw logo centered at y=180
         drawLogo(canvas, 180f, 750f)
 
-        // Draw header text at y=420
+        // Draw header text at y=420 — varies by reason
+        val headerResId = when {
+            hasAlternatives -> R.string.share_image_removed_header_alternative
+            "h" in reasons -> R.string.share_image_removed_header
+            else -> R.string.share_image_removed_header_flagged
+        }
         val headerPaint = Paint().apply {
             color = COLOR_WHITE
             textSize = 42f
@@ -213,7 +226,7 @@ class ShareImageGenerator(private val context: Context) {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             isAntiAlias = true
         }
-        canvas.drawText(context.getString(R.string.share_image_removed_header), IMAGE_SIZE / 2f, 420f, headerPaint)
+        canvas.drawText(context.getString(headerResId), IMAGE_SIZE / 2f, 420f, headerPaint)
 
         // Draw app icon if available at y=540
         val appNameY: Float

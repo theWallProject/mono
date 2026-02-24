@@ -216,7 +216,7 @@ export const API_ENDPOINT_RULE_LINKEDIN_COMPANY = {
 export const API_ENDPOINT_RULE_FACEBOOK = {
   domain: "facebook.com",
   regex:
-    "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login|profile\\.php|home\\.php|pages|search|people(?=[/?]|$)|share(?=[/?]|$))([^/?]+)"
+    "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login|[^/?]+\\.php|pages|search|people(?=[/?]|$)|share(?=[/?]|$))([^/?]+)"
 } as const satisfies APIEndpointRule
 
 /**
@@ -224,7 +224,7 @@ export const API_ENDPOINT_RULE_FACEBOOK = {
  */
 export const API_ENDPOINT_RULE_TWITTER = {
   domain: "twitter.com",
-  regex: "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings)([^/?]+)"
+  regex: "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings|privacy)([^/?]+)"
 } as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_INSTAGRAM = {
