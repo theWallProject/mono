@@ -15,8 +15,8 @@ export const HOMEPAGE_AI_EXTRACTOR_CONFIG = {
     maxTokens: 4096,
     /** Low temperature for deterministic extraction */
     temperature: 0.1,
-    /** Request timeout in milliseconds (2 minutes for large models) */
-    requestTimeout: 120_000
+    /** Request timeout in milliseconds (5 minutes for large models with big prompts) */
+    requestTimeout: 300_000
   },
   playwright: {
     /** Page load timeout in milliseconds */

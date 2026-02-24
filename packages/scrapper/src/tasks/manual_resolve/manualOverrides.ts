@@ -207,6 +207,7 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.fiverr"
   },
+  Hirundo: { ws: ["https://www.hirundo.io/"], li: ["https://www.linkedin.com/company/gethirundo"], _processed: "auto" },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
     li: ["https://www.linkedin.com/company/hypernative"],
@@ -228,6 +229,16 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  "Innoviz Technologies": {
+    ws: ["https://innoviz.tech", "https://ir.innoviz.tech"],
+    li: ["https://www.linkedin.com/company/innoviz-technologies"],
+    fb: ["https://www.facebook.com/InnovizTechnologies"],
+    tw: ["https://twitter.com/InnovizLiDAR"],
+    ytc: ["https://www.youtube.com/channel/UCVc1KFsu2eb20M8pKFwGiFQ"],
+    ytp: ["https://www.youtube.com/@innoviztechnologies3315"],
+    urls: ["https://twitter.com/KeilafOmer"],
+    _processed: "auto"
+  },
   LayerX: {
     li: ["https://www.linkedin.com/company/layerx-security"],
     tw: ["https://x.com/LayerxSecurity"],
@@ -242,6 +253,36 @@ export const manualOverrides: Record<
     tw: ["https://x.com/Lightricks"],
     ig: ["https://www.instagram.com/lightricks"],
     ytc: ["https://www.youtube.com/channel/UCKWhLS9QMr1oNthZL1fZB4A"],
+    _processed: "auto"
+  },
+  Lightrun: {
+    ws: ["https://lightrun.com/"],
+    li: ["https://www.linkedin.com/company/lightrun"],
+    tw: ["https://twitter.com/Lightruntech"],
+    ig: ["https://www.instagram.com/lightruncommunity"],
+    gh: ["https://github.com/lightrun-platform/koolkits"],
+    ytc: ["https://www.youtube.com/channel/UC9KnFnprep7q5LThL7u2c1w"],
+    urls: [
+      "https://app.lightrun.com",
+      "https://aws.amazon.com",
+      "https://docs.lightrun.com",
+      "https://gmpg.org",
+      "https://go.lightrun.com",
+      "https://landscape.cncf.io",
+      "https://playground.lightrun.com",
+      "https://trust.lightrun.com",
+      "https://www.facebook.com",
+      "https://www.g2.com"
+    ],
+    _processed: "auto"
+  },
+  Lumen: {
+    ws: ["https://www.lumen.me/"],
+    fb: ["https://www.facebook.com/Lumen.me"],
+    tw: ["https://x.com/LumenMetabolism"],
+    ig: ["https://www.instagram.com/lumen.me"],
+    ytc: ["https://www.youtube.com/channel/UC3XkEyGUMXfRhZcB0Ve_fQQ?view_as=subscriber"],
+    urls: ["https://help.lumen.me/s", "https://help.lumen.me/s/contactsupport", "https://www.pinterest.com/MyLumen"],
     _processed: "auto"
   },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
@@ -259,6 +300,14 @@ export const manualOverrides: Record<
     _processed: true
   },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
+  "Nanox Imaging": {
+    ws: ["https://www.nanox.vision/"],
+    li: ["https://www.linkedin.com/company/nanox-imaging"],
+    fb: ["https://www.facebook.com/NanoxVision"],
+    tw: ["https://x.com/nanox_vision"],
+    urls: ["https://investors.nanox.vision", "https://nanoxvision.zendesk.com"],
+    _processed: "auto"
+  },
   "Nebius Group": {
     ws: [
       "https://nebius.com",
@@ -619,6 +668,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@ZenitySecurity"],
     urls: ["https://github.com/zenitysec/sphinx-rego"],
     _processed: true
+  },
+  "Zero Networks": {
+    ws: ["https://zeronetworks.com/"],
+    li: ["https://www.linkedin.com/company/zeronetworks"],
+    fb: ["https://www.facebook.com/ZeroNetworksSec"],
+    tw: ["https://x.com/zeronetworks"],
+    ytp: ["https://www.youtube.com/@zeronetworks4848"],
+    urls: ["https://minus273celsius.slack.com", "https://partners.zeronetworks.com"],
+    _processed: "auto"
   },
   eToro: {
     ws: ["https://www.etoro.com", "https://etoropartners.com"],
