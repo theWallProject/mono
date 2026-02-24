@@ -1,0 +1,67 @@
+You are analyzing the website of "Appcharge" to find their official social media profiles.
+
+I have already identified some social links using regex. Below are the UNCATEGORIZED links from the page that my regex did NOT match, plus the page's footer and header HTML which may contain social links in non-standard formats.
+
+Your task:
+1. From the uncategorized links, identify any that are official social media profiles for "Appcharge".
+2. From the footer/header HTML, find any social media links I may have missed (they could be in onclick handlers, data attributes, or non-anchor elements).
+3. ONLY include links that are the company's OWN profiles. Do NOT include:
+   - Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
+   - Tracking pixels or analytics URLs
+   - Links to OTHER companies' profiles
+   - Generic platform links (just facebook.com, just twitter.com)
+
+Categorize each found link into EXACTLY one of these categories:
+- "li"  = LinkedIn company/school page (linkedin.com/company/... or linkedin.com/school/...)
+- "fb"  = Facebook page (facebook.com/CompanyName or facebook.com/profile.php?id=...)
+- "tw"  = Twitter/X profile (x.com/handle or twitter.com/handle)
+- "ig"  = Instagram profile (instagram.com/handle)
+- "gh"  = GitHub organization/user (github.com/orgname)
+- "ytp" = YouTube profile (youtube.com/@handle or youtube.com/c/name or youtube.com/user/name)
+- "ytc" = YouTube channel (youtube.com/channel/UC...)
+- "tt"  = TikTok profile (tiktok.com/@handle)
+- "th"  = Threads profile (threads.net/@handle)
+- "urls" = Other noteworthy URLs (App Store pages, Chrome Web Store extensions, Discord servers, etc.)
+
+UNCATEGORIZED LINKS (21 of 21):
+  https://business.safety.google/privacy
+  https://dashboard.appcharge.com
+  https://docs.appcharge.com/api-reference/checkout/finance-and-analytics/analytics-reporting-api
+  https://docs.appcharge.com/api-reference/introduction
+  https://docs.appcharge.com/guides/events/about-the-events-center
+  https://docs.appcharge.com/guides/introduction
+  https://docs.appcharge.com/guides/publisher-dashboard/set-up-your-publisher-dashboard
+  https://docs.appcharge.com/guides/publisher-dashboard/view-blocked-players#view-blocked-players
+  https://docs.appcharge.com/merchant-of-record/finance/supported-regions
+  https://docs.appcharge.com/merchant-of-record/policies/about-compliance-at-appcharge#about-compliance-at-appcharge
+  https://docs.appcharge.com/sdks/introduction
+  https://help.appcharge.com/hc/en-us
+  https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Frame_2117131574_2_6500e2ff83.svg
+  https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Frame_2117131576_6ad8fdaabc.svg
+  https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Vector_4_8686ef3dcf.svg
+  https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Warstwa_2_1_31022a79bd.svg
+  https://support.comeet.co/section/terms-and-policies
+  https://www.cookiebot.com
+  https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2
+  https://www.facebook.com/profile.php?id=61561199398476
+  https://www.google.com/recaptcha/api.js?render=6Lc4DdQrAAAAAALzOxmnL_NT9tI0mkqJHDuz-4Kh
+
+FOOTER HTML:
+<footer class="w-full bg-white pb-24 md:pb-32 relative " lang="en"><div class="max-w-[127.5rem] md:w-[92.5vw] mx-auto px-8 md:px-0"><div class="flex flex-col justify-between items-start px-[4.2rem] md:px-[8.5rem]"><div class="w-full flex flex-col md:flex-row-reverse md:justify-between gap-[5.6rem] md:gap-0 md:border-b-1 md:border-[#E6E6E6] md:pb-[8rem]"><div class="flex items-center md:items-start"><img alt="" loading="lazy" width="130" height="26" decoding="async" data-nimg="1" class="w-auto h-[2.6rem]" style="color:transparent" src="https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Logo_36f348673d.svg"></div><div><nav class="w-full flex flex-col md:flex-row justify-between md:justify-start gap-45 items-start md:items-start mb-[9.6rem] md:mb-0"><div class="grid grid-cols-2 gap-x-12 gap-y-[9.6rem] items-start md:flex md:flex-row md:justify-start md:gap-0 md:items-start"><div class="text-left md:max-w-[12rem] 
+                                    md:mr-[6rem]
+                                    
+                                    "><h3 class="text-[1.2rem] leading-[1.05] md:leading-[1.35] tracking-[-0.5%] font-semibold mb-[1.4rem] md:mb-[1rem] ">Products</h3><div class="flex flex-col gap-0 md:gap-[0.2rem]"><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="/products/web-store">Web Store</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="/products/game-portal">Game Portal</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="/products/checkout">Checkout</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="/products/payment-sdk">Mobile Payments SDK</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="/products/subscriptions">Subscriptions</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="/products/payment-links">iOS Payment Links</a></div></div></div><div class="text-left md:max-w-[12rem] 
+                                    
+                                    md:mr-[8rem]
+                                    "><h3 class="text-[1.2rem] leading-[1.05] md:leading-[1.35] tracking-[-0.5%] font-semibold mb-[1.4rem] md:mb-[1rem] ">Appcharge Platform</h3><div class="flex flex-col gap-0 md:gap-[0.2rem]"><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="https://docs.appcharge.com/merchant-of-record/finance/supported-regions">Merchant of Record</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="https://docs.appcharge.com/guides/publisher-dashboard/set-up-your-publisher-dashboard">Publisher Dashboard</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="https://help.appcharge.com/hc/en-us">Player Help Center</a></div><div><a target="_self" class="text-[1.2rem] font-medium leading-[1.05] md:leading-[1.25] tracking-[-0.5%] hover:text-black " href="https://docs.appcharge.com/guides/publisher-dashboard/view-blocked-players#view-blocked-players">Fraud Prevention</a></div></div><div class="mt-[1rem] md:mt-[0.6rem]"><a target="_blank" class="text-[1.2rem] leading-[1.05] md:leading-[1.35] tracking-[-0.5%] font-semibold break-words " href="/why-appcharge">Why Appcharge</a></div></div><div class="text-left md:max-w-[12rem] 
+                                    
+                                    
+                                    md:mr-[5rem]"><h3 class="text-[1.2rem] leading-[1.05] 
+
+HEADER HTML:
+<header class="sticky top-0 left-0 right-0 z-[200] lg:transition-colors lg:duration-300 bg-white/80 backdrop-blur-md lg:bg-white/60 lg:backdrop-blur-md "><div class="relative z-[101] overflow-hidden flex md:justify-center default-font" style="background-color:#F7CE46"><button type="button" aria-label="Close banner" class="absolute top-[1.4rem] right-2 p-2 cursor-pointer z-[102] pointer-events-auto md:hidden"><img alt="close-icon" loading="lazy" width="15" height="15" decoding="async" data-nimg="1" class="w-[1.3rem] h-auto" style="color:transparent" src="/_next/static/media/black-close.382aa107.svg"></button><div class="pl-[1.7rem] pr-[5.5rem] py-[1.9rem] md:py-[2rem] "><a class="group/link flex items-center font-semibold whitespace-nowrap text-black text-[1.8rem] md:text-[2.2rem] leading-[1rem] md:leading-[2rem] tracking-[-0.07rem] md:tracking-[-0.1rem] underline underline-offset-2 md:underline-offset-3 decoration-[1px]" href="/get-2026-industry-report"><span class="md:hidden">Inside $700M: Get our 2026 DTC data report</span><span class="hidden md:inline text-[2rem]">Now live: Our 2026 DTC data report, based on $700M in transactions →</span></a></div><button type="button" aria-label="Close banner" class="hidden md:block absolute top-1/2 -translate-y-1/2 right-10 p-2 cursor-pointer z-[102] pointer-events-auto"><img alt="close-icon" loading="lazy" width="15" height="15" decoding="async" data-nimg="1" class="md:w-[1.3rem] md:h-auto" style="color:transparent" src="/_next/static/media/black-close.382aa107.svg"></button></div><div class="relative p-6 lg:py-[1.6rem] z-[101] transition duration-300 lg:transition-colors lg:duration-300 bg-white/40 lg:bg-white/60"><div class="max-w-[127.5rem] lg:w-[92.5vw] mx-auto pl-2 lg:pl-1 flex items-center justify-between gap-[6.4rem]"><a class="flex items-center z-[101] " href="/"><img alt="" loading="lazy" width="118" height="23" decoding="async" data-nimg="1" class="w-[10rem] h-auto" style="color:transparent" src="https://jubilant-cherry-dce38aff6a.media.strapiapp.com/logo_c93edb6c19_bc6147288e.svg"></a><nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-slot="navigation-menu" data-viewport="true" class="group/navigation-menu relative max-w-max flex-1 items-center justify-center hidden lg:block z-20"><div style="position:relative"><ul data-orientation="horizontal" data-slot="navigation-menu-list" class="group flex flex-1 list-none items-center justify-center gap-1 gap-x-12" dir="ltr"><div><li data-slot="navigation-menu-item" class="relative m-0"><button id="radix-«R4idb»-trigger-Products" data-state="closed" aria-expanded="false" aria-controls="radix-«R4idb»-content-Products" data-slot="navigation-menu-trigger" class="group relative z-[100] text-[2.8rem] md:text-[1.4rem] font-bold md:font-normal leading-[1.1] md:leading-[-0.85] tracking-[-0.5%] text-[var(--gray)] hover:text-black flex justify-between items-center group" data-radix-collection-item="">Products<!-- --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down relative top-[1px] ml-2 w-[1.2rem] h-auto transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></li></div><div><li data-slot="navigation-menu-item" class="relative m-0"><button id="radix-«R4idb»-trigger-Solutions" data-state="closed" aria-expanded="false" aria-controls="radix-«R4idb»-content-Solutions" data-slot="navigation-menu-trigger" class="group relative z-[100] text-[2.8rem] md:text-[1.4rem] font-bold md:font-normal leading-[1.1] md:leading-[-0.85] tracking-[-0.5%] text-[var(--gray)] hover:text-black flex justify-between items-center group" data-radix-collection-item="">Solutions<!-- --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linec
+
+Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences.
+If you find nothing, respond with: {}
+Example response:
+{"li":["https://www.linkedin.com/company/example"],"tw":["https://x.com/example"],"ytp":["https://www.youtube.com/@example"]}

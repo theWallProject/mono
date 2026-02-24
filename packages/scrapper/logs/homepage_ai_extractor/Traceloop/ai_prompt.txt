@@ -1,0 +1,51 @@
+You are analyzing the website of "Traceloop" to find their official social media profiles.
+
+I have already identified some social links using regex. Below are the UNCATEGORIZED links from the page that my regex did NOT match, plus the page's footer and header HTML which may contain social links in non-standard formats.
+
+Your task:
+1. From the uncategorized links, identify any that are official social media profiles for "Traceloop".
+2. From the footer/header HTML, find any social media links I may have missed (they could be in onclick handlers, data attributes, or non-anchor elements).
+3. ONLY include links that are the company's OWN profiles. Do NOT include:
+   - Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
+   - Tracking pixels or analytics URLs
+   - Links to OTHER companies' profiles
+   - Generic platform links (just facebook.com, just twitter.com)
+
+Categorize each found link into EXACTLY one of these categories:
+- "li"  = LinkedIn company/school page (linkedin.com/company/... or linkedin.com/school/...)
+- "fb"  = Facebook page (facebook.com/CompanyName or facebook.com/profile.php?id=...)
+- "tw"  = Twitter/X profile (x.com/handle or twitter.com/handle)
+- "ig"  = Instagram profile (instagram.com/handle)
+- "gh"  = GitHub organization/user (github.com/orgname)
+- "ytp" = YouTube profile (youtube.com/@handle or youtube.com/c/name or youtube.com/user/name)
+- "ytc" = YouTube channel (youtube.com/channel/UC...)
+- "tt"  = TikTok profile (tiktok.com/@handle)
+- "th"  = Threads profile (threads.net/@handle)
+- "urls" = Other noteworthy URLs (App Store pages, Chrome Web Store extensions, Discord servers, etc.)
+
+UNCATEGORIZED LINKS (11 of 11):
+  https://app.traceloop.com
+  https://asmbly.link/ds0A6BC
+  https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc1299c_33.png
+  https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc1299d_32.png
+  https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/css/traceloop-next.webflow.shared.8de8775e8.min.css
+  https://fonts.googleapis.com
+  https://fonts.googleapis.com/css?family=Geist:300,regular,500,600,700%7CGeist+Mono:300,regular,500,600,700
+  https://fonts.gstatic.com
+  https://status.traceloop.com
+  https://trust.traceloop.com
+  https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+
+FOOTER HTML:
+(no footer found)
+
+HEADER HTML:
+<header data-w-id="e2db9416-4aad-b33c-e07d-fab348d2f7c8" class="nav_component" style="transform: translate3d(0px, 0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; opacity: 1;"><div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav-bar w-nav"><div class="w-embed w-iframe"><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDQVZMH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --></div><div class="container-traceloop navbar"><div class="logo-wrapper"><a href="/" aria-current="page" class="nav-logo w-inline-block w--current"><img src="https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc12a29_traceloop%20logo%20dark%20bg.png" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc12a29_traceloop%2520logo%2520dark%2520bg-p-500.png 500w, https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc12a29_traceloop%2520logo%2520dark%2520bg-p-800.png 800w, https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc12a29_traceloop%2520logo%2520dark%2520bg-p-1080.png 1080w, https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc12a29_traceloop%20logo%20dark%20bg.png 1909w" alt="" class="logo"></a></div><nav role="navigation" class="nav-content w-nav-menu"><div class="nav-menu"><a href="/" aria-current="page" class="nav-link w-nav-link w--current">Home</a><a href="/about" class="nav-link w-nav-link">About</a><a href="/pricing" class="nav-link w-nav-link">Pricing</a><a href="/blog" class="nav-link w-nav-link">Blog</a><a href="https://www.traceloop.com/docs" target="_blank" class="nav-link w-nav-link">Docs</a><div class="divider short mobile-menu"></div></div><div class="github-widget w-embed"><span></span></div><div class="nav-cta-button-container"><a href="https://app.traceloop.com" class="cta-button secondary is-small w-inline-block"><div class="cta-text is-white">Sign in</div><img src="https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc129fb_Arrow%20Black.png" loading="lazy" alt="arrow right" class="cta-arrow is-white is-small" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></a><a href="https://www.traceloop.com/get-started" target="_blank" class="cta-button direct is-small w-inline-block"><div class="cta-text">Book a Demo</div><img src="https://cdn.prod.website-files.com/6813b49cdb25f6ecabc12793/6813b49cdb25f6ecabc129fb_Arrow%20Black.png" loading="lazy" alt="arrow right" class="cta-arrow" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></a></div><div class="nav-menu-lightbox"></div></nav><div data-w-id="21fddffb-2781-6515-e5f9-e476a65ff97a" class="animated-hamburger-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><div data-w-id="21fddffb-2781-6515-e5f9-e476a65ff97b" class="top-line"></div><div data-w-id="21fddffb-2781-6515-e5f9-e476a65ff97c" class="middle-line"></div><div data-w-id="21fddffb-2781-6515-e5f9-e476a65ff97d" class="bottom-line"></div></div></div><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div></header>
+
+Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences.
+If you find nothing, respond with: {}
+Example response:
+{"li":["https://www.linkedin.com/company/example"],"tw":["https://x.com/example"],"ytp":["https://www.youtube.com/@example"]}

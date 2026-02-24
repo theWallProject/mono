@@ -59,6 +59,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.unit.dp
 import com.thewallboycott.android.R
@@ -131,12 +132,14 @@ Box(modifier = Modifier.fillMaxSize()) {
                 }
             }
 
-            // Page indicator (bottom center)
+            // Page indicator (bottom center) — navigationBarsPadding ensures
+            // the dots sit above the transparent navigation bar on SDK 35+.
             PageIndicator(
                 pageCount = PAGE_COUNT,
                 currentPage = pagerState.currentPage,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
+                    .navigationBarsPadding()
                     .padding(bottom = 32.dp)
             )
         }

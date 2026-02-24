@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.activity.SystemBarStyle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -67,11 +66,13 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        // Enable edge-to-edge with burnt orange status bar
-        enableEdgeToEdge(
-            statusBarStyle = SystemBarStyle.dark(0xFFB72B00.toInt()),
-            navigationBarStyle = SystemBarStyle.dark(0xFFB72B00.toInt())
-        )
+        // Enable edge-to-edge with transparent system bars.
+        // The TopAppBar and NavigationBar in AppScaffold draw behind the
+        // system bars with WallPrimary, so the visual result is seamless.
+        // Using no arguments avoids the deprecated setStatusBarColor /
+        // setNavigationBarColor / LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        // APIs that are ignored on Android 15+ (SDK 35+).
+        enableEdgeToEdge()
 
         handleIntent(intent)
         schedulePeriodicScan()

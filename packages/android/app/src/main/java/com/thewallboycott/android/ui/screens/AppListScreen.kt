@@ -114,6 +114,8 @@ fun AppListScreen(
     var showAppRemovedSheet by remember { mutableStateOf(false) }
     var removedAppName by remember { mutableStateOf<String?>(null) }
     var removedAppIcon by remember { mutableStateOf<Bitmap?>(null) }
+    var removedAppReasons by remember { mutableStateOf<List<String>>(emptyList()) }
+    var removedAppHasAlternatives by remember { mutableStateOf(false) }
     var showGeneralShareSheet by remember { mutableStateOf(false) }
     var showFlaggedAppsShareDialog by remember { mutableStateOf(false) }
     var showCleanScanShareDialog by remember { mutableStateOf(false) }
@@ -160,6 +162,8 @@ fun AppListScreen(
                 Log.d("AppListScreen", "App $appName was uninstalled, showing share prompt")
                 removedAppName = appName
                 removedAppIcon = appIcon
+                removedAppReasons = pendingUninstallItemInfo?.r ?: emptyList()
+                removedAppHasAlternatives = !pendingUninstallItemInfo?.alt.isNullOrEmpty()
                 showAppRemovedSheet = true
 
                 // Save offer if the app had alternatives
@@ -581,20 +585,24 @@ fun AppListScreen(
     // Dialog for app removed share prompt
     if (showAppRemovedSheet && removedAppName != null) {
         ShareDialog(
-            content = shareManager.getAppRemovedContent(removedAppName!!),
+            content = shareManager.getAppRemovedContent(removedAppName!!, removedAppReasons, removedAppHasAlternatives),
             shareManager = shareManager,
             imageTemplate = ImageTemplate.APP_REMOVED,
-            imageData = AppRemovedData(removedAppName!!, removedAppIcon),
+            imageData = AppRemovedData(removedAppName!!, removedAppIcon, removedAppReasons, removedAppHasAlternatives),
             onDismiss = {
                 showAppRemovedSheet = false
                 shareManager.dismissAppRemovedPrompt()
                 removedAppName = null
                 removedAppIcon = null
+                removedAppReasons = emptyList()
+                removedAppHasAlternatives = false
             },
             onShareComplete = {
                 showAppRemovedSheet = false
                 removedAppName = null
                 removedAppIcon = null
+                removedAppReasons = emptyList()
+                removedAppHasAlternatives = false
             }
         )
     }

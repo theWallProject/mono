@@ -1,0 +1,116 @@
+You are analyzing the website of "Nanox Imaging" to find their official social media profiles.
+
+I have already identified some social links using regex. Below are the UNCATEGORIZED links from the page that my regex did NOT match, plus the page's footer and header HTML which may contain social links in non-standard formats.
+
+Your task:
+1. From the uncategorized links, identify any that are official social media profiles for "Nanox Imaging".
+2. From the footer/header HTML, find any social media links I may have missed (they could be in onclick handlers, data attributes, or non-anchor elements).
+3. ONLY include links that are the company's OWN profiles. Do NOT include:
+   - Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
+   - Tracking pixels or analytics URLs
+   - Links to OTHER companies' profiles
+   - Generic platform links (just facebook.com, just twitter.com)
+
+Categorize each found link into EXACTLY one of these categories:
+- "li"  = LinkedIn company/school page (linkedin.com/company/... or linkedin.com/school/...)
+- "fb"  = Facebook page (facebook.com/CompanyName or facebook.com/profile.php?id=...)
+- "tw"  = Twitter/X profile (x.com/handle or twitter.com/handle)
+- "ig"  = Instagram profile (instagram.com/handle)
+- "gh"  = GitHub organization/user (github.com/orgname)
+- "ytp" = YouTube profile (youtube.com/@handle or youtube.com/c/name or youtube.com/user/name)
+- "ytc" = YouTube channel (youtube.com/channel/UC...)
+- "tt"  = TikTok profile (tiktok.com/@handle)
+- "th"  = Threads profile (threads.net/@handle)
+- "urls" = Other noteworthy URLs (App Store pages, Chrome Web Store extensions, Discord servers, etc.)
+
+UNCATEGORIZED LINKS (10 of 10):
+  https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.css
+  https://fonts.googleapis.com
+  https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap
+  https://fonts.googleapis.com/css?family=Libre+Franklin%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C800%2C800i&subset=latin%2Clatin-ext
+  https://fonts.gstatic.com
+  https://investors.nanox.vision
+  https://nanoxvision.zendesk.com
+  https://outlook.office.com/bookwithme/user/d23d548e352e4149b2d2b4ff193e6272@nanox.vision/meetingtype/juC_vUTwy0GHCc4ED0XmZQ2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile
+  https://www.forbes.com/councils/forbestechcouncil/2024/11/14/ai-in-healthcare-a-new-era-of-personalized-patient-care
+  https://www.forbes.com/councils/forbestechcouncil/2025/05/09/healthcare-ai-what-it-can-do-and-where-its-heading
+
+FOOTER HTML:
+<div id="footer" role="footer">
+            <div class="footerWidth">
+                <div class="footerColumns">
+                    <div class="footerLogoColumn">
+                        <img class="bottomLogo" src="https://www.nanox.vision/wp-content/themes/nanox/assets/images/logo-small.svg" alt="Nanox">
+                        <div class="socialPlusSwitchers">
+                            <div class="socialBox">
+                                                                        <a href="https://www.linkedin.com/company/nanox-imaging/?originalSubdomain=il" target="_blank"><img src="https://www.nanox.vision/wp-content/uploads/2024/10/linkedin.svg" alt="www.linkedin.com"></a>
+                                                                                <a href="https://x.com/nanox_vision?lang=en" target="_blank"><img src="https://www.nanox.vision/wp-content/uploads/2024/10/x.svg" alt="x.com"></a>
+                                                                                <a href="https://www.facebook.com/NanoxVision/" target="_blank"><img src="https://www.nanox.vision/wp-content/uploads/2024/10/facebook.svg" alt="www.facebook.com"></a>
+                                                                    </div>
+
+                            
+                        </div>
+                    </div>
+                    <div class="footerNavColumn">
+                        <ul id="menu-footer-nav" class="menu"><li id="menu-item-793" class="placeholder menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-793"><a href="#">Products and solutions</a>
+<ul class="sub-menu">
+	<li id="menu-item-788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-788"><a href="https://www.nanox.vision/nanox-arc/">Nanox.ARC</a></li>
+	<li id="menu-item-5401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5401"><a href="https://www.nanox.vision/nanox-arcx/">Nanox.ARC X</a></li>
+</ul>
+</li>
+<li id="menu-item-792" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-792"><a href="https://www.nanox.vision/ai/">Nanox.AI</a>
+<ul class="sub-menu">
+	<li id="menu-item-785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-785"><a href="https://www.nanox.vision/ai-cardiac-solution/">HealthCCSng Cardiac Solution</a></li>
+	<li id="menu-item-938" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-938"><a href="https://www.nanox.vision/ai-fatty-liver-solution/">HealthFLD Liver Solution</a></li>
+	<li id="menu-item-937" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-937"><a href="https://www.nanox.vision/ai-bone-solution/">HealthOST Bone Solution</a></li>
+	<li id="menu-item-5763" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5763"><a href="https://www.nanox.vision/real/">Real+</a></li>
+</ul>
+</li>
+<li id="menu-item-791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-791"><a href="https://www.nanox.vision/technology/">Technology</a>
+<ul class="sub-menu">
+	<li id="menu-item-794" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-794"><a href="https://www.nanox.vision/technology/#nanox-source">Nanox.SOURCE</a></li>
+	<li id="menu-item-795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-795"><a href="https://www.nanox.vision/technology/#nanox-tube">Nanox.TUBE</a></li>
+	<li id="menu-item-796" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-796"><a href="https://www.nanox.vision/technology/#nanox-cloud">Nanox.CLOUD</a></li>
+	<li id="menu-item-797" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-797"><a href="https://www.nanox.vision/technology/#nanox-ai">Nanox.AI</a></li>
+	<li id="menu-item-798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-798"><a href="https://www.
+
+HEADER HTML:
+<div id="header">
+            <a class="logo" href="https://www.nanox.vision/"><img src="https://www.nanox.vision/wp-content/themes/nanox/assets/images/long.svg" width="1" height="1" alt="Nanox"></a>
+
+            <div class="mainNavBox">
+                <div id="mainNav">
+                    <ul id="menu-main-nav" class="menu"><li id="menu-item-706" class="menu-item-has-meganav-a placeholder menu-item menu-item-type-custom menu-item-object-custom menu-item-706"><a href="#">Products &amp; Solutions</a><div class="megaNav" id="megaNavA">
+                <div class="megaNavInner">
+                    <div class="megaNavWidth">
+                        <div class="megaNavSection">
+                            <div class="megaNavSectionTitle">
+                                                                    <a href="https://www.nanox.vision/nanox-arc/" target="">Nanox.ARC</a>
+                                <br>
+                                Advanced 3D Imaging System                            </div>
+                            <div class="megaNavSectionNav megaNavSectionNavOneColumn">
+                                <ul id="menu-mega-nav-1" class="menu"><li id="menu-item-725" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-725"><a href="https://www.nanox.vision/nanox-arc/">Nanox.ARC</a></li>
+<li id="menu-item-729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-729"><a href="https://www.nanox.vision/nanox-arc/#clinical-benefits">Clinical Benefits</a></li>
+<li id="menu-item-728" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-728"><a href="https://www.nanox.vision/nanox-arc/#clinical-samples">Clinical Samples</a></li>
+<li id="menu-item-726" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-726"><a href="https://www.nanox.vision/nanox-arc/#testimonials">Testimonials</a></li>
+<li id="menu-item-2356" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2356"><a href="https://www.nanox.vision/nanox-arc/#financial-benefits">Financial benefits</a></li>
+<li id="menu-item-2357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2357"><a href="https://www.nanox.vision/nanox-arc/#nanox-arc-technology">Nanox.ARC Technology</a></li>
+</ul>                            </div>
+                        </div>
+                        <div class="megaNavSection">
+                            <div class="megaNavSectionTitle">
+                                                                    <a href="https://www.nanox.vision/nanox-arcx/" target="">Nanox.ARC X</a>
+                                <br>
+                                The Next Generation of Medical Imaging                            </div>
+                            <div class="megaNavSectionNav megaNavSectionNavOneColumn">
+                                <ul id="menu-mega-nav-2" class="menu"><li id="menu-item-5392" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5392"><a href="https://www.nanox.vision/nanox-arcx/">Nanox.ARC X</a></li>
+<li id="menu-item-5393" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5393"><a href="https://www.nanox.vision/nanox-arcx/#advanced-3d-imaging-that-was-built-for-access-and-powered-by-innovation">Introducing Nanox.ARC X</a></li>
+<li id="menu-item-5394" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5394"><a href="https://www.nanox.vision/nanox-arcx/#from-rare-to-everywhere-bringing-advanced-3d-imaging-to-every-point-of-care">Clinical Benefits</a></li>
+<li id="menu-item-5397" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5397"><a href="https://www.nanox.vision/nanox-arcx/#financial-benefits">Financial Benefits</a></li>
+<li id="menu-item-5396" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5396"><a href="https://www.nanox.vision/nanox-arcx/#nanox-arc-case-review">Case Review</a></li>
+<li i
+
+Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences.
+If you find nothing, respond with: {}
+Example response:
+{"li":["https://www.linkedin.com/company/example"],"tw":["https://x.com/example"],"ytp":["https://www.youtube.com/@example"]}

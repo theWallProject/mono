@@ -1,0 +1,230 @@
+You are analyzing the website of "Playtika" to find their official social media profiles.
+
+I have already identified some social links using regex. Below are the UNCATEGORIZED links from the page that my regex did NOT match, plus the page's footer and header HTML which may contain social links in non-standard formats.
+
+Your task:
+1. From the uncategorized links, identify any that are official social media profiles for "Playtika".
+2. From the footer/header HTML, find any social media links I may have missed (they could be in onclick handlers, data attributes, or non-anchor elements).
+3. ONLY include links that are the company's OWN profiles. Do NOT include:
+   - Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
+   - Tracking pixels or analytics URLs
+   - Links to OTHER companies' profiles
+   - Generic platform links (just facebook.com, just twitter.com)
+
+Categorize each found link into EXACTLY one of these categories:
+- "li"  = LinkedIn company/school page (linkedin.com/company/... or linkedin.com/school/...)
+- "fb"  = Facebook page (facebook.com/CompanyName or facebook.com/profile.php?id=...)
+- "tw"  = Twitter/X profile (x.com/handle or twitter.com/handle)
+- "ig"  = Instagram profile (instagram.com/handle)
+- "gh"  = GitHub organization/user (github.com/orgname)
+- "ytp" = YouTube profile (youtube.com/@handle or youtube.com/c/name or youtube.com/user/name)
+- "ytc" = YouTube channel (youtube.com/channel/UC...)
+- "tt"  = TikTok profile (tiktok.com/@handle)
+- "th"  = Threads profile (threads.net/@handle)
+- "urls" = Other noteworthy URLs (App Store pages, Chrome Web Store extensions, Discord servers, etc.)
+
+UNCATEGORIZED LINKS (57 of 57):
+  https://apps.apple.com/ca/app/monopoly-poker-texas-holdem/id1448884851
+  https://apps.apple.com/gr/app/disney-solitaire/id6475757306
+  https://apps.apple.com/il/app/animals-coins/id1492722342
+  https://apps.apple.com/nz/app/redecor-home-design-makeover/id1413287364
+  https://apps.apple.com/us/app/best-fiends-puzzle-adventure/id868013618
+  https://apps.apple.com/us/app/dice-dreams/id1484468651
+  https://apps.apple.com/us/app/domino-dreams/id6444043291
+  https://awesometlv.co.il
+  https://bestfiends.com
+  https://contactus.playtika.com
+  https://dofinity.com
+  https://get.disney-solitaire.app/cm0y/akoru88e
+  https://innplaylabs.zendesk.com/hc/en-us
+  https://investors.playtika.com
+  https://itunes.apple.com/il/app/board-kings/id1116488672
+  https://itunes.apple.com/il/app/world-series-of-poker-wsop/id719525810
+  https://itunes.apple.com/us/app/bingo-blitz-bingo-games/id529996768
+  https://itunes.apple.com/us/app/caesars-casino-official-slots/id603097018
+  https://itunes.apple.com/us/app/pirate-kings/id654671575
+  https://itunes.apple.com/us/app/poker-heat-texas-holdem-poker/id480523695
+  https://itunes.apple.com/us/app/slotomania-vegas-slots-casino/id447553564
+  https://itunes.apple.com/us/app/slots-casino-house-of-fun/id586634331?mt=8
+  https://itunes.apple.com/us/app/solitaire-grand-harvest/id1223338261
+  https://itunes.apple.com/us/app/vegas-downtown-slots-words/id975035622
+  https://news.playtika.com
+  https://news.playtika.com/events
+  https://news.playtika.com/in-the-news
+  https://news.playtika.com/media-gallery
+  https://news.playtika.com/press-releases
+  https://playtika.service-now.com/bb?playtika_com=true
+  https://playtika.service-now.com/bf?playtika_com=true
+  https://playtika.service-now.com/bk?playtika_com=true
+  https://playtika.service-now.com/cc?game_id=4&lang=en&playtika_com=true
+  https://playtika.service-now.com/hof?playtika_com=true
+  https://playtika.service-now.com/jt?playtika_com=true
+  https://playtika.service-now.com/ph?playtika_com=true
+  https://playtika.service-now.com/pk?playtika_com=true
+  https://playtika.service-now.com/privacy_security
+  https://playtika.service-now.com/red?playtika_com=true
+  https://playtika.service-now.com/responsible_gaming?id=se_start
+  https://playtika.service-now.com/sgh?playtika_com=true
+  https://playtika.service-now.com/sm?playtika_com=true
+  https://playtika.service-now.com/vds?playtika_com=true
+  https://playtika.service-now.com/wsop?playtika_com=true
+  https://playwsop.com
+  https://wooga-junes-journey.onelink.me/M4rK/wmuwlpxi
+  https://wooga.helpshift.com/a/june-s-journey/?p=all
+  https://wooga.helpshift.com/a/pearl-s-peril/?p=all
+  https://www.bingoblitz.com
+  https://www.caesarsgames.com
+  https://www.governorofpoker.com/support
+  https://www.houseoffun.com
+  https://www.onetrust.com/products/cookie-consent
+  https://www.piratekings.com
+  https://www.playtikagrowth.com
+  https://www.redecor.com
+  https://www.slotomania.com
+
+FOOTER HTML:
+<footer id="footer">
+
+    <div class="footer-top hidden-xs">
+        <div class="no-container">
+            <div class="row">
+
+                <div class="col-lg-2 col-2 footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/get-to-know-us/">Get to know us</a></li>
+                        <li><a href="/games/">Games</a></li>
+                        <li><a href="/life-at-playtika/">Life at Playtika</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="https://investors.playtika.com" target="_blank">Investors</a></li>
+                        <li><a href="/progressinplay/">ESG: Progress In Play</a></li>
+                        <li><a href="https://news.playtika.com/press-releases">Press Releases</a></li>
+                        <li><a href="/img/playtika_logo.png" target="_blank">Logo</a></li>
+                        <li><a href="/partner-program/">Partner Program</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 col-2 footer-links">
+                    <h4>Terms and Policies</h4>
+                    <ul>
+                        <li><a href="/privacy-notice/">Privacy Notice</a></li>
+                        <li><a href="/privacy-notice/?scrollto=united-states-residents">U.S. Privacy Notice Supplement</a></li>
+                        <li><a href="/terms-service/">Terms of Service</a></li>
+                        <li><a href="/infraction-terms/">Infraction Terms</a></li>
+                        <li><a href="/promotion-official-rules/">Promotion Official Rules</a></li>
+                        <li><a href="/legal/">Legal</a></li>
+                        <li><a href="/marketing-agreement/">Marketing Agreement</a></li>
+                        <li><a href="https://playtika.service-now.com/privacy_security" target="_blank">Your Privacy Rights / Choices</a></li>
+                        <li><a href="/candidate-privacy-notice/">Candidate Privacy Notice</a></li>
+                        <li><a href="https://playtika.service-now.com/responsible_gaming?id=se_start" target="_blank">Responsible Gaming</a></li>
+                        <li><a href="/accessibility-statement/" target="_blank">Accessibility Statement</a></li>
+                        <li id="dsa_link" class=""><a href="/eu-dsa/">EU DSA</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-2 footer-links">
+                    <h4>Careers</h4>
+                    <ul>
+                        <li><a href="/careers/">Join the Playground</a></li>
+                        <li><a href="/careers/data-ai/">Data &amp; Ai</a></li>
+                        <li><a href="/careers/monetization-crm/">Monetization &amp; CRM</a></li>
+                        <li><a href="/careers/analytics/">Analytics</a></li>
+                        <li><a href="/careers/marketing/">Marketing</a></li>
+                        <li><a href="/careers/creative/">Creative</a></li>
+                        <li><a href="/careers/product/">Product</a></li>
+                        <li><a href="/careers/hr/">HR</a></li>
+                        <li><a href="/careers/research-development/">R&amp;D</a></li>
+                        <li><a href="/careers/finance-legal/">Finance &amp; Legal</a></li>
+                        <li><a href="/careers/customer-service/">Customer Service</a></li>
+                        <li><a href="/careers/qa/">QA</a></li>
+                        <li><a href="/careers/security-it/">Security IT</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-2 footer-links">
+                    <h4>Game Support</h4>
+                    <ul>
+                        <li><a target="_blank" href="https://contactus.playtika.com">Contact us</a></li>
+                        <li><a target="_blank" href="https://innplaylabs.zendesk.com/hc/en-us">Animals &amp; Coins</a></li>
+        
+
+HEADER HTML:
+<header id="header" class="fixed-top">
+    <div class="d-flex align-items-center">
+
+        <a href="/" class="logo mr-auto"><img src="/img/logo-playtika.png" alt="Logo" class="img-fluid"></a>
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="/get-to-know-us/"><span>Get to know us</span></a></li>
+                <li> <a href="/games/"><span>Games</span></a></li>
+                <li><a href="/life-at-playtika/"><span>Life at Playtika</span></a></li>
+                <li><a href="/careers/"><span>Careers</span></a>
+                </li>
+                <li class="has-children">
+                    
+                    <span>
+                        <a href="https://news.playtika.com/" class="hide-mobile"><span>Newsroom</span></a>
+                        <a class="d-lg-none newsroom-toggle" id="newsroom-toggle"><span>Newsroom</span></a>
+                        <span class="arrow"></span>
+                    </span>
+                    <ul class="newsroom-sub-menu" id="newsroom">
+                        <li>
+                            <a href="https://news.playtika.com/press-releases" target="_self">
+                                Press Releases </a>
+                        </li>
+                        <li>
+                            <a href="https://news.playtika.com/in-the-news" target="_self">
+                                In the News </a>
+                        </li>
+                        <li>
+                            <a href="https://news.playtika.com/media-gallery" target="_self">
+                                Media Gallery </a>
+                        </li>
+                        <li class="on">
+                            <a class="on" href="https://news.playtika.com/events" target="_self">
+                                Events </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-children"> 
+                        <span>                       
+                                <a href="/knowledge/" class="hide-mobile"><span>Knowledge</span></a>
+                                <a class="d-lg-none knowledge-toggle" id="newsroom-toggle"><span>Knowledge</span></a>
+                                <span class="arrow"></span>
+                        </span>
+                        <ul class="knowledge-sub-menu" id="knowledge">
+                                <li>
+                                        <a href="/knowledge/" target="_self">
+                                                Videos </a>
+                                </li>
+                                
+                        </ul>
+                </li>
+
+                <li class="mobile-soc">
+                    <a href="https://www.instagram.com/playtika" target="_blank"><img src="/img/instagram-top.svg" alt="Instagram"></a>
+                    <a href="https://il.linkedin.com/company/playtika" target="_blank"><img src="/img/linkedin-top.svg" alt="Linkedin"></a>
+                    <a href="https://www.facebook.com/Playtika/" target="_blank"><img src="/img/facebook-top.svg" alt="Facebook"></a>
+                    <a href="https://twitter.com/playtika_ltd?lang=he" target="_blank"><img src="/img/twitter-top.svg" alt="Twitter"></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="social-top hidden-xs hidden-lg">
+            <a href="https://www.instagram.com/playtika" target="_blank"><img src="/img/instagram-top.svg" alt="Instagram"></a>
+            <a href="https://il.linkedin.com/company/playtika" target="_blank"><img src="/img/linkedin-top.svg" alt="Linkedin"></a>
+            <a href="https://www.facebook.com/Playtika/" target="_blank"><img src="/img/facebook-top.svg" alt="Facebook"></a>
+            <a href="https://twitter.com/playtika_ltd?lang=he" target="_blank"><img style="margin-top:1px;" src="/img/twitter-top.svg" alt="Twitter"></a>
+        </div>
+
+    </div>
+
+</header>
+
+Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences.
+If you find nothing, respond with: {}
+Example response:
+{"li":["https://www.linkedin.com/company/example"],"tw":["https://x.com/example"],"ytp":["https://www.youtube.com/@example"]}

@@ -21,9 +21,11 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
+  getMainDomain,
   type LinkField
 } from "@theWallProject/common"
 
+import { isFromRegexDomain } from "../validate/url_categorization"
 import { chatCompletion } from "./ai_client"
 import type { CompanyLogger } from "./company_logger"
 import type { LinkExtractionResult } from "./link_extractor"
@@ -49,20 +51,6 @@ export type CategorizedLinks = {
 // Programmatic categorization (regex-based, from @theWallProject/common)
 // ────────────────────────────────────────────────────────────────────────────
 
-// Exclude patterns: URLs that should NOT be auto-categorized as social links
-// (they end up in the "urls" bucket instead)
-const EXCLUDE_PATTERNS = [
-  /youtube\.com\/watch/i,
-  /youtube\.com\/shorts/i,
-  /youtube\.com\/playlist/i,
-  /apps\.apple\./i,
-  /play\.google\.com\/store\/apps\/details/i, // Individual app pages (not developer pages)
-  /vimeo\./i,
-  /greenhouse\./i,
-  /consent\.yahoo\./i,
-  /cnbc\./i
-]
-
 /** URLs that are definitely not the company's own social presence */
 const NOISE_PATTERNS = [
   // File URLs — static assets, not meaningful links
@@ -71,44 +59,6 @@ const NOISE_PATTERNS = [
   /\.(?:pdf|doc|docx|xls|xlsx|pptx?|zip|tar|gz|rar)(?:\?|$)/i,
   /\.(?:mp3|mp4|webm|ogg|wav|avi|mov|flv|wmv)(?:\?|$)/i,
   // Search result pages
-  /ecosia\.org\/search/i,
-  /google\.com\/search/i,
-  /bing\.com\/search/i,
-  // CDN and asset URLs
-  /fonts\.googleapis\.com/i,
-  /cdnjs\.cloudflare\.com/i,
-  /cdn\./i,
-  /static\./i,
-  /assets\./i,
-  // Analytics and tracking
-  /google-analytics\.com/i,
-  /googletagmanager\.com/i,
-  /doubleclick\.net/i,
-  /facebook\.com\/tr/i, // Facebook tracking pixel
-  /facebook\.com\/sharer/i, // Share buttons (not company pages)
-  /twitter\.com\/intent/i, // Twitter share intent (not profiles)
-  /twitter\.com\/share/i,
-  /linkedin\.com\/shareArticle/i, // LinkedIn share (not company pages)
-  /linkedin\.com\/cws\/share/i,
-  // Third-party scripts and widgets
-  /hs-scripts\.com/i, // HubSpot
-  /hsforms\.net/i, // HubSpot forms
-  /google\.com\/recaptcha/i, // reCAPTCHA
-  /gmpg\.org/i, // XHTML Friends Network (WordPress boilerplate)
-  // WordPress / CMS internals
-  /wp-content\//i,
-  /wp-includes\//i,
-  /wp-json/i,
-  /xmlrpc\.php/i,
-  /\/feed\/?$/i,
-  // Common utility pages
-  /schema\.org/i,
-  /w3\.org/i,
-  /creativecommons\.org/i,
-  /gravatar\.com/i,
-  /wordpress\.org/i,
-  /wordpress\.com\/(?!tag\/)/i, // WordPress.com (not company blogs)
-  // Anchor-only / fragment-only
   /^#/
 ]
 
@@ -175,11 +125,6 @@ const categorizeUrlProgrammatic = (url: string): LinkField | null => {
     // Threads profiles
     if (new RegExp(API_ENDPOINT_RULE_THREADS.regex).test(url)) return "th"
 
-    // Check excluded patterns (these go into "urls" bucket, not social)
-    for (const pattern of EXCLUDE_PATTERNS) {
-      if (pattern.test(url)) return null
-    }
-
     return null
   } catch {
     return null
@@ -187,13 +132,16 @@ const categorizeUrlProgrammatic = (url: string): LinkField | null => {
 }
 
 /**
- * Filters out internal links (links pointing to the same domain as the homepage).
+ * Filters out internal links (links pointing to the same domain or subdomains of the homepage).
+ * Uses tldts (via getMainDomain) to compare registered domains, so blog.example.com is
+ * treated as internal when the homepage is example.com.
  */
 const filterInternalLinks = (links: string[], homepageDomain: string): string[] => {
+  const baseDomain = getMainDomain(homepageDomain)
   return links.filter((link) => {
     try {
-      const linkDomain = new URL(link).hostname.replace(/^www\./, "")
-      return linkDomain !== homepageDomain
+      const linkBaseDomain = getMainDomain(link)
+      return linkBaseDomain !== baseDomain
     } catch {
       return false
     }
@@ -270,25 +218,27 @@ const INCLUDE_HEADER_IN_PROMPT = false
  * - Collapses whitespace
  */
 const stripClutterAttributes = (html: string): string => {
-  return html
-    // Strip SVG elements but preserve any <a> tags inside them (may contain links)
-    .replace(/<svg[\s>][\s\S]*?<\/svg>/gi, (svgMatch) => {
-      const anchors: string[] = []
-      const anchorRegex = /<a\s[^>]*href\s*=\s*["'][^"']+["'][^>]*>[\s\S]*?<\/a>/gi
-      let anchorMatch = anchorRegex.exec(svgMatch)
-      while (anchorMatch) {
-        anchors.push(anchorMatch[0])
-        anchorMatch = anchorRegex.exec(svgMatch)
-      }
-      return anchors.join(" ")
-    })
-    // Remove class="..." and style="..." (with either quote type)
-    .replace(/\s+(?:class|style)\s*=\s*"[^"]*"/gi, "")
-    .replace(/\s+(?:class|style)\s*=\s*'[^']*'/gi, "")
-    // Collapse multiple whitespace into single space
-    .replace(/\s{2,}/g, " ")
-    // Remove empty attribute lists that might result (e.g., <div > → <div>)
-    .replace(/\s+>/g, ">")
+  return (
+    html
+      // Strip SVG elements but preserve any <a> tags inside them (may contain links)
+      .replace(/<svg[\s>][\s\S]*?<\/svg>/gi, (svgMatch) => {
+        const anchors: string[] = []
+        const anchorRegex = /<a\s[^>]*href\s*=\s*["'][^"']+["'][^>]*>[\s\S]*?<\/a>/gi
+        let anchorMatch = anchorRegex.exec(svgMatch)
+        while (anchorMatch) {
+          anchors.push(anchorMatch[0])
+          anchorMatch = anchorRegex.exec(svgMatch)
+        }
+        return anchors.join(" ")
+      })
+      // Remove class="..." and style="..." (with either quote type)
+      .replace(/\s+(?:class|style)\s*=\s*"[^"]*"/gi, "")
+      .replace(/\s+(?:class|style)\s*=\s*'[^']*'/gi, "")
+      // Collapse multiple whitespace into single space
+      .replace(/\s{2,}/g, " ")
+      // Remove empty attribute lists that might result (e.g., <div > → <div>)
+      .replace(/\s+>/g, ">")
+  )
 }
 
 const buildAiPrompt = (
@@ -299,9 +249,7 @@ const buildAiPrompt = (
 ): string => {
   // Strip clutter attributes first, then apply size limit
   const cleanedFooter = footerHtml ? stripClutterAttributes(footerHtml) : null
-  const cleanedHeader = INCLUDE_HEADER_IN_PROMPT && headerHtml
-    ? stripClutterAttributes(headerHtml)
-    : null
+  const cleanedHeader = INCLUDE_HEADER_IN_PROMPT && headerHtml ? stripClutterAttributes(headerHtml) : null
 
   // Size limit per section — must fit within the model's 32K context window
   const maxHtmlChars = 50_000
@@ -392,17 +340,39 @@ const parseAiLinks = (responseText: string, logger: CompanyLogger): string[] => 
  */
 const pushToCategory = (target: CategorizedLinks, category: keyof CategorizedLinks, url: string): void => {
   switch (category) {
-    case "ws":    target.ws  = [...(target.ws  ?? []), url]; break
-    case "li":    target.li  = [...(target.li  ?? []), url]; break
-    case "fb":    target.fb  = [...(target.fb  ?? []), url]; break
-    case "tw":    target.tw  = [...(target.tw  ?? []), url]; break
-    case "ig":    target.ig  = [...(target.ig  ?? []), url]; break
-    case "gh":    target.gh  = [...(target.gh  ?? []), url]; break
-    case "ytp":   target.ytp = [...(target.ytp ?? []), url]; break
-    case "ytc":   target.ytc = [...(target.ytc ?? []), url]; break
-    case "tt":    target.tt  = [...(target.tt  ?? []), url]; break
-    case "th":    target.th  = [...(target.th  ?? []), url]; break
-    case "urls":  target.urls = [...(target.urls ?? []), url]; break
+    case "ws":
+      target.ws = [...(target.ws ?? []), url]
+      break
+    case "li":
+      target.li = [...(target.li ?? []), url]
+      break
+    case "fb":
+      target.fb = [...(target.fb ?? []), url]
+      break
+    case "tw":
+      target.tw = [...(target.tw ?? []), url]
+      break
+    case "ig":
+      target.ig = [...(target.ig ?? []), url]
+      break
+    case "gh":
+      target.gh = [...(target.gh ?? []), url]
+      break
+    case "ytp":
+      target.ytp = [...(target.ytp ?? []), url]
+      break
+    case "ytc":
+      target.ytc = [...(target.ytc ?? []), url]
+      break
+    case "tt":
+      target.tt = [...(target.tt ?? []), url]
+      break
+    case "th":
+      target.th = [...(target.th ?? []), url]
+      break
+    case "urls":
+      target.urls = [...(target.urls ?? []), url]
+      break
     case "android_app_ids":
       target.android_app_ids = [...(target.android_app_ids ?? []), url]
       break
@@ -441,6 +411,32 @@ export const categorizeLinks = async (
     homepageDomain = new URL(extraction.finalUrl).hostname.replace(/^www\./, "")
   } catch {
     throw new Error(`Invalid final URL: ${extraction.finalUrl}`)
+  }
+
+  // Collect subdomains of the main website into ws (e.g., blog.example.com, docs.example.com)
+  const baseDomain = getMainDomain(extraction.finalUrl) // e.g., "example.com"
+  if (baseDomain) {
+    const wsArray = result.ws // guaranteed non-null (set above)
+    const seenSubdomains = new Set<string>([homepageDomain.toLowerCase()])
+    for (const link of extraction.allLinks) {
+      try {
+        const linkHostname = new URL(link).hostname.replace(/^www\./, "").toLowerCase()
+        // Same registered domain but different hostname = subdomain
+        if (linkHostname !== homepageDomain.toLowerCase() && getMainDomain(link) === baseDomain) {
+          if (!seenSubdomains.has(linkHostname)) {
+            seenSubdomains.add(linkHostname)
+            const subdomainUrl = `https://${linkHostname}`
+            wsArray.push(subdomainUrl)
+            logger.log(`  SUBDOMAIN: ${linkHostname} (added to ws)`)
+          }
+        }
+      } catch {
+        // Invalid URL — skip
+      }
+    }
+    if (wsArray.length > 1) {
+      logger.log(`Website subdomains found: ${wsArray.length - 1}`)
+    }
   }
 
   // Filter out internal links (same domain as homepage)
@@ -495,6 +491,11 @@ export const categorizeLinks = async (
     if (category && category !== "il") {
       const added = addToResult(category, link)
       logger.log(`  REGEX: ${category} <- ${link}${added ? "" : " (duplicate, skipped)"}`)
+    } else if (isFromRegexDomain(link)) {
+      // URL is from a domain with regex rules (e.g., linkedin.com, facebook.com) but didn't
+      // match the regex — it's a platform page (privacy policy, help, etc.), not a company profile.
+      // Drop it silently instead of polluting the urls array.
+      logger.log(`  SKIP (regex domain, no match): ${link}`)
     } else {
       uncategorizedLinks.push(link)
       logger.log(`  UNCATEGORIZED: ${link}`)
@@ -518,12 +519,7 @@ export const categorizeLinks = async (
   if (uncategorizedLinks.length > 0 || extraction.footerHtml || extraction.headerHtml) {
     logger.log("Sending uncategorized links + HTML sections to AI for analysis...")
 
-    const prompt = buildAiPrompt(
-      companyName,
-      uncategorizedLinks,
-      extraction.footerHtml,
-      extraction.headerHtml
-    )
+    const prompt = buildAiPrompt(companyName, uncategorizedLinks, extraction.footerHtml, extraction.headerHtml)
     logger.saveAiPrompt(prompt)
 
     const aiResponseText = await chatCompletion([
@@ -565,11 +561,16 @@ export const categorizeLinks = async (
       if (category && category !== "il") {
         const added = addToResult(category, link)
         logger.log(`  AI→REGEX: ${category} <- ${link}${added ? "" : " (duplicate, skipped)"}`)
+      } else if (isFromRegexDomain(link)) {
+        // URL is from a domain with regex rules but didn't match — drop it
+        logger.log(`  AI→SKIP (regex domain, no match): ${link}`)
       } else {
         // Not a recognized social platform — add to urls
         const cleaned = cleanUrlForStorage(link)
         const added = addToResult("urls", cleaned)
-        logger.log(`  AI→URLS: ${cleaned}${link !== cleaned ? ` (cleaned from ${link})` : ""}${added ? "" : " (duplicate, skipped)"}`)
+        logger.log(
+          `  AI→URLS: ${cleaned}${link !== cleaned ? ` (cleaned from ${link})` : ""}${added ? "" : " (duplicate, skipped)"}`
+        )
       }
     }
   } else {
@@ -649,9 +650,7 @@ export const categorizeLinks = async (
   logger.log(`── Step 3: Final dedup ──`)
   if (result.urls && result.urls.length > 0) {
     const specializedUrls = new Set<string>()
-    const specializedFields: Array<keyof CategorizedLinks> = [
-      "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"
-    ]
+    const specializedFields: Array<keyof CategorizedLinks> = ["li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
     for (const field of specializedFields) {
       const fieldUrls = result[field]
       if (Array.isArray(fieldUrls)) {
@@ -680,7 +679,18 @@ export const categorizeLinks = async (
 
   // Clean up: sort all arrays (explicit field list to avoid type assertions)
   const arrayFields: Array<keyof CategorizedLinks> = [
-    "ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls", "android_app_ids"
+    "ws",
+    "li",
+    "fb",
+    "tw",
+    "ig",
+    "gh",
+    "ytp",
+    "ytc",
+    "tt",
+    "th",
+    "urls",
+    "android_app_ids"
   ]
   for (const field of arrayFields) {
     const arr = result[field]
@@ -692,7 +702,18 @@ export const categorizeLinks = async (
   // Log final result with every link
   logger.log(`── FINAL RESULT ──`)
   const resultFields: Array<keyof CategorizedLinks> = [
-    "ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls", "android_app_ids"
+    "ws",
+    "li",
+    "fb",
+    "tw",
+    "ig",
+    "gh",
+    "ytp",
+    "ytc",
+    "tt",
+    "th",
+    "urls",
+    "android_app_ids"
   ]
   for (const field of resultFields) {
     const arr = result[field]

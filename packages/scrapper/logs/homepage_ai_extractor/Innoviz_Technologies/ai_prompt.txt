@@ -1,0 +1,146 @@
+You are analyzing the website of "Innoviz Technologies" to find their official social media profiles.
+
+I have already identified some social links using regex. Below are the UNCATEGORIZED links from the page that my regex did NOT match, plus the page's footer and header HTML which may contain social links in non-standard formats.
+
+Your task:
+1. From the uncategorized links, identify any that are official social media profiles for "Innoviz Technologies".
+2. From the footer/header HTML, find any social media links I may have missed (they could be in onclick handlers, data attributes, or non-anchor elements).
+3. ONLY include links that are the company's OWN profiles. Do NOT include:
+   - Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
+   - Tracking pixels or analytics URLs
+   - Links to OTHER companies' profiles
+   - Generic platform links (just facebook.com, just twitter.com)
+
+Categorize each found link into EXACTLY one of these categories:
+- "li"  = LinkedIn company/school page (linkedin.com/company/... or linkedin.com/school/...)
+- "fb"  = Facebook page (facebook.com/CompanyName or facebook.com/profile.php?id=...)
+- "tw"  = Twitter/X profile (x.com/handle or twitter.com/handle)
+- "ig"  = Instagram profile (instagram.com/handle)
+- "gh"  = GitHub organization/user (github.com/orgname)
+- "ytp" = YouTube profile (youtube.com/@handle or youtube.com/c/name or youtube.com/user/name)
+- "ytc" = YouTube channel (youtube.com/channel/UC...)
+- "tt"  = TikTok profile (tiktok.com/@handle)
+- "th"  = Threads profile (threads.net/@handle)
+- "urls" = Other noteworthy URLs (App Store pages, Chrome Web Store extensions, Discord servers, etc.)
+
+UNCATEGORIZED LINKS (21 of 21):
+  http://fonts.googleapis.com
+  https://business.safety.google/privacy
+  https://downloads.innoviz-tech.com
+  https://fonts.googleapis.com
+  https://fonts.googleapis.com/css2?family=Montserrat%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B1%2C400&display=swap&ver=6.9.1
+  https://fonts.gstatic.com
+  https://goo.gl/maps/A6C7rajqgWXNGwdZ9
+  https://group107.com/accessibility-for-all
+  https://hb.wpmucdn.com
+  https://ir.innoviz.tech
+  https://ir.innoviz.tech/news-events/email-alerts
+  https://my.pluro.ai/unitoolbar.min.css?v=4.4.15&l=en
+  https://support.comeet.co/section/terms-and-policies
+  https://www.cookiebot.com
+  https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2
+  https://www.cookiebot.com/goto/privacy-policy
+  https://www.googletagmanager.com
+  https://www.linkedin.com/legal/privacy-policy
+  https://www.prnewswire.com/news-releases/innoviz-technologies-announces-innovizsmart-is-now-available-to-order-with-short-lead-times-and-enhanced-production-302671239.html
+  https://www.prnewswire.com/news-releases/innoviz-technologies-announces-the-deployment-of-innovizsmart-in-critical-security-infrastructure-locations-in-israel-302684949.html?tc=eml_cleartime
+  https://www.prnewswire.com/news-releases/innoviz-technologies-releases-expanded-white-paper-on-the-rise-of-physical-ai-and-the-emergence-of-world-models-302694496.html
+
+FOOTER HTML:
+<footer class="footer" role="contentinfo" data-node-item="1403" tabindex="-1">
+  <!-- Begin Footer Main -->
+  <svg width="1600px" height="54px" viewBox="0 0 1600 54" aria-hidden="true" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-node-item="1404">
+    <g id="curve-color" stroke="none" stroke-width="1" fill="#000018" fill-rule="evenodd" data-node-item="1405">
+        <g id="Images/Home/partners-background" data-node-item="1406">
+            <path d="M0,0 C257.329151,20 520.883312,30 790.662484,30 C1060.44166,30 1330.22083,20 1600,0 L1600,53.8278207 L0,53.8278207 L0,0 Z" id="Rectangle" data-node-item="1407"></path>
+        </g>
+    </g>
+</svg>
+  <!-- Begin Footer Main Top -->
+  <div class="footer__top" data-node-item="1408">
+    <div class="row row-site column" data-node-item="1409">
+      <!-- Begin Footer Logo -->
+      <div class="footer__logo" data-node-item="1410">
+        <a href="/" data-node-item="1411">
+          <img alt="Innoviz Footer Logo" src="/wp-content/themes/innoviz/assets/images/innoviz-logo-white.svg" width="185" height="56" data-node-item="1412">
+        </a>
+        <!-- Begin Footer Newsletter -->
+        <div class="footer__subscribe" data-node-item="1413">
+          <div class="right" data-node-item="1414">
+          <div class="footer__subscribe-left" data-node-item="1415">
+            <h4 class="footer__subscribe-headline" data-node-item="1416">Join our Mailing List</h4>
+          </div>
+          <div class="footer__subscribe-right" data-node-item="1417">
+			  <a class="button newsletterbtn pum-trigger" href="#subscribe" rel="nofollow" data-node-item="1418" style="cursor: pointer;">Subscribe</a>
+			  
+          </div>
+          </div>
+          <div class="left" data-node-item="1419">
+          <div class="footer__subscribe-left" data-node-item="1420">
+            <h4 class="footer__subscribe-headline" data-node-item="1421">To receive company press releases via email</h4>
+          </div>
+          <div class="footer__subscribe-right" data-node-item="1422">
+			  <a class="button" target="_blank" href="https://ir.innoviz.tech/news-events/email-alerts" rel="nofollow" data-node-item="1423">Sign Up</a>
+			  
+          </div>
+        </div>
+        </div>
+        <!-- End Footer Newsletter -->
+      </div>
+      <!-- End Footer Logo -->
+
+      <div class="footer__row" data-node-item="1424">
+        <!-- Begin Footer Column -->
+        <div class="footer__col" data-node-item="1425">
+          <!-- Begin Footer Address -->
+          <div class="footer__loc" data-node-item="1426">
+            <ul data-node-item="1427">
+                            <li class="footer__phone" data-node-item="1428"><a href="tel:+972747003692" data-node-item="1429">+972-74-700-3692</a></li>
+                            <li class="footer__locs" data-node-item="1430">
+                <a target="_blank" rel="nofollow" href="https://goo.gl/maps/A6C7rajqgWXNGwdZ9" data-node-item="1431">
+                <span class="footer__locs-label" data-node-item="1432">Innoviz Technologies Ltd - HQ</span>
+                <span class="footer__locs-addr" data-node-item="1433">5 Uri Ariav st.<br data-node-item="1434"> Building C, Nitzba 300<br data-node-item="1435"> Rosh Ha'ayin 4809202, Israel</span>
+              </a></li>
+                            <li class="footer__support" data-node-item="1436">
+                                        <span class="footer__support-label" data-node-item="1437">For Technical Support</span>
+                   <span class="footer__support-contact" data-node-item="1438"> please contact us via our <a href="/contact-us" data-node-item="1439">contact form</a></span>
+
+                
+              </li>
+			<li class="footer__support" data-node-item="1440">
+                                        <span class="footer__support-label" data-node-item="1441">Cyber Security &amp; Vulnerability Reporting</span>
+                   <span class="footer__s
+
+HEADER HTML:
+<header class="header  home " role="banner" data-node-item="833" tabindex="-1">
+      <div class="header__container" data-node-item="834">
+				<div class="tag-and-logo__container" data-node-item="835">
+					<div class="logo__container" data-node-item="836">
+						<a href="/" class="logo__alt" data-node-item="837">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610.38 184.2" data-node-item="838">
+								<g data-node-item="839">
+									<path class="innoviz-wordmark" d="M0,22.45H19.67v91.06H0Z" data-node-item="840"></path>
+									<path class="innoviz-wordmark" d="M38.33,22.45H65.2l39.5,63.28H105V22.45h18.89v91.06H98L57.47,48.68h-.25v64.83H38.33Z" data-node-item="841"></path>
+									<path class="innoviz-wordmark" d="M143.93,22.45h26.88l39.5,63.28h.25V22.45h18.89v91.06H203.61L163.08,48.68h-.26v64.83H143.93Z" data-node-item="842"></path>
+									<path class="innoviz-wordmark" d="M365,22.45h22.11l23.29,60.46h.26l23.68-60.46h20.69l-37.55,91.06H401.44Z" data-node-item="843"></path>
+									<path class="innoviz-wordmark" d="M467.46,22.45h19.68v91.06H467.46Z" data-node-item="844"></path>
+									<path class="innoviz-wordmark" d="M503,95,550,39.8H504.66V22.45h68.81V40.2L527.41,95.38H575v18.13H503Z" data-node-item="845"></path>
+									<path class="innoviz-mark" d="M293.42,0V67.46l58.66,33.87A67.64,67.64,0,0,0,293.42,0Z" data-node-item="846"></path>
+									<path class="innoviz-wordmark" d="M293.42,35.92a32.27,32.27,0,1,1-32.26,32.27,32.3,32.3,0,0,1,32.26-32.27m0-17.91A50.18,50.18,0,1,0,343.6,68.19,50.18,50.18,0,0,0,293.42,18Z" data-node-item="847"></path>
+									<path class="innoviz-wordmark" d="M283.15,63.64a5.54,5.54,0,0,0,3.56-9.78,15.83,15.83,0,1,1-9.11,14.33A15.62,15.62,0,0,1,279,61.73,5.51,5.51,0,0,0,283.15,63.64Z" data-node-item="848"></path>
+									<path class="innoviz-wordmark" d="M13.19,149.38H.4v-2.52H28.71v2.52H15.92v34.19H13.19Z" data-node-item="849"></path>
+									<path class="innoviz-wordmark" d="M50.37,146.86H76.48v2.52H53.1V163.8h21v2.52h-21v14.73H76.75v2.52H50.37Z" data-node-item="850"></path>
+									<path class="innoviz-wordmark" d="M97.25,165.32v-.11c0-10.38,7.76-19,18.36-19,6.55,0,10.48,2.42,14.26,5.88l-1.94,2c-3.2-3.09-6.87-5.4-12.38-5.4-8.8,0-15.46,7.18-15.46,16.41v.1c0,9.29,6.76,16.52,15.52,16.52,5.29,0,8.91-2,12.63-5.71l1.84,1.78c-3.88,3.83-8.08,6.4-14.58,6.4C105,184.2,97.25,175.86,97.25,165.32Z" data-node-item="851"></path>
+									<path class="innoviz-wordmark" d="M151,146.86h2.73v17h23.49v-17h2.73v36.71h-2.73v-17.2H153.68v17.2H151Z" data-node-item="852"></path>
+									<path class="innoviz-wordmark" d="M204.18,146.86h2.57l25.32,31.93V146.86h2.62v36.71h-2L206.8,151v32.62h-2.62Z" data-node-item="853"></path>
+									<path class="innoviz-wordmark" d="M257.35,165.32v-.11c0-10,7.4-19,18.51-19s18.4,8.87,18.4,18.88c.06,0,.06,0,0,.1,0,10-7.39,19-18.5,19S257.35,175.33,257.35,165.32Zm34.08,0v-.11c0-9.07-6.6-16.51-15.67-16.51s-15.58,7.34-15.58,16.41v.1c0,9.08,6.61,16.52,15.68,16.52S291.43,174.39,291.43,165.32Z" data-node-item="854"></path>
+									<path class="innoviz-wordmark" d="M316.92,146.86h2.73v34.19H341.2v2.52H316.92Z" data-node-item="855"></path>
+									<path class="innoviz-wordmark" d="M359,165.32v-.11c0-10,7.4-19,18.51-19S396,155.1,396,165.11c.05,0,.05,0,0,.1,0,10-7.4,19-18.51,19S359,175.33,359,165.32Zm34.08,0v-.11c0-9.07-6.6-16.51-15.67-16.51s-15.58,7.34-15.58,16.41v.1c0,9.08,6.61,16.52,15.68,16.52S393.11,174.39,393.11,165.32Z" data-node-item="856"></path>
+									<path class="innoviz-wordmark" d="M417,165.32v-.11c0-9.91,7.18-19,18.14-19a19.24,19.24,0,0,1,13.42,4.83l-1.78,2a16.55,16.55,0,0,0-11.8-4.4c-8.91,0-15.15,7.55-15.15,16.41v.1c0,9.49,5.93,16.57,15.73,16.57a18.85,18.85,0,0,0,11.69-4.19V167.05H435v-2.52h14.89v14.16a22,22,0,0,1-14.42,5.51C423.85,184.2,417,175.65,417,165.32Z" data-node-item="857"></path>
+									<path class="innoviz-wordmark" d="M473.46,146.86h2.72v36.71h-2.72Z" data-node-item="858"></path>
+									<path class="innoviz-wordmark" d="M500.83,146.86h26.
+
+Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences.
+If you find nothing, respond with: {}
+Example response:
+{"li":["https://www.linkedin.com/company/example"],"tw":["https://x.com/example"],"ytp":["https://www.youtube.com/@example"]}

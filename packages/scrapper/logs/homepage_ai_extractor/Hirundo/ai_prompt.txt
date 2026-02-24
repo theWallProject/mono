@@ -1,0 +1,60 @@
+You are analyzing the website of "Hirundo" to find their official social media profiles.
+
+I have already identified some social links using regex. Below are the UNCATEGORIZED links from the page that my regex did NOT match, plus the page's footer and header HTML which may contain social links in non-standard formats.
+
+Your task:
+1. From the uncategorized links, identify any that are official social media profiles for "Hirundo".
+2. From the footer/header HTML, find any social media links I may have missed (they could be in onclick handlers, data attributes, or non-anchor elements).
+3. ONLY include links that are the company's OWN profiles. Do NOT include:
+   - Share/intent links (twitter.com/intent, linkedin.com/shareArticle, etc.)
+   - Tracking pixels or analytics URLs
+   - Links to OTHER companies' profiles
+   - Generic platform links (just facebook.com, just twitter.com)
+
+Categorize each found link into EXACTLY one of these categories:
+- "li"  = LinkedIn company/school page (linkedin.com/company/... or linkedin.com/school/...)
+- "fb"  = Facebook page (facebook.com/CompanyName or facebook.com/profile.php?id=...)
+- "tw"  = Twitter/X profile (x.com/handle or twitter.com/handle)
+- "ig"  = Instagram profile (instagram.com/handle)
+- "gh"  = GitHub organization/user (github.com/orgname)
+- "ytp" = YouTube profile (youtube.com/@handle or youtube.com/c/name or youtube.com/user/name)
+- "ytc" = YouTube channel (youtube.com/channel/UC...)
+- "tt"  = TikTok profile (tiktok.com/@handle)
+- "th"  = Threads profile (threads.net/@handle)
+- "urls" = Other noteworthy URLs (App Store pages, Chrome Web Store extensions, Discord servers, etc.)
+
+UNCATEGORIZED LINKS (11 of 11):
+  https://cdn.prod.website-files.com/660ac5137d0f7fda07d7ce65/660ffed9b150c712a6ecc8a8_favicon-32x32.png
+  https://cdn.prod.website-files.com/660ac5137d0f7fda07d7ce65/6617d7981e36e21acf57ed8a_b5cd4c076c781cbe99afbb6bb99931a3-32bits-256.png
+  https://cdn.prod.website-files.com/660ac5137d0f7fda07d7ce65/css/hirundo.webflow.shared.f000f436e.css
+  https://en.globes.co.il/en/article-war-fails-to-keep-israeli-startups-from-vivatech-1001479731
+  https://fonts.googleapis.com
+  https://fonts.googleapis.com/css?family=Inter:regular,500,600
+  https://fonts.gstatic.com
+  https://theinnovator.news/startup-of-the-week-hirundo
+  https://www.axios.com/pro/all-deals/2025/06/06/hirundo-seed-8-million-help-ai-forget
+  https://www.calcalistech.com/ctechnews/article/t67lcbkpj
+  https://www.gambit.design
+
+FOOTER HTML:
+<footer class="footer2_component"><div class="padding-global"><div class="container-large"><div class="padding-vertical footer"><div class="padding-bottom padding-xxlarge"><div class="w-layout-grid footer2_top-wrapper"><div class="w-layout-grid footer2_left-wrapper"><div id="w-node-ef4e2272-fa3a-eb92-213a-bebf6518b81d-6518b816" class="content-wrapper small-gap"><a href="/" aria-current="page" class="navbar_logo-link w-nav-brand w--current"><div class="svg-logo w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 215 51" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.93058 0.851562C23.7439 8.85526 38.3927 21.1386 0 27.0145C11.9403 26.7509 16.0229 29.1876 2.53953 38.8401C26.8854 25.3373 37.6207 18.9022 36.2775 50.1173C39.5035 44.3783 48.3987 24.6936 40.1275 21.8139C40.7834 21.0332 41.7669 19.7674 42.4649 18.4488C43.8504 17.8475 44.8552 17.0139 45.6697 15.9484C44.7494 15.7374 43.9774 15.6849 43.2582 15.7057C43.2369 15.4105 43.1737 15.1257 43.0359 14.8725C42.1157 13.132 37.9486 13.4273 36.4361 13.5959C36.9331 5.05137 12.448 1.24389 5.93058 0.851562Z" fill="currentColor"></path>
+<path d="M58.6612 38.3125V13.3935H63.9297V23.675H74.6249V13.3935H79.8812V38.3125H74.6249V28.0188H63.9297V38.3125H58.6612Z" fill="currentColor"></path>
+<path d="M89.4936 13.3935V38.3125H84.225V13.3935H89.4936Z" fill="currentColor"></path>
+<path d="M93.8282 38.3125V13.3935H103.66C105.541 13.3935 107.148 13.7302 108.478 14.4034C109.816 15.0686 110.834 16.0136 111.532 17.2384C112.238 18.4552 112.59 19.8869 112.59 21.5336C112.59 23.1883 112.234 24.6119 111.52 25.8043C110.806 26.9887 109.772 27.8972 108.417 28.5299C107.07 29.1626 105.44 29.4789 103.526 29.4789H96.9431V25.2446H102.674C103.68 25.2446 104.515 25.1067 105.18 24.831C105.846 24.5552 106.34 24.1415 106.665 23.5899C106.997 23.0383 107.164 22.3528 107.164 21.5336C107.164 20.7062 106.997 20.0086 106.665 19.4408C106.34 18.8729 105.842 18.443 105.168 18.151C104.503 17.8509 103.664 17.7008 102.65 17.7008H99.0967V38.3125H93.8282ZM107.285 26.9724L113.479 38.3125H107.663L101.603 26.9724H107.285Z" fill="currentColor"></path>
+<path d="M131.706 13.3935H136.974V29.5763C136.974 31.3933 136.54 32.9832 135.672 34.3459C134.812 35.7087 133.608 36.7713 132.058 37.5338C130.509 38.2882 128.704 38.6654 126.644 38.6654C124.575 38.6654 122.767 38.2882 121.217 37.5338C119.668 36.7713 118.463 35.7087 117.603 34.3459C116.744 32.9832 116.314 31.3933 116.314 29.5763V13.3935H121.582V29.1261C121.582 30.0751 121.789 30.9187 122.203 31.6569C122.625 32.3951 123.217 32.9751 123.979 33.3969C124.742 33.8187 125.63 34.0296 126.644 34.0296C127.666 34.0296 128.554 33.8187 129.309 33.3969C130.071 32.9751 130.659 32.3951 131.073 31.6569C131.495 30.9187 131.706 30.0751 131.706 29.1261V13.3935Z" fill="currentColor"></path>
+<path d="M162.152 13.3935V38.3125H157.601L146.76 22.6286H146.577V38.3125H141.309V13.3935H145.932L156.688 29.0652H156.907V13.3935H162.152Z" fill="currentColor"></path>
+<path d="M175.338 38.3125H166.505V13.3935H175.411C177.918 13.3935 180.075 13.8924 181.884 14.8901C183.693 15.8797 185.084 17.3033 186.058 19.1609C187.039 21.0185 187.53 23.2411 187.53 25.8287C187.53 28.4244 187.039 30.6551 186.058 32.5208C185.084 34.3865 183.685 35.8182 181.86 36.8159C180.043 37.8137 177.869 38.3125 175.338 38.3125ZM171.773 33.7984H175.119C176.677 33.7984 177.987 33.5226 179.049 32.971C180.12 32.4113 180.923 31.5474 181.458 30.3793C182.002 29.2031 182.274 27.6863 182.274 25.8287C182.274 23.9873 182.002 22.4826 181.458 21.3146C180.923 20.1465 180.124 19.2866 179.061 18.735C177.999 18.1835 176.689 17.9077 175.131 17.9077H171.773V33.7984Z" fill="currentColor"></path>
+<path d="M214.332 25.853C214.332 28.5704 213.817 30.8822 212.787 32.7885C211.765 34.6947 210.369 36.1508 208.601 37.1566C206.841 38.1543 204.862 38.6532 202.663 38.6532C200.449 38.6532 198.461 38.1503 196.701 37.1444C194.941 36.1386 193.55 34.6826 192.528 32.7763C191.50
+
+HEADER HTML:
+<header class="section_home_hero-header"><div class="padding-global"><div class="container-large"><div class="padding-section-large"><div class="component-wrapper"><div class="content-wrapper centered hero"><div class="tagline-wrapper"><p data-w-id="e8159789-974e-3ef1-c766-30824bb1e198" style="opacity: 1;" class="tagline">Making ai forget</p><div class="horizontal-lines-wrapper line-on-bottom"><div class="stripe-line horizontal hidden"></div></div></div><h1 data-w-id="e8159789-974e-3ef1-c766-30824bb1e196" style="opacity: 1;" class="hero-heading">Remove unwanted data and behaviors from your AI models</h1><p data-w-id="5a71c6ac-76f1-a5e5-68fd-5bbdfa99ad17" style="opacity: 1;" class="text-size-large">Hirundo is the first Machine Unlearning platform, removing AI issues at their core</p><div data-w-id="fac69d05-7ad3-4e64-1ea8-cedb418a4ff2" style="opacity: 1;" class="button-pair-wrapper"><div class="button-group is-center"><a href="/contact" class="button is-icon w-inline-block"><div class="button-text">Book a demo</div><div class="icon-embed-custom w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 25 25" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
+<path d="M10.252 16.6968L14.252 12.6968L10.252 8.69678" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path>
+</svg></div><div class="button-overlay" style="opacity: 0;"></div></a><a href="/early-access" class="button is-icon is-secondary w-inline-block"><div>Sign up for early access</div><div class="icon-embed-custom w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 25 25" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
+<path d="M10.252 16.6968L14.252 12.6968L10.252 8.69678" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path>
+</svg></div><div class="button-overlay secondary" style="opacity: 0;"></div></a></div></div></div></div></div></div></div></header>
+
+Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences.
+If you find nothing, respond with: {}
+Example response:
+{"li":["https://www.linkedin.com/company/example"],"tw":["https://x.com/example"],"ytp":["https://www.youtube.com/@example"]}

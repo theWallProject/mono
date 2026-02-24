@@ -15,7 +15,9 @@ import java.io.FileOutputStream
  */
 data class AppRemovedData(
     val appName: String,
-    val appIcon: Bitmap? = null
+    val appIcon: Bitmap? = null,
+    val reasons: List<String> = emptyList(),
+    val hasAlternatives: Boolean = false
 )
 
 /**
@@ -138,9 +140,15 @@ class ShareManager(private val context: Context) {
 
     /**
      * Get content for the "app removed" scenario.
+     * @param reasons The reason codes from the removed app's database entry (e.g., "h", "f", "i", "u", "BDS_PRIO").
+     * @param hasAlternatives Whether the removed app had better alternatives in the database.
      */
-    fun getAppRemovedContent(appName: String): ShareContent {
-        return ShareContentGenerator.appRemoved(context, appName)
+    fun getAppRemovedContent(
+        appName: String,
+        reasons: List<String> = emptyList(),
+        hasAlternatives: Boolean = false
+    ): ShareContent {
+        return ShareContentGenerator.appRemoved(context, appName, reasons, hasAlternatives)
     }
 
     /**
@@ -234,7 +242,12 @@ class ShareManager(private val context: Context) {
             }
             ImageTemplate.APP_REMOVED -> {
                 when (additionalData) {
-                    is AppRemovedData -> imageGenerator.generateAppRemovedImage(additionalData.appName, additionalData.appIcon)
+                    is AppRemovedData -> imageGenerator.generateAppRemovedImage(
+                        additionalData.appName,
+                        additionalData.appIcon,
+                        additionalData.reasons,
+                        additionalData.hasAlternatives
+                    )
                     is String -> imageGenerator.generateAppRemovedImage(additionalData)
                     else -> imageGenerator.generateAppRemovedImage(context.getString(R.string.share_fallback_app_name))
                 }

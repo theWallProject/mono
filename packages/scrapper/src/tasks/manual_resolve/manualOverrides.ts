@@ -142,6 +142,22 @@ export const manualOverrides: Record<
     urls: ["https://classiq-community.slack.com/join/shared_invite/zt-39du2mz80-fE_GBGxMaDxBFRBr_4nrjw"],
     _processed: true
   },
+  Cognyte: {
+    ws: ["https://www.cognyte.com/"],
+    li: ["https://www.linkedin.com/company/cognyte"],
+    tw: ["https://twitter.com/Cognyte"],
+    ytc: ["https://www.youtube.com/channel/UCqIvlQRaVQ38kr03p5QTDWA"],
+    urls: ["https://www.glassdoor.com/Overview/Working-at-Cognyte-EI_IE4430257.11,18.htm"],
+    _processed: "auto"
+  },
+  Cyabra: {
+    ws: ["https://cyabra.com/"],
+    li: ["https://www.linkedin.com/company/cyabra"],
+    tw: ["https://x.com/thecyabra"],
+    ytp: ["https://www.youtube.com/@cyabra"],
+    urls: ["https://errol.cyabra.com", "https://open.spotify.com/show/3gMZQTgbe3Wajzm9bDyJSW"],
+    _processed: "auto"
+  },
   Cyera: {
     ws: "https://www.cyera.com",
     ytp: ["https://www.youtube.com/@CyeraSecurity"],
@@ -287,6 +303,16 @@ export const manualOverrides: Record<
   },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Metis Technologies": { fb: "", tw: "" },
+  Mitiga: {
+    ws: ["https://www.mitiga.io/"],
+    li: ["https://www.linkedin.com/company/mitiga-io"],
+    ytp: ["https://www.youtube.com/@mitigaio"],
+    urls: [
+      "https://bsky.app/profile/mitiga.bsky.social",
+      "https://www.gartner.com/reviews/market/cloud-investigation-and-response-automation-cira/vendor/mitiga/product/mitiga"
+    ],
+    _processed: "auto"
+  },
   MoonPay: {
     ig: ["https://www.instagram.com/moonpay"],
     ytp: ["https://www.youtube.com/@moonpayhq"],
@@ -395,6 +421,23 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/1beatretail"],
     tw: ["https://twitter.com/Onebeat4retail"],
     ytp: ["https://www.youtube.com/@onebeat8428"],
+    _processed: "auto"
+  },
+  Optimove: {
+    ws: ["https://www.optimove.com/"],
+    li: ["https://www.linkedin.com/company/optimove"],
+    fb: ["https://www.facebook.com/optimove"],
+    tw: ["https://x.com/Optimove"],
+    ytp: ["https://www.youtube.com/Optimove"],
+    urls: [
+      "https://academy.optimove.com/hc/en-us",
+      "https://courses.optimove.com",
+      "https://developer.optimove.com",
+      "https://open.spotify.com/user/317eskl3ir4ypt4sd5nvj7srcpbe",
+      "https://partners.optimove.com",
+      "https://trust.optimove.com",
+      "https://www.linkedin.com/legal/privacy-policy"
+    ],
     _processed: "auto"
   },
   "Ox Security": {
@@ -622,6 +665,12 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Veriti: {
+    ws: ["https://www.veriti.ai/"],
+    li: ["https://www.linkedin.com/company/veriti-security"],
+    tw: ["https://twitter.com/VERITISECURITY"],
+    _processed: "auto"
+  },
   Wix: {
     ws: ["https://www.wix.com", "https://stylable.io", "https://wix.github.io"],
     li: ["https://www.linkedin.com/company/wix-com", "https://www.linkedin.com/showcase/wix-engineering"],
@@ -714,6 +763,21 @@ export const manualOverrides: Record<
       { n: "AZAforex", ws: "https://www.azaforex.com/" }
     ],
     _processed: true
+  },
+  groundcover: {
+    ws: ["https://www.groundcover.com/"],
+    li: ["https://www.linkedin.com/company/groundcover-com"],
+    tw: ["https://twitter.com/en/privacy"],
+    gh: ["https://github.com/groundcover-com"],
+    ytp: ["https://www.youtube.com/@groundcover-com"],
+    urls: [
+      "https://app.groundcover.com",
+      "https://docs.groundcover.com",
+      "https://join.slack.com/t/groundcover-community/shared_invite/zt-3h47w6vj6-9ajuW0ySTaKd_pH5DoTr1w",
+      "https://play.groundcover.com",
+      "https://trust.groundcover.com"
+    ],
+    _processed: "auto"
   },
   "monday.com": {
     ws: ["https://monday.com", "https://www.mondayert.org", "https://www.workcanvas.com"],

@@ -64,12 +64,22 @@ object ShareContentGenerator {
         )
     }
 
-    fun appRemoved(context: Context, appName: String): ShareContent {
+    fun appRemoved(
+        context: Context,
+        appName: String,
+        reasons: List<String> = emptyList(),
+        hasAlternatives: Boolean = false
+    ): ShareContent {
+        val bodyResId = when {
+            hasAlternatives -> R.string.share_removed_body_alternative
+            "h" in reasons -> R.string.share_removed_body
+            else -> R.string.share_removed_body_flagged
+        }
         return ShareContent(
             headline = context.getString(R.string.share_removed_headline),
             subtext = context.getString(R.string.share_removed_subtext),
             buttonText = context.getString(R.string.btn_share_stand),
-            shareText = context.getString(R.string.share_removed_body,
+            shareText = context.getString(bodyResId,
                 appName,
                 context.getString(R.string.share_app_url),
                 context.getString(R.string.share_hashtags)),

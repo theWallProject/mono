@@ -147,6 +147,24 @@ describe("API_ENDPOINT_RULE_FACEBOOK", () => {
       testRule(rule, "https://www.facebook.com/home.php", false)
     })
 
+    it("should not match facebook.com/sharer.php URLs", () => {
+      testRule(rule, "https://www.facebook.com/sharer.php?u=https://example.com", false)
+    })
+
+    it("should not match facebook.com/dialog.php URLs", () => {
+      testRule(rule, "https://www.facebook.com/dialog.php?app_id=123", false)
+    })
+
+    it("should not match facebook.com/login.php URLs", () => {
+      testRule(rule, "https://www.facebook.com/login.php?next=https://example.com", false)
+    })
+
+    it("should not match any facebook.com/*.php URLs", () => {
+      testRule(rule, "https://www.facebook.com/plugins.php", false)
+      testRule(rule, "https://www.facebook.com/connect.php", false)
+      testRule(rule, "https://www.facebook.com/share.php", false)
+    })
+
     it("should not match facebook.com/search URLs", () => {
       testRule(rule, "https://www.facebook.com/search?q=test", false)
     })
@@ -246,6 +264,14 @@ describe("API_ENDPOINT_RULE_TWITTER", () => {
 
     it("should not match twitter.com/settings", () => {
       testRule(rule, "https://twitter.com/settings/account", false)
+    })
+
+    it("should not match x.com/privacy", () => {
+      testRule(rule, "https://x.com/privacy", false)
+    })
+
+    it("should not match twitter.com/privacy", () => {
+      testRule(rule, "https://twitter.com/privacy", false)
     })
 
     it("should not match other domains", () => {
