@@ -619,7 +619,7 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
     const result = await processCompany(item)
 
     if (!result.success) {
-      // Expected failure
+      // Expected failure — add to retry list and continue with next company
       failCount++
       log(`FAILED (expected): ${result.errorType} — ${result.errorMessage}`)
       addToRetryList(
@@ -628,15 +628,8 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
         result.errorType ?? "UNKNOWN",
         result.errorMessage ?? "Unknown error"
       )
-
-      // Fail hard: stop the batch on expected failures too
-      throw new Error(
-        `Batch stopped: expected failure for "${result.companyName}".\n` +
-          `Error type: ${result.errorType}\n` +
-          `Error message: ${result.errorMessage}\n` +
-          `Company added to retry_list.json. Fix the issue or adjust config, then re-run.\n` +
-          `Processed ${successCount} companies successfully before failure.`
-      )
+      log(`Added "${result.companyName}" to retry list. Continuing with next company...`)
+      continue
     }
 
     if (!result.override) {
@@ -699,6 +692,7 @@ export const runRetry = async (): Promise<void> => {
   const currentOverrides = loadManualOverrides()
 
   let successCount = 0
+  let failCount = 0
 
   for (let i = 0; i < retryEntries.length; i++) {
     const entry = retryEntries[i]
@@ -717,20 +711,16 @@ export const runRetry = async (): Promise<void> => {
     const result = await processCompany(item)
 
     if (!result.success) {
-      // Still failing — update retry list and stop
+      // Still failing — update retry list and continue with next company
+      failCount++
       addToRetryList(
         result.companyName,
         item.ws ?? "",
         result.errorType ?? "UNKNOWN",
         result.errorMessage ?? "Unknown error"
       )
-
-      throw new Error(
-        `Retry stopped: "${result.companyName}" still failing.\n` +
-          `Error type: ${result.errorType}\n` +
-          `Error message: ${result.errorMessage}\n` +
-          `Processed ${successCount} companies successfully before failure.`
-      )
+      log(`RETRY FAILED: "${result.companyName}" still failing (${result.errorType}). Continuing...`)
+      continue
     }
 
     if (!result.override) {
@@ -753,7 +743,7 @@ export const runRetry = async (): Promise<void> => {
 
   await closeSharedBrowser()
 
-  log(`\nRetry complete: ${successCount}/${retryEntries.length} succeeded`)
+  log(`\nRetry complete: ${successCount} succeeded, ${failCount} still failing (of ${retryEntries.length} total)`)
   const updatedOverrides = loadManualOverrides()
   displayStatistics(sortedItems, updatedOverrides)
 }

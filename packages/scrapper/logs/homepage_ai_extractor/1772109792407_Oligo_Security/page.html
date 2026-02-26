@@ -1,0 +1,1993 @@
+<!DOCTYPE html><html data-wf-domain="www.oligo.security" data-wf-page="69288489365aaac1f988783c" data-wf-site="69288487365aaac1f9887796" lang="en" class=" w-mod-js w-mod-ix"><head><style>.wf-force-outline-none[tabindex="-1"]:focus{outline:none;}</style><meta charset="utf-8"><title>AI Runtime Security | Oligo Security</title><meta content="The AI runtime security platform - Everything Runtime by Oligo Security: detect, stop, and investigate threats across cloud, Code, and Ai in real time." name="description"><meta content="AI Runtime Security | Oligo Security" property="og:title"><meta content="The AI runtime security platform - Everything Runtime by Oligo Security: detect, stop, and investigate threats across cloud, Code, and Ai in real time." property="og:description"><meta content="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6996e2403b1cd77f28f76cbb_3cfbfe83d027a20ce4bd80333822a2c0_OG.avif" property="og:image"><meta content="AI Runtime Security | Oligo Security" property="twitter:title"><meta content="The AI runtime security platform - Everything Runtime by Oligo Security: detect, stop, and investigate threats across cloud, Code, and Ai in real time." property="twitter:description"><meta content="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6996e2403b1cd77f28f76cbb_3cfbfe83d027a20ce4bd80333822a2c0_OG.avif" property="twitter:image"><meta property="og:type" content="website"><meta content="summary_large_image" name="twitter:card"><meta content="width=device-width, initial-scale=1" name="viewport"><link href="https://cdn.prod.website-files.com/69288487365aaac1f9887796/css/oligo-staging.webflow.shared.263561a60.min.css" rel="stylesheet" type="text/css" integrity="sha384-JjVhpg6+f8QTwKqLlwFELLhrDi9nY8z3X5Gpi36xEW5/mFbCMy22P3GbgZwLBZu+" crossorigin="anonymous"><script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script src="https://connect.facebook.net/signals/config/1654339085231257?v=2.9.271&amp;r=stable&amp;domain=www.oligo.security&amp;hme=2b49bd7f168247cfe9eafe2600107613e301a42532af369b40de8aa139cc1b44&amp;ex_m=97%2C189%2C138%2C21%2C67%2C68%2C131%2C63%2C62%2C10%2C146%2C83%2C15%2C125%2C118%2C70%2C73%2C124%2C143%2C148%2C7%2C3%2C4%2C6%2C5%2C2%2C84%2C94%2C149%2C154%2C203%2C57%2C170%2C171%2C50%2C247%2C28%2C69%2C215%2C214%2C213%2C30%2C96%2C56%2C9%2C58%2C90%2C91%2C92%2C98%2C121%2C29%2C27%2C123%2C120%2C119%2C139%2C71%2C142%2C140%2C141%2C45%2C55%2C114%2C14%2C145%2C40%2C235%2C236%2C234%2C24%2C25%2C26%2C43%2C132%2C72%2C105%2C17%2C19%2C39%2C35%2C37%2C36%2C77%2C85%2C89%2C103%2C130%2C133%2C41%2C104%2C22%2C20%2C110%2C64%2C33%2C135%2C134%2C136%2C127%2C126%2C23%2C32%2C54%2C102%2C144%2C65%2C16%2C137%2C107%2C76%2C61%2C18%2C78%2C79%2C31%2C259%2C196%2C185%2C186%2C184%2C262%2C254%2C197%2C100%2C122%2C75%2C112%2C49%2C42%2C44%2C106%2C111%2C117%2C53%2C59%2C48%2C51%2C47%2C93%2C147%2C0%2C115%2C13%2C113%2C11%2C1%2C52%2C86%2C60%2C109%2C82%2C81%2C150%2C151%2C87%2C88%2C8%2C116%2C95%2C46%2C128%2C80%2C74%2C66%2C108%2C99%2C38%2C129%2C34%2C101%2C12%2C152" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="https://js-eu1.hs-scripts.com/26088573.js" type="text/javascript" id="hs-script-loader"></script><script src="https://js-eu1.hubspot.com/web-interactives-embed.js" type="text/javascript" id="hubspot-web-interactives-loader" crossorigin="anonymous" data-loader="hs-scriptloader" data-hsjs-portal="26088573" data-hsjs-env="prod" data-hsjs-hublet="eu1"></script><script src="https://js-eu1.hsadspixel.net/fb.js" type="text/javascript" id="hs-ads-pixel-26088573" data-ads-portal-id="26088573" data-ads-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="26088573" data-hsjs-env="prod" data-hsjs-hublet="eu1"></script><script src="https://js-eu1.hs-banner.com/v2/26088573/banner.js" type="text/javascript" id="cookieBanner-26088573" data-cookieconsent="ignore" data-hs-ignore="true" data-loader="hs-scriptloader" data-hsjs-portal="26088573" data-hsjs-env="prod" data-hsjs-hublet="eu1"></script><script src="https://js-eu1.hs-analytics.net/analytics/1772099700000/26088573.js" type="text/javascript" id="hs-analytics"></script><script src="https://js-eu1.hscollectedforms.net/collectedforms.js" type="text/javascript" id="CollectedForms-26088573" crossorigin="anonymous" data-leadin-portal-id="26088573" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="26088573" data-hsjs-env="prod" data-hsjs-hublet="eu1"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-11293028927&amp;cx=c&amp;gtm=4e62o1"></script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/69288487365aaac1f9887796/699f61060bf110a25f4269a8_OLI%20Favicon%20Block%2032x32.svg" rel="shortcut icon" type="image/x-icon"><link href="https://cdn.prod.website-files.com/69288487365aaac1f9887796/699f6107818416003320a700_OLI%20Favicon%20Block%20256x256.svg" rel="apple-touch-icon"><link href="https://oligo.security" rel="canonical"><!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MF9NP2JYC7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MF9NP2JYC7');
+</script>
+
+<!-- Finsweet Attributes -->
+<script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-scrolldisable=""></script>
+
+<!-- [Attributes by Finsweet] CMS Slider -->
+<script async="" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsslider@1/cmsslider.js"></script>
+
+<style>
+hr
+  {
+  display: none !important;
+  }
+</style><style>
+/* Allow vertical scroll gestures to pass through */
+canvas {
+  touch-action: pan-y;
+}
+</style><style data-resources-slider-style="1">
+      /* ================================
+         RESOURCES SLIDER: MULTI-VISIBLE
+         Desktop: 3 | Tablet: 2 | Mobile: 1
+         Moves by 1 slide (Webflow default)
+      ================================= */
+
+      [data-resources="slider"] .w-slider-mask {
+        overflow: hidden; /* keep cropping like a proper carousel */
+      }
+
+      /* Webflow uses a track inside the mask; make it flex so slides can be fractional width */
+      [data-resources="slider"] .w-slider-track {
+        display: flex !important;
+        will-change: transform;
+      }
+
+      /* Default: 1 visible (mobile portrait + landscape) */
+      [data-resources="slider"] .w-slide {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+      }
+
+      /* Tablet: 2 visible */
+      @media (min-width: 768px) and (max-width: 991px) {
+        [data-resources="slider"] .w-slide {
+          flex-basis: 50% !important;
+          width: 50% !important;
+        }
+      }
+
+      /* Desktop: 3 visible */
+      @media (min-width: 992px) {
+        [data-resources="slider"] .w-slide {
+          flex-basis: 33.3333% !important;
+          width: 33.3333% !important;
+        }
+      }
+    </style><script src="https://unpkg.com/@rive-app/webgl2@latest/rive.js" async=""></script><script src="https://unpkg.com/@rive-app/webgl2@2.34.3/rive.js" async=""></script><script src="https://unpkg.com/@rive-app/webgl2@latest/rive.js" async=""></script><script src="https://hubspotv2.use1-marketplace-1p-apps-prod-red.if.webflow.services/static/v1.1.1/hubspot-webflow.iife.js"></script><style id="_goober"> .go2933276541{position:fixed;display:block;width:100%;height:0px;margin:0px;padding:0px;overflow:visible;transform-style:preserve-3d;background:transparent;backface-visibility:hidden;pointer-events:none;left:0px;z-index:9998;}.go2369186930{top:0px;z-index:9999;height:100%;width:100%;}.go1348078617{bottom:0px;}.go2417249464{position:fixed;z-index:9989;}.go3921366393{left:0;bottom:0;}.go3967842156{right:0;bottom:0;}.go613305155{left:0;top:0;}.go471583506{right:0;top:0;}.go3670563033{position:relative;overflow:hidden;display:none;}.go1041095097{display:block;}.go1632949049{position:absolute;pointer-events:none;width:101vw;height:101vh;background:rgba(0,0,0,0.7);opacity:0;z-index:-1;}.go2512015367{z-index:99998;opacity:0.8;visibility:visible;pointer-events:all;cursor:pointer;}.go1432718904{overflow:hidden;}.go812842568{display:block !important;position:static !important;box-sizing:border-box !important;background:transparent !important;border:none;min-height:0px !important;max-height:none !important;margin:0px;padding:0px !important;height:100% !important;width:1px !important;max-width:100% !important;min-width:100% !important;}.go722322694{transition:none !important;}.go3064412225{z-index:99999;visibility:hidden;position:absolute;inset:50vh auto auto 50%;left:50%;top:50%;transform:translate(-50%,-50%) translateY(100vh);pointer-events:none;max-height:95%;max-width:95%;}.go1656994552{pointer-events:auto !important;visibility:visible;transform:translate(-50%,-50%) translateY(0);transition:transform 0.75s linear(0,0.006,0.023 2.2%,0.096 4.8%,0.532 15.4%,0.72 21%,0.793,0.853 26.7%,0.902,0.941,0.968 36.2%,0.987 39.7%,1 43.7%,1.007 48.3%,1.009 55.3%,1.002 78.2%,1 );}.go456419034{transition:opacity 0.3s ease-in;}.go3128134379{pointer-events:auto !important;visibility:visible !important;max-height:95vh !important;transition:max-height 1s ease-in;}.go494047706{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;}.go2481764524{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;bottom:0px;}.go2685733372{visibility:hidden;}.go2985984737{visibility:visible !important;}.go3281949485{pointer-events:auto !important;visibility:visible !important;max-height:95vh !important;transform:none !important;}.go3508454897{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;transition:transform 1s linear(0,0.006,0.022 2.3%,0.091 5.1%,0.18 7.6%,0.508 16.3%,0.607,0.691,0.762,0.822 28.4%,0.872,0.912 35.1%,0.944 38.9%,0.968 43%,0.985 47.6%,0.996 53.1%,1.001 58.4%,1.003 65.1%,1 );}.go988075951{z-index:9999;position:fixed;left:10px;top:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go2699082514{z-index:9999;position:fixed;right:10px;top:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go1595992025{z-index:9999;position:fixed;left:10px;bottom:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go1222083472{z-index:9999;position:fixed;right:10px;bottom:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go26732895{cursor:pointer;}.go2083580917{display:flex;justify-content:center;align-items:center;}</style></head><body page-path="0;0;0"><div id="hs-web-interactives-top-push-anchor" class="go3670563033"></div><div class="page-wrapper"><div class="global-styles w-embed"><style>
+  :root {
+    --font-from: 16;
+    --font-to: 20;
+    --vw-from: calc(1440 / 100);
+    --vw-to: calc(1920 / 100);
+    --coefficient: calc((var(--font-to) - var(--font-from)) / (var(--vw-to) - var(--vw-from)));
+    --base: calc((var(--font-from) - var(--vw-from) * var(--coefficient)) / 16);
+  }
+
+  html {
+    font-size: calc(var(--base) * 1rem + var(--coefficient) * 1vw);
+  }
+
+  @media screen and (max-width: 1440px) {
+    :root {
+      --font-from: 12;
+      --font-to: 16;
+      --vw-from: calc(960 / 100);
+      --vw-to: calc(1440 / 100);
+      }
+  }
+
+  @media screen and (max-width: 960px) {
+    :root {
+      --font-from: 12;
+      --font-to: 16;
+      --vw-from: calc(479 / 100);
+      --vw-to: calc(960 / 100);
+      }
+  }
+
+  @media screen and (max-width: 479px) {
+    :root {
+      --font-from: 12;
+      --font-to: 16;
+      --vw-from: calc(1 / 100);
+      --vw-to: calc(479 / 100);
+      }
+  }
+</style>
+
+
+<style>
+
+/* ============================
+   FIX 2 — MOBILE H2 SAFETY
+   ============================ */
+
+@media (max-width: 479px) {
+  .heading-style-h2 {
+    font-size: clamp(2.9rem, 9vw, 4rem);
+    line-height: 1.05;
+    max-width: 100%;
+  }
+}
+
+.line-height-trim::before {
+	content: "";
+  display: table;
+  margin-bottom: calc(0.5lh + 0.4em);
+}
+
+.line-height-trim::after {
+	content: "";
+  display: table;
+  margin-bottom: calc(0.5lh + 0.35em);
+}
+
+/* ============================
+   GLOBAL BASE STYLES
+   ============================ */
+
+/* Text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus states */
+*[tabindex]:focus-visible,
+input[type="file"]:focus-visible {
+  outline: 0.125rem solid #4d65ff;
+  outline-offset: 0.125rem;
+}
+
+/* Inherit color */
+.inherit-color * {
+  color: inherit;
+}
+
+/* Rich text spacing fixes */
+.w-richtext > :not(div):first-child,
+.w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+
+.w-richtext > :last-child,
+.w-richtext ol li:last-child,
+.w-richtext ul li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Container centering */
+.container-medium,
+.container-small,
+.container-large {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Line clamp utilities */
+.text-style-3lines {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.text-style-2lines {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Visibility utilities */
+.hide {
+  display: none !important;
+}
+
+@media (max-width: 991px) {
+  .hide,
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hide-mobile-landscape {
+    display: none !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Spacing utilities */
+.margin-0 { margin: 0rem !important; }
+.padding-0 { padding: 0rem !important; }
+
+.spacing-clean {
+  margin: 0rem !important;
+  padding: 0rem !important;
+}
+
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-vertical {
+  margin-left: 0rem !important;
+  margin-right: 0rem !important;
+}
+
+.padding-vertical {
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+}
+
+/* Webflow design mode helpers */
+.wf-design-mode a[href="#"],
+.wf-design-mode a[href=""] {
+  outline: 3px dashed red;
+  outline-offset: 3px;
+}
+
+/* SVG fix */
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Image reveal animation */
+.background-image.overflow-hidden .image-full.is-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s ease;
+}
+
+.result-item:hover .image-full.is-reveal {
+  clip-path: inset(0 0 0 0);
+}
+</style></div><main class="main-wrapper"><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav" style="height: 6rem;"><div class="padding-global in-navbar"><div class="max-width-full in-navbar"><div class="w-layout-vflex v-flex gap_small navbar-1"><div class="w-layout-hflex h-flex align-center-stretch gap-medium max-width-full nav-top-line"><a href="/" aria-current="page" class="nav_brand w-nav-brand w--current" aria-label="home"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697b908df1f9b851c60a5922_OLI%20Logo%20White%20(1).svg" loading="lazy" alt="" class="nav_logo"></a><div class="w-layout-hflex h-flex align-center_stretch gap-medium flex-child-grow h-1-5rem"><div path-line="1" class="full-width-line"></div><a path-text="folder" href="#" class="page-path-link-block hidden">Text</a><div path-line="2" class="full-width-line hide-tablet hidden"></div><a path-text="subfolder" href="#" class="page-path-link-block hidden">Text</a><div path-line="3" class="full-width-line hide-tablet hidden"></div><a path-text="page" href="#" class="page-path-link-block hidden">Text</a><div path-line="4" class="full-width-line hide-tablet hidden"></div><div class="navbar-button"><div fs-scrolldisable-element="enable" data-w-id="0dccacc1-f882-f415-18b9-a186374e3046" class="close-navbar"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69645ed0b0d803527b0ad728_menu-open.png" loading="lazy" alt=""></div><div fs-scrolldisable-element="disable" data-w-id="9aa9f429-bb3c-82c6-00ff-fcc830d0cd04" class="open-navbar is-closed"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69645ed054c71bc7ecb400e4_menu-closed.png" loading="lazy" alt=""></div></div></div></div><div class="w-layout-hflex h-flex left-center gap-20px in-navbar"><div data-hover="true" data-delay="50" data-w-id="7a3ddb7b-792a-c746-d815-d3c823a3f3be" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="dropdown-trigger-wrapper" style="border-color: rgb(0, 0, 0);"><div data-w-id="fc303015-6588-f211-79af-341f3eda2e92" class="link-text is-1" style="opacity: 1;">Platform</div><div class="link-text is-2" style="opacity: 1;">Platform</div></div><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="nav-dropdown-icon"></div><nav class="nav-dropdown_list w-dropdown-list" id="w-dropdown-list-0" aria-labelledby="w-dropdown-toggle-0" style="height: 0px;"><div class="dropdown-link_wrapper"><a data-w-id="7a3ddb7b-792a-c746-d815-d3c823a3f3c4" href="/runtime-platform/overview" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Overview</a></div><div class="dropdown-link_wrapper"><a data-w-id="bd20df38-3eca-e08c-d220-c988f02c969e" href="/runtime-platform/cloud-application-detection-and-response" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Runtime Protection</a></div><div class="dropdown-link_wrapper"><a data-w-id="3cc5bb70-2037-f065-c2fd-1e01287f13d4" href="/runtime-platform/runtime-vulnerability-management" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Runtime Posture</a></div><div class="dropdown-link_wrapper"><a data-w-id="2fd00876-39be-eab3-0ad8-ec2d26c09d94" href="/runtime-platform/runtime-ai" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Runtime AI Security</a></div></nav></div><div data-hover="true" data-delay="50" data-w-id="97de5e26-4073-2774-3afb-47fdcc0eb081" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle w-dropdown-toggle" id="w-dropdown-toggle-1" aria-controls="w-dropdown-list-1" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="dropdown-trigger-wrapper" style="border-color: rgb(0, 0, 0);"><div data-w-id="ca2b3258-562c-8e98-c35a-f4b2db4018bb" class="link-text is-1" style="opacity: 1;">Solutions</div><div class="link-text is-2" style="opacity: 1;">Solutions</div></div><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="nav-dropdown-icon"></div><nav class="nav-dropdown_list with-columns w-dropdown-list" id="w-dropdown-list-1" aria-labelledby="w-dropdown-toggle-1" style="height: 0px;"><div class="w-layout-vflex v-flex gap-20px height-stretch is-1"><div class="dropdown-link_wrapper"><div class="nav-dropdown_link text-style-eyebrow text-size-small" style="transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Who it's for</div></div><div class="dropdown-link_wrapper"><a data-w-id="97de5e26-4073-2774-3afb-47fdcc0eb086" href="/solutions/security-leadership" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Security Leaders</a></div><div class="dropdown-link_wrapper"><a data-w-id="97de5e26-4073-2774-3afb-47fdcc0eb088" href="/solutions/security-operations" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">SecOps Pros</a></div><div class="dropdown-link_wrapper"><a data-w-id="97de5e26-4073-2774-3afb-47fdcc0eb08c" href="/solutions/application-security" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">AppSec Pros</a></div><div class="dropdown-link_wrapper"><a data-w-id="97de5e26-4073-2774-3afb-47fdcc0eb08e" href="/solutions/cloud-security" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">CloudSec Pros</a></div></div><div class="w-layout-hflex h-flex align-bottom gap-huge is-2"><div class="w-layout-vflex v-flex gap-20px height-stretch"><div class="dropdown-link_wrapper"><div class="nav-dropdown_link text-style-eyebrow text-size-small" style="transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Use cases</div></div><div class="dropdown-link_wrapper"><a data-w-id="f29a39a3-2231-ce9f-0d17-a300620c00f0" href="/solutions/workload-protection" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Workload protection</a></div><div class="dropdown-link_wrapper"><a data-w-id="f29a39a3-2231-ce9f-0d17-a300620c00f3" href="/solutions/real-time-bom" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Real-time bom/vex</a></div><div class="dropdown-link_wrapper"><a data-w-id="f29a39a3-2231-ce9f-0d17-a300620c00f6" href="/solutions/application-vulnerability-management" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Application vulnerability management</a></div><div class="dropdown-link_wrapper"><a data-w-id="f29a39a3-2231-ce9f-0d17-a300620c00f9" href="/solutions/ai-security-management" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">AI security</a></div></div><div class="w-layout-vflex v-flex gap-20px layout-bottom height-stretch"><div class="dropdown-link_wrapper"><a data-w-id="9f357b99-95dd-3dbc-e539-31edc3ad9ffe" href="/solutions/compliance-and-assurance" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Compliance and assurance</a></div><div class="dropdown-link_wrapper"><a data-w-id="9f357b99-95dd-3dbc-e539-31edc3ada000" href="/solutions/detection-and-response" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Attack detection and response</a></div><div class="dropdown-link_wrapper"><a data-w-id="9f357b99-95dd-3dbc-e539-31edc3ada002" href="/solutions/supply-chain-security" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Supply chain security</a></div></div></div></nav></div><div data-hover="true" data-delay="50" data-w-id="b34e129b-f385-5afd-4075-7890979ed206" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle w-dropdown-toggle" id="w-dropdown-toggle-2" aria-controls="w-dropdown-list-2" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="dropdown-trigger-wrapper" style="border-color: rgb(0, 0, 0);"><div data-w-id="9c2eb52c-1271-65f2-ea99-7e48fb99830e" class="link-text is-1" style="opacity: 1;">Customers</div><div class="link-text is-2" style="opacity: 1;">Customers</div></div><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="nav-dropdown-icon"></div><nav class="nav-dropdown_list with-columns w-dropdown-list" id="w-dropdown-list-2" aria-labelledby="w-dropdown-toggle-2" style="height: 0px;"><div class="w-layout-vflex v-flex gap-20px height-stretch in-navbar"><div class="dropdown-link_wrapper"><a data-w-id="b34e129b-f385-5afd-4075-7890979ed20e" href="/resources/case-studies" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">All case studies</a></div><div class="dropdown-link_wrapper"><a data-w-id="b34e129b-f385-5afd-4075-7890979ed210" href="/case-study/cato-networks" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Cato Networks</a></div><div class="dropdown-link_wrapper"><a data-w-id="b34e129b-f385-5afd-4075-7890979ed212" href="/case-study/cryptocurrency-exchange" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Leading Crypto Exchange</a></div><div class="dropdown-link_wrapper"><a data-w-id="b34e129b-f385-5afd-4075-7890979ed214" href="/case-study/mural" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Mural</a></div><div class="dropdown-link_wrapper"><a data-w-id="2a73c393-4e6a-9415-bc94-aaef567014da" href="https://www.oligo.security/case-study/onetrust-case-study" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">One Trust</a></div></div><div class="w-layout-vflex v-flex gap-20px layout-bottom height-stretch in-navbar"><div class="dropdown-link_wrapper"><a data-w-id="b34e129b-f385-5afd-4075-7890979ed224" href="/case-study/cresta-case-study" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Cresta</a></div><div class="dropdown-link_wrapper"><a data-w-id="b34e129b-f385-5afd-4075-7890979ed226" href="/case-study/financial-services-organization-secures-money-management-platform-with-oligo" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Major FinServ Company</a></div><div class="dropdown-link_wrapper"><a data-w-id="b34e129b-f385-5afd-4075-7890979ed22a" href="/nasdaq-company-case-study" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Nasdaq Traded Company</a></div><div class="dropdown-link_wrapper"><a data-w-id="88b9cd03-b9e6-cf6c-5445-f63ad9fcfbf7" href="/openweb-case-study" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Openweb</a></div></div></nav></div><div data-hover="true" data-delay="50" data-w-id="e85bfe41-b8c2-06f8-06ff-49e03724521d" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle w-dropdown-toggle" id="w-dropdown-toggle-3" aria-controls="w-dropdown-list-3" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="dropdown-trigger-wrapper" style="border-color: rgb(0, 0, 0);"><div data-w-id="9be042d5-94a5-1d4e-35bc-1ec68a7043d6" class="link-text is-1" style="opacity: 1;">Learn</div><div class="link-text is-2" style="opacity: 1;">Learn</div></div><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="nav-dropdown-icon"></div><nav class="nav-dropdown_list w-dropdown-list" id="w-dropdown-list-3" aria-labelledby="w-dropdown-toggle-3" style="height: 0px;"><div class="dropdown-link_wrapper"><a data-w-id="e85bfe41-b8c2-06f8-06ff-49e037245222" href="/resource-hub" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Resource hub</a></div><div class="dropdown-link_wrapper"><a data-w-id="9f6a7fcb-c85b-c4ed-7e86-db03f5df5705" href="/resources/blog" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Blog</a></div><div class="dropdown-link_wrapper"><a data-w-id="e85bfe41-b8c2-06f8-06ff-49e037245224" href="/academy" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Runtime academy</a></div><div class="dropdown-link_wrapper"><a data-w-id="e85bfe41-b8c2-06f8-06ff-49e037245228" href="/resources/news" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Newsroom</a></div><div class="dropdown-link_wrapper"><a data-w-id="e85bfe41-b8c2-06f8-06ff-49e03724522a" href="/resources/blog?category=Research" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Threat research</a></div><div class="dropdown-link_wrapper"><a data-w-id="b43c2e46-c2e4-eb7a-3bdc-736c4dcab468" href="https://app-attack-matrix.com/" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">App attack matrix</a></div></nav></div><div data-hover="true" data-delay="0" data-w-id="795058dd-8b87-6059-d01a-2a1b4262e07c" class="nav-dropdown w-dropdown"><div class="nav-dropdown-toggle w-dropdown-toggle" id="w-dropdown-toggle-4" aria-controls="w-dropdown-list-4" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="dropdown-trigger-wrapper" style="border-color: rgb(0, 0, 0);"><div data-w-id="7cc2b003-b622-5dfc-2b21-d23e48251e2b" class="link-text is-1" style="opacity: 1;">Company</div><div class="link-text is-2" style="opacity: 1;">Company</div></div><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="nav-dropdown-icon"></div><nav class="nav-dropdown_list w-dropdown-list" id="w-dropdown-list-4" aria-labelledby="w-dropdown-toggle-4" style="height: 0px;"><div class="dropdown-link_wrapper"><a data-w-id="795058dd-8b87-6059-d01a-2a1b4262e081" href="/company/about" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">About Us</a></div><div class="dropdown-link_wrapper"><a data-w-id="795058dd-8b87-6059-d01a-2a1b4262e083" href="/company/partners" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Partners</a></div><div class="dropdown-link_wrapper"><a data-w-id="795058dd-8b87-6059-d01a-2a1b4262e085" href="/company/careers" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Careers</a></div><div class="dropdown-link_wrapper"><a data-w-id="795058dd-8b87-6059-d01a-2a1b4262e087" href="/contact-us" class="nav-dropdown_link link-text w-dropdown-link" tabindex="0" style="opacity: 1; transform: translate3d(0px, 100%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">Contact Us</a></div></nav></div></div></div><div class="w-layout-vflex v-flex align-space-between navbar-2"><div class="hide-tablet"><a data-wf--button-primary--base="red_no-border-v2" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-e6695f86-4241-26d0-3cbc-4a783b2c6b55 w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-e6695f86-4241-26d0-3cbc-4a783b2c6b55 is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-e6695f86-4241-26d0-3cbc-4a783b2c6b55 is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-e6695f86-4241-26d0-3cbc-4a783b2c6b55 is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-e6695f86-4241-26d0-3cbc-4a783b2c6b55 is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-e6695f86-4241-26d0-3cbc-4a783b2c6b55"><div class="cta-bg" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div><div class="hide-desktop-only"><a data-wf--button-primary--base="red_h-border-v2" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-25e2ce2a-0531-37b9-645b-94874db5490b w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-25e2ce2a-0531-37b9-645b-94874db5490b"><div class="cta-bg w-variant-25e2ce2a-0531-37b9-645b-94874db5490b" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div><a href="#" class="text-size-medium text-color-white variant-tablet search-bar">Search</a></div></div></div><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div><section class="hero-section home-hero"><div data-poster-url="https://cdn.prod.website-files.com/69288487365aaac1f9887796%2F699cb018da581be09657106e_Hero1_poster.0000000.jpg" data-video-urls="https://cdn.prod.website-files.com/69288487365aaac1f9887796%2F699cb018da581be09657106e_Hero1_mp4.mp4,https://cdn.prod.website-files.com/69288487365aaac1f9887796%2F699cb018da581be09657106e_Hero1_webm.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="bg-video-wrapper w-background-video w-background-video-atom"><video id="00a6f2b8-1dca-f2b5-0579-cc933c7c7d2b-video" autoplay="" loop="" style="background-image:url(&quot;https://cdn.prod.website-files.com/69288487365aaac1f9887796%2F699cb018da581be09657106e_Hero1_poster.0000000.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="https://cdn.prod.website-files.com/69288487365aaac1f9887796%2F699cb018da581be09657106e_Hero1_mp4.mp4" data-wf-ignore="true"><source src="https://cdn.prod.website-files.com/69288487365aaac1f9887796%2F699cb018da581be09657106e_Hero1_webm.webm" data-wf-ignore="true"></video><div class="home-hero-container"><h2 class="text-style-eyebrow in-home-hero">Runtime Security</h2><h2 class="heading-style-h1 in-home-hero mobile-title">STOP&nbsp;ATTACKS<br>IN&nbsp;REAL TIME</h2><div class="home-hero-button"><a data-wf--button-primary--base="red_v-border-v2" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper"><div class="cta-bg" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div></div><noscript><style>
+  [data-wf-bgvideo-fallback-img] {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-wf-bgvideo-fallback-img] {
+      position: absolute;
+      z-index: -100;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }</style><img data-wf-bgvideo-fallback-img="true" src="https://cdn.prod.website-files.com/69288487365aaac1f9887796%2F699cb018da581be09657106e_Hero1_poster.0000000.jpg" alt=""/></noscript><div aria-live="polite"><button type="button" data-w-bg-video-control="true" aria-controls="00a6f2b8-1dca-f2b5-0579-cc933c7c7d2b-video" class="w-backgroundvideo-backgroundvideoplaypausebutton play-pause-button-2 w-background-video--control"><span><img src="https://cdn.prod.website-files.com/6022af993a6b2191db3ed10c/628299f8aa233b83918e24fd_Pause.svg" loading="lazy" alt="Pause video"></span><span hidden=""><img loading="lazy" alt="Play video" src="https://cdn.prod.website-files.com/6022af993a6b2191db3ed10c/628298b20ae0236682d4b87f_Play-24.svg"></span></button></div></div></section><section class="section padding-global"><div class="max-width-full v-border-white"><div class="overflow-hidden"><div class="marquee-wrapp"><div class="marquee-slider"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370459671c3eef207da1f_DevRev%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704690ff9e02108194ec_Instacart%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370463d1f891bd9d33ae2_Cresta%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046c6d05012f2a5a464_Qwilt%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046d13a1c5ec26684d0_Armis%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370464c7eb080d632fb58_Greenlight%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046cb5596d8ae66eb6d_Crusoe%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046d86092fa1a433801_Mural%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704645abf0a6325ab8b0_Mesh%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370463d8fc0b1542858f0_Databricks%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370478fb8285e6b645777_Playtika%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370472f7832da09bfba77_Sage%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704784aef1d405920af7_Salesforce%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837047a6999ab5973a0ac4_Service%20Now%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704738721ea87792ad6c_Tekion%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837047d6d8124bfff3847a_Sofi%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/692f4532283de7d2055bc82b_Frame-8.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/692f453254cf8602b8709c4d_Frame-7.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/692f45324c161fad992064e2_Frame-9.svg" loading="eager" alt="" class="marquee-image"></div><div class="marquee-slider"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370459671c3eef207da1f_DevRev%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704690ff9e02108194ec_Instacart%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370463d1f891bd9d33ae2_Cresta%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046c6d05012f2a5a464_Qwilt%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046d13a1c5ec26684d0_Armis%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370464c7eb080d632fb58_Greenlight%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046cb5596d8ae66eb6d_Crusoe%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837046d86092fa1a433801_Mural%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704645abf0a6325ab8b0_Mesh%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370463d8fc0b1542858f0_Databricks%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370478fb8285e6b645777_Playtika%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698370472f7832da09bfba77_Sage%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704784aef1d405920af7_Salesforce%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837047a6999ab5973a0ac4_Service%20Now%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6983704738721ea87792ad6c_Tekion%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/69837047d6d8124bfff3847a_Sofi%20Logo.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/692f4532283de7d2055bc82b_Frame-8.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/692f453254cf8602b8709c4d_Frame-7.svg" loading="eager" alt="" class="marquee-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/692f45324c161fad992064e2_Frame-9.svg" loading="eager" alt="" class="marquee-image"></div></div></div><div class="hide w-embed"><style>
+
+@keyframes slide {
+  0% {
+    transform: translateX( calc(0%));
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-slider {
+  animation: slide 25s infinite linear;
+}
+
+</style></div></div></section><section class="section"><div class="padding-global"><div class="text-rotation-wrapper"><canvas id="textrotation" class="riveproductcarousel rive-canvas is-text-rotation" width="1243" height="576" style="display: block; width: 100%; height: 649.312px;"><div class="text-rotation-embed w-embed w-script"><script>
+(function () {
+  "use strict";
+
+  var CANVAS_ID = "textrotation";
+  var RIVE_SRC =
+    "https://cdn.prod.website-files.com/69288487365aaac1f9887796/696e2440bc08e0e2e8f142cd_6009b4e17240722c9ee585e8581f7f97_OLIGO%20Home%20Page%20-%20Text%20Rotation.riv";
+
+  var ARTBOARD_DESKTOP = "Desktop";
+  var ARTBOARD_MOBILE = "Mobile";
+  var STATE_MACHINE = "State Machine 1";
+
+  var MOBILE_BREAKPOINT = 767;
+
+  // ✅ Tweak these if needed
+  var MOBILE_SCALE = 1.08;
+  var DESKTOP_SCALE = 1.22;
+
+  // WebGL2 runtime
+  var RIVE_WEBGL2_URL = "https://unpkg.com/@rive-app/webgl2@2.34.3/rive.js";
+
+  function onDomReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+      fn();
+    }
+  }
+
+  function loadScriptOnce(src, flag, cb) {
+    if (window[flag]) return cb();
+    var s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    s.onload = function () {
+      window[flag] = true;
+      cb();
+    };
+    s.onerror = function () {
+      console.error("[Rive Text Rotation] Failed to load runtime:", src);
+    };
+    document.head.appendChild(s);
+  }
+
+  function debounce(fn, wait) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  function getDesiredArtboard() {
+    return window.innerWidth <= MOBILE_BREAKPOINT ? ARTBOARD_MOBILE : ARTBOARD_DESKTOP;
+  }
+
+  // ✅ Mobile fills nicely, Desktop zooms in to remove top/bottom padding
+  function buildLayout(R) {
+    try {
+      var isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+      var Fit = R.Fit || {};
+      var Alignment = R.Alignment || {};
+
+      return new R.Layout({
+        fit: isMobile ? (Fit.Cover || "cover") : (Fit.Contain || "contain"),
+        alignment: Alignment.Center || "center",
+        layoutScaleFactor: isMobile ? MOBILE_SCALE : DESKTOP_SCALE
+      });
+    } catch (e) {
+      console.error("[Rive Text Rotation] Layout creation failed:", e);
+      return undefined;
+    }
+  }
+
+  function syncCanvasCssSize(canvas) {
+    if (!canvas) return;
+
+    canvas.style.display = "block";
+    canvas.style.width = "100%";
+
+    var parent = canvas.parentElement;
+    if (!parent) {
+      canvas.style.height = "100%";
+      return;
+    }
+
+    var h = parent.getBoundingClientRect().height;
+    if (h && h > 0) canvas.style.height = h + "px";
+    else canvas.style.height = "100%";
+  }
+
+  function observeVisibility(targetEl, onEnter, onExit) {
+    if (!("IntersectionObserver" in window)) {
+      onEnter();
+      return function () {};
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) onEnter();
+          else onExit();
+        }
+      },
+      { threshold: 0.01, rootMargin: "400px 0px 400px 0px" }
+    );
+
+    io.observe(targetEl);
+
+    return function () {
+      try { io.unobserve(targetEl); } catch (e) {}
+      try { io.disconnect(); } catch (e) {}
+    };
+  }
+
+  onDomReady(function () {
+    var canvas = document.getElementById(CANVAS_ID);
+    if (!canvas) {
+      console.warn("[Rive Text Rotation] Canvas not found:", CANVAS_ID);
+      return;
+    }
+
+    syncCanvasCssSize(canvas);
+
+    var inst = null;
+    var currentArtboard = null;
+
+    function cleanup() {
+      if (!inst) return;
+      try { if (inst.pause) inst.pause(); } catch (e) {}
+      try { inst.cleanup(); } catch (e) {}
+      inst = null;
+    }
+
+    function resize() {
+      if (!inst) return;
+      syncCanvasCssSize(canvas);
+      try { inst.resizeDrawingSurfaceToCanvas(); } catch (e) {}
+    }
+
+    function enableDataBind() {
+      if (!inst) return;
+      try {
+        if ("dataBind" in inst) inst.dataBind = true;
+        if (typeof inst.enableDataBinding === "function") inst.enableDataBinding(true);
+      } catch (e) {}
+    }
+
+    function build(force) {
+      var desired = getDesiredArtboard();
+      if (!force && inst && currentArtboard === desired) return;
+
+      currentArtboard = desired;
+      cleanup();
+
+      var R = window.rive;
+      if (!R || !R.Rive) {
+        console.error("[Rive Text Rotation] WebGL2 runtime missing after load");
+        return;
+      }
+
+      try {
+        inst = new R.Rive({
+          src: RIVE_SRC,
+          canvas: canvas,
+          autoplay: true,
+          artboard: desired,
+          stateMachines: STATE_MACHINE,
+          layout: buildLayout(R),
+          isTouchScrollEnabled: true,
+          useOffscreenRenderer: true,
+
+          // ✅ databind auto ON (if runtime supports it)
+          dataBind: true,
+
+          onLoad: function () {
+            enableDataBind();
+            resize();
+            setTimeout(resize, 0);
+
+            try { if (inst.play) inst.play(); } catch (e) {}
+
+            setTimeout(function () {
+              enableDataBind();
+              try { if (inst.play) inst.play(); } catch (e) {}
+              resize();
+            }, 120);
+          },
+          onLoadError: function (e) {
+            console.error("[Rive Text Rotation] load error", e);
+          }
+        });
+
+        enableDataBind();
+      } catch (e) {
+        console.error("[Rive Text Rotation] Instance creation failed:", e);
+        inst = null;
+      }
+    }
+
+    function play() {
+      build(false);
+      if (!inst) return;
+      try { if (inst.play) inst.play(); } catch (e) {}
+      resize();
+    }
+
+    function pause() {
+      if (!inst) return;
+      try { if (inst.pause) inst.pause(); } catch (e) {}
+    }
+
+    loadScriptOnce(RIVE_WEBGL2_URL, "__rive_webgl2_loaded__", function () {
+      if (!window.rive || !window.rive.Rive) {
+        console.error("[Rive Text Rotation] runtime loaded but window.rive.Rive missing");
+        return;
+      }
+
+      build(true);
+
+      observeVisibility(canvas, play, pause);
+
+      setTimeout(play, 900);
+
+      var lastIsMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+      var onResize = debounce(function () {
+        var isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+        if (isMobile !== lastIsMobile) {
+          lastIsMobile = isMobile;
+          build(true);
+          setTimeout(play, 50);
+          return;
+        }
+
+        // same breakpoint: update layout (orientation / container resize)
+        try {
+          var R = window.rive;
+          if (inst && R && R.Layout) inst.layout = buildLayout(R);
+        } catch (e) {}
+
+        resize();
+      }, 150);
+
+      window.addEventListener("resize", onResize, { passive: true });
+
+      setTimeout(resize, 250);
+      setTimeout(resize, 1000);
+    });
+  });
+})();
+</script></div></canvas></div></div></section><section class="section"><div class="padding-global"><div class="text-module"><div class="content-wrapper"><div class="content-left max-width-medium"><h2 class="heading-style-h2">Every Second Counts</h2><a data-wf--button-primary--base="red_v-border-v2" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-f13c8bf5-a81c-c923-a380-5cb64a7a7bd9 is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper"><div class="cta-bg" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div><div class="content-right"><p class="text-size-medium">Applications and the infrastructure that powers them are the front lines of today's business. Yet traditional security, built on patching cycles and periodic scans, can’t keep pace with continuously changing code bases and AI-armed attackers that exploit vulnerabilities within minutes of discovery.<br><br>To protect what matters, organizations must move from passive visibility to active runtime protection by understanding and defending what’s running in real time across applications, infrastructure, and AI.</p></div></div></div></div></section><section class="section"><div class="heading-wrapper"><div class="max-width-xlarge text-align-center"><h2 class="heading-style-h2 padding-global">Rapid deployment. Runtime security. <span class="text-color-blue">Proven performance.</span></h2></div></div></section><section class="section"><div class="padding-global"><div class="max-width-full in-product-carousel"><div class="rive_product-carousel-wrapper"><canvas id="product-carousel-homepage" class="riveproductcarousel rive-canvas" style="width: 100%; height: 100%; display: block;"></canvas></div><div class="product-carousel-content"><div class="product-carousel-left"><div class="cloud"><div class="w-layout-vflex v-flex gap-20px is-1"><div class="left-border_text-wrapp"><h3 class="heading-style-h3">Cloud Application<br>Detection and<br>Response</h3></div><a data-wf--button-primary--base="orange_h-border" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/runtime-platform/cloud-application-detection-and-response" class="cta-button w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-1" style="opacity: 1;">Learn more</div><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-2" style="opacity: 0;">Learn more</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e"><div class="cta-bg w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div></div><div class="runtime"><div class="w-layout-vflex v-flex gap-20px is-2"><div class="left-border_text-wrapp"><h3 class="heading-style-h3">Runtime<br>Vulnerability<br>Menagment</h3></div><a data-wf--button-primary--base="red_h-border-v2" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/runtime-platform/runtime-vulnerability-management" class="cta-button w-variant-25e2ce2a-0531-37b9-645b-94874db5490b w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-1" style="opacity: 1;">Learn more</div><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-2" style="opacity: 0;">Learn more</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-25e2ce2a-0531-37b9-645b-94874db5490b"><div class="cta-bg w-variant-25e2ce2a-0531-37b9-645b-94874db5490b" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div></div><div class="ai"><div class="w-layout-vflex v-flex gap-20px is-3"><div class="left-border_text-wrapp"><h3 class="heading-style-h3">Runtime AI<br>Security</h3></div><a data-wf--button-primary--base="blue_h-border" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/runtime-platform/runtime-ai" class="cta-button w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-1" style="opacity: 1;">Learn more</div><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-2" style="opacity: 0;">Learn more</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e"><div class="cta-bg w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div></div></div><div class="product-carousel-right"><div class="cloud"><div class="left-border_text-wrapp is-1"><div class="text-size-large max-width-small">Protect against exploits across apps, workloads, hosts, and cloud infrastructure.</div></div></div><div class="runtime"><div class="left-border_text-wrapp is-2"><div class="text-size-large max-width-small">Cut down vulnerability noise 90%+ with runtime proof of exploitability</div></div></div><div class="ai"><div class="left-border_text-wrapp is-3"><div class="text-size-large max-width-small">Protect LLMs and AI agents wherever they're tested and run.</div></div></div></div></div></div></div></section><section class="section"><div class="max-width-xlarge text-align-center align-center"><div class="spacer-huge mobile-no-padding"><h2 class="heading-style-h2">Our Runtime Advantage</h2></div></div><div class="padding-global"><div class="key-capabilities"><div class="max-width-full"><hr class="hr"></div><div class="capability-container"><div class="capability-title">Catch</div><div class="w-layout-hflex capabilities-subwrapp"><div class="capability-icon"></div><div class="capabilitiy-content"><h3 class="heading-style-h4 line-height-1-1">Catch Attacks Early</h3><p class="text-size-medium capability-copy">Detect exploits at the application layer, where attacks begin, and stop them before damage spreads.</p></div></div></div><div class="max-width-full"><hr class="hr"></div><div class="capability-container"><div class="w-layout-hflex capabilities-subwrapp"><div class="capabilitiy-content"><h3 class="heading-style-h4 line-height-1-1">Prove Exploitability</h3><p class="text-size-medium capability-copy">See which vulnerabilities actually execute in runtime, eliminating 90-99% of noise.</p></div><div class="capability-icon is-2"></div></div><div class="capability-title">prove</div></div><div class="max-width-full"><hr class="hr"></div><div class="capability-container"><div class="capability-title">block</div><div class="capabilities-subwrapp"><div class="capability-icon is-3"></div><div class="capabilitiy-content"><h3 class="heading-style-h4 line-height-1-1">Block Threats Safely</h3><p class="text-size-medium capability-copy">Block malicious functions precisely, keeping applications safe and business running.</p></div></div></div><div class="max-width-full"><hr class="hr"></div></div></div></section><section class="section"><div class="padding-global"><div class="spacer-huge"></div><div class="w-layout-vflex v-flex align-center mobile-gap-medium"><h2 class="heading-style-h2 no-bottom-margin text-align-center">The Oligo runtime security platform</h2><div class="text-size-huge text-align-center">Slash vulnerability noise &amp; stop modern attacks</div><div class="spacer-huge"></div></div><div class="container-large"><div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="tabs w-tabs"><div class="tabs-menu w-tab-menu" role="tablist"><a data-w-tab="Tab 1" class="tab-link in-homepage w-inline-block w-tab-link w--current" id="w-tabs-0-data-w-tab-0" href="#w-tabs-0-data-w-pane-0" role="tab" aria-controls="w-tabs-0-data-w-pane-0" aria-selected="true"><div class="tab-link-content in-homepage"><div class="heading-style-h4 in-tabs">App Security</div><div class="text-size-large text-color-white-bg">• Runtime SCA &amp; SBOM<br>• Licensing Compliance<br>• CVE Noise Reduction</div></div></a><a data-w-tab="Tab 2" class="tab-link in-homepage w-inline-block w-tab-link" tabindex="-1" id="w-tabs-0-data-w-tab-1" href="#w-tabs-0-data-w-pane-1" role="tab" aria-controls="w-tabs-0-data-w-pane-1" aria-selected="false"><div class="tab-link-content in-homepage"><div class="heading-style-h4 in-tabs">Cloud Security</div><div class="text-size-large text-color-white-bg">• Workload Protection<br>• Container Scanning</div></div></a><a data-w-tab="Tab 3" class="tab-link in-homepage w-inline-block w-tab-link" tabindex="-1" id="w-tabs-0-data-w-tab-2" href="#w-tabs-0-data-w-pane-2" role="tab" aria-controls="w-tabs-0-data-w-pane-2" aria-selected="false"><div class="tab-link-content in-homepage"><div class="heading-style-h4 in-tabs">AI&nbsp;Security</div><div class="text-size-large text-color-white-bg">• AI Security Posture Management<br>• AI Detection and Response</div></div></a><a data-w-tab="Tab 4" class="tab-link in-homepage w-inline-block w-tab-link" tabindex="-1" id="w-tabs-0-data-w-tab-3" href="#w-tabs-0-data-w-pane-3" role="tab" aria-controls="w-tabs-0-data-w-pane-3" aria-selected="false"><div class="tab-link-content in-homepage"><div class="heading-style-h4 in-tabs">SecOps</div><div class="text-size-large text-color-white-bg">• Threat - Vuln Enrichment<br>• Attack Mitigations<br>• Forensics</div></div></a></div><div class="tabs-content w-tab-content"><div data-w-tab="Tab 1" class="tab-pane in-home w-tab-pane w--tab-active" id="w-tabs-0-data-w-pane-0" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-0"><div class="tabs-image-wrapper"><canvas id="riveIsometric1" class="tab-image first"></canvas></div><div class="tab-link-content in-panel"><div class="heading-style-h4 in-tabs in-homepage">App Security</div><div class="text-size-large text-color-white-bg">• Runtime SCA &amp; SBOM<br>• Licensing Complience<br>• CVE Noise Reduction</div></div></div><div data-w-tab="Tab 2" class="tab-pane in-home w-tab-pane" id="w-tabs-0-data-w-pane-1" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-1"><div class="tabs-image-wrapper"><canvas id="riveIsometric2" class="tab-image second"></canvas></div><div class="tab-link-content in-panel"><div class="heading-style-h4 in-tabs in-homepage">Cloud Security</div><div class="text-size-large text-color-white-bg">• Workload Protection<br>• Container Scanning</div></div></div><div data-w-tab="Tab 3" class="tab-pane in-home w-tab-pane" id="w-tabs-0-data-w-pane-2" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-2"><div class="tabs-image-wrapper"><canvas id="riveIsometric3" class="tab-image third"></canvas></div><div class="tab-link-content in-panel"><div class="heading-style-h4 in-tabs in-homepage">AI&nbsp;Security</div><div class="text-size-large text-color-white-bg">• AI Security Posture Management<br>• AI Detection and Response</div></div></div><div data-w-tab="Tab 4" class="tab-pane in-home w-tab-pane" id="w-tabs-0-data-w-pane-3" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-3"><div class="tabs-image-wrapper"><canvas id="riveIsometric4" class="tab-image fourth"></canvas></div><div class="tab-link-content in-panel"><div class="heading-style-h4 in-tabs in-homepage">SecOps</div><div class="text-size-large text-color-white-bg">• Threat - Vuln Enrichment<br>• Attack Mitigations<br>• Forensics</div></div></div></div></div><div class="spacer-huge"></div></div></div></section><section class="section"><div class="padding-global"><div class="w-layout-hflex usp-grid"><div class="usp-wrapper"><div class="text-size-large text-align-center">Prevent supply chain attacks</div></div><div class="usp-wrapper"><div class="text-size-large text-align-center">Zero-day response</div></div><div class="usp-wrapper"><div class="text-size-large text-align-center">Minimize exploitability</div></div><div class="usp-wrapper"><div class="text-size-large text-align-center">Stop attacks</div></div></div><div class="usp-illustration"><div class="flex-horizontal align-center padding-top-bottom variant-tablet hide-mobile-portrait"><div data-w-id="b1d52ac3-b6f0-8646-ab3c-c08ccdbac239" class="object-item z-index-1 variant-tablet"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6930b8f9b2b4d57e4fd92713_Object-1.svg" loading="lazy" alt="" class="image-auto object-image"><div class="text-size-large">Lightweight Sensor</div></div><div data-w-id="deac8e33-ebd8-2fe7-ea6e-6ca32f02e643" class="object-item z-index-2 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b5313a2eb0bcd3ee80_Icon%3DAI%2C%20Direction%3DHorizantal.svg" loading="lazy" alt="" class="image-auto object-image"></div><div class="text-size-large">AI</div></div><div class="object-item z-index-3 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b41e89ca68a468bb9e_Icon%3DStandard%2C%20Direction%3DHorizantal.svg" loading="lazy" alt="" class="image-auto object-image"></div><div class="text-size-large">App / Code</div></div><div data-w-id="79261fef-fd05-105d-c465-3b5d2c5e2ec1" class="object-item z-index-4 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b2bbd69a6e6c650fa1_Icon%3DCloud%2C%20Direction%3DHorizantal.svg" loading="lazy" alt="" class="image-auto object-image"></div><div class="text-size-large">Cloud / Host</div></div><div data-w-id="735fbdc6-5e09-ddc5-27fd-ce02aa6c90ca" class="object-item z-index-5 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b613dec2b3a76e218a_Icon%3DNetwork%2C%20Direction%3DHorizantal.svg" loading="lazy" alt="" class="image-auto object-image"></div><div class="text-size-large">Network</div></div></div><div data-w-id="6159f31f-3a9a-1550-ba35-f3d9d2c410e6" class="flex-horizontal align-center padding-top-bottom variant-tablet mobile-only"><div class="object-item z-index-1 variant-tablet"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6930b8f9b2b4d57e4fd92713_Object-1.svg" loading="lazy" alt="" class="image-auto object-image"><div class="text-size-large">Lightweight Sensor</div></div><div class="object-item z-index-2 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b5f2acd508b4ddc3c8_Icon%3DAI%2C%20Direction%3DVertical.svg" loading="lazy" alt="" class="image-auto object-image no-rotate"></div><div class="text-size-large">AI</div></div><div class="object-item z-index-3 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b4d444b1e0ddeadb78_Icon%3DStandard%2C%20Direction%3DVertical.svg" loading="lazy" alt="" class="image-auto object-image no-rotate"></div><div class="text-size-large">App / Code</div></div><div class="object-item z-index-4 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b5f4d134565c666d08_Icon%3DCloud%2C%20Direction%3DVertical.svg" loading="lazy" alt="" class="image-auto object-image no-rotate"></div><div class="text-size-large">Cloud / Host</div></div><div class="object-item z-index-5 variant-tablet"><div class="image-wrapper object-image"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/698e12b6e42119fefe57db11_Icon%3DNetwork%2C%20Direction%3DVertical.svg" loading="lazy" alt="" class="image-auto object-image no-rotate"></div><div class="text-size-large">Network</div></div></div></div></div></section><section class="section padding-section-small"><div class="padding-global sticky-heading"><h2 class="heading-style-h3 text-align-center">Why organizations choose Oligo</h2><div class="spacer-large"></div></div><div class="stacking-cards-wrapp is-1" style="will-change: transform; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div class="viewport"><div class="slide-section"><div class="slide is-1" style="will-change: transform; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div class="stacking-card-2 in-solutions"><div class="w-layout-vflex v-flex gap_small in-stacking-card"><div class="left-border_text-wrapp-2"><div class="heading-style-h4-2 max-with-tiny variant-mobile in-sticky">Catch attacks<span class="text-color-red-2"> where they begin</span></div></div><a data-wf--button-primary--base="red_h-border-v2" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-25e2ce2a-0531-37b9-645b-94874db5490b w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-25e2ce2a-0531-37b9-645b-94874db5490b is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-25e2ce2a-0531-37b9-645b-94874db5490b"><div class="cta-bg w-variant-25e2ce2a-0531-37b9-645b-94874db5490b" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div><div class="stacking-card-graph-wrapper"><img loading="lazy" src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6978cf79f04ffd01e97a5983_b01e0f51bdbf5a0d0499514f3d1239aa_cadr-1.svg" alt="" class="image-full fit-contain"></div></div></div></div></div></div><div data-w-id="08974bb7-74d0-6159-aa79-c9a6e8a81859" class="stacking-cards-wrapp is-2" style="will-change: transform; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div class="viewport"><div class="slide-section"><div class="slide"><div class="stacking-card-2 in-solutions"><div class="w-layout-vflex v-flex gap_small in-stacking-card"><div class="left-border_text-wrapp-2"><div class="heading-style-h4-2 max-with-tiny variant-mobile in-sticky">Know which vulnerabilities are exploitable<span class="text-color-orange"> right now</span></div></div><a data-wf--button-primary--base="orange_h-border" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e"><div class="cta-bg w-variant-56c62488-e9a4-4bc8-8b1c-75b51149739e" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div><div class="stacking-card-graph-wrapper"><img loading="lazy" src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6978cf7a98f8f01992372314_b3c2a0b5478dd98a249203e1d26e0a21_sticky-2.svg" alt="" class="image-full fit-contain"></div></div></div></div></div></div><div data-w-id="08974bb7-74d0-6159-aa79-c9a6e8a81874" class="stacking-cards-wrapp is-3"><div class="viewport"><div class="slide-section"><div class="slide"><div class="stacking-card-2 in-solutions"><div class="w-layout-vflex v-flex gap_small in-stacking-card"><div class="left-border_text-wrapp-2"><div class="heading-style-h4-2 max-with-tiny variant-mobile in-sticky"><span class="text-color-blue-2">Block threats safely</span>, keeping applications and your business running</div></div><a data-wf--button-primary--base="blue_h-border" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e"><div class="cta-bg w-variant-719ad2f8-73cc-8015-0db1-d6e07a81e82e" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div><div class="stacking-card-graph-wrapper"><img loading="lazy" src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6978cf7a942f1d5d8e25b808_sticky-3.svg" alt="" class="image-full fit-contain"></div></div></div></div></div></div></section><section data-resources="resource" class="section related-section" data-resources-pagination-init="1"><div class="padding-global"><div class="spacer-huge"><h2 class="heading-style-h2 text-align-center">Related content</h2><div class="spacer-xlarge"></div></div><div class="max-width-full related-grid"><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div class="list-block"><div class="resources-collection-list-wrapper w-dyn-list" style="display: none;"><div fs-cmsslider-element="list" role="list" class="resources-collection-list related-desktop w-dyn-items"></div></div></div><div data-delay="2000" data-animation="slide" data-resources="slider" class="resources-slider w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="true" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true" fs-cmsslider-element="slider" role="region" aria-label="carousel"><div class="mask w-slider-mask" id="w-slider-mask-0"><div class="resources-slide w-slide" aria-label="1 of 8" role="group" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-_980082fe-0386-81f3-0fa4-e34c12d7c699-f520ab6d" class="resources-item w-dyn-item"><a href="/blog/shadowray-2-0-attackers-turn-ai-against-itself-in-global-campaign-that-hijacks-ai-into-self-propagating-botnet" class="resources-item is-link w-inline-block"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/69953a4ba71df3c44469725b_AI%20Runtime%20Defense%20Lilac%20flower%20-%20Bars%20Row.avif&quot;)" class="resource-thumbnail-wrapper"><div class="w-layout-hflex v-flex align-center"><div class="text-style-eyebrow text-size-small text-align-center" style="opacity: 0;">Avi Lumelsky</div><div class="text-style-eyebrow text-size-small text-align-center" style="opacity: 0;">Gal Elbaz</div></div><div class="line-vertical margin-v-auto" style="opacity: 0;"></div><div class="resource-cta" style="opacity: 0;">Read more →</div><div class="line-vertical margin-v-auto" style="opacity: 0;"></div><div class="w-layout-vflex v-flex align-center"><div class="text-style-eyebrow text-size-small text-align-center" style="opacity: 0;">AI</div><div class="text-style-eyebrow text-size-small text-align-center" style="opacity: 0;">Research</div></div><div class="thumbnail-shade" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch"><div class="text-size-large">ShadowRay 2.0: Attackers Turn AI Against Itself in Global Campaign that Hijacks AI Into Self-Propagating Botnet</div><div class="resource-icon-wrapper"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697ab6c8082bccbfe9b69919_book.svg" loading="lazy" alt="" class="icon-1x1-small"></div></div></a></div></div><div class="resources-slide w-slide" aria-label="2 of 8" role="group" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-_35f8ee14-5c93-5c9a-4e42-29b88d5b4208-f520ab6d" class="resources-item w-dyn-item"><a href="/academy/web-application-firewalls-waf-in-2025-in-depth-guide" class="resources-item is-link w-inline-block"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/69954c30ecc5427034b19b2a_AI%20Runtime%20Defense%20Orange%20Insect%20-%20Squares%2016X16.avif&quot;)" class="resource-thumbnail-wrapper"><div class="text-style-eyebrow text-size-small text-align-center" style="opacity: 0;">Application Security</div><div class="line-vertical margin-v-auto" style="opacity: 0;"></div><div class="resource-cta" style="opacity: 0;">Read more →</div><div class="line-vertical margin-v-auto" style="opacity: 0;"></div><div class="thumbnail-shade" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch"><div class="text-size-large">Web Application Firewalls (WAF) in 2025: In-Depth Guide</div><div class="resource-icon-wrapper"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697ab6c8082bccbfe9b69919_book.svg" loading="lazy" alt="" class="icon-1x1-small"></div></div></a></div></div><div class="resources-slide w-slide" aria-label="3 of 8" role="group" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-c6d7b2aa-c5be-0cc0-f564-a8b43a42e50c-f520ab6d" class="resources-item w-dyn-item"><a href="https://www.businesswire.com/news/home/20250227432882/en/Oligo-Security-Appoints-Brandon-Conley-as-Chief-Revenue-Officer-and-Alberto-Rodrigues-as-Chief-Customer-Officer" target="_blank" class="resources-item is-link w-inline-block"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/699550a86e46c71b51af2f2e_AI%20Runtime%20Defense%20M%20isty%20forest%20-%20Bars%20Row.avif&quot;)" class="resource-thumbnail-wrapper"><div class="line-vertical margin-v-auto" style="opacity: 0;"></div><div class="resource-cta" style="opacity: 0;">Read more →</div><div class="line-vertical margin-v-auto" style="opacity: 0;"></div><div class="thumbnail-shade" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch"><div class="text-size-large">Oligo Security Appoints Brandon Conley as Chief Revenue Officer and Alberto Rodrigues as Chief Customer Officer</div><div class="resource-icon-wrapper"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697ab6c8082bccbfe9b69919_book.svg" loading="lazy" alt="" class="icon-1x1-small"></div></div></a></div></div><div class="resources-slide w-slide" aria-label="4 of 8" role="group" aria-hidden="true" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-_979bbaee-db02-58ec-1e18-7facf7d8271d-f520ab6d" class="resources-item w-dyn-item" aria-hidden="true"><a href="https://www.cisomeet.org/minneapolis" target="_blank" class="resources-item is-link w-inline-block" tabindex="-1" aria-hidden="true"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/697a51d63b4771a1e36b768b_Minneapolis.avif&quot;)" class="resource-thumbnail-wrapper" aria-hidden="true"><div class="w-layout-hflex h-flex" aria-hidden="true"><div class="text-style-eyebrow text-size-small text-align-center" aria-hidden="true" style="opacity: 0;">Oct 23</div><div class="text-style-eyebrow text-size-small text-align-center w-dyn-bind-empty" aria-hidden="true" style="opacity: 0;"></div></div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="resource-cta" aria-hidden="true" style="opacity: 0;">Fogo de Chao</div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="text-style-eyebrow text-size-small text-align-center" aria-hidden="true" style="opacity: 0;">In-Person</div><div class="thumbnail-shade" aria-hidden="true" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch" aria-hidden="true"><div class="text-size-large" aria-hidden="true">CISOMeet Minneapolis</div><div class="resource-icon-wrapper" aria-hidden="true"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697c0ad8fa012578b4b71929_play_icon.svg" loading="lazy" alt="" class="icon-1x1-small" aria-hidden="true"></div></div></a></div></div><div class="resources-slide w-slide" aria-label="5 of 8" role="group" aria-hidden="true" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-cbd6a0b4-8f77-20ac-4be5-c54b55b873f6-f520ab6d" class="resources-item w-dyn-item" aria-hidden="true"><a href="/case-study/cresta-case-study" target="_blank" class="resources-item is-link w-inline-block" tabindex="-1" aria-hidden="true"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/699558585a27fdd184e0afa9_AI%20Runtime%20Defense%20Jagged%20leaf%20-%20Squares%2048X48.avif&quot;)" class="resource-thumbnail-wrapper" aria-hidden="true"><div class="w-layout-hflex h-flex" aria-hidden="true"><div class="text-style-eyebrow text-size-small text-align-center" aria-hidden="true" style="opacity: 0;">Cresta</div></div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="resource-cta" aria-hidden="true" style="opacity: 0;">Read more →</div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="text-style-eyebrow text-size-small text-align-center" aria-hidden="true" style="opacity: 0;">AI-powered contact centers</div><div class="thumbnail-shade" aria-hidden="true" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch" aria-hidden="true"><div class="text-size-large" aria-hidden="true">Cresta Reduces Vulnerability Numbers by &gt;99% with Oligo Security</div><div class="resource-icon-wrapper" aria-hidden="true"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697ab6c8082bccbfe9b69919_book.svg" loading="lazy" alt="" class="icon-1x1-small" aria-hidden="true"></div></div></a></div></div><div class="resources-slide w-slide" aria-label="6 of 8" role="group" aria-hidden="true" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-_45b905d2-efbc-5271-b874-124d7612dd3b-f520ab6d" class="resources-item w-dyn-item" aria-hidden="true"><a href="https://www.youtube.com/watch?v=rokgGNJ40Zo" target="_blank" class="resources-item is-link w-inline-block" tabindex="-1" aria-hidden="true"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/6994718d9daf4105758dd103_699467010dbe3262733ce393_runtime%20security%20%20Water%20drop%20-%20Blocks%20Column.avif&quot;)" class="resource-thumbnail-wrapper" aria-hidden="true"><div class="w-layout-hflex h-flex" aria-hidden="true"><div class="text-style-eyebrow text-size-small text-align-center" aria-hidden="true" style="opacity: 0;">1:00:52</div></div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="resource-cta" aria-hidden="true" style="opacity: 0;">Watch now →</div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="text-style-eyebrow text-size-small text-align-center" aria-hidden="true" style="opacity: 0;">Webinar</div><div class="thumbnail-shade" aria-hidden="true" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch" aria-hidden="true"><div class="text-size-large" aria-hidden="true">Gaining Deep Insight into Application Security Through Advanced Observability</div><div class="resource-icon-wrapper" aria-hidden="true"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697c0ad8fa012578b4b71929_play_icon.svg" loading="lazy" alt="" class="icon-1x1-small" aria-hidden="true"></div></div></a></div></div><div class="resources-slide w-slide" aria-label="7 of 8" role="group" aria-hidden="true" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-_803e5725-a94d-be66-735c-737635ed65fd-f520ab6d" class="resources-item w-dyn-item" aria-hidden="true"><a href="https://go.oligo.security/hubfs/Oligo-OWASP-Top10-LLMs-Cheatsheet.pdf" target="_blank" class="resources-item is-link w-inline-block" tabindex="-1" aria-hidden="true"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/6995598ef8119784b356e632_Runtime%20Security%20%20Yellow%20stem%20-%20Blocks%20Column.avif&quot;)" class="resource-thumbnail-wrapper" aria-hidden="true"><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="resource-cta" aria-hidden="true" style="opacity: 0;">Read more&nbsp;&nbsp;→</div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="thumbnail-shade" aria-hidden="true" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch" aria-hidden="true"><div class="text-size-large" aria-hidden="true">OWASP Top 10 for LLMs</div><div class="resource-icon-wrapper" aria-hidden="true"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697ab6c8082bccbfe9b69919_book.svg" loading="lazy" alt="" class="icon-1x1-small" aria-hidden="true"></div></div></a></div></div><div class="resources-slide w-slide" aria-label="8 of 8" role="group" aria-hidden="true" style="transition: all; transform: translateX(0px); opacity: 1;"><div id="w-node-_75bbfa20-11b0-01ce-5034-05d65ed4c602-f520ab6d" class="resources-item w-dyn-item" aria-hidden="true"><a href="https://go.oligo.security/hubfs/Zero-Day-Response-Solution.pdf" target="_blank" class="resources-item is-link w-inline-block" tabindex="-1" aria-hidden="true"><div style="background-image:url(&quot;https://cdn.prod.website-files.com/6930bafd3bc306834ddbb442/69955a3488911003bf72600d_AI%20Runtime%20Security%20Pink%20flowerhead%20-%20Blocks%203X3.avif&quot;)" class="resource-thumbnail-wrapper" aria-hidden="true"><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="resource-cta" aria-hidden="true" style="opacity: 0;">Read more →</div><div class="line-vertical margin-v-auto" aria-hidden="true" style="opacity: 0;"></div><div class="thumbnail-shade" aria-hidden="true" style="opacity: 0;"></div></div><div class="w-layout-hflex h-flex gap-small align-top-stretch" aria-hidden="true"><div class="text-size-large" aria-hidden="true">Zero Day Response: Oligo Detects Exploitability And Indicators of Compromise</div><div class="resource-icon-wrapper" aria-hidden="true"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/697ab6c8082bccbfe9b69919_book.svg" loading="lazy" alt="" class="icon-1x1-small" aria-hidden="true"></div></div></a></div></div><div aria-live="off" aria-atomic="true" class="w-slider-aria-label" data-wf-ignore=""></div></div><div class="resources-slide-nav w-slider-nav w-round w-num"><div class="w-slider-dot w-active" data-wf-ignore="" aria-label="Show slide 1 of 3" aria-pressed="true" role="button" tabindex="0" style="margin-left: 3px; margin-right: 3px;">1</div><div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 2 of 3" aria-pressed="false" role="button" tabindex="-1" style="margin-left: 3px; margin-right: 3px;">2</div><div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 3 of 3" aria-pressed="false" role="button" tabindex="-1" style="margin-left: 3px; margin-right: 3px;">3</div></div></div><div data-resources="list-nav" class="testimonial-slide-nav in-resources"><div data-resources="pagination-div" class="pagination-div" style="background-color: rgb(255, 255, 255);"></div><div data-resources="pagination-div" class="pagination-div" style="background-color: rgb(0, 0, 0);"></div><div data-resources="pagination-div" class="pagination-div" style="background-color: rgb(0, 0, 0);"></div></div></div></div></section><section data-w-id="e6d33d24-81c9-7d3c-4377-0d106e665462" class="cta-section home"><div class="cta-section-wrapper"><div class="cta-content"><h2 class="heading-style-h2 text-align-center no-bottom-margin">Don't just scan passively. Protect actively with&nbsp;Oligo.</h2><a data-wf--button-primary--base="white_v-border" data-w-id="722e12bd-f923-9f5f-1ce8-eb26eabc2d87" href="/book-a-demo" class="cta-button w-variant-4b5b6e57-bb86-aab4-72be-82375610e700 w-inline-block"><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-4b5b6e57-bb86-aab4-72be-82375610e700 is-1" style="opacity: 1;">Book a demo</div><div class="cta-text w-variant-4b5b6e57-bb86-aab4-72be-82375610e700 is-2" style="opacity: 0;">Book a demo</div></div><div class="overflow-hidden z-index-2"><div class="cta-text w-variant-4b5b6e57-bb86-aab4-72be-82375610e700 is-1" style="opacity: 1;">→</div><div class="cta-text w-variant-4b5b6e57-bb86-aab4-72be-82375610e700 is-2" style="opacity: 0;">→</div></div><div class="cta-bg-wrapper"><div class="cta-bg" style="transform: translate3d(0px, 5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></div></a></div><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6976c61e34374f57ba2e05b5_62a3eb2735cf80645057efe3a3070be1_cta-ruby-ocean-replaced.avif" loading="lazy" alt="" class="cta-top" style="will-change: transform; transform: translate3d(0px, 8rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/6976c61e5b822a9139676c91_cta-black.avif" loading="lazy" alt="" class="cta-bottom" style="will-change: transform; transform: translate3d(0px, 4rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div></section><div class="spacer-large show-landscape"></div><section class="section text-color-white background-color-black z-index-1"><div class="padding-global"><div class="max-width-full"><div class="footer-spacing"><div class="footer_wrapper"><div class="footer-column"><div data-w-id="da1b3370-b0ec-acfa-5f2a-816d447c1500" class="w-layout-hflex footer-trigger"><div class="heading-style-h5">Platform</div><div class="icon-small-wrapper hide-desktop-only"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="icon-1x1-small in-footer"></div></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/runtime-platform/overview" class="link-text" style="opacity: 1;">Overview</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/runtime-platform/cloud-application-detection-and-response" class="link-text" style="opacity: 1;">Cloud Application Detect and Response</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/runtime-platform/runtime-vulnerability-management" class="link-text" style="opacity: 1;">Runtime Vulnerability Management</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/runtime-platform/runtime-ai" class="link-text" style="opacity: 1;">Runtime AI</a></div></div><div class="footer-column"><div data-w-id="17b09242-30ef-9c29-eb9f-5c9485dbba1c" class="w-layout-hflex footer-trigger"><div class="heading-style-h5">Solutions</div><div class="icon-small-wrapper hide-desktop-only"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="icon-1x1-small in-footer"></div></div><div class="footer-column-flex"><div class="footer-column-v-flex"><div class="footer-link-wrapper"><div class="text-style-eyebrow text-size-small">Who it's for</div></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/security-leadership" class="link-text" style="opacity: 1;">Security Leaders</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/security-operations" class="link-text" style="opacity: 1;">SecOps Pros</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/application-security" class="link-text" style="opacity: 1;">AppSec Pros</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/cloud-security" class="link-text" style="opacity: 1;">CloudSec Pros</a></div></div><div class="footer-column-v-flex"><div class="footer-link-wrapper"><div class="text-style-eyebrow text-size-small">Use Cases</div></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/workload-protection" class="link-text" style="opacity: 1;">Workload Protection</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/real-time-bom" class="link-text" style="opacity: 1;">Real-time bom/vex</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/application-vulnerability-management" class="link-text" style="opacity: 1;">Application vulnerability menagment</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/ai-security-management" class="link-text" style="opacity: 1;">AI security</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/compliance-and-assurance" class="link-text" style="opacity: 1;">Compliance and assurance</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/detection-and-response" class="link-text" style="opacity: 1;">Attack detection and response</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/solutions/supply-chain-security" class="link-text" style="opacity: 1;">Supply chain security</a></div></div></div></div><div class="footer-column"><div data-w-id="7f279d39-3794-3cad-6d98-41853f338bcd" class="w-layout-hflex footer-trigger"><div class="heading-style-h5">Resource</div><div class="icon-small-wrapper hide-desktop-only"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="icon-1x1-small in-footer"></div></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/resource-hub" class="link-text" style="opacity: 1;">Resource Hub</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/resources/blog" class="link-text" style="opacity: 1;">Blog</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/resources/events" class="link-text" style="opacity: 1;">Events</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/resources/webinars-and-videos" class="link-text" style="opacity: 1;">Webinars</a></div></div><div class="footer-column"><div data-w-id="dff5d2bd-e7fc-b560-e2c5-b076030f3869" class="w-layout-hflex footer-trigger"><div class="heading-style-h5">Company</div><div class="icon-small-wrapper hide-desktop-only"><img src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/696488eba0ca3a5f69378072_navbar_arrow.png" loading="lazy" alt="" class="icon-1x1-small in-footer"></div></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/company/about" class="link-text" style="opacity: 1;">About</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/resources/news" class="link-text" style="opacity: 1;">News</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/company/partners" class="link-text" style="opacity: 1;">Partners</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/company/careers" class="link-text" style="opacity: 1;">Careers</a></div><div class="footer-link-wrapper"><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/contact-us" class="link-text" style="opacity: 1;">Contact us</a></div></div></div><div class="h-align_center-stretch in-footer"><div class="text-size-regular variant-mobile">Copyright © Oligo Security | All Rights Reserved 2026</div><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/legal/terms-of-use" class="link-text" style="opacity: 1;">Terms of use</a><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/legal/privacy-policy" class="link-text" style="opacity: 1;">Privacy Policy</a><a data-w-id="2d3dc030-869e-0b11-9ba4-9acf14a24322" href="/legal/cookie-policy" class="link-text" style="opacity: 1;">Cookie policy</a><div class="w-layout-hflex h-align_center-stretch gap_1rem"><a href="https://www.youtube.com/@oligosec" target="_blank" class="link-text is-social" style="opacity: 1;">YOUTUBE</a><div class="v-line _1-5rem"></div><a href="https://www.linkedin.com/company/oligo-security/" target="_blank" class="link-text is-social" style="opacity: 1;">LINKEDIN</a><div class="v-line _1-5rem"></div><a href="https://x.com/OligoSecurity" target="_blank" class="link-text is-social" style="opacity: 1;">TWITTER</a></div></div></div></div></div><div class="rive_footer-wrapper"><canvas id="riveFooter" class="rivefooter rive-canvas" width="1280" height="55"></canvas></div></section></main></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=69288487365aaac1f9887796" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/69288487365aaac1f9887796/js/webflow.81c319ec.7736404262b88b22.js" type="text/javascript" integrity="sha384-uLo6gbQYidC9FOPR9Q2iRe4nLoZxzO5Sh8NfN8E+jmjhAOHLKlXHahsPFpA9JZ0C" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollToPlugin.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollSmoother.min.js" type="text/javascript"></script><script type="text/javascript">gsap.registerPlugin(ScrollTrigger,ScrollToPlugin,ScrollSmoother);</script><script>
+  gtag('event', 'conversion', {'send_to': 'AW-11293028927/ns6VCNT464gZEL_k94gq'});
+</script>
+
+<!-- Drop-in Footer Rive loader (put in Webflow > Project Settings > Custom Code > Footer) -->
+<script>
+(function () {
+  "use strict";
+
+  var FOOTER_CANVAS_ID = "riveFooter";
+  var RIVE_SRC =
+    "https://cdn.prod.website-files.com/69288487365aaac1f9887796/696e244014b7253e1533f192_73611851c4a134d5ce89ee6e75414949_OLIGO%20General%20-%20Animated%20Logo%20Footer.riv";
+  var MOBILE_BREAKPOINT = 767;
+
+  // Keep consistent with your homepage approach
+  var RIVE_WEBGL2_URL = "https://unpkg.com/@rive-app/webgl2@latest/rive.js";
+  // var RIVE_WEBGL2_URL = "https://unpkg.com/@rive-app/webgl2@2.21.4/rive.js";
+
+  function onDomReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+      fn();
+    }
+  }
+
+  function loadScriptOnce(src, flag, cb) {
+    if (window[flag]) return cb();
+    var s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    s.onload = function () {
+      window[flag] = true;
+      cb();
+    };
+    s.onerror = function () {
+      console.error("[Rive Footer] Failed to load runtime:", src);
+    };
+    document.head.appendChild(s);
+  }
+
+  function isMobile() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
+
+  function responsiveArtboard() {
+    return isMobile() ? "Mobile" : "Desktop";
+  }
+
+  function debounce(fn, wait) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  function safeFit(R, preferredName) {
+    // Prevent enum mismatch crashes (Fit.Layout may not exist depending on runtime)
+    if (R && R.Fit && preferredName && R.Fit[preferredName] != null) return R.Fit[preferredName];
+    if (R && R.Fit && R.Fit.Contain != null) return R.Fit.Contain;
+    return undefined;
+  }
+
+  function safeLayout(R) {
+    try {
+      return new R.Layout({
+        fit: safeFit(R, "Layout"), // tries Fit.Layout, falls back to Contain
+        alignment: R.Alignment.Center,
+        layoutScaleFactor: 1
+      });
+    } catch (e) {
+      console.error("[Rive Footer] Layout creation failed:", e);
+      return undefined;
+    }
+  }
+
+  function observeVisibility(targetEl, onEnter, onExit) {
+    if (!("IntersectionObserver" in window)) {
+      onEnter();
+      return function () {};
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) onEnter();
+          else onExit();
+        }
+      },
+      {
+        threshold: 0.01,
+        // Footer: pre-init a bit earlier so it’s ready when user reaches bottom
+        rootMargin: "600px 0px 600px 0px"
+      }
+    );
+
+    io.observe(targetEl);
+
+    return function () {
+      try { io.unobserve(targetEl); } catch (e) {}
+      try { io.disconnect(); } catch (e) {}
+    };
+  }
+
+  onDomReady(function () {
+    var canvas = document.getElementById(FOOTER_CANVAS_ID);
+    if (!canvas) return;
+
+    var inst = null;
+    var lastIsMobile = isMobile();
+
+    function cleanup() {
+      if (!inst) return;
+      try { if (inst.pause) inst.pause(); } catch (e) {}
+      try { inst.cleanup(); } catch (e) {}
+      inst = null;
+    }
+
+    function resize() {
+      if (!inst) return;
+      try { inst.resizeDrawingSurfaceToCanvas(); } catch (e) {}
+    }
+
+    function build() {
+      cleanup();
+
+      var R = window.rive;
+      if (!R || !R.Rive) {
+        console.error("[Rive Footer] Rive runtime missing after load.");
+        return;
+      }
+
+      var artboard = responsiveArtboard();
+
+      try {
+        inst = new R.Rive({
+          src: RIVE_SRC,
+          canvas: canvas,
+          autoplay: true,
+          autoBind: true,
+          artboard: artboard,
+          layout: safeLayout(R),
+          stateMachines: "State Machine 1",
+          useOffscreenRenderer: true,
+          isTouchScrollEnabled: true,
+          onLoad: function () {
+            resize();
+          },
+          onLoadError: function (e) {
+            console.error("[Rive Footer] load error", e);
+          }
+        });
+      } catch (e) {
+        console.error("[Rive Footer] Instance creation failed:", e);
+        inst = null;
+      }
+    }
+
+    function play() {
+      if (!inst) build();
+      if (!inst) return;
+      try { if (inst.play) inst.play(); } catch (e) {}
+      resize();
+    }
+
+    function pause() {
+      if (!inst) return;
+      try { if (inst.pause) inst.pause(); } catch (e) {}
+    }
+
+    // Load runtime once, then lazy-init with IO
+    loadScriptOnce(RIVE_WEBGL2_URL, "__rive_webgl2_loaded__", function () {
+      if (!window.rive || !window.rive.Rive) {
+        console.error("[Rive Footer] WebGL2 runtime loaded but window.rive.Rive missing");
+        return;
+      }
+
+      // Lazy init + pause offscreen
+      observeVisibility(canvas, play, pause);
+
+      // Fallback: if IO never triggers due to layout quirks, start after a bit
+      setTimeout(play, 1200);
+
+      // Resize: only rebuild when breakpoint flips; otherwise just resize
+      var onResize = debounce(function () {
+        if (!inst) return;
+
+        var nowMobile = isMobile();
+        if (nowMobile !== lastIsMobile) {
+          lastIsMobile = nowMobile;
+          // Need rebuild to switch artboard
+          build();
+          // If footer is visible, ensure it runs
+          try { if (inst && inst.play) inst.play(); } catch (e) {}
+          resize();
+        } else {
+          resize();
+        }
+      }, 150);
+
+      window.addEventListener("resize", onResize, { passive: true });
+    });
+  });
+})();
+</script>
+
+
+
+<!-- ======================================================
+  1) NAV PATH(page-path → navbar segments)
+  - Reads body attribute: page-path="folder;subfolder;page"
+  - Supports CMS override: subfolder === "Type" reads text from [path-cms-subfolder="true"]
+  - Optional link mapping via PATH_LINKS
+  - Clickable paths get underline + pointer cursor
+====================================================== -->
+<!-- 
+<script>
+(() => {
+  /* ---------------------------------- */
+  /* Inject styles for clickable paths  */
+  /* ---------------------------------- */
+  function injectPathStyles() {
+    if (document.getElementById("path-link-styles")) return;
+
+    const style = document.createElement("style");
+    style.id = "path-link-styles";
+    style.textContent = `
+      .is-path-linked {
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
+
+      /* Optional: subtle hover control */
+      .is-path-linked:hover {
+        opacity: 0.85;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function initPathBreadcrumbs() {
+    injectPathStyles();
+
+    /* ------------------------------ */
+    /* Read + normalize page attribute */
+    /* ------------------------------ */
+    const raw = (document.body.getAttribute("page-path") || "").trim();
+    const isZero = (value) => value === "" || value === "0";
+
+    let parts = raw
+      .split(";")
+      .map((s) => s.trim())
+      .filter((s) => s.length || s === "0");
+
+    if (raw === "0" || raw === "") parts = ["0", "0", "0"];
+    while (parts.length < 3) parts.push("0");
+    if (parts.length > 3) parts = parts.slice(0, 3);
+
+    let [folder, subfolder, page] = parts;
+
+    /* -------------------------------------------------- */
+    /* CMS override: use Type value as subfolder if asked */
+    /* -------------------------------------------------- */
+    if (subfolder === "Type") {
+      const cmsSubfolderEl = document.querySelector('[path-cms-subfolder="true"]');
+      if (cmsSubfolderEl && cmsSubfolderEl.textContent.trim()) {
+        subfolder = cmsSubfolderEl.textContent.trim();
+      }
+    }
+
+    const hasFolder = !isZero(folder);
+    const hasSub = !isZero(subfolder);
+    const hasPage = !isZero(page);
+    const isHome = isZero(folder) && isZero(subfolder) && isZero(page);
+
+    /* ------------------------------ */
+    /* Cache DOM references (navbar)  */
+    /* ------------------------------ */
+    const line1 = document.querySelector('[path-line="1"]');
+    const line2 = document.querySelector('[path-line="2"]');
+    const line3 = document.querySelector('[path-line="3"]');
+    const line4 = document.querySelector('[path-line="4"]');
+
+    const folderText = document.querySelector('[path-text="folder"]');
+    const subfolderText = document.querySelector('[path-text="subfolder"]');
+    const pageText = document.querySelector('[path-text="page"]');
+
+    /* ------------------------------ */
+    /* Clickable path links (mapping) */
+    /* ------------------------------ */
+    const PATH_LINKS = {
+      customers: "/resource-hub/all-case-studies",
+      learn: "/resource-hub/all-case-studies",
+      company: "/company/about",
+
+      partners: "/company/partners",
+      blog: "/resources/blog",
+      academy: "/academy",
+      events: "/resources/event",
+      careers: "/company/careers",
+      platform: "/runtime-platform/overview",
+      "case studies": "/resources/case-studies",
+      "resource hub": "/resource-hub",
+      news: "/resources/news",
+      "webinars & videos": "/resources/webinars-and-videos",
+      whitepapers: "/resources/whitepapers",
+      datasheets: "/resources/datasheets",
+    };
+
+    const LINK_CLASS = "is-path-linked";
+
+    function applyPathLink(el, label) {
+      if (!el) return;
+
+      const key = (label || "").trim().toLowerCase();
+      const href = PATH_LINKS[key];
+
+      if (!href) {
+        el.classList.remove(LINK_CLASS);
+        return;
+      }
+
+      el.setAttribute("href", href);
+      el.classList.add(LINK_CLASS);
+    }
+
+    /* ------------------------------ */
+    /* Home state                     */
+    /* ------------------------------ */
+    if (isHome) {
+      if (line1) line1.style.display = "";
+      if (line2) line2.style.display = "none";
+      if (line3) line3.style.display = "none";
+      if (line4) line4.style.display = "none";
+
+      if (folderText) folderText.style.display = "none";
+      if (subfolderText) subfolderText.style.display = "none";
+      if (pageText) pageText.style.display = "none";
+      return;
+    }
+
+    /* ------------------------------ */
+    /* Folder segment                 */
+    /* ------------------------------ */
+    if (hasFolder) {
+      if (folderText) {
+        folderText.textContent = folder;
+        folderText.style.display = "";
+        applyPathLink(folderText, folder);
+      }
+      if (line1) line1.style.display = "";
+    } else {
+      if (folderText) folderText.style.display = "none";
+      if (line1) line1.style.display = "none";
+    }
+
+    /* ------------------------------ */
+    /* Subfolder segment              */
+    /* ------------------------------ */
+    if (hasSub) {
+      if (subfolderText) {
+        subfolderText.textContent = subfolder;
+        subfolderText.style.display = "";
+        applyPathLink(subfolderText, subfolder);
+      }
+      if (line2) line2.style.display = "";
+    } else {
+      if (subfolderText) subfolderText.style.display = "none";
+      if (line2) line2.style.display = "none";
+    }
+
+    /* ------------------------------ */
+    /* Page segment                   */
+    /* ------------------------------ */
+    if (hasPage) {
+      if (pageText) {
+        pageText.textContent = page;
+        pageText.style.display = "";
+        applyPathLink(pageText, page);
+      }
+      if (line3) line3.style.display = "";
+    } else {
+      if (pageText) pageText.style.display = "none";
+      if (line3) line3.style.display = "none";
+    }
+
+    /* ------------------------------ */
+    /* Final trailing line            */
+    /* ------------------------------ */
+    if (line4) line4.style.display = "";
+  }
+
+  document.addEventListener("DOMContentLoaded", initPathBreadcrumbs);
+  window.addEventListener("pageshow", initPathBreadcrumbs);
+})();
+</script>
+-->
+
+
+<!-- ======================================================
+  2) TESTIMONIAL SLIDER — ARROW LABELS (prev/next company)
+  - Reads company names via [data-tm="company"]
+  - Uses active dot to determine current index
+====================================================== -->
+<script>
+(() => {
+  function initTestimonialArrowLabels() {
+    const block = document.querySelector('[data-tm="testimonial"]');
+    if (!block) return;
+
+    const prevLabel = block.querySelector('[data-tm="prev-label"]');
+    const nextLabel = block.querySelector('[data-tm="next-label"]');
+    const slider = block.querySelector('[data-tm="slider"]');
+    if (!prevLabel || !nextLabel || !slider) return;
+
+    const nav = slider.querySelector(".w-slider-nav");
+
+    function getCompanies() {
+      // Pull company names, dedupe in order (handles loop/clones nicely)
+      const raw = Array.from(slider.querySelectorAll('[data-tm="company"]'))
+        .map((el) => (el.textContent || "").trim())
+        .filter(Boolean);
+
+      const unique = [];
+      const seen = new Set();
+      for (const n of raw) {
+        if (!seen.has(n)) {
+          seen.add(n);
+          unique.push(n);
+        }
+      }
+
+      // If dots exist, use dot count as the true number of items
+      const dotCount = slider.querySelectorAll(".w-slider-nav .w-slider-dot").length;
+      return dotCount ? unique.slice(0, dotCount) : unique;
+    }
+
+    function getActiveIndex(total) {
+      const dots = Array.from(slider.querySelectorAll(".w-slider-nav .w-slider-dot"));
+      const activeDot = slider.querySelector(".w-slider-nav .w-slider-dot.w-active");
+      if (activeDot && dots.length) {
+        const idx = dots.indexOf(activeDot);
+        return idx >= 0 ? Math.min(idx, total - 1) : 0;
+      }
+      return 0;
+    }
+
+    let lastIndex = -1;
+    let companiesCache = [];
+
+    function update(force = false) {
+      const companies = getCompanies();
+      if (companies.length < 2) return;
+
+      if (force || companies.join("|") !== companiesCache.join("|")) {
+        companiesCache = companies;
+        lastIndex = -1;
+      }
+
+      const activeIndex = getActiveIndex(companiesCache.length);
+      if (!force && activeIndex === lastIndex) return;
+
+      lastIndex = activeIndex;
+
+      const total = companiesCache.length;
+      const prevIndex = (activeIndex - 1 + total) % total;
+      const nextIndex = (activeIndex + 1) % total;
+
+      prevLabel.textContent = companiesCache[prevIndex];
+      nextLabel.textContent = companiesCache[nextIndex];
+    }
+
+    // Initial paint
+    update(true);
+
+    // Lightweight watcher
+    const intervalId = setInterval(update, 120);
+    block._tmArrowLabelsInterval = intervalId;
+
+    // Snappier updates when dot class changes
+    if (nav) {
+      new MutationObserver(() => update())
+        .observe(nav, { subtree: true, attributes: true, attributeFilter: ["class"] });
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", initTestimonialArrowLabels);
+  window.addEventListener("pageshow", initTestimonialArrowLabels);
+})();
+</script>
+
+
+<!-- ======================================================
+  3) TESTIMONIAL SLIDER — CUSTOM PAGINATION DOTS (list-nav)
+  - Builds N items from template: [data-tm="pagination-div"]
+  - Click dot → clicks corresponding Webflow slider dot
+  - Updates active state with interval
+  - Includes robust re-init for pageshow + DOM swaps
+====================================================== -->
+<script>
+(() => {
+  const INIT_FLAG = "data-tm-pagination-init";
+
+  function waitFor(testFn, timeoutMs) {
+    return new Promise((resolve, reject) => {
+      const start = performance.now();
+      const tick = () => {
+        if (testFn()) return resolve();
+        if (performance.now() - start > timeoutMs) return reject();
+        requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  }
+
+  function initAll() {
+    document.querySelectorAll('[data-tm="testimonial"]').forEach(initOne);
+  }
+
+  function initOne(block) {
+    if (block.hasAttribute(INIT_FLAG)) return;
+
+    const slider = block.querySelector('[data-tm="slider"]');
+    const listNav = block.querySelector('[data-tm="list-nav"]');
+    const template = listNav?.querySelector('[data-tm="pagination-div"]');
+    if (!slider || !listNav || !template) return;
+
+    block.setAttribute(INIT_FLAG, "1");
+
+    function getCompaniesUnique() {
+      const raw = Array.from(slider.querySelectorAll('[data-tm="company"]'))
+        .map((el) => (el.textContent || "").trim())
+        .filter(Boolean);
+
+      const seen = new Set();
+      const unique = [];
+      for (const n of raw) {
+        if (!seen.has(n)) {
+          seen.add(n);
+          unique.push(n);
+        }
+      }
+      return unique;
+    }
+
+    function build() {
+      const dots = Array.from(slider.querySelectorAll(".w-slider-nav .w-slider-dot"));
+      const companies = getCompaniesUnique();
+      const count = dots.length >= 2 ? dots.length : companies.length;
+      if (count < 2) return;
+
+      // Clone template before wipe
+      const tpl = template.cloneNode(true);
+
+      // Build blocks
+      const frag = document.createDocumentFragment();
+      const items = [];
+
+      for (let i = 0; i < count; i++) {
+        const el = tpl.cloneNode(true);
+
+        // Click -> navigate via dots if available
+        if (dots.length >= 2) {
+          el.addEventListener("click", () => dots[i]?.click());
+        }
+
+        frag.appendChild(el);
+        items.push(el);
+      }
+
+      listNav.innerHTML = "";
+      listNav.appendChild(frag);
+
+      let last = -1;
+
+      function getActiveIndex() {
+        if (dots.length >= 2) {
+          const activeDot = slider.querySelector(".w-slider-nav .w-slider-dot.w-active");
+          const idx = dots.indexOf(activeDot);
+          return idx >= 0 ? idx : 0;
+        }
+
+        const activeSlide = slider.querySelector(".w-slide.w-active");
+        const name = (activeSlide?.querySelector('[data-tm="company"]')?.textContent || "").trim();
+        const idx = companies.indexOf(name);
+        return idx >= 0 ? idx : 0;
+      }
+
+      function update() {
+        const idx = getActiveIndex();
+        if (idx === last) return;
+        last = idx;
+
+        items.forEach((el, i) => {
+          el.style.backgroundColor = i === idx ? "#FFFFFF" : "#000000";
+        });
+      }
+
+      update();
+
+      // Clear old interval if any
+      if (block._tmPaginationInterval) clearInterval(block._tmPaginationInterval);
+      block._tmPaginationInterval = setInterval(update, 120);
+    }
+
+    // Wait for slider content to be ready, then build
+    waitFor(() => {
+      const dotsCount = slider.querySelectorAll(".w-slider-nav .w-slider-dot").length;
+      const companiesCount = getCompaniesUnique().length;
+      return dotsCount >= 2 || companiesCount >= 2;
+    }, 6000).then(build).catch(build);
+  }
+
+  document.addEventListener("DOMContentLoaded", initAll);
+
+  // Run when returning via bfcache (Safari/Chrome back button)
+  window.addEventListener("pageshow", () => {
+    document.querySelectorAll(`[${INIT_FLAG}]`).forEach((el) => el.removeAttribute(INIT_FLAG));
+    initAll();
+  });
+
+  // Watch for “page swapped” situations (AJAX / transitions)
+  const mo = new MutationObserver(() => initAll());
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+
+
+<!-- Testimonial CMS slider -->
+
+<script async="" type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-list=""></script>
+
+
+<!-- ======================================================
+  RESOURCES SLIDER — CUSTOM PAGINATION
+  + MULTI-VISIBLE SLIDES (3/2/1) + MOVE BY 1
+====================================================== -->
+
+
+<script>
+(function () {
+  function hideEmptyListBlocks() {
+    document.querySelectorAll(".list-block").forEach((block) => {
+      const collectionWrapper = block.querySelector(
+        ".resources-collection-list-wrapper"
+      );
+
+      if (!collectionWrapper) return;
+
+      const isEmpty = !!collectionWrapper.querySelector(".w-dyn-empty");
+
+      block.style.display = isEmpty ? "none" : "";
+    });
+  }
+
+  function run() {
+    hideEmptyListBlocks();
+    requestAnimationFrame(hideEmptyListBlocks);
+    setTimeout(hideEmptyListBlocks, 200);
+    window.addEventListener("load", hideEmptyListBlocks, { once: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+})();
+</script>
+
+<script>
+(() => {
+  const INIT_FLAG = "data-resources-pagination-init";
+  const STYLE_FLAG = "data-resources-slider-style";
+
+  function injectMultiSlideCSS() {
+    if (document.querySelector(`style[${STYLE_FLAG}]`)) return;
+
+    const css = `
+      /* ================================
+         RESOURCES SLIDER: MULTI-VISIBLE
+         Desktop: 3 | Tablet: 2 | Mobile: 1
+         Moves by 1 slide (Webflow default)
+      ================================= */
+
+      [data-resources="slider"] .w-slider-mask {
+        overflow: hidden; /* keep cropping like a proper carousel */
+      }
+
+      /* Webflow uses a track inside the mask; make it flex so slides can be fractional width */
+      [data-resources="slider"] .w-slider-track {
+        display: flex !important;
+        will-change: transform;
+      }
+
+      /* Default: 1 visible (mobile portrait + landscape) */
+      [data-resources="slider"] .w-slide {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+      }
+
+      /* Tablet: 2 visible */
+      @media (min-width: 768px) and (max-width: 991px) {
+        [data-resources="slider"] .w-slide {
+          flex-basis: 50% !important;
+          width: 50% !important;
+        }
+      }
+
+      /* Desktop: 3 visible */
+      @media (min-width: 992px) {
+        [data-resources="slider"] .w-slide {
+          flex-basis: 33.3333% !important;
+          width: 33.3333% !important;
+        }
+      }
+    `;
+
+    const style = document.createElement("style");
+    style.setAttribute(STYLE_FLAG, "1");
+    style.appendChild(document.createTextNode(css));
+    document.head.appendChild(style);
+  }
+
+  function waitFor(testFn, timeoutMs) {
+    return new Promise((resolve, reject) => {
+      const start = performance.now();
+      const tick = () => {
+        if (testFn()) return resolve();
+        if (performance.now() - start > timeoutMs) return reject();
+        requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  }
+
+  function initAll() {
+    injectMultiSlideCSS();
+    document.querySelectorAll('[data-resources="resource"]').forEach(initOne);
+  }
+
+  function initOne(block) {
+    if (block.hasAttribute(INIT_FLAG)) return;
+
+    const slider = block.querySelector('[data-resources="slider"]');
+    const listNav = block.querySelector('[data-resources="list-nav"]');
+    const template = listNav?.querySelector('[data-resources="pagination-div"]');
+    if (!slider || !listNav || !template) return;
+
+    block.setAttribute(INIT_FLAG, "1");
+
+    function build() {
+      const dots = Array.from(
+        slider.querySelectorAll(".w-slider-nav .w-slider-dot")
+      );
+      if (dots.length < 2) return;
+
+      const tpl = template.cloneNode(true);
+      const frag = document.createDocumentFragment();
+      const items = [];
+
+      dots.forEach((dot) => {
+        const el = tpl.cloneNode(true);
+        el.addEventListener("click", () => dot.click());
+        frag.appendChild(el);
+        items.push(el);
+      });
+
+      listNav.innerHTML = "";
+      listNav.appendChild(frag);
+
+      let last = -1;
+
+      function getActiveIndex() {
+        const active = slider.querySelector(".w-slider-dot.w-active");
+        const idx = dots.indexOf(active);
+        return idx >= 0 ? idx : 0;
+      }
+
+      function update() {
+        const idx = getActiveIndex();
+        if (idx === last) return;
+        last = idx;
+
+        items.forEach((el, i) => {
+          el.style.backgroundColor = i === idx ? "#FFFFFF" : "#000000";
+        });
+      }
+
+      update();
+
+      if (block._resourcesPaginationInterval) {
+        clearInterval(block._resourcesPaginationInterval);
+      }
+      block._resourcesPaginationInterval = setInterval(update, 120);
+    }
+
+    waitFor(
+      () =>
+        slider.querySelectorAll(".w-slider-nav .w-slider-dot").length >= 2,
+      6000
+    )
+      .then(build)
+      .catch(build);
+  }
+
+  document.addEventListener("DOMContentLoaded", initAll);
+
+  window.addEventListener("pageshow", () => {
+    document
+      .querySelectorAll(`[${INIT_FLAG}]`)
+      .forEach((el) => el.removeAttribute(INIT_FLAG));
+    initAll();
+  });
+
+  new MutationObserver(initAll).observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+})();
+</script><script>
+(function () {
+  "use strict";
+
+  var MOBILE_BREAKPOINT = 767;
+
+  var SRC = {
+    PRODUCT: "https://cdn.prod.website-files.com/69288487365aaac1f9887796/698da1f0501d161a2ce5224e_c3d8ff127a9c2dad3a79c505d64eb89b_OLI%20General%20-%20Product%20Carousel.riv"
+  };
+
+  // ✅ NEW: ISO = 4 separate files (one per canvas), same artboard names
+  var ISO_CANVASES = [
+    {
+      id: "riveIsometric1",
+      src: "https://cdn.prod.website-files.com/69288487365aaac1f9887796/69945f315665d9cadc32f6e9_OLI%20Iso%20Illustration%20-%20App.riv",
+      artboard: "OLI Application Security"
+    },
+    {
+      id: "riveIsometric2",
+      src: "https://cdn.prod.website-files.com/69288487365aaac1f9887796/69945f30f2aebb48f0949217_OLI%20Iso%20Illustration%20-%20Cloud.riv",
+      artboard: "OLI Cloud App Detect & Response"
+    },
+    {
+      id: "riveIsometric3",
+      src: "https://cdn.prod.website-files.com/69288487365aaac1f9887796/69945f3209dd4ba8728b9f31_OLI%20Iso%20Illustration%20-%20AI.riv",
+      artboard: "OLI AI Security"
+    },
+    {
+      id: "riveIsometric4",
+      src: "https://cdn.prod.website-files.com/69288487365aaac1f9887796/69945f312459fe2ff6bb3fd9_99ac998e6525d85390f994eb20d86794_OLI%20Iso%20Illustration%20-%20SecOps.riv",
+      artboard: "OLI Security Operations"
+    }
+  ];
+
+  var RIVE_WEBGL2_URL = "https://unpkg.com/@rive-app/webgl2@latest/rive.js";
+  // var RIVE_WEBGL2_URL = "https://unpkg.com/@rive-app/webgl2@2.21.4/rive.js";
+
+  function log() {
+    try { console.log.apply(console, arguments); } catch (e) {}
+  }
+
+  function onDomReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+      fn();
+    }
+  }
+
+  function loadScriptOnce(src, flag, cb) {
+    if (window[flag]) return cb();
+    var s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    s.onload = function () {
+      window[flag] = true;
+      cb();
+    };
+    s.onerror = function () {
+      console.error("[Rive] Failed to load runtime:", src);
+    };
+    document.head.appendChild(s);
+  }
+
+  function isMobile() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
+
+  function getResponsiveArtboard() {
+    return isMobile() ? "Mobile" : "Desktop";
+  }
+
+  function debounce(fn, wait) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  function safeFit(R, preferred) {
+    if (R && R.Fit && preferred && R.Fit[preferred] != null) return R.Fit[preferred];
+    if (R && R.Fit && R.Fit.Contain != null) return R.Fit.Contain;
+    return undefined;
+  }
+
+  function safeLayout(R, preferredFitName) {
+    try {
+      return new R.Layout({
+        fit: safeFit(R, preferredFitName),
+        alignment: R.Alignment.Center,
+        layoutScaleFactor: 1
+      });
+    } catch (e) {
+      console.error("[Rive] Layout creation failed:", e);
+      return undefined;
+    }
+  }
+
+  function createLazyRive(opts) {
+    var R = window.rive;
+    var instance = null;
+    var lastIsMobile = isMobile();
+
+    function safeResize() {
+      if (!instance) return;
+      try { instance.resizeDrawingSurfaceToCanvas(); } catch (e) {}
+    }
+
+    function cleanup() {
+      if (!instance) return;
+      try { if (instance.pause) instance.pause(); } catch (e) {}
+      try { instance.cleanup(); } catch (e) {}
+      instance = null;
+    }
+
+    function build() {
+      cleanup();
+
+      var artboardValue =
+        typeof opts.artboard === "function" ? opts.artboard() : opts.artboard;
+
+      log("[Rive] build:", opts.name || "(unnamed)", { artboard: artboardValue, canvas: opts.canvas && opts.canvas.id });
+
+      try {
+        instance = new R.Rive({
+          src: opts.src,
+          canvas: opts.canvas,
+          autoplay: true,
+          autoBind: !!opts.autoBind,
+          artboard: artboardValue,
+          stateMachines: opts.stateMachines,
+          layout: opts.layout ? opts.layout() : undefined,
+          useOffscreenRenderer: !!opts.useOffscreenRenderer,
+          isTouchScrollEnabled: !!opts.isTouchScrollEnabled,
+          automaticallyHandleEvents: !!opts.automaticallyHandleEvents,
+          onLoad: function () {
+            log("[Rive] loaded:", opts.name || opts.canvas.id);
+            safeResize();
+          },
+          onLoadError: function (e) {
+            console.error("[Rive] Load error (" + (opts.name || opts.canvas.id) + "):", e);
+          }
+        });
+      } catch (e) {
+        console.error("[Rive] Instance creation failed (" + (opts.name || opts.canvas.id) + "):", e);
+        instance = null;
+      }
+    }
+
+    function play() {
+      if (!instance) build();
+      if (!instance) return;
+      try { if (instance.play) instance.play(); } catch (e) {}
+      safeResize();
+    }
+
+    function pause() {
+      if (!instance) return;
+      try { if (instance.pause) instance.pause(); } catch (e) {}
+    }
+
+    function resizeOrRebuildIfNeeded() {
+      if (!instance) return;
+      if (!opts.rebuildOnBreakpointFlip) return safeResize();
+
+      var nowMobile = isMobile();
+      if (nowMobile !== lastIsMobile) {
+        lastIsMobile = nowMobile;
+        build();
+      } else {
+        safeResize();
+      }
+    }
+
+    return {
+      play: play,
+      pause: pause,
+      resizeOrRebuildIfNeeded: resizeOrRebuildIfNeeded,
+      get: function(){ return instance; }
+    };
+  }
+
+  function observeVisibility(el, onEnter, onExit) {
+    if (!("IntersectionObserver" in window)) {
+      onEnter();
+      return function () {};
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) onEnter();
+          else onExit();
+        }
+      },
+      { threshold: 0.01, rootMargin: "300px 0px 300px 0px" }
+    );
+
+    io.observe(el);
+    return function () {
+      try { io.unobserve(el); } catch (e) {}
+      try { io.disconnect(); } catch (e) {}
+    };
+  }
+
+  log("[Rive] boot start");
+
+  loadScriptOnce(RIVE_WEBGL2_URL, "__rive_webgl2_loaded__", function () {
+    log("[Rive] runtime loaded. window.rive exists?", !!window.rive, "has Rive?", !!(window.rive && window.rive.Rive));
+
+    if (!window.rive || !window.rive.Rive) {
+      console.error("[Rive] runtime loaded but window.rive.Rive missing");
+      return;
+    }
+
+    onDomReady(init);
+  });
+
+  function init() {
+    var R = window.rive;
+
+    var productCanvas = document.getElementById("product-carousel-homepage");
+
+    log("[Rive] canvases:", {
+      product: !!productCanvas,
+      iso1: !!document.getElementById("riveIsometric1")
+    });
+
+    var managers = [];
+
+    // PRODUCT
+    if (productCanvas) {
+      productCanvas.style.width = "100%";
+      productCanvas.style.height = "100%";
+      productCanvas.style.display = "block";
+
+      var prodMgr = createLazyRive({
+        name: "product",
+        canvas: productCanvas,
+        src: SRC.PRODUCT,
+        artboard: "Main",
+        stateMachines: "State Machine 1",
+        autoBind: true,
+        automaticallyHandleEvents: true,
+        useOffscreenRenderer: true,
+        isTouchScrollEnabled: true,
+        rebuildOnBreakpointFlip: false,
+        layout: function () { return safeLayout(R, "Layout"); }
+      });
+      managers.push(prodMgr);
+      observeVisibility(productCanvas, prodMgr.play, prodMgr.pause);
+    }
+
+    // ✅ ISOs (NEW: each canvas uses its own .riv file)
+    for (var i = 0; i < ISO_CANVASES.length; i++) {
+      (function (cfg) {
+        var c = document.getElementById(cfg.id);
+        if (!c) return;
+
+        var isoMgr = createLazyRive({
+          name: cfg.id,
+          canvas: c,
+          src: cfg.src,              // ✅ changed
+          artboard: cfg.artboard,
+          stateMachines: "State Machine 1",
+          useOffscreenRenderer: true,
+          isTouchScrollEnabled: true,
+          rebuildOnBreakpointFlip: false,
+          layout: function () { return safeLayout(R, "Contain"); }
+        });
+        managers.push(isoMgr);
+        observeVisibility(c, isoMgr.play, isoMgr.pause);
+      })(ISO_CANVASES[i]);
+    }
+
+    var onResize = debounce(function () {
+      for (var i = 0; i < managers.length; i++) {
+        managers[i].resizeOrRebuildIfNeeded();
+      }
+    }, 150);
+
+    window.addEventListener("resize", onResize, { passive: true });
+    setTimeout(onResize, 300);
+
+    log("[Rive] init done. managers:", managers.length);
+  }
+})();
+</script>
+
+<!-- =========================
+     TABS: Reset on leave
+========================== -->
+<script>
+(function () {
+  var tabsSection = document.querySelector(".tabs");
+  if (!tabsSection) return;
+
+  var firstTab = tabsSection.querySelector(".w-tab-link");
+  if (!firstTab) return;
+
+  var hasReset = false;
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      var entry = entries[0];
+      if (!entry) return;
+
+      if (!entry.isIntersecting && !hasReset) {
+        firstTab.click();
+        hasReset = true;
+      }
+
+      if (entry.isIntersecting) {
+        hasReset = false;
+      }
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(tabsSection);
+})();
+</script>
+
+<!--
+
+  <script>
+(function () {
+  "use strict";
+
+  var MOBILE_BREAKPOINT = 767;
+
+  var HERO_SRC =
+    "https://cdn.prod.website-files.com/69288487365aaac1f9887796/69753c657f63a350e79bb8e2_4183d9fd72d6f21af372fcbf0abd7ff9_OLI%20Home%20Page%20-%20Hero%20Banner.riv";
+
+  var RIVE_WEBGL2_URL = "https://unpkg.com/@rive-app/webgl2@latest/rive.js";
+  // var RIVE_WEBGL2_URL = "https://unpkg.com/@rive-app/webgl2@2.21.4/rive.js";
+
+  function log() {
+    try { console.log.apply(console, arguments); } catch (e) {}
+  }
+
+  function onDomReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+      fn();
+    }
+  }
+
+  function loadScriptOnce(src, flag, cb) {
+    if (window[flag]) return cb();
+    var s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    s.onload = function () {
+      window[flag] = true;
+      cb();
+    };
+    s.onerror = function () {
+      console.error("[Rive] Failed to load runtime:", src);
+    };
+    document.head.appendChild(s);
+  }
+
+  function isMobile() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
+
+  function getResponsiveArtboard() {
+    return isMobile() ? "Mobile" : "Desktop";
+  }
+
+  function debounce(fn, wait) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  function safeFit(R, preferred) {
+    if (R && R.Fit && preferred && R.Fit[preferred] != null) return R.Fit[preferred];
+    if (R && R.Fit && R.Fit.Contain != null) return R.Fit.Contain;
+    return undefined;
+  }
+
+  function safeLayout(R, preferredFitName) {
+    try {
+      return new R.Layout({
+        fit: safeFit(R, preferredFitName),
+        alignment: R.Alignment.Center,
+        layoutScaleFactor: 1
+      });
+    } catch (e) {
+      console.error("[Rive] Layout creation failed:", e);
+      return undefined;
+    }
+  }
+
+  function createLazyRive(opts) {
+    var R = window.rive;
+    var instance = null;
+    var lastIsMobile = isMobile();
+
+    function safeResize() {
+      if (!instance) return;
+      try { instance.resizeDrawingSurfaceToCanvas(); } catch (e) {}
+    }
+
+    function cleanup() {
+      if (!instance) return;
+      try { if (instance.pause) instance.pause(); } catch (e) {}
+      try { instance.cleanup(); } catch (e) {}
+      instance = null;
+    }
+
+    function build() {
+      cleanup();
+
+      var artboardValue =
+        typeof opts.artboard === "function" ? opts.artboard() : opts.artboard;
+
+      log("[Rive] build:", opts.name || "(unnamed)", { artboard: artboardValue, canvas: opts.canvas && opts.canvas.id });
+
+      try {
+        instance = new R.Rive({
+          src: opts.src,
+          canvas: opts.canvas,
+          autoplay: true,
+          autoBind: !!opts.autoBind,
+          artboard: artboardValue,
+          stateMachines: opts.stateMachines,
+          layout: opts.layout ? opts.layout() : undefined,
+          useOffscreenRenderer: !!opts.useOffscreenRenderer,
+          isTouchScrollEnabled: !!opts.isTouchScrollEnabled,
+          automaticallyHandleEvents: !!opts.automaticallyHandleEvents,
+          onLoad: function () {
+            log("[Rive] loaded:", opts.name || opts.canvas.id);
+            safeResize();
+          },
+          onLoadError: function (e) {
+            console.error("[Rive] Load error (" + (opts.name || opts.canvas.id) + "):", e);
+          }
+        });
+      } catch (e) {
+        console.error("[Rive] Instance creation failed (" + (opts.name || opts.canvas.id) + "):", e);
+        instance = null;
+      }
+    }
+
+    function play() {
+      if (!instance) build();
+      if (!instance) return;
+      try { if (instance.play) instance.play(); } catch (e) {}
+      safeResize();
+    }
+
+    function pause() {
+      if (!instance) return;
+      try { if (instance.pause) instance.pause(); } catch (e) {}
+    }
+
+    function resizeOrRebuildIfNeeded() {
+      if (!instance) return;
+      if (!opts.rebuildOnBreakpointFlip) return safeResize();
+
+      var nowMobile = isMobile();
+      if (nowMobile !== lastIsMobile) {
+        lastIsMobile = nowMobile;
+        build();
+      } else {
+        safeResize();
+      }
+    }
+
+    return {
+      play: play,
+      pause: pause,
+      resizeOrRebuildIfNeeded: resizeOrRebuildIfNeeded,
+      get: function(){ return instance; }
+    };
+  }
+
+  function observeVisibility(el, onEnter, onExit) {
+    if (!("IntersectionObserver" in window)) {
+      onEnter();
+      return function () {};
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) onEnter();
+          else onExit();
+        }
+      },
+      { threshold: 0.01, rootMargin: "300px 0px 300px 0px" }
+    );
+
+    io.observe(el);
+    return function () {
+      try { io.unobserve(el); } catch (e) {}
+      try { io.disconnect(); } catch (e) {}
+    };
+  }
+
+  log("[Rive] boot start (hero)");
+
+  loadScriptOnce(RIVE_WEBGL2_URL, "__rive_webgl2_loaded__", function () {
+    log("[Rive] runtime loaded. window.rive exists?", !!window.rive, "has Rive?", !!(window.rive && window.rive.Rive));
+
+    if (!window.rive || !window.rive.Rive) {
+      console.error("[Rive] runtime loaded but window.rive.Rive missing");
+      return;
+    }
+
+    onDomReady(init);
+  });
+
+  function init() {
+    var R = window.rive;
+
+    var heroCanvas = document.getElementById("riveCanvas");
+
+    log("[Rive] canvases:", { hero: !!heroCanvas });
+
+    if (!heroCanvas) return;
+
+    var heroMgr = createLazyRive({
+      name: "hero",
+      canvas: heroCanvas,
+      src: HERO_SRC,
+      artboard: getResponsiveArtboard,
+      stateMachines: "State Machine 1",
+      autoBind: true,
+      useOffscreenRenderer: true,
+      isTouchScrollEnabled: true,
+      rebuildOnBreakpointFlip: true,
+      layout: function () { return safeLayout(R, "Layout"); }
+    });
+
+    observeVisibility(heroCanvas, heroMgr.play, heroMgr.pause);
+
+    // Fallback: force-start shortly after load (Webflow sizing quirks)
+    setTimeout(function () {
+      heroMgr.play();
+    }, 600);
+
+    var onResize = debounce(function () {
+      heroMgr.resizeOrRebuildIfNeeded();
+    }, 150);
+
+    window.addEventListener("resize", onResize, { passive: true });
+    setTimeout(onResize, 300);
+
+    log("[Rive] hero init done");
+  }
+})();
+</script>
+
+  --><script src="https://hubspotv2.use1-marketplace-1p-apps-prod-red.if.webflow.services/static/loader.js" type="text/javascript" async="" defer=""></script><script src="https://hubspotv2.use1-marketplace-1p-apps-prod-red.if.webflow.services/static/disable-hubspot-chatbot.js" type="text/javascript" async="" defer=""></script><iframe height="0" width="0" style="display: none; visibility: hidden;"></iframe><script src="https://js.hs-scripts.com/26088573.js" type="text/javascript" async="" defer=""></script><iframe owner="archetype" title="archetype" style="display: none; visibility: hidden;"></iframe>
+<div class="go2933276541 go2369186930" id="hs-web-interactives-top-anchor"><div id="hs-interactives-modal-overlay" class="go1632949049"></div></div>
+<div class="go2933276541 go1348078617" id="hs-web-interactives-bottom-anchor"></div>
+<div id="hs-web-interactives-floating-container">
+  <div id="hs-web-interactives-floating-top-left-anchor" class="go2417249464 go613305155">
+  </div>
+  <div id="hs-web-interactives-floating-top-right-anchor" class="go2417249464 go471583506">
+  </div>
+  <div id="hs-web-interactives-floating-bottom-left-anchor" class="go2417249464 go3921366393">
+  </div>
+  <div id="hs-web-interactives-floating-bottom-right-anchor" class="go2417249464 go3967842156">
+  </div>
+</div>
+</body></html>

@@ -11,7 +11,7 @@ export const manualOverrides: Record<
   | (ManualOverrideFields & { _processed: true; urls?: string[] })
   | (ManualOverrideFields & { _processed: "auto"; urls?: string[] })
 > = {
-  "01 Founders": { li: "https://www.linkedin.com/school/01-founders/" },
+  "01 Founders": { li: "https://www.linkedin.com/school/01-founders" },
   "AI21 Labs": {
     ws: ["https://www.ai21.com"],
     li: ["https://www.linkedin.com/company/ai21"],
@@ -30,10 +30,10 @@ export const manualOverrides: Record<
       "https://www.youtube.com/watch?v=DyE0YkoFFEE"
     ],
     alt: [
-      { n: "Mistral AI", ws: "https://mistral.ai/" },
-      { n: "Cohere", ws: "https://cohere.com/" },
-      { n: "Aleph Alpha", ws: "https://www.aleph-alpha.com/" },
-      { n: "Stability AI", ws: "https://stability.ai/" }
+      { n: "Mistral AI", ws: "https://mistral.ai" },
+      { n: "Cohere", ws: "https://cohere.com" },
+      { n: "Aleph Alpha", ws: "https://www.aleph-alpha.com" },
+      { n: "Stability AI", ws: "https://stability.ai" }
     ],
     _processed: true
   },
@@ -54,8 +54,15 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/developer/aidoc-medical-ltd/id1459219008"],
     _processed: true
   },
+  "Alpha Tau Medical": {
+    ws: ["https://www.alphatau.com"],
+    li: ["https://www.linkedin.com/company/10538741"],
+    fb: ["https://www.facebook.com/AlphaTauMedical"],
+    ytc: ["http://www.youtube.com/channel/UCMmWvVwo1iEaQbncaIrK1PQ"],
+    _processed: "auto"
+  },
   Appcharge: {
-    ws: ["https://www.appcharge.com/"],
+    ws: ["https://www.appcharge.com"],
     li: ["https://www.linkedin.com/company/appcharge"],
     ytp: ["https://www.youtube.com/@Appcharge-HQ"],
     urls: [
@@ -76,11 +83,52 @@ export const manualOverrides: Record<
       "https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Frame_2117131576_6ad8fdaabc.svg",
       "https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Vector_4_8686ef3dcf.svg",
       "https://jubilant-cherry-dce38aff6a.media.strapiapp.com/Warstwa_2_1_31022a79bd.svg",
-      "https://support.comeet.co/section/terms-and-policies",
-      "https://www.cookiebot.com",
-      "https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2",
-      "https://www.google.com/recaptcha/api.js?render=6Lc4DdQrAAAAAALzOxmnL_NT9tI0mkqJHDuz-4Kh"
+      "https://support.comeet.co/section/terms-and-policies"
     ],
+    _processed: "auto"
+  },
+  "Astrix Security": {
+    ws: ["https://astrix.security"],
+    li: ["https://www.linkedin.com/company/astrix-security"],
+    tw: ["https://x.com/AstrixSecurity"],
+    ytp: ["https://www.youtube.com/@astrix-security"],
+    _processed: "auto"
+  },
+  Atera: {
+    ws: ["https://www.atera.com"],
+    li: ["https://www.linkedin.com/company/atera-networks"],
+    fb: ["https://www.facebook.com/AteraCloud"],
+    tw: ["https://twitter.com/ateracloud"],
+    ytc: ["https://www.youtube.com/channel/UCvyHUS2lapDWiBYvwuYwUsg"],
+    urls: [
+      "https://academy.atera.com",
+      "https://app.atera.com/login",
+      "https://apps.apple.com/il/app/atera/id1478043603",
+      "https://community.atera.com",
+      "https://discord.gg/uMvU3D8wuZ",
+      "https://status.atera.com",
+      "https://support.atera.com",
+      "https://trust.atera.com",
+      "https://www.reddit.com/r/atera",
+      "https://zapier.com/apps/atera-1/integrations"
+    ],
+    android_app_ids: ["com.atera.ateramobileapp"],
+    _processed: "auto"
+  },
+  Balance: {
+    ws: ["https://www.getbalance.com"],
+    li: ["https://www.linkedin.com/company/getbalance"],
+    tw: ["https://twitter.com/GetBalanceHQ"],
+    urls: ["https://dashboard.getbalance.com", "https://updates.getbalance.com"],
+    _processed: "auto"
+  },
+  "Beyond Oil": {
+    ws: ["https://www.beyondoil.co"],
+    li: ["https://www.linkedin.com/company/beyond-oil"],
+    fb: ["https://www.facebook.com/beyondoil.ltd"],
+    tw: ["https://twitter.com/oil_beyond"],
+    ytp: ["https://www.youtube.com/@beyond-oil"],
+    tt: ["https://www.tiktok.com/@beyond_oil"],
     _processed: "auto"
   },
   BioCatch: {
@@ -91,7 +139,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@biocatch.official"],
     ytc: ["https://www.youtube.com/channel/UCGHkBeKgH_6-B8CjRcCqm-A"],
     urls: [
-      "https://marketplace.microsoft.com/en-gb/product/saas/biocatch.biocatch_behavioral_biometrics?tab=Overview",
+      "https://marketplace.microsoft.com/en-gb/product/saas/biocatch.biocatch_behavioral_biometrics",
       "https://medium.com/@BioCatchTechBlog",
       "https://play.google.com/store/apps/developer?id=BioCatch+Ltd.",
       "https://www.comeet.com/jobs/biocatch/03.00E/data-engineer/0C.759"
@@ -108,6 +156,23 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "xyz.blueskyweb",
     _processed: true
+  },
+  Buildots: {
+    ws: ["https://buildots.com"],
+    li: ["https://www.linkedin.com/company/buildots"],
+    fb: ["https://www.facebook.com/buildots"],
+    ig: ["https://www.instagram.com/buildots"],
+    ytp: ["https://www.youtube.com/@Buildots"],
+    urls: ["https://app.bldts.io", "https://buildots.net"],
+    _processed: "auto"
+  },
+  "Cato Networks": {
+    ws: ["https://www.catonetworks.com"],
+    li: ["https://www.linkedin.com/company/cato-networks"],
+    fb: ["https://www.facebook.com/CatoNetworks"],
+    tw: ["https://twitter.com/CatoNetworks"],
+    urls: ["https://cc.catonetworks.com", "https://connect.catonetworks.com", "https://partners.catonetworks.com"],
+    _processed: "auto"
   },
   Cellebrite: {
     li: ["https://www.linkedin.com/company/cellebrite", "http://www.linkedin.com/company/100045"],
@@ -127,9 +192,29 @@ export const manualOverrides: Record<
       "https://www.facebook.com/groups/746270377207022",
       "https://www.linkedin.com/showcase/cellebrite-careers",
       "https://www.linkedin.com/showcase/cellebrite-enterprise-solutions",
-      "https://cellebrite.my.site.com/PartnerCommunity/s/login/?language=en_US"
+      "https://cellebrite.my.site.com"
     ],
     _processed: true
+  },
+  Chargeflow: {
+    ws: ["https://www.chargeflow.io"],
+    li: ["https://www.linkedin.com/company/chargeflowhq"],
+    tw: ["https://x.com/chargeflow", "https://x.com/chargeflowhq"],
+    ytp: ["https://www.youtube.com/@ChargeflowHQ"],
+    tt: ["https://www.tiktok.com/@chargeflow"],
+    urls: [
+      "https://app.chargeflow.io",
+      "https://apps.shopify.com/chargeflow",
+      "https://docs.chargeflow.io",
+      "https://help.chargeflow.io",
+      "https://marketplace.stripe.com/apps/chargeflow",
+      "https://status.chargeflow.io",
+      "https://trust.chargeflow.io",
+      "https://www.g2.com/products/chargeflow-inc-chargeflow/reviews",
+      "https://www.producthunt.com/products/chargeflow",
+      "https://www.trustpilot.com/review/chargeflow.io"
+    ],
+    _processed: "auto"
   },
   "Classiq Technologies": {
     ws: ["https://www.classiq.io"],
@@ -143,19 +228,43 @@ export const manualOverrides: Record<
     _processed: true
   },
   Cognyte: {
-    ws: ["https://www.cognyte.com/"],
+    ws: ["https://www.cognyte.com"],
     li: ["https://www.linkedin.com/company/cognyte"],
     tw: ["https://twitter.com/Cognyte"],
     ytc: ["https://www.youtube.com/channel/UCqIvlQRaVQ38kr03p5QTDWA"],
     urls: ["https://www.glassdoor.com/Overview/Working-at-Cognyte-EI_IE4430257.11,18.htm"],
     _processed: "auto"
   },
+  CropX: {
+    ws: ["https://cropx.com"],
+    li: ["https://www.linkedin.com/company/10147582"],
+    fb: ["https://www.facebook.com/CropXGlobal"],
+    tw: ["https://twitter.com/crop_x"],
+    ig: ["https://www.instagram.com/cropx_global"],
+    ytc: ["https://www.youtube.com/channel/UCcwU6dNzM7KsNLrP1b4u0iw"],
+    urls: ["https://help.cropx.com", "https://help.cropx.com/portal/en/home", "https://myfarm.cropx.com/login"],
+    _processed: "auto"
+  },
   Cyabra: {
-    ws: ["https://cyabra.com/"],
+    ws: ["https://cyabra.com"],
     li: ["https://www.linkedin.com/company/cyabra"],
     tw: ["https://x.com/thecyabra"],
     ytp: ["https://www.youtube.com/@cyabra"],
     urls: ["https://errol.cyabra.com", "https://open.spotify.com/show/3gMZQTgbe3Wajzm9bDyJSW"],
+    _processed: "auto"
+  },
+  Cycode: {
+    ws: ["https://cycode.com"],
+    li: ["https://www.linkedin.com/company/cycode"],
+    fb: ["https://www.facebook.com/Life.at.Cycode"],
+    tw: ["https://twitter.com/CycodeHQ"],
+    ig: ["https://www.instagram.com/life_at_cycode"],
+    urls: [
+      "https://app.cycode.com/account/login",
+      "https://dribbble.com/cycode-design",
+      "https://generatepress.com",
+      "https://status.cycode.com"
+    ],
     _processed: "auto"
   },
   Cyera: {
@@ -168,6 +277,33 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Cynomi: {
+    ws: ["https://cynomi.com"],
+    li: ["https://www.linkedin.com/company/cynomi"],
+    ytc: ["https://www.youtube.com/channel/UCWPWKFH5pJ6gdyp7WpATdVg"],
+    urls: [
+      "https://cynomi.com/about",
+      "https://cynomi.com/academy",
+      "https://cynomi.com/blog",
+      "https://cynomi.com/careers",
+      "https://cynomi.com/contact-us",
+      "https://cynomi.com/events-and-webinar",
+      "https://cynomi.com/news",
+      "https://cynomi.com/partners",
+      "https://cynomi.com/product-login",
+      "https://cynomi.com/resources",
+      "https://cynomi.com/resources/testimonials",
+      "https://cynomi.com/security",
+      "https://cynomi.com/solutions/cyber-resilience-management",
+      "https://cynomi.com/solutions/risk-management",
+      "https://cynomi.com/solutions/third-party-risk-management",
+      "https://cynomi.com/solutions/vciso-services",
+      "https://cynomi.com/terms-conditions",
+      "https://cynomi.com/vciso-platform",
+      "https://partners.cynomi.com"
+    ],
+    _processed: "auto"
+  },
   "D-Fend Solutions": {
     li: ["https://www.linkedin.com/company/d-fend-solutions"],
     fb: ["https://www.facebook.com/DFendSolutions"],
@@ -176,6 +312,58 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@DFendSolutions", "https://www.youtube.com/@zoharhalachmi5784"],
     urls: ["https://d-fendsolutions.com"],
     _processed: true
+  },
+  "D-ID": {
+    ws: ["https://www.d-id.com"],
+    li: ["https://www.linkedin.com/company/deidentification"],
+    fb: ["https://www.facebook.com/deidentification"],
+    tw: ["https://twitter.com/D_ID_"],
+    ig: ["https://www.instagram.com/d_id.ai"],
+    ytp: ["https://www.youtube.com/@d-id"],
+    tt: ["https://www.tiktok.com/@d_id.studio"],
+    urls: [
+      "https://docs.d-id.com/docs/quickstart",
+      "https://docs.d-id.com/reference/get-started",
+      "https://help.d-id.com/hc/en-us",
+      "https://studio.d-id.com",
+      "https://studio.d-id.com/login",
+      "https://www.d-id.com/about-us",
+      "https://www.d-id.com/ai-agents",
+      "https://www.d-id.com/ai-avatars",
+      "https://www.d-id.com/ai-videos",
+      "https://www.d-id.com/api",
+      "https://www.d-id.com/blog",
+      "https://www.d-id.com/careers",
+      "https://www.d-id.com/contact-us",
+      "https://www.d-id.com/creative-reality-studio",
+      "https://www.d-id.com/creative-reality-studio-mobile-app",
+      "https://www.d-id.com/customer-experience",
+      "https://www.d-id.com/elearning-and-corporate-training-talking-heads",
+      "https://www.d-id.com/ethics-in-ai",
+      "https://www.d-id.com/faqs",
+      "https://www.d-id.com/integrations",
+      "https://www.d-id.com/liveportrait-4",
+      "https://www.d-id.com/marketing-suite",
+      "https://www.d-id.com/natural-user-interface",
+      "https://www.d-id.com/news",
+      "https://www.d-id.com/partner/microsoft",
+      "https://www.d-id.com/pricing/api",
+      "https://www.d-id.com/pricing/studio",
+      "https://www.d-id.com/privacy-policy",
+      "https://www.d-id.com/resources",
+      "https://www.d-id.com/resources/glossary",
+      "https://www.d-id.com/sales-solutions",
+      "https://www.d-id.com/security-and-privacy-compliance",
+      "https://www.d-id.com/speaking-portrait",
+      "https://www.d-id.com/video-campaigns",
+      "https://www.d-id.com/video-translate"
+    ],
+    _processed: "auto"
+  },
+  "Dream Security": {
+    ws: ["https://dreamgroup.com"],
+    li: ["https://www.linkedin.com/company/dreamsecurity"],
+    _processed: "auto"
   },
   Earnix: {
     fb: ["https://www.facebook.com/earnix"],
@@ -198,6 +386,89 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.empathy",
     _processed: true
+  },
+  Explorium: {
+    ws: ["https://www.explorium.ai"],
+    li: ["https://www.linkedin.com/company/explorium-ai"],
+    urls: [
+      "https://admin.explorium.ai/login",
+      "https://chat.openai.com",
+      "https://claude.ai/new",
+      "https://developers.explorium.ai",
+      "https://developers.explorium.ai/reference/quick-starts",
+      "https://docs.google.com/forms/d/e/1FAIpQLSfqfyymNSzKuuNGqFTky9c4u7w9R99PgvCSZegJClyQyg_OCw/viewform",
+      "https://www.comeet.com/jobs/explorium/B4.00E",
+      "https://www.explorium.ai",
+      "https://www.google.com/search",
+      "https://www.perplexity.ai/search/new"
+    ],
+    _processed: "auto"
+  },
+  Faye: {
+    ws: ["https://www.withfaye.com"],
+    li: ["https://www.linkedin.com/company/fayetravelinsurance"],
+    fb: ["https://www.facebook.com/FayeTravelInsurance"],
+    tw: ["https://twitter.com/FayeTravel"],
+    ig: ["https://www.instagram.com/faye.travel"],
+    tt: ["https://www.tiktok.com/@fayetravelinsurance"],
+    urls: [
+      "https://advisors.withfaye.com",
+      "https://assets.withfaye.com/android",
+      "https://assets.withfaye.com/ios",
+      "https://blog.withfaye.com"
+    ],
+    _processed: "auto"
+  },
+  Finout: {
+    ws: ["https://www.finout.io"],
+    li: ["https://www.linkedin.com/company/finout-io"],
+    fb: ["https://www.facebook.com/finout.io"],
+    tw: ["https://x.com/finout_io"],
+    urls: [
+      "https://docs.finout.io",
+      "https://dribbble.com/Finout",
+      "https://start-chat.com/slack/finout/HwVAXB",
+      "https://www.g2.com/products/finout/reviews"
+    ],
+    _processed: "auto"
+  },
+  Firebolt: {
+    ws: ["https://www.firebolt.io", "https://www.selectfrom.shop"],
+    li: ["https://www.linkedin.com/company/firebolt"],
+    fb: ["https://www.facebook.com/firebolthq"],
+    tw: ["https://twitter.com/FireboltHQ"],
+    gh: ["https://github.com/firebolt-db/firebolt-core"],
+    ytc: [
+      "https://www.youtube.com/channel/UC2ZltczfvIIJPmSYqtzv_mA",
+      "https://www.youtube.com/channel/UCR94oA7VkFpsriGzwkpYbAA"
+    ],
+    urls: [
+      "https://docs.firebolt.io/godocs",
+      "https://go.firebolt.io",
+      "https://go.firebolt.io/signup",
+      "https://hi.firebolt.io/lp/hands-on-firebolt-workshop",
+      "https://status.firebolt.io"
+    ],
+    _processed: "auto"
+  },
+  Firefly: {
+    ws: ["https://www.firefly.ai"],
+    li: ["https://www.linkedin.com/company/fireflyai"],
+    tw: ["https://x.com/fireflydotai"],
+    ytp: ["https://www.youtube.com/@fireflyaicloud"],
+    urls: [
+      "https://aiac.dev",
+      "https://deny.cloud",
+      "https://docs.firefly.ai",
+      "https://security.gofirefly.io",
+      "https://start-chat.com/slack/firefly/2IC9fX",
+      "https://start-chat.com/slack/firefly/8VdQHm",
+      "https://start-chat.com/slack/firefly/SW3SAs",
+      "https://start-chat.com/slack/firefly/bjBDTQ",
+      "https://start-chat.com/slack/firefly/lOJ4OD",
+      "https://www.validiac.com"
+    ],
+    _processed: "auto"
   },
   Fiverr: {
     ws: ["https://www.fiverr.com", "https://www.clearvoice.com", "https://www.autods.com"],
@@ -223,7 +494,33 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.fiverr"
   },
-  Hirundo: { ws: ["https://www.hirundo.io/"], li: ["https://www.linkedin.com/company/gethirundo"], _processed: "auto" },
+  Gauzy: {
+    ws: ["https://www.gauzy.com"],
+    li: ["https://www.linkedin.com/company/2860964"],
+    fb: ["https://www.facebook.com/GauzyLTD"],
+    tw: ["https://x.com/Gauzycorp"],
+    ig: ["https://www.instagram.com/gauzycorp"],
+    ytc: ["https://www.youtube.com/channel/UC0itHds1xz1FR5bDJIqOANA"],
+    urls: ["https://investors.gauzy.com", "https://vsc.gsa.gov/drupal/node/138"],
+    _processed: "auto"
+  },
+  "Grip Security": {
+    ws: ["https://www.grip.security"],
+    li: ["https://www.linkedin.com/company/grip-security"],
+    urls: ["https://get.grip.security/demo-request.html", "https://help.grip.security"],
+    _processed: "auto"
+  },
+  Hailo: {
+    ws: ["https://hailo.ai"],
+    li: ["https://www.linkedin.com/company/hailo-ai"],
+    fb: ["https://www.facebook.com/HailoTech"],
+    tw: ["https://twitter.com/Hailo_ai"],
+    ig: ["https://www.instagram.com/life_at_hailo"],
+    ytc: ["https://www.youtube.com/channel/UCJyQfXEbUVHhiXM_Lc9e2aw"],
+    urls: ["https://community.hailo.ai", "https://community.hailo.ai/session/sso"],
+    _processed: "auto"
+  },
+  Hirundo: { ws: ["https://www.hirundo.io"], li: ["https://www.linkedin.com/company/gethirundo"], _processed: "auto" },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
     li: ["https://www.linkedin.com/company/hypernative"],
@@ -245,6 +542,31 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  IONIX: {
+    ws: ["https://www.ionix.io"],
+    li: ["https://www.linkedin.com/company/ionix-security"],
+    tw: ["https://twitter.com/ionix_io"],
+    urls: ["https://portal.ionix.io/login"],
+    _processed: "auto"
+  },
+  Infinidat: {
+    ws: ["https://www.infinidat.com/en"],
+    li: ["https://www.linkedin.com/company/infinidat"],
+    fb: ["https://www.facebook.com/infinidat"],
+    tw: ["https://x.com/infinidat"],
+    urls: [
+      "https://code.infinidat.com",
+      "https://info.infinidat.com/Americas-Outsmarting_Cyberthreats-EN_RegistrationLP.html",
+      "https://info.infinidat.com/Future_of_Storage_G4-EN_Webinar_RecordingLP.html",
+      "https://info.infinidat.com/G4_Highlights-EN_CentralLP.html",
+      "https://info.infinidat.com/contact_us.html",
+      "https://info.infinidat.com/request_a_demo.html",
+      "https://partner.infinidat.com/PartnerApplication",
+      "https://partner.infinidat.com/s/login",
+      "https://support.infinidat.com/hc/en-us"
+    ],
+    _processed: "auto"
+  },
   "Innoviz Technologies": {
     ws: ["https://innoviz.tech", "https://ir.innoviz.tech"],
     li: ["https://www.linkedin.com/company/innoviz-technologies"],
@@ -255,6 +577,27 @@ export const manualOverrides: Record<
     urls: ["https://twitter.com/KeilafOmer"],
     _processed: "auto"
   },
+  "Israel Innovation Authority": {
+    ws: ["https://innovationisrael.org.il"],
+    li: ["https://www.linkedin.com/company/5094726/admin"],
+    fb: ["https://www.facebook.com/InnovationAuthority"],
+    ytc: ["https://www.youtube.com/channel/UCp-kDY6DiCq6PuI6srBaAPw"],
+    urls: ["http://innovationisrael.mag.calltext.co.il", "https://www.daatsolutions.co.il"],
+    _processed: "auto"
+  },
+  "Jeffs’ Brands": { ws: ["https://jeffsbrands.com"], urls: ["https://investor.jeffsbrands.com"], _processed: "auto" },
+  KELA: {
+    ws: ["https://www.kelacyber.com"],
+    li: ["https://www.linkedin.com/company/kela-group"],
+    tw: ["https://twitter.com/Intel_by_KELA"],
+    ig: ["https://www.instagram.com/kelagroup"],
+    urls: [
+      "https://info.ke-la.com/cs/c",
+      "https://info.ke-la.com/kela-cyber-pulse",
+      "https://partners.kelacyber.com/log-in"
+    ],
+    _processed: "auto"
+  },
   LayerX: {
     li: ["https://www.linkedin.com/company/layerx-security"],
     tw: ["https://x.com/LayerxSecurity"],
@@ -262,6 +605,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@LayerXSecurity"],
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _processed: true
+  },
+  LightSolver: {
+    ws: ["https://lightsolver.com"],
+    li: ["https://www.linkedin.com/company/lightsolver"],
+    tw: ["https://twitter.com/lightsolverco"],
+    _processed: "auto"
   },
   Lightricks: {
     ws: ["https://lightricks.com", "https://ltx.io"],
@@ -272,7 +621,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Lightrun: {
-    ws: ["https://lightrun.com/"],
+    ws: ["https://lightrun.com"],
     li: ["https://www.linkedin.com/company/lightrun"],
     tw: ["https://twitter.com/Lightruntech"],
     ig: ["https://www.instagram.com/lightruncommunity"],
@@ -292,19 +641,46 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  LiveU: {
+    ws: ["https://www.liveu.tv"],
+    li: ["https://www.linkedin.com/company/liveu"],
+    fb: ["https://www.facebook.com/LiveU.Fans"],
+    tw: ["https://twitter.com/LiveU"],
+    ig: ["https://www.instagram.com/liveutv"],
+    ytp: ["https://www.youtube.com/@LiveUTV"],
+    urls: [
+      "https://bit.ly/3Dd8DAT",
+      "https://bit.ly/3msqAnc",
+      "https://get.liveu.tv",
+      "https://get.liveu.tv/nab-2026",
+      "https://get.liveu.tv/the-power-of-liveu-iq",
+      "https://learn.liveu.tv/login",
+      "https://shop.liveu.tv",
+      "https://support.liveu.tv/hc/en-us",
+      "https://www.liveutv.net"
+    ],
+    _processed: "auto"
+  },
   Lumen: {
-    ws: ["https://www.lumen.me/"],
+    ws: ["https://www.lumen.me"],
     fb: ["https://www.facebook.com/Lumen.me"],
     tw: ["https://x.com/LumenMetabolism"],
     ig: ["https://www.instagram.com/lumen.me"],
-    ytc: ["https://www.youtube.com/channel/UC3XkEyGUMXfRhZcB0Ve_fQQ?view_as=subscriber"],
+    ytc: ["https://www.youtube.com/channel/UC3XkEyGUMXfRhZcB0Ve_fQQ"],
     urls: ["https://help.lumen.me/s", "https://help.lumen.me/s/contactsupport", "https://www.pinterest.com/MyLumen"],
     _processed: "auto"
   },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Metis Technologies": { fb: "", tw: "" },
+  "Miggo Security": {
+    ws: ["https://www.miggo.io"],
+    li: ["https://www.linkedin.com/company/miggo-security"],
+    tw: ["https://twitter.com/MiggoSecurity"],
+    ytp: ["https://www.youtube.com/@MiggoSecurity"],
+    _processed: "auto"
+  },
   Mitiga: {
-    ws: ["https://www.mitiga.io/"],
+    ws: ["https://www.mitiga.io"],
     li: ["https://www.linkedin.com/company/mitiga-io"],
     ytp: ["https://www.youtube.com/@mitigaio"],
     urls: [
@@ -325,9 +701,30 @@ export const manualOverrides: Record<
     android_dev_id: "com.moonpay",
     _processed: true
   },
+  Morphisec: {
+    ws: ["https://www.morphisec.com"],
+    li: ["https://www.linkedin.com/company/morphisec"],
+    tw: ["https://twitter.com/morphisec"],
+    ytc: ["https://www.youtube.com/channel/UCe48cR5xTxPJSYMjG-So7Rw"],
+    urls: ["https://morphisec.xamplify.io", "https://support.morphisec.com/hc/en-us"],
+    _processed: "auto"
+  },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
+  "NSO Group": {
+    ws: ["https://www.nsogroup.com"],
+    urls: [
+      "https://www.nsogroup.com/about-us",
+      "https://www.nsogroup.com/contact-us",
+      "https://www.nsogroup.com/governance",
+      "https://www.nsogroup.com/jobs",
+      "https://www.nsogroup.com/news",
+      "https://www.nsogroup.com/privacy-policy",
+      "https://www.nsogroup.com/terms-conditions"
+    ],
+    _processed: "auto"
+  },
   "Nanox Imaging": {
-    ws: ["https://www.nanox.vision/"],
+    ws: ["https://www.nanox.vision"],
     li: ["https://www.linkedin.com/company/nanox-imaging"],
     fb: ["https://www.facebook.com/NanoxVision"],
     tw: ["https://x.com/nanox_vision"],
@@ -381,9 +778,8 @@ export const manualOverrides: Record<
       "https://linktr.ee/TripleTen",
       "https://linktr.ee/TripleTen.Tech",
       "https://medium.com/nebius",
-      "https://open.spotify.com/user/31wd6uyi4z7s3no2ll2anlssxplq?utm_campaign=Spotify&utm_medium=Organic&utm_source=Linktree&utm_term=SocialMedia&utm_content=Music",
+      "https://open.spotify.com/user/31wd6uyi4z7s3no2ll2anlssxplq",
       "https://podcasts.apple.com/us/podcast/techstart/id1711188418",
-      "https://www.google.com/search?q=Nebius+Group+N.V.&rlz=1C1MMCH_enDE1105DE1105&sourceid=chrome&ie=UTF-8&sei=FssGadmOBrmH7NYPu4iEqAQ",
       "https://www.linkedin.com/school/tripleten"
     ],
     _processed: true
@@ -395,14 +791,40 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@NomaSecurity"],
     urls: ["https://noma.security"],
     alt: [
-      { n: "Holistic AI", ws: "https://www.holisticai.com/" },
-      { n: "Securiti", ws: "https://securiti.ai/" },
-      { n: "Credo AI", ws: "https://www.credo.ai/" },
-      { n: "Protect AI", ws: "https://protectai.com/" }
+      { n: "Holistic AI", ws: "https://www.holisticai.com" },
+      { n: "Securiti", ws: "https://securiti.ai" },
+      { n: "Credo AI", ws: "https://www.credo.ai" },
+      { n: "Protect AI", ws: "https://protectai.com" }
     ],
     _processed: true
   },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
+  Oktopost: {
+    ws: ["https://www.oktopost.com"],
+    li: ["https://www.linkedin.com/company/oktopost"],
+    fb: ["https://facebook.com/oktopost"],
+    ig: ["https://www.instagram.com/oktopost"],
+    tt: ["https://www.tiktok.com/@oktopost_tech"],
+    urls: [
+      "https://app.oktopost.com",
+      "https://benchmark.tools.oktopost.com",
+      "https://board.oktopost.com",
+      "https://intelligence.oktopost.com"
+    ],
+    _processed: "auto"
+  },
+  "Oligo Security": {
+    ws: ["https://www.oligo.security"],
+    li: ["https://www.linkedin.com/company/oligo-security"],
+    tw: ["https://x.com/OligoSecurity"],
+    ytp: ["https://www.youtube.com/@oligosec"],
+    urls: [
+      "https://app-attack-matrix.com",
+      "https://go.oligo.security/hubfs/Oligo-OWASP-Top10-LLMs-Cheatsheet.pdf",
+      "https://go.oligo.security/hubfs/Zero-Day-Response-Solution.pdf"
+    ],
+    _processed: "auto"
+  },
   "Omada Health": {
     ig: ["https://www.instagram.com/omadahealth"],
     ytp: ["https://www.youtube.com/@Omadahealth", "https://www.youtube.com/omadahealth"],
@@ -424,7 +846,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Optimove: {
-    ws: ["https://www.optimove.com/"],
+    ws: ["https://www.optimove.com"],
     li: ["https://www.linkedin.com/company/optimove"],
     fb: ["https://www.facebook.com/optimove"],
     tw: ["https://x.com/Optimove"],
@@ -435,8 +857,21 @@ export const manualOverrides: Record<
       "https://developer.optimove.com",
       "https://open.spotify.com/user/317eskl3ir4ypt4sd5nvj7srcpbe",
       "https://partners.optimove.com",
-      "https://trust.optimove.com",
-      "https://www.linkedin.com/legal/privacy-policy"
+      "https://trust.optimove.com"
+    ],
+    _processed: "auto"
+  },
+  Overwolf: {
+    ws: ["https://www.overwolf.com"],
+    li: ["https://www.linkedin.com/company/overwolf.com"],
+    fb: ["https://www.facebook.com/Overwolf"],
+    tw: ["https://twitter.com/TheOverwolf"],
+    urls: [
+      "https://blog.overwolf.com",
+      "https://careers.overwolf.com",
+      "https://discord.gg/overwolf",
+      "https://discord.gg/overwolf-developers",
+      "https://www.reddit.com/r/Overwolf"
     ],
     _processed: "auto"
   },
@@ -467,7 +902,7 @@ export const manualOverrides: Record<
       "https://www.facebook.com/AnimalsandCoins",
       "https://www.facebook.com/Playtika"
     ],
-    tw: ["https://twitter.com/playtika_ltd?lang=he"],
+    tw: ["https://twitter.com/playtika_ltd"],
     ig: ["https://www.instagram.com/playtika"],
     urls: [
       "https://play.google.com/store/apps/details?id=air.com.buffalo_studios.newflashbingo",
@@ -512,13 +947,99 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Port: {
+    ws: ["https://www.port.io"],
+    li: ["https://www.linkedin.com/company/getport"],
+    tw: ["https://twitter.com/tweetsbyport"],
+    gh: ["https://github.com/port-labs"],
+    ytp: ["https://www.youtube.com/@getport"],
+    urls: [
+      "https://app.port.io",
+      "https://auth.getport.io/authorize",
+      "https://demo.port.io/organization/home",
+      "https://docs.port.io",
+      "https://join.slack.com/t/port-community/shared_invite/zt-2mr8tplo3-8fHgG~f0ipPWpII58_C~LA",
+      "https://join.slack.com/t/port-community/shared_invite/zt-2n5tu72wi-FEgN6HGFeG9bcRfHtKYdCg",
+      "https://port.statuspage.io",
+      "https://status.port.io"
+    ],
+    _processed: "auto"
+  },
+  "Priority Software": {
+    ws: ["https://www.priority-software.com"],
+    li: ["https://www.linkedin.com/company/prioritysoftware"],
+    fb: ["https://www.facebook.com/PrioritySoftware"],
+    tw: ["https://twitter.com/prioritysw"],
+    ytc: ["https://www.youtube.com/channel/UCuOhaPagwvRNqyf7pVKi57A"],
+    urls: ["https://market.priority-software.com", "https://support.priority-software.com"],
+    _processed: "auto"
+  },
   "Protect AI": {
     gh: ["https://github.com/protectai"],
     ytp: ["https://www.youtube.com/@protectai"],
     urls: ["https://mlsecops.slack.com/signup#/domain-signup"],
     _processed: true
   },
+  Qodo: {
+    ws: ["https://www.qodo.ai"],
+    li: ["https://www.linkedin.com/company/qodoai"],
+    tw: ["https://x.com/QodoAI"],
+    gh: ["https://github.com/Codium-ai", "https://github.com/marketplace/qodo-merge-pro"],
+    ytp: ["https://www.youtube.com/@QodoAI"],
+    urls: [
+      "https://app.qodo.ai",
+      "https://docs.qodo.ai/qodo-documentation",
+      "https://docs.qodo.ai/qodo-release-notes",
+      "https://plugins.jetbrains.com/plugin/21206-codiumai--meaningful-tests-in-python-powered-by-testgpt"
+    ],
+    _processed: "auto"
+  },
+  "Quantum Machines": {
+    ws: ["https://www.quantum-machines.co"],
+    li: ["https://www.linkedin.com/company/quantumachines"],
+    fb: ["https://www.facebook.com/quantummachines"],
+    tw: ["https://twitter.com/QuantumQM"],
+    ytp: ["https://www.youtube.com/c/QuantumMachines"],
+    urls: ["https://bsky.app/profile/quantummachines.bsky.social", "https://qm.teamme.link"],
+    _processed: "auto"
+  },
+  "REE Automotive": {
+    ws: ["https://ree.auto"],
+    li: ["https://www.linkedin.com/company/reeautoofficial"],
+    fb: ["https://www.facebook.com/ReeAutoOfficial"],
+    tw: ["https://twitter.com/ReeAutoOfficial"],
+    ig: ["https://www.instagram.com/reeautoofficial"],
+    ytc: ["https://www.youtube.com/channel/UC9sDIkFJSj0A7_AvCuHl3gw"],
+    urls: ["https://investors.ree.auto", "https://medium.com/@ReeAutoOfficial"],
+    _processed: "auto"
+  },
   "Red Alert": { ws: "" },
+  RiseUp: {
+    ws: ["https://www.riseup.co.il"],
+    urls: [
+      "https://apps.apple.com/us/app/riseup-%D7%A8%D7%99%D7%99%D7%96%D7%90%D7%A4/id6739494831",
+      "https://bit.ly/3TM1GhY",
+      "https://input.riseup.co.il/home",
+      "https://intercom.help/riseupisrael/he",
+      "https://intercom.riseup.co.il/he",
+      "https://saving.riseup.co.il/lightup/beginnings",
+      "https://signup.riseup.co.il/flow/start"
+    ],
+    _processed: "auto"
+  },
+  Salto: {
+    ws: ["https://www.salto.io"],
+    li: ["https://www.linkedin.com/company/salto-io"],
+    tw: ["https://twitter.com/salto_io"],
+    gh: ["https://github.com/salto-io/salto"],
+    urls: [
+      "http://help.salto.io",
+      "https://app.salto.io/login",
+      "https://app.salto.io/signup",
+      "https://www.tulipsecurity.com"
+    ],
+    _processed: "auto"
+  },
   Semperis: {
     ws: ["https://www.hipconf.com", "https://www.semperis.com"],
     li: [
@@ -556,11 +1077,28 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@sentra_security"],
     urls: ["https://www.facebook.com/profile.php?id=100091748057784"],
     alt: [
-      { n: "Securiti", ws: "https://securiti.ai/" },
-      { n: "OneTrust", ws: "https://www.onetrust.com/" },
-      { n: "Netwrix", ws: "https://www.netwrix.com/" }
+      { n: "Securiti", ws: "https://securiti.ai" },
+      { n: "OneTrust", ws: "https://www.onetrust.com" },
+      { n: "Netwrix", ws: "https://www.netwrix.com" }
     ],
     _processed: true
+  },
+  "Seraphic Security": {
+    ws: ["https://seraphicsecurity.com"],
+    li: ["https://www.linkedin.com/company/seraphicsecurity"],
+    tw: ["https://x.com/SeraphicSec"],
+    ytc: ["https://www.youtube.com/channel/UCEFzVspJOMPv2S3EBsam_vw"],
+    urls: ["https://2024.seraphicsecurity.com"],
+    _processed: "auto"
+  },
+  Sett: { ws: ["https://www.sett.ai"], li: ["https://www.linkedin.com/company/sett-ai"], _processed: "auto" },
+  Sightful: {
+    ws: ["https://sightful.com"],
+    li: ["https://www.linkedin.com/company/heysightful"],
+    ig: ["https://www.instagram.com/sightful"],
+    ytp: ["https://www.youtube.com/@Sightful-Official"],
+    urls: ["https://help.sightful.com/en"],
+    _processed: "auto"
   },
   Silverfort: {
     ig: ["https://www.instagram.com/life_at_silverfort"],
@@ -573,11 +1111,20 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.silverfort",
     alt: [
-      { n: "Keycloak", ws: "https://www.keycloak.org/" },
-      { n: "BeyondTrust", ws: "https://www.beyondtrust.com/" },
-      { n: "One Identity", ws: "https://www.oneidentity.com/" }
+      { n: "Keycloak", ws: "https://www.keycloak.org" },
+      { n: "BeyondTrust", ws: "https://www.beyondtrust.com" },
+      { n: "One Identity", ws: "https://www.oneidentity.com" }
     ],
     _processed: true
+  },
+  "Skyhawk Security": {
+    ws: ["https://app.skyhawk.security", "https://partners.skyhawk.security", "https://skyhawk.security"],
+    li: ["https://www.linkedin.com/company/skyhawkcloudsecurity"],
+    tw: ["https://twitter.com/SkyhawkCloudSec"],
+    urls: [
+      "https://www.gartner.com/reviews/market/cloud-native-application-protection-platforms/vendor/skyhawk-security/product/skyhawk-synthesis-security-platform"
+    ],
+    _processed: "auto"
   },
   Somite: { tw: "https://x.com/somiteai" },
   Sorbet: { ws: ["https://advance.getsorbet.com/login"], _processed: "auto" },
@@ -587,10 +1134,46 @@ export const manualOverrides: Record<
     gh: ["https://github.com/Speedata-io"],
     ytp: ["https://www.youtube.com/@Speedata-io"],
     alt: [
-      { n: "ARM Neoverse", ws: "https://www.arm.com/products/silicon-ip-cpu/neoverse/" },
+      { n: "ARM Neoverse", ws: "https://www.arm.com/products/silicon-ip-cpu/neoverse" },
       { n: "Xilinx Versal ACAP", ws: "https://www.xilinx.com/products/silicon-platforms/versal.html" }
     ],
     _processed: true
+  },
+  SysAid: {
+    ws: ["https://www.sysaid.com"],
+    li: ["https://www.linkedin.com/company/sysaid-technologies-ltd"],
+    fb: ["https://www.facebook.com/SysAidIT"],
+    tw: ["https://twitter.com/sysaid"],
+    urls: [
+      "https://careers.sysaid.com",
+      "https://developers.sysaid.com",
+      "https://discord.gg/UgG8vGz7",
+      "https://documentation.sysaid.com"
+    ],
+    _processed: "auto"
+  },
+  Tabnine: {
+    ws: ["https://www.tabnine.com"],
+    li: ["https://www.linkedin.com/company/tabnine"],
+    tw: ["https://twitter.com/tabnine"],
+    ytc: ["https://www.youtube.com/channel/UC3ZLFXRRmK3XbT5Oq0qPLqA"],
+    urls: [
+      "https://console.tabnine.com/app/sign-in-emt",
+      "https://docs.tabnine.com/main",
+      "https://trust.tabnine.com",
+      "https://www.tabnine.com/about",
+      "https://www.tabnine.com/blog",
+      "https://www.tabnine.com/careers",
+      "https://www.tabnine.com/code-privacy",
+      "https://www.tabnine.com/contact-us",
+      "https://www.tabnine.com/cookie-policy",
+      "https://www.tabnine.com/install",
+      "https://www.tabnine.com/partners",
+      "https://www.tabnine.com/pricing",
+      "https://www.tabnine.com/privacy-policy",
+      "https://www.tabnine.com/terms-of-use"
+    ],
+    _processed: "auto"
   },
   Team8: {
     li: "https://www.linkedin.com/company/team8group",
@@ -611,11 +1194,20 @@ export const manualOverrides: Record<
     ],
     android_app_ids: ["com.eventcadence.team8"],
     alt: [
-      { n: "Rocket Internet", ws: "https://www.rocket-internet.com/" },
-      { n: "Atomico", ws: "https://www.atomico.com/" },
-      { n: "Balderton Capital", ws: "https://www.balderton.com/" }
+      { n: "Rocket Internet", ws: "https://www.rocket-internet.com" },
+      { n: "Atomico", ws: "https://www.atomico.com" },
+      { n: "Balderton Capital", ws: "https://www.balderton.com" }
     ],
     _processed: true
+  },
+  "Teva Pharmaceuticals": {
+    ws: ["https://www.tevapharm.com"],
+    li: ["https://www.linkedin.com/company/teva-pharmaceuticals"],
+    fb: ["https://www.facebook.com/tevapharm"],
+    tw: ["https://twitter.com/tevausa"],
+    ytp: ["https://www.youtube.com/c/tevapharm"],
+    urls: ["https://www.medis.is", "https://www.tapi.com"],
+    _processed: "auto"
   },
   "The Agro Exchange": { ws: "https://www.agrox.io" },
   ThetaRay: {
@@ -632,6 +1224,17 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Torii: {
+    ws: ["https://www.toriihq.com"],
+    li: ["https://www.linkedin.com/company/11298659"],
+    tw: ["https://twitter.com/torii_hq"],
+    urls: [
+      "https://app.toriihq.com/login",
+      "https://developers.toriihq.com/reference/introduction-1",
+      "https://support.toriihq.com"
+    ],
+    _processed: "auto"
+  },
   Torq: {
     fb: ["https://www.facebook.com/torqhq"],
     tw: ["https://x.com/torq_io"],
@@ -641,14 +1244,33 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@torq.io"],
     urls: ["https://job-boards.greenhouse.io/torq"],
     alt: [
-      { n: "Tines", ws: "https://www.tines.com/" },
-      { n: "D3 Security", ws: "https://d3security.com/" },
-      { n: "Swimlane", ws: "https://swimlane.com/" }
+      { n: "Tines", ws: "https://www.tines.com" },
+      { n: "D3 Security", ws: "https://d3security.com" },
+      { n: "Swimlane", ws: "https://swimlane.com" }
     ],
     _processed: true
   },
+  "Tower Semiconductor": {
+    ws: ["https://towersemi.com"],
+    li: ["https://www.linkedin.com/company/tower-semiconductor"],
+    fb: ["https://www.facebook.com/towersemi"],
+    ytc: ["https://www.youtube.com/channel/UCMuFZQ2f2DjFPfertm16gYg"],
+    urls: [
+      "https://careers.towerjazz.com",
+      "https://careers.towersemi.com",
+      "https://custom-sites.com",
+      "https://ir.towersemi.com",
+      "https://jp.towersemi.com",
+      "https://mp.weixin.qq.com/s/7zBZHhIXQHAGtJfzymMnlQ",
+      "https://portal-new.towersemi.com/login",
+      "https://portal-usa.towersemi.com",
+      "https://portal.towersemi.com",
+      "https://portal.towersemi.com/ebiz"
+    ],
+    _processed: "auto"
+  },
   Traceloop: {
-    ws: ["https://traceloop.com/"],
+    ws: ["https://traceloop.com"],
     li: ["https://www.linkedin.com/company/traceloop"],
     tw: ["https://twitter.com/traceloopdev"],
     gh: ["https://github.com/traceloop/hub", "https://github.com/traceloop/openllmetry"],
@@ -656,6 +1278,32 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "Tre Capital GP Ltd": { tw: [""] },
+  Trigo: {
+    ws: ["https://www.trigoretail.com"],
+    li: ["https://www.linkedin.com/company/trigoretail"],
+    ytp: ["https://www.youtube.com/c/Trigoretail"],
+    _processed: "auto"
+  },
+  "Triple Whale": {
+    ws: ["https://www.triplewhale.com"],
+    li: ["https://www.linkedin.com/company/triple-whale"],
+    tw: ["https://x.com/triplewhale"],
+    ytp: ["https://www.youtube.com/@TripleWhale"],
+    urls: [
+      "https://app.triplewhale.com/signin",
+      "https://app.triplewhale.com/signup-free",
+      "https://apps.apple.com/us/app/triplewhale/id1511861727",
+      "https://connect.triplewhale.com/agencies",
+      "https://connect.triplewhale.com/technology",
+      "https://elpatio.studio",
+      "https://kb.triplewhale.com",
+      "https://play.google.com/store/search",
+      "https://triplewhale.readme.io",
+      "https://www.g2.com/products/triple-whale/reviews",
+      "https://www.thewhalies.com"
+    ],
+    _processed: "auto"
+  },
   "VAST Data": {
     gh: ["https://github.com/vast-data"],
     ytp: ["https://www.youtube.com/vastdata", "https://www.youtube.com/@VASTData"],
@@ -666,9 +1314,18 @@ export const manualOverrides: Record<
     _processed: true
   },
   Veriti: {
-    ws: ["https://www.veriti.ai/"],
+    ws: ["https://www.veriti.ai"],
     li: ["https://www.linkedin.com/company/veriti-security"],
     tw: ["https://twitter.com/VERITISECURITY"],
+    _processed: "auto"
+  },
+  "WSC Sports": {
+    ws: ["https://wsc-sports.com"],
+    li: ["https://il.linkedin.com/company/wsc-sports-technologies"],
+    fb: ["https://www.facebook.com/WSC.SportsTechnologies"],
+    tw: ["https://twitter.com/WSC_Sports"],
+    ig: ["https://www.instagram.com/wsc_sports"],
+    ytp: ["https://www.youtube.com/@wsc-sports"],
     _processed: "auto"
   },
   Wix: {
@@ -704,11 +1361,18 @@ export const manualOverrides: Record<
       { n: "Sndian", ws: "https://sndian.com" },
       { n: "wuilt", ws: "https://wuilt.com" },
       { n: "JIMDO", ws: "https://www.jimdo.com" },
-      { n: "Webnode", ws: "https://www.webnode.com/" },
+      { n: "Webnode", ws: "https://www.webnode.com" },
       { n: "Tilda", ws: "https://tilda.cc" }
     ],
     android_dev_id: "com.wix",
     _processed: true
+  },
+  Wonderful: {
+    ws: ["https://www.wonderful.ai"],
+    li: ["https://www.linkedin.com/company/wonderfulcx"],
+    tw: ["https://x.com/wonderful_ai"],
+    urls: ["https://trust.wonderful.ai"],
+    _processed: "auto"
   },
   Zenity: {
     li: ["https://www.linkedin.com/company/zenitysec"],
@@ -719,7 +1383,7 @@ export const manualOverrides: Record<
     _processed: true
   },
   "Zero Networks": {
-    ws: ["https://zeronetworks.com/"],
+    ws: ["https://zeronetworks.com"],
     li: ["https://www.linkedin.com/company/zeronetworks"],
     fb: ["https://www.facebook.com/ZeroNetworksSec"],
     tw: ["https://x.com/zeronetworks"],
@@ -754,20 +1418,19 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.etoro",
     alt: [
-      { n: "Trading 212", ws: "https://www.trading212.com/" },
-      { n: "DEGIRO", ws: "https://www.degiro.eu/" },
-      { n: "IG Group", ws: "https://www.ig.com/" },
-      { n: "XTB", ws: "https://www.xtb.com/" },
-      { n: "Freedom24", ws: "https://freedom24.com/" },
-      { n: "Mubasher", ws: "https://english.mubasher.info/" },
-      { n: "AZAforex", ws: "https://www.azaforex.com/" }
+      { n: "Trading 212", ws: "https://www.trading212.com" },
+      { n: "DEGIRO", ws: "https://www.degiro.eu" },
+      { n: "IG Group", ws: "https://www.ig.com" },
+      { n: "XTB", ws: "https://www.xtb.com" },
+      { n: "Freedom24", ws: "https://freedom24.com" },
+      { n: "Mubasher", ws: "https://english.mubasher.info" },
+      { n: "AZAforex", ws: "https://www.azaforex.com" }
     ],
     _processed: true
   },
   groundcover: {
-    ws: ["https://www.groundcover.com/"],
+    ws: ["https://www.groundcover.com"],
     li: ["https://www.linkedin.com/company/groundcover-com"],
-    tw: ["https://twitter.com/en/privacy"],
     gh: ["https://github.com/groundcover-com"],
     ytp: ["https://www.youtube.com/@groundcover-com"],
     urls: [
@@ -781,7 +1444,7 @@ export const manualOverrides: Record<
   },
   "monday.com": {
     ws: ["https://monday.com", "https://www.mondayert.org", "https://www.workcanvas.com"],
-    li: ["https://www.linkedin.com/company/mondaydotcom/", "https://www.linkedin.com/company/2525169"],
+    li: ["https://www.linkedin.com/company/mondaydotcom", "https://www.linkedin.com/company/2525169"],
     tw: ["https://x.com/mondaydotcom", "https://x.com/mondaysupport"],
     ig: [
       "https://www.instagram.com/mondaydotcom",
@@ -816,13 +1479,12 @@ export const manualOverrides: Record<
     android_dev_id: "com.monday",
     android_app_ids: ["com.monday.elevate", "com.work_contacts.client", "ai.taka.app"],
     alt: [
-      { n: "Zoho Projects", ws: "https://www.zoho.com/projects/" },
-      { n: "OpenProject", ws: "https://www.openproject.org/" },
-      { n: "Wrike", ws: "https://www.wrike.com/" },
-      { n: "Teamwork", ws: "https://www.teamwork.com/" },
-      { n: "Basecamp", ws: "https://basecamp.com/" },
-      { n: "Quire", ws: "https://quire.io/" },
-      { n: "Bitrix24", ws: "https://www.bitrix24.com/" }
+      { n: "OpenProject", ws: "https://www.openproject.org" },
+      { n: "Wrike", ws: "https://www.wrike.com" },
+      { n: "Teamwork", ws: "https://www.teamwork.com" },
+      { n: "Basecamp", ws: "https://basecamp.com" },
+      { n: "Quire", ws: "https://quire.io" },
+      { n: "Bitrix24", ws: "https://www.bitrix24.com" }
     ],
     _processed: true
   }

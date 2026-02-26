@@ -274,6 +274,23 @@ describe("API_ENDPOINT_RULE_TWITTER", () => {
       testRule(rule, "https://twitter.com/privacy", false)
     })
 
+    it("should not match twitter.com/en/privacy (locale-prefixed privacy page)", () => {
+      testRule(rule, "https://twitter.com/en/privacy", false)
+    })
+
+    it("should not match twitter.com/tos", () => {
+      testRule(rule, "https://twitter.com/tos", false)
+    })
+
+    it("should not match x.com/en/tos", () => {
+      testRule(rule, "https://x.com/en/tos", false)
+    })
+
+    it("should not match individual tweet status URLs", () => {
+      testRule(rule, "https://x.com/cloudnativeboy/status/1876690302104436791", false)
+      testRule(rule, "https://twitter.com/someuser/status/1234567890", false)
+    })
+
     it("should not match other domains", () => {
       testRule(rule, "https://www.facebook.com/zuck", false)
     })
@@ -406,6 +423,74 @@ describe("API_ENDPOINT_RULE_GITHUB", () => {
 
     it("should not match gist.github.com (should be excluded by lookbehind)", () => {
       testRule(rule, "https://gist.github.com/username/abc123", false)
+    })
+
+    it("should not match github.com/marketplace (reserved GitHub path)", () => {
+      testRule(rule, "https://github.com/marketplace/qodo-merge-pro", false)
+    })
+
+    it("should not match github.com/marketplace root", () => {
+      testRule(rule, "https://github.com/marketplace", false)
+    })
+
+    it("should not match github.com/explore", () => {
+      testRule(rule, "https://github.com/explore", false)
+    })
+
+    it("should not match github.com/topics", () => {
+      testRule(rule, "https://github.com/topics/javascript", false)
+    })
+
+    it("should not match github.com/trending", () => {
+      testRule(rule, "https://github.com/trending", false)
+    })
+
+    it("should not match github.com/collections", () => {
+      testRule(rule, "https://github.com/collections", false)
+    })
+
+    it("should not match github.com/sponsors", () => {
+      testRule(rule, "https://github.com/sponsors/octocat", false)
+    })
+
+    it("should not match github.com/features", () => {
+      testRule(rule, "https://github.com/features/actions", false)
+    })
+
+    it("should not match github.com/enterprise", () => {
+      testRule(rule, "https://github.com/enterprise", false)
+    })
+
+    it("should not match github.com/pricing", () => {
+      testRule(rule, "https://github.com/pricing", false)
+    })
+
+    it("should not match github.com/about", () => {
+      testRule(rule, "https://github.com/about", false)
+    })
+
+    it("should not match github.com/login", () => {
+      testRule(rule, "https://github.com/login", false)
+    })
+
+    it("should not match github.com/signup", () => {
+      testRule(rule, "https://github.com/signup", false)
+    })
+
+    it("should not match github.com/new", () => {
+      testRule(rule, "https://github.com/new", false)
+    })
+
+    it("should not match github.com/organizations", () => {
+      testRule(rule, "https://github.com/organizations", false)
+    })
+
+    it("should not match github.com/notifications", () => {
+      testRule(rule, "https://github.com/notifications", false)
+    })
+
+    it("should not match github.com/codespaces", () => {
+      testRule(rule, "https://github.com/codespaces", false)
     })
   })
 })
@@ -884,6 +969,26 @@ describe("API_ENDPOINT_RULE_TIKTOK", () => {
       testRule(rule, "https://www.tiktok.com/upload", false)
     })
 
+    it("should not match tiktok.com/legal/privacy-policy", () => {
+      testRule(rule, "https://www.tiktok.com/legal/privacy-policy", false)
+    })
+
+    it("should not match tiktok.com/legal/terms-of-service", () => {
+      testRule(rule, "https://www.tiktok.com/legal/terms-of-service", false)
+    })
+
+    it("should not match tiktok.com/about", () => {
+      testRule(rule, "https://www.tiktok.com/about", false)
+    })
+
+    it("should not match tiktok.com/transparency", () => {
+      testRule(rule, "https://www.tiktok.com/transparency", false)
+    })
+
+    it("should not match tiktok.com/community-guidelines", () => {
+      testRule(rule, "https://www.tiktok.com/community-guidelines", false)
+    })
+
     it("should not match other domains", () => {
       testRule(rule, "https://www.instagram.com/charlidamelio", false)
     })
@@ -934,6 +1039,14 @@ describe("API_ENDPOINT_RULE_THREADS", () => {
 
     it("should not match threads.com/settings", () => {
       testRule(rule, "https://www.threads.com/settings", false)
+    })
+
+    it("should not match threads.com/legal/privacy-policy", () => {
+      testRule(rule, "https://www.threads.com/legal/privacy-policy", false)
+    })
+
+    it("should not match threads.com/about", () => {
+      testRule(rule, "https://www.threads.com/about", false)
     })
 
     it("should not match other domains", () => {

@@ -28,7 +28,7 @@ import {
 import { isFromRegexDomain } from "../validate/url_categorization"
 import { chatCompletion } from "./ai_client"
 import type { CompanyLogger } from "./company_logger"
-import type { LinkExtractionResult } from "./link_extractor"
+import { getOrCreateBrowser, type LinkExtractionResult } from "./link_extractor"
 
 /** Categorized output: links grouped by platform */
 export type CategorizedLinks = {
@@ -193,6 +193,98 @@ const cleanUrlForStorage = (url: string): string => {
     return `${parsed.origin}${parsed.pathname}`.replace(/\/+$/, "")
   } catch {
     return url
+  }
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Redirect resolution for non-standard social URLs
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Patterns on social-platform domains that are known to redirect to a canonical
+ * profile URL.  Only these are worth the cost of a Playwright navigation.
+ *
+ * - facebook.com/people/Name/ID  → canonical page
+ * - facebook.com/profile.php?id= → canonical page
+ * - facebook.com/pages/...       → canonical page
+ */
+const RESOLVABLE_SOCIAL_PATTERNS: RegExp[] = [
+  /facebook\.com\/people\//i,
+  /facebook\.com\/profile\.php\?/i,
+  /facebook\.com\/pages\//i
+]
+
+/**
+ * Attempts to resolve a non-standard social-platform URL by following redirects
+ * using the shared Playwright browser.
+ *
+ * Only tries for URL patterns that are known to redirect to canonical profile pages
+ * (e.g., facebook.com/people/..., facebook.com/profile.php?id=...).
+ * For all other regex-domain URLs (privacy pages, legal pages, etc.) returns null
+ * immediately — no network round-trip.
+ *
+ * Returns the resolved canonical URL if the redirect succeeded and the final URL
+ * differs from the input, or null if resolution was not attempted / failed.
+ */
+const resolveRedirectForRegexDomain = async (
+  url: string,
+  logger: CompanyLogger
+): Promise<string | null> => {
+  // Only attempt for known resolvable patterns
+  const isResolvable = RESOLVABLE_SOCIAL_PATTERNS.some((pattern) => pattern.test(url))
+  if (!isResolvable) return null
+
+  let context
+  let page
+  try {
+    const browser = await getOrCreateBrowser()
+    context = await browser.newContext({
+      userAgent:
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    })
+    page = await context.newPage()
+
+    const response = await page.goto(url, {
+      waitUntil: "domcontentloaded",
+      timeout: 15_000
+    })
+
+    if (!response) {
+      logger.log(`  RESOLVE: no response for ${url}`)
+      return null
+    }
+
+    const status = response.status()
+    if (status >= 400) {
+      logger.log(`  RESOLVE: HTTP ${status} for ${url}`)
+      return null
+    }
+
+    const finalUrl = page.url().replace(/\/+$/, "")
+    const inputNormalized = url.replace(/\/+$/, "")
+
+    // Check the redirect actually changed the URL to something useful
+    if (finalUrl.toLowerCase() === inputNormalized.toLowerCase()) {
+      logger.log(`  RESOLVE: no redirect for ${url}`)
+      return null
+    }
+
+    // Reject login / error pages that some platforms redirect to
+    const finalPath = new URL(finalUrl).pathname.toLowerCase()
+    if (/\/(login|signin|auth|error|checkpoint|recover)/.test(finalPath)) {
+      logger.log(`  RESOLVE: redirected to login/error page: ${finalUrl}`)
+      return null
+    }
+
+    logger.log(`  RESOLVE: ${url} → ${finalUrl}`)
+    return finalUrl
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
+    logger.log(`  RESOLVE: failed for ${url}: ${msg}`)
+    return null
+  } finally {
+    if (page) await page.close().catch(() => {})
+    if (context) await context.close().catch(() => {})
   }
 }
 
@@ -470,6 +562,7 @@ export const categorizeLinks = async (
   }
 
   logger.log(`── Step 1: Programmatic categorization ──`)
+  const linksToResolve: string[] = [] // regex-domain URLs that might resolve via redirect
   for (const link of externalLinks) {
     // Check for Android app IDs first — don't duplicate into urls
     const androidAppId = extractAndroidAppId(link)
@@ -494,11 +587,32 @@ export const categorizeLinks = async (
     } else if (isFromRegexDomain(link)) {
       // URL is from a domain with regex rules (e.g., linkedin.com, facebook.com) but didn't
       // match the regex — it's a platform page (privacy policy, help, etc.), not a company profile.
-      // Drop it silently instead of polluting the urls array.
-      logger.log(`  SKIP (regex domain, no match): ${link}`)
+      // Queue for redirect resolution if it matches a resolvable pattern; otherwise drop.
+      linksToResolve.push(link)
     } else {
       uncategorizedLinks.push(link)
       logger.log(`  UNCATEGORIZED: ${link}`)
+    }
+  }
+
+  // ── Step 1b: Resolve non-standard social URLs via redirect ──
+  // Some social platform URLs use non-canonical formats (e.g., facebook.com/people/Name/ID)
+  // that don't match our regex. We follow the redirect to get the canonical URL.
+  if (linksToResolve.length > 0) {
+    logger.log(`── Step 1b: Resolving ${linksToResolve.length} regex-domain URLs via redirect ──`)
+    for (const link of linksToResolve) {
+      const resolved = await resolveRedirectForRegexDomain(link, logger)
+      if (resolved) {
+        const resolvedCategory = categorizeUrlProgrammatic(resolved)
+        if (resolvedCategory && resolvedCategory !== "il") {
+          const added = addToResult(resolvedCategory, resolved)
+          logger.log(`  RESOLVED: ${resolvedCategory} <- ${resolved} (from ${link})${added ? "" : " (duplicate)"}`)
+        } else {
+          logger.log(`  SKIP (resolved but still no regex match): ${resolved} (from ${link})`)
+        }
+      } else {
+        logger.log(`  SKIP (regex domain, no match): ${link}`)
+      }
     }
   }
 
@@ -562,8 +676,21 @@ export const categorizeLinks = async (
         const added = addToResult(category, link)
         logger.log(`  AI→REGEX: ${category} <- ${link}${added ? "" : " (duplicate, skipped)"}`)
       } else if (isFromRegexDomain(link)) {
-        // URL is from a domain with regex rules but didn't match — drop it
-        logger.log(`  AI→SKIP (regex domain, no match): ${link}`)
+        // URL is from a domain with regex rules but didn't match — try redirect resolution
+        const resolved = await resolveRedirectForRegexDomain(link, logger)
+        if (resolved) {
+          const resolvedCategory = categorizeUrlProgrammatic(resolved)
+          if (resolvedCategory && resolvedCategory !== "il") {
+            const added = addToResult(resolvedCategory, resolved)
+            logger.log(
+              `  AI→RESOLVED: ${resolvedCategory} <- ${resolved} (from ${link})${added ? "" : " (duplicate)"}`
+            )
+          } else {
+            logger.log(`  AI→SKIP (resolved but still no regex match): ${resolved} (from ${link})`)
+          }
+        } else {
+          logger.log(`  AI→SKIP (regex domain, no match): ${link}`)
+        }
       } else {
         // Not a recognized social platform — add to urls
         const cleaned = cleanUrlForStorage(link)

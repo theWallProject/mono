@@ -367,9 +367,10 @@ const loadJsonFiles = async (folderPath: string) => {
 
               additionalItems.push(newItem)
               log(`Created new entry: ${newId} for ${field}: ${url}`)
-            } catch (e) {
-              error(`Failed to extract identifier from ${url} for ${row.name}: ${e}`)
-              throw e
+            } catch {
+              // URL doesn't match expected pattern for this link field (e.g. github.com/marketplace/* in gh field)
+              // Skip it gracefully — these URLs are tracked but not extractable as selectors
+              log(`⚠️ Skipping non-extractable ${field} URL for ${row.name}: ${url}`)
             }
           }
         } else if (typeof overrideValue === "string") {

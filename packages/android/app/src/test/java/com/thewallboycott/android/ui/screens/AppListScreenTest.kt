@@ -1,6 +1,5 @@
 package com.thewallboycott.android.ui.screens
 
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -17,6 +16,7 @@ import com.thewallboycott.android.data.OfferPreferences
 import com.thewallboycott.android.data.PackageScanner
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.data.models.Alternative
+import com.thewallboycott.android.testutil.FakePackages
 import com.thewallboycott.android.testutil.TestDevices
 import com.thewallboycott.android.ui.AppScaffold
 import com.thewallboycott.android.ui.theme.TheWallBoycottAssistantTheme
@@ -50,7 +50,7 @@ class AppListScreenTest {
     // ==================== Test Data ====================
 
     private val fakeIsraeliApp = AllItem(
-        id = "test_wix",
+        id = "wix",
         r = listOf("h"),
         n = "Wix",
         ws = "wix.com",
@@ -62,32 +62,21 @@ class AppListScreenTest {
     )
 
     private val fakeBdsApp = AllItem(
-        id = "test_bds",
-        r = listOf("BDS_PRIO"),
-        n = "BDS Target Corp",
-        androidAppIds = listOf("com.bdstarget.app")
+        id = "manual_ws_booking_com",
+        r = listOf("BDS_PRESSURE"),
+        n = "Booking",
+        androidAppIds = listOf("com.booking")
     )
 
     private val fakeHintApp = AllItem(
-        id = "test_hint",
+        id = "hint_ws_CNN_0",
         r = emptyList(),
-        n = "News App",
+        n = "CNN",
         isHint = true,
-        hintText = "Try Newscord for less biased news",
-        hintAndroidId = "com.newscord.app",
-        androidAppIds = listOf("com.newsapp.main")
+        hintText = "Hey, CNN is biased. Use Newscord for more balanced news.",
+        hintAndroidId = "com.newscord.newscord",
+        androidAppIds = listOf("com.cnn.mobile.android.phone")
     )
-
-    private fun fakePackage(packageName: String, label: String): PackageInfo {
-        return PackageInfo().apply {
-            this.packageName = packageName
-            applicationInfo = ApplicationInfo().apply {
-                this.flags = 0
-                // Note: loadLabel() won't return the custom label in Robolectric
-                // unless we use ShadowPackageManager. For screenshots, the package name is shown.
-            }
-        }
-    }
 
     private fun createViewModel(
         dbItems: List<AllItem>,
@@ -109,8 +98,8 @@ class AppListScreenTest {
         val viewModel = createViewModel(
             dbItems = emptyList(),
             installedPackages = listOf(
-                fakePackage("com.safe.app1", "Safe App 1"),
-                fakePackage("com.safe.app2", "Safe App 2")
+                FakePackages.safeApp1(),
+                FakePackages.safeApp2()
             )
         )
 
@@ -146,8 +135,8 @@ class AppListScreenTest {
         val viewModel = createViewModel(
             dbItems = emptyList(),
             installedPackages = listOf(
-                fakePackage("com.safe.app1", "Safe App 1"),
-                fakePackage("com.safe.app2", "Safe App 2")
+                FakePackages.safeApp1(),
+                FakePackages.safeApp2()
             )
         )
 
@@ -183,9 +172,9 @@ class AppListScreenTest {
         val viewModel = createViewModel(
             dbItems = listOf(fakeIsraeliApp, fakeBdsApp),
             installedPackages = listOf(
-                fakePackage("com.wix.android", "Wix"),
-                fakePackage("com.bdstarget.app", "BDS Target"),
-                fakePackage("com.safe.app", "Safe App")
+                FakePackages.wix(),
+                FakePackages.booking(),
+                FakePackages.safeApp()
             )
         )
 
@@ -222,10 +211,10 @@ class AppListScreenTest {
         val viewModel = createViewModel(
             dbItems = listOf(fakeIsraeliApp, fakeBdsApp, fakeHintApp),
             installedPackages = listOf(
-                fakePackage("com.wix.android", "Wix"),
-                fakePackage("com.bdstarget.app", "BDS Target"),
-                fakePackage("com.newsapp.main", "News App"),
-                fakePackage("com.safe.app", "Safe App")
+                FakePackages.wix(),
+                FakePackages.booking(),
+                FakePackages.cnn(),
+                FakePackages.safeApp()
             )
         )
 
@@ -273,7 +262,7 @@ class AppListScreenTest {
         val viewModel = createViewModel(
             dbItems = emptyList(),
             installedPackages = listOf(
-                fakePackage("com.safe.app1", "Safe App 1")
+                FakePackages.safeApp1()
             )
         )
 
@@ -323,8 +312,8 @@ class AppListScreenTest {
         val viewModel = createViewModel(
             dbItems = listOf(appWithAlternatives),
             installedPackages = listOf(
-                fakePackage("com.wix.android", "Wix"),
-                fakePackage("com.safe.app", "Safe App")
+                FakePackages.wix(),
+                FakePackages.safeApp()
             )
         )
 
