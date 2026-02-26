@@ -1,6 +1,5 @@
 package com.thewallboycott.android.screenshots
 
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -17,6 +16,7 @@ import com.thewallboycott.android.data.DatabaseProvider
 import com.thewallboycott.android.data.PackageScanner
 import com.thewallboycott.android.data.models.AllItem
 import com.thewallboycott.android.data.models.Alternative
+import com.thewallboycott.android.testutil.FakePackages
 import com.thewallboycott.android.testutil.TestDevices
 import com.thewallboycott.android.ui.AppScaffold
 import com.thewallboycott.android.ui.screens.AppListScreen
@@ -94,7 +94,7 @@ class FastlaneScreenshotTest {
     // ==================== Test Data ====================
 
     private val fakeIsraeliApp = AllItem(
-        id = "test_wix",
+        id = "wix",
         r = listOf("h"),
         n = "Wix",
         ws = "wix.com",
@@ -106,31 +106,37 @@ class FastlaneScreenshotTest {
     )
 
     private val fakeBdsApp = AllItem(
-        id = "test_bds",
-        r = listOf("BDS_PRIO"),
-        n = "SodaStream",
-        androidAppIds = listOf("com.sodastream.app")
+        id = "manual_ws_booking_com",
+        r = listOf("BDS_PRESSURE"),
+        n = "Booking",
+        androidAppIds = listOf("com.booking")
     )
 
     private val fakeHintApp = AllItem(
-        id = "test_hint",
+        id = "hint_ws_CNN_0",
         r = emptyList(),
-        n = "News Reader",
+        n = "CNN",
         isHint = true,
-        hintText = "Try Newscord for less biased news",
-        hintAndroidId = "com.newscord.app",
-        androidAppIds = listOf("com.newsreader.app")
+        hintText = "Hey, CNN is biased. Use Newscord for more balanced news.",
+        hintAndroidId = "com.newscord.newscord",
+        androidAppIds = listOf("com.cnn.mobile.android.phone")
     )
 
-    private fun fakePackage(packageName: String): PackageInfo {
-        return PackageInfo().apply {
-            this.packageName = packageName
-            applicationInfo = ApplicationInfo().apply {
-                this.packageName = packageName
-                this.flags = 0
-            }
-        }
-    }
+    /**
+     * Creates fake installed packages with realistic names and colored-letter icons.
+     * Must be called inside each test method (after Robolectric is initialized).
+     */
+    private fun createFlaggedPackages(): List<PackageInfo> = listOf(
+        FakePackages.wix(),
+        FakePackages.booking(),
+        FakePackages.cnn(),
+        FakePackages.safeApp()
+    )
+
+    private fun createCleanPackages(): List<PackageInfo> = listOf(
+        FakePackages.safeApp1(),
+        FakePackages.safeApp2()
+    )
 
     private fun createViewModel(
         dbItems: List<AllItem>,
@@ -202,14 +208,10 @@ class FastlaneScreenshotTest {
         for (language in SupportedLanguage.entries) {
             for (device in DEVICES) {
                 applyQualifiers(device, language)
+                val installedPackages = createFlaggedPackages()
                 val viewModel = createViewModel(
                     dbItems = listOf(fakeIsraeliApp, fakeBdsApp, fakeHintApp),
-                    installedPackages = listOf(
-                        fakePackage("com.wix.android"),
-                        fakePackage("com.sodastream.app"),
-                        fakePackage("com.newsreader.app"),
-                        fakePackage("com.safe.app")
-                    )
+                    installedPackages = installedPackages
                 )
                 composeTestRule.setContent {
                     TheWallBoycottAssistantTheme {
@@ -269,9 +271,10 @@ class FastlaneScreenshotTest {
         for (language in SupportedLanguage.entries) {
             for (device in DEVICES) {
                 applyQualifiers(device, language)
+                val installedPackages = createCleanPackages()
                 val viewModel = createViewModel(
                     dbItems = emptyList(),
-                    installedPackages = listOf(fakePackage("com.safe.app1"), fakePackage("com.safe.app2"))
+                    installedPackages = installedPackages
                 )
                 composeTestRule.setContent {
                     TheWallBoycottAssistantTheme {

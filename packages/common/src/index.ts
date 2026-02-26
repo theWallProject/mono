@@ -224,7 +224,8 @@ export const API_ENDPOINT_RULE_FACEBOOK = {
  */
 export const API_ENDPOINT_RULE_TWITTER = {
   domain: "twitter.com",
-  regex: "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings|privacy)([^/?]+)"
+  regex:
+    "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings|privacy|tos|en/)(?![^/?]+/status/)([^/?]+)"
 } as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_INSTAGRAM = {
@@ -232,9 +233,11 @@ export const API_ENDPOINT_RULE_INSTAGRAM = {
   regex: "(?:instagram\\.com)/(?!explore|reels|p/|stories|tv/|direct|accounts)([^/?]+)"
 } as const satisfies APIEndpointRule
 
+// TODO: Support GitHub marketplace URLs (github.com/marketplace/*) as a dedicated link field for tracking extensions/apps
 export const API_ENDPOINT_RULE_GITHUB = {
   domain: "github.com",
-  regex: "(?<!gist\\.)(?:github\\.com)/(?!settings|.*/(?:issues|pull|releases|actions|security))([^/]+)"
+  regex:
+    "(?<!gist\\.)(?:github\\.com)/(?!settings|marketplace|explore|topics|trending|collections|sponsors|features|enterprise|pricing|about|login|signup|new|organizations|notifications|codespaces|.*/(?:issues|pull|releases|actions|security))([^/]+)"
 } as const satisfies APIEndpointRule // Captures userid only: github.com/userid/repoid → userid
 
 /**
@@ -264,12 +267,14 @@ export const API_ENDPOINT_RULE_YOUTUBE_CHANNEL = {
 
 export const API_ENDPOINT_RULE_TIKTOK = {
   domain: "tiktok.com",
-  regex: "(?:tiktok\\.com)/(?!.*/video/|discover|foryou|trending|music|upload)([^/?]+)"
+  regex:
+    "(?:tiktok\\.com)/(?!.*/video/|discover|foryou|trending|music|upload|legal|about|contact|help|developers|transparency|community-guidelines|embed|login|signup)([^/?]+)"
 } as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_THREADS = {
   domain: "threads.com",
-  regex: "(?:threads\\.com)/(?!.*/post/|search|explore|activity|settings)([^/?]+)"
+  regex:
+    "(?:threads\\.com)/(?!.*/post/|search|explore|activity|settings|legal|about|contact|help|login|signup)([^/?]+)"
 } as const satisfies APIEndpointRule
 
 export const CONFIG: APIEndpointConfig = {
