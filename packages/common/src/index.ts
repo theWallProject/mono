@@ -315,6 +315,39 @@ export function getMainDomain(url: string) {
 }
 
 /**
+ * Extracts the registered domain (eTLD+1) from a URL.
+ * Unlike getMainDomain which returns the full hostname minus www,
+ * this returns just the registered domain portion.
+ *
+ * Examples:
+ *   "https://cc.catonetworks.com" → "catonetworks.com"
+ *   "https://blog.example.co.uk" → "example.co.uk"
+ *   "https://www.example.com"    → "example.com"
+ *
+ * Useful for comparing whether two URLs belong to the same organization
+ * (e.g., treating subdomains as internal links).
+ */
+export function getRegisteredDomain(url: string): string {
+  try {
+    const urlWithProtocol = url.startsWith("http://") || url.startsWith("https://") ? url : `https://${url}`
+    const { hostname } = new URL(urlWithProtocol)
+    const parsed = parse(hostname)
+
+    if (parsed.domain) {
+      return parsed.domain
+    }
+    // Fallback: if tldts can't determine the registered domain (e.g., localhost),
+    // return the hostname without www
+    if (parsed.hostname) {
+      return parsed.hostname.replace("www.", "")
+    }
+    return ""
+  } catch {
+    return ""
+  }
+}
+
+/**
  * Normalizes a URL by removing www. prefix for regex matching.
  * Pure function with no side effects.
  */

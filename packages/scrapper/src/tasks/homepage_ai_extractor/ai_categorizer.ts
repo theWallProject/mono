@@ -21,7 +21,7 @@ import {
   API_ENDPOINT_RULE_TWITTER,
   API_ENDPOINT_RULE_YOUTUBE_CHANNEL,
   API_ENDPOINT_RULE_YOUTUBE_PROFILE,
-  getMainDomain,
+  getRegisteredDomain,
   type LinkField
 } from "@theWallProject/common"
 
@@ -59,7 +59,10 @@ const NOISE_PATTERNS = [
   /\.(?:pdf|doc|docx|xls|xlsx|pptx?|zip|tar|gz|rar)(?:\?|$)/i,
   /\.(?:mp3|mp4|webm|ogg|wav|avi|mov|flv|wmv)(?:\?|$)/i,
   // Search result pages
-  /^#/
+  /^#/,
+  // JavaScript code fragments that were incorrectly resolved as URLs
+  // (e.g., "cookiebot.show()", "void(0)", "return false;")
+  /[(){};<>`]/
 ]
 
 /**
@@ -133,14 +136,14 @@ const categorizeUrlProgrammatic = (url: string): LinkField | null => {
 
 /**
  * Filters out internal links (links pointing to the same domain or subdomains of the homepage).
- * Uses tldts (via getMainDomain) to compare registered domains, so blog.example.com is
+ * Uses tldts (via getRegisteredDomain) to compare registered domains, so blog.example.com is
  * treated as internal when the homepage is example.com.
  */
 const filterInternalLinks = (links: string[], homepageDomain: string): string[] => {
-  const baseDomain = getMainDomain(homepageDomain)
+  const baseDomain = getRegisteredDomain(homepageDomain)
   return links.filter((link) => {
     try {
-      const linkBaseDomain = getMainDomain(link)
+      const linkBaseDomain = getRegisteredDomain(link)
       return linkBaseDomain !== baseDomain
     } catch {
       return false
@@ -506,15 +509,15 @@ export const categorizeLinks = async (
   }
 
   // Collect subdomains of the main website into ws (e.g., blog.example.com, docs.example.com)
-  const baseDomain = getMainDomain(extraction.finalUrl) // e.g., "example.com"
-  if (baseDomain) {
+  const registeredDomain = getRegisteredDomain(extraction.finalUrl) // e.g., "catonetworks.com"
+  if (registeredDomain) {
     const wsArray = result.ws // guaranteed non-null (set above)
     const seenSubdomains = new Set<string>([homepageDomain.toLowerCase()])
     for (const link of extraction.allLinks) {
       try {
         const linkHostname = new URL(link).hostname.replace(/^www\./, "").toLowerCase()
         // Same registered domain but different hostname = subdomain
-        if (linkHostname !== homepageDomain.toLowerCase() && getMainDomain(link) === baseDomain) {
+        if (linkHostname !== homepageDomain.toLowerCase() && getRegisteredDomain(link) === registeredDomain) {
           if (!seenSubdomains.has(linkHostname)) {
             seenSubdomains.add(linkHostname)
             const subdomainUrl = `https://${linkHostname}`

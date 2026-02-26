@@ -12,6 +12,7 @@ import { run as mergeCB } from "./tasks/merge_cb"
 import { run as mergeStatic } from "./tasks/merge_static"
 import { run as scrap } from "./tasks/scrap"
 import { run as validate } from "./tasks/validate"
+import { validateUrlsField } from "./tasks/validate_urls_field"
 
 // Only register error handlers when this file is executed directly (not imported)
 if (require.main === module) {
@@ -75,6 +76,15 @@ export const runUpdateSteps = async (options?: { shouldScrap?: boolean; shouldVa
   await alternativesReport()
 
   // Note: ALL.json is now automatically copied to all destinations in final.ts
+
+  log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 11: Validating urls fields against API endpoint regexes...")
+  const urlFieldViolations = validateUrlsField()
+  if (urlFieldViolations.length > 0) {
+    throw new Error(
+      `Found ${urlFieldViolations.length} misplaced URL(s) in urls fields. ` +
+        "See errors above. Move them to proper link fields or update the regex to exclude them."
+    )
+  }
 
   if (opts.shouldValidate) {
     log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Step 12: Validating URLs...")

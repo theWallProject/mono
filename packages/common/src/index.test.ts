@@ -14,6 +14,7 @@ import {
   findInDatabaseByDomain,
   findInDatabaseBySelector,
   getMainDomain,
+  getRegisteredDomain,
   type FinalDBFileType
 } from "./index"
 
@@ -1110,6 +1111,35 @@ describe("getMainDomain", () => {
     expect(getMainDomain("https://blog.example.com")).toBe("blog.example.com")
     expect(getMainDomain("https://api.github.com")).toBe("api.github.com")
     expect(getMainDomain("https://subdomain.example.co.uk")).toBe("subdomain.example.co.uk")
+  })
+})
+
+describe("getRegisteredDomain", () => {
+  it("should return the registered domain (eTLD+1) stripping subdomains", () => {
+    expect(getRegisteredDomain("https://cc.catonetworks.com")).toBe("catonetworks.com")
+    expect(getRegisteredDomain("https://cc2.catonetworks.com/login")).toBe("catonetworks.com")
+    expect(getRegisteredDomain("https://connect.catonetworks.com")).toBe("catonetworks.com")
+    expect(getRegisteredDomain("https://partners.catonetworks.com")).toBe("catonetworks.com")
+  })
+
+  it("should return the registered domain for base domains", () => {
+    expect(getRegisteredDomain("https://catonetworks.com")).toBe("catonetworks.com")
+    expect(getRegisteredDomain("https://www.catonetworks.com")).toBe("catonetworks.com")
+    expect(getRegisteredDomain("catonetworks.com")).toBe("catonetworks.com")
+  })
+
+  it("should handle country code TLDs", () => {
+    expect(getRegisteredDomain("https://subdomain.example.co.uk")).toBe("example.co.uk")
+    expect(getRegisteredDomain("https://www.example.co.uk")).toBe("example.co.uk")
+  })
+
+  it("should handle URLs without protocol", () => {
+    expect(getRegisteredDomain("blog.example.com")).toBe("example.com")
+    expect(getRegisteredDomain("careers.wix.com/test")).toBe("wix.com")
+  })
+
+  it("should return empty string for invalid input", () => {
+    expect(getRegisteredDomain("")).toBe("")
   })
 })
 
