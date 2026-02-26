@@ -153,6 +153,12 @@ const resolveUrl = (href: string, baseUrl: string): string | null => {
     if (trimmed.toLowerCase().startsWith(scheme)) return null
   }
 
+  // Reject href values that contain characters indicating JavaScript code or invalid URLs.
+  // Parentheses, curly braces, semicolons, and similar characters appear in inline JS
+  // snippets (e.g., "cookiebot.show()", "void(0)", "return false;") that the URL
+  // constructor would wrongly resolve as relative paths.
+  if (/[(){};<>`]/.test(trimmed)) return null
+
   try {
     const resolved = new URL(trimmed, baseUrl)
     // Only keep http/https URLs

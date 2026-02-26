@@ -54,6 +54,19 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/developer/aidoc-medical-ltd/id1459219008"],
     _processed: true
   },
+  "Aim Security": {
+    ws: [
+      "https://www.catonetworks.com",
+      "https://cc.catonetworks.com",
+      "https://cc2.catonetworks.com",
+      "https://connect.catonetworks.com",
+      "https://partners.catonetworks.com"
+    ],
+    li: ["https://www.linkedin.com/company/cato-networks"],
+    fb: ["https://www.facebook.com/CatoNetworks"],
+    tw: ["https://twitter.com/CatoNetworks"],
+    _processed: "auto"
+  },
   "Alpha Tau Medical": {
     ws: ["https://www.alphatau.com"],
     li: ["https://www.linkedin.com/company/10538741"],
@@ -113,6 +126,29 @@ export const manualOverrides: Record<
       "https://zapier.com/apps/atera-1/integrations"
     ],
     android_app_ids: ["com.atera.ateramobileapp"],
+    _processed: "auto"
+  },
+  "Aurora Labs": {
+    ws: ["https://www.auroralabs.com"],
+    li: ["https://www.linkedin.com/company/auroralabs"],
+    fb: ["https://www.facebook.com/TheAuroraLabs"],
+    tw: ["https://x.com/TheAuroraLabs"],
+    gh: ["https://github.com/auroralabs-loci"],
+    urls: [
+      "https://www.auroralabs.com/about-us",
+      "https://www.auroralabs.com/awards",
+      "https://www.auroralabs.com/blog",
+      "https://www.auroralabs.com/brochures-papers",
+      "https://www.auroralabs.com/careers",
+      "https://www.auroralabs.com/contact",
+      "https://www.auroralabs.com/events",
+      "https://www.auroralabs.com/knowledge-center",
+      "https://www.auroralabs.com/news-articles",
+      "https://www.auroralabs.com/our-team",
+      "https://www.auroralabs.com/privacy-policy",
+      "https://www.auroralabs.com/terms",
+      "https://www.auroralabs.com/videos"
+    ],
     _processed: "auto"
   },
   Balance: {
@@ -175,7 +211,12 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Cellebrite: {
-    li: ["https://www.linkedin.com/company/cellebrite", "http://www.linkedin.com/company/100045"],
+    li: [
+      "https://www.linkedin.com/company/cellebrite",
+      "http://www.linkedin.com/company/100045",
+      "https://www.linkedin.com/showcase/cellebrite-careers",
+      "https://www.linkedin.com/showcase/cellebrite-enterprise-solutions"
+    ],
     fb: ["https://www.facebook.com/cellebritedigitalintelligence"],
     ytp: [
       "https://www.youtube.com/@cellebrite",
@@ -190,8 +231,6 @@ export const manualOverrides: Record<
       "https://www.facebook.com/groups/1143744623008587",
       "https://www.facebook.com/groups/571246666951707",
       "https://www.facebook.com/groups/746270377207022",
-      "https://www.linkedin.com/showcase/cellebrite-careers",
-      "https://www.linkedin.com/showcase/cellebrite-enterprise-solutions",
       "https://cellebrite.my.site.com"
     ],
     _processed: true
@@ -276,6 +315,13 @@ export const manualOverrides: Record<
       "https://www.elastic.co/docs/reference/integrations/cyera"
     ],
     _processed: true
+  },
+  Cymulate: {
+    ws: ["https://cymulate.com", "https://app.cymulate.com", "https://partner.cymulate.com"],
+    li: ["https://www.linkedin.com/company/cymulate"],
+    ig: ["https://www.instagram.com/cymulate"],
+    ytp: ["https://www.youtube.com/@cymulateltd"],
+    _processed: "auto"
   },
   Cynomi: {
     ws: ["https://cynomi.com"],
@@ -363,6 +409,20 @@ export const manualOverrides: Record<
   "Dream Security": {
     ws: ["https://dreamgroup.com"],
     li: ["https://www.linkedin.com/company/dreamsecurity"],
+    _processed: "auto"
+  },
+  DriveNets: {
+    ws: [
+      "https://drivenets.com",
+      "https://docs.drivenets.com",
+      "https://get.drivenets.com",
+      "https://japan.drivenets.com"
+    ],
+    li: ["https://www.linkedin.com/company/drivenets"],
+    fb: ["https://www.facebook.com/drivenets"],
+    tw: ["https://twitter.com/drivenets"],
+    ytc: ["https://www.youtube.com/channel/UCCZNSjVqjAT_3f5MjzUZJ7A"],
+    urls: ["https://medium.com/dn-techbites"],
     _processed: "auto"
   },
   Earnix: {
@@ -470,6 +530,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Firefly Neuroscience": {
+    ws: ["https://fireflyneuro.com/"],
+    li: ["https://ca.linkedin.com/company/fireflyneuroscience"],
+    tw: ["https://twitter.com/whatsyourbna"],
+    urls: ["http://investors.fireflyneuro.com", "https://operaticagency.com", "https://www.mybna.com"],
+    _processed: "auto"
+  },
   Fiverr: {
     ws: ["https://www.fiverr.com", "https://www.clearvoice.com", "https://www.autods.com"],
     li: [
@@ -574,7 +641,31 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/InnovizLiDAR"],
     ytc: ["https://www.youtube.com/channel/UCVc1KFsu2eb20M8pKFwGiFQ"],
     ytp: ["https://www.youtube.com/@innoviztechnologies3315"],
-    urls: ["https://twitter.com/KeilafOmer"],
+
+    _processed: "auto"
+  },
+  "Inspira Technologies": {
+    ws: ["https://inspira-technologies.com/"],
+    li: ["https://www.linkedin.com/company/18356393"],
+    fb: ["https://www.facebook.com/InspiraTechnologiesO2"],
+    tw: ["https://twitter.com/InspiraTechnol1"],
+    urls: [
+      "https://inspira-technologies.com/about",
+      "https://inspira-technologies.com/art",
+      "https://inspira-technologies.com/careers",
+      "https://inspira-technologies.com/hyla",
+      "https://inspira-technologies.com/inspira-art100",
+      "https://inspira-technologies.com/investor-relations",
+      "https://inspira-technologies.com/news",
+      "https://inspira-technologies.com/qms",
+      "https://inspira-technologies.com/wp-content/uploads/2021/10/Code-of-Business-Ethics.pdf",
+      "https://inspira-technologies.com/wp-content/uploads/2021/10/Privacy-Policy.pdf",
+      "https://inspira-technologies.com/wp-content/uploads/2021/10/Terms-of-Use.pdf",
+      "https://inspira-technologies.com/wp-content/uploads/2025/01/Inspira-Investor-Presentation-IINN_November-2024_Final-filed.pdf",
+      "https://policies.google.com/privacy",
+      "https://policies.google.com/terms",
+      "https://www.pearlcom.co.il"
+    ],
     _processed: "auto"
   },
   "Israel Innovation Authority": {
@@ -861,6 +952,20 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  OurCrowd: {
+    ws: [
+      "https://www.ourcrowd.com",
+      "https://events.ourcrowd.com",
+      "https://info.ourcrowd.com",
+      "https://summit.ourcrowd.com"
+    ],
+    li: ["https://www.linkedin.com/company/ourcrowd-llc"],
+    fb: ["https://www.facebook.com/Ourcrowdfund"],
+    tw: ["https://twitter.com/ourcrowd"],
+    ytp: ["https://www.youtube.com/user/OurCrowdFund/featured"],
+    urls: ["https://info.ourcrowd.com/ourcrowd-weekly-newsletter-subscription"],
+    _processed: "auto"
+  },
   Overwolf: {
     ws: ["https://www.overwolf.com"],
     li: ["https://www.linkedin.com/company/overwolf.com"],
@@ -1025,6 +1130,17 @@ export const manualOverrides: Record<
       "https://saving.riseup.co.il/lightup/beginnings",
       "https://signup.riseup.co.il/flow/start"
     ],
+    _processed: "auto"
+  },
+  "Riverside.fm": {
+    ws: ["https://riverside.com/"],
+    li: ["https://www.linkedin.com/company/riverside-fm"],
+    fb: ["https://www.facebook.com/riversidedotfm"],
+    ig: ["https://www.instagram.com/riverside.fm"],
+    ytc: ["https://www.youtube.com/channel/UCOaG4tMpmIQaLXYe063SZlw"],
+    tt: ["https://www.tiktok.com/@riverside.fm"],
+    urls: ["https://apps.apple.com/us/app/riverside-fm/id1554443872", "https://support.riverside.com/hc/en-us"],
+    android_app_ids: ["riverside.fm"],
     _processed: "auto"
   },
   Salto: {
@@ -1389,6 +1505,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/zeronetworks"],
     ytp: ["https://www.youtube.com/@zeronetworks4848"],
     urls: ["https://minus273celsius.slack.com", "https://partners.zeronetworks.com"],
+    _processed: "auto"
+  },
+  deepdub: {
+    ws: ["https://app.deepdub.ai", "https://deepdub.ai/"],
+    li: ["https://www.linkedin.com/company/deepdub-ai"],
+    fb: ["https://facebook.com/deepdub.ai.company"],
+    tw: ["https://twitter.com/deepdub_ai"],
+    ytc: ["https://www.youtube.com/channel/UC4yRa2dcdz7I2l2eag_DefQ"],
     _processed: "auto"
   },
   eToro: {
