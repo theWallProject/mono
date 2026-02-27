@@ -11,7 +11,9 @@
     "merge": "ts-node-dev src/merge_results.ts",
     "convert": "ts-node-dev src/convertDB.ts",
     "build": "tsc && node --max-old-space-size=4096 -r ts-node/register src/tasks/regenerate_db.ts",
-    "start": "pnpm run build && node --max-old-space-size=4096 dist/index.js"
+    "start": "pnpm run build && node --max-old-space-size=4096 dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "engines": {
     "node": ">=18"
@@ -27,6 +29,7 @@
     "@types/node": "^20.0.0",
     "prettier": "3.6.2",
     "ts-node-dev": "^2.0.0",
-    "typescript-eslint": "^8.16.0"
+    "typescript-eslint": "^8.16.0",
+    "vitest": "^4.0.18"
   }
 }

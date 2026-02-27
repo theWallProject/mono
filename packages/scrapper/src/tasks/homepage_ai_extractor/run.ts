@@ -24,7 +24,7 @@ import { sortByReasonAndCbRank } from "../validate/sorting"
 import { displayStatistics } from "../validate/statistics"
 import { isAutoExtracted, isProcessed, type ManualOverrideValue } from "../validate/types"
 import { loadManualOverrides, saveManualOverrides } from "../validate/override_io"
-import { categorizeLinks, type CategorizedLinks } from "./ai_categorizer"
+import { categorizeLinks, deduplicateSocialLinks, type CategorizedLinks } from "./ai_categorizer"
 import { CompanyLogger } from "./company_logger"
 import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./config"
 import {
@@ -72,7 +72,11 @@ const loadData = (): LoadedData => {
   const sortedItems = sortByReasonAndCbRank(data)
   log("Sorted by reason priority (h > f > others) and cbRank")
 
-  // Filter: skip already processed (human-verified OR auto-extracted), skip those with existing overrides
+  // Load retry list to exclude companies pending retry (they should only be
+  // re-processed via the dedicated Retry mode, not picked up again by Batch)
+  const retryNames = new Set(loadRetryList().map((entry) => entry.companyName))
+
+  // Filter: skip already processed, existing overrides, and companies on the retry list
   const unprocessedItems = sortedItems.filter((item) => {
     const existing = currentOverrides[item.name]
     // Skip if human-verified (_processed: true)
@@ -81,10 +85,12 @@ const loadData = (): LoadedData => {
     if (existing && isAutoExtracted(existing)) return false
     // Skip if already has any override data (per user request: "ignore existing for now")
     if (existing && Object.keys(existing).length > 0) return false
+    // Skip if on the retry list (will be handled by Retry mode)
+    if (retryNames.has(item.name)) return false
     return true
   })
 
-  log(`Found ${unprocessedItems.length} unprocessed items (no existing overrides)`)
+  log(`Found ${unprocessedItems.length} unprocessed items (no existing overrides, excluding ${retryNames.size} in retry list)`)
 
   return { allItems: data, sortedItems, currentOverrides, unprocessedItems }
 }
@@ -96,26 +102,30 @@ const loadData = (): LoadedData => {
 const categorizedToOverride = (
   categorized: CategorizedLinks
 ): ManualOverrideFields & { _processed: "auto"; urls?: string[] } => {
+  // Deduplicate social links by selector before saving
+  // (e.g., linkedin.com/company/foo and linkedin.com/company/foo/?origin → keep only the canonical URL)
+  const deduped = deduplicateSocialLinks(categorized)
+
   const override: ManualOverrideFields & { _processed: "auto"; urls?: string[] } = {
     _processed: "auto"
   }
 
-  if (categorized.ws && categorized.ws.length > 0) override.ws = categorized.ws
-  if (categorized.li && categorized.li.length > 0) override.li = categorized.li
-  if (categorized.fb && categorized.fb.length > 0) override.fb = categorized.fb
-  if (categorized.tw && categorized.tw.length > 0) override.tw = categorized.tw
-  if (categorized.ig && categorized.ig.length > 0) override.ig = categorized.ig
-  if (categorized.gh && categorized.gh.length > 0) override.gh = categorized.gh
-  if (categorized.ytp && categorized.ytp.length > 0) override.ytp = categorized.ytp
-  if (categorized.ytc && categorized.ytc.length > 0) override.ytc = categorized.ytc
-  if (categorized.tt && categorized.tt.length > 0) override.tt = categorized.tt
-  if (categorized.th && categorized.th.length > 0) override.th = categorized.th
-  if (categorized.urls && categorized.urls.length > 0) override.urls = categorized.urls
-  if (categorized.android_app_ids && categorized.android_app_ids.length > 0) {
-    override.android_app_ids = categorized.android_app_ids
+  if (deduped.ws && deduped.ws.length > 0) override.ws = deduped.ws
+  if (deduped.li && deduped.li.length > 0) override.li = deduped.li
+  if (deduped.fb && deduped.fb.length > 0) override.fb = deduped.fb
+  if (deduped.tw && deduped.tw.length > 0) override.tw = deduped.tw
+  if (deduped.ig && deduped.ig.length > 0) override.ig = deduped.ig
+  if (deduped.gh && deduped.gh.length > 0) override.gh = deduped.gh
+  if (deduped.ytp && deduped.ytp.length > 0) override.ytp = deduped.ytp
+  if (deduped.ytc && deduped.ytc.length > 0) override.ytc = deduped.ytc
+  if (deduped.tt && deduped.tt.length > 0) override.tt = deduped.tt
+  if (deduped.th && deduped.th.length > 0) override.th = deduped.th
+  if (deduped.urls && deduped.urls.length > 0) override.urls = deduped.urls
+  if (deduped.android_app_ids && deduped.android_app_ids.length > 0) {
+    override.android_app_ids = deduped.android_app_ids
   }
-  if (categorized.android_dev_id) {
-    override.android_dev_id = categorized.android_dev_id
+  if (deduped.android_dev_id) {
+    override.android_dev_id = deduped.android_dev_id
   }
 
   return override

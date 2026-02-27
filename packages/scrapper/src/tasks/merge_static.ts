@@ -23,8 +23,8 @@ import { manualAdditions } from "./manual_resolve/manualAdditions"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
 
-// Helper to extract identifier from URL for ID generation
-const extractIdentifier = (url: string, field: LinkField): string => {
+/** Extracts the profile identifier from a URL for a given link field. Used for ID generation and dedup. */
+export const extractIdentifier = (url: string, field: LinkField): string => {
   if (field === "ws") {
     // For websites, use domain (match extract_websites.ts logic)
     let domain = url
@@ -108,6 +108,31 @@ const extractIdentifier = (url: string, field: LinkField): string => {
   }
   throw new Error(`Unknown field: ${field}`)
 }
+
+/**
+ * Deduplicates a URL array by extracted selector for a given link field.
+ * URLs that resolve to the same identifier (e.g., linkedin.com/company/foo and
+ * linkedin.com/company/foo/?origin) are collapsed — only the first is kept.
+ * URLs that fail selector extraction are kept as-is.
+ */
+export const deduplicateOverrideUrls = (urls: string[], field: LinkField): string[] => {
+  const seenIdentifiers = new Set<string>()
+  return urls.filter((url) => {
+    try {
+      const id = extractIdentifier(url, field).toLowerCase()
+      if (seenIdentifiers.has(id)) {
+        log(`  ⚠️ Dropping duplicate ${field} URL (same selector "${id}"): ${url}`)
+        return false
+      }
+      seenIdentifiers.add(id)
+      return true
+    } catch {
+      // URL doesn't match the expected pattern — keep it
+      return true
+    }
+  })
+}
+
 // import MERGED_CB from "../../results/2_merged/1_MERGED_CB.json";
 
 const folderPath = path.join(__dirname, "../../results/1_batches/static")
@@ -341,17 +366,21 @@ const loadJsonFiles = async (folderPath: string) => {
         if (overrideValue === undefined) continue
 
         if (Array.isArray(overrideValue)) {
+          // Deduplicate URLs by selector before processing
+          // (e.g., linkedin.com/company/foo and linkedin.com/company/foo/?origin → keep only the first)
+          const dedupedUrls = deduplicateOverrideUrls(overrideValue.filter((u): u is string => typeof u === "string" && u !== ""), field)
+
           // Update original with first element
-          if (overrideValue.length > 0) {
-            const firstUrl = overrideValue[0]
+          if (dedupedUrls.length > 0) {
+            const firstUrl = dedupedUrls[0]
             if (typeof firstUrl === "string") {
               setField(updatedRow, field, removeProtocol(firstUrl))
             }
           }
 
           // Create new minimal entries for remaining elements
-          for (let i = 1; i < overrideValue.length; i++) {
-            const url = overrideValue[i]
+          for (let i = 1; i < dedupedUrls.length; i++) {
+            const url = dedupedUrls[i]
             if (!url || url === "" || typeof url !== "string") continue
 
             try {

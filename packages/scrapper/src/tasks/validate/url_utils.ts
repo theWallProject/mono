@@ -20,6 +20,20 @@ export const removeTrailingSlash = (url: string): string => {
   return url.replace(/\/+$/, "")
 }
 
+/** Link fields that contain URLs which should have trailing slashes stripped */
+const URL_FIELDS = new Set(["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls"])
+
+/**
+ * Strips trailing slashes from all URL values in a link field.
+ * Handles both string and string[] values. Non-URL fields pass through unchanged.
+ */
+export const cleanFieldValue = (key: string, val: unknown): unknown => {
+  if (!URL_FIELDS.has(key)) return val
+  if (typeof val === "string") return removeTrailingSlash(val)
+  if (Array.isArray(val)) return val.map((v) => (typeof v === "string" ? removeTrailingSlash(v) : v))
+  return val
+}
+
 export const normalizeUrlForComparison = (url: string): string => {
   if (!url) return ""
 
