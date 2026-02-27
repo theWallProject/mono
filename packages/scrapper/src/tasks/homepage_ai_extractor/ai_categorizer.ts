@@ -69,7 +69,7 @@ const NOISE_PATTERNS = [
  * Extracts Android app ID from a Play Store app details URL.
  * Returns null for non-app-details URLs (search pages, developer pages, etc.)
  */
-const extractAndroidAppId = (url: string): string | null => {
+export const extractAndroidAppId = (url: string): string | null => {
   const match = url.match(/play\.google\.com\/store\/apps\/details\?id=([^&/]+)/i)
   if (match?.[1]) {
     return decodeURIComponent(match[1])
@@ -81,7 +81,7 @@ const extractAndroidAppId = (url: string): string | null => {
  * Extracts Android developer ID from a Play Store developer URL.
  * Example: https://play.google.com/store/apps/developer?id=Wix.com,+INC.
  */
-const extractAndroidDevId = (url: string): string | null => {
+export const extractAndroidDevId = (url: string): string | null => {
   const match = url.match(/play\.google\.com\/store\/apps\/dev(?:eloper)?\?id=([^&/]+)/i)
   if (match?.[1]) {
     return decodeURIComponent(match[1])
