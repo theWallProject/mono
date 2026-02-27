@@ -134,6 +134,69 @@ const categorizeUrlProgrammatic = (url: string): LinkField | null => {
   }
 }
 
+/** Maps link field categories to their regex rules and flags for selector extraction */
+const CATEGORY_RULES: Partial<Record<keyof CategorizedLinks, { rule: { regex: string }; flags?: string }>> = {
+  li: { rule: API_ENDPOINT_RULE_LINKEDIN_COMPANY, flags: "i" },
+  fb: { rule: API_ENDPOINT_RULE_FACEBOOK },
+  tw: { rule: API_ENDPOINT_RULE_TWITTER, flags: "i" },
+  ig: { rule: API_ENDPOINT_RULE_INSTAGRAM },
+  gh: { rule: API_ENDPOINT_RULE_GITHUB },
+  ytp: { rule: API_ENDPOINT_RULE_YOUTUBE_PROFILE, flags: "i" },
+  ytc: { rule: API_ENDPOINT_RULE_YOUTUBE_CHANNEL, flags: "i" },
+  tt: { rule: API_ENDPOINT_RULE_TIKTOK },
+  th: { rule: API_ENDPOINT_RULE_THREADS }
+}
+
+/**
+ * Extracts the profile selector (user/org ID) from a social platform URL.
+ * Returns the selector lowercased for case-insensitive comparison, or null
+ * if the URL doesn't match the category's regex.
+ */
+const extractSelector = (category: keyof CategorizedLinks, url: string): string | null => {
+  const entry = CATEGORY_RULES[category]
+  if (!entry) return null
+  try {
+    const regex = new RegExp(entry.rule.regex, entry.flags)
+    const match = regex.exec(url)
+    if (!match) return null
+    // YouTube profile uses capture groups 1-4; take the first non-undefined
+    const selector = match[1] || match[2] || match[3] || match[4]
+    return selector ? selector.toLowerCase() : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Builds the canonical profile-level URL for a selector on a given platform.
+ * Used to replace repo/sub-page URLs with the cleaner profile URL when the
+ * same selector is already present.
+ */
+const buildProfileUrl = (category: keyof CategorizedLinks, selector: string): string | null => {
+  switch (category) {
+    case "li":
+      return `https://www.linkedin.com/company/${selector}`
+    case "fb":
+      return `https://www.facebook.com/${selector}`
+    case "tw":
+      return `https://x.com/${selector}`
+    case "ig":
+      return `https://www.instagram.com/${selector}`
+    case "gh":
+      return `https://github.com/${selector}`
+    case "ytp":
+      return `https://www.youtube.com/@${selector}`
+    case "ytc":
+      return `https://www.youtube.com/channel/${selector}`
+    case "tt":
+      return `https://www.tiktok.com/${selector}`
+    case "th":
+      return `https://www.threads.net/${selector}`
+    default:
+      return null
+  }
+}
+
 /**
  * Filters out internal links (links pointing to the same domain or subdomains of the homepage).
  * Uses tldts (via getRegisteredDomain) to compare registered domains, so blog.example.com is
@@ -547,10 +610,59 @@ export const categorizeLinks = async (
   // ── Step 1: Programmatic categorization ──
 
   const uncategorizedLinks: string[] = []
-  const seenNormalized = new Map<string, Set<string>>() // key -> set of normalized URLs
+  const seenNormalized = new Map<string, Set<string>>() // category -> set of normalized URLs
+  const seenSelectors = new Map<string, Map<string, string>>() // category -> (selector -> profile URL)
 
-  /** Push a URL into the appropriate result array, handling dedup. Returns true if added. */
+  /**
+   * Push a URL into the appropriate result array, handling dedup.
+   *
+   * For social link fields (gh, li, fb, etc.): deduplicates by extracted selector.
+   * When two URLs yield the same selector (e.g., github.com/org and github.com/org/repo),
+   * keeps only the profile-level URL. If the selectors differ, both are kept.
+   *
+   * For non-social fields (urls, ws, android_app_ids): deduplicates by full normalized URL.
+   *
+   * Returns true if the URL was added (or replaced an existing sub-page URL).
+   */
   const addToResult = (category: keyof CategorizedLinks, url: string): boolean => {
+    // For social link categories, deduplicate by selector
+    const selector = extractSelector(category, url)
+    if (selector) {
+      if (!seenSelectors.has(category)) {
+        seenSelectors.set(category, new Map())
+      }
+      const selectorMap = seenSelectors.get(category)
+      if (!selectorMap) throw new Error("Unexpected: seenSelectors map missing key")
+
+      const existingUrl = selectorMap.get(selector)
+      if (existingUrl) {
+        // Same selector already present — keep the shorter (profile-level) URL
+        const profileUrl = buildProfileUrl(category, selector)
+        if (profileUrl && normalizeForDedup(existingUrl) !== normalizeForDedup(profileUrl)) {
+          // Existing URL is a sub-page (e.g., /org/repo); replace with profile URL
+          const arr = result[category]
+          if (Array.isArray(arr)) {
+            const idx = arr.findIndex((u) => normalizeForDedup(u) === normalizeForDedup(existingUrl))
+            if (idx !== -1) {
+              arr[idx] = profileUrl
+              selectorMap.set(selector, profileUrl)
+              return true
+            }
+          }
+        }
+        // Either existing is already the profile URL, or we couldn't replace — skip
+        return false
+      }
+
+      // New selector — add the profile-level URL instead of a potential sub-page
+      const profileUrl = buildProfileUrl(category, selector)
+      const urlToAdd = profileUrl ?? url
+      selectorMap.set(selector, urlToAdd)
+      pushToCategory(result, category, urlToAdd)
+      return true
+    }
+
+    // Non-social categories (urls, ws, android_app_ids): dedup by full URL
     const normalized = normalizeForDedup(url)
     if (!seenNormalized.has(category)) {
       seenNormalized.set(category, new Set())
@@ -867,4 +979,73 @@ export const categorizeLinks = async (
   logger.saveResult(result)
 
   return result
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Social link deduplication (exported for use in run.ts)
+// ────────────────────────────────────────────────────────────────────────────
+
+const SOCIAL_FIELDS: Array<keyof CategorizedLinks> = ["li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th"]
+
+/**
+ * Deduplicates social link arrays in a CategorizedLinks object by extracted selector.
+ *
+ * When multiple URLs resolve to the same profile selector (e.g.,
+ * `linkedin.com/company/foo` and `linkedin.com/company/foo/?origin`),
+ * keeps only the canonical profile-level URL.
+ *
+ * Non-social fields (ws, urls, android_app_ids) are left untouched.
+ */
+export const deduplicateSocialLinks = (categorized: CategorizedLinks): CategorizedLinks => {
+  const result = { ...categorized }
+
+  for (const field of SOCIAL_FIELDS) {
+    const urls = result[field]
+    if (!Array.isArray(urls) || urls.length <= 1) continue
+
+    const deduped = deduplicateUrlsBySelector(field, urls)
+    if (deduped.length !== urls.length) {
+      // Only update if something was actually removed
+      if (field === "li") result.li = deduped
+      else if (field === "fb") result.fb = deduped
+      else if (field === "tw") result.tw = deduped
+      else if (field === "ig") result.ig = deduped
+      else if (field === "gh") result.gh = deduped
+      else if (field === "ytp") result.ytp = deduped
+      else if (field === "ytc") result.ytc = deduped
+      else if (field === "tt") result.tt = deduped
+      else if (field === "th") result.th = deduped
+    }
+  }
+
+  return result
+}
+
+/**
+ * Deduplicates a URL array by extracted selector for a social link field.
+ * URLs that resolve to the same selector are collapsed — only the canonical
+ * profile-level URL is kept.
+ */
+const deduplicateUrlsBySelector = (field: keyof CategorizedLinks, urls: string[]): string[] => {
+  const seenSelectors = new Map<string, string>() // selector -> canonical URL
+  const deduped: string[] = []
+
+  for (const url of urls) {
+    const selector = extractSelector(field, url)
+    if (selector) {
+      if (seenSelectors.has(selector)) {
+        // Duplicate selector — skip this URL, keep the canonical one
+        continue
+      }
+      // Use the canonical profile URL if possible, otherwise keep original
+      const canonical = buildProfileUrl(field, selector) ?? url
+      seenSelectors.set(selector, canonical)
+      deduped.push(canonical)
+    } else {
+      // No selector extracted (non-matching URL) — keep as-is
+      deduped.push(url)
+    }
+  }
+
+  return deduped
 }

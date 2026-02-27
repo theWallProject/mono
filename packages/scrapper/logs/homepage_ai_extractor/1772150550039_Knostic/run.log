@@ -1,0 +1,78 @@
+[2026-02-27T00:02:30.041Z] === Homepage AI Extractor: Knostic ===
+[2026-02-27T00:02:30.041Z] Started at: 2026-02-27T00:02:30.041Z
+[2026-02-27T00:02:30.041Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772150550039_Knostic
+[2026-02-27T00:02:30.042Z] Company: Knostic
+[2026-02-27T00:02:30.042Z] Website: knostic.ai
+[2026-02-27T00:02:30.042Z] cbRank: 7952
+[2026-02-27T00:02:30.042Z] Reasons: h
+[2026-02-27T00:02:30.042Z] Fetching: https://knostic.ai
+[2026-02-27T00:02:41.693Z] Network idle timeout — continuing with current state
+[2026-02-27T00:02:41.769Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-02-27T00:02:42.283Z] Redirected: https://knostic.ai -> https://www.knostic.ai/
+[2026-02-27T00:02:42.290Z] Saved HTML (162698 bytes) to page.html
+[2026-02-27T00:02:42.294Z] Extracted 80 unique links from page
+[2026-02-27T00:02:42.296Z] Saved 80 links to links.json
+[2026-02-27T00:02:42.302Z] No footer section found in DOM
+[2026-02-27T00:02:42.302Z] Extracted header HTML (16579 chars)
+[2026-02-27T00:02:42.306Z] Website (post-redirect): https://www.knostic.ai/
+[2026-02-27T00:02:42.307Z]   SUBDOMAIN: prompts.knostic.ai (added to ws)
+[2026-02-27T00:02:42.307Z] Website subdomains found: 1
+[2026-02-27T00:02:42.307Z] External links: 8 (of 80 total)
+[2026-02-27T00:02:42.307Z] ── All external links ──
+[2026-02-27T00:02:42.307Z]   EXT: http://privacy-policy
+[2026-02-27T00:02:42.308Z]   EXT: https://github.com/knostic/openclaw-detect
+[2026-02-27T00:02:42.308Z]   EXT: https://github.com/knostic/openclaw-shield
+[2026-02-27T00:02:42.308Z]   EXT: https://github.com/knostic/openclaw-telemetry
+[2026-02-27T00:02:42.308Z]   EXT: https://www-knostic-ai.sandbox.hs-sites-eu1.com/industry/government?hsLang=en
+[2026-02-27T00:02:42.308Z]   EXT: https://www.linkedin.com/company/knostic
+[2026-02-27T00:02:42.308Z]   EXT: https://www.youtube.com/@knosticai
+[2026-02-27T00:02:42.308Z]   EXT: https://x.com/knosticai
+[2026-02-27T00:02:42.308Z] ── Step 1: Programmatic categorization ──
+[2026-02-27T00:02:42.308Z]   UNCATEGORIZED: http://privacy-policy
+[2026-02-27T00:02:42.308Z]   REGEX: gh <- https://github.com/knostic/openclaw-detect
+[2026-02-27T00:02:42.308Z]   REGEX: gh <- https://github.com/knostic/openclaw-shield
+[2026-02-27T00:02:42.309Z]   REGEX: gh <- https://github.com/knostic/openclaw-telemetry
+[2026-02-27T00:02:42.309Z]   UNCATEGORIZED: https://www-knostic-ai.sandbox.hs-sites-eu1.com/industry/government?hsLang=en
+[2026-02-27T00:02:42.309Z]   REGEX: li <- https://www.linkedin.com/company/knostic
+[2026-02-27T00:02:42.309Z]   REGEX: ytp <- https://www.youtube.com/@knosticai
+[2026-02-27T00:02:42.309Z]   REGEX: tw <- https://x.com/knosticai
+[2026-02-27T00:02:42.309Z] Programmatic result: ws:2, gh:3, li:1, ytp:1, tw:1 | 2 uncategorized
+[2026-02-27T00:02:42.309Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-02-27T00:02:42.310Z] Saved AI prompt (2022 chars) to ai_prompt.txt
+[2026-02-27T00:02:54.342Z] Saved AI response to ai_response.json
+[2026-02-27T00:02:54.342Z] ── Parsing AI response (2 lines) ──
+[2026-02-27T00:02:54.343Z]   AI LINK: http://privacy-policy
+[2026-02-27T00:02:54.343Z]   AI LINK: https://www-knostic-ai.sandbox.hs-sites-eu1.com/industry/government?hsLang=en
+[2026-02-27T00:02:54.343Z] AI returned 2 valid links
+[2026-02-27T00:02:54.343Z] ── Categorizing 2 AI-returned links ──
+[2026-02-27T00:02:54.343Z]   AI→URLS: http://privacy-policy
+[2026-02-27T00:02:54.343Z]   AI→URLS: https://www-knostic-ai.sandbox.hs-sites-eu1.com/industry/government (cleaned from https://www-knostic-ai.sandbox.hs-sites-eu1.com/industry/government?hsLang=en)
+[2026-02-27T00:02:54.343Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-02-27T00:02:54.344Z] Footer/header origins (1):
+[2026-02-27T00:02:54.344Z]   FOOTER/HEADER ORIGIN: https://www.knostic.ai
+[2026-02-27T00:02:54.344Z]   SKIP (AI claimed): http://privacy-policy
+[2026-02-27T00:02:54.344Z]   SKIP (AI claimed): https://www-knostic-ai.sandbox.hs-sites-eu1.com/industry/government?hsLang=en
+[2026-02-27T00:02:54.344Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-02-27T00:02:54.344Z] ── Step 3: Final dedup ──
+[2026-02-27T00:02:54.344Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-02-27T00:02:54.344Z] ── FINAL RESULT ──
+[2026-02-27T00:02:54.344Z]   ws (2):
+[2026-02-27T00:02:54.344Z]     - https://prompts.knostic.ai
+[2026-02-27T00:02:54.344Z]     - https://www.knostic.ai/
+[2026-02-27T00:02:54.344Z]   li (1):
+[2026-02-27T00:02:54.344Z]     - https://www.linkedin.com/company/knostic
+[2026-02-27T00:02:54.344Z]   tw (1):
+[2026-02-27T00:02:54.344Z]     - https://x.com/knosticai
+[2026-02-27T00:02:54.345Z]   gh (3):
+[2026-02-27T00:02:54.345Z]     - https://github.com/knostic/openclaw-detect
+[2026-02-27T00:02:54.345Z]     - https://github.com/knostic/openclaw-shield
+[2026-02-27T00:02:54.345Z]     - https://github.com/knostic/openclaw-telemetry
+[2026-02-27T00:02:54.345Z]   ytp (1):
+[2026-02-27T00:02:54.345Z]     - https://www.youtube.com/@knosticai
+[2026-02-27T00:02:54.345Z]   urls (2):
+[2026-02-27T00:02:54.345Z]     - http://privacy-policy
+[2026-02-27T00:02:54.345Z]     - https://www-knostic-ai.sandbox.hs-sites-eu1.com/industry/government
+[2026-02-27T00:02:54.345Z] Summary: ws:2, gh:3, li:1, ytp:1, tw:1, urls:2
+[2026-02-27T00:02:54.346Z] Saved final result to result.json
+[2026-02-27T00:02:54.346Z] Override fields: ws, li, tw, gh, ytp, urls
+[2026-02-27T00:02:54.346Z] Finished at: 2026-02-27T00:02:54.346Z

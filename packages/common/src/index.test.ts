@@ -201,6 +201,26 @@ describe("API_ENDPOINT_RULE_FACEBOOK", () => {
     it("should match facebook.com/shareittIsrael (username containing 'share')", () => {
       testRule(rule, "https://www.facebook.com/shareittIsrael", true, "shareittIsrael")
     })
+
+    it("should not match facebook.com/sharer/sharer.php (share dialog URL)", () => {
+      testRule(rule, "https://www.facebook.com/sharer/sharer.php?u=https://example.com", false)
+    })
+
+    it("should not match facebook.com/sharer (exact path)", () => {
+      testRule(rule, "https://www.facebook.com/sharer", false)
+    })
+
+    it("should not match facebook.com/dialog/feed (platform dialog URL)", () => {
+      testRule(rule, "https://www.facebook.com/dialog/feed?app_id=123", false)
+    })
+
+    it("should not match facebook.com/plugins/like.php (embed plugin URL)", () => {
+      testRule(rule, "https://www.facebook.com/plugins/like.php", false)
+    })
+
+    it("should not match facebook.com/hashtag/something (hashtag page)", () => {
+      testRule(rule, "https://www.facebook.com/hashtag/something", false)
+    })
   })
 
   describe("negative cases", () => {

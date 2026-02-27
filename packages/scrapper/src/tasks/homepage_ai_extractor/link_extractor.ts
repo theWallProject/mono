@@ -163,6 +163,9 @@ const resolveUrl = (href: string, baseUrl: string): string | null => {
     const resolved = new URL(trimmed, baseUrl)
     // Only keep http/https URLs
     if (resolved.protocol !== "http:" && resolved.protocol !== "https:") return null
+    // Reject URLs whose hostname has no dot — these are not real domains
+    // (e.g., href="http://privacy-policy" parses as hostname "privacy-policy")
+    if (!resolved.hostname.includes(".")) return null
     return resolved.href
   } catch {
     return null

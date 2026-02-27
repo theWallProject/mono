@@ -4,6 +4,7 @@ import { formatAndWrite } from "@theWallProject/common"
 import { log } from "../../helper"
 import type { ManualOverrideValue } from "./types"
 import { isAutoExtracted, isProcessed } from "./types"
+import { cleanFieldValue } from "./url_utils"
 
 const manualOverridesPath = path.join(__dirname, "../manual_resolve/manualOverrides.ts")
 
@@ -27,7 +28,7 @@ const formatValue = (value: ManualOverrideValue): string => {
         continue
       }
       if (val !== undefined) {
-        fields.push(`${key}: ${JSON.stringify(val)}`)
+        fields.push(`${key}: ${JSON.stringify(cleanFieldValue(key, val))}`)
       }
     }
 
@@ -43,7 +44,7 @@ const formatValue = (value: ManualOverrideValue): string => {
     // Preserve all fields
     for (const [key, val] of Object.entries(value)) {
       if (val !== undefined) {
-        fields.push(`${key}: ${JSON.stringify(val)}`)
+        fields.push(`${key}: ${JSON.stringify(cleanFieldValue(key, val))}`)
       }
     }
 

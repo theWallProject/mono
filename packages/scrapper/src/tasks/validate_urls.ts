@@ -10,6 +10,7 @@ import { loadModule } from "../utils/moduleLoader"
 import type { ManualAdditionItem } from "./manual_resolve/manualAdditions"
 import { loadManualAdditions, saveManualAdditions } from "./validate/addition_io"
 import { categorizeUrl, isFromRegexDomain } from "./validate/url_categorization"
+import { cleanFieldValue } from "./validate/url_utils"
 
 type ProcessedState = {
   _processed: true
@@ -43,17 +44,17 @@ const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
 const formatValue = (value: ManualOverrideValue): string => {
   if (isProcessed(value)) {
     const fields: string[] = []
-    if ("ws" in value && value.ws !== undefined) fields.push(`ws: ${JSON.stringify(value.ws)}`)
-    if ("li" in value && value.li !== undefined) fields.push(`li: ${JSON.stringify(value.li)}`)
-    if ("fb" in value && value.fb !== undefined) fields.push(`fb: ${JSON.stringify(value.fb)}`)
-    if ("tw" in value && value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
-    if ("ig" in value && value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
-    if ("gh" in value && value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if ("ytp" in value && value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if ("ytc" in value && value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
-    if ("tt" in value && value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
-    if ("th" in value && value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if ("ws" in value && value.ws !== undefined) fields.push(`ws: ${JSON.stringify(cleanFieldValue("ws", value.ws))}`)
+    if ("li" in value && value.li !== undefined) fields.push(`li: ${JSON.stringify(cleanFieldValue("li", value.li))}`)
+    if ("fb" in value && value.fb !== undefined) fields.push(`fb: ${JSON.stringify(cleanFieldValue("fb", value.fb))}`)
+    if ("tw" in value && value.tw !== undefined) fields.push(`tw: ${JSON.stringify(cleanFieldValue("tw", value.tw))}`)
+    if ("ig" in value && value.ig !== undefined) fields.push(`ig: ${JSON.stringify(cleanFieldValue("ig", value.ig))}`)
+    if ("gh" in value && value.gh !== undefined) fields.push(`gh: ${JSON.stringify(cleanFieldValue("gh", value.gh))}`)
+    if ("ytp" in value && value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(cleanFieldValue("ytp", value.ytp))}`)
+    if ("ytc" in value && value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(cleanFieldValue("ytc", value.ytc))}`)
+    if ("tt" in value && value.tt !== undefined) fields.push(`tt: ${JSON.stringify(cleanFieldValue("tt", value.tt))}`)
+    if ("th" in value && value.th !== undefined) fields.push(`th: ${JSON.stringify(cleanFieldValue("th", value.th))}`)
+    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(cleanFieldValue("urls", value.urls))}`)
     if ("android_dev_id" in value && value.android_dev_id !== undefined)
       fields.push(`android_dev_id: ${JSON.stringify(value.android_dev_id)}`)
     if ("android_app_ids" in value && value.android_app_ids !== undefined)
@@ -69,17 +70,17 @@ const formatValue = (value: ManualOverrideValue): string => {
   } else {
     // Regular override without processed state
     const fields: string[] = []
-    if (value.ws !== undefined) fields.push(`ws: ${JSON.stringify(value.ws)}`)
-    if (value.li !== undefined) fields.push(`li: ${JSON.stringify(value.li)}`)
-    if (value.fb !== undefined) fields.push(`fb: ${JSON.stringify(value.fb)}`)
-    if (value.tw !== undefined) fields.push(`tw: ${JSON.stringify(value.tw)}`)
-    if (value.ig !== undefined) fields.push(`ig: ${JSON.stringify(value.ig)}`)
-    if (value.gh !== undefined) fields.push(`gh: ${JSON.stringify(value.gh)}`)
-    if (value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(value.ytp)}`)
-    if (value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(value.ytc)}`)
-    if (value.tt !== undefined) fields.push(`tt: ${JSON.stringify(value.tt)}`)
-    if (value.th !== undefined) fields.push(`th: ${JSON.stringify(value.th)}`)
-    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(value.urls)}`)
+    if (value.ws !== undefined) fields.push(`ws: ${JSON.stringify(cleanFieldValue("ws", value.ws))}`)
+    if (value.li !== undefined) fields.push(`li: ${JSON.stringify(cleanFieldValue("li", value.li))}`)
+    if (value.fb !== undefined) fields.push(`fb: ${JSON.stringify(cleanFieldValue("fb", value.fb))}`)
+    if (value.tw !== undefined) fields.push(`tw: ${JSON.stringify(cleanFieldValue("tw", value.tw))}`)
+    if (value.ig !== undefined) fields.push(`ig: ${JSON.stringify(cleanFieldValue("ig", value.ig))}`)
+    if (value.gh !== undefined) fields.push(`gh: ${JSON.stringify(cleanFieldValue("gh", value.gh))}`)
+    if (value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(cleanFieldValue("ytp", value.ytp))}`)
+    if (value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(cleanFieldValue("ytc", value.ytc))}`)
+    if (value.tt !== undefined) fields.push(`tt: ${JSON.stringify(cleanFieldValue("tt", value.tt))}`)
+    if (value.th !== undefined) fields.push(`th: ${JSON.stringify(cleanFieldValue("th", value.th))}`)
+    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(cleanFieldValue("urls", value.urls))}`)
     if ("android_dev_id" in value && value.android_dev_id !== undefined)
       fields.push(`android_dev_id: ${JSON.stringify(value.android_dev_id)}`)
     if ("android_app_ids" in value && value.android_app_ids !== undefined)

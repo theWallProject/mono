@@ -29,6 +29,7 @@ const globalIgnores = {
     // Files not in tsconfig.json projects
     "packages/common/scripts/**",
     "packages/common/vitest.config.ts",
+    "packages/scrapper/vitest.config.ts",
     "packages/scrapper/src/tmp.js",
     "packages/telegram-bot/scripts/**"
   ]

@@ -4,6 +4,7 @@ import { formatAndWrite } from "@theWallProject/common"
 import { log } from "../../helper"
 import { loadModule } from "../../utils/moduleLoader"
 import type { ManualAdditionItem } from "../manual_resolve/manualAdditions"
+import { cleanFieldValue } from "./url_utils"
 
 const manualAdditionsPath = path.join(__dirname, "../manual_resolve/manualAdditions.ts")
 
@@ -17,17 +18,17 @@ const formatValue = (item: ManualAdditionItem): string => {
   if ("reasons" in item && item.reasons !== undefined) {
     fields.push(`reasons: ${JSON.stringify(item.reasons)}`)
   }
-  if ("ws" in item && item.ws !== undefined) fields.push(`ws: ${JSON.stringify(item.ws)}`)
-  if ("li" in item && item.li !== undefined) fields.push(`li: ${JSON.stringify(item.li)}`)
-  if ("fb" in item && item.fb !== undefined) fields.push(`fb: ${JSON.stringify(item.fb)}`)
-  if ("tw" in item && item.tw !== undefined) fields.push(`tw: ${JSON.stringify(item.tw)}`)
-  if ("ig" in item && item.ig !== undefined) fields.push(`ig: ${JSON.stringify(item.ig)}`)
-  if ("gh" in item && item.gh !== undefined) fields.push(`gh: ${JSON.stringify(item.gh)}`)
-  if ("ytp" in item && item.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(item.ytp)}`)
-  if ("ytc" in item && item.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(item.ytc)}`)
-  if ("tt" in item && item.tt !== undefined) fields.push(`tt: ${JSON.stringify(item.tt)}`)
-  if ("th" in item && item.th !== undefined) fields.push(`th: ${JSON.stringify(item.th)}`)
-  if ("urls" in item && item.urls !== undefined) fields.push(`urls: ${JSON.stringify(item.urls)}`)
+  if ("ws" in item && item.ws !== undefined) fields.push(`ws: ${JSON.stringify(cleanFieldValue("ws", item.ws))}`)
+  if ("li" in item && item.li !== undefined) fields.push(`li: ${JSON.stringify(cleanFieldValue("li", item.li))}`)
+  if ("fb" in item && item.fb !== undefined) fields.push(`fb: ${JSON.stringify(cleanFieldValue("fb", item.fb))}`)
+  if ("tw" in item && item.tw !== undefined) fields.push(`tw: ${JSON.stringify(cleanFieldValue("tw", item.tw))}`)
+  if ("ig" in item && item.ig !== undefined) fields.push(`ig: ${JSON.stringify(cleanFieldValue("ig", item.ig))}`)
+  if ("gh" in item && item.gh !== undefined) fields.push(`gh: ${JSON.stringify(cleanFieldValue("gh", item.gh))}`)
+  if ("ytp" in item && item.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(cleanFieldValue("ytp", item.ytp))}`)
+  if ("ytc" in item && item.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(cleanFieldValue("ytc", item.ytc))}`)
+  if ("tt" in item && item.tt !== undefined) fields.push(`tt: ${JSON.stringify(cleanFieldValue("tt", item.tt))}`)
+  if ("th" in item && item.th !== undefined) fields.push(`th: ${JSON.stringify(cleanFieldValue("th", item.th))}`)
+  if ("urls" in item && item.urls !== undefined) fields.push(`urls: ${JSON.stringify(cleanFieldValue("urls", item.urls))}`)
   if ("android_dev_id" in item && item.android_dev_id !== undefined)
     fields.push(`android_dev_id: ${JSON.stringify(item.android_dev_id)}`)
   if ("android_app_ids" in item && item.android_app_ids !== undefined)
