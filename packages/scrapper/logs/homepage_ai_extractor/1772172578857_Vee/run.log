@@ -1,0 +1,71 @@
+[2026-02-27T06:09:38.860Z] === Homepage AI Extractor: Vee ===
+[2026-02-27T06:09:38.860Z] Started at: 2026-02-27T06:09:38.860Z
+[2026-02-27T06:09:38.861Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772172578857_Vee
+[2026-02-27T06:09:38.861Z] Company: Vee
+[2026-02-27T06:09:38.861Z] Website: vee.com
+[2026-02-27T06:09:38.861Z] cbRank: 22301
+[2026-02-27T06:09:38.861Z] Reasons: h
+[2026-02-27T06:09:38.862Z] Fetching: https://vee.com
+[2026-02-27T06:09:49.854Z] Network idle timeout — continuing with current state
+[2026-02-27T06:09:49.976Z] Redirected: https://vee.com -> https://www.vee.com/
+[2026-02-27T06:09:50.013Z] Saved HTML (1110070 bytes) to page.html
+[2026-02-27T06:09:50.017Z] Extracted 19 unique links from page
+[2026-02-27T06:09:50.018Z] Saved 19 links to links.json
+[2026-02-27T06:09:50.022Z] Extracted footer HTML (15188 chars)
+[2026-02-27T06:09:50.022Z] Extracted header HTML (7970 chars)
+[2026-02-27T06:09:50.031Z] Website (post-redirect): https://www.vee.com/
+[2026-02-27T06:09:50.031Z]   SUBDOMAIN: team.vee.com (added to ws)
+[2026-02-27T06:09:50.031Z] Website subdomains found: 1
+[2026-02-27T06:09:50.031Z] External links: 4 (of 19 total)
+[2026-02-27T06:09:50.031Z] ── All external links ──
+[2026-02-27T06:09:50.032Z]   EXT: https://il.linkedin.com/company/veeai
+[2026-02-27T06:09:50.032Z]   EXT: https://www.facebook.com/VeeApps
+[2026-02-27T06:09:50.032Z]   EXT: https://www.instagram.com/vee.aiforgood
+[2026-02-27T06:09:50.032Z]   EXT: https://www.youtube.com/@vee.channel
+[2026-02-27T06:09:50.032Z] ── Step 1: Programmatic categorization ──
+[2026-02-27T06:09:50.032Z]   REGEX: li <- https://il.linkedin.com/company/veeai
+[2026-02-27T06:09:50.032Z]   REGEX: fb <- https://www.facebook.com/VeeApps
+[2026-02-27T06:09:50.032Z]   REGEX: ig <- https://www.instagram.com/vee.aiforgood
+[2026-02-27T06:09:50.033Z]   REGEX: ytp <- https://www.youtube.com/@vee.channel
+[2026-02-27T06:09:50.033Z] Programmatic result: ws:2, li:1, fb:1, ig:1, ytp:1 | 0 uncategorized
+[2026-02-27T06:09:50.033Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-02-27T06:09:50.034Z] Saved AI prompt (11427 chars) to ai_prompt.txt
+[2026-02-27T06:11:01.291Z] Saved AI response to ai_response.json
+[2026-02-27T06:11:01.291Z] ── Parsing AI response (4 lines) ──
+[2026-02-27T06:11:01.292Z]   AI LINK: https://www.facebook.com/VeeApps
+[2026-02-27T06:11:01.292Z]   AI LINK: https://www.instagram.com/vee.aiforgood/
+[2026-02-27T06:11:01.292Z]   AI LINK: https://il.linkedin.com/company/veeai
+[2026-02-27T06:11:01.292Z]   AI LINK: https://www.youtube.com/@vee.channel
+[2026-02-27T06:11:01.293Z] AI returned 4 valid links
+[2026-02-27T06:11:01.293Z] ── Categorizing 4 AI-returned links ──
+[2026-02-27T06:11:01.293Z]   AI→REGEX: fb <- https://www.facebook.com/VeeApps (duplicate, skipped)
+[2026-02-27T06:11:01.293Z]   AI→REGEX: ig <- https://www.instagram.com/vee.aiforgood/ (duplicate, skipped)
+[2026-02-27T06:11:01.294Z]   AI→REGEX: li <- https://il.linkedin.com/company/veeai (duplicate, skipped)
+[2026-02-27T06:11:01.294Z]   AI→REGEX: ytp <- https://www.youtube.com/@vee.channel (duplicate, skipped)
+[2026-02-27T06:11:01.295Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-02-27T06:11:01.295Z] Footer/header origins (6):
+[2026-02-27T06:11:01.295Z]   FOOTER/HEADER ORIGIN: https://www.vee.com
+[2026-02-27T06:11:01.295Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-02-27T06:11:01.295Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-02-27T06:11:01.296Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-02-27T06:11:01.296Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-02-27T06:11:01.296Z]   FOOTER/HEADER ORIGIN: https://team.vee.com
+[2026-02-27T06:11:01.296Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-02-27T06:11:01.296Z] ── Step 3: Final dedup ──
+[2026-02-27T06:11:01.297Z] No urls to dedup
+[2026-02-27T06:11:01.297Z] ── FINAL RESULT ──
+[2026-02-27T06:11:01.297Z]   ws (2):
+[2026-02-27T06:11:01.297Z]     - https://team.vee.com
+[2026-02-27T06:11:01.298Z]     - https://www.vee.com/
+[2026-02-27T06:11:01.298Z]   li (1):
+[2026-02-27T06:11:01.298Z]     - https://www.linkedin.com/company/veeai
+[2026-02-27T06:11:01.298Z]   fb (1):
+[2026-02-27T06:11:01.298Z]     - https://www.facebook.com/veeapps
+[2026-02-27T06:11:01.299Z]   ig (1):
+[2026-02-27T06:11:01.299Z]     - https://www.instagram.com/vee.aiforgood
+[2026-02-27T06:11:01.299Z]   ytp (1):
+[2026-02-27T06:11:01.299Z]     - https://www.youtube.com/@vee.channel
+[2026-02-27T06:11:01.299Z] Summary: ws:2, li:1, fb:1, ig:1, ytp:1
+[2026-02-27T06:11:01.301Z] Saved final result to result.json
+[2026-02-27T06:11:01.301Z] Override fields: ws, li, fb, ig, ytp
+[2026-02-27T06:11:01.301Z] Finished at: 2026-02-27T06:11:01.301Z

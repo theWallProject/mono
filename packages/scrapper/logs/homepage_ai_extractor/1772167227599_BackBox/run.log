@@ -1,0 +1,71 @@
+[2026-02-27T04:40:27.600Z] === Homepage AI Extractor: BackBox ===
+[2026-02-27T04:40:27.600Z] Started at: 2026-02-27T04:40:27.600Z
+[2026-02-27T04:40:27.600Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772167227599_BackBox
+[2026-02-27T04:40:27.600Z] Company: BackBox
+[2026-02-27T04:40:27.600Z] Website: backbox.com
+[2026-02-27T04:40:27.600Z] cbRank: 15293
+[2026-02-27T04:40:27.600Z] Reasons: h
+[2026-02-27T04:40:27.600Z] Fetching: https://backbox.com
+[2026-02-27T04:40:32.021Z] Redirected: https://backbox.com -> https://backbox.com/
+[2026-02-27T04:40:32.049Z] Saved HTML (349829 bytes) to page.html
+[2026-02-27T04:40:32.057Z] Extracted 60 unique links from page
+[2026-02-27T04:40:32.058Z] Saved 60 links to links.json
+[2026-02-27T04:40:32.072Z] Extracted footer HTML (15905 chars)
+[2026-02-27T04:40:32.072Z] Extracted header HTML (63933 chars)
+[2026-02-27T04:40:32.084Z] Website (post-redirect): https://backbox.com/
+[2026-02-27T04:40:32.085Z]   SUBDOMAIN: support.backbox.com (added to ws)
+[2026-02-27T04:40:32.085Z] Website subdomains found: 1
+[2026-02-27T04:40:32.086Z] External links: 4 (of 60 total)
+[2026-02-27T04:40:32.086Z] ── All external links ──
+[2026-02-27T04:40:32.086Z]   EXT: https://twitter.com/Back_Box
+[2026-02-27T04:40:32.086Z]   EXT: https://vimeo.com/backbox
+[2026-02-27T04:40:32.086Z]   EXT: https://www.linkedin.com/company/backbox
+[2026-02-27T04:40:32.086Z]   EXT: https://www.youtube.com/channel/UCcHVNacuDacMN8mN3f8V_Dw
+[2026-02-27T04:40:32.087Z] ── Step 1: Programmatic categorization ──
+[2026-02-27T04:40:32.087Z]   REGEX: tw <- https://twitter.com/Back_Box
+[2026-02-27T04:40:32.089Z]   UNCATEGORIZED: https://vimeo.com/backbox
+[2026-02-27T04:40:32.089Z]   REGEX: li <- https://www.linkedin.com/company/backbox
+[2026-02-27T04:40:32.090Z]   REGEX: ytc <- https://www.youtube.com/channel/UCcHVNacuDacMN8mN3f8V_Dw
+[2026-02-27T04:40:32.090Z] Programmatic result: ws:2, tw:1, li:1, ytc:1 | 1 uncategorized
+[2026-02-27T04:40:32.090Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-02-27T04:40:32.092Z] Saved AI prompt (10580 chars) to ai_prompt.txt
+[2026-02-27T04:41:31.807Z] Saved AI response to ai_response.json
+[2026-02-27T04:41:31.808Z] ── Parsing AI response (4 lines) ──
+[2026-02-27T04:41:31.808Z]   AI LINK: https://www.linkedin.com/company/backbox
+[2026-02-27T04:41:31.808Z]   AI LINK: https://twitter.com/Back_Box
+[2026-02-27T04:41:31.808Z]   AI LINK: https://vimeo.com/backbox
+[2026-02-27T04:41:31.809Z]   AI LINK: https://www.youtube.com/channel/UCcHVNacuDacMN8mN3f8V_Dw
+[2026-02-27T04:41:31.809Z] AI returned 4 valid links
+[2026-02-27T04:41:31.809Z] ── Categorizing 4 AI-returned links ──
+[2026-02-27T04:41:31.809Z]   AI→REGEX: li <- https://www.linkedin.com/company/backbox (duplicate, skipped)
+[2026-02-27T04:41:31.810Z]   AI→REGEX: tw <- https://twitter.com/Back_Box (duplicate, skipped)
+[2026-02-27T04:41:31.811Z]   AI→URLS: https://vimeo.com/backbox
+[2026-02-27T04:41:31.811Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCcHVNacuDacMN8mN3f8V_Dw (duplicate, skipped)
+[2026-02-27T04:41:31.813Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-02-27T04:41:31.813Z] Footer/header origins (6):
+[2026-02-27T04:41:31.813Z]   FOOTER/HEADER ORIGIN: https://backbox.com
+[2026-02-27T04:41:31.813Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-02-27T04:41:31.813Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-02-27T04:41:31.813Z]   FOOTER/HEADER ORIGIN: https://vimeo.com
+[2026-02-27T04:41:31.814Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-02-27T04:41:31.814Z]   FOOTER/HEADER ORIGIN: https://support.backbox.com
+[2026-02-27T04:41:31.814Z]   SKIP (AI claimed): https://vimeo.com/backbox
+[2026-02-27T04:41:31.814Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-02-27T04:41:31.814Z] ── Step 3: Final dedup ──
+[2026-02-27T04:41:31.814Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-02-27T04:41:31.815Z] ── FINAL RESULT ──
+[2026-02-27T04:41:31.815Z]   ws (2):
+[2026-02-27T04:41:31.815Z]     - https://backbox.com/
+[2026-02-27T04:41:31.815Z]     - https://support.backbox.com
+[2026-02-27T04:41:31.815Z]   li (1):
+[2026-02-27T04:41:31.816Z]     - https://www.linkedin.com/company/backbox
+[2026-02-27T04:41:31.816Z]   tw (1):
+[2026-02-27T04:41:31.816Z]     - https://x.com/back_box
+[2026-02-27T04:41:31.816Z]   ytc (1):
+[2026-02-27T04:41:31.816Z]     - https://www.youtube.com/channel/ucchvnacudacmn8mn3f8v_dw
+[2026-02-27T04:41:31.817Z]   urls (1):
+[2026-02-27T04:41:31.817Z]     - https://vimeo.com/backbox
+[2026-02-27T04:41:31.817Z] Summary: ws:2, tw:1, li:1, ytc:1, urls:1
+[2026-02-27T04:41:31.819Z] Saved final result to result.json
+[2026-02-27T04:41:31.819Z] Override fields: ws, li, tw, ytc, urls
+[2026-02-27T04:41:31.819Z] Finished at: 2026-02-27T04:41:31.819Z

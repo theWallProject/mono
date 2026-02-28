@@ -10,7 +10,7 @@ import { loadModule } from "../utils/moduleLoader"
 import type { ManualAdditionItem } from "./manual_resolve/manualAdditions"
 import { loadManualAdditions, saveManualAdditions } from "./validate/addition_io"
 import { categorizeUrl, isFromRegexDomain } from "./validate/url_categorization"
-import { cleanFieldValue } from "./validate/url_utils"
+import { cleanFieldValue, extractUrlOrigin } from "./validate/url_utils"
 
 type ProcessedState = {
   _processed: true
@@ -503,7 +503,8 @@ const validateItemLinks = async (
 
       if (redirected) {
         log(`    → Redirected to: ${finalUrl} (from ${url})`)
-        changes[field] = removeTrailingSlash(finalUrl)
+        // For ws field, extract origin only (domain without path); for other fields, just strip trailing slash
+        changes[field] = field === "ws" ? extractUrlOrigin(finalUrl) : removeTrailingSlash(finalUrl)
         hasChanges = true
       } else {
         // URLs are equivalent after normalization

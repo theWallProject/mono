@@ -1,0 +1,773 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<title>Kela | Battle-tested tech for modern warfare</title>
+<link rel="canonical" href="https://kelasys.com">
+<link rel="shortcut icon" href="img/kela-logo-symbol.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&amp;display=swap" rel="stylesheet">
+
+<meta property="og:title" content="Kela | Battle-tested tech for modern warfare">
+<meta property="og:description" content="Coming soon">
+<meta property="og:image" content="https://kelasys.com/img/kela-og.png">
+<meta property="og:url" content="https://kelasys.com">
+<meta property="og:type" content="website">
+
+<meta name="twitter:title" content="Kela | Battle-tested tech for modern warfare">
+<meta name="twitter:card" content="summary_large_image">
+<!-- <meta name="twitter:site" content="@kelasys" /> -->
+<meta name="twitter:description" content="Coming soon">
+<meta name="twitter:image" content="https://kelasys.com/img/kela-og.png">
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Spline Sans Mono", monospace;
+  background:#181825;
+  color:#F1F0EE;
+  font-size:10px;
+  letter-spacing: 1px;
+  margin:0;
+}
+body.viewing-page {
+  overflow: hidden;
+}
+section {
+  height:50vh;
+  border:0.5px solid #F1F0EE20;
+  padding:20px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex.break section {
+  width:50vw;
+}
+.grey {
+  opacity:0.3
+}
+h1 {
+  font-size:94px;
+  letter-spacing: 2px;
+  line-height:100%;
+  font-weight: 400;
+  text-transform: uppercase;
+  max-width:1000px;
+  margin:0;
+  margin-top:32px;
+}
+h2 {
+  font-size:52px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top:0;
+  margin-bottom:32px;
+  line-height:100%
+}
+h3 {
+  font-size:32px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top:32px;
+  margin-bottom:20px;
+  line-height:120%;
+  max-width:780px;
+}
+p {
+  margin:0;
+  margin-bottom:10px;
+  line-height: 180%;
+  font-size:12px;
+  max-width:680px;
+}
+.block {
+  border:1px solid #F1F0EE20;
+  padding:16px;
+}
+a {
+  color:white;
+  text-decoration: none;
+  transition: all 200ms;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+a:hover {
+  color:#00E6FF
+}
+a.link {
+  color:#00E6FF;
+  display: inline-block;
+  border-bottom:1px solid #00E6FF20
+}
+a.link:hover {
+  border-bottom:1px solid #00E6FF40
+}
+::selection {
+  background: #00E6FF;
+  color:#181825
+}
+::-moz-selection {
+  background: #00E6FF;
+  color:#181825
+}
+.button {
+  color:#00E6FF;
+  display: inline-flex;
+  align-items: center;
+  height:32px;
+  padding:0 12px;
+  border: 1px solid #00E6FF50;
+  text-decoration: none;
+  font-size:10px;
+  letter-spacing: 1.5px;
+  transition: all 200ms;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.button:hover {
+  color:white;
+  background:#00E6FF;
+  color:#181825
+}
+.page {
+  display: hide;
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:60px;
+  left:100%;
+  padding:20px;
+  background:#181825;
+  transition: all 1s cubic-bezier(.5,0,.2,1);
+  border: 0.5px solid #F1F0EE20;
+  overflow-y: scroll;
+  padding-bottom:80px;
+}
+.page.show {
+  left:0;
+}
+.scene {
+  width: 400px;
+  height: 400px;
+  perspective: 2000px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: calc(50% - 200px);
+  z-index:50;
+  mix-blend-mode: difference;
+  transition: all 1s cubic-bezier(.5,0,.2,1);
+  pointer-events: none;
+  opacity:0.5;
+  animation-name:enter;
+  animation-duration: 3s;
+}
+@keyframes enter {
+  0% { transform:scale(0.5); opacity:0; }
+}
+.viewing-page .scene {
+  perspective: 800px;
+  transform:scale(1.4);
+  opacity:0.2
+}
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 40s infinite linear;
+}
+.face {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border: 0.5px solid #F1F0EE
+}
+.front { transform: rotateX(45deg) translateZ(200px); }
+.back { transform: rotateX(45deg) rotateY(180deg) translateZ(200px); }
+.right { transform: rotateX(45deg) rotateY(90deg) translateZ(200px); }
+.left { transform: rotateX(45deg) rotateY(-90deg) translateZ(200px); }
+.top { transform: rotateX(45deg) rotateX(90deg) translateZ(200px); }
+.bottom { transform: rotateX(45deg) rotateX(-90deg) translateZ(200px); }
+@keyframes rotate {
+  0% { transform: rotateY(45deg); }
+  100% { transform: rotateY(405deg); }
+}
+.header {
+  height:60px;
+  width:100%;
+  padding:20px;
+  border-bottom: 0.5px solid #F1F0EE20;
+  position: fixed;
+  background:#181825
+}
+a.logo img {
+  height:28px;
+  position: relative;
+  cursor: pointer;
+}
+a.logo:hover {
+  opacity:0.8
+}
+.position {
+  transition: all 1s;
+}
+.viewing-page .position {
+  opacity: 0;
+}
+.kebab {
+  font-size:20px;
+  letter-spacing: -2px;
+  cursor: pointer;
+  padding:12px;
+  position: relative;
+  right:-10px;
+}
+.kebab:hover {
+  color:#00E6FF
+}
+.kebab.open {
+  opacity:0.5
+}
+.menu {
+  position: absolute;
+  z-index: 250;
+  top: 59px;
+  right: 0;
+  background: #181825;
+  width: 200px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-height:400px;
+  transition: all 400ms;
+  overflow: hidden;
+  text-transform: uppercase;
+  border:0.5px solid #F1F0EE20;
+}
+.menu.hide {
+  width:140px;
+  opacity:0;
+  pointer-events:none;
+}
+.menu > * {
+  display: block;
+  padding: 14px 16px;
+  border:0.5px solid #F1F0EE20;
+}
+.menu a:hover {
+  background:#00E6FF;
+  color:#181825
+}
+.menu .socials {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding:0
+}
+.menu .socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 0.5px solid #00E6FF20;
+  height:48px;
+}
+.menu .socials img {
+  width:22px;
+  opacity:0.6
+}
+.menu .socials a:hover img {
+  filter:invert();
+  opacity:0.9
+}
+section.hero {
+  padding-top:44px
+}
+.text p span.typed:last-of-type:after {
+  display: inline-block;
+  content:" ";
+  width:6px;
+  height:12px;
+  position: relative;
+  top:2px;
+  background:#00E6FF;
+  animation-name:curret;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+@keyframes curret {
+  0% { opacity:1}
+  50% { opacity:0 }
+  100% { opacity:1}
+}
+.vc-logo {
+  height:22px;
+  opacity:0.3;
+  transition: all .4s;
+  margin-right:16px;
+}
+.vc-logo:hover {
+  opacity:1
+}
+.page.media {
+  z-index: 200;
+}
+.media .block {
+  width:200px;
+  margin-top:8px;
+}
+.media .block.big {
+  width:100%;
+  max-width:408px;
+  padding:0;
+}
+.media .block.transparentbg {
+  display: inline-block;
+  border:0;
+  background-image: linear-gradient(45deg, #18182520 25%, transparent 25%), 
+    linear-gradient(-45deg, #18182520 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #18182520 75%), 
+    linear-gradient(-45deg, transparent 75%, #18182520 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-color: #F1F0EE90;
+}
+.media img {
+  width:100%;
+  border:2px solid transparent;
+  outline:1px solid transparent;
+  cursor: pointer;
+  transition: all 100ms;
+}
+.media img:hover {
+  border:2px solid #18182510;
+  outline:1px solid #00E6FF;
+}
+.page.positions {
+  padding:0;
+  z-index: 200;
+}
+iframe {
+  width: 100%;
+  background: #F1F0EE;
+  border: 0;
+  height: calc(100% - 60px);
+}
+.block.news {
+  margin-bottom:24px;
+  padding-bottom:40px;
+}
+.block.news .flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+}
+.block.news .image {
+  width:320px;
+  margin-right:32px;
+  aspect-ratio: 1.7;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-top: 38px;
+}
+.block.news p {
+  margin-bottom:16px;
+}
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size:60px;
+  }
+  section {
+    height:auto;
+    width:100%;
+  }
+  section.hero {
+    height:400px;
+  }
+  .flex.break {
+    display: block
+  } 
+  .flex.break section {
+    width:100vw;
+  }
+  .position {
+    display: none;
+  }
+  .scene {
+    opacity:0.3;
+    top:200px;
+  }
+  .blue-circle {
+    display: none;
+  }
+  .block.news .flex {
+    display: block;
+  }
+  .block.news .image {
+    width:100%
+  }
+}
+</style>
+<style>
+  .blue-circle {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background-color: #00E6FF;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out;
+    z-index: 100;
+    mix-blend-mode: difference
+  }
+</style></head>
+<body>
+
+<div class="header flex">
+  <a class="logo" onclick="closePage()"><img src="img/kela-logo.svg"></a>
+  <div class="grey position">050 /// 050</div>
+  <div class="kebab" onclick="openMenu()">•••</div>
+</div>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<section class="hero">
+  <h1><span class="typed" style="opacity: 1;">B</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">-</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">c</span><span class="typed" style="opacity: 1;">h</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">f</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">w</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">f</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">e</span></h1>
+</section>
+
+<div class="flex break">
+  <section>
+    <div>
+      <div>BACKED BY</div>
+      <div style="margin-top:8px"></div>
+      <a href="https://www.sequoiacap.com/article/partnering-with-kela-modern-defense-for-israel-and-western-allies/" target="_blank"><img class="vc-logo" src="img/logo-sequoia.png?2"></a>
+      <a href="https://www.luxcapital.com/news/the-technowarrior-revolution-our-investment-in-kela-technologies" target="_blank"><img class="vc-logo" src="img/logo-lux.png?2"></a>
+    </div>
+    <div class="flex" style="margin-top:64px">
+      <div>
+        <a href="https://www.linkedin.com/company/kela-technologies/" target="_blank" class="button">LINKEDIN</a>
+        <a href="https://x.com/kela_tech" target="_blank" class="button">TWITTER</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="text">
+      <p><span class="typed" style="opacity: 1;">K</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">c</span><span class="typed" style="opacity: 1;">u</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">,</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">p</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">p</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">f</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">b</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">g</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">p</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">g</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">f</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">c</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">c</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">y</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">y</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">v</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">c</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">f</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">W</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">f</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">.</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">D</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">g</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">b</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">-</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">b</span><span class="typed" style="opacity: 1;">y</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">I</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">i</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">v</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">,</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">K</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">l</span><span class="typed" style="opacity: 1;">a</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">n</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">u</span><span class="typed" style="opacity: 1;">r</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">h</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">W</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">m</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">e</span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">s</span><span class="typed" style="opacity: 1;"> </span><span class="typed" style="opacity: 1;">t</span><span class="typed" style="opacity: 1;">o</span><span class="typed" style="opacity: 1;">d</span><span class="typed" style="opacity: 1;">a</span><span style="opacity: 0;">y</span><span style="opacity: 0;">’</span><span style="opacity: 0;">s</span><span style="opacity: 0;"> </span><span style="opacity: 0;">f</span><span style="opacity: 0;">r</span><span style="opacity: 0;">o</span><span style="opacity: 0;">n</span><span style="opacity: 0;">t</span><span style="opacity: 0;">l</span><span style="opacity: 0;">i</span><span style="opacity: 0;">n</span><span style="opacity: 0;">e</span><span style="opacity: 0;"> </span><span style="opacity: 0;">c</span><span style="opacity: 0;">h</span><span style="opacity: 0;">a</span><span style="opacity: 0;">l</span><span style="opacity: 0;">l</span><span style="opacity: 0;">e</span><span style="opacity: 0;">n</span><span style="opacity: 0;">g</span><span style="opacity: 0;">e</span><span style="opacity: 0;">s</span><span style="opacity: 0;"> </span><span style="opacity: 0;">a</span><span style="opacity: 0;">n</span><span style="opacity: 0;">d</span><span style="opacity: 0;"> </span><span style="opacity: 0;">e</span><span style="opacity: 0;">v</span><span style="opacity: 0;">o</span><span style="opacity: 0;">l</span><span style="opacity: 0;">v</span><span style="opacity: 0;">e</span><span style="opacity: 0;">s</span><span style="opacity: 0;"> </span><span style="opacity: 0;">w</span><span style="opacity: 0;">i</span><span style="opacity: 0;">t</span><span style="opacity: 0;">h</span><span style="opacity: 0;"> </span><span style="opacity: 0;">t</span><span style="opacity: 0;">o</span><span style="opacity: 0;">m</span><span style="opacity: 0;">o</span><span style="opacity: 0;">r</span><span style="opacity: 0;">r</span><span style="opacity: 0;">o</span><span style="opacity: 0;">w</span><span style="opacity: 0;">’</span><span style="opacity: 0;">s</span><span style="opacity: 0;"> </span><span style="opacity: 0;">i</span><span style="opacity: 0;">n</span><span style="opacity: 0;">n</span><span style="opacity: 0;">o</span><span style="opacity: 0;">v</span><span style="opacity: 0;">a</span><span style="opacity: 0;">t</span><span style="opacity: 0;">i</span><span style="opacity: 0;">o</span><span style="opacity: 0;">n</span><span style="opacity: 0;">s</span><span style="opacity: 0;">.</span></p>
+    </div>
+    <div class="flex" style="margin-top:64px">
+      <a href="#contact" class="button">GET IN TOUCH</a>
+      <div class="grey">© 2025 KELA TECHNOLOGIES</div>
+    </div>
+  </section>
+</div>
+
+<div class="menu hide">
+  <a href="#newsroom">Newsroom</a>
+  <a href="https://www.comeet.com/jobs/kelasys/2A.007" target="_blank">Open positions</a>
+  <!-- <a href="#media">Media kit</a> -->
+  <a href="#contact">Get in touch</a>
+  <div class="socials">
+    <a href="https://www.linkedin.com/company/kela-technologies/" target="_blank"><img src="img/icon-linkedin.svg"></a>
+    <a href="https://x.com/kela_tech" target="_blank"><img src="img/icon-x.svg"></a>
+  </div>
+</div>
+
+<div class="page newsroom">
+  <h2>NEWSROOM</h2>
+
+  <div class="block news">
+    <div class="flex">
+      <div class="image" style="background-image:url('https://pbs.twimg.com/media/GmPbaqjWcAEytE6?format=jpg&amp;name=4096x4096')"></div>
+      <div>
+        <h3>Defense tech co Kela makes first acquisition</h3>
+        <p class="grey">GLOBES / SEPTEMBER 28, 2025</p>
+        <p>The company is buying cloud management platform company Pelanor for an estimated $20-30 million</p>
+        <a class="button" href="https://en.globes.co.il/en/article-defense-tech-co-kela-makes-first-acqusition-1001522687" target="_blank">READ MORE</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="block news">
+    <div class="flex">
+      <div class="image" style="background-image:url('https://images.wsj.net/im-67914299?width=700&amp;size=1.501&amp;pixel_ratio=2')"></div>
+      <div>
+        <h3>Silicon Valley Invests in Israeli Startups in Bid for U.S. Defense Market</h3>
+        <p class="grey">WSJ / MARCH 16, 2025</p>
+        <p>CIA's venture-capital arm is among the investors in Kela, a firm where 'techno-warriors' aim to sell directly to the Pentagon</p>
+        <a class="button" href="https://www.wsj.com/politics/national-security/silicon-valley-invests-in-israeli-startups-in-bid-for-u-s-defense-market-09d47bb4?mod=e2tw" target="_blank">READ MORE</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="block news">
+    <div class="flex">
+      <div class="image" style="background-image:url('https://www.sequoiacap.com/wp-content/uploads/sites/6/2025/03/Blog-Post_Kela.jpg')"></div>
+      <div>
+        <h3>Partnering with Kela: Modern Defense for Israel and Western Allies</h3>
+        <p class="grey">SEQUOIA / MARCH 17, 2025</p>
+        <p>Four veterans of elite intelligence units, including the former General Manager of Palantir Israel, are building an innovative new defense prime, starting with border protection. Their vision is to leverage Israel’s unique cadre of “technowarriors” to help defend the Western world order.</p>
+        <a class="button" href="https://www.sequoiacap.com/article/partnering-with-kela-modern-defense-for-israel-and-western-allies/" target="_blank">READ MORE</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="block news">
+    <div class="flex">
+      <div class="image" style="background-image:url('media/kela-banner-2.png')"></div>
+      <div>
+        <h3>The TechnoWarrior Revolution: Our Investment in Kela Technologies</h3>
+        <p class="grey">LUX / MARCH 17, 2025</p>
+        <p>The most transformative technologies emerge from the intersection of necessity and ingenuity—where the stakes are high, and the drive to innovate is unrelenting. This is evident in the history of defense tech founders, who turn necessity into invention and constraints into capabilities. These innovators have transformed the crucible of conflict into protection and progress.</p>
+        <a class="button" href="https://www.luxcapital.com/news/the-technowarrior-revolution-our-investment-in-kela-technologies" target="_blank">READ MORE</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page positions">
+  <iframe src="https://www.comeet.com/jobs/kelasys/2A.007"></iframe>
+</div>
+
+<div class="page media">
+  <h2>MEDIA / PRESS KIT</h2>
+  <p>Kela logo</p>
+  <div class="block transparentbg"><img src="media/kela-symbol-black.png"></div>
+  <div class="block transparentbg dark"><img src="media/kela-symbol-white.png"></div>
+  <div style="margin-top:32px"></div>
+  <p>Kela wordmark</p>
+  <div class="block transparentbg"><img src="media/kela-logo-black.png"></div>
+  <div class="block transparentbg dark"><img src="media/kela-logo-white.png"></div>
+  <div style="margin-top:32px"></div>
+  <p>Banners</p>
+  <div class="block big"><img src="media/kela-banner-2.png"></div>
+  <div class="block big"><img src="media/kela-banner-1.png"></div>
+  <div class="block big"><img src="media/kela-banner-3.png"></div>
+  <div class="block big"><img src="media/kela-banner-4.png"></div>
+</div>
+
+<div class="page contact">
+  <h2>Get in touch</h2>
+  <p>Media and news: <a class="link" href="mailto:media@kelasys.com">media@kelasys.com</a></p>
+  <div style="margin-top:16px"></div>
+  <p>Partners: <a class="link" href="mailto:partners@kelasys.com">partners@kelasys.com</a></p>
+  <div style="margin-top:32px"></div>
+  <p class="block">
+    <span style="font-size:16px; display: block; margin-bottom:16px">WE ARE HIRING</span>
+    If you are interested in what we're building here at Kela and want to help the world's leading nations access the futuristic battlefield, go ahead and check out our <a class="link" href="#positions">Open Positions</a>.
+    <span style="display: block; margin-top:8px; font-size:10px; opacity:0.5"><img style="width:12px; position: relative; top:2px; margin-right:2px; margin-left:-3px" src="img/icon-location.svg">TEL AVIV</span>
+  </p>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  if ( window.location.hash ) {
+    nav()
+  }
+
+  $(window).on('hashchange', function() {
+    nav()
+  });
+});
+
+function nav() {
+  hash = window.location.hash.substring(1)
+  $('body').removeClass('viewing-page')
+  $('.page').removeClass('show');
+
+  if (hash == 'positions') {
+    window.location.href = 'https://www.comeet.com/jobs/kelasys/2A.007';
+    return;
+  }
+
+  if (hash != '') {
+    $('body').addClass('viewing-page')
+    $('.page.'+hash).addClass('show')
+  }
+}
+
+function closePage() {
+  $('body').removeClass('viewing-page')
+  $('.page').removeClass('show');
+  history.replaceState(null, null, ' ')
+}
+
+document.onkeydown = function (e) {
+    var keyCode = e.keyCode
+    if(keyCode == 27) {
+        closePage()
+    }
+};
+
+function openMenu() {
+  if ($('.menu').hasClass('hide')) {
+    $('.menu').removeClass('hide');
+    $('.kebab').addClass('open');
+  } else {
+    $('.menu').addClass('hide');
+    $('.kebab').removeClass('open');
+  }
+}
+
+$(document).click(function(event) { 
+  target = $(event.target);
+  if(!target.closest('.kebab').length && $('.menu').is(":visible")) {
+    $('.menu').addClass('hide');
+    $('.kebab').removeClass('open');
+  }        
+});
+
+function typeWriter(element, text, speed) {
+  element.textContent = '';
+  
+  // Create spans for each character
+  for (let i = 0; i < text.length; i++) {
+    const charSpan = document.createElement('span');
+    charSpan.textContent = text.charAt(i);
+    charSpan.style.opacity = '0';
+    element.appendChild(charSpan);
+  }
+  
+  // Fade in characters one by one
+  const spans = element.querySelectorAll('span');
+  let i = 0;
+  
+  function fadeIn() {
+    if (i < spans.length) {
+      spans[i].style.opacity = '1';
+      $(spans[i]).addClass('typed')
+      i++;
+      setTimeout(fadeIn, speed);
+    }
+  }
+  
+  fadeIn();
+}
+
+// Type the h1 heading
+let h1 = document.querySelector('h1');
+typeWriter(h1, h1.textContent, 30);
+
+// Type all paragraphs in elements with class 'text'
+let textParagraphs = document.querySelectorAll('.text p');
+textParagraphs.forEach(paragraph => {
+  typeWriter(paragraph, paragraph.textContent, 10);
+});
+
+document.addEventListener('mousemove', (e) => {
+    const position = document.querySelector('.position');
+    position.textContent = `${Math.round((e.clientX / window.innerWidth) * 100).toString().padStart(3, '0')} /// ${Math.round((e.clientY / window.innerHeight) * 100).toString().padStart(3, '0')}`;
+});
+
+// Create a blue circle element that follows the mouse
+const blueCircle = document.createElement('div');
+blueCircle.classList.add('blue-circle');
+document.body.appendChild(blueCircle);
+
+// Add styles for the blue circle
+const style = document.createElement('style');
+style.textContent = `
+  .blue-circle {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background-color: #00E6FF;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out;
+    z-index: 100;
+    mix-blend-mode: difference
+  }
+`;
+document.head.appendChild(style);
+
+// Variables to track current and target positions
+let currentX = 0;
+let currentY = 0;
+let targetX = 0;
+let targetY = 0;
+
+// Update target position on mouse move
+document.addEventListener('mousemove', (e) => {
+  targetX = e.clientX;
+  targetY = e.clientY;
+});
+
+// Smooth animation function
+function animateCircle() {
+  // Calculate distance between current and target positions
+  const dx = targetX - currentX;
+  const dy = targetY - currentY;
+  
+  // Smoothly move toward target (easing)
+  currentX += dx * 0.1;
+  currentY += dy * 0.1;
+  
+  // Apply the position
+  blueCircle.style.left = currentX + "px";
+  blueCircle.style.top = currentY + "px";
+  
+  // Continue animation
+  requestAnimationFrame(animateCircle);
+}
+
+// Start the animation
+animateCircle();
+
+// Add download functionality to all images in the media page
+document.addEventListener('DOMContentLoaded', () => {
+  const mediaImages = document.querySelectorAll('.media img');
+  
+  mediaImages.forEach(img => {
+    img.addEventListener('click', function() {
+      // Get image source
+      const imgSrc = this.src;
+      
+      // Create a temporary anchor element
+      const downloadLink = document.createElement('a');
+      downloadLink.href = imgSrc;
+      
+      // Extract filename from path or use a default name
+      const fileName = imgSrc.split('/').pop() || 'kela-image.png';
+      downloadLink.download = fileName;
+      
+      // Append to body, trigger click, and remove
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  });
+});
+
+
+</script><div class="blue-circle" style="left: 0px; top: 0px;"></div>
+
+
+
+
+</body></html>
