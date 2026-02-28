@@ -5,14 +5,23 @@ export const manualOverrides: Record<
   | ManualOverrideFields
   | { _processed: true }
   | { _processed: "auto" }
+  | { _processed: "assetlinks" }
   | (ManualOverrideFields & { _processed: true })
   | (ManualOverrideFields & { _processed: "auto" })
+  | (ManualOverrideFields & { _processed: "assetlinks" })
   | (ManualOverrideFields & { urls?: string[] })
   | (ManualOverrideFields & { _processed: true; urls?: string[] })
   | (ManualOverrideFields & { _processed: "auto"; urls?: string[] })
+  | (ManualOverrideFields & { _processed: "assetlinks"; urls?: string[] })
 > = {
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders" },
   "100X": { ws: ["https://get100x.com"], urls: ["https://dany.ai"], _processed: "auto" },
+  "24me": { android_app_ids: ["app.groupcal.www", "app.groupcal.www2"], _processed: "assetlinks" },
+  "2BI": {
+    android_app_ids: ["me.co.mpm.cosmetics", "me.dvabi.digitalnikiosk", "me.dvabi.digitalnikiosk.alpha"],
+    _processed: "assetlinks"
+  },
+  "365Scores": { android_app_ids: ["com.scores365"], _processed: "assetlinks" },
   "4M Analytics": {
     ws: ["https://4map.4manalytics.com", "https://help.4manalytics.com", "https://www.4manalytics.com"],
     li: ["https://www.linkedin.com/company/4m-analytics"],
@@ -55,10 +64,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   AISAP: { ws: ["https://aisap.ai"], li: ["https://www.linkedin.com/company/aisap.ai"], _processed: "auto" },
-  APEX: {
-    ws: ["https://www.dot-training.org"],
-    _processed: "auto"
-  },
+  APEX: { ws: ["https://www.dot-training.org"], _processed: "auto" },
   ARMO: {
     ws: [
       "https://auth.armosec.io",
@@ -72,6 +78,10 @@ export const manualOverrides: Record<
     gh: ["https://github.com/kubescape"],
     urls: ["https://www.g2.com/products/armo/reviews"],
     _processed: "auto"
+  },
+  ASCAP: {
+    android_app_ids: ["com.ascap.app", "com.ascap.app.develop", "com.ascap.app.qa", "com.ascap.app.uat"],
+    _processed: "assetlinks"
   },
   ASOCS: {
     ws: ["https://asocscloud.com", "https://portal.asocscloud.com"],
@@ -127,6 +137,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Agrio: { android_app_ids: ["com.agrio"], _processed: "assetlinks" },
   Aidoc: {
     fb: ["https://www.facebook.com/aidocmed"],
     tw: ["https://x.com/aidocmed"],
@@ -146,6 +157,15 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/CatoNetworks"],
     tw: ["https://twitter.com/CatoNetworks"],
     _processed: "auto"
+  },
+  "Air Doctor": { android_app_ids: ["com.gaiamobile.airdoctor"], _processed: "assetlinks" },
+  Airbnb: {
+    android_app_ids: [
+      "com.airbnb.android",
+      "com.airbnb.android.development",
+      "com.airbnb.android.myflavor.development"
+    ],
+    _processed: "assetlinks"
   },
   Airobotics: {
     ws: ["https://www.airoboticsdrones.com"],
@@ -169,6 +189,8 @@ export const manualOverrides: Record<
     urls: ["https://cloudsecurityalliance.org/star/registry/akeyless-io"],
     _processed: "auto"
   },
+  Akool: { android_app_ids: ["com.akool.xavatar"], _processed: "assetlinks" },
+  Albert: { android_app_ids: ["com.meetalbert"], _processed: "assetlinks" },
   "Aleph Farms": {
     ws: ["https://aleph-farms.com"],
     li: ["https://www.linkedin.com/company/aleph-farms"],
@@ -216,6 +238,47 @@ export const manualOverrides: Record<
     urls: ["https://www.alphabiome.ai", "https://www.moveo.group"],
     _processed: "auto"
   },
+  Amazon: {
+    android_app_ids: [
+      "in.amazon.mShop.android.shopping",
+      "cn.amazon.mShop.android",
+      "com.amazon.mShop.android.business.shopping",
+      "in.amazon.mShop.android.business.shopping",
+      "com.amazon.mp3",
+      "com.amazon.kindle",
+      "com.amazon.kindlefs",
+      "com.amazon.clouddrive.photos",
+      "com.audible.application",
+      "com.amazon.map.sample.one",
+      "com.wholefoods.wholefoodsmarket",
+      "com.eero.android",
+      "com.eero.android.dogfood",
+      "com.amazon.dee.app",
+      "com.amazon.sellermobile.android"
+    ],
+    _processed: "assetlinks"
+  },
+  "Amazon Web Services": {
+    android_app_ids: [
+      "in.amazon.mShop.android.shopping",
+      "cn.amazon.mShop.android",
+      "com.amazon.mShop.android.business.shopping",
+      "in.amazon.mShop.android.business.shopping",
+      "com.amazon.mp3",
+      "com.amazon.kindle",
+      "com.amazon.kindlefs",
+      "com.amazon.clouddrive.photos",
+      "com.audible.application",
+      "com.amazon.map.sample.one",
+      "com.wholefoods.wholefoodsmarket",
+      "com.eero.android",
+      "com.eero.android.dogfood",
+      "com.amazon.dee.app",
+      "com.amazon.sellermobile.android"
+    ],
+    _processed: "assetlinks"
+  },
+  Animoove: { android_app_ids: ["com.animoove.player", "dev.animoove.player"], _processed: "assetlinks" },
   Anodot: {
     ws: [
       "https://app.anodot.com",
@@ -231,10 +294,34 @@ export const manualOverrides: Record<
     urls: ["https://app.pileuscloud.com"],
     _processed: "auto"
   },
+  Anonybit: { android_app_ids: ["io.anonybit.demo"], _processed: "assetlinks" },
+  "Any.do": { android_app_ids: ["com.anydo"], _processed: "assetlinks" },
   AnyClip: {
     ws: ["https://anyclip.com", "https://docs.anyclip.com", "https://videomanager.anyclip.com"],
     li: ["https://www.linkedin.com/company/anyclip"],
     _processed: "auto"
+  },
+  AppCard: {
+    android_app_ids: [
+      "com.appcard.appcard",
+      "com.appcard.app",
+      "com.foodtown",
+      "com.islandpacificmarket.islandpacificbonus",
+      "com.pruettsmarket.pruettsmarket",
+      "com.jjfoods.jjfoods",
+      "com.freshcountymarket.fcmrewards",
+      "com.bendfood4less.shop",
+      "com.marketofchoice.marketofchoice",
+      "com.foodarama",
+      "com.brucesfoodland",
+      "com.niemanns.maxplus",
+      "com.mercatustechnologies.pigglywiggly",
+      "com.waltchurchillmarket.googleplay",
+      "com.ballsfoods.henhouse",
+      "com.freshtakegrocerycorporation.freshpointsrewards",
+      "com.foodfair.foodfairmarket.googleplay"
+    ],
+    _processed: "assetlinks"
   },
   Appcharge: {
     ws: ["https://www.appcharge.com"],
@@ -281,6 +368,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  AppsVillage: { android_app_ids: ["com.appsvillage.adrabbit"], _processed: "assetlinks" },
   "Aqua Security": {
     ws: [
       "https://aquademy.aquasec.com",
@@ -312,6 +400,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCem5Ie0LVKY-5MV6Av9ZfsA"],
     _processed: "auto"
   },
+  Artishok: { android_app_ids: ["io.artishok.hub"], _processed: "assetlinks" },
   Artlist: {
     ws: [
       "https://artlist.io",
@@ -335,12 +424,15 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life_at_aryonsecurity"],
     _processed: "auto"
   },
+  AsiaYo: { android_app_ids: ["com.asiayo.app"], _processed: "assetlinks" },
   "Ask-AI": {
     ws: ["https://getmosaic.ai", "https://ask-ai.zendesk.com"],
     li: ["https://www.linkedin.com/company/ask-ai-tech"],
     urls: ["https://www.comeet.com/jobs/askai/1A.00C"],
     _processed: "auto"
   },
+  "Assac Networks": { android_app_ids: ["com.assacnetworks.shieldit"], _processed: "assetlinks" },
+  "Associated Press": { android_app_ids: ["mnn.Android"], _processed: "assetlinks" },
   "Astrix Security": {
     ws: ["https://astrix.security"],
     li: ["https://www.linkedin.com/company/astrix-security"],
@@ -380,6 +472,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Atletico Madrid": { android_app_ids: ["com.mcentric.mcclient.MyAtleticoMadrid"], _processed: "assetlinks" },
   "Aurora Labs": {
     ws: ["https://www.auroralabs.com"],
     li: ["https://www.linkedin.com/company/auroralabs"],
@@ -409,10 +502,47 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/autofleet.io"],
     _processed: "auto"
   },
-  Autotalks: {
-    name: "Autotalks (Aquired by Qualcomm)",
-    ws: ["https://www.qualcomm.com"],
-    _processed: "auto"
+  "Autority.io": { android_app_ids: ["io.autority.client"], _processed: "assetlinks" },
+  Autotalks: { name: "Autotalks (Aquired by Qualcomm)", ws: ["https://www.qualcomm.com"], _processed: "auto" },
+  BBC: {
+    android_app_ids: [
+      "bbc.iplayer.android",
+      "uk.co.bbc.androiduniversallinks",
+      "uk.co.bbc.authtoolkit",
+      "uk.co.bbc.authtoolkit.sandbox",
+      "uk.co.bbc.integrationapp",
+      "uk.co.bbc.onetapapp",
+      "uk.co.bbc.cbbcbuzz",
+      "uk.co.bbc.bitesize",
+      "com.bbc.sounds",
+      "com.bbc.sounds.buildly",
+      "com.bbc.sounds.rmsTest",
+      "com.bbc.sounds.spikelee",
+      "bbc.news.mobile.cymru",
+      "bbc.mobile.news.uk",
+      "uk.co.bbc.mundo",
+      "uk.co.bbc.russian",
+      "uk.co.bbc.hindi",
+      "uk.co.bbc.arabic",
+      "uk.co.bbc.ww",
+      "bbc.mobile.weather",
+      "uk.co.bbc.android.sportdomestic",
+      "bbc.mobile.sport.ww",
+      "com.bbc.bbcx.test",
+      "uk.co.bbc.android.mytopics",
+      "uk.co.bbc.pam.sampleapp",
+      "bbc.mobile.news.ww",
+      "uk.co.bbc.cbeebiesstorytime",
+      "uk.co.bbc.cbeebiesgetcreative",
+      "uk.co.bbc.cbeebiesgoexplore",
+      "uk.co.bbc.cbeebiesplaytimeisland",
+      "air.uk.co.bbc.cbeebiesstorytime",
+      "air.com.cc.uk.co.bbc.cbeebiesstorytime",
+      "uk.co.bbc.cbeebiesgetcreative.freetime",
+      "uk.co.bbc.cbeebiesplaytimeisland.freetime",
+      "uk.co.bbc.cbeebiesgoexplore.freetime"
+    ],
+    _processed: "assetlinks"
   },
   "BBT.live": {
     ws: ["https://bbt.live"],
@@ -422,6 +552,10 @@ export const manualOverrides: Record<
       "https://www.ipoque.com/news-media/resources/case-studies/case-study-bbt.live-dpi-driven-intelligence-connectivity"
     ],
     _processed: "auto"
+  },
+  BUFF: {
+    android_app_ids: ["com.buff.game.appmobile", "com.buff.game.play", "com.buff.play"],
+    _processed: "assetlinks"
   },
   BackBox: {
     ws: ["https://backbox.com", "https://support.backbox.com"],
@@ -444,6 +578,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@BackslashSecurity"],
     _processed: "auto"
   },
+  "Baladi Supermarket": { android_app_ids: ["com.selfpoint.baladi"], _processed: "assetlinks" },
   Balance: {
     ws: ["https://www.getbalance.com"],
     li: ["https://www.linkedin.com/company/getbalance"],
@@ -461,6 +596,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Bazaart: { android_app_ids: ["me.bazaart.app"], _processed: "assetlinks" },
   Beamr: {
     ws: ["https://beamr.com", "https://blog.beamr.com", "https://cloud.beamr.com", "https://investors.beamr.com"],
     li: ["https://www.linkedin.com/company/beamr"],
@@ -468,6 +604,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/BeamrVideo"],
     _processed: "auto"
   },
+  BeeDeals: { android_app_ids: ["deals.bee.il.twa"], _processed: "assetlinks" },
   Beewise: {
     ws: ["https://beewise.ag", "https://grower.beewise.ag", "https://beesforbuildings.com"],
     li: ["https://www.linkedin.com/company/beewise-technologies"],
@@ -485,6 +622,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@believermeats"],
     _processed: "auto"
   },
+  "Better Chains, Inc.": { android_app_ids: ["com.betterchains.management"], _processed: "assetlinks" },
+  "Better Together": { android_app_ids: ["com.bettertogether.us"], _processed: "assetlinks" },
   "Beyond Oil": {
     ws: ["https://www.beyondoil.co"],
     li: ["https://www.linkedin.com/company/beyond-oil"],
@@ -494,11 +633,9 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@beyond_oil"],
     _processed: "auto"
   },
-  Bigabid: {
-    ws: ["https://www.bigabid.com"],
-    li: ["https://www.linkedin.com/company/bigabid"],
-    _processed: "auto"
-  },
+  Bidspirit: { android_app_ids: ["com.bidspirit.prod"], _processed: "assetlinks" },
+  Bigabid: { ws: ["https://www.bigabid.com"], li: ["https://www.linkedin.com/company/bigabid"], _processed: "auto" },
+  Bikeable: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   BiltOn: {
     ws: ["https://careers.bilton.tech", "https://www.bilton.tech", "https://us.bilton.pro"],
     urls: [
@@ -532,6 +669,7 @@ export const manualOverrides: Record<
       "https://www.binah.ai/legal",
       "https://www.binah.ai/privacy"
     ],
+    android_app_ids: ["com.binah.saas"],
     _processed: "auto"
   },
   BioCatch: {
@@ -570,6 +708,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Bizzabo: { android_app_ids: ["com.bizzabo.client"], _processed: "assetlinks" },
+  Blinq: { android_app_ids: ["com.rabbl.blinq"], _processed: "assetlinks" },
   Blockaid: {
     ws: ["https://blockaid.io", "https://docs.blockaid.io", "https://report.blockaid.io"],
     li: ["https://www.linkedin.com/company/blockaid"],
@@ -602,6 +742,10 @@ export const manualOverrides: Record<
     urls: ["https://boards.onelink.me/0fu0/d3icoa9w", "https://boards.onelink.me/0fu0/tkc2lr0a"],
     _processed: "auto"
   },
+  "Bookaway.com": { android_app_ids: ["com.bookaway.users"], _processed: "assetlinks" },
+  Booking: { android_app_ids: ["com.booking"], _processed: "assetlinks" },
+  Bookmate: { android_app_ids: ["com.bookmate", "com.bookmate.qa"], _processed: "assetlinks" },
+  Boomerang: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   Botika: {
     ws: ["https://app.botika.com", "https://botika.com", "https://help.botika.com"],
     li: ["https://www.linkedin.com/company/botika-com"],
@@ -609,6 +753,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@botika_com"],
     urls: ["https://botika-io.crisp.help/en", "https://help.botika.com/en"],
     _processed: "auto"
+  },
+  BrainQ: {
+    android_app_ids: [
+      "com.brainq.treatmentmanager",
+      "com.brainq.treatmentmanager.market",
+      "com.brainq.treatmentmanager.demo"
+    ],
+    _processed: "assetlinks"
   },
   BrandShield: {
     ws: ["https://platform.brandshield.com", "https://www.brandshield.com"],
@@ -661,6 +813,9 @@ export const manualOverrides: Record<
     urls: ["https://app.bldts.io", "https://buildots.net"],
     _processed: "auto"
   },
+  Bujeti: { android_app_ids: ["com.anonymous.bujeti"], _processed: "assetlinks" },
+  CB4: { android_app_ids: ["com.cb4.mobile.cretail"], _processed: "assetlinks" },
+  CNN: { android_app_ids: ["com.cnn.mobile.android.phone"], _processed: "assetlinks" },
   CYE: {
     ws: ["https://cyesec.com"],
     li: ["https://www.linkedin.com/company/cyesec"],
@@ -683,6 +838,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@perpetual-power-in-motion"],
     _processed: "auto"
   },
+  CallApp: { android_app_ids: ["com.callapp.contacts"], _processed: "assetlinks" },
   Canditech: {
     ws: ["https://helpcenter.canditech.io", "https://system.canditech.io", "https://www.canditech.io"],
     li: ["https://www.linkedin.com/company/canditech"],
@@ -701,6 +857,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Carlock: { android_app_ids: ["com.carlock.protectus"], _processed: "assetlinks" },
+  Castore: { android_app_ids: ["co.tapcart.app.id_qoKASLxXIa"], _processed: "assetlinks" },
   "Cato Networks": {
     ws: ["https://www.catonetworks.com"],
     li: ["https://www.linkedin.com/company/cato-networks"],
@@ -708,6 +866,10 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/CatoNetworks"],
     urls: ["https://cc.catonetworks.com", "https://connect.catonetworks.com", "https://partners.catonetworks.com"],
     _processed: "auto"
+  },
+  Cazoo: {
+    android_app_ids: ["com.motors.consumer", "com.motors.consumer.qa", "com.motors.consumer.development"],
+    _processed: "assetlinks"
   },
   "Cedar Money": {
     ws: ["https://app.cedar.money", "https://www.cedar.money"],
@@ -748,6 +910,7 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  "Centrical Software": { android_app_ids: ["com.celray", "com.tumblr"], _processed: "assetlinks" },
   Certora: {
     ws: [
       "https://careers.certora.com",
@@ -780,11 +943,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  ChatGPT: { android_app_ids: ["com.openai.chatgpt", "com.openai.sora"], _processed: "assetlinks" },
+  "Checker Software": { android_app_ids: ["com.mor.sa.android.activities"], _processed: "assetlinks" },
+  Cheetah: { android_app_ids: ["com.restaurantcheetah.cheetah_app"], _processed: "assetlinks" },
   Chemomab: {
     ws: ["https://chemomab.com", "https://investors.chemomab.com"],
     li: ["https://www.linkedin.com/company/chemoab-ltd"],
     _processed: "auto"
   },
+  ChillBox: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   Cipia: {
     ws: ["https://car.harman.com", "https://harman.com", "https://jobs.harman.com", "https://news.harman.com"],
     li: ["https://www.linkedin.com/company/harman-automotive"],
@@ -793,6 +960,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uca6wf2lzh2-faffpe8n4aya"],
     _processed: "auto"
   },
+  ClassPass: { android_app_ids: ["com.classpass.classpass"], _processed: "assetlinks" },
   "Classiq Technologies": {
     ws: ["https://www.classiq.io"],
     li: ["https://www.linkedin.com/company/classiq-technologies"],
@@ -804,6 +972,9 @@ export const manualOverrides: Record<
     urls: ["https://classiq-community.slack.com/join/shared_invite/zt-39du2mz80-fE_GBGxMaDxBFRBr_4nrjw"],
     _processed: true
   },
+  Claude: { android_app_ids: ["com.anthropic.claude"], _processed: "assetlinks" },
+  CleverGames: { android_app_ids: ["com.clever.wordsbattle"], _processed: "assetlinks" },
+  Codecademy: { android_app_ids: ["com.codecademy.pwa"], _processed: "assetlinks" },
   Cognata: {
     ws: ["https://www.cognata.com"],
     li: ["https://www.linkedin.com/company/cognata-ltd"],
@@ -827,6 +998,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uc_7slex2hgdrw75fvveogsw"],
     _processed: "auto"
   },
+  Colnect: { android_app_ids: ["com.colnect.webv"], _processed: "assetlinks" },
   "Colugo Systems": {
     ws: ["https://www.colugo-sys.com"],
     li: ["https://www.linkedin.com/company/colugo-systems"],
@@ -860,6 +1032,11 @@ export const manualOverrides: Record<
     urls: ["https://snowbit.io/services"],
     _processed: "auto"
   },
+  Cowrywise: { android_app_ids: ["com.cowrywise.android"], _processed: "assetlinks" },
+  "Creature Comforts": {
+    android_app_ids: ["uk.co.creaturecomforts", "uk.co.creaturecomforts.preprod"],
+    _processed: "assetlinks"
+  },
   CropX: {
     ws: ["https://cropx.com"],
     li: ["https://www.linkedin.com/company/10147582"],
@@ -870,6 +1047,7 @@ export const manualOverrides: Record<
     urls: ["https://help.cropx.com", "https://help.cropx.com/portal/en/home", "https://myfarm.cropx.com/login"],
     _processed: "auto"
   },
+  Curve: { android_app_ids: ["com.imaginecurve.curve.prd"], _processed: "assetlinks" },
   CyVers: {
     ws: ["https://cyvers.ai", "https://docs.cyvers.ai", "https://vigilens.cyvers.ai"],
     li: ["https://www.linkedin.com/company/cyvers"],
@@ -1077,6 +1255,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@dotcompliance_eqms"],
     _processed: "auto"
   },
+  DW: { android_app_ids: ["com.idmedia.android.newsportal"], _processed: "assetlinks" },
+  Dalet: { android_app_ids: ["com.dalet.flex", "com.dalet.pyramid"], _processed: "assetlinks" },
   Darrow: {
     ws: ["https://portal.darrow.ai", "https://www.darrow.ai"],
     li: ["https://www.linkedin.com/company/darrow-ai"],
@@ -1101,6 +1281,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@deepkeep_ai"],
     _processed: "auto"
   },
+  Deliveroo: { android_app_ids: ["com.deliveroo.orderapp", "com.deliveroo.orderapp.prod"], _processed: "assetlinks" },
   "Diagnostic Robotics": {
     ws: ["https://www.diagnosticrobotics.com"],
     li: ["https://www.linkedin.com/company/diagnostic-robotics"],
@@ -1113,6 +1294,8 @@ export const manualOverrides: Record<
     urls: ["https://dig.teamme.link"],
     _processed: "auto"
   },
+  "Digitally Imported": { android_app_ids: ["com.audioaddict.di"], _processed: "assetlinks" },
+  "Disney+": { android_app_ids: ["com.disney.disneyplus"], _processed: "assetlinks" },
   "Diversion Company": {
     ws: ["https://app.diversion.dev", "https://docs.diversion.dev", "https://www.diversion.dev"],
     li: ["https://www.linkedin.com/company/diversion-company-inc"],
@@ -1125,6 +1308,9 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  DoCloud: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
+  DocDoc: { android_app_ids: ["com.docdoc.docdoc"], _processed: "assetlinks" },
+  DragonX: { android_app_ids: ["cloud.dragonx.pilot"], _processed: "assetlinks" },
   DragonflyDB: {
     ws: ["https://security.dragonflydb.io", "https://trust.dragonflydb.io", "https://www.dragonflydb.io"],
     li: ["https://www.linkedin.com/company/dragonflydb"],
@@ -1138,10 +1324,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Dramaton: { android_app_ids: ["com.dramaton.squisher", "com.dramaton.slime"], _processed: "assetlinks" },
   "Dream Security": {
     ws: ["https://dreamgroup.com"],
     li: ["https://www.linkedin.com/company/dreamsecurity"],
     _processed: "auto"
+  },
+  "Dride, Inc.": {
+    android_app_ids: ["io.dride.ddpai", "io.dride.fleet", "io.dride.yi", "io.dride"],
+    _processed: "assetlinks"
   },
   DriveNets: {
     ws: [
@@ -1163,6 +1354,8 @@ export const manualOverrides: Record<
     tw: ["https://x.com/droxi_ai"],
     _processed: "auto"
   },
+  "Drupe Mobile": { android_app_ids: ["mobi.drupe.app"], _processed: "assetlinks" },
+  Duve: { android_app_ids: ["com.wb.guestapp"], _processed: "assetlinks" },
   Earnix: {
     fb: ["https://www.facebook.com/earnix"],
     tw: ["https://x.com/Earnix_Inc"],
@@ -1181,11 +1374,16 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCaXDqGp897G3b7T-9YCo4dg"],
     _processed: "auto"
   },
+  Ecologi: { android_app_ids: ["com.ecologi.x.twa"], _processed: "assetlinks" },
   "Econergy Renewable Energy": {
     ws: ["https://www.econergytech.com"],
     li: ["https://www.linkedin.com/company/econergy-renewable-energy-ltd"],
     urls: ["https://www.econergytech.com", "https://www.econergytech.com/contact"],
     _processed: "auto"
+  },
+  Efobus: {
+    android_app_ids: ["il.co.mitug.WhereBus", "com.efobus.efobus30", "com.horim.horimBegova1"],
+    _processed: "assetlinks"
   },
   "Elbit Systems": {
     ws: ["https://www.elbitsystems.com", "https://elbitsystemscareer.com"],
@@ -1220,6 +1418,7 @@ export const manualOverrides: Record<
     urls: ["https://elemn.to/discord", "https://wordpress.org/plugins/elementor"],
     _processed: "auto"
   },
+  "Embr Labs": { android_app_ids: ["co.tapcart.app.id_KBcPjid98f"], _processed: "assetlinks" },
   Empathy: {
     tw: ["https://x.com/empathy"],
     ig: ["https://www.instagram.com/empathy_com"],
@@ -1232,6 +1431,7 @@ export const manualOverrides: Record<
     android_dev_id: "com.empathy",
     _processed: true
   },
+  Engageli: { android_app_ids: ["com.engageli.students"], _processed: "assetlinks" },
   Everafter: {
     ws: ["https://app.everafter.ai", "https://www.everafter.ai"],
     li: ["https://www.linkedin.com/company/everafter-ai"],
@@ -1245,6 +1445,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/eviation-aircraft-ltd"],
     ytc: ["https://www.youtube.com/channel/uc8rr4q717hurqhiies6dcaq"],
     _processed: "auto"
+  },
+  Evinced: { android_app_ids: ["com.evinced.scan"], _processed: "assetlinks" },
+  Expedia: {
+    android_app_ids: ["com.expedia.bookings", "com.expedia.bookings.next", "com.expedia.bookings.develop"],
+    _processed: "assetlinks"
   },
   Explorium: {
     ws: ["https://www.explorium.ai"],
@@ -1263,6 +1468,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  ExpressVPN: { android_app_ids: ["com.expressvpn.vpn"], _processed: "assetlinks" },
   FEMSelect: {
     ws: ["https://www.femselect.com"],
     li: ["https://www.linkedin.com/company/28632694"],
@@ -1272,6 +1478,10 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCUXuID-G3yt22gTkPV8Ovuw"],
     _processed: "auto"
   },
+  FENIX: {
+    android_app_ids: ["life.fenix.sharing.app", "com.letspalm", "com.arnab", "life.fenix.service.app"],
+    _processed: "assetlinks"
+  },
   FIRMUS: {
     ws: ["https://firmus.ai"],
     li: ["https://www.linkedin.com/company/firmusai"],
@@ -1280,6 +1490,8 @@ export const manualOverrides: Record<
     urls: ["http://firmus.local", "https://firmus.ninja/website", "https://firmus.us.auth0.com/login"],
     _processed: "auto"
   },
+  "FX Leaders": { android_app_ids: ["org.brokers.userinterface"], _processed: "assetlinks" },
+  FXEmpire: { android_app_ids: ["org.fxempire.app.FXEmpire.production"], _processed: "assetlinks" },
   Factify: {
     ws: ["https://developers.factify.com", "https://www.factify.com"],
     li: ["https://www.linkedin.com/company/factifyinc"],
@@ -1312,6 +1524,7 @@ export const manualOverrides: Record<
     urls: ["https://getapp.faireez.com/DauJ/ledadit1"],
     _processed: "auto"
   },
+  FamilyKeeper: { android_app_ids: ["co.familykeeper.parents", "co.familykeeper.kids"], _processed: "assetlinks" },
   Faye: {
     ws: ["https://www.withfaye.com"],
     li: ["https://www.linkedin.com/company/fayetravelinsurance"],
@@ -1325,8 +1538,10 @@ export const manualOverrides: Record<
       "https://assets.withfaye.com/ios",
       "https://blog.withfaye.com"
     ],
+    android_app_ids: ["com.withfaye.app.stg", "com.withfaye.app"],
     _processed: "auto"
   },
+  FeelThere: { android_app_ids: ["com.feelthere"], _processed: "assetlinks" },
   Fermata: {
     ws: ["https://www.fermata.tech"],
     li: ["https://www.linkedin.com/company/19152085"],
@@ -1369,12 +1584,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Fiix Applications": { android_app_ids: ["com.fiixapp"], _processed: "assetlinks" },
   Fincom: {
     ws: ["https://fincom.co"],
     li: ["https://www.linkedin.com/company/fincom-co"],
     ytc: ["https://www.youtube.com/channel/UCh3FDPSgY2Njx-foiXdgHjw"],
     _processed: "auto"
   },
+  Finom: { android_app_ids: ["tech.pnlfin.finom"], _processed: "assetlinks" },
   Finout: {
     ws: ["https://www.finout.io"],
     li: ["https://www.linkedin.com/company/finout-io"],
@@ -1464,8 +1681,10 @@ export const manualOverrides: Record<
       "https://www.pinterest.com/fiverr",
       "https://www.pinterest.com/fiverr/brand-style-guides-brand-identity"
     ],
-    android_dev_id: "com.fiverr"
+    android_dev_id: "com.fiverr",
+    android_app_ids: ["com.fiverr.fiverr"]
   },
+  "Flycatcher Toys": { android_app_ids: ["com.flycatcher.smartsketcher"], _processed: "assetlinks" },
   Flytrex: {
     ws: ["https://www.flytrex.com"],
     li: ["https://il.linkedin.com/company/flytrex"],
@@ -1476,12 +1695,21 @@ export const manualOverrides: Record<
     android_app_ids: ["com.flytrex.foodapp"],
     _processed: "auto"
   },
+  Foodonet: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
+  Fooducate: { android_app_ids: ["com.fooducate.nutritionapp"], _processed: "assetlinks" },
   "ForSight Robotics": {
     ws: ["https://www.forsightrobotics.com"],
     li: ["https://www.linkedin.com/company/forsightrobotics"],
     _processed: "auto"
   },
+  Fordefi: { android_app_ids: ["io.arnac"], _processed: "assetlinks" },
+  "Fox News": { android_app_ids: ["com.foxnews.android"], _processed: "assetlinks" },
+  FreshBus: { android_app_ids: ["com.freshbus.app"], _processed: "assetlinks" },
+  Fundbox: { android_app_ids: ["com.fundbox.mobile"], _processed: "assetlinks" },
+  "G-Med": { android_app_ids: ["com.gmed.prog"], _processed: "assetlinks" },
   Gadfin: { ws: ["https://www.gadfin.com"], li: ["https://www.linkedin.com/company/gadfin"], _processed: "auto" },
+  GameTree: { android_app_ids: ["com.gametreeapp"], _processed: "assetlinks" },
+  Gartner: { android_app_ids: ["com.gartner.mygartner", "qa.pulse.app"], _processed: "assetlinks" },
   Gauzy: {
     ws: ["https://www.gauzy.com"],
     li: ["https://www.linkedin.com/company/2860964"],
@@ -1492,7 +1720,11 @@ export const manualOverrides: Record<
     urls: ["https://investors.gauzy.com", "https://vsc.gsa.gov/drupal/node/138"],
     _processed: "auto"
   },
+  GayOut: { android_app_ids: ["com.gayout.www.twa"], _processed: "assetlinks" },
   GeoX: { ws: ["https://app.geox.ai"], _processed: "auto" },
+  "Get in LTD": { android_app_ids: ["xyz.getin.wallet.fans"], _processed: "assetlinks" },
+  Getir: { android_app_ids: ["com.getir"], _processed: "assetlinks" },
+  Glovo: { android_app_ids: ["com.glovo"], _processed: "assetlinks" },
   Grain: {
     ws: ["https://www.grainfinance.com"],
     li: ["https://www.linkedin.com/company/grainfinance"],
@@ -1533,12 +1765,16 @@ export const manualOverrides: Record<
     urls: ["https://get.grip.security/demo-request.html", "https://help.grip.security"],
     _processed: "auto"
   },
+  Grok: { android_app_ids: ["ai.x.grok"], _processed: "assetlinks" },
+  Grover: { android_app_ids: ["com.groverapp"], _processed: "assetlinks" },
+  GuruShots: { android_app_ids: ["com.gurushots.app"], _processed: "assetlinks" },
   H2Pro: {
     ws: ["https://www.h2pro.co"],
     li: ["https://www.linkedin.com/company/h2pro"],
     urls: ["https://www.h2pro.co"],
     _processed: "auto"
   },
+  "HAAT Delivery": { android_app_ids: ["com.haat.client"], _processed: "assetlinks" },
   "HUB Security": {
     ws: ["https://hub-technologies.com", "https://investors.hubsecurity.com"],
     li: ["https://www.linkedin.com/company/18444151"],
@@ -1547,6 +1783,7 @@ export const manualOverrides: Record<
     urls: ["https://hubsecurity.com/hubtechnologies", "https://www.comeet.com/jobs/hub-technologies/07.00F"],
     _processed: "auto"
   },
+  Haaretz: { android_app_ids: ["com.opentech.haaretz"], _processed: "assetlinks" },
   Hailo: {
     ws: ["https://hailo.ai"],
     li: ["https://www.linkedin.com/company/hailo-ai"],
@@ -1557,6 +1794,7 @@ export const manualOverrides: Record<
     urls: ["https://community.hailo.ai", "https://community.hailo.ai/session/sso"],
     _processed: "auto"
   },
+  "Hapoel Petah Tikva": { android_app_ids: ["com.hapoelpt.app"], _processed: "assetlinks" },
   "Healthy.io": {
     ws: ["https://blog.healthy.io", "https://healthy.io"],
     li: ["https://www.linkedin.com/company/www-healthy-io"],
@@ -1577,6 +1815,7 @@ export const manualOverrides: Record<
     urls: ["http://lab2.online"],
     _processed: "auto"
   },
+  "Hidabrut organization": { android_app_ids: ["net.linnovate.hidabroot"], _processed: "assetlinks" },
   Hirundo: { ws: ["https://www.hirundo.io"], li: ["https://www.linkedin.com/company/gethirundo"], _processed: "auto" },
   Hisense: {
     ws: ["https://www.hisense.co.il"],
@@ -1585,6 +1824,27 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/babysensemonitors"],
     urls: ["https://www.avihaim.co.il", "https://www.hisense.co.il", "https://www.pinterest.com/babysensellc"],
     _processed: "auto"
+  },
+  Hobi: { android_app_ids: ["com.hobi.android"], _processed: "assetlinks" },
+  Holidu: { android_app_ids: ["com.holidu.holidu"], _processed: "assetlinks" },
+  Hombi: { android_app_ids: ["com.ionicframework.vaadapp212468"], _processed: "assetlinks" },
+  HomeConnex: { android_app_ids: ["app.mobile.home_connex.homeconnexappandroid"], _processed: "assetlinks" },
+  Hometalk: {
+    android_app_ids: ["com.hometalkmobileapp", "com.hometalkmobileapp.automation"],
+    _processed: "assetlinks"
+  },
+  Honeybook: { android_app_ids: ["com.honeybook.alfred"], _processed: "assetlinks" },
+  HungryPanda: { android_app_ids: ["com.hungrypanda.waimai"], _processed: "assetlinks" },
+  HybRead: {
+    android_app_ids: [
+      "org.wordpress.android",
+      "com.jetpack.android",
+      "org.wordpress.android.prealpha",
+      "com.jetpack.android.prealpha",
+      "com.woocommerce.android",
+      "com.woocommerce.android.prealpha"
+    ],
+    _processed: "assetlinks"
   },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
@@ -1607,6 +1867,7 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  "ILTV News": { android_app_ids: ["ott.iltv"], _processed: "assetlinks" },
   INCRMNTAL: {
     ws: ["https://knowledgebase.incrmntal.com", "https://www.incrmntal.com"],
     li: ["https://www.linkedin.com/company/incrmntal"],
@@ -1634,6 +1895,10 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "ImPact Biotech": { ws: ["https://impactbiotech.com"], urls: ["https://impactbiotech.com"], _processed: "auto" },
+  Imagine: {
+    android_app_ids: ["com.mysalesforce.mycommunity.C00D6A000001V6zaUAC.A0OT3s000000GmaAGAS"],
+    _processed: "assetlinks"
+  },
   InSightec: {
     ws: ["https://distributor.insightec.com", "https://documentation.insightec.com", "https://insightec.com"],
     li: ["https://www.linkedin.com/company/insightec"],
@@ -1690,6 +1955,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@innoviztechnologies3315"],
     _processed: "auto"
   },
+  InsideTracker: { android_app_ids: ["segterra.itracker.purple_android"], _processed: "assetlinks" },
   "Inspira Technologies": {
     ws: ["https://inspira-technologies.com"],
     li: ["https://www.linkedin.com/company/18356393"],
@@ -1714,6 +1980,11 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Intel: {
+    android_app_ids: ["com.intel.AppShell.BIL", "com.intel.AppShell.AS10AppLinks", "com.intel.AppShell.BILTEST"],
+    _processed: "assetlinks"
+  },
+  Intellisen: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   "Intuition Robotics": {
     ws: ["https://www.intuitionrobotics.com"],
     li: ["https://www.linkedin.com/company/intuition-robotics"],
@@ -1724,6 +1995,7 @@ export const manualOverrides: Record<
     urls: ["https://drive.google.com/drive/folders/1ej0iM68l1MJkJUtGAArm-8E1jFriaPBf", "https://elliq.com"],
     _processed: "auto"
   },
+  "Investing.com": { android_app_ids: ["com.fusionmedia.investing"], _processed: "assetlinks" },
   "Israel Innovation Authority": {
     ws: ["https://innovationisrael.org.il"],
     li: ["https://www.linkedin.com/company/5094726/admin"],
@@ -1732,6 +2004,8 @@ export const manualOverrides: Record<
     urls: ["http://innovationisrael.mag.calltext.co.il", "https://www.daatsolutions.co.il"],
     _processed: "auto"
   },
+  "JAZZRADIO.com": { android_app_ids: ["com.audioaddict.jr"], _processed: "assetlinks" },
+  "Jaybee.com": { android_app_ids: ["com.jaybee.smartbutler"], _processed: "assetlinks" },
   "Jeffs’ Brands": { ws: ["https://jeffsbrands.com"], urls: ["https://investor.jeffsbrands.com"], _processed: "auto" },
   Jiga: {
     ws: ["https://app.jiga.io", "https://jiga.io"],
@@ -1750,6 +2024,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Joompers: { android_app_ids: ["com.joompers.app"], _processed: "assetlinks" },
+  Justos: { android_app_ids: ["br.com.justos.app"], _processed: "assetlinks" },
   Justt: {
     ws: [
       "https://app.justt.ai",
@@ -1775,6 +2051,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "KRE8.TV": { android_app_ids: ["com.piiym.celebrate"], _processed: "assetlinks" },
+  Kama: { android_app_ids: ["com.kama.android", "com.kama.android.preprod"], _processed: "assetlinks" },
   "Kamari Pharma": {
     ws: ["https://kamaripharma.com"],
     li: ["https://www.linkedin.com/company/kamari-pharma"],
@@ -1789,6 +2067,10 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/kardomevoice", "https://www.instagram.com/kardomevui"],
     _processed: "auto"
   },
+  Karma: { android_app_ids: ["com.shoptagr"], _processed: "assetlinks" },
+  Kasamba: { android_app_ids: ["com.liveperson.kasamba.android"], _processed: "assetlinks" },
+  Kashable: { android_app_ids: ["com.exp.kashable"], _processed: "assetlinks" },
+  Katkuti: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   Keep: {
     ws: [
       "https://docs.keephq.dev",
@@ -1811,6 +2093,17 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kela_tech"],
     _processed: "auto"
   },
+  Kidyos: {
+    android_app_ids: [
+      "org.wordpress.android",
+      "com.jetpack.android",
+      "org.wordpress.android.prealpha",
+      "com.jetpack.android.prealpha",
+      "com.woocommerce.android",
+      "com.woocommerce.android.prealpha"
+    ],
+    _processed: "assetlinks"
+  },
   Kissterra: {
     ws: ["https://kissterra.com"],
     li: ["https://www.linkedin.com/company/kissterra"],
@@ -1820,6 +2113,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@kissterra"],
     _processed: "auto"
   },
+  Klips: { android_app_ids: ["com.klips.trading"], _processed: "assetlinks" },
+  Klook: { android_app_ids: ["com.klook"], _processed: "assetlinks" },
   Knostic: {
     ws: ["https://prompts.knostic.ai", "https://www.knostic.ai"],
     li: ["https://www.linkedin.com/company/knostic"],
@@ -1862,6 +2157,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kovrrins"],
     _processed: "auto"
   },
+  LEELOO: { android_app_ids: ["com.example.leelo"], _processed: "assetlinks" },
   "Laguna Health": {
     ws: ["https://form.lagunahealth.com", "https://www.lagunahealth.com"],
     li: ["https://www.linkedin.com/company/getlaguna"],
@@ -1883,6 +2179,7 @@ export const manualOverrides: Record<
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _processed: true
   },
+  LifeOhrB: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   LightSolver: {
     ws: ["https://lightsolver.com"],
     li: ["https://www.linkedin.com/company/lightsolver"],
@@ -1918,6 +2215,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Lingopie: { android_app_ids: ["com.lingopie.android", "com.lingopie.android.stg"], _processed: "assetlinks" },
   LiveU: {
     ws: ["https://www.liveu.tv"],
     li: ["https://www.linkedin.com/company/liveu"],
@@ -1938,6 +2236,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Logic Wiz": { android_app_ids: ["com.uvmlab.usudoku"], _processed: "assetlinks" },
   Loops: {
     ws: ["https://app.getloops.ai", "https://www.getloops.ai"],
     li: ["https://www.linkedin.com/company/getgetloops"],
@@ -1958,6 +2257,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Luko: { android_app_ids: ["com.getluko.cover.app"], _processed: "assetlinks" },
   Lumen: {
     ws: ["https://www.lumen.me"],
     fb: ["https://www.facebook.com/Lumen.me"],
@@ -1965,6 +2265,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lumen.me"],
     ytc: ["https://www.youtube.com/channel/UC3XkEyGUMXfRhZcB0Ve_fQQ"],
     urls: ["https://help.lumen.me/s", "https://help.lumen.me/s/contactsupport", "https://www.pinterest.com/MyLumen"],
+    android_app_ids: ["com.metaflow.lumen"],
     _processed: "auto"
   },
   Lumus: {
@@ -1988,6 +2289,7 @@ export const manualOverrides: Record<
     urls: ["https://mdclone.atlassian.net/servicedesk/customer/portal/7"],
     _processed: "auto"
   },
+  MY4t: { android_app_ids: ["com.celray", "com.tumblr"], _processed: "assetlinks" },
   "Magenta Medical": {
     ws: ["https://magentamed.com"],
     li: ["https://www.linkedin.com/company/magenta-medical"],
@@ -2019,6 +2321,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Matific: { android_app_ids: ["com.slatescience.Matific"], _processed: "assetlinks" },
   MazeBolt: {
     ws: [
       "https://app.mazebolt.com",
@@ -2036,6 +2339,7 @@ export const manualOverrides: Record<
     urls: ["https://console.cloud.google.com/marketplace/product/mazebolt-public/mazebolt-radar"],
     _processed: "auto"
   },
+  McDonalds: { android_app_ids: ["com.mcdonalds.app"], _processed: "assetlinks" },
   "Meala Foodtech": {
     ws: ["https://www.mealafood.com"],
     li: ["https://www.linkedin.com/company/meala-foodtech"],
@@ -2065,6 +2369,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@menteebot"],
     _processed: "auto"
   },
+  "Mesh Payments": { android_app_ids: ["com.meshpayments.android"], _processed: "assetlinks" },
+  Metafy: { android_app_ids: ["app.metafy.gg"], _processed: "assetlinks" },
   "Metis Technologies": { fb: "", tw: "" },
   "Miggo Security": {
     ws: ["https://www.miggo.io"],
@@ -2132,6 +2438,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Mixtiles: { android_app_ids: ["com.mixtiles.android"], _processed: "assetlinks" },
   MoonPay: {
     ig: ["https://www.instagram.com/moonpay"],
     ytp: ["https://www.youtube.com/@moonpayhq"],
@@ -2162,7 +2469,7 @@ export const manualOverrides: Record<
       "https://moovitapp.com/tickets/en",
       "https://support.moovitapp.com/hc/en-us"
     ],
-    android_app_ids: ["com.tranzmate"],
+    android_app_ids: ["com.tranzmate", "com.moovit.carpool"],
     _processed: "auto"
   },
   Morphisec: {
@@ -2173,7 +2480,14 @@ export const manualOverrides: Record<
     urls: ["https://morphisec.xamplify.io", "https://support.morphisec.com/hc/en-us"],
     _processed: "auto"
   },
-  MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
+  "Mottech Water Management": { android_app_ids: ["com.mottech.iccpro"], _processed: "assetlinks" },
+  Movoto: { android_app_ids: ["com.movoto.twa", "com.movoto.movoto"], _processed: "assetlinks" },
+  Musely: { android_app_ids: ["com.production.truspertips"], _processed: "assetlinks" },
+  MyGate: {
+    android_app_ids: ["com.mygate.user", "com.mygate.user.alefcommunity", "com.mygate.user.maia"],
+    _processed: "assetlinks"
+  },
+  MyHeritage: { li: "https://www.linkedin.com/company/myheritage", android_app_ids: ["air.com.myheritage.mobile"] },
   NICE: {
     ws: ["https://help.nice.com", "https://resources.nice.com", "https://www.nice.com"],
     li: ["https://www.linkedin.com/company/nice-systems"],
@@ -2227,6 +2541,7 @@ export const manualOverrides: Record<
     urls: ["https://investors.nanox.vision", "https://nanoxvision.zendesk.com"],
     _processed: "auto"
   },
+  "Nas.io": { android_app_ids: ["com.nas.academy"], _processed: "assetlinks" },
   "Nebius Group": {
     ws: [
       "https://nebius.com",
@@ -2311,11 +2626,38 @@ export const manualOverrides: Record<
     urls: ["https://neurosense.investorroom.com", "https://www.neurosense-tx.com", "https://www.webnoise.co.il"],
     _processed: "auto"
   },
+  "New York Times": {
+    android_app_ids: [
+      "com.nytimes.crossword",
+      "com.nytimes.android",
+      "com.nytimes.cooking",
+      "com.theathletic.developer",
+      "com.theathletic",
+      "com.nytimes.crisscrosswords",
+      "com.nytimes.wordgame"
+    ],
+    _processed: "assetlinks"
+  },
+  Newsrael: { android_app_ids: ["com.newsrael"], _processed: "assetlinks" },
+  Nexar: { android_app_ids: ["mobi.nexar.dashcam"], _processed: "assetlinks" },
   NextSilicon: {
     ws: ["https://www.nextsilicon.com"],
     urls: ["https://silktide.com/consent-manager"],
     _processed: "auto"
   },
+  "NiYO Solutions": {
+    android_app_ids: [
+      "finance.global.travel.niyo",
+      "finance.global.travel.niyodev",
+      "com.niyo.global",
+      "com.niyo.idfcsavingsaccount",
+      "com.niyo.equitassavingsaccount",
+      "finance.savings.account.niyoxbankingdev"
+    ],
+    _processed: "assetlinks"
+  },
+  "Nift Networks": { android_app_ids: ["com.nift.niftgift"], _processed: "assetlinks" },
+  Niio: { android_app_ids: ["com.niioart.app"], _processed: "assetlinks" },
   "Nokod Security": {
     ws: ["https://nokodsecurity.com"],
     li: ["https://www.linkedin.com/company/nokodsecurity"],
@@ -2370,8 +2712,10 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucewvk-lopk4wtnhi1mhggsg"],
     _processed: "auto"
   },
+  "OP.GG": { android_app_ids: ["gg.op.lol.android"], _processed: "assetlinks" },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
   Odigos: { ws: ["https://odigos.io"], gh: "https://github.com/odigos-io/odigos", _processed: "auto" },
+  OfficeGuy: { android_app_ids: ["com.app.sumit"], _processed: "assetlinks" },
   Oktopost: {
     ws: ["https://www.oktopost.com"],
     li: ["https://www.linkedin.com/company/oktopost"],
@@ -2426,6 +2770,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@onebeat8428"],
     _processed: "auto"
   },
+  "Online Pianist": { android_app_ids: ["com.onlinepianist.onlinepianist"], _processed: "assetlinks" },
   Oosto: {
     ws: ["https://knowledge.oosto.com", "https://oosto.com"],
     li: ["https://www.linkedin.com/company/oosto"],
@@ -2433,6 +2778,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oosto6849"],
     _processed: "auto"
   },
+  "Open-Finance.ai": { android_app_ids: ["com.safecashapps", "com.cashimerchant"], _processed: "assetlinks" },
+  Optery: { android_app_ids: ["com.optery.mobile", "com.corbado.passkeys.pub"], _processed: "assetlinks" },
   Optibus: {
     ws: ["https://blog.optibus.com", "https://optibus.com"],
     li: ["https://www.linkedin.com/company/optibus-ltd"],
@@ -2516,6 +2863,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  OrganizEat: { android_app_ids: ["com.organizeat.android"], _processed: "assetlinks" },
+  "Otis AI": { android_app_ids: ["com.otis"], _processed: "assetlinks" },
   Ottopia: {
     ws: ["https://www.ottopia.tech"],
     li: ["https://www.linkedin.com/company/ottopia"],
@@ -2535,8 +2884,14 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/ourcrowd"],
     ytp: ["https://www.youtube.com/user/OurCrowdFund/featured"],
     urls: ["https://info.ourcrowd.com/ourcrowd-weekly-newsletter-subscription"],
+    android_app_ids: ["com.ourcrowd.app"],
     _processed: "auto"
   },
+  Outdoorsy: {
+    android_app_ids: ["com.outdoorsy.renter", "com.outdoorsy.owner", "com.outdoorsy.wheelbase"],
+    _processed: "assetlinks"
+  },
+  Ovdimnet: { android_app_ids: ["com.priority_software.template"], _processed: "assetlinks" },
   Overwolf: {
     ws: ["https://www.overwolf.com"],
     li: ["https://www.linkedin.com/company/overwolf.com"],
@@ -2551,6 +2906,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  OwnID: { android_app_ids: ["com.ownid.demo.gigya"], _processed: "assetlinks" },
   "Ox Security": {
     li: ["https://www.linkedin.com/company/ox-security"],
     tw: ["https://x.com/OX__Security"],
@@ -2579,6 +2935,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Pagaleve: { android_app_ids: ["com.pagaleve"], _processed: "assetlinks" },
   PainReform: {
     ws: ["https://prf-tech.com"],
     urls: [
@@ -2591,6 +2948,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  PapaJohns: { android_app_ids: ["com.papajohns.android"], _processed: "assetlinks" },
+  Parenthoods: { android_app_ids: ["com.wonderschool.parenthoods"], _processed: "assetlinks" },
   "Perception Point": {
     ws: [
       "https://community.fortinet.com",
@@ -2681,6 +3040,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Piggy: { android_app_ids: ["com.piggy.piggyapp"], _processed: "assetlinks" },
   Pixellot: {
     ws: ["https://www.pixellot.tv"],
     li: ["https://www.linkedin.com/company/pixellotltd"],
@@ -2702,6 +3062,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@plainid3877"],
     _processed: "auto"
   },
+  Planado: { android_app_ids: ["app.planado"], _processed: "assetlinks" },
+  "PlaySight Interactive": { android_app_ids: ["com.playsight.tennis"], _processed: "assetlinks" },
   Playtika: {
     li: ["https://il.linkedin.com/company/playtika"],
     fb: [
@@ -2783,6 +3145,7 @@ export const manualOverrides: Record<
     urls: ["https://polyrizon-biotech.com"],
     _processed: "auto"
   },
+  "Popshop Live": { android_app_ids: ["com.popshoplive"], _processed: "assetlinks" },
   Port: {
     ws: ["https://www.port.io"],
     li: ["https://www.linkedin.com/company/getport"],
@@ -2800,6 +3163,17 @@ export const manualOverrides: Record<
       "https://status.port.io"
     ],
     _processed: "auto"
+  },
+  "Positive Apps": { android_app_ids: ["com.positive_apps.buzz_car.prod"], _processed: "assetlinks" },
+  Postmates: {
+    android_app_ids: [
+      "com.ubercab.eats",
+      "com.ubercab.eats.exo",
+      "com.ubercab.presidio.exo",
+      "com.postmates.android",
+      "com.postmates.android.exo"
+    ],
+    _processed: "assetlinks"
   },
   "Powermat Technologies": {
     ws: ["https://powermat.com"],
@@ -2822,6 +3196,7 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/prioritysw"],
     ytc: ["https://www.youtube.com/channel/UCuOhaPagwvRNqyf7pVKi57A"],
     urls: ["https://market.priority-software.com", "https://support.priority-software.com"],
+    android_app_ids: ["com.priority_software.template"],
     _processed: "auto"
   },
   "Prisma Photonics": {
@@ -2830,6 +3205,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucwqjymddwxn0qwihxc8iyzq"],
     _processed: "auto"
   },
+  ProactiView: { android_app_ids: ["com.celray", "com.tumblr"], _processed: "assetlinks" },
   "Promo.com": {
     ws: ["https://promo.com", "https://support.promo.com"],
     li: ["https://www.linkedin.com/company/promodotcom"],
@@ -2843,6 +3219,7 @@ export const manualOverrides: Record<
       "https://www.pinterest.com/meetpromo",
       "https://www.producthunt.com/posts/promo"
     ],
+    android_app_ids: ["com.promo.mobile"],
     _processed: "auto"
   },
   "Protect AI": {
@@ -2851,6 +3228,11 @@ export const manualOverrides: Record<
     urls: ["https://mlsecops.slack.com/signup#/domain-signup"],
     _processed: true
   },
+  Pruvo: { android_app_ids: ["net.pruvo.mobile"], _processed: "assetlinks" },
+  Puls: { android_app_ids: ["com.puls.consumers"], _processed: "assetlinks" },
+  PulseNmore: { android_app_ids: ["com.PulseNMore.MobileApp"], _processed: "assetlinks" },
+  QLOG: { android_app_ids: ["co.qlog.rna"], _processed: "assetlinks" },
+  Qlik: { android_app_ids: ["com.qlik.qsm"], _processed: "assetlinks" },
   Qodo: {
     ws: ["https://www.qodo.ai"],
     li: ["https://www.linkedin.com/company/qodoai"],
@@ -2914,6 +3296,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/renewable-energy-place-ltd"],
     _processed: "auto"
   },
+  RadioTunes: { android_app_ids: ["com.audioaddict.sky"], _processed: "assetlinks" },
   RailVision: {
     ws: ["https://ir.railvision.io", "https://railvision.io"],
     li: ["https://www.linkedin.com/company/rail-vision"],
@@ -2931,6 +3314,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "Red Alert": { ws: "" },
+  "Red Sea": { android_app_ids: ["com.hippotec.redsea"], _processed: "assetlinks" },
   "Redefine Meat": {
     ws: ["https://www.redefinemeat.com"],
     li: ["https://www.linkedin.com/company/redefinemeat"],
@@ -2992,6 +3376,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Revrod: { ws: ["https://www.revrod.io"], _processed: "auto" },
+  "Rezid.net": { android_app_ids: ["com.arcode.rezidnet"], _processed: "assetlinks" },
   RiseUp: {
     ws: ["https://www.riseup.co.il"],
     urls: [
@@ -3005,6 +3390,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Riuto: { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   "Riverside.fm": {
     ws: ["https://riverside.com"],
     li: ["https://www.linkedin.com/company/riverside-fm"],
@@ -3016,6 +3402,12 @@ export const manualOverrides: Record<
     android_app_ids: ["riverside.fm"],
     _processed: "auto"
   },
+  Robomow: { android_app_ids: ["com.robomow3.robomow", "com.sbd.app", "com.cubcadet3.app"], _processed: "assetlinks" },
+  "Roya Music": { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
+  "Royal Road": { android_app_ids: ["com.NotYetMedia.RoyalRoad"], _processed: "assetlinks" },
+  "SEE IDC": { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
+  Sabaza: { android_app_ids: ["com.sabaza.sabazaapp"], _processed: "assetlinks" },
+  "Sage Recipe Box": { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
   Salto: {
     ws: ["https://www.salto.io"],
     li: ["https://www.linkedin.com/company/salto-io"],
@@ -3073,6 +3465,8 @@ export const manualOverrides: Record<
     urls: ["https://sailpoint.wd1.myworkdayjobs.com/SailPoint/jobs"],
     _processed: "auto"
   },
+  "Sber-Zvuk": { android_app_ids: ["com.zvooq.openplay"], _processed: "assetlinks" },
+  SberHealth: { android_app_ids: ["com.docdoc.docdoc"], _processed: "assetlinks" },
   "Scinai Immunotherapeutics": {
     ws: ["https://www.scinai.com"],
     li: ["https://www.linkedin.com/company/scinai"],
@@ -3105,14 +3499,17 @@ export const manualOverrides: Record<
     urls: ["https://www.ltu.co.il"],
     _processed: "auto"
   },
+  SeatGeek: { android_app_ids: ["com.seatgeek.android"], _processed: "assetlinks" },
   "Secret Double Octopus": {
     ws: ["https://doubleoctopus.com", "https://go.doubleoctopus.com", "https://support.doubleoctopus.com"],
     li: ["https://www.linkedin.com/company/secret-double-octopus"],
     tw: ["https://x.com/double_octopus"],
     ytp: ["https://www.youtube.com/@secretdoubleoctopus5220"],
     urls: ["https://fidoalliance.org/company/secret-double-octopus", "https://vimeo.com/doubleoctopus"],
+    android_app_ids: ["com.doubleoctopus.authenticator"],
     _processed: "auto"
   },
+  "Seeking Alpha": { android_app_ids: ["com.seekingalpha.webwrapper"], _processed: "assetlinks" },
   Semperis: {
     ws: ["https://www.hipconf.com", "https://www.semperis.com"],
     li: [
@@ -3177,6 +3574,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lifeatshield"],
     _processed: "auto"
   },
+  ShopClues: { android_app_ids: ["com.shopclues"], _processed: "assetlinks" },
   Sightful: {
     ws: ["https://sightful.com"],
     li: ["https://www.linkedin.com/company/heysightful"],
@@ -3236,6 +3634,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/c/hellosimply"],
     _processed: "auto"
   },
+  Singit: { android_app_ids: ["com.singit"], _processed: "assetlinks" },
+  "Sky News": { android_app_ids: ["com.bskyb.skyservice"], _processed: "assetlinks" },
   "Skyhawk Security": {
     ws: ["https://app.skyhawk.security", "https://partners.skyhawk.security", "https://skyhawk.security"],
     li: ["https://www.linkedin.com/company/skyhawkcloudsecurity"],
@@ -3245,6 +3645,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  SmartThings: { android_app_ids: ["com.samsung.android.oneconnect"], _processed: "assetlinks" },
+  Sociallix: { android_app_ids: ["com.sociallix.android"], _processed: "assetlinks" },
   "SofWave Medical": {
     ws: ["https://sofwave.com"],
     li: ["https://www.linkedin.com/company/sofwave"],
@@ -3291,6 +3693,7 @@ export const manualOverrides: Record<
   },
   Somite: { tw: "https://x.com/somiteai" },
   Sorbet: { ws: ["https://advance.getsorbet.com"], _processed: "auto" },
+  SpeakingPal: { android_app_ids: ["com.speakingpal.speechtrainer.sp"], _processed: "assetlinks" },
   Speedata: {
     li: ["https://www.linkedin.com/company/speedataio"],
     fb: ["https://www.facebook.com/speedata.io"],
@@ -3396,6 +3799,7 @@ export const manualOverrides: Record<
     urls: ["https://plugins.jetbrains.com/plugin/20716-swimm"],
     _processed: "auto"
   },
+  "Sync.ME": { android_app_ids: ["com.syncme.syncmeapp", "me.sync.callerid"], _processed: "assetlinks" },
   SysAid: {
     ws: ["https://www.sysaid.com"],
     li: ["https://www.linkedin.com/company/sysaid-technologies-ltd"],
@@ -3450,6 +3854,7 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/tailormed.co"],
     _processed: "auto"
   },
+  "Tap Mobile": { android_app_ids: ["pdf.tap.scanner"], _processed: "assetlinks" },
   Team8: {
     li: "https://www.linkedin.com/company/team8group",
     tw: "https://x.com/team8group",
@@ -3481,6 +3886,14 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/TechSee-786286871505772", "https://www.facebook.com/profile.php?id=100063770901033"],
     tw: ["https://twitter.com/techsee_me"],
     ytc: ["https://www.youtube.com/channel/UCKoz5028YIn69aQV9W1Mt9g"],
+    android_app_ids: [
+      "com.techsee.techseeinstantmirroring",
+      "com.geappliances.newfi20",
+      "com.techsee.visualengagement",
+      "me.techsee.app",
+      "com.xiaomi.mi_care",
+      "com.techsee.sdkintegration"
+    ],
     _processed: "auto"
   },
   Tedooo: {
@@ -3490,6 +3903,7 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/app/tedooo/id1487331226"],
     _processed: "auto"
   },
+  "Terminal X": { android_app_ids: ["com.terminalx"], _processed: "assetlinks" },
   "Teva Pharmaceuticals": {
     ws: ["https://www.tevapharm.com"],
     li: ["https://www.linkedin.com/company/teva-pharmaceuticals"],
@@ -3507,7 +3921,11 @@ export const manualOverrides: Record<
     urls: ["https://vagas.co.il", "https://vimeo.com/tevel", "https://waze.com"],
     _processed: "auto"
   },
+  "Text to Speech Reader": { android_app_ids: ["com.wellsrc.ttsreader_flutter"], _processed: "assetlinks" },
   "The Agro Exchange": { ws: "https://www.agrox.io" },
+  "The Guardian": { android_app_ids: ["com.guardian", "uk.co.guardian.puzzles"], _processed: "assetlinks" },
+  "The Marathon Group": { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
+  TheMarker: { android_app_ids: ["com.themarker"], _processed: "assetlinks" },
   Theranica: {
     ws: ["https://theranica.com"],
     li: ["https://www.linkedin.com/company/theranica-bio-electronics"],
@@ -3536,6 +3954,11 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  TinyTap: {
+    android_app_ids: ["tinytap.kids.learning.games", "tinycourses.kids.learning.games", "mathlingo.kids.math.games"],
+    _processed: "assetlinks"
+  },
+  TipRanks: { android_app_ids: ["com.tipranks.android"], _processed: "assetlinks" },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
     li: ["https://www.linkedin.com/company/token-security"],
@@ -3602,6 +4025,9 @@ export const manualOverrides: Record<
     urls: ["https://portal.datasecai.io/hc", "https://security.cyera.io", "https://www.cyera.io/legal/privacy-policy"],
     _processed: "auto"
   },
+  Trailze: { android_app_ids: ["com.trailzeoutdoor.android"], _processed: "assetlinks" },
+  "Travel Quest": { android_app_ids: ["com.travelandquest.tq"], _processed: "assetlinks" },
+  TravelPerk: { android_app_ids: ["com.travelperk"], _processed: "assetlinks" },
   Travelier: {
     ws: [
       "https://www.travelier.com",
@@ -3665,6 +4091,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Travelio: { android_app_ids: ["com.travelio.travelioapp"], _processed: "assetlinks" },
   "Tre Capital GP Ltd": { tw: [""] },
   Tres: {
     ws: ["https://help.tres.finance", "https://tres.finance", "https://trustcenter.tres.finance"],
@@ -3708,6 +4135,8 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Turismocity: { android_app_ids: ["com.grupodc.turismocity"], _processed: "assetlinks" },
+  Turo: { android_app_ids: ["com.relayrides.android.relayrides"], _processed: "assetlinks" },
   Twine: {
     ws: ["https://www.twinesecurity.com"],
     li: ["https://www.linkedin.com/company/twinesecurity"],
@@ -3723,12 +4152,23 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCDJidIDfuy0bzJT6GocaCrA"],
     _processed: "auto"
   },
+  Uglyshuz: { android_app_ids: ["com.appcommerce.uglyshuz"], _processed: "assetlinks" },
   UltraSight: {
     ws: ["https://ultrasight.com"],
     li: ["https://linkedin.com/company/ultrasightai"],
     tw: ["https://twitter.com/UltraSightAI"],
     urls: ["https://etyhadar.com"],
     _processed: "auto"
+  },
+  Upscrolled: {
+    android_app_ids: [
+      "com.facebook.appmanager",
+      "com.oculus.facebook",
+      "com.facebook.stella",
+      "com.facebook.vibes",
+      "com.facebook.wakizashi"
+    ],
+    _processed: "assetlinks"
   },
   "Upstream Security": {
     ws: ["https://info.upstream.auto", "https://upstream.auto"],
@@ -3740,6 +4180,7 @@ export const manualOverrides: Record<
     urls: ["https://upstreamsecurity.atlassian.net/servicedesk/customer/portal/2/user/login"],
     _processed: "auto"
   },
+  "Uptime.com": { android_app_ids: ["com.apppartner.uptime.uptime"], _processed: "assetlinks" },
   "Urban Aeronautics": {
     ws: ["https://www.urbanaero.com"],
     li: ["https://www.linkedin.com/company/urban-aeronautics"],
@@ -3777,6 +4218,23 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  VK: {
+    android_app_ids: [
+      "com.vkontakte.android",
+      "com.vk.im",
+      "com.vk.calls",
+      "com.vk.clips",
+      "com.vk.tv",
+      "com.vk.superapp.sample",
+      "com.vk.vkvideo",
+      "com.vk.love",
+      "com.vk.admin",
+      "ru.vk.store",
+      "ru.vk.store.qa",
+      "com.uma.musicvk"
+    ],
+    _processed: "assetlinks"
+  },
   "Valens Semiconductor": {
     ws: ["https://investors.valens.com", "https://www.valens.com"],
     li: ["https://www.linkedin.com/company/valens"],
@@ -3801,6 +4259,7 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/VERITISECURITY"],
     _processed: "auto"
   },
+  "Veryo Studios": { android_app_ids: ["com.veryo.apestd"], _processed: "assetlinks" },
   Videocites: {
     ws: ["https://www.rippleanalytics.com"],
     li: ["https://www.linkedin.com/company/rippleanalytics"],
@@ -3811,6 +4270,7 @@ export const manualOverrides: Record<
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
     _processed: "auto"
   },
+  "Visuality Systems": { android_app_ids: ["com.visuality.filemanager"], _processed: "assetlinks" },
   Voyantis: {
     ws: ["https://www.voyantis.ai"],
     li: ["https://www.linkedin.com/company/66924899"],
@@ -3819,6 +4279,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Voyantis-ai"],
     _processed: "auto"
   },
+  WEbook: { android_app_ids: ["com.webook.android"], _processed: "assetlinks" },
   "WSC Sports": {
     ws: ["https://wsc-sports.com"],
     li: ["https://il.linkedin.com/company/wsc-sports-technologies"],
@@ -3828,17 +4289,31 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@wsc-sports"],
     _processed: "auto"
   },
+  "Wall Street Journal": {
+    android_app_ids: ["wsj.reader_sp", "wsj.reader_t3", "wsj.reader_dev", "wsj.reader_beta"],
+    _processed: "assetlinks"
+  },
+  "Washington Post": {
+    android_app_ids: ["com.washingtonpost.android", "com.washingtonpost.rainbow"],
+    _processed: "assetlinks"
+  },
   Wasteless: {
     ws: ["https://www.wasteless.com"],
     li: ["https://www.linkedin.com/company/wasteless-ltd"],
     _processed: "auto"
   },
+  "Watani Mall": { android_app_ids: ["com.appcommerce.watanimall"], _processed: "assetlinks" },
   WaveBL: {
     ws: ["https://coa.wavebl.com", "https://register.wavebl.com", "https://wavebl.com", "https://wsupport.wavebl.com"],
     li: ["https://www.linkedin.com/company/wavebl"],
     tw: ["https://x.com/wavebl"],
     ytp: ["https://www.youtube.com/@wavebl7286"],
     _processed: "auto"
+  },
+  WayUp: { android_app_ids: ["com.wayup_rn"], _processed: "assetlinks" },
+  Waze: {
+    android_app_ids: ["com.waze", "com.waze.fishfood", "com.waze.dogfood", "com.waze.alpha", "com.waze.prebeta"],
+    _processed: "assetlinks"
   },
   "Wearable Devices": {
     ws: ["https://www.wearabledevices.co.il"],
@@ -3847,6 +4322,7 @@ export const manualOverrides: Record<
     urls: ["https://www.google.com/maps/search/Hatnufa+5+,+Yokneam+Illit,+Israel"],
     _processed: "auto"
   },
+  Wego: { android_app_ids: ["com.wego.android"], _processed: "assetlinks" },
   Wenrix: {
     ws: ["https://docs.wenrix.com", "https://www.wenrix.com"],
     urls: [
@@ -3869,6 +4345,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Wild Intelligence": { android_app_ids: ["com.substack.app"], _processed: "assetlinks" },
   Wiliot: {
     ws: ["https://www.wiliot.com"],
     li: ["https://www.linkedin.com/company/wiliot"],
@@ -3883,6 +4360,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCRiZ6MI5mP_oLWwnnblB1KA/videos"],
     _processed: "auto"
   },
+  "Windy App": { android_app_ids: ["co.windyapp.android"], _processed: "assetlinks" },
   "Wing Security": {
     ws: ["https://mc.wing.security", "https://wing.security"],
     li: ["https://www.linkedin.com/company/wing-security"],
@@ -3904,6 +4382,7 @@ export const manualOverrides: Record<
     urls: ["https://lp.getwisor.com/wisor-and-cargo-ai-webinar"],
     _processed: "auto"
   },
+  Withapp: { android_app_ids: ["life.odawith.app"], _processed: "assetlinks" },
   Wix: {
     ws: ["https://www.wix.com", "https://stylable.io", "https://wix.github.io"],
     li: ["https://www.linkedin.com/company/wix-com", "https://www.linkedin.com/showcase/wix-engineering"],
@@ -3943,6 +4422,8 @@ export const manualOverrides: Record<
     android_dev_id: "com.wix",
     _processed: true
   },
+  "Wix Japan": { android_app_ids: ["com.wix.admin"], _processed: "assetlinks" },
+  Wolt: { android_app_ids: ["com.wolt.android"], _processed: "assetlinks" },
   Wonderful: {
     ws: ["https://www.wonderful.ai"],
     li: ["https://www.linkedin.com/company/wonderfulcx"],
@@ -3965,6 +4446,132 @@ export const manualOverrides: Record<
     urls: ["https://dev.xyte.io", "https://meetings.hubspot.com/xyte/website-demo-ash", "https://updates.xyte.io"],
     _processed: "auto"
   },
+  "Yahalom Software": { android_app_ids: ["com.yahaloms.y_survey"], _processed: "assetlinks" },
+  Yandex: {
+    android_app_ids: [
+      "com.yandex.yazeka",
+      "ru.yandex.searchplugin",
+      "ru.yandex.weatherplugin",
+      "ru.yandex.yandexmaps",
+      "ru.yandex.yandexmaps.pr",
+      "ru.yandex.bus.tickets",
+      "ru.yandex.metro",
+      "com.yandex.yamb",
+      "com.yandex.messaging.demo",
+      "ru.yandex.yandexnavi",
+      "ru.yandex.yandexnavi.pr",
+      "com.yandex.browser",
+      "com.yandex.browser.broteam",
+      "com.yandex.browser.alpha",
+      "com.yandex.qmobile",
+      "com.yandex.q",
+      "com.yandex.searchapp",
+      "ru.yandex.auth.client",
+      "ru.yandex.key",
+      "ru.yandex.taxi",
+      "com.yandex.yango",
+      "com.yandex.rhythm",
+      "ru.yandex.mail",
+      "ru.beru.android.qa",
+      "ru.beru.android",
+      "ru.yandex.music",
+      "com.yandex.bank",
+      "ru.yandex.disk",
+      "ru.kinopoisk",
+      "com.yandex.aliceapp",
+      "com.yandex.huawei.alice",
+      "ru.yandex.taximeter",
+      "ru.yandex.cloud",
+      "ru.foodfox.client",
+      "ru.yandex.telemost",
+      "ru.plus.bookmate"
+    ],
+    _processed: "assetlinks"
+  },
+  "Yandex Türkiye": {
+    android_app_ids: [
+      "com.yandex.yazeka",
+      "ru.yandex.searchplugin",
+      "ru.yandex.weatherplugin",
+      "ru.yandex.yandexmaps",
+      "ru.yandex.yandexmaps.pr",
+      "ru.yandex.bus.tickets",
+      "ru.yandex.metro",
+      "com.yandex.yamb",
+      "com.yandex.messaging.demo",
+      "ru.yandex.yandexnavi",
+      "ru.yandex.yandexnavi.pr",
+      "com.yandex.browser",
+      "com.yandex.browser.broteam",
+      "com.yandex.browser.alpha",
+      "com.yandex.qmobile",
+      "com.yandex.q",
+      "com.yandex.searchapp",
+      "ru.yandex.auth.client",
+      "ru.yandex.key",
+      "ru.yandex.taxi",
+      "com.yandex.yango",
+      "com.yandex.rhythm",
+      "ru.yandex.mail",
+      "ru.beru.android.qa",
+      "ru.beru.android",
+      "ru.yandex.music",
+      "com.yandex.bank",
+      "ru.yandex.disk",
+      "ru.kinopoisk",
+      "com.yandex.aliceapp",
+      "com.yandex.huawei.alice",
+      "ru.yandex.taximeter",
+      "ru.yandex.cloud",
+      "ru.foodfox.client",
+      "ru.yandex.telemost",
+      "ru.plus.bookmate"
+    ],
+    _processed: "assetlinks"
+  },
+  "Yandex.Market": {
+    android_app_ids: [
+      "com.yandex.yazeka",
+      "ru.yandex.searchplugin",
+      "ru.yandex.weatherplugin",
+      "ru.yandex.yandexmaps",
+      "ru.yandex.yandexmaps.pr",
+      "ru.yandex.bus.tickets",
+      "ru.yandex.metro",
+      "com.yandex.yamb",
+      "com.yandex.messaging.demo",
+      "ru.yandex.yandexnavi",
+      "ru.yandex.yandexnavi.pr",
+      "com.yandex.browser",
+      "com.yandex.browser.broteam",
+      "com.yandex.browser.alpha",
+      "com.yandex.qmobile",
+      "com.yandex.q",
+      "com.yandex.searchapp",
+      "ru.yandex.auth.client",
+      "ru.yandex.key",
+      "ru.yandex.taxi",
+      "com.yandex.yango",
+      "com.yandex.rhythm",
+      "ru.yandex.mail",
+      "ru.beru.android.qa",
+      "ru.beru.android",
+      "ru.yandex.music",
+      "com.yandex.bank",
+      "ru.yandex.disk",
+      "ru.kinopoisk",
+      "com.yandex.aliceapp",
+      "com.yandex.huawei.alice",
+      "ru.yandex.taximeter",
+      "ru.yandex.cloud",
+      "ru.foodfox.client",
+      "ru.yandex.telemost",
+      "ru.plus.bookmate"
+    ],
+    _processed: "assetlinks"
+  },
+  Ynetnews: { android_app_ids: ["com.goldtouch.ynet"], _processed: "assetlinks" },
+  ZBENKO: { android_app_ids: ["com.zbenko.game"], _processed: "assetlinks" },
   "ZOOZ Power": {
     ws: ["https://ir.zoozpower.com", "https://treasury.zoozpower.com", "https://www.zoozpower.com"],
     li: ["https://www.linkedin.com/company/zooz-power"],
@@ -4013,6 +4620,8 @@ export const manualOverrides: Record<
     urls: ["https://minus273celsius.slack.com", "https://partners.zeronetworks.com"],
     _processed: "auto"
   },
+  Zoomcar: { android_app_ids: ["com.zoomcar"], _processed: "assetlinks" },
+  Zwift: { android_app_ids: ["com.zwift.android.alpha", "com.zwift.android.prod"], _processed: "assetlinks" },
   accessiBe: {
     ws: [
       "https://accessibe.com",
@@ -4135,6 +4744,44 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  enabley: {
+    android_app_ids: [
+      "io.enabley",
+      "io.enabley.challenge",
+      "io.enabley.clientco",
+      "io.enabley.campofirme",
+      "io.enabley.universidade",
+      "io.enabley.azrieligroup",
+      "io.enabley.granado",
+      "io.enabley.evoy",
+      "io.enabley.mekorot",
+      "io.enabley.technit",
+      "io.enabley.allgoods",
+      "io.enabley.livinggoods",
+      "io.enabley.vmeduca",
+      "io.enabley.asas",
+      "io.enabley.cejam",
+      "io.enabley.combio",
+      "io.enabley.unionengineers_Android",
+      "io.enabley.oralunic",
+      "io.enabley.cocamar",
+      "io.enabley.vtal",
+      "io.enabley.tikshoov",
+      "io.enabley.fb.bohn",
+      "io.enabley.constellation",
+      "io.enabley.circle",
+      "io.enabley.calanit",
+      "io.enabley.aster_experdite",
+      "io.enabley.focus",
+      "io.enabley.vivo",
+      "io.enabley.aster",
+      "com.timetoknow.echo.setsystem",
+      "com.socasesores.campusvirtual",
+      "br.com.atualizatreinamento",
+      "io.enabley.unicase"
+    ],
+    _processed: "assetlinks"
+  },
   fintastic: {
     ws: ["https://fintastic.ai"],
     li: ["https://www.linkedin.com/company/fintastic-ai"],
@@ -4177,6 +4824,8 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@i-braintech6306"],
     _processed: "auto"
   },
+  ianacare: { android_app_ids: ["com.ianacare.ianacare"], _processed: "assetlinks" },
+  ifeel: { android_app_ids: ["com.ifeel.ifeeluserchat", "com.ifeel.ifeeltherapist"], _processed: "assetlinks" },
   illumex: {
     ws: ["https://illumex.ai"],
     li: ["https://www.linkedin.com/company/illumexai"],
@@ -4195,6 +4844,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/gps-dome-ltd"],
     ytc: ["https://www.youtube.com/channel/UCzEL6tkHGC-HqtfQitkgDew"],
     _processed: "auto"
+  },
+  kimkim: { android_app_ids: ["com.kimkim.app"], _processed: "assetlinks" },
+  medflex: {
+    android_app_ids: ["de.medflex.app.flutter", "de.medflex.app.flutter.integration"],
+    _processed: "assetlinks"
   },
   "monday.com": {
     ws: ["https://monday.com", "https://www.mondayert.org", "https://www.workcanvas.com"],
@@ -4256,5 +4910,6 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/proteantecs"],
     ytc: ["https://www.youtube.com/channel/UCy-iC3bfYrosKyJDH1SFqlg"],
     _processed: "auto"
-  }
+  },
+  s16vc: { android_app_ids: ["notion.id"], _processed: "assetlinks" }
 }
