@@ -93,6 +93,6 @@ class AppScanner(
      */
     private fun matchesPackage(item: AllItem, packageName: String): Boolean {
         return (item.androidAppIds?.contains(packageName) == true) ||
-            (item.androidDevId?.let { packageName.startsWith(it) } == true)
+            (item.androidDevId?.let { packageName.startsWith("$it.") || packageName == it } == true)
     }
 }

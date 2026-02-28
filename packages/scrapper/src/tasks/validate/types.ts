@@ -12,6 +12,8 @@ export type EntryMeta = {
   readonly isVerified?: boolean
   /** true = human verified URLs live in the browser workflow (validate_urls.ts) */
   readonly isBrowserVerified?: boolean
+  /** true = entry was discovered via assetlinks.json probe — not yet human-verified */
+  readonly isAssetlinks?: boolean
 }
 
 /** An entry that carries structured metadata */
@@ -112,3 +114,11 @@ export const assertNoLegacyProcessed = (value: object, key: string): void => {
     )
   }
 }
+
+/** Returns true if the entry was discovered via assetlinks.json probe */
+export const isAssetlinks = (value: ManualOverrideValue): boolean => {
+  return hasMeta(value) && value._meta.isAssetlinks === true
+}
+
+/** _meta for assetlinks-discovered entries */
+export const assetlinksMeta: EntryMeta = { isAssetlinks: true } as const
