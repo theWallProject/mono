@@ -10,11 +10,18 @@ export type AutoExtractedState = {
   _processed: "auto"
 }
 
+/** Discovered via assetlinks.json probe — not yet human-verified */
+export type AssetlinksExtractedState = {
+  _processed: "assetlinks"
+}
+
 export type ManualOverrideValue =
   | (ManualOverrideFields & ProcessedState)
   | ProcessedState
   | (ManualOverrideFields & AutoExtractedState)
   | AutoExtractedState
+  | (ManualOverrideFields & AssetlinksExtractedState)
+  | AssetlinksExtractedState
   | ManualOverrideFields
 
 export type OverrideWithUrls = {
@@ -59,4 +66,11 @@ export const isAutoExtracted = (
   value: ManualOverrideValue
 ): value is AutoExtractedState | (ManualOverrideFields & AutoExtractedState) => {
   return typeof value === "object" && value !== null && "_processed" in value && value._processed === "auto"
+}
+
+/** Returns true only for assetlinks-discovered entries (_processed: "assetlinks") */
+export const isAssetlinksExtracted = (
+  value: ManualOverrideValue
+): value is AssetlinksExtractedState | (ManualOverrideFields & AssetlinksExtractedState) => {
+  return typeof value === "object" && value !== null && "_processed" in value && value._processed === "assetlinks"
 }

@@ -3,7 +3,7 @@ import { formatAndWrite } from "@theWallProject/common"
 
 import { log } from "../../helper"
 import type { ManualOverrideValue } from "./types"
-import { isAutoExtracted, isProcessed } from "./types"
+import { isAssetlinksExtracted, isAutoExtracted, isProcessed } from "./types"
 import { cleanFieldValue } from "./url_utils"
 
 const manualOverridesPath = path.join(__dirname, "../manual_resolve/manualOverrides.ts")
@@ -17,7 +17,9 @@ const formatValue = (value: ManualOverrideValue): string => {
     ? "_processed: true"
     : isAutoExtracted(value)
       ? '_processed: "auto"'
-      : null
+      : isAssetlinksExtracted(value)
+        ? '_processed: "assetlinks"'
+        : null
 
   if (processedSuffix) {
     const fields: string[] = []
@@ -86,7 +88,7 @@ export const saveManualOverrides = async (
   const keys = Object.keys(overrides).sort()
   let content = 'import { ManualOverrideFields } from "../../types";\n\n'
   content +=
-    'export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | { _processed: "auto" } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { _processed: "auto" }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] }) | (ManualOverrideFields & { _processed: "auto"; urls?: string[] })> = {\n'
+    'export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | { _processed: "auto" } | { _processed: "assetlinks" } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { _processed: "auto" }) | (ManualOverrideFields & { _processed: "assetlinks" }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] }) | (ManualOverrideFields & { _processed: "auto"; urls?: string[] }) | (ManualOverrideFields & { _processed: "assetlinks"; urls?: string[] })> = {\n'
 
   for (const key of keys) {
     const value = overrides[key]

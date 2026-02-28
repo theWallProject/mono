@@ -209,18 +209,31 @@ async function processBatch(
 
 // ── Known-safe-apps validation ───────────────────────────────────────────
 
-function validateSafety(results: readonly DiscoveryResult[]): void {
+function filterSafeApps(results: readonly DiscoveryResult[]): readonly DiscoveryResult[] {
   const allDiscoveredIds = results
     .filter((r) => r.autoAccepted)
     .flatMap((r) => [...r.packages])
 
   const conflicts = checkKnownSafeApps(allDiscoveredIds)
-  if (conflicts.length > 0) {
-    throw new Error(
-      `SAFETY FAILURE: Discovered app IDs conflict with known-safe apps: ${conflicts.join(", ")}. ` +
-        "This indicates a false positive. Pipeline aborted."
-    )
+  if (conflicts.length === 0) {
+    return results
   }
+
+  const safeSet = new Set(conflicts)
+  warn(`  Filtering ${conflicts.length} known-safe app IDs: ${conflicts.join(", ")}`)
+
+  return results
+    .map((r) => {
+      const filtered = r.packages.filter((id) => !safeSet.has(id))
+      if (filtered.length === r.packages.length) return r
+      if (filtered.length === 0) {
+        warn(`  Removed ${r.company} — all app IDs are known-safe`)
+        return null
+      }
+      warn(`  Filtered ${r.packages.length - filtered.length} safe IDs from ${r.company}`)
+      return { ...r, packages: filtered }
+    })
+    .filter((r): r is DiscoveryResult => r !== null)
 }
 
 // ── Main pipeline ────────────────────────────────────────────────────────
@@ -264,10 +277,15 @@ async function main(): Promise<void> {
     return
   }
 
-  // Safety validation
-  log("[3/4] Validating against known-safe-apps list...")
-  validateSafety(results)
-  log("  Safety check passed\n")
+  // Safety validation — filter out known-safe apps
+  log("[3/4] Filtering known-safe apps...")
+  const safeResults = filterSafeApps(results)
+  log(`  ${safeResults.length} companies after filtering\n`)
+
+  if (safeResults.length === 0) {
+    log("No discoveries after safety filtering. Exiting.")
+    return
+  }
 
   // Write results
   let newEntriesWritten = 0
@@ -283,11 +301,11 @@ async function main(): Promise<void> {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true })
     }
-    await formatAndWrite(dryRunPath, results, { parser: "json" })
-    log(`  Wrote ${results.length} discoveries to ${dryRunPath}`)
+    await formatAndWrite(dryRunPath, safeResults, { parser: "json" })
+    log(`  Wrote ${safeResults.length} discoveries to ${dryRunPath}`)
   } else {
     log("[4/4] Writing discoveries to manualOverrides.ts...")
-    const writeResult = await writeDiscoveries(results)
+    const writeResult = await writeDiscoveries(safeResults, "assetlinks")
     newEntriesWritten = writeResult.newEntries
     existingEntriesEnriched = writeResult.enriched
   }
@@ -298,7 +316,7 @@ async function main(): Promise<void> {
     fetchedSuccessfully: found,
     noAssetlinks: missed,
     errors,
-    results,
+    results: safeResults,
     newEntriesWritten,
     existingEntriesEnriched,
     startedAt

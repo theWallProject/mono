@@ -18,10 +18,14 @@ import type { DiscoveryResult } from "../types"
 /**
  * Merge discovery results into manualOverrides.ts.
  *
+ * @param results - Discovery results to write
+ * @param processedLabel - Value for `_processed` on new entries (default: `"auto"`)
+ *
  * Returns the count of new entries written and existing entries enriched.
  */
 export async function writeDiscoveries(
-  results: readonly DiscoveryResult[]
+  results: readonly DiscoveryResult[],
+  processedLabel: "auto" | "assetlinks" = "auto"
 ): Promise<{ newEntries: number; enriched: number; skippedProtected: number }> {
   if (results.length === 0) {
     return { newEntries: 0, enriched: 0, skippedProtected: 0 }
@@ -72,7 +76,7 @@ export async function writeDiscoveries(
       // New entry — only android_app_ids + _processed marker
       overrides[result.company] = {
         android_app_ids: [...result.packages],
-        _processed: "auto"
+        _processed: processedLabel
       } as ManualOverrideValue
 
       newEntries++
