@@ -26,6 +26,7 @@ import {
 } from "@theWallProject/common"
 
 import { isFromRegexDomain } from "../validate/url_categorization"
+import { extractUrlOrigin } from "../validate/url_utils"
 import { chatCompletion } from "./ai_client"
 import type { CompanyLogger } from "./company_logger"
 import { getOrCreateBrowser, type LinkExtractionResult } from "./link_extractor"
@@ -559,9 +560,10 @@ export const categorizeLinks = async (
 ): Promise<CategorizedLinks> => {
   const result: CategorizedLinks = {}
 
-  // Use the final URL (after redirects) as the company's website
-  result.ws = [extraction.finalUrl]
-  logger.log(`Website (post-redirect): ${extraction.finalUrl}`)
+  // Use the final URL (after redirects) as the company's website, stripped to origin (domain only)
+  const websiteOrigin = extractUrlOrigin(extraction.finalUrl)
+  result.ws = [websiteOrigin]
+  logger.log(`Website (post-redirect): ${extraction.finalUrl} → origin: ${websiteOrigin}`)
 
   // Get the homepage domain for filtering internal links
   let homepageDomain: string

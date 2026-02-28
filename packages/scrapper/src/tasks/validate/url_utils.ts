@@ -20,15 +20,60 @@ export const removeTrailingSlash = (url: string): string => {
   return url.replace(/\/+$/, "")
 }
 
+/**
+ * Extracts the origin (protocol + hostname) from a URL, stripping any path, query, or fragment.
+ * e.g., "https://www.crowdstrike.com/en-us/platform/falcon-shield" → "https://www.crowdstrike.com"
+ * Falls back to removing trailing slash if the URL cannot be parsed.
+ */
+export const extractUrlOrigin = (url: string): string => {
+  try {
+    const parsed = new URL(url)
+    return `${parsed.protocol}//${parsed.hostname}`
+  } catch {
+    // If URL can't be parsed, just strip trailing slash
+    return removeTrailingSlash(url)
+  }
+}
+
+/**
+ * Cleans a ws field value: extracts origin (domain only, no path) and deduplicates.
+ * Handles both string and string[] values.
+ */
+const cleanWsFieldValue = (val: unknown): unknown => {
+  if (typeof val === "string") {
+    return val === "" ? val : extractUrlOrigin(val)
+  }
+  if (Array.isArray(val)) {
+    const seen = new Set<string>()
+    const result: string[] = []
+    for (const v of val) {
+      if (typeof v === "string") {
+        const origin = v === "" ? v : extractUrlOrigin(v)
+        if (!seen.has(origin)) {
+          seen.add(origin)
+          result.push(origin)
+        }
+      } else {
+        result.push(v)
+      }
+    }
+    return result
+  }
+  return val
+}
+
 /** Link fields that contain URLs which should have trailing slashes stripped */
 const URL_FIELDS = new Set(["ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls"])
 
 /**
- * Strips trailing slashes from all URL values in a link field.
+ * Cleans URL values in a link field:
+ * - For "ws" field: extracts origin (domain only, no path) and deduplicates
+ * - For other URL fields: strips trailing slashes
  * Handles both string and string[] values. Non-URL fields pass through unchanged.
  */
 export const cleanFieldValue = (key: string, val: unknown): unknown => {
   if (!URL_FIELDS.has(key)) return val
+  if (key === "ws") return cleanWsFieldValue(val)
   if (typeof val === "string") return removeTrailingSlash(val)
   if (Array.isArray(val)) return val.map((v) => (typeof v === "string" ? removeTrailingSlash(v) : v))
   return val
