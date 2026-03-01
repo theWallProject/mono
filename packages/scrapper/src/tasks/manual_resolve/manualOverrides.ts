@@ -1916,6 +1916,22 @@ export const manualOverrides: Record<
     urls: ["https://www.iguazio.com/blog"],
     _processed: "auto"
   },
+  Illusive: {
+    ws: [
+      "https://app.emaildefense.proofpoint.com",
+      "https://go.proofpoint.com",
+      "https://partners.proofpoint.com",
+      "https://threatintel.proofpoint.com",
+      "https://v1.us1.digitalrisk.proofpoint.com",
+      "https://www.proofpoint.com"
+    ],
+    li: ["https://www.linkedin.com/company/proofpoint"],
+    fb: ["https://www.facebook.com/proofpoint"],
+    tw: ["https://x.com/proofpoint"],
+    ig: ["https://www.instagram.com/proofpoint"],
+    ytc: ["https://www.youtube.com/channel/ucivtjgsruzfo90nkeivozhq"],
+    _processed: "auto"
+  },
   "ImPact Biotech": { ws: ["https://impactbiotech.com"], urls: ["https://impactbiotech.com"], _processed: "auto" },
   "Imagene AI": {
     ws: ["https://imagene-ai.com"],
