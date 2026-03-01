@@ -1082,6 +1082,16 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucdxvjidvgecor1bc1fv6erg"],
     _processed: "auto"
   },
+  Cypago: {
+    ws: ["https://auth.cypago.com", "https://cypago.com", "https://status.cypago.com"],
+    li: ["https://www.linkedin.com/company/cypago"],
+    tw: ["https://x.com/cypagosec"],
+    urls: [
+      "https://cyberdefensewire.com/cypago-announces-strategic-partnership-with-archer-to-deliver-ai-driven-continuous-controls-monitoring-for-enterprises",
+      "https://hitrustdirectory.com/product/cypago-cyber-grc-automation-platform"
+    ],
+    _processed: "auto"
+  },
   Cytactic: {
     ws: ["https://cytactic.com"],
     li: ["https://www.linkedin.com/company/cytactic"],
