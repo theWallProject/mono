@@ -5533,6 +5533,19 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Strigo: {
+    ws: [
+      "https://app.strigo.io",
+      "https://docs.strigo.io",
+      "https://help.strigo.io",
+      "https://status.strigo.io",
+      "https://strigo.io"
+    ],
+    li: ["https://www.linkedin.com/company/strigo"],
+    tw: ["https://x.com/strigoio"],
+    ytc: ["https://www.youtube.com/channel/ucbouhxtkbxkax3y3dn5htzw"],
+    _processed: "auto"
+  },
   SuperBuzz: {
     ws: ["https://analyze.superbuzz.io", "https://app.superbuzz.io", "https://www.superbuzz.io"],
     li: ["https://www.linkedin.com/company/superbuzz-io"],
