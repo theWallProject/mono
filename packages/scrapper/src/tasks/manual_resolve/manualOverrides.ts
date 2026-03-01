@@ -1269,6 +1269,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/carrar__"],
     _processed: "auto"
   },
+  Carteav: {
+    ws: ["https://carteav.com"],
+    li: ["https://www.linkedin.com/company/carteav"],
+    ytp: ["https://www.youtube.com/@carteav3775"],
+    _processed: "auto"
+  },
   CathWorks: {
     ws: ["https://cath.works"],
     li: ["https://www.linkedin.com/company/cathworks"],
