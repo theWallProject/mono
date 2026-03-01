@@ -2448,6 +2448,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@menteebot"],
     _processed: "auto"
   },
+  MetalBear: {
+    ws: ["https://app.metalbear.com", "https://metalbear.com"],
+    li: ["https://www.linkedin.com/company/metalbearco"],
+    tw: ["https://x.com/metalbear"],
+    gh: ["https://github.com/metalbear-co"],
+    urls: ["https://studioartik.com"],
+    _processed: "auto"
+  },
   "Metis Technologies": { fb: "", tw: "" },
   "Microbot Medical": {
     ws: ["https://ir.microbotmedical.com", "https://microbotmedical.com"],
