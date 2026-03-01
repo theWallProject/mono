@@ -1717,6 +1717,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Intail.ai": { ws: ["https://app.orbb.com", "https://orbb.com"], urls: ["https://www.nmore.co"], _processed: "auto" },
   "Intuition Robotics": {
     ws: ["https://www.intuitionrobotics.com"],
     li: ["https://www.linkedin.com/company/intuition-robotics"],
