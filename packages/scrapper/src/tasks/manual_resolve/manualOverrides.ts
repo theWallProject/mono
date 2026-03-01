@@ -3233,6 +3233,13 @@ export const manualOverrides: Record<
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _processed: true
   },
+  Lidwave: {
+    ws: ["https://www.lidwave.com"],
+    li: ["https://www.linkedin.com/company/lidwaveil"],
+    ytc: ["https://www.youtube.com/channel/ucgtj2esxozpxnj7qasd4ncg"],
+    urls: ["https://www.muzedesign.com"],
+    _processed: "auto"
+  },
   LightSolver: {
     ws: ["https://lightsolver.com"],
     li: ["https://www.linkedin.com/company/lightsolver"],
