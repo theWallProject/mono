@@ -90,6 +90,16 @@ export const manualOverrides: Record<
     android_dev_id: "com.au10tix",
     _processed: true
   },
+  "Acclym (formerly Agritask)": {
+    ws: ["https://www.acclym.com"],
+    li: ["https://www.linkedin.com/company/acclym"],
+    fb: ["https://www.facebook.com/acclym"],
+    tw: ["https://x.com/acclym"],
+    ytp: ["https://www.youtube.com/@acclym"],
+    urls: ["https://acclym.careers.hibob.com", "https://apps.apple.com/mt/app/agritask/id1541627178"],
+    android_app_ids: ["com.agritask.mobile.android"],
+    _processed: "auto"
+  },
   "Adaptive Shield": {
     ws: [
       "https://community.crowdstrike.com",
