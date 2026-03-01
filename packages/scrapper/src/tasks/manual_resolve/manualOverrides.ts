@@ -5461,6 +5461,18 @@ export const manualOverrides: Record<
     urls: ["https://trust.wonderful.ai"],
     _processed: "auto"
   },
+  "X-trodes": {
+    ws: ["https://xtrodes.com"],
+    li: ["https://www.linkedin.com/company/53434548"],
+    tw: ["https://x.com/xtrodes"],
+    ytp: ["https://www.youtube.com/@xtrodes"],
+    urls: [
+      "https://23511906.hs-sites.com/knowledge-base",
+      "https://organization.app.xtrodes.biot-med.com/auth/login/main",
+      "https://xtrodes.applytojob.com/apply"
+    ],
+    _processed: "auto"
+  },
   "Xpand (formerly 1MRobotics)": {
     ws: ["https://xpand.us"],
     li: ["https://www.linkedin.com/company/xpand-today"],
