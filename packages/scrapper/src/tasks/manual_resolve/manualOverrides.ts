@@ -2737,6 +2737,17 @@ export const manualOverrides: Record<
     urls: ["https://launchpass.com/komodorkommunity", "https://www.g2.com/products/komodor-2024-05-13/reviews"],
     _processed: "auto"
   },
+  Kooply: {
+    ws: ["https://kooply.com"],
+    li: ["https://www.linkedin.com/company/kooply"],
+    fb: ["https://www.facebook.com/kooplygames"],
+    tw: ["https://x.com/playkooply"],
+    ig: ["https://www.instagram.com/kooplygames"],
+    ytp: ["https://www.youtube.com/@kooplyrun"],
+    urls: ["https://apps.apple.com/us/app/magic-dash/id987654321", "https://discord.gg/3K2ege4jtC"],
+    android_app_ids: ["com.creations.partychamps", "com.creations.runnergame", "nature.magic.dash"],
+    _processed: "auto"
+  },
   Kovrr: {
     ws: ["https://resources.kovrr.com", "https://www.kovrr.com"],
     li: ["https://www.linkedin.com/company/kovrr"],
