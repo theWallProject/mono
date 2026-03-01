@@ -1101,6 +1101,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/c2a_security"],
     _processed: "auto"
   },
+  "CLEW Medical": { ws: ["https://clewmed.com"], li: ["https://www.linkedin.com/company/clewmed"], _processed: "auto" },
   CYE: {
     ws: ["https://cyesec.com"],
     li: ["https://www.linkedin.com/company/cyesec"],
