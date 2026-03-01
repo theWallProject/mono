@@ -2596,6 +2596,16 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@greeninvoiceisrael"],
     _processed: "auto"
   },
+  GreenOnyx: {
+    ws: ["https://www.greenonyx.ag"],
+    li: ["https://www.linkedin.com/company/greenonyx"],
+    fb: ["https://www.facebook.com/greenonyx.ag"],
+    tw: ["https://x.com/_greenonyx"],
+    ig: ["https://www.instagram.com/greenonyx.ag"],
+    ytp: ["https://www.youtube.com/@greenonyx.youtube"],
+    urls: ["https://wa.me/972546337875"],
+    _processed: "auto"
+  },
   "Greeneye Technology": {
     ws: ["https://greeneye.ag", "https://techblog.greeneye.ag"],
     li: ["https://www.linkedin.com/company/greeneye-technology"],
