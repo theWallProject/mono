@@ -3202,6 +3202,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Mirato: {
+    ws: ["https://graph.sayari.com", "https://sayari.com"],
+    li: ["https://www.linkedin.com/company/sayarilabs"],
+    tw: ["https://x.com/share"],
+    ytp: ["https://www.youtube.com/@sayarilabs"],
+    _processed: "auto"
+  },
   Mitiga: {
     ws: ["https://www.mitiga.io"],
     li: ["https://www.linkedin.com/company/mitiga-io"],
