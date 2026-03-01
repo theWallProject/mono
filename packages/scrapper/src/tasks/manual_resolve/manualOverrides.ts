@@ -4064,6 +4064,11 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  "Senseera Health": {
+    ws: ["https://senseerahealth.com"],
+    urls: ["https://pearlcom.co.il", "https://senseerahealth.com", "https://senseerahealth.com/privacy-policy"],
+    _processed: "auto"
+  },
   SentinelOne: {
     li: [
       "https://www.linkedin.com/company/sentinelone-dach",
