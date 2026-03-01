@@ -1954,6 +1954,28 @@ export const manualOverrides: Record<
     tw: ["https://x.com/droxi_ai"],
     _processed: "auto"
   },
+  Dymension: {
+    ws: [
+      "https://blog.dymension.xyz",
+      "https://docs.dymension.xyz",
+      "https://dymension.xyz",
+      "https://eibc.dymension.xyz",
+      "https://forum.dymension.xyz",
+      "https://litepaper.dymension.xyz",
+      "https://portal.dymension.xyz",
+      "https://status.dymension.xyz"
+    ],
+    tw: ["https://x.com/dymension"],
+    gh: ["https://github.com/dymensionxyz"],
+    urls: [
+      "https://blog.dymension.xyz",
+      "https://discord.gg/dymension",
+      "https://dym.fyi",
+      "https://dym.fyi/ibc",
+      "https://t.me/dymensionXYZ"
+    ],
+    _processed: "auto"
+  },
   "ELSE Nutrition": {
     ws: ["https://elsenutrition.com", "https://hcp.elsenutrition.com", "https://investors.elsenutrition.com"],
     li: ["https://www.linkedin.com/company/else-nutrition"],
