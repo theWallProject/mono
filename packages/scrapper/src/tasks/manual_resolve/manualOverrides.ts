@@ -4445,6 +4445,16 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Particula: {
+    ws: ["https://particula-tech.com"],
+    fb: ["https://www.facebook.com/go.particula"],
+    tw: ["https://x.com/goparticula"],
+    ig: ["https://www.instagram.com/go.particula"],
+    ytp: ["https://www.youtube.com/@go.particula"],
+    tt: ["https://www.tiktok.com/@go.particula"],
+    urls: ["https://drive.google.com/file/d/1c-Y8MqMWdPedtG1nmDV4xVqyd2W1HDes/view"],
+    _processed: "auto"
+  },
   "Payouts.com": {
     ws: ["https://integrations.payouts.com", "https://payouts.com", "https://status.payouts.com"],
     li: ["https://www.linkedin.com/company/payouts-com"],
