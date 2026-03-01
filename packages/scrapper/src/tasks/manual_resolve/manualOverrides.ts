@@ -6841,6 +6841,7 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/VERITISECURITY"],
     _processed: "auto"
   },
+  "ViAqua Therapeutics": { ws: ["https://www.viaqua-t.com"], _processed: "auto" },
   Videocites: {
     ws: ["https://www.rippleanalytics.com"],
     li: ["https://www.linkedin.com/company/rippleanalytics"],
