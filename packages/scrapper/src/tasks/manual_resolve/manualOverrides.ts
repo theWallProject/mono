@@ -1949,6 +1949,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Imagindairy: {
+    ws: ["https://imagindairy.com"],
+    li: ["https://www.linkedin.com/company/imagindairy-ltd"],
+    tw: ["https://x.com/imagindairy"],
+    ig: ["https://www.instagram.com/imagindairy"],
+    ytp: ["https://www.youtube.com/@imagindairy"],
+    urls: ["https://imagindairy.com", "https://ltu.co.il"],
+    _processed: "auto"
+  },
   InSightec: {
     ws: ["https://distributor.insightec.com", "https://documentation.insightec.com", "https://insightec.com"],
     li: ["https://www.linkedin.com/company/insightec"],
