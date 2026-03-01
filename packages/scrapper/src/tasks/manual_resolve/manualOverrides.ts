@@ -2088,6 +2088,11 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "Metis Technologies": { fb: "", tw: "" },
+  "Microbot Medical": {
+    ws: ["https://ir.microbotmedical.com", "https://microbotmedical.com"],
+    urls: ["https://ir.microbotmedical.com/news-events/press-release", "https://thesulfurgroup.com"],
+    _processed: "auto"
+  },
   "Miggo Security": {
     ws: ["https://www.miggo.io"],
     li: ["https://www.linkedin.com/company/miggo-security"],
