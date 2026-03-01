@@ -1172,6 +1172,12 @@ export const manualOverrides: Record<
     urls: ["https://classiq-community.slack.com/join/shared_invite/zt-39du2mz80-fE_GBGxMaDxBFRBr_4nrjw"],
     _processed: true
   },
+  "Cnoga Medical": {
+    ws: ["https://www.cnogacare.co"],
+    li: ["https://www.linkedin.com/company/cnoga-medical"],
+    urls: ["http://www.cnoga.com", "http://www.wixmonster.co.il"],
+    _processed: "auto"
+  },
   Cognata: {
     ws: ["https://www.cognata.com"],
     li: ["https://www.linkedin.com/company/cognata-ltd"],
