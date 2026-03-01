@@ -935,6 +935,18 @@ export const manualOverrides: Record<
     urls: ["https://discord.gg/certora"],
     _processed: "auto"
   },
+  Cervello: {
+    ws: ["https://cervello.security"],
+    li: ["https://www.linkedin.com/company/cervello-cyber-security"],
+    fb: ["https://www.facebook.com/cervello.sec"],
+    tw: ["https://x.com/cervello"],
+    ytc: ["https://www.youtube.com/channel/ucmcmumfe7wqjg545v4qepnw"],
+    urls: [
+      "https://cervellosec.atlassian.net/servicedesk/customer/portal/1",
+      "https://cervellosec.atlassian.net/servicedesk/customer/portal/1/user/login"
+    ],
+    _processed: "auto"
+  },
   Chargeflow: {
     ws: ["https://www.chargeflow.io"],
     li: ["https://www.linkedin.com/company/chargeflowhq"],
