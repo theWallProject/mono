@@ -1297,6 +1297,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  ClarityQ: {
+    ws: ["https://get.clarityq.ai", "https://pages.clarityq.ai", "https://www.clarityq.ai"],
+    li: ["https://www.linkedin.com/company/clarityq"],
+    tw: ["https://x.com/clarityqai"],
+    _processed: "auto"
+  },
   "Classiq Technologies": {
     ws: ["https://www.classiq.io"],
     li: ["https://www.linkedin.com/company/classiq-technologies"],
