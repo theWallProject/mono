@@ -3191,6 +3191,11 @@ export const manualOverrides: Record<
     urls: ["https://www.godaddy.com/websites/website-builder", "https://www.ktrust.io"],
     _processed: "auto"
   },
+  Kahun: {
+    ws: ["https://www.dot-mom.org"],
+    urls: ["https://www.godaddy.com/agreements/showdoc", "https://www.godaddy.com/domainsearch/find"],
+    _processed: "auto"
+  },
   "Kamari Pharma": {
     ws: ["https://kamaripharma.com"],
     li: ["https://www.linkedin.com/company/kamari-pharma"],
