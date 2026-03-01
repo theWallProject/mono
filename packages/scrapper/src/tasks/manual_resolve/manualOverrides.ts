@@ -21,6 +21,13 @@ export const manualOverrides: Record<
     urls: ["https://open.spotify.com/show/21oVqvA6id4pM7EYTEDAqB"],
     _processed: "auto"
   },
+  ADASKY: {
+    ws: ["https://www.adasky.com"],
+    li: ["https://www.linkedin.com/company/adasky"],
+    ytc: ["https://www.youtube.com/channel/ucioha19ovggip7_gkbce-pa"],
+    urls: ["http://www.thebunch.co.il", "http://www.tipoos.com"],
+    _processed: "auto"
+  },
   "AI21 Labs": {
     ws: ["https://www.ai21.com"],
     li: ["https://www.linkedin.com/company/ai21"],
