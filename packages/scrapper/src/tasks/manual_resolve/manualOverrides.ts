@@ -694,6 +694,11 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucn2wi7myczyg8vcnmplupkq"],
     _processed: "auto"
   },
+  Blender: {
+    ws: ["https://blender.global"],
+    urls: ["https://blender.loans", "https://www.blender.co.il", "https://www.blender.global"],
+    _processed: "auto"
+  },
   Blink: { ws: ["https://www.afternic.com"], urls: ["https://www.afternic.com/forsale/blink.gg"], _processed: "auto" },
   Blockaid: {
     ws: ["https://blockaid.io", "https://docs.blockaid.io", "https://report.blockaid.io"],
