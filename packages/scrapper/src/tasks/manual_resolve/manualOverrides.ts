@@ -2272,6 +2272,16 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Max: {
+    ws: ["https://ir.maxstock.co.il", "https://maxstock.co.il"],
+    li: ["https://www.linkedin.com/company/max-stock-global"],
+    fb: ["https://www.facebook.com/maxstockisrael"],
+    ig: ["https://www.instagram.com/max_stock_israel"],
+    ytp: ["https://www.youtube.com/@max_stock"],
+    tt: ["https://www.tiktok.com/@max_stock_israel"],
+    urls: ["https://maxs.screenconnect.com"],
+    _processed: "auto"
+  },
   MazeBolt: {
     ws: [
       "https://app.mazebolt.com",
