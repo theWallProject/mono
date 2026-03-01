@@ -3721,6 +3721,15 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "Orion Security": { ws: ["https://app.orionsec.io", "https://www.orionsec.io"], _processed: "auto" },
+  Oshi: {
+    ws: ["https://oshi.com"],
+    li: ["https://www.linkedin.com/company/oshiseafood"],
+    fb: ["https://www.facebook.com/weareoshi"],
+    tw: ["https://x.com/oshiseafood"],
+    ig: ["https://www.instagram.com/oshiseafood", "https://www.instagram.com/reel"],
+    urls: ["https://drive.google.com/drive/u/0/folders/1AXbMSVpL74o6hpV35ykh9WK97H1Opmr5", "https://oshi.fish"],
+    _processed: "auto"
+  },
   Ottopia: {
     ws: ["https://www.ottopia.tech"],
     li: ["https://www.linkedin.com/company/ottopia"],
