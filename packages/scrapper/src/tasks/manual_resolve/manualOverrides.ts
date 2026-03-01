@@ -2680,6 +2680,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/kahr-medical-ltd-"],
     _processed: "auto"
   },
+  "KAZUAR Advanced Technologies LTD.": {
+    ws: ["https://www.kazuar.com"],
+    li: ["https://www.linkedin.com/company/kazuar-advanced-technologies-ltd"],
+    urls: [
+      "https://outlook.office.com/bookwithme/user/94bf760b45f8499ca263613198e9eaa4@kazuar-tech.com/meetingtype/JqyuRLXbjkazZ2R9k5lqQQ2",
+      "https://outlook.office.com/bookwithme/user/a6132b130dca46f191fd8fb11ef66b9a@kazuar.com/meetingtype/HSPNHK54FEystnubT7N16w2"
+    ],
+    _processed: "auto"
+  },
   KELA: {
     ws: ["https://www.kelacyber.com"],
     li: ["https://www.linkedin.com/company/kela-group"],
