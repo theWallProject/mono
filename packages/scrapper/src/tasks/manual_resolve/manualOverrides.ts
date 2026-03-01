@@ -1822,6 +1822,15 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCUXuID-G3yt22gTkPV8Ovuw"],
     _processed: "auto"
   },
+  FINQ: {
+    ws: ["https://finqai.com", "https://press.finqai.com"],
+    li: ["https://www.linkedin.com/company/finqai"],
+    fb: ["https://www.facebook.com/finqai"],
+    tw: ["https://x.com/finq_ai"],
+    ig: ["https://www.instagram.com/finq_ai"],
+    ytc: ["https://www.youtube.com/channel/ucmtunwfh-yv4d5yhh9vuyua"],
+    _processed: "auto"
+  },
   FIRMUS: {
     ws: ["https://firmus.ai"],
     li: ["https://www.linkedin.com/company/firmusai"],
