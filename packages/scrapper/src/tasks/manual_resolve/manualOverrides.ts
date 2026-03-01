@@ -3538,6 +3538,14 @@ export const manualOverrides: Record<
     urls: ["https://generatepress.com", "https://medium.com/starkware", "https://www.cairo-lang.org"],
     _processed: "auto"
   },
+  "Steakholder Foods": {
+    ws: ["https://www.steakholderfoods.com"],
+    li: ["https://www.linkedin.com/company/steakholderfoods"],
+    fb: ["https://www.facebook.com/steakholderfoods"],
+    tw: ["https://x.com/stkhfoods"],
+    ig: ["https://www.instagram.com/steakholderfoods"],
+    _processed: "auto"
+  },
   Stigg: {
     ws: [
       "https://app.stigg.io",
