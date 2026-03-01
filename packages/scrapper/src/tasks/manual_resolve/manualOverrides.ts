@@ -2985,6 +2985,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucux5vjb_90kd_9b9fa-x5gg"],
     _processed: "auto"
   },
+  Phytolon: { ws: ["https://www.phytolon.com"], li: ["https://www.linkedin.com/company/phytolon"], _processed: "auto" },
   Pixellot: {
     ws: ["https://www.pixellot.tv"],
     li: ["https://www.linkedin.com/company/pixellotltd"],
