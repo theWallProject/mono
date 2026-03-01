@@ -3418,6 +3418,24 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@memcyco"],
     _processed: "auto"
   },
+  "Memic Innovative Surgery": {
+    ws: ["https://www.momentissurgical.com"],
+    urls: [
+      "https://healthcareprofessionals.momentisuniversity.com/Account/Login",
+      "https://www.momentissurgical.com/about-momentis",
+      "https://www.momentissurgical.com/about-momentis/our-team",
+      "https://www.momentissurgical.com/anovo-surgical-system",
+      "https://www.momentissurgical.com/anovo-surgical-system/clinical-evidence",
+      "https://www.momentissurgical.com/anovo-surgical-system/clinical-evidence/transvaginal",
+      "https://www.momentissurgical.com/news-events",
+      "https://www.momentissurgical.com/patents",
+      "https://www.momentissurgical.com/patient-resources",
+      "https://www.momentissurgical.com/privacy-policy",
+      "https://www.momentissurgical.com/request-demo",
+      "https://www.momentissurgical.com/social-media-guidelines"
+    ],
+    _processed: "auto"
+  },
   "Mentee Robotics": {
     ws: ["https://menteebot.com"],
     li: ["https://www.linkedin.com/company/mentee-robotics"],
