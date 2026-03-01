@@ -5313,6 +5313,14 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "Red Alert": { ws: "" },
+  RedDress: {
+    ws: ["https://rct.reddressmedical.com", "https://reddressmedical.com"],
+    li: ["https://www.linkedin.com/company/reddress"],
+    fb: ["https://www.facebook.com/reddressltd1"],
+    tw: ["https://x.com/reddressltd1"],
+    ytp: ["https://www.youtube.com/@reddressmedical"],
+    _processed: "auto"
+  },
   "Redefine Meat": {
     ws: ["https://www.redefinemeat.com"],
     li: ["https://www.linkedin.com/company/redefinemeat"],
