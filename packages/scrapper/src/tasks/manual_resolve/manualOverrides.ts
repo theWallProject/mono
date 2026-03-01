@@ -1744,6 +1744,23 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.fiverr"
   },
+  "Flo-optics": {
+    ws: ["https://www.flo-optics.com"],
+    urls: [
+      "http://www.rachelidesigns.co.il",
+      "https://www.flo-optics.com/about-us",
+      "https://www.flo-optics.com/career",
+      "https://www.flo-optics.com/coating-solution",
+      "https://www.flo-optics.com/contact-us",
+      "https://www.flo-optics.com/news",
+      "https://www.flo-optics.com/platform",
+      "https://www.flo-optics.com/privacy-policy",
+      "https://www.flo-optics.com/technology",
+      "https://www.flo-optics.com/terms",
+      "https://www.webnoise.co.il"
+    ],
+    _processed: "auto"
+  },
   Flytrex: {
     ws: ["https://www.flytrex.com"],
     li: ["https://il.linkedin.com/company/flytrex"],
