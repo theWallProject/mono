@@ -1872,6 +1872,22 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uc9heronfowz2i8jkiu5z6lw"],
     _processed: "auto"
   },
+  Humanz: {
+    ws: ["https://plus.humanz.com", "https://www.humanz.com"],
+    li: ["https://www.linkedin.com/company/humanz"],
+    fb: ["https://www.facebook.com/humanzglobal"],
+    ig: ["https://www.instagram.com/humanz"],
+    ytp: ["https://www.youtube.com/@humanztv"],
+    tt: ["https://www.tiktok.com/@humanz"],
+    urls: [
+      "https://agents.humanz.ai/login%20",
+      "https://plus.humanz.com",
+      "https://www.humanz.ai/login",
+      "https://www.humanz.ai/reference/downloadapp",
+      "https://www.humanz.com/community"
+    ],
+    _processed: "auto"
+  },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
     li: ["https://www.linkedin.com/company/hypernative"],
