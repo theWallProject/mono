@@ -1878,6 +1878,17 @@ export const manualOverrides: Record<
     urls: ["https://getapp.faireez.com/DauJ/ledadit1"],
     _processed: "auto"
   },
+  Fanton: {
+    ws: ["https://fan-ton.com"],
+    tw: ["https://x.com/fantasyfanton"],
+    urls: [
+      "https://discord.gg/j6AZZs5bjU",
+      "https://t.me/FanTonGameBot",
+      "https://t.me/FanTonGameBot/app",
+      "https://t.me/fanton"
+    ],
+    _processed: "auto"
+  },
   Faye: {
     ws: ["https://www.withfaye.com"],
     li: ["https://www.linkedin.com/company/fayetravelinsurance"],
