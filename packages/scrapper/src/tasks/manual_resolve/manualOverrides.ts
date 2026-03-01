@@ -2875,6 +2875,18 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCpcZmZlFTj7fnEBZyFx9aYA"],
     _processed: "auto"
   },
+  OKIBO: {
+    ws: ["https://okibo.com"],
+    li: ["https://www.linkedin.com/company/okibo-smart-robotics-in-construction-sites"],
+    ytc: ["https://www.youtube.com/channel/ucz-izvq-ip1jspip9u1eafw"],
+    urls: [
+      "https://underthehardhat.org/okibo-eg7-robot",
+      "https://www.aecbytes.com/feature/2025/Robotics-Construction.html",
+      "https://www.hakerdesign.co.il",
+      "https://www.robotics247.com/article/okibo-announces-general-availability-of-robotic-blaster-technology-for-construction-industry"
+    ],
+    _processed: "auto"
+  },
   "ONE ZERO": {
     ws: ["https://www.onezerobank.com"],
     li: ["https://www.linkedin.com/company/the-first-digital-bank"],
