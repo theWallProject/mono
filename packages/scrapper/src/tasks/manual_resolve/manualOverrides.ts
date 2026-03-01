@@ -5058,6 +5058,15 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lifeatshield"],
     _processed: "auto"
   },
+  "Shlomo Group - Car and Credit Unit": {
+    ws: ["https://pleasing.shlomo.co.il", "https://www.shlomo.co.il"],
+    li: ["https://www.linkedin.com/company/738582"],
+    fb: ["https://www.facebook.com/shlomosixt"],
+    ig: ["https://www.instagram.com/shlomogroup"],
+    ytp: ["https://www.youtube.com/@shlomosixtcars"],
+    urls: ["https://apps.apple.com/IL/app/id1558632731", "https://shlomo-bit.co.il"],
+    _processed: "auto"
+  },
   Sightful: {
     ws: ["https://sightful.com"],
     li: ["https://www.linkedin.com/company/heysightful"],
