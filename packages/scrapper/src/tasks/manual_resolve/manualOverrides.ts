@@ -1044,6 +1044,13 @@ export const manualOverrides: Record<
     urls: ["https://errol.cyabra.com", "https://open.spotify.com/show/3gMZQTgbe3Wajzm9bDyJSW"],
     _processed: "auto"
   },
+  Cybellum: {
+    ws: ["https://cybellum.com", "https://security.cybellum.com"],
+    li: ["https://www.linkedin.com/company/cybellum"],
+    tw: ["https://x.com/cybellum"],
+    ytp: ["https://www.youtube.com/@cybellumtechnologiesltd"],
+    _processed: "auto"
+  },
   Cyberint: {
     ws: [
       "https://checkpoint.cyberint.com",
