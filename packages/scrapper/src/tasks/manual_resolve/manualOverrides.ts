@@ -1229,6 +1229,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Cyclops Security": {
+    ws: ["https://cyclops.security"],
+    li: ["https://www.linkedin.com/company/cyclopssecurity"],
+    urls: ["https://aws.amazon.com/marketplace/pp/prodview-qosjaonicohoa"],
+    _processed: "auto"
+  },
   Cycode: {
     ws: ["https://cycode.com"],
     li: ["https://www.linkedin.com/company/cycode"],
