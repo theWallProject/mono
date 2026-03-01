@@ -670,6 +670,18 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@brenmillerenergy343"],
     _processed: "auto"
   },
+  Brevel: {
+    ws: ["https://brevel.co.il"],
+    li: ["https://www.linkedin.com/company/brevel"],
+    urls: [
+      "https://www.globalgoals.org",
+      "https://www.globalgoals.org/goals/12-responsible-consumption-and-production",
+      "https://www.globalgoals.org/goals/13-climate-action",
+      "https://www.globalgoals.org/goals/15-life-on-land",
+      "https://www.globalgoals.org/goals/2-zero-hunger"
+    ],
+    _processed: "auto"
+  },
   Bringg: {
     ws: ["https://security.bringg.com", "https://www.bringg.com"],
     li: ["https://www.linkedin.com/company/bringg"],
