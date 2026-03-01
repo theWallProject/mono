@@ -4278,6 +4278,16 @@ export const manualOverrides: Record<
     urls: ["https://plugins.jetbrains.com/plugin/20716-swimm"],
     _processed: "auto"
   },
+  "Syqe Medical": {
+    ws: ["https://www.syqemedical.com"],
+    urls: [
+      "https://syqe.com",
+      "https://www.syqemedical.com/cookie-policy",
+      "https://www.syqemedical.com/privacy-notice",
+      "https://www.syqemedical.com/terms-of-use"
+    ],
+    _processed: "auto"
+  },
   SysAid: {
     ws: ["https://www.sysaid.com"],
     li: ["https://www.linkedin.com/company/sysaid-technologies-ltd"],
