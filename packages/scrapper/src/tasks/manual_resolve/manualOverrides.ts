@@ -4206,6 +4206,22 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life.at.winn.ai"],
     _processed: "auto"
   },
+  "Wisdo Health": {
+    ws: ["https://resources.wisdo.com", "https://wisdo.com"],
+    li: ["https://www.linkedin.com/company/wisdo"],
+    fb: ["https://www.facebook.com/wearewisdo"],
+    tw: ["https://x.com/wisdo_health"],
+    ig: ["https://www.instagram.com/wisdo_health"],
+    urls: [
+      "https://esalf1h4a4p.typeform.com/to/JLTeZcN2",
+      "https://gdpr-info.eu",
+      "https://itunes.apple.com/app/wisdo-your-guide-for-life/id1273601356",
+      "https://us.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report",
+      "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html"
+    ],
+    android_app_ids: ["com.wisdo.android.wisdo"],
+    _processed: "auto"
+  },
   Wisor: {
     ws: ["https://app.wisor.ai", "https://wisor.ai"],
     li: ["https://www.linkedin.com/company/wisorai"],
