@@ -5874,6 +5874,12 @@ export const manualOverrides: Record<
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
     _processed: "auto"
   },
+  "VisIC Technologies": {
+    ws: ["https://visic-tech.com"],
+    li: ["https://www.linkedin.com/company/5443001"],
+    ytc: ["https://www.youtube.com/channel/uc71qwn_0vtzhbyrn-7n_5ig"],
+    _processed: "auto"
+  },
   "Visionary.ai": {
     ws: ["https://visionary.ai"],
     li: ["https://www.linkedin.com/company/visionary-ai"],
