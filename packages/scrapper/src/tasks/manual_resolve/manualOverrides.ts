@@ -815,6 +815,13 @@ export const manualOverrides: Record<
     urls: ["https://app.bldts.io", "https://buildots.net"],
     _processed: "auto"
   },
+  "C2A Security": {
+    ws: ["https://c2a-sec.com"],
+    li: ["https://www.linkedin.com/company/c2a-security"],
+    fb: ["https://www.facebook.com/p"],
+    tw: ["https://x.com/c2a_security"],
+    _processed: "auto"
+  },
   CYE: {
     ws: ["https://cyesec.com"],
     li: ["https://www.linkedin.com/company/cyesec"],
