@@ -37,6 +37,7 @@ import {
   loadRetryList,
   removeFromRetryList
 } from "./retry_list"
+import { assertGitPreconditions, commitCompanyResult } from "./git_commit"
 
 // ────────────────────────────────────────────────────────────────────────────
 // Data loading
@@ -609,6 +610,9 @@ export const runInteractive = async (companyNameOverride?: string): Promise<stri
  * Saves after each company.
  */
 export const runBatch = async (batchSize?: number): Promise<void> => {
+  // Fail hard and early if git state is not suitable for auto-commits
+  assertGitPreconditions()
+
   const size = batchSize ?? HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.defaultSize
   const { sortedItems, unprocessedItems } = loadData()
   const currentOverrides = loadManualOverrides()
@@ -639,6 +643,7 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
         result.errorMessage ?? "Unknown error"
       )
       log(`Added "${result.companyName}" to retry list. Continuing with next company...`)
+      commitCompanyResult(result.companyName, false, result.errorType)
       continue
     }
 
@@ -654,6 +659,9 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
 
     // Remove from retry list if it was there
     removeFromRetryList(item.name)
+
+    // Commit this company's changes atomically
+    commitCompanyResult(item.name, true)
 
     // Delay between companies to be polite
     if (i < itemsToProcess.length - 1) {
