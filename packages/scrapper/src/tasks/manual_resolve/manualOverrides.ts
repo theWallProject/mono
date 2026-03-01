@@ -2683,6 +2683,21 @@ export const manualOverrides: Record<
     urls: ["https://novidea-crm.my.site.com/support/login", "https://novidea.force.com/support/login"],
     _processed: "auto"
   },
+  Novu: {
+    ws: [
+      "https://careers.novu.co",
+      "https://dashboard.novu.co",
+      "https://docs.novu.co",
+      "https://go.novu.co",
+      "https://handbook.novu.co",
+      "https://novu.co",
+      "https://roadmap.novu.co"
+    ],
+    tw: ["https://x.com/novuhq"],
+    gh: ["https://github.com/novuhq"],
+    urls: ["https://discord.gg/novu", "https://git.new/novu", "https://novustatus.com"],
+    _processed: "auto"
+  },
   NsKnox: {
     ws: ["https://nsknox.net"],
     li: ["https://www.linkedin.com/company/7972484"],
