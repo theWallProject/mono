@@ -3358,6 +3358,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Matics Manufacturing Analytics Ltd.": {
+    ws: ["https://go.matics.live", "https://matics.live"],
+    li: ["https://www.linkedin.com/company/matics-manufacturing-analytics-ltd"],
+    fb: ["https://www.facebook.com/matics.live"],
+    tw: ["https://x.com/matics_rtoi"],
+    ig: ["https://www.instagram.com/matics.live"],
+    ytc: ["https://www.youtube.com/channel/uc0ktd2gfe-ksfhillxsw7vg"],
+    _processed: "auto"
+  },
   Max: {
     ws: ["https://ir.maxstock.co.il", "https://maxstock.co.il"],
     li: ["https://www.linkedin.com/company/max-stock-global"],
