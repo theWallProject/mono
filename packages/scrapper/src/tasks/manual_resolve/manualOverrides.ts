@@ -1510,6 +1510,20 @@ export const manualOverrides: Record<
     tw: ["https://x.com/droxi_ai"],
     _processed: "auto"
   },
+  "ELSE Nutrition": {
+    ws: ["https://elsenutrition.com", "https://hcp.elsenutrition.com", "https://investors.elsenutrition.com"],
+    li: ["https://www.linkedin.com/company/else-nutrition"],
+    fb: ["https://www.facebook.com/elsenutrition"],
+    ig: ["https://www.instagram.com/elsenutrition"],
+    ytc: ["https://www.youtube.com/channel/ucw2tfcfxcc5xrr66xxdrlga"],
+    tt: ["https://www.tiktok.com/@elsenutrition.us"],
+    urls: [
+      "https://else-nutrition.myshopify.com/tools/perfect-product-finder/best-product-for-you",
+      "https://investor-relations-3d544a.webflow.io",
+      "https://www.amazon.com/stores/ElseNutrition/page/2E63C7E5-A3C0-4263-A52D-566DEE3C44C6"
+    ],
+    _processed: "auto"
+  },
   Earnix: {
     fb: ["https://www.facebook.com/earnix"],
     tw: ["https://x.com/Earnix_Inc"],
