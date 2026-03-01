@@ -5636,6 +5636,11 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "TripleW Ltd.": {
+    ws: ["https://www.triplew.co"],
+    li: ["https://www.linkedin.com/company/triplew-ltd"],
+    _processed: "auto"
+  },
   Trustmi: {
     ws: ["https://portal.trustmi.ai", "https://trustmi.ai"],
     li: ["https://www.linkedin.com/company/trustmi-ai"],
