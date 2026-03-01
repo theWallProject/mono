@@ -2807,6 +2807,14 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
+  Odeeo: {
+    ws: ["https://blog.odeeo.io", "https://odeeo.io"],
+    li: ["https://www.linkedin.com/company/odeeo"],
+    fb: ["https://www.facebook.com/sonicodeeo"],
+    tw: ["https://x.com/sonicodeeo"],
+    urls: ["https://blog.odeeo.io", "https://www.kalungi.com/atlas-hubspot-theme-for-b2b-saas-software"],
+    _processed: "auto"
+  },
   Odigos: { ws: ["https://odigos.io"], gh: "https://github.com/odigos-io/odigos", _processed: "auto" },
   Oktopost: {
     ws: ["https://www.oktopost.com"],
