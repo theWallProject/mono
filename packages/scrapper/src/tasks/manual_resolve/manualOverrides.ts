@@ -4737,6 +4737,12 @@ export const manualOverrides: Record<
     urls: ["https://www.widelab.co"],
     _processed: "auto"
   },
+  Sodot: {
+    ws: ["https://docs.sodot.dev", "https://www.sodot.dev"],
+    li: ["https://www.linkedin.com/company/sodot"],
+    tw: ["https://x.com/sodot_hq"],
+    _processed: "auto"
+  },
   "SofWave Medical": {
     ws: ["https://sofwave.com"],
     li: ["https://www.linkedin.com/company/sofwave"],
