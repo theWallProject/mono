@@ -6256,6 +6256,19 @@ export const manualOverrides: Record<
     tw: ["https://x.com/valerann_ltd"],
     _processed: "auto"
   },
+  "Vanilla Vida": {
+    ws: ["https://vanillavida.com"],
+    li: ["https://www.linkedin.com/company/vanilla-technologies"],
+    ig: ["https://www.instagram.com/vanilla_vida"],
+    urls: [
+      "http://etyhadar.com",
+      "http://www.filin.co.il",
+      "https://0304.co.il",
+      "https://vanillavida.com",
+      "https://vanillavida.wpengine.com/privacy-policy"
+    ],
+    _processed: "auto"
+  },
   Vayu: {
     ws: ["https://app.withvayu.com", "https://guide.withvayu.com", "https://www.withvayu.com"],
     li: ["https://www.linkedin.com/company/withvayu"],
