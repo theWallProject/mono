@@ -5099,6 +5099,12 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "Tre Capital GP Ltd": { tw: [""] },
+  Treetoscope: {
+    ws: ["https://www.treetoscope.com"],
+    li: ["https://www.linkedin.com/company/treetoscope"],
+    urls: ["https://app.treetoscopeapp.com"],
+    _processed: "auto"
+  },
   Tres: {
     ws: ["https://help.tres.finance", "https://tres.finance", "https://trustcenter.tres.finance"],
     li: ["https://www.linkedin.com/company/tresfinance"],
