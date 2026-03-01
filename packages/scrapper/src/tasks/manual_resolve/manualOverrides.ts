@@ -3329,6 +3329,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  LimitlessCNC: { ws: ["https://limitlesscnc.ai"], urls: ["https://limitlesscnc.ai"], _processed: "auto" },
   LiveU: {
     ws: ["https://www.liveu.tv"],
     li: ["https://www.linkedin.com/company/liveu"],
