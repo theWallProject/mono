@@ -367,6 +367,26 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life_at_aryonsecurity"],
     _processed: "auto"
   },
+  "Ashtrom Renewable Energy": {
+    ws: ["https://cdn.ashtrom.co.il", "https://www.ashtrom.co.il"],
+    li: ["https://www.linkedin.com/company/ashtrom-group"],
+    fb: ["https://www.facebook.com/ashtromgroup", "https://www.facebook.com/settings"],
+    ig: ["https://www.instagram.com/ashtrom.group"],
+    ytp: ["https://www.youtube.com/@ashtromgroup6857"],
+    urls: [
+      "https://www.ashtromconcessions.co.il",
+      "https://www.ashtromconstruction.co.il",
+      "https://www.ashtromegurim.co.il",
+      "https://www.ashtromindustries.co.il",
+      "https://www.ashtrominternational.com",
+      "https://www.ashtrominternational.com/en",
+      "https://www.ashtromproperties.co.il",
+      "https://www.ashtromrenewableenergy.co.il",
+      "https://www.ashtromrenewableenergy.com/en",
+      "https://www.ashtromresidencesforrent.co.il"
+    ],
+    _processed: "auto"
+  },
   "Ask-AI": {
     ws: ["https://getmosaic.ai", "https://ask-ai.zendesk.com"],
     li: ["https://www.linkedin.com/company/ask-ai-tech"],
