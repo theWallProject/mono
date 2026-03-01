@@ -634,6 +634,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Blink: { ws: ["https://www.afternic.com"], urls: ["https://www.afternic.com/forsale/blink.gg"], _processed: "auto" },
   Blockaid: {
     ws: ["https://blockaid.io", "https://docs.blockaid.io", "https://report.blockaid.io"],
     li: ["https://www.linkedin.com/company/blockaid"],
