@@ -1860,6 +1860,12 @@ export const manualOverrides: Record<
     urls: ["https://www.avihaim.co.il", "https://www.hisense.co.il", "https://www.pinterest.com/babysensellc"],
     _processed: "auto"
   },
+  Holisto: {
+    ws: ["https://www.holisto.com"],
+    urls: ["https://apps.apple.com/us/app/holisto-better-hotel-deals/id1635312687"],
+    android_app_ids: ["com.holisto"],
+    _processed: "auto"
+  },
   Hopper: {
     ws: ["https://app.hopper.security", "https://www.hopper.security"],
     li: ["https://www.linkedin.com/company/hopper-security"],
