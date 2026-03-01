@@ -1491,6 +1491,12 @@ export const manualOverrides: Record<
     urls: ["https://snowbit.io/services"],
     _processed: "auto"
   },
+  "Cordio Medical": {
+    ws: ["https://www.cordio-med.com"],
+    li: ["https://www.linkedin.com/company/cordio-medical"],
+    urls: ["https://www.razgroup.co.il"],
+    _processed: "auto"
+  },
   CoreTigo: {
     ws: ["https://support.coretigo.com", "https://www.coretigo.com"],
     li: ["https://www.linkedin.com/company/coretigo"],
