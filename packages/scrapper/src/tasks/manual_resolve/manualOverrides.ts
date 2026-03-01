@@ -3311,6 +3311,16 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucwqjymddwxn0qwihxc8iyzq"],
     _processed: "auto"
   },
+  "ProFuse Technology": {
+    ws: ["https://profuse-tech.com"],
+    urls: [
+      "https://profuse-tech.com",
+      "https://profuse-tech.com/contact-us",
+      "https://profuse-tech.com/news",
+      "https://profuse-tech.com/technology"
+    ],
+    _processed: "auto"
+  },
   "Promo.com": {
     ws: ["https://promo.com", "https://support.promo.com"],
     li: ["https://www.linkedin.com/company/promodotcom"],
