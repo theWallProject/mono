@@ -3147,6 +3147,7 @@ export const manualOverrides: Record<
     urls: ["https://app.dover.com/jobs/nilos"],
     _processed: "auto"
   },
+  NitroFix: { ws: ["https://nitro-fix.com"], li: ["https://www.linkedin.com/company/nitrofix"], _processed: "auto" },
   "Nokod Security": {
     ws: ["https://nokodsecurity.com"],
     li: ["https://www.linkedin.com/company/nokodsecurity"],
