@@ -4549,6 +4549,12 @@ export const manualOverrides: Record<
     urls: ["https://wponetap.com"],
     _processed: "auto"
   },
+  "RealView Imaging": {
+    ws: ["https://realviewimaging.com"],
+    li: ["https://www.linkedin.com/company/2239612"],
+    ytc: ["https://www.youtube.com/channel/uck1-5s08wh1h45ulf3_suhw"],
+    _processed: "auto"
+  },
   "Red Access": {
     ws: ["https://redaccess.io"],
     li: ["https://www.linkedin.com/company/red-access"],
