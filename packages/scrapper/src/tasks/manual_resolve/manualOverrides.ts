@@ -5408,6 +5408,14 @@ export const manualOverrides: Record<
     urls: ["https://www.wix.com"],
     _processed: "auto"
   },
+  Spectral: {
+    ws: ["https://spectralops.io"],
+    li: ["https://www.linkedin.com/company/spectralops-io"],
+    tw: ["https://x.com/getspectral"],
+    gh: ["https://github.com/spectralops"],
+    urls: ["http://checkpoint.com", "https://www.checkpoint.com/cloudguard", "https://www.checkpoint.com/legal"],
+    _processed: "auto"
+  },
   SpeedSize: {
     ws: ["https://console.speedsize.com", "https://support.speedsize.com", "https://try.speedsize.com"],
     urls: [
