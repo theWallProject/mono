@@ -982,6 +982,11 @@ export const manualOverrides: Record<
     urls: ["https://app.bldts.io", "https://buildots.net"],
     _processed: "auto"
   },
+  "Butterfly Medical": {
+    ws: ["https://butterfly-medical.com"],
+    urls: ["http://imaginet.co.il", "https://butterfly-medical.com"],
+    _processed: "auto"
+  },
   "C2A Security": {
     ws: ["https://c2a-sec.com"],
     li: ["https://www.linkedin.com/company/c2a-security"],
