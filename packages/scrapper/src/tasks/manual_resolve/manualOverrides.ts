@@ -1261,6 +1261,12 @@ export const manualOverrides: Record<
     urls: ["https://elemn.to/discord", "https://wordpress.org/plugins/elementor"],
     _processed: "auto"
   },
+  Emerix: {
+    ws: ["https://www.emerix.ai"],
+    li: ["https://www.linkedin.com/company/emerixai"],
+    urls: ["https://app.getcontrast.io/emerix", "https://calendly.com/arielpalones/emerix-demo"],
+    _processed: "auto"
+  },
   Empathy: {
     tw: ["https://x.com/empathy"],
     ig: ["https://www.instagram.com/empathy_com"],
