@@ -5824,6 +5824,19 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Superstream: {
+    ws: [
+      "https://app.superstream.ai",
+      "https://docs.superstream.ai",
+      "https://reliability.superstream.ai",
+      "https://signup.superstream.ai",
+      "https://www.superstream.ai"
+    ],
+    li: ["https://www.linkedin.com/company/superstreamai"],
+    tw: ["https://x.com/superstreamai"],
+    urls: ["https://www.npmjs.com/package/superstream-kafka-analyzer"],
+    _processed: "auto"
+  },
   Suridata: {
     ws: ["https://www.suridata.ai"],
     li: ["https://www.linkedin.com/company/suridataai"],
