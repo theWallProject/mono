@@ -2877,6 +2877,21 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@orcamtech"],
     _processed: "auto"
   },
+  Orbs: {
+    ws: ["https://www.orbs.com"],
+    tw: ["https://x.com/orbs_network"],
+    gh: ["https://github.com/orbs-network"],
+    ytc: ["https://www.youtube.com/channel/ucfpv4z-mgxeiabfkht1lnpq"],
+    urls: [
+      "https://discord.gg/sswGDYGBt5",
+      "https://docs.orbs.network",
+      "https://orbs-network.github.io/oip6-migration-web",
+      "https://staking.orbs.network",
+      "https://status.orbs.network",
+      "https://t.me/OrbsNetwork"
+    ],
+    _processed: "auto"
+  },
   "Orca AI": {
     ws: ["https://fleet.orca-ai.io", "https://www.orca-ai.io"],
     li: ["https://www.linkedin.com/company/orca-ai"],
