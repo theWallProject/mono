@@ -6623,6 +6623,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/wasteless-ltd"],
     _processed: "auto"
   },
+  "Watchful Technologies": {
+    ws: ["https://app.watchful.ai", "https://watchful.ai"],
+    urls: ["https://app.watchful.ai/login"],
+    _processed: "auto"
+  },
   WaveBL: {
     ws: ["https://coa.wavebl.com", "https://register.wavebl.com", "https://wavebl.com", "https://wsupport.wavebl.com"],
     li: ["https://www.linkedin.com/company/wavebl"],
