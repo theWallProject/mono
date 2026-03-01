@@ -3883,6 +3883,12 @@ export const manualOverrides: Record<
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
     _processed: "auto"
   },
+  Voxia: {
+    ws: ["https://www.voxia.ai"],
+    li: ["https://www.linkedin.com/company/37429937"],
+    fb: ["https://www.facebook.com/voxiaai"],
+    _processed: "auto"
+  },
   Voyantis: {
     ws: ["https://www.voyantis.ai"],
     li: ["https://www.linkedin.com/company/66924899"],
