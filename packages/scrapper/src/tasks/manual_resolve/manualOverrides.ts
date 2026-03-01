@@ -1724,6 +1724,12 @@ export const manualOverrides: Record<
     urls: ["https://ir.ecoppia.com/en", "https://www.richkid.co.il"],
     _processed: "auto"
   },
+  "Efficient Frontier": {
+    ws: ["https://efrontier.io"],
+    li: ["https://www.linkedin.com/company/efficientfrontier"],
+    tw: ["https://x.com/efrontier_io"],
+    _processed: "auto"
+  },
   "Elbit Systems": {
     ws: ["https://www.elbitsystems.com", "https://elbitsystemscareer.com"],
     li: ["https://www.linkedin.com/company/elbitsystems"],
