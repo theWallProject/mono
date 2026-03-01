@@ -2067,6 +2067,38 @@ export const manualOverrides: Record<
     urls: ["https://a-2-z.co.il"],
     _processed: "auto"
   },
+  "Enso Security": {
+    ws: [
+      "https://app.au.snyk.io",
+      "https://app.eu.snyk.io",
+      "https://app.snyk.io",
+      "https://app.us.snyk.io",
+      "https://docs.snyk.io",
+      "https://evo.ai.snyk.io",
+      "https://go.snyk.io",
+      "https://labs.snyk.io",
+      "https://learn.snyk.io",
+      "https://partners.snyk.io",
+      "https://preferences.snyk.io",
+      "https://security.snyk.io",
+      "https://snyk.io",
+      "https://support.snyk.io",
+      "https://trust.snyk.io",
+      "https://updates.snyk.io"
+    ],
+    li: ["https://www.linkedin.com/company/snyk"],
+    tw: ["https://x.com/snyksec"],
+    gh: ["https://github.com/snyk"],
+    ytp: ["https://www.youtube.com/@snyksec"],
+    ytc: ["https://www.youtube.com/channel/uch4djzctb0nhsibju-e2p6w"],
+    urls: [
+      "https://plus.probely.app",
+      "https://snyk.co/discordcommunity",
+      "https://www.npmjs.com/package/snyk",
+      "https://www.vulnvortex.com"
+    ],
+    _processed: "auto"
+  },
   Entrio: {
     ws: ["https://docs.entrio.io", "https://www.entrio.io"],
     li: ["https://www.linkedin.com/company/entrioplatform"],
