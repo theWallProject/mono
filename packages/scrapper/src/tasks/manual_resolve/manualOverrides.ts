@@ -1408,6 +1408,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  CitrusX: {
+    ws: ["https://www.citrusx.ai"],
+    urls: [
+      "https://www.citrusx.ai/accessibility-statement",
+      "https://www.citrusx.ai/privacy",
+      "https://www.citrusx.ai/terms"
+    ],
+    _processed: "auto"
+  },
   Clarifruit: {
     ws: ["https://app.clarifresh.com", "https://clarifresh.com", "https://support.clarifresh.com"],
     li: ["https://www.linkedin.com/company/clarifresh"],
