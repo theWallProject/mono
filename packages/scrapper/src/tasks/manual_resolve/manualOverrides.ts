@@ -1522,6 +1522,19 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  DOKKA: {
+    ws: ["https://app.dokka.com", "https://dokka.com"],
+    li: ["https://www.linkedin.com/company/dokkasoftware"],
+    fb: ["https://www.facebook.com/dokkame"],
+    tw: ["https://x.com/dokkame"],
+    ig: ["https://www.instagram.com/dokkame"],
+    ytc: ["https://www.youtube.com/channel/ucfna-3t65vneqw5uh0iyapq"],
+    urls: [
+      "http://www.aicpa-cima.com/resources/download/soc-for-service-organizations-engagements-overview",
+      "https://dokka.freshdesk.com/en/support/home"
+    ],
+    _processed: "auto"
+  },
   "DOT Compliance": {
     ws: ["https://info.dotcompliance.com", "https://www.dotcompliance.com"],
     li: ["https://www.linkedin.com/company/dot-compliance"],
