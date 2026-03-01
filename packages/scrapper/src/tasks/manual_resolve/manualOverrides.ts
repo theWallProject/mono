@@ -842,6 +842,15 @@ export const manualOverrides: Record<
     urls: ["https://firmabrands.com"],
     _processed: "auto"
   },
+  "CommBox.io": {
+    ws: ["https://help.commbox.io", "https://manage.commbox.io", "https://www.commbox.io"],
+    li: ["https://www.linkedin.com/company/commbox1"],
+    fb: ["https://www.facebook.com/commbox.io"],
+    ig: ["https://www.instagram.com/commbox.io"],
+    ytc: ["https://www.youtube.com/channel/uc6cntj4rmjy-zzzqvqc08aq"],
+    urls: ["https://commbox.statuspage.io", "https://help.commbox.io/apidocs"],
+    _processed: "auto"
+  },
   ControlMonkey: {
     ws: ["https://console.controlmonkey.io", "https://controlmonkey.io", "https://trust.controlmonkey.io"],
     li: ["https://www.linkedin.com/company/controlmonkey"],
