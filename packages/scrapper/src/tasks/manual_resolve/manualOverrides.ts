@@ -660,6 +660,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@brenmillerenergy343"],
     _processed: "auto"
   },
+  Bringg: {
+    ws: ["https://security.bringg.com", "https://www.bringg.com"],
+    li: ["https://www.linkedin.com/company/bringg"],
+    ytp: ["https://www.youtube.com/@bringgapp"],
+    urls: ["https://bringg.my.site.com/supportcenter/s/login"],
+    _processed: "auto"
+  },
   Briya: {
     ws: ["https://aire.briya.com", "https://briya.com"],
     li: ["https://www.linkedin.com/company/briyahelath"],

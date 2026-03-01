@@ -1,0 +1,66 @@
+[2026-03-01T15:32:48.502Z] === Homepage AI Extractor: Bringg ===
+[2026-03-01T15:32:48.502Z] Started at: 2026-03-01T15:32:48.502Z
+[2026-03-01T15:32:48.502Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772379168501_Bringg
+[2026-03-01T15:32:48.502Z] Company: Bringg
+[2026-03-01T15:32:48.502Z] Website: bringg.com
+[2026-03-01T15:32:48.502Z] cbRank: 26350
+[2026-03-01T15:32:48.503Z] Reasons: h
+[2026-03-01T15:32:48.503Z] Fetching: https://bringg.com
+[2026-03-01T15:32:54.428Z] Dismissed cookie consent popup via: button:has-text("Allow all")
+[2026-03-01T15:32:54.943Z] Redirected: https://bringg.com -> https://www.bringg.com/
+[2026-03-01T15:32:54.964Z] Saved HTML (498483 bytes) to page.html
+[2026-03-01T15:32:54.967Z] Extracted 25 unique links from page
+[2026-03-01T15:32:54.968Z] Saved 25 links to links.json
+[2026-03-01T15:32:54.975Z] Extracted footer HTML (7871 chars)
+[2026-03-01T15:32:54.975Z] Extracted header HTML (8207 chars)
+[2026-03-01T15:32:54.990Z] Website (post-redirect): https://www.bringg.com/ → origin: https://www.bringg.com
+[2026-03-01T15:32:54.990Z]   SUBDOMAIN: security.bringg.com (added to ws)
+[2026-03-01T15:32:54.991Z] Website subdomains found: 1
+[2026-03-01T15:32:54.991Z] External links: 4 (of 25 total)
+[2026-03-01T15:32:54.991Z] ── All external links ──
+[2026-03-01T15:32:54.991Z]   EXT: https://bringg.my.site.com/supportcenter/s/login
+[2026-03-01T15:32:54.991Z]   EXT: https://www.linkedin.com/company/bringg
+[2026-03-01T15:32:54.991Z]   EXT: https://www.onetrust.com/products/cookie-consent
+[2026-03-01T15:32:54.991Z]   EXT: https://www.youtube.com/c/Bringgapp
+[2026-03-01T15:32:54.991Z] ── Step 1: Programmatic categorization ──
+[2026-03-01T15:32:54.991Z]   UNCATEGORIZED: https://bringg.my.site.com/supportcenter/s/login
+[2026-03-01T15:32:54.991Z]   REGEX: li <- https://www.linkedin.com/company/bringg
+[2026-03-01T15:32:54.991Z]   UNCATEGORIZED: https://www.onetrust.com/products/cookie-consent
+[2026-03-01T15:32:54.992Z]   REGEX: ytp <- https://www.youtube.com/c/Bringgapp
+[2026-03-01T15:32:54.992Z] Programmatic result: ws:2, li:1, ytp:1 | 2 uncategorized
+[2026-03-01T15:32:54.992Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-01T15:32:54.993Z] Saved AI prompt (4092 chars) to ai_prompt.txt
+[2026-03-01T15:33:13.570Z] Saved AI response to ai_response.json
+[2026-03-01T15:33:13.570Z] ── Parsing AI response (2 lines) ──
+[2026-03-01T15:33:13.570Z]   AI LINK: https://www.youtube.com/c/Bringgapp
+[2026-03-01T15:33:13.570Z]   AI LINK: https://www.linkedin.com/company/bringg/
+[2026-03-01T15:33:13.570Z] AI returned 2 valid links
+[2026-03-01T15:33:13.571Z] ── Categorizing 2 AI-returned links ──
+[2026-03-01T15:33:13.571Z]   AI→REGEX: ytp <- https://www.youtube.com/c/Bringgapp (duplicate, skipped)
+[2026-03-01T15:33:13.571Z]   AI→REGEX: li <- https://www.linkedin.com/company/bringg/ (duplicate, skipped)
+[2026-03-01T15:33:13.572Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-01T15:33:13.572Z] Footer/header origins (5):
+[2026-03-01T15:33:13.572Z]   FOOTER/HEADER ORIGIN: https://www.bringg.com
+[2026-03-01T15:33:13.572Z]   FOOTER/HEADER ORIGIN: https://bringg.my.site.com
+[2026-03-01T15:33:13.572Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-01T15:33:13.572Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-01T15:33:13.572Z]   FOOTER/HEADER ORIGIN: https://security.bringg.com
+[2026-03-01T15:33:13.573Z]   ADDED: urls <- https://bringg.my.site.com/supportcenter/s/login
+[2026-03-01T15:33:13.573Z]   SKIP (not in footer/header): https://www.onetrust.com/products/cookie-consent
+[2026-03-01T15:33:13.573Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-01T15:33:13.573Z] ── Step 3: Final dedup ──
+[2026-03-01T15:33:13.573Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-01T15:33:13.573Z] ── FINAL RESULT ──
+[2026-03-01T15:33:13.573Z]   ws (2):
+[2026-03-01T15:33:13.573Z]     - https://security.bringg.com
+[2026-03-01T15:33:13.573Z]     - https://www.bringg.com
+[2026-03-01T15:33:13.573Z]   li (1):
+[2026-03-01T15:33:13.573Z]     - https://www.linkedin.com/company/bringg
+[2026-03-01T15:33:13.573Z]   ytp (1):
+[2026-03-01T15:33:13.573Z]     - https://www.youtube.com/@bringgapp
+[2026-03-01T15:33:13.573Z]   urls (1):
+[2026-03-01T15:33:13.573Z]     - https://bringg.my.site.com/supportcenter/s/login
+[2026-03-01T15:33:13.573Z] Summary: ws:2, li:1, ytp:1, urls:1
+[2026-03-01T15:33:13.574Z] Saved final result to result.json
+[2026-03-01T15:33:13.574Z] Override fields: ws, li, ytp, urls
+[2026-03-01T15:33:13.574Z] Finished at: 2026-03-01T15:33:13.574Z
