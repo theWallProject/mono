@@ -3265,6 +3265,12 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucewvk-lopk4wtnhi1mhggsg"],
     _processed: "auto"
   },
+  "Ocon Healthcare": {
+    ws: ["https://oconmed.com"],
+    li: ["https://www.linkedin.com/company/o-con-medical"],
+    urls: ["https://www.iub-ballerine.com"],
+    _processed: "auto"
+  },
   Octup: {
     ws: ["https://partner.octup.com", "https://www.octup.com"],
     li: ["https://www.linkedin.com/company/octup-com"],
