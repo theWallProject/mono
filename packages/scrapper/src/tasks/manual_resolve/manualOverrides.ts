@@ -2084,6 +2084,32 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/freezem_bsf"],
     _processed: "auto"
   },
+  "Fuse.io": {
+    ws: [
+      "https://console.fuse.io",
+      "https://docs.fuse.io",
+      "https://explorer.fuse.io",
+      "https://forum.fuse.io",
+      "https://news.fuse.io",
+      "https://safe.fuse.io",
+      "https://status.fuse.io",
+      "https://www.fuse.io"
+    ],
+    li: ["https://www.linkedin.com/company/fuseio"],
+    tw: ["https://x.com/fuse_network"],
+    gh: ["https://github.com/fuseio"],
+    ytp: ["https://www.youtube.com/@fusenetwork"],
+    ytc: ["https://www.youtube.com/channel/@fusenetwork"],
+    urls: [
+      "https://artrific.io",
+      "https://discord.com/invite/jpPMeSZ",
+      "https://fuse.freshteam.com/jobs",
+      "https://t.me/fuseio",
+      "https://voltage.finance",
+      "https://www.chargeweb3.com"
+    ],
+    _processed: "auto"
+  },
   "GK8 by Galaxy": {
     ws: ["https://www.gk8.io"],
     li: ["https://www.linkedin.com/company/gk8"],
