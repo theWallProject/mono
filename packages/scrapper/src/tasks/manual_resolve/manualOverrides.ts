@@ -1880,6 +1880,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "ENTERA BIO": {
+    ws: ["https://enterabio.com", "https://investors.enterabio.com"],
+    li: ["https://www.linkedin.com/company/entera-bio"],
+    fb: ["https://www.facebook.com/enterabio"],
+    tw: ["https://x.com/enterabio"],
+    ig: ["https://www.instagram.com/entera.bio"],
+    _processed: "auto"
+  },
   "Early Technologies": {
     ws: ["https://docs.startearly.ai", "https://www.startearly.ai"],
     li: ["https://www.linkedin.com/company/earlyai"],
