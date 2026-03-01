@@ -1572,6 +1572,17 @@ export const manualOverrides: Record<
     urls: ["https://www.comrax.com"],
     _processed: "auto"
   },
+  "Elementary Data": {
+    ws: ["https://docs.elementary-data.com", "https://www.elementary-data.com"],
+    li: ["https://www.linkedin.com/company/elementary-data"],
+    gh: ["https://github.com/elementary-data"],
+    urls: [
+      "https://elementary-data.frontegg.com/oauth/account/login",
+      "https://elementary-data.frontegg.com/oauth/account/sign-up",
+      "https://www.elementary-data.com/community"
+    ],
+    _processed: "auto"
+  },
   Elementor: {
     ws: [
       "https://elementor.com",
