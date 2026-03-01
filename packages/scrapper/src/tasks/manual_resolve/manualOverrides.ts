@@ -71,6 +71,14 @@ export const manualOverrides: Record<
     urls: ["https://www.g2.com/products/armo/reviews"],
     _processed: "auto"
   },
+  "ART MEDICAL": {
+    ws: ["https://artmedical.com"],
+    li: ["https://www.linkedin.com/company/artmedicalltd"],
+    fb: ["https://www.facebook.com/artmedicalltd"],
+    tw: ["https://x.com/artmedicalltd"],
+    ig: ["https://www.instagram.com/artmedicalltd"],
+    _processed: "auto"
+  },
   ASOCS: {
     ws: ["https://asocscloud.com", "https://portal.asocscloud.com"],
     li: ["https://www.linkedin.com/company/asocs"],
