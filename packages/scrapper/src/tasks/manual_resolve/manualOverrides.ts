@@ -5788,6 +5788,12 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/IL/app/id1558632731", "https://shlomo-bit.co.il"],
     _processed: "auto"
   },
+  ShopperAI: {
+    ws: ["https://shopperai.ai"],
+    li: ["https://www.linkedin.com/company/14058778"],
+    fb: ["https://www.facebook.com/drill.neuromarketing"],
+    _processed: "auto"
+  },
   Sightful: {
     ws: ["https://sightful.com"],
     li: ["https://www.linkedin.com/company/heysightful"],
