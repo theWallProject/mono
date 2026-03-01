@@ -2884,6 +2884,11 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   KOIOS: { ws: ["https://koiostech.ai"], li: ["https://www.linkedin.com/company/koiostech"], _processed: "auto" },
+  KTrust: {
+    ws: ["https://ktrust.io"],
+    urls: ["https://www.godaddy.com/websites/website-builder", "https://www.ktrust.io"],
+    _processed: "auto"
+  },
   "Kamari Pharma": {
     ws: ["https://kamaripharma.com"],
     li: ["https://www.linkedin.com/company/kamari-pharma"],
