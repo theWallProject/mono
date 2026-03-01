@@ -1203,6 +1203,33 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  CardiacSense: {
+    ws: ["https://www.cardiacsense.com"],
+    li: ["https://www.linkedin.com/company/cardiacsense"],
+    fb: ["https://www.facebook.com/cardiacsense"],
+    tw: ["https://x.com/cardiacsense"],
+    ytc: ["https://www.youtube.com/channel/ucxxlxed1lqoojkhy_rojdma"],
+    urls: [
+      "http://imaginet.co.il",
+      "https://cardiacsense.zendesk.com/agent",
+      "https://cardiacsense.zendesk.com/hc/en-us",
+      "https://cardiacsense.zendesk.com/hc/en-us/requests/new",
+      "https://portal.cardiacsense-cloud.com/auth/login",
+      "https://www.cardiacsense.com",
+      "https://www.cardiacsense.com/about",
+      "https://www.cardiacsense.com/board-of-directors",
+      "https://www.cardiacsense.com/contact-us",
+      "https://www.cardiacsense.com/data",
+      "https://www.cardiacsense.com/distributors",
+      "https://www.cardiacsense.com/en/careers",
+      "https://www.cardiacsense.com/en/news",
+      "https://www.cardiacsense.com/heart-rate-monitor-watch",
+      "https://www.cardiacsense.com/our-solution",
+      "https://www.cardiacsense.com/team",
+      "https://www.cardiacsense.com/technology"
+    ],
+    _processed: "auto"
+  },
   CardinalOps: {
     ws: ["https://cardinalops.com"],
     li: ["https://www.linkedin.com/company/cardinalops"],
