@@ -482,6 +482,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucbppvp_zamumkpuagcm2fta"],
     _processed: "auto"
   },
+  BeamUP: { ws: ["https://www.beamup.ai"], _processed: "auto" },
   Beamr: {
     ws: ["https://beamr.com", "https://blog.beamr.com", "https://cloud.beamr.com", "https://investors.beamr.com"],
     li: ["https://www.linkedin.com/company/beamr"],
