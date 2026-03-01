@@ -3904,6 +3904,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@vee.channel"],
     _processed: "auto"
   },
+  Vendict: {
+    ws: ["https://myapp.vendict.com", "https://trust.vendict.com", "https://vendict.com"],
+    li: ["https://www.linkedin.com/company/vendict"],
+    tw: ["https://x.com/vendict_ai"],
+    ytp: ["https://www.youtube.com/@vendict7363"],
+    urls: ["https://trust.vendict.com"],
+    _processed: "auto"
+  },
   Veriti: {
     ws: ["https://www.veriti.ai"],
     li: ["https://www.linkedin.com/company/veriti-security"],
