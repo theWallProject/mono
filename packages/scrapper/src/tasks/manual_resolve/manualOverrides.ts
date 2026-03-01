@@ -5244,6 +5244,13 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/app/tedooo/id1487331226"],
     _processed: "auto"
   },
+  Teramount: {
+    ws: ["https://teramount.com"],
+    li: ["https://www.linkedin.com/company/teramount"],
+    tw: ["https://x.com/teramountltd"],
+    urls: ["http://www.tbdm.co.il", "https://maps.google.com"],
+    _processed: "auto"
+  },
   "Teva Pharmaceuticals": {
     ws: ["https://www.tevapharm.com"],
     li: ["https://www.linkedin.com/company/teva-pharmaceuticals"],
