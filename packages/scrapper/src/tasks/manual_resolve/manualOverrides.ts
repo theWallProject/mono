@@ -4454,6 +4454,14 @@ export const manualOverrides: Record<
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
     _processed: "auto"
   },
+  "Visual Layer": {
+    ws: ["https://app.visual-layer.com", "https://docs.visual-layer.com", "https://www.visual-layer.com"],
+    li: ["https://www.linkedin.com/company/visual-layer"],
+    gh: ["https://github.com/visual-layer"],
+    ytp: ["https://www.youtube.com/@visual-layer"],
+    urls: ["https://discord.com/invite/tkYHJCA7mb"],
+    _processed: "auto"
+  },
   Voxia: {
     ws: ["https://www.voxia.ai"],
     li: ["https://www.linkedin.com/company/37429937"],
