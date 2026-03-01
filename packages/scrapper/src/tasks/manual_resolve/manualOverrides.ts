@@ -358,6 +358,22 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCem5Ie0LVKY-5MV6Av9ZfsA"],
     _processed: "auto"
   },
+  "Ariga Technologies": {
+    ws: ["https://ariga.io"],
+    li: ["https://www.linkedin.com/company/arigaio"],
+    tw: ["https://x.com/atlasgo_io", "https://x.com/entgo_io"],
+    gh: ["https://github.com/ariga", "https://github.com/ent"],
+    ytp: ["https://www.youtube.com/@ariga_io"],
+    urls: [
+      "https://atlasgo.io",
+      "https://atlasgo.io/blog",
+      "https://atlasgo.io/blog/2023/06/13/soc2-compliance",
+      "https://atlasgo.io/faq",
+      "https://atlasgo.io/getting-started",
+      "https://entgo.io"
+    ],
+    _processed: "auto"
+  },
   Artlist: {
     ws: [
       "https://artlist.io",
