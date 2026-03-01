@@ -1649,6 +1649,11 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Hyperspace: {
+    ws: ["https://docs.hyper-space.io", "https://www.hyper-space.io"],
+    li: ["https://www.linkedin.com/company/hyperspace-db"],
+    _processed: "auto"
+  },
   INCRMNTAL: {
     ws: ["https://knowledgebase.incrmntal.com", "https://www.incrmntal.com"],
     li: ["https://www.linkedin.com/company/incrmntal"],
