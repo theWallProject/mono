@@ -3931,6 +3931,16 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   NitroFix: { ws: ["https://nitro-fix.com"], li: ["https://www.linkedin.com/company/nitrofix"], _processed: "auto" },
+  "Nofar Energy": {
+    ws: ["https://ir.nofar-energy.com", "https://www.nofar-energy.com"],
+    li: ["https://www.linkedin.com/company/nofarenergy"],
+    fb: ["https://www.facebook.com/nofar.ene"],
+    tw: ["https://x.com/nofarenergy"],
+    ig: ["https://www.instagram.com/nofar_energy"],
+    ytp: ["https://www.youtube.com/@nofarenergy8364"],
+    urls: ["https://ir.nofar-energy.com", "https://www.richkid.co.il"],
+    _processed: "auto"
+  },
   "Nokod Security": {
     ws: ["https://nokodsecurity.com"],
     li: ["https://www.linkedin.com/company/nokodsecurity"],
