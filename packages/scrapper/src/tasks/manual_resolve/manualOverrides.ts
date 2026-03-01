@@ -3167,6 +3167,11 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Nostromo: {
+    ws: ["https://nostromo.energy"],
+    li: ["https://www.linkedin.com/company/nostromo-energy"],
+    _processed: "auto"
+  },
   Novidea: {
     ws: ["https://novidea.com"],
     li: ["https://www.linkedin.com/company/novidea-software"],
