@@ -2857,6 +2857,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Hunters: {
+    ws: ["https://go.hunters.security", "https://www.hunters.security"],
+    li: ["https://www.linkedin.com/company/hunters-ai"],
+    tw: ["https://x.com/hunters_ai"],
+    ig: ["https://www.instagram.com/lifeathunters"],
+    ytc: ["https://www.youtube.com/channel/ucuufmdz-6ms4dqefi81irkw"],
+    urls: ["https://docs.hunters.ai/docs/updates", "https://trust.hunters.ai"],
+    _processed: "auto"
+  },
   "HyperGuest Ltd.": {
     ws: ["https://app.hyperguest.com", "https://www.hyperguest.com"],
     li: ["https://www.linkedin.com/company/hyperguest"],
