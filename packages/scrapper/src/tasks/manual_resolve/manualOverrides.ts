@@ -5327,6 +5327,12 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   STOREE: { ws: ["https://storee.ai"], li: ["https://www.linkedin.com/company/storeeai"], _processed: "auto" },
+  STRIKECO: {
+    ws: ["https://strikeco.io"],
+    li: ["https://www.linkedin.com/company/strikeco-sports"],
+    ig: ["https://www.instagram.com/strikeco_sports"],
+    _processed: "auto"
+  },
   Salto: {
     ws: ["https://www.salto.io"],
     li: ["https://www.linkedin.com/company/salto-io"],
