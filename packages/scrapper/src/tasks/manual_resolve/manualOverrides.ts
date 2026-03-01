@@ -4384,6 +4384,13 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@sofwavemed"],
     _processed: "auto"
   },
+  SolCold: {
+    ws: ["https://www.solcold.co"],
+    li: ["https://www.linkedin.com/company/solcold"],
+    fb: ["https://www.facebook.com/solcoldinnovation"],
+    ytp: ["https://www.youtube.com/@solcold7677"],
+    _processed: "auto"
+  },
   "Sola Security": {
     ws: [
       "https://auth.sola.security",
