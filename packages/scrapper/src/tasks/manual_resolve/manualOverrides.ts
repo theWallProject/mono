@@ -6103,6 +6103,16 @@ export const manualOverrides: Record<
     urls: ["http://www.tbdm.co.il", "https://maps.google.com"],
     _processed: "auto"
   },
+  "Terminal X": {
+    ws: ["https://www.terminalx.com"],
+    fb: ["https://www.facebook.com/weareterminalx"],
+    ig: ["https://www.instagram.com/terminalx"],
+    ytc: ["https://www.youtube.com/channel/ucutxp6is-vye1vxllg_3w5g"],
+    tt: ["https://www.tiktok.com/@terminalx1"],
+    urls: ["https://click.google-analytics.com/redirect", "https://dreamgiftcard.co.il"],
+    android_app_ids: ["com.terminalx"],
+    _processed: "auto"
+  },
   "Teva Pharmaceuticals": {
     ws: ["https://www.tevapharm.com"],
     li: ["https://www.linkedin.com/company/teva-pharmaceuticals"],
