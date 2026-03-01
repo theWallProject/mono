@@ -2692,6 +2692,17 @@ export const manualOverrides: Record<
     urls: ["https://innoventric.com", "https://pearlcom.co.il", "https://pearlcom.co.il/strategy"],
     _processed: "auto"
   },
+  "IO River": {
+    ws: ["https://manage.ioriver.io", "https://security.ioriver.io", "https://www.ioriver.io"],
+    li: ["https://www.linkedin.com/company/io-river"],
+    ytp: ["https://www.youtube.com/@ioriver"],
+    urls: [
+      "https://aws.amazon.com/marketplace/pp/prodview-e35cd5uxgxtcm",
+      "https://console.cloud.google.com/marketplace/product/ioriver-public/virtual-edge-orchestration",
+      "https://cta-eu1.hubspot.com/ctas/v2/public/cs/c"
+    ],
+    _processed: "auto"
+  },
   IONIX: {
     ws: ["https://www.ionix.io"],
     li: ["https://www.linkedin.com/company/ionix-security"],
