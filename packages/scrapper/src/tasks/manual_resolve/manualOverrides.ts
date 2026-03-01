@@ -4692,6 +4692,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/valerann_ltd"],
     _processed: "auto"
   },
+  Vayu: {
+    ws: ["https://app.withvayu.com", "https://guide.withvayu.com", "https://www.withvayu.com"],
+    li: ["https://www.linkedin.com/company/withvayu"],
+    ytp: ["https://www.youtube.com/@withvayu"],
+    urls: ["https://app.goweft.com/login"],
+    _processed: "auto"
+  },
   Vee: {
     ws: ["https://team.vee.com", "https://www.vee.com"],
     li: ["https://www.linkedin.com/company/veeai"],
