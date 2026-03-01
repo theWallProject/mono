@@ -1786,6 +1786,17 @@ export const manualOverrides: Record<
     tw: ["https://x.com/ivix_ai"],
     _processed: "auto"
   },
+  Iguazio: {
+    ws: ["https://go.iguazio.com", "https://www.iguazio.com"],
+    li: ["https://www.linkedin.com/company/iguazio"],
+    fb: ["https://www.facebook.com/iguazio"],
+    tw: ["https://x.com/iguazio"],
+    gh: ["https://github.com/nuclio"],
+    ytp: ["https://www.youtube.com/@iguazio"],
+    ytc: ["https://www.youtube.com/channel/uchmi6zzszd9doyyvut1ppug"],
+    urls: ["https://www.iguazio.com/blog"],
+    _processed: "auto"
+  },
   "ImPact Biotech": { ws: ["https://impactbiotech.com"], urls: ["https://impactbiotech.com"], _processed: "auto" },
   "Imagene AI": {
     ws: ["https://imagene-ai.com"],
