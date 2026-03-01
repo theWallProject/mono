@@ -2480,6 +2480,18 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   GeoX: { ws: ["https://app.geox.ai"], _processed: "auto" },
+  "Gigantic LTD (Clawee)": {
+    ws: ["https://clawee.com", "https://store.clawee.com"],
+    fb: ["https://www.facebook.com/claweeisawesome"],
+    ig: ["https://www.instagram.com/clawee_app"],
+    ytc: ["https://www.youtube.com/channel/ucgic6wcwk9im1hnr_kqugkg"],
+    urls: [
+      "https://clawee.onelink.me/IiA3/claweedotcom",
+      "https://go.onelink.me/app/AdroidGooglePlay",
+      "https://go.onelink.me/app/Appstore"
+    ],
+    _processed: "auto"
+  },
   "Gilat Satellite Networks": {
     ws: ["https://connect.gilat.com", "https://www.gilat.com"],
     li: ["https://www.linkedin.com/company/gilat-defense", "https://www.linkedin.com/company/gilat-satellite-networks"],
