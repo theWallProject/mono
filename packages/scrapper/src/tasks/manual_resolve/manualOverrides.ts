@@ -1037,6 +1037,18 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Clarifruit: {
+    ws: ["https://app.clarifresh.com", "https://clarifresh.com", "https://support.clarifresh.com"],
+    li: ["https://www.linkedin.com/company/clarifresh"],
+    fb: ["https://www.facebook.com/clarifresh"],
+    tw: ["https://x.com/clarifresh"],
+    urls: [
+      "https://app.clarifresh.com",
+      "https://support.clarifresh.com/hc/en-us",
+      "https://support.clarifruit.com/hc/en-us"
+    ],
+    _processed: "auto"
+  },
   "Classiq Technologies": {
     ws: ["https://www.classiq.io"],
     li: ["https://www.linkedin.com/company/classiq-technologies"],
