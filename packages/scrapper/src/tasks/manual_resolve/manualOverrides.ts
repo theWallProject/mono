@@ -6171,6 +6171,22 @@ export const manualOverrides: Record<
     urls: ["https://web-skipper.co.il", "https://www.sinapistech.com", "https://www.yoti.co.il"],
     _processed: "auto"
   },
+  TaTiO: {
+    ws: ["https://www.tatio.io"],
+    urls: [
+      "https://www.tatio.info/industries",
+      "https://www.tatio.info/knowledge-center",
+      "https://www.tatio.info/terms-of-use",
+      "https://www.tatio.io/home",
+      "https://www.tatio.io/product",
+      "https://www.tatio.me/blog-1",
+      "https://www.tatio.me/book-a-demo",
+      "https://www.tatio.me/contact-us",
+      "https://www.tatio.me/industries",
+      "https://www.tatio.me/terms-of-use"
+    ],
+    _processed: "auto"
+  },
   Tabnine: {
     ws: ["https://www.tabnine.com"],
     li: ["https://www.linkedin.com/company/tabnine"],
