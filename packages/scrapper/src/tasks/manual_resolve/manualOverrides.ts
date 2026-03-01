@@ -5638,6 +5638,11 @@ export const manualOverrides: Record<
     urls: ["https://app.goweft.com/login"],
     _processed: "auto"
   },
+  "Vectorious Medical Technologies": {
+    ws: ["https://www.vectoriousmedtech.com"],
+    li: ["https://www.linkedin.com/company/vectorious-medical-technologies"],
+    _processed: "auto"
+  },
   Vee: {
     ws: ["https://team.vee.com", "https://www.vee.com"],
     li: ["https://www.linkedin.com/company/veeai"],
