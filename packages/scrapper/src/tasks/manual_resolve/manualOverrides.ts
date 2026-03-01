@@ -807,6 +807,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@bioprotect"],
     _processed: "auto"
   },
+  BioRaptor: {
+    ws: ["https://www.bioraptor.ai"],
+    li: ["https://www.linkedin.com/company/bioraptor"],
+    _processed: "auto"
+  },
   Biobeat: {
     ws: ["https://www.bio-beat.com"],
     li: ["https://www.linkedin.com/company/biobeat-ltd."],
