@@ -594,6 +594,14 @@ export const manualOverrides: Record<
     urls: ["https://comeet.com/jobs/blockaid/69.00b", "https://t.me/+YCEZbt_QrE8zMjI0"],
     _processed: "auto"
   },
+  "BlueWind Medical": {
+    ws: ["https://bluewindmedical.com"],
+    li: ["https://www.linkedin.com/company/bluewind-medical"],
+    fb: ["https://www.facebook.com/bluewindmedical"],
+    tw: ["https://x.com/bluewindinc"],
+    ig: ["https://www.instagram.com/bluewindmedical"],
+    _processed: "auto"
+  },
   Bluesky: {
     ws: ["https://bsky.social", "https://bsky.app"],
     gh: ["https://github.com/bluesky-social"],
