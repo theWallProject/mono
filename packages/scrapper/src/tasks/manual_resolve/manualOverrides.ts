@@ -3401,6 +3401,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  RevealSecurity: {
+    ws: ["https://www.reveal.security"],
+    li: ["https://www.linkedin.com/company/revealsecurity"],
+    tw: ["https://x.com/revealsecurity"],
+    ytp: ["https://www.youtube.com/@reveal.security"],
+    _processed: "auto"
+  },
   Revrod: { ws: ["https://www.revrod.io"], _processed: "auto" },
   RiseUp: {
     ws: ["https://www.riseup.co.il"],
