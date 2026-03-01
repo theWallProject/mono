@@ -4450,6 +4450,14 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@syte.ai"],
     _processed: "auto"
   },
+  "TAT Technologies": {
+    ws: ["https://tat-technologies.com"],
+    li: ["https://www.linkedin.com/company/tat-technologies-group"],
+    fb: ["https://www.facebook.com/tattechnologiesgroup"],
+    tw: ["https://x.com/tattecnologies"],
+    urls: ["https://web-skipper.co.il", "https://www.sinapistech.com", "https://www.yoti.co.il"],
+    _processed: "auto"
+  },
   Tabnine: {
     ws: ["https://www.tabnine.com"],
     li: ["https://www.linkedin.com/company/tabnine"],
