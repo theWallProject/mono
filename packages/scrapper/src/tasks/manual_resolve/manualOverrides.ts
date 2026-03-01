@@ -1265,6 +1265,11 @@ export const manualOverrides: Record<
     android_dev_id: "com.empathy",
     _processed: true
   },
+  Entrio: {
+    ws: ["https://docs.entrio.io", "https://www.entrio.io"],
+    li: ["https://www.linkedin.com/company/entrioplatform"],
+    _processed: "auto"
+  },
   Everafter: {
     ws: ["https://app.everafter.ai", "https://www.everafter.ai"],
     li: ["https://www.linkedin.com/company/everafter-ai"],
