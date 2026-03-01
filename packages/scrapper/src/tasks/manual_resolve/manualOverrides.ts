@@ -3389,6 +3389,31 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Moon Active": {
+    ws: ["https://www.moonactive.com"],
+    li: ["https://www.linkedin.com/company/moon-active"],
+    fb: ["https://www.facebook.com/moonactive"],
+    ig: ["https://www.instagram.com/lifeatmoonactive"],
+    urls: [
+      "https://apps.apple.com/by/app/family-island-farming-game/id1464689103",
+      "https://apps.apple.com/il/app/merge-hotel-empire-design-game/id1577970257",
+      "https://apps.apple.com/il/app/zen-match-relaxing-puzzle/id1560124228",
+      "https://apps.apple.com/sg/app/travel-town-merge-adventure/id1521236603",
+      "https://apps.apple.com/us/app/merge-adventure-merging-game/id6478997449",
+      "https://apps.apple.com/us/app/my-cafe-restaurant-game/id1068204657",
+      "https://itunes.apple.com/app/coin-master/id406889139"
+    ],
+    android_app_ids: [
+      "com.MelsoftGames.FamilyIslandFarm",
+      "com.exoticmatch.game",
+      "com.melesta.coffeeshop",
+      "com.moonactive.coinmaster",
+      "io.randomco.travel",
+      "puzzle.merge.adventure",
+      "puzzle.merge.hotel.empire"
+    ],
+    _processed: "auto"
+  },
   MoonPay: {
     ig: ["https://www.instagram.com/moonpay"],
     ytp: ["https://www.youtube.com/@moonpayhq"],
