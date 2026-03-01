@@ -3312,6 +3312,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/meala-foodtech"],
     _processed: "auto"
   },
+  "MedHub-AI": {
+    ws: ["https://www.medhub-ai.com"],
+    li: ["https://www.linkedin.com/company/medhub-ai"],
+    tw: ["https://x.com/aimedhub"],
+    ytc: ["https://www.youtube.com/channel/ucvs5vhpv4fn-ssf3cipq9sg"],
+    urls: ["https://pixart.dev", "https://www.reborntlv.com"],
+    _processed: "auto"
+  },
   MedOne: { ws: ["https://medone.co.il"], li: ["https://www.linkedin.com/company/medone"], _processed: "auto" },
   "Medcase Health": {
     ws: ["https://app.medcase.health", "https://medcase.health", "https://portal.medcase.health"],
