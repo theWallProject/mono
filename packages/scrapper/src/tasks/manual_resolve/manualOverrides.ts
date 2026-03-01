@@ -1153,6 +1153,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Carrar: {
+    ws: ["https://www.carrar.net"],
+    li: ["https://www.linkedin.com/company/carrar"],
+    tw: ["https://x.com/carrar__"],
+    _processed: "auto"
+  },
   CathWorks: {
     ws: ["https://cath.works"],
     li: ["https://www.linkedin.com/company/cathworks"],
