@@ -5483,6 +5483,14 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  "Sency.": {
+    ws: ["https://www.sency.ai"],
+    li: ["https://www.linkedin.com/company/sencyai"],
+    urls: [
+      "https://docs.google.com/document/d/e/2PACX-1vS7EGUqOaDmV4XGEcqchOLhh9iX6Sb3tRvkMljYYcfAcLi4z_2o1_nS3JSLbqDn0vkGoz85003-YbC8/pub"
+    ],
+    _processed: "auto"
+  },
   "Senseera Health": {
     ws: ["https://senseerahealth.com"],
     urls: ["https://pearlcom.co.il", "https://senseerahealth.com", "https://senseerahealth.com/privacy-policy"],
