@@ -2863,6 +2863,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Orion Security": { ws: ["https://app.orionsec.io", "https://www.orionsec.io"], _processed: "auto" },
   Ottopia: {
     ws: ["https://www.ottopia.tech"],
     li: ["https://www.linkedin.com/company/ottopia"],
