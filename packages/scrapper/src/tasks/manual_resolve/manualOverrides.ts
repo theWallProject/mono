@@ -5110,6 +5110,7 @@ export const manualOverrides: Record<
     urls: ["https://help.sightful.com/en"],
     _processed: "auto"
   },
+  Silentium: { ws: ["https://www.silentium.com"], li: ["https://www.linkedin.com/company/387937"], _processed: "auto" },
   Silverfort: {
     ig: ["https://www.instagram.com/life_at_silverfort"],
     gh: ["https://github.com/silverfort-open-source"],
