@@ -2409,6 +2409,11 @@ export const manualOverrides: Record<
     urls: ["https://silktide.com/consent-manager"],
     _processed: "auto"
   },
+  Nilos: {
+    ws: ["https://app.nilos.io", "https://status.nilos.io", "https://www.nilos.io"],
+    urls: ["https://app.dover.com/jobs/nilos"],
+    _processed: "auto"
+  },
   "Nokod Security": {
     ws: ["https://nokodsecurity.com"],
     li: ["https://www.linkedin.com/company/nokodsecurity"],
