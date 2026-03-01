@@ -5837,6 +5837,11 @@ export const manualOverrides: Record<
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
     _processed: "auto"
   },
+  "Visionary.ai": {
+    ws: ["https://visionary.ai"],
+    li: ["https://www.linkedin.com/company/visionary-ai"],
+    _processed: "auto"
+  },
   "Visual Layer": {
     ws: ["https://app.visual-layer.com", "https://docs.visual-layer.com", "https://www.visual-layer.com"],
     li: ["https://www.linkedin.com/company/visual-layer"],
