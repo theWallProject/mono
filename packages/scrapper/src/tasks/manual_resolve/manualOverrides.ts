@@ -947,6 +947,19 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uca6wf2lzh2-faffpe8n4aya"],
     _processed: "auto"
   },
+  "Circles - Online Group Support": {
+    ws: ["https://app.circlesup.com", "https://circlesup.com", "https://expertscommunity.circlesup.com"],
+    li: ["https://www.linkedin.com/company/circles-support"],
+    fb: ["https://www.facebook.com/circlessupport"],
+    ig: ["https://www.instagram.com/circles_support"],
+    urls: [
+      "https://circlesup-support.onelink.me/Zfmp/2sjumyvy",
+      "https://circlesup-support.onelink.me/Zfmp/jvvug6g9",
+      "https://circlesup-support.onelink.me/Zfmp/vn9898b2",
+      "https://circlesup.typeform.com/to/e5q9ZYmq"
+    ],
+    _processed: "auto"
+  },
   "Classiq Technologies": {
     ws: ["https://www.classiq.io"],
     li: ["https://www.linkedin.com/company/classiq-technologies"],
