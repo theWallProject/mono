@@ -289,6 +289,12 @@ export const manualOverrides: Record<
     urls: ["https://amaiproteins.com"],
     _processed: "auto"
   },
+  Anagog: {
+    ws: ["https://docs.intenthq.com", "https://intenthq.com"],
+    li: ["https://www.linkedin.com/company/intenthq"],
+    tw: ["https://x.com/weareintenthq"],
+    _processed: "auto"
+  },
   Anodot: {
     ws: [
       "https://app.anodot.com",
