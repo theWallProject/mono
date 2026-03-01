@@ -4135,6 +4135,11 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "NeoTX Therapeutics": { ws: ["https://predictivetx.com"], _processed: "auto" },
+  Neolithics: {
+    ws: ["https://www.neolithics.ai"],
+    li: ["https://www.linkedin.com/company/neolithics-ai"],
+    _processed: "auto"
+  },
   "NetOp.Cloud": { ws: ["https://netop.ai"], li: ["https://www.linkedin.com/company/netop-ai"], _processed: "auto" },
   Neteera: {
     ws: ["https://www.neteera.com"],
