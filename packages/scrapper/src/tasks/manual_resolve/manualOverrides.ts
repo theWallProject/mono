@@ -3604,6 +3604,13 @@ export const manualOverrides: Record<
     android_app_ids: ["com.pingapp.app"],
     _processed: "auto"
   },
+  Stargo: {
+    ws: ["https://www.stargo.co"],
+    li: ["https://www.linkedin.com/company/stargo-co"],
+    fb: ["https://www.facebook.com/stargo.solutions"],
+    ig: ["https://www.instagram.com/stargo.think.forward"],
+    _processed: "auto"
+  },
   "StarkWare Industries": {
     ws: ["https://docs.starkware.co", "https://starkware.co", "https://starknet.io"],
     li: ["http://www.linkedin.com/company/starkware"],
