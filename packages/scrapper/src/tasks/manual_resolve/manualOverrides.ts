@@ -1104,6 +1104,21 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/competehr"],
     _processed: "auto"
   },
+  Comunix: {
+    ws: ["https://www.getcomunix.com"],
+    urls: [
+      "https://apps.apple.com/app/poker-face-meet-play-live/id1364570884",
+      "https://editor.wix.com/html/editor/web/renderer/revisions/view/697da5b3-f271-41ee-a309-bc49c1a62690/137/shop1",
+      "https://getcomunixhelp.zendesk.com/hc/en-us",
+      "https://pokerface.page.link/joinpokerface",
+      "https://www.comeet.com/jobs/comunix/86.006",
+      "https://www.getcomunix.com/pokerface",
+      "https://www.getcomunix.com/privacy-policy",
+      "https://www.getcomunix.com/terms-of-use"
+    ],
+    android_app_ids: ["com.comunix.pokerface"],
+    _processed: "auto"
+  },
   ControlMonkey: {
     ws: ["https://console.controlmonkey.io", "https://controlmonkey.io", "https://trust.controlmonkey.io"],
     li: ["https://www.linkedin.com/company/controlmonkey"],
