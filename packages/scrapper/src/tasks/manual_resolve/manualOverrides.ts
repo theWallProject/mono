@@ -1771,6 +1771,12 @@ export const manualOverrides: Record<
     urls: ["https://www.avihaim.co.il", "https://www.hisense.co.il", "https://www.pinterest.com/babysensellc"],
     _processed: "auto"
   },
+  Hopper: {
+    ws: ["https://app.hopper.security", "https://www.hopper.security"],
+    li: ["https://www.linkedin.com/company/hopper-security"],
+    ytc: ["https://www.youtube.com/channel/uc9heronfowz2i8jkiu5z6lw"],
+    _processed: "auto"
+  },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
     li: ["https://www.linkedin.com/company/hypernative"],
