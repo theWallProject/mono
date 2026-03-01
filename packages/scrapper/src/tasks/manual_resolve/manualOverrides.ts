@@ -3373,6 +3373,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Skyline Robotics": {
+    ws: ["https://www.skylinerobotics.com"],
+    li: ["https://www.linkedin.com/company/skyline-robotics"],
+    fb: ["https://www.facebook.com/skylinerobotics"],
+    tw: ["https://x.com/roboticskyline"],
+    ig: ["https://www.instagram.com/skyline_robotics"],
+    ytc: ["https://www.youtube.com/channel/ucp4qalzbcso-cbk8p4dqjfg"],
+    _processed: "auto"
+  },
   "SofWave Medical": {
     ws: ["https://sofwave.com"],
     li: ["https://www.linkedin.com/company/sofwave"],
