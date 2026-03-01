@@ -5212,6 +5212,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/nsureai"],
     _processed: "auto"
   },
+  "nT-Tao Compact Fusion Power": {
+    ws: ["https://www.nt-tao.com"],
+    li: ["https://www.linkedin.com/company/wix-com"],
+    tw: ["https://x.com/wix"],
+    ytp: ["https://www.youtube.com/@wix"],
+    urls: ["https://www.nt-tao.com"],
+    _processed: "auto"
+  },
   proteanTecs: {
     ws: ["https://customers.proteantecs.com", "https://go.proteantecs.com", "https://www.proteantecs.com"],
     li: ["https://www.linkedin.com/company/proteantecs"],
