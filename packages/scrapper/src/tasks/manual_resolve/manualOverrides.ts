@@ -2726,6 +2726,15 @@ export const manualOverrides: Record<
     urls: ["https://epicod.co.il", "https://overallstudio.co.il"],
     _processed: "auto"
   },
+  Kando: {
+    ws: ["https://app.kando.eco", "https://impact.kando.eco", "https://new.kando.eco", "https://www.kando.eco"],
+    li: ["https://www.linkedin.com/company/kando-environmental-services"],
+    fb: ["https://www.facebook.com/kandoclear"],
+    tw: ["https://x.com/kandoclear"],
+    ytp: ["https://www.youtube.com/@kandoclear"],
+    urls: ["https://www.kando.eco"],
+    _processed: "auto"
+  },
   Kardome: {
     ws: ["https://www.kardome.com"],
     li: ["https://www.linkedin.com/company/kardome"],
