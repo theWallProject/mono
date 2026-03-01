@@ -437,6 +437,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Atly: {
+    ws: ["https://www.atly.com"],
+    fb: ["https://www.facebook.com/atlyofficial"],
+    ig: ["https://www.instagram.com/atly"],
+    tt: ["https://www.tiktok.com/@atlyofficial"],
+    urls: ["https://apps.apple.com/us/app/atly-know-where-to-go/id1449597018", "https://play.google.com/store/search"],
+    _processed: "auto"
+  },
   "Aurora Labs": {
     ws: ["https://www.auroralabs.com"],
     li: ["https://www.linkedin.com/company/auroralabs"],
