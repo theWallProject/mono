@@ -509,6 +509,15 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/app/atly-know-where-to-go/id1449597018", "https://play.google.com/store/search"],
     _processed: "auto"
   },
+  Atrinet: {
+    ws: ["https://www.atrinet.com"],
+    li: ["https://www.linkedin.com/company/atrinet"],
+    urls: [
+      "https://appsyork.com/demo/atrinet-2/atrinets-privacy-policy",
+      "https://atrinet.freshdesk.com/support/login"
+    ],
+    _processed: "auto"
+  },
   AudioCodes: {
     ws: ["https://online.audiocodes.com", "https://partners.audiocodes.com", "https://www.audiocodes.com"],
     li: ["https://www.linkedin.com/company/audiocodes"],
