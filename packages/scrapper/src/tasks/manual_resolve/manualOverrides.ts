@@ -2246,6 +2246,22 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Jotit: {
+    ws: ["https://www.jotit.io"],
+    li: ["https://www.linkedin.com/company/jotit-ed", "https://www.linkedin.com/company/wix-com"],
+    fb: ["https://www.facebook.com/jotit.ed", "https://www.facebook.com/wixstudio"],
+    tw: ["https://x.com/wixstudio"],
+    ig: ["https://www.instagram.com/jotit_ed", "https://www.instagram.com/wix"],
+    ytp: ["https://www.youtube.com/@wix"],
+    tt: ["https://www.tiktok.com/@wix"],
+    urls: [
+      "https://48602011.hs-sites.com/jotit-knowledge-base",
+      "https://48602011.hs-sites.com/jotit-knowledge-base/frequently-asked-questions",
+      "https://share.hsforms.com/1gVbesxYPShWMogrYNDzPggsxpjv",
+      "https://www.jotit.io"
+    ],
+    _processed: "auto"
+  },
   Joyned: {
     ws: [
       "https://demo.joyned.co",
