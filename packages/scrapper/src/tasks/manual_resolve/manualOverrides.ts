@@ -104,6 +104,12 @@ export const manualOverrides: Record<
     urls: ["https://www.careers-page.com/asocs"],
     _processed: "auto"
   },
+  "ATLASense Biomed Ltd.": {
+    ws: ["https://atlasensebiomed.com"],
+    li: ["https://www.linkedin.com/company/atlasensebiomed"],
+    fb: ["https://www.facebook.com/atlasense"],
+    _processed: "auto"
+  },
   AU10TIX: {
     li: ["https://www.linkedin.com/company/au10tix-limited"],
     fb: ["https://www.facebook.com/Au10tix"],
