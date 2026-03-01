@@ -5714,6 +5714,21 @@ export const manualOverrides: Record<
     urls: ["https://etyhadar.com"],
     _processed: "auto"
   },
+  "Uniper-care Technologies": {
+    ws: ["https://www.unipercare.com"],
+    li: ["https://www.linkedin.com/company/uniper-care-technologies"],
+    fb: ["https://www.facebook.com/unipercare"],
+    ytc: ["https://www.youtube.com/channel/ucrdjhxw8b8py6hfh8_pfxjg"],
+    urls: [
+      "https://app.uniper-care.com",
+      "https://apps.apple.com/us/app/uniper-app/id1529787818",
+      "https://unipercare.zendesk.com/hc/en-us",
+      "https://web.telegram.org",
+      "https://www.whatsapp.com"
+    ],
+    android_app_ids: ["com.uniper.uniapp"],
+    _processed: "auto"
+  },
   "Upstream Security": {
     ws: ["https://info.upstream.auto", "https://upstream.auto"],
     li: ["https://www.linkedin.com/company/upstream-security"],
