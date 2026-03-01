@@ -4684,6 +4684,12 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCDJidIDfuy0bzJT6GocaCrA"],
     _processed: "auto"
   },
+  "UNIPaaS Payments Technologies": {
+    ws: ["https://docs.unipaas.com", "https://portal.unipaas.com", "https://www.unipaas.com"],
+    li: ["https://www.linkedin.com/company/unipaas"],
+    ytp: ["https://www.youtube.com/@unipaas"],
+    _processed: "auto"
+  },
   UltraSight: {
     ws: ["https://ultrasight.com"],
     li: ["https://linkedin.com/company/ultrasightai"],
