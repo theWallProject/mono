@@ -5704,6 +5704,13 @@ export const manualOverrides: Record<
     urls: ["https://pearlcom.co.il", "https://senseerahealth.com", "https://senseerahealth.com/privacy-policy"],
     _processed: "auto"
   },
+  Senser: {
+    ws: ["https://senser.tech"],
+    li: ["https://www.linkedin.com/company/senser-tech"],
+    tw: ["https://x.com/senser_tech"],
+    urls: ["https://meetings-eu1.hubspot.com/yuval-lev/senser-intro"],
+    _processed: "auto"
+  },
   Sensos: {
     ws: ["https://customerportal.sensos.io", "https://learn.sensos.io", "https://sensos.io", "https://sync.sensos.io"],
     li: ["https://www.linkedin.com/company/sensoslabz"],
