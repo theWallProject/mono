@@ -1075,6 +1075,22 @@ export const manualOverrides: Record<
     urls: ["https://snowbit.io/services"],
     _processed: "auto"
   },
+  CoreTigo: {
+    ws: ["https://support.coretigo.com", "https://www.coretigo.com"],
+    li: ["https://www.linkedin.com/company/coretigo"],
+    fb: ["https://www.facebook.com/coretigo"],
+    tw: ["https://x.com/coretigo"],
+    ig: ["https://www.instagram.com/coretigo"],
+    ytp: ["https://www.youtube.com/@coretigo"],
+    urls: [
+      "http://entry.co.il",
+      "https://abrilliant.company",
+      "https://wa.me/message/KA67I5RRWZGLO1",
+      "https://www.example.com",
+      "https://www.xing.com/pages/coretigo"
+    ],
+    _processed: "auto"
+  },
   Cortica: {
     ws: ["https://cortica.com"],
     urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
