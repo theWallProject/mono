@@ -2722,6 +2722,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Phytech: {
+    ws: ["https://app.phytech.com", "https://www.phytech.com"],
+    li: ["https://www.linkedin.com/company/476356"],
+    tw: ["https://x.com/phytechusa"],
+    ig: ["https://www.instagram.com/phytech_farmos"],
+    ytc: ["https://www.youtube.com/channel/ucux5vjb_90kd_9b9fa-x5gg"],
+    _processed: "auto"
+  },
   Pixellot: {
     ws: ["https://www.pixellot.tv"],
     li: ["https://www.linkedin.com/company/pixellotltd"],
