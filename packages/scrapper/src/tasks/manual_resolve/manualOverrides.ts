@@ -2283,6 +2283,12 @@ export const manualOverrides: Record<
     urls: ["https://investors.gauzy.com", "https://vsc.gsa.gov/drupal/node/138"],
     _processed: "auto"
   },
+  Gavan: {
+    ws: ["https://www.gavan.bio"],
+    li: ["https://www.linkedin.com/company/gavan"],
+    urls: ["https://www.gavan.bio", "https://www.wearethreesixty.com", "https://www.wixit.co.il"],
+    _processed: "auto"
+  },
   Gaviti: {
     ws: ["https://app.gaviti.com", "https://gaviti.com", "https://go.gaviti.com"],
     li: ["https://www.linkedin.com/company/gaviti"],
