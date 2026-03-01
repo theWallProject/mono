@@ -638,6 +638,46 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "BLEND Localization": {
+    ws: [
+      "https://apidocs.getblend.com",
+      "https://app.getblend.com",
+      "https://freelancers.getblend.com",
+      "https://help.getblend.com",
+      "https://pages.getblend.com",
+      "https://www.getblend.com"
+    ],
+    li: ["https://www.linkedin.com/company/blendlocalization"],
+    fb: ["https://www.facebook.com/blendlocalization"],
+    tw: ["https://x.com/blendlocal"],
+    ig: ["https://www.instagram.com/blend.localization"],
+    ytp: ["https://www.youtube.com/@blendlocalization"],
+    urls: [
+      "https://apidocs.getblend.com",
+      "https://app.getblend.com/wizard",
+      "https://blendexpress.com",
+      "https://freelancers.getblend.com",
+      "https://help.getblend.com/hc/en-us",
+      "https://pages.getblend.com/refer-a-friend",
+      "https://www.g2.com/products/blend-localization/reviews",
+      "https://www.getblend.com",
+      "https://www.getblend.com/about-us",
+      "https://www.getblend.com/blend-israel",
+      "https://www.getblend.com/blend-reviews",
+      "https://www.getblend.com/blog",
+      "https://www.getblend.com/calendar",
+      "https://www.getblend.com/careers",
+      "https://www.getblend.com/case-studies",
+      "https://www.getblend.com/contact-us",
+      "https://www.getblend.com/get-quote",
+      "https://www.getblend.com/localization-security",
+      "https://www.getblend.com/newsroom",
+      "https://www.getblend.com/pricing",
+      "https://www.getblend.com/supported-languages",
+      "https://www.tasq.ai"
+    ],
+    _processed: "auto"
+  },
   BackBox: {
     ws: ["https://backbox.com", "https://support.backbox.com"],
     li: ["https://www.linkedin.com/company/backbox"],
