@@ -6011,6 +6011,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  XJet: {
+    ws: ["https://xjet3d.com"],
+    li: ["https://www.linkedin.com/company/xjet"],
+    fb: ["https://www.facebook.com/yamrefaelconstruction"],
+    tw: ["https://x.com/xjet_3d"],
+    ig: ["https://www.instagram.com/yamrefael1"],
+    ytp: ["https://www.youtube.com/@xjetnpj"],
+    _processed: "auto"
+  },
   "Xpand (formerly 1MRobotics)": {
     ws: ["https://xpand.us"],
     li: ["https://www.linkedin.com/company/xpand-today"],
