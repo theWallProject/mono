@@ -1891,6 +1891,14 @@ export const manualOverrides: Record<
     urls: ["https://getapp.faireez.com/DauJ/ledadit1"],
     _processed: "auto"
   },
+  Fairgen: {
+    ws: ["https://app.fairgen.ai", "https://europe.fairgen.ai", "https://www.fairgen.ai"],
+    li: ["https://www.linkedin.com/company/fairgen"],
+    urls: [
+      "https://techcrunch.com/2024/05/09/fairgen-boosts-survey-results-using-synthetic-data-and-ai-generated-responses"
+    ],
+    _processed: "auto"
+  },
   Fanton: {
     ws: ["https://fan-ton.com"],
     tw: ["https://x.com/fantasyfanton"],
