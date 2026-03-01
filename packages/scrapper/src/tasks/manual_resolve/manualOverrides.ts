@@ -13,6 +13,7 @@ export const manualOverrides: Record<
 > = {
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders" },
   "100X": { ws: ["https://get100x.com"], urls: ["https://dany.ai"], _processed: "auto" },
+  "101 Therapeutics": { ws: ["https://101therapeutics.com"], _processed: "auto" },
   "1E Therapeutics": { ws: ["https://1etx.com"], urls: ["https://www.pearlcom.co.il"], _processed: "auto" },
   "3d Signals": {
     ws: ["https://3dsignals.com"],
