@@ -2489,6 +2489,27 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/abtasty"],
     _processed: "auto"
   },
+  "Nano Dimension": {
+    ws: ["https://go.nano-di.com", "https://investors.nano-di.com", "https://www.nano-di.com"],
+    li: ["https://www.linkedin.com/company/5323642"],
+    fb: ["https://www.facebook.com/nanodimensiontech"],
+    tw: ["https://x.com/3dpcb"],
+    ig: ["https://www.instagram.com/nano_dimension"],
+    ytc: ["https://www.youtube.com/channel/ucodg9di3--dcxo5_0lulzla"],
+    urls: [
+      "https://3dprint.com/318216/nano-dimensions-post-acquisition-focus-turns-to-profitability",
+      "https://essemtec.com",
+      "https://essemtec.com/en/products/component-storage/cubus",
+      "https://essemtec.com/en/products/dispensing/solder-paste-jet-printing",
+      "https://essemtec.com/en/products/production-software",
+      "https://essemtec.com/en/products/reflow-ovens",
+      "https://globalinkjetsystems.com",
+      "https://nano-di.my.site.com/CustomerSupport/s",
+      "https://www.nano-di.com",
+      "https://www.tctmagazine.com/additive-manufacturing-3d-printing-industry-insights/technology-insights/nano-dimension-additively-manufactured-electronics-part-of-core"
+    ],
+    _processed: "auto"
+  },
   "Nanox Imaging": {
     ws: ["https://www.nanox.vision"],
     li: ["https://www.linkedin.com/company/nanox-imaging"],
