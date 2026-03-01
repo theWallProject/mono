@@ -4463,6 +4463,11 @@ export const manualOverrides: Record<
     urls: ["https://pearlcom.co.il", "https://senseerahealth.com", "https://senseerahealth.com/privacy-policy"],
     _processed: "auto"
   },
+  Sensos: {
+    ws: ["https://customerportal.sensos.io", "https://learn.sensos.io", "https://sensos.io", "https://sync.sensos.io"],
+    li: ["https://www.linkedin.com/company/sensoslabz"],
+    _processed: "auto"
+  },
   SentinelOne: {
     li: [
       "https://www.linkedin.com/company/sentinelone-dach",
