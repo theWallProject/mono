@@ -636,6 +636,15 @@ export const manualOverrides: Record<
     urls: ["https://botika-io.crisp.help/en", "https://help.botika.com/en"],
     _processed: "auto"
   },
+  BrainQ: {
+    ws: ["https://brainqtech.com"],
+    li: ["https://www.linkedin.com/company/brainq-technologies"],
+    fb: ["https://www.facebook.com/brainqtech"],
+    tw: ["https://x.com/brainqtech"],
+    ytp: ["https://www.youtube.com/@brainqtech"],
+    urls: ["http://brainq.co.il", "https://emagine.care"],
+    _processed: "auto"
+  },
   BrandShield: {
     ws: ["https://platform.brandshield.com", "https://www.brandshield.com"],
     li: ["https://www.linkedin.com/company/2231196"],
