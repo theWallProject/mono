@@ -1895,6 +1895,20 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Ingonyama: {
+    ws: ["https://dev.ingonyama.com", "https://www.ingonyama.com"],
+    li: ["https://www.linkedin.com/company/ingonyama"],
+    tw: ["https://x.com/ingo_zk"],
+    gh: ["https://github.com/ingonyama-zk"],
+    ytp: ["https://www.youtube.com/@ingo_zk"],
+    urls: [
+      "https://discord.com/invite/EVVXTdt6DF",
+      "https://hackmd.io/@Ingonyama",
+      "https://medium.com/@ingonyama",
+      "https://web-cdn.bsky.app/profile/ingonyamazk.bsky.social"
+    ],
+    _processed: "auto"
+  },
   Ingrediome: {
     ws: ["https://www.ingrediome.com"],
     li: ["https://www.linkedin.com/company/ingrediome"],
