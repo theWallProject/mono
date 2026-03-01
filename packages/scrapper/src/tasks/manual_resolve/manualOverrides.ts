@@ -1717,6 +1717,13 @@ export const manualOverrides: Record<
     urls: ["https://www.econergytech.com", "https://www.econergytech.com/contact"],
     _processed: "auto"
   },
+  Ecoppia: {
+    ws: ["https://ir.ecoppia.com", "https://www.ecoppia.com"],
+    li: ["https://www.linkedin.com/company/ecoppia"],
+    ytc: ["https://www.youtube.com/channel/uc449jeh2hgf19zxyqhavkzg"],
+    urls: ["https://ir.ecoppia.com/en", "https://www.richkid.co.il"],
+    _processed: "auto"
+  },
   "Elbit Systems": {
     ws: ["https://www.elbitsystems.com", "https://elbitsystemscareer.com"],
     li: ["https://www.linkedin.com/company/elbitsystems"],
