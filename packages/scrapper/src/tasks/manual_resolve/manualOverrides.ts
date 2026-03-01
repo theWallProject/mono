@@ -4742,6 +4742,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Tweed: {
+    ws: ["https://demo.paytweed.com", "https://paytweed.com"],
+    li: ["https://www.linkedin.com/company/paytweed"],
+    tw: ["https://x.com/paytweed"],
+    gh: ["https://github.com/paytweed"],
+    urls: ["https://paytweed.medium.com"],
+    _processed: "auto"
+  },
   Twine: {
     ws: ["https://www.twinesecurity.com"],
     li: ["https://www.linkedin.com/company/twinesecurity"],
