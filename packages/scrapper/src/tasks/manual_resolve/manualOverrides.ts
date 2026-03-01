@@ -3828,6 +3828,16 @@ export const manualOverrides: Record<
   },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
   MyndYou: { ws: ["https://www.arbiter.ai"], li: ["https://www.linkedin.com/company/arbiter-ai"], _processed: "auto" },
+  Myndlift: {
+    ws: ["https://dashboard.myndlift.com", "https://signup.myndlift.com", "https://www.myndlift.com"],
+    li: ["https://www.linkedin.com/company/myndlift"],
+    fb: ["https://www.facebook.com/myndlift"],
+    ig: ["https://www.instagram.com/myndlift"],
+    ytc: ["https://www.youtube.com/channel/ucquhf1gsjx3kh4x-cozntda"],
+    tt: ["https://www.tiktok.com/@myndlift"],
+    urls: ["https://apply.workable.com/myndlift", "https://dashboard.myndlift.com", "https://signup.myndlift.com"],
+    _processed: "auto"
+  },
   "N-Drip": {
     ws: ["https://ndrip.com"],
     li: ["https://www.linkedin.com/company/n-drip-gravity-micro-irrigation"],
