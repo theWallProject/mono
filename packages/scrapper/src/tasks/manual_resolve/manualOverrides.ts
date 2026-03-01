@@ -4519,6 +4519,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Propel: {
+    ws: ["https://propel-ai.com"],
+    li: ["https://www.linkedin.com/company/propel-crm"],
+    fb: ["https://www.facebook.com/propelprm"],
+    tw: ["https://x.com/propelprm"],
+    ytc: ["https://www.youtube.com/channel/ucdqs7vip9zgqpf4l-efspvg"],
+    urls: ["https://app.propelmypr.com"],
+    _processed: "auto"
+  },
   Protai: {
     ws: ["https://www.protai.bio"],
     li: ["https://www.linkedin.com/company/protai-bio"],
