@@ -2592,6 +2592,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Justt_Fintech"],
     _processed: "auto"
   },
+  "KAHR medical": {
+    ws: ["https://kahrbio.base44.app"],
+    li: ["https://www.linkedin.com/company/kahr-medical-ltd-"],
+    _processed: "auto"
+  },
   KELA: {
     ws: ["https://www.kelacyber.com"],
     li: ["https://www.linkedin.com/company/kela-group"],
