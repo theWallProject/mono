@@ -193,6 +193,12 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/CatoNetworks"],
     _processed: "auto"
   },
+  AirEye: {
+    ws: ["https://aireye.tech"],
+    li: ["https://www.linkedin.com/company/aireye"],
+    urls: ["https://aireye.tech"],
+    _processed: "auto"
+  },
   Airobotics: {
     ws: ["https://www.airoboticsdrones.com"],
     li: ["https://www.linkedin.com/company/airobotics"],
