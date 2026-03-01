@@ -936,6 +936,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/biolinerx_ltd"],
     _processed: "auto"
   },
+  Biomica: { ws: ["https://www.biomicamed.com"], _processed: "auto" },
   Bit: {
     ws: ["https://bit.dev"],
     li: ["https://www.linkedin.com/company/bit-dev"],
