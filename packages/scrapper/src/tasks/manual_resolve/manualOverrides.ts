@@ -2252,6 +2252,16 @@ export const manualOverrides: Record<
     urls: ["https://www.h2pro.co"],
     _processed: "auto"
   },
+  "HAAT Delivery": {
+    ws: ["https://careers.haat.delivery", "https://haat.delivery"],
+    li: ["https://www.linkedin.com/company/haat-delivery"],
+    fb: ["https://www.facebook.com/haatapp"],
+    ig: ["https://www.instagram.com/haat.delivery"],
+    ytc: ["https://www.youtube.com/channel/ucl5olluq17sw064xghoslxa"],
+    tt: ["https://www.tiktok.com/@haat.delivery"],
+    urls: ["https://haat.onelink.me/3ap7/dl7rq3bc"],
+    _processed: "auto"
+  },
   HELFY: {
     ws: ["https://helfy.co"],
     urls: ["https://helfy.co", "https://helfy.co/careers", "https://helfy.co/contact"],
