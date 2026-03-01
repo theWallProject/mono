@@ -396,6 +396,20 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCem5Ie0LVKY-5MV6Av9ZfsA"],
     _processed: "auto"
   },
+  Arbox: {
+    ws: [
+      "https://academy.arboxapp.com",
+      "https://help.arboxapp.com",
+      "https://manage.arboxapp.com",
+      "https://www.arboxapp.com"
+    ],
+    li: ["https://www.linkedin.com/company/arbox"],
+    fb: ["https://www.facebook.com/arboxapp"],
+    tw: ["https://x.com/arbox_app"],
+    ig: ["https://www.instagram.com/arbox_app"],
+    ytc: ["https://www.youtube.com/channel/ucsm8sofdl36aekvq7pforsg"],
+    _processed: "auto"
+  },
   "Ariga Technologies": {
     ws: ["https://ariga.io"],
     li: ["https://www.linkedin.com/company/arigaio"],
