@@ -2255,6 +2255,11 @@ export const manualOverrides: Record<
     urls: ["https://www.madebyomnis.com"],
     _processed: "auto"
   },
+  "Magnus Metal": {
+    ws: ["https://magnusmetal.com"],
+    urls: ["https://magnusmetal.com/privacy-policy", "https://magnusmetal.com/terms-of-use"],
+    _processed: "auto"
+  },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Marketeam.ai": {
     ws: ["https://app.marketeam.ai", "https://www.marketeam.ai"],
