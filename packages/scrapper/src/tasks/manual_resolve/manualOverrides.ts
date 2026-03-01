@@ -1895,6 +1895,7 @@ export const manualOverrides: Record<
     urls: ["https://attractive.co.il", "https://www.sec.gov/cgi-bin/browse-edgar"],
     _processed: "auto"
   },
+  Exosomm: { ws: ["https://www.exosomm.com"], _processed: "auto" },
   Explorium: {
     ws: ["https://www.explorium.ai"],
     li: ["https://www.linkedin.com/company/explorium-ai"],
