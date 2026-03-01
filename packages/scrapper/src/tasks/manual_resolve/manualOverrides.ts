@@ -2251,6 +2251,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Green Invoice": {
+    ws: ["https://auth.greeninvoice.co.il", "https://lp.greeninvoice.co.il", "https://www.greeninvoice.co.il"],
+    li: ["https://www.linkedin.com/company/greeninvoice"],
+    fb: ["https://www.facebook.com/green.invoice"],
+    ig: ["https://www.instagram.com/morning_greeninvoice"],
+    ytp: ["https://www.youtube.com/@greeninvoiceisrael"],
+    _processed: "auto"
+  },
   "Greeneye Technology": {
     ws: ["https://greeneye.ag", "https://techblog.greeneye.ag"],
     li: ["https://www.linkedin.com/company/greeneye-technology"],
