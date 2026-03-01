@@ -5928,6 +5928,14 @@ export const manualOverrides: Record<
     urls: ["https://www.aicpa-cima.com/resources/download/soc-for-service-organizations-engagements-overview"],
     _processed: "auto"
   },
+  "dWallet Labs": {
+    ws: ["https://dwalletlabs.com"],
+    li: ["https://www.linkedin.com/company/dwalletlabs"],
+    fb: ["https://www.facebook.com/dwalletlabs"],
+    tw: ["https://x.com/d3h3d_", "https://x.com/dwalletlabs", "https://x.com/omersadika", "https://x.com/ycscaly"],
+    urls: ["https://dwallet.io", "https://dwallet.network"],
+    _processed: "auto"
+  },
   "daily.dev": {
     ws: [
       "https://api.daily.dev",
