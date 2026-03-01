@@ -5784,6 +5784,13 @@ export const manualOverrides: Record<
     urls: ["https://aws.amazon.com/marketplace/pp/prodview-tbq5doesd2zee", "https://www.f5.com.cn"],
     _processed: "auto"
   },
+  Wilco: {
+    ws: ["https://help.trywilco.com", "https://www.trywilco.com"],
+    li: ["https://www.linkedin.com/company/trywilco"],
+    fb: ["https://www.facebook.com/trywilco"],
+    tw: ["https://x.com/trywilco"],
+    _processed: "auto"
+  },
   Wiliot: {
     ws: ["https://www.wiliot.com"],
     li: ["https://www.linkedin.com/company/wiliot"],
