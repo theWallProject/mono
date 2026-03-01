@@ -1888,6 +1888,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "HyperGuest Ltd.": {
+    ws: ["https://app.hyperguest.com", "https://www.hyperguest.com"],
+    li: ["https://www.linkedin.com/company/hyperguest"],
+    ytp: ["https://www.youtube.com/@hyperguest11"],
+    _processed: "auto"
+  },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
     li: ["https://www.linkedin.com/company/hypernative"],
