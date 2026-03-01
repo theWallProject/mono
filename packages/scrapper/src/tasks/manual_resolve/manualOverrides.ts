@@ -4289,6 +4289,12 @@ export const manualOverrides: Record<
     urls: ["https://www.valens.com"],
     _processed: "auto"
   },
+  Valerann: {
+    ws: ["https://valerann.com"],
+    li: ["https://www.linkedin.com/company/valerann"],
+    tw: ["https://x.com/valerann_ltd"],
+    _processed: "auto"
+  },
   Vee: {
     ws: ["https://team.vee.com", "https://www.vee.com"],
     li: ["https://www.linkedin.com/company/veeai"],
