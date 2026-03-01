@@ -2229,6 +2229,22 @@ export const manualOverrides: Record<
     urls: ["https://morphisec.xamplify.io", "https://support.morphisec.com/hc/en-us"],
     _processed: "auto"
   },
+  Munch: {
+    ws: ["https://app.munchstudio.com", "https://www.munchstudio.com"],
+    li: ["https://www.linkedin.com/company/mnch"],
+    fb: ["https://www.facebook.com/getmunchmedia"],
+    tw: ["https://x.com/get_munch"],
+    ig: [
+      "https://www.instagram.com/beautyandbrainswithatwist",
+      "https://www.instagram.com/ilanamuhlsteinrd",
+      "https://www.instagram.com/munchstudio_com"
+    ],
+    ytp: ["https://www.youtube.com/@munchstudio_com"],
+    tt: ["https://www.tiktok.com/@munchstudio_com"],
+    th: ["https://www.threads.net/@munchstudio_com"],
+    urls: ["https://intercom.help/munch-e1ea69d858ab/en", "https://www.producthunt.com/products/munch-studio"],
+    _processed: "auto"
+  },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
   NICE: {
     ws: ["https://help.nice.com", "https://resources.nice.com", "https://www.nice.com"],
