@@ -4056,6 +4056,13 @@ export const manualOverrides: Record<
     urls: ["https://drive.google.com/drive/u/0/folders/1AXbMSVpL74o6hpV35ykh9WK97H1Opmr5", "https://oshi.fish"],
     _processed: "auto"
   },
+  Othentic: {
+    ws: ["https://app.othentic.xyz", "https://docs.othentic.xyz", "https://www.othentic.xyz"],
+    tw: ["https://x.com/0xothentic"],
+    gh: ["https://github.com/othentic-labs"],
+    urls: ["https://discord.com/invite/za9tpCdSzs", "https://mirror.xyz/othentic.eth"],
+    _processed: "auto"
+  },
   Ottopia: {
     ws: ["https://www.ottopia.tech"],
     li: ["https://www.linkedin.com/company/ottopia"],
