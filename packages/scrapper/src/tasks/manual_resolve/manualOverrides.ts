@@ -392,6 +392,31 @@ export const manualOverrides: Record<
     android_app_ids: ["com.atera.ateramobileapp"],
     _processed: "auto"
   },
+  Atidot: {
+    ws: ["https://www.atidot.com"],
+    li: ["https://www.linkedin.com/company/atidot"],
+    fb: ["https://www.facebook.com/atidot-109325264860332"],
+    tw: ["https://x.com/atidotisrael"],
+    ig: ["https://www.instagram.com/atidotai"],
+    ytc: ["https://www.youtube.com/channel/uczwaqpzzyudgisbwkpmirzg"],
+    urls: [
+      "https://app.atidot.co/login",
+      "https://app.atidot.co/mapper",
+      "https://www.atidot.com",
+      "https://www.atidot.com/about",
+      "https://www.atidot.com/annuities-solutions",
+      "https://www.atidot.com/atidot-max",
+      "https://www.atidot.com/atidot-optimal",
+      "https://www.atidot.com/blog",
+      "https://www.atidot.com/career",
+      "https://www.atidot.com/contact",
+      "https://www.atidot.com/privacy-notice",
+      "https://www.atidot.com/resources",
+      "https://www.atidot.com/solutions",
+      "https://www.atidot.com/why-atidot"
+    ],
+    _processed: "auto"
+  },
   "Atlas Invest": {
     ws: ["https://atlas-invest.co", "https://backoffice.atlas-invest.co"],
     li: ["https://www.linkedin.com/company/atlas-invest-ai"],
