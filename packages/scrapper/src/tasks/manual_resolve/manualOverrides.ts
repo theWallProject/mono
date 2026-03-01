@@ -1584,6 +1584,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Early Technologies": {
+    ws: ["https://docs.startearly.ai", "https://www.startearly.ai"],
+    li: ["https://www.linkedin.com/company/earlyai"],
+    tw: ["https://x.com/startearly_ai"],
+    gh: ["https://github.com/earlyai"],
+    urls: ["https://join.slack.com/t/earlyaicommunity/shared_invite/zt-335v5plz9-RkBKxV_1ZLCAorxSK8gmfg"],
+    _processed: "auto"
+  },
   Earnix: {
     fb: ["https://www.facebook.com/earnix"],
     tw: ["https://x.com/Earnix_Inc"],
