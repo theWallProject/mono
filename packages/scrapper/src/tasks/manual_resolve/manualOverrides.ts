@@ -6864,6 +6864,19 @@ export const manualOverrides: Record<
     urls: ["https://minus273celsius.slack.com", "https://partners.zeronetworks.com"],
     _processed: "auto"
   },
+  Zoog: {
+    ws: ["https://app.getzoog.com", "https://getzoog.com", "https://story.getzoog.com"],
+    li: ["https://www.linkedin.com/company/zoog-ai"],
+    fb: ["https://www.facebook.com/zooghq"],
+    tw: ["https://x.com/zooghq"],
+    ig: ["https://www.instagram.com/zooghq"],
+    ytp: ["https://www.youtube.com/@zooghq"],
+    urls: [
+      "https://apps.apple.com/il/app/zoog-personalized-video-books/id1534413894",
+      "https://getzoog.onelink.me/Z2JW/x29hx49b"
+    ],
+    _processed: "auto"
+  },
   Zsquare: {
     ws: ["https://www.zsquaremedical.com"],
     li: ["https://www.linkedin.com/company/zsquare"],
