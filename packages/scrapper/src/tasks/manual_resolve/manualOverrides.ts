@@ -3885,6 +3885,30 @@ export const manualOverrides: Record<
     android_app_ids: ["riverside.fm"],
     _processed: "auto"
   },
+  "Rivulis Irrigation": {
+    ws: [
+      "https://es.rivulis.com",
+      "https://fr.rivulis.com",
+      "https://he.rivulis.com",
+      "https://it.rivulis.com",
+      "https://pt.rivulis.com",
+      "https://ru.rivulis.com",
+      "https://tr.rivulis.com",
+      "https://www.rivulis.com"
+    ],
+    li: ["https://www.linkedin.com/company/4798638"],
+    fb: ["https://www.facebook.com/rivulisdripirrigation"],
+    ig: ["https://www.instagram.com/rivulis.irrigation"],
+    ytc: ["https://www.youtube.com/channel/ucnbdmgwedckoxuuccw7p0gq"],
+    tt: ["https://www.tiktok.com/@rivulis_irrigation"],
+    urls: [
+      "https://lm-studio.co.il",
+      "https://youtu.be/EKiagw-qXOk",
+      "https://youtu.be/Neg6wEY8Xq8",
+      "https://youtu.be/YTH_BmcHuxo"
+    ],
+    _processed: "auto"
+  },
   "SAM Seamless Network": {
     ws: ["https://securingsam.com"],
     li: ["https://www.linkedin.com/company/sam-seamless-network"],
