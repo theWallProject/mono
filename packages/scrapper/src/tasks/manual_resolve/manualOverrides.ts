@@ -623,6 +623,29 @@ export const manualOverrides: Record<
     urls: ["http://www.qualcomm.cn"],
     _processed: "auto"
   },
+  "Aviv Scientific": {
+    ws: ["https://aviv-clinics.com"],
+    li: ["https://www.linkedin.com/company/avivclinics"],
+    fb: ["https://www.facebook.com/avivclinics"],
+    ig: ["https://www.instagram.com/avivclinics"],
+    ytc: ["https://www.youtube.com/channel/ucpwdtj00a7ihumq36pvza4q"],
+    urls: [
+      "https://aviv-clinics.com/about",
+      "https://aviv-clinics.com/about/careers",
+      "https://aviv-clinics.com/about/leadership",
+      "https://aviv-clinics.com/blog",
+      "https://aviv-clinics.com/brain-hq",
+      "https://aviv-clinics.com/events",
+      "https://aviv-clinics.com/faq",
+      "https://aviv-clinics.com/hyperbaric-centers/villages-florida",
+      "https://aviv-clinics.com/hyperbaric-medical-program",
+      "https://aviv-clinics.com/hyperbaric-treatment-science",
+      "https://aviv-clinics.com/podcasts",
+      "https://aviv-clinics.com/reviews",
+      "https://aviv-clinics.com/uhms-accredited-hyperbaric-facility"
+    ],
+    _processed: "auto"
+  },
   Avo: {
     ws: ["https://www.dot-sports.org"],
     urls: ["https://www.godaddy.com/agreements/showdoc", "https://www.godaddy.com/domainsearch/find"],
