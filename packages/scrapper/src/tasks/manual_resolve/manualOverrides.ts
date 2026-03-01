@@ -1090,6 +1090,7 @@ export const manualOverrides: Record<
     urls: ["https://help.cropx.com", "https://help.cropx.com/portal/en/home", "https://myfarm.cropx.com/login"],
     _processed: "auto"
   },
+  Ctrl: { ws: ["https://cityofbaytown.org"], urls: ["https://parklogic.com/Contact-us"], _processed: "auto" },
   CyVers: {
     ws: ["https://cyvers.ai", "https://docs.cyvers.ai", "https://vigilens.cyvers.ai"],
     li: ["https://www.linkedin.com/company/cyvers"],
