@@ -3935,6 +3935,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@vee.channel"],
     _processed: "auto"
   },
+  Velox: { ws: ["https://velox-digital.com"], _processed: "auto" },
   Vendict: {
     ws: ["https://myapp.vendict.com", "https://trust.vendict.com", "https://vendict.com"],
     li: ["https://www.linkedin.com/company/vendict"],
