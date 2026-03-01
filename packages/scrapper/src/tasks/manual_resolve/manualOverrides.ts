@@ -5231,6 +5231,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lifeatshield"],
     _processed: "auto"
   },
+  ShieldIOT: {
+    ws: ["https://shieldiot.io"],
+    li: ["https://www.linkedin.com/company/shieldiot"],
+    tw: ["https://x.com/shieldiot1"],
+    _processed: "auto"
+  },
   "Shlomo Group - Car and Credit Unit": {
     ws: ["https://pleasing.shlomo.co.il", "https://www.shlomo.co.il"],
     li: ["https://www.linkedin.com/company/738582"],
