@@ -795,6 +795,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Bettear: {
+    ws: ["https://www.bettear.com"],
+    li: ["https://www.linkedin.com/company/bettear"],
+    fb: ["https://www.facebook.com/bettear.il"],
+    ig: ["https://www.instagram.com/bettear_"],
+    urls: ["https://apps.apple.com/il/app/bettear/id1528016225"],
+    android_app_ids: ["com.bettear.bettearApp"],
+    _processed: "auto"
+  },
   Beyeonics: {
     ws: ["https://beyeonics.com"],
     li: ["https://www.linkedin.com/company/18548655"],
