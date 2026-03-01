@@ -4411,6 +4411,27 @@ export const manualOverrides: Record<
     android_app_ids: ["com.Plus500"],
     _processed: "auto"
   },
+  PointGrab: {
+    ws: ["https://flex.pointgrab.com", "https://pointgrab.com", "https://support.pointgrab.com"],
+    li: ["https://www.linkedin.com/company/pointgrab"],
+    urls: [
+      "https://pointgrab.com",
+      "https://pointgrab.com/accessibility-policy",
+      "https://pointgrab.com/blog-and-news",
+      "https://pointgrab.com/company",
+      "https://pointgrab.com/contact-us",
+      "https://pointgrab.com/jobs-page",
+      "https://pointgrab.com/partners",
+      "https://pointgrab.com/privacy-policy",
+      "https://pointgrab.com/privacy-policy-2",
+      "https://pointgrab.com/security-center",
+      "https://pointgrab.com/spaces",
+      "https://pointgrab.com/technology",
+      "https://pointgrab.com/use-cases",
+      "https://theguy.co.il"
+    ],
+    _processed: "auto"
+  },
   Polyrizon: {
     ws: ["https://investor.polyrizon-biotech.com", "https://polyrizon-biotech.com"],
     urls: ["https://polyrizon-biotech.com"],
