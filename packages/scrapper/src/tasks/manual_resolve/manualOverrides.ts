@@ -6124,6 +6124,7 @@ export const manualOverrides: Record<
     android_app_ids: ["com.uniper.uniapp"],
     _processed: "auto"
   },
+  "Upright Technologies": { ws: ["https://store.uprightpose.com", "https://www.uprightpose.com"], _processed: "auto" },
   "Upstream Security": {
     ws: ["https://info.upstream.auto", "https://upstream.auto"],
     li: ["https://www.linkedin.com/company/upstream-security"],
