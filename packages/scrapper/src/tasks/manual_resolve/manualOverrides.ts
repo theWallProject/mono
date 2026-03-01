@@ -1657,6 +1657,14 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uc8rr4q717hurqhiies6dcaq"],
     _processed: "auto"
   },
+  Evogene: {
+    ws: ["https://evogene.com"],
+    li: ["https://www.linkedin.com/company/evogene"],
+    fb: ["https://www.facebook.com/evogene123"],
+    ytp: ["https://www.youtube.com/@evogeneltd."],
+    urls: ["https://attractive.co.il", "https://www.sec.gov/cgi-bin/browse-edgar"],
+    _processed: "auto"
+  },
   Explorium: {
     ws: ["https://www.explorium.ai"],
     li: ["https://www.linkedin.com/company/explorium-ai"],
