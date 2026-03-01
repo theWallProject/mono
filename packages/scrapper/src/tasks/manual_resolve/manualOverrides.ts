@@ -1420,6 +1420,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  CorrActions: {
+    ws: ["https://corractions.com"],
+    li: ["https://www.linkedin.com/company/corractions"],
+    urls: ["https://titan.co.il"],
+    _processed: "auto"
+  },
   Cortica: {
     ws: ["https://cortica.com"],
     urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
