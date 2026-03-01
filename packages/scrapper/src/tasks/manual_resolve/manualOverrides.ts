@@ -1659,6 +1659,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/entrioplatform"],
     _processed: "auto"
   },
+  Equinom: {
+    ws: ["https://www.equi-nom.com"],
+    li: ["https://www.linkedin.com/company/equinom", "https://www.linkedin.com/company/orangeeclipse-studio"],
+    ytc: ["https://www.youtube.com/channel/uc-5pay0xsyuvkeu1epblzhg"],
+    _processed: "auto"
+  },
   "Ever After Foods": {
     ws: ["https://everafterfoods.com"],
     urls: [
