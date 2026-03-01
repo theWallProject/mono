@@ -421,6 +421,11 @@ export const manualOverrides: Record<
     urls: ["http://www.qualcomm.cn"],
     _processed: "auto"
   },
+  Avo: {
+    ws: ["https://www.dot-sports.org"],
+    urls: ["https://www.godaddy.com/agreements/showdoc", "https://www.godaddy.com/domainsearch/find"],
+    _processed: "auto"
+  },
   "BBT.live": {
     ws: ["https://bbt.live"],
     li: ["https://www.linkedin.com/company/bbt-live"],
@@ -1717,6 +1722,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Intail.ai": { ws: ["https://app.orbb.com", "https://orbb.com"], urls: ["https://www.nmore.co"], _processed: "auto" },
   "Intuition Robotics": {
     ws: ["https://www.intuitionrobotics.com"],
     li: ["https://www.linkedin.com/company/intuition-robotics"],
