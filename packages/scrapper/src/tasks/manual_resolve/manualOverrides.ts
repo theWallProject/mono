@@ -5148,6 +5148,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Tactile Mobility": {
+    ws: ["https://tactilemobility.com"],
+    li: ["https://www.linkedin.com/company/tactile-mobility"],
+    fb: ["https://www.facebook.com/tactilemobility"],
+    tw: ["https://x.com/tactilemobility"],
+    ig: ["https://www.instagram.com/tactilemobility"],
+    _processed: "auto"
+  },
   TailorMed: {
     ws: ["https://go.tailormed.co", "https://resources.tailormed.co", "https://tailormed.co"],
     li: ["https://www.linkedin.com/company/tailormed---medical-journey-innovations"],
