@@ -4254,6 +4254,33 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Spera: {
+    ws: [
+      "https://developer.okta.com",
+      "https://devforum.okta.com",
+      "https://help.okta.com",
+      "https://investor.okta.com",
+      "https://login.okta.com",
+      "https://status.okta.com",
+      "https://support.okta.com",
+      "https://trust.okta.com",
+      "https://www.okta.com"
+    ],
+    li: ["https://www.linkedin.com/company/okta-inc-"],
+    tw: ["https://x.com/okta"],
+    ytp: ["https://www.youtube.com/@oktainc"],
+    urls: [
+      "https://auth0.com",
+      "https://auth0.com/ai",
+      "https://auth0.com/marketplace",
+      "https://community.auth0.com",
+      "https://developer.auth0.com/resources",
+      "https://status.auth0.com",
+      "https://support.auth0.com",
+      "https://www.auth0.com"
+    ],
+    _processed: "auto"
+  },
   Spike: {
     ws: ["https://www.spikenow.com"],
     li: ["https://www.linkedin.com/company/3240452"],
