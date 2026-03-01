@@ -2485,6 +2485,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
+  MyndYou: { ws: ["https://www.arbiter.ai"], li: ["https://www.linkedin.com/company/arbiter-ai"], _processed: "auto" },
   NICE: {
     ws: ["https://help.nice.com", "https://resources.nice.com", "https://www.nice.com"],
     li: ["https://www.linkedin.com/company/nice-systems"],
