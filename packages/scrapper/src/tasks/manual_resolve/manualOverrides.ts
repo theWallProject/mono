@@ -1687,6 +1687,22 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "ImPact Biotech": { ws: ["https://impactbiotech.com"], urls: ["https://impactbiotech.com"], _processed: "auto" },
+  "Imagene AI": {
+    ws: ["https://imagene-ai.com"],
+    li: ["https://www.linkedin.com/company/imagene-ai"],
+    tw: ["https://x.com/imagene_ai"],
+    urls: [
+      "https://imagene-ai.com",
+      "https://imagene-ai.com/about-us",
+      "https://imagene-ai.com/careers",
+      "https://imagene-ai.com/contact-us",
+      "https://imagene-ai.com/lung-oi",
+      "https://imagene-ai.com/newsroom",
+      "https://imagene-ai.com/oi-suite",
+      "https://imagene-ai.com/oi-suite/discovery"
+    ],
+    _processed: "auto"
+  },
   InSightec: {
     ws: ["https://distributor.insightec.com", "https://documentation.insightec.com", "https://insightec.com"],
     li: ["https://www.linkedin.com/company/insightec"],
