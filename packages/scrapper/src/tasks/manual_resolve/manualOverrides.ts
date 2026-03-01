@@ -3073,6 +3073,11 @@ export const manualOverrides: Record<
     urls: ["http://www.webview.co.il"],
     _processed: "auto"
   },
+  Lynxight: {
+    ws: ["https://dashboard.lynxight.com", "https://success.lynxight.com", "https://www.lynxight.com"],
+    li: ["https://www.linkedin.com/company/lynxight"],
+    _processed: "auto"
+  },
   MDClone: {
     ws: ["https://academy.mdclone.com", "https://mdclone.com"],
     li: ["https://www.linkedin.com/company/mdclone"],
