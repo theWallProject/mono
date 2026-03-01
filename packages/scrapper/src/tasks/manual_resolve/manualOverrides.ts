@@ -3146,6 +3146,13 @@ export const manualOverrides: Record<
   },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
   MyndYou: { ws: ["https://www.arbiter.ai"], li: ["https://www.linkedin.com/company/arbiter-ai"], _processed: "auto" },
+  "N-Drip": {
+    ws: ["https://ndrip.com"],
+    li: ["https://www.linkedin.com/company/n-drip-gravity-micro-irrigation"],
+    fb: ["https://www.facebook.com/ndripirrigation"],
+    urls: ["https://www.giraff.co.il"],
+    _processed: "auto"
+  },
   NICE: {
     ws: ["https://help.nice.com", "https://resources.nice.com", "https://www.nice.com"],
     li: ["https://www.linkedin.com/company/nice-systems"],
