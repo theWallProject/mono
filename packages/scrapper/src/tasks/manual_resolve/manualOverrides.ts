@@ -1181,6 +1181,15 @@ export const manualOverrides: Record<
     urls: ["https://help.cropx.com", "https://help.cropx.com/portal/en/home", "https://myfarm.cropx.com/login"],
     _processed: "auto"
   },
+  "Crowdsense.ai": {
+    ws: ["https://helpdesk.atom.com", "https://www.atom.com"],
+    li: ["https://www.linkedin.com/company/atomdotcom"],
+    fb: ["https://www.facebook.com/atomdotcom"],
+    tw: ["https://x.com/atomhq"],
+    ig: ["https://www.instagram.com/workwithatom"],
+    ytp: ["https://www.youtube.com/@atomdotcom"],
+    _processed: "auto"
+  },
   Ctrl: { ws: ["https://cityofbaytown.org"], urls: ["https://parklogic.com/Contact-us"], _processed: "auto" },
   CyVers: {
     ws: ["https://cyvers.ai", "https://docs.cyvers.ai", "https://vigilens.cyvers.ai"],
