@@ -2468,6 +2468,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oncohost"],
     _processed: "auto"
   },
+  "One AI": {
+    ws: ["https://app.oneai.com", "https://oneai.com", "https://studio.oneai.com"],
+    li: ["https://www.linkedin.com/company/one-ai"],
+    tw: ["https://x.com/oneailabs"],
+    ytc: ["https://www.youtube.com/channel/uc7iq6yfks57gta-he72fsgw"],
+    urls: [
+      "https://gdpr.eu",
+      "https://oneai.com",
+      "https://www.aicpa.org/soc4so",
+      "https://www.callringo.com",
+      "https://www.hhs.gov/hipaa/index.html"
+    ],
+    _processed: "auto"
+  },
   Onebeat: {
     li: ["https://www.linkedin.com/company/1beat"],
     fb: ["https://www.facebook.com/1beatretail"],
