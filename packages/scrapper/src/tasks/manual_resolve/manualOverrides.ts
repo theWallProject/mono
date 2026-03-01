@@ -3769,6 +3769,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucasdxctxjk192p6emvh0tuw"],
     _processed: "auto"
   },
+  "Promise Bio": { ws: ["https://www.promise.bio"], urls: ["https://pearlcom.co.il"], _processed: "auto" },
   "Promo.com": {
     ws: ["https://promo.com", "https://support.promo.com"],
     li: ["https://www.linkedin.com/company/promodotcom"],
