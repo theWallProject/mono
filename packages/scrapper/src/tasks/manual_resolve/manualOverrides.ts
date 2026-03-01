@@ -4135,6 +4135,15 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/reflectiz.cyber"],
     _processed: "auto"
   },
+  "Regulus Cyber": {
+    ws: ["https://regulus.com"],
+    li: ["https://www.linkedin.com/company/regulus-cyber"],
+    fb: ["https://www.facebook.com/reguluscyber"],
+    tw: ["https://x.com/reguluscyber"],
+    ig: ["https://www.instagram.com/regulus.cyber"],
+    urls: ["https://www.comeet.com/jobs/regulus/9A.00D"],
+    _processed: "auto"
+  },
   Remepy: {
     ws: ["https://www.remepy.com"],
     li: ["https://www.linkedin.com/company/remepy"],
