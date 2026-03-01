@@ -4793,6 +4793,17 @@ export const manualOverrides: Record<
     urls: ["https://www.wix.com"],
     _processed: "auto"
   },
+  SpeedSize: {
+    ws: ["https://console.speedsize.com", "https://support.speedsize.com", "https://try.speedsize.com"],
+    urls: [
+      "https://apps.shopify.com/speedsize/reviews",
+      "https://aws.amazon.com/marketplace/pp/prodview-7rnnsiahjwnwq",
+      "https://commercemarketplace.adobe.com/speedsize-magento2-module.html",
+      "https://patents.justia.com/assignee/speedsize-ltd",
+      "https://wordpress.org/plugins/speedsize-ai-image-optimizer"
+    ],
+    _processed: "auto"
+  },
   Speedata: {
     li: ["https://www.linkedin.com/company/speedataio"],
     fb: ["https://www.facebook.com/speedata.io"],
