@@ -5307,6 +5307,11 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   "The Agro Exchange": { ws: "https://www.agrox.io" },
+  "The Mediterranean Food Lab": {
+    ws: ["https://www.med-food-lab.com"],
+    urls: ["http://cooksho.com"],
+    _processed: "auto"
+  },
   Theranica: {
     ws: ["https://theranica.com"],
     li: ["https://www.linkedin.com/company/theranica-bio-electronics"],
