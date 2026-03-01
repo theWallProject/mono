@@ -423,6 +423,11 @@ export const manualOverrides: Record<
     urls: ["https://open.spotify.com/user/npl7q3ahkoq8j8xthbdzxzikr"],
     _processed: "auto"
   },
+  "Arugga AI Farming": {
+    ws: ["https://www.arugga.com"],
+    urls: ["http://www.millscreative.com", "https://arugga.t360.co.il/priportal"],
+    _processed: "auto"
+  },
   "Aryon Security": {
     ws: ["https://www.aryon.security"],
     li: ["https://www.linkedin.com/company/aryon-security"],
