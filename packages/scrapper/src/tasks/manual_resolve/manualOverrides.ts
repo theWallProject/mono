@@ -656,6 +656,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Bites: {
+    ws: ["https://app.mybites.io", "https://help.mybites.io", "https://mybites.io"],
+    li: ["https://www.linkedin.com/company/bites-learning"],
+    ig: ["https://www.instagram.com/mybites.io"],
+    ytc: ["https://www.youtube.com/channel/ucn2wi7myczyg8vcnmplupkq"],
+    _processed: "auto"
+  },
   Blink: { ws: ["https://www.afternic.com"], urls: ["https://www.afternic.com/forsale/blink.gg"], _processed: "auto" },
   Blockaid: {
     ws: ["https://blockaid.io", "https://docs.blockaid.io", "https://report.blockaid.io"],
