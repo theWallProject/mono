@@ -1865,6 +1865,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kela_tech"],
     _processed: "auto"
   },
+  Kemtai: {
+    ws: ["https://kemtai.com"],
+    li: ["https://www.linkedin.com/company/42125918"],
+    fb: ["https://www.facebook.com/kemtaifitness"],
+    tw: ["https://x.com/kemtaiftns"],
+    _processed: "auto"
+  },
   Kissterra: {
     ws: ["https://kissterra.com"],
     li: ["https://www.linkedin.com/company/kissterra"],
