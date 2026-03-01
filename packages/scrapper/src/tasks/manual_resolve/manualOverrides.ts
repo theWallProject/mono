@@ -4508,6 +4508,27 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Wib Security": {
+    ws: [
+      "https://account.f5.com",
+      "https://brand.f5.com",
+      "https://clouddocs.f5.com",
+      "https://community.f5.com",
+      "https://docs.cloud.f5.com",
+      "https://education.f5.com",
+      "https://investors.f5.com",
+      "https://my.f5.com",
+      "https://partnercentral.f5.com",
+      "https://www.f5.com"
+    ],
+    li: ["https://www.linkedin.com/company/f5"],
+    fb: ["https://www.facebook.com/f5incorporated"],
+    tw: ["https://x.com/f5"],
+    ig: ["https://www.instagram.com/f5.global"],
+    ytp: ["https://www.youtube.com/@f5networksinc"],
+    urls: ["https://aws.amazon.com/marketplace/pp/prodview-tbq5doesd2zee", "https://www.f5.com.cn"],
+    _processed: "auto"
+  },
   Wiliot: {
     ws: ["https://www.wiliot.com"],
     li: ["https://www.linkedin.com/company/wiliot"],
