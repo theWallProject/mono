@@ -451,6 +451,29 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Authomize (Now part of Delinea)": {
+    ws: [
+      "https://community.delinea.com",
+      "https://delinea.com",
+      "https://docs.delinea.com",
+      "https://partners.delinea.com",
+      "https://status.delinea.com",
+      "https://trust.delinea.com"
+    ],
+    li: ["https://www.linkedin.com/company/delinea"],
+    fb: ["https://www.facebook.com/delineainc"],
+    tw: ["https://x.com/delineainc"],
+    ytp: ["https://www.youtube.com/@delinea"],
+    urls: [
+      "https://community.delinea.com",
+      "https://delinea.com/events/podcasts",
+      "https://docs.delinea.com",
+      "https://partners.delinea.com",
+      "https://status.delinea.com",
+      "https://trust.delinea.com"
+    ],
+    _processed: "auto"
+  },
   Autofleet: {
     ws: ["https://autofleet.io", "https://ev.autofleet.io", "https://lp.autofleet.io", "https://taxi.autofleet.io"],
     li: ["https://www.linkedin.com/company/autofleet"],
