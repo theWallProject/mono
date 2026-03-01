@@ -602,6 +602,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "BELKIN Vision": {
+    ws: ["https://events.myalcon.com", "https://preferences.myalcon.com", "https://www.myalcon.com"],
+    urls: [
+      "https://www.alcon.com/terms-use",
+      "https://www.au.alcon.com/privacy-policy",
+      "https://www.au.alcon.com/terms-use"
+    ],
+    _processed: "auto"
+  },
   BackBox: {
     ws: ["https://backbox.com", "https://support.backbox.com"],
     li: ["https://www.linkedin.com/company/backbox"],
