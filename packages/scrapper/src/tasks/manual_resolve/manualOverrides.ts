@@ -734,6 +734,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  CathWorks: {
+    ws: ["https://cath.works"],
+    li: ["https://www.linkedin.com/company/cathworks"],
+    fb: ["https://www.facebook.com/cathworksffrangio"],
+    ig: ["https://www.instagram.com/cathworks"],
+    ytp: ["https://www.youtube.com/@cathworks"],
+    urls: ["https://crtmeeting.org"],
+    _processed: "auto"
+  },
   "Cato Networks": {
     ws: ["https://www.catonetworks.com"],
     li: ["https://www.linkedin.com/company/cato-networks"],
