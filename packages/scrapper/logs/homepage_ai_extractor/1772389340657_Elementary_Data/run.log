@@ -1,0 +1,72 @@
+[2026-03-01T18:22:20.658Z] === Homepage AI Extractor: Elementary Data ===
+[2026-03-01T18:22:20.658Z] Started at: 2026-03-01T18:22:20.658Z
+[2026-03-01T18:22:20.658Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772389340657_Elementary_Data
+[2026-03-01T18:22:20.658Z] Company: Elementary Data
+[2026-03-01T18:22:20.659Z] Website: elementary-data.com
+[2026-03-01T18:22:20.659Z] cbRank: 36172
+[2026-03-01T18:22:20.659Z] Reasons: h
+[2026-03-01T18:22:20.659Z] Fetching: https://elementary-data.com
+[2026-03-01T18:22:24.414Z] Redirected: https://elementary-data.com -> https://www.elementary-data.com/
+[2026-03-01T18:22:24.596Z] Saved HTML (5527414 bytes) to page.html
+[2026-03-01T18:22:24.604Z] Extracted 35 unique links from page
+[2026-03-01T18:22:24.604Z] Saved 35 links to links.json
+[2026-03-01T18:22:24.611Z] Extracted footer HTML (23123 chars)
+[2026-03-01T18:22:24.611Z] Extracted header HTML (51289 chars)
+[2026-03-01T18:22:24.616Z] Website (post-redirect): https://www.elementary-data.com/ → origin: https://www.elementary-data.com
+[2026-03-01T18:22:24.616Z]   SUBDOMAIN: docs.elementary-data.com (added to ws)
+[2026-03-01T18:22:24.616Z] Website subdomains found: 1
+[2026-03-01T18:22:24.616Z] External links: 5 (of 35 total)
+[2026-03-01T18:22:24.616Z] ── All external links ──
+[2026-03-01T18:22:24.616Z]   EXT: https://elementary-data.frontegg.com/oauth/account/login
+[2026-03-01T18:22:24.616Z]   EXT: https://elementary-data.frontegg.com/oauth/account/sign-up
+[2026-03-01T18:22:24.616Z]   EXT: https://github.com/elementary-data/elementary
+[2026-03-01T18:22:24.617Z]   EXT: https://www.iubenda.com/privacy-policy/62367461/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-01T18:22:24.617Z]   EXT: https://www.linkedin.com/company/elementary-data
+[2026-03-01T18:22:24.617Z] ── Step 1: Programmatic categorization ──
+[2026-03-01T18:22:24.617Z]   UNCATEGORIZED: https://elementary-data.frontegg.com/oauth/account/login
+[2026-03-01T18:22:24.617Z]   UNCATEGORIZED: https://elementary-data.frontegg.com/oauth/account/sign-up
+[2026-03-01T18:22:24.617Z]   REGEX: gh <- https://github.com/elementary-data/elementary
+[2026-03-01T18:22:24.617Z]   UNCATEGORIZED: https://www.iubenda.com/privacy-policy/62367461/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-01T18:22:24.617Z]   REGEX: li <- https://www.linkedin.com/company/elementary-data
+[2026-03-01T18:22:24.617Z] Programmatic result: ws:2, gh:1, li:1 | 3 uncategorized
+[2026-03-01T18:22:24.617Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-01T18:22:24.619Z] Saved AI prompt (11244 chars) to ai_prompt.txt
+[2026-03-01T18:23:22.547Z] Saved AI response to ai_response.json
+[2026-03-01T18:23:22.548Z] ── Parsing AI response (3 lines) ──
+[2026-03-01T18:23:22.548Z]   AI LINK: https://github.com/elementary-data/elementary
+[2026-03-01T18:23:22.548Z]   AI LINK: https://www.linkedin.com/company/elementary-data
+[2026-03-01T18:23:22.548Z]   AI LINK: https://www.elementary-data.com/community
+[2026-03-01T18:23:22.548Z] AI returned 3 valid links
+[2026-03-01T18:23:22.548Z] ── Categorizing 3 AI-returned links ──
+[2026-03-01T18:23:22.548Z]   AI→REGEX: gh <- https://github.com/elementary-data/elementary (duplicate, skipped)
+[2026-03-01T18:23:22.548Z]   AI→REGEX: li <- https://www.linkedin.com/company/elementary-data (duplicate, skipped)
+[2026-03-01T18:23:22.549Z]   AI→URLS: https://www.elementary-data.com/community
+[2026-03-01T18:23:22.550Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-01T18:23:22.551Z] Footer/header origins (5):
+[2026-03-01T18:23:22.551Z]   FOOTER/HEADER ORIGIN: https://docs.elementary-data.com
+[2026-03-01T18:23:22.551Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-01T18:23:22.551Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-01T18:23:22.551Z]   FOOTER/HEADER ORIGIN: https://www.elementary-data.com
+[2026-03-01T18:23:22.551Z]   FOOTER/HEADER ORIGIN: https://elementary-data.frontegg.com
+[2026-03-01T18:23:22.551Z]   ADDED: urls <- https://elementary-data.frontegg.com/oauth/account/login
+[2026-03-01T18:23:22.551Z]   ADDED: urls <- https://elementary-data.frontegg.com/oauth/account/sign-up
+[2026-03-01T18:23:22.551Z]   SKIP (not in footer/header): https://www.iubenda.com/privacy-policy/62367461/cookie-policy?an=no&s_ck=false&newmarkup=yes
+[2026-03-01T18:23:22.551Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-01T18:23:22.551Z] ── Step 3: Final dedup ──
+[2026-03-01T18:23:22.551Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-01T18:23:22.551Z] ── FINAL RESULT ──
+[2026-03-01T18:23:22.552Z]   ws (2):
+[2026-03-01T18:23:22.552Z]     - https://docs.elementary-data.com
+[2026-03-01T18:23:22.552Z]     - https://www.elementary-data.com
+[2026-03-01T18:23:22.552Z]   li (1):
+[2026-03-01T18:23:22.552Z]     - https://www.linkedin.com/company/elementary-data
+[2026-03-01T18:23:22.552Z]   gh (1):
+[2026-03-01T18:23:22.552Z]     - https://github.com/elementary-data
+[2026-03-01T18:23:22.552Z]   urls (3):
+[2026-03-01T18:23:22.552Z]     - https://elementary-data.frontegg.com/oauth/account/login
+[2026-03-01T18:23:22.552Z]     - https://elementary-data.frontegg.com/oauth/account/sign-up
+[2026-03-01T18:23:22.552Z]     - https://www.elementary-data.com/community
+[2026-03-01T18:23:22.552Z] Summary: ws:2, gh:1, li:1, urls:3
+[2026-03-01T18:23:22.554Z] Saved final result to result.json
+[2026-03-01T18:23:22.554Z] Override fields: ws, li, gh, urls
+[2026-03-01T18:23:22.554Z] Finished at: 2026-03-01T18:23:22.554Z
