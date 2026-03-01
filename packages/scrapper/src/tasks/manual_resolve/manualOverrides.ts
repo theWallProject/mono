@@ -4932,6 +4932,13 @@ export const manualOverrides: Record<
     urls: ["https://trust.wonderful.ai"],
     _processed: "auto"
   },
+  "Xpand (formerly 1MRobotics)": {
+    ws: ["https://xpand.us"],
+    li: ["https://www.linkedin.com/company/xpand-today"],
+    tw: ["https://x.com/xpand_today"],
+    ytp: ["https://www.youtube.com/@xpand-today"],
+    _processed: "auto"
+  },
   "Xsight Labs": {
     ws: ["https://xsightlabs.com"],
     li: ["https://www.linkedin.com/company/xsightlabs"],
