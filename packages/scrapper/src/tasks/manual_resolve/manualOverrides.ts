@@ -790,6 +790,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Beyeonics: {
+    ws: ["https://beyeonics.com"],
+    li: ["https://www.linkedin.com/company/18548655"],
+    ig: ["https://www.instagram.com/beyeonics"],
+    urls: ["https://beyeonics-surgical.com", "https://beyeonics-vision.com"],
+    _processed: "auto"
+  },
   "Beyond Oil": {
     ws: ["https://www.beyondoil.co"],
     li: ["https://www.linkedin.com/company/beyond-oil"],
