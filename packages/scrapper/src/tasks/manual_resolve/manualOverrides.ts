@@ -2076,6 +2076,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  FeelBetter: {
+    ws: ["https://www.feelbetter.healthcare"],
+    li: ["https://www.linkedin.com/company/feelbetter-ltd"],
+    urls: ["https://www.feelbetter.healthcare/privacy-policy"],
+    _processed: "auto"
+  },
   Fermata: {
     ws: ["https://www.fermata.tech"],
     li: ["https://www.linkedin.com/company/19152085"],
