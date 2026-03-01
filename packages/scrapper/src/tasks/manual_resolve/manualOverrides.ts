@@ -4783,6 +4783,11 @@ export const manualOverrides: Record<
     urls: ["https://polyrizon-biotech.com"],
     _processed: "auto"
   },
+  PomVom: {
+    ws: ["https://support.pomvom.com", "https://www.pomvom.com"],
+    urls: ["https://support.pomvom.com/hc", "https://www.pomvom.com", "https://www.pomvom.com/careers"],
+    _processed: "auto"
+  },
   Port: {
     ws: ["https://www.port.io"],
     li: ["https://www.linkedin.com/company/getport"],
