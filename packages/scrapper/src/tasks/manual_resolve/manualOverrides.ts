@@ -4201,6 +4201,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Protai: {
+    ws: ["https://www.protai.bio"],
+    li: ["https://www.linkedin.com/company/protai-bio"],
+    tw: ["https://x.com/protaibio"],
+    _processed: "auto"
+  },
   "Protect AI": {
     gh: ["https://github.com/protectai"],
     ytp: ["https://www.youtube.com/@protectai"],
