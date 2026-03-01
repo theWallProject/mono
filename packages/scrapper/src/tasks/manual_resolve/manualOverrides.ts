@@ -2297,6 +2297,15 @@ export const manualOverrides: Record<
     urls: ["https://ego-digital.com"],
     _processed: "auto"
   },
+  "Guardoc Health": {
+    ws: ["https://www.guardoc.health"],
+    urls: [
+      "https://guardoc.health/support",
+      "https://www.guardoc.health/privacy-policy",
+      "https://www.guardoc.health/terms-of-use"
+    ],
+    _processed: "auto"
+  },
   H2Pro: {
     ws: ["https://www.h2pro.co"],
     li: ["https://www.linkedin.com/company/h2pro"],
