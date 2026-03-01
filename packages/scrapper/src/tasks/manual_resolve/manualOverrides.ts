@@ -4770,6 +4770,15 @@ export const manualOverrides: Record<
     tw: ["https://x.com/twinesecurity"],
     _processed: "auto"
   },
+  "Twine Solutions": {
+    ws: ["https://twine-s.com"],
+    li: ["https://www.linkedin.com/company/twine-solutions-ltd"],
+    fb: ["https://www.facebook.com/twinesolutions"],
+    tw: ["https://x.com/twine_solutions"],
+    ig: ["https://www.instagram.com/twine_solutions"],
+    ytc: ["https://www.youtube.com/channel/uccxofi6qxnljcz82gwgti4g"],
+    _processed: "auto"
+  },
   "UBQ Materials": {
     ws: ["https://www.ubqmaterials.com"],
     li: ["https://www.linkedin.com/company/ubq-materials"],
