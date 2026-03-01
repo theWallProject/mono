@@ -3427,6 +3427,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Swapp: {
+    ws: ["https://app.swapp.ai", "https://swapp.ai"],
+    li: ["https://www.linkedin.com/company/swapp-ai"],
+    fb: ["https://www.facebook.com/swapparchitecture"],
+    tw: ["https://x.com/swapp_ai"],
+    ig: ["https://www.instagram.com/swapp_architecture"],
+    _processed: "auto"
+  },
   "Sweet Security": {
     ws: ["https://app.sweet.security", "https://hi.sweet.security", "https://www.sweet.security"],
     li: ["https://www.linkedin.com/company/sweet-security"],
