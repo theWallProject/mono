@@ -1607,6 +1607,7 @@ export const manualOverrides: Record<
     urls: ["http://investors.fireflyneuro.com", "https://operaticagency.com", "https://www.mybna.com"],
     _processed: "auto"
   },
+  Firmbase: { ws: ["https://firmbase.ai"], li: ["https://www.linkedin.com/company/firmbase-ai"], _processed: "auto" },
   "Five Sigma": {
     ws: ["https://fivesigmalabs.com"],
     li: ["https://www.linkedin.com/company/five-sigma"],
