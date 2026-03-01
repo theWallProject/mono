@@ -3424,6 +3424,14 @@ export const manualOverrides: Record<
     urls: ["https://fidoalliance.org/company/secret-double-octopus", "https://vimeo.com/doubleoctopus"],
     _processed: "auto"
   },
+  SeeTree: {
+    ws: ["https://myfarm.seetree.ai", "https://www.seetree.ai"],
+    li: ["https://www.linkedin.com/company/seetree"],
+    tw: ["https://x.com/seetree_ai"],
+    ig: ["https://www.instagram.com/seetree_ai"],
+    ytc: ["https://www.youtube.com/channel/ucckjsmtcxdou7bdgb2eoysq"],
+    _processed: "auto"
+  },
   Semperis: {
     ws: ["https://www.hipconf.com", "https://www.semperis.com"],
     li: [
