@@ -2540,6 +2540,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  KOIOS: { ws: ["https://koiostech.ai"], li: ["https://www.linkedin.com/company/koiostech"], _processed: "auto" },
   "Kamari Pharma": {
     ws: ["https://kamaripharma.com"],
     li: ["https://www.linkedin.com/company/kamari-pharma"],
