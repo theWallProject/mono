@@ -5481,6 +5481,14 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/tkYHJCA7mb"],
     _processed: "auto"
   },
+  Voiceitt: {
+    ws: ["https://voiceitt.com", "https://web.voiceitt.com"],
+    li: ["https://www.linkedin.com/company/viking-maccabee-ventures", "https://www.linkedin.com/company/voiceitt"],
+    fb: ["https://www.facebook.com/alex.lytwyn.79", "https://www.facebook.com/voiceitt"],
+    ig: ["https://www.instagram.com/voiceitt"],
+    tt: ["https://www.tiktok.com/@voiceitt"],
+    _processed: "auto"
+  },
   Voxia: {
     ws: ["https://www.voxia.ai"],
     li: ["https://www.linkedin.com/company/37429937"],
