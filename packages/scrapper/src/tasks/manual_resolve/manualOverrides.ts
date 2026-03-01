@@ -3265,6 +3265,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life_at_kodem"],
     _processed: "auto"
   },
+  Kokomodo: {
+    ws: ["https://www.thekokomodo.com"],
+    li: ["https://www.linkedin.com/company/kokomodo"],
+    urls: ["https://ltu.co.il"],
+    _processed: "auto"
+  },
   Komodor: {
     ws: [
       "https://k8smap.com",
