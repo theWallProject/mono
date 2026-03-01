@@ -2676,6 +2676,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Hoopo: {
+    ws: ["https://platform.hoopo.tech", "https://support.hoopo.tech", "https://www.hoopo.tech"],
+    li: ["https://www.linkedin.com/company/hoopo"],
+    fb: ["https://www.facebook.com/hooposystems"],
+    tw: ["https://x.com/hoopoiot"],
+    _processed: "auto"
+  },
   Hopper: {
     ws: ["https://app.hopper.security", "https://www.hopper.security"],
     li: ["https://www.linkedin.com/company/hopper-security"],
