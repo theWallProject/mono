@@ -1653,6 +1653,15 @@ export const manualOverrides: Record<
     urls: ["https://resources.marketplace.aviahealth.com/top-virtual-visit-companies-report-2024-refresh"],
     _processed: "auto"
   },
+  Datumate: {
+    ws: ["https://bim.datumate.com", "https://www.datumate.com"],
+    li: ["https://www.linkedin.com/company/datumate"],
+    fb: ["https://www.facebook.com/datumate"],
+    tw: ["https://x.com/datumate"],
+    ytp: ["https://www.youtube.com/@datumate"],
+    urls: ["https://bim.datumate.com", "https://www.datumate.com"],
+    _processed: "auto"
+  },
   DeepKeep: {
     ws: ["https://docs.deepkeep.ai", "https://www.deepkeep.ai"],
     li: ["https://www.linkedin.com/company/deepkeep"],
