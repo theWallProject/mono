@@ -4381,6 +4381,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oosto6849"],
     _processed: "auto"
   },
+  Opster: {
+    ws: ["https://autoops.opster.com", "https://opster.com"],
+    li: ["https://www.linkedin.com/company/opster"],
+    fb: ["https://www.facebook.com/opsterhq"],
+    tw: ["https://x.com/opsterhq"],
+    _processed: "auto"
+  },
   "Opsys Tech": {
     ws: ["https://docs.opsys-tech.com", "https://www.opsys-tech.com"],
     li: ["https://www.linkedin.com/company/opsys-technologies"],
