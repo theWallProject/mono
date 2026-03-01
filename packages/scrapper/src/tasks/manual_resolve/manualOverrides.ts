@@ -755,6 +755,18 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Candivore: { ws: ["https://candivore.io"], urls: ["https://candivore.zendesk.com"], _processed: "auto" },
+  "Carbon Blue": {
+    ws: ["https://carbonblue.cc"],
+    li: ["https://www.linkedin.com/company/carbonblue-cc"],
+    ytp: ["https://www.youtube.com/@carbonbluecommunications"],
+    urls: [
+      "https://carbonblue.cc/privacy-notice",
+      "https://carbonblue.cc/terms-of-use-for-carbonblue-websites",
+      "https://carbonherald.com/carbonblue-launches-midway-a-pioneering-desalination-incorporated-mcdr-pilot",
+      "https://vagmandesign.com"
+    ],
+    _processed: "auto"
+  },
   CardinalOps: {
     ws: ["https://cardinalops.com"],
     li: ["https://www.linkedin.com/company/cardinalops"],
