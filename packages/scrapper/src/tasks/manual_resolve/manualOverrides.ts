@@ -3204,6 +3204,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Panjaya: {
+    ws: ["https://docs.panjaya.ai", "https://www.panjaya.ai"],
+    li: ["https://www.linkedin.com/company/panjaya-ai"],
+    tw: ["https://x.com/panjayai"],
+    ig: ["https://www.instagram.com/panjaya.ai"],
+    _processed: "auto"
+  },
   "Payouts.com": {
     ws: ["https://integrations.payouts.com", "https://payouts.com", "https://status.payouts.com"],
     li: ["https://www.linkedin.com/company/payouts-com"],
