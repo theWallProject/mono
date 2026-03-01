@@ -5569,6 +5569,18 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCDJidIDfuy0bzJT6GocaCrA"],
     _processed: "auto"
   },
+  "UG Labs": {
+    ws: ["https://docs.uglabs.io", "https://uglabs.io"],
+    li: ["https://www.linkedin.com/company/uglabs"],
+    urls: [
+      "https://console.stg.uglabs.app/login",
+      "https://console.stg.uglabs.app/signup",
+      "https://docs.uglabs.io/docs/api/websocket-protocol",
+      "https://docs.uglabs.io/docs/intro",
+      "https://pug-playground.stg.uglabs.app"
+    ],
+    _processed: "auto"
+  },
   "UNIPaaS Payments Technologies": {
     ws: ["https://docs.unipaas.com", "https://portal.unipaas.com", "https://www.unipaas.com"],
     li: ["https://www.linkedin.com/company/unipaas"],
