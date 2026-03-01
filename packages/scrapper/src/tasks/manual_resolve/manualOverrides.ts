@@ -1710,6 +1710,7 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "DreaMed Diabetes": { ws: ["https://dreamed-diabetes.com"], urls: ["https://dreamed.ai"], _processed: "auto" },
   "Dream Security": {
     ws: ["https://dreamgroup.com"],
     li: ["https://www.linkedin.com/company/dreamsecurity"],
