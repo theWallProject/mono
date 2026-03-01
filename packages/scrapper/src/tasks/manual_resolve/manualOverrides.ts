@@ -2454,6 +2454,7 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/lightsolverco"],
     _processed: "auto"
   },
+  Lightblocks: { ws: ["https://lightblocks.org"], urls: ["https://www.eo.app"], _processed: "auto" },
   Lightricks: {
     ws: ["https://lightricks.com", "https://ltx.io"],
     li: ["https://www.linkedin.com/company/lightricks"],
