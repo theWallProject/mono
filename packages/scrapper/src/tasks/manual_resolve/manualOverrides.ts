@@ -1565,6 +1565,16 @@ export const manualOverrides: Record<
     urls: ["https://get.grip.security/demo-request.html", "https://help.grip.security"],
     _processed: "auto"
   },
+  "Groundwork BioAg": {
+    ws: ["https://groundworkbioag.com"],
+    li: ["https://www.linkedin.com/company/5022013"],
+    fb: ["https://www.facebook.com/groundworkbioag"],
+    tw: ["https://x.com/groundworkbioag"],
+    ig: ["https://www.instagram.com/groundworkbioag"],
+    ytc: ["https://www.youtube.com/channel/uctmjog_vnv8aeh8xkigzeda"],
+    urls: ["https://ego-digital.com"],
+    _processed: "auto"
+  },
   H2Pro: {
     ws: ["https://www.h2pro.co"],
     li: ["https://www.linkedin.com/company/h2pro"],
