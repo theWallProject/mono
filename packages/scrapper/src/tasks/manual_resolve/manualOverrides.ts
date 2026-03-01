@@ -5721,6 +5721,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Somite: { tw: "https://x.com/somiteai" },
+  SonicEdge: { ws: ["https://sonicedge.io"], _processed: "auto" },
   Sorbet: { ws: ["https://advance.getsorbet.com"], _processed: "auto" },
   SpaceIL: {
     ws: ["https://arb.spaceil.com", "https://eng.spaceil.com", "https://kids.spaceil.com", "https://www.spaceil.com"],
