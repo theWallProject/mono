@@ -1640,6 +1640,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Datos Health": {
+    ws: ["https://www.datos-health.com"],
+    li: ["https://www.linkedin.com/company/datos-health"],
+    fb: ["https://www.facebook.com/datoshealth"],
+    tw: ["https://x.com/datoshealth"],
+    urls: ["https://resources.marketplace.aviahealth.com/top-virtual-visit-companies-report-2024-refresh"],
+    _processed: "auto"
+  },
   DeepKeep: {
     ws: ["https://docs.deepkeep.ai", "https://www.deepkeep.ai"],
     li: ["https://www.linkedin.com/company/deepkeep"],
