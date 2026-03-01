@@ -3209,6 +3209,12 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/reflectiz.cyber"],
     _processed: "auto"
   },
+  Remepy: {
+    ws: ["https://www.remepy.com"],
+    li: ["https://www.linkedin.com/company/remepy"],
+    fb: ["https://www.facebook.com/remepyhealth"],
+    _processed: "auto"
+  },
   Remilk: {
     ws: ["https://www.remilk.com"],
     li: ["https://www.linkedin.com/company/remilk"],
