@@ -2384,6 +2384,11 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  INNOVENTRIC: {
+    ws: ["https://innoventric.com"],
+    urls: ["https://innoventric.com", "https://pearlcom.co.il", "https://pearlcom.co.il/strategy"],
+    _processed: "auto"
+  },
   IONIX: {
     ws: ["https://www.ionix.io"],
     li: ["https://www.linkedin.com/company/ionix-security"],
