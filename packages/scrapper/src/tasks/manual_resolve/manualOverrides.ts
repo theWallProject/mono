@@ -55,10 +55,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   AISAP: { ws: ["https://aisap.ai"], li: ["https://www.linkedin.com/company/aisap.ai"], _processed: "auto" },
-  APEX: {
-    ws: ["https://www.dot-training.org"],
-    _processed: "auto"
-  },
+  APEX: { ws: ["https://www.dot-training.org"], _processed: "auto" },
   ARMO: {
     ws: [
       "https://auth.armosec.io",
@@ -409,9 +406,19 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/autofleet.io"],
     _processed: "auto"
   },
-  Autotalks: {
-    name: "Autotalks (Aquired by Qualcomm)",
-    ws: ["https://www.qualcomm.com"],
+  Autotalks: { name: "Autotalks (Aquired by Qualcomm)", ws: ["https://www.qualcomm.com"], _processed: "auto" },
+  "Autotalks (Aquired by Qualcomm)": {
+    ws: [
+      "https://assets.qualcomm.com",
+      "https://investor.qualcomm.com",
+      "https://myaccount.qualcomm.com",
+      "https://www.qualcomm.com"
+    ],
+    li: ["https://www.linkedin.com/company/qualcomm"],
+    tw: ["https://x.com/qualcomm"],
+    ig: ["https://www.instagram.com/qualcomm"],
+    ytp: ["https://www.youtube.com/@qualcomm"],
+    urls: ["http://www.qualcomm.cn"],
     _processed: "auto"
   },
   "BBT.live": {
@@ -494,11 +501,7 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@beyond_oil"],
     _processed: "auto"
   },
-  Bigabid: {
-    ws: ["https://www.bigabid.com"],
-    li: ["https://www.linkedin.com/company/bigabid"],
-    _processed: "auto"
-  },
+  Bigabid: { ws: ["https://www.bigabid.com"], li: ["https://www.linkedin.com/company/bigabid"], _processed: "auto" },
   BiltOn: {
     ws: ["https://careers.bilton.tech", "https://www.bilton.tech", "https://us.bilton.pro"],
     urls: [
