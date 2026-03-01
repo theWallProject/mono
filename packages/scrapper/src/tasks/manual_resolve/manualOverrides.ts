@@ -1197,6 +1197,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/c2a_security"],
     _processed: "auto"
   },
+  CADY: {
+    ws: ["https://app.cadysolutions.com", "https://cadysolutions.com"],
+    li: ["https://www.linkedin.com/company/cadydesign"],
+    ytc: ["https://www.youtube.com/channel/ucgzxgupzjrybghjg88bu3fw"],
+    _processed: "auto"
+  },
   "CLEW Medical": { ws: ["https://clewmed.com"], li: ["https://www.linkedin.com/company/clewmed"], _processed: "auto" },
   CYE: {
     ws: ["https://cyesec.com"],
