@@ -1527,6 +1527,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/entrioplatform"],
     _processed: "auto"
   },
+  "Ever After Foods": {
+    ws: ["https://everafterfoods.com"],
+    urls: [
+      "https://everafterfoods.com/cookie-policy",
+      "https://everafterfoods.com/privacy-policy",
+      "https://everafterfoods.com/terms-and-conditions"
+    ],
+    _processed: "auto"
+  },
   Everafter: {
     ws: ["https://app.everafter.ai", "https://www.everafter.ai"],
     li: ["https://www.linkedin.com/company/everafter-ai"],
