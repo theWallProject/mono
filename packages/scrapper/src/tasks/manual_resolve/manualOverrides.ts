@@ -5623,6 +5623,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@wavebl7286"],
     _processed: "auto"
   },
+  WeSki: {
+    ws: ["https://careers.weski.com", "https://terms.weski.com", "https://www.weski.com"],
+    fb: ["https://www.facebook.com/weskiofficialpage"],
+    ig: ["https://www.instagram.com/weski_travel"],
+    urls: ["https://uk.trustpilot.com/review/weski.com", "https://www.trustpilot.com/review/www.weski.com"],
+    _processed: "auto"
+  },
   "Wearable Devices": {
     ws: ["https://www.wearabledevices.co.il"],
     li: ["https://www.linkedin.com/company/wearable-devices-ltd"],
