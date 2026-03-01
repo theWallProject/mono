@@ -5700,6 +5700,11 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Turpaz: {
+    ws: ["https://www.turpaz.co.il"],
+    urls: ["https://www.catom.co.il", "https://www.catom.com"],
+    _processed: "auto"
+  },
   Tweed: {
     ws: ["https://demo.paytweed.com", "https://paytweed.com"],
     li: ["https://www.linkedin.com/company/paytweed"],
