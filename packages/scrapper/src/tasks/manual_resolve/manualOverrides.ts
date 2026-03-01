@@ -902,6 +902,11 @@ export const manualOverrides: Record<
     urls: ["https://snowbit.io/services"],
     _processed: "auto"
   },
+  Cortica: {
+    ws: ["https://cortica.com"],
+    urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
+    _processed: "auto"
+  },
   CropX: {
     ws: ["https://cropx.com"],
     li: ["https://www.linkedin.com/company/10147582"],
