@@ -3327,6 +3327,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Momentick: {
+    ws: ["https://www.momentick.com"],
+    li: ["https://www.linkedin.com/company/momentick"],
+    urls: ["https://www.momentick.com/blog"],
+    _processed: "auto"
+  },
   MoonPay: {
     ig: ["https://www.instagram.com/moonpay"],
     ytp: ["https://www.youtube.com/@moonpayhq"],
