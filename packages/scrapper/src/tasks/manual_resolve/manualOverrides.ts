@@ -473,6 +473,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Base: {
+    ws: ["https://clgcampus.base.ai", "https://go.base.ai", "https://www.base.ai"],
+    li: ["https://www.linkedin.com/company/base-clg"],
+    tw: ["https://x.com/base_clg"],
+    ig: ["https://www.instagram.com/lifeatbase"],
+    ytc: ["https://www.youtube.com/channel/ucbppvp_zamumkpuagcm2fta"],
+    _processed: "auto"
+  },
   Beamr: {
     ws: ["https://beamr.com", "https://blog.beamr.com", "https://cloud.beamr.com", "https://investors.beamr.com"],
     li: ["https://www.linkedin.com/company/beamr"],
