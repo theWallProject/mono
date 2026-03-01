@@ -6067,6 +6067,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  SuperCom: {
+    ws: ["https://www.supercom.com"],
+    li: ["https://www.linkedin.com/company/2989525"],
+    fb: ["https://www.facebook.com/supercom.group"],
+    tw: ["https://x.com/supercomgroup"],
+    ytp: ["https://www.youtube.com/@supercomgroup"],
+    urls: ["https://www.comeet.com/jobs/supercom/46.00A"],
+    _processed: "auto"
+  },
   Superstream: {
     ws: [
       "https://app.superstream.ai",
