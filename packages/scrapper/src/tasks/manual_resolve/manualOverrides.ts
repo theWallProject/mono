@@ -972,6 +972,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/chemoab-ltd"],
     _processed: "auto"
   },
+  "Chunk Foods": {
+    ws: ["https://shopusa.chunkfoods.com", "https://www.chunkfoods.com"],
+    li: ["https://www.linkedin.com/company/chunk-foods"],
+    ig: ["https://www.instagram.com/chunk_foods"],
+    _processed: "auto"
+  },
   Cipia: {
     ws: ["https://car.harman.com", "https://harman.com", "https://jobs.harman.com", "https://news.harman.com"],
     li: ["https://www.linkedin.com/company/harman-automotive"],
