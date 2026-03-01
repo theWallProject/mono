@@ -857,6 +857,15 @@ export const manualOverrides: Record<
     urls: ["http://brainq.co.il", "https://emagine.care"],
     _processed: "auto"
   },
+  Brainsway: {
+    ws: ["https://investors.brainsway.com", "https://www.brainsway.com"],
+    li: ["https://www.linkedin.com/company/brainsway"],
+    fb: ["https://www.facebook.com/brainswaydeeptms"],
+    tw: ["https://x.com/brainsway"],
+    ig: ["https://www.instagram.com/brainsway"],
+    urls: ["https://investors.brainsway.com", "https://mybrainsway.com", "https://www.brainsway.com"],
+    _processed: "auto"
+  },
   BrandShield: {
     ws: ["https://platform.brandshield.com", "https://www.brandshield.com"],
     li: ["https://www.linkedin.com/company/2231196"],
