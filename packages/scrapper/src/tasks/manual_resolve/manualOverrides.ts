@@ -1834,6 +1834,17 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/forsightrobotics"],
     _processed: "auto"
   },
+  "GK8 by Galaxy": {
+    ws: ["https://www.gk8.io"],
+    li: ["https://www.linkedin.com/company/gk8"],
+    ytc: ["https://www.youtube.com/channel/ucgd5tahtyij6jgvezgc3qta"],
+    urls: [
+      "https://cta-eu1.hubspot.com/web-interactives/public/v1/track/click",
+      "https://www.galaxy.com",
+      "https://www.galaxy.com/insights/research"
+    ],
+    _processed: "auto"
+  },
   Gadfin: { ws: ["https://www.gadfin.com"], li: ["https://www.linkedin.com/company/gadfin"], _processed: "auto" },
   Gauzy: {
     ws: ["https://www.gauzy.com"],
