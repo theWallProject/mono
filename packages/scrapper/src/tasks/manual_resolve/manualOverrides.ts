@@ -3793,6 +3793,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Oriient: {
+    ws: ["https://dashboard.oriient.me", "https://www.oriient.me"],
+    li: ["https://www.linkedin.com/company/oriient"],
+    fb: ["https://www.facebook.com/oriient.me"],
+    ytp: ["https://www.youtube.com/@oriient1541"],
+    _processed: "auto"
+  },
   "Orion Security": { ws: ["https://app.orionsec.io", "https://www.orionsec.io"], _processed: "auto" },
   Oshi: {
     ws: ["https://oshi.com"],
