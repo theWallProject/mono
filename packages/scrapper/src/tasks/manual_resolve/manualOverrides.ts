@@ -1043,6 +1043,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Cydome: {
+    ws: ["https://cydome.io", "https://ireport.cydome.io", "https://yachts.cydome.io"],
+    li: ["https://www.linkedin.com/company/cydome"],
+    tw: ["https://x.com/cydome"],
+    urls: ["https://cydome.zohorecruit.com/jobs/Careers"],
+    _processed: "auto"
+  },
   Cyera: {
     ws: "https://www.cyera.com",
     ytp: ["https://www.youtube.com/@CyeraSecurity"],
