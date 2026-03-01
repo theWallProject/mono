@@ -3617,6 +3617,13 @@ export const manualOverrides: Record<
     urls: ["https://wponetap.com"],
     _processed: "auto"
   },
+  "Red Access": {
+    ws: ["https://redaccess.io"],
+    li: ["https://www.linkedin.com/company/red-access"],
+    tw: ["https://x.com/redaccess_io"],
+    ytp: ["https://www.youtube.com/@redaccess_io"],
+    _processed: "auto"
+  },
   "Red Alert": { ws: "" },
   "Redefine Meat": {
     ws: ["https://www.redefinemeat.com"],
