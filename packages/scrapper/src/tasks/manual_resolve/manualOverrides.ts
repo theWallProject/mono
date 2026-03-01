@@ -1856,6 +1856,24 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Juno Journey": {
+    ws: [
+      "https://auth.junojourney.com",
+      "https://careers.junojourney.com",
+      "https://team.junojourney.com",
+      "https://trust.junojourney.com",
+      "https://www.junojourney.com"
+    ],
+    li: ["https://www.linkedin.com/company/junojourney"],
+    fb: ["https://www.facebook.com/junojourney1"],
+    ytc: ["https://www.youtube.com/channel/ucdagxyyo83qy-_igtpa0brg"],
+    urls: [
+      "https://careers.junojourney.com",
+      "https://team.junojourney.com/learning-table",
+      "https://trust.junojourney.com"
+    ],
+    _processed: "auto"
+  },
   Justt: {
     ws: [
       "https://app.justt.ai",
