@@ -6378,6 +6378,13 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCzEL6tkHGC-HqtfQitkgDew"],
     _processed: "auto"
   },
+  insoundz: {
+    ws: ["https://insoundz.com"],
+    li: ["https://www.linkedin.com/company/insoundz"],
+    tw: ["https://x.com/insoundz"],
+    urls: ["https://human-creative.co"],
+    _processed: "auto"
+  },
   "lunar.dev": {
     ws: ["https://app.lunar.dev", "https://docs.lunar.dev", "https://www.lunar.dev"],
     li: ["https://www.linkedin.com/company/lunar-api"],
