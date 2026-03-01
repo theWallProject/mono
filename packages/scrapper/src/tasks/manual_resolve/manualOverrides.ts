@@ -3007,6 +3007,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kovrrins"],
     _processed: "auto"
   },
+  LAVA: {
+    ws: ["https://lavapower.com"],
+    li: ["https://www.linkedin.com/company/lavapower"],
+    urls: ["https://www.kerensoref.com"],
+    _processed: "auto"
+  },
   LAVAA: {
     ws: ["https://lavaa.health"],
     li: ["https://www.linkedin.com/company/lavaa"],
