@@ -1216,6 +1216,11 @@ export const manualOverrides: Record<
     urls: ["http://www.cnoga.com", "http://www.wixmonster.co.il"],
     _processed: "auto"
   },
+  "CodeMonkey Studios": {
+    ws: ["https://app.codemonkey.com", "https://help.codemonkey.com", "https://www.codemonkey.com"],
+    urls: ["https://cert.privo.com"],
+    _processed: "auto"
+  },
   Cognata: {
     ws: ["https://www.cognata.com"],
     li: ["https://www.linkedin.com/company/cognata-ltd"],
