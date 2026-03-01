@@ -6722,6 +6722,11 @@ export const manualOverrides: Record<
     urls: ["https://trust.vendict.com"],
     _processed: "auto"
   },
+  "Vensica Medical": {
+    ws: ["https://vensica.com"],
+    li: ["https://www.linkedin.com/company/5350087"],
+    _processed: "auto"
+  },
   Veriti: {
     ws: ["https://www.veriti.ai"],
     li: ["https://www.linkedin.com/company/veriti-security"],
