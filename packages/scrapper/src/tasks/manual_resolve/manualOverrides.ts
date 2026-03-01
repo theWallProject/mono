@@ -3370,6 +3370,7 @@ export const manualOverrides: Record<
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _processed: true
   },
+  Lexense: { ws: ["https://lexense.com"], _processed: "auto" },
   Lidwave: {
     ws: ["https://www.lidwave.com"],
     li: ["https://www.linkedin.com/company/lidwaveil"],
