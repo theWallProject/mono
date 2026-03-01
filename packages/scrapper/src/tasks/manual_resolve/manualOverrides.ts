@@ -4120,6 +4120,7 @@ export const manualOverrides: Record<
     urls: ["https://share-eu1.hsforms.com/1064gI4P7QBGKIuYKlPukCA2et0fn"],
     _processed: "auto"
   },
+  "NeoTX Therapeutics": { ws: ["https://predictivetx.com"], _processed: "auto" },
   "NetOp.Cloud": { ws: ["https://netop.ai"], li: ["https://www.linkedin.com/company/netop-ai"], _processed: "auto" },
   Neteera: {
     ws: ["https://www.neteera.com"],
