@@ -3778,6 +3778,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/payoutsdotcom"],
     _processed: "auto"
   },
+  "Pepticom Ltd.": {
+    ws: ["https://pepticom.com"],
+    li: ["https://www.linkedin.com/company/pepticom-ltd."],
+    tw: ["https://x.com/pepticom"],
+    ytp: ["https://www.youtube.com/@pepticom6510"],
+    urls: ["https://www.pearlcom.co.il"],
+    _processed: "auto"
+  },
   "Perception Point": {
     ws: [
       "https://community.fortinet.com",
