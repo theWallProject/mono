@@ -5011,6 +5011,11 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "RAAAM Memory Technologies Ltd.": {
+    ws: ["https://raaam-tech.com"],
+    li: ["https://www.linkedin.com/company/raaam"],
+    _processed: "auto"
+  },
   "REE Automotive": {
     ws: ["https://ree.auto"],
     li: ["https://www.linkedin.com/company/reeautoofficial"],
