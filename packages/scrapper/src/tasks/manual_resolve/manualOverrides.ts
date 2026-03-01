@@ -4212,6 +4212,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@samseamlessnetwork5685"],
     _processed: "auto"
   },
+  STOREE: { ws: ["https://storee.ai"], li: ["https://www.linkedin.com/company/storeeai"], _processed: "auto" },
   Salto: {
     ws: ["https://www.salto.io"],
     li: ["https://www.linkedin.com/company/salto-io"],
