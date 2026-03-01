@@ -3118,6 +3118,30 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCpcZmZlFTj7fnEBZyFx9aYA"],
     _processed: "auto"
   },
+  OCTOPAI: {
+    ws: [
+      "https://br.cloudera.com",
+      "https://community.cloudera.com",
+      "https://de.cloudera.com",
+      "https://docs.cloudera.com",
+      "https://es.cloudera.com",
+      "https://fr.cloudera.com",
+      "https://it.cloudera.com",
+      "https://jp.cloudera.com",
+      "https://kr.cloudera.com",
+      "https://lighthouse.cloudera.com",
+      "https://pl.cloudera.com",
+      "https://sso.cloudera.com",
+      "https://video.cloudera.com",
+      "https://www.cloudera.com"
+    ],
+    li: ["https://www.linkedin.com/company/cloudera"],
+    fb: ["https://www.facebook.com/cloudera"],
+    tw: ["https://x.com/cloudera"],
+    ytp: ["https://www.youtube.com/@clouderainc"],
+    urls: ["https://apache.org", "https://hadoop.apache.org", "https://www.clouderacn.cn"],
+    _processed: "auto"
+  },
   OKIBO: {
     ws: ["https://okibo.com"],
     li: ["https://www.linkedin.com/company/okibo-smart-robotics-in-construction-sites"],
