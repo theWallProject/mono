@@ -1871,6 +1871,24 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lagunahealth"],
     _processed: "auto"
   },
+  "Landa Digital Printing": {
+    ws: ["https://www.landanano.com"],
+    li: ["https://www.linkedin.com/company/landa-digital-printing"],
+    fb: ["https://www.facebook.com/landanano"],
+    ig: ["https://www.instagram.com/landa.nano"],
+    ytp: ["https://www.youtube.com/@landanano"],
+    urls: [
+      "https://www.landanano.com/about-us",
+      "https://www.landanano.com/market-segments",
+      "https://www.landanano.com/news",
+      "https://www.landanano.com/online-services-terms-of-use",
+      "https://www.landanano.com/privacy-policy",
+      "https://www.landanano.com/products",
+      "https://www.landanano.com/technology",
+      "https://www.landanano.com/terms-of-use"
+    ],
+    _processed: "auto"
+  },
   "Lasso Security": {
     ws: ["https://www.lasso.security"],
     li: ["https://www.linkedin.com/company/lasso-security"],
