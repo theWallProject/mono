@@ -3209,6 +3209,12 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   MedOne: { ws: ["https://medone.co.il"], li: ["https://www.linkedin.com/company/medone"], _processed: "auto" },
+  "Medcase Health": {
+    ws: ["https://app.medcase.health", "https://medcase.health", "https://portal.medcase.health"],
+    li: ["https://www.linkedin.com/company/medcasehealth"],
+    tw: ["https://x.com/medcasehealth"],
+    _processed: "auto"
+  },
   "Meitav Investment House": {
     ws: ["https://www.meitav.co.il"],
     li: ["https://www.linkedin.com/company/meitav"],
