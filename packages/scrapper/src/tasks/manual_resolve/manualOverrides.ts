@@ -3353,6 +3353,23 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Phytolon: { ws: ["https://www.phytolon.com"], li: ["https://www.linkedin.com/company/phytolon"], _processed: "auto" },
+  "Pi-Cardia": {
+    ws: ["https://www.pi-cardia.net"],
+    li: ["https://www.linkedin.com/company/pi-cardia"],
+    tw: ["https://x.com/pi_cardia"],
+    urls: [
+      "http://eiznerdesign.com",
+      "https://www.pi-cardia.net",
+      "https://www.pi-cardia.net/contact",
+      "https://www.pi-cardia.net/copy-of-about",
+      "https://www.pi-cardia.net/copy-of-terms-of-use",
+      "https://www.pi-cardia.net/news",
+      "https://www.pi-cardia.net/privacy-policy-and-terms-of-use",
+      "https://www.pi-cardia.net/technology-leaflex",
+      "https://www.pi-cardia.net/technology-shortcut"
+    ],
+    _processed: "auto"
+  },
   Pixellot: {
     ws: ["https://www.pixellot.tv"],
     li: ["https://www.linkedin.com/company/pixellotltd"],
