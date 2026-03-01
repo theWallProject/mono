@@ -5101,6 +5101,21 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Revrod: { ws: ["https://www.revrod.io"], _processed: "auto" },
+  Revuze: {
+    ws: ["https://go.revuze.it", "https://www.revuze.it"],
+    li: ["https://www.linkedin.com/company/revuse-technology"],
+    fb: ["https://www.facebook.com/revuze"],
+    tw: ["https://x.com/revuze"],
+    ytp: ["https://www.youtube.com/@revuzeit"],
+    urls: [
+      "https://explorer.revuze.ai",
+      "https://us02web.zoom.us/webinar/register/WN_k9ixDe6SSyOh38jmGM_M6g",
+      "https://vimeo.com/privacy",
+      "https://vimeo.com/revuze",
+      "https://www.cgsmsummit.com"
+    ],
+    _processed: "auto"
+  },
   RiseUp: {
     ws: ["https://www.riseup.co.il"],
     urls: [
