@@ -1641,6 +1641,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@deepkeep_ai"],
     _processed: "auto"
   },
+  DeviceTotal: {
+    ws: ["https://community.devicetotal.com", "https://devicetotal.com"],
+    li: ["https://www.linkedin.com/company/device-total"],
+    fb: ["https://www.facebook.com/devicetotal"],
+    tw: ["https://x.com/device_total"],
+    ytc: ["https://www.youtube.com/channel/ucitoxc5okde857bljfazwxq"],
+    _processed: "auto"
+  },
   "Diagnostic Robotics": {
     ws: ["https://www.diagnosticrobotics.com"],
     li: ["https://www.linkedin.com/company/diagnostic-robotics"],
