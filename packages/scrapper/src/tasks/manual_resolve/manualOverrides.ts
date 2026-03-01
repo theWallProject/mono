@@ -2439,6 +2439,7 @@ export const manualOverrides: Record<
     android_app_ids: ["com.holisto"],
     _processed: "auto"
   },
+  Homez: { ws: ["https://www.homez.com"], _processed: "auto" },
   Honeydew: {
     ws: ["https://honeydew.ai"],
     li: ["https://www.linkedin.com/company/honeydewai"],
