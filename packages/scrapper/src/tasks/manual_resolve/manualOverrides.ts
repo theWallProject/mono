@@ -4468,6 +4468,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@samseamlessnetwork5685"],
     _processed: "auto"
   },
+  "SIGA OT Solutions": {
+    ws: ["https://sigasec.com"],
+    li: ["https://www.linkedin.com/company/sigaotsolutions"],
+    ytc: ["https://www.youtube.com/channel/uc-mrjhpmcuo8bytinnv7cxg"],
+    urls: ["https://attractive.co.il", "https://sigaotsolution.wpengine.com/request-a-demo"],
+    _processed: "auto"
+  },
   STOREE: { ws: ["https://storee.ai"], li: ["https://www.linkedin.com/company/storeeai"], _processed: "auto" },
   Salto: {
     ws: ["https://www.salto.io"],
