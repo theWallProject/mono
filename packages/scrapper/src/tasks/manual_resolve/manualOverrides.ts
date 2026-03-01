@@ -1428,6 +1428,13 @@ export const manualOverrides: Record<
     urls: ["http://firmus.local", "https://firmus.ninja/website", "https://firmus.us.auth0.com/login"],
     _processed: "auto"
   },
+  "FIZE Medical": {
+    ws: ["https://fizemedical.com"],
+    li: ["https://www.linkedin.com/company/fize-medical"],
+    ytc: ["https://www.youtube.com/channel/ucpqxrazdpqem935zgn3aq7q"],
+    urls: ["https://okimta.com", "https://www.kukushka.co.il"],
+    _processed: "auto"
+  },
   Factify: {
     ws: ["https://developers.factify.com", "https://www.factify.com"],
     li: ["https://www.linkedin.com/company/factifyinc"],
