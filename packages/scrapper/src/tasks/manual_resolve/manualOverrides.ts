@@ -479,6 +479,15 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/app/atly-know-where-to-go/id1449597018", "https://play.google.com/store/search"],
     _processed: "auto"
   },
+  AudioCodes: {
+    ws: ["https://online.audiocodes.com", "https://partners.audiocodes.com", "https://www.audiocodes.com"],
+    li: ["https://www.linkedin.com/company/audiocodes"],
+    fb: ["https://www.facebook.com/audiocodes"],
+    tw: ["https://x.com/audiocodes"],
+    ig: ["https://www.instagram.com/_audiocodes_"],
+    ytp: ["https://www.youtube.com/@audiocodesmedia"],
+    _processed: "auto"
+  },
   "Aurora Labs": {
     ws: ["https://www.auroralabs.com"],
     li: ["https://www.linkedin.com/company/auroralabs"],
