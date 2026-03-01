@@ -2410,6 +2410,11 @@ export const manualOverrides: Record<
     urls: ["https://www.avihaim.co.il", "https://www.hisense.co.il", "https://www.pinterest.com/babysensellc"],
     _processed: "auto"
   },
+  HiveWare: {
+    ws: ["https://hiveware.io"],
+    li: ["https://www.linkedin.com/company/hivewaretech%20"],
+    _processed: "auto"
+  },
   Holisto: {
     ws: ["https://www.holisto.com"],
     urls: ["https://apps.apple.com/us/app/holisto-better-hotel-deals/id1635312687"],
