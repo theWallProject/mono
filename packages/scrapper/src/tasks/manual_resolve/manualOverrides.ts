@@ -5327,6 +5327,16 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCzEL6tkHGC-HqtfQitkgDew"],
     _processed: "auto"
   },
+  "lunar.dev": {
+    ws: ["https://app.lunar.dev", "https://docs.lunar.dev", "https://www.lunar.dev"],
+    li: ["https://www.linkedin.com/company/lunar-api"],
+    tw: ["https://x.com/lunardevapi"],
+    gh: ["https://github.com/thelunarcompany"],
+    ytp: ["https://www.youtube.com/@lunardev-api"],
+    ytc: ["https://www.youtube.com/channel/ucgwge-0djzcm-jwu82fbr7a"],
+    urls: ["https://discord.com/invite/Kgqu4XQprN", "https://discord.gg/Kgqu4XQprN", "https://docs.lunar.dev"],
+    _processed: "auto"
+  },
   "monday.com": {
     ws: ["https://monday.com", "https://www.mondayert.org", "https://www.workcanvas.com"],
     li: ["https://www.linkedin.com/company/mondaydotcom", "https://www.linkedin.com/company/2525169"],
