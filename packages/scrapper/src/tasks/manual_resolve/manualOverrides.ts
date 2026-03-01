@@ -3376,6 +3376,19 @@ export const manualOverrides: Record<
     urls: ["https://www.momentick.com/blog"],
     _processed: "auto"
   },
+  Moodify: {
+    ws: ["https://www.moodify.ai"],
+    li: ["https://www.linkedin.com/company/moodify"],
+    ytp: ["https://www.youtube.com/@moodifyai-w3f"],
+    urls: [
+      "https://www.moodify.ai/about-us",
+      "https://www.moodify.ai/blog",
+      "https://www.moodify.ai/malodor-control",
+      "https://www.moodify.ai/portfolio-optimization",
+      "https://www.moodify.ai/reformulation"
+    ],
+    _processed: "auto"
+  },
   MoonPay: {
     ig: ["https://www.instagram.com/moonpay"],
     ytp: ["https://www.youtube.com/@moonpayhq"],
