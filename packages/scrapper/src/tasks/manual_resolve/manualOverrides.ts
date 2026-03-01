@@ -4104,6 +4104,11 @@ export const manualOverrides: Record<
     urls: ["https://app.mvpr.io/company/repair-carbon"],
     _processed: "auto"
   },
+  "RespirAI Medical": {
+    ws: ["https://www.respirai.com"],
+    urls: ["https://www.respirai.com/privacy-policy"],
+    _processed: "auto"
+  },
   ReturnGO: {
     ws: ["https://app.returngo.ai", "https://returngo.ai", "https://support.returngo.ai"],
     li: ["https://www.linkedin.com/company/returngo"],
