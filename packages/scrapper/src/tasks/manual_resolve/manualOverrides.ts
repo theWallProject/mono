@@ -780,6 +780,14 @@ export const manualOverrides: Record<
     urls: ["https://boards.onelink.me/0fu0/d3icoa9w", "https://boards.onelink.me/0fu0/tkc2lr0a"],
     _processed: "auto"
   },
+  BondIT: {
+    ws: ["https://bonditglobal.com"],
+    li: ["https://www.linkedin.com/company/3222746"],
+    tw: ["https://x.com/bondit_fintech"],
+    ytc: ["https://www.youtube.com/channel/ucm7hhdkwe4jajbr7yt2_yyw"],
+    urls: ["https://bonditsolutions.com/auth", "https://business.scorable.com"],
+    _processed: "auto"
+  },
   Botika: {
     ws: ["https://app.botika.com", "https://botika.com", "https://help.botika.com"],
     li: ["https://www.linkedin.com/company/botika-com"],
