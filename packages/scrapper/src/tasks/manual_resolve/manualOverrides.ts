@@ -4783,6 +4783,16 @@ export const manualOverrides: Record<
     urls: ["https://www.ltu.co.il"],
     _processed: "auto"
   },
+  Scytale: {
+    ws: ["https://app.scytale.ai", "https://scytale.ai", "https://status.scytale.ai"],
+    li: ["https://www.linkedin.com/company/scytale-ai"],
+    fb: ["https://www.facebook.com/scytalecomplianceautomation"],
+    tw: ["https://x.com/scytale_ai"],
+    ig: ["https://www.instagram.com/scytale.ai"],
+    ytp: ["https://www.youtube.com/@scytaleai"],
+    urls: ["https://www.g2.com/products/scytale-g2/reviews"],
+    _processed: "auto"
+  },
   "Secret Double Octopus": {
     ws: ["https://doubleoctopus.com", "https://go.doubleoctopus.com", "https://support.doubleoctopus.com"],
     li: ["https://www.linkedin.com/company/secret-double-octopus"],
