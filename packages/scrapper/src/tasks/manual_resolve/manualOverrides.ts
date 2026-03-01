@@ -2057,6 +2057,16 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Joyned: {
+    ws: [
+      "https://demo.joyned.co",
+      "https://joyned.co",
+      "https://support.joyned.co",
+      "https://traveller-voice.joyned.co"
+    ],
+    urls: ["https://joyned.co"],
+    _processed: "auto"
+  },
   "Juno Journey": {
     ws: [
       "https://auth.junojourney.com",
