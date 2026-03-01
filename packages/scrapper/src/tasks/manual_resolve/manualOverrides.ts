@@ -2312,6 +2312,22 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Gadfin: { ws: ["https://www.gadfin.com"], li: ["https://www.linkedin.com/company/gadfin"], _processed: "auto" },
+  Gankster: {
+    ws: [
+      "https://app.gankster.gg",
+      "https://duos.gankster.gg",
+      "https://fortnite.gankster.gg",
+      "https://gankster.gg",
+      "https://lol.gankster.gg",
+      "https://rocketleague.gankster.gg",
+      "https://valorant.gankster.gg"
+    ],
+    li: ["https://www.linkedin.com/company/gankster"],
+    tw: ["https://x.com/gankstergg"],
+    urls: ["https://apps.apple.com/us/app/gankster-duos/id6755520323", "https://discord.gg/gankster"],
+    android_app_ids: ["gg.duos.app"],
+    _processed: "auto"
+  },
   Gauzy: {
     ws: ["https://www.gauzy.com"],
     li: ["https://www.linkedin.com/company/2860964"],
