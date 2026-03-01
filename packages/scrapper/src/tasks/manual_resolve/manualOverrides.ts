@@ -248,6 +248,14 @@ export const manualOverrides: Record<
     urls: ["https://www.alphabiome.ai", "https://www.moveo.group"],
     _processed: "auto"
   },
+  "Amai Proteins": {
+    ws: ["https://amaiproteins.com"],
+    li: ["https://www.linkedin.com/company/amai-proteins"],
+    ig: ["https://www.instagram.com/sweetsweelin"],
+    ytc: ["https://www.youtube.com/channel/uc7uyb19mxqd-d-uyamtvjrq"],
+    urls: ["https://amaiproteins.com"],
+    _processed: "auto"
+  },
   Anodot: {
     ws: [
       "https://app.anodot.com",
