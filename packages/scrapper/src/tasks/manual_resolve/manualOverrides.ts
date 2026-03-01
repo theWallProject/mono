@@ -2552,6 +2552,23 @@ export const manualOverrides: Record<
     tw: ["https://x.com/ivix_ai"],
     _processed: "auto"
   },
+  Igentify: {
+    ws: ["https://www.igentify.com"],
+    li: ["https://www.linkedin.com/company/igentify"],
+    fb: ["https://www.facebook.com/igentify"],
+    tw: ["https://x.com/igentifycounsel"],
+    urls: [
+      "https://www.igentify.com/article",
+      "https://www.igentify.com/company",
+      "https://www.igentify.com/media-center",
+      "https://www.igentify.com/products/access",
+      "https://www.igentify.com/products/igentify-analyze",
+      "https://www.igentify.com/products/igentify-counsel",
+      "https://www.igentify.com/products/igentify-insight",
+      "https://www.igentify.com/solutions"
+    ],
+    _processed: "auto"
+  },
   Iguazio: {
     ws: ["https://go.iguazio.com", "https://www.iguazio.com"],
     li: ["https://www.linkedin.com/company/iguazio"],
