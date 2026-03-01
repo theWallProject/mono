@@ -4968,6 +4968,17 @@ export const manualOverrides: Record<
     urls: ["https://minus273celsius.slack.com", "https://partners.zeronetworks.com"],
     _processed: "auto"
   },
+  Zsquare: {
+    ws: ["https://www.zsquaremedical.com"],
+    li: ["https://www.linkedin.com/company/zsquare"],
+    tw: ["https://x.com/zsquare_medical"],
+    urls: [
+      "http://www.pearlcom.co.il",
+      "https://www.zsquaremedical.com/privacy-policy",
+      "https://www.zsquaremedical.com/terms-of-use"
+    ],
+    _processed: "auto"
+  },
   accessiBe: {
     ws: [
       "https://accessibe.com",
