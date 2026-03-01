@@ -1,0 +1,494 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	<script type="rocketlazyloadscript">
+!function(t,e,n,s,a,c,i,o,p){t.AppsFlyerSdkObject=a,t.AF=t.AF||function(){(t.AF.q=t.AF.q||[]).push([Date.now()].concat(Array.prototype.slice.call(arguments)))},t.AF.id=t.AF.id||i,t.AF.plugins={},o=e.createElement(n),p=e.getElementsByTagName(n)[0],o.async=1,o.src="https://websdk.appsflyer.com?"+(c.length>0?"st="+c.split(",").sort().join(",")+"&":"")+(i.length>0?"af_id="+i:""),p.parentNode.insertBefore(o,p)}(window,document,"script",0,"AF","banners",{banners: {key: "d6188593-e2b8-4dbe-872e-5dce8e856c19"}});
+AF('banners', 'showBanner')
+</script>
+	<!-- Google Analytics -->
+	<script type="rocketlazyloadscript" async="" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-ELN1KV5SVP"></script>
+	<script type="rocketlazyloadscript">
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-ELN1KV5SVP');
+	</script>
+	<!-- End Google Analytics -->
+	
+		<!-- Google Tag Manager -->
+	<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-W3RDR7M');</script>
+	<!-- End Google Tag Manager -->
+	
+	
+		<!-- Facebook Pixel Code -->
+	<script type="rocketlazyloadscript">
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '430680304488625');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=430680304488625&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	
+	<title>Real Claw Machines Game - Clawee</title>
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Updated at 06/11/2023 as per Rom request -->
+	<meta name="facebook-domain-verification" content="yw2p16mmydj47pp6bexunw3k2u46pg">
+	
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="shortcut icon" type="image/x-icon" href="/wp-content/uploads/dist/images/favicon.ico">
+
+	<link data-minify="1" as="style" onload="this.onload=null;this.rel='stylesheet'" rel="stylesheet" type="text/css" href="https://clawee.com/wp-content/cache/min/1/npm/slick-carousel@1.8.1/slick/slick.css?ver=1770853894"><noscript><link data-minify="1" rel="stylesheet" type="text/css" href="https://clawee.com/wp-content/cache/min/1/npm/slick-carousel@1.8.1/slick/slick.css?ver=1770853894"/></noscript>
+	<link data-minify="1" as="style" onload="this.onload=null;this.rel='stylesheet'" rel="stylesheet" media="all" href="https://clawee.com/wp-content/cache/min/1/wp-content/themes/iptheme/style.css?ver=1770853894"><noscript><link data-minify="1" rel="stylesheet" media="all" href="https://clawee.com/wp-content/cache/min/1/wp-content/themes/iptheme/style.css?ver=1770853894" /></noscript>
+<link href="https://www.googletagmanager.com" rel="preconnect"></head>
+
+<body data-rsssl="1" class="ip-page">
+
+		<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3RDR7M" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+		<!-- Wrapper -->
+		<section class="ip-wrapper">
+<!-- Get More Coins -->
+<section class="ip-get-more">
+
+	<a href="https://store.clawee.com/" class="ip-link">
+		<!-- Image -->
+
+		    <video autoplay="" muted="" playsinline="" loop="" style="width: 100%;">
+                <source src="https://clawee.com/wp-content/uploads/2024/04/btnvideo.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+		<!-- Image -->
+	</a>
+</section>
+<!-- Get More Coins -->
+
+<!-- Splash -->
+<section class="ip-section splash">
+	<section class="ip-box">
+		<!-- Claw -->
+		<section class="ip-image ip-claw">
+		    <picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/claw.png.webp" type="image/webp"><img fetchpriority="high" width="694" height="785" src="https://clawee.com/wp-content/uploads/2019/11/claw.png.webp" class="ip-media webpexpress-processed" alt="" decoding="async"></picture>		 </section>
+		<!-- Claw -->
+
+		<!-- Coins Top -->
+		<section class="ip-image ip-coins top" id="coins-top">
+		    <picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/coins-top.png.webp" type="image/webp"><img width="628" height="371" src="https://clawee.com/wp-content/uploads/2019/11/coins-top.png.webp" class="ip-media webpexpress-processed" alt="" decoding="async"></picture>
+		    </section>
+		<!-- Coins Top -->
+
+		<!-- Coins Bottom -->
+		<section class="ip-image ip-coins bottom" id="coins-bottom">
+		   <picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/coins-bottom.png.webp 1284w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/coins-bottom-300x211.png.webp 300w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/coins-bottom-1024x722.png.webp 1024w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/coins-bottom-768x541.png.webp 768w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/coins-bottom-600x423.png.webp 600w" sizes="(max-width: 1284px) 100vw, 1284px" type="image/webp"><img loading="lazy" width="1284" height="905" src="https://clawee.com/wp-content/uploads/2019/11/coins-bottom.png" class="ip-media webpexpress-processed" alt="" decoding="async" srcset="https://clawee.com/wp-content/uploads/2019/11/coins-bottom.png 1284w, https://clawee.com/wp-content/uploads/2019/11/coins-bottom-300x211.png 300w, https://clawee.com/wp-content/uploads/2019/11/coins-bottom-1024x722.png 1024w, https://clawee.com/wp-content/uploads/2019/11/coins-bottom-768x541.png 768w, https://clawee.com/wp-content/uploads/2019/11/coins-bottom-600x423.png 600w" sizes="(max-width: 1284px) 100vw, 1284px"></picture>
+		  </section>
+		<!-- Coins Bottom -->
+
+		<!-- Test -->
+		<section class="splash__content">
+			<!-- Clawee -->
+			<!-- 						<section class="ip-image ip-clawee"><picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/clawee.png.webp" type="image/webp"><img src="https://clawee.com/wp-content/uploads/2019/11/clawee.png.webp" alt="" class="webpexpress-processed"></picture></section> -->
+			<!-- Clawee -->
+
+			<!-- Logo -->
+			<section class="ip-image ip-logo">
+				<picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/logo3x.png.webp 1002w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/logo3x-300x137.png.webp 300w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/logo3x-768x352.png.webp 768w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/logo3x-600x275.png.webp 600w" sizes="(max-width: 1002px) 100vw, 1002px" type="image/webp"><img loading="lazy" width="1002" height="459" src="https://clawee.com/wp-content/uploads/2019/11/logo3x.png" class="ip-media webpexpress-processed" alt="" decoding="async" srcset="https://clawee.com/wp-content/uploads/2019/11/logo3x.png 1002w, https://clawee.com/wp-content/uploads/2019/11/logo3x-300x137.png 300w, https://clawee.com/wp-content/uploads/2019/11/logo3x-768x352.png 768w, https://clawee.com/wp-content/uploads/2019/11/logo3x-600x275.png 600w" sizes="(max-width: 1002px) 100vw, 1002px"></picture>
+			</section>
+			<!-- Logo -->
+		</section>
+		<!-- Test -->
+
+		<!-- Action -->
+		<section class="ip-actions">
+			<!-- WEB GAME -->
+			<section class="ip-image button main web">
+				<a href="https://clawee.onelink.me/IiA3/claweedotcom" class="ip-link" target="_blank">
+					<!-- Image -->
+					
+					<picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/playNow-1.png.webp 576w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/playNow-1-300x95.png.webp 300w" sizes="(max-width: 576px) 100vw, 576px" type="image/webp"><img loading="lazy" width="576" height="182" src="https://clawee.com/wp-content/uploads/2024/04/playNow-1.png" class="ip-media webpexpress-processed" alt="" decoding="async" srcset="https://clawee.com/wp-content/uploads/2024/04/playNow-1.png 576w, https://clawee.com/wp-content/uploads/2024/04/playNow-1-300x95.png 300w" sizes="(max-width: 576px) 100vw, 576px"></picture>					<!-- Image -->
+				</a>
+			</section>
+			<!-- WEB GAME -->
+
+			<!-- Button Apple -->
+			<section class="ip-image button">
+				<a href="https://go.onelink.me/app/Appstore" class="ip-link">
+					<!-- Image -->
+					<picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/iconAppStore@3x.png.webp" type="image/webp"><img loading="lazy" width="483" height="141" src="https://clawee.com/wp-content/uploads/2019/11/iconAppStore@3x.png.webp" class="ip-media webpexpress-processed" alt="" decoding="async"></picture>
+					<!-- Image -->
+				</a>
+			</section>
+			<!-- Button Apple -->
+
+			<!-- Button Google -->
+			<section class="ip-image button">
+				<a href="https://go.onelink.me/app/AdroidGooglePlay" class="ip-link">
+					<!-- Image -->
+					<picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/iconGooglePlay@3x.png.webp" type="image/webp"><img loading="lazy" width="483" height="141" src="https://clawee.com/wp-content/uploads/2019/11/iconGooglePlay@3x.png.webp" class="ip-media webpexpress-processed" alt="" decoding="async"></picture>
+					<!-- Image -->
+				</a>
+			</section>
+			<!-- Button Google -->
+
+					</section>
+
+		
+				<!-- Action -->
+	</section>
+</section>
+<!-- Splash -->
+
+<!-- About -->
+<section class="ip-section about">
+	<section class="ip-box">
+		<section class="ip-box__content">
+			<!-- Title -->
+			<h1 class="ip-title">
+				Real Claw Machines!<br>
+Real Prizes!<br>
+777 Claw Machines to Choose From<br>
+Free Shipping<br>
+			</h1>
+			<!-- Title -->
+
+			<!-- Content -->
+			<section class="ip-content">
+				<section class="ip-box__content">
+<section class="ip-content">Clawee is a real live 24/7 claw machine game offering high quality prizes and a one of a kind game experience. Play numerous machines, proprietary claw games and endless prizes. Win real high quality prizes and get them delivered to your house!<p></p>
+<ul>
+<li>New Prizes EVERY DAY</li>
+<li>Free shipping for VIP members</li>
+<li>Daily bonus for some free and effortless fun</li>
+<li>Top quality live video streaming</li>
+<li>Tons of prizes to choose from</li>
+<li>ENDLESS offers, coupons, events and challenges</li>
+<li>Won a prize you don’t want? Exchange it for MORE coins</li>
+<li>Want even more coins? Play the coins machine!</li>
+<li>Try the Magnet machine, The Scale machine and MANY other one-of-a-kind machines!</li>
+</ul>
+</section>
+</section>
+			</section>
+			<!-- Content -->
+		</section>
+
+		<!-- Image -->
+		<section class="ip-image">
+		    <picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/aboutArt__2x.png.webp 494w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/aboutArt__2x-243x300.png.webp 243w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2019/11/aboutArt__2x-486x600.png.webp 486w" sizes="(max-width: 494px) 100vw, 494px" type="image/webp"><img loading="lazy" width="494" height="610" src="https://clawee.com/wp-content/uploads/2019/11/aboutArt__2x.png" class="ip-media webpexpress-processed" alt="Claw Machine Mobile Game" decoding="async" srcset="https://clawee.com/wp-content/uploads/2019/11/aboutArt__2x.png 494w, https://clawee.com/wp-content/uploads/2019/11/aboutArt__2x-243x300.png 243w, https://clawee.com/wp-content/uploads/2019/11/aboutArt__2x-486x600.png 486w" sizes="(max-width: 494px) 100vw, 494px"></picture>
+		</section>
+		<!-- Image -->
+	</section>
+</section>
+<!-- About -->
+
+<!-- Contact Form -->
+<section class="ip-popup" data-rel="support">
+	<section class="ip-popup--inner">
+		<button class="ip-popup__close" data-role="support">X</button>
+		[contact-form-7 id='9' title='Contact form 1']	</section>
+</section>
+<!-- Contact Form -->
+
+
+			<!-- Footer -->
+	<footer class="ip-footer">
+
+		<!-- Social -->
+		<section class="ip-box social">
+
+			<!-- Social Button -->
+			<a href="https://www.facebook.com/ClaweeIsAwesome/" class="ip-social--icon facebook" target="_blank"></a>
+			<!-- Social Button -->
+
+			<!-- Social Button -->
+			<a href="https://www.instagram.com/clawee_app/?hl=en" class="ip-social--icon instagram" target="_blank"></a>
+			<!-- Social Button -->
+
+			<!-- Social Button -->
+			<a href="https://www.youtube.com/channel/UCgiC6WcWk9IM1Hnr_KQuGkg" class="ip-social--icon youtube" target="_blank"></a>
+			<!-- Social Button -->
+		</section>
+		<!-- Social -->
+
+		<!-- Links -->
+		<section class="ip-box links">
+
+			<!-- Support -->
+			<section class="ip-links">
+				<a href="https://clawee.com/clawee-terms" class="ip-btn__link" target="_blank">Terms &amp; Conditions</a>
+
+				<a href="https://clawee.com/clawee-privacy" class="ip-btn__link" target="_blank">Privacy Policy</a>
+
+				<a href="#" class="ip-btn__link" data-role="support">Help &amp; Support</a>
+			</section>
+			<section class="ip-links">
+				<a href="https://clawee.com/gigantic" class="ip-btn__link">By Gigantic ltd.</a>
+			</section>
+			<!-- Support -->
+
+		</section>
+		<!-- Links -->
+	</footer>
+	<!-- Footer -->
+	</section>
+	<!-- Site Wrapper -->
+
+	<script type="rocketlazyloadscript" data-rocket-src="https://clawee.com/wp-content/themes/iptheme/js/jquery-3.4.1.min.js" defer=""></script>
+	<script type="rocketlazyloadscript" data-rocket-src="https://clawee.com/wp-content/themes/iptheme/js/slick.min.js" defer=""></script>
+	<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+		let oHeight = $(window).outerHeight();
+		let iHeight = $(window).innerHeight();
+		let sHeight = screen.height;
+		let coinsBottomHeight = parseInt(window.getComputedStyle(document.getElementById('coins-bottom')).getPropertyValue('--image-width'), 10);
+		let coinsBottomCalc = coinsBottomHeight * 0.7 * 0.1;
+
+		$(window).scroll(function() {
+			let wScroll = $(this).scrollTop();
+
+			if (wScroll <= oHeight) {
+				$('.ip-logo').css({
+					'margin-top': wScroll / -3 + 'px',
+					'opacity': (1 - (wScroll / 744)),
+				});
+
+				$('.ip-clawee').css({
+					'margin-top': wScroll / -1.5 + 'px',
+				});
+
+				$('.ip-claw').css({
+					'transform': 'translateX(' + (wScroll * 0.2) + 'px)',
+				});
+
+				$('.ip-image.ip-coins.top').css({
+					'top': (0 - (wScroll / .65) + 'px'),
+				});
+
+				$('.ip-image.ip-coins.bottom').css({
+					'bottom': (-coinsBottomCalc + (wScroll / 2.5) + 'px'),
+					'filter': 'blur(' + (wScroll / 170) + 'px)',
+				});
+			};
+		});
+
+		$(document).ready(function() {
+
+			$('[data-role="support"]').click(function(e) {
+				$('[data-rel="support"]').toggleClass('active');
+				e.preventDefault();
+				return;
+			});
+
+			$('.ip-slider').slick({
+				// arrows: false,
+				dots: true,
+				infinite: false,
+				speed: 300,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							arrows: true
+						}
+					},
+					{
+						breakpoint: 1023,
+						settings: {
+							arrows: false
+						}
+					}
+					// You can unslick at a given breakpoint now by adding:
+					// settings: "unslick"
+					// instead of a settings object
+				]
+			});
+
+			$('.ip-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+				$('iframe').each(function(){
+					$(this)[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+				});
+			});
+		})
+
+		//Returns the value of a parameter existing in the page's URL or ' ' if not exists.
+		function getParameterFromURL(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, '\\$&');
+			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		}
+
+		function isMobileDevice() {
+			return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+		}
+
+		function getMobileOperatingSystem() {
+			var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+			if (userAgent) {
+				if (/android/i.test(userAgent)) {
+					return "Android";
+				}
+
+				// iOS detection from: http://stackoverflow.com/a/9039885/177710
+				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+					return "iOS";
+				}
+			}
+			return "unknown";
+		}
+
+		function isAFLink() {
+			return getParameterFromURL('af_redirect');
+		}
+
+		function isFacebook() {
+			if (document.referrer && document.referrer != "") {
+				return document.referrer.toLowerCase().includes('facebook');
+			} else {
+				return false;
+			}
+		}
+
+		// generateUrl returns the URL to use behind the iOS and Android "Download" buttons on a landing page, based on the source of the page visitor.
+		// By default these buttons should direct to the apps' pages on iTunes and Google Play.
+		// If these links should be kept with no change, generateUrl returns ' '.
+		// Otherwise, generateUrl returns the URL to be used under BOTH buttons (a single app download button could also be used in this case).
+		// Parameters: isDebug - if true, alerts are issued for each of the cases, otherwise not.
+		function generateUrl(isDebug) {
+			var oneLinkURL = 'https://clawee.onelink.me/IiA3/LandingPage';   // **** Replace with your own basic OneLink URL ****
+			var webFormURL = 'https://clawee.com'; // **** Replace with your own web form URL for getting the user's email or SMS ****
+			var finalURL = "";
+			var partnerIDParam = '?pid=';
+
+			var campaignValue;
+			if (getParameterFromURL('af_c')) {
+				campaignValue = getParameterFromURL('af_c');
+			} else if (getParameterFromURL('utm_campaign')) {
+				campaignValue = getParameterFromURL('utm_campaign');
+			} else if (document.getElementsByTagName('title')[0]) {
+				campaignValue = document.getElementsByTagName('title')[0].innerText;
+			} else {
+				campaignValue = 'unknown';
+			}
+			var campaignParam = '&c=';
+			var gclidParam = '&af_sub1=';
+			var gclidValue = getParameterFromURL('gclid');
+			var kwParam = '&af_keywords=';
+			var pidValue;
+			var kwValue = getParameterFromURL('keyword');
+
+			if (getParameterFromURL('af_pid')) {
+				pidValue = getParameterFromURL('af_pid');
+			} else if (getParameterFromURL('utm_source')) {
+				pidValue = getParameterFromURL('utm_source');
+			}
+
+			// Prevent the use of real SRN names. Remove this part after you are done testing the script.
+				var SRNs = [
+				'twitter_int',
+				'facebook_int',
+				'snapchat_int',
+				'doubleclick_int',
+				'yahoogemini_int',
+				'yahoojapan_int',
+			];
+
+			if (SRNs.includes(pidValue)) {
+				alert("DO NOT USE NAMES OF SRNS IN af_pid or utm_source - use the names listed in Other SRNs: Add Parameter section in the landing page article\nhttps://support.appsflyer.com/hc/en-us/articles/360000677217#other-srns-add-parameter");
+				return;
+			}
+
+			// Desktop user
+			if (!isMobileDevice()) {
+				return webFormURL;
+			}
+
+			// User was redirected using af_r parameter on an AppsFlyer attribution link
+			if (isAFLink()) {
+				if (isDebug) {
+				alert("This user comes from AppsFlyer by redirection and is ready to be attributed. \nKeep direct app store links.");
+				}
+				return; // in this case, the original store links in the install buttons stay the same
+
+				/*
+				If you want one install button in the landing page that serves both iOS and Android, uncomment the code below
+				The code identifies the operating system and returns the relevant direct link to Google Play or iTunes
+
+				if (getMobileOperatingSystem() === 'Android') {
+				return 'direct link to Google Play';
+				}
+
+				if (getMobileOperatingSystem() === 'iOS') {
+				return 'direct link to iTunes';
+				}
+				*/
+			}
+
+		// Google Ads
+		if (gclidValue) {
+			partnerIDParam += 'google_lp';
+			campaignParam += campaignValue;
+			gclidParam += gclidValue
+			if (!kwValue) {
+				finalURL = oneLinkURL + partnerIDParam + campaignParam + gclidParam;
+			if (isDebug) {
+				alert("This user comes from Google AdWords\n " + finalURL);
+			}
+			return finalURL;
+
+			} else { // Google Ads with KW
+				kwParam += kwValue;
+				finalURL = oneLinkURL + partnerIDParam + campaignParam + gclidParam + kwParam;
+				if (isDebug) {
+					alert("This user comes from Google AdWords - there is a keyword associated with the ad\n " + finalURL);
+				}
+				return finalURL;
+			}
+
+			// Other SRNs and custom networks
+			} else if (pidValue) {
+				campaignParam += campaignValue;
+				partnerIDParam += pidValue;
+				finalURL = oneLinkURL + partnerIDParam + campaignParam;
+				if (isDebug) {
+					alert("This user comes the SRN or custom network " + pidValue + "\n" + finalURL);
+				}
+				return finalURL;
+			} else if (isFacebook()) {
+				if (isDebug) {
+					alert("This user comes from a paid Facebook ad - don't do anything. \nKeep direct app store links.");
+				}
+				return ' ';
+			} else { // organic mobile user
+				campaignParam += campaignValue;
+				partnerIDParam += 'OrganicLP'; //**** Replace value if you wish organic users to be attributed to another media source than 'website' ****
+				finalURL = oneLinkURL + partnerIDParam + campaignParam;
+				if (isDebug) {
+					alert("This user comes from an unknown mobile source.\n The user would be attributed to media source 'website' and to the campaign " + campaignParam + "\n" + finalURL);
+				}
+				return finalURL;
+			}
+		}
+	});</script>
+	<picture><source srcset="https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/footer.jpg.webp 2048w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/footer-300x47.jpg.webp 300w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/footer-1024x162.jpg.webp 1024w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/footer-768x121.jpg.webp 768w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/footer-1536x242.jpg.webp 1536w, https://clawee.com/wp-content/webp-express/webp-images/uploads/2024/04/footer-1568x247.jpg.webp 1568w" sizes="(max-width: 2048px) 100vw, 2048px" type="image/webp"><img loading="lazy" width="2048" height="323" src="https://clawee.com/wp-content/uploads/2024/04/footer.jpg" class="footer-bg webpexpress-processed" alt="" decoding="async" srcset="https://clawee.com/wp-content/uploads/2024/04/footer.jpg 2048w, https://clawee.com/wp-content/uploads/2024/04/footer-300x47.jpg 300w, https://clawee.com/wp-content/uploads/2024/04/footer-1024x162.jpg 1024w, https://clawee.com/wp-content/uploads/2024/04/footer-768x121.jpg 768w, https://clawee.com/wp-content/uploads/2024/04/footer-1536x242.jpg 1536w, https://clawee.com/wp-content/uploads/2024/04/footer-1568x247.jpg 1568w" sizes="(max-width: 2048px) 100vw, 2048px"></picture>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>
