@@ -3280,6 +3280,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/medcasehealth"],
     _processed: "auto"
   },
+  Medorion: {
+    ws: ["https://medorion.com"],
+    li: ["https://www.linkedin.com/company/medorion"],
+    fb: ["https://www.facebook.com/medorion2017"],
+    tw: ["https://x.com/medorion1"],
+    _processed: "auto"
+  },
   "Meitav Investment House": {
     ws: ["https://www.meitav.co.il"],
     li: ["https://www.linkedin.com/company/meitav"],
