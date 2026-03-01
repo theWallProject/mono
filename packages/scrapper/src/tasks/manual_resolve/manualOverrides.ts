@@ -4248,6 +4248,15 @@ export const manualOverrides: Record<
   },
   Somite: { tw: "https://x.com/somiteai" },
   Sorbet: { ws: ["https://advance.getsorbet.com"], _processed: "auto" },
+  SpaceIL: {
+    ws: ["https://arb.spaceil.com", "https://eng.spaceil.com", "https://kids.spaceil.com", "https://www.spaceil.com"],
+    fb: ["https://www.facebook.com/spaceil"],
+    tw: ["https://x.com/teamspaceil"],
+    ig: ["https://www.instagram.com/spaceil"],
+    ytp: ["https://www.youtube.com/@teamspaceil"],
+    urls: ["https://www.wix.com"],
+    _processed: "auto"
+  },
   Speedata: {
     li: ["https://www.linkedin.com/company/speedataio"],
     fb: ["https://www.facebook.com/speedata.io"],
