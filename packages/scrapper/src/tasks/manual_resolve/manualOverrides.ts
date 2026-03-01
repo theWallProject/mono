@@ -630,6 +630,13 @@ export const manualOverrides: Record<
     android_app_ids: ["com.biocatch.are_you_rat", "com.biocatchbank"],
     _processed: true
   },
+  Biobeat: {
+    ws: ["https://www.bio-beat.com"],
+    li: ["https://www.linkedin.com/company/biobeat-ltd."],
+    tw: ["https://x.com/biobeatt"],
+    ytc: ["https://www.youtube.com/channel/ucybhciz2gfyqruh2z4zwqfg"],
+    _processed: "auto"
+  },
   Bit: {
     ws: ["https://bit.dev"],
     li: ["https://www.linkedin.com/company/bit-dev"],
