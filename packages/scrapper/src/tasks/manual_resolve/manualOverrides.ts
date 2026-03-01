@@ -1322,6 +1322,14 @@ export const manualOverrides: Record<
     android_dev_id: "com.empathy",
     _processed: true
   },
+  EndoSpan: {
+    ws: ["https://www.endospan.com"],
+    li: ["https://www.linkedin.com/company/endospan"],
+    fb: ["https://www.facebook.com/endospan"],
+    tw: ["https://x.com/endospanltd"],
+    ytc: ["https://www.youtube.com/channel/ucjg9yoqbe3wem-qs616tdyw"],
+    _processed: "auto"
+  },
   Entrio: {
     ws: ["https://docs.entrio.io", "https://www.entrio.io"],
     li: ["https://www.linkedin.com/company/entrioplatform"],
