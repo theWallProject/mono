@@ -2064,6 +2064,11 @@ export const manualOverrides: Record<
     urls: ["https://www.h2pro.co"],
     _processed: "auto"
   },
+  HELFY: {
+    ws: ["https://helfy.co"],
+    urls: ["https://helfy.co", "https://helfy.co/careers", "https://helfy.co/contact"],
+    _processed: "auto"
+  },
   "HUB Security": {
     ws: ["https://hub-technologies.com", "https://investors.hubsecurity.com"],
     li: ["https://www.linkedin.com/company/18444151"],
