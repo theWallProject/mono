@@ -635,6 +635,31 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  BEAM: {
+    ws: ["https://beam.mw", "https://dex.beam.mw", "https://explorer.beam.mw", "https://forum.beam.mw"],
+    tw: ["https://x.com/beamprivacy"],
+    gh: ["https://github.com/beammw"],
+    ytp: ["https://www.youtube.com/@beamprivacy"],
+    urls: [
+      "https://anchor.fm/beam-privacy",
+      "https://beamassets.com",
+      "https://beamprivacy.substack.com",
+      "https://bitcointalk.org/index.php",
+      "https://coinmarketcap.com/currencies/beam",
+      "https://discord.gg/BHZvAhg",
+      "https://forum.beam.mw",
+      "https://medium.com/beam-mw",
+      "https://qm.qq.com/cgi-bin/qm/qr",
+      "https://t.me/BeamMiners",
+      "https://t.me/BeamPrivacy",
+      "https://t.me/BeamSupport",
+      "https://t.me/beamdevsupport",
+      "https://www.coingecko.com/en/coins/beam",
+      "https://www.coingecko.com/learn/introduction-to-beam-cryptocurrency",
+      "https://www.reddit.com/r/beamprivacy"
+    ],
+    _processed: "auto"
+  },
   "BELKIN Vision": {
     ws: ["https://events.myalcon.com", "https://preferences.myalcon.com", "https://www.myalcon.com"],
     urls: [
