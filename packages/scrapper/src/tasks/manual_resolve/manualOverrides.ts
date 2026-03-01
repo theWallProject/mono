@@ -120,6 +120,14 @@ export const manualOverrides: Record<
     android_dev_id: "com.au10tix",
     _processed: true
   },
+  "Accelario Software": {
+    ws: ["https://accelario.com"],
+    li: ["https://www.linkedin.com/company/accelario"],
+    tw: ["https://x.com/accelario2"],
+    ytp: ["https://www.youtube.com/@accelario"],
+    urls: ["https://www.g2.com/products/accelario-accelario/reviews"],
+    _processed: "auto"
+  },
   "Acclym (formerly Agritask)": {
     ws: ["https://www.acclym.com"],
     li: ["https://www.linkedin.com/company/acclym"],
