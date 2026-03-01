@@ -1214,6 +1214,7 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Candivore: { ws: ["https://candivore.io"], urls: ["https://candivore.zendesk.com"], _processed: "auto" },
+  "Captain's Eye": { ws: ["https://www.captain-eye.com"], _processed: "auto" },
   "Carbon Blue": {
     ws: ["https://carbonblue.cc"],
     li: ["https://www.linkedin.com/company/carbonblue-cc"],
