@@ -38,6 +38,7 @@ import {
   removeFromRetryList
 } from "./retry_list"
 import { assertGitPreconditions, commitCompanyResult } from "./git_commit"
+import { runUpdateSteps } from "../../index"
 
 // ────────────────────────────────────────────────────────────────────────────
 // Data loading
@@ -659,6 +660,10 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
 
     // Remove from retry list if it was there
     removeFromRetryList(item.name)
+
+    // Regenerate ALL.json and all output files so the commit is fully self-contained
+    log(`Regenerating database for "${item.name}"...`)
+    await runUpdateSteps({ shouldScrap: false, shouldValidate: false })
 
     // Commit this company's changes atomically
     commitCompanyResult(item.name, true)
