@@ -1878,6 +1878,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@dotcompliance_eqms"],
     _processed: "auto"
   },
+  DagsHub: {
+    ws: ["https://dagshub.com"],
+    li: ["https://www.linkedin.com/company/dagshub"],
+    tw: ["https://x.com/therealdagshub"],
+    ytp: ["https://www.youtube.com/@dagshub"],
+    urls: ["https://discord.com/invite/9gU36Y6", "https://forms.fillout.com/t/3ioiagnP7mus"],
+    _processed: "auto"
+  },
   Darrow: {
     ws: ["https://portal.darrow.ai", "https://www.darrow.ai"],
     li: ["https://www.linkedin.com/company/darrow-ai"],
