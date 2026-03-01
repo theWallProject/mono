@@ -637,6 +637,12 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucybhciz2gfyqruh2z4zwqfg"],
     _processed: "auto"
   },
+  BiolineRx: {
+    ws: ["https://biolinerx.com", "https://ir.biolinerx.com"],
+    li: ["https://www.linkedin.com/company/biolinerx"],
+    tw: ["https://x.com/biolinerx_ltd"],
+    _processed: "auto"
+  },
   Bit: {
     ws: ["https://bit.dev"],
     li: ["https://www.linkedin.com/company/bit-dev"],
