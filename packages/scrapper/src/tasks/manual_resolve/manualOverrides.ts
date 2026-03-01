@@ -7156,5 +7156,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@superwiseai"],
     urls: ["https://discord.com/invite/678qcsA57y", "https://docs.superwise.ai", "https://sdk.docs.superwise.ai"],
     _processed: "auto"
+  },
+  weSure: {
+    ws: ["https://b2c.we-sure.co.il", "https://we-sure.co.il"],
+    fb: [
+      "https://www.facebook.com/wesure-insurance-%d7%95%d7%95%d7%99%d7%a9%d7%95%d7%a8-%d7%97%d7%91%d7%a8%d7%94-%d7%9c%d7%91%d7%99%d7%98%d7%95%d7%97-232508544298955"
+    ],
+    tw: ["https://x.com/wesure2"],
+    ig: ["https://www.instagram.com/wesure.il"],
+    urls: ["https://api.whatsapp.com/send", "https://wesuregroup.com", "https://www.profilesoft.com"],
+    _processed: "auto"
   }
 }
