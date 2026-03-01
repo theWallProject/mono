@@ -4586,6 +4586,31 @@ export const manualOverrides: Record<
     urls: ["https://attractive.co.il", "https://sigaotsolution.wpengine.com/request-a-demo"],
     _processed: "auto"
   },
+  "SSV Network": {
+    ws: [
+      "https://app.ssv.network",
+      "https://docs.ssv.network",
+      "https://explorer.ssv.network",
+      "https://forum.ssv.network",
+      "https://ssv.network",
+      "https://stake.ssv.network"
+    ],
+    tw: ["https://x.com/ssv_network"],
+    gh: ["https://github.com/ssvlabs"],
+    ytp: ["https://www.youtube.com/@ssvnetwork"],
+    urls: [
+      "https://discord.gg/5vT22pRBrf",
+      "https://docs.ssv.network/learn/introduction",
+      "https://drive.google.com/file/d/1dPzTQIJ2cGdL-YuQdhHmHlaB14BDHsI1/view",
+      "https://dune.com/ssv_network",
+      "https://explorer.ssv.network",
+      "https://snapshot.org",
+      "https://ssv.foundation",
+      "https://ssvlabs.io",
+      "https://stake.ssv.network"
+    ],
+    _processed: "auto"
+  },
   STOREE: { ws: ["https://storee.ai"], li: ["https://www.linkedin.com/company/storeeai"], _processed: "auto" },
   Salto: {
     ws: ["https://www.salto.io"],
