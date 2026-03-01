@@ -2688,6 +2688,14 @@ export const manualOverrides: Record<
     urls: ["https://awesometlv.co.il"],
     _processed: "auto"
   },
+  InfiniGrow: {
+    ws: ["https://app.infinigrow.com", "https://infinigrow.com"],
+    li: ["https://www.linkedin.com/company/infinigrow"],
+    urls: [
+      "https://investors.amplitude.com/news-releases/news-release-details/amplitude-acquires-infinigrow-bring-revenue-analytics-marketers"
+    ],
+    _processed: "auto"
+  },
   Infinidat: {
     ws: ["https://www.infinidat.com"],
     li: ["https://www.linkedin.com/company/infinidat"],
