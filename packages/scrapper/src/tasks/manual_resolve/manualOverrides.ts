@@ -3581,6 +3581,16 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Tipa: {
+    ws: ["https://tipa-corp.com"],
+    li: ["https://www.linkedin.com/company/tipa"],
+    fb: ["https://www.facebook.com/tipacorp"],
+    tw: ["https://x.com/tipacorp"],
+    ig: ["https://www.instagram.com/tipacorp"],
+    ytc: ["https://www.youtube.com/channel/uc7etns-rhngfspmzube6mhw"],
+    urls: ["https://www.pinterest.com/TipaCorp"],
+    _processed: "auto"
+  },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
     li: ["https://www.linkedin.com/company/token-security"],
