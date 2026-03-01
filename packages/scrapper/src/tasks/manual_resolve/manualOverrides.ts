@@ -2211,6 +2211,14 @@ export const manualOverrides: Record<
     urls: ["https://docs.mstone.ai", "https://mstone.ai"],
     _processed: "auto"
   },
+  Mindspace: {
+    ws: ["https://hs.mindspace.me", "https://members.mindspace.me", "https://www.mindspace.me"],
+    li: ["https://www.linkedin.com/company/mindspace-co"],
+    fb: ["https://www.facebook.com/mindspace.me"],
+    ig: ["https://www.instagram.com/mindspace.me"],
+    urls: ["https://onelink.to/mindspace-member-app"],
+    _processed: "auto"
+  },
   Mine: {
     ws: ["https://developers.mineos.ai", "https://docs.mineos.ai", "https://www.mineos.ai"],
     li: ["https://www.linkedin.com/company/mineos"],
