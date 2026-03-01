@@ -3069,6 +3069,25 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   Quris: { ws: ["https://www.quris.ai"], li: ["https://www.linkedin.com/company/quris-ai"], _processed: "auto" },
+  Qwak: {
+    ws: ["https://docs.qwak.com", "https://www.qwak.com"],
+    li: ["https://www.linkedin.com/company/qwakai"],
+    tw: ["https://x.com/qwak_ai"],
+    gh: ["https://github.com/qwak-ai"],
+    urls: [
+      "https://app.qwak.ai",
+      "https://docs.qwak.com/docs",
+      "https://jfrog.com/jfrog-cookies-policy",
+      "https://jfrog.com/jfrog-ml",
+      "https://jfrog.com/privacy-policy",
+      "https://mlengineering.medium.com",
+      "https://www.qwak.com",
+      "https://www.qwak.com/products/feature-store",
+      "https://www.qwak.com/products/llmops",
+      "https://www.qwak.com/products/mlops"
+    ],
+    _processed: "auto"
+  },
   "REE Automotive": {
     ws: ["https://ree.auto"],
     li: ["https://www.linkedin.com/company/reeautoofficial"],
