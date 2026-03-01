@@ -1907,6 +1907,7 @@ export const manualOverrides: Record<
     urls: ["https://medium.com/dn-techbites"],
     _processed: "auto"
   },
+  "Dror Ortho-Design": { ws: ["https://zsmile.com"], urls: ["https://web3d.co.il"], _processed: "auto" },
   Droxi: {
     ws: ["https://www.droxi.ai"],
     li: ["https://www.linkedin.com/company/droxi"],
