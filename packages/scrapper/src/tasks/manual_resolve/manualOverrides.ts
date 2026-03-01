@@ -5520,6 +5520,19 @@ export const manualOverrides: Record<
     urls: ["https://goo.gl/maps/shPJd5niNA5LsX62A", "https://maps.app.goo.gl/sEhaP5sZy3QUJ2hF7"],
     _processed: "auto"
   },
+  "Stream Security": {
+    ws: ["https://www.stream.security"],
+    li: ["https://www.linkedin.com/company/streamsecurity"],
+    fb: ["https://www.facebook.com/streamcloudsec"],
+    tw: ["https://x.com/streamsecurity"],
+    ig: ["https://www.instagram.com/stream.security"],
+    urls: [
+      "https://app.streamsec.io",
+      "https://partners.amazonaws.com/partners/0010h00001kMTImAAO/lightlytics.com",
+      "https://www.gartner.com/reviews/market/cloud-investigation-and-response-automation-cira/vendor/stream-security/product/stream-security"
+    ],
+    _processed: "auto"
+  },
   SuperBuzz: {
     ws: ["https://analyze.superbuzz.io", "https://app.superbuzz.io", "https://www.superbuzz.io"],
     li: ["https://www.linkedin.com/company/superbuzz-io"],
