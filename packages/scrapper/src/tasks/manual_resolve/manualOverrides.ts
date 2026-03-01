@@ -3145,6 +3145,23 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Qualifire: {
+    ws: [
+      "https://app.qualifire.ai",
+      "https://docs.qualifire.ai",
+      "https://playground.qualifire.ai",
+      "https://qualifire.ai"
+    ],
+    li: ["https://www.linkedin.com/company/qualifire-ai"],
+    tw: ["https://x.com/qualifireai"],
+    gh: ["https://github.com/qualifire-dev"],
+    urls: [
+      "https://console.cloud.google.com/marketplace/product/qualifire-public/qualifire-guard",
+      "https://discord.gg/bGftz4pznT",
+      "https://huggingface.co/qualifire"
+    ],
+    _processed: "auto"
+  },
   QuantHealth: {
     ws: ["https://quanthealth.ai", "https://trust.quanthealth.ai"],
     li: ["https://www.linkedin.com/company/quanthealthlabs"],
