@@ -4225,6 +4225,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/renewable-energy-place-ltd"],
     _processed: "auto"
   },
+  Radiflow: {
+    ws: ["https://www.radiflow.com"],
+    li: ["https://www.linkedin.com/company/radiflow"],
+    tw: ["https://x.com/radiflowsec"],
+    ytc: ["https://www.youtube.com/channel/ucqqiq_yz7vnodhxys4zibqq"],
+    urls: ["https://radiflow-partners.com", "https://radiflow-partners.net"],
+    _processed: "auto"
+  },
   "Rafael Advanced Defense Systems": {
     ws: ["https://career.rafael.co.il", "https://www.rafael.co.il"],
     li: ["https://www.linkedin.com/company/rafael-advanced-defense-systems-official"],
