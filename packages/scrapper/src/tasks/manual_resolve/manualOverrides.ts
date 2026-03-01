@@ -1822,6 +1822,18 @@ export const manualOverrides: Record<
     urls: ["https://investors.gauzy.com", "https://vsc.gsa.gov/drupal/node/138"],
     _processed: "auto"
   },
+  Gaviti: {
+    ws: ["https://app.gaviti.com", "https://gaviti.com", "https://go.gaviti.com"],
+    li: ["https://www.linkedin.com/company/gaviti"],
+    fb: ["https://www.facebook.com/gavitii"],
+    urls: [
+      "https://www.g2.com/products/gaviti/reviews/gaviti-review-8769579",
+      "https://www.g2.com/products/gaviti/reviews/gaviti-review-9853344",
+      "https://www.g2.com/products/gaviti/reviews/gaviti-review-9875846",
+      "https://www.g2.com/products/gaviti/reviews/gaviti-review-9938424"
+    ],
+    _processed: "auto"
+  },
   GeoX: { ws: ["https://app.geox.ai"], _processed: "auto" },
   Grain: {
     ws: ["https://www.grainfinance.com"],
