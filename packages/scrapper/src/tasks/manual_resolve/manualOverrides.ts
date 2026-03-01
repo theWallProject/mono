@@ -3673,6 +3673,16 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/renewable-energy-place-ltd"],
     _processed: "auto"
   },
+  "Rafael Advanced Defense Systems": {
+    ws: ["https://career.rafael.co.il", "https://www.rafael.co.il"],
+    li: ["https://www.linkedin.com/company/rafael-advanced-defense-systems-official"],
+    fb: ["https://www.facebook.com/rafaeldefense"],
+    tw: ["https://x.com/rafaeldefense"],
+    ig: ["https://www.instagram.com/rafaeldefense"],
+    ytp: ["https://www.youtube.com/@rafaelmarketingltd"],
+    urls: ["https://rafael-uk.com", "https://www.rafael-usa.com"],
+    _processed: "auto"
+  },
   RailVision: {
     ws: ["https://ir.railvision.io", "https://railvision.io"],
     li: ["https://www.linkedin.com/company/rail-vision"],
