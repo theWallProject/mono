@@ -1062,6 +1062,11 @@ export const manualOverrides: Record<
     urls: ["https://commbox.statuspage.io", "https://help.commbox.io/apidocs"],
     _processed: "auto"
   },
+  "Compete HR": {
+    ws: ["https://competewith.com", "https://swp-us.competewith.com"],
+    li: ["https://www.linkedin.com/company/competehr"],
+    _processed: "auto"
+  },
   ControlMonkey: {
     ws: ["https://console.controlmonkey.io", "https://controlmonkey.io", "https://trust.controlmonkey.io"],
     li: ["https://www.linkedin.com/company/controlmonkey"],
