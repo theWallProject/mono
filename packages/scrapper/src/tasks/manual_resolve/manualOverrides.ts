@@ -995,6 +995,15 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Cylus: {
+    ws: ["https://www.cylus.com"],
+    li: ["https://www.linkedin.com/company/cylus"],
+    fb: ["https://www.facebook.com/cylusec"],
+    tw: ["https://x.com/cylus_security"],
+    ytc: ["https://www.youtube.com/channel/ucmddhg7xxegxvfp5zav91zq"],
+    urls: ["https://www.railtechsecurity.com"],
+    _processed: "auto"
+  },
   Cymbio: {
     ws: ["https://agentic.cym.bio", "https://app.cym.bio", "https://www.cym.bio"],
     li: ["https://www.linkedin.com/company/cymbio"],
