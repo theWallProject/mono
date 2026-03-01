@@ -2419,6 +2419,21 @@ export const manualOverrides: Record<
     urls: ["http://lab2.online"],
     _processed: "auto"
   },
+  "High Lander": {
+    ws: ["https://www.highlander.io"],
+    li: ["https://www.linkedin.com/company/high-lander"],
+    urls: [
+      "https://www.highlander.io/about-us",
+      "https://www.highlander.io/copy-of-israel-vega-utm",
+      "https://www.highlander.io/highsite",
+      "https://www.highlander.io/orion",
+      "https://www.highlander.io/privacy",
+      "https://www.highlander.io/rom360",
+      "https://www.highlander.io/terms-of-use",
+      "https://www.highlander.io/vega"
+    ],
+    _processed: "auto"
+  },
   Hirundo: { ws: ["https://www.hirundo.io"], li: ["https://www.linkedin.com/company/gethirundo"], _processed: "auto" },
   Hisense: {
     ws: ["https://www.hisense.co.il"],
