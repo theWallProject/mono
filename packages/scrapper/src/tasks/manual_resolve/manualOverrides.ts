@@ -3169,6 +3169,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Salvador Technologies": {
+    ws: ["https://www.salvador-tech.com"],
+    ytc: ["https://www.youtube.com/channel/uc3ytvkx8uidffs-_lfo-xdw"],
+    urls: ["https://api.whatsapp.com/send"],
+    _processed: "auto"
+  },
   Sapiens: {
     ws: [
       "https://careers.sapiens.com",
