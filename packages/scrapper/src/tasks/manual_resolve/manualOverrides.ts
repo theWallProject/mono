@@ -1888,6 +1888,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/forsightrobotics"],
     _processed: "auto"
   },
+  FreezeM: {
+    ws: ["https://www.freezem.com"],
+    li: ["https://www.linkedin.com/company/freezem"],
+    fb: ["https://www.facebook.com/freezem-102195254834998"],
+    tw: ["https://x.com/freezem5"],
+    ig: ["https://www.instagram.com/freezem_bsf"],
+    _processed: "auto"
+  },
   "GK8 by Galaxy": {
     ws: ["https://www.gk8.io"],
     li: ["https://www.linkedin.com/company/gk8"],
