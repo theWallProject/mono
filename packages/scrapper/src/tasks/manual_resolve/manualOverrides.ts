@@ -1570,6 +1570,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cymulateltd"],
     _processed: "auto"
   },
+  Cynamics: {
+    ws: ["https://www.cynamics.ai"],
+    li: ["https://www.linkedin.com/company/cynamics"],
+    fb: ["https://www.facebook.com/cynamicsai"],
+    tw: ["https://x.com/cynamics_ai"],
+    ytc: ["https://www.youtube.com/channel/ucl5iec7p-7q4co_hziato4q"],
+    urls: ["https://www.fedramp.gov"],
+    _processed: "auto"
+  },
   Cynomi: {
     ws: ["https://cynomi.com"],
     li: ["https://www.linkedin.com/company/cynomi"],
