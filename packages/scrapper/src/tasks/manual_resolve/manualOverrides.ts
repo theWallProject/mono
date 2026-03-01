@@ -2883,6 +2883,14 @@ export const manualOverrides: Record<
     urls: ["https://launchpass.com/komodorkommunity", "https://www.g2.com/products/komodor-2024-05-13/reviews"],
     _processed: "auto"
   },
+  Konnecto: {
+    ws: ["https://www.konnecto.com"],
+    li: ["https://www.linkedin.com/company/konnectoconsumerintelligence"],
+    fb: ["https://www.facebook.com/konnecto.io"],
+    tw: ["https://x.com/konnecto_"],
+    ig: ["https://www.instagram.com/konnecto"],
+    _processed: "auto"
+  },
   Kooply: {
     ws: ["https://kooply.com"],
     li: ["https://www.linkedin.com/company/kooply"],
