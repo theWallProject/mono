@@ -876,6 +876,18 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/bioraptor"],
     _processed: "auto"
   },
+  "BioT Medical": {
+    ws: ["https://docs.biot-med.com", "https://www.biot-med.com"],
+    li: ["https://www.linkedin.com/company/biot-medical"],
+    urls: [
+      "https://www.biot-med.com/about",
+      "https://www.iubenda.com/privacy-policy/31881521",
+      "https://www.iubenda.com/privacy-policy/31881521/cookie-policy",
+      "https://www.meetup.com/IoMT-Product-Experts",
+      "https://www.meetup.com/Medical-IoT-IoMT-Product-Experts-of-Southern-California"
+    ],
+    _processed: "auto"
+  },
   Biobeat: {
     ws: ["https://www.bio-beat.com"],
     li: ["https://www.linkedin.com/company/biobeat-ltd."],
