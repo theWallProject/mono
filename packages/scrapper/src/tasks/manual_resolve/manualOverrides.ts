@@ -4361,6 +4361,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/payoutsdotcom"],
     _processed: "auto"
   },
+  Pecan: {
+    ws: ["https://help.pecan.ai", "https://www.pecan.ai"],
+    li: ["https://www.linkedin.com/company/pecan-ai"],
+    fb: ["https://www.facebook.com/pecanai"],
+    tw: ["https://x.com/pecan_ai"],
+    urls: ["https://www.g2.com/products/pecan/reviews"],
+    _processed: "auto"
+  },
   "Pepticom Ltd.": {
     ws: ["https://pepticom.com"],
     li: ["https://www.linkedin.com/company/pepticom-ltd."],
