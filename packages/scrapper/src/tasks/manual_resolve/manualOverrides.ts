@@ -4731,6 +4731,12 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucp4qalzbcso-cbk8p4dqjfg"],
     _processed: "auto"
   },
+  "Slice Global": {
+    ws: ["https://app.sliceglobal.com", "https://sliceglobal.com"],
+    li: ["https://www.linkedin.com/company/globalslice"],
+    urls: ["https://www.widelab.co"],
+    _processed: "auto"
+  },
   "SofWave Medical": {
     ws: ["https://sofwave.com"],
     li: ["https://www.linkedin.com/company/sofwave"],
