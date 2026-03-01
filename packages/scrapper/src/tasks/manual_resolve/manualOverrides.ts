@@ -3434,6 +3434,26 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/panjaya.ai"],
     _processed: "auto"
   },
+  Panoply: {
+    ws: [
+      "https://blog.panoply.io",
+      "https://learn.panoply.io",
+      "https://panoply.io",
+      "https://platform.panoply.io",
+      "https://status.panoply.io"
+    ],
+    li: ["https://www.linkedin.com/company/panoply-io"],
+    fb: ["https://www.facebook.com/panoply.io"],
+    tw: ["https://x.com/panoplyio"],
+    urls: [
+      "https://sqream.com",
+      "https://sqream.com/company/careers",
+      "https://www.capterra.com/p/168034/Panoply",
+      "https://www.g2.com/products/panoply/reviews",
+      "https://www.gartner.com/reviews/market/cloud-database-management-systems/vendor/panoply/product/panoply"
+    ],
+    _processed: "auto"
+  },
   "Payouts.com": {
     ws: ["https://integrations.payouts.com", "https://payouts.com", "https://status.payouts.com"],
     li: ["https://www.linkedin.com/company/payouts-com"],
