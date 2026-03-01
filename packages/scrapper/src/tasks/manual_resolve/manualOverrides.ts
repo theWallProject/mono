@@ -4768,6 +4768,15 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  myInterview: {
+    ws: ["https://blog.radancy.com", "https://www.radancy.com"],
+    li: ["https://www.linkedin.com/company/radancy"],
+    fb: ["https://www.facebook.com/radancy"],
+    ig: ["https://www.instagram.com/radancyco"],
+    ytp: ["https://www.youtube.com/@radancy"],
+    urls: ["https://dashboard.myinterview.com/login", "https://support.radancy.net/hc/en-us"],
+    _processed: "auto"
+  },
   "nSure.ai": {
     ws: ["https://nsure.ai"],
     li: ["https://www.linkedin.com/company/nsureai"],
