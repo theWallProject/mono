@@ -1875,6 +1875,19 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/project-helios"],
     _processed: "auto"
   },
+  Hexagate: {
+    ws: [
+      "https://academy.chainalysis.com",
+      "https://app.chainalysis.com",
+      "https://go.chainalysis.com",
+      "https://www.chainalysis.com"
+    ],
+    li: ["https://www.linkedin.com/company/chainalysis"],
+    tw: ["https://x.com/chainalysis"],
+    ytp: ["https://www.youtube.com/@chainalysis"],
+    urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms", "https://t.me/chainalysisinc"],
+    _processed: "auto"
+  },
   "Hi Auto": {
     ws: ["https://hi.auto"],
     li: ["https://www.linkedin.com/company/hi-auto"],
