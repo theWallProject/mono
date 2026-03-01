@@ -1178,6 +1178,22 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/darrow-ai"],
     _processed: "auto"
   },
+  "Datafy.io": {
+    ws: ["https://auth.datafy.io", "https://datafy.io", "https://docs.datafy.io"],
+    urls: [
+      "https://datafy.io/about",
+      "https://datafy.io/blog",
+      "https://datafy.io/careers",
+      "https://datafy.io/datafy-auto-scaler",
+      "https://datafy.io/datafy-sensor",
+      "https://datafy.io/events",
+      "https://datafy.io/glossary",
+      "https://datafy.io/privacy-policy",
+      "https://datafy.io/terms-of-use",
+      "https://docs.datafy.io"
+    ],
+    _processed: "auto"
+  },
   "Dataloop AI": {
     ws: ["https://console.dataloop.ai", "https://dataloop.ai", "https://docs.dataloop.ai"],
     li: ["https://www.linkedin.com/company/dataloop"],
