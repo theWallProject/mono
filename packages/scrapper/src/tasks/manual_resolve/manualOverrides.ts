@@ -1995,6 +1995,16 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucjg9yoqbe3wem-qs616tdyw"],
     _processed: "auto"
   },
+  "Enlight Renewable Energy": {
+    ws: ["https://enlightenergy.co.il"],
+    li: ["https://www.linkedin.com/company/9025493"],
+    fb: ["https://www.facebook.com/enlightrenewableenergy"],
+    tw: ["https://x.com/enlight_re"],
+    ig: ["https://www.instagram.com/enlight.renewable.energy"],
+    ytp: ["https://www.youtube.com/@enlightrenewableenergy"],
+    urls: ["https://a-2-z.co.il"],
+    _processed: "auto"
+  },
   Entrio: {
     ws: ["https://docs.entrio.io", "https://www.entrio.io"],
     li: ["https://www.linkedin.com/company/entrioplatform"],
