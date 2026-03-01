@@ -5038,6 +5038,30 @@ export const manualOverrides: Record<
     urls: ["https://tidhar.my.site.com/community", "https://www.dofinity.com"],
     _processed: "auto"
   },
+  TinyTap: {
+    ws: [
+      "https://blog.tinytap.com",
+      "https://campus.tinytap.com",
+      "https://courses.tinytap.com",
+      "https://edu.tinytap.com",
+      "https://tinytap.com",
+      "https://www.start.tinytap.com"
+    ],
+    fb: ["https://www.facebook.com/tinytapit"],
+    tw: ["https://x.com/tinytapedu"],
+    ig: ["https://www.instagram.com/tinytapit"],
+    tt: ["https://www.tiktok.com/@tinytapgames"],
+    urls: [
+      "https://a.co/d/fqzEXCO",
+      "https://blog.tinytap.com",
+      "https://itunes.apple.com/us/app/tinytap-moments-into-games/id493868874",
+      "https://tinytap.freshdesk.com/en/support/solutions/folders/36000187005",
+      "https://www.animocabrands.com",
+      "https://www.animocabrands.com/animoca-brands-edtech-subsidiary-tinytap-reveals-new-ai-features-and-roadmap"
+    ],
+    android_app_ids: ["tinytap.kids.learning.games"],
+    _processed: "auto"
+  },
   Tipa: {
     ws: ["https://tipa-corp.com"],
     li: ["https://www.linkedin.com/company/tipa"],
