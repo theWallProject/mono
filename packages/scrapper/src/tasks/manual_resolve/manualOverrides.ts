@@ -1615,6 +1615,12 @@ export const manualOverrides: Record<
     urls: ["https://dig.teamme.link"],
     _processed: "auto"
   },
+  "Discure Technologies": {
+    ws: ["https://discuremd.com"],
+    li: ["https://www.linkedin.com/company/discure-technologies"],
+    urls: ["http://imaginet.co.il"],
+    _processed: "auto"
+  },
   "Diversion Company": {
     ws: ["https://app.diversion.dev", "https://docs.diversion.dev", "https://www.diversion.dev"],
     li: ["https://www.linkedin.com/company/diversion-company-inc"],
