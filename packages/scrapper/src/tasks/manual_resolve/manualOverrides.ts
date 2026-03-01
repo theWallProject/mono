@@ -5584,6 +5584,11 @@ export const manualOverrides: Record<
     urls: ["https://sailpoint.wd1.myworkdayjobs.com/SailPoint/jobs"],
     _processed: "auto"
   },
+  "Scala Biodesign": {
+    ws: ["https://www.scala-bio.com"],
+    li: ["https://www.linkedin.com/company/scala-biodesign"],
+    _processed: "auto"
+  },
   "Scinai Immunotherapeutics": {
     ws: ["https://www.scinai.com"],
     li: ["https://www.linkedin.com/company/scinai"],
