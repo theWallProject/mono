@@ -6894,6 +6894,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Wi Charge": {
+    ws: ["https://www.wi-charge.com"],
+    fb: ["https://www.facebook.com/wicharge"],
+    tw: ["https://x.com/wichargeltd"],
+    ig: ["https://www.instagram.com/wi_charge"],
+    ytp: ["https://www.youtube.com/@wi-charge1364"],
+    _processed: "auto"
+  },
   "Wib Security": {
     ws: [
       "https://account.f5.com",
