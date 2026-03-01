@@ -7133,5 +7133,20 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/proteantecs"],
     ytc: ["https://www.youtube.com/channel/UCy-iC3bfYrosKyJDH1SFqlg"],
     _processed: "auto"
+  },
+  "superwise.ai": {
+    ws: [
+      "https://app.superwise.ai",
+      "https://authentication.superwise.ai",
+      "https://docs.superwise.ai",
+      "https://sdk.docs.superwise.ai",
+      "https://superwise.ai"
+    ],
+    li: ["https://www.linkedin.com/company/superwiseai"],
+    tw: ["https://x.com/superwiseai"],
+    gh: ["https://github.com/superwise-ai"],
+    ytp: ["https://www.youtube.com/@superwiseai"],
+    urls: ["https://discord.com/invite/678qcsA57y", "https://docs.superwise.ai", "https://sdk.docs.superwise.ai"],
+    _processed: "auto"
   }
 }
