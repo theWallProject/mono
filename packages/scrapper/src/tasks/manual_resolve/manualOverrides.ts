@@ -2692,6 +2692,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kemtaiftns"],
     _processed: "auto"
   },
+  "Kipp Authorize More": {
+    ws: ["https://app.letskipp.com", "https://letskipp.com"],
+    li: ["https://www.linkedin.com/company/letskipp"],
+    tw: ["https://x.com/letskipp_com"],
+    ytp: ["https://www.youtube.com/@letskipp"],
+    _processed: "auto"
+  },
   Kissterra: {
     ws: ["https://kissterra.com"],
     li: ["https://www.linkedin.com/company/kissterra"],
