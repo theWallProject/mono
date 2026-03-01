@@ -3391,6 +3391,17 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@plainid3877"],
     _processed: "auto"
   },
+  "PlaySight Interactive": {
+    ws: ["https://playsight.com", "https://web.playsight.com"],
+    li: ["https://www.linkedin.com/company/playsight-interactive"],
+    fb: ["https://www.facebook.com/playsight"],
+    tw: ["https://x.com/playsight"],
+    ig: ["https://www.instagram.com/playsight"],
+    ytp: ["https://www.youtube.com/@playsightinteractive"],
+    urls: ["https://apps.apple.com/app/id976177330", "https://apps.apple.com/il/app/playsight/id976177330"],
+    android_app_ids: ["com.playsight.tennis"],
+    _processed: "auto"
+  },
   Playtika: {
     li: ["https://il.linkedin.com/company/playtika"],
     fb: [
