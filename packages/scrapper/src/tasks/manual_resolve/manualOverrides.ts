@@ -1905,6 +1905,15 @@ export const manualOverrides: Record<
     _processed: "auto"
   },
   GeoX: { ws: ["https://app.geox.ai"], _processed: "auto" },
+  "Gilat Satellite Networks": {
+    ws: ["https://connect.gilat.com", "https://www.gilat.com"],
+    li: ["https://www.linkedin.com/company/gilat-defense", "https://www.linkedin.com/company/gilat-satellite-networks"],
+    fb: ["https://www.facebook.com/gilat.satellite.networks"],
+    tw: ["https://x.com/gilatsatnet"],
+    ytp: ["https://www.youtube.com/@gilatsatellitenet"],
+    urls: ["https://entry.co.il", "https://firmabrands.com"],
+    _processed: "auto"
+  },
   Grain: {
     ws: ["https://www.grainfinance.com"],
     li: ["https://www.linkedin.com/company/grainfinance"],
