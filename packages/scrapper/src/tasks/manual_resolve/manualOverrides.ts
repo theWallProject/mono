@@ -2568,6 +2568,13 @@ export const manualOverrides: Record<
     urls: ["https://novidea-crm.my.site.com/support/login", "https://novidea.force.com/support/login"],
     _processed: "auto"
   },
+  NsKnox: {
+    ws: ["https://nsknox.net"],
+    li: ["https://www.linkedin.com/company/7972484"],
+    fb: ["https://www.facebook.com/nsknoxtechnologies"],
+    tw: ["https://x.com/nsknoxtech"],
+    _processed: "auto"
+  },
   Nucleix: {
     ws: ["https://nucleix.com"],
     li: ["https://www.linkedin.com/company/nucleix-ltd-"],
