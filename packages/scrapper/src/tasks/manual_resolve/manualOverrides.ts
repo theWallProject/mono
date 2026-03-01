@@ -3376,6 +3376,15 @@ export const manualOverrides: Record<
     android_app_ids: ["riverside.fm"],
     _processed: "auto"
   },
+  "SAM Seamless Network": {
+    ws: ["https://securingsam.com"],
+    li: ["https://www.linkedin.com/company/sam-seamless-network"],
+    fb: ["https://www.facebook.com/samseamlessnetwork"],
+    tw: ["https://x.com/seamlesssam"],
+    ig: ["https://www.instagram.com/securingsam"],
+    ytp: ["https://www.youtube.com/@samseamlessnetwork5685"],
+    _processed: "auto"
+  },
   Salto: {
     ws: ["https://www.salto.io"],
     li: ["https://www.linkedin.com/company/salto-io"],
