@@ -3765,6 +3765,16 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/c/hellosimply"],
     _processed: "auto"
   },
+  Skai: {
+    ws: ["https://skai.io"],
+    li: ["https://www.linkedin.com/company/skaicommerce"],
+    fb: ["https://www.facebook.com/skaicommerce"],
+    tw: ["https://x.com/skaicommerce"],
+    ig: ["https://www.instagram.com/lifeatskai"],
+    ytp: ["https://www.youtube.com/@skaicommerce"],
+    urls: ["https://app.kenshoo.com/portal", "https://developers.kenshoo.com", "https://shopable2026.splashthat.com"],
+    _processed: "auto"
+  },
   "Skyhawk Security": {
     ws: ["https://app.skyhawk.security", "https://partners.skyhawk.security", "https://skyhawk.security"],
     li: ["https://www.linkedin.com/company/skyhawkcloudsecurity"],
