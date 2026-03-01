@@ -308,6 +308,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/anyclip"],
     _processed: "auto"
   },
+  Anywell: {
+    ws: ["https://www.afternic.com"],
+    urls: ["https://www.afternic.com/forsale/anywell.com"],
+    _processed: "auto"
+  },
   Appcharge: {
     ws: ["https://www.appcharge.com"],
     li: ["https://www.linkedin.com/company/appcharge"],
