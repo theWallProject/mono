@@ -1271,6 +1271,13 @@ export const manualOverrides: Record<
     urls: ["https://elemn.to/discord", "https://wordpress.org/plugins/elementor"],
     _processed: "auto"
   },
+  "Eleven Therapeutics": {
+    ws: ["https://eleventx.com"],
+    li: ["https://www.linkedin.com/company/eleventx"],
+    tw: ["https://x.com/eleventx"],
+    urls: ["https://eleventx.com"],
+    _processed: "auto"
+  },
   Emerix: {
     ws: ["https://www.emerix.ai"],
     li: ["https://www.linkedin.com/company/emerixai"],
