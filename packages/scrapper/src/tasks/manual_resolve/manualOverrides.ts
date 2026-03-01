@@ -1938,6 +1938,13 @@ export const manualOverrides: Record<
     urls: ["https://attractive.co.il", "https://www.sec.gov/cgi-bin/browse-edgar"],
     _processed: "auto"
   },
+  "Exero Medical": {
+    ws: ["https://exeromedical.com"],
+    li: ["https://www.linkedin.com/company/18838545"],
+    tw: ["https://x.com/exeromedical"],
+    urls: ["https://www.medxelerator.com"],
+    _processed: "auto"
+  },
   Exosomm: { ws: ["https://www.exosomm.com"], _processed: "auto" },
   Explorium: {
     ws: ["https://www.explorium.ai"],
