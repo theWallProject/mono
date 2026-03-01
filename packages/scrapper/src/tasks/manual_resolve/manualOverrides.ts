@@ -2875,6 +2875,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/meala-foodtech"],
     _processed: "auto"
   },
+  MedOne: { ws: ["https://medone.co.il"], li: ["https://www.linkedin.com/company/medone"], _processed: "auto" },
   "Meitav Investment House": {
     ws: ["https://www.meitav.co.il"],
     li: ["https://www.linkedin.com/company/meitav"],
