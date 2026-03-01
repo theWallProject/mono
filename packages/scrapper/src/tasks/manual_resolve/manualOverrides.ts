@@ -2982,6 +2982,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kovrrins"],
     _processed: "auto"
   },
+  LAVAA: {
+    ws: ["https://lavaa.health"],
+    li: ["https://www.linkedin.com/company/lavaa"],
+    fb: ["https://www.facebook.com/lavaalabs"],
+    ig: ["https://www.instagram.com/lavaahealth"],
+    _processed: "auto"
+  },
   "Laguna Health": {
     ws: ["https://form.lagunahealth.com", "https://www.lagunahealth.com"],
     li: ["https://www.linkedin.com/company/getlaguna"],
