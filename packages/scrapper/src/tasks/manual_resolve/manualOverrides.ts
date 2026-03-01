@@ -584,6 +584,15 @@ export const manualOverrides: Record<
     urls: ["https://www.godaddy.com/agreements/showdoc", "https://www.godaddy.com/domainsearch/find"],
     _processed: "auto"
   },
+  Axiom: {
+    ws: ["https://app.axiom.security", "https://axiom.security"],
+    li: ["https://www.linkedin.com/company/axiomsecurity"],
+    urls: [
+      "https://brndini.co.il",
+      "https://www.okta.com/newsroom/press-releases/okta-with-axiom-security--delivering-robust-privileged-access-fo"
+    ],
+    _processed: "auto"
+  },
   "BBT.live": {
     ws: ["https://bbt.live"],
     li: ["https://www.linkedin.com/company/bbt-live"],
