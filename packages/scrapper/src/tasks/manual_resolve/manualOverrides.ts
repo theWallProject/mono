@@ -5338,6 +5338,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/strikeco_sports"],
     _processed: "auto"
   },
+  Salignostics: {
+    ws: ["https://www.salignostics.com"],
+    li: ["https://www.linkedin.com/company/salignostics"],
+    urls: ["http://gummygam.com", "https://salistick.co.il/english"],
+    _processed: "auto"
+  },
   Salto: {
     ws: ["https://www.salto.io"],
     li: ["https://www.linkedin.com/company/salto-io"],
