@@ -128,6 +128,18 @@ export const manualOverrides: Record<
     urls: ["https://www.g2.com/products/accelario-accelario/reviews"],
     _processed: "auto"
   },
+  Accellix: {
+    ws: ["https://www.accellix.com"],
+    li: ["https://www.linkedin.com/company/accellix"],
+    tw: ["https://x.com/accellix"],
+    ytc: ["https://www.youtube.com/channel/ucnbpe-vvwl3qrom4seczjjg"],
+    urls: [
+      "https://deliciousdesign.com",
+      "https://www.google.com/maps/place/2385+Bering+Dr,+San+Jose,+CA+95131/@37.3828415,-121.9228255,17z/data=!3m1!4b1!4m5!3m4!1s0x808fcbe6a7d5241b:0xf53ad7df1604e6c4!8m2!3d37.3828373!4d-121.9206315",
+      "https://www.google.com/maps/place/Shlomo+Momo+ha-Levi+St+5,+Jerusalem,+Israel/@31.8015678,35.20519,17z/data=!3m1!4b1!4m5!3m4!1s0x1502d6193f5fadef:0x79f3e247ce5863d0!8m2!3d31.8015633!4d35.207384"
+    ],
+    _processed: "auto"
+  },
   "Acclym (formerly Agritask)": {
     ws: ["https://www.acclym.com"],
     li: ["https://www.linkedin.com/company/acclym"],
