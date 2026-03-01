@@ -5642,6 +5642,18 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@token.security"],
     _processed: "auto"
   },
+  Tomi: {
+    ws: ["https://dao.tomi.com", "https://www.tomi.com"],
+    tw: ["https://x.com/tomipioneers"],
+    urls: [
+      "https://apps.apple.com/us/app/tomi-web3-superapp/id1643501440",
+      "https://discord.com/invite/tomipioneers",
+      "https://t.me/tomi_official_chat",
+      "https://tomi.onelink.me/ZC6z/website"
+    ],
+    android_app_ids: ["com.tomiapp.production"],
+    _processed: "auto"
+  },
   Torii: {
     ws: ["https://www.toriihq.com"],
     li: ["https://www.linkedin.com/company/11298659"],
