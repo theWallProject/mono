@@ -2376,6 +2376,19 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/forsightrobotics"],
     _processed: "auto"
   },
+  Forwrd: {
+    ws: ["https://help.forwrd.ai", "https://www.forwrd.ai"],
+    li: ["https://www.linkedin.com/company/forwrdai"],
+    ytp: ["https://www.youtube.com/@forwrdai3244"],
+    urls: [
+      "https://ecosystem.hubspot.com/marketplace/apps/forwrd-ai-347515",
+      "https://eu1.hubs.ly/H0g-xxt0",
+      "https://eu1.hubs.ly/H0g-xyg0",
+      "https://hirepivot.ai",
+      "https://share-eu1.hsforms.com/1uS6IqFbFQ0qekB-qxGV8oAfduhl"
+    ],
+    _processed: "auto"
+  },
   FreezeM: {
     ws: ["https://www.freezem.com"],
     li: ["https://www.linkedin.com/company/freezem"],
