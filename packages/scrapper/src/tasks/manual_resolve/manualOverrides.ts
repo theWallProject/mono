@@ -2818,6 +2818,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  "Payouts.com": {
+    ws: ["https://integrations.payouts.com", "https://payouts.com", "https://status.payouts.com"],
+    li: ["https://www.linkedin.com/company/payouts-com"],
+    tw: ["https://x.com/payoutsdotcom"],
+    _processed: "auto"
+  },
   "Perception Point": {
     ws: [
       "https://community.fortinet.com",
