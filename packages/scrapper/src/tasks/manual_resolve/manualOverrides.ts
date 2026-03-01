@@ -2377,6 +2377,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Infinipoint: {
+    ws: ["https://infinipoint.io", "https://status.infinipoint.io", "https://support.infinipoint.io"],
+    li: ["https://www.linkedin.com/company/infinipointsec"],
+    fb: ["https://www.facebook.com/infinipointsec"],
+    ytp: ["https://www.youtube.com/@infinipoint"],
+    _processed: "auto"
+  },
   Ingonyama: {
     ws: ["https://dev.ingonyama.com", "https://www.ingonyama.com"],
     li: ["https://www.linkedin.com/company/ingonyama"],
