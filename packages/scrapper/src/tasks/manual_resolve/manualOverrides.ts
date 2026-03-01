@@ -613,6 +613,23 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/bluewindmedical"],
     _processed: "auto"
   },
+  Bluebricks: {
+    ws: [
+      "https://app.bluebricks.co",
+      "https://docs.bluebricks.co",
+      "https://trust.bluebricks.co",
+      "https://www.bluebricks.co"
+    ],
+    li: ["https://www.linkedin.com/company/bluebricksco"],
+    gh: ["https://github.com/bluebricks-co"],
+    urls: [
+      "https://aws.amazon.com/marketplace/seller-profile",
+      "https://bluebricks.app.n8n.cloud/form/36a1b080-fe87-4c79-8666-5d358af2a07a",
+      "https://console.cloud.google.com/marketplace/product/bluebricks-public/bluebricks-saas",
+      "https://trust.bluebricks.co"
+    ],
+    _processed: "auto"
+  },
   Bluesky: {
     ws: ["https://bsky.social", "https://bsky.app"],
     gh: ["https://github.com/bluesky-social"],
