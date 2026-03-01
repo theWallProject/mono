@@ -3971,6 +3971,14 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Piiano: {
+    ws: ["https://go.mcptotal.io", "https://mcptotal.io"],
+    li: ["https://www.linkedin.com/company/mcptotal"],
+    tw: ["https://x.com/mcptotal"],
+    gh: ["https://github.com/piiano"],
+    urls: ["https://calendly.com/mcptotal"],
+    _processed: "auto"
+  },
   Pixellot: {
     ws: ["https://www.pixellot.tv"],
     li: ["https://www.linkedin.com/company/pixellotltd"],
