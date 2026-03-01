@@ -14,6 +14,15 @@ export const manualOverrides: Record<
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders" },
   "100X": { ws: ["https://get100x.com"], urls: ["https://dany.ai"], _processed: "auto" },
   "1E Therapeutics": { ws: ["https://1etx.com"], urls: ["https://www.pearlcom.co.il"], _processed: "auto" },
+  "3d Signals": {
+    ws: ["https://3dsignals.com"],
+    li: ["https://www.linkedin.com/company/3dsignals"],
+    fb: ["https://www.facebook.com/3dsignals"],
+    tw: ["https://x.com/3dsignals"],
+    ytc: ["https://www.youtube.com/channel/uczyjpabddohxtm9_4c0ryjq"],
+    urls: ["https://dview.3dsignals.io", "https://www.xing.com/companies/3dsignals"],
+    _processed: "auto"
+  },
   "4M Analytics": {
     ws: ["https://4map.4manalytics.com", "https://help.4manalytics.com", "https://www.4manalytics.com"],
     li: ["https://www.linkedin.com/company/4m-analytics"],
