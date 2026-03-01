@@ -2469,6 +2469,12 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  FireDome: {
+    ws: ["https://www.fire-dome.com"],
+    li: ["https://www.linkedin.com/company/firedomereclaimtomorrow"],
+    urls: ["https://meetings.hubspot.com/inquiries-firedome/30-min"],
+    _processed: "auto"
+  },
   Firebolt: {
     ws: ["https://www.firebolt.io", "https://www.selectfrom.shop"],
     li: ["https://www.linkedin.com/company/firebolt"],
