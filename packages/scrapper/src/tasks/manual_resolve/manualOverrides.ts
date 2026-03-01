@@ -4308,6 +4308,13 @@ export const manualOverrides: Record<
     ],
     _processed: true
   },
+  Tidhar: {
+    ws: ["https://tidhar.co.il"],
+    fb: ["https://www.facebook.com/tidhargroup"],
+    ig: ["https://www.instagram.com/tidhargroup"],
+    urls: ["https://tidhar.my.site.com/community", "https://www.dofinity.com"],
+    _processed: "auto"
+  },
   Tipa: {
     ws: ["https://tipa-corp.com"],
     li: ["https://www.linkedin.com/company/tipa"],
