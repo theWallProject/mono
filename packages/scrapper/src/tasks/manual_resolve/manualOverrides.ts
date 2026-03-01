@@ -4066,6 +4066,16 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  QuamCore: {
+    ws: ["https://www.quamcore.com"],
+    li: ["https://www.linkedin.com/company/quamcore"],
+    urls: [
+      "https://www.quamcore.com/accessibility-statement",
+      "https://www.quamcore.com/cookie-policy-eu",
+      "https://www.quamcore.com/privacy-policy"
+    ],
+    _processed: "auto"
+  },
   QuantHealth: {
     ws: ["https://quanthealth.ai", "https://trust.quanthealth.ai"],
     li: ["https://www.linkedin.com/company/quanthealthlabs"],
