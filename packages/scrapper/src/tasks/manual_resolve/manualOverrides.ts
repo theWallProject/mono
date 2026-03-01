@@ -2896,6 +2896,11 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucewvk-lopk4wtnhi1mhggsg"],
     _processed: "auto"
   },
+  Octup: {
+    ws: ["https://partner.octup.com", "https://www.octup.com"],
+    li: ["https://www.linkedin.com/company/octup-com"],
+    _processed: "auto"
+  },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
   Odeeo: {
     ws: ["https://blog.odeeo.io", "https://odeeo.io"],
