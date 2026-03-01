@@ -1717,7 +1717,6 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
-  "Intail.ai": { ws: ["https://app.orbb.com", "https://orbb.com"], urls: ["https://www.nmore.co"], _processed: "auto" },
   "Intuition Robotics": {
     ws: ["https://www.intuitionrobotics.com"],
     li: ["https://www.linkedin.com/company/intuition-robotics"],
@@ -2877,6 +2876,19 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@protectai"],
     urls: ["https://mlsecops.slack.com/signup#/domain-signup"],
     _processed: true
+  },
+  Pynt: {
+    ws: ["https://app.pynt.io", "https://docs.pynt.io", "https://www.pynt.io"],
+    li: ["https://www.linkedin.com/company/pynt"],
+    tw: ["https://x.com/pynt_io"],
+    gh: ["https://github.com/pynt-io"],
+    ytc: ["https://www.youtube.com/channel/uchvwpfhgkeitifh71ijmd6g"],
+    urls: [
+      "https://join.slack.com/t/pynt-community/shared_invite/zt-2kyutq3tv-bltE~ZIj~gc7NltQ1Yfvng",
+      "https://meetings-eu1.hubspot.com/tural-mirzayev",
+      "https://pynt-community.slack.com/join/shared_invite/zt-2kyutq3tv-bltE~ZIj~gc7NltQ1Yfvng"
+    ],
+    _processed: "auto"
   },
   Qodo: {
     ws: ["https://www.qodo.ai"],
