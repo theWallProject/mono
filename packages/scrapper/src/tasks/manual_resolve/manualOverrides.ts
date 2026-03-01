@@ -4056,6 +4056,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@reecoofficial"],
     _processed: "auto"
   },
+  "Refine Intelligence": {
+    ws: ["https://www.refineintelligence.com"],
+    li: ["https://www.linkedin.com/company/refine-intelligence"],
+    _processed: "auto"
+  },
   Reflectiz: {
     ws: ["https://dashboard.reflectiz.com", "https://www.reflectiz.com"],
     li: ["https://www.linkedin.com/company/reflectiz"],
