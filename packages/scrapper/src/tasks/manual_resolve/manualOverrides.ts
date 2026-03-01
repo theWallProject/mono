@@ -681,6 +681,13 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Breez: {
+    ws: ["https://blog.breez.technology", "https://breez.technology"],
+    tw: ["https://x.com/breez_tech"],
+    gh: ["https://github.com/breez"],
+    urls: ["https://medium.com/breez-technology", "https://t.me/breez_lightning"],
+    _processed: "auto"
+  },
   "Brenmiller Energy": {
     ws: ["https://bren-energy.com"],
     li: ["https://www.linkedin.com/company/brenmiller-energy"],
