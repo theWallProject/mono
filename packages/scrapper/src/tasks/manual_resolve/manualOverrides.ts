@@ -2019,6 +2019,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/incredibuild"],
     _processed: "auto"
   },
+  Incredo: {
+    ws: ["https://www.incredo.com"],
+    li: ["https://www.linkedin.com/company/douxmatok"],
+    fb: ["https://www.facebook.com/incredosugar"],
+    ig: ["https://www.instagram.com/incredosugar"],
+    urls: ["https://awesometlv.co.il"],
+    _processed: "auto"
+  },
   Infinidat: {
     ws: ["https://www.infinidat.com"],
     li: ["https://www.linkedin.com/company/infinidat"],
