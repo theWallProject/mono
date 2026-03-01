@@ -3760,6 +3760,15 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
+  Proggio: {
+    ws: ["https://app.proggio.com", "https://landing.proggio.com", "https://www.proggio.com"],
+    li: ["https://www.linkedin.com/company/proggio"],
+    fb: ["https://www.facebook.com/proggioppm"],
+    tw: ["https://x.com/proggioapp"],
+    ig: ["https://www.instagram.com/proggioapp"],
+    ytc: ["https://www.youtube.com/channel/ucasdxctxjk192p6emvh0tuw"],
+    _processed: "auto"
+  },
   "Promo.com": {
     ws: ["https://promo.com", "https://support.promo.com"],
     li: ["https://www.linkedin.com/company/promodotcom"],
