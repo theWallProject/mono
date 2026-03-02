@@ -660,11 +660,6 @@ export const manualOverrides: Record<
     ],
     _processed: "auto"
   },
-  Avo: {
-    ws: ["https://www.dot-sports.org"],
-    urls: ["https://www.godaddy.com/agreements/showdoc", "https://www.godaddy.com/domainsearch/find"],
-    _processed: "auto"
-  },
   Axiom: {
     ws: ["https://app.axiom.security", "https://axiom.security"],
     li: ["https://www.linkedin.com/company/axiomsecurity"],
