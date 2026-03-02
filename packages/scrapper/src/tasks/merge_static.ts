@@ -19,6 +19,7 @@ import {
 
 import { cleanWebsite, error, log } from "../helper"
 import { CrunchbaseScrappedItemsSchema, ManualEntriesSchema, MergedDataItem } from "../types"
+import { androidDiscoveries } from "./manual_resolve/androidDiscoveries"
 import { manualAdditions } from "./manual_resolve/manualAdditions"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
@@ -665,6 +666,38 @@ const loadJsonFiles = async (folderPath: string) => {
       `Added manualAddition: ${addition.name} - base entry created with ${fieldUrls.size} field(s) and ${extraUrlsForThisEntry} extra URL(s)`
     )
   }
+
+  // Apply Android app discoveries (from assetlinks.json probing and other sources).
+  // Each discovery maps a company name to its Android package IDs.
+  // Manual overrides take precedence — discoveries are skipped when android_app_ids already exists.
+  let androidApplied = 0
+  let androidSkipped = 0
+  for (const discovery of androidDiscoveries) {
+    const matchIndex = processedItems.findIndex((item) => item.name === discovery.company)
+    if (matchIndex !== -1) {
+      const existing = processedItems[matchIndex]
+      if (!existing) continue
+      if (existing.android_app_ids && existing.android_app_ids.length > 0) {
+        androidSkipped++
+        continue
+      }
+      processedItems[matchIndex] = { ...existing, android_app_ids: [...discovery.packages] }
+      androidApplied++
+    } else {
+      const addIdx = additionalItems.findIndex((item) => item.name === discovery.company)
+      if (addIdx !== -1) {
+        const existing = additionalItems[addIdx]
+        if (!existing) continue
+        if (existing.android_app_ids && existing.android_app_ids.length > 0) {
+          androidSkipped++
+          continue
+        }
+        additionalItems[addIdx] = { ...existing, android_app_ids: [...discovery.packages] }
+        androidApplied++
+      }
+    }
+  }
+  log(`Applied ${androidApplied}/${androidDiscoveries.length} Android app discoveries (${androidSkipped} skipped — manual override exists)`)
 
   // Combine processed items with additional items
   const manuallyUpdatedArray = [...processedItems, ...additionalItems]
