@@ -1,0 +1,545 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.4",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="theme-color" content="#0a85ff">
+	<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PL4DWR2');</script>
+<!-- End Google Tag Manager -->
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vb3j4yxszx");
+</script>
+
+<!-- Microsoft Tracking tag -->
+<script type="rocketlazyloadscript">
+  (function(w,d,t,r,u)
+  {
+    var f,n,i;
+    w[u]=w[u]||[],f=function()
+    {
+      var o={ti:"187165159", enableAutoSpaTracking: true};
+      o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")
+    },
+    n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function()
+    {
+      var s=this.readyState;
+      s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)
+    },
+    i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)
+  })
+  (window,document,"script","//bat.bing.com/bat.js","uetq");
+</script>
+<!-- End Microsoft Tracking tag -->
+
+<!-- Default Consent Mode-->
+<script type="rocketlazyloadscript">
+  window.uetq=window.uetq||[];
+  window.uetq.push('consent', 'default', {
+    'ad_storage': 'denied',
+  });
+</script>
+
+<!--Update consent based on user choice.-->
+<!--Implement a cookie banner or another method to collect user consent.-->
+<!--When a user grants consent (e.g., selects 'Accept' on your banner), update the consent settings using the command below.-->
+<script type="rocketlazyloadscript">
+  window.uetq=window.uetq||[];
+  window.uetq.push('consent', 'update', {
+    'ad_storage': 'granted',
+  });
+</script>
+
+ <!-- Head External Code -->
+	<link rel="dns-prefetch" href="//cdn.hu-manity.co">
+		<!-- Cookie Compliance -->
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var huOptions = {"appID":"sayaricom-4115fa9","currentLanguage":"en","blocking":false,"globalCookie":false,"isAdmin":false,"privacyConsent":true,"forms":[]};</script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://cdn.hu-manity.co/hu-banner.min.js" data-rocket-defer="" defer=""></script><meta name="robots" content="noindex, nofollow">
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v26.7 (Yoast SEO v26.7) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Mirato’s AI Automation: A Game-Changer in Risk Intelligence - Sayari</title><link rel="preload" data-rocket-preload="" as="image" href="https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-630x330.png" imagesrcset="https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-630x330.png 630w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-458x240.png 458w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-100x52.png 100w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-768x402.png 768w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-1536x804.png 1536w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header.png 1667w" imagesizes="(max-width: 630px) 100vw, 630px" fetchpriority="high">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Mirato’s AI Automation: A Game-Changer in Risk Intelligence">
+	<meta property="og:description" content="Mirato redefined Third-Party Risk Management (TPRM) with cutting-edge Artificial Intelligence designed to deliver unmatched efficiency, accuracy, and strategic insight. Their innovative platform provided a distinct and powerful advantage by eliminating complex, manual processes and empowering employees to focus on more critical tasks. The Beauty of AI-Powered Automation: Mirato’s core strength was its ability to automate […]">
+	<meta property="og:url" content="https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/">
+	<meta property="og:site_name" content="Sayari">
+	<meta property="article:publisher" content="https://www.facebook.com/sayarilabs/">
+	<meta property="article:published_time" content="2025-08-06T22:35:28+00:00">
+	<meta property="article:modified_time" content="2025-09-10T16:33:23+00:00">
+	<meta property="og:image" content="https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header.png">
+	<meta property="og:image:width" content="1667">
+	<meta property="og:image:height" content="873">
+	<meta property="og:image:type" content="image/png">
+	<meta name="author" content="Grace Chen">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@sayarilabs">
+	<meta name="twitter:site" content="@sayarilabs">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Grace Chen">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="3 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/#article","isPartOf":{"@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/"},"author":{"name":"Grace Chen","@id":"https://sayari.com/#/schema/person/312713d9e7f5f9ba3b6e317dc90e9c2a"},"headline":"Mirato’s AI Automation: A Game-Changer in Risk Intelligence","datePublished":"2025-08-06T22:35:28+00:00","dateModified":"2025-09-10T16:33:23+00:00","mainEntityOfPage":{"@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/"},"wordCount":487,"publisher":{"@id":"https://sayari.com/#organization"},"image":{"@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/#primaryimage"},"thumbnailUrl":"https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header.png","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/","url":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/","name":"Mirato’s AI Automation: A Game-Changer in Risk Intelligence - Sayari","isPartOf":{"@id":"https://sayari.com/#website"},"primaryImageOfPage":{"@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/#primaryimage"},"image":{"@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/#primaryimage"},"thumbnailUrl":"https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header.png","datePublished":"2025-08-06T22:35:28+00:00","dateModified":"2025-09-10T16:33:23+00:00","breadcrumb":{"@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/#primaryimage","url":"https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header.png","contentUrl":"https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header.png","width":1667,"height":873},{"@type":"BreadcrumbList","@id":"https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sayari.com/"},{"@type":"ListItem","position":2,"name":"Mirato’s AI Automation: A Game-Changer in Risk Intelligence"}]},{"@type":"WebSite","@id":"https://sayari.com/#website","url":"https://sayari.com/","name":"Sayari","description":"Beneficial Ownership &amp; Financial Data Intelligence","publisher":{"@id":"https://sayari.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sayari.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://sayari.com/#organization","name":"Sayari","url":"https://sayari.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://sayari.com/#/schema/logo/image/","url":"https://sayari.com/wp-content/uploads/2021/10/sayari-logo.svg","contentUrl":"https://sayari.com/wp-content/uploads/2021/10/sayari-logo.svg","width":120,"height":21,"caption":"Sayari"},"image":{"@id":"https://sayari.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/sayarilabs/","https://x.com/sayarilabs","https://www.linkedin.com/company/sayarilabs"]},{"@type":"Person","@id":"https://sayari.com/#/schema/person/312713d9e7f5f9ba3b6e317dc90e9c2a","name":"Grace Chen","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://sayari.com/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/e5e4fd5f4b378926d06ea9eaabea13e83de160689c31e7a5486f471fcac8c9d8?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/e5e4fd5f4b378926d06ea9eaabea13e83de160689c31e7a5486f471fcac8c9d8?s=96&d=mm&r=g","caption":"Grace Chen"}}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Sayari » Feed" href="https://sayari.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Sayari » Comments Feed" href="https://sayari.com/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://sayari.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsayari.com%2Fresources%2Fmirato-brings-game-changing-ai-automation-to-sayari%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://sayari.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsayari.com%2Fresources%2Fmirato-brings-game-changing-ai-automation-to-sayari%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="theme-style-css" href="https://sayari.com/wp-content/cache/min/1/wp-content/themes/sayari/assets/dist/theme.min.css?ver=1771498882" type="text/css" media="all">
+<link rel="stylesheet" id="stier-style-css" href="https://sayari.com/wp-content/themes/sayari/style.css?ver=1.0.0" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-paragraph-css" href="https://sayari.com/wp-includes/blocks/paragraph/style.min.css?ver=b270546f50096581af192fb0c999f663" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://sayari.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://sayari.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<script type="text/javascript" id="theme-script-js-extra">
+/* <![CDATA[ */
+var theme = {"ajaxUrl":"https://sayari.com/wp-admin/admin-ajax.php","nonce":"44ac23b9c6","themeUrl":"https://sayari.com/wp-content/themes/sayari"};
+//# sourceURL=theme-script-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://sayari.com/wp-content/themes/sayari/assets/dist/js/theme.min.js?ver=202601081337" id="theme-script-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://sayari.com/wp-content/cache/min/1/wp-content/themes/sayari/assets/dist/js/flickity.js?ver=1771498882" id="flickity-js" data-rocket-defer="" defer=""></script>
+<link rel="https://api.w.org/" href="https://sayari.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://sayari.com/wp-json/wp/v2/posts/24009"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://sayari.com/xmlrpc.php?rsd">
+<link rel="shortlink" href="https://sayari.com/?p=24009">
+<link rel="icon" href="https://sayari.com/wp-content/uploads/2024/11/favicon.jpeg" sizes="32x32">
+<link rel="icon" href="https://sayari.com/wp-content/uploads/2024/11/favicon.jpeg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://sayari.com/wp-content/uploads/2024/11/favicon.jpeg">
+<meta name="msapplication-TileImage" content="https://sayari.com/wp-content/uploads/2024/11/favicon.jpeg">
+		<style type="text/css" id="wp-custom-css">
+			.cky-title {
+	display: none;
+}
+.cky-notice-btn-wrapper .cky-btn {
+	border: none;
+    font-size: 13px;
+    padding: 4px 13.5px;
+	  font-weight: 400;
+}
+
+.cky-btn.cky-btn-preferences {
+	margin-right: 0
+}
+
+#cookie-notice .cn-button:not(.cn-button-custom) {
+color: #fff!important;}
+
+@media (max-width: 500px) {
+
+.hero_title {
+	max-width: 350px;
+}
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><meta name="generator" content="WP Rocket 3.20.3" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_oci wpr_minify_css wpr_preload_links wpr_desktop"><link href="https://cdn.hu-manity.co" rel="preconnect"></head>
+
+<body class="wp-singular post-template-default single single-post postid-24009 single-format-standard wp-custom-logo wp-theme-sayari cookies-not-set">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PL4DWR2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) --> <!-- Body Top External Code -->
+
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+
+	
+	<header id="masthead" class="header-main">
+		<div class="header-main_inner container">
+			<figure class="site-logo">
+				<a href="https://sayari.com/" class="custom-logo-link" rel="home"><img width="120" height="21" src="https://sayari.com/wp-content/uploads/2021/10/sayari-logo.svg" class="custom-logo" alt="Sayari" decoding="async"></a>			</figure><!-- .site-branding -->
+			<!-- Mobile Nav Button -->
+			<div class="hamburger">
+				<label for="nav-toggle">Navigation Menu</label>
+				<input type="checkbox" class="menu-toggle" id="nav-toggle">
+
+				<div></div></div>
+			<!-- Mobile Nav Button -->
+			<div class="navs_wrapper">
+				<nav id="primary-navigation" class="primary-navigation">
+
+					<div class="menu-primary-menu-container"><ul id="primary-menu" class="menu"><li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="">Use Cases</a><span class="sub-menu-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0f121a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+<ul class="sub-menu">
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/sourcing-and-procurement/">Sourcing and Procurement</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/global-trade/">Global Trade</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/financial-crime/">Financial Crime</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/defense-intelligence/">Defense &amp; Intelligence</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/law-enforcement-regulatory/">Law Enforcement &amp; Regulatory</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/tprm/">Risk Management and Compliance</a></li>
+</ul>
+</li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://sayari.com/product/">Product</a><span class="sub-menu-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0f121a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+<ul class="sub-menu">
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/product/">Sayari Graph</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/map/">Sayari Map</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/signal/">Sayari Signal</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/guide/">Sayari Guide</a></li>
+</ul>
+</li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page current_page_parent"><a href="https://sayari.com/resource-center/">Resources</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://sayari.com/about-us/">Company</a><span class="sub-menu-trigger"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0f121a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+<ul class="sub-menu">
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/about-us/">About Sayari</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/press/">Press</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/careers/">Careers</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/customer-success/">Customer Success</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/partners/">Partners</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/trustworthy-ai/">Trustworthy AI</a></li>
+<li class=" menu-item menu-item-type-post_type menu-item-object-page"><a href="https://sayari.com/contact-us/">Contact Us</a></li>
+</ul>
+</li>
+</ul></div>
+				</nav><!-- #site-navigation -->
+				<nav id="secondary-navigation" class="secondary-navigation">
+				<div class="menu-secondary-container"><ul id="secondary-menu" class="menu"><li id="menu-item-20148" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20148"><a target="_blank" href="https://graph.sayari.com/">Login</a></li>
+<li id="menu-item-21840" class="is-button menu-item menu-item-type-post_type menu-item-object-page menu-item-21840"><a href="https://sayari.com/request-a-demo/">Request a Demo</a></li>
+</ul></div>				</nav>
+			</div>
+		</div>
+	</header><!-- #masthead -->
+			<main id="primary" class="site-main">
+			<article class="post_main">
+				<header class="post_hero">
+					<div class="post_hero_inner container">
+						<div class="left">
+																<div class="prefix">Blog Posts</div>
+							
+							<h1 class="title-2 post_title">Mirato’s AI Automation: A Game-Changer in Risk Intelligence</h1>							<time datetime="2025-08-06T22:35:28+00:00" itemprop="datePublished">08/06/25</time>
+							<span class="read_time">2 minute read</span>
+
+						</div>
+													<div class="right">
+								<img width="630" height="330" src="https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-630x330.png" class="attachment-large size-large wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-630x330.png 630w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-458x240.png 458w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-100x52.png 100w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-768x402.png 768w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header-1536x804.png 1536w, https://sayari.com/wp-content/uploads/2025/07/Manta_Blog_Header.png 1667w" sizes="(max-width: 630px) 100vw, 630px">							</div>
+											</div>
+				</header>
+
+				
+				<div class="post_content container space_3">
+					<div class="left">
+						
+<p>Mirato redefined Third-Party Risk Management (TPRM) with cutting-edge Artificial Intelligence designed to deliver unmatched efficiency, accuracy, and strategic insight. Their innovative platform provided a distinct and powerful advantage by eliminating complex, manual processes and empowering employees to focus on more critical tasks.</p>
+
+
+
+<p><strong>The Beauty of AI-Powered Automation:</strong> Mirato’s core strength was its ability to automate the most time-consuming aspects of TPRM, which traditionally hinder scalability and speed. Their solution intelligently “pre-answers” due diligence and risk assessment questionnaires – an industry first. Using advanced AI and natural language processing, the platform analyzed a third party’s documentation, extracted critical information, and auto-generated a completed questionnaire for review. This capability dramatically reduced effort and time for both third parties and internal subject matter experts, enabling organizations to scale their TPRM programs with unprecedented efficiency and manage a higher volume of assessments with greater precision. By automating and streamlining these processes, Mirato delivered a substantial reduction in assessment costs and effectively doubled the risk assessment capacity of existing teams.</p>
+
+
+
+<p><strong>Unwavering Accuracy and Intelligent Insight:</strong> Mirato moved beyond opaque “black box” outcomes to enable faster, more confident human decisions. The Mirato platform provides risk experts with a clear, evidence-backed list of controls and a complete audit trail from the very start of an assessment, empowering teams to focus on strategic risk management rather than tedious data collection. The accuracy of the results was a direct outcome of AI automation, which eliminates the potential for human error and delivers verifiable, fact-based outputs. Mirato implemented strict validation techniques to filter out incorrect information and prioritize data accuracy in their AI training methods. Mirato’s commitment to consistency ensures the model produced consistent and reproducible results for the same input, building trust and mitigating uncertainty in risk recommendations.</p>
+
+
+
+<p><strong>Strategic AI Design Principles:</strong> The integrity of Mirato’s solution was built on a foundation of rigorous design principles. They have engineered their AI to avoid hallucinations—the generation of misleading or fictional information. Their explainable AI model provides a transparent decision-making process and a comprehensive audit trail for every piece of evidence. To combat prompt injections, a top security threat to LLMs, Mirato employed robust input sanitization and defensive training methods to recognize and neutralize injection attempts. This proactive approach ensured the AI systems are secure, resilient, and immune to manipulation.</p>
+
+
+
+<p>________________<br><br><strong>Sayari’s Unified Vision: A New Era of Risk Intelligence</strong></p>
+
+
+
+<p>With the acquisition of Mirato, Sayari is poised to reshape integrated risk intelligence. By combining Sayari’s extensive global commerce and trade data with Mirato’s advanced AI, we will accelerate the creation of a truly integrated solution. This powerful synergy will empower risk professionals with unparalleled global supply chain and third-party insights, delivered in a fraction of the time. The result is a single, comprehensive view of risk across the entire ecosystem, leading to clearer insights and greater control over critical business relationships.</p>
+
+
+
+<p></p>
+						<div class="post_socials"> <!-- Comment count and Socials -->
+							<ul class="st_share">
+								<li class="st_share_title">
+									<strong>Share This:</strong>
+								</li>
+								<li class="facebook">
+									<a href="http://www.facebook.com/sharer.php?u=https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/" target="_blank" aria-label="Share on Facebook" title="Share on Facebook">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f121a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+											<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+										</svg>
+									</a>
+								</li>
+								<li class="linkedin">
+									<a href="https://linkedin.com/shareArticle?url=https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari//&amp;title=Mirato’s AI Automation: A Game-Changer in Risk Intelligence" target="_blank" aria-label="Share on LinkedIn" title="Share on LinkedIn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f121a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+											<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+											<rect x="2" y="9" width="4" height="12"></rect>
+											<circle cx="4" cy="4" r="2"></circle>
+										</svg>
+									</a>
+								</li>
+								<li class="twitter">
+									<a href="http://twitter.com/share?text=Mirato’s AI Automation: A Game-Changer in Risk Intelligence&amp;url=https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/" aria-label="Share on X" title="Share on X">
+										<svg width="1200" height="1227" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="#000"></path>
+										</svg>
+									</a>
+								</li>
+								<li class="email">
+									<a href="mailto:?subject=Mirato’s AI Automation: A Game-Changer in Risk Intelligence&amp;body=Mirato’s AI Automation: A Game-Changer in Risk Intelligence https://sayari.com/resources/mirato-brings-game-changing-ai-automation-to-sayari/" aria-label="Send via Email" title="Send via Email">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f121a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
+											<line x1="22" y1="2" x2="11" y2="13"></line>
+											<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+										</svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+									</div>
+			</article>
+
+		</main><!-- #main -->
+
+
+						<section class="related_posts space_1">
+					<div class="container">
+						<div class="related_posts_header">
+							<h3 class="title-3">Related Resources</h3>
+							<a class="arrow-link is-right" href="https://sayari.com/resource-center/">All Resources<svg class="link-arrow" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0.999999 1L5 5L1 9" stroke="#0F121A" stroke-linejoin="round"></path>
+								</svg></a>
+						</div>
+						<div class="post_grid">
+							
+								
+<div class="grid_post">
+    <figure class="grid_post_image">
+                    <a href="https://sayari.com/resources/take-proactive-steps-to-avoid-new-transshipment-penalty/" aria-label="Take Proactive Steps to Avoid New Transshipment Penalty">
+                <img width="460" height="240" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20460%20240'%3E%3C/svg%3E" class="attachment-medium size-medium wp-post-image" alt="" decoding="async" data-lazy-srcset="https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-460x240.jpg 460w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-631x330.jpg 631w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-100x52.jpg 100w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-768x402.jpg 768w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff.jpg 1200w" data-lazy-sizes="(max-width: 460px) 100vw, 460px" data-lazy-src="https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-460x240.jpg"><noscript><img width="460" height="240" src="https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-460x240.jpg" class="attachment-medium size-medium wp-post-image" alt="" decoding="async" srcset="https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-460x240.jpg 460w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-631x330.jpg 631w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-100x52.jpg 100w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff-768x402.jpg 768w, https://sayari.com/wp-content/uploads/2026/01/Transshipment_Penalty_Webinar_Header_Handoff.jpg 1200w" sizes="(max-width: 460px) 100vw, 460px" /></noscript>            </a>
+        	</figure>
+
+    		<h2 class="grid_post_title">
+			<a href="https://sayari.com/resources/take-proactive-steps-to-avoid-new-transshipment-penalty/">Take Proactive Steps to Avoid New Transshipment Penalty</a>
+		</h2>
+    	<div class="grid_post_meta">
+		<time>01/20/26</time>
+					<div data-term="2" class="prefix post-term">Blog Posts</div>
+				<span class="read_time">4 minute read</span>
+	</div>
+
+	<div class="grid_post_content">
+	New task force and order target duty evasion On August 29, 2025, the DOJ and DHS...	</div>
+	<a class="arrow-link" href="https://sayari.com/resources/take-proactive-steps-to-avoid-new-transshipment-penalty/">Read More<svg class="link-arrow" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999999 1L5 5L1 9" stroke="#0F121A" stroke-linejoin="round"></path></svg></a>
+
+</div>
+
+							
+								
+<div class="grid_post">
+    <figure class="grid_post_image">
+                    <a href="https://sayari.com/resources/mitigating-geopolitical-risk-lessons-in-resilience-from-the-nexperia-dispute/" aria-label="Mitigating Geopolitical Risk: Lessons in Resilience from the Nexperia Dispute">
+                <img width="460" height="226" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20460%20226'%3E%3C/svg%3E" class="attachment-medium size-medium wp-post-image" alt="" decoding="async" data-lazy-srcset="https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-460x226.jpg 460w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-635x311.jpg 635w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-100x49.jpg 100w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-768x377.jpg 768w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-1536x753.jpg 1536w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-2048x1004.jpg 2048w" data-lazy-sizes="(max-width: 460px) 100vw, 460px" data-lazy-src="https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-460x226.jpg"><noscript><img width="460" height="226" src="https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-460x226.jpg" class="attachment-medium size-medium wp-post-image" alt="" decoding="async" srcset="https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-460x226.jpg 460w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-635x311.jpg 635w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-100x49.jpg 100w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-768x377.jpg 768w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-1536x753.jpg 1536w, https://sayari.com/wp-content/uploads/2026/01/BLG_Nexperia_SCRM_a-2048x1004.jpg 2048w" sizes="(max-width: 460px) 100vw, 460px" /></noscript>            </a>
+        	</figure>
+
+    		<h2 class="grid_post_title">
+			<a href="https://sayari.com/resources/mitigating-geopolitical-risk-lessons-in-resilience-from-the-nexperia-dispute/">Mitigating Geopolitical Risk: Lessons in Resilience from the Nexperia Dispute</a>
+		</h2>
+    	<div class="grid_post_meta">
+		<time>01/12/26</time>
+					<div data-term="2" class="prefix post-term">Blog Posts</div>
+				<span class="read_time">4 minute read</span>
+	</div>
+
+	<div class="grid_post_content">
+	Semiconductor supplier Nexperia is at the center of a dispute between the Dutch government and China....	</div>
+	<a class="arrow-link" href="https://sayari.com/resources/mitigating-geopolitical-risk-lessons-in-resilience-from-the-nexperia-dispute/">Read More<svg class="link-arrow" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999999 1L5 5L1 9" stroke="#0F121A" stroke-linejoin="round"></path></svg></a>
+
+</div>
+
+							
+								
+<div class="grid_post">
+    <figure class="grid_post_image">
+                    <a href="https://sayari.com/resources/blg-the-hidden-risk-of-vanishing-data-and-how-to-find-it/" aria-label="The Hidden Risk of Vanishing Data (And How to Find It)">
+                <img width="460" height="226" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20460%20226'%3E%3C/svg%3E" class="attachment-medium size-medium wp-post-image" alt="" decoding="async" data-lazy-srcset="https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-460x226.jpg 460w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-635x311.jpg 635w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-100x49.jpg 100w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-768x377.jpg 768w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-1536x753.jpg 1536w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-2048x1004.jpg 2048w" data-lazy-sizes="(max-width: 460px) 100vw, 460px" data-lazy-src="https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-460x226.jpg"><noscript><img width="460" height="226" src="https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-460x226.jpg" class="attachment-medium size-medium wp-post-image" alt="" decoding="async" srcset="https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-460x226.jpg 460w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-635x311.jpg 635w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-100x49.jpg 100w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-768x377.jpg 768w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-1536x753.jpg 1536w, https://sayari.com/wp-content/uploads/2025/12/vanishing-data_b-2048x1004.jpg 2048w" sizes="(max-width: 460px) 100vw, 460px" /></noscript>            </a>
+        	</figure>
+
+    		<h2 class="grid_post_title">
+			<a href="https://sayari.com/resources/blg-the-hidden-risk-of-vanishing-data-and-how-to-find-it/">The Hidden Risk of Vanishing Data (And How to Find It)</a>
+		</h2>
+    	<div class="grid_post_meta">
+		<time>12/22/25</time>
+					<div data-term="2" class="prefix post-term">Blog Posts</div>
+				<span class="read_time">3 minute read</span>
+	</div>
+
+	<div class="grid_post_content">
+	Corporate data isn't permanent. Companies vanish, registries update, and records are scrubbed. Data usually disappears for...	</div>
+	<a class="arrow-link" href="https://sayari.com/resources/blg-the-hidden-risk-of-vanishing-data-and-how-to-find-it/">Read More<svg class="link-arrow" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999999 1L5 5L1 9" stroke="#0F121A" stroke-linejoin="round"></path></svg></a>
+
+</div>
+
+													</div>
+					</div>
+				</section>
+	
+
+
+	<footer id="colophon" class="site-footer">
+		<div class="footer_main container space_3">
+			<div class="col">
+				<img width="120" height="21" src="https://sayari.com/wp-content/uploads/2021/10/sayari-logo.svg" class="footer_logo" alt="" decoding="async">				<div class="footer_description">
+					<p>We’ve collected more than 9 billion corporate disclosure documents, <strong>and we’re just getting started</strong>.</p>
+				</div>
+									<a class="btn-1" href="/request-a-demo/" target="_self">Request a Demo</a>
+							</div>
+			<div class="col">
+				<h4 class="footer_title">
+					Use Cases
+				</h4>
+				<div class="menu-use-cases-container"><ul id="use_cases" class="menu"><li id="menu-item-20167" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20167"><a href="https://sayari.com/sourcing-and-procurement/">Sourcing and Procurement</a></li>
+<li id="menu-item-20163" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20163"><a href="https://sayari.com/global-trade/">Global Trade</a></li>
+<li id="menu-item-20164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20164"><a href="https://sayari.com/financial-crime/">Financial Crime</a></li>
+<li id="menu-item-20165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20165"><a href="https://sayari.com/law-enforcement-regulatory/">Law Enforcement &amp; Regulatory</a></li>
+<li id="menu-item-20166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20166"><a href="https://sayari.com/defense-intelligence/">Defense &amp; Intelligence</a></li>
+<li id="menu-item-26490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26490"><a href="https://sayari.com/tprm/">Risk Management and Compliance</a></li>
+</ul></div>
+			</div>
+			<div class="col">
+				<h4 class="footer_title">
+					Company
+				</h4>
+				<div class="menu-company-container"><ul id="company" class="menu"><li id="menu-item-20168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20168"><a href="https://sayari.com/about-us/">About Sayari</a></li>
+<li id="menu-item-20169" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20169"><a href="https://sayari.com/press/">Press</a></li>
+<li id="menu-item-20170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20170"><a href="https://sayari.com/careers/">Careers</a></li>
+<li id="menu-item-25954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25954"><a href="https://sayari.com/events-calendar/">Events Calendar</a></li>
+<li id="menu-item-20171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20171"><a href="https://sayari.com/customer-success/">Customer Success</a></li>
+<li id="menu-item-20172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20172"><a href="https://sayari.com/partners/">Partners</a></li>
+<li id="menu-item-20173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20173"><a href="https://sayari.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-20174" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20174"><a href="https://sayari.com/trust/">Trust &amp; Security</a></li>
+</ul></div>			</div>
+			<div class="col">
+				<h4 class="footer_title">
+					Subscribe for News &amp; More
+				</h4>
+				<script type="rocketlazyloadscript">
+	hbspt.forms.create({
+	portalId: "4252857",
+	formId: "bb8f3e78-f1cb-4159-a552-c7adbc6996dc",
+	sfdcCampaignId: "7011U000000ElRuQAK"
+	});
+</script>
+											<div class="footer_socials">
+						
+															<a class="social_link" href="https://www.youtube.com/@SayariLabs" target="_self" aria-label="Youtube"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%3E%3C/svg%3E" alt="Youtube" width="20" height="20" data-lazy-src="https://sayari.com/wp-content/uploads/2025/07/youtube-logo1-01.svg"><noscript><img src="https://sayari.com/wp-content/uploads/2025/07/youtube-logo1-01.svg" alt="Youtube" width="20" height="20"></noscript></a>
+							
+						
+															<a class="social_link" href="https://www.linkedin.com/company/sayarilabs/" target="_blank" aria-label="LinkedIn"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%3E%3C/svg%3E" alt="LinkedIn" width="20" height="20" data-lazy-src="https://sayari.com/wp-content/uploads/2024/07/linkedin.svg"><noscript><img src="https://sayari.com/wp-content/uploads/2024/07/linkedin.svg" alt="LinkedIn" width="20" height="20"></noscript></a>
+							
+												</div>
+					
+			</div>
+		</div>
+		<div class="footer_bottom space_4">
+			<div class="footer_bottom_inner">
+				<div class="left">
+					<p>©2026, Sayari Analytics, LLC &amp; Sayari Labs, Inc. All Rights Reserved.<br> <a href="/privacy-policy/">Privacy Policy</a> <a href="/website-terms/">Website Terms</a></p>
+				</div>
+				<div class="right">
+					<a href="https://sayari.com/cookie-notice/">Cookie Notice</a>
+					<a href="#" data-hu-action="cookies-notice-revoke">Revoke Consent</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div><!-- #page -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/sayari/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/careers/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://sayari.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://sayari.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><!--
+	         (__)
+     `\------(oo)
+       ||    (__) <(What are you looking for?)
+       ||w--||
+-->
+<script type="rocketlazyloadscript">
+  window.uetq=window.uetq||[];
+  window.uetq.push('set', { 'pid': {
+    'em': email,
+    'ph': ""
+  }});
+</script> <!-- Body Bottom External Code -->
+<script id="trigger-delayed-scripts">
+(function() {
+	setTimeout(function() {
+		// Simulate mousemove event to trigger WP Rocket delayed scripts
+		var event = new Event('mousemove', { bubbles: true, cancelable: true });
+		document.dispatchEvent(event);
+
+		// Also try these events as fallback
+		var events = ['touchstart', 'keydown', 'mousedown', 'scroll'];
+		events.forEach(function(eventName) {
+			var evt = new Event(eventName, { bubbles: true, cancelable: true });
+			document.dispatchEvent(evt);
+		});
+	}, 3000);
+})();
+</script>
+
+
+
+</body></html>

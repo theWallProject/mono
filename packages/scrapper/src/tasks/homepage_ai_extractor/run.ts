@@ -22,7 +22,7 @@ import { error, log } from "../../helper"
 import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../../types"
 import { sortByReasonAndCbRank } from "../validate/sorting"
 import { displayStatistics } from "../validate/statistics"
-import { isAutoExtracted, isProcessed, type ManualOverrideValue } from "../validate/types"
+import { isVerified, isHomepage, type ManualOverrideValue, type MetaState, homepageMeta } from "../validate/types"
 import { loadManualOverrides, saveManualOverrides } from "../validate/override_io"
 import { categorizeLinks, deduplicateSocialLinks, type CategorizedLinks } from "./ai_categorizer"
 import { CompanyLogger } from "./company_logger"
@@ -37,6 +37,8 @@ import {
   loadRetryList,
   removeFromRetryList
 } from "./retry_list"
+import { assertGitPreconditions, commitCompanyResult } from "./git_commit"
+import { runUpdateSteps } from "../../index"
 
 // ────────────────────────────────────────────────────────────────────────────
 // Data loading
@@ -79,10 +81,10 @@ const loadData = (): LoadedData => {
   // Filter: skip already processed, existing overrides, and companies on the retry list
   const unprocessedItems = sortedItems.filter((item) => {
     const existing = currentOverrides[item.name]
-    // Skip if human-verified (_processed: true)
-    if (existing && isProcessed(existing)) return false
-    // Skip if auto-extracted (_processed: "auto")
-    if (existing && isAutoExtracted(existing)) return false
+    // Skip if human-verified (_meta.isVerified or _meta.isBrowserVerified)
+    if (existing && isVerified(existing)) return false
+    // Skip if auto-extracted (_meta.isHomepage)
+    if (existing && isHomepage(existing)) return false
     // Skip if already has any override data (per user request: "ignore existing for now")
     if (existing && Object.keys(existing).length > 0) return false
     // Skip if on the retry list (will be handled by Retry mode)
@@ -101,13 +103,13 @@ const loadData = (): LoadedData => {
 
 const categorizedToOverride = (
   categorized: CategorizedLinks
-): ManualOverrideFields & { _processed: "auto"; urls?: string[] } => {
+): ManualOverrideFields & MetaState & { urls?: string[] } => {
   // Deduplicate social links by selector before saving
   // (e.g., linkedin.com/company/foo and linkedin.com/company/foo/?origin → keep only the canonical URL)
   const deduped = deduplicateSocialLinks(categorized)
 
-  const override: ManualOverrideFields & { _processed: "auto"; urls?: string[] } = {
-    _processed: "auto"
+  const override: ManualOverrideFields & MetaState & { urls?: string[] } = {
+    _meta: homepageMeta
   }
 
   if (deduped.ws && deduped.ws.length > 0) override.ws = deduped.ws
@@ -138,7 +140,7 @@ const categorizedToOverride = (
 type ProcessResult = {
   companyName: string
   success: boolean
-  override?: ManualOverrideFields & { _processed: "auto"; urls?: string[] }
+  override?: ManualOverrideFields & MetaState & { urls?: string[] }
   errorType?: string
   errorMessage?: string
 }
@@ -174,7 +176,7 @@ const processCompany = async (
     // Step 3: Convert to override format
     const override = categorizedToOverride(categorized)
 
-    companyLogger.log(`Override fields: ${Object.keys(override).filter((k) => k !== "_processed").join(", ")}`)
+    companyLogger.log(`Override fields: ${Object.keys(override).filter((k) => k !== "_meta").join(", ")}`)
     companyLogger.flush()
 
     return {
@@ -609,6 +611,9 @@ export const runInteractive = async (companyNameOverride?: string): Promise<stri
  * Saves after each company.
  */
 export const runBatch = async (batchSize?: number): Promise<void> => {
+  // Fail hard and early if git state is not suitable for auto-commits
+  assertGitPreconditions()
+
   const size = batchSize ?? HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.defaultSize
   const { sortedItems, unprocessedItems } = loadData()
   const currentOverrides = loadManualOverrides()
@@ -639,6 +644,7 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
         result.errorMessage ?? "Unknown error"
       )
       log(`Added "${result.companyName}" to retry list. Continuing with next company...`)
+      commitCompanyResult(result.companyName, false, result.errorType)
       continue
     }
 
@@ -654,6 +660,13 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
 
     // Remove from retry list if it was there
     removeFromRetryList(item.name)
+
+    // Regenerate ALL.json and all output files so the commit is fully self-contained
+    log(`Regenerating database for "${item.name}"...`)
+    await runUpdateSteps({ shouldScrap: false, shouldValidate: false })
+
+    // Commit this company's changes atomically
+    commitCompanyResult(item.name, true)
 
     // Delay between companies to be polite
     if (i < itemsToProcess.length - 1) {

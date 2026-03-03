@@ -68,7 +68,7 @@ function testUrlAgainstRules(
  * Type-safe accessor for link field values from a manual override/addition entry.
  * Uses an explicit switch over known fields to avoid dynamic string indexing.
  * Accepts any object because callers pass union types where some members lack
- * link fields entirely (e.g., { _processed: true }). The switch safely returns
+ * link fields entirely (e.g., { _meta: { isVerified: true } }). The switch safely returns
  * undefined for entries that don't have the requested field.
  */
 function getLinkFieldValue<T extends object>(entry: T, field: RuleLinkField): unknown {

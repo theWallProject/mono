@@ -221,6 +221,50 @@ describe("API_ENDPOINT_RULE_FACEBOOK", () => {
     it("should not match facebook.com/hashtag/something (hashtag page)", () => {
       testRule(rule, "https://www.facebook.com/hashtag/something", false)
     })
+
+    it("should not match facebook.com/settings (settings page)", () => {
+      testRule(rule, "https://www.facebook.com/settings", false)
+    })
+
+    it("should not match facebook.com/help (help page)", () => {
+      testRule(rule, "https://www.facebook.com/help", false)
+    })
+
+    it("should not match facebook.com/notifications (notifications page)", () => {
+      testRule(rule, "https://www.facebook.com/notifications", false)
+    })
+
+    it("should not match facebook.com/messages (messages page)", () => {
+      testRule(rule, "https://www.facebook.com/messages", false)
+    })
+
+    it("should not match facebook.com/bookmarks (bookmarks page)", () => {
+      testRule(rule, "https://www.facebook.com/bookmarks", false)
+    })
+
+    it("should not match facebook.com/stories (stories page)", () => {
+      testRule(rule, "https://www.facebook.com/stories", false)
+    })
+
+    it("should not match facebook.com/reels (reels page)", () => {
+      testRule(rule, "https://www.facebook.com/reels", false)
+    })
+
+    it("should not match facebook.com/ads (ads page)", () => {
+      testRule(rule, "https://www.facebook.com/ads", false)
+    })
+
+    it("should not match facebook.com/p (posts path)", () => {
+      testRule(rule, "https://www.facebook.com/p", false)
+    })
+
+    it("should not match facebook.com/p/SomePostTitle (post URL)", () => {
+      testRule(rule, "https://www.facebook.com/p/SomePostTitle", false)
+    })
+
+    it("should match facebook.com/pinterest (username starting with 'p')", () => {
+      testRule(rule, "https://www.facebook.com/pinterest", true, "pinterest")
+    })
   })
 
   describe("negative cases", () => {

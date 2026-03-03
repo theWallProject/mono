@@ -149,9 +149,19 @@ const CATEGORY_RULES: Partial<Record<keyof CategorizedLinks, { rule: { regex: st
 }
 
 /**
+ * Categories whose selectors are case-insensitive (e.g., LinkedIn company slugs,
+ * Twitter handles). Selectors for these are lowercased for dedup and storage.
+ *
+ * YouTube channel IDs (ytc) are case-sensitive — a lowercased channel ID
+ * produces a broken URL — so ytc is NOT in this set.
+ */
+const CASE_INSENSITIVE_SELECTORS = new Set<keyof CategorizedLinks>(["li", "fb", "tw", "ig", "gh", "ytp", "tt", "th"])
+
+/**
  * Extracts the profile selector (user/org ID) from a social platform URL.
- * Returns the selector lowercased for case-insensitive comparison, or null
- * if the URL doesn't match the category's regex.
+ * Lowercases the selector for platforms with case-insensitive identifiers,
+ * but preserves original case for case-sensitive ones (e.g., YouTube channel IDs).
+ * Returns null if the URL doesn't match the category's regex.
  */
 const extractSelector = (category: keyof CategorizedLinks, url: string): string | null => {
   const entry = CATEGORY_RULES[category]
@@ -162,7 +172,8 @@ const extractSelector = (category: keyof CategorizedLinks, url: string): string 
     if (!match) return null
     // YouTube profile uses capture groups 1-4; take the first non-undefined
     const selector = match[1] || match[2] || match[3] || match[4]
-    return selector ? selector.toLowerCase() : null
+    if (!selector) return null
+    return CASE_INSENSITIVE_SELECTORS.has(category) ? selector.toLowerCase() : selector
   } catch {
     return null
   }

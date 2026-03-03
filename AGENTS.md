@@ -38,7 +38,7 @@ pnpm test:addon                # All addon tests (requires built extension)
 pnpm test:addon:e2e            # E2E tests only
 
 # Data Pipeline
-pnpm data                      # Regenerate database + format + manual overrides (interactive)
+pnpm data                      # Unified data menu (validate, add, delete, quick-verify, AI extract, apply, full pipeline)
 # For non-interactive regeneration (useful after editing MANUAL.json or manualAdditions.ts):
 cd packages/scrapper && pnpm exec ts-node src/tasks/regenerate_db.ts
 

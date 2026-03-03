@@ -1,0 +1,728 @@
+<!DOCTYPE html><html lang="en" style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/AWtrSI7lAmTAfV1rzWqEqz54/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-DNsk1l2N8IJMT/1D2GaYe7/7wf4BKkES+NGns242eIkpk/PIUnpeVsUuno96AxVX"></script><script type="text/javascript">
+/* <![CDATA[ */
+ var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,initializeOnLoaded:function(o){gform.domLoaded&&gform.scriptsLoaded?o():!gform.domLoaded&&gform.scriptsLoaded?window.addEventListener("DOMContentLoaded",o):document.addEventListener("gform_main_scripts_loaded",o)},hooks:{action:{},filter:{}},addAction:function(o,n,r,t){gform.addHook("action",o,n,r,t)},addFilter:function(o,n,r,t){gform.addHook("filter",o,n,r,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,n){gform.removeHook("action",o,n)},removeFilter:function(o,n,r){gform.removeHook("filter",o,n,r)},addHook:function(o,n,r,t,i){null==gform.hooks[o][n]&&(gform.hooks[o][n]=[]);var e=gform.hooks[o][n];null==i&&(i=n+"_"+e.length),gform.hooks[o][n].push({tag:i,callable:r,priority:t=null==t?10:t})},doHook:function(n,o,r){var t;if(r=Array.prototype.slice.call(r,1),null!=gform.hooks[n][o]&&((o=gform.hooks[n][o]).sort(function(o,n){return o.priority-n.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==n?t.apply(null,r):r[0]=t.apply(null,r)})),"filter"==n)return r[0]},removeHook:function(o,n,t,i){var r;null!=gform.hooks[o][n]&&(r=(r=gform.hooks[o][n]).filter(function(o,n,r){return!!(null!=i&&i!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][n]=r)}}); 
+/* ]]> */
+</script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <meta name="description" content="description">
+    <meta name="keywords" content="keywords">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="Site">
+    <meta name="twitter:title" content="Title">
+    <meta name="twitter:description" content="Description">
+    <meta name="twitter:creator" content="Creator">
+    <meta name="twitter:image:src" content="">
+    <meta name="twitter:domain" content="localhost">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Site">
+    <meta property="og:description" content="Description">
+    <meta property="og:image" content="img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="localhost">
+    <meta property="og:site_name" content="Site">
+    <meta property="og:see_also" content="localhost">
+    <link rel="icon" type="image/png" href="https://regulus.com/wp-content/themes/regulus/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://regulus.com/wp-content/themes/regulus/assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://regulus.com/wp-content/themes/regulus/assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://regulus.com/wp-content/themes/regulus/assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="https://regulus.com/wp-content/themes/regulus/assets/ico/site.webmanifest">
+    <link rel="mask-icon" href="https://regulus.com/wp-content/themes/regulus/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!--<meta name="format-detection" content="telephone=no">-->
+
+    <script>!function (e) {
+            "use strict";
+
+            function t(e, t, n) {
+                e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent && e.attachEvent("on" + t, n)
+            }
+
+            function n(t, n) {
+                return e.localStorage && localStorage[t + "_content"] && localStorage[t + "_file"] === n
+            }
+
+            function a(t, a) {
+                if (e.localStorage && e.XMLHttpRequest) n(t, a) ? o(localStorage[t + "_content"]) : l(t, a); else {
+                    var s = r.createElement("link");
+                    s.href = a, s.id = t, s.rel = "stylesheet", s.type = "text/css", r.getElementsByTagName("head")[0].appendChild(s), r.cookie = t
+                }
+            }
+
+            function l(e, t) {
+                var n = new XMLHttpRequest;
+                n.open("GET", t, !0), n.onreadystatechange = function () {
+                    4 === n.readyState && 200 === n.status && (o(n.responseText), localStorage[e + "_content"] = n.responseText, localStorage[e + "_file"] = t)
+                }, n.send()
+            }
+
+            function o(e) {
+                var t = r.createElement("style");
+                t.setAttribute("type", "text/css"), r.getElementsByTagName("head")[0].appendChild(t), t.styleSheet ? t.styleSheet.cssText = e : t.innerHTML = e
+            }
+
+            var r = e.document;
+            e.loadCSS = function (e, t, n) {
+                var a, l = r.createElement("link");
+                if (t) a = t; else {
+                    var o;
+                    o = r.querySelectorAll ? r.querySelectorAll("style,link[rel=stylesheet],script") : (r.body || r.getElementsByTagName("head")[0]).childNodes, a = o[o.length - 1]
+                }
+                var s = r.styleSheets;
+                l.rel = "stylesheet", l.href = e, l.media = "only x", a.parentNode.insertBefore(l, t ? a : a.nextSibling);
+                var c = function (e) {
+                    for (var t = l.href, n = s.length; n--;) if (s[n].href === t) return e();
+                    setTimeout(function () {
+                        c(e)
+                    })
+                };
+                return l.onloadcssdefined = c, c(function () {
+                    l.media = n || "all"
+                }), l
+            }, e.loadLocalStorageCSS = function (l, o) {
+                n(l, o) || r.cookie.indexOf(l) > -1 ? a(l, o) : t(e, "load", function () {
+                    a(l, o)
+                })
+            }
+        }(this);</script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v25.0 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Regulus - Next Generation Counter Unmanned Systems</title>
+	<meta name="description" content="Regulus - Next Generation Counter Unmanned systems. Ring C-UxS - Combat-Proven and widely deployed, is simple, effective and cutting-edge.">
+	<link rel="canonical" href="https://regulus.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Regulus - Next Generation Counter Unmanned Systems">
+	<meta property="og:description" content="Regulus - Next Generation Counter Unmanned systems. Ring C-UxS - Combat-Proven and widely deployed, is simple, effective and cutting-edge.">
+	<meta property="og:url" content="https://regulus.com/">
+	<meta property="og:site_name" content="Regulus">
+	<meta property="article:modified_time" content="2025-04-03T08:56:43+00:00">
+	<meta property="og:image" content="http://regulus.com/wp-content/uploads/2024/05/coming-soon.jpg">
+	<meta property="og:image:width" content="2561">
+	<meta property="og:image:height" content="1440">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://regulus.com/","url":"https://regulus.com/","name":"Regulus - Next Generation Counter Unmanned Systems","isPartOf":{"@id":"https://regulus.com/#website"},"about":{"@id":"https://regulus.com/#organization"},"primaryImageOfPage":{"@id":"https://regulus.com/#primaryimage"},"image":{"@id":"https://regulus.com/#primaryimage"},"thumbnailUrl":"https://regulus.com/wp-content/uploads/2024/05/coming-soon.jpg","datePublished":"2024-04-23T10:23:46+00:00","dateModified":"2025-04-03T08:56:43+00:00","description":"Regulus - Next Generation Counter Unmanned systems. Ring C-UxS - Combat-Proven and widely deployed, is simple, effective and cutting-edge.","breadcrumb":{"@id":"https://regulus.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://regulus.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://regulus.com/#primaryimage","url":"https://regulus.com/wp-content/uploads/2024/05/coming-soon.jpg","contentUrl":"https://regulus.com/wp-content/uploads/2024/05/coming-soon.jpg","width":2561,"height":1440},{"@type":"BreadcrumbList","@id":"https://regulus.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://regulus.com/#website","url":"https://regulus.com/","name":"Regulus","description":"Next Generation Counter Unmanned Systems","publisher":{"@id":"https://regulus.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://regulus.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://regulus.com/#organization","name":"Regulus Cyber","url":"https://regulus.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://regulus.com/#/schema/logo/image/","url":"https://regulus.com/wp-content/uploads/2024/06/logo-transparent@2x.png","contentUrl":"https://regulus.com/wp-content/uploads/2024/06/logo-transparent@2x.png","width":278,"height":58,"caption":"Regulus Cyber"},"image":{"@id":"https://regulus.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Regulus » Homepage Comments Feed" href="https://regulus.com/sample-page/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://regulus.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fregulus.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://regulus.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fregulus.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*wp_block_styles_on_demand_placeholder:69a48922b84d6*/
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link rel="stylesheet" id="bootstrap-style-css" href="https://regulus.com/wp-content/themes/regulus/assets/css/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="main-style-css" href="https://regulus.com/wp-content/themes/regulus/assets/css/style.css" type="text/css" media="all">
+<script type="text/javascript" src="https://regulus.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://regulus.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://regulus.com/wp-content/themes/regulus/assets/js/libs.js" id="libs-script-js"></script>
+<script type="text/javascript" src="https://regulus.com/wp-content/themes/regulus/assets/js/bootstrap.js" id="bootstrap-script-js"></script>
+<script type="text/javascript" id="main-script-js-extra">
+/* <![CDATA[ */
+var siteObject = {"ajaxurl":"https://regulus.com/wp-admin/admin-ajax.php","homeurl":"https://regulus.com"};
+//# sourceURL=main-script-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://regulus.com/wp-content/themes/regulus/assets/js/app.js" id="main-script-js"></script>
+<link rel="https://api.w.org/" href="https://regulus.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://regulus.com/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://regulus.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.1">
+<link rel="shortlink" href="https://regulus.com/">
+<link rel="icon" href="https://regulus.com/wp-content/uploads/2024/05/cropped-android-chrome-512x512-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://regulus.com/wp-content/uploads/2024/05/cropped-android-chrome-512x512-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://regulus.com/wp-content/uploads/2024/05/cropped-android-chrome-512x512-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://regulus.com/wp-content/uploads/2024/05/cropped-android-chrome-512x512-1-270x270.png">
+    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager -->
+
+    <!-- End Google Tag Manager -->
+
+    <!-- End Google Tag Manager -->
+<script src="https://regulus.com/wp-includes/js/wp-emoji-release.min.js" defer=""></script></head>
+<body class="home wp-singular page-template page-template-homepage page-template-homepage-php page page-id-2 wp-theme-regulus has-transparent-header skin-" data-aos-easing="ease-in-out" data-aos-duration="400" data-aos-delay="0">
+<!-- Google Tag Manager (noscript) -->
+
+<!-- End Google Tag Manager (noscript) -->  
+
+<!--[if lt IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<div class="l-wrapper skin-">
+
+    <!-- header-->
+    
+    <header class="l-header b-header   m-abs">
+            <div class="b-header__wrp container m-wide d-flex align-items-center justify-content-between d-lg-block">
+
+                <div class="row align-items-center justify-content-between">
+
+                    <div class="col-auto b-header__logo">
+                        <a class="b-logo" href="/">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/logo-transparent.png" srcset="https://regulus.com/wp-content/themes/regulus/assets/img/logo-transparent@2x.png 2x" alt="logo">
+                        </a>
+                    </div>
+
+                    <div class="col-auto b-header__menu ml-auto d-none d-lg-flex align-content-lg-center">
+                        <nav class="b-header__menu-nav"><ul id="menu-main-menu" class="inline-list"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="https://regulus.com/ring-c-uxs/"><span><span>Ring</span></span> C-UxS</a></li>
+<li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://regulus.com/pyramidgnss/"><span><span>Pyramid</span></span> GNSS</a></li>
+<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://regulus.com/about-regulus/">About</a></li>
+<li id="menu-item-386" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-386"><a href="https://www.comeet.com/jobs/regulus/9A.00D">Careers</a></li>
+</ul></nav>                        <div class="b-header-toolbar d-lg-inline-flex pl-lg-5 text-center">
+                        <a class="modal-link btn btn-outline
+                        text-light align-self-center" href="#" data-toggle="modal" data-target="#contactModal">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto b-header__burger d-block d-lg-none p-0">
+                    <a class="menu-icon burger" data-menu-trigger="">
+                        <span class="b-burger"></span>
+                    </a>
+                </div>
+            </div>
+    </header>
+    <div id="header_placeholder"></div>
+    <!-- main-->
+    <main class="l-main" id="main">
+        
+<!-- hero-->
+<section class="section section-bg s-hero s-hero--home has_background">
+            <div class="title-img aos-init aos-animate" data-aos-once="true" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
+            <img width="2561" height="1440" src="https://regulus.com/wp-content/uploads/2024/05/coming-soon.jpg" class="img-fluid wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://regulus.com/wp-content/uploads/2024/05/coming-soon.jpg 2561w, https://regulus.com/wp-content/uploads/2024/05/coming-soon-300x169.jpg 300w, https://regulus.com/wp-content/uploads/2024/05/coming-soon-1024x576.jpg 1024w, https://regulus.com/wp-content/uploads/2024/05/coming-soon-768x432.jpg 768w, https://regulus.com/wp-content/uploads/2024/05/coming-soon-1536x864.jpg 1536w, https://regulus.com/wp-content/uploads/2024/05/coming-soon-2048x1152.jpg 2048w" sizes="(max-width: 2561px) 100vw, 2561px">        </div>
+        <div class="overlay"></div>
+    <div class="container m-large b-section">
+        <div class="s-hero__content">
+            <div class="row">
+                <div class="col-md-6">
+                                        <h1 class="s-hero__title _fw-200 aos-init aos-animate" data-aos-anchor=".s-hero__content" data-aos-easing="ease-in-out-back" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <span>Ring C-UxS</span> Next Generation Counter Unmanned Systems                    </h1>
+                                        <div class="scroll d-none d-md-block aos-init aos-animate" data-aos-anchor=".s-hero__content" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-duration="1000" data-aos-delay="1200">
+                        <a href="#content">
+                            <svg width="31px" height="88px" viewBox="0 0 31 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Ring" transform="translate(-953, -397)" fill="#FFFFFF" fill-rule="nonzero">
+                                        <polygon id="Stroke-649" points="969.621604 397 969.621 481.6 982.711508 473.429105 983.770492 475.125735 969.151096 484.250711 968.621644 484.581179 968.09217 484.250747 953.470566 475.12577 954.529434 473.429069 967.621 481.599 967.621604 397"></polygon>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+
+                    </div>
+
+
+                </div>
+                <div class="col-md-3 offset-md-2 align-self-end">
+                    <div class="s-hero__btn aos-init aos-animate" data-aos-anchor=".s-hero__content" data-aos="fade-in" data-aos-duration="800" data-aos-delay="1000">
+                        <div class="video-wrap">
+                            <div class="js-load-video-medium video-player" data-service="youtube" data-placeholder="" data-embed="iXtorn3e2-E">
+                                <a href="#" class="btn__modal--play lightbox_trigger" data-videoid="718599565" title="Video">
+                                    <svg width="135px" height="135px" viewBox="0 0 135 135" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Homepage-2" transform="translate(-1178, -627)" fill="#FFFFFF" fill-rule="nonzero">
+                                                <g id="Group" transform="translate(1178, 627)">
+                                                    <path d="M132.978356,18.1730769 C131.860924,18.1730769 130.956712,17.2679272 130.956712,16.151543 L130.956712,4.0430679 L118.848567,4.0430679 C117.731135,4.0430679 116.826923,3.13791819 116.826923,2.02153395 C116.826923,0.905149709 117.731135,0 118.848567,0 L132.978356,0 C134.095788,0 135,0.905149709 135,2.02153395 L135,16.151543 C135,17.2679272 134.095788,18.1730769 132.978356,18.1730769 Z M132.978356,135 L118.848567,135 C117.731135,135 116.826923,134.094801 116.826923,132.978356 C116.826923,131.861911 117.731135,130.956712 118.848567,130.956712 L130.956712,130.956712 L130.956712,118.848567 C130.956712,117.732122 131.860924,116.826923 132.978356,116.826923 C134.095788,116.826923 135,117.732122 135,118.848567 L135,132.978356 C135,134.094801 134.095788,135 132.978356,135 Z M2.02142415,18.1730769 C0.904113485,18.1730769 0,17.2679272 0,16.151543 L0,2.02153395 C0,0.905149709 0.904113485,0 2.02142415,0 L16.1516528,0 C17.2689634,0 18.1730769,0.905149709 18.1730769,2.02153395 C18.1730769,3.13791819 17.2689634,4.0430679 16.1516528,4.0430679 L4.0428483,4.0430679 L4.0428483,16.151543 C4.0428483,17.2679272 3.13873481,18.1730769 2.02142415,18.1730769 Z M16.1516528,135 L2.02142415,135 C0.904113485,135 0,134.094801 0,132.978356 L0,118.848567 C0,117.732122 0.904113485,116.826923 2.02142415,116.826923 C3.13873481,116.826923 4.0428483,117.732122 4.0428483,118.848567 L4.0428483,130.956712 L16.1516528,130.956712 C17.2689634,130.956712 18.1730769,131.861911 18.1730769,132.978356 C18.1730769,134.094801 17.2689634,135 16.1516528,135 Z" id="Combined-Shape"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <i class="icon-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section-->
+<div id="content" class="content-wrapper">
+    <section class="section section-bg m-gradient s-product">
+        <div class="container m-wide b-section">
+            <div class="row justify-content-center ">
+                <div class="col-12 col-sm-8 text-center">
+                    <h2 class="section-title m-circle aos-init" data-aos-anchor=".s-product" data-aos-once="true" data-aos="fade-up" data-aos-duration="1000">
+                        Ring
+                        <strong>Operational &amp; Combat-Proven in Battle.</strong>
+                    </h2>
+
+                </div>
+
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4 col-xl-30 mb-5 mb-md-0 aos-init" data-aos-anchor=".s-product" data-aos="fade-right" data-aos-delay="1000">
+                    <p><strong>Ring-3</strong> employs low-powered, smart GNSS manipulation (spoofing) to take control of enemy uncrewed systems.</p>
+<p><strong>Ring-4 </strong>adds internal passive RF detection &amp; classification, with negative SNR and an extensive library to the combat-proven Ring-3.</p>
+<p><strong>Ring 5 </strong>adds smart FPV Datalink jamming, making it a full “detect and defeat” solution.</p>
+<div id="awebChromeHelper"></div>
+                </div>
+                <div class="col-md-4 col-xl-40">
+                                        <img class="img-fluid px-lg-5 my-5 my-md-0 aos-init" src="https://regulus.com/wp-content/uploads/2024/05/ring-box.png" ata-aos-anchor=".s-product" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-duration="1000" data-aos-delay="300">
+                </div>
+                <div class="col-md-4 col-xl-30 aos-init" data-aos-anchor=".s-product" data-aos="fade-left" data-aos-delay="1500">
+                    <p><strong>Ring</strong> is an effective, simple and flexible soft-kill C-UxS solution – affordable, compact, faster to deploy &amp; easier to operate.</p>
+<p><strong>Ring</strong> is TRL-9, proven in combat against air, ground and naval threats, on various platforms – tactical and strategic.</p>
+<p><strong>Ring</strong> deploys anywhere, integrates with anything, stops everything – from single commercial drones to swarms of fixed wing “dark drones”.</p>
+<div id="awebChromeHelper"></div>
+<div id="awebChromeHelper"></div>
+                </div>
+                <div class="col-12 text-center mt-70">
+                    <a href="https://regulus.com/ring-c-uxs/" class="btn btn-outline aos-init" data-aos-anchor=".s-product" data-aos="fade-up" data-aos-easing="ease-in" data-aos-duration="500" data-aos-delay="1800">Learn more</a>
+                </div>
+
+            </div>
+    </div></section>
+    <section class="section section-bg  s-pyramid" style="background-image: url('https://regulus.com/wp-content/uploads/2024/05/pyramid-bg.jpg')">
+        <div class="container b-section">
+            <div class="row align-items-md-end">
+                <div class="col-12 col-md-6 col-xl-5 order-2 order-md-1">
+                    <span class="sep-primary mb-5 aos-init" data-aos-anchor=".s-pyramid" data-aos="fade-right" data-aos-delay="300"></span>
+                    <div class="article text-white aos-init" data-aos-anchor=".s-pyramid" data-aos="fade-left" data-aos-delay="600">
+                        <h5 class="p1"><span class="s1">A cybersecurity software solution to protect against GNSS spoofing &amp; jamming attacks</span></h5>
+<p>GNSS Spoofing and Jamming attacks pose an ongoing threat to satellite-based navigation and timing across multiple industries.<br>
+Hundreds of thousands of incidents are reported every year.</p>
+<p>Pyramid DT is a simple software-only library, receiver-agnostic, simple-to-integrate solution that detects and alerts against all smart spoofing &amp; jamming attacks.</p>
+<div id="awebChromeHelper"></div>
+<div id="awebChromeHelper"></div>
+
+                    </div>
+
+                    <a href="https://regulus.com/pyramidgnss/" class="btn btn-outline text-white aos-init" data-aos-anchor=".s-pyramid" data-aos="fade-right" data-aos-delay="600">Learn more</a>
+                </div>
+                <div class="col-12 col-md-5 offset-lg-1 order-1 order-md-2 aos-init" data-aos-anchor=".s-pyramid" data-aos="fade-right" data-aos-delay="800">
+                    <h2 class="color-primary break-grid-right _fw-400 mt-md-0">Pyramid GNSS</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section-bg m-gradient s-effector pb-0">
+    <div class="container  b-section">
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 text-center">
+                <h2 class="section-title m-circle mb-0 aos-init" data-aos-anchor=".s-effector" data-aos-once="true" data-aos="fade-down" data-aos-duration="1000">
+                    Ring
+                    <strong>Effector Deployment</strong>
+                </h2>
+
+            </div>
+
+        </div>
+        <div class="row align-items-top align-items-md-end mt-5 pt-5 pt-md-0">
+            <div class="col-md-4">
+                <div class="icon-box directional-narrow">
+                    <div class="image-container">
+                        <figure class="rotate-20 mb-md-n5 ml-5 ml-mb-8">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/drone.svg" class="drone aos-init" data-aos-anchor=".s-effector" data-aos="fade-down" data-aos-once="false" data-aos-duration="800" data-aos-delay="900">
+                        </figure>
+                        <figure class="ml-5 mb-n3 aos-init" data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-in" data-aos-delay="1100">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring-tilt.svg" class="ring">
+                        </figure>
+                        <figure class="ml-5 mb-n3 aos-init" data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-in" data-aos-delay="700">
+                            <img class="ring-type" src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring-narrow.svg">
+                        </figure>
+                        <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-down" data-aos-delay="500" class="aos-init">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/tank.svg">
+                        </figure>
+                    </div>
+
+                    <div class="icon-box__content text-center text-md-left aos-init" data-aos-anchor=".s-effector" data-aos-once="true" data-aos="fade-up" data-aos-delay="300" style="height: 166px;">
+                        <h3>Ring Directional Narrow</h3>
+                        <p>
+                            <strong>Strategic solution</strong>Long range, advanced takeover<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box directional-wide mb-5 mb-md-0">
+                    <div class="image-container">
+                        <figure class="rotate-12">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/drone.svg" class="drone aos-init" data-aos-anchor=".s-effector" data-aos="fade-down" data-aos-once="false" data-aos-delay="2000">
+                        </figure>
+
+                        <figure class="ml-n5 position-absolute bottom-50">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/drone.svg" class="drone aos-init" data-aos-anchor=".s-effector" data-aos="fade-down" data-aos-duration="1000" data-aos-once="false" data-aos-delay="1800">
+                        </figure>
+                        <figure class="ml-n4 mb-2 aos-init" data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-in" data-aos-delay="2000">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring-double.svg" class="ring double">
+                        </figure>
+                        <figure class="ml-n4 mb-2 aos-init" data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-in" data-aos-delay="1600">
+                            <img class="ring-type" src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring-wide.svg">
+                        </figure>
+                        <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-down" data-aos-delay="1400" class="aos-init">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ship.svg" class="">
+                        </figure>
+                    </div>
+                    <div class="icon-box__content text-center text-md-left aos-init" data-aos-anchor=".s-effector" data-aos-once="true" data-aos="fade-up" data-aos-delay="1200" style="height: 166px;">
+                        <h3>Ring Directional Wide</h3>
+                        <p>
+                            <strong>Directional Medium Range</strong>Superior solution for border protection<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box omni text-center mt-8 mb-mt-0">
+                    <div class="image-container">
+                        <div class="rings d-flex justify-content-between align-items-end">
+                            <div class="rings_item ml-n4">
+                                <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-down" data-aos-delay="2800" class="aos-init">
+                                    <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/drone.svg" class="drone rotate-n6">
+                                </figure>
+                                <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-up" data-aos-delay="3000" class="aos-init">
+                                    <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring.svg" class="ring">
+                                </figure>
+                            </div>
+                            <div class="rings_item">
+                                <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-down" data-aos-delay="3000" class="aos-init">
+                                    <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/drone.svg" class="drone">
+                                    <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-up" data-aos-delay="3200" class="aos-init">
+                                        <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring.svg" class="ring">
+                                    </figure>
+                            </figure></div>
+                            <div class="rings_item">
+                                <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-down" data-aos-delay="3200" class="aos-init">
+                                    <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/drone.svg" class="drone rotate-7">
+                                </figure>
+                                <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-up" data-aos-delay="3400" class="aos-init">
+                                    <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring.svg" class="ring">
+                                </figure>
+                            </div>
+                            <div class="rings_item">
+                                <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-down" data-aos-delay="3400" class="aos-init">
+                                    <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/drone.svg" class="drone rotate-17">
+                                </figure>
+                                <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-up" data-aos-delay="3600" class="aos-init">
+                                    <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring-tilter.svg" class="ring">
+                                </figure>
+                            </div>
+                        </div>
+
+                        <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-in" data-aos-delay="2600" class="aos-init">
+                            <img class="img-fluid" src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/ring-omni.svg">
+                        </figure>
+                        <figure data-aos-anchor=".s-effector" data-aos-once="false" data-aos="fade-down" data-aos-delay="2400" class="aos-init">
+                            <img src="https://regulus.com/wp-content/themes/regulus/assets/img/svgs/factory.svg" class="icon position-absolute mx-auto bottom-0">
+                        </figure>
+                    </div>
+                    <div class="icon-box__content text-md-left aos-init" data-aos-anchor=".s-effector" data-aos-once="true" data-aos="fade-up" data-aos-delay="2200" style="height: 166px;">
+                        <h3>Ring Omni</h3>
+                        <p>
+                            <strong>Tactical Solution</strong>Tactical force and point protection<br>
+<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</div></section>    <section class="section s-content section-bg s-about bg-parallax">
+        <div class="parallax"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-11 col-lg-9">
+                    <div class="s-about__box aos-init" data-aos-anchor=".s-about" data-aos-once="false" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
+                        <div class="row align-items-center">
+                            <div class="col-sm-3 text-center">
+                                <h2 class="section-title m-circle m-large m-white">About Regulus</h2>
+                            </div>
+                            <div class="col-sm-9 text-center text-sm-left">
+                                <p>Regulus Cyber is a leading expert in software-based GPS/GNSS security with two product lines - Ring C-UxS - providing groundbreaking C-UxS capabilities against uncrewed Systems, and Pyramid GNSS - protecting against GNSS spoofing &amp; jamming attacks</p>
+
+                                <a class="btn btn-outline text-white thin mt-4" href="https://regulus.com/ring-c-uxs/" target="_blank">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+
+</main>
+<section class="section s-content s-cta">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 text-center">
+                <h2 class="color-primary mb-4">
+                   REQUEST INFORMATION                </h2>
+                <p class="text-white">
+                    Contact us for more information about Ring C-UxS and Pyramid GNSS                </p>
+                    <a class="btn btn-outline text-white mt-4" href="#" data-toggle="modal" data-target="#contactModal">Contact us</a>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="l-footer b-footer">
+    <div class="b-footer__top">
+
+        <div class="container">
+            <div class=" b-footer__logo text-center">
+                <a href="/" class="b-logo">
+                    <img width="115" src="https://regulus.com/wp-content/themes/regulus/assets/img/logo-icon.svg" alt="logo">
+                </a>
+            </div>
+            <div class="b-footer-menu text-center">
+                <nav class="b-footer-menu__itm"><ul id="menu-main-menu-1" class="b-footer-menu__list d-flex align-items-center justify-content-center"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a href="https://regulus.com/ring-c-uxs/"><span><span>Ring</span></span> C-UxS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://regulus.com/pyramidgnss/"><span><span>Pyramid</span></span> GNSS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://regulus.com/about-regulus/">About</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-386"><a href="https://www.comeet.com/jobs/regulus/9A.00D">Careers</a></li>
+</ul></nav>            </div>
+        </div>
+    </div>
+    <div class="b-footer__bottom">
+        <div class="container">
+            <div class="row b-footer-row align-items-center">
+                <div class="col-12 col-md-4">
+                    <div class="b-footer__copy text-center text-md-left">
+                        <p>©2026 Regulus Cyber.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
+
+                        <div class="b-footer__soc">
+                            <ul class="b-footer__soc-list inline-list">
+                                <li>
+                                    <a target="_blank" href="https://twitter.com/RegulusCyber">
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" href="https://www.linkedin.com/company/regulus-cyber">
+                                        <i class="icon-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/reguluscyber/">
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.instagram.com/regulus.cyber">
+                                        <i class="icon-instagram"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                </div>
+                <div class="col-12 col-md-4"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+
+    <script type="text/javascript" src="https://regulus.com/wp-content/themes/regulus/assets/js/jquery.jold.js-load-video.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            //$('.js-load-video-medium').joldLoadVideo({youtubeThumbSize: 'maxresdefault'});
+            $('.lightbox_trigger').click(function (e) {
+                e.preventDefault();
+                var videoId = $(this).data("videoId");
+                function pauseVid() {
+                    videoId .pause();
+                }
+                /*
+                If the lightbox window HTML already exists in document,
+                change the img src to to match the href of whatever link was clicked
+                If the lightbox window HTML doesn't exists, create it and insert it.
+                (This will only happen the first time around)
+                */
+                if ($('#lightbox').length > 0) {
+                    $('#lightbox-content').html('<div class="embed-responsive embed-responsive-16by9"><video id="main-video" autoplay loop controls><source src="https://regulus.com/wp-content/themes/regulus/assets/pic/regulus-demo.mp4" type="video/mp4"></video></div>');
+                    $('#lightbox').show();
+                } else {
+
+                    var lightbox =
+                        '<div id="lightbox">' +
+                        '<span><i class="icon-close"></i></span>' +
+                        '<div id="content">' +
+                        '<video id="background-video" autoplay loop muted>' +
+                        '<source src="https://video.wixstatic.com/video/360c7c_350ae077a53d4723876ddbfaf64160b8/1080p/mp4/file.mp4">' +
+                        '</video>' +
+                        '</div>' +
+                        '</div>';
+
+                    $('body').append(lightbox);
+                }
+            });
+
+            $('#lightbox .close').on('click', function () {
+                $('#lightbox').hide();
+                $('#lightbox-content').html('');
+            });
+
+        });
+    </script>
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content transparent">
+        <div class="modal-header text-center">
+            <h2 class="section-title m-circle text-center text-light mb-0"><span>Receive</span> More Info</h2>
+            <button type="button" class="close position-absolute" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="icon-close"></i></span>
+            </button>
+        </div>
+
+
+            <div class="modal-body">
+                <div class="text-light">
+                <script type="text/javascript"></script>
+                <div class="gf_browser_chrome gform_wrapper gform-theme gform-theme--foundation gform-theme--framework gform-theme--orbital" data-form-theme="orbital" data-form-index="0" id="gform_wrapper_1"><style>#gform_wrapper_1[data-form-index="0"].gform-theme,[data-parent-form="1_0"]{--gform-theme-color-primary: #204ce5;--gform-theme-color-primary-rgb: 32, 76, 229;--gform-theme-color-primary-contrast: #fff;--gform-theme-color-primary-contrast-rgb: 255, 255, 255;--gform-theme-color-primary-darker: #001AB3;--gform-theme-color-primary-lighter: #527EFF;--gform-theme-color-secondary: #fff;--gform-theme-color-secondary-rgb: 255, 255, 255;--gform-theme-color-secondary-contrast: #112337;--gform-theme-color-secondary-contrast-rgb: 17, 35, 55;--gform-theme-color-secondary-darker: #F5F5F5;--gform-theme-color-secondary-lighter: #FFFFFF;--gform-theme-color-outside-control-light: rgba(17, 35, 55, 0.1);--gform-theme-color-outside-control-light-rgb: 17, 35, 55;--gform-theme-color-outside-control-light-darker: rgba(104, 110, 119, 0.35);--gform-theme-color-outside-control-light-lighter: #F5F5F5;--gform-theme-color-outside-control-dark: #585e6a;--gform-theme-color-outside-control-dark-rgb: 88, 94, 106;--gform-theme-color-outside-control-dark-darker: #112337;--gform-theme-color-outside-control-dark-lighter: rgba(17, 35, 55, 0.65);--gform-theme-color-inside-control: #fff;--gform-theme-color-inside-control-rgb: 255, 255, 255;--gform-theme-color-inside-control-contrast: #112337;--gform-theme-color-inside-control-contrast-rgb: 17, 35, 55;--gform-theme-color-inside-control-darker: #F5F5F5;--gform-theme-color-inside-control-lighter: #FFFFFF;--gform-theme-color-inside-control-primary: #204ce5;--gform-theme-color-inside-control-primary-rgb: 32, 76, 229;--gform-theme-color-inside-control-primary-contrast: #fff;--gform-theme-color-inside-control-primary-contrast-rgb: 255, 255, 255;--gform-theme-color-inside-control-primary-darker: #001AB3;--gform-theme-color-inside-control-primary-lighter: #527EFF;--gform-theme-color-inside-control-light: rgba(17, 35, 55, 0.1);--gform-theme-color-inside-control-light-rgb: 17, 35, 55;--gform-theme-color-inside-control-light-darker: rgba(104, 110, 119, 0.35);--gform-theme-color-inside-control-light-lighter: #F5F5F5;--gform-theme-color-inside-control-dark: #585e6a;--gform-theme-color-inside-control-dark-rgb: 88, 94, 106;--gform-theme-color-inside-control-dark-darker: #112337;--gform-theme-color-inside-control-dark-lighter: rgba(17, 35, 55, 0.65);--gform-theme-border-radius: 3px;--gform-theme-font-size-secondary: 14px;--gform-theme-font-size-tertiary: 13px;--gform-theme-icon-control-number: url("data:image/svg+xml,%3Csvg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 0C4.26522 5.96046e-08 4.51957 0.105357 4.70711 0.292893L7.70711 3.29289C8.09763 3.68342 8.09763 4.31658 7.70711 4.70711C7.31658 5.09763 6.68342 5.09763 6.29289 4.70711L4 2.41421L1.70711 4.70711C1.31658 5.09763 0.683417 5.09763 0.292893 4.70711C-0.0976311 4.31658 -0.097631 3.68342 0.292893 3.29289L3.29289 0.292893C3.48043 0.105357 3.73478 0 4 0ZM0.292893 9.29289C0.683417 8.90237 1.31658 8.90237 1.70711 9.29289L4 11.5858L6.29289 9.29289C6.68342 8.90237 7.31658 8.90237 7.70711 9.29289C8.09763 9.68342 8.09763 10.3166 7.70711 10.7071L4.70711 13.7071C4.31658 14.0976 3.68342 14.0976 3.29289 13.7071L0.292893 10.7071C-0.0976311 10.3166 -0.0976311 9.68342 0.292893 9.29289Z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gform-theme-icon-control-select: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.292893C0.683417 -0.097631 1.31658 -0.097631 1.70711 0.292893L5 3.58579L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L5.70711 5.70711C5.31658 6.09763 4.68342 6.09763 4.29289 5.70711L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683418 0.292893 0.292893Z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gform-theme-icon-control-search: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cpath d='M256 128c-70.692 0-128 57.308-128 128 0 70.691 57.308 128 128 128 70.691 0 128-57.309 128-128 0-70.692-57.309-128-128-128zM64 256c0-106.039 85.961-192 192-192s192 85.961 192 192c0 41.466-13.146 79.863-35.498 111.248l154.125 154.125c12.496 12.496 12.496 32.758 0 45.254s-32.758 12.496-45.254 0L367.248 412.502C335.862 434.854 297.467 448 256 448c-106.039 0-192-85.962-192-192z' fill='rgba(17, 35, 55, 0.65)'/%3E%3C/svg%3E");--gform-theme-control-border-color: #686e77;--gform-theme-control-size: var(--gform-theme-control-size-md);--gform-theme-control-label-color-primary: #112337;--gform-theme-control-label-color-secondary: #112337;--gform-theme-control-choice-size: var(--gform-theme-control-choice-size-md);--gform-theme-control-checkbox-check-size: var(--gform-theme-control-checkbox-check-size-md);--gform-theme-control-radio-check-size: var(--gform-theme-control-radio-check-size-md);--gform-theme-control-button-font-size: var(--gform-theme-control-button-font-size-md);--gform-theme-control-button-padding-inline: var(--gform-theme-control-button-padding-inline-md);--gform-theme-control-button-size: var(--gform-theme-control-button-size-md);--gform-theme-control-button-border-color-secondary: #686e77;--gform-theme-control-file-button-background-color-hover: #EBEBEB;--gform-theme-field-page-steps-number-color: rgba(17, 35, 55, 0.8);}</style><div id="gf_1" class="gform_anchor" tabindex="-1"></div>
+                        <div class="gform_heading">
+							<p class="gform_required_legend"></p>
+                        </div><form method="post" enctype="multipart/form-data" target="gform_ajax_frame_1" id="gform_1" action="/#gf_1" data-formid="1" novalidate="">
+                        <div class="gform-body gform_body"><div id="gform_fields_1" class="gform_fields top_label form_sublabel_above description_above"><div id="field_1_4" class="gfield gfield--type-text gfield--width-half gfield_contains_required field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_4"><label class="gfield_label gform-field-label" for="input_1_4">First Name<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class="ginput_container ginput_container_text"><input name="input_4" id="input_1_4" type="text" value="" class="large" aria-required="true" aria-invalid="false"> </div></div><div id="field_1_5" class="gfield gfield--type-text gfield--width-half gfield_contains_required field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_5"><label class="gfield_label gform-field-label" for="input_1_5">Last Name<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class="ginput_container ginput_container_text"><input name="input_5" id="input_1_5" type="text" value="" class="large" aria-required="true" aria-invalid="false"> </div></div><div id="field_1_8" class="gfield gfield--type-email gfield--width-half gfield_contains_required field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_8"><label class="gfield_label gform-field-label" for="input_1_8">Email<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class="ginput_container ginput_container_email">
+                            <input name="input_8" id="input_1_8" type="email" value="" class="large" aria-required="true" aria-invalid="false">
+                        </div></div><div id="field_1_6" class="gfield gfield--type-text gfield--width-half field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_6"><label class="gfield_label gform-field-label" for="input_1_6">Company</label><div class="ginput_container ginput_container_text"><input name="input_6" id="input_1_6" type="text" value="" class="large" aria-invalid="false"> </div></div><fieldset id="field_1_7" class="gfield gfield--type-checkbox gfield--type-choice gfield--width-half gfield_contains_required field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_7"><legend class="gfield_label gform-field-label gfield_label_before_complex">I'm interested in:<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></legend><div class="ginput_container ginput_container_checkbox"><div class="gfield_checkbox" id="input_1_7"><div class="gchoice gchoice_1_7_1">
+								<input class="gfield-choice-input input-focus" name="input_7.1" type="checkbox" value="Ring (Counter Drone)" id="choice_1_7_1">
+								<label for="choice_1_7_1" id="label_1_7_1" class="gform-field-label gform-field-label--type-inline show">Ring (Counter Drone)</label>
+							</div><div class="gchoice gchoice_1_7_2">
+								<input class="gfield-choice-input input-focus" name="input_7.2" type="checkbox" value="Pyramid (GPS Cybersecurity)" id="choice_1_7_2">
+								<label for="choice_1_7_2" id="label_1_7_2" class="gform-field-label gform-field-label--type-inline show">Pyramid (GPS Cybersecurity)</label>
+							</div></div></div></fieldset><div id="field_1_3" class="gfield gfield--type-textarea gfield--width-half field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_3"><label class="gfield_label gform-field-label" for="input_1_3">Type your message here…</label><div class="ginput_container ginput_container_textarea"><textarea name="input_3" id="input_1_3" class="textarea medium" aria-invalid="false" rows="10" cols="50"></textarea></div></div><div id="field_1_10" class="gfield gfield--type-captcha field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_10"><label class="gfield_label gform-field-label screen-reader-text" for="input_1_10"></label><div id="input_1_10" class="ginput_container ginput_recaptcha gform-initialized" data-sitekey="6Lc12-cpAAAAAMQnXHQghEO3mYwbLj_qVker8AbC" data-theme="dark" data-tabindex="0" data-badge=""><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-dcaqwlitrf1o" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc12-cpAAAAAMQnXHQghEO3mYwbLj_qVker8AbC&amp;co=aHR0cHM6Ly9yZWd1bHVzLmNvbTo0NDM.&amp;hl=en&amp;v=AWtrSI7lAmTAfV1rzWqEqz54&amp;theme=dark&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=zi3smq9k0kqn"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></div><div id="field_1_11" class="gfield gfield--type-html gfield--width-full gfield_html gfield_html_formatted gfield_no_follows_desc field_sublabel_above gfield--no-description field_description_above gfield_visibility_visible" data-js-reload="field_1_11"></div></div></div>
+        <div class="gform_footer top_label"> <button type="submit" id="gform_submit_button_1" class="gform_button button" aria-live="polite">Submit</button> <input type="hidden" name="gform_ajax" value="form_id=1&amp;title=&amp;description=&amp;tabindex=0&amp;theme=data-form-theme='orbital'">
+            <input type="hidden" class="gform_hidden" name="is_submit_1" value="1">
+            <input type="hidden" class="gform_hidden" name="gform_submit" value="1">
+            
+            <input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
+            <input type="hidden" class="gform_hidden" name="state_1" value="WyJ7XCI3LjFcIjpcImM0Y2EwODU1NjFhYTMyMjU0MWEyZmRkMGZjMTUwMzZiXCIsXCI3LjJcIjpcIjNkN2FiNzQwZmMyNzAwMzdlYjcyYjc0NGMwZDJkMDJiXCJ9IiwiMDA3MTRlZjcyY2EwZDFmZWQ3NjIyYzgzZThkNWUxZjciXQ==">
+            <input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0">
+            <input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1">
+            <input type="hidden" name="gform_field_values" value="">
+            
+        </div>
+                        </form>
+                        </div>
+		                <iframe style="display:none;width:0px;height:0px;" src="about:blank" name="gform_ajax_frame_1" id="gform_ajax_frame_1" title="This iframe contains the logic required to handle Ajax powered Gravity Forms."></iframe>
+		                <script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {gformInitSpinner( 1, 'https://regulus.com/wp-content/plugins/gravityforms/images/spinner.svg', false );jQuery('#gform_ajax_frame_1').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_1');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_1').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_1').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_1').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_1').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */ jQuery(document).scrollTop(jQuery('#gform_wrapper_1').offset().top - mt); }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_1').val();gformInitSpinner( 1, 'https://regulus.com/wp-content/plugins/gravityforms/images/spinner.svg', false );jQuery(document).trigger('gform_page_loaded', [1, current_page]);window['gf_submitting_1'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}setTimeout(function(){jQuery('#gform_wrapper_1').replaceWith(confirmation_content);jQuery(document).scrollTop(jQuery('#gf_1').offset().top - mt);jQuery(document).trigger('gform_confirmation_loaded', [1]);window['gf_submitting_1'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_1').text());}, 50);}else{jQuery('#gform_1').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger('gform_post_render', [1, current_page]);gform.utils.trigger({ event: 'gform/postRender', native: false, data: { formId: 1, currentPage: current_page } });} );} ); 
+/* ]]> */
+</script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/regulus/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="https://regulus.com/wp-content/themes/regulus/assets/js/aos.js?ver=aos-script" id="aos-js-js"></script>
+<script type="text/javascript" src="https://regulus.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script type="text/javascript" src="https://regulus.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://regulus.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://regulus.com/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed" id="wp-a11y-js"></script>
+<script type="text/javascript" defer="defer" src="https://regulus.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.7.17.1" id="gform_json-js"></script>
+<script type="text/javascript" id="gform_gravityforms-js-extra">
+/* <![CDATA[ */
+var gform_i18n = {"datepicker":{"days":{"monday":"Mo","tuesday":"Tu","wednesday":"We","thursday":"Th","friday":"Fr","saturday":"Sa","sunday":"Su"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":0,"iconText":"Select date"}};
+var gf_legacy_multi = [];
+var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled"},"vars":{"images_url":"https://regulus.com/wp-content/plugins/gravityforms/images"}};
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https://regulus.com/wp-content/plugins/gravityforms","number_formats":[],"spinnerUrl":"https://regulus.com/wp-content/plugins/gravityforms/images/spinner.svg","version_hash":"0bc440d29d462aa651653fe40d4e4066","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+//# sourceURL=gform_gravityforms-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" defer="defer" src="https://regulus.com/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.7.17.1" id="gform_gravityforms-js"></script>
+<script type="text/javascript" defer="defer" src="https://www.google.com/recaptcha/api.js?hl=en#038;render=explicit" id="gform_recaptcha-js"></script>
+<script type="text/javascript" defer="defer" src="https://regulus.com/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=59d951b75d934ae23e0ea7f9776264aa" id="gform_gravityforms_utils-js"></script>
+<script type="text/javascript" defer="defer" src="https://regulus.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4ef53fe41c14a48b294541d9fc37387e" id="gform_gravityforms_theme_vendors-js"></script>
+<script type="text/javascript" id="gform_gravityforms_theme-js-extra">
+/* <![CDATA[ */
+var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"0bc440d29d462aa651653fe40d4e4066"}}},"hmr_dev":"","public_path":"https://regulus.com/wp-content/plugins/gravityforms/assets/js/dist/"};
+//# sourceURL=gform_gravityforms_theme-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" defer="defer" src="https://regulus.com/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=f4d12a887a23a8c5755fd2b956bc8fcf" id="gform_gravityforms_theme-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://regulus.com/wp-includes/js/wp-emoji-release.min.js"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://regulus.com/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 1) {} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } ); 
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+ gform.initializeOnLoaded( function() {jQuery(document).trigger('gform_post_render', [1, 1]);gform.utils.trigger({ event: 'gform/postRender', native: false, data: { formId: 1, currentPage: 1 } });} ); 
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async=""></script>
+
+
+<div id="lightbox">
+    <span class="close"><i class="icon-close"></i></span>
+    <div id="lightbox-content">
+    </div>
+</div><p id="a11y-speak-intro-text" class="a11y-speak-intro-text" style="position:absolute;margin:-1px;padding:0;height:1px;width:1px;overflow:hidden;clip-path:inset(50%);border:0;word-wrap:normal !important;" hidden="">Notifications</p><div id="a11y-speak-assertive" class="a11y-speak-region" style="position:absolute;margin:-1px;padding:0;height:1px;width:1px;overflow:hidden;clip-path:inset(50%);border:0;word-wrap:normal !important;" aria-live="assertive" aria-relevant="additions text" aria-atomic="true"></div><div id="a11y-speak-polite" class="a11y-speak-region" style="position:absolute;margin:-1px;padding:0;height:1px;width:1px;overflow:hidden;clip-path:inset(50%);border:0;word-wrap:normal !important;" aria-live="polite" aria-relevant="additions text" aria-atomic="true"></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" name="c-dcaqwlitrf1o" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=AWtrSI7lAmTAfV1rzWqEqz54&amp;k=6Lc12-cpAAAAAMQnXHQghEO3mYwbLj_qVker8AbC&amp;bft=0dAFcWeA6etacrrZFOW7usEFt2UuB7-DYKB2FC_4UBN0yCLEQR6krztnAXZlTE60Ywn8l3S8SWrUO6JuT5iWWgEjTs5seJqdnc3w" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

@@ -43,8 +43,8 @@ export async function generateAndroidBlacklist() {
 
   // Iterate through manualOverrides and extract Android entries
   for (const [companyName, override] of Object.entries(manualOverrides)) {
-    // Skip processed-only entries
-    if (override && typeof override === "object" && "_processed" in override && Object.keys(override).length === 1) {
+    // Skip meta-only entries (no actual data fields)
+    if (override && typeof override === "object" && "_meta" in override && Object.keys(override).length === 1) {
       continue
     }
 

@@ -1,0 +1,69 @@
+[2026-03-01T15:34:07.399Z] === Homepage AI Extractor: Vendict ===
+[2026-03-01T15:34:07.399Z] Started at: 2026-03-01T15:34:07.399Z
+[2026-03-01T15:34:07.399Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772379247398_Vendict
+[2026-03-01T15:34:07.399Z] Company: Vendict
+[2026-03-01T15:34:07.399Z] Website: vendict.com
+[2026-03-01T15:34:07.399Z] cbRank: 26414
+[2026-03-01T15:34:07.399Z] Reasons: h
+[2026-03-01T15:34:07.399Z] Fetching: https://vendict.com
+[2026-03-01T15:34:12.367Z] Redirected: https://vendict.com -> https://vendict.com/
+[2026-03-01T15:34:12.378Z] Saved HTML (239444 bytes) to page.html
+[2026-03-01T15:34:12.383Z] Extracted 42 unique links from page
+[2026-03-01T15:34:12.384Z] Saved 42 links to links.json
+[2026-03-01T15:34:12.391Z] Extracted footer HTML (7959 chars)
+[2026-03-01T15:34:12.391Z] Extracted header HTML (21741 chars)
+[2026-03-01T15:34:12.398Z] Website (post-redirect): https://vendict.com/ → origin: https://vendict.com
+[2026-03-01T15:34:12.398Z]   SUBDOMAIN: myapp.vendict.com (added to ws)
+[2026-03-01T15:34:12.398Z]   SUBDOMAIN: trust.vendict.com (added to ws)
+[2026-03-01T15:34:12.398Z] Website subdomains found: 2
+[2026-03-01T15:34:12.398Z] External links: 3 (of 42 total)
+[2026-03-01T15:34:12.399Z] ── All external links ──
+[2026-03-01T15:34:12.399Z]   EXT: https://www.linkedin.com/company/vendict
+[2026-03-01T15:34:12.399Z]   EXT: https://www.youtube.com/@vendict7363
+[2026-03-01T15:34:12.399Z]   EXT: https://x.com/vendict_AI
+[2026-03-01T15:34:12.399Z] ── Step 1: Programmatic categorization ──
+[2026-03-01T15:34:12.399Z]   REGEX: li <- https://www.linkedin.com/company/vendict
+[2026-03-01T15:34:12.399Z]   REGEX: ytp <- https://www.youtube.com/@vendict7363
+[2026-03-01T15:34:12.399Z]   REGEX: tw <- https://x.com/vendict_AI
+[2026-03-01T15:34:12.399Z] Programmatic result: ws:3, li:1, ytp:1, tw:1 | 0 uncategorized
+[2026-03-01T15:34:12.399Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-01T15:34:12.402Z] Saved AI prompt (5052 chars) to ai_prompt.txt
+[2026-03-01T15:34:42.170Z] Saved AI response to ai_response.json
+[2026-03-01T15:34:42.170Z] ── Parsing AI response (4 lines) ──
+[2026-03-01T15:34:42.170Z]   AI LINK: https://trust.vendict.com
+[2026-03-01T15:34:42.171Z]   AI LINK: https://x.com/vendict_AI
+[2026-03-01T15:34:42.171Z]   AI LINK: https://www.youtube.com/@vendict7363
+[2026-03-01T15:34:42.171Z]   AI LINK: https://www.linkedin.com/company/vendict/
+[2026-03-01T15:34:42.171Z] AI returned 4 valid links
+[2026-03-01T15:34:42.171Z] ── Categorizing 4 AI-returned links ──
+[2026-03-01T15:34:42.171Z]   AI→URLS: https://trust.vendict.com
+[2026-03-01T15:34:42.171Z]   AI→REGEX: tw <- https://x.com/vendict_AI (duplicate, skipped)
+[2026-03-01T15:34:42.171Z]   AI→REGEX: ytp <- https://www.youtube.com/@vendict7363 (duplicate, skipped)
+[2026-03-01T15:34:42.171Z]   AI→REGEX: li <- https://www.linkedin.com/company/vendict/ (duplicate, skipped)
+[2026-03-01T15:34:42.172Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-01T15:34:42.172Z] Footer/header origins (5):
+[2026-03-01T15:34:42.172Z]   FOOTER/HEADER ORIGIN: https://trust.vendict.com
+[2026-03-01T15:34:42.173Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-01T15:34:42.173Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-01T15:34:42.173Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-01T15:34:42.173Z]   FOOTER/HEADER ORIGIN: https://myapp.vendict.com
+[2026-03-01T15:34:42.173Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-01T15:34:42.173Z] ── Step 3: Final dedup ──
+[2026-03-01T15:34:42.173Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-01T15:34:42.173Z] ── FINAL RESULT ──
+[2026-03-01T15:34:42.173Z]   ws (3):
+[2026-03-01T15:34:42.173Z]     - https://myapp.vendict.com
+[2026-03-01T15:34:42.173Z]     - https://trust.vendict.com
+[2026-03-01T15:34:42.173Z]     - https://vendict.com
+[2026-03-01T15:34:42.173Z]   li (1):
+[2026-03-01T15:34:42.173Z]     - https://www.linkedin.com/company/vendict
+[2026-03-01T15:34:42.173Z]   tw (1):
+[2026-03-01T15:34:42.173Z]     - https://x.com/vendict_ai
+[2026-03-01T15:34:42.173Z]   ytp (1):
+[2026-03-01T15:34:42.174Z]     - https://www.youtube.com/@vendict7363
+[2026-03-01T15:34:42.174Z]   urls (1):
+[2026-03-01T15:34:42.174Z]     - https://trust.vendict.com
+[2026-03-01T15:34:42.174Z] Summary: ws:3, li:1, ytp:1, tw:1, urls:1
+[2026-03-01T15:34:42.174Z] Saved final result to result.json
+[2026-03-01T15:34:42.174Z] Override fields: ws, li, tw, ytp, urls
+[2026-03-01T15:34:42.174Z] Finished at: 2026-03-01T15:34:42.174Z

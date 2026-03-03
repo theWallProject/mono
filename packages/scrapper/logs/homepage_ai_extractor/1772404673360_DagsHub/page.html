@@ -1,0 +1,2319 @@
+<!DOCTYPE html><html lang="en-US" style="--scrollbar-width: 0px; --marquee-elements: 24;"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+
+
+  <script src="https://js.hs-analytics.net/analytics/1772404500000/5233384.js" type="text/javascript" id="hs-analytics"></script><script src="https://js.hs-banner.com/v2/5233384/banner.js" type="text/javascript" id="cookieBanner-5233384" data-cookieconsent="ignore" data-hs-ignore="true" data-loader="hs-scriptloader" data-hsjs-portal="5233384" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" id="sendinblue-js" async="" src="https://sibautomation.com/sa.js?key=h37jbx0snh1bskj1dydnn5dg"></script><script type="text/javascript" integrity="sha384-3bSR/uIgD42pCWBeq1//B3mI/hPuWdk0L1EUnQIWfGyMOjs0VEoFLhHMqObtv2BA" crossorigin="anonymous" async="" src="https://cdn.amplitude.com/libs/amplitude-5.10.0-min.gz.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-PSBMEYG149&amp;cx=c&amp;gtm=4e62p1"></script><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/AWtrSI7lAmTAfV1rzWqEqz54/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-DNsk1l2N8IJMT/1D2GaYe7/7wf4BKkES+NGns242eIkpk/PIUnpeVsUuno96AxVX"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PGHTMDN"></script><script>
+    // Constants
+    const SIGN_IN_STATUS_ATTRIBUTE = 'data-md-signed-in',
+        SIGNED_IN_STATUS = 'true',
+        SIGNED_OUT_STATUS = 'false';
+
+    const SIGN_IN_USERNAME_COOKIE = 'dags_awesome';
+
+    const base_url = '/',
+          ajax_url = '/wp-admin/admin-ajax.php';
+
+    const getCookie = (name) => {
+        let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) return match[2];
+    };
+
+    const setSignedInStatus = (status) => {
+        const applyStatus = () => {
+            if (!document.body) return false;
+            document.body.setAttribute(SIGN_IN_STATUS_ATTRIBUTE, status);
+            return true;
+        };
+        if (!applyStatus()) {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.setAttribute(SIGN_IN_STATUS_ATTRIBUTE, status);
+            }, { once: true });
+        }
+    };
+
+    const is_home = window.location.pathname === '/';
+    // Handling Signed in status
+    let username = getCookie(SIGN_IN_USERNAME_COOKIE);
+
+    if (username) {
+        setSignedInStatus(SIGNED_IN_STATUS);
+        if (is_home) {
+            location.replace(base_url + "dashboard");
+        }
+        // $('.profile-menu .avatar').attr("src", "/avatars/" + user_id);
+        // $('.profile-menu .name').text(username);
+        // $('#user-profile-link').attr("href", "/" + username);
+    } else {
+        setSignedInStatus(SIGNED_OUT_STATUS);
+    }
+
+
+
+</script>
+
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+	<!-- This site is optimized with the Yoast SEO plugin v26.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>DagsHub: Everything you need to manage multimodal AI</title>
+	<meta name="description" content="Curate and annotate vision, audio, and LLM datasets, track experiments, and manage models on a single platform">
+	<link rel="canonical" href="/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="DagsHub: Everything you need to manage multimodal AI">
+	<meta property="og:description" content="Curate and annotate vision, audio, and LLM datasets, track experiments, and manage models on a single platform">
+	<meta property="og:url" content="https://dagshub.com/">
+	<meta property="og:site_name" content="DagsHub">
+	<meta property="article:modified_time" content="2025-10-13T10:13:30+00:00">
+	<meta property="og:image" content="/img/open_graph/dagshub-logo.jpg">
+	<meta property="og:image:width" content="1507">
+	<meta property="og:image:height" content="732">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@TheRealDagsHub">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://dagshub.com/","url":"https://dagshub.com/","name":"DagsHub: Everything you need to manage multimodal AI","isPartOf":{"@id":"https://dagshub.com/#website"},"about":{"@id":"https://dagshub.com/#organization"},"primaryImageOfPage":{"@id":"https://dagshub.com/#primaryimage"},"image":{"@id":"https://dagshub.com/#primaryimage"},"thumbnailUrl":"/img/open_graph/dagshub-logo.jpg","datePublished":"2024-04-08T17:29:35+00:00","dateModified":"2025-10-13T10:13:30+00:00","description":"Curate and annotate vision, audio, and LLM datasets, track experiments, and manage models on a single platform","breadcrumb":{"@id":"https://dagshub.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://dagshub.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://dagshub.com/#primaryimage","url":"/img/open_graph/dagshub-logo.jpg","contentUrl":"/img/open_graph/dagshub-logo.jpg","width":1507,"height":732},{"@type":"BreadcrumbList","@id":"https://dagshub.com/#breadcrumb","itemListElement":[]},{"@type":"WebSite","@id":"https://dagshub.com/#website","url":"https://dagshub.com/","name":"DagsHub","description":"","publisher":{"@id":"https://dagshub.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://dagshub.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://dagshub.com/#organization","name":"DagsHub","url":"https://dagshub.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://dagshub.com/#/schema/logo/image/","url":"https://dagshub.com/wp-content/uploads/2024/04/dagshab.svg","contentUrl":"https://dagshub.com/wp-content/uploads/2024/04/dagshab.svg","width":143,"height":40,"caption":"DagsHub"},"image":{"@id":"https://dagshub.com/#/schema/logo/image/"},"sameAs":["https://x.com/TheRealDagsHub","https://www.linkedin.com/company/dagshub"]}]}</script>
+	<meta name="google-site-verification" content="tGpeM4C0TE7ER3zs3IpMdPMOK6Nz9YCyO7_q2V2wJDM">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//dagshub.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="alternate" type="application/rss+xml" title="DagsHub » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="DagsHub » Comments Feed" href="/comments/feed/">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/dagshub.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=e9fb9cf410148ff800fcbbbdfa991a50"}};
+/*! This file is auto-generated */
+!function(s,n){var o,i,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),a=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===a[t]})}function u(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);for(var n=e.getImageData(16,16,1,1),a=0;a<n.data.length;a++)if(0!==n.data[a])return!1;return!0}function f(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\udedf")}return!1}function g(e,t,n,a){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):s.createElement("canvas"),o=r.getContext("2d",{willReadFrequently:!0}),i=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(function(e){i[e]=t(o,e,n,a)}),i}function t(e){var t=s.createElement("script");t.src=e,t.defer=!0,s.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",i=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){s.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+g.toString()+"("+[JSON.stringify(i),f.toString(),p.toString(),u.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"}),r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=function(e){c(n=e.data),r.terminate(),t(n)})}catch(e){}c(n=g(i,f,p,u))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<link rel="stylesheet" id="block-editor-styles-css" href="/wp-content/themes/wp-d-theme/css/prod/editor.css" type="text/css" media="all">
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-theme-inline-css" type="text/css">
+.wp-block-audio :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio :where(figcaption){color:#ffffffa6}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed :where(figcaption){color:#ffffffa6}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:#ffffffa6}:root :where(.wp-block-image figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme :root :where(.wp-block-image figcaption){color:#ffffffa6}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote:where(.has-text-align-right){border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote:where(.has-text-align-center){border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote:where(.is-style-plain){border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table :where(figcaption){color:#ffffffa6}.wp-block-video :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video :where(figcaption){color:#ffffffa6}.wp-block-video{margin:0 0 1em}:root :where(.wp-block-template-part.has-background){margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="safe-svg-svg-icon-style-inline-css" type="text/css">
+.safe-svg-cover{text-align:center}.safe-svg-cover .safe-svg-inside{display:inline-block;max-width:100%}.safe-svg-cover svg{fill:currentColor;height:100%;max-height:100%;max-width:100%;width:100%}
+
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--eeee-22: #eeee22;--wp--preset--color--81-d-742: #81d742;--wp--preset--color--1-e-73-be: #1e73be;--wp--preset--color--8224-e-3: #8224e3;--wp--preset--color--6-b-6-b-6-b: #6b6b6b;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style><link rel="stylesheet" id="styles-css" href="/wp-content/themes/wp-d-theme/css/prod/main.css" type="text/css" media="all">
+<link rel="stylesheet" id="new-style-css" href="/wp-content/themes/wp-d-theme/css/prod/new-style.css" type="text/css" media="all">
+<link rel="stylesheet" id="main-theme-style-css" href="/wp-content/themes/wp-d-theme/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="swipper-style-css" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?ver=9.2.14" type="text/css" media="">
+<link rel="stylesheet" id="fancybox-css" href="/wp-content/themes/wp-d-theme/vendors/fancybox/fancybox.css" type="text/css" media="all">
+<link rel="https://api.w.org/" href="/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/pages/2277"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<link rel="shortlink" href="/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdagshub.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdagshub.com%2F&amp;format=xml">
+               <!-- Google Tag Manager -->
+               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+               })(window,document,'script','dataLayer','GTM-PGHTMDN');</script>
+               <!-- End Google Tag Manager -->
+		<link rel="icon" href="/favicon.ico" sizes="any">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<meta name="msapplication-TileImage" content="/android-chrome-192x192.png">
+		<style id="wp-custom-css">
+			
+
+
+.c-glossary__thumb{
+	top:0px;
+	left:0px;
+}
+.header__actions .c-buttons {
+	margin-top: 0;
+}
+
+.grecaptcha-badge{
+	visibility: hidden;
+}
+
+.home .site-head{
+	background-color:rgba(0,0,0,.0);
+}
+body:not(.home){
+	margin-top:68px;
+}
+body .site .main {
+    padding-top: 0;
+}
+body:not(.home) .site {
+    padding-top: 0px;
+}
+.home .site-head.site-head__scrolled{
+	background-color:#090819;
+}
+
+.logos-gallery .main-gallery .main-gallery__row .gallery-item img{
+	max-height:66px;
+	max-width:155px;
+	object-fit: contain;
+}
+#wpcf7-f2379-p2377-o1 .c-form-primary__field:has(.wpcf7-not-valid) .wpcf7-not-valid-tip {
+    display: block;
+}
+@media only screen and (max-width: 1280px) {
+		.logos-gallery .main-gallery .main-gallery__row .gallery-item img{
+		max-width:120px;
+		max-height:55px;
+	}
+}
+@media only screen and (max-width: 1199px) {
+    .head-nav a:not(.btn) {
+        display: block;
+    }
+	.head-nav a:not(.btn) .menu-item__text{
+		display:block;
+	}
+	.head-nav .sub-menu a:not(.btn) .menu-item__text{
+		display:inline-flex;
+	}
+}
+@media only screen and (max-width: 1026px) {
+.canvas-animation--bg, .canvas-animation--bg canvas{
+	pointer-events:none;
+}
+	.logos-gallery .main-gallery .main-gallery__row .gallery-item img{
+		max-width:90px;
+		max-height:40px;
+	}
+	.home-hero-block .title__gradient div {
+-webkit-text-fill-color: #0000;
+    background: linear-gradient(180deg, #fff 17.78%, #ffffff1a 191.11%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    pointer-events: none;
+	}
+}
+@media only screen and (min-width: 1441px) {
+    .site-head__nav {
+        margin-right: auto;
+        margin-right: auto;
+    }
+}
+
+
+.text-image-section__content {
+    max-width: 565px;
+}
+
+.card-item__icon  {
+		width: 50px;
+		height: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+	.home-hero-block .title__gradient div br {
+		display: none;
+	}
+	
+	.home-hero-block .title {
+		font-size: 35px;
+	}
+	    .home-hero-block .description {
+        font-size: 17px;
+     
+    }
+}
+
+.btn a {
+	 text-decoration: none;
+	color: inherit;
+}
+
+
+.compare-features .features--title {
+	top: 80px;
+}
+
+.compare-features .table-scroll thead {
+	top: 85px;
+}
+
+.hero-features {
+    box-sizing: content-box;
+}
+
+@media only screen and (max-width: 1480px) {
+	.hero-features {
+    box-sizing: border-box;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	td.fixed-side.td--header {
+    width: 100vw;
+    max-width: 262px;
+}
+	
+}
+
+.logos-section:before {
+	display: none;
+}
+
+.compare-features .table-scroll thead th .btn {
+    max-width: initial;
+    margin: 0 9px;
+    width: initial;
+}
+.home-hero-block .title__gradient div span.highlited {
+	    margin-left: 7px;
+}
+.text-image-section video {
+    box-shadow: 0px 0px 24px rgba(6, 23, 41, 0.16);
+}
+
+.cards-hover .cards__item__content img {
+    object-fit: cover;
+    object-position: left;
+}
+@media screen and (min-width: 1750px) {
+    .cards-hover .cards__item__content img {
+        min-height: 270px;
+    }
+}
+@media only screen and (max-width: 767px) {
+		.text-image-section .section-background-image {
+	max-height: 50%;
+}
+}
+
+.cards-section .has-background .btn {
+	text-transform: initial;
+}
+
+.text-image-section .containter-wrap video {
+    aspect-ratio: 883 / 465;
+	object-fit: cover;
+}
+
+.c-post-item .c-btn-primary-link, .c-post-item__title {
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1600px) {
+	.c-post-item .c-btn-primary-link, .c-post-item__title {
+    font-size: 16px;
+}
+}
+
+@media screen and (max-width: 767px) {
+	.c-post-item .c-btn-primary-link, .c-post-item__title {
+    font-size: 14px;
+}
+}
+
+
+
+
+
+
+
+		</style>
+		<style>
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+
+.fillout-embed-standard {
+  /* This will take up the full size of whatever div you're inserting the
+   * iframe into. That div will grow in size depending on how large theh
+   * iframe is.*/
+  width: 100%;
+  height: 100%;
+}
+
+.fillout-embed-standard .fillout-embed-iframe-container {
+  position: relative;
+  transition: opacity .25s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.fillout-embed-standard .fillout-embed-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.fillout-embed-standard .fillout-embed-loading {
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  border: 6px solid #aaa;
+  border-radius: 50%;
+  border-top: 6px solid #fff;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+
+  /* Important - e.g. Webflow applies a box sizing that messes this up */
+  box-sizing: content-box;
+
+}
+</style><script async="" src="https://cmd1lwt5m00053b6sj29svj9f.d.jitsu.com/p.js" data-onload="jitsuLoaded" data-key="Lk6XstfVIOh8W4gn5PNc4hAoYl4TSIk2:ATkrmNoFiRIcWilY1CTy5dxSbvrfeIEW"></script><script src="https://cdn.logr-ingest.com/logger-1.min.js" async=""></script><script src="https://dagshub.com/wp-includes/js/wp-emoji-release.min.js?ver=e9fb9cf410148ff800fcbbbdfa991a50" defer=""></script><style></style></head>
+
+<body class="home wp-singular page-template-default page page-id-2277 wp-custom-logo wp-theme-wp-d-theme no-js dagshub-logged-out" data-md-signed-in="false"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-floating cc-type-info cc-theme-block cc-bottom cc-left cc-color-override-530831885 " style=""><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">DAGsHub.com uses cookies for statistical analytics and customer support. We don't sell your data or track you.  <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://cookiesandyou.com" rel="noopener noreferrer nofollow" target="_blank">Learn more</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div>
+  <a class="skip-link screen-reader-text js-trigger" href="#content">Skip to content</a>
+
+                 <!-- Google Tag Manager (noscript) -->
+               <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGHTMDN"
+               height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+               <!-- End Google Tag Manager (noscript) -->
+            <div id="page" class="site">
+
+    
+    <header class="site-head site-head__bacground" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+          <div class="site-head__wrap">
+              <div class="container container-lg">
+                  <div class="site-head__frame">
+                      <!-- Custom logo and site title. -->
+                      <div class="site-logo">
+     <a href="/" class="custom-logo-link" rel="home" aria-current="page"><img width="143" height="40" src="/wp-content/uploads/2024/04/dagshab.svg" class="custom-logo" alt="DagsHub" decoding="async"></a>       
+     <span class="screen-reader-text" itemprop="name">DagsHub</span>
+</div>
+                      <button class="nav-opener" aria-label="nav opener"><span><em>Menu</em></span></button>
+                      <div class="site-head__holder">
+                          <!-- Main menu. -->
+                              <nav class="site-head__nav js-header-menu-item" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+        <ul class="menu head-nav main-header-menu"><li id="menu-item-2353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2353" aria-haspopup="true">
+<div class="menu-item__link menu-item__link--title">Platform</div>
+<button class="dropdown-toggle" aria-expanded="false"><span class="screen-readers">Expand child menu</span><span class="opener-arrow"><svg class="svg-icon icon-chevron-down" width="20" height="20" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-chevron-down.svg#icon-chevron-down"></use></svg></span></button>
+<ul class="sub-menu level0">
+	<li id="menu-item-2720" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2720">
+	<a href="/product/curate-annotate/" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-annotate" width="20" height="20" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-annotate.svg#icon-annotate"></use></svg></span><span class="menu-text-wrapper"><span class="menu-text">Curation &amp; Annotation</span><span class="menu-description">Query, visualize, and annotate multimodal datasets</span></span></span></a>
+	</li>
+	<li id="menu-item-2721" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2721">
+	<a href="/product/experiment-tracking/" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-tracking" width="20" height="20" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-tracking.svg#icon-tracking"></use></svg></span><span class="menu-text-wrapper"><span class="menu-text">⁠Experiment Tracking</span><span class="menu-description">Track experiment progress and compare results</span></span></span></a>
+	</li>
+	<li id="menu-item-2722" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2722">
+	<a href="/product/manage-models/" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-model-managment" width="20" height="20" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-model-managment.svg#icon-model-managment"></use></svg></span><span class="menu-text-wrapper"><span class="menu-text">⁠Model Management</span><span class="menu-description">Manage model versions and deploy easily</span></span></span></a>
+	</li>
+</ul>
+</li>
+<li id="menu-item-2763" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2763">
+<a href="/explore/repos" class="menu-item__link"><span class="menu-item__text">Explore</span></a>
+</li>
+<li id="menu-item-2355" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2355">
+<a href="/pricing" class="menu-item__link"><span class="menu-item__text">Pricing</span></a>
+</li>
+<li id="menu-item-2354" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2354">
+<a href="/enterprise/" class="menu-item__link"><span class="menu-item__text">Enterprise</span></a>
+</li>
+<li id="menu-item-2351" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2351" aria-haspopup="true">
+<div class="menu-item__link menu-item__link--title">Resources</div>
+<button class="dropdown-toggle" aria-expanded="false"><span class="screen-readers">Expand child menu</span><span class="opener-arrow"><svg class="svg-icon icon-chevron-down" width="20" height="20" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-chevron-down.svg#icon-chevron-down"></use></svg></span></button>
+<ul class="sub-menu level0">
+	<li id="menu-item-2352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2352">
+	<a href="/docs" class="menu-item__link"><span class="menu-item__text">Docs</span></a>
+	</li>
+	<li id="menu-item-2357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2357">
+	<a href="/blog/" class="menu-item__link"><span class="menu-item__text">Blog</span></a>
+	</li>
+	<li id="menu-item-2358" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2358">
+	<a href="/datasets/" class="menu-item__link"><span class="menu-item__text">Datasets</span></a>
+	</li>
+	<li id="menu-item-2359" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2359">
+	<a href="/glossary/" class="menu-item__link"><span class="menu-item__text">Glossary</span></a>
+	</li>
+	<li id="menu-item-2360" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2360">
+	<a href="/blog/tag/tutorials/" class="menu-item__link"><span class="menu-item__text">Tutorial &amp; Webinars</span></a>
+	</li>
+	<li id="menu-item-2544" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2544">
+	<a href="/blog/tag/case-study/" class="menu-item__link"><span class="menu-item__text">Customers</span></a>
+	</li>
+</ul>
+</li>
+<li id="menu-item-2356" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2356" aria-haspopup="true">
+<div class="menu-item__link menu-item__link--title">Company</div>
+<button class="dropdown-toggle" aria-expanded="false"><span class="screen-readers">Expand child menu</span><span class="opener-arrow"><svg class="svg-icon icon-chevron-down" width="20" height="20" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-chevron-down.svg#icon-chevron-down"></use></svg></span></button>
+<ul class="sub-menu level0">
+	<li id="menu-item-2365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2365">
+	<a href="/about" class="menu-item__link"><span class="menu-item__text">About</span></a>
+	</li>
+	<li id="menu-item-2366" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2366">
+	<a href="/careers" class="menu-item__link"><span class="menu-item__text">Careers</span></a>
+	</li>
+	<li id="menu-item-2367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2367">
+	<a href="/contact-us/" class="menu-item__link"><span class="menu-item__text">Contact us</span></a>
+	</li>
+</ul>
+</li>
+</ul>    </nav>
+                          <div class="site-head__tools">
+                              <ul class="menu head-nav main-header-menu"><li id="menu-item-2372" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2372"><a rel="Navbar_Login_Clicked" href="/user/login" class="menu-item__link" data-analytics-event="Navbar_Login_Clicked">Log in</a></li>
+<li id="menu-item-2389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2389"><a rel="Navbar_BookADemo_Clicked" href="https://dagshub.com/book-a-demo/?referring-page=Home" class="menu-item__button btn btn--primary" data-analytics-event="Navbar_BookADemo_Clicked"><span class="btn__text">Book a demo</span></a></li>
+</ul>                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </header>
+
+    <div class="wrapper__body no-overlap">
+
+<main class="main">
+  
+
+	<div id="home-hero-block_0212afa923cf00ec5491056dc092b9e1" class="home-hero-block alignfull">
+		<div class="canvas-animation canvas-animation--bg ">
+			<canvas id="canvas-animation" width="1280" height="731"></canvas>
+		</div>
+		<div class="container">
+			<div class="content-wrapper">
+				<h1 class="title_1 title title__gradient">
+															<div><span>Everything you need to manage </span><br><span class="highlited">AI data &amp; models</span></div>
+													
+				</h1>
+				<p class="description">Curate and annotate multimodal datasets, track experiments, and manage models on a single platform. Transform petabytes of vision, audio, and LLM data into golden datasets to improve your AI models.</p>
+				<div class="button-group">
+																					<a href="/user/sign_up" target="" class="btn btn__lg btn--white-outline" data-analytics-event="HomePage_StartFree_Clicked">Start Building Free</a>
+																<a href="https://dagshub.com/book-a-demo/?referring-page=Home" target="" class="btn btn__lg btn--primary" data-analytics-event="HomePage_BookADemo_Clicked">Book A Demo</a>
+									</div>
+			</div>
+		</div>
+	</div>
+
+	 	<div class="container hero-features hide">
+		<div class="features">
+			<div id="billing-cycle">
+				<a class="item active" data-cycle="monthly">Monthly</a>
+				<a class="item" data-cycle="yearly">Yearly</a>
+			</div>
+						<div class="features__list">
+								<div class="features__feature">
+																<figure>
+							<img decoding="async" src="/wp-content/uploads/2025/01/layer.png" alt="">
+						</figure>
+										<h3 class="features__feature__title">Individual</h3>
+					<div class="features__feature__price">
+												<div class="features__feature__price--monthly price-active"><span>$0</span> <span>per user/month</span></div>
+						<div class="features__feature__price--yearly"><span>$0</span> <span>per user/month</span></div>
+											</div>
+					<div class="features__feature__short-decription">
+						Individuals building small AI applications.					</div>
+																<a class="features__feature__link btn btn--outline" href="https://dagshub.com/book-a-demo/?referring-page=Home" target="">Start Building Free</a>
+										<div class="features__feature__decription">
+						<p class="heading-line"><span>What’s included?</span></p>
+						<div>
+							<ul>
+<li>Unlimited&nbsp;public&nbsp;repositories with unlimited collaborators</li>
+<li>Unlimited&nbsp;private&nbsp;repositories for non-commercial use</li>
+<li>Unlimited experiment tracking for&nbsp;public&nbsp;repositories</li>
+<li>Up to&nbsp;100&nbsp;tracked experiments in&nbsp;private&nbsp;repositories</li>
+<li>Up to&nbsp;2&nbsp;collaborators in private projects</li>
+<li>20GB&nbsp;of DagsHub Storage</li>
+</ul>
+<hr>
+<ul>
+<li>Data versioning and lineage</li>
+<li>Annotations workspace for public repositories</li>
+<li>Notebook versioning &amp; diffing</li>
+<li>CI/CD/CT integration</li>
+<li>Interactive pipelines</li>
+<li>Community support</li>
+</ul>
+						</div>
+					</div>
+				</div>
+								<div class="features__feature">
+																<figure>
+							<img decoding="async" src="/wp-content/uploads/2025/01/profile-2user.png" alt="">
+						</figure>
+										<h3 class="features__feature__title">Team</h3>
+					<div class="features__feature__price">
+												<div class="features__feature__price--monthly price-active"><span>$119</span> <span>per user/month</span></div>
+						<div class="features__feature__price--yearly"><span>$99</span> <span>per user/month</span></div>
+											</div>
+					<div class="features__feature__short-decription">
+						Production applications with the power to scale.					</div>
+																<a class="features__feature__link btn btn--primary" href="https://dagshub.com/book-a-demo/?referring-page=Home" target="">Started a 14-day free trial</a>
+										<div class="features__feature__decription">
+						<p class="heading-line"><span>What’s included?</span></p>
+						<div>
+							<p><strong>Everything in Individual, plus:</strong></p>
+<ul>
+<li>Unlimited&nbsp;private repositories</li>
+<li>Multimodal annotation and auto-labeling</li>
+<li>Connect your own storage</li>
+<li>Label Studio compatible</li>
+<li>Team RBAC</li>
+<li>DagsHub priority support</li>
+<li>Up to&nbsp;1TB&nbsp;of data or up to&nbsp;2 million&nbsp;files</li>
+</ul>
+						</div>
+					</div>
+				</div>
+								<div class="features__feature">
+																<figure>
+							<img decoding="async" src="/wp-content/uploads/2025/01/Startup.png" alt="">
+						</figure>
+										<h3 class="features__feature__title">Enterprise</h3>
+					<div class="features__feature__price">
+													Custom quote											</div>
+					<div class="features__feature__short-decription">
+						AI applications running high scale workloads.					</div>
+																<a class="features__feature__link btn btn--primary" href="https://dagshub.com/book-a-demo/?referring-page=Home" target="">Contact Us</a>
+										<div class="features__feature__decription">
+						<p class="heading-line"><span>What’s included?</span></p>
+						<div>
+							<p><strong>Everything in Team, plus:</strong></p>
+<ul>
+<li>Petabyte-scale data management</li>
+<li>Deploy models to your cluster</li>
+<li>Full VPC/Air-gapped on-premise installation</li>
+<li>SSO/LDAP/OIDC RBAC</li>
+<li>OpenShift compatible</li>
+<li>Organizational resource control</li>
+<li>Enterprise SLA &amp; support</li>
+</ul>
+						</div>
+					</div>
+				</div>
+								
+			</div>
+					</div>
+	</div>
+	
+
+<script>
+	function wrapTextNodesInSpan() {
+	// Get the <h1> element
+	const h1Element = document.querySelector('.home-hero-block .title__gradient div');
+	const highlightedTexts =  h1Element.querySelectorAll("span");
+	if(highlightedTexts) {
+		highlightedTexts.forEach(span => {
+			span.classList.add("highlited")
+			
+		});
+	}
+	
+	if (!highlightedTexts) {
+		console.error('No <h1> element found!');
+		return;
+	}
+
+	// Iterate over child nodes of <h1>
+	const childNodes = h1Element.childNodes;
+	
+	childNodes.forEach(node => {
+		// Check if the node is a text node (type 3)
+		if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+		// Create a <span> element
+		const span = document.createElement('span');
+		
+		// Set the text content of the span to the text node content
+		span.textContent = node.textContent;
+		
+		// Insert the <span> before the text node
+		node.replaceWith(span);
+		}
+	});
+	}
+
+	wrapTextNodesInSpan();
+
+	var billingCycles = document.querySelectorAll("#billing-cycle .item");
+	if(billingCycles) {
+		billingCycles.forEach(item => {
+			item.addEventListener("click", ()=>{
+				
+				var activePrices =  document.querySelectorAll(".price-active");
+				if(activePrices) {
+					activePrices.forEach(price => {
+						price.classList.remove("price-active");
+					});
+				}
+				document.querySelector("#billing-cycle .item.active").classList.remove("active");
+				
+				item.classList.add("active");
+				var selectedBillingIndex = document.querySelector("#billing-cycle .item.active").getAttribute("data-cycle");
+				var pricesForSeletedBilling = document.querySelectorAll(`.features__feature__price--${selectedBillingIndex}`)
+				if(pricesForSeletedBilling) {
+					pricesForSeletedBilling.forEach(price => {
+						price.classList.add("price-active");
+					});
+				}
+			})
+		});
+	}
+</script>
+
+
+
+
+	<section id="media-element-block_eccec7e20ffefb5c0010bdc51660d54e" class="media-element section-spaces alignfull alignfull wp-block-dagshub-media-element">
+		<div class="container content-resource-link">
+			<div class="main-image-wrapper">
+									<a href="https://www.youtube.com/watch?v=K3r9AXddrRU" class="content-resource-link" data-analytics-event="Homepage_Video_Clicked" target="_blank" rel="noopener noreferrer">
+																<img decoding="async" src="/wp-content/uploads/2025/02/Dagshub-Screenshot.webp" alt="">
+										<svg class="svg-icon icon-play-color" width="100" height="100"><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-play-color.svg#icon-play-color"></use></svg>					</a>
+											</div>
+			
+		</div>
+	</section>
+
+
+
+
+
+<section id="logos-section-block_577afa41faa6156ded0c000504779c0c" class="logos-section section-spaces alignfull alignfull wp-block-dagshub-logos-section">
+	<div class="container">
+					<div class="logos-section__title">These AI teams manage their data and models with DagsHub</div>
+		
+					</div>
+							<div>
+		
+		
+		<div class="logos-section__slider">
+						<div class="marquee">
+				<ul class="marquee-content">
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2024/04/company1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/Google-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/taranis.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/harvard-4.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/pfizer-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/intel-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/verantos-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/mit.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/manabio-2.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/nvidia-2.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/purdue.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/omron-1.svg" alt="">
+					</li>
+													<li>
+					<img decoding="async" src="/wp-content/uploads/2024/04/company1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/Google-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/taranis.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/harvard-4.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/pfizer-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/intel-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/verantos-1.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/mit.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/manabio-2.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/nvidia-2.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/purdue.svg" alt="">
+					</li>
+									<li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/omron-1.svg" alt="">
+					</li>
+								<li>
+					<img decoding="async" src="/wp-content/uploads/2024/04/company1.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/Google-1.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/taranis.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/harvard-4.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/pfizer-1.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/intel-1.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/verantos-1.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/mit.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/manabio-2.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/nvidia-2.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/purdue.svg" alt="">
+					</li><li>
+					<img decoding="async" src="/wp-content/uploads/2025/01/omron-1.svg" alt="">
+					</li></ul>
+			</div>
+					</div>
+					</div><!-- end container -->
+			</section>
+
+
+
+<section id="cards-hover-block_4a9919ba2d68d9ad19517a2b1ee94d4a" class="cards-hover section-spaces align wp-block-dagshub-cards-hover">
+    <svg width="244" height="764" viewBox="0 0 244 764" fill="none" xmlns="http://www.w3.org/2000/svg" class="cards__background-image">
+        <g opacity="0.56">
+        <path d="M306.746 541.216H306.502L239.851 527.71C239.607 527.71 239.607 527.446 239.607 527.181C239.607 526.916 239.851 526.916 240.094 526.916L306.746 540.421C306.746 540.421 306.989 540.686 306.746 541.216C306.746 540.951 306.746 540.951 306.746 541.216Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M380.207 569.285H379.964L239.607 527.71C239.363 527.71 239.363 527.446 239.363 527.181C239.363 526.916 239.607 526.916 239.85 526.916L380.207 568.491C380.207 568.756 380.451 568.756 380.207 569.285Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M276.338 526.121L239.607 527.71C239.363 527.71 239.363 527.71 239.363 527.445C239.363 527.181 239.363 527.181 239.607 527.181L276.095 525.592C276.338 525.592 276.338 525.592 276.338 525.857C276.581 526.121 276.581 526.121 276.338 526.121Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M186.819 579.349C186.576 579.349 186.576 579.349 186.333 579.349C186.089 579.084 186.333 579.084 186.333 578.819L239.605 527.181C239.849 526.916 239.849 527.181 240.092 527.181C240.335 527.446 240.092 527.446 240.092 527.711L186.819 579.349Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M276.579 526.386L186.819 579.348C186.575 579.348 186.332 579.348 186.332 579.083C186.332 578.818 186.332 578.554 186.575 578.554L276.336 525.592C276.579 525.592 276.823 525.592 276.823 525.857C276.823 525.857 276.579 526.121 276.579 526.386Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M116.764 546.512C116.521 546.512 116.277 546.247 116.521 546.247L140.603 481.634L140.846 481.369L141.089 481.634L116.764 546.512Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.65">
+        <path d="M206.766 489.579H206.523L140.601 481.634C140.357 481.634 140.357 481.369 140.357 481.105C140.357 480.84 140.601 480.84 140.844 480.84L206.766 488.784C207.009 488.784 207.009 489.049 207.009 489.314C206.766 489.579 206.766 489.579 206.766 489.579Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.76">
+        <path d="M132.33 511.823C132.087 511.823 132.087 512.087 131.844 511.823C131.601 511.823 131.357 511.293 131.357 511.028L140.115 481.105C140.115 480.84 140.601 480.575 140.844 480.575C141.088 480.575 141.331 481.105 141.331 481.37L132.574 511.558C132.574 511.823 132.574 511.823 132.33 511.823Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M297.74 523.739L206.276 489.578C206.033 489.578 206.033 489.314 206.033 489.314C206.033 489.049 206.276 489.049 206.276 489.049L297.497 523.209C297.983 523.209 297.983 523.474 297.74 523.739C297.983 523.739 297.983 523.739 297.74 523.739Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M327.908 491.697C327.665 491.697 327.665 491.697 327.908 491.697L206.525 489.843C206.281 489.843 206.281 489.843 206.281 489.578C206.281 489.313 206.525 489.313 206.525 489.313L327.665 491.432C327.908 491.167 327.908 491.167 327.908 491.697C327.908 491.432 327.908 491.432 327.908 491.697Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.64">
+        <path d="M116.766 546.512H116.523C116.279 546.512 116.279 546.247 116.279 545.982L131.604 511.028C131.604 510.763 131.848 510.763 132.091 510.763C132.334 510.763 132.334 511.027 132.334 511.292L116.766 546.512Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.67">
+        <path d="M206.767 489.843L132.088 511.822C131.845 511.822 131.602 511.822 131.602 511.558C131.602 511.293 131.602 511.028 131.845 511.028L206.281 489.049C206.524 489.049 206.767 489.049 206.767 489.314C207.01 489.314 206.767 489.578 206.767 489.843Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.57">
+        <path d="M305.042 469.188L206.525 489.578C206.281 489.578 206.281 489.578 206.281 489.313C206.281 489.048 206.281 489.048 206.525 489.048L305.042 468.658C305.286 468.658 305.286 468.658 305.286 468.923C305.286 468.923 305.286 469.188 305.042 469.188Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M206.527 489.578L116.523 546.512H116.279V546.247L206.283 489.313H206.527C206.77 489.313 206.77 489.578 206.527 489.578Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.66">
+        <path d="M241.795 470.247L200.929 476.603C200.686 476.603 200.686 476.603 200.686 476.338C200.686 476.073 200.686 476.073 200.929 476.073L241.552 469.718C241.795 469.718 241.795 469.718 241.795 469.983C242.039 469.983 241.795 470.247 241.795 470.247Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.71">
+        <path d="M201.172 476.603C200.928 476.603 200.928 476.603 200.685 476.603L164.927 451.181C164.684 450.916 164.684 450.652 164.684 450.652C164.927 450.387 165.17 450.387 165.17 450.387L200.928 475.808C201.415 476.073 201.415 476.338 201.172 476.603Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M200.926 476.602L113.354 418.08C113.354 418.08 113.111 417.815 113.354 417.815C113.354 417.815 113.597 417.55 113.597 417.815L200.926 476.338C201.169 476.338 201.169 476.338 200.926 476.602Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M316.236 538.303H315.992L241.557 470.247V469.982H241.8L316.236 538.038V538.303Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.64">
+        <path d="M131.115 413.843L113.601 418.08C113.357 418.08 113.357 418.08 113.357 417.815C113.357 417.55 113.357 417.55 113.601 417.55L130.872 413.313C131.115 413.313 131.115 413.313 131.115 413.578V413.843Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M71.0323 497.258C70.7891 497.258 70.7891 497.258 71.0323 497.258C70.7891 497.258 70.7891 496.993 70.7891 496.993L113.602 417.815C113.602 417.815 113.845 417.55 113.845 417.815C113.845 417.815 114.088 418.08 113.845 418.08L71.0323 497.258C71.0323 496.993 71.0323 496.993 71.0323 497.258Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.68">
+        <path d="M165.17 451.182C165.17 451.182 164.926 451.182 164.683 451.182L113.357 418.081C113.113 418.081 113.113 417.816 113.113 417.551C113.113 417.286 113.357 417.286 113.6 417.286L164.926 450.387C165.413 450.652 165.413 450.917 165.17 451.182Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M165.172 450.916H164.929L130.873 413.578V413.313H131.116L165.172 450.652C165.172 450.916 165.172 450.916 165.172 450.916Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M241.795 470.247L164.927 451.181C164.684 451.181 164.684 450.916 164.684 450.916C164.684 450.651 164.927 450.651 164.927 450.651L241.552 469.718C241.795 469.718 241.795 469.982 241.795 470.247Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M71.0323 497.258H70.7891V496.993L130.63 413.578H130.873V413.843L71.0323 497.258Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.67">
+        <path d="M75.6526 718.373C75.4093 718.373 75.1661 718.373 75.1661 718.373L61.7871 689.509C61.7871 689.244 61.7871 689.244 62.0304 688.979C62.2736 688.979 62.2736 688.98 62.5169 689.244L75.8958 718.108C75.8958 718.108 75.8958 718.373 75.6526 718.373Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.59">
+        <path d="M45.9796 489.844C45.7363 489.844 45.7363 489.844 45.7363 489.579L52.5474 416.227C52.5474 416.227 52.5474 415.962 52.7907 415.962C52.7907 415.962 53.0339 415.962 53.0339 416.227L45.9796 489.844Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M90.4878 287L44.2695 240.658V240.394H44.5128L90.4878 286.735V287Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.73">
+        <path d="M235.714 607.948C235.471 607.948 235.471 607.948 235.227 607.948C234.984 607.683 234.984 607.419 235.227 607.419L244.958 594.178C245.201 593.913 245.444 593.913 245.444 594.178C245.687 594.443 245.687 594.708 245.444 594.708L235.714 607.948C235.957 607.948 235.957 607.948 235.714 607.948Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M45.9761 489.843C45.7329 489.843 45.7329 489.843 45.9761 489.843L28.7051 457.007V456.742H28.9483L45.9761 489.843Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.52">
+        <path d="M36.7315 594.443C36.4883 594.443 36.4883 594.443 36.7315 594.443C36.4883 594.443 36.4883 594.443 36.4883 594.178L45.7319 489.578C45.7319 489.578 45.7319 489.313 45.9752 489.313C45.9752 489.313 46.2184 489.313 46.2184 489.578L36.7315 594.443Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M257.366 676.533C257.122 676.533 257.122 676.533 257.122 676.533L235.473 607.683V607.418H235.716L257.366 676.533Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M221.122 208.087C220.879 208.352 221.122 208.352 221.122 208.087C220.879 208.087 220.879 207.822 220.879 207.822L227.933 189.55C227.933 189.55 228.177 189.286 228.177 189.55C228.177 189.55 228.42 189.815 228.177 189.815L221.122 208.087Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M36.7321 594.443L21.6504 535.655V535.391H21.8936L36.7321 594.443Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M126.004 435.822L28.7022 457.007H28.459V456.742L125.517 435.558C126.004 435.558 126.247 435.558 126.004 435.822C126.247 435.822 126.247 435.558 126.004 435.822Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.77">
+        <path d="M29.1928 457.271C28.9495 457.271 28.9495 457.271 28.7063 457.271L22.3817 451.975C22.1384 451.71 22.1384 451.446 22.3817 451.446C22.6249 451.181 22.8682 451.181 22.8682 451.446L29.1928 456.742C29.1928 456.742 29.436 457.007 29.1928 457.271Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.59">
+        <path d="M21.6534 535.655C21.6534 535.92 21.6534 535.92 21.6534 535.655C21.4102 535.655 21.4102 535.655 21.4102 535.391L28.7078 456.742C28.7078 456.742 28.7078 456.478 28.951 456.478C28.951 456.478 29.1943 456.478 29.1943 456.742L21.6534 535.655Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M115.548 476.603C115.305 476.603 115.305 476.603 115.548 476.603C115.305 476.603 115.305 476.603 115.305 476.338L126.008 435.558L126.251 435.293L126.494 435.558L115.548 476.603Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.61">
+        <path d="M5.84091 594.443C5.59766 594.443 5.59766 594.443 5.59766 594.178L21.4092 535.655L21.6524 535.391L21.8957 535.655L5.84091 594.443Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.57">
+        <path d="M21.6534 535.656C21.6534 535.92 21.6534 535.92 21.6534 535.656C21.4102 535.656 21.4102 535.656 21.4102 535.391L22.3832 451.446C22.3832 451.446 22.3832 451.182 22.6264 451.182C22.6264 451.182 22.8697 451.182 22.8697 451.446L21.6534 535.656Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.52">
+        <path d="M115.549 476.602C115.305 476.602 115.305 476.602 115.549 476.602L22.6257 451.71C22.6257 451.71 22.3824 451.71 22.6257 451.445C22.6257 451.445 22.6257 451.18 22.8689 451.445L115.792 476.337C115.549 476.337 115.549 476.337 115.549 476.602Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M83.4387 457.802L22.3819 451.711C22.3819 451.711 22.1387 451.711 22.1387 451.446C22.1387 451.446 22.1387 451.182 22.3819 451.182L83.1954 457.272C83.4387 457.537 83.6819 457.537 83.4387 457.802C83.6819 457.802 83.6819 457.802 83.4387 457.802Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M182.2 522.415L115.305 476.603V476.338H115.548L182.2 522.15C182.443 522.15 182.443 522.415 182.2 522.415Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.68">
+        <path d="M115.548 476.602H115.305L83.4383 457.8C83.195 457.8 83.195 457.536 83.4383 457.271C83.4383 457.006 83.6816 457.006 83.9248 457.271L115.791 476.072C115.548 476.337 115.548 476.337 115.548 476.602Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.57">
+        <path d="M187.551 289.383L153.738 253.899V253.634H153.982L187.551 289.118C187.794 289.118 187.794 289.383 187.551 289.383Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.7">
+        <path d="M154.228 254.163C153.985 254.163 153.985 254.163 154.228 254.163L137.444 263.432C137.2 263.432 137.2 263.432 136.957 263.167C136.957 262.902 136.957 262.902 137.2 262.637L153.985 253.634C154.228 253.634 154.228 253.634 154.471 253.899C154.228 253.899 154.228 253.899 154.228 254.163Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M227.688 302.094C227.688 302.359 227.688 302.359 227.688 302.094L153.982 253.899V253.634H154.226L227.688 302.094C227.932 302.094 227.932 302.094 227.688 302.094Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.57">
+        <path d="M227.686 302.359L187.305 289.383C187.305 289.383 187.062 289.383 187.305 289.119C187.305 289.119 187.305 288.854 187.549 289.119L227.686 302.094C227.686 301.829 227.929 302.094 227.686 302.359C227.929 302.094 227.686 302.094 227.686 302.359Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M291.178 309.773L227.689 302.359C227.689 302.359 227.445 302.359 227.445 302.094C227.445 302.094 227.445 301.829 227.689 301.829L291.178 309.244C291.178 309.509 291.421 309.509 291.178 309.773C291.421 309.773 291.421 309.773 291.178 309.773Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M5.84047 594.443L-14.1064 591L-14.3496 590.735L-14.1064 590.471L5.59721 593.913C5.84047 593.913 6.08372 594.178 5.84047 594.443Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M117.979 509.705C117.979 509.969 117.979 509.969 117.979 509.705L83.1934 457.537V457.272H83.4366L117.979 509.705C118.222 509.705 118.222 509.705 117.979 509.705Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M182.199 522.414L155.441 511.028C155.441 511.028 155.441 511.028 155.441 510.763C155.441 510.763 155.441 510.763 155.685 510.763L182.443 522.149C182.199 522.149 182.443 522.414 182.199 522.414Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.57">
+        <path d="M137.2 263.167C136.957 263.167 136.957 263.167 136.957 262.902L137.444 249.132C137.444 249.132 137.444 248.867 137.687 248.867C137.687 248.867 137.93 248.867 137.93 249.132L137.2 263.167Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M187.549 289.383L136.952 263.167C136.952 263.167 136.709 262.902 136.952 262.902C136.952 262.902 137.195 262.637 137.195 262.902L187.549 289.118C187.792 289.118 187.792 289.118 187.549 289.383C187.792 289.383 187.792 289.383 187.549 289.383Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M187.552 289.383L180.011 291.237C180.011 291.237 179.768 291.237 179.768 290.972C179.768 290.972 179.768 290.707 180.011 290.707L187.308 288.854C187.552 288.854 187.795 289.118 187.552 289.383C187.795 289.383 187.795 289.118 187.552 289.383Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M187.55 289.383L137.439 249.397V249.132H137.683L187.55 289.383C187.793 289.118 187.793 289.118 187.55 289.383Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M187.552 289.383C187.308 289.118 187.308 289.118 187.552 289.383L229.391 247.543H229.635V247.808L187.552 289.383Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M253.961 241.717L229.636 247.808C229.636 247.808 229.393 247.808 229.393 247.543C229.393 247.543 229.393 247.278 229.636 247.278L253.961 241.188C253.961 241.452 253.961 241.452 253.961 241.717Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.59">
+        <path d="M229.632 247.809L214.307 227.153V226.889H214.55L229.632 247.809Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M180.253 290.972C180.009 291.237 180.253 291.237 180.253 290.972C180.009 290.972 180.009 290.972 180.253 290.972L229.39 247.278H229.633V247.543L180.253 290.972Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M280.719 222.916L229.636 247.808H229.393V247.543L280.233 222.651C280.476 222.651 280.719 222.651 280.719 222.916Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M117.983 509.703C117.983 509.968 117.983 509.968 117.983 509.703C117.74 509.703 117.74 509.703 117.983 509.703L138.173 481.898H138.417V482.163L117.983 509.703Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M117.98 509.969L104.357 498.847V498.582H104.601L117.98 509.704C118.223 509.704 118.223 509.704 117.98 509.969Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.72">
+        <path d="M155.688 511.292L117.983 510.233C117.74 510.233 117.74 509.968 117.74 509.968C117.74 509.703 117.983 509.703 117.983 509.703L155.445 511.027C155.688 510.762 155.688 510.762 155.688 511.292C155.688 511.027 155.688 511.027 155.688 511.292Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M155.683 511.027L138.412 482.163V481.898H138.655L155.683 511.027Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M155.684 511.029C155.44 511.029 155.44 511.029 155.684 511.029L104.6 498.583C104.6 498.583 104.357 498.583 104.6 498.318C104.6 498.318 104.6 498.053 104.844 498.318L155.684 510.764C155.684 510.764 155.684 510.764 155.684 511.029Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M188.28 284.881C188.28 285.146 188.28 285.146 188.28 284.881L137.439 249.397C137.439 249.397 137.439 249.397 137.439 249.132C137.439 249.132 137.439 249.132 137.683 249.132L188.28 284.881Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M130.139 300.506L137.437 249.397C137.437 249.397 137.437 249.397 137.68 249.397C137.68 249.397 137.68 249.397 137.68 249.662L130.139 300.506C130.139 300.241 130.139 300.241 130.139 300.506Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M180.252 291.236H180.009L137.439 249.397V249.132H137.683L180.252 290.972C180.252 290.972 180.495 290.972 180.252 291.236Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.65">
+        <path d="M188.278 285.147L180.251 291.237H180.008V290.972L188.035 284.882H188.278C188.522 284.882 188.522 284.882 188.278 285.147Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M180.254 290.972L130.144 300.24H129.9V299.976L180.254 290.972Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.71">
+        <path d="M214.069 235.892C213.825 235.892 213.582 235.892 213.582 235.627L214.069 227.153C214.069 226.889 214.312 226.889 214.312 226.889C214.555 226.889 214.555 227.153 214.555 227.153L214.069 235.892C214.069 235.627 214.069 235.627 214.069 235.892Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M188.278 285.145C188.035 284.881 188.035 284.881 188.278 285.145L214.306 227.152H214.55V227.417L188.278 285.145C188.278 284.881 188.278 284.881 188.278 285.145Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.68">
+        <path d="M253.958 241.717C253.958 241.982 253.958 241.982 253.958 241.717L214.308 227.153L214.064 226.888L214.308 226.623L253.715 241.188C253.958 241.452 254.201 241.452 253.958 241.717Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M253.962 241.718L213.825 235.627C213.825 235.627 213.582 235.627 213.582 235.362C213.582 235.362 213.582 235.098 213.825 235.098L253.719 241.188C253.962 241.453 253.962 241.453 253.962 241.718Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M16.7855 405.105C16.5422 405.105 16.5422 405.105 16.7855 405.105L-18.4863 356.909V356.645H-18.2431L16.7855 404.84C16.7855 405.105 16.7855 405.105 16.7855 405.105Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.59">
+        <path d="M104.601 498.582C104.357 498.582 104.357 498.317 104.357 498.317L120.899 479.78H121.142V480.045L104.601 498.582Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.69">
+        <path d="M138.413 482.428L104.601 498.581C104.357 498.581 104.357 498.581 104.357 498.317C104.357 498.052 104.357 498.052 104.601 498.052L138.413 481.898C138.656 481.898 138.656 481.898 138.656 482.163C138.656 482.163 138.656 482.428 138.413 482.428Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.67">
+        <path d="M138.412 482.428L120.898 480.31L120.654 480.045L120.898 479.78L138.169 481.899C138.412 481.899 138.655 482.164 138.412 482.428Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.68">
+        <path d="M137.929 312.421H137.685L130.145 300.505V300.24H130.388L137.929 312.157C137.929 312.157 137.929 312.157 137.929 312.421Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M188.281 285.146L130.144 300.505H129.9V300.24L188.038 284.881C188.281 284.616 188.281 284.881 188.281 285.146C188.281 284.881 188.281 284.881 188.281 285.146Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M173.93 300.241C173.687 300.241 173.687 300.241 173.93 300.241L188.039 284.882C188.039 284.882 188.039 284.882 188.282 284.882C188.282 284.882 188.282 284.882 188.282 285.147L173.93 300.241Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M188.28 284.881L137.683 312.157H137.439V311.892L188.28 284.881Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M188.278 284.882C188.278 285.146 188.278 285.146 188.278 284.882C188.035 284.882 188.035 284.882 188.278 284.882L213.82 235.362H214.063V235.627L188.278 284.882Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M235.231 232.185L214.067 235.628C214.067 235.628 214.067 235.628 213.824 235.628C213.824 235.628 213.824 235.628 213.824 235.363L235.231 232.185Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M190.71 259.46C190.467 259.195 190.467 259.195 190.71 259.46L213.819 235.627H214.062V235.892L190.71 259.46Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M251.286 241.983L213.825 235.627C213.825 235.627 213.582 235.627 213.582 235.362C213.582 235.362 213.582 235.098 213.825 235.098L251.043 241.453C251.286 241.718 251.286 241.718 251.286 241.983Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.67">
+        <path d="M251.281 241.982C251.281 242.247 251.281 242.247 251.281 241.982L234.983 232.184C234.983 232.184 234.74 231.919 234.983 231.919C234.983 231.919 235.226 231.655 235.226 231.919L251.281 241.717C251.281 241.717 251.524 241.982 251.281 241.982Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M251.282 241.983L190.712 259.46H190.469V259.195L251.282 241.983C251.282 241.718 251.282 241.718 251.282 241.983Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.64">
+        <path d="M44.5143 452.77H44.2711L16.2969 405.105V404.84H16.5401L44.5143 452.505C44.7576 452.505 44.7576 452.77 44.5143 452.77Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M77.3521 516.324L44.2695 452.505V452.24H44.5128L77.3521 516.324Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M128.679 515.794L120.895 480.045V479.78H121.138L128.679 515.794Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M172.225 306.595L137.683 312.156C137.683 312.156 137.439 312.156 137.439 311.891C137.439 311.891 137.439 311.626 137.683 311.626L172.225 306.065C172.225 306.33 172.225 306.33 172.225 306.595Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M137.685 312.157L121.63 315.334H121.387V315.07L137.685 312.157C137.928 312.157 137.685 311.892 137.685 312.157C137.928 312.157 137.928 312.157 137.685 312.157Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M173.928 300.24L137.683 312.157H137.439V311.892L173.684 299.976C173.928 299.976 173.928 299.976 173.928 300.24C174.171 300.24 174.171 300.24 173.928 300.24Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.8">
+        <path d="M172.225 306.861H171.982C171.738 306.861 171.738 306.596 171.738 306.331L173.441 299.976C173.441 299.711 173.684 299.711 173.928 299.711C174.171 299.711 174.171 299.976 174.171 300.241L172.225 306.861C172.468 306.861 172.468 306.596 172.225 306.861Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M173.927 300.241L121.87 315.335H121.627V315.07L173.927 300.241C173.927 299.976 173.927 299.976 173.927 300.241Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.64">
+        <path d="M173.931 300.24C173.687 300.24 173.688 299.976 173.688 299.976L190.229 258.93C190.229 258.93 190.472 258.665 190.472 258.93C190.472 258.93 190.715 259.195 190.472 259.195L173.931 300.24Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M229.633 272.17L190.469 259.194C190.469 259.194 190.469 259.194 190.469 258.93C190.469 258.93 190.469 258.93 190.712 258.93L229.633 272.17Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M192.172 273.759L190.469 259.194C190.469 259.194 190.469 258.93 190.712 258.93C190.712 258.93 190.955 258.93 190.955 259.194L192.172 273.759Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M172.226 306.596C171.982 306.596 171.982 306.596 171.982 306.331L190.47 259.195C190.47 259.195 190.713 258.93 190.713 259.195C190.713 259.195 190.956 259.46 190.713 259.46L172.226 306.596Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.59">
+        <path d="M235.227 232.184L190.712 259.459H190.469V259.194L235.227 232.184C235.227 231.919 235.227 231.919 235.227 232.184Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M229.634 272.17C229.39 272.17 229.39 272.17 229.634 272.17L234.985 231.919C234.985 231.919 234.985 231.655 235.228 231.919C235.228 231.919 235.472 231.919 235.228 232.184L229.634 272.17Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M128.683 515.794L77.3565 516.324C77.3565 516.324 77.1133 516.324 77.1133 516.059C77.1133 516.059 77.1133 515.794 77.3565 515.794L128.683 515.265C128.683 515.529 128.683 515.529 128.683 515.794Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M77.3582 516.324L62.0332 511.292C62.0332 511.292 62.0332 511.292 62.0332 511.027C62.0332 511.027 62.0332 511.027 62.2765 511.027L77.3582 516.059C77.3582 516.059 77.6015 516.059 77.3582 516.324Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.57">
+        <path d="M162.98 350.289L121.627 315.334V315.069H121.87L162.98 350.289C163.223 350.289 163.223 350.024 162.98 350.289Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M121.873 315.335L94.6289 295.209C94.6289 295.209 94.6289 295.209 94.6289 294.944C94.6289 294.944 94.6289 294.944 94.8722 294.944L121.873 315.335C121.873 315.07 121.873 315.07 121.873 315.335Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M172.224 306.595L121.87 315.334C121.87 315.334 121.627 315.334 121.627 315.069C121.627 315.069 121.627 314.804 121.87 314.804L172.224 306.065C172.224 306.33 172.224 306.33 172.224 306.595Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M173.442 308.45C173.199 308.714 173.442 308.714 173.442 308.45L171.982 306.596V306.331H172.226L173.442 308.45Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M162.981 350.289L171.982 306.596C171.982 306.596 171.982 306.596 172.225 306.596C172.225 306.596 172.225 306.596 172.225 306.861L162.981 350.289Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.57">
+        <path d="M172.225 306.595C171.982 306.595 171.982 306.595 172.225 306.595L191.929 273.494H192.172V273.759L172.225 306.595Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M247.145 310.832L192.17 273.759C192.17 273.759 192.17 273.759 192.17 273.494C192.17 273.494 192.17 273.494 192.413 273.494L247.145 310.832Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.64">
+        <path d="M173.439 308.715C173.195 308.715 173.195 308.45 173.195 308.45L191.926 273.76H192.169V274.025L173.439 308.715Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.67">
+        <path d="M229.634 272.435L192.173 273.759C192.173 273.759 191.93 273.759 191.93 273.494C191.93 273.494 191.93 273.229 192.173 273.229L229.634 271.641C229.634 271.905 229.877 271.905 229.634 272.435C229.877 272.17 229.634 272.17 229.634 272.435Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M268.07 327.781L229.393 272.171V271.906H229.636L268.07 327.781Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.66">
+        <path d="M247.15 310.832H246.907L229.393 272.435V272.17H229.636L247.15 310.832Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M14.109 455.683C13.8657 455.948 13.8657 455.948 14.109 455.683L-16.541 401.927V401.662H-16.2978L14.109 455.683Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M62.2758 511.293L58.627 508.909V508.645H58.8702L62.519 511.028C62.2758 511.028 62.2758 511.028 62.2758 511.293Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M95.1165 341.815C94.8732 341.815 94.8732 341.815 94.8732 341.55L94.3867 294.679C94.3867 294.679 94.3867 294.414 94.63 294.414C94.63 294.414 94.8732 294.414 94.8732 294.679L95.1165 341.815Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.59">
+        <path d="M169.064 405.369C168.821 405.369 168.821 405.369 169.064 405.369L162.982 350.289V350.024H163.226L169.064 405.369Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M162.982 350.289C162.738 350.289 162.738 350.289 162.738 350.024L173.198 308.449C173.198 308.449 173.198 308.184 173.441 308.449C173.441 308.449 173.685 308.449 173.441 308.714L162.982 350.289Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M198.257 322.219L173.445 308.714V308.449H173.689L198.5 321.954C198.257 321.954 198.257 321.954 198.257 322.219Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M247.149 310.567C247.149 310.832 247.149 310.832 247.149 310.567L198.255 321.954C198.255 321.954 198.255 321.954 198.012 321.954C198.012 321.954 198.012 321.954 198.012 321.689L247.149 310.567Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M41.3529 470.512L13.8652 455.683C13.8652 455.683 13.8652 455.683 13.8652 455.418C13.8652 455.418 13.8652 455.418 14.1085 455.418L41.3529 470.512C41.5962 470.512 41.5962 470.247 41.3529 470.512Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M-3.40271 502.024C-3.64596 502.024 -3.64596 502.024 -3.40271 502.024C-3.88922 501.759 -3.64596 502.024 -3.40271 502.024L13.8683 455.683C13.8683 455.683 13.8683 455.683 14.1116 455.683C14.1116 455.683 14.1116 455.683 14.1116 455.947L-3.40271 502.024Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M58.624 508.909L13.8652 455.683V455.418H14.1085L58.624 508.909C58.8672 508.909 58.8672 508.645 58.624 508.909Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M58.6265 508.909L41.3555 470.512V470.247H41.5987L58.6265 508.909C58.8698 508.909 58.8698 508.909 58.6265 508.909Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M58.6246 508.91L-3.64844 502.025C-3.64844 502.025 -3.64844 502.025 -3.64844 501.76C-3.64844 501.76 -3.64844 501.76 -3.40518 501.76L58.6246 508.91C58.8678 508.645 58.6246 508.645 58.6246 508.91C58.8678 508.91 58.8678 508.91 58.6246 508.91Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.61">
+        <path d="M137.927 587.028C137.683 587.028 137.683 587.028 137.927 587.028L139.143 573.787C139.143 573.787 139.143 573.522 139.386 573.522C139.386 573.522 139.629 573.522 139.629 573.787L137.927 587.028Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M135.25 370.944L95.1133 341.815C95.1133 341.815 95.1133 341.815 95.1133 341.55C95.1133 341.55 95.1133 341.55 95.3565 341.55L135.25 370.944Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.62">
+        <path d="M116.032 380.742L94.8691 341.815V341.55H95.1124L116.032 380.742C116.275 380.477 116.275 380.477 116.032 380.742Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M218.688 316.923C218.445 316.923 218.445 316.923 218.688 316.923L198.255 322.219C198.255 322.219 198.255 322.219 198.012 322.219C198.012 322.219 198.012 322.219 198.012 321.955L218.688 316.923C218.688 316.658 218.445 316.658 218.688 316.923Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M250.799 308.185L198.013 322.22H197.77V321.955L250.799 308.185C251.042 307.92 250.799 307.92 250.799 308.185C251.042 308.185 251.042 308.185 250.799 308.185Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.64">
+        <path d="M198.257 322.219C198.013 321.955 198.013 322.219 198.257 322.219L205.554 312.951H205.798V313.216L198.257 322.219Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.52">
+        <path d="M242.769 337.049L205.551 313.216C205.551 313.216 205.551 313.216 205.551 312.951C205.551 312.951 205.551 312.951 205.794 312.951L242.769 337.049C243.012 336.784 243.012 336.784 242.769 337.049C243.012 337.049 243.012 337.049 242.769 337.049Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.68">
+        <path d="M218.688 316.923L205.552 313.481C205.309 313.481 205.309 313.216 205.309 313.216C205.309 312.951 205.552 312.951 205.552 312.951L218.444 316.658C218.688 316.658 218.688 316.658 218.688 316.923Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M250.797 308.185L205.552 313.216H205.309V312.951L250.797 308.185C251.04 307.92 250.797 307.92 250.797 308.185C251.04 308.185 251.04 308.185 250.797 308.185Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M250.793 308.185L218.441 316.924H218.197V316.659L250.793 308.185C251.037 307.92 250.793 307.92 250.793 308.185C251.037 308.185 251.037 308.185 250.793 308.185Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M-0.969903 639.99C-1.21316 640.255 -1.21316 640.255 -0.969903 639.99C-1.21316 639.99 -1.21316 639.99 -0.969903 639.99L5.3547 601.593C5.3547 601.593 5.3547 601.593 5.59795 601.593C5.59795 601.593 5.59795 601.593 5.59795 601.858L-0.969903 639.99Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M41.3566 470.512L-3.64542 502.024H-3.88867C-3.88867 502.024 -3.88867 502.024 -3.88867 501.76L41.3566 470.512C41.3566 470.247 41.3566 470.247 41.3566 470.512C41.5998 470.512 41.5998 470.512 41.3566 470.512Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M3.89533 502.819C3.65208 502.554 3.65208 502.819 3.89533 502.819L41.3564 470.247C41.3564 470.247 41.3564 470.247 41.5997 470.247C41.5997 470.247 41.5997 470.247 41.5997 470.512L3.89533 502.819Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.7">
+        <path d="M135.251 371.209L116.034 380.742H115.791V380.477L135.008 370.944H135.251C135.495 370.944 135.495 370.944 135.251 371.209Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M172.955 402.457L135.008 371.209C135.008 371.209 135.008 371.209 135.008 370.944C135.008 370.944 135.008 370.944 135.251 370.944L172.955 402.457C172.955 402.192 172.955 402.192 172.955 402.457Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M135.251 370.944C135.007 370.944 135.007 371.209 135.251 370.944L133.791 350.819C133.791 350.819 133.791 350.554 134.034 350.554C134.034 350.554 134.278 350.554 134.278 350.819L135.251 370.944Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M226.472 384.979L202.876 393.188H202.633V392.923L226.228 384.714C226.472 384.714 226.472 384.714 226.472 384.979Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.59">
+        <path d="M202.876 393.188L172.956 402.456H172.713V402.191L202.633 392.923C202.876 392.658 202.876 392.923 202.876 393.188Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.61">
+        <path d="M243.012 337.048C242.769 337.048 242.769 337.048 243.012 337.048L218.443 316.923V316.658H218.687L243.012 336.784C243.012 336.784 243.012 336.784 243.012 337.048Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M255.175 353.466C254.932 353.731 254.932 353.731 255.175 353.466L242.77 336.783V336.519H243.013L255.175 353.466Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.49">
+        <path d="M226.472 384.979C226.228 384.714 226.228 384.979 226.472 384.979L242.77 337.049C242.77 337.049 242.77 337.049 243.013 337.049C243.013 337.049 243.013 337.049 243.013 337.314L226.472 384.979Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.45">
+        <path d="M299.691 363.265L242.77 337.049C242.77 337.049 242.77 337.049 242.77 336.784C242.77 336.784 242.77 336.784 243.013 336.784L299.691 363.265C299.934 363.265 299.691 363 299.691 363.265Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.65">
+        <path d="M7.2992 536.449C7.05595 536.449 7.05595 536.449 7.05595 536.449L3.65039 502.818C3.65039 502.818 3.65039 502.554 3.89364 502.554C3.89364 502.554 4.1369 502.554 4.1369 502.818L7.2992 536.449Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M19.9487 429.732C19.7055 429.732 19.9487 429.997 19.9487 429.732L10.7051 399.809V399.544H10.9483L19.9487 429.732Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.75">
+        <path d="M17.5179 406.693C17.5179 406.693 17.2747 406.693 17.0314 406.693L10.4636 400.073C10.4636 400.073 10.2203 399.808 10.4636 399.543C10.4636 399.543 10.7068 399.279 10.9501 399.543L17.5179 406.164C17.7612 406.429 17.7612 406.693 17.5179 406.693Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.52">
+        <path d="M165.901 600.534L118.224 615.363C118.224 615.363 118.224 615.363 117.98 615.363C117.98 615.363 117.98 615.363 117.98 615.098L165.901 600.534C165.901 600.269 165.901 600.269 165.901 600.534Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M147.413 392.129C147.17 392.129 147.17 392.129 147.413 392.129L133.791 350.819V350.554H134.034L147.413 392.129Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.49">
+        <path d="M172.955 402.456L133.791 350.819C133.791 350.819 133.791 350.819 133.791 350.554C133.791 350.554 133.791 350.554 134.034 350.554L172.955 402.456Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M197.279 440.059C197.035 440.059 197.035 440.059 197.279 440.059L172.953 402.456V402.191H173.196L197.279 440.059Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M172.957 402.456L147.172 392.128C147.172 392.128 147.172 392.128 147.172 391.863C147.172 391.863 147.172 391.863 147.415 391.863L172.957 402.456C172.957 402.191 172.957 402.191 172.957 402.456Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.48">
+        <path d="M226.472 384.979L172.956 402.456C172.956 402.456 172.956 402.456 172.713 402.456C172.713 402.456 172.713 402.456 172.713 402.191L226.472 384.979C226.472 384.714 226.472 384.714 226.472 384.979Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.56">
+        <path d="M16.5399 698.778C16.2966 698.778 16.2966 698.778 16.5399 698.778L18.7291 663.028C18.7291 663.028 18.7291 663.028 18.9724 663.028C18.9724 663.028 18.9724 663.028 18.9724 663.293L16.5399 698.778Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M7.30158 536.45C7.05833 536.45 7.05833 536.45 7.30158 536.45L9.00436 506.791C9.00436 506.791 9.00436 506.791 9.24761 506.791C9.24761 506.791 9.24761 506.791 9.24761 507.056L7.30158 536.45Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.63">
+        <path d="M19.9473 429.997C19.704 429.997 19.704 429.997 19.704 429.997L17.2715 406.693C17.2715 406.693 17.2715 406.429 17.5147 406.429C17.5147 406.429 17.758 406.429 17.758 406.693L19.9473 429.997C19.9473 429.732 19.9473 429.732 19.9473 429.997Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.6">
+        <path d="M172.224 604.506L165.656 600.533V600.269H165.9L172.224 604.241C172.467 604.241 172.467 604.241 172.224 604.506Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.47">
+        <path d="M224.04 474.749L197.039 440.059C197.039 440.059 197.039 440.059 197.039 439.794C197.039 439.794 197.039 439.794 197.282 439.794L224.04 474.749C224.284 474.749 224.284 474.749 224.04 474.749Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.5">
+        <path d="M194.116 452.77C193.873 452.506 193.873 452.77 194.116 452.77L197.035 440.06C197.035 440.06 197.035 440.06 197.278 440.06C197.278 440.06 197.278 440.06 197.278 440.324L194.116 452.77Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M235.227 446.679L197.036 440.059C197.036 440.059 196.793 440.059 197.036 439.794C197.036 439.794 197.036 439.53 197.279 439.794L235.47 446.415C235.227 446.415 235.47 446.679 235.227 446.679Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.45">
+        <path d="M254.93 453.299L235.227 446.679C235.227 446.679 235.227 446.679 235.227 446.414C235.227 446.414 235.227 446.414 235.47 446.414L254.93 453.299Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.5">
+        <path d="M224.034 474.749L234.98 446.414C234.98 446.414 234.98 446.414 235.224 446.414C235.224 446.414 235.224 446.414 235.224 446.679L224.034 474.749Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.51">
+        <path d="M235.227 446.679C234.984 446.679 234.984 446.679 235.227 446.679L247.633 431.32H247.877V431.585L235.227 446.679Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.44">
+        <path d="M224.039 474.749L247.635 431.32C247.635 431.32 247.635 431.32 247.878 431.32C247.878 431.32 247.878 431.32 247.878 431.585L224.039 474.749Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.48">
+        <path d="M61.5448 544.393L9.00195 506.79C9.00195 506.79 9.00195 506.79 9.00195 506.525C9.00195 506.525 9.00195 506.525 9.24521 506.525L61.5448 544.393Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.45">
+        <path d="M171.251 468.923L149.602 449.327C149.602 449.327 149.602 449.327 149.602 449.062C149.602 449.062 149.602 449.062 149.845 449.062L171.251 468.923Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.48">
+        <path d="M194.117 452.77L149.602 449.328C149.602 449.328 149.602 449.328 149.602 449.063C149.602 449.063 149.602 448.798 149.845 449.063L194.117 452.77C194.117 452.506 194.117 452.506 194.117 452.77Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.44">
+        <path d="M194.121 452.77L171.255 468.923C171.255 468.923 171.255 468.923 171.012 468.923C171.012 468.923 171.012 468.923 171.012 468.658L194.121 452.77Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.5">
+        <path d="M224.037 474.749L193.873 452.505V452.24H194.116L224.037 474.749C224.28 474.749 224.28 474.484 224.037 474.749Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.46">
+        <path d="M254.933 453.299L224.04 474.749H223.797C223.797 474.749 223.797 474.749 223.797 474.484L254.933 453.299C254.933 453.034 254.933 453.034 254.933 453.299Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.55">
+        <path d="M32.3523 784.046C32.109 784.046 32.109 784.046 32.3523 784.046L30.4062 747.502V747.237H30.6495L32.3523 784.046Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.5">
+        <path d="M61.5465 544.394L23.1124 563.725H22.8691V563.46L61.5465 544.394C61.5465 544.129 61.5465 544.129 61.5465 544.394Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.58">
+        <path d="M47.4367 584.645L23.1113 563.989V563.725H23.3546L47.4367 584.38C47.4367 584.38 47.4367 584.38 47.4367 584.645Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.52">
+        <path d="M26.7612 591.794L22.8691 563.725V563.46H23.1124L26.7612 591.794C27.0045 591.794 27.0045 591.794 26.7612 591.794Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.49">
+        <path d="M47.4383 584.645C47.195 584.645 47.195 584.645 47.4383 584.645C47.195 584.38 47.195 584.645 47.4383 584.645L61.547 544.394C61.547 544.394 61.547 544.394 61.7903 544.394C61.7903 544.394 61.7903 544.394 61.7903 544.658L47.4383 584.645Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.49">
+        <path d="M114.571 614.303C114.328 614.303 114.328 614.303 114.571 614.303L105.084 605.565V605.3H105.327L114.571 614.303Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.49">
+        <path d="M260.769 534.596C260.525 534.596 260.525 534.596 260.769 534.596L241.065 527.711C241.065 527.711 240.822 527.711 241.065 527.446C241.065 527.446 241.065 527.181 241.308 527.446L261.012 534.331C260.769 534.331 260.769 534.331 260.769 534.596Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.49">
+        <path d="M229.636 547.042C229.393 547.042 229.393 546.777 229.393 546.777L240.826 527.446H241.069V527.711L229.636 547.042Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.39">
+        <path d="M241.067 527.711C240.824 527.711 240.824 527.711 241.067 527.711L265.879 485.606C265.879 485.606 265.879 485.606 266.122 485.606C266.122 485.606 266.122 485.606 266.122 485.871L241.067 527.711Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.54">
+        <path d="M47.4344 584.644L27.0011 592.059H26.7578V591.794L47.1911 584.379C47.1911 584.114 47.4344 584.379 47.4344 584.644Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.43">
+        <path d="M105.088 605.565L47.1934 584.645C47.1934 584.645 47.1934 584.645 47.1934 584.38C47.1934 584.38 47.1934 584.38 47.4366 584.38L105.088 605.565Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.45">
+        <path d="M76.627 633.634L104.844 605.3C104.844 605.3 104.844 605.3 105.088 605.3C105.088 605.3 105.088 605.3 105.088 605.565L76.627 633.634Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.51">
+        <path d="M99.9793 619.864C99.7361 619.864 99.7361 619.864 99.9793 619.864L104.844 605.3C104.844 605.3 104.844 605.3 105.088 605.3C105.088 605.3 105.088 605.3 105.088 605.565L99.9793 619.864Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.47">
+        <path d="M210.415 747.767L198.495 757.3H198.252V757.035L210.415 747.767C210.415 747.502 210.171 747.502 210.415 747.767Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.45">
+        <path d="M184.875 769.746C184.875 769.481 184.875 769.481 184.875 769.746L198.254 757.3H198.497V757.565L184.875 769.746Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.48">
+        <path d="M195.089 529.035C195.089 529.3 195.089 529.3 195.089 529.035L179.277 516.589V516.324H179.521L195.089 528.77C195.332 529.035 195.332 529.035 195.089 529.035C195.332 529.035 195.332 529.035 195.089 529.035Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.44">
+        <path d="M260.526 534.596L229.39 547.042H229.146V546.777L260.526 534.596C260.77 534.331 260.526 534.331 260.526 534.596C260.77 534.596 260.77 534.331 260.526 534.596Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.43">
+        <path d="M27.4922 653.76L32.114 639.46C32.114 639.46 32.114 639.46 32.3573 639.46C32.3573 639.46 32.3573 639.46 32.3573 639.725L27.4922 653.76Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.44">
+        <path d="M76.6266 633.634L27.4893 653.76C27.4893 653.76 27.4893 653.76 27.2461 653.76C27.2461 653.76 27.2461 653.76 27.2461 653.495L76.6266 633.634C76.6266 633.369 76.6266 633.369 76.6266 633.634Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.53">
+        <path d="M99.9784 619.863L76.6261 633.634H76.3828V633.369L99.7352 619.599C99.9784 619.599 99.9784 619.599 99.9784 619.863Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.46">
+        <path d="M184.876 769.746C184.633 769.481 184.633 769.481 184.876 769.746L210.174 747.767H210.417V748.031L184.876 769.746Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.4">
+        <path d="M210.419 747.767L214.311 741.146C214.311 741.146 214.311 741.146 214.554 741.146C214.554 741.146 214.554 741.146 214.554 741.411L210.419 747.767Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.49">
+        <path d="M95.1156 693.216C94.8724 693.216 94.8724 693.216 95.1156 693.216L83.4395 678.122V677.857H83.6827L95.1156 692.952C95.1156 692.952 95.1156 692.952 95.1156 693.216Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.38">
+        <path d="M134.28 691.363C134.523 691.098 134.523 691.363 134.28 691.363C134.523 691.363 134.523 691.363 134.28 691.363Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.4">
+        <path d="M83.68 678.122L54.003 687.656C54.003 687.656 54.003 687.656 53.7598 687.656C53.7598 687.656 53.7598 687.656 53.7598 687.391L83.68 678.122Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.38">
+        <path d="M134.276 691.363C134.276 691.098 134.52 691.363 134.276 691.363C134.52 691.363 134.52 691.363 134.276 691.363Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.41">
+        <path d="M208.472 768.422C208.228 768.422 208.228 768.422 208.472 768.422L214.066 741.146C214.066 741.146 214.066 741.146 214.31 741.146C214.31 741.146 214.31 741.146 214.31 741.411L208.472 768.422Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.41">
+        <path d="M186.579 588.352C186.579 588.617 186.579 588.617 186.579 588.352L194.849 564.784C194.849 564.784 194.849 564.784 195.093 564.784C195.093 564.784 195.093 564.784 195.093 565.049L186.579 588.352Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.4">
+        <path d="M95.1119 692.951L54.002 687.39C54.002 687.39 54.002 687.39 54.002 687.125C54.002 687.125 54.0019 687.125 54.2452 687.125L95.1119 692.951Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.41">
+        <path d="M50.3581 720.491C50.3581 720.756 50.3581 720.756 50.3581 720.491C50.1149 720.491 50.3581 720.756 50.3581 720.491L53.7637 687.39C53.7637 687.39 53.7637 687.39 54.0069 687.39C54.0069 687.39 54.0069 687.39 54.0069 687.654L50.3581 720.491Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.4">
+        <path d="M95.5989 723.14C95.5989 723.405 95.5989 723.405 95.5989 723.14C95.3556 723.14 95.5989 723.405 95.5989 723.14Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.38">
+        <path d="M150.578 753.858L130.388 765.245C130.388 765.245 130.388 765.245 130.145 765.245C130.145 765.245 130.145 765.245 130.145 764.98L150.578 753.858C150.578 753.593 150.578 753.593 150.578 753.858Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.37">
+        <path d="M236.688 672.296C236.445 672.561 236.688 672.561 236.688 672.296C236.445 672.296 236.445 672.296 236.688 672.296L245.445 657.202C245.445 657.202 245.445 657.202 245.689 657.202C245.689 657.202 245.689 657.202 245.689 657.467L236.688 672.296Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.38">
+        <path d="M88.5444 729.231L50.3535 720.757C50.3535 720.757 50.3535 720.757 50.3535 720.492C50.3535 720.492 50.3535 720.492 50.5968 720.492L88.5444 729.231C88.5444 728.966 88.5444 728.966 88.5444 729.231Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.34">
+        <path d="M130.387 764.98C130.387 765.244 130.387 765.244 130.387 764.98L95.6016 723.14C95.6016 723.14 95.6016 723.14 95.6016 722.875C95.6016 722.875 95.6016 722.875 95.8448 722.875L130.387 764.98Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.44">
+        <path d="M88.5499 729.23C88.3066 729.23 88.3066 729.23 88.5499 729.23C88.3066 729.23 88.3066 728.965 88.3066 728.965L95.6043 723.14H95.8475V723.404L88.5499 729.23Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.36">
+        <path d="M238.146 693.746C237.903 693.746 237.903 693.746 238.146 693.746L236.443 672.296V672.031H236.687L238.146 693.746Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.33">
+        <path d="M236.688 672.297L216.741 682.624C216.741 682.624 216.741 682.624 216.498 682.624C216.498 682.624 216.498 682.624 216.498 682.36L236.688 672.297Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.32">
+        <path d="M265.876 672.032L237.901 694.011C237.901 694.011 237.901 694.011 237.658 694.011C237.658 694.011 237.658 694.011 237.658 693.746L265.876 672.032C265.876 671.767 265.876 671.767 265.876 672.032C266.119 671.767 266.119 671.767 265.876 672.032Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.37">
+        <path d="M172.956 685.537C172.713 685.537 172.713 685.537 172.956 685.537L177.091 679.711H177.334V679.976L172.956 685.537Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.29">
+        <path d="M243.013 718.638L216.498 682.624C216.498 682.624 216.498 682.624 216.498 682.359L243.013 718.638Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.36">
+        <path d="M238.148 693.746L216.498 682.624C216.498 682.624 216.498 682.624 216.498 682.359C216.498 682.359 216.498 682.359 216.741 682.359L238.148 693.481V693.746Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.34">
+        <path d="M243.015 718.638L237.906 693.746V693.481H238.15L243.015 718.638Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.44">
+        <path d="M93.1696 758.359L83.6827 758.094C83.6827 758.094 83.4395 758.094 83.4395 757.829C83.4395 757.829 83.4395 757.564 83.6827 757.564L92.9264 757.829C93.1696 757.829 93.1696 758.094 93.1696 758.359Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.29">
+        <path d="M238.149 741.676C238.393 741.411 238.393 741.411 238.149 741.676V741.676Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.32">
+        <path d="M238.15 741.676L242.772 718.638C242.772 718.638 242.772 718.638 243.015 718.638C243.015 718.638 243.015 718.638 243.015 718.902L238.15 741.676Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.35">
+        <path d="M173.441 734.791L171.738 734.262C171.738 734.262 171.738 734.262 171.738 733.997C171.738 733.997 171.738 733.997 171.982 733.997L173.441 734.791C173.684 734.791 173.441 734.527 173.441 734.791Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.41">
+        <path d="M225.255 768.157C225.012 768.157 224.769 768.157 224.769 767.893L224.039 761.802C224.039 761.537 224.039 761.537 224.282 761.537C224.526 761.537 224.526 761.537 224.526 761.802L225.255 767.893C225.499 767.893 225.255 768.157 225.255 768.157Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.32">
+        <path d="M224.524 761.801L238.146 741.411C238.146 741.411 238.146 741.411 238.39 741.411C238.39 741.411 238.39 741.411 238.39 741.676L224.524 761.801Z" fill="#EC93E3"></path>
+        </g>
+        <g opacity="0.28">
+        <path d="M263.691 716.785L236.933 729.495C236.933 729.495 236.933 729.495 236.689 729.495C236.689 729.495 236.689 729.495 236.689 729.231L263.691 716.785C263.691 716.52 263.691 716.52 263.691 716.785Z" fill="#EC93E3"></path>
+        </g>
+        <path d="M236.929 523.209C239.118 521.356 242.037 521.885 243.74 524.269C245.442 526.652 244.956 529.83 242.767 531.683C240.577 533.537 237.658 533.007 235.956 530.624C234.253 528.241 234.739 524.798 236.929 523.209Z" fill="#EC93E3"></path>
+        <path d="M183.904 575.111C185.85 573.522 188.526 574.052 189.985 576.171C191.445 578.289 190.958 581.202 189.012 582.791C187.066 584.38 184.39 583.85 182.931 581.732C181.471 579.613 181.958 576.7 183.904 575.111Z" fill="#EC93E3"></path>
+        <path d="M138.414 477.926C140.117 476.602 142.793 476.867 144.009 478.721C145.225 480.574 144.982 483.487 143.279 484.811C141.576 486.135 138.901 485.87 137.684 484.017C136.225 482.163 136.468 479.515 138.414 477.926Z" fill="#EC93E3"></path>
+        <path d="M129.656 508.115C131.359 506.791 133.791 507.055 135.008 508.909C136.224 510.763 135.981 513.411 134.278 514.735C132.575 516.059 130.142 515.794 128.926 513.94C127.71 512.087 127.953 509.439 129.656 508.115Z" fill="#EC93E3"></path>
+        <path d="M204.332 486.136C206.035 484.812 208.468 485.077 209.684 486.931C210.9 488.784 210.657 491.432 208.954 492.756C207.251 494.08 204.819 493.816 203.602 491.962C202.143 490.108 202.629 487.46 204.332 486.136Z" fill="#EC93E3"></path>
+        <path d="M114.329 543.07C116.032 541.746 118.221 542.275 119.438 543.864C120.654 545.718 120.167 548.101 118.708 549.425C117.005 550.749 114.816 550.22 113.6 548.631C112.383 546.777 112.87 544.394 114.329 543.07Z" fill="#EC93E3"></path>
+        <path d="M198.984 473.425C200.443 472.365 202.632 472.63 203.605 474.219C204.578 475.808 204.335 478.191 202.876 479.25C201.416 480.31 199.227 480.045 198.254 478.456C197.038 476.867 197.524 474.749 198.984 473.425Z" fill="#EC93E3"></path>
+        <path d="M111.653 414.902C113.113 413.843 115.059 414.108 116.275 415.697C117.248 417.285 117.005 419.404 115.545 420.728C114.086 421.787 112.14 421.522 110.924 419.933C109.951 418.345 110.194 415.961 111.653 414.902Z" fill="#EC93E3"></path>
+        <path d="M162.98 448.003C164.439 446.943 166.385 447.208 167.601 448.797C168.574 450.386 168.331 452.504 166.872 453.829C165.412 454.888 163.466 454.623 162.25 453.034C161.277 451.445 161.52 449.062 162.98 448.003Z" fill="#EC93E3"></path>
+        <path d="M239.605 467.335C241.064 466.276 243.01 466.54 243.983 468.129C244.956 469.718 244.713 471.836 243.254 472.896C241.794 473.955 239.848 473.69 238.875 472.101C237.902 470.512 238.389 468.394 239.605 467.335Z" fill="#EC93E3"></path>
+        <path d="M69.0851 494.345C70.5446 493.285 72.4906 493.55 73.4636 495.139C74.4366 496.728 74.1934 498.846 72.7339 499.906C71.2743 500.965 69.3283 500.7 68.3553 499.111C67.3823 497.522 67.6255 495.404 69.0851 494.345Z" fill="#EC93E3"></path>
+        <path d="M129.171 410.93C130.631 409.871 132.577 410.136 133.55 411.725C134.523 413.314 134.279 415.432 132.82 416.491C131.36 417.551 129.414 417.286 128.441 415.697C127.468 414.108 127.711 411.99 129.171 410.93Z" fill="#EC93E3"></path>
+        <path d="M73.7106 715.46C75.1701 714.401 76.8729 714.665 77.8459 716.254C78.8189 717.843 78.5756 719.697 77.1161 720.756C75.6566 721.815 73.9538 721.55 72.9808 719.962C72.251 718.638 72.4943 716.519 73.7106 715.46Z" fill="#EC93E3"></path>
+        <path d="M51.0831 413.843C52.2994 412.783 54.2454 413.048 55.2184 414.637C56.1914 415.961 55.9482 418.08 54.4887 419.139C53.2724 420.198 51.3264 419.933 50.3533 418.344C49.3803 417.02 49.6236 414.902 51.0831 413.843Z" fill="#EC93E3"></path>
+        <path d="M88.7881 284.352C90.0043 283.293 91.7071 283.557 92.6801 284.881C93.6532 286.206 93.4099 288.059 92.1936 289.118C90.9774 290.178 89.2746 289.913 88.3016 288.589C87.3285 287.265 87.5718 285.411 88.7881 284.352Z" fill="#EC93E3"></path>
+        <path d="M243.497 591.794C244.713 590.735 246.416 591 247.389 592.324C248.362 593.648 248.119 595.502 246.903 596.561C245.686 597.62 243.984 597.355 243.011 596.031C242.038 594.707 242.281 592.853 243.497 591.794Z" fill="#EC93E3"></path>
+        <path d="M60.3297 686.861C61.546 685.802 63.492 686.067 64.465 687.656C65.438 688.98 65.1948 691.098 63.7353 692.157C62.519 693.217 60.573 692.952 59.5999 691.363C58.8702 689.774 59.1134 687.92 60.3297 686.861Z" fill="#EC93E3"></path>
+        <path d="M44.275 487.195C45.4913 486.135 47.1941 486.4 48.1671 487.724C49.1401 489.048 48.8968 490.902 47.6806 491.961C46.4643 493.02 44.7615 492.756 43.7885 491.432C42.5722 490.107 43.0587 488.254 44.275 487.195Z" fill="#EC93E3"></path>
+        <path d="M42.8115 238.275C44.0278 237.215 45.7306 237.48 46.4603 238.804C47.4333 240.128 47.1901 241.982 45.9738 242.776C44.7575 243.571 43.0548 243.571 42.325 242.247C41.352 240.923 41.5952 239.334 42.8115 238.275Z" fill="#EC93E3"></path>
+        <path d="M234.015 605.3C235.231 604.241 236.934 604.506 237.663 605.83C238.636 607.154 238.393 609.007 237.177 609.802C235.961 610.861 234.258 610.596 233.528 609.272C232.555 607.948 232.798 606.094 234.015 605.3Z" fill="#EC93E3"></path>
+        <path d="M226.469 187.696C227.686 186.902 229.145 187.167 229.875 188.226C230.605 189.55 230.361 191.139 229.388 191.933C228.172 192.728 226.713 192.463 225.983 191.404C225.253 190.344 225.496 188.491 226.469 187.696Z" fill="#EC93E3"></path>
+        <path d="M35.0303 591.794C36.2465 590.735 37.9493 591 38.6791 592.324C39.6521 593.648 39.4088 595.502 38.1926 596.296C36.9763 597.355 35.2735 597.09 34.5438 595.766C33.5707 594.707 33.814 592.853 35.0303 591.794Z" fill="#EC93E3"></path>
+        <path d="M27.2468 454.624C28.463 453.565 29.9226 453.83 30.8956 455.154C31.8686 456.478 31.6253 458.067 30.4091 459.126C29.1928 460.185 27.7333 459.92 26.7603 458.596C26.0305 457.272 26.2737 455.419 27.2468 454.624Z" fill="#EC93E3"></path>
+        <path d="M124.548 433.438C125.764 432.644 127.224 432.909 128.197 433.968C128.926 435.292 128.683 436.881 127.71 437.94C126.494 438.735 125.034 438.47 124.061 437.411C123.088 436.087 123.332 434.233 124.548 433.438Z" fill="#EC93E3"></path>
+        <path d="M219.661 205.969C220.634 205.174 222.094 205.439 223.067 206.498C223.796 207.558 223.553 209.146 222.58 210.206C221.607 211 220.148 210.735 219.175 209.676C218.202 208.352 218.445 206.763 219.661 205.969Z" fill="#EC93E3"></path>
+        <path d="M20.1924 533.271C21.4086 532.477 22.8682 532.742 23.8412 533.801C24.5709 535.125 24.3277 536.714 23.3547 537.773C22.1384 538.568 20.6789 538.303 19.7059 537.244C18.7328 535.92 18.9761 534.331 20.1924 533.271Z" fill="#EC93E3"></path>
+        <path d="M20.9206 449.327C22.1369 448.533 23.5964 448.798 24.5694 449.857C25.2992 451.181 25.0559 452.77 24.0829 453.829C22.8666 454.623 21.4071 454.359 20.4341 453.299C19.7043 451.975 19.9476 450.122 20.9206 449.327Z" fill="#EC93E3"></path>
+        <path d="M113.844 474.22C114.817 473.425 116.52 473.69 117.25 474.749C117.98 475.809 117.736 477.662 116.763 478.457C115.79 479.251 114.088 478.986 113.358 477.927C112.628 476.868 112.871 475.279 113.844 474.22Z" fill="#EC93E3"></path>
+        <path d="M152.522 251.78C153.495 250.986 154.955 251.251 155.684 252.31C156.414 253.369 156.171 254.958 155.198 255.752C154.225 256.547 152.765 256.282 152.036 255.223C151.306 254.164 151.549 252.575 152.522 251.78Z" fill="#EC93E3"></path>
+        <path d="M226.226 300.24C227.199 299.446 228.659 299.711 229.388 300.77C230.118 301.829 229.875 303.418 228.902 304.212C227.929 305.007 226.469 304.742 225.739 303.683C225.253 302.359 225.253 301.035 226.226 300.24Z" fill="#EC93E3"></path>
+        <path d="M4.37987 592.06C5.59614 591.265 7.05566 591.53 7.78543 592.589C8.51519 593.913 8.27193 595.502 7.29892 596.297C6.08265 597.091 4.62312 596.826 3.89336 595.767C2.92035 594.708 3.1636 592.854 4.37987 592.06Z" fill="#EC93E3"></path>
+        <path d="M81.9811 455.684C82.9542 454.889 84.4137 455.154 85.3867 456.213C86.1164 457.272 85.8732 458.861 84.9002 459.921C83.9272 460.715 82.4676 460.45 81.4946 459.391C80.7649 458.067 81.0081 456.478 81.9811 455.684Z" fill="#EC93E3"></path>
+        <path d="M180.741 520.296C181.714 519.501 183.173 519.766 183.903 520.826C184.633 521.885 184.39 523.474 183.417 524.268C182.444 525.062 180.984 524.798 180.254 523.738C179.525 522.679 179.768 521.09 180.741 520.296Z" fill="#EC93E3"></path>
+        <path d="M135.739 261.049C136.712 260.254 138.171 260.519 138.901 261.578C139.631 262.638 139.388 264.227 138.415 265.021C137.442 265.815 135.982 265.551 135.252 264.491C134.523 263.432 134.766 261.843 135.739 261.049Z" fill="#EC93E3"></path>
+        <path d="M186.333 287.265C187.306 286.47 188.765 286.735 189.495 287.794C190.225 288.853 189.981 290.442 189.008 291.237C188.035 292.031 186.576 291.766 185.846 290.707C185.116 289.648 185.36 288.059 186.333 287.265Z" fill="#EC93E3"></path>
+        <path d="M228.419 245.689C229.392 244.895 230.608 245.16 231.338 246.219C232.067 247.278 231.824 248.602 230.851 249.397C229.878 250.191 228.662 249.926 227.932 248.867C227.202 248.073 227.446 246.484 228.419 245.689Z" fill="#EC93E3"></path>
+        <path d="M116.764 507.851C117.737 507.056 119.196 507.321 119.926 508.38C120.656 509.439 120.413 511.028 119.44 511.823C118.467 512.617 117.007 512.352 116.277 511.293C115.548 509.969 115.548 508.645 116.764 507.851Z" fill="#EC93E3"></path>
+        <path d="M154.223 508.909C155.196 508.115 156.656 508.38 157.386 509.439C158.115 510.498 157.872 512.087 156.899 512.881C155.926 513.676 154.467 513.411 153.737 512.352C153.007 511.292 153.25 509.704 154.223 508.909Z" fill="#EC93E3"></path>
+        <path d="M136.464 247.278C137.437 246.484 138.653 246.749 139.383 247.808C140.112 248.867 139.869 250.191 138.896 250.986C137.923 251.78 136.707 251.515 135.977 250.456C135.247 249.662 135.491 248.073 136.464 247.278Z" fill="#EC93E3"></path>
+        <path d="M179.034 289.118C180.007 288.324 181.223 288.589 181.953 289.648C182.683 290.707 182.439 292.031 181.466 292.825C180.493 293.62 179.277 293.355 178.547 292.296C177.818 291.237 178.061 289.913 179.034 289.118Z" fill="#EC93E3"></path>
+        <path d="M213.089 225.3C214.062 224.505 215.279 224.77 216.008 225.829C216.738 226.889 216.495 228.213 215.522 229.007C214.549 229.802 213.332 229.537 212.603 228.478C212.116 227.418 212.359 225.829 213.089 225.3Z" fill="#EC93E3"></path>
+        <path d="M103.382 496.464C104.355 495.669 105.571 495.934 106.301 496.993C107.03 498.053 106.787 499.377 105.814 500.171C104.841 500.966 103.625 500.701 102.895 499.642C102.165 498.847 102.409 497.258 103.382 496.464Z" fill="#EC93E3"></path>
+        <path d="M136.954 480.31C137.927 479.515 139.144 479.78 139.874 480.839C140.603 481.898 140.36 483.222 139.387 484.017C138.414 484.811 137.198 484.547 136.468 483.487C135.981 482.428 136.225 481.104 136.954 480.31Z" fill="#EC93E3"></path>
+        <path d="M128.923 298.651C129.896 297.857 131.113 298.122 131.599 299.181C132.329 300.24 132.086 301.564 131.113 302.094C130.14 302.888 128.923 302.623 128.437 301.564C127.95 300.505 127.95 299.181 128.923 298.651Z" fill="#EC93E3"></path>
+        <path d="M187.064 283.027C188.037 282.233 189.253 282.498 189.74 283.557C190.226 284.616 190.226 285.94 189.253 286.47C188.28 287.264 187.064 286.999 186.577 285.94C186.091 284.881 186.091 283.822 187.064 283.027Z" fill="#EC93E3"></path>
+        <path d="M213.819 237.746C214.894 237.746 215.765 236.797 215.765 235.627C215.765 234.457 214.894 233.509 213.819 233.509C212.744 233.509 211.873 234.457 211.873 235.627C211.873 236.797 212.744 237.746 213.819 237.746Z" fill="#EC93E3"></path>
+        <path d="M15.3268 403.251C16.2999 402.457 17.5161 402.721 18.2459 403.781C18.9756 404.84 18.7324 406.164 17.7594 406.958C16.7864 407.753 15.5701 407.488 14.8403 406.429C14.1106 405.369 14.3538 404.045 15.3268 403.251Z" fill="#EC93E3"></path>
+        <path d="M43.3014 450.651C44.2745 449.857 45.4907 450.122 46.2205 451.181C46.9503 452.24 46.707 453.564 45.734 454.359C44.761 455.153 43.5447 454.888 42.8149 453.829C42.0852 453.035 42.3284 451.446 43.3014 450.651Z" fill="#EC93E3"></path>
+        <path d="M119.926 478.192C120.899 477.398 122.116 477.663 122.845 478.722C123.575 479.781 123.332 481.105 122.359 481.9C121.386 482.694 120.17 482.429 119.44 481.37C118.71 480.311 118.953 478.987 119.926 478.192Z" fill="#EC93E3"></path>
+        <path d="M136.464 310.303C137.437 309.508 138.654 309.773 139.14 310.832C139.87 311.892 139.627 313.216 138.654 313.745C137.68 314.54 136.464 314.275 135.978 313.216C135.491 312.421 135.734 311.097 136.464 310.303Z" fill="#EC93E3"></path>
+        <path d="M172.71 298.387C173.44 297.592 174.656 297.857 175.386 298.916C176.116 299.976 175.873 301.035 174.9 301.829C174.17 302.624 172.954 302.359 172.224 301.3C171.737 300.505 171.981 299.181 172.71 298.387Z" fill="#EC93E3"></path>
+        <path d="M189.497 257.606C190.227 256.812 191.444 257.077 192.173 258.136C192.903 258.93 192.66 260.255 191.687 261.049C190.957 261.843 189.741 261.579 189.011 260.519C188.524 259.46 188.524 258.401 189.497 257.606Z" fill="#EC93E3"></path>
+        <path d="M234.013 230.596C234.743 229.801 235.959 230.066 236.689 231.125C237.419 231.92 237.175 233.244 236.202 234.038C235.473 234.833 234.256 234.568 233.527 233.509C233.04 232.449 233.04 231.125 234.013 230.596Z" fill="#EC93E3"></path>
+        <path d="M76.142 514.471C77.115 513.676 78.3313 513.941 78.8178 515C79.5476 516.06 79.3043 517.384 78.3313 517.913C77.3583 518.708 76.142 518.443 75.6555 517.384C75.169 516.589 75.169 515.265 76.142 514.471Z" fill="#EC93E3"></path>
+        <path d="M127.466 513.941C128.439 513.147 129.655 513.412 130.142 514.471C130.872 515.53 130.628 516.854 129.655 517.384C128.682 518.178 127.466 517.914 126.98 516.854C126.493 516.06 126.736 514.736 127.466 513.941Z" fill="#EC93E3"></path>
+        <path d="M120.654 313.48C121.383 312.686 122.6 312.951 123.329 314.01C124.059 314.805 123.816 316.129 122.843 316.923C122.113 317.717 120.897 317.453 120.167 316.393C119.681 315.599 119.924 314.275 120.654 313.48Z" fill="#EC93E3"></path>
+        <path d="M171.009 304.742C171.739 303.948 172.955 304.213 173.685 305.272C174.415 306.066 174.171 307.39 173.198 308.185C172.469 308.979 171.252 308.714 170.523 307.655C170.036 306.861 170.279 305.537 171.009 304.742Z" fill="#EC93E3"></path>
+        <path d="M190.954 272.17C191.684 271.641 192.9 271.641 193.387 272.7C193.874 273.494 193.874 274.818 192.9 275.348C191.927 275.877 190.954 275.877 190.468 274.818C189.981 274.024 190.225 272.7 190.954 272.17Z" fill="#EC93E3"></path>
+        <path d="M228.415 270.581C229.145 270.052 230.361 270.052 230.848 271.111C231.334 271.905 231.334 273.229 230.361 273.759C229.632 274.289 228.415 274.289 227.929 273.229C227.442 272.435 227.686 271.111 228.415 270.581Z" fill="#EC93E3"></path>
+        <path d="M61.056 509.438C61.7858 508.644 63.0021 508.909 63.7318 509.968C64.4616 510.763 64.2183 512.087 63.2453 512.881C62.5155 513.675 61.2993 513.411 60.5695 512.351C60.083 511.292 60.3263 510.233 61.056 509.438Z" fill="#EC93E3"></path>
+        <path d="M93.4115 293.355C94.1413 292.825 95.3575 292.825 95.844 293.884C96.3305 294.679 96.3305 296.003 95.3575 296.532C94.6278 297.062 93.4115 297.062 92.925 296.003C92.4385 295.208 92.6817 294.149 93.4115 293.355Z" fill="#EC93E3"></path>
+        <path d="M161.765 348.699C162.495 348.17 163.711 348.17 164.198 349.229C164.684 350.023 164.684 351.348 163.711 351.877C162.981 352.407 161.765 352.407 161.279 351.348C160.792 350.553 161.035 349.229 161.765 348.699Z" fill="#EC93E3"></path>
+        <path d="M172.222 306.861C172.952 306.331 174.168 306.331 174.654 307.39C175.141 308.185 175.141 309.509 174.168 310.038C173.438 310.568 172.222 310.568 171.735 309.509C171.492 308.714 171.492 307.655 172.222 306.861Z" fill="#EC93E3"></path>
+        <path d="M12.8932 454.095C13.623 453.3 14.8393 453.565 15.569 454.624C16.2988 455.419 16.0555 456.743 15.0825 457.537C14.3528 458.332 13.1365 458.067 12.4067 457.008C11.677 455.948 11.9202 454.624 12.8932 454.095Z" fill="#EC93E3"></path>
+        <path d="M57.6537 507.321C58.3835 506.791 59.5998 506.791 60.0863 507.85C60.5728 508.645 60.5728 509.969 59.5998 510.498C58.87 511.028 57.6537 511.028 57.1672 509.969C56.6807 509.174 56.6807 507.85 57.6537 507.321Z" fill="#EC93E3"></path>
+        <path d="M136.712 585.44C137.442 584.91 138.658 584.91 139.145 585.969C139.631 586.764 139.631 588.088 138.658 588.617C137.929 589.147 136.712 589.147 136.226 588.088C135.739 587.293 135.983 585.969 136.712 585.44Z" fill="#EC93E3"></path>
+        <path d="M94.142 340.227C94.8718 339.697 96.088 339.697 96.5746 340.756C97.0611 341.551 97.0611 342.875 96.088 343.404C95.3583 343.934 94.142 343.934 93.6555 342.875C93.169 342.08 93.169 340.756 94.142 340.227Z" fill="#EC93E3"></path>
+        <path d="M167.845 403.781C168.575 403.251 169.791 403.251 170.278 404.31C170.764 405.105 170.764 406.429 169.791 406.958C169.061 407.488 167.845 407.488 167.359 406.429C166.872 405.369 167.115 404.31 167.845 403.781Z" fill="#EC93E3"></path>
+        <path opacity="0.99" d="M199.016 323.521C199.757 322.892 199.889 321.727 199.311 320.92C198.732 320.112 197.662 319.968 196.921 320.598C196.179 321.228 196.047 322.393 196.626 323.2C197.204 324.007 198.274 324.151 199.016 323.521Z" fill="#EC93E3"></path>
+        <path opacity="0.93" d="M204.576 311.627C205.306 311.097 206.279 311.097 207.009 311.892C207.739 312.686 207.496 313.745 206.766 314.54C206.036 315.069 205.063 315.069 204.333 314.275C203.603 313.481 203.847 312.157 204.576 311.627Z" fill="#EC93E3"></path>
+        <path d="M-2.19074 638.401C-1.46098 637.607 -0.244707 637.872 0.485055 638.931C1.21482 639.99 0.971563 641.049 -0.00145292 641.844C-0.974469 642.638 -1.94748 642.374 -2.67725 641.314C-3.40701 640.255 -3.16375 638.931 -2.19074 638.401Z" fill="#EC93E3"></path>
+        <path d="M40.3783 468.923C41.1081 468.393 42.3243 468.393 42.8108 469.453C43.2973 470.247 43.2973 471.571 42.3243 472.101C41.5946 472.63 40.3783 472.63 39.8918 471.571C39.4053 470.777 39.6485 469.453 40.3783 468.923Z" fill="#EC93E3"></path>
+        <path d="M138.169 572.198C138.899 571.669 140.115 571.669 140.602 572.728C141.088 573.523 141.088 574.847 140.115 575.376C139.386 575.906 138.169 575.906 137.683 574.847C137.196 574.052 137.44 572.728 138.169 572.198Z" fill="#EC93E3"></path>
+        <path opacity="0.99" d="M115.061 379.153C115.791 378.624 116.764 378.624 117.493 379.418C117.98 380.213 117.98 381.272 117.25 382.066C116.52 382.596 115.547 382.596 114.818 381.801C114.088 380.742 114.331 379.683 115.061 379.153Z" fill="#EC93E3"></path>
+        <path opacity="0.96" d="M134.276 369.355C135.005 368.826 135.978 368.826 136.708 369.62C137.195 370.415 137.195 371.474 136.465 372.268C135.735 372.798 134.762 372.798 134.032 372.004C133.303 371.209 133.546 370.15 134.276 369.355Z" fill="#EC93E3"></path>
+        <path opacity="0.9" d="M201.901 391.6C202.63 391.07 203.603 391.07 204.09 391.864C204.576 392.659 204.576 393.718 203.847 394.248C203.117 394.777 202.144 394.777 201.657 393.983C200.928 393.188 201.171 392.129 201.901 391.6Z" fill="#EC93E3"></path>
+        <path opacity="0.89" d="M217.469 315.334C218.199 314.804 219.172 314.804 219.658 315.599C220.145 316.393 220.145 317.452 219.415 317.982C218.685 318.512 217.712 318.512 217.226 317.717C216.739 316.923 216.739 315.864 217.469 315.334Z" fill="#EC93E3"></path>
+        <path opacity="0.85" d="M241.796 335.46C242.525 334.93 243.498 334.93 243.985 335.725C244.471 336.519 244.471 337.578 243.742 338.108C243.012 338.638 242.039 338.638 241.552 337.843C241.066 337.049 241.309 335.99 241.796 335.46Z" fill="#EC93E3"></path>
+        <path d="M4.38024 600.004C5.11001 599.475 6.32627 599.475 6.81278 600.534C7.29929 601.328 7.29929 602.652 6.32627 603.182C5.59651 603.711 4.38024 603.711 3.89374 602.652C3.40723 601.858 3.65048 600.534 4.38024 600.004Z" fill="#EC93E3"></path>
+        <path d="M2.92326 501.23C3.65302 500.7 4.86929 500.7 5.3558 501.759C5.84231 502.554 5.84231 503.878 4.86929 504.407C4.13953 504.937 2.92326 504.937 2.43675 503.878C1.95024 503.083 1.95024 501.759 2.92326 501.23Z" fill="#EC93E3"></path>
+        <path opacity="0.97" d="M9.7288 398.22C10.4586 397.69 11.4316 397.69 12.1613 398.485C12.6479 399.279 12.6479 400.338 11.9181 401.133C11.1883 401.662 10.2153 401.662 9.48555 400.868C8.99904 400.073 8.99904 399.014 9.7288 398.22Z" fill="#EC93E3"></path>
+        <path opacity="0.97" d="M117.248 613.773C117.978 613.244 118.951 613.244 119.681 614.038C120.167 614.833 120.167 615.892 119.438 616.686C118.708 617.216 117.735 617.216 117.005 616.422C116.275 615.627 116.519 614.303 117.248 613.773Z" fill="#EC93E3"></path>
+        <path opacity="0.91" d="M132.821 349.494C133.55 348.965 134.523 348.964 135.01 349.759C135.496 350.553 135.496 351.613 134.767 352.142C134.037 352.672 133.064 352.672 132.577 351.877C132.091 351.083 132.091 350.024 132.821 349.494Z" fill="#EC93E3"></path>
+        <path opacity="0.89" d="M171.981 400.867C172.711 400.338 173.684 400.338 174.17 401.132C174.657 401.926 174.657 402.986 173.927 403.515C173.197 404.045 172.224 404.045 171.738 403.25C171.008 402.456 171.251 401.397 171.981 400.867Z" fill="#EC93E3"></path>
+        <path opacity="0.85" d="M225.496 383.39C226.226 382.86 227.199 382.86 227.686 383.654C228.172 384.449 228.172 385.508 227.442 386.038C226.713 386.567 225.74 386.567 225.253 385.773C224.523 384.978 224.767 383.919 225.496 383.39Z" fill="#EC93E3"></path>
+        <path d="M15.3234 697.189C16.0532 696.659 17.2694 696.659 17.7559 697.718C18.2424 698.513 18.2424 699.837 17.2694 700.366C16.5397 700.896 15.3234 700.896 14.8369 699.837C14.5936 699.042 14.5936 697.718 15.3234 697.189Z" fill="#EC93E3"></path>
+        <path opacity="0.97" d="M6.08037 534.86C6.81013 534.331 7.78314 534.331 8.51291 535.125C8.99941 535.92 8.99941 536.979 8.26965 537.773C7.53989 538.303 6.56687 538.303 5.83711 537.508C5.35061 536.449 5.3506 535.39 6.08037 534.86Z" fill="#EC93E3"></path>
+        <path opacity="0.94" d="M16.5447 405.103C17.2745 404.574 18.2475 404.574 18.9772 405.368C19.4637 406.163 19.4637 407.222 18.734 408.016C18.0042 408.546 17.0312 408.546 16.3014 407.752C15.5717 406.692 15.5717 405.633 16.5447 405.103Z" fill="#EC93E3"></path>
+        <path opacity="0.89" d="M164.928 598.944C165.658 598.415 166.631 598.415 167.117 599.209C167.604 600.004 167.604 601.063 166.874 601.592C166.144 602.122 165.171 602.122 164.685 601.328C164.198 600.533 164.198 599.474 164.928 598.944Z" fill="#EC93E3"></path>
+        <path opacity="0.85" d="M146.438 390.54C147.168 390.01 148.141 390.01 148.627 390.805C149.114 391.599 149.114 392.658 148.384 393.188C147.654 393.718 146.681 393.718 146.195 392.923C145.465 392.129 145.708 391.07 146.438 390.54Z" fill="#EC93E3"></path>
+        <path opacity="0.83" d="M196.065 438.471C196.795 437.941 197.768 437.941 198.254 438.735C198.741 439.53 198.741 440.589 198.011 441.119C197.281 441.648 196.308 441.648 195.821 440.854C195.335 440.06 195.335 439 196.065 438.471Z" fill="#EC93E3"></path>
+        <path opacity="0.81" d="M234.254 445.355C234.984 444.826 235.957 444.826 236.443 445.62C236.93 446.415 236.93 447.474 236.2 448.004C235.47 448.533 234.497 448.533 234.011 447.739C233.524 446.944 233.524 445.885 234.254 445.355Z" fill="#EC93E3"></path>
+        <path opacity="0.95" d="M17.7601 661.439C18.4898 660.91 19.4628 660.91 20.1926 661.704C20.6791 662.499 20.6791 663.558 19.9493 664.352C19.2196 664.882 18.2466 664.882 17.5168 664.088C17.0303 663.293 17.0303 661.969 17.7601 661.439Z" fill="#EC93E3"></path>
+        <path opacity="0.91" d="M8.02763 505.202C8.75739 504.673 9.73041 504.672 10.2169 505.467C10.7034 506.261 10.7034 507.321 9.97366 507.85C9.2439 508.38 8.27089 508.38 7.78438 507.585C7.29787 507.056 7.29787 505.732 8.02763 505.202Z" fill="#EC93E3"></path>
+        <path opacity="0.89" d="M18.9769 428.407C19.7066 427.878 20.6796 427.878 21.1661 428.672C21.6526 429.466 21.6526 430.526 20.9229 431.055C20.1931 431.585 19.2201 431.585 18.7336 430.79C18.0038 429.996 18.2471 428.937 18.9769 428.407Z" fill="#EC93E3"></path>
+        <path opacity="0.84" d="M171.252 602.917C171.982 602.387 172.955 602.387 173.442 603.182C173.928 603.976 173.928 605.035 173.198 605.565C172.468 606.095 171.495 606.095 171.009 605.3C170.522 604.506 170.522 603.447 171.252 602.917Z" fill="#EC93E3"></path>
+        <path opacity="0.8" d="M148.63 447.739C149.359 447.209 150.332 447.474 150.819 448.004C151.305 448.798 151.062 449.857 150.576 450.387C149.846 450.917 148.873 450.652 148.386 450.122C147.9 449.328 148.143 448.268 148.63 447.739Z" fill="#EC93E3"></path>
+        <path opacity="0.78" d="M193.145 451.181C193.875 450.652 194.848 450.916 195.334 451.446C195.821 452.241 195.577 453.3 195.091 453.829C194.361 454.359 193.388 454.094 192.902 453.565C192.415 453.035 192.415 451.711 193.145 451.181Z" fill="#EC93E3"></path>
+        <path opacity="0.77" d="M223.063 473.425C223.793 472.896 224.766 473.161 225.252 473.69C225.739 474.485 225.496 475.544 225.009 476.074C224.523 476.603 223.306 476.338 222.82 475.809C222.333 475.014 222.577 473.955 223.063 473.425Z" fill="#EC93E3"></path>
+        <path opacity="0.92" d="M29.4378 745.913C30.1676 745.383 31.1406 745.383 31.6271 746.178C32.1136 746.972 32.1136 748.032 31.3838 748.561C30.6541 749.091 29.681 749.091 29.1945 748.296C28.708 747.767 28.708 746.707 29.4378 745.913Z" fill="#EC93E3"></path>
+        <path opacity="0.84" d="M22.139 562.401C22.8687 561.872 23.8417 561.872 24.3282 562.666C24.8148 563.461 24.8148 564.52 24.085 565.049C23.3552 565.579 22.3822 565.579 21.8957 564.785C21.4092 563.99 21.4092 562.931 22.139 562.401Z" fill="#EC93E3"></path>
+        <path opacity="0.84" d="M60.5706 543.069C61.3004 542.54 62.2734 542.54 62.7599 543.334C63.2464 544.129 63.2464 545.188 62.5166 545.717C61.7869 546.247 60.8139 546.247 60.3273 545.453C59.8408 544.658 59.8408 543.599 60.5706 543.069Z" fill="#EC93E3"></path>
+        <path opacity="0.81" d="M113.598 612.715C114.328 612.185 115.301 612.185 115.787 612.98C116.274 613.774 116.274 614.833 115.544 615.363C114.814 615.893 113.841 615.893 113.355 615.098C112.625 614.568 112.868 613.509 113.598 612.715Z" fill="#EC93E3"></path>
+        <path opacity="0.79" d="M189.739 714.666C190.469 714.136 191.442 714.401 191.928 714.93C192.415 715.725 192.171 716.784 191.685 717.314C190.955 717.843 189.982 717.579 189.496 717.049C189.009 716.254 189.252 715.195 189.739 714.666Z" fill="#EC93E3"></path>
+        <path opacity="0.73" d="M170.278 467.599C171.008 467.07 171.738 467.334 172.224 467.864C172.711 468.658 172.467 469.453 171.981 469.983C171.251 470.512 170.521 470.247 170.035 469.718C169.548 468.923 169.791 468.129 170.278 467.599Z" fill="#EC93E3"></path>
+        <path opacity="0.7" d="M240.094 526.387C240.824 525.858 241.554 526.122 242.04 526.652C242.527 527.447 242.283 528.241 241.797 528.771C241.067 529.3 240.337 529.035 239.851 528.506C239.364 527.711 239.364 526.917 240.094 526.387Z" fill="#EC93E3"></path>
+        <path opacity="0.79" d="M25.7858 590.47C26.5155 589.941 27.4886 590.206 27.9751 590.735C28.4616 591.53 28.2183 592.589 27.7318 593.118C27.0021 593.648 26.029 593.383 25.5425 592.854C25.056 592.324 25.2993 591 25.7858 590.47Z" fill="#EC93E3"></path>
+        <path opacity="0.81" d="M46.2213 583.056C46.9511 582.526 47.9241 582.526 48.4106 583.32C48.8971 584.115 48.8971 585.174 48.1674 585.704C47.4376 586.233 46.4646 586.233 45.9781 585.439C45.4916 584.644 45.7348 583.585 46.2213 583.056Z" fill="#EC93E3"></path>
+        <path opacity="0.77" d="M104.114 604.241C104.843 603.711 105.816 603.976 106.303 604.506C106.789 605.3 106.546 606.359 106.06 606.889C105.573 607.419 104.357 607.154 103.87 606.624C103.384 605.83 103.384 604.77 104.114 604.241Z" fill="#EC93E3"></path>
+        <path opacity="0.74" d="M197.522 755.976C198.252 755.447 198.982 755.711 199.468 756.241C199.955 756.771 199.711 757.83 199.225 758.36C198.495 758.889 197.765 758.624 197.279 758.095C196.792 757.565 197.036 756.506 197.522 755.976Z" fill="#EC93E3"></path>
+        <path opacity="0.69" d="M178.793 515.264C179.523 514.735 180.253 514.999 180.739 515.529C181.226 516.324 180.983 517.118 180.496 517.648C179.766 518.177 179.037 517.912 178.55 517.383C177.82 516.853 178.063 515.794 178.793 515.264Z" fill="#EC93E3"></path>
+        <path opacity="0.69" d="M228.661 545.453C229.391 544.923 230.12 545.188 230.607 545.718C231.093 546.512 230.85 547.306 230.364 547.836C229.634 548.366 228.904 548.101 228.418 547.571C227.931 547.042 228.174 545.982 228.661 545.453Z" fill="#EC93E3"></path>
+        <path opacity="0.79" d="M26.5182 652.435C27.248 651.906 28.221 652.17 28.7075 652.7C29.194 653.494 28.9507 654.554 28.4642 655.083C27.7345 655.613 26.7615 655.348 26.275 654.818C25.7884 654.024 26.0317 652.965 26.5182 652.435Z" fill="#EC93E3"></path>
+        <path opacity="0.75" d="M75.653 632.31C76.3827 631.781 77.3558 632.045 77.8423 632.575C78.3288 633.369 78.0855 634.429 77.599 634.958C76.8692 635.488 75.8962 635.223 75.4097 634.693C74.9232 633.899 75.1665 632.84 75.653 632.31Z" fill="#EC93E3"></path>
+        <path opacity="0.74" d="M99.0062 618.541C99.7359 618.011 100.466 618.276 100.952 618.805C101.439 619.6 101.195 620.394 100.709 620.924C99.9792 621.454 99.2494 621.189 98.7629 620.659C98.2764 620.129 98.2764 619.07 99.0062 618.541Z" fill="#EC93E3"></path>
+        <path opacity="0.7" d="M209.446 746.443C210.175 745.913 210.905 746.178 211.392 746.708C211.878 747.502 211.635 748.297 211.148 748.826C210.419 749.356 209.689 749.091 209.202 748.561C208.716 748.032 208.716 746.973 209.446 746.443Z" fill="#EC93E3"></path>
+        <path opacity="0.66" d="M194.36 527.711C195.089 527.181 195.819 527.446 196.306 527.975C196.792 528.77 196.549 529.564 196.062 530.094C195.333 530.623 194.603 530.359 194.116 529.829C193.63 529.299 193.63 528.24 194.36 527.711Z" fill="#EC93E3"></path>
+        <path opacity="0.63" d="M243.741 580.937C244.471 580.408 245.2 580.672 245.687 581.202C246.173 581.996 245.93 582.791 245.444 583.32C244.714 583.85 243.984 583.585 243.498 583.056C243.011 582.526 243.254 581.467 243.741 580.937Z" fill="#EC93E3"></path>
+        <path opacity="0.73" d="M31.3815 638.136C32.1113 637.607 32.841 637.872 33.3275 638.401C33.814 639.196 33.5708 639.99 33.0843 640.52C32.3545 641.049 31.6247 640.784 31.1382 640.255C30.6517 639.725 30.895 638.666 31.3815 638.136Z" fill="#EC93E3"></path>
+        <path opacity="0.7" d="M82.7096 676.534C83.4394 676.004 84.1691 676.269 84.6556 676.799C85.1421 677.593 84.8989 678.387 84.4124 678.917C83.6826 679.447 82.9529 679.182 82.4664 678.652C81.9799 678.123 82.2231 677.063 82.7096 676.534Z" fill="#EC93E3"></path>
+        <path opacity="0.69" d="M133.549 690.039C134.279 689.509 135.009 689.774 135.495 690.304C135.982 691.098 135.738 691.892 135.252 692.422C134.522 692.952 133.792 692.687 133.306 692.157C132.576 691.628 132.819 690.568 133.549 690.039Z" fill="#EC93E3"></path>
+        <path opacity="0.64" d="M213.335 739.822C214.064 739.292 214.794 739.557 215.281 740.087C215.767 740.881 215.524 741.676 215.037 742.205C214.551 742.735 213.578 742.47 213.091 741.94C212.605 741.411 212.848 740.352 213.335 739.822Z" fill="#EC93E3"></path>
+        <path opacity="0.62" d="M194.116 563.724C194.602 563.195 195.575 563.459 196.062 563.989C196.548 564.519 196.305 565.578 195.819 566.108C195.332 566.637 194.359 566.372 193.873 565.843C193.386 565.048 193.629 564.254 194.116 563.724Z" fill="#EC93E3"></path>
+        <path opacity="0.62" d="M244.229 595.502C244.716 594.972 245.689 595.237 246.175 595.766C246.662 596.296 246.418 597.355 245.932 597.885C245.445 598.414 244.472 598.15 243.986 597.62C243.499 597.09 243.743 596.031 244.229 595.502Z" fill="#EC93E3"></path>
+        <path opacity="0.68" d="M53.0299 686.332C53.7597 685.802 54.4895 686.067 54.976 686.596C55.4625 687.391 55.2192 688.185 54.7327 688.715C54.0029 689.245 53.2732 688.98 52.7867 688.45C52.3002 687.656 52.5434 686.861 53.0299 686.332Z" fill="#EC93E3"></path>
+        <path opacity="0.67" d="M94.1429 691.628C94.8726 691.098 95.6024 691.363 96.0889 691.892C96.5754 692.687 96.3322 693.481 95.8456 694.011C95.1159 694.54 94.3861 694.276 93.8996 693.746C93.4131 693.216 93.4131 692.157 94.1429 691.628Z" fill="#EC93E3"></path>
+        <path opacity="0.64" d="M149.848 752.533C150.578 752.003 151.307 752.268 151.794 752.798C152.28 753.592 152.037 754.386 151.551 754.916C150.821 755.446 150.091 755.181 149.605 754.651C149.118 753.857 149.118 753.062 149.848 752.533Z" fill="#EC93E3"></path>
+        <path opacity="0.6" d="M185.846 587.293C186.332 586.763 187.306 587.028 187.792 587.557C188.279 588.087 188.035 589.146 187.549 589.676C187.062 590.205 186.089 589.941 185.603 589.411C185.116 588.617 185.116 587.557 185.846 587.293Z" fill="#EC93E3"></path>
+        <path opacity="0.58" d="M244.715 656.143C245.202 655.614 246.175 655.878 246.662 656.408C247.148 656.938 246.905 657.997 246.418 658.526C245.932 659.056 244.959 658.791 244.472 658.262C243.986 657.467 244.229 656.673 244.715 656.143Z" fill="#EC93E3"></path>
+        <path opacity="0.65" d="M49.6233 719.432C50.3531 718.903 51.0829 719.167 51.5694 719.697C52.0559 720.491 51.8126 721.286 51.3261 721.815C50.5964 722.345 49.8666 722.08 49.3801 721.551C48.8936 720.756 48.8936 719.697 49.6233 719.432Z" fill="#EC93E3"></path>
+        <path opacity="0.64" d="M94.8714 722.081C95.6011 721.551 96.3309 721.816 96.8174 722.345C97.3039 723.14 97.0607 723.934 96.5742 724.464C95.8444 724.994 95.1146 724.729 94.6281 724.199C93.8984 723.405 94.1416 722.345 94.8714 722.081Z" fill="#EC93E3"></path>
+        <path opacity="0.58" d="M189.249 634.694C189.735 634.164 190.708 634.429 191.195 634.959C191.681 635.488 191.438 636.548 190.951 637.077C190.465 637.607 189.492 637.342 189.005 636.812C188.519 636.018 188.762 635.224 189.249 634.694Z" fill="#EC93E3"></path>
+        <path opacity="0.55" d="M235.714 671.238C236.2 670.708 237.173 670.973 237.416 671.503C237.903 672.032 237.66 673.092 237.173 673.356C236.687 673.886 235.714 673.621 235.47 673.092C235.227 672.562 235.227 671.768 235.714 671.238Z" fill="#EC93E3"></path>
+        <path opacity="0.62" d="M87.5729 727.906C88.0594 727.376 89.0324 727.641 89.5189 728.171C90.0054 728.7 89.7622 729.76 89.2757 730.289C88.7892 730.819 87.8162 730.554 87.3296 730.024C86.8431 729.23 87.0864 728.436 87.5729 727.906Z" fill="#EC93E3"></path>
+        <path opacity="0.56" d="M176.608 678.652C177.094 678.122 178.067 678.387 178.31 678.917C178.797 679.446 178.554 680.506 178.067 680.77C177.581 681.3 176.608 681.035 176.364 680.506C175.878 679.976 175.878 679.182 176.608 678.652Z" fill="#EC93E3"></path>
+        <path opacity="0.53" d="M215.766 681.564C216.253 681.034 217.226 681.299 217.469 681.829C217.956 682.358 217.712 683.418 217.226 683.683C216.739 684.212 215.766 683.947 215.523 683.418C215.036 682.888 215.28 682.094 215.766 681.564Z" fill="#EC93E3"></path>
+        <path opacity="0.53" d="M237.174 692.687C237.661 692.158 238.634 692.422 238.877 692.952C239.364 693.482 239.12 694.541 238.634 694.806C238.147 695.335 237.174 695.07 236.931 694.541C236.445 694.011 236.688 692.952 237.174 692.687Z" fill="#EC93E3"></path>
+        <path opacity="0.58" d="M82.9515 756.771C83.438 756.241 84.411 756.506 84.8975 757.036C85.384 757.566 85.1407 758.625 84.6542 759.154C84.1677 759.684 83.1947 759.419 82.7082 758.89C82.2217 758.095 82.2217 757.036 82.9515 756.771Z" fill="#EC93E3"></path>
+        <path opacity="0.54" d="M172.225 684.478C172.711 683.949 173.684 684.213 173.928 684.743C174.414 685.273 174.171 686.332 173.684 686.597C173.198 687.126 172.225 686.861 171.982 686.332C171.495 685.802 171.495 684.743 172.225 684.478Z" fill="#EC93E3"></path>
+        <path opacity="0.51" d="M206.28 715.99C206.766 715.46 207.496 715.725 207.983 716.255C208.469 716.784 208.226 717.579 207.739 718.108C207.253 718.638 206.523 718.373 206.037 717.843C205.55 717.049 205.793 716.255 206.28 715.99Z" fill="#EC93E3"></path>
+        <path opacity="0.52" d="M242.282 717.579C242.768 717.049 243.498 717.314 243.985 717.844C244.471 718.373 244.228 719.168 243.741 719.697C243.255 720.227 242.525 719.962 242.039 719.432C241.552 718.903 241.795 717.844 242.282 717.579Z" fill="#EC93E3"></path>
+        <path opacity="0.56" d="M92.1959 757.035C92.6825 756.505 93.6555 756.77 93.8987 757.3C94.3852 757.829 94.142 758.888 93.6555 759.153C93.169 759.683 92.1959 759.418 91.9527 758.888C91.4662 758.359 91.7094 757.564 92.1959 757.035Z" fill="#EC93E3"></path>
+        <path opacity="0.52" d="M171.252 733.202C171.739 732.672 172.712 732.937 172.955 733.467C173.442 733.996 173.198 735.055 172.712 735.32C172.225 735.85 171.252 735.585 171.009 735.055C170.522 734.261 170.522 733.467 171.252 733.202Z" fill="#EC93E3"></path>
+        <path opacity="0.49" d="M223.551 760.743C224.038 760.213 224.768 760.478 225.254 761.008C225.741 761.537 225.497 762.332 225.011 762.861C224.524 763.391 223.795 763.126 223.308 762.596C223.065 761.802 223.065 761.008 223.551 760.743Z" fill="#EC93E3"></path>
+        <path opacity="0.5" d="M237.415 740.352C237.901 739.823 238.631 740.087 239.118 740.617C239.604 741.147 239.361 741.941 238.874 742.471C238.388 743 237.658 742.735 237.172 742.206C236.928 741.676 236.928 740.882 237.415 740.352Z" fill="#EC93E3"></path>
+        <path opacity="0.5" d="M172.712 733.732C173.198 733.202 173.928 733.467 174.414 733.997C174.901 734.526 174.658 735.321 174.171 735.851C173.685 736.38 172.955 736.115 172.468 735.586C171.982 735.056 172.225 734.262 172.712 733.732Z" fill="#EC93E3"></path>
+        <path opacity="0.46" d="M236.2 728.171C236.686 727.641 237.416 727.906 237.903 728.435C238.389 728.965 238.146 729.759 237.659 730.289C237.173 730.819 236.443 730.554 235.957 730.024C235.713 729.495 235.713 728.7 236.2 728.171Z" fill="#EC93E3"></path>
+        <path opacity="0.44" d="M237.415 743.53C237.901 743 238.631 743.265 239.118 743.795C239.604 744.324 239.361 745.119 238.874 745.648C238.388 746.178 237.658 745.913 237.172 745.384C236.928 744.589 236.928 744.06 237.415 743.53Z" fill="#EC93E3"></path>
+    </svg>
+
+	<div class="container">
+               <div class="swiper cardsHoverSwiper swiper-initialized swiper-horizontal swiper-backface-hidden" id="cardsHoverSwiper">
+        <div class="cards__list swiper-wrapper" id="swiper-wrapper-8be05826da8b7d7f" aria-live="polite">
+		            <a class="cards__item swiper-slide swiper-slide-active" href="/product/curate-annotate/" style="width: 353.333px; margin-right: 24px;" role="group" aria-label="1 / 3">
+                <!-- <span class="cards__item__overlay"></span> -->
+                <div>
+                <div class="cards__item__head">
+                                                                <figure><img decoding="async" src="/wp-content/uploads/2025/02/gridicons_create.svg" alt=""></figure>
+                                        <h3>
+                        <span>Curate &amp; Annotate</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7 17L14 10L7 3" stroke="#5467DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </h3>
+                </div>
+                <figure class="cards__item__content">
+                                                              
+                        <img decoding="async" src="/wp-content/uploads/2025/02/Screenshot-2025-02-06-at-19.27.49.png" alt="">
+                    
+                                       
+                </figure>
+                </div>
+            </a>
+		            <a class="cards__item swiper-slide swiper-slide-next" href="/product/experiment-tracking/" style="width: 353.333px; margin-right: 24px;" role="group" aria-label="2 / 3">
+                <!-- <span class="cards__item__overlay"></span> -->
+                <div>
+                <div class="cards__item__head">
+                                                                <figure><img decoding="async" src="/wp-content/uploads/2025/02/check-1.svg" alt=""></figure>
+                                        <h3>
+                        <span>Track Experiments</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7 17L14 10L7 3" stroke="#5467DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </h3>
+                </div>
+                <figure class="cards__item__content">
+                                                              
+                        <img decoding="async" src="/wp-content/uploads/2025/02/Screenshot-2025-02-17-at-12.17.26.png" alt="">
+                    
+                                       
+                </figure>
+                </div>
+            </a>
+		            <a class="cards__item swiper-slide" href="/product/manage-models/" role="group" aria-label="3 / 3" style="width: 353.333px; margin-right: 24px;">
+                <!-- <span class="cards__item__overlay"></span> -->
+                <div>
+                <div class="cards__item__head">
+                                                                <figure><img decoding="async" src="/wp-content/uploads/2025/02/material-symbols_folder-managed-outline.svg" alt=""></figure>
+                                        <h3>
+                        <span>Manage Models</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7 17L14 10L7 3" stroke="#5467DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </h3>
+                </div>
+                <figure class="cards__item__content">
+                                                              
+                        <img decoding="async" src="/wp-content/uploads/2025/02/Screenshot-2025-02-06-at-19.26.50.png" alt="">
+                    
+                                       
+                </figure>
+                </div>
+            </a>
+			</div>
+     <div class="cardsHoverSwiper_swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-lock"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span></div>
+    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+	    </div>
+</section>
+
+<script type="text/javascript">
+
+    let lastMousePosition = { x: 0, y: 0 };
+    let elementUnderMouse = "";
+
+    // Step 1: Track the mouse's position on `mousemove`
+    document.addEventListener('mousemove', (event) => {
+        elementUnderMouse = document.elementFromPoint(event.clientX, event.clientY);
+    });
+
+    function detectMouseHoverDirection(element) {
+    // Add event listeners for mouse enter and mouse move
+        element.addEventListener('mouseenter', (event) => {
+            console.log("Last element before entering:", elementUnderMouse);
+            // Create a new div element
+            let newDiv = document.createElement('span');
+            newDiv.classList.add('cards__item__overlay');
+            element.prepend(newDiv);
+
+            const elementRect = element.getBoundingClientRect();
+            const mouseX = event.clientX;
+            const elementLeft = elementRect.left;
+            const elementRight = elementRect.right;
+
+            const mouseY = event.clientY;
+            const elementTop = elementRect.top;
+            const elementBottom = elementRect.bottom;
+
+            // Check if the mouse entered from the top or bottom
+
+            if(elementUnderMouse.classList.contains("cards__list") || elementUnderMouse.classList.contains("cards__item")) {
+                if (mouseX < (elementLeft + elementRight) / 2) {
+            
+                    element.querySelector(".cards__item__overlay").style.transform = "translateX(-100%)";
+                } else {
+                
+                    element.querySelector(".cards__item__overlay").style.transform = "translateX(100%)";
+                }
+            }
+        
+            setTimeout(()=> {
+                element.querySelector(".cards__item__overlay").style.opacity = 1;
+                element.querySelector(".cards__item__overlay").style.transform = "translateX(0%)";
+            }, 100);
+
+        });
+
+        element.addEventListener('mouseleave', (event) => {
+            setTimeout(()=> {
+                element.querySelector(".cards__item__overlay").style.opacity = 0;
+                element.querySelector(".cards__item__overlay").remove();
+            }, 200)
+        
+        })
+    }
+
+   
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const cards__items = document.querySelectorAll(".cards-hover .cards__item");
+        if(cards__items) {
+            cards__items.forEach(card => {
+            detectMouseHoverDirection(card); 
+            });
+        }
+
+        const cards_hover = document.querySelectorAll(".cardsHoverSwiper");
+
+        if(cards_hover) {
+            cards_hover.forEach(card => {
+
+                new Swiper(card, {
+                    slidesPerView: 1.1,
+                    spaceBetween: 16,
+                    pagination: {
+                    el: card.querySelector(".cardsHoverSwiper_swiper-pagination"),
+                    clickable: true,
+                    },
+                    breakpoints: {
+                    768: {
+                        slidesPerView: 2.1,
+                        
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 24,
+                    },
+                    },
+                
+                });
+            });
+        }
+        
+    
+      
+   
+});
+
+</script>
+
+
+
+
+
+
+
+<section id="text-image-section-block_70a592846f348ef9146e3c349c5af04f" class="text-image-section align wp-block-dagshub-text-image-section">
+   
+    	<div class="container containter-wrap media--left">
+		<div class="text-image-section__content">
+            <h2>Curate and annotate to <span>create the very best multimodal datasets</span></h2>
+            <div>
+                <p>Connect multiple data sources and enrich, query, visualize, and annotate your multimodal datasets.</p>
+            </div>
+                                        <a href="/product/curate-annotate/" target="" class="btn btn--outline btn__lg">Learn more</a>
+                    </div>
+        
+                                                <video src="/wp-content/uploads/2025/02/curate-and-annotate.mp4" autoplay="" muted="" loop=""></video>
+              
+                    	</div>
+</section>
+
+
+
+
+
+<section id="text-image-section-block_041db804e1197aef79a58831f2be887a" class="text-image-section align wp-block-dagshub-text-image-section">
+   
+    	<div class="container containter-wrap media--right">
+		<div class="text-image-section__content">
+            <h2>Keep track of all your experiments and <span>compare results</span></h2>
+            <div>
+                <p>Track your experiment progress, understand trends, and compare results. Compatible with MLflow.</p>
+            </div>
+                                        <a href="/product/experiment-tracking/" target="" class="btn btn--outline btn__lg">Learn more</a>
+                    </div>
+        
+                                                <video src="/wp-content/uploads/2025/02/Experiment-tracking-edit.mp4" autoplay="" muted="" loop=""></video>
+              
+                    	</div>
+</section>
+
+
+
+
+
+<section id="text-image-section-block_067fc4fc2950778f35f6e11e727b35a9" class="text-image-section align wp-block-dagshub-text-image-section">
+   
+    	<div class="container containter-wrap media--left">
+		<div class="text-image-section__content">
+            <h2>Manage your models and deployments <span>in one place</span></h2>
+            <div>
+                <p>Manage model versions and deploy easily to production. Create a full model lineage from model to source data.</p>
+            </div>
+                                        <a href="/product/manage-models/" target="" class="btn btn--outline btn__lg">Learn more</a>
+                    </div>
+        
+                                                <video src="/wp-content/uploads/2025/02/model-management.mp4" autoplay="" muted="" loop=""></video>
+              
+                    	</div>
+</section>
+
+
+
+
+
+<section id="text-image-section-block_13f3c4f119a14a77519c03b57b81eef4" class="text-image-section align wp-block-dagshub-text-image-section">
+   
+            		<figure class="section-background-image position--bottom-left">
+		    <img decoding="async" src="/wp-content/uploads/2025/02/bg2.svg" alt="">
+        </figure>
+		<div class="container containter-wrap media--right">
+		<div class="text-image-section__content">
+            <h2>Integrates easily with your <span>ML stack</span></h2>
+            <div>
+                <p>Use your favorite ML framework, build on open-source formats, and connect your secure cloud storage and MLOps tools. Easy integrations that fit right into your workflows.</p>
+            </div>
+                                </div>
+                <figure>
+                                        <img decoding="async" src="/wp-content/uploads/2025/02/Group-1513.png" alt="">
+                    </figure>
+        
+        	</div>
+</section>
+
+
+
+
+
+<section id="testimonials-section-block_183269d5d19f0be5c2db921483a0e18b" class="testimonials-section section-spaces alignfull alignfull wp-block-dagshub-testimonials-section">
+	<div class="container">
+				<div class="section-hero">
+			<h2 class="title_2 section-hero__title">Over 65,000 data scientists build AI with DagsHub</h2>
+		</div>
+							<div class="testimonials-row">
+						<div class="testimonial-card">
+
+										<div class="testimonial-card__header">
+																								<div class="testimonial-card__image">
+							<img decoding="async" src="/wp-content/uploads/2024/04/Guy_Rosin.png" alt="">
+						</div>
+												<div class="author-data">
+							<div class="testimonial-card__name">Guy Rosin</div>
+							<div class="testimonial-card__position">Applied Scientist</div>
+						</div>
+											</div>
+										<p class="testimonial-card__text">Since we started using DagsHub, we have been able to significantly reduce the time it takes to run experiments and manage models.</p>
+																<div class="testimonial-card__logo">
+							<img decoding="async" src="/wp-content/uploads/2024/04/Mona-1.png" alt="">
+						</div>
+									</div>
+							<div class="testimonial-card">
+
+										<div class="testimonial-card__header">
+																								<div class="testimonial-card__image">
+							<img decoding="async" src="/wp-content/uploads/2024/04/Hwan_Goh.png" alt="">
+						</div>
+												<div class="author-data">
+							<div class="testimonial-card__name">Hwan Goh</div>
+							<div class="testimonial-card__position">Head of Machine Learning</div>
+						</div>
+											</div>
+										<p class="testimonial-card__text">We’ve been using DagsHub for a long time to accelerate our experimentation and enhance our data management, and we can’t imagine working on ML projects without it.</p>
+																<div class="testimonial-card__logo">
+							<img decoding="async" src="/wp-content/uploads/2024/04/Masco.png" alt="">
+						</div>
+									</div>
+							<div class="testimonial-card">
+
+										<div class="testimonial-card__header">
+																								<div class="testimonial-card__image">
+							<img decoding="async" src="/wp-content/uploads/2024/04/Isaak_Faber.png" alt="">
+						</div>
+												<div class="author-data">
+							<div class="testimonial-card__name">Isaac Faber</div>
+							<div class="testimonial-card__position">Director of AI Development</div>
+						</div>
+											</div>
+										<p class="testimonial-card__text">DagsHub is designed perfectly for collaborative data science and allows you to share data and models easily with your team. Once you do one project you’ll have a hard time using anything else.</p>
+																<div class="testimonial-card__logo">
+							<img decoding="async" src="/wp-content/uploads/2024/04/AI.png" alt="">
+						</div>
+									</div>
+							<div class="testimonial-card">
+
+										<div class="testimonial-card__header">
+																								<div class="testimonial-card__image">
+							<img decoding="async" src="/wp-content/uploads/2024/05/brian.jpeg" alt="">
+						</div>
+												<div class="author-data">
+							<div class="testimonial-card__name">Brian Sharp</div>
+							<div class="testimonial-card__position">Lead Data Science Engineer</div>
+						</div>
+											</div>
+										<p class="testimonial-card__text">DagsHub has revolutionized our ability to manage and label data, allowing us to innovate and move quickly. </p>
+																<div class="testimonial-card__logo">
+							<img decoding="async" src="/wp-content/uploads/2024/05/forcura.png" alt="">
+						</div>
+									</div>
+							</div>
+				<div class="testimonials-section__bottom-action">
+										<a href="/blog/tag/case-study/" target="" data-analytics-event="Testimonials_SeeHow_Clicked">See how customers succeed with DagsHub 
+				<svg class="svg-icon icon-arrow" width="24" height="24" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-arrow.svg#icon-arrow"></use></svg></a>
+					</div>
+	</div>
+	</section>
+
+
+
+
+
+<section id="cards-section-block_f7beae7059fb38964d52d925e87896f6" class="cards-section section-spaces alignfull alignfull wp-block-dagshub-cards-section" style="background-image:url(); --var-columns-nr: 4;">
+	<div class="container has-background" style="background-color:#0e0d2a">
+				<div class="section-hero">
+			<h2 class="title_2 section-hero__title">Run on-prem, or anywhere else you need, with <span style="color:#95A4FC;">DagsHub Enterprise</span></h2>
+		</div>
+							
+				
+					
+				
+
+			<div class="content">
+				<div class="cards-row cards-with-gradient-slider  display-type-grid " data-col="4">
+																<div class="item_numbers_4 align-content-left card-item swiper-slide card-item__no-background">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/database-1.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">On-premise <br>deployment</h3>
+																	</div>
+
+				</div>
+												<div class="item_numbers_4 align-content-left card-item swiper-slide card-item__no-background">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/cloud-1.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">Cloud hosting</h3>
+																	</div>
+
+				</div>
+												<div class="item_numbers_4 align-content-left card-item swiper-slide card-item__no-background">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/Frame-1321314813.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">Enterprise scale &amp; <br>security</h3>
+																	</div>
+
+				</div>
+												<div class="item_numbers_4 align-content-left card-item swiper-slide card-item__no-background">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/key-1.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">SSO &amp; Role based <br>access controls</h3>
+																	</div>
+
+				</div>
+											
+			
+							</div>
+			</div>
+		
+					<div class="button-group">
+			<a href="/enterprise/" target="" class="btn btn__lg btn--white-outline">Learn more</a>
+		</div>
+	
+		
+	</div>
+</section>
+
+
+
+
+
+<section id="cards-section-block_c724236acde3617bc2238e1306e606b3" class="cards-section section-spaces alignfull alignfull wp-block-dagshub-cards-section" style="background-image:url(); --var-columns-nr: 4;">
+	<div class="container no-background" style="">
+				<div class="section-hero">
+			<h2 class="title_2 section-hero__title">Some cool <span style="color:#5467DE;">AI treats</span> for you  <br>
+to check out</h2>
+		</div>
+							
+				
+					
+				
+
+			<div class="content">
+				<div class="cards-row cards-with-gradient-slider display-type-grid cards-with-gradient--slider" data-col="4">
+								<div class="cards-row-wrapper" style="">
+																<a href="/docs/index.html" class="item_numbers_4 align-content-left card-item swiper-slide card-item__small">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/Vector.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">Docs</h3>
+																	</div>
+
+				</a>
+												<a href="/explore/repos" class="item_numbers_4 align-content-left card-item swiper-slide card-item__small">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/dashboard-1-1.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">Example Projects</h3>
+																	</div>
+
+				</a>
+												<a href="/blog/tag/tutorials/" class="item_numbers_4 align-content-left card-item swiper-slide card-item__small">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/Vector-1.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">Webinars and Tutorials</h3>
+																	</div>
+
+				</a>
+												<a href="/blog/tag/case-study/" class="item_numbers_4 align-content-left card-item swiper-slide card-item__small swiper-slide-duplicate-prev">
+					<div class="bg-overlay" style="--color-elm: "></div>
+										<div class="card-item__icon">
+						<img decoding="async" src="/wp-content/uploads/2025/02/Group.png" alt="">
+					</div>
+										<div class="text-wrapper">
+												<h3 class="title_3 card-item__title">Customer stories</h3>
+																	</div>
+
+				</a>
+													</div>
+							
+			
+									<div class="cards-with-gradient__slider--pagination swiper-pagination-clickable"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+							</div>
+			</div>
+		
+			
+		
+	</div>
+</section>
+</main>
+
+
+</div><!-- #content -->
+
+  <div class="site-pre-footer">
+        <div class="container">
+                <div class="content-wrapper">
+              <h3 class="title">
+                  Take control of your multimodal data              </h3>
+              <p class="description">See how leading data scientists manage their data and quickly take models to production.</p>
+              <div class="button-group">
+                                                                                              <a href="https://dagshub.com/book-a-demo/?referring-page=Home" target="" class="btn btn__lg  btn--primary" data-analytics-event="Footer_StartFree_Clicked">Book A Demo</a>
+                                </div>
+          </div>
+            </div>
+    </div>
+  <div class="site-footer">
+        <div class="container">
+            <div class="site-footer__wrap">
+                <div class="site-footer__logo">
+                    <div class="site-logo">
+                        <a href="/" class="custom-logo-link" rel="home" aria-current="page"><img width="143" height="40" src="/wp-content/uploads/2024/04/dagshab.svg" class="custom-logo" alt="DagsHub" decoding="async"></a>  
+                    </div>
+                                        <div class="site-footer__social">
+                        <!-- <h3 class="wdiget-title">Follow us</h3> -->
+                        <ul class="social-list">
+                                                                                <li class="social-list__item">
+                            <a href="https://twitter.com/TheRealDAGsHub" target="_blank" class="social-list__link"><svg class="svg-icon icon-twitter" width="18" height="18" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-twitter.svg#icon-twitter"></use></svg><span class="screen-reader-text"></span></a>
+                            </li>
+                                                                                <li class="social-list__item">
+                            <a href="https://www.linkedin.com/company/dagshub" target="_blank" class="social-list__link"><svg class="svg-icon icon-linkedin" width="18" height="18" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-linkedin.svg#icon-linkedin"></use></svg><span class="screen-reader-text"></span></a>
+                            </li>
+                                                                                <li class="social-list__item">
+                            <a href="https://youtube.com/c/dagshub" target="_blank" class="social-list__link"><svg class="svg-icon icon-youtube" width="18" height="18" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-youtube.svg#icon-youtube"></use></svg><span class="screen-reader-text"></span></a>
+                            </li>
+                                                                                <li class="social-list__item">
+                            <a href="https://discord.com/invite/9gU36Y6" target="_blank" class="social-list__link"><svg class="svg-icon icon-discord" width="18" height="18" "=""><use xlink:href="/wp-content/themes/wp-d-theme/images/icons--icon-discord.svg#icon-discord"></use></svg><span class="screen-reader-text"></span></a>
+                            </li>
+                                                </ul>
+                    </div>
+                                                                                    <img src="/wp-content/uploads/2024/04/image-54.png" alt="" class="bottom_logo">
+                                    </div>
+                <div class="site-footer__frame">
+                    <div class="site-footer__holder">
+                        <div class="site-footer__nav">
+                          <ul id="menu-pro-footer-menu" class="footer-nav"><li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14"><a>Resources</a>
+<ul class="sub-menu">
+	<li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="/docs">Docs</a></li>
+	<li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="/blog">Blog</a></li>
+	<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a href="/datasets/">Datasets</a></li>
+	<li id="menu-item-1586" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1586"><a href="/glossary/">Glossary</a></li>
+	<li id="menu-item-2247" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2247"><a href="/blog/tag/case-study/">Case Studies</a></li>
+	<li id="menu-item-2244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2244"><a href="/blog/tag/tutorials/">Tutorials &amp; Webinars</a></li>
+</ul>
+</li>
+<li id="menu-item-1708" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1708"><a>Product</a>
+<ul class="sub-menu">
+	<li id="menu-item-2076" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2076"><a href="/data-engine/">Data Engine</a></li>
+	<li id="menu-item-2250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2250"><a href="/use-cases/llm/">LLMs</a></li>
+	<li id="menu-item-1463" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1463"><a href="/product/">Platform</a></li>
+	<li id="menu-item-1711" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1711"><a href="/enterprise/">Enterprise</a></li>
+	<li id="menu-item-2464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2464"><a href="/pricing">Pricing</a></li>
+</ul>
+</li>
+<li id="menu-item-2347" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2347"><a>Company</a>
+<ul class="sub-menu">
+	<li id="menu-item-2348" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2348"><a href="/about">About</a></li>
+	<li id="menu-item-2349" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2349"><a href="/careers">Careers</a></li>
+	<li id="menu-item-2350" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2350"><a href="/contact-us/">Contact us</a></li>
+</ul>
+</li>
+<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-18"><a>Community</a>
+<ul class="sub-menu">
+	<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="/explore/repos">Explore</a></li>
+</ul>
+</li>
+</ul>                         
+                        </div>
+                        <div class="site-footer__info">
+                                                                      
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="footer_subcscription">
+                                        
+<div class="footer-subcription-box">
+    <h3 class="title">ML Newsletter</h3>
+    <p class="description">Top MLOps articles, case studies, events (and more) in your inbox every month</p>
+    <div class="form-wrap c-form-subscription">
+        <a class="c-btn c-btn-primary" href="https://forms.fillout.com/t/3ioiagnP7mus" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+</div>
+                </div>
+            </div>
+            <div class="site-footer__row">
+                                <div class="site-footer__copy"> © Copyright Dagshub 2026</div>
+            </div>
+        </div>
+        <div class="elipse-background"></div>
+        <div class="elipse-background right"></div>
+    </div>
+
+</div>
+  <div class="modal fade c-modal c-modal-default cf7-form-modal show" tabindex="-1" id="modal-1687">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            Contact us
+        </div>
+
+        <div class="modal-body">
+          
+<div style="width: 100%; height: 500px; position: relative; transition: height 150ms;" data-fillout-id="22XfNdbLmmus" data-fillout-embed-type="standard" data-fillout-inherit-parameters="" data-fillout-dynamic-resize="" data-fillout-initialized="true"><div class="fillout-embed-standard" style="opacity: 1;"><div class="fillout-embed-loading" style="display: none;"></div><div class="fillout-embed-iframe-container" style="opacity: 1;"><iframe src="https://embed.fillout.com/t/22XfNdbLmmus?fillout-embed-id=13792452926829&amp;fillout-embed-type=standard&amp;fillout-embed-parent-page=https%3A%2F%2Fdagshub.com%2F&amp;fillout-embed-dynamic-resize=true" allow="microphone; camera; geolocation" title="22XfNdbLmmus" style="border: 0px;"></iframe></div></div></div>
+<script src="https://server.fillout.com/embed/v1/"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/wp-d-theme\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<link rel="stylesheet" id="owl-carousel-css" href="/wp-content/themes/wp-d-theme/vendors/owl/owl.carousel.min.css" type="text/css" media="all">
+<script src="/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js"></script>
+<script src="/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script><script src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script src="/wp-content/themes/wp-d-theme/vendors/fancybox/fancybox.min.js" id="fancybox-new-js-js"></script>
+<script src="/wp-content/themes/wp-d-theme/vendors/jquery.main.js" id="custom-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" id="swipper-script-js" defer="" data-wp-strategy="defer"></script>
+<script id="scripts-js-extra">
+var air_light_screenReaderText = {"expand":"Open child menu","collapse":"Close child menu","expand_for":"Open child menu for","collapse_for":"Close child menu for","expand_toggle":"Open main menu","collapse_toggle":"Close main menu","external_link":"External site","target_blank":"opens in a new window","previous_slide":"Previous slide","next_slide":"Next slide","last_slide":"Last slide","skip_slider":"Skip over the carousel element"};
+var air_light_externalLinkDomains = ["localhost:3000","airdev.test","airwptheme.com","localhost"];
+</script>
+<script src="/wp-content/themes/wp-d-theme/js/prod/front-end.js" id="scripts-js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfHrukpAAAAAA9UYBYO1jTWc1qASGHFOc5xtGfG&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script src="/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js"></script><script src="/wp-content/themes/wp-d-theme/vendors/owl/owl.carousel.min.js" id="owl-carousel-js"></script><link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css">
+<script id="" text="" charset="" type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script><script type="text/javascript" id="" charset="">(function(g,c){function k(a,f){a.prototype[f]=function(){this._q.push([f].concat(Array.prototype.slice.call(arguments,0)));return this}}function l(a){function f(m){a[m]=function(){a._q.push([m].concat(Array.prototype.slice.call(arguments,0)))}}for(var h=0;h<n.length;h++)f(n[h])}var d=g.amplitude||{_q:[],_iq:{}},b=c.createElement("script");b.type="text/javascript";b.integrity="sha384-3bSR/uIgD42pCWBeq1//B3mI/hPuWdk0L1EUnQIWfGyMOjs0VEoFLhHMqObtv2BA";b.crossOrigin="anonymous";b.async=!0;b.src="https://cdn.amplitude.com/libs/amplitude-5.10.0-min.gz.js";
+b.onload=function(){g.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};c=c.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);b=function(){this._q=[];return this};c="add append clearAll prepend set setOnce unset".split(" ");for(var e=0;e<c.length;e++)k(b,c[e]);d.Identify=b;b=function(){this._q=[];return this};c=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"];for(e=0;e<c.length;e++)k(b,c[e]);d.Revenue=b;var n="init logEvent logRevenue setUserId setUserProperties setOptOut setVersionName setDomain setDeviceId enableTracking setGlobalUserProperties identify clearUserProperties setGroup logRevenueV2 regenerateDeviceId groupIdentify onInit logEventWithTimestamp logEventWithGroups setSessionId resetSessionId".split(" ");
+l(d);d.getInstance=function(a){a=(a&&0!==a.length?a:"$default_instance").toLowerCase();d._iq.hasOwnProperty(a)||(d._iq[a]={_q:[]},l(d._iq[a]));return d._iq[a]};g.amplitude=d})(window,document);amplitude.getInstance("amplitude_gtm_project").init("635bcf10d4a0e9c6be183be4c7ba95ce",null,{includeGclid:!0,includeReferrer:!0,includeUtm:!0});
+window.dagsHubUserInfo&&(amplitude.getInstance("amplitude_gtm_project").setUserId(google_tag_manager["rm"]["10626803"](9)),amplitude.getInstance("amplitude_gtm_project").setUserProperties({name:google_tag_manager["rm"]["10626803"](10),createdAt:google_tag_manager["rm"]["10626803"](11)}));amplitude.getInstance("amplitude_gtm_project").logEvent("Page Load (logged through GTM)",{url:window.location.href,path:window.location.pathname});</script>
+<script id="hs-script-loader" text="" charset="" type="text/javascript" src="//js.hs-scripts.com/5233384.js"></script><script type="text/javascript" id="" charset="">(function(){if("undefined"===typeof window.addAnalyticsListener&&"undefined"===typeof window.trackAnalyticsEvent){var f=[];window.addAnalyticsListener=function(c){f.push(c)};window.trackAnalyticsEvent=function(c,e){for(var a=[],d=0;d<f.length;d++){var b=f[d](c,e);void 0!==b&&"object"===typeof b&&"function"===typeof b.then&&a.push(b)}return Promise.all(a)};var l=function(){for(var c=document.querySelectorAll("[data-analytics-event]"),e=0;e<c.length;e++){var a=c[e],d=a.dataset.analyticsEvent,b=a.dataset.analyticsEventTrigger||
+"click",h=a.dataset.repoId;"undefined"!==typeof h?a.addEventListener(b,function(g,k){return function(){window.trackAnalyticsEvent(g,{repo_id:k})}}(d,h)):a.addEventListener(b,function(g){return function(){window.trackAnalyticsEvent(g)}}(d))}};l()}})();</script><script type="text/javascript" id="" charset="">(function(){window.sib={equeue:[],client_key:"h37jbx0snh1bskj1dydnn5dg"};window.dagsHubUserInfo&&window.dagsHubUserInfo.email&&(window.sib.email_id=window.dagsHubUserInfo.email);window.sendinblue={};for(var a=["track","identify","trackLink","page"],b=0;b<a.length;b++)(function(d){window.sendinblue[d]=function(){var c=Array.prototype.slice.call(arguments);(window.sib[d]||function(){var e={};e[d]=c;window.sib.equeue.push(e)})(c[0],c[1],c[2],c[3])}})(a[b]);a=document.createElement("script");b=document.getElementsByTagName("script")[0];
+a.type="text/javascript";a.id="sendinblue-js";a.async=!0;a.src="https://sibautomation.com/sa.js?key\x3d"+window.sib.client_key;b.parentNode.insertBefore(a,b);window.sendinblue.page()})();</script><script type="text/javascript" id="" charset="">document.addEventListener("wpcf7mailsent",function(a){window.dataLayer.push({event:"cf7submission",formId:a.detail.contactFormId,response:a.detail.inputs})});</script><script id="" text="" charset="" type="text/javascript" src="https://cdn.logr-ingest.com/LogRocket.min.js"></script><script type="text/javascript" id="" charset="">var script=document.createElement("script");script.async=!0;script.src="https://cmd1lwt5m00053b6sj29svj9f.d.jitsu.com/p.js";window.jitsuLoaded=function(a){window.dagsHubUserInfo&&a.identify(google_tag_manager["rm"]["10626803"](17),{name:google_tag_manager["rm"]["10626803"](18),createdAt:google_tag_manager["rm"]["10626803"](19)});window.addAnalyticsListener(function(b,c){a.track(b,c)})};script.setAttribute("data-onload","jitsuLoaded");script.setAttribute("data-key","Lk6XstfVIOh8W4gn5PNc4hAoYl4TSIk2:ATkrmNoFiRIcWilY1CTy5dxSbvrfeIEW");document.head.appendChild(script);</script>
+<style>
+    .cc-message {
+        font-size: 14px;
+    }
+</style>
+<script type="text/javascript" id="" charset="">(function(){function a(){"complete"===document.readyState&&window.cookieconsent.initialise({palette:{popup:{background:"#252e39"},button:{background:"#14a7d0"}},position:"bottom-left",type:"info",dismissOnScroll:!1,dismissOnWindowClick:!1,dismissOnTimeout:3E4,content:{message:"DAGsHub.com uses cookies for statistical analytics and customer support. We don't sell your data or track you. "}})}"complete"===document.readyState?a():document.addEventListener("readystatechange",a)})();</script>
+<script type="text/javascript" id="" charset="">if(window.dagsHubUserInfo){var _hsq=window._hsq=window._hsq||[];_hsq.push(["identify",{email:google_tag_manager["rm"]["10626803"](12),dagshub_user_name:google_tag_manager["rm"]["10626803"](13),createdAt:google_tag_manager["rm"]["10626803"](14),id:google_tag_manager["rm"]["10626803"](15)}])};</script>
+
+<script type="text/javascript" id="" charset="">(function(){var a=new Set(["/pricing","/book-a-demo","/enterprise"]),b=window.location.pathname.replace(/\/$/,"");a=a.has(b)||localStorage.getItem("dagshub-logrocket-alwaysLog");b=window.dagsHubUserInfo&&window.dagsHubUserInfo.id&&Date.now()-Date.parse(window.dagsHubUserInfo.createdAt)<6048E5;window.LogRocket&&(a||b)&&(localStorage.setItem("dagshub-logrocket-alwaysLog",!0),window.LogRocket.init("vohsqq/dagshub"),window.dagsHubUserInfo&&window.LogRocket.identify(window.dagsHubUserInfo.id,{name:window.dagsHubUserInfo.name,
+email:window.dagsHubUserInfo.email,createdAt:window.dagsHubUserInfo.createdAt}),window.addAnalyticsListener&&window.addAnalyticsListener(function(c){window.LogRocket.track(c)}))})();</script>
+
+<a href="#page" id="top" class="top no-external-link-indicator" data-version="9.2.2">
+  <span class="screen-reader-text">Back to top</span>
+  <span aria-hidden="true"><svg width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 0.000342107L6 3.00034L5.4625 3.53784L3 1.06284L0.537501 3.52534L5.2492e-07 2.98784L3 0.000342107Z" fill="currentColor"></path>
+    </svg>
+  </span>
+</a>
+
+
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c816d41683ee8f3',t:'MTc3MDExNjQ0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
+
+<script>
+  function addReferringPageParam() {
+  // Get all the <a> elements on the page
+  const links = document.querySelectorAll('a[href*="/book-a-demo"]');
+
+  // Loop through each link
+  links.forEach(link => {
+  
+      // Get the current URL
+      const url = new URL(link.href);
+
+      // Add or update the 'referring-page' parameter with the current page's URL
+      url.searchParams.set('referring-page', "Home");
+
+      // Update the href of the link with the new URL
+      link.href = url.toString();
+ 
+  });
+}
+
+// Call the function to add the parameter
+addReferringPageParam();
+</script>
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-qsawkcjnabc3" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfHrukpAAAAAA9UYBYO1jTWc1qASGHFOc5xtGfG&amp;co=aHR0cHM6Ly9kYWdzaHViLmNvbTo0NDM.&amp;hl=en&amp;v=AWtrSI7lAmTAfV1rzWqEqz54&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=rc1a1tzfelp1"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

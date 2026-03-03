@@ -1,13 +1,14 @@
 import { ManualOverrideFields } from "../../types"
+import { EntryMeta } from "../validate/types"
 
 export type ManualAdditionItem = {
   name: string
 } & (
   | ManualOverrideFields
-  | { _processed: true }
-  | (ManualOverrideFields & { _processed: true })
+  | { _meta: EntryMeta }
+  | (ManualOverrideFields & { _meta: EntryMeta })
   | (ManualOverrideFields & { urls?: string[] })
-  | (ManualOverrideFields & { _processed: true; urls?: string[] })
+  | (ManualOverrideFields & { _meta: EntryMeta; urls?: string[] })
 )
 
 export const manualAdditions: ManualAdditionItem[] = [
@@ -92,7 +93,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://chromewebstore.google.com/detail/hichee-airbnbbookingvrbo/ikoocbbcgemiakcmeepjmlgipjeeibon"
     ],
     android_app_ids: ["com.airbnb.android"],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Amazon",
@@ -313,40 +314,40 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.amazon.ziggy.android",
       "com.keepa.mobile"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "AXA",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.axa.com", "https://www.axa.com.hk"],
     li: [
-      "https://www.linkedin.com/company/axa/",
-      "https://www.linkedin.com/company/axa-wealth/",
-      "https://www.linkedin.com/company/axa-group-operations/",
-      "https://www.linkedin.com/company/axa-partners/",
-      "https://www.linkedin.com/company/axa-global-re/",
-      "https://www.linkedin.com/company/bharti-axa-life-insurance/",
-      "https://www.linkedin.com/company/axa-mbask-ojsc/",
-      "https://www.linkedin.com/company/axa-investment-managers/",
-      "https://www.linkedin.com/company/axa-life-invest/",
-      "https://www.linkedin.com/company/architas-multi-manager/",
-      "https://www.linkedin.com/company/axa-global-direct/",
-      "https://www.linkedin.com/company/axa-uk/",
-      "https://www.linkedin.com/showcase/healthanea/",
-      "https://www.linkedin.com/showcase/axa-von-herz-zu-herz-e-v/",
-      "https://www.linkedin.com/company/axahealth/",
-      "https://www.linkedin.com/company/gig-saudi/",
-      "https://www.linkedin.com/company/axahongkong/",
-      "https://www.linkedin.com/company/axa-corporate-solutions/",
-      "https://www.linkedin.com/company/axa-gulf/",
-      "https://www.linkedin.com/company/axa-liabilities-managers/",
-      "https://www.linkedin.com/company/axa-mps/",
-      "https://www.linkedin.com/company/axa-minmetals-assurance/",
-      "https://www.linkedin.com/company/axa-france/",
-      "https://www.linkedin.com/showcase/axa-research-fund/"
+      "https://www.linkedin.com/company/axa",
+      "https://www.linkedin.com/company/axa-wealth",
+      "https://www.linkedin.com/company/axa-group-operations",
+      "https://www.linkedin.com/company/axa-partners",
+      "https://www.linkedin.com/company/axa-global-re",
+      "https://www.linkedin.com/company/bharti-axa-life-insurance",
+      "https://www.linkedin.com/company/axa-mbask-ojsc",
+      "https://www.linkedin.com/company/axa-investment-managers",
+      "https://www.linkedin.com/company/axa-life-invest",
+      "https://www.linkedin.com/company/architas-multi-manager",
+      "https://www.linkedin.com/company/axa-global-direct",
+      "https://www.linkedin.com/company/axa-uk",
+      "https://www.linkedin.com/showcase/healthanea",
+      "https://www.linkedin.com/showcase/axa-von-herz-zu-herz-e-v",
+      "https://www.linkedin.com/company/axahealth",
+      "https://www.linkedin.com/company/gig-saudi",
+      "https://www.linkedin.com/company/axahongkong",
+      "https://www.linkedin.com/company/axa-corporate-solutions",
+      "https://www.linkedin.com/company/axa-gulf",
+      "https://www.linkedin.com/company/axa-liabilities-managers",
+      "https://www.linkedin.com/company/axa-mps",
+      "https://www.linkedin.com/company/axa-minmetals-assurance",
+      "https://www.linkedin.com/company/axa-france",
+      "https://www.linkedin.com/showcase/axa-research-fund"
     ],
     fb: [
-      "https://www.facebook.com/AXA.de/",
+      "https://www.facebook.com/AXA.de",
       "https://www.facebook.com/AXAAssuranceMaroc",
       "https://www.facebook.com/axainsurance",
       "https://www.facebook.com/AXAHongKong"
@@ -369,8 +370,8 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.youtube.com/@AXANICoUK",
       "https://www.youtube.com/@AXAHealth"
     ],
-    tt: ["https://www.tiktok.com/@axa.com/"],
-    th: ["https://www.threads.com/@axa.com/"],
+    tt: ["https://www.tiktok.com/@axa.com"],
+    th: ["https://www.threads.com/@axa.com"],
     android_dev_id: "com.axa",
     android_app_ids: [
       "de.axa.noa",
@@ -407,7 +408,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.facebook.com/groups/professionalhosts"
     ],
     android_app_ids: ["com.booking"],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "BurgerKing",
@@ -515,7 +516,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "in.burgerking.android",
       "mn.burgerking.delivery"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Caltex",
@@ -576,7 +577,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.chevron.caltexgo.prod",
       "pk.caltex.chevron"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Carrefour",
@@ -649,7 +650,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://apps.apple.com/us/app/maf-carrefour-online-shopping/id626805470"
     ],
     android_app_ids: ["com.aswat.carrefouruae", "com.carrefourgu", "mn.io.carrefour"],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Chevron",
@@ -708,20 +709,20 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://chevronadvocacynetwork.com",
       "https://play.google.com/store/apps/dev?id=5536479555375186639",
       "https://www.ecosia.org/search?q=Chevron",
-      "https://finance.yahoo.com/quote/CVX/",
+      "https://finance.yahoo.com/quote/CVX",
       "https://www.cnbc.com/quotes/CVX",
-      "https://www.forbes.com/companies/chevron/",
+      "https://www.forbes.com/companies/chevron",
       "https://www.bnm.gov.my/-/chevron-malaysia-limited",
       "https://www.marketwatch.com/investing/stock/cvx",
       "https://markets.ft.com/data/equities/tearsheet/summary?s=CVX:NYQ",
       "https://www.glassdoor.com/Overview/Working-at-Chevron-EI_IE13524.11,18.htm",
-      "https://www.reuters.com/company/chevron-corp/",
-      "https://www.weforum.org/organizations/chevron-corporation/",
+      "https://www.reuters.com/company/chevron-corp",
+      "https://www.weforum.org/organizations/chevron-corporation",
       "https://www.theguardian.com/business/chevron",
       "https://www.morningstar.com/stocks/xnys/cvx/quote",
       "https://www.nasdaq.com/market-activity/stocks/cvx",
       "https://my.jobstreet.com/companies/chevron-168554240598187",
-      "https://www.statista.com/topics/5256/chevron/",
+      "https://www.statista.com/topics/5256/chevron",
       "https://www.ebsco.com/research-starters/business-and-management/chevron-corporation",
       "https://www.google.com/finance/quote/CVX:NYSE?hl=en",
       "https://chevronproductsuklim.outsystemsenterprise.com",
@@ -740,7 +741,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.outsystemsenterprise.chevronproductsuklim.MLDRMobile",
       "com.polarislabs.horizon.lubewatch.android"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "CocaCola",
@@ -764,23 +765,23 @@ export const manualAdditions: ManualAdditionItem[] = [
     ],
     ig: [
       "https://www.instagram.com/cocacola",
-      "https://www.instagram.com/cocacola_uzbekistan/",
-      "https://www.instagram.com/cocacola_kaz/",
-      "https://www.instagram.com/cocacola_br/",
-      "https://www.instagram.com/cocacolaarena/",
-      "https://www.instagram.com/classicchristmasofficial/",
-      "https://www.instagram.com/cocacolaar/",
-      "https://www.instagram.com/cocacola.tj/",
-      "https://www.instagram.com/cocacolapuertorico/",
-      "https://www.instagram.com/cocacolafemsa_br/",
-      "https://www.instagram.com/cocacolaicecekkariyer/",
-      "https://www.instagram.com/mi_smo_cocacolahbcsrbija/",
-      "https://www.instagram.com/cocacolape/",
-      "https://www.instagram.com/cocacola_kenya/",
-      "https://www.instagram.com/cocacola_tr/",
-      "https://www.instagram.com/cocacola_kyrgyzstan/",
-      "https://www.instagram.com/cocacola_id/",
-      "https://www.instagram.com/cocacolave/"
+      "https://www.instagram.com/cocacola_uzbekistan",
+      "https://www.instagram.com/cocacola_kaz",
+      "https://www.instagram.com/cocacola_br",
+      "https://www.instagram.com/cocacolaarena",
+      "https://www.instagram.com/classicchristmasofficial",
+      "https://www.instagram.com/cocacolaar",
+      "https://www.instagram.com/cocacola.tj",
+      "https://www.instagram.com/cocacolapuertorico",
+      "https://www.instagram.com/cocacolafemsa_br",
+      "https://www.instagram.com/cocacolaicecekkariyer",
+      "https://www.instagram.com/mi_smo_cocacolahbcsrbija",
+      "https://www.instagram.com/cocacolape",
+      "https://www.instagram.com/cocacola_kenya",
+      "https://www.instagram.com/cocacola_tr",
+      "https://www.instagram.com/cocacola_kyrgyzstan",
+      "https://www.instagram.com/cocacola_id",
+      "https://www.instagram.com/cocacolave"
     ],
     ytp: [
       "https://www.youtube.com/@Coca-Cola",
@@ -825,7 +826,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     ],
     urls: ["https://nypost.com/tag/coca-cola", "https://www.theguardian.com/business/cocacola"],
     android_app_ids: ["com.greencopper.cocacolaflowfest", "com.mycoke.gulf", "mn.mcscocacola.coketohomemongolia"],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "CyberGhost",
@@ -859,7 +860,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     ],
     android_app_ids: ["de.mobileconcepts.cyberghost"],
     alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Dell",
@@ -913,7 +914,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.emc.cloudiq",
       "com.emc.mobileapps.elabnavigator"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Disney+",
@@ -996,7 +997,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "in.startv.hotstar.dplus",
       "in.startv.hotstar.dplus.tv"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "DominosPizza",
@@ -1136,7 +1137,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.dominospizza.az",
       "uk.co.dominos.android"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Expedia",
@@ -1221,7 +1222,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://chromewebstore.google.com/detail/expedia-price-scraper/hkohddkblmjfdhlkhnbjoaekkncagcno"
     ],
     android_app_ids: ["com.expedia.bookings", "com.expediapartnercentral"],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "ExpressVPN",
@@ -1255,7 +1256,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     ],
     android_app_ids: ["com.expressvpn.vpn", "com.holiday.esim"],
     alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "HP",
@@ -1268,36 +1269,36 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.arubanetworks.com"
     ],
     li: [
-      "https://www.linkedin.com/company/hewlett-packard-enterprise/",
-      "https://www.linkedin.com/company/hyperx/",
-      "https://www.linkedin.com/company/aruba-a-hewlett-packard-enterprise-company/",
-      "https://www.linkedin.com/company/scytale.io/",
-      "https://www.linkedin.com/showcase/hewlett-packard-labs/",
-      "https://www.linkedin.com/showcase/hpe-financial-services/",
-      "https://www.linkedin.com/showcase/hpe-partner-ready/",
-      "https://www.linkedin.com/company/athonet/",
-      "https://www.linkedin.com/company/cray-inc-/",
-      "https://www.linkedin.com/showcase/hpe-it-solutions-for-smb/",
-      "https://www.linkedin.com/showcase/hpe-servers-and-systems/",
-      "https://www.linkedin.com/company/bluedata-software/",
-      "https://www.linkedin.com/company/cloud-cruiser-inc/",
-      "https://www.linkedin.com/company/nimble-storage/",
-      "https://www.linkedin.com/company/cloudphysics/",
-      "https://www.linkedin.com/company/axis-security/",
-      "https://www.linkedin.com/company/determined-ai/",
-      "https://www.linkedin.com/showcase/hpe-greenlake/",
-      "https://www.linkedin.com/showcase/hpe-engage&grow-/",
-      "https://www.linkedin.com/company/aruba-a-hewlett-packard-enterprise-company/",
-      "https://www.linkedin.com/company/mapr-technologies/",
-      "https://www.linkedin.com/company/simplivity-corporation/",
-      "https://www.linkedin.com/company/cloud-technology-partners/",
-      "https://www.linkedin.com/showcase/hpe-ai/",
-      "https://www.linkedin.com/showcase/hpe-aruba-networking/",
-      "https://www.linkedin.com/showcase/hpe-pointnext-services/",
-      "https://www.linkedin.com/showcase/hpestorage/"
+      "https://www.linkedin.com/company/hewlett-packard-enterprise",
+      "https://www.linkedin.com/company/hyperx",
+      "https://www.linkedin.com/company/aruba-a-hewlett-packard-enterprise-company",
+      "https://www.linkedin.com/company/scytale.io",
+      "https://www.linkedin.com/showcase/hewlett-packard-labs",
+      "https://www.linkedin.com/showcase/hpe-financial-services",
+      "https://www.linkedin.com/showcase/hpe-partner-ready",
+      "https://www.linkedin.com/company/athonet",
+      "https://www.linkedin.com/company/cray-inc-",
+      "https://www.linkedin.com/showcase/hpe-it-solutions-for-smb",
+      "https://www.linkedin.com/showcase/hpe-servers-and-systems",
+      "https://www.linkedin.com/company/bluedata-software",
+      "https://www.linkedin.com/company/cloud-cruiser-inc",
+      "https://www.linkedin.com/company/nimble-storage",
+      "https://www.linkedin.com/company/cloudphysics",
+      "https://www.linkedin.com/company/axis-security",
+      "https://www.linkedin.com/company/determined-ai",
+      "https://www.linkedin.com/showcase/hpe-greenlake",
+      "https://www.linkedin.com/showcase/hpe-engage&grow-",
+      "https://www.linkedin.com/company/aruba-a-hewlett-packard-enterprise-company",
+      "https://www.linkedin.com/company/mapr-technologies",
+      "https://www.linkedin.com/company/simplivity-corporation",
+      "https://www.linkedin.com/company/cloud-technology-partners",
+      "https://www.linkedin.com/showcase/hpe-ai",
+      "https://www.linkedin.com/showcase/hpe-aruba-networking",
+      "https://www.linkedin.com/showcase/hpe-pointnext-services",
+      "https://www.linkedin.com/showcase/hpestorage"
     ],
     fb: [
-      "https://www.facebook.com/HP/",
+      "https://www.facebook.com/HP",
       "https://www.facebook.com/OMENbyHP.de",
       "https://www.facebook.com/HyperXDE/?brand_redir=179848128697913"
     ],
@@ -1370,12 +1371,12 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.tradingview.com/symbols/NASDAQ-INTC"
     ],
     android_dev_id: "com.intel",
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Jedyapps",
     reasons: ["h"],
-    ws: ["https://www.jedyapps.com/"],
+    ws: ["https://www.jedyapps.com"],
     li: ["https://www.linkedin.com/company/jedyapps"]
   },
   {
@@ -1390,7 +1391,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.reddit.com/r/Express_VPN/comments/pp6lwf/former_malware_distributor_kape_technologies_now"
     ],
     alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "McDonalds",
@@ -1549,7 +1550,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "jp.co.mcdonalds.android",
       "ph.mobext.mcdelivery"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "PapaJohns",
@@ -1662,7 +1663,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.papa.johns.pizza.app.qa",
       "pj.av.ol"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "PizzaHut",
@@ -1796,7 +1797,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "net.bonee.pizzaHut",
       "se.leeroygroup.pizzahut"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Private Internet Access",
@@ -1813,14 +1814,14 @@ export const manualAdditions: ManualAdditionItem[] = [
     ],
     android_app_ids: ["com.privateinternetaccess.android", "nu.tommie.inbrowser"],
     alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Puma",
     reasons: ["BDS_PRIO"],
     ws: ["https://www.puma.com"],
-    li: ["https://www.linkedin.com/company/puma/"],
-    fb: ["https://www.facebook.com/PumaGermany/"],
+    li: ["https://www.linkedin.com/company/puma"],
+    fb: ["https://www.facebook.com/PumaGermany"],
     tw: ["https://x.com/puma"]
   },
   {
@@ -1899,7 +1900,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.remax.university",
       "tenant.ourproperty.com.remaxTENANT"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Reebok",
@@ -1954,14 +1955,14 @@ export const manualAdditions: ManualAdditionItem[] = [
       "com.rfeinternational.app_rbk",
       "com.tru.connect"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Sabra",
     reasons: ["BDS_PRIO"],
-    ws: ["https://sabra.com/"],
-    li: ["https://www.linkedin.com/company/sabra-dipping-company-llc/"],
-    fb: ["https://www.facebook.com/Sabra/"],
+    ws: ["https://sabra.com"],
+    li: ["https://www.linkedin.com/company/sabra-dipping-company-llc"],
+    fb: ["https://www.facebook.com/Sabra"],
     tw: ["https://x.com/Sabra"]
   },
   {
@@ -1973,10 +1974,10 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.linkedin.com/showcase/siemensinfrastructure",
       "https://www.linkedin.com/showcase/siemens-financial-services",
       "https://www.linkedin.com/showcase/siemens-research-and-innovation-ecosystem",
-      "https://www.linkedin.com/showcase/mobase/",
+      "https://www.linkedin.com/showcase/mobase",
       "https://www.linkedin.com/showcase/siemens-mobility",
       "https://www.linkedin.com/showcase/siemens-industry-",
-      "https://www.linkedin.com/company/ecodomus/",
+      "https://www.linkedin.com/company/ecodomus",
       "https://www.linkedin.com/company/siemens-healthineers",
       "https://www.linkedin.com/company/siemenssoftware",
       "https://www.linkedin.com/company/hacon",
@@ -2058,7 +2059,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.tiktok.com/@sodastreamsg",
       "https://www.tiktok.com/@sodastreamuk"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Texaco",
@@ -2066,7 +2067,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     ws: [
       "https://www.texaco.com",
       "https://starrewards.valero.com",
-      "https://www.chevrontexacocards.com/Chevron",
+      "https://www.chevrontexacocards.com",
       "https://www.texacoinhawaii.com"
     ],
     ig: ["https://www.instagram.com/texacolubricants/?hl=en"],
@@ -2095,7 +2096,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.texacolubricants.com/en_uk/home/products/by_brand/techron.html?src-tab=products"
     ],
     android_app_ids: ["com.polarislabs.horizon.texacolubewatch.android"],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "Webselenese",
@@ -2103,7 +2104,7 @@ export const manualAdditions: ManualAdditionItem[] = [
     li: ["https://www.linkedin.com/company/webselenese"],
     gh: ["https://github.com/Webselenese-AI"],
     urls: ["https://www.webselenese.com"],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   { name: "Wixsite (hosting)", reasons: ["h"], ws: ["wixsite.com"], li: [""], fb: [""], tw: [""] },
   {
@@ -2121,7 +2122,7 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://microsoftedge.microsoft.com/addons/detail/wordtune-ai-paraphrasing/fgngodlaekdlibajobmkaklibdggemdd",
       "https://www.linkedin.com/newsletters/6995001803318681600"
     ],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   },
   {
     name: "ZenMate",
@@ -2140,6 +2141,6 @@ export const manualAdditions: ManualAdditionItem[] = [
       "https://www.npmjs.com/~zenmate"
     ],
     alt: [{ n: "BoycatVPN (1 Month free!)", ws: "https://boycat.io/vpn/order?via=theWall" }],
-    _processed: true
+    _meta: { isVerified: true, isBrowserVerified: true }
   }
 ]

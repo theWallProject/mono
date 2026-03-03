@@ -294,19 +294,27 @@ export const Banner = () => {
 
   // Helper to show hint toast
   const showHintToast = useCallback(
-    async (hintId: string, hintCompanyId: string | undefined, hintText: string, hintUrl: string | undefined) => {
+    async (
+      hintId: string,
+      hintCompanyId: string | undefined,
+      hintText: string,
+      hintUrl: string | undefined,
+      skipRateLimit: boolean = false
+    ) => {
       // Check all conditions before showing
+      // .il domain hints bypass rate limiting - they always show regardless of cooldown
       const [systemDisabled, permanentlyDismissed, shownRecently] = await Promise.all([
         isHintsSystemDisabled(),
         isHintDismissedPermanently(hintId, hintCompanyId),
-        wasHintShownRecently(hintId)
+        skipRateLimit ? Promise.resolve(false) : wasHintShownRecently(hintId)
       ])
 
       log("[Hint Toast] Conditions check:", {
         hintId,
         systemDisabled,
         permanentlyDismissed,
-        shownRecently
+        shownRecently,
+        skipRateLimit
       })
 
       if (systemDisabled || permanentlyDismissed || shownRecently) {
@@ -320,8 +328,10 @@ export const Banner = () => {
 
       log("[Hint Toast] All checks passed, showing toast")
 
-      // Mark this hint as shown
-      await markHintAsShown(hintId)
+      // Mark this hint as shown (skip for rate-limit-exempt hints so they don't affect cooldown)
+      if (!skipRateLimit) {
+        await markHintAsShown(hintId)
+      }
 
       // Dismiss any existing hint toast to prevent duplicates
       if (toastIdRef.current) {
@@ -386,7 +396,8 @@ export const Banner = () => {
     // Check if this is a standalone hint
     if (testResult?.isHint === true && !testResult.isDismissed && testResult.name) {
       const hintId = testResult.name
-      log("[Hint Toast] Processing standalone hint:", hintId)
+      const isIlHint = testResult.rule?.key === "il"
+      log("[Hint Toast] Processing standalone hint:", hintId, { isIlHint })
 
       if (isCheckingHintRef.current) {
         log("[Hint Toast] Already checking, skipping")
@@ -394,11 +405,15 @@ export const Banner = () => {
       }
 
       isCheckingHintRef.current = true
-      void showHintToast(hintId, testResult.hintCompanyId, testResult.hintText || "", testResult.hintUrl).finally(
-        () => {
-          isCheckingHintRef.current = false
-        }
-      )
+      void showHintToast(
+        hintId,
+        testResult.hintCompanyId,
+        testResult.hintText || "",
+        testResult.hintUrl,
+        isIlHint
+      ).finally(() => {
+        isCheckingHintRef.current = false
+      })
     }
     // Check if there's a domain hint (shown when viewing flagged company on hint-enabled domain)
     else if (testResult && !testResult.isHint && testResult.domainHint) {

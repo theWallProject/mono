@@ -193,8 +193,8 @@ describe("deduplicateSocialLinks", () => {
       }
       const result = deduplicateSocialLinks(input)
       expect(result.ytc).toHaveLength(1)
-      // Canonical URL uses lowercased selector (extractSelector lowercases)
-      expect(result.ytc).toEqual(["https://www.youtube.com/channel/ucgvsgfpvyowun8ajjbmem9a"])
+      // YouTube channel IDs are case-sensitive — original case is preserved
+      expect(result.ytc).toEqual(["https://www.youtube.com/channel/UCGvsgFPVyOwuN8aJJbMem9A"])
     })
 
     it("keeps distinct YouTube channel IDs", () => {

@@ -1,0 +1,2451 @@
+<!DOCTYPE html><html lang="en-US" class="async-hide js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths desktop landscape windows windows10 windows10_0 64bit chrome chrome120 chrome120_0 webkit en-us" style=""><head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <script data-minify="1" type="text/javascript" src="https://www.uprightpose.com/wp-content/cache/min/1/apps/popUpGeo/main.js?ver=1766414930"></script>
+
+    <script type="rocketlazyloadscript">
+const languagesData = {currentLanguage: 'en',languages: [{code:'en',pageId:22708,pageUrl:'https://www.uprightpose.com'},{code:'en-au',pageId:22708,pageUrl:'https://www.uprightpose.com/en-au/'},{code:'en-de',pageId:22708,pageUrl:'https://www.uprightpose.com/en-de/'},{code:'en-nz',pageId:22708,pageUrl:'https://www.uprightpose.com/en-nz/'},{code:'en-sg',pageId:22708,pageUrl:'https://www.uprightpose.com/en-sg/'},{code:'en-gb',pageId:22708,pageUrl:'https://www.uprightpose.com/en-gb/'},]}
+const ajaxurl = 'https://www.uprightpose.com/wp-admin/admin-ajax.php'; 
+        const siteUrl = 'https://www.uprightpose.com';
+        const pageId = 22708;
+</script>
+<script type="rocketlazyloadscript">
+    document.addEventListener('DOMContentLoaded', function() {
+    fetch('https://www.uprightpose.com/services/server.php?action=srvdt') 
+                    .then(response => response.json() )
+                    .then(data => {
+                        console.log('srvdt' , data);
+                        let countryCode = data.countryCode.replace('en-', '');
+                        document.body.classList.add('geof-current-country-' + countryCode);
+                    });
+    })
+    </script><style>[class*='geof-display'], [class*='geof-hide'] {display: none !important;}</style>	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="alternate" hreflang="en-us" href="https://www.uprightpose.com">
+
+	<!-- This site is optimized with the Yoast SEO plugin v16.8 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Upright Posture Corrector | Fix Your Posture in 14 Days</title><link rel="stylesheet" href="https://www.uprightpose.com/wp-content/cache/min/1/84f11976cfd74822c49e077246486484.css" media="all" data-minify="1">
+	<meta name="description" content="Transform your posture with Upright's smart posture training devices. Choose GO 2 or GO S. Trusted by 750,000+ users worldwide. Free US shipping &amp; 14-day results.">
+	<link rel="canonical" href="https://www.uprightpose.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Upright Posture Corrector | Fix Your Posture in 14 Days">
+	<meta property="og:description" content="Transform your posture with Upright's smart posture training devices. Choose GO 2 or GO S. Trusted by 750,000+ users worldwide. Free US shipping &amp; 14-day results.">
+	<meta property="og:url" content="https://www.uprightpose.com/">
+	<meta property="og:site_name" content="UPRIGHT Posture Training Device">
+	<meta property="article:modified_time" content="2026-01-25T07:55:55+00:00">
+	<meta property="og:image" content="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1590488150/UPRIGHT-Company-Logo-SIDE_dlbmhd.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Est. reading time">
+	<meta name="twitter:data1" content="1 minute">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.uprightpose.com/#website","url":"https://www.uprightpose.com/","name":"UPRIGHT Posture Training Device","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.uprightpose.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.uprightpose.com/#primaryimage","inLanguage":"en-US","url":"https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1590488150/UPRIGHT-Company-Logo-SIDE_dlbmhd.png","contentUrl":"https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1590488150/UPRIGHT-Company-Logo-SIDE_dlbmhd.png"},{"@type":"WebPage","@id":"https://www.uprightpose.com/#webpage","url":"https://www.uprightpose.com/","name":"Upright Posture Corrector | Fix Your Posture in 14 Days","isPartOf":{"@id":"https://www.uprightpose.com/#website"},"primaryImageOfPage":{"@id":"https://www.uprightpose.com/#primaryimage"},"datePublished":"2025-11-23T10:45:26+00:00","dateModified":"2026-01-25T07:55:55+00:00","description":"Transform your posture with Upright's smart posture training devices. Choose GO 2 or GO S. Trusted by 750,000+ users worldwide. Free US shipping & 14-day results.","breadcrumb":{"@id":"https://www.uprightpose.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.uprightpose.com/"]}]},{"@type":"BreadcrumbList","@id":"https://www.uprightpose.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//static.klaviyo.com">
+<link rel="dns-prefetch" href="//www.uprightpose.com">
+
+<link rel="alternate" type="application/rss+xml" title="UPRIGHT Posture Training Device » Feed" href="https://www.uprightpose.com/feed/">
+<!-- this will open up dataLayer it reduces time for optimize to load -->
+            <script type="rocketlazyloadscript">
+            window.dataLayer = window.dataLayer || [];
+            </script>
+            
+            <!-- anti flicker part --><script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+            h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+            (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+            })(window,document.documentElement,'async-hide','dataLayer',4000,
+            {'GTM-NWWNX88':true});</script>
+            
+            <!-- optimize library, it does not send GA pageview, the code is modified -->
+            <script type="rocketlazyloadscript">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            
+            ga('create', 'UA-59636363-1', 'auto', {allowLinker: true});
+            ga('require', 'linker');
+            ga('linker:autoLink', ['store.uprightpose.com']);
+            ga('require', 'GTM-NWWNX88');
+            </script><!-- google tag manager (its already included)-->
+            <script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MSW5D7');</script>
+
+
+
+
+<link rel="stylesheet" id="elementor-frontend-css" href="https://www.uprightpose.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.3.1" type="text/css" media="all">
+<style id="elementor-frontend-inline-css" type="text/css">
+@font-face{font-family:eicons;src:url(https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0);src:url(https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0#iefix) format("embedded-opentype"),url(https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.10.0) format("woff2"),url(https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.10.0) format("woff"),url(https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.10.0) format("truetype"),url(https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg?5.10.0#eicon) format("svg");font-weight:400;font-style:normal}
+</style>
+
+<link rel="stylesheet" id="elementor-pro-css" href="https://www.uprightpose.com/wp-content/plugins/elementor-pro/assets/css/frontend.min.css?ver=3.3.5" type="text/css" media="all">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/js/jquery.min.js?ver=5.8" id="jquery-js"></script>
+<script data-minify="1" type="text/javascript" src="https://www.uprightpose.com/wp-content/cache/min/1/wp-content/plugins/uprightPlugin/assets/js/libs.js?ver=1766414930" id="libs-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.3.1" id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="https://www.uprightpose.com/wp-json/"><link rel="alternate" type="application/json" href="https://www.uprightpose.com/wp-json/wp/v2/pages/22708"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.uprightpose.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.uprightpose.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.8">
+<link rel="shortlink" href="https://www.uprightpose.com/">
+<link rel="alternate" type="application/json+oembed" href="https://www.uprightpose.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.uprightpose.com%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.uprightpose.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.uprightpose.com%2F&amp;format=xml">
+<meta name="generator" content="WPML ver:4.3.18 stt:65,1,66,67,68,69;">
+<link rel="preload" as="style" type="text/css" href="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/less/fonts.min.css?v=20210721-03">
+
+
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/less/Montserrat//montserrat-v15-vietnamese_latin-ext_latin_cyrillic-ext_cyrillic-regular.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/less/Montserrat//montserrat-v15-vietnamese_latin-ext_latin_cyrillic-ext_cyrillic-300.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/less/Montserrat//montserrat-v15-vietnamese_latin-ext_latin_cyrillic-ext_cyrillic-500.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/less/Montserrat//montserrat-v15-vietnamese_latin-ext_latin_cyrillic-ext_cyrillic-600.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/less/Montserrat//montserrat-v15-vietnamese_latin-ext_latin_cyrillic-ext_cyrillic-700.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.svg" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.ttf" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/uprightPlugin/assets/less/fonts/slick.woff" crossorigin="">
+<link rel="preload" as="font" href="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2" crossorigin=""><link rel="shortcut icon" href="https://res.cloudinary.com/uprightpose/image/upload/v1602686889/cropped-cropped-upright-icon-for-website-192x192-min-32x32-1_mgjaji.png">
+<meta name="theme-color" content="#67BC46">
+<meta name="msapplication-navbutton-color" content="#67BC46">
+<meta name="apple-mobile-web-app-status-bar-style" content="#67BC46">
+		<style type="text/css" id="wp-custom-css">
+			#Sticky-footer {
+    display: none !important;
+}
+		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>        <style>
+        </style>
+    <style>
+        body.flickerWhiteBg {
+            opacity: 0;
+        }
+    </style>
+    <script>
+        setTimeout(function() {
+            document.body.className = document.body.className.replace("flickerWhiteBg","");
+        }, 1500);
+    </script>
+<script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/fender_analytics.e5aba8b3a52dc623782c.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/static.5f280103f51ea7c7fff7.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/runtime.6c7129718e65ef969377.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/sharedUtils.a71d6f521573fb3ff6e5.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/vendors~in_app_forms~signup_forms~reviews~event_adapter~telemetry~onsite-triggering~customerHubRoot~renderFavoritesButton~renderFavoritesIconButton~renderFaqWidget.c4a654aeb90c3b558d39.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/vendors~in_app_forms~signup_forms~client_identity~event_adapter~telemetry~onsite-triggering.4768afcea6fedb2d7bdb.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/vendors~in_app_forms~signup_forms~reviews~atlas.0201e888d834a3782e3a.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/vendors~in_app_forms~signup_forms.8a6cb5252157eea5176a.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/default~in_app_forms~signup_forms~onsite-triggering.421d18510f40c4843ff9.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/default~in_app_forms~signup_forms.57e6af9c3d135a49b638.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/signup_forms.41f0ce244a6a10660c82.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/post_identification_sync.1d099331dabd65ffb917.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/vendors~event_adapter~onsite-back-in-stock~Render~ClientStore~.3107525c2fe4964fa98b.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/event_adapter.86d6dd7167fc2265632f.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/vendors~in_app_forms~signup_forms~reviews~event_adapter~telemetry~onsite-triggering~customerHubRoot~renderFavoritesButton~renderFavoritesIconButton~renderFaqWidget.c4a654aeb90c3b558d39.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/vendors~in_app_forms~signup_forms~client_identity~event_adapter~telemetry~onsite-triggering.4768afcea6fedb2d7bdb.js?cb=2" crossorigin="anonymous"></script><script type="text/javascript" async="" src="https://static-tracking.klaviyo.com/onsite/js/telemetry.22b04343319c0985ad45.js?cb=2" crossorigin="anonymous"></script><style id="kl-custom-fonts">
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700&display=swap';
+
+</style></head>
+<body class="home page-template page-template-page_clean page-template-page_clean-php page page-id-22708 wp-custom-logo site  page-home-v3-2025v3 noHeader elementor-default elementor-kit-15 webv-false e--ua-blink e--ua-webkit" data-elementor-device-mode="desktop">
+<!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MSW5D7'
+            height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
+
+		
+<article id="post-22708" class="post-22708 page type-page status-publish hentry">
+	<header class="entry-header">
+			</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upright GO 2 Posture Corrector – Smart Posture Trainer | Fix Your Posture in 14 Days</title>
+    <meta name="description" content="The #1 posture corrector device trusted by 1M+ users. Upright GO smart posture trainer eliminates back pain &amp; improves confidence. Free shipping worldwide.">
+    <meta name="keywords" content="upright go, posture corrector, upright posture, smart posture trainer, upright device, back pain relief, posture improvement">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-green: #7CB342;
+            --secondary-green: #8BC34A;
+            --dark-green: #2E7D32;
+            --accent-orange: #FF6B35;
+            --trust-blue: #1976D2;
+            --text-dark: #000000;
+            --text-medium: #555;
+            --text-light: #888;
+            --bg-light: #F8F8F8;
+            --white: #FFFFFF;
+            --shadow-light: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Trust Bar - Fixed for WordPress */
+        .trust-bar {
+            background: var(--trust-blue);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+            text-align: center;
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999 !important;
+            width: 100%;
+        }
+        
+        /* Add padding to body to account for fixed trust bar */
+        body {
+            padding-top: 36px;
+        }
+        
+        .trust-bar-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+@media (max-width: 768px) {
+    .trust-bar-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Header - Fixed positioning for WordPress */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-light);
+            position: fixed !important;
+            top: 36px !important;
+            left: 0;
+            right: 0;
+            z-index: 9998 !important;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        /* Add padding to account for fixed header */
+        .hero {
+            margin-top: 40px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo img {
+            height: 35px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+        
+        .header-trust {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-medium);
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .header-cta {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green)) !important;
+            color: var(--white) !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(124, 179, 66, 0.3);
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 179, 66, 0.4);
+            color: var(--white) !important;
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 50%, #E0F2F1 100%);
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            max-width: 600px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+        
+        .stat-text {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        .social-proof-hero {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        .review-text {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .primary-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green)) !important;
+            color: var(--white) !important;
+            padding: 1.3rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none !important;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(124, 179, 66, 0.3);
+        }
+        
+        .primary-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(124, 179, 66, 0.4);
+            color: var(--white) !important;
+        }
+        
+        .urgency-text {
+            font-size: 0.9rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .hero-visual {
+            position: relative;
+            text-align: center;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 650px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-heavy);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Trusted By Section */
+        .trusted-by {
+            padding: 60px 0;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .trusted-by-content {
+            text-align: center;
+        }
+        
+        .trusted-by h3 {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .media-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .media-logos:hover {
+            opacity: 0.8;
+            filter: grayscale(50%);
+        }
+        
+        .media-logo {
+            height: 40px;
+        }
+        
+        /* Why Choose Upright Section */
+        .why-choose {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #FAFAFA 0%, #F5F5F5 100%);
+        }
+        
+        .why-choose-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .why-choose h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+        
+        .why-choose-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        /* Mobile Carousel for Benefits - Fixed */
+        .benefits-carousel {
+            display: none;
+            position: relative;
+            margin-bottom: 4rem;
+            padding: 0;
+        }
+        
+        .benefits-carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            gap: 1rem;
+            padding: 0 20px;
+        }
+        
+        .benefits-carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .benefits-carousel .benefit-card {
+            min-width: calc(100vw - 80px);
+            max-width: calc(100vw - 80px);
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            margin-right: 0;
+            padding: 2rem 1.5rem;
+        }
+        
+        .benefits-carousel .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefits-carousel .benefit-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .carousel-btn {
+            background: var(--primary-green) !important;
+            color: white !important;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .carousel-btn:hover {
+            background: var(--dark-green) !important;
+            transform: scale(1.1);
+            color: white !important;
+        }
+        
+        .carousel-btn:disabled {
+            background: #ccc !important;
+            cursor: not-allowed;
+            transform: none;
+            color: white !important;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: var(--primary-green);
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-green);
+        }
+        
+        .benefit-card p {
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        .problem-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+        
+        .problem-text h2 .green-highlight {
+            color: var(--primary-green);
+        }
+        
+        .problem-description {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .pain-points {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .pain-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            border: 1px solid #E5E5E5;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .pain-points li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+        
+        .pain-points li::before {
+            content: "⚠️";
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        
+        .pain-point-text {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .problem-visual {
+            position: relative;
+        }
+        
+        .problem-gif {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        
+        .solution-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .solution-header h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+        
+        .solution-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .science-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        /* Product Comparison */
+        .product-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .product-card.featured {
+            border-color: var(--primary-green);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(124, 179, 66, 0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 0 0 15px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .product-reviews {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-reviews-text {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .product-reviews-stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        
+        .product-image {
+            max-width: 200px;
+            width: 100%;
+            height: 250px;
+            margin-bottom: 2rem;
+            object-fit: contain;
+            object-position: center;
+        }
+        
+        .product-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            color: #999;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            text-decoration: line-through;
+        }
+        
+        .product-price-sale {
+            font-size: 2.2rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        
+        .price-context {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+        
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .product-features li::before {
+            content: "✓";
+            background: var(--primary-green);
+            color: var(--white);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        
+        .product-cta {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green)) !important;
+            color: var(--white) !important;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .product-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 179, 66, 0.3);
+            color: var(--white) !important;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .how-it-works-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .how-it-works h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        
+        .hp-videos-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        
+        .hp-videos-row.reversed {
+            direction: rtl;
+        }
+        
+        .hp-videos-row.reversed > * {
+            direction: ltr;
+        }
+        
+        .hp-videos-img {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .hp-video {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hp-videos-img picture {
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+        
+        .hp-videos-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .hp-videos-img video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+        }
+        
+        .hp-videos-txt {
+            padding: 2rem 0;
+        }
+        
+        .hp-videos-txt p {
+            font-size: 1.3rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Enhanced Social Proof */
+        .social-proof {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        
+        .social-proof-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .social-proof h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        
+        .review-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .testimonial {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-green);
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            opacity: 0.3;
+            font-family: serif;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-stars {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-text {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .author-info span {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        /* Science Section */
+        .science {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .science-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        .science-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        
+        .science-description {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .expert-quote {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-green);
+            margin: 2rem 0;
+        }
+        
+        .expert-quote p {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .expert-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .expert-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+        }
+        
+        .expert-details h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .expert-details span {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        .certifications {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .cert-badge {
+            padding: 0.5rem 1rem;
+            background: var(--primary-green);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .science-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--text-dark), #333);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-options {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-option {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .cta-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .cta-option h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-option .price {
+            font-size: 1.3rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-option .price-sale {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-option-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green)) !important;
+            color: var(--white) !important;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none !important;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-option-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 179, 66, 0.4);
+            color: var(--white) !important;
+        }
+        
+        .guarantee-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .guarantee-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-content,
+            .problem-content,
+            .science-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .product-comparison {
+                gap: 2rem;
+            }
+            
+            .hp-videos-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .hp-videos-row.reversed {
+                direction: ltr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                display: none;
+            }
+            
+            .benefits-carousel {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Hide Shop Now button on mobile */
+            .header-cta {
+                display: none !important;
+            }
+            
+            /* Adjust body padding for mobile */
+            body {
+                padding-top: 36px;
+            }
+            
+            /* Adjust hero margin for mobile - UPDATED */
+            .hero {
+                margin-top: 20px;
+            }
+            
+            .trust-bar-content {
+                gap: 1rem;
+            }
+            
+            .nav-links,
+            .header-trust {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .product-comparison,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta-options {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .guarantee-badges {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .stat {
+                min-width: 120px;
+            }
+            
+            .media-logos {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .media-logo {
+                height: 30px;
+                max-width: 80px;
+                object-fit: contain;
+            }
+            
+            .pain-points {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .pain-points li {
+                padding: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .solution-header h2,
+            .how-it-works h2,
+            .social-proof h2,
+            .science-text h2,
+            .why-choose h2 {
+                font-size: 2rem;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .benefits-carousel .benefit-card {
+                min-width: calc(100vw - 60px);
+                max-width: calc(100vw - 60px);
+                padding: 1.5rem 1rem;
+            }
+            
+            .benefits-carousel .benefit-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .benefits-carousel .benefit-card p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Critical CSS for Performance */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+        
+        /* Prevent layout shift */
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* WordPress specific fixes */
+        .wp-admin-bar .trust-bar {
+            top: 32px !important;
+        }
+        
+        .wp-admin-bar header {
+            top: 68px !important;
+        }
+        
+        @media screen and (max-width: 782px) {
+            .wp-admin-bar .trust-bar {
+                top: 46px !important;
+            }
+            
+            .wp-admin-bar header {
+                top: 82px !important;
+            }
+        }
+    </style>
+
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-content">
+                <div class="trust-item">
+                    <span>🧘</span>
+                    <span>Healthy Back Season </span>
+                </div>
+                <div class="trust-item">
+                    <span>💰</span>
+                    <span>Save $20 Today — Ships Worldwide</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1590488150/UPRIGHT-Company-Logo-SIDE_dlbmhd.png" alt="Upright Logo" loading="eager">
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://www.uprightpose.com/all-products/">Products</a></li>
+                <li><a href="https://www.uprightpose.com/science/">Science</a></li>
+                <li><a href="https://www.uprightpose.com/reviews/">Reviews</a></li>
+                <li><a href="https://www.uprightpose.com/blog/">Blog</a></li>
+            </ul>
+            <div class="header-trust">
+                <div class="trust-badge">
+                    <span>🏥</span>
+                    <span>Doctor Approved</span>
+                </div>
+                <div class="trust-badge">
+                    <span>🧪</span>
+                    <span>Clinically Tested</span>
+                </div>
+            </div>
+            <a href="https://store.uprightpose.com/products/upright-go2/" class="header-cta">Shop Now</a>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your Posture, Transform Your Life</h1>
+                    
+                    <p class="hero-subtitle">The #1 smart posture trainer trusted by 1M+ users worldwide. Eliminate back pain and build confidence with our clinically-proven posture correction technology in just 14 days.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">1M+</div>
+                            <div class="stat-text">Users Worldwide</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">14</div>
+                            <div class="stat-text">Days to See Results</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4.5★</div>
+                            <div class="stat-text">Average Rating</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-container">
+                        <a href="#products" class="primary-cta">
+                            Start Your Transformation
+                            <span>→</span>
+                        </a>
+                        <div class="urgency-text">⏰ Limited Time Offer: Save Over $20 – Free US Shipping.</div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,w_auto/v1640193482/Image_ca4e4s.jpg" alt="Upright GO posture corrector device in action" class="hero-image" loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <div class="trusted-by-content">
+                <h3>Featured in Leading Publications</h3>
+                <div class="media-logos">
+                    <img src="https://res.cloudinary.com/uprightpose/image/upload/v1590487949/business-insider-logo-media1_tggwil.png" alt="Business Insider" class="media-logo lazyloaded" loading="lazy" data-ll-status="loaded"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/v1590487949/business-insider-logo-media1_tggwil.png" alt="Business Insider" class="media-logo" loading="lazy"></noscript>
+                    <img src="https://res.cloudinary.com/uprightpose/image/upload/v1749467818/cnn_hs1agw.png" alt="CNN" class="media-logo lazyloaded" loading="lazy" data-ll-status="loaded"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/v1749467818/cnn_hs1agw.png" alt="CNN" class="media-logo" loading="lazy"></noscript>
+                    <img src="https://res.cloudinary.com/uprightpose/image/upload/v1749467820/wired_pqzoqz.png" alt="Wired" class="media-logo lazyloaded" loading="lazy" data-ll-status="loaded"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/v1749467820/wired_pqzoqz.png" alt="Wired" class="media-logo" loading="lazy"></noscript>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Upright Section -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <div class="why-choose-header">
+                <h2>Why Choose Upright Posture Corrector?</h2>
+                <p class="why-choose-subtitle">The only smart posture trainer backed by clinical research and trusted by healthcare professionals worldwide</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Smart Posture Training Technology</h3>
+                    <p>Advanced sensors detect slouching and provide gentle vibration feedback to retrain your posture habits naturally and effectively.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Proven Results in 14 Days</h3>
+                    <p>Clinical studies show 95% of users improve their posture within 2 weeks. See immediate pain relief and long-term posture improvement.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏥</div>
+                    <h3>Doctor Recommended &amp; Clinically Validated</h3>
+                    <p>Recommended by physiotherapists and backed by peer-reviewed research. FDA registered and CE certified for safety and effectiveness.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>FREE Advanced Mobile App</h3>
+                    <p>Track progress, set goals, and get personalized training plans through our award-winning posture training app with detailed analytics.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💪</div>
+                    <h3>Builds Lasting Muscle Memory</h3>
+                    <p>Unlike traditional posture correctors, Upright trains your muscles to maintain perfect posture automatically without dependency.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌟</div>
+                    <h3>Trusted by 1M+ Users</h3>
+                    <p>Join over 1 million people who’ve eliminated back pain, increased confidence, and improved their quality of life with Upright.</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Carousel -->
+            <div class="benefits-carousel">
+                <div class="benefits-carousel-container" id="benefitsCarousel">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <h3>Smart Posture Training Technology</h3>
+                        <p>Advanced sensors detect slouching and provide gentle vibration feedback to retrain your posture habits naturally and effectively.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Proven Results in 14 Days</h3>
+                        <p>Clinical studies show 95% of users improve their posture within 2 weeks. See immediate pain relief and long-term posture improvement.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏥</div>
+                        <h3>Doctor Recommended &amp; Clinically Validated</h3>
+                        <p>Recommended by physiotherapists and backed by peer-reviewed research. FDA registered and CE certified for safety and effectiveness.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📱</div>
+                        <h3>FREE Advanced Mobile App</h3>
+                        <p>Track progress, set goals, and get personalized training plans through our award-winning posture training app with detailed analytics.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💪</div>
+                        <h3>Builds Lasting Muscle Memory</h3>
+                        <p>Unlike traditional posture correctors, Upright trains your muscles to maintain perfect posture automatically without dependency.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌟</div>
+                        <h3>Trusted by 1M+ Users</h3>
+                        <p>Join over 1 million people who’ve eliminated back pain, increased confidence, and improved their quality of life with Upright.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn">‹</button>
+                    <button class="carousel-btn" id="nextBtn">›</button>
+                </div>
+                
+                <div class="carousel-indicators" id="carouselIndicators">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                    <div class="carousel-dot" data-slide="3"></div>
+                    <div class="carousel-dot" data-slide="4"></div>
+                    <div class="carousel-dot" data-slide="5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-text">
+                    <h2>Poor posture <span class="green-highlight">isn’t your fault.</span><br>But there is something you can do about it.</h2>
+                    <p class="problem-description">Modern life traps us in positions that destroy our natural alignment. Hours hunched over screens create a cascade of health issues that impact your confidence, energy, and long-term wellbeing.</p>
+                    
+                    <ul class="pain-points">
+                        <li>
+                            <div class="pain-point-text">
+                                <strong>Chronic Back &amp; Neck Pain:</strong> Daily pain that gets progressively worse without intervention
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pain-point-text">
+                                <strong>Lost Confidence:</strong> Slouched posture makes you appear less confident and successful in work and social situations
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pain-point-text">
+                                <strong>Reduced Energy &amp; Focus:</strong> Poor alignment restricts breathing and reduces oxygen flow to your brain
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pain-point-text">
+                                <strong>Long-term Spinal Damage:</strong> Permanent changes to your spine that become irreversible over time
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="problem-visual">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Upright posture corrector showing instant posture improvement" class="problem-gif" loading="lazy" data-lazy-src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1590487653/ezgif.com-video-to-gif_1024x1024_2x_98988c06-f022-4b7e-92fe-c73ea104d4ce_1024x1024_2x_taejc6.gif"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1590487653/ezgif.com-video-to-gif_1024x1024_2x_98988c06-f022-4b7e-92fe-c73ea104d4ce_1024x1024_2x_taejc6.gif" alt="Upright posture corrector showing instant posture improvement" class="problem-gif" loading="lazy"></noscript>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="products">
+        <div class="container">
+            <div class="solution-header">
+                <div class="science-badge">
+                    <span>🧬</span>
+                    <span>Clinically Validated Posture Technology</span>
+                </div>
+                <h2>Meet Your Personal Posture Trainer</h2>
+                <p class="solution-subtitle">Smart wearable technology that gently trains your muscles to maintain perfect posture automatically. The Upright GO device is recommended by physiotherapists worldwide and trusted by 1M+ users.</p>
+            </div>
+            
+            <div class="product-comparison">
+                <div class="product-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="product-reviews">
+                        <div class="product-reviews-text">Over 15,000 reviews — trusted worldwide</div>
+                        <div class="product-reviews-stars">★★★★★</div>
+                    </div>
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Upright GO 2 smart posture corrector device" class="product-image" loading="lazy" data-lazy-src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1630329581/device_wabngm.png"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1630329581/device_wabngm.png" alt="Upright GO 2 smart posture corrector device" class="product-image" loading="lazy"></noscript>
+                    <h3 class="product-name">Upright GO 2™</h3>
+                    <div class="product-price">$99.95</div>
+                    <div class="product-price-sale">Just $79</div>
+                    <ul class="product-features">
+                        <li>2 advanced movement sensors for precision posture tracking</li>
+                        <li>9 personalized posture training programs</li>
+                        <li>30-day automatic app synchronization</li>
+                        <li>Adhesive &amp; comfortable necklace wearing options</li>
+                        <li>Premium accessories &amp; carrying case included</li>
+                        <li>30-day money-back guarantee</li>
+                    </ul>
+                    <a href="https://store.uprightpose.com/products/upright-go2/" class="product-cta">Get Upright GO 2 Now</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Upright GO S posture trainer device" class="product-image" loading="lazy" data-lazy-src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1654518581/GO-S-Gallery-Image-5_lwiran.jpg"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1654518581/GO-S-Gallery-Image-5_lwiran.jpg" alt="Upright GO S posture trainer device" class="product-image" loading="lazy"></noscript>
+                    <h3 class="product-name">Upright GO S™</h3>
+                    <div class="product-price">$79.95</div>
+                    <div class="product-price-sale">Now $59</div>
+                    <ul class="product-features">
+                        <li>1 precision movement sensor for posture detection</li>
+                        <li>3 essential posture training modes</li>
+                        <li>7-day automatic app synchronization</li>
+                        <li>Lightweight adhesive design for all-day comfort</li>
+                        <li>Perfect entry-level posture corrector</li>
+                        <li>30-day money-back guarantee</li>
+                    </ul>
+                    <a href="https://store.uprightpose.com/products/upright-go-s" class="product-cta">Get Upright GO S Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="how-it-works-header">
+                <h2>How Upright Posture Training Works</h2>
+            </div>
+            
+            <div class="hp-videos-row">
+                <div class="hp-videos-img">
+                    <picture>
+                        <source media="(min-width:376px)" data-lazy-srcset="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333488/video1_ujrlge.jpg">
+                        <source media="(min-width:180px)" data-lazy-srcset="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333485/video1-mobile_tcf7sb.jpg">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Step 1: Place Upright device on your back" loading="lazy" data-lazy-src="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333488/video1_ujrlge.jpg"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333488/video1_ujrlge.jpg" alt="Step 1: Place Upright device on your back" loading="lazy"></noscript>
+                    </picture>
+                    <video id="video1-player" class="hp-video" muted="" playsinline="" autoplay="" loop="" preload="auto">
+                        <source src="https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_1-desktop.webm" type="video/webm">
+                    </video>
+                </div>
+                <div class="hp-videos-txt">
+                    <p><strong>Step 1:</strong> Place your Upright posture device on your back using the comfortable necklace or adhesive, then set up your posture goals using Upright’s free mobile app.</p>
+                </div>
+            </div>
+            
+            <div class="hp-videos-row reversed">
+                <div class="hp-videos-img">
+                    <picture>
+                        <source media="(min-width:376px)" data-lazy-srcset="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333496/video2_vxrian.jpg">
+                        <source media="(min-width:180px)" data-lazy-srcset="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333491/video2-mobile_ihvyyk.jpg">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Step 2: Get real-time posture feedback from Upright device" loading="lazy" data-lazy-src="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333496/video2_vxrian.jpg"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333496/video2_vxrian.jpg" alt="Step 2: Get real-time posture feedback from Upright device" loading="lazy"></noscript>
+                    </picture>
+                    <video id="video2-player" class="hp-video" muted="" playsinline="" autoplay="" loop="" preload="auto">
+                        <source src="https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_2-desktop.webm" type="video/webm">
+                        <source src="https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_2-desktop.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="hp-videos-txt">
+                    <p><strong>Step 2:</strong> Receive gentle vibration feedback when you slouch. Get real-time posture correction and track your daily progress through the comprehensive mobile app.</p>
+                </div>
+            </div>
+            
+            <div class="hp-videos-row">
+                <div class="hp-videos-img">
+                    <picture>
+                        <source media="(min-width:376px)" data-lazy-srcset="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333483/video3_gchlv8.jpg">
+                        <source media="(min-width:180px)" data-lazy-srcset="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333494/video3-mobile_iuzp3z.jpg">
+                        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Step 3: See posture improvement results in 14 days" loading="lazy" data-lazy-src="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333483/video3_gchlv8.jpg"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/q_100/v1630333483/video3_gchlv8.jpg" alt="Step 3: See posture improvement results in 14 days" loading="lazy"></noscript>
+                    </picture>
+                    <video id="video3-player" class="hp-video" muted="" playsinline="" autoplay="" loop="" preload="auto">
+                        <source src="https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_3-desktop.webm" type="video/webm">
+                        <source src="https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_3-desktop.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="hp-videos-txt">
+                    <p><strong>Step 3:</strong> Get detailed daily posture analysis and progress reports in the FREE Upright app. See substantial, lasting results in less than 2 weeks!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Social Proof -->
+    <section class="social-proof" id="reviews">
+        <div class="container">
+            <div class="social-proof-header">
+                <h2>Trusted by 1M+ People Worldwide</h2>
+                <div class="review-stats">
+                    <div class="stat">
+                        <span class="stat-number">1M+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.5★</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">See Results in 14 Days</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">87%</span>
+                        <span class="stat-label">Reduced Pain</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">“After 1 week of using the Upright GO I already have reduced neck pain. The gentle reminders really work to retrain your posture habits.”</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">K</div>
+                            <div class="author-info">
+                                <h4>Karl G.</h4>
+                                <span>Software Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">“The perfect helper to remind my son to stand straight. We saw massive improvement over the past 2 weeks. Best posture corrector investment!”</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">W</div>
+                            <div class="author-info">
+                                <h4>Wendy M.</h4>
+                                <span>Parent &amp; Teacher</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">“I caught my reflection and was already standing straighter. Surprised to see results after only two days with this posture device.”</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">T</div>
+                            <div class="author-info">
+                                <h4>Tom F.</h4>
+                                <span>Marketing Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section class="science" id="science">
+        <div class="container">
+            <div class="science-content">
+                <div class="science-text">
+                    <h2>Clinically Proven Posture Technology</h2>
+                    <p class="science-description">The Upright posture corrector is validated by peer-reviewed studies and recommended by healthcare professionals worldwide. Independent clinical research shows 95% of users improve their posture within 14 days using our smart posture training technology.</p>
+                    
+                    <div class="expert-quote">
+                        <p>“Upright is fantastic… it’s a valuable tool to have to really change behavior. The biofeedback approach is scientifically sound and clinically effective for posture correction.”</p>
+                        <div class="expert-info">
+                            <div class="expert-avatar">J</div>
+                            <div class="expert-details">
+                                <h4>Joe Mahon</h4>
+                                <span>Licensed Physiotherapist</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certifications">
+                        <div class="cert-badge">Clinically Tested</div>
+                        <div class="cert-badge">Doctor Recommended</div>
+                        <div class="cert-badge">Patented Technology</div>
+                    </div>
+                </div>
+                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Clinical research validation for Upright posture corrector" class="science-image" loading="lazy" data-lazy-src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1631709156/bio-desktop_tmvyir.jpg"><noscript><img src="https://res.cloudinary.com/uprightpose/image/upload/q_auto,f_auto/v1631709156/bio-desktop_tmvyir.jpg" alt="Clinical research validation for Upright posture corrector" class="science-image" loading="lazy"></noscript>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Fix Your Posture?</h2>
+            <p>Join 1M+ people who’ve already eliminated back pain and built unshakeable confidence with perfect posture using the Upright GO device</p>
+            
+            <div class="cta-options">
+                <div class="cta-option">
+                    <h3>Upright GO 2</h3>
+                    <p>Complete Posture Solution</p>
+                    <div class="price">$99.95</div>
+                    <div class="price-sale">Just $79</div>
+                    <a href="https://store.uprightpose.com/products/upright-go2/" class="cta-option-button">Shop Now</a>
+                </div>
+                <div class="cta-option">
+                    <h3>Upright GO S</h3>
+                    <p>Essential Posture Training</p>
+                    <div class="price">$79.95</div>
+                    <div class="price-sale">Just $59</div>
+                    <a href="https://store.uprightpose.com/products/upright-go-s" class="cta-option-button">Shop Now</a>
+                </div>
+            </div>
+            
+            <div class="guarantee-badges">
+                <div class="guarantee-badge">
+                    <span>✅</span>
+                    <span>30-Day Money-Back Guarantee</span>
+                </div>
+                <div class="guarantee-badge">
+                    <span>🚚</span>
+                    <span>Free US Shipping</span>
+                </div>
+                <div class="guarantee-badge">
+                    <span>🔒</span>
+                    <span>Secure Checkout</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Optimized JavaScript for performance
+        (function() {
+            'use strict';
+            
+            // Debounce function for performance
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+            
+            // Lazy load images
+            function lazyLoadImages() {
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('lazy-load');
+                            img.addEventListener('load', () => {
+                                img.classList.add('loaded');
+                            });
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                images.forEach(img => imageObserver.observe(img));
+            }
+            
+            // Video source management
+            function setVideoSources() {
+                const videos = [
+                    {
+                        id: 'video1-player',
+                        desktop: 'https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_1-desktop.webm',
+                        mobile: 'https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_1-mobile.webm'
+                    },
+                    {
+                        id: 'video2-player',
+                        desktop: 'https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_2-desktop.webm',
+                        mobile: 'https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_2-mobile.webm'
+                    },
+                    {
+                        id: 'video3-player',
+                        desktop: 'https://www.uprightpose.com/wp-content/uploads/media/hp-videos/v_3-desktop.webm',
+                        mobile: 'https://www.uprightpose.com/wp-content/uploads/media/hp-videos/Gif_3.webm'
+                    }
+                ];
+
+                videos.forEach(videoData => {
+                    const video = document.getElementById(videoData.id);
+                    if (video) {
+                        const source = video.querySelector('source');
+                        if (source) {
+                            source.src = window.innerWidth <= 375 ? videoData.mobile : videoData.desktop;
+                        }
+                    }
+                });
+            }
+
+            // Initialize videos
+            setVideoSources();
+
+            // Handle scroll-based video play/pause
+            const handleVideoScroll = debounce(function() {
+                const videos = document.querySelectorAll('.hp-video');
+                const windowHeight = window.innerHeight;
+                
+                videos.forEach(video => {
+                    const rect = video.getBoundingClientRect();
+                    
+                    if (rect.top < windowHeight * 0.75 &#038;&#038; rect.bottom > windowHeight * 0.25) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, 100);
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    
+                    if (target) {
+                        const offset = 120;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Header scroll effects with debounce
+            const handleHeaderScroll = debounce(function() {
+                const header = document.querySelector('header');
+                const scrolled = window.scrollY > 100;
+                
+                if (scrolled) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = '0 8px 32px rgba(0,0,0,0.15)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                }
+            }, 50);
+
+            // Mobile menu functionality
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenu && navLinks) {
+                mobileMenu.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Benefits Carousel Functionality - Enhanced
+            function initBenefitsCarousel() {
+                const carousel = document.getElementById('benefitsCarousel');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const indicators = document.querySelectorAll('.carousel-dot');
+                
+                if (!carousel || !prevBtn || !nextBtn) return;
+                
+                let currentSlide = 0;
+                const cards = carousel.querySelectorAll('.benefit-card');
+                const totalSlides = cards.length;
+                
+                // Touch handling
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                function updateCarousel() {
+                    if (cards[currentSlide]) {
+                        const cardWidth = cards[0].offsetWidth + 16;
+                        const scrollPosition = currentSlide * cardWidth;
+                        
+                        carousel.scrollTo({
+                            left: scrollPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Update indicators
+                    indicators.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentSlide);
+                    });
+                    
+                    // Update button states
+                    prevBtn.disabled = currentSlide === 0;
+                    nextBtn.disabled = currentSlide === totalSlides - 1;
+                }
+                
+                function nextSlide() {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateCarousel();
+                    }
+                }
+                
+                function prevSlide() {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateCarousel();
+                    }
+                }
+                
+                function goToSlide(slideIndex) {
+                    currentSlide = slideIndex;
+                    updateCarousel();
+                }
+                
+                // Touch events
+                carousel.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                carousel.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    if (touchEndX < touchStartX - 50) {
+                        nextSlide();
+                    }
+                    if (touchEndX > touchStartX + 50) {
+                        prevSlide();
+                    }
+                }
+                
+                // Event listeners
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    nextSlide();
+                });
+                
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    prevSlide();
+                });
+                
+                indicators.forEach((dot, index) => {
+                    dot.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        goToSlide(index);
+                    });
+                });
+                
+                // Initialize
+                updateCarousel();
+            }
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        
+                        // Add stagger animation for grid items
+                        const gridItems = entry.target.querySelectorAll('.benefit-card, .product-card, .testimonial');
+                        gridItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, index * 100);
+                        });
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+            
+            function init() {
+                // Initialize carousel
+                initBenefitsCarousel();
+                
+                // Initialize lazy loading
+                lazyLoadImages();
+                
+                // Observe sections for animation
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(30px)';
+                    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    observer.observe(section);
+                    
+                    // Prepare grid items for stagger animation
+                    const gridItems = section.querySelectorAll('.benefit-card, .product-card, .testimonial');
+                    gridItems.forEach(item => {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(30px)';
+                        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    });
+                });
+                
+                // Hero section visible by default
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.opacity = '1';
+                    hero.style.transform = 'translateY(0)';
+                }
+                
+                // Add scroll listeners
+                window.addEventListener('scroll', handleVideoScroll, { passive: true });
+                window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+            }
+            
+            // Add structured data for SEO
+            const structuredData = {
+                "@context": "https://schema.org",
+                "@type": "Product",
+                "name": "Upright GO 2 Posture Corrector",
+                "description": "Smart posture trainer device that eliminates back pain and improves confidence. Clinically proven results in 14 days.",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "Upright"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "79",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.5",
+                    "reviewCount": "15000"
+                }
+            };
+
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.textContent = JSON.stringify(structuredData);
+            document.head.appendChild(script);
+        })();
+    </script>
+
+	</div><!-- .entry-content -->
+
+	</article><!-- #post-22708 -->
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+<script>document.body.classList.add('webv-' + false);console.log('webv - false')</script><script type="rocketlazyloadscript">
+    window.onload = function() {
+        var klaviyo_tag = document.createElement('script');
+        klaviyo_tag.src = 'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=HxnDdc';
+        document.getElementsByTagName('head')[0].appendChild(klaviyo_tag);
+    };
+    </script><!-- accessiBe TEST --><script type="rocketlazyloadscript">
+        function do_acsb(document, tag) { var script = document.createElement(tag); var element = document.getElementsByTagName('body')[0]; script.src = 'https://acsbap.com/apps/app/assets/js/acsb.js'; script.async = true; script.defer = true; (typeof element === 'undefined' ? document.getElementsByTagName('html')[0] : element).appendChild(script); script.onload = function() { acsbJS.init({ statementLink : '', feedbackLink : '', footerHtml : '', hideMobile : false, hideTrigger : false, language : 'en', position : 'left', leadColor : '#606060', triggerColor : '#606060', triggerRadius : '50%', triggerPositionX : 'left', triggerPositionY : 'top', triggerIcon : 'default', triggerSize : 'small', triggerOffsetX : 20, triggerOffsetY : 30, mobile : { triggerSize : 'small', triggerPositionX : 'right', triggerPositionY : 'top', triggerOffsetX : 25, triggerOffsetY : 12, triggerRadius : '50%' } }); };}
+        window.addEventListener('load', () => { 
+            console.log('acsb is ready to load');
+            setTimeout( () => { 
+                do_acsb(document, 'script');  
+                console.log('acsb is loaded');
+                }, 4500);            
+          });
+        </script><style>.acsb-trigger.acsb-trigger-position-x-right.acsb-mobile{right:10px !important;}</style>		
+				
+				
+		
+<script data-minify="1" async="" src="https://www.uprightpose.com/wp-content/cache/min/1/onsite/js/W4UMez/klaviyo.js?ver=1766414930"></script><script data-minify="1" type="text/javascript" src="https://www.uprightpose.com/wp-content/cache/min/1/wp-content/plugins/uprightPlugin/assets/js/scripts.js?ver=1766414930" id="UpRightJS-js"></script>
+<script type="text/javascript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/www.uprightpose.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="text/javascript" id="kl-identify-browser-js-extra">
+/* <![CDATA[ */
+var klUser = {"current_user_email":"","commenter_email":""};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="https://www.uprightpose.com/wp-content/cache/min/1/wp-content/plugins/klaviyo/inc/js/kl-identify-browser.js?ver=1766414930" id="kl-identify-browser-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-includes/js/wp-embed.min.js?ver=5.8" id="wp-embed-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.3.5" id="elementor-pro-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.3.1" id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.3.1" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.uprightpose.com\/wp-admin\/admin-ajax.php","nonce":"e02297d8fb","urls":{"assets":"https:\/\/www.uprightpose.com\/wp-content\/plugins\/elementor-pro\/assets\/"},"i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.uprightpose.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.3.5" id="elementor-pro-frontend-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6" id="swiper-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.3.1" id="share-link-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1" id="elementor-dialog-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"direction":"max","is_enabled":true,"default_value":767},"mobile_extra":{"label":"Mobile Extra","value":880,"direction":"max","is_enabled":false,"default_value":880},"tablet":{"label":"Tablet","value":1024,"direction":"max","is_enabled":true,"default_value":1024},"tablet_extra":{"label":"Tablet Extra","value":1365,"direction":"max","is_enabled":false,"default_value":1365},"laptop":{"label":"Laptop","value":1620,"direction":"max","is_enabled":false,"default_value":1620},"widescreen":{"label":"Widescreen","value":2400,"direction":"min","is_enabled":false,"default_value":2400}}},"version":"3.3.1","is_static":false,"experimentalFeatures":{"e_import_export":true,"landing-pages":true,"elements-color-picker":true,"admin-top-bar":true,"form-submissions":true,"video-playlist":true},"urls":{"assets":"https:\/\/www.uprightpose.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":22708,"title":"UPRIGHT%20Posture%20Training%20Device","excerpt":"","featuredImage":false}};
+</script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.3.1" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.3.5" id="pro-preloaded-elements-handlers-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.3.1" id="preloaded-modules-js"></script>
+<script type="text/javascript" src="https://www.uprightpose.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.3.5" id="e-sticky-js"></script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://www.uprightpose.com/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script><style>
+    @charset "UTF-8";.slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{position:relative;overflow:hidden;display:block;margin:0;padding:0}.slick-list:focus{outline:0}.slick-list.dragging{cursor:hand}.slick-slider .slick-track,.slick-slider .slick-list{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.slick-track{position:relative;left:0;top:0;display:block;margin-left:auto;margin-right:auto}.slick-track:before,.slick-track:after{content:"";display:table}.slick-track:after{clear:both}.slick-loading .slick-track{visibility:hidden}.slick-slide{float:left;height:100%;min-height:1px;padding-left:0;padding-right:0;display:none}[dir="rtl"] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}.slick-loading .slick-list{background:#fff url('https://res.cloudinary.com/uprightpose/image/upload/v1591262229/ajax-loader_txuqmi.gif') center center no-repeat}.slick-prev,.slick-next{position:absolute;display:block;height:20px;width:20px;line-height:0;font-size:0;cursor:pointer;background:transparent;color:transparent;top:50%;-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);transform:translate(0,-50%);padding:0;border:0;outline:0}.slick-prev:hover,.slick-next:hover,.slick-prev:focus,.slick-next:focus{outline:0;background:transparent;color:transparent}.slick-prev:hover:before,.slick-next:hover:before,.slick-prev:focus:before,.slick-next:focus:before{opacity:1}.slick-prev.slick-disabled:before,.slick-next.slick-disabled:before{opacity:.25}.slick-prev:before,.slick-next:before{font-family:"slick";font-size:20px;line-height:1;color:white;opacity:.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.slick-prev{left:-25px}[dir="rtl"] .slick-prev{left:auto;right:-25px}.slick-prev:before{content:"←"}[dir="rtl"] .slick-prev:before{content:"→"}.slick-next{right:-25px}[dir="rtl"] .slick-next{left:-25px;right:auto}.slick-next:before{content:"→"}[dir="rtl"] .slick-next:before{content:"←"}.slick-dotted .slick-slider{margin-bottom:30px}.slick-dots{position:absolute;bottom:-25px;list-style:none;display:block;text-align:center;padding:0;margin:0;width:100%}.slick-dots li{position:relative;display:inline-block;height:20px;width:20px;margin:0 5px;padding:0;cursor:pointer}.slick-dots li button{border:0;background:transparent;display:block;height:20px;width:20px;outline:0;line-height:0;font-size:0;color:transparent;padding:5px;cursor:pointer}.slick-dots li button:hover,.slick-dots li button:focus{outline:0}.slick-dots li button:hover:before,.slick-dots li button:focus:before{opacity:1}.slick-dots li button:before{position:absolute;top:0;left:0;content:"•";width:20px;height:20px;font-family:"slick";font-size:6px;line-height:20px;text-align:center;color:black;opacity:.25;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.slick-dots li.slick-active button:before{color:black;opacity:.75}.fatDots .slick-dots li{height:15px;width:15px;margin:0}.fatDots .slick-dots li button{height:15px;width:15px}.fatDots .slick-dots li button:before{height:15px;width:15px;font-size:10px}body{color:#525252;font-family:"Montserrat",Montserrat,Sans-serif,serif;font-weight:normal;margin:0}input{font-family:"Montserrat",Montserrat,Sans-serif,serif}html body.hasTopSticky:not(.noHeader){margin-top:136px !important}@media screen and (max-width:1024px){html body.hasTopSticky:not(.noHeader){margin-top:92px !important}}html body.hasTopSticky:not(.noHeader) #siteHeaderWrp header{position:fixed !important;width:100%;margin-top:0;top:45px !important}@media screen and (max-width:1024px){html body.hasTopSticky:not(.noHeader) #siteHeaderWrp header{top:40px !important}}html body.hasTopSticky.noHeader{margin-top:45px !important}@media screen and (max-width:1024px){html body.hasTopSticky.noHeader{margin-top:40px !important}}html body.topStickyOff{margin-top:0 !important}body.admin-bar .acsb-trigger.acsb-trigger-position-y-top{top:42px !important}body.site section.static-components:not(.v2-section) .slick-slider{display:table;table-layout:fixed;width:100%}body.site section.static-components+br{display:none}body.site.page #primary .entry-content p:empty{display:none}body.site .dialog-widget.elementor-popup-modal{z-index:99999999999 !important}body.site .elementor-accordion .elementor-accordion-item{border:0;border-bottom:1px solid #d4d4d4}body.site .elementor-accordion .elementor-tab-title{padding-right:0;padding-left:0}body.site .elementor-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-right{position:relative;top:8px}*:focus{outline:0}@media screen and (min-width:768px){.show-on-mobile{display:none}}@media screen and (max-width:767px){.show-on-desktop{display:none}}a.anchor{display:block;position:relative;top:-100px;visibility:hidden}.popUpOpener{cursor:pointer}.max-width-100{max-width:100%}.quote-marks-green{position:relative;text-indent:40px;margin:20px 0}.quote-marks-green:before,.quote-marks-green:after{position:absolute;width:36px;height:28px;content:" ";box-sizing:initial;display:inline-block;background-image:url("https://res.cloudinary.com/uprightpose/image/upload/v1592722841/quote-marks-green_fwtirc.png");background-repeat:no-repeat}.quote-marks-green:before{left:0;top:-12px;background-position:left top}.quote-marks-green:after{transform:rotate(180deg);padding-left:8px;background-position:left top;bottom:-10px}@media screen and (max-width:1024px){nav.elementor-nav-menu--dropdown{background:transparent !important}nav.elementor-nav-menu--dropdown ul{background:rgba(54,54,54,0.9) !important}nav.elementor-nav-menu--dropdown ul ul{background:transparent !important}nav.elementor-nav-menu--dropdown ul li{background:transparent !important}nav.elementor-nav-menu--dropdown ul li a{-webkit-box-pack:start;-ms-flex-pack:inherit;justify-content:left;white-space:nowrap;background:transparent !important;color:#fff !important;max-width:130px;padding:12px 0 !important;margin:0 auto;border-left:none !important}nav.elementor-nav-menu--dropdown ul li.MnuShopBtn{display:none}}@media screen and (min-width:1025px){#hero-sem-video-wrp .elementor-background-video-container video.elementor-background-video-hosted.elementor-html5-video{-o-object-fit:contain;object-fit:contain}#hero-sem-video-wrp .elementor-background-video-container video.elementor-background-video-hosted.elementor-html5-video.mobile-video{display:none}}@media screen and (max-width:1024px){#hero-sem-video-wrp .elementor-background-video-container video.elementor-background-video-hosted.elementor-html5-video.mobile-video{display:block}#hero-sem-video-wrp .elementor-background-video-container video.elementor-background-video-hosted.elementor-html5-video:not(.mobile-video){display:none}}#publications-wrp .slick-arrow{z-index:99;border:0;transform:translateY(-50%);text-indent:-9999px;text-align:left;overflow:hidden;width:15px;height:29px;cursor:pointer}#publications-wrp .slick-prev{left:15px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAdCAMAAABCFsboAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAADxQTFRFAAAAUVFRUVFRUVFRUVFRUVFRUVFRUFBQUVFRUFBQUFBQUVFRUFBQUVFRUFBQUFBQUVFRUFBQUFBQUVFRYgpJNQAAABR0Uk5TAA0amjOAzCBNgJrAGiamDUADH1oGk3laAAAAW0lEQVR4nK3QyxaAIAhF0Wup2Ut7/P+/ViIrYCyzfSawAOS4QRGjVwzRayq/lP4oXPmbGKfGRJz7ceFNK3lj7xRy6RkOWpJPDu2KCzqI/yTjGtR/kzFuYwRjuAdWlAUXNFWKsQAAAABJRU5ErkJggg==);background-repeat:no-repeat}#publications-wrp .slick-next{right:15px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAdCAMAAACt1K3WAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAE5QTFRFUVFRAAAAUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUFBQUFBQUVFRUVFRUFBQUFBQUFBQUFBQUFBQUVFRUFBQUVFRUFBQUFBQUVFRUVFRJ6scogAAABp0Uk5TJgCav8ymDZmQfzBNWk2Amg2/ZnMmgBN8wECbJYh6AAAAeUlEQVR4nFXQSwLCQAgD0KBYv1WrVev9L6pDhgKze4sBEkDywwaVWxRq9p+6GwqTjbpfeWjUo/Ok2ZAzfel0j51yDdsJdDuHF93c5H2iB/Lhv40xG6EnJ8/Ui3vnKSR4Uz0jPlk97+L5jcvaVmPI+C1NjqXnLEGR/AD2iQUbmGjyNgAAAABJRU5ErkJggg==);background-repeat:no-repeat}.reviews_slick{padding:0 30px}.reviews_slick .quote-mark,.reviews_slick .user-name,.reviews_slick .review-head,.reviews_slick .review-body{width:100%;float:left}.reviews_slick .user-name p{margin-bottom:0}.reviews_slick .stars,.reviews_slick .logo{width:50%;float:left}.reviews_slick .logo{text-align:right}.reviews_slick .logo img{float:right}.review-head{margin-bottom:10px}.reviews_slick p{font-size:18px;line-height:1.3;font-weight:400}.reviews_slick .review-body p a{color:#525252}.instagram_reviews .review-item{height:423px;position:relative;overflow:hidden}.instagram_reviews .review-item-inner{position:absolute;height:100%}.review-item-inner{width:100%;box-sizing:border-box;padding:10px 20px}.instagram-media{background:#FFF;border:0;width:100% !important;min-width:0 !important}.reviews_slick .slick-arrow{z-index:99;border:0;transform:translateY(-50%);text-indent:-9999px;text-align:left;overflow:hidden;width:15px;height:29px;cursor:pointer}.reviews_slick .slick-prev{left:15px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAdCAMAAABCFsboAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAADxQTFRFAAAAUVFRUVFRUVFRUVFRUVFRUVFRUFBQUVFRUFBQUFBQUVFRUFBQUVFRUFBQUFBQUVFRUFBQUFBQUVFRYgpJNQAAABR0Uk5TAA0amjOAzCBNgJrAGiamDUADH1oGk3laAAAAW0lEQVR4nK3QyxaAIAhF0Wup2Ut7/P+/ViIrYCyzfSawAOS4QRGjVwzRayq/lP4oXPmbGKfGRJz7ceFNK3lj7xRy6RkOWpJPDu2KCzqI/yTjGtR/kzFuYwRjuAdWlAUXNFWKsQAAAABJRU5ErkJggg==);background-repeat:no-repeat}.reviews_slick .slick-next{right:15px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAdCAMAAACt1K3WAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAE5QTFRFUVFRAAAAUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUFBQUFBQUVFRUVFRUFBQUFBQUFBQUFBQUFBQUVFRUFBQUVFRUFBQUFBQUVFRUVFRJ6scogAAABp0Uk5TJgCav8ymDZmQfzBNWk2Amg2/ZnMmgBN8wECbJYh6AAAAeUlEQVR4nFXQSwLCQAgD0KBYv1WrVev9L6pDhgKze4sBEkDywwaVWxRq9p+6GwqTjbpfeWjUo/Ok2ZAzfel0j51yDdsJdDuHF93c5H2iB/Lhv40xG6EnJ8/Ui3vnKSR4Uz0jPlk97+L5jcvaVmPI+C1NjqXnLEGR/AD2iQUbmGjyNgAAAABJRU5ErkJggg==);background-repeat:no-repeat}.green{color:#67bc46}.media-row{width:100%;float:left;border-bottom:1px solid #e0e0e0;padding-bottom:80px;margin-bottom:40px}.media-row:last-of-type{border:0}.media_item{float:left;width:33.33%;padding:20px;box-sizing:border-box;text-align:center}.media_item p{font-size:18px;font-weight:400}.img-wrp{width:100%}.img-wrp.media-logo{margin-bottom:20px}.img-wrp.media-logo .inner{height:65px}.img-wrp.media-logo img{max-height:100%;width:auto}.img-wrp.media-image img{width:100%}.media_item .p_desc{font-size:16px;font-weight:300}.media_item .p_by{font-size:16px;font-weight:500;margin-bottom:40px}.media_item .p_readMore a{font-size:18px;font-weight:500;border-radius:3px;border:2px solid;padding:10px 30px;transition:all 300ms ease 0}.media_item .p_readMore a:after{font-size:26px;line-height:.85em;content:">";opacity:0;position:absolute;margin-left:-1em;-moz-transition:all .2s;-webkit-transition:all .2s;transition:all .2s;text-transform:none;font-variant:none;font-style:normal;font-weight:400;text-shadow:none}.media_item .p_readMore a:hover{border:2px solid transparent;padding:10px 38px 10px 22px}.media_item .p_readMore a:hover:after{opacity:1;margin-left:10px}.rows-1 .p_desc{height:calc(1*25px)}.rows-2 .p_desc{height:calc(2*25px)}.rows-3 .p_desc{height:calc(3*25px)}.rows-4 .p_desc{height:calc(4*25px)}.rows-5 .p_desc{height:calc(5*25px)}.rows-6 .p_desc{height:calc(6*25px)}.rows-7 .p_desc{height:calc(7*25px)}.wpml-ls-menu-item ul.sub-menu .wpml-ls-menu-item span{display:inline-block;width:100%}#MainHeaderNav ul.elementor-nav-menu li.MnuShopBtn a{color:#fff;background:#67bc46;padding-top:5px;padding-bottom:5px;border-radius:30px;text-transform:uppercase}@media screen and (min-width:1171px){#MainHeaderNav .elementor-nav-menu--main>ul.elementor-nav-menu li a.elementor-item{padding-right:16px;padding-left:16px}}@media screen and (min-width:1025px) and (max-width:1170px){#MainHeaderNav .elementor-nav-menu--main>ul.elementor-nav-menu li a.elementor-item{padding-right:10px;padding-left:10px}}@media screen and (min-width:1025px){#MainHeaderNav ul.elementor-nav-menu li.MnuShopBtn a{margin-top:30px}.wpml-ls-menu-item ul.sub-menu{width:150px !important}}@media screen and (max-width:1024px){#MainHeaderNav ul.elementor-nav-menu li.MnuShopBtn a{margin-right:15px;margin-left:15px}}.video-hero{width:100%;float:right}.video-hero .video-hero-inner{width:100%;float:right;overflow:hidden}.video-hero .video-hero-inner .video-wrp{width:calc(100% - -2px);height:0;position:relative;right:1px}.video-hero .video-hero-inner video{height:100%;width:auto;top:0;right:-1px;z-index:3;position:absolute}.video-hero .video-hero-inner .video-wrp .leftBorder{height:100%;width:2px;top:0;left:1px;z-index:5;position:absolute}.blog-archive .blog-item a{color:#666}.blog-archive .blog-item{width:100%;float:left;margin-bottom:25px}.blog-archive .blog-item .img-wrp{max-width:290px;width:100%;float:left}.blog-archive .blog-item .text-entry{margin-left:20px;width:calc(100% - 310px);float:left}.blog-archive .blog-item .categories-list{margin:0;padding:0;list-style:none}.blog-archive .blog-item .categories-list a{display:inline-block;font-size:10px;line-height:14px;font-weight:700;color:#666;text-transform:uppercase;margin-bottom:9px}.blog-archive .blog-item .text-entry h3{font-size:16px;padding:0;margin:0}.blog-archive .blog-item .text-entry p.author{font-size:12px;margin:5px 0}.blog-archive .blog-item .text-entry p.author a{color:rgba(102,102,102,0.5)}.blog-archive .blog-item .text-entry p.excerpt{font-size:13px;margin:8px 0}.blog-archive .blog-item .text-entry p.comments{color:rgba(102,102,102,0.5);font-size:12px;margin:5px 0}.blog-archive .blog-item .img-wrp .inner{width:100%;height:0;padding-bottom:56.25%;overflow:hidden;position:relative}.blog-archive .blog-item .img-wrp .inner img{width:100%;height:auto;position:absolute}@media screen and (max-width:650px){.blog-archive .blog-item .img-wrp{max-width:100%}.blog-archive .blog-item .text-entry{margin-left:0;width:100%}}.comment-list>ul{padding:0}.comment-list ul{list-style:none}.comment-list ul li .comment-body .comment-meta img{width:40px;height:40px;border-radius:50%}.comment-list ul li .comment-body .comment-meta .comment-author{position:relative;top:-13px}.comment-list ul li .comment-body .comment-meta .comment-author .fn{font-weight:700;font-size:14px;color:#666;text-transform:capitalize}.comment-list ul li .comment-body .comment-meta .comment-author .fn:after{content:"•";display:inline-block;padding-left:4px;padding-right:1px}.comment-list ul li .comment-body .comment-meta .comment-author a{font-weight:600;font-size:14px;color:#b5b5b5}.comment-list ul li .comment-body .comment-details{padding-left:45px;position:relative;top:-8px}.comment-list ul li .comment-body .comment-details .comment-text p{font-weight:600;color:#666;font-size:13px}.comment-list ul li .comment-body .comment-details .reply a{font-weight:500;font-size:14px;color:#b5b5b5}.comment-list ul li ul .comment-body .comment-meta img{width:30px;height:30px}.comment-list ul li ul .comment-body .comment-meta .comment-author{top:-10px}#commentsForm .comment-form-comment textarea,#commentsForm .comment-form-author textarea,#commentsForm .comment-form-email textarea,#commentsForm .comment-form-url textarea,#commentsForm .comment-form-comment input,#commentsForm .comment-form-author input,#commentsForm .comment-form-email input,#commentsForm .comment-form-url input{font-size:13px;line-height:38px;font-weight:400;color:#b5b5b5;padding:0 15px;border:1px solid #eaeaea;-webkit-transition:all 300ms ease-in-out;-moz-transition:all 300ms ease-in-out;transition:all 300ms ease-in-out}#commentsForm .comment-form-comment textarea:focus,#commentsForm .comment-form-author textarea:focus,#commentsForm .comment-form-email textarea:focus,#commentsForm .comment-form-url textarea:focus,#commentsForm .comment-form-comment input:focus,#commentsForm .comment-form-author input:focus,#commentsForm .comment-form-email input:focus,#commentsForm .comment-form-url input:focus{border-color:#666;outline:0}#commentsForm .comment-form-comment textarea,#commentsForm .comment-form-author textarea,#commentsForm .comment-form-email textarea,#commentsForm .comment-form-url textarea{width:100%;height:135px}#commentsForm .comment-form-comment input,#commentsForm .comment-form-author input,#commentsForm .comment-form-email input,#commentsForm .comment-form-url input{width:100%;max-width:400px;height:40px}#commentsForm .form-submit{position:relative}#commentsForm .form-submit #submit{width:160px;height:40px;background:#666;border-style:solid;border-width:3px;border-color:#666;color:#fff;padding:10px 35px 10px;-webkit-transition:all 300ms ease-in-out;-moz-transition:all 300ms ease-in-out;transition:all 300ms ease-in-out;cursor:pointer}#commentsForm .form-submit:hover #submit{background:#fff;color:#666}.navigation li a,.navigation li a:hover,.navigation li.active a,.navigation li.disabled{color:#666;text-decoration:none}.navigation ul{margin:35px 0;text-align:center}.navigation li{display:inline}.navigation li a,.navigation li a:hover,.navigation li.active a,.navigation li.disabled{background-color:#eaeaea;border-radius:3px;cursor:pointer;padding:7px 12px}.navigation li a:hover,.navigation li.active a{background-color:#666;color:#fff}.img-hover-zoom{overflow:hidden}.img-hover-zoom img{-webkit-transition:all 300ms ease-in-out;-moz-transition:all 300ms ease-in-out;transition:all 300ms ease-in-out}.img-hover-zoom:hover img{transform:scale(1.15)}#gdpr-block{display:none;position:fixed;bottom:0;left:0;width:100%;background:#c2c2c2;font-size:14px;color:#000;z-index:999;height:35px;text-align:center}.close{float:right;font-size:1.2rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;opacity:.5;cursor:pointer;border:0;background:0;position:relative;top:-3px}#gdpr-block .inner{padding-top:8px;max-width:1140px;margin:0 auto}#gdpr-block a{color:#000;font-weight:bold}body.gdpr-cookie #sticky-footer{bottom:45px}@media(max-width:767.98px){#gdpr-block{height:45px;line-height:1.2}.close-gdpr{position:absolute;right:10px;top:50%;transform:translate(0,-50%)}}.dis-none{display:none !important}#sticky-footer{position:fixed;left:10px;bottom:10px;padding:18px;background-color:#fff;border-radius:20px;border:2px solid #67bc46;z-index:999999999;display:none}#sticky-footer a{display:block;width:280px;background-color:#67bc46;border:3px solid #67bc46;color:#fff;padding:10px 15px;border-radius:50px;font-size:18px;line-height:1.4;user-select:none;-webkit-appearance:none;text-decoration:none;text-align:center;text-transform:uppercase;box-sizing:border-box}#sticky-footer.Sticky-Download-now{background:transparent;border:0;padding:0}#sticky-footer.Sticky-Download-now a{line-height:1}@media(max-width:767.98px){#sticky-footer{padding:20px 0;border:0;border-top:1px solid #67bc46;left:0;bottom:0;width:100%;text-align:center;border-radius:0}#sticky-footer a{padding:8px;font-size:11px;font-weight:600;width:170px;margin:0 auto}}@media screen and (max-width:1024px){html body.site .acsb-trigger.acsb-trigger-position-x-left{right:20px !important;left:auto !important}}@media screen and (max-width:1024px){html body.noHeader .acsb-trigger.acsb-mobile{right:25px !important;left:auto !important;top:auto !important;bottom:25px !important}}html body.hasTopSticky .acsb-trigger.acsb-trigger-position-y-top{top:75px !important}@media screen and (max-width:1024px){html body.hasTopSticky .acsb-trigger.acsb-trigger-position-y-top{top:52px !important}}body.gdpr-cookie .intercom-namespace .intercom-launcher-frame,body.gdpr-cookie .intercom-lightweight-app-launcher{bottom:45px}@media screen and (max-width:1024px){.intercom-lightweight-app,#intercom-container{display:none !important}}.elementor-74 .elementor-element.elementor-element-565d8463 .elementor-icon-list-item:hover .elementor-icon-list-icon i.fab.fa-instagram{color:#3f729b}.elementor-74 .elementor-element.elementor-element-565d8463 .elementor-icon-list-item:hover .elementor-icon-list-icon i.fab.fa-facebook-f{color:#3b5998}.elementor-74 .elementor-element.elementor-element-565d8463 .elementor-icon-list-item:hover .elementor-icon-list-icon i.fab.fa-twitter{color:#00acee}.elementor-74 .elementor-element.elementor-element-565d8463 .elementor-icon-list-item:hover .elementor-icon-list-icon i.fab.fa-youtube{color:#c4302b}#page-desktop-privacy{max-width:1010px;margin:0 auto;color:#525252;font-size:16px;line-height:25px;font-weight:300;padding-right:15px;padding-left:15px}#page-desktop-privacy h2{font-size:46px;line-height:50px;color:#666;font-weight:600;margin-bottom:15px}#page-desktop-privacy h3{font-size:1.75rem;margin-bottom:.5rem;font-weight:500;line-height:1.2}#page-desktop-privacy a{color:#525252;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}#page-desktop-privacy strong{font-weight:bolder}#page-desktop-privacy p{margin-bottom:36px;color:#333}#page-desktop-privacy ul,#page-desktop-privacy ol{margin-top:0}#page-desktop-privacy figure{margin:0 0 1rem}#page-desktop-privacy .table-responsive{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}#page-desktop-privacy .table{width:100%;margin-bottom:1rem;color:#212529;border-collapse:collapse}#page-desktop-privacy .table-bordered td,#page-desktop-privacy .table-bordered th{border:1px solid #dee2e6;padding:.75rem;vertical-align:top}@media(max-width:991.98px){#page-desktop-privacy h2{font-size:30px;line-height:35px}}.sprite-center{margin:0 auto}.bg-FREE_SHIPPING_1{width:79px;height:50px;background-position:-10px -10px}.bg-HELP_CENTER_CUSTOMER_1{width:51px;height:50px;background-position:-10px -80px}.bg-MONEY_BACK_1{width:52px;height:50px;background-position:-109px -10px}.bg-WARRANTY_1{width:46px;height:50px;background-position:-81px -80px}.add-to-cart-block{width:100%;max-width:480px;margin:0 auto}.add-to-cart-block .inner{padding:0 31px;width:100%}.add-to-cart-block .inner.title-box{margin-bottom:10px}.add-to-cart-block .inner.title-box span{text-align:right;float:right;font-size:18px;font-weight:600}.add-to-cart-block .inner.review-box span{font-size:11px;font-weight:normal;position:relative;bottom:1px;left:8px}.add-to-cart-block .btn-wrp{padding:16px 19px}.add-to-cart-block .btn-wrp input{background-color:#64bd45;color:#fff;border-radius:70px;width:100%;height:44px;text-transform:uppercase;border:0;font-size:20px;font-weight:600;line-height:24px}.add-to-cart-block .btn-wrp input:focus{outline:0}.add-to-cart-block .more-options{padding:16px 19px}.add-to-cart-block .more-options .more-options-wrp{position:relative;width:100%;height:128px;padding:20px;border-radius:8.71951px;background-image:url(https://res.cloudinary.com/uprightpose/image/upload/v1591628199/Rectangle-31_wtsk7y.png);background-repeat:no-repeat;background-size:100% 100%}.add-to-cart-block .more-options .more-options-wrp h4{position:absolute;top:-2px;left:22px;width:160px;height:10px;margin:0;padding:0;background-image:url(https://res.cloudinary.com/uprightpose/image/upload/v1591628756/ADD-AN-ACCESSORY__uv5cy7.png);background-color:#fff;text-indent:-9999px;background-repeat:no-repeat;background-position:center center}.add-to-cart-block .more-options .more-options-wrp img.necklace-img{position:absolute;bottom:7px;right:10px}.add-to-cart-block .more-options .more-options-wrp .colors-wrp{position:absolute;left:45px;top:50px}.add-to-cart-block .more-options .more-options-wrp .colors-wrp label{font-weight:normal;font-size:12px;line-height:15px}.add-to-cart-block .more-options .more-options-wrp .colors-wrp .color-chooser{position:absolute;top:26px;width:34px;height:34px;box-sizing:border-box;padding:5px}.add-to-cart-block .more-options .more-options-wrp .colors-wrp .color-chooser .color-inner{width:100%;height:100%;border-radius:50%}.add-to-cart-block .more-options .more-options-wrp .colors-wrp .color-chooser#color-black{left:0}.add-to-cart-block .more-options .more-options-wrp .colors-wrp .color-chooser#color-black .color-inner{background-color:#000}.add-to-cart-block .more-options .more-options-wrp .colors-wrp .color-chooser#color-grey{left:42px}.add-to-cart-block .more-options .more-options-wrp .colors-wrp .color-chooser#color-grey .color-inner{background-color:#4f4f4f}.add-to-cart-block .more-options .more-options-wrp .colors-wrp .color-chooser.active{background-image:url(https://res.cloudinary.com/uprightpose/image/upload/v1591630882/Gradient-Selection_yotdlt.png)}.add-to-cart-block .more-options .more-options-wrp p{margin:0}.add-to-cart-block .more-options .more-options-wrp p .chbx-label{font-weight:500;font-size:12px;line-height:15px;text-transform:uppercase}.add-to-cart-block .more-options .more-options-wrp p .learn-more{position:relative;bottom:2px;margin:0 10px;font-weight:normal;font-size:10px;line-height:12px}.add-to-cart-block .more-options .more-options-wrp p .learn-more a{color:#525252}.add-to-cart-block .more-options .more-options-wrp p .necklace-price{float:right;position:relative;top:4px;font-weight:600;font-size:12.6829px;line-height:15px}.vidwrp{position:relative}.vidwrp video{display:block}.vidwrp .play-btn-wrp{display:none;position:absolute;top:0;left:0;width:0;height:0;background-repeat:no-repeat;background-size:100% 100%;background-color:#000}.vidwrp .play-btn-wrp.show{display:block;width:100%;height:100%;z-index:10}.vidwrp .play-btn-wrp .play-btn{background-image:url(https://res.cloudinary.com/uprightpose/image/upload/v1591684103/Video-Play-Button_cms20t.png);position:absolute;width:50px;height:50px;top:50%;left:50%;margin-top:-25px;margin-left:-25px;cursor:pointer}.dataTtbl2col{width:100%}.dataTtbl2col td{width:50%;font-size:14px;line-height:150%;padding:5px}.dataTtbl2col td.leftCol{font-weight:600}.dataTtbl2col td.rightCol{text-align:right;font-weight:500}.elementor-posts-container.elementor-has-item-ratio .elementor-post__thumbnail img{top:50%;left:50%}#v2-reviews-section-new{padding:50px 0}.v2-posture-trainer-section.cards{background:#f9fafb;padding:80px 0}.v2-posture-trainer-section.cards h2{margin:0 0 34px;font-weight:500}@media screen and (max-width:767px){.v2-posture-trainer-section.cards{padding:18px 0}.v2-posture-trainer-section.cards h2{margin-bottom:18px;font-weight:600}}.v2-posture-trainer-section.cards .outer-box{padding-left:15px;padding-right:15px}@media screen and (max-width:767.97px){.v2-posture-trainer-section.cards .outer-box{margin-right:25px;margin-left:25px}}.v2-posture-trainer-section.cards .inner-box{padding:0;background:#fff;box-shadow:0 0 12px rgba(0,0,0,0.05);border-radius:20px;overflow:hidden}.v2-posture-trainer-section.cards .inner-box h3{color:rgba(63,63,63,0.5);position:relative;display:inline-block;padding:0;margin-left:20px;margin-top:34px;margin-bottom:30px;text-align:left;font-style:normal;font-weight:600;font-size:60px;line-height:110%}.v2-posture-trainer-section.cards .inner-box h3:after{content:" ";width:100%;height:5px;position:absolute;left:0;bottom:0;background-repeat:repeat-x;background-position:left bottom;background-image:url(https://res.cloudinary.com/uprightpose/image/upload/v1592737518/green-gradiant-underline_va1wm8.png)}.v2-posture-trainer-section.cards .inner-box p{text-align:left;padding:0;margin-left:20px;margin-top:18px;margin-bottom:28px;font-style:normal;font-weight:500;font-size:18px;line-height:120%}.v2-posture-trainer-section.cards .inner-box img{position:relative;bottom:-4px}.v2-posture-trainer-section.benefits-of-posture{padding:100px 0 100px 0}@media screen and (max-width:767px){.v2-posture-trainer-section.benefits-of-posture{padding:18px 0 18px 0}}.v2-posture-trainer-section.benefits-of-posture h2{font-weight:500}.v2-posture-trainer-section.benefits-of-posture h3{font-weight:normal}@media screen and (max-width:767.98px){.v2-clients-section .slick-slide img{max-height:50px}}@media screen and (max-width:767.98px){.v2-reviews-section.design-2{margin-left:0;margin-right:0}}.v2-reviews-section.design-2 h2{margin-top:0;margin-bottom:10px;text-transform:uppercase;font-weight:500}@media screen and (max-width:767.98px){.v2-reviews-section.design-2 h2{font-size:19px}}.v2-reviews-section.design-2 .five-stars-holder{text-align:center;margin-bottom:12px}.v2-reviews-section.design-2 .app-store-logo-holder,.v2-reviews-section.design-2 .amazon-logo-holder{margin-bottom:25px}.v2-reviews-section.design-2 .amazon-logo-holder{text-align:right}.v2-reviews-section.design-2 .card-item{margin-left:15px;margin-right:15px}@media screen and (max-width:767.98px){.v2-reviews-section.design-2 .card-item{width:298px}.v2-reviews-section.design-2 .card-item .card-body{height:310px}}.v2-reviews-section.design-2 .card-item .card-body-img{padding:0}.v2-reviews-section.design-2 .card-item .review-quote{margin:48px 0 50px 0}.v2-reviews-section.design-2 .card-item .v2-review-text{font-style:normal;font-weight:500;font-size:22px;line-height:35px}.v2-reviews-section.design-2 .card-item .card-footer img{border-radius:50%}.v2-reviews-section.design-2 .card-item .card-footer .v2-author-name{position:relative;bottom:20px}@media screen and (max-width:767.98px){.v2-reviews-section.design-2 .card-item .card-footer .v2-author-name{bottom:12px}}#siteFooter *{margin:0;padding:0;box-sizing:border-box}#siteFooter .container{box-sizing:border-box;width:1620px;max-width:100%;margin:auto;float:none;padding:0 35px}@media screen and (min-width:768px){#siteFooter .row [class*="span"]{display:block;float:left;width:100%;min-height:28px;margin-left:2.12765957%}#siteFooter .row [class*="span"]:first-child{margin-left:0}#siteFooter .row .span12{width:99.99999999%}#siteFooter .row .span11{width:91.48936169%}#siteFooter .row .span10{width:82.9787234%}#siteFooter .row .span9{width:74.4680851%}#siteFooter .row .span8{width:65.9574468%}#siteFooter .row .span7{width:57.4468085%}#siteFooter .row .span6{width:48.93617021%}#siteFooter .row .span5{width:40.42553191%}#siteFooter .row .span4{width:31.91489361%}#siteFooter .row .span3{width:23.40425532%}#siteFooter .row .span2{width:14.89361702%}#siteFooter .row .span1{width:6.38297872%}}#siteFooter #footer{font-family:'Montserrat',sans-serif;clear:both;background:#f7f8f9}#siteFooter #footer ul{list-style:none;margin:0;padding:0}#siteFooter #footer .newsletter-section{padding:90px 0 110px 0;background:#333;color:#FFF;text-align:center}#siteFooter #footer .newsletter-section h2{text-transform:uppercase;font-weight:500;font-size:36px;line-height:145%;text-align:center;letter-spacing:.05em;width:570px;max-width:100%;margin:auto}#siteFooter #footer .newsletter-section p{width:570px;max-width:100%;margin:auto;font-weight:normal;font-size:22px;line-height:218%}#siteFooter #footer .newsletter-section form.form{width:447px;max-width:100%;margin:auto;position:relative;margin-top:54px}#siteFooter #footer .newsletter-section form.form input{height:38px;border:1px solid #fff;border-radius:5px;font-size:14px;font-weight:400;background:transparent;padding:4px 20px;padding-right:89px;width:100%;color:#FFF;outline:0}#siteFooter #footer .newsletter-section form.form button{position:absolute;right:0;top:0;height:38px;border:1px solid #fff;border-radius:5px;font-size:14px;font-weight:400;background:#FFF;width:79px;cursor:pointer}#siteFooter #footer .newsletter-section form.form button:hover{opacity:.85}#siteFooter #footer .footer-section{clear:both;padding:66px 0 22px 0}#siteFooter #footer .footer-section h3{text-transform:uppercase;color:#333;font-size:14px;font-weight:600;margin:0 0 15px 0}#siteFooter #footer .footer-section .footer-connect h3{margin:0 0 18px 0}#siteFooter #footer .footer-section ul li{line-height:2}#siteFooter #footer .footer-section ul li a{text-decoration:none;font-size:14px;font-weight:400;color:#333}#siteFooter #footer .footer-section ul li a:hover{text-decoration:underline}#siteFooter #footer .footer-social li{float:left;margin-right:25px}#siteFooter #footer .footer-social li:last-child{margin-right:0}#siteFooter #footer .footer-social li a{display:inline-block;width:50px;height:50px;line-height:50px;text-align:center;border-radius:50%;color:#FFF}#siteFooter #footer .footer-social li a:hover{opacity:.85}#siteFooter #footer .footer-social li a img{max-width:100%}#siteFooter #footer .footer-connect{float:right}#siteFooter #footer .footer-connect h4{font-weight:600;font-size:14px;text-transform:uppercase;margin:0;padding-top:59px;clear:both}#siteFooter #footer .app-buttons li{margin-top:32px;float:left;margin-right:17px;width:45%}#siteFooter #footer .app-buttons li:last-child{margin-right:0}#siteFooter #footer .app-buttons li img{max-width:100%}#siteFooter #footer .app-buttons li a:hover{opacity:.85}#siteFooter #footer p.footer-copyright{clear:both;text-align:center;font-size:14px;color:#333;padding-top:30px}#siteFooter #footer #on-success{margin:10px 0;display:inline-block;position:absolute;width:100%;text-align:center;left:0}@media screen and (min-width:768px) and (max-width:1024px){#siteFooter #footer .footer-section .span6{width:100%;margin-left:0}#siteFooter #footer .footer-section .span6 .span4{width:23.5%}#siteFooter #footer .footer-connect{width:100%;margin-top:38px}#siteFooter #footer .footer-connect h4{padding-top:0}#siteFooter #footer .footer-connect .app-buttons li{margin-top:18px;width:120px}#siteFooter #footer .footer-connect .app-buttons li img{width:118px}#siteFooter #footer .connect-wrp,#siteFooter #footer .upright-app-wrp{width:48%;float:left}#siteFooter #footer .footer-social li{margin-right:12px}#siteFooter #footer .footer-social li a{width:32px;height:32px}}@media screen and (max-width:767px){#siteFooter #footer{text-align:left}#siteFooter #footer .menus-wrp{padding:0 20px}#siteFooter #footer .span4{width:48.93617021%;float:left}#siteFooter #footer .span4:nth-child(2n){margin-left:11%;width:40%}#siteFooter #footer .span4:nth-child(3) h3{padding-top:30px}#siteFooter #footer .span5,#siteFooter #footer .span6{width:100%;float:none;clear:both;text-align:center}#siteFooter #footer .span5 h3,#siteFooter #footer .span6 h3{padding-top:30px}#siteFooter #footer .span5 .footer-list,#siteFooter #footer .span6 .footer-list,#siteFooter #footer .span5 h3.footer-list-title,#siteFooter #footer .span6 h3.footer-list-title{text-align:left}#siteFooter #footer .footer-social{width:300px;max-width:100%;margin:auto;position:relative;left:-5px}#siteFooter #footer .footer-social li{width:19%;float:none;margin:auto;display:inline-block}#siteFooter #footer .footer-social li a{width:40px}#siteFooter #footer .app-buttons{width:300px;max-width:100%;margin:auto;position:relative;left:5px}#siteFooter #footer .newsletter-section{padding:50px 0 80px 0}#siteFooter #footer .newsletter-section .container{padding:0 25px}#siteFooter #footer .newsletter-section form.form{width:310px}#siteFooter #footer .newsletter-section form.form button{background-color:transparent;border-color:transparent;width:40px}#siteFooter #footer .newsletter-section h2{line-height:1.2;font-size:24px}#siteFooter #footer .newsletter-section p{line-height:1.5;margin-top:20px;font-size:14px;padding:0 50px}#siteFooter #footer .footer-section{padding:30px 0 60px 0}#siteFooter #footer .footer-section h2{margin-top:30px}#siteFooter #footer .footer-connect{float:none}#siteFooter #footer .footer-connect .upright-app-wrp h4{padding-top:35px}}#siteFooter ::placeholder{color:#fff;opacity:1}#siteFooter :-ms-input-placeholder{color:#fff}#siteFooter ::-ms-input-placeholder{color:#fff}body.site.geof-current-country-en .geof-display-en{display:inline-block !important}body.site.geof-current-country-en [class*='geof-hide']:not(.geof-hide-en){display:inline-block !important}body.site.geof-current-country-au .geof-display-au{display:inline-block !important}body.site.geof-current-country-au [class*='geof-hide']:not(.geof-hide-au){display:inline-block !important}body.site.geof-current-country-de .geof-display-de{display:inline-block !important}body.site.geof-current-country-de [class*='geof-hide']:not(.geof-hide-de){display:inline-block !important}body.site.geof-current-country-nz .geof-display-nz{display:inline-block !important}body.site.geof-current-country-nz [class*='geof-hide']:not(.geof-hide-nz){display:inline-block !important}body.site.geof-current-country-sg .geof-display-sg{display:inline-block !important}body.site.geof-current-country-sg [class*='geof-hide']:not(.geof-hide-sg){display:inline-block !important}body.site.geof-current-country-gb .geof-display-gb{display:inline-block !important}body.site.geof-current-country-gb [class*='geof-hide']:not(.geof-hide-gb){display:inline-block !important}
+</style>
+<script type="rocketlazyloadscript">
+    </script>
+
+
+
+
+</body></html>

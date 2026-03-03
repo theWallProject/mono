@@ -1,0 +1,69 @@
+[2026-03-01T16:57:04.852Z] === Homepage AI Extractor: MetalBear ===
+[2026-03-01T16:57:04.852Z] Started at: 2026-03-01T16:57:04.852Z
+[2026-03-01T16:57:04.852Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772384224851_MetalBear
+[2026-03-01T16:57:04.852Z] Company: MetalBear
+[2026-03-01T16:57:04.852Z] Website: metalbear.co
+[2026-03-01T16:57:04.852Z] cbRank: 31532
+[2026-03-01T16:57:04.852Z] Reasons: h
+[2026-03-01T16:57:04.852Z] Fetching: https://metalbear.co
+[2026-03-01T16:57:10.728Z] Redirected: https://metalbear.co -> https://metalbear.com/
+[2026-03-01T16:57:10.736Z] Saved HTML (130174 bytes) to page.html
+[2026-03-01T16:57:10.741Z] Extracted 35 unique links from page
+[2026-03-01T16:57:10.742Z] Saved 35 links to links.json
+[2026-03-01T16:57:10.747Z] Extracted footer HTML (12752 chars)
+[2026-03-01T16:57:10.748Z] Extracted header HTML (9900 chars)
+[2026-03-01T16:57:10.759Z] Website (post-redirect): https://metalbear.com/ → origin: https://metalbear.com
+[2026-03-01T16:57:10.759Z]   SUBDOMAIN: app.metalbear.com (added to ws)
+[2026-03-01T16:57:10.759Z] Website subdomains found: 1
+[2026-03-01T16:57:10.759Z] External links: 4 (of 35 total)
+[2026-03-01T16:57:10.760Z] ── All external links ──
+[2026-03-01T16:57:10.760Z]   EXT: https://github.com/metalbear-co/mirrord
+[2026-03-01T16:57:10.760Z]   EXT: https://studioartik.com
+[2026-03-01T16:57:10.760Z]   EXT: https://twitter.com/metalbear
+[2026-03-01T16:57:10.760Z]   EXT: https://www.linkedin.com/company/metalbearco
+[2026-03-01T16:57:10.760Z] ── Step 1: Programmatic categorization ──
+[2026-03-01T16:57:10.760Z]   REGEX: gh <- https://github.com/metalbear-co/mirrord
+[2026-03-01T16:57:10.760Z]   UNCATEGORIZED: https://studioartik.com
+[2026-03-01T16:57:10.760Z]   REGEX: tw <- https://twitter.com/metalbear
+[2026-03-01T16:57:10.760Z]   REGEX: li <- https://www.linkedin.com/company/metalbearco
+[2026-03-01T16:57:10.761Z] Programmatic result: ws:2, gh:1, tw:1, li:1 | 1 uncategorized
+[2026-03-01T16:57:10.761Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-01T16:57:10.762Z] Saved AI prompt (4094 chars) to ai_prompt.txt
+[2026-03-01T16:57:31.317Z] Saved AI response to ai_response.json
+[2026-03-01T16:57:31.317Z] ── Parsing AI response (3 lines) ──
+[2026-03-01T16:57:31.317Z]   AI LINK: https://github.com/metalbear-co/mirrord
+[2026-03-01T16:57:31.318Z]   AI LINK: https://twitter.com/metalbear
+[2026-03-01T16:57:31.318Z]   AI LINK: https://www.linkedin.com/company/metalbearco
+[2026-03-01T16:57:31.318Z] AI returned 3 valid links
+[2026-03-01T16:57:31.318Z] ── Categorizing 3 AI-returned links ──
+[2026-03-01T16:57:31.318Z]   AI→REGEX: gh <- https://github.com/metalbear-co/mirrord (duplicate, skipped)
+[2026-03-01T16:57:31.318Z]   AI→REGEX: tw <- https://twitter.com/metalbear (duplicate, skipped)
+[2026-03-01T16:57:31.318Z]   AI→REGEX: li <- https://www.linkedin.com/company/metalbearco (duplicate, skipped)
+[2026-03-01T16:57:31.319Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-01T16:57:31.319Z] Footer/header origins (6):
+[2026-03-01T16:57:31.319Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-01T16:57:31.319Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-01T16:57:31.319Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-01T16:57:31.319Z]   FOOTER/HEADER ORIGIN: https://metalbear.com
+[2026-03-01T16:57:31.319Z]   FOOTER/HEADER ORIGIN: https://studioartik.com
+[2026-03-01T16:57:31.319Z]   FOOTER/HEADER ORIGIN: https://app.metalbear.com
+[2026-03-01T16:57:31.320Z]   ADDED: urls <- https://studioartik.com
+[2026-03-01T16:57:31.320Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-01T16:57:31.320Z] ── Step 3: Final dedup ──
+[2026-03-01T16:57:31.320Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-01T16:57:31.320Z] ── FINAL RESULT ──
+[2026-03-01T16:57:31.320Z]   ws (2):
+[2026-03-01T16:57:31.320Z]     - https://app.metalbear.com
+[2026-03-01T16:57:31.320Z]     - https://metalbear.com
+[2026-03-01T16:57:31.320Z]   li (1):
+[2026-03-01T16:57:31.320Z]     - https://www.linkedin.com/company/metalbearco
+[2026-03-01T16:57:31.320Z]   tw (1):
+[2026-03-01T16:57:31.320Z]     - https://x.com/metalbear
+[2026-03-01T16:57:31.320Z]   gh (1):
+[2026-03-01T16:57:31.320Z]     - https://github.com/metalbear-co
+[2026-03-01T16:57:31.320Z]   urls (1):
+[2026-03-01T16:57:31.320Z]     - https://studioartik.com
+[2026-03-01T16:57:31.321Z] Summary: ws:2, gh:1, tw:1, li:1, urls:1
+[2026-03-01T16:57:31.321Z] Saved final result to result.json
+[2026-03-01T16:57:31.322Z] Override fields: ws, li, tw, gh, urls
+[2026-03-01T16:57:31.322Z] Finished at: 2026-03-01T16:57:31.322Z
