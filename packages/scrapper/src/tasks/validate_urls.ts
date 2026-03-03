@@ -6,115 +6,17 @@ import { BrowserContext, chromium, Page } from "playwright"
 
 import { error, log } from "../helper"
 import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../types"
-import { loadModule } from "../utils/moduleLoader"
 import type { ManualAdditionItem } from "./manual_resolve/manualAdditions"
 import { loadManualAdditions, saveManualAdditions } from "./validate/addition_io"
+import { loadManualOverrides, saveManualOverrides } from "./validate/override_io"
+import { isBrowserVerified, browserVerifiedMeta, type ManualOverrideValue, type MetaState } from "./validate/types"
 import { categorizeUrl, isFromRegexDomain } from "./validate/url_categorization"
-import { cleanFieldValue, extractUrlOrigin } from "./validate/url_utils"
-
-type ProcessedState = {
-  _processed: true
-}
+import { extractUrlOrigin } from "./validate/url_utils"
 
 // ScrapperLinkField excludes "il" since it's not a database field (only used in bot/addon for .il domains)
 type ScrapperLinkField = Exclude<LinkField, "il">
 
-type ManualOverrideValue = (ManualOverrideFields & ProcessedState) | ProcessedState | ManualOverrideFields
-
 const inputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
-
-const manualOverridesPath = path.join(__dirname, "./manual_resolve/manualOverrides.ts")
-
-const isProcessed = (
-  value: ManualOverrideValue
-): value is ProcessedState | (Partial<CrunchbaseScrappedItemType> & ProcessedState) => {
-  return typeof value === "object" && value !== null && "_processed" in value && value._processed === true
-}
-
-const loadManualOverrides = (): Record<string, ManualOverrideValue> => {
-  const modulePath = path.resolve(manualOverridesPath)
-  const module = loadModule<{ manualOverrides?: Record<string, ManualOverrideValue> }>(modulePath)
-  const overrides = module.manualOverrides || {}
-  if (typeof overrides !== "object" || overrides === null || Array.isArray(overrides)) {
-    throw new Error("manualOverrides is not a valid record")
-  }
-  return overrides
-}
-
-const formatValue = (value: ManualOverrideValue): string => {
-  if (isProcessed(value)) {
-    const fields: string[] = []
-    if ("ws" in value && value.ws !== undefined) fields.push(`ws: ${JSON.stringify(cleanFieldValue("ws", value.ws))}`)
-    if ("li" in value && value.li !== undefined) fields.push(`li: ${JSON.stringify(cleanFieldValue("li", value.li))}`)
-    if ("fb" in value && value.fb !== undefined) fields.push(`fb: ${JSON.stringify(cleanFieldValue("fb", value.fb))}`)
-    if ("tw" in value && value.tw !== undefined) fields.push(`tw: ${JSON.stringify(cleanFieldValue("tw", value.tw))}`)
-    if ("ig" in value && value.ig !== undefined) fields.push(`ig: ${JSON.stringify(cleanFieldValue("ig", value.ig))}`)
-    if ("gh" in value && value.gh !== undefined) fields.push(`gh: ${JSON.stringify(cleanFieldValue("gh", value.gh))}`)
-    if ("ytp" in value && value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(cleanFieldValue("ytp", value.ytp))}`)
-    if ("ytc" in value && value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(cleanFieldValue("ytc", value.ytc))}`)
-    if ("tt" in value && value.tt !== undefined) fields.push(`tt: ${JSON.stringify(cleanFieldValue("tt", value.tt))}`)
-    if ("th" in value && value.th !== undefined) fields.push(`th: ${JSON.stringify(cleanFieldValue("th", value.th))}`)
-    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(cleanFieldValue("urls", value.urls))}`)
-    if ("android_dev_id" in value && value.android_dev_id !== undefined)
-      fields.push(`android_dev_id: ${JSON.stringify(value.android_dev_id)}`)
-    if ("android_app_ids" in value && value.android_app_ids !== undefined)
-      fields.push(`android_app_ids: ${JSON.stringify(value.android_app_ids)}`)
-
-    if (fields.length > 0) {
-      // Has changes - include both the fields and the processed state
-      return `{ ${fields.join(", ")}, _processed: true }`
-    } else {
-      // No changes - just processed state
-      return `{ _processed: true }`
-    }
-  } else {
-    // Regular override without processed state
-    const fields: string[] = []
-    if (value.ws !== undefined) fields.push(`ws: ${JSON.stringify(cleanFieldValue("ws", value.ws))}`)
-    if (value.li !== undefined) fields.push(`li: ${JSON.stringify(cleanFieldValue("li", value.li))}`)
-    if (value.fb !== undefined) fields.push(`fb: ${JSON.stringify(cleanFieldValue("fb", value.fb))}`)
-    if (value.tw !== undefined) fields.push(`tw: ${JSON.stringify(cleanFieldValue("tw", value.tw))}`)
-    if (value.ig !== undefined) fields.push(`ig: ${JSON.stringify(cleanFieldValue("ig", value.ig))}`)
-    if (value.gh !== undefined) fields.push(`gh: ${JSON.stringify(cleanFieldValue("gh", value.gh))}`)
-    if (value.ytp !== undefined) fields.push(`ytp: ${JSON.stringify(cleanFieldValue("ytp", value.ytp))}`)
-    if (value.ytc !== undefined) fields.push(`ytc: ${JSON.stringify(cleanFieldValue("ytc", value.ytc))}`)
-    if (value.tt !== undefined) fields.push(`tt: ${JSON.stringify(cleanFieldValue("tt", value.tt))}`)
-    if (value.th !== undefined) fields.push(`th: ${JSON.stringify(cleanFieldValue("th", value.th))}`)
-    if ("urls" in value && value.urls !== undefined) fields.push(`urls: ${JSON.stringify(cleanFieldValue("urls", value.urls))}`)
-    if ("android_dev_id" in value && value.android_dev_id !== undefined)
-      fields.push(`android_dev_id: ${JSON.stringify(value.android_dev_id)}`)
-    if ("android_app_ids" in value && value.android_app_ids !== undefined)
-      fields.push(`android_app_ids: ${JSON.stringify(value.android_app_ids)}`)
-
-    if (fields.length > 0) {
-      return `{ ${fields.join(", ")} }`
-    } else {
-      return `{}`
-    }
-  }
-}
-
-const saveManualOverrides = (overrides: Record<string, ManualOverrideValue>) => {
-  const keys = Object.keys(overrides).sort()
-  let content = 'import { ManualOverrideFields } from "../../types";\n\n'
-  content +=
-    "export const manualOverrides: Record<string, ManualOverrideFields | { _processed: true } | (ManualOverrideFields & { _processed: true }) | (ManualOverrideFields & { urls?: string[] }) | (ManualOverrideFields & { _processed: true; urls?: string[] })> = {\n"
-
-  for (const key of keys) {
-    const value = overrides[key]
-    if (value === undefined) {
-      throw new Error(`Unexpected undefined value for key: ${key}`)
-    }
-    const needsQuotes = !/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key)
-    const keyStr = needsQuotes ? `"${key.replace(/"/g, '\\"')}"` : key
-    content += `  ${keyStr}: ${formatValue(value)},\n`
-  }
-
-  content += "};\n"
-
-  fs.writeFileSync(manualOverridesPath, content, "utf-8")
-  log(`Saved manualOverrides to ${manualOverridesPath}`)
-}
 
 const normalizeUrl = (url: string): string => {
   if (!url) {
@@ -1228,7 +1130,7 @@ const getStatistics = (allItems: CrunchbaseScrappedItemType[], processedItems: R
 
   for (const item of allItems) {
     const processedItem = processedItems[item.name]
-    const isProcessedItem = processedItem !== undefined && isProcessed(processedItem)
+    const isProcessedItem = processedItem !== undefined && isBrowserVerified(processedItem)
 
     if (isProcessedItem) {
       processed++
@@ -1949,7 +1851,7 @@ export async function addNewEntryLinksForAdditions(
       const addition: ManualAdditionItem = {
         name: companyName,
         reasons,
-        _processed: true,
+        _meta: browserVerifiedMeta,
         ...(collectedUrls.urls && { urls: collectedUrls.urls }),
         ...(collectedUrls.ws !== undefined && { ws: collectedUrls.ws }),
         ...(collectedUrls.li !== undefined && { li: collectedUrls.li }),
@@ -1966,11 +1868,11 @@ export async function addNewEntryLinksForAdditions(
 
       currentAdditions.push(addition)
     } else {
-      log(`  ✓ No URLs collected for ${companyName}, marking as processed`)
+      log(`  ✓ No URLs collected for ${companyName}, marking as browser-verified`)
       const addition: ManualAdditionItem = {
         name: companyName,
         reasons,
-        _processed: true
+        _meta: browserVerifiedMeta
       }
       currentAdditions.push(addition)
     }
@@ -2514,7 +2416,7 @@ async function saveEntryProgress(
   const addition: ManualAdditionItem = {
     name: companyName,
     reasons,
-    ...(isComplete && { _processed: true }),
+    ...(isComplete && { _meta: browserVerifiedMeta }),
     ...(processedUrls?.length && { urls: processedUrls }),
     ...(processedWs?.length && { ws: processedWs }),
     ...(processedLi?.length && { li: processedLi }),
@@ -2646,10 +2548,10 @@ export async function run() {
     const sortedData = sortByReasonAndCbRank(data)
     log("Sorted by reason priority (h > f > others) and cbRank")
 
-    // Filter out already processed items
+    // Filter out already browser-verified items
     const unprocessedItems = sortedData.filter((item) => {
       const existing = currentOverrides[item.name]
-      return !existing || !isProcessed(existing)
+      return !existing || !isBrowserVerified(existing)
     })
 
     log(`\nFound ${unprocessedItems.length} unprocessed items`)
@@ -2798,13 +2700,13 @@ export async function run() {
       // ManualOverrideFields allows arrays for all link fields (ws/li/fb/tw/ig/gh/ytp/ytc/tt/th)
       // Preserve existing fields (like android_dev_id, android_app_ids) from existing override
       const override: ManualOverrideFields &
-        ProcessedState & {
+        MetaState & {
           urls?: string[]
         } = {
-        ...(existingOverride && typeof existingOverride === "object" && !isProcessed(existingOverride)
+        ...(existingOverride && typeof existingOverride === "object" && !isBrowserVerified(existingOverride)
           ? existingOverride
           : {}),
-        _processed: true
+        _meta: browserVerifiedMeta
       }
 
       // Type-safe assignment for each link field
@@ -2822,41 +2724,27 @@ export async function run() {
 
       currentOverrides[item.name] = override
     } else {
-      // No changes - mark as processed but preserve existing fields
+      // No changes - mark as browser-verified but preserve existing fields
       log(`  ✓ No changes for ${item.name}`)
-      if (existingOverride && typeof existingOverride === "object" && !isProcessed(existingOverride)) {
-        // Preserve existing fields and mark as processed
-        const override: ManualOverrideFields & ProcessedState = {
+      if (existingOverride && typeof existingOverride === "object" && !isBrowserVerified(existingOverride)) {
+        // Preserve existing fields and mark as browser-verified
+        const override: ManualOverrideFields & MetaState = {
           ...existingOverride,
-          _processed: true
+          _meta: browserVerifiedMeta
         }
         currentOverrides[item.name] = override
       } else {
-        // No existing fields, just mark as processed
-        const override: ProcessedState = {
-          _processed: true
+        // No existing fields, just mark as browser-verified
+        const override: MetaState = {
+          _meta: browserVerifiedMeta
         }
         currentOverrides[item.name] = override
       }
     }
 
-    // Save after each item
-    saveManualOverrides(currentOverrides)
-
-    // CRITICAL: Ensure file is fully written and readable before proceeding
-    // Verify the file exists and is readable to ensure it's saved on disk
-    try {
-      const exists = fs.existsSync(manualOverridesPath)
-      if (!exists) {
-        throw new Error(`manualOverrides file not found after save: ${manualOverridesPath}`)
-      }
-      // Try to read it to ensure it's fully written
-      fs.readFileSync(manualOverridesPath, "utf-8")
-      log("  💾 Progress saved and verified")
-    } catch (e) {
-      error(`  ⚠️  Failed to verify manualOverrides save: ${e}`)
-      throw new Error(`Cannot proceed: manualOverrides file not saved correctly`)
-    }
+    // Save after each item (shared async saveManualOverrides uses Prettier formatting)
+    await saveManualOverrides(currentOverrides)
+    log("  💾 Progress saved")
 
     log(`\n✓ Item processed. Remaining items: ${unprocessedItems.length - 1}`)
 

@@ -18,15 +18,18 @@ import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./tasks/homepage_ai_extractor/conf
 import { runInteractive, runBatch, runRetry } from "./tasks/homepage_ai_extractor/run"
 import { getRetryListCount } from "./tasks/homepage_ai_extractor/retry_list"
 
-process.on("unhandledRejection", (reason) => {
-  error("HOMEPAGE_AI_EXTRACTOR Unhandled Rejection:", reason)
-  throw new Error("HOMEPAGE_AI_EXTRACTOR Unhandled Rejection")
-})
+// Only register error handlers when this file is executed directly (not imported)
+if (require.main === module) {
+  process.on("unhandledRejection", (reason) => {
+    error("HOMEPAGE_AI_EXTRACTOR Unhandled Rejection:", reason)
+    throw new Error("HOMEPAGE_AI_EXTRACTOR Unhandled Rejection")
+  })
 
-process.on("uncaughtException", (err) => {
-  error("HOMEPAGE_AI_EXTRACTOR Uncaught Exception:", err)
-  throw new Error("HOMEPAGE_AI_EXTRACTOR Uncaught Exception")
-})
+  process.on("uncaughtException", (err) => {
+    error("HOMEPAGE_AI_EXTRACTOR Uncaught Exception:", err)
+    throw new Error("HOMEPAGE_AI_EXTRACTOR Uncaught Exception")
+  })
+}
 
 // ────────────────────────────────────────────────────────────────────────────
 // Prompts
@@ -167,12 +170,11 @@ const main = async () => {
     await handleRetryMode()
   }
 
-  // Prompt to apply overrides (same pattern as validate_index.ts)
+  // Prompt to apply overrides
   const shouldApply = await promptForApplyOverrides()
 
   if (!shouldApply) {
-    log("Skipping apply-overrides. Run 'pnpm run apply-overrides' manually when ready.")
-    process.exit(0)
+    log("Skipping apply-overrides. Run 'pnpm data apply' manually when ready.")
     return
   }
 
@@ -183,14 +185,17 @@ const main = async () => {
       cwd: process.cwd()
     })
     log("All files updated successfully!")
-    process.exit(0)
   } catch {
-    error("Failed to apply overrides. Run 'pnpm run apply-overrides' manually.")
-    process.exit(1)
+    throw new Error("Failed to apply overrides. Run 'pnpm data apply' manually.")
   }
 }
 
-main().catch((err) => {
-  error("Fatal error in Homepage AI Extractor:", err)
-  process.exit(1)
-})
+export { main as run }
+
+// Run directly when executed as a script
+if (require.main === module) {
+  main().catch((err) => {
+    error("Fatal error in Homepage AI Extractor:", err)
+    process.exit(1)
+  })
+}

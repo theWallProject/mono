@@ -12,15 +12,18 @@ import {
 } from "./tasks/validate_urls"
 import { loadModule } from "./utils/moduleLoader"
 
-process.on("unhandledRejection", (reason) => {
-  error("DATA_ERROR Unhandled Rejection:", reason)
-  throw new Error("DATA_ERROR Unhandled Rejection")
-})
+// Only register error handlers when this file is executed directly (not imported)
+if (require.main === module) {
+  process.on("unhandledRejection", (reason) => {
+    error("DATA_ERROR Unhandled Rejection:", reason)
+    throw new Error("DATA_ERROR Unhandled Rejection")
+  })
 
-process.on("uncaughtException", (err) => {
-  error("DATA_ERROR Uncaught Exception:", err)
-  throw new Error("DATA_ERROR Uncaught Exception")
-})
+  process.on("uncaughtException", (err) => {
+    error("DATA_ERROR Uncaught Exception:", err)
+    throw new Error("DATA_ERROR Uncaught Exception")
+  })
+}
 
 const manualDeleteIdsPath = path.join(__dirname, "./tasks/manual_resolve/manualDeleteIds.ts")
 
@@ -230,24 +233,11 @@ const handleAddAdditionAction = async (): Promise<void> => {
   ])
 
   if (!shouldApply) {
-    log("⏭️  Skipping apply-overrides. Run 'pnpm run apply-overrides' manually when ready.")
-    process.exit(0)
+    log("⏭️  Skipping apply-overrides. Run 'pnpm data apply' manually when ready.")
     return
   }
 
-  // Run apply-overrides after user confirmation
-  log("\n🔄 Applying manual overrides to output files...")
-  try {
-    execSync("pnpm run apply-overrides", {
-      stdio: "inherit",
-      cwd: process.cwd()
-    })
-    log("✅ All files updated successfully!")
-    process.exit(0)
-  } catch {
-    error("⚠️  Failed to apply overrides. Run 'pnpm run apply-overrides' manually.")
-    process.exit(1)
-  }
+  applyOverridesWithLog()
 }
 
 const handleValidateAction = async (): Promise<void> => {
@@ -258,7 +248,10 @@ const handleValidateAction = async (): Promise<void> => {
     // Still try to apply overrides even if validation had errors
   }
 
-  // Wait for user confirmation before applying overrides
+  await promptAndApplyOverrides()
+}
+
+const promptAndApplyOverrides = async (): Promise<void> => {
   const { shouldApply } = await inquirer.prompt([
     {
       type: "confirm",
@@ -269,12 +262,14 @@ const handleValidateAction = async (): Promise<void> => {
   ])
 
   if (!shouldApply) {
-    log("⏭️  Skipping apply-overrides. Run 'pnpm run apply-overrides' manually when ready.")
-    process.exit(0)
+    log("⏭️  Skipping apply-overrides. Run 'pnpm data apply' manually when ready.")
     return
   }
 
-  // Run apply-overrides after user confirmation
+  applyOverridesWithLog()
+}
+
+const applyOverridesWithLog = (): void => {
   log("\n🔄 Applying manual overrides to output files...")
   try {
     execSync("pnpm run apply-overrides", {
@@ -282,10 +277,8 @@ const handleValidateAction = async (): Promise<void> => {
       cwd: process.cwd()
     })
     log("✅ All files updated successfully!")
-    process.exit(0)
   } catch {
-    error("⚠️  Failed to apply overrides. Run 'pnpm run apply-overrides' manually.")
-    process.exit(1)
+    throw new Error("Failed to apply overrides. Run 'pnpm data apply' manually.")
   }
 }
 
@@ -301,7 +294,12 @@ const main = async () => {
   }
 }
 
-main().catch((err) => {
-  error("Fatal error in main():", err)
-  process.exit(1)
-})
+export { main as run, handleValidateAction, handleAddAdditionAction, handleDeleteAction }
+
+// Run directly when executed as a script
+if (require.main === module) {
+  main().catch((err) => {
+    error("Fatal error in main():", err)
+    process.exit(1)
+  })
+}
