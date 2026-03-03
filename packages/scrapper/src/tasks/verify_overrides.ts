@@ -420,11 +420,11 @@ const ytcAnnotation = (url: string): string => {
 // Rendering
 // ────────────────────────────────────────────────────────────────────────────
 
-const SKIP_FIELDS = new Set(["_meta"])
+const SKIP_FIELDS = new Set(["_meta", "name"])
 const DIM_FIELDS = new Set(["urls"])
 
-/** Characters used for field numbering: 1-9, then a-z (excluding d=delete, x=exit) */
-const NUM_CHARS = "123456789abcefghijklmnopqrstuvwyz"
+/** Characters used for field numbering: 1-9, then a-z (excluding d=delete, n=rename, x=exit) */
+const NUM_CHARS = "123456789abcefghijklmopqrstuvwyz"
 
 type RenderResult = {
   /** The rendered string (includes CLEAR_SCREEN) */
@@ -442,9 +442,13 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
   // Clear screen — one company at a time
   lines.push(CLEAR_SCREEN)
 
-  // Header
+  // Header — show custom name below the key name when present
+  const customName = ("name" in value && typeof value.name === "string") ? value.name : null
   lines.push(`${DIM}${"─".repeat(60)}${RESET}`)
   lines.push(`  ${DIM}[${index + 1}/${total}]${RESET}  ${BOLD}${WHITE}${name}${RESET}`)
+  if (customName) {
+    lines.push(`  ${DIM}aka${RESET}  ${CYAN}${customName}${RESET}`)
+  }
   lines.push(`${DIM}${"─".repeat(60)}${RESET}`)
 
   // Meta status line
@@ -562,7 +566,7 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
   lines.push("")
   const editHint = fieldIdx > 0 ? `    ${DIM}1-${NUM_CHARS[fieldIdx - 1] ?? "9"}${RESET} edit` : ""
   const defaultAction = green ? `${GREEN}↑ verify${RESET}` : `${YELLOW}↑ postpone${RESET}`
-  lines.push(`  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}${editHint}    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`)
+  lines.push(`  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}${editHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`)
   lines.push("")
 
   return { output: lines.join("\n"), fieldKeys, allGreen: green }
@@ -572,8 +576,8 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
 // Key input (persistent raw-mode session)
 // ────────────────────────────────────────────────────────────────────────────
 
-type EditMode = "append" | "replace"
-type Action = "verify" | "postpone" | "delete" | "exit" | { field: number; mode: EditMode }
+type EditMode = "append" | "replace" | "delete"
+type Action = "verify" | "postpone" | "delete" | "rename" | "exit" | { field: number; mode: EditMode }
 
 let stdinSessionActive = false
 let stdinWasRaw: boolean | undefined
@@ -613,6 +617,8 @@ const waitForEditMode = async (): Promise<EditMode | "cancel"> => {
         resolve("append")
       } else if (key.name === "r") {
         resolve("replace")
+      } else if (key.name === "d") {
+        resolve("delete")
       } else if (key.name === "escape" || (key.ctrl && key.name === "c")) {
         resolve("cancel")
       } else {
@@ -622,6 +628,77 @@ const waitForEditMode = async (): Promise<EditMode | "cancel"> => {
     }
 
     process.stdin.once("keypress", onKeypress)
+  })
+}
+
+/**
+ * Raw-mode inline text editor. Shows a prompt with prefilled text.
+ * The user can type, use backspace, left/right arrows to move the cursor.
+ * Enter confirms, Escape cancels. Returns the final string or null on cancel.
+ */
+const waitForTextInput = async (prompt: string, prefill: string): Promise<string | null> => {
+  activateStdinSession()
+
+  return new Promise((resolve) => {
+    const buf = [...prefill]
+    let cursor = buf.length
+
+    const redraw = (): void => {
+      const text = buf.join("")
+      // Move to start of line, clear it, write prompt + buffer, position cursor
+      process.stdout.write(`\r\x1b[2K  ${prompt}${text}`)
+      // Move cursor back to correct position if not at end
+      const backSteps = buf.length - cursor
+      if (backSteps > 0) {
+        process.stdout.write(`\x1b[${backSteps}D`)
+      }
+    }
+
+    redraw()
+
+    const onKeypress = (str: string | undefined, key: readline.Key): void => {
+      if (key.name === "return") {
+        process.stdin.removeListener("keypress", onKeypress)
+        process.stdout.write("\n")
+        resolve(buf.join(""))
+        return
+      }
+
+      if (key.name === "escape" || (key.ctrl && key.name === "c")) {
+        process.stdin.removeListener("keypress", onKeypress)
+        process.stdout.write("\r\x1b[2K")
+        resolve(null)
+        return
+      }
+
+      if (key.name === "backspace") {
+        if (cursor > 0) {
+          buf.splice(cursor - 1, 1)
+          cursor--
+        }
+      } else if (key.name === "delete") {
+        if (cursor < buf.length) {
+          buf.splice(cursor, 1)
+        }
+      } else if (key.name === "left") {
+        if (cursor > 0) cursor--
+      } else if (key.name === "right") {
+        if (cursor < buf.length) cursor++
+      } else if (key.name === "home") {
+        cursor = 0
+      } else if (key.name === "end") {
+        cursor = buf.length
+      } else if (str && !key.ctrl && !key.meta) {
+        // Insert printable character(s) at cursor
+        const chars = [...str]
+        buf.splice(cursor, 0, ...chars)
+        cursor += chars.length
+      }
+
+      redraw()
+    }
+
+    process.stdin.on("keypress", onKeypress)
   })
 }
 
@@ -643,6 +720,8 @@ const waitForAction = async (maxFieldIndex: number, allGreen: boolean): Promise<
         resolve(allGreen ? "verify" : "postpone")
       } else if (key.name === "d") {
         resolve("delete")
+      } else if (key.name === "n") {
+        resolve("rename")
       } else if (key.name === "x" || (key.ctrl && key.name === "c")) {
         resolve("exit")
       } else {
@@ -925,6 +1004,29 @@ const processQueue = async (
         dirtyKeys.add(entry.name)
         process.stdout.write(`  ${RED}${BOLD} DELETED ${RESET} ${entry.name}\n`)
         decided = true
+      } else if (action === "rename") {
+        const current = overrides[entry.name] ?? entry.value
+        const currentName = ("name" in current && typeof current.name === "string") ? current.name : entry.name
+        const newName = await waitForTextInput(`${CYAN}Name:${RESET} `, currentName)
+        if (newName === null) {
+          // Cancelled — re-render
+          continue
+        }
+        const trimmed = newName.trim()
+        if (trimmed.length === 0 || trimmed === entry.name) {
+          // Empty or same as key — remove custom name if present
+            if ("name" in current) {
+              const { name: _removed, ...rest } = current
+              overrides[entry.name] = rest
+            dirtyKeys.add(entry.name)
+            process.stdout.write(`  ${BG_BLUE}${WHITE} RENAMED ${RESET} ${DIM}(cleared — using key name)${RESET}\n`)
+          }
+        } else {
+          overrides[entry.name] = { ...current, name: trimmed }
+          dirtyKeys.add(entry.name)
+          process.stdout.write(`  ${BG_BLUE}${WHITE} RENAMED ${RESET} ${trimmed}\n`)
+        }
+        await sleep(600)
       } else {
         // Edit field from clipboard (append or replace)
         const fieldKey = fieldKeys[action.field]
