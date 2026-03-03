@@ -17,6 +17,8 @@
 
 import { type Browser, type BrowserContext, type Page, chromium } from "playwright"
 
+import { getRegisteredDomain } from "@theWallProject/common"
+
 import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./config"
 import type { CompanyLogger } from "./company_logger"
 
@@ -368,6 +370,19 @@ export const extractLinksFromHomepage = async (
 
     if (redirected) {
       logger.log(`Redirected: ${normalizedUrl} -> ${finalUrl}`)
+
+      // Detect cross-domain redirects (e.g., acquired company → acquirer's site).
+      // If the registered domain changed, the page content belongs to a different
+      // company and extracting links would contaminate the entry.
+      const originalDomain = getRegisteredDomain(normalizedUrl)
+      const finalDomain = getRegisteredDomain(finalUrl)
+      if (originalDomain && finalDomain && originalDomain !== finalDomain) {
+        throw new ExpectedExtractionError(
+          `Cross-domain redirect: ${normalizedUrl} (${originalDomain}) → ${finalUrl} (${finalDomain}). ` +
+            "Company may have been acquired or domain transferred.",
+          "CROSS_DOMAIN_REDIRECT"
+        )
+      }
     }
 
     // Get full page HTML

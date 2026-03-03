@@ -63,7 +63,12 @@ const baseConfig = {
     // TypeScript recommended rules (shared)
     ...tseslint.configs.recommended.rules,
     // Common TypeScript rules for all packages
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "@typescript-eslint/no-dynamic-delete": "warn",
     "@typescript-eslint/no-require-imports": "warn",
     "@typescript-eslint/no-explicit-any": "warn",

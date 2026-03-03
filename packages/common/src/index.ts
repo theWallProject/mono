@@ -216,7 +216,7 @@ export const API_ENDPOINT_RULE_LINKEDIN_COMPANY = {
 export const API_ENDPOINT_RULE_FACEBOOK = {
   domain: "facebook.com",
   regex:
-    "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login|[^/?]+\\.php|pages|search|people(?=[/?]|$)|share(?=[/?]|$)|sharer(?=[/?]|$)|dialog(?=[/?]|$)|plugins(?=[/?]|$)|hashtag(?=[/?]|$))([^/?]+)"
+    "(?:facebook\\.com)/(?!events|groups|marketplace|watch|gaming|login|settings|help|notifications|messages|bookmarks|stories|reels|ads|p(?=[/?]|$)|[^/?]+\\.php|pages|search|people(?=[/?]|$)|share(?=[/?]|$)|sharer(?=[/?]|$)|dialog(?=[/?]|$)|plugins(?=[/?]|$)|hashtag(?=[/?]|$))([^/?]+)"
 } as const satisfies APIEndpointRule
 
 /**

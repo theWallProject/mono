@@ -115,11 +115,16 @@ export const extractIdentifier = (url: string, field: LinkField): string => {
  * linkedin.com/company/foo/?origin) are collapsed — only the first is kept.
  * URLs that fail selector extraction are kept as-is.
  */
+/** Fields where identifiers are case-sensitive (e.g., YouTube channel IDs). */
+const CASE_SENSITIVE_FIELDS = new Set<LinkField>(["ytc"])
+
 export const deduplicateOverrideUrls = (urls: string[], field: LinkField): string[] => {
   const seenIdentifiers = new Set<string>()
+  const caseSensitive = CASE_SENSITIVE_FIELDS.has(field)
   return urls.filter((url) => {
     try {
-      const id = extractIdentifier(url, field).toLowerCase()
+      const rawId = extractIdentifier(url, field)
+      const id = caseSensitive ? rawId : rawId.toLowerCase()
       if (seenIdentifiers.has(id)) {
         log(`  ⚠️ Dropping duplicate ${field} URL (same selector "${id}"): ${url}`)
         return false
@@ -339,8 +344,8 @@ const loadJsonFiles = async (folderPath: string) => {
     const override = manualOverrides[row.name]
 
     if (override) {
-      // Apply override, but exclude the processed state flags, urls field, and alt field (used only in final.ts)
-      const excludeKeys = new Set(["_processed", "urls", "alt"])
+      // Apply override, but exclude the meta state flags, urls field, and alt field (used only in final.ts)
+      const excludeKeys = new Set(["_meta", "urls", "alt"])
       const overrideFields = Object.fromEntries(Object.entries(override).filter(([key]) => !excludeKeys.has(key)))
       const hasOverrideFields = Object.keys(overrideFields).length > 0
 
@@ -412,7 +417,7 @@ const loadJsonFiles = async (folderPath: string) => {
       // Skip link fields as they're already handled above
       for (const [key, value] of Object.entries(overrideFields)) {
         // Skip special fields
-        if (key === "_processed" || key === "urls" || key === "alt") {
+        if (key === "_meta" || key === "urls" || key === "alt") {
           continue
         }
 

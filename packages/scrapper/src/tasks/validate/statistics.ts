@@ -2,7 +2,7 @@ import { log } from "../../helper"
 import { CrunchbaseScrappedItemType } from "../../types"
 import { getReasonPriority } from "./sorting"
 import type { ManualOverrideValue } from "./types"
-import { isProcessed } from "./types"
+import { isBrowserVerified } from "./types"
 
 /**
  * Draws a progress bar
@@ -16,7 +16,7 @@ export const drawProgressBar = (current: number, total: number, width: number = 
 }
 
 /**
- * Gets statistics about processed/unprocessed items
+ * Gets statistics about browser-verified/unverified items
  */
 export const getStatistics = (
   allItems: CrunchbaseScrappedItemType[],
@@ -33,7 +33,7 @@ export const getStatistics = (
 
   for (const item of allItems) {
     const processedItem = processedItems[item.name]
-    const isProcessedItem = processedItem !== undefined && isProcessed(processedItem)
+    const isProcessedItem = processedItem !== undefined && isBrowserVerified(processedItem)
 
     if (isProcessedItem) {
       processed++
