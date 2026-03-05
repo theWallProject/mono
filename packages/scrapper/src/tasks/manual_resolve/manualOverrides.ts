@@ -7449,6 +7449,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@xjetnpj"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  XTEND: {
+    ws: ["https://ir.xtend.me", "https://support.xtend.me", "https://www.xtend.me"],
+    urls: ["http://ir.xtend.me", "https://support.xtend.me/wp-login.php"],
+    _meta: { isHomepage: true }
+  },
   "Xpand (formerly 1MRobotics)": {
     ws: ["https://xpand.us"],
     li: ["https://www.linkedin.com/company/xpand-today"],
