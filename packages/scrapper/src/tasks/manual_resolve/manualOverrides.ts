@@ -5555,6 +5555,13 @@ export const manualOverrides: Record<
     urls: ["https://rafael-uk.com", "https://www.rafael-usa.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Raftt: {
+    ws: ["https://docs.raftt.io", "https://www.raftt.io"],
+    li: ["https://www.linkedin.com/company/raftt"],
+    tw: ["https://x.com/rafttio"],
+    urls: ["https://join.slack.com/t/rafttcommunity/shared_invite/zt-196nlb5ra-ZcIw~2T7Glq5NuBaqIlgcA"],
+    _meta: { isHomepage: true }
+  },
   RailVision: {
     ws: ["https://ir.railvision.io", "https://railvision.io"],
     li: ["https://www.linkedin.com/company/rail-vision"],
