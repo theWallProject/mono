@@ -134,6 +134,12 @@ export const manualOverrides: Record<
     android_dev_id: "com.au10tix",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "AXON Vision": {
+    ws: ["https://www.axon-vision.com"],
+    li: ["https://www.linkedin.com/company/axon-vision-ltd"],
+    urls: ["https://www.axon-vision.com"],
+    _meta: { isHomepage: true }
+  },
   "Accelario Software": {
     ws: ["https://accelario.com"],
     li: ["https://www.linkedin.com/company/accelario"],
