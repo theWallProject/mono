@@ -33,6 +33,20 @@ export const manualOverrides: Record<
     urls: ["https://dview.3dsignals.io", "https://www.xing.com/companies/3dsignals"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "40seas": {
+    ws: [
+      "https://40seas.com",
+      "https://dashboard.40seas.com",
+      "https://support.40seas.com",
+      "https://vi.40seas.com",
+      "https://zh.40seas.com"
+    ],
+    li: ["https://www.linkedin.com/company/40seas"],
+    fb: ["https://www.facebook.com/40seas"],
+    tw: ["https://x.com/40seasinc"],
+    tt: ["https://www.tiktok.com/@40seas"],
+    _meta: { isHomepage: true }
+  },
   "4M Analytics": {
     ws: ["https://4map.4manalytics.com", "https://help.4manalytics.com", "https://www.4manalytics.com"],
     li: ["https://www.linkedin.com/company/4m-analytics"],
