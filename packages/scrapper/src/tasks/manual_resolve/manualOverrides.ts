@@ -7683,6 +7683,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/steakholderfoods"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Stem Cell Medicine": {
+    ws: ["https://www.stemcell-medicine.com"],
+    urls: ["http://www.foothold-systems.co.il", "http://www.portnov-mishan.com"],
+    _meta: { isHomepage: true }
+  },
   Stigg: {
     ws: [
       "https://app.stigg.io",
