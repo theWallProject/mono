@@ -6195,6 +6195,13 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/strikeco_sports"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SaMBiQ: {
+    ws: ["https://sambiq.com"],
+    li: ["https://www.linkedin.com/company/sambiq"],
+    tw: ["https://x.com/sambiq_smb_ai"],
+    ytp: ["https://www.youtube.com/@sambiq-smb-ai"],
+    _meta: { isHomepage: true }
+  },
   Salignostics: {
     ws: ["https://www.salignostics.com"],
     li: ["https://www.linkedin.com/company/salignostics"],
