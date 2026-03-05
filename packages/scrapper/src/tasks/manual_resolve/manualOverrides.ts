@@ -3884,6 +3884,18 @@ export const manualOverrides: Record<
     urls: ["http://www.tamarindi.com", "https://www.kiinns.com"],
     _meta: { isHomepage: true }
   },
+  "Kima Network": {
+    ws: ["https://docs.kima.finance", "https://www.kima.finance"],
+    gh: ["https://github.com/kima-finance"],
+    ytp: ["https://www.youtube.com/@kimanetwork"],
+    urls: [
+      "https://demo.kima.network",
+      "https://docs.kima.network/kima-network",
+      "https://kima-2.gitbook.io/kima-whitepaper-1",
+      "https://www.kima.network"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Kipp Authorize More": {
     ws: ["https://app.letskipp.com", "https://letskipp.com"],
     li: ["https://www.linkedin.com/company/letskipp"],
