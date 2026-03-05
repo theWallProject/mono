@@ -5561,6 +5561,13 @@ export const manualOverrides: Record<
     urls: ["https://calendly.com/mcptotal"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "PixCell Medical": {
+    ws: ["https://www.pixcell-medical.com"],
+    li: ["https://www.linkedin.com/company/pixcell-medical-technologies"],
+    tw: ["https://x.com/pixcellmedical"],
+    urls: ["https://www.whiteweb.co.il"],
+    _meta: { isHomepage: true }
+  },
   Pixellot: {
     ws: ["https://www.pixellot.tv"],
     li: ["https://www.linkedin.com/company/pixellotltd"],
