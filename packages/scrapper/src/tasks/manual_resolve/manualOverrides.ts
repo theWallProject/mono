@@ -701,6 +701,13 @@ export const manualOverrides: Record<
     ws: ["https://www.qualcomm.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Avenews: {
+    ws: ["https://www.avenews-gt.com"],
+    li: ["https://www.linkedin.com/company/avenews-gt"],
+    fb: ["https://www.facebook.com/avenewsgt"],
+    ytp: ["https://www.youtube.com/@avenews-gt"],
+    _meta: { isHomepage: true }
+  },
   "Aviv Scientific": {
     ws: ["https://aviv-clinics.com"],
     li: ["https://www.linkedin.com/company/avivclinics"],
