@@ -4588,6 +4588,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/magentiqeye"],
     _meta: { isHomepage: true }
   },
+  MagicYard: {
+    ws: ["https://beta.magicyard.co", "https://magicyard.co"],
+    li: ["https://www.linkedin.com/company/magicyardln"],
+    tw: ["https://x.com/magicyard"],
+    ig: ["https://www.instagram.com/magicyardtv"],
+    urls: ["https://discord.gg/UBe4kjgn"],
+    _meta: { isHomepage: true }
+  },
   "Magnus Metal": {
     ws: ["https://magnusmetal.com"],
     urls: ["https://magnusmetal.com/privacy-policy", "https://magnusmetal.com/terms-of-use"],
