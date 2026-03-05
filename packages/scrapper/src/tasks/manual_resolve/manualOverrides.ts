@@ -4094,6 +4094,14 @@ export const manualOverrides: Record<
     urls: ["https://www.kando.eco"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  KanduAI: {
+    ws: ["https://www.kanduai.com"],
+    li: ["https://www.linkedin.com/company/kanduai"],
+    ig: ["https://www.instagram.com/kandu.ai"],
+    tt: ["https://www.tiktok.com/@kanduai"],
+    urls: ["https://www.maaor.com"],
+    _meta: { isHomepage: true }
+  },
   Kardome: {
     ws: ["https://www.kardome.com"],
     li: ["https://www.linkedin.com/company/kardome"],
