@@ -4613,6 +4613,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@MyndliftNeurofeedback"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Mytower: { ws: ["https://mytowerapp.com"], _meta: { isHomepage: true } },
   "N-Drip": {
     ws: ["https://ndrip.com"],
     li: ["https://www.linkedin.com/company/n-drip-gravity-micro-irrigation"],
