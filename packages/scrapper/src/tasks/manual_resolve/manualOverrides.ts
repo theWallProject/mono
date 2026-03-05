@@ -7504,6 +7504,7 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "ViAqua Therapeutics": { ws: ["https://www.viaqua-t.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Vidac Pharma": { ws: ["https://vidacpharma.com"], _meta: { isHomepage: true } },
   Videocites: {
     ws: ["https://www.rippleanalytics.com"],
     li: ["https://www.linkedin.com/company/rippleanalytics"],
