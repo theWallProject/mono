@@ -2709,6 +2709,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@gk8bygalaxy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  GOARC: {
+    ws: ["https://go-arc.com"],
+    li: ["https://www.linkedin.com/company/goarc"],
+    urls: ["https://cta-redirect.hubspot.com/cta/redirect/9293548/89da0f61-57bd-413e-903d-90ba3c1d91b4"],
+    _meta: { isHomepage: true }
+  },
   Gadfin: {
     ws: ["https://www.gadfin.com"],
     li: ["https://www.linkedin.com/company/gadfin"],
