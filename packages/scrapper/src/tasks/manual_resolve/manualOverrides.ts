@@ -1425,6 +1425,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@perpetual-power-in-motion"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CaloSense: {
+    ws: ["https://www.calosense.com"],
+    li: ["https://www.linkedin.com/company/calosense"],
+    tw: ["https://x.com/calosense"],
+    urls: ["https://apps.apple.com/us/app/calorpm/id1567794127"],
+    android_app_ids: ["com.calosense.native"],
+    _meta: { isHomepage: true }
+  },
   "CanFite BioPharma": {
     ws: ["https://ir.canfite.com", "https://www.canfite.com"],
     fb: ["https://www.facebook.com/canfitebiopharma"],
