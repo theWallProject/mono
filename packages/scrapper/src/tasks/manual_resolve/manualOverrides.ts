@@ -8962,6 +8962,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  YesChef: {
+    ws: ["https://app.yeschef.me", "https://support.yeschef.me", "https://yeschef.me"],
+    fb: ["https://www.facebook.com/yeschefhq"],
+    ig: ["https://www.instagram.com/yeschefhq"],
+    ytp: ["https://www.youtube.com/@yeschefhq"],
+    _meta: { isHomepage: true }
+  },
   "Yissum Technology Transfer Company of the Hebrew University": {
     ws: ["https://www.yissum.co.il"],
     li: ["https://www.linkedin.com/company/yissum"],
