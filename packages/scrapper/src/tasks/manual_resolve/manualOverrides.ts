@@ -6822,6 +6822,18 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/drill.neuromarketing"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Shupperz: {
+    ws: ["https://shupperz.com"],
+    urls: [
+      "https://hokikale.me/daftarhptoto777",
+      "https://hokikale.me/hptotoalte777",
+      "https://hokikale.me/hptotolc777",
+      "https://hokikale.me/joinhoki777",
+      "https://hokikale.me/loginhptoto777",
+      "https://terbang-terus.b-cdn.net/shupper.html"
+    ],
+    _meta: { isHomepage: true }
+  },
   Sightful: {
     ws: ["https://sightful.com"],
     li: ["https://www.linkedin.com/company/heysightful"],
