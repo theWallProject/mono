@@ -4695,6 +4695,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@NICE-Systems"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NINA: {
+    ws: ["https://www.drinknina.com"],
+    li: ["https://www.linkedin.com/company/nina-iot"],
+    fb: ["https://www.facebook.com/drinknina"],
+    ig: ["https://www.instagram.com/drinknina"],
+    tt: ["https://www.tiktok.com/@drinknina"],
+    _meta: { isHomepage: true }
+  },
   NOVOS: {
     ws: ["https://app.novos.gg", "https://www.novos.gg"],
     li: ["https://www.linkedin.com/company/novos"],
