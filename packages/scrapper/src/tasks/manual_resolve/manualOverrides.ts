@@ -7771,6 +7771,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@TIPAcorp"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tipigo: {
+    ws: ["https://insight.tipigo.com", "https://www.tipigo.com"],
+    li: ["https://www.linkedin.com/company/tipigo"],
+    fb: ["https://www.facebook.com/tipigo-solutions-105994188333079"],
+    urls: ["https://apps.apple.com/us/app/funl-analyst-ideas/id1390347293"],
+    android_app_ids: ["com.tipigo.signals.benzinga"],
+    _meta: { isHomepage: true }
+  },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
     li: ["https://www.linkedin.com/company/token-security"],
