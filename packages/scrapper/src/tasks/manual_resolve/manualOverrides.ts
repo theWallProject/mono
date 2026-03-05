@@ -2298,6 +2298,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/entrioplatform"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Envizion Medical": {
+    ws: ["https://www.envizionmed.com"],
+    urls: ["https://envuemed.com"],
+    _meta: { isHomepage: true }
+  },
   Equinom: {
     ws: ["https://www.equi-nom.com"],
     li: ["https://www.linkedin.com/company/equinom", "https://www.linkedin.com/company/orangeeclipse-studio"],
