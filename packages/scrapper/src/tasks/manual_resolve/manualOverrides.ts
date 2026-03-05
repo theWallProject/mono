@@ -6232,6 +6232,11 @@ export const manualOverrides: Record<
     urls: ["https://wponetap.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ReSight: {
+    ws: ["https://docs.resight.io", "https://resight.io"],
+    urls: ["https://docs.resight.io"],
+    _meta: { isHomepage: true }
+  },
   "RealView Imaging": {
     ws: ["https://realviewimaging.com"],
     li: ["https://www.linkedin.com/company/2239612"],
