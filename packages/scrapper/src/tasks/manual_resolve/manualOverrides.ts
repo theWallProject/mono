@@ -3377,6 +3377,13 @@ export const manualOverrides: Record<
     urls: ["https://www.canndoc.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Inthegame: {
+    ws: ["https://www.inthegame.io"],
+    li: ["https://www.linkedin.com/company/inthegame-io"],
+    fb: ["https://www.facebook.com/inthegame.io"],
+    ytp: ["https://www.youtube.com/@inthegame6194"],
+    _meta: { isHomepage: true }
+  },
   "Intuition Robotics": {
     ws: ["https://www.intuitionrobotics.com"],
     li: ["https://www.linkedin.com/company/intuition-robotics"],
