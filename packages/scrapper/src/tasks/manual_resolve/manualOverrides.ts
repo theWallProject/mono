@@ -6424,6 +6424,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/refine-intelligence"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Reflect Innovation": {
+    ws: ["https://www.meetreflect.com"],
+    fb: ["https://www.facebook.com/meetreflect"],
+    ig: ["https://www.instagram.com/meetreflect"],
+    tt: ["https://www.tiktok.com/@meetreflect"],
+    urls: ["https://meetreflect.tapfiliate.com"],
+    _meta: { isHomepage: true }
+  },
   Reflectiz: {
     ws: ["https://dashboard.reflectiz.com", "https://www.reflectiz.com"],
     li: ["https://www.linkedin.com/company/reflectiz"],
