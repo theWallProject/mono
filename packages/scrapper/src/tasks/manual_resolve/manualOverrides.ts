@@ -4702,6 +4702,13 @@ export const manualOverrides: Record<
     android_dev_id: "com.healthcoda",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Omnix Medical": {
+    ws: ["https://omnixmedical.com"],
+    li: ["https://www.linkedin.com/company/omnix-medical"],
+    tw: ["https://x.com/medicalomnix"],
+    urls: ["http://a-2-z.co.il"],
+    _meta: { isHomepage: true }
+  },
   OncoHost: {
     ws: ["https://www.oncohost.com"],
     li: ["https://www.linkedin.com/company/oncohost"],
