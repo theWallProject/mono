@@ -7566,6 +7566,11 @@ export const manualOverrides: Record<
     urls: ["https://tidhar.my.site.com/community", "https://www.dofinity.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tigi: {
+    ws: ["https://www.tigisolar.com"],
+    li: ["https://www.linkedin.com/company/tigi"],
+    _meta: { isHomepage: true }
+  },
   TinyTap: {
     ws: [
       "https://blog.tinytap.com",
