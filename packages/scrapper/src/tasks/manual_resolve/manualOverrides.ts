@@ -5152,6 +5152,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Pery: {
+    ws: ["https://mypery.com"],
+    li: ["https://www.linkedin.com/company/peryhealth"],
+    urls: ["https://calendly.com/david_franco/pery-1"],
+    _meta: { isHomepage: true }
+  },
   "Phoenix Financial": {
     ws: [
       "https://agent.fnx.co.il",
