@@ -6776,6 +6776,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/sodot_hq"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Sodyo: {
+    ws: ["https://www.sodyo.com"],
+    li: ["https://www.linkedin.com/company/sodyotech"],
+    ytp: ["https://www.youtube.com/@sodyoltd"],
+    _meta: { isHomepage: true }
+  },
   "SofWave Medical": {
     ws: ["https://sofwave.com"],
     li: ["https://www.linkedin.com/company/sofwave"],
