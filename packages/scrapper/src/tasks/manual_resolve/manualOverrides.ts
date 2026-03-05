@@ -7261,6 +7261,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/the-teragroup"],
     _meta: { isHomepage: true }
   },
+  TEXEL: {
+    ws: ["https://texel.live"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true }
+  },
   TaTiO: {
     ws: ["https://www.tatio.io"],
     urls: [
