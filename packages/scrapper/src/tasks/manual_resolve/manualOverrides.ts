@@ -6342,6 +6342,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/protected-media"],
     _meta: { isHomepage: true }
   },
+  "Protekt Therapeutics": {
+    ws: ["https://www.protektx.com"],
+    urls: [
+      "https://www.protektx.com/accessibilitystatement",
+      "https://www.protektx.com/privacy-policy",
+      "https://www.protektx.com/terms-of-use"
+    ],
+    _meta: { isHomepage: true }
+  },
   Pynt: {
     ws: ["https://app.pynt.io", "https://docs.pynt.io", "https://www.pynt.io"],
     li: ["https://www.linkedin.com/company/pynt"],
