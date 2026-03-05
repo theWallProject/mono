@@ -1727,6 +1727,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  Configu: {
+    ws: ["https://configu.com", "https://docs.configu.com", "https://oops.configu.com", "https://status.configu.com"],
+    li: ["https://www.linkedin.com/company/configu"],
+    tw: ["https://x.com/weareconfigu"],
+    gh: ["https://github.com/configu"],
+    ytp: ["https://www.youtube.com/@configu294"],
+    urls: ["https://discord.com/invite/cjSBxnB9z8"],
+    _meta: { isHomepage: true }
+  },
   Contguard: {
     ws: ["https://cgi.contguard.com", "https://contguard.com", "https://insights.contguard.com"],
     li: ["https://www.linkedin.com/company/contguard-ltd"],
