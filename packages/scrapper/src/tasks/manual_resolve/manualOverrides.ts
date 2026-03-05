@@ -8750,6 +8750,17 @@ export const manualOverrides: Record<
     urls: ["https://dev.xyte.io", "https://meetings.hubspot.com/xyte/website-demo-ash", "https://updates.xyte.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  YDLabs: {
+    ws: ["https://yd-labs.com"],
+    li: ["https://www.linkedin.com/company/ydlabs"],
+    urls: [
+      "http://calendly.com/ydlabs",
+      "https://calendly.com/ydlabs",
+      "https://user-a.co.il",
+      "https://www.digitale.co.il/%d7%94%d7%a0%d7%92%d7%a9%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-2"
+    ],
+    _meta: { isHomepage: true }
+  },
   Yofix: { ws: ["https://yofix.co.il"], _meta: { isHomepage: true } },
   Yonalink: {
     ws: [
