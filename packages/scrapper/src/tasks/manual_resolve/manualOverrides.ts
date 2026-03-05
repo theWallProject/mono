@@ -5934,6 +5934,12 @@ export const manualOverrides: Record<
     urls: ["https://drive.google.com/file/d/1c-Y8MqMWdPedtG1nmDV4xVqyd2W1HDes/view"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Pashoot Robotics": {
+    ws: ["https://www.pashoot-robotics.com"],
+    li: ["https://www.linkedin.com/company/76115456", "https://www.linkedin.com/company/pashoot-robotics"],
+    urls: ["https://www.pashoot-robotics.com"],
+    _meta: { isHomepage: true }
+  },
   PayEm: {
     ws: ["https://www.payem.co"],
     li: ["https://www.linkedin.com/company/payemcard"],
