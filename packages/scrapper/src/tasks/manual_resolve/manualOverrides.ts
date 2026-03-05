@@ -7751,6 +7751,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  VFR: {
+    ws: ["https://vfr.ai"],
+    li: ["https://www.linkedin.com/company/vfrai"],
+    fb: ["https://www.facebook.com/vfrctv"],
+    _meta: { isHomepage: true }
+  },
   VIVID: {
     ws: ["https://link.vivid.me", "https://www.vivid.me"],
     urls: ["https://apps.apple.com/app/VIVID/id1570270579"],
