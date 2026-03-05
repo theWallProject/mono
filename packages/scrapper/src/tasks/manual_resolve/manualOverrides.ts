@@ -3803,6 +3803,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Identifai-genetics": { ws: ["https://identifai-genetics.com"], _meta: { isHomepage: true } },
+  Identiq: {
+    ws: ["https://go.identiq.com", "https://trustcenter.identiq.com", "https://www.identiq.com"],
+    li: ["https://www.linkedin.com/company/identiqprotocol"],
+    urls: ["https://maps.app.goo.gl/AZUM454Y23dim4ih7"],
+    _meta: { isHomepage: true }
+  },
   Igentify: {
     ws: ["https://www.igentify.com"],
     li: ["https://www.linkedin.com/company/igentify"],
