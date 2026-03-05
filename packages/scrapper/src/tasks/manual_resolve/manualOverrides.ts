@@ -3246,6 +3246,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/forsightrobotics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Foresee Genomics": { ws: ["https://foreseegenomics.com"], _meta: { isHomepage: true } },
   Foretellix: {
     ws: ["https://www.foretellix.com"],
     li: ["https://www.linkedin.com/company/foretellix"],
