@@ -1131,6 +1131,7 @@ export const manualOverrides: Record<
     urls: ["https://comeet.com/jobs/blockaid/69.00b", "https://t.me/+YCEZbt_QrE8zMjI0"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Blue Tree Technologies Ltd.": { ws: ["https://bluetree-tech.com"], _meta: { isHomepage: true } },
   "BlueWind Medical": {
     ws: ["https://bluewindmedical.com"],
     li: ["https://www.linkedin.com/company/bluewind-medical"],
