@@ -7136,6 +7136,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/387937"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Silib: { ws: ["https://www.si-lib.com"], _meta: { isHomepage: true } },
   Silverfort: {
     ig: ["https://www.instagram.com/life_at_silverfort"],
     gh: ["https://github.com/silverfort-open-source"],
