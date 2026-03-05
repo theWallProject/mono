@@ -1671,6 +1671,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.comunix.pokerface"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Contguard: {
+    ws: ["https://cgi.contguard.com", "https://contguard.com", "https://insights.contguard.com"],
+    li: ["https://www.linkedin.com/company/contguard-ltd"],
+    _meta: { isHomepage: true }
+  },
   ControlMonkey: {
     ws: ["https://console.controlmonkey.io", "https://controlmonkey.io", "https://trust.controlmonkey.io"],
     li: ["https://www.linkedin.com/company/controlmonkey"],
