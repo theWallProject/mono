@@ -313,6 +313,12 @@ export const manualOverrides: Record<
     urls: ["https://amaiproteins.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Ameetee: {
+    ws: ["https://ameetee.io", "https://platform.ameetee.io"],
+    li: ["https://www.linkedin.com/company/ameetee"],
+    urls: ["https://platform.ameetee.io", "https://t.me/Ameetee_info"],
+    _meta: { isHomepage: true }
+  },
   Amplication: {
     ws: ["https://amplication.com", "https://app.amplication.com", "https://docs.amplication.com"],
     gh: ["https://github.com/amplication"],
