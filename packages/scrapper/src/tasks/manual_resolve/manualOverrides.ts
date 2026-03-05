@@ -4719,6 +4719,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oneai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OneView: { ws: ["https://one-view.ai"], _meta: { isHomepage: true } },
   Onebeat: {
     li: ["https://www.linkedin.com/company/1beat"],
     fb: ["https://www.facebook.com/1beatretail"],
