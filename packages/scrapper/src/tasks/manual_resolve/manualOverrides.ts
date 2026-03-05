@@ -4101,6 +4101,7 @@ export const manualOverrides: Record<
     urls: ["https://docs.mstone.ai", "https://mstone.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Mindfly: { ws: ["https://www.mindfly.live"], urls: ["https://www.mindfly.live"], _meta: { isHomepage: true } },
   Mindspace: {
     ws: ["https://hs.mindspace.me", "https://members.mindspace.me", "https://www.mindspace.me"],
     li: ["https://www.linkedin.com/company/mindspace-co"],
