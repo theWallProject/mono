@@ -6978,6 +6978,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  VIVID: {
+    ws: ["https://link.vivid.me", "https://www.vivid.me"],
+    urls: ["https://apps.apple.com/app/VIVID/id1570270579"],
+    android_app_ids: ["me.vivid.vivid"],
+    _meta: { isHomepage: true }
+  },
   "VSL Labs": {
     ws: ["https://status.vsllabs.com", "https://vsllabs.com"],
     li: ["https://www.linkedin.com/company/vsllabs"],
