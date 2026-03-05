@@ -2472,6 +2472,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@endospanltd7002"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Engie: { ws: ["https://engieapp.com"], _meta: { isHomepage: true } },
   "Enlight Renewable Energy": {
     ws: ["https://enlightenergy.co.il"],
     li: ["https://www.linkedin.com/company/9025493"],
