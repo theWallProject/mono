@@ -735,6 +735,12 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/autofleet.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Autonomous Pivot": {
+    ws: ["https://app.autonomouspivot.com", "https://www.autonomouspivot.com"],
+    li: ["https://www.linkedin.com/company/autonomouspivot"],
+    fb: ["https://www.facebook.com/autonomouspivot"],
+    _meta: { isHomepage: true }
+  },
   Autotalks: {
     name: "Autotalks (Aquired by Qualcomm)",
     ws: ["https://www.qualcomm.com"],
