@@ -4696,6 +4696,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@mobileyeaws"],
     _meta: { isHomepage: true }
   },
+  Mobilicom: {
+    ws: ["https://ir.mobilicom.com", "https://mobilicom.com"],
+    li: ["https://www.linkedin.com/company/mobilicom"],
+    tw: ["https://x.com/mobilicommob"],
+    _meta: { isHomepage: true }
+  },
   Momentick: {
     ws: ["https://www.momentick.com"],
     li: ["https://www.linkedin.com/company/momentick"],
