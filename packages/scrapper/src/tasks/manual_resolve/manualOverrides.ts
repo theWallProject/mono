@@ -3895,6 +3895,16 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lagunahealth"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Laminate Medical": {
+    ws: ["https://www.laminatemedical.com"],
+    urls: [
+      "https://www.laminatemedical.com/contact-us",
+      "https://www.laminatemedical.com/imprint",
+      "https://www.laminatemedical.com/privacy-policy",
+      "https://www.laminatemedical.com/terms-of-use"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Landa Digital Printing": {
     ws: ["https://www.landanano.com"],
     li: ["https://www.linkedin.com/company/landa-digital-printing"],
