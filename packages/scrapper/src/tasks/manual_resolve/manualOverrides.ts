@@ -3046,6 +3046,20 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  GuruShots: {
+    ws: ["https://gurushots.com", "https://support.gurushots.com"],
+    li: ["https://www.linkedin.com/company/gurushots"],
+    fb: ["https://www.facebook.com/gurushots"],
+    tw: ["https://x.com/gurushots"],
+    ig: ["https://www.instagram.com/gurushots"],
+    ytp: ["https://www.youtube.com/@gurushots"],
+    urls: [
+      "https://gurushots.jobspage.co",
+      "https://www.aiartmaster.co",
+      "https://www.pinterest.com/gurushotsphotography"
+    ],
+    _meta: { isHomepage: true }
+  },
   H2Pro: {
     ws: ["https://www.h2pro.co"],
     li: ["https://www.linkedin.com/company/h2pro"],
