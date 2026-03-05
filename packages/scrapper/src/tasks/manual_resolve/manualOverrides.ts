@@ -3328,6 +3328,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Genie: { ws: ["https://genie.cooking"], urls: ["https://www.pinterest.com"], _meta: { isHomepage: true } },
   GeoX: { ws: ["https://app.geox.ai"], _meta: { isHomepage: true, isVerified: true } },
   "Gigantic LTD (Clawee)": {
     ws: ["https://clawee.com", "https://store.clawee.com"],
