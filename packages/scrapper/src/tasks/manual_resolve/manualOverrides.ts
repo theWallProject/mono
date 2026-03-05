@@ -6774,6 +6774,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Rivulis_drip_micro_irrigation"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  RoadSense: {
+    ws: ["https://www.roadsense.tech"],
+    li: ["https://www.linkedin.com/company/roadsense-advanced-technologies"],
+    ig: ["https://www.instagram.com/roadsense_tech"],
+    urls: ["https://finder.startupnationcentral.org/company_page/roadsense"],
+    _meta: { isHomepage: true }
+  },
   "Run:AI": {
     ws: [
       "https://blogs.nvidia.com",
