@@ -7183,6 +7183,12 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/VERITISECURITY"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Vessi Medical": {
+    ws: ["https://www.vessimed.com"],
+    li: ["https://www.linkedin.com/company/vessi-medical"],
+    urls: ["https://www.vessimed.com", "https://www.vessimed.com/privacy-policy"],
+    _meta: { isHomepage: true }
+  },
   "ViAqua Therapeutics": { ws: ["https://www.viaqua-t.com"], _meta: { isHomepage: true, isVerified: true } },
   Videocites: {
     ws: ["https://www.rippleanalytics.com"],
