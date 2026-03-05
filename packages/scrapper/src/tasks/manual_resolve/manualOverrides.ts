@@ -1273,6 +1273,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Bright Way Vision": {
+    ws: ["https://www.brightwayvision.com"],
+    li: ["https://www.linkedin.com/company/brightway-vision-ltd-"],
+    _meta: { isHomepage: true }
+  },
   Brightmerge: {
     ws: ["https://www.brightmerge.com"],
     li: ["https://www.linkedin.com/company/brightmerge"],
