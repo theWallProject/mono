@@ -2326,6 +2326,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@elsenutrition"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ELV8: { ws: ["https://www.elv8.pro"], _meta: { isHomepage: true } },
   "ENTERA BIO": {
     ws: ["https://enterabio.com", "https://investors.enterabio.com"],
     li: ["https://www.linkedin.com/company/entera-bio"],
