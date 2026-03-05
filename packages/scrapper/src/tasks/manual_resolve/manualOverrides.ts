@@ -4215,6 +4215,14 @@ export const manualOverrides: Record<
     urls: ["https://magnusmetal.com/privacy-policy", "https://magnusmetal.com/terms-of-use"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Make My Day, Inc.": {
+    ws: ["https://www.makemydayapp.com"],
+    li: ["https://www.linkedin.com/company/make-my-day-app"],
+    fb: ["https://www.facebook.com/makemydayapp"],
+    tw: ["https://x.com/make_my_day_app"],
+    urls: ["https://irita.co.il", "https://www.tumblr.com/makemydayapp"],
+    _meta: { isHomepage: true }
+  },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Marketeam.ai": {
     ws: ["https://app.marketeam.ai", "https://www.marketeam.ai"],
