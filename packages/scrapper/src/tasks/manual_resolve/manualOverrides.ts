@@ -4986,6 +4986,19 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@nurexonebiologic737"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nutrino: {
+    ws: ["https://www.nutrinohealth.com"],
+    li: ["https://www.linkedin.com/company/2329594", "https://www.linkedin.com/company/nutrino"],
+    fb: ["https://www.facebook.com/nutrino.co"],
+    ig: ["https://www.instagram.com/nutrinoco"],
+    urls: [
+      "http://www.nutrinohealth.com/cookies-policy",
+      "http://www.nutrinohealth.com/privacy-law-and-legal-notice",
+      "http://www.nutrinohealth.com/terms-of-use",
+      "https://www.nutrinohealth.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   OCTOPAI: {
     ws: [
       "https://br.cloudera.com",
