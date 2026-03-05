@@ -7370,6 +7370,18 @@ export const manualOverrides: Record<
     urls: ["https://app.treetoscopeapp.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TrenDemon: {
+    ws: [
+      "https://demo-webapp.trendemon.com",
+      "https://st.trendemon.com",
+      "https://support.trendemon.com",
+      "https://trendemon.com",
+      "https://webapp.trendemon.com"
+    ],
+    li: ["https://www.linkedin.com/company/trendemon"],
+    tw: ["https://x.com/trendemon"],
+    _meta: { isHomepage: true }
+  },
   Tres: {
     ws: ["https://help.tres.finance", "https://tres.finance", "https://trustcenter.tres.finance"],
     li: ["https://www.linkedin.com/company/tresfinance"],
