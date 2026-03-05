@@ -3361,6 +3361,7 @@ export const manualOverrides: Record<
     urls: ["https://www.pinterest.com/HighconEuclid"],
     _meta: { isHomepage: true }
   },
+  Hinoman: { ws: ["https://www.hinoman.com"], urls: ["https://www.eatmankai.com"], _meta: { isHomepage: true } },
   Hirundo: {
     ws: ["https://www.hirundo.io"],
     li: ["https://www.linkedin.com/company/gethirundo"],
