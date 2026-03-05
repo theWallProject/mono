@@ -3423,6 +3423,11 @@ export const manualOverrides: Record<
     urls: ["https://console.grainfinance.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Gravity Blanket": {
+    ws: ["https://gravityblankets.com"],
+    urls: ["https://rebuyengine.com"],
+    _meta: { isHomepage: true }
+  },
   "GrayMatters Health": {
     ws: ["https://www.graymatters-health.com"],
     li: ["https://www.linkedin.com/company/graymatters-health"],
