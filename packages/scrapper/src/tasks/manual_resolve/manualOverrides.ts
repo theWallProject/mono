@@ -7867,6 +7867,12 @@ export const manualOverrides: Record<
     android_app_ids: ["me.vivid.vivid"],
     _meta: { isHomepage: true }
   },
+  "VREE LABS": {
+    ws: ["https://console.vree.ai", "https://vree.ai"],
+    li: ["https://www.linkedin.com/company/vree-ai"],
+    tw: ["https://x.com/vreeai"],
+    _meta: { isHomepage: true }
+  },
   "VSL Labs": {
     ws: ["https://status.vsllabs.com", "https://vsllabs.com"],
     li: ["https://www.linkedin.com/company/vsllabs"],
