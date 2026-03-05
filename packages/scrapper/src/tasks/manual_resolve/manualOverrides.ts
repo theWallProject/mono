@@ -9026,6 +9026,16 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ZygoFix: {
+    ws: ["https://www.zygofix.com"],
+    li: ["https://www.linkedin.com/company/zygofix"],
+    fb: ["https://www.facebook.com/zygofix"],
+    tw: ["https://x.com/zygofix"],
+    ig: ["https://www.instagram.com/zygofix"],
+    ytp: ["https://www.youtube.com/@zygofix"],
+    urls: ["https://www.crunchbase.com/organization/zygofix"],
+    _meta: { isHomepage: true }
+  },
   accessiBe: {
     ws: [
       "https://accessibe.com",
