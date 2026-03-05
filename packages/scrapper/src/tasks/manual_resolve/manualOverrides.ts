@@ -5811,6 +5811,12 @@ export const manualOverrides: Record<
     urls: ["https://namelesspace.com", "https://vimeo.com/paykey"],
     _meta: { isHomepage: true }
   },
+  Paygilant: {
+    ws: ["https://paygilant.com"],
+    li: ["https://www.linkedin.com/company/paygilant"],
+    tw: ["https://x.com/paygilant"],
+    _meta: { isHomepage: true }
+  },
   "Payouts.com": {
     ws: ["https://integrations.payouts.com", "https://payouts.com", "https://status.payouts.com"],
     li: ["https://www.linkedin.com/company/payouts-com"],
