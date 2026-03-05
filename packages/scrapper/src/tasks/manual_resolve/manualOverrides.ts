@@ -1209,6 +1209,7 @@ export const manualOverrides: Record<
     urls: ["http://brainq.co.il", "https://emagine.care"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Brainsgate: { ws: ["https://www.brainsgate.com"], urls: ["http://www.tyco.co.il"], _meta: { isHomepage: true } },
   Brainsway: {
     ws: ["https://investors.brainsway.com", "https://www.brainsway.com"],
     li: ["https://www.linkedin.com/company/brainsway"],
