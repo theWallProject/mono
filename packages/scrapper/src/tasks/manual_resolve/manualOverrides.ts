@@ -5568,6 +5568,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@QuantumSourcelabs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Quantum transistors": {
+    ws: ["https://quantumtransistors.com"],
+    urls: ["https://eic.ec.europa.eu/index_en", "https://ltu.co.il", "https://quantumtransistors.com"],
+    _meta: { isHomepage: true }
+  },
   Quicklizard: {
     ws: ["https://login.euca.quicklizard.com", "https://lp.quicklizard.com", "https://quicklizard.com"],
     li: ["https://www.linkedin.com/company/quicklizard"],
