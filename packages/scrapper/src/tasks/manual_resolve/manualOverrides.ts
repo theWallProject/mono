@@ -4935,6 +4935,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Nominis: {
+    ws: ["https://www.nominis.io"],
+    li: ["https://www.linkedin.com/company/nominisio"],
+    tw: ["https://x.com/nominisio"],
+    urls: ["https://medium.com/nominis"],
+    _meta: { isHomepage: true }
+  },
   Nostromo: {
     ws: ["https://nostromo.energy"],
     li: ["https://www.linkedin.com/company/nostromo-energy"],
