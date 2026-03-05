@@ -886,6 +886,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.bettear.bettearApp"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BetterSeeds: {
+    ws: ["https://betterseeds.com"],
+    li: ["https://www.linkedin.com/company/betterseeds-ltd"],
+    _meta: { isHomepage: true }
+  },
   Beyeonics: {
     ws: ["https://beyeonics.com"],
     li: ["https://www.linkedin.com/company/18548655", "https://www.linkedin.com/company/beyeonics"],
