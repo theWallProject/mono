@@ -1604,6 +1604,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Cardiac Success": {
+    ws: ["https://cardiacsuccess.com"],
+    li: ["https://www.linkedin.com/company/cardiac-success-ltd"],
+    urls: ["https://pearlcom.co.il"],
+    _meta: { isHomepage: true }
+  },
   CardiacSense: {
     ws: ["https://www.cardiacsense.com"],
     li: ["https://www.linkedin.com/company/cardiacsense"],
