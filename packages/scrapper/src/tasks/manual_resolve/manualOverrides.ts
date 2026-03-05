@@ -1068,6 +1068,12 @@ export const manualOverrides: Record<
     urls: ["https://beyeonics-surgical.com", "https://beyeonics-vision.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Beyon3D: {
+    ws: ["https://beyon3d.com"],
+    li: ["https://www.linkedin.com/company/beyon3d"],
+    fb: ["https://www.facebook.com/beyon3d-252248834890663"],
+    _meta: { isHomepage: true }
+  },
   "Beyond Oil": {
     ws: ["https://www.beyondoil.co"],
     li: ["https://www.linkedin.com/company/beyond-oil"],
