@@ -1184,6 +1184,20 @@ export const manualOverrides: Record<
     android_app_ids: ["com.biocatch.are_you_rat", "com.biocatchbank"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  BioGenCell: {
+    ws: ["https://www.biogencell.net"],
+    urls: [
+      "https://www.biogencell.net/about-us",
+      "https://www.biogencell.net/cli-patients",
+      "https://www.biogencell.net/clinical-trials",
+      "https://www.biogencell.net/contact-us",
+      "https://www.biogencell.net/our-technology-tract",
+      "https://www.biogencell.net/privacy-policy",
+      "https://www.biogencell.net/terms-of-use",
+      "https://www.google.com/maps/place/Divrei+Khayim+St+16,+Netanya/@32.3452006,34.8530762,17z/data=!3m1!4b1!4m6!3m5!1s0x151d6ab5e5796a9b:0x7e82a0706883a2d3!8m2!3d32.3451961!4d34.8575609!16s%2Fg%2F11f8l2tksx"
+    ],
+    _meta: { isHomepage: true }
+  },
   BioProtect: {
     ws: ["https://bioprotect.com"],
     li: ["https://www.linkedin.com/company/bioprotect-ltd"],
