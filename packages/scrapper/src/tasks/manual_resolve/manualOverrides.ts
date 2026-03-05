@@ -5720,6 +5720,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@reddressmedical"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "RedHill Biopharma": {
+    ws: ["https://redhillbio.com"],
+    li: ["https://www.linkedin.com/company/redhill-biopharma"],
+    tw: ["https://x.com/redhillbio"],
+    urls: ["https://www.q4inc.com/Powered-by-Q4"],
+    _meta: { isHomepage: true }
+  },
   "Redefine Meat": {
     ws: ["https://www.redefinemeat.com"],
     li: ["https://www.linkedin.com/company/redefinemeat"],
