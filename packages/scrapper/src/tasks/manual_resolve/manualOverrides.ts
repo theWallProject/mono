@@ -3135,6 +3135,29 @@ export const manualOverrides: Record<
     urls: ["https://hubsecurity.com/hubtechnologies", "https://www.comeet.com/jobs/hub-technologies/07.00F"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Haaretz: {
+    ws: ["https://login.haaretz.com", "https://promotion.haaretz.com", "https://www.haaretz.com"],
+    fb: ["https://www.facebook.com/haaretzcom"],
+    tw: ["https://x.com/haaretzcom"],
+    ig: ["https://www.instagram.com/haaretzcom"],
+    urls: [
+      "https://apps.apple.com/us/app/haaretz-english-edition/id504537897",
+      "https://www.haaretz.co.il/2022-04-11/ty-article-static-ext/0000017f-a795-d7c6-a37f-ff9777ad0000",
+      "https://www.haaretz.co.il/debate",
+      "https://www.haaretz.co.il/digital/podcast/hesketos",
+      "https://www.haaretz.co.il/gallery/cinema/2023-06-07/ty-article-static-ext/00000188-1e0e-df77-afe9-5fceba2b0000",
+      "https://www.haaretz.co.il/gallery/television/2023-10-31/ty-article-static-ext/0000018a-5eed-d845-adfe-feedb1dc0000",
+      "https://www.haaretz.co.il/news/2023-11-23/ty-article-magazine/0000018b-4196-d242-abef-53b654760000",
+      "https://www.haaretz.co.il/news/law/2021-03-11/ty-article-magazine/.highlight/0000017f-e7fe-dc7e-adff-f7ffd2820000",
+      "https://www.haaretz.co.il/news/security/2026-02-10/ty-article-magazine/.premium/0000019c-4193-d682-abfe-ebb7599c0000",
+      "https://www.haaretz.co.il/news/security/2026-02-15/ty-article-magazine/.premium/0000019c-50e7-d667-a19c-53efd8650000",
+      "https://www.haaretz.co.il/news/security/2026-02-22/ty-article-magazine/.premium/0000019c-6f38-d618-a19d-7fffd3cc0000",
+      "https://www.haaretz.co.il/riddles/ty-page/haaretz-wordle",
+      "https://www.haaretz.co.il/riddles/ty-page/meduyeket/index.html"
+    ],
+    android_app_ids: ["com.opentech.haaretz"],
+    _meta: { isHomepage: true }
+  },
   Hailo: {
     ws: ["https://hailo.ai"],
     li: ["https://www.linkedin.com/company/hailo-ai"],
