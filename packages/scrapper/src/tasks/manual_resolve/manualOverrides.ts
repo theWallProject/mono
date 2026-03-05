@@ -735,6 +735,7 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/autofleet.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AutomatedRules: { ws: ["https://app.automatedrules.com", "https://automatedrules.com"], _meta: { isHomepage: true } },
   "Autonomous Pivot": {
     ws: ["https://app.autonomouspivot.com", "https://www.autonomouspivot.com"],
     li: ["https://www.linkedin.com/company/autonomouspivot"],
