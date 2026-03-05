@@ -4907,6 +4907,14 @@ export const manualOverrides: Record<
     urls: ["https://drive.google.com/file/d/1c-Y8MqMWdPedtG1nmDV4xVqyd2W1HDes/view"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PayEm: {
+    ws: ["https://www.payem.co"],
+    li: ["https://www.linkedin.com/company/payemcard"],
+    fb: ["https://www.facebook.com/payem-100922072326032"],
+    ig: ["https://www.instagram.com/life.at.payem"],
+    urls: ["https://app.payemcard.com", "https://app.payemcard.com/login"],
+    _meta: { isHomepage: true }
+  },
   "Payouts.com": {
     ws: ["https://integrations.payouts.com", "https://payouts.com", "https://status.payouts.com"],
     li: ["https://www.linkedin.com/company/payouts-com"],
