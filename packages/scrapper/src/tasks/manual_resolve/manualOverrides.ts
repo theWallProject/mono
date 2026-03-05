@@ -7642,6 +7642,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@trystigg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Storage Drop": { ws: ["https://storagedrop.co.il"], _meta: { isHomepage: true } },
   StoreDot: {
     ws: ["https://www.store-dot.com"],
     li: ["https://www.linkedin.com/company/storedot"],
