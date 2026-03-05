@@ -2488,6 +2488,12 @@ export const manualOverrides: Record<
     urls: ["https://www.fermata.tech/privacy_policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FertilAI: {
+    ws: ["https://www.fertilai.com"],
+    li: ["https://www.linkedin.com/company/74549314", "https://www.linkedin.com/company/fertilai"],
+    fb: ["https://www.facebook.com/fertilai"],
+    _meta: { isHomepage: true }
+  },
   Fetcherr: {
     ws: ["https://www.fetcherr.io"],
     li: ["https://www.linkedin.com/company/fetcherr-ltd"],
