@@ -299,6 +299,12 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uc0sesi9gxry9lgedgwg2seg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Algoretail: {
+    ws: ["https://nv.algoretail.io", "https://www.algoretail.io"],
+    li: ["https://www.linkedin.com/company/algoretail"],
+    urls: ["http://technowavegroup.com"],
+    _meta: { isHomepage: true }
+  },
   "Alison AI": {
     ws: ["https://alison.ai", "https://app.alison.ai"],
     li: ["https://www.linkedin.com/company/alison-ai"],
