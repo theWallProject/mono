@@ -7018,6 +7018,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@samseamlessnetwork5685"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "SGTech - Zero carbon, sustainable farming": {
+    ws: ["https://sgtech.co.il"],
+    urls: ["https://sgtech.co.il", "https://www.mar-comit.com"],
+    _meta: { isHomepage: true }
+  },
   "SIGA OT Solutions": {
     ws: ["https://sigasec.com"],
     li: ["https://www.linkedin.com/company/sigaotsolutions"],
