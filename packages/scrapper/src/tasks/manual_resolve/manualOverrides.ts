@@ -1070,6 +1070,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@binahai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BioBetter: {
+    ws: ["https://biobetter.bio"],
+    li: ["https://www.linkedin.com/company/biobetter"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true }
+  },
   BioCatch: {
     li: ["https://www.linkedin.com/company/biocatch"],
     fb: ["https://www.facebook.com/behvioral"],
