@@ -2383,6 +2383,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/dreamsecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dreame: { ws: ["https://about.dreame.me", "https://dreame.me"], _meta: { isHomepage: true } },
   DriveNets: {
     ws: [
       "https://drivenets.com",
