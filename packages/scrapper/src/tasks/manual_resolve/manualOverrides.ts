@@ -503,6 +503,15 @@ export const manualOverrides: Record<
     urls: ["https://www.comeet.com/jobs/askai/1A.00C"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Aspect Imaging": {
+    ws: ["https://aspectimaging.com"],
+    li: ["https://www.linkedin.com/company/aspect-imaging"],
+    fb: ["https://www.facebook.com/aspectimaging"],
+    tw: ["https://x.com/aspect_imaging"],
+    ytp: ["https://www.youtube.com/@aspectimaging"],
+    urls: ["https://aspectimaging.com/686-2", "https://aspectimaging.com/privacy-policy-3"],
+    _meta: { isHomepage: true }
+  },
   "Astrix Security": {
     ws: ["https://astrix.security"],
     li: ["https://www.linkedin.com/company/astrix-security"],
