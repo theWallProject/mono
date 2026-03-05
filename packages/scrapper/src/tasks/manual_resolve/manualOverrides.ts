@@ -3111,6 +3111,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/firmbase-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "FirstPoint Mobile Guard": {
+    ws: ["https://firstpoint-mg.com"],
+    li: ["https://www.linkedin.com/company/firstpoint-mobile-guard"],
+    urls: ["https://firstpoint-mg.com"],
+    _meta: { isHomepage: true }
+  },
   "Five Sigma": {
     ws: ["https://fivesigmalabs.com"],
     li: ["https://www.linkedin.com/company/five-sigma"],
