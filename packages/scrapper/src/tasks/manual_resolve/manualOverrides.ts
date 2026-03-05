@@ -892,6 +892,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/BeamrVideo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "BeeFree Agro": {
+    ws: ["https://www.beefreeagro.com"],
+    li: ["https://www.linkedin.com/company/beefree-agro"],
+    fb: ["https://www.facebook.com/beefreeagro"],
+    ig: ["https://www.instagram.com/beefree_agro"],
+    ytp: ["https://www.youtube.com/@beefreeagro8307"],
+    _meta: { isHomepage: true }
+  },
   Beewise: {
     ws: ["https://beewise.ag", "https://grower.beewise.ag", "https://beesforbuildings.com"],
     li: ["https://www.linkedin.com/company/beewise-technologies"],
