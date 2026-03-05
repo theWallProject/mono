@@ -17,6 +17,7 @@ export const manualOverrides: Record<
     urls: ["https://www.pearlcom.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "270Surgical": { ws: ["https://270surgical.com"], _meta: { isHomepage: true } },
   "3DBattery": {
     ws: ["https://3dbattery.co.il"],
     li: ["https://www.linkedin.com/company/3d-battery"],
