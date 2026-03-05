@@ -3763,6 +3763,11 @@ export const manualOverrides: Record<
     urls: ["https://mdclone.atlassian.net/servicedesk/customer/portal/7"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MNDL Bio": {
+    ws: ["https://app.mndl.bio", "https://www.mndl.bio"],
+    li: ["https://www.linkedin.com/company/mndl-bio"],
+    _meta: { isHomepage: true }
+  },
   "Magenta Medical": {
     ws: ["https://magentamed.com"],
     li: ["https://www.linkedin.com/company/magenta-medical"],
