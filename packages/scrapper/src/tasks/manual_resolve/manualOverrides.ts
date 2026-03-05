@@ -968,6 +968,31 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@BaseAI"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Beach Bum": {
+    ws: ["https://www.bbumgames.com"],
+    li: ["https://www.linkedin.com/company/beach-bum-ltd"],
+    fb: ["https://www.facebook.com/beach-bum-992923960753686"],
+    ig: ["https://www.instagram.com/beach_bum_fun"],
+    urls: [
+      "https://apps.apple.com/il/app/wild-run-adventures/id6742872860",
+      "https://bbumgames.freshdesk.com/en/support/home",
+      "https://bbumgameshelp.freshdesk.com/support/home",
+      "https://beachbum-help.freshdesk.com/support/home",
+      "https://newaccount1636616195716.freshdesk.com/support/home",
+      "https://rummyrush.freshdesk.com/support/home",
+      "https://rummystars.freshdesk.com/support/home",
+      "https://sitrus.co.il",
+      "https://tilezgame.freshdesk.com/support/home",
+      "https://www.bbumgames.com/about-us",
+      "https://www.bbumgames.com/careers",
+      "https://www.bbumgames.com/life-at-the-beach",
+      "https://www.bbumgames.com/our-games",
+      "https://www.bbumgames.com/privacy-policy",
+      "https://www.bbumgames.com/terms-of-service"
+    ],
+    android_app_ids: ["com.bbumgames.hexacoin"],
+    _meta: { isHomepage: true }
+  },
   Beaconcure: {
     ws: ["https://beaconcure.com"],
     li: ["https://www.linkedin.com/company/beaconcure"],
