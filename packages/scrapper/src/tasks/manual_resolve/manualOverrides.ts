@@ -3706,6 +3706,7 @@ export const manualOverrides: Record<
     tw: ["https://x.com/ivix_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Identifai-genetics": { ws: ["https://identifai-genetics.com"], _meta: { isHomepage: true } },
   Igentify: {
     ws: ["https://www.igentify.com"],
     li: ["https://www.linkedin.com/company/igentify"],
