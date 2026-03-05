@@ -5185,6 +5185,11 @@ export const manualOverrides: Record<
     urls: ["https://share-eu1.hsforms.com/1064gI4P7QBGKIuYKlPukCA2et0fn"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Nemo Nanomaterials": {
+    ws: ["https://nemonano.com"],
+    li: ["https://www.linkedin.com/company/nemo-nanomaterials"],
+    _meta: { isHomepage: true }
+  },
   "NeoTX Therapeutics": { ws: ["https://predictivetx.com"], _meta: { isHomepage: true, isVerified: true } },
   Neolithics: {
     ws: ["https://www.neolithics.ai"],
