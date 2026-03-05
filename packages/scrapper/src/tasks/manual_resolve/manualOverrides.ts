@@ -2279,6 +2279,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@easy_send"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Eco Wave Power": {
+    ws: ["https://www.ecowavepower.com"],
+    li: ["https://www.linkedin.com/company/eco-wave-power"],
+    fb: ["https://www.facebook.com/ecowavepowerltd"],
+    tw: ["https://x.com/ecowavepower"],
+    ig: ["https://www.instagram.com/ecowavepower"],
+    ytp: ["https://www.youtube.com/@ecowavepower"],
+    _meta: { isHomepage: true }
+  },
   "Econergy Renewable Energy": {
     ws: ["https://www.econergytech.com"],
     li: ["https://www.linkedin.com/company/econergy-renewable-energy-ltd"],
