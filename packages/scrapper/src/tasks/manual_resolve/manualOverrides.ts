@@ -6767,6 +6767,12 @@ export const manualOverrides: Record<
     urls: ["https://www.comeet.com/jobs/supercom/46.00A"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Supersmart: {
+    ws: ["https://developer.supersmart.me", "https://resources.supersmart.me", "https://supersmart.me"],
+    li: ["https://www.linkedin.com/company/supersmart-ltd-"],
+    fb: ["https://www.facebook.com/supersmart-shopping-experience-774463189399153"],
+    _meta: { isHomepage: true }
+  },
   Superstream: {
     ws: [
       "https://app.superstream.ai",
