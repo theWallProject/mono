@@ -3556,6 +3556,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@hyperguest11"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Hypercore: {
+    ws: ["https://www.hypercore.ai"],
+    li: ["https://www.linkedin.com/company/hypercore-ai"],
+    fb: ["https://www.facebook.com/hypercoreai"],
+    _meta: { isHomepage: true }
+  },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
     li: ["https://www.linkedin.com/company/hypernative"],
