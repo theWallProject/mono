@@ -3777,6 +3777,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Israelinnovationauthority"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Jeeng: {
+    ws: ["https://setup.jeeng.com", "https://www.jeeng.com"],
+    li: ["https://www.linkedin.com/company/jeengofficial"],
+    ig: ["https://www.instagram.com/jeengofficial"],
+    _meta: { isHomepage: true }
+  },
   "Jeffs’ Brands": {
     ws: ["https://jeffsbrands.com"],
     urls: ["https://investor.jeffsbrands.com"],
