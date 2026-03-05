@@ -7395,6 +7395,7 @@ export const manualOverrides: Record<
     urls: ["https://www.npmjs.com/package/superstream-kafka-analyzer"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Surance.io": { ws: ["https://www.surance.io"], urls: ["https://surancecheck.me"], _meta: { isHomepage: true } },
   Suridata: {
     ws: ["https://www.suridata.ai"],
     li: ["https://www.linkedin.com/company/suridataai"],
