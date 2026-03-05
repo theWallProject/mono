@@ -1647,6 +1647,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/click-ins"],
     _meta: { isHomepage: true }
   },
+  Cloudify: {
+    ws: ["https://cloudify.co", "https://docs.cloudify.co"],
+    gh: ["https://github.com/cloudify-cosmo"],
+    urls: [
+      "https://www.dell.com/learn/il/en/ilcorp1/policies-cookies-ads-emails",
+      "https://www.dell.com/learn/lc/en/lccorp1/policies-privacy-country-specific-privacy-policy"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Cnoga Medical": {
     ws: ["https://www.cnogacare.co"],
     li: ["https://www.linkedin.com/company/cnoga-medical"],
