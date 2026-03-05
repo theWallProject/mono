@@ -1701,6 +1701,13 @@ export const manualOverrides: Record<
     urls: ["https://www.joya-marketing.com"],
     _meta: { isHomepage: true }
   },
+  CarobWay: {
+    ws: ["https://carobway.com"],
+    li: ["https://www.linkedin.com/company/carobway"],
+    ytp: ["https://www.youtube.com/@carobway"],
+    urls: ["https://www.mar-comit.com"],
+    _meta: { isHomepage: true }
+  },
   Carrar: {
     ws: ["https://www.carrar.net"],
     li: ["https://www.linkedin.com/company/carrar"],
