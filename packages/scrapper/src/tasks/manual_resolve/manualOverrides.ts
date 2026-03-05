@@ -272,6 +272,16 @@ export const manualOverrides: Record<
     ytp: "https://www.youtube.com/user/emindcloud",
     _meta: { isHomepage: true, isVerified: true }
   },
+  Allot: {
+    ws: [
+      "https://customers.allot.com",
+      "https://cyberhub.allot.com",
+      "https://investors.allot.com",
+      "https://lp.allot.com",
+      "https://www.allot.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Alpha Omega": {
     ws: ["https://www.alphaomega-eng.com"],
     li: ["https://www.linkedin.com/company/alpha-omega"],
