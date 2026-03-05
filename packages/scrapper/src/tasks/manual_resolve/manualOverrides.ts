@@ -868,6 +868,11 @@ export const manualOverrides: Record<
     urls: ["http://blender.global", "http://www.user-a.co.il", "https://blender.loans", "https://blenderpay.com"],
     _meta: { isHomepage: true }
   },
+  "BOL Pharma": {
+    ws: ["https://www.bolpharma.com"],
+    urls: ["https://xn--88-lqi2fvc3a1a4i.live/register"],
+    _meta: { isHomepage: true }
+  },
   BackBox: {
     ws: ["https://backbox.com", "https://support.backbox.com"],
     li: ["https://www.linkedin.com/company/backbox"],
