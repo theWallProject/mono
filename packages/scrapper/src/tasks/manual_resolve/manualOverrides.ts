@@ -5305,6 +5305,7 @@ export const manualOverrides: Record<
     urls: ["https://maps.app.goo.gl/AE6EU9kAEZHjJwZB7"],
     _meta: { isHomepage: true }
   },
+  "Picodya Technologies Ltd.": { ws: ["https://picodya.com"], _meta: { isHomepage: true } },
   Piiano: {
     ws: ["https://go.mcptotal.io", "https://mcptotal.io"],
     li: ["https://www.linkedin.com/company/mcptotal"],
