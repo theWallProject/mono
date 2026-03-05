@@ -4872,6 +4872,14 @@ export const manualOverrides: Record<
     urls: ["https://thefinanceherald.com/amazon-expands-its-israeli-footprint-snatching-up-neuroblades-coreteam"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NeuroBrave: {
+    ws: ["https://neurobrave.com"],
+    li: ["https://www.linkedin.com/company/neurobrave"],
+    fb: ["https://www.facebook.com/neurobrave-104790162010192"],
+    tw: ["https://x.com/neurobrave"],
+    urls: ["https://www.dashboard.neurospeed.io/auth/login"],
+    _meta: { isHomepage: true }
+  },
   "NeuroSense Therapeutics": {
     ws: ["https://www.neurosense-tx.com"],
     li: ["https://www.linkedin.com/company/neurosense-therapeutics"],
