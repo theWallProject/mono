@@ -6091,6 +6091,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@PropelMyPR"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Propin: { ws: ["https://app.propin.ai", "https://www.propin.ai"], _meta: { isHomepage: true } },
   Protai: {
     ws: ["https://www.protai.bio"],
     li: ["https://www.linkedin.com/company/protai-bio"],
