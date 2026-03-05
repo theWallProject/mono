@@ -7618,6 +7618,16 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/VERITISECURITY"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Verto: {
+    ws: ["https://www.verto.ai"],
+    li: ["https://www.linkedin.com/company/verto3d"],
+    fb: ["https://www.facebook.com/verto3d"],
+    urls: [
+      "https://calendly.com/nadav_dadon_verto/verto_information_and_demo_call",
+      "https://www.crunchbase.com/organization/verto"
+    ],
+    _meta: { isHomepage: true }
+  },
   Vespper: {
     ws: ["https://app.vespper.com", "https://www.vespper.com"],
     li: ["https://www.linkedin.com/company/vespper"],
