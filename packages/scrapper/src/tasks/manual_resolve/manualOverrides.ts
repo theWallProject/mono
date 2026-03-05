@@ -4065,6 +4065,14 @@ export const manualOverrides: Record<
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Leverate: {
+    ws: ["https://leverate.com"],
+    li: ["https://www.linkedin.com/company/leverate"],
+    fb: ["https://www.facebook.com/leverate"],
+    tw: ["https://x.com/leveratelive"],
+    urls: ["https://leverate.com/blog"],
+    _meta: { isHomepage: true }
+  },
   Lexense: { ws: ["https://lexense.com"], _meta: { isHomepage: true, isVerified: true } },
   Lidwave: {
     ws: ["https://www.lidwave.com"],
