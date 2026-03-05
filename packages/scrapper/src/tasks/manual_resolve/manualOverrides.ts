@@ -4411,6 +4411,21 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Mobileye: {
+    ws: [
+      "https://brand.mobileye.com",
+      "https://careers.mobileye.com",
+      "https://ims.mobileye.com",
+      "https://ir.mobileye.com",
+      "https://www.mobileye.com"
+    ],
+    li: ["https://www.linkedin.com/company/24017", "https://www.linkedin.com/company/mobileye"],
+    fb: ["https://www.facebook.com/mobileye"],
+    tw: ["https://x.com/mobileye"],
+    ig: ["https://www.instagram.com/mobileye"],
+    ytp: ["https://www.youtube.com/@mobileyeaws"],
+    _meta: { isHomepage: true }
+  },
   Momentick: {
     ws: ["https://www.momentick.com"],
     li: ["https://www.linkedin.com/company/momentick"],
