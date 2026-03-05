@@ -3776,6 +3776,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/ibi-ag"],
     _meta: { isHomepage: true }
   },
+  IDEEZA: {
+    ws: ["https://ideeza.com"],
+    li: ["https://www.linkedin.com/company/makeideeza"],
+    fb: ["https://www.facebook.com/makeideeza"],
+    tw: ["https://x.com/make_ideeza"],
+    ig: ["https://www.instagram.com/the_ideeza"],
+    urls: ["https://discord.com/invite/7U5cCe7ECY", "https://t.me/IDEEZA_Airdrop_bot"],
+    _meta: { isHomepage: true }
+  },
   "IM Cannabis": {
     ws: ["https://imcannabis.com", "https://investors.imcannabis.com"],
     urls: [
