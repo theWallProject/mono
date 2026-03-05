@@ -3266,6 +3266,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@groundworkbioagltd.8359"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Grow Director": {
+    ws: ["https://app.growdirector.com", "https://growdirector.com"],
+    li: ["https://www.linkedin.com/company/growdirector"],
+    fb: ["https://www.facebook.com/growdirectorltd"],
+    ig: ["https://www.instagram.com/growdirectoragri"],
+    ytp: ["https://www.youtube.com/@growdirector", "https://www.youtube.com/@growdirector8723"],
+    _meta: { isHomepage: true }
+  },
   "Guardoc Health": {
     ws: ["https://www.guardoc.health"],
     urls: [
