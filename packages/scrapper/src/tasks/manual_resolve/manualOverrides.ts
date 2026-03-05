@@ -329,6 +329,13 @@ export const manualOverrides: Record<
     urls: ["https://www.aeveagency.com", "https://www.anandata.io"],
     _meta: { isHomepage: true }
   },
+  Annabella: {
+    ws: ["https://insurance.annabella-pump.com", "https://www.annabella-pump.com"],
+    fb: ["https://www.facebook.com/annabellapump"],
+    ig: ["https://www.instagram.com/annabellapump"],
+    urls: ["https://www.taurist.com"],
+    _meta: { isHomepage: true }
+  },
   Anodot: {
     ws: [
       "https://app.anodot.com",
