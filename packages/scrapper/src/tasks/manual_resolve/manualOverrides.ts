@@ -4870,6 +4870,17 @@ export const manualOverrides: Record<
     urls: ["https://www.g2.com/products/pecan/reviews"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PeerPlay: {
+    ws: ["https://www.peerplay.com"],
+    urls: [
+      "https://apps.apple.com/us/app/merge-cruise-mystery-puzzle/id6459056553",
+      "https://www.peerplay.com",
+      "https://www.peerplay.com/privacy",
+      "https://www.peerplay.com/support"
+    ],
+    android_app_ids: ["com.peerplay.megamerge"],
+    _meta: { isHomepage: true }
+  },
   "Pepticom Ltd.": {
     ws: ["https://pepticom.com"],
     li: ["https://www.linkedin.com/company/pepticom-ltd."],
