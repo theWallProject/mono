@@ -7368,6 +7368,13 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/VERITISECURITY"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Vespper: {
+    ws: ["https://app.vespper.com", "https://www.vespper.com"],
+    li: ["https://www.linkedin.com/company/vespper"],
+    tw: ["https://x.com/vespperdotcom"],
+    urls: ["https://cal.com/callwithtopaz/30min"],
+    _meta: { isHomepage: true }
+  },
   "Vessi Medical": {
     ws: ["https://www.vessimed.com"],
     li: ["https://www.linkedin.com/company/vessi-medical"],
