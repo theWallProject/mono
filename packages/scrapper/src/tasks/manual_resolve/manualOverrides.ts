@@ -3384,6 +3384,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@insightec4135"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  InZiv: {
+    ws: ["https://inziv.com"],
+    li: ["https://www.linkedin.com/company/inziv"],
+    tw: ["https://x.com/in_ziv"],
+    _meta: { isHomepage: true }
+  },
   Incredibuild: {
     ws: [
       "https://app.incredibuild.com",
