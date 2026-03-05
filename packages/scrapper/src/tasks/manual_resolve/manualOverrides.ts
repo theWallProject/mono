@@ -1610,6 +1610,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/chemoab-ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ChickP: {
+    ws: ["https://www.chickp-protein.com"],
+    li: ["https://www.linkedin.com/company/chickp"],
+    urls: ["https://chickp.webflow.io/about-us", "https://chickp.webflow.io/products"],
+    _meta: { isHomepage: true }
+  },
   "Chunk Foods": {
     ws: ["https://shopusa.chunkfoods.com", "https://www.chunkfoods.com"],
     li: ["https://www.linkedin.com/company/chunk-foods"],
