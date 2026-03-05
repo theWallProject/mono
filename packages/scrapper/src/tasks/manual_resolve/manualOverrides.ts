@@ -1074,6 +1074,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bendit: {
+    ws: ["https://www.bendittech.com"],
+    li: ["https://www.linkedin.com/company/bendit-technologies"],
+    urls: [
+      "https://www.prnewswire.com/news-releases/bendit-technologies-receives-us-food-and-drug-administration-510k-clearance-of-its-bendit-021-steerable-microcatheter-301527001.html"
+    ],
+    _meta: { isHomepage: true }
+  },
   Bettear: {
     ws: ["https://www.bettear.com"],
     li: ["https://www.linkedin.com/company/bettear"],
