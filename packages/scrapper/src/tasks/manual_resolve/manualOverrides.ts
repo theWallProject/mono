@@ -7753,6 +7753,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@swimm_io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Synvertec LTD.": {
+    ws: ["https://www.synvertec.com"],
+    urls: ["http://taustudio.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Syqe Medical": {
     ws: ["https://www.syqemedical.com"],
     urls: [
