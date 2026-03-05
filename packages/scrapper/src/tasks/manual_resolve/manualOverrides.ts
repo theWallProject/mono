@@ -61,6 +61,12 @@ export const manualOverrides: Record<
     urls: ["http://www.thebunch.co.il", "http://www.tipoos.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "AES Embedded Solutions": {
+    ws: ["https://www.aes-connect.com"],
+    li: ["https://www.linkedin.com/company/aes-amarel-engineering-services"],
+    urls: ["https://www.aes-connect.com/privacy-policy-2"],
+    _meta: { isHomepage: true }
+  },
   "AI21 Labs": {
     ws: ["https://www.ai21.com"],
     li: ["https://www.linkedin.com/company/ai21"],
