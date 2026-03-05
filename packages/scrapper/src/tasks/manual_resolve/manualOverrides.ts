@@ -3716,6 +3716,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kemtaiftns"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kiinns: {
+    ws: ["https://www.kiinns.com"],
+    li: ["https://www.linkedin.com/company/kiinns"],
+    urls: ["http://www.tamarindi.com", "https://www.kiinns.com"],
+    _meta: { isHomepage: true }
+  },
   "Kipp Authorize More": {
     ws: ["https://app.letskipp.com", "https://letskipp.com"],
     li: ["https://www.linkedin.com/company/letskipp"],
