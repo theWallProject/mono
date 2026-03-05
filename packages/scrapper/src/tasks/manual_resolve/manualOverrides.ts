@@ -3145,6 +3145,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/hivewaretech%20"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Hola: {
+    ws: ["https://hola.org", "https://support.hola.org"],
+    urls: ["https://chromewebstore.google.com/detail/hola-vpn-the-website-unbl/gkojfkhlekighikafcpjkiklfbnlmeio"],
+    _meta: { isHomepage: true }
+  },
   Holisto: {
     ws: ["https://www.holisto.com"],
     urls: ["https://apps.apple.com/us/app/holisto-better-hotel-deals/id1635312687"],
