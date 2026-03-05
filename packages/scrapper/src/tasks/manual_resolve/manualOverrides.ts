@@ -2573,6 +2573,15 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/entera.bio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  EZMEMS: {
+    ws: ["https://www.ezmems.com"],
+    urls: [
+      "https://www.ezmems.com/about",
+      "https://www.ezmems.com/copy-of-technology",
+      "https://www.ezmems.com/technology"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Early Technologies": {
     ws: ["https://docs.startearly.ai", "https://www.startearly.ai"],
     li: ["https://www.linkedin.com/company/earlyai"],
