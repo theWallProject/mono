@@ -3377,6 +3377,12 @@ export const manualOverrides: Record<
     urls: ["https://entry.co.il", "https://firmabrands.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Ginzi: {
+    ws: ["https://ginzi.io", "https://newsletter.ginzi.io"],
+    li: ["https://www.linkedin.com/company/ginzi"],
+    urls: ["https://ginzimail.com", "https://www.newsletter.ginzi.io"],
+    _meta: { isHomepage: true }
+  },
   Gloww: { ws: ["https://app.gloww.com", "https://gloww.com"], _meta: { isHomepage: true } },
   Grain: {
     ws: ["https://www.grainfinance.com"],
