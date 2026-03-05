@@ -3528,6 +3528,12 @@ export const manualOverrides: Record<
     urls: ["https://portal.ionix.io/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ITsMine: {
+    ws: ["https://app.itsmine.io", "https://itsmine.io"],
+    li: ["https://www.linkedin.com/company/itsmine"],
+    fb: ["https://www.facebook.com/itsmineltd"],
+    _meta: { isHomepage: true }
+  },
   IVIX: {
     ws: ["https://www.ivix.ai"],
     li: ["https://www.linkedin.com/company/ivix-ai"],
