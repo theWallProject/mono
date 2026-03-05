@@ -2319,6 +2319,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@eviationaircraftinc.5845"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Evinature: {
+    ws: ["https://evinature.com", "https://shop.evinature.com"],
+    li: ["https://www.linkedin.com/company/evinature"],
+    fb: ["https://www.facebook.com/evinature"],
+    ig: ["https://www.instagram.com/evinature"],
+    tt: ["https://www.tiktok.com/@evinature"],
+    _meta: { isHomepage: true }
+  },
   Evogene: {
     ws: ["https://evogene.com"],
     li: ["https://www.linkedin.com/company/evogene"],
