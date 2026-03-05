@@ -8497,6 +8497,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@vee.channel"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Velotix: {
+    ws: ["https://www.velotix.ai"],
+    li: ["https://www.linkedin.com/company/velotix"],
+    tw: ["https://x.com/velotixai"],
+    _meta: { isHomepage: true }
+  },
   Velox: { ws: ["https://velox-digital.com"], _meta: { isHomepage: true, isVerified: true } },
   Vendict: {
     ws: ["https://myapp.vendict.com", "https://trust.vendict.com", "https://vendict.com"],
