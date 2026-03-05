@@ -4651,6 +4651,7 @@ export const manualOverrides: Record<
     urls: ["http://www.webview.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Lydus Medical": { ws: ["https://www.lydus-medical.com"], _meta: { isHomepage: true } },
   Lynxight: {
     ws: ["https://dashboard.lynxight.com", "https://success.lynxight.com", "https://www.lynxight.com"],
     li: ["https://www.linkedin.com/company/lynxight"],
