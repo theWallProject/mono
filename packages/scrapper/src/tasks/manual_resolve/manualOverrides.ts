@@ -857,6 +857,16 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BLender: {
+    ws: [
+      "https://loans.blender.co.il",
+      "https://partner.blender.co.il",
+      "https://utils.blender.co.il",
+      "https://www.blender.co.il"
+    ],
+    urls: ["http://blender.global", "http://www.user-a.co.il", "https://blender.loans", "https://blenderpay.com"],
+    _meta: { isHomepage: true }
+  },
   BackBox: {
     ws: ["https://backbox.com", "https://support.backbox.com"],
     li: ["https://www.linkedin.com/company/backbox"],
