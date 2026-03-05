@@ -572,6 +572,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ark Surgical": {
+    ws: ["https://www.ark-surgical.com"],
+    li: ["https://www.linkedin.com/company/ark-surgical"],
+    _meta: { isHomepage: true }
+  },
   Artlist: {
     ws: [
       "https://artlist.io",
