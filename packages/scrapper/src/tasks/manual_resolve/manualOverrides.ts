@@ -1349,6 +1349,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@perpetual-power-in-motion"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "CanFite BioPharma": {
+    ws: ["https://ir.canfite.com", "https://www.canfite.com"],
+    fb: ["https://www.facebook.com/canfitebiopharma"],
+    _meta: { isHomepage: true }
+  },
   Canditech: {
     ws: ["https://helpcenter.canditech.io", "https://system.canditech.io", "https://www.canditech.io"],
     li: ["https://www.linkedin.com/company/canditech"],
