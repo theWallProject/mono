@@ -6973,6 +6973,11 @@ export const manualOverrides: Record<
     urls: ["https://hubs.la/Q02XTTQ10", "https://investors.solaredge.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SolidT: {
+    ws: ["https://solidt-tech.com"],
+    urls: ["https://il.linkedin.com/in/ziv-cohen-695a765"],
+    _meta: { isHomepage: true }
+  },
   Somite: { tw: "https://x.com/somiteai" },
   SonicEdge: { ws: ["https://sonicedge.io"], _meta: { isHomepage: true, isVerified: true } },
   Sorbet: { ws: ["https://advance.getsorbet.com"], _meta: { isHomepage: true, isVerified: true } },
