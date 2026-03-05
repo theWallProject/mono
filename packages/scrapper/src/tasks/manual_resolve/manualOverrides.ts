@@ -7153,6 +7153,11 @@ export const manualOverrides: Record<
     urls: ["https://www.widelab.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Smart Medical Systems": {
+    ws: ["https://smartmedsys.com"],
+    urls: ["https://generatepress.com"],
+    _meta: { isHomepage: true }
+  },
   Sodot: {
     ws: ["https://docs.sodot.dev", "https://www.sodot.dev"],
     li: ["https://www.linkedin.com/company/sodot"],
