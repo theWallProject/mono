@@ -1637,6 +1637,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CardioVia: {
+    ws: ["https://www.cardiovia.com"],
+    li: ["https://www.linkedin.com/company/cardiovia"],
+    urls: ["https://www.joya-marketing.com"],
+    _meta: { isHomepage: true }
+  },
   Carrar: {
     ws: ["https://www.carrar.net"],
     li: ["https://www.linkedin.com/company/carrar"],
