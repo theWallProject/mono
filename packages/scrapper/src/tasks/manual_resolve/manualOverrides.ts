@@ -912,6 +912,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/bigabid"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Billabook: {
+    ws: ["https://www.billabook.com"],
+    urls: ["https://billabook.freshdesk.com/support/home"],
+    _meta: { isHomepage: true }
+  },
   BiltOn: {
     ws: ["https://careers.bilton.tech", "https://www.bilton.tech", "https://us.bilton.pro"],
     urls: [
