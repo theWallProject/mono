@@ -7190,6 +7190,20 @@ export const manualOverrides: Record<
     urls: ["https://il.linkedin.com/in/ziv-cohen-695a765"],
     _meta: { isHomepage: true }
   },
+  Solutum: {
+    ws: ["https://www.solutum.co"],
+    li: ["https://www.linkedin.com/company/19138464", "https://www.linkedin.com/company/solutum-ltd"],
+    fb: ["https://www.facebook.com/solutumltd"],
+    ytp: ["https://www.youtube.com/@solutumteam"],
+    urls: [
+      "https://www.solutum.co/contact-us",
+      "https://www.solutum.co/privacy-policy",
+      "https://www.solutum.co/team",
+      "https://www.solutum.co/terms-conditions",
+      "https://www.solutum.co/why-solutum"
+    ],
+    _meta: { isHomepage: true }
+  },
   Somite: { tw: "https://x.com/somiteai" },
   SonicEdge: { ws: ["https://sonicedge.io"], _meta: { isHomepage: true, isVerified: true } },
   Sonovia: {
