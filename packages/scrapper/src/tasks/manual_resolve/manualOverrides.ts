@@ -7062,6 +7062,18 @@ export const manualOverrides: Record<
   },
   Somite: { tw: "https://x.com/somiteai" },
   SonicEdge: { ws: ["https://sonicedge.io"], _meta: { isHomepage: true, isVerified: true } },
+  Sonovia: {
+    ws: ["https://sonoviatech.com"],
+    urls: [
+      "https://sonoviatech.com",
+      "https://sonoviatech.com/about-us",
+      "https://sonoviatech.com/contact-us",
+      "https://sonoviatech.com/faq",
+      "https://sonoviatech.com/investor-relations",
+      "https://sonoviatech.com/technology"
+    ],
+    _meta: { isHomepage: true }
+  },
   Sorbet: { ws: ["https://advance.getsorbet.com"], _meta: { isHomepage: true, isVerified: true } },
   SpaceIL: {
     ws: ["https://arb.spaceil.com", "https://eng.spaceil.com", "https://kids.spaceil.com", "https://www.spaceil.com"],
