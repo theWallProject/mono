@@ -2202,6 +2202,12 @@ export const manualOverrides: Record<
     urls: ["https://bim.datumate.com", "https://www.datumate.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Deep DAO": {
+    ws: ["https://deepdao.io"],
+    tw: ["https://x.com/deepdao_io"],
+    urls: ["https://discord.com/invite/BQBEUS9V9N", "https://medium.com/deep-dao"],
+    _meta: { isHomepage: true }
+  },
   DeepKeep: {
     ws: ["https://docs.deepkeep.ai", "https://www.deepkeep.ai"],
     li: ["https://www.linkedin.com/company/deepkeep"],
