@@ -5299,6 +5299,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Pickommerce AI Robotics": {
+    ws: ["https://www.pickommerce.com"],
+    li: ["https://www.linkedin.com/company/pickommerce-ai-robotics"],
+    urls: ["https://maps.app.goo.gl/AE6EU9kAEZHjJwZB7"],
+    _meta: { isHomepage: true }
+  },
   Piiano: {
     ws: ["https://go.mcptotal.io", "https://mcptotal.io"],
     li: ["https://www.linkedin.com/company/mcptotal"],
