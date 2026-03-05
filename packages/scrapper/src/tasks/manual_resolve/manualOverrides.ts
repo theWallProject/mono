@@ -2301,6 +2301,15 @@ export const manualOverrides: Record<
     urls: ["https://www.comrax.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ElectReon: {
+    ws: ["https://electreon.com"],
+    li: ["https://www.linkedin.com/company/electreon"],
+    fb: ["https://www.facebook.com/electreonwireless"],
+    ig: ["https://www.instagram.com/electreon_wireless"],
+    ytp: ["https://www.youtube.com/@electreon"],
+    urls: ["http://www.google.com"],
+    _meta: { isHomepage: true }
+  },
   "Elementary Data": {
     ws: ["https://docs.elementary-data.com", "https://www.elementary-data.com"],
     li: ["https://www.linkedin.com/company/elementary-data"],
