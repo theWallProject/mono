@@ -4765,6 +4765,7 @@ export const manualOverrides: Record<
     android_dev_id: "com.moonpay",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Moovex: { ws: ["https://admin.moovex.ai", "https://moovex.ai"], _meta: { isHomepage: true } },
   Moovit: {
     ws: ["https://moovit.com"],
     urls: [
