@@ -2239,6 +2239,21 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Doral Energy Group": {
+    ws: ["https://doral-energy.com", "https://esg.doral-energy.com"],
+    li: ["https://www.linkedin.com/company/doral-energy"],
+    fb: ["https://www.facebook.com/doralenergy"],
+    tw: ["https://x.com/doralenergy"],
+    ig: ["https://www.instagram.com/doralenergy"],
+    urls: [
+      "https://doral-llc.com",
+      "https://doral-tech.com",
+      "https://live.altecog.com/auth/login",
+      "https://mozinteractive.co.il",
+      "https://www.doral-urban.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   DragonflyDB: {
     ws: ["https://security.dragonflydb.io", "https://trust.dragonflydb.io", "https://www.dragonflydb.io"],
     li: ["https://www.linkedin.com/company/dragonflydb"],
