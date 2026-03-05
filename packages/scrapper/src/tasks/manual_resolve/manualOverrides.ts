@@ -7624,6 +7624,19 @@ export const manualOverrides: Record<
     urls: ["https://dev.xyte.io", "https://meetings.hubspot.com/xyte/website-demo-ash", "https://updates.xyte.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Yonalink: {
+    ws: [
+      "https://edc.eu.yonalink.com",
+      "https://edc.us.yonalink.com",
+      "https://ehr.eu.yonalink.com",
+      "https://ehr.us.yonalink.com",
+      "https://status.yonalink.com",
+      "https://www.yonalink.com"
+    ],
+    li: ["https://www.linkedin.com/company/yonalink"],
+    tw: ["https://x.com/yonalink_"],
+    _meta: { isHomepage: true }
+  },
   "ZOOZ Power": {
     ws: ["https://ir.zoozpower.com", "https://treasury.zoozpower.com", "https://www.zoozpower.com"],
     li: ["https://www.linkedin.com/company/zooz-power"],
