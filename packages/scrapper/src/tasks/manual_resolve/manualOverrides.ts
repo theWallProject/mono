@@ -5903,6 +5903,11 @@ export const manualOverrides: Record<
     urls: ["https://mlsecops.slack.com/signup#/domain-signup"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Protected Media": {
+    ws: ["https://www.protected.media"],
+    li: ["https://www.linkedin.com/company/protected-media"],
+    _meta: { isHomepage: true }
+  },
   Pynt: {
     ws: ["https://app.pynt.io", "https://docs.pynt.io", "https://www.pynt.io"],
     li: ["https://www.linkedin.com/company/pynt"],
