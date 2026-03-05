@@ -2753,6 +2753,11 @@ export const manualOverrides: Record<
     urls: ["https://foretellix.cn"],
     _meta: { isHomepage: true }
   },
+  "Forsea Foods": {
+    ws: ["https://www.forseafoods.com"],
+    li: ["https://www.linkedin.com/company/forseafoods"],
+    _meta: { isHomepage: true }
+  },
   Forwrd: {
     ws: ["https://help.forwrd.ai", "https://www.forwrd.ai"],
     li: ["https://www.linkedin.com/company/forwrdai"],
