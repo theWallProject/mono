@@ -6556,6 +6556,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/scala-biodesign"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SciSparc: {
+    ws: ["https://investor.scisparc.com", "https://scisparc.com"],
+    urls: ["https://investor.scisparc.com/investors", "https://scisparc.com"],
+    _meta: { isHomepage: true }
+  },
   "Scinai Immunotherapeutics": {
     ws: ["https://www.scinai.com"],
     li: ["https://www.linkedin.com/company/scinai"],
