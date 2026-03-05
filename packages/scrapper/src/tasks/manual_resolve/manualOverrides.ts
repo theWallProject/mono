@@ -5710,6 +5710,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Rewind: {
+    ws: ["https://www.rewind.earth"],
+    li: ["https://www.linkedin.com/company/rewindearth"],
+    tw: ["https://x.com/rewind_earth"],
+    ytp: ["https://www.youtube.com/@rewind_earth"],
+    urls: ["https://craftandroot.com"],
+    _meta: { isHomepage: true }
+  },
   RiseUp: {
     ws: ["https://www.riseup.co.il"],
     urls: [
