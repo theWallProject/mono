@@ -6949,6 +6949,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "VSL Labs": {
+    ws: ["https://status.vsllabs.com", "https://vsllabs.com"],
+    li: ["https://www.linkedin.com/company/vsllabs"],
+    urls: ["https://status.vsllabs.com"],
+    _meta: { isHomepage: true }
+  },
   "Valens Semiconductor": {
     ws: ["https://investors.valens.com", "https://www.valens.com"],
     li: ["https://www.linkedin.com/company/valens"],
