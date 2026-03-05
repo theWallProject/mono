@@ -1978,6 +1978,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Convizit: {
+    ws: ["https://convizit.com"],
+    li: ["https://www.linkedin.com/company/convizit"],
+    fb: ["https://www.facebook.com/convizit"],
+    tw: ["https://x.com/convizit"],
+    ig: ["https://www.instagram.com/convizit_life"],
+    _meta: { isHomepage: true }
+  },
   Coralogix: {
     ws: [
       "https://coralogix.com",
