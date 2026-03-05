@@ -4847,6 +4847,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/nucleix_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Nugen Clean Energy": {
+    ws: ["https://nugeneco.com"],
+    li: ["https://www.linkedin.com/company/nugencleanenergy"],
+    _meta: { isHomepage: true }
+  },
   "NurExone Biologic": {
     ws: ["https://nurexone.com", "https://register.nurexone.com"],
     li: ["https://www.linkedin.com/company/nurexone-biologic"],
