@@ -4775,6 +4775,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/meala-foodtech"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MeatAfora: { ws: ["https://meatafora.com"], urls: ["https://meatafora.com"], _meta: { isHomepage: true } },
   MedAware: {
     ws: ["https://www.medaware.com"],
     li: ["https://www.linkedin.com/company/medaware"],
