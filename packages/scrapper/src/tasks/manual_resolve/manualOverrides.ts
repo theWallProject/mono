@@ -7182,6 +7182,11 @@ export const manualOverrides: Record<
     urls: ["https://web-skipper.co.il", "https://www.sinapistech.com", "https://www.yoti.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TERA: {
+    ws: ["https://partners.tera.group", "https://www.tera.group"],
+    li: ["https://www.linkedin.com/company/the-teragroup"],
+    _meta: { isHomepage: true }
+  },
   TaTiO: {
     ws: ["https://www.tatio.io"],
     urls: [
