@@ -7320,6 +7320,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@StoreDotLtd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Storywise: {
+    ws: ["https://www.storywise.ai"],
+    urls: ["https://www.storywisenetwork.com", "https://www.storywisepublishers.com"],
+    _meta: { isHomepage: true }
+  },
   "Stream Security": {
     ws: ["https://www.stream.security"],
     li: ["https://www.linkedin.com/company/streamsecurity"],
