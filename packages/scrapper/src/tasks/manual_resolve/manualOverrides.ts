@@ -5391,6 +5391,18 @@ export const manualOverrides: Record<
     urls: ["https://app.dover.com/jobs/nilos"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nisko: {
+    ws: ["https://www.niskoelec.com"],
+    li: ["https://www.linkedin.com/company/nisko-group"],
+    fb: ["https://www.facebook.com/niskogroup"],
+    ig: ["https://www.instagram.com/niskogroup"],
+    ytp: ["https://www.youtube.com/@niskoelec"],
+    tt: ["https://www.tiktok.com/@niskogroup_"],
+    urls: [
+      "https://digital.niskogroup.com/%D7%A7%D7%98%D7%9C%D7%95%D7%92%D7%99%D7%9D_%D7%A0%D7%99%D7%A1%D7%A7%D7%95/general/ISO9001.pdf"
+    ],
+    _meta: { isHomepage: true }
+  },
   NitroFix: {
     ws: ["https://nitro-fix.com"],
     li: ["https://www.linkedin.com/company/nitrofix"],
