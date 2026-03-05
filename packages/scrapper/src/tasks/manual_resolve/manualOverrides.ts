@@ -6453,6 +6453,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.pingapp.app"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Splisense: {
+    ws: ["https://splisense.com"],
+    li: ["https://www.linkedin.com/company/splisenseltd"],
+    _meta: { isHomepage: true }
+  },
   Stargo: {
     ws: ["https://www.stargo.co"],
     li: ["https://www.linkedin.com/company/stargo-co"],
