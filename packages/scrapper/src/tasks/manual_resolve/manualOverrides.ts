@@ -8011,6 +8011,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Towerjazz_official"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Toya Pioneering Women": {
+    ws: ["https://www.toyaplay.com"],
+    tw: ["https://x.com/toyaplaystudio"],
+    ig: ["https://www.instagram.com/toyaplay"],
+    ytp: ["https://www.youtube.com/@toyaplaystudio"],
+    tt: ["https://www.tiktok.com/@toyaplaystudio"],
+    urls: ["http://clbthemes.com", "https://1.envato.market/5Q25j", "https://discord.com/invite/zENRjzh"],
+    _meta: { isHomepage: true }
+  },
   Traceloop: {
     ws: ["https://traceloop.com"],
     li: ["https://www.linkedin.com/company/traceloop"],
