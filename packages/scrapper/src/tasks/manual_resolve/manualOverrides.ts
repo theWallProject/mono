@@ -6921,6 +6921,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@strigo8642"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Sufresca: {
+    ws: ["https://sufresca.com"],
+    li: ["https://www.linkedin.com/company/sufresca"],
+    urls: ["https://www.mar-comit.com"],
+    _meta: { isHomepage: true }
+  },
   SuperBuzz: {
     ws: ["https://analyze.superbuzz.io", "https://app.superbuzz.io", "https://www.superbuzz.io"],
     li: ["https://www.linkedin.com/company/superbuzz-io"],
