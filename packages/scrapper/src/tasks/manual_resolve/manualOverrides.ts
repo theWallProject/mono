@@ -1702,6 +1702,16 @@ export const manualOverrides: Record<
     android_app_ids: ["com.comunix.pokerface"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "ConTIPI Medical": {
+    ws: ["https://contipi.com"],
+    li: ["https://www.linkedin.com/company/contipi-medical"],
+    fb: ["https://www.facebook.com/contipimedical"],
+    urls: [
+      "http://hackerman.co.il",
+      "https://www.google.com/maps/place/%D7%90%D7%9C%D7%95%D7%9F+%D7%94%D7%AA%D7%91%D7%95%D7%A8+2,+%D7%A7%D7%99%D7%A1%D7%A8%D7%99%D7%94%E2%80%AD/@32.4723896,34.9638609,14.95z/data=!4m5!3m4!1s0x151d0de013cb91b1:0xd38e54cac0d176b1!8m2!3d32.4751166!4d34.9495265"
+    ],
+    _meta: { isHomepage: true }
+  },
   Contguard: {
     ws: ["https://cgi.contguard.com", "https://contguard.com", "https://insights.contguard.com"],
     li: ["https://www.linkedin.com/company/contguard-ltd"],
