@@ -4641,6 +4641,15 @@ export const manualOverrides: Record<
     urls: ["https://intercom.help/munch-e1ea69d858ab/en", "https://www.producthunt.com/products/munch-studio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MyBiotics Pharma LTD": {
+    ws: ["https://mybiotics-pharma.com"],
+    urls: [
+      "http://mybiotics.s139.upress.link/product-pipeline",
+      "http://mybiotics.s139.upress.link/technology",
+      "http://scoopsites.co.il"
+    ],
+    _meta: { isHomepage: true }
+  },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
   MyndYou: {
     ws: ["https://www.arbiter.ai"],
