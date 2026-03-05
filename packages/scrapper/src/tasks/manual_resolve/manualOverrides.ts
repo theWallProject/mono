@@ -6842,6 +6842,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  "Sight Diagnostics": {
+    ws: ["https://www.sightdx.com"],
+    li: ["https://www.linkedin.com/company/sight-diagnostics"],
+    urls: ["http://lin.co.il"],
+    _meta: { isHomepage: true }
+  },
   Sightful: {
     ws: ["https://sightful.com"],
     li: ["https://www.linkedin.com/company/heysightful"],
