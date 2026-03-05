@@ -2650,6 +2650,16 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/forsightrobotics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Foretellix: {
+    ws: ["https://www.foretellix.com"],
+    li: ["https://www.linkedin.com/company/foretellix"],
+    fb: ["https://www.facebook.com/foretellix"],
+    tw: ["https://x.com/foretellixhq"],
+    ytp: ["https://www.youtube.com/@foretellix"],
+    ytc: ["https://www.youtube.com/channel/UC1_RHjB1GlgKrewVk4GZCyQ"],
+    urls: ["https://foretellix.cn"],
+    _meta: { isHomepage: true }
+  },
   Forwrd: {
     ws: ["https://help.forwrd.ai", "https://www.forwrd.ai"],
     li: ["https://www.linkedin.com/company/forwrdai"],
