@@ -5747,6 +5747,17 @@ export const manualOverrides: Record<
     android_app_ids: ["com.playsight.tennis"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Playnance: {
+    ws: ["https://docs.playnance.com", "https://playnance.com"],
+    li: ["https://www.linkedin.com/company/playnance"],
+    tw: ["https://x.com/playnance_"],
+    urls: [
+      "https://explorer.playblock.io",
+      "https://skynet.certik.com/projects/Playnance",
+      "https://t.me/playnance_official"
+    ],
+    _meta: { isHomepage: true }
+  },
   Playtech: {
     ws: ["https://api.marketplace.playtech.com", "https://investors.playtech.com", "https://www.playtech.com"],
     li: ["https://www.linkedin.com/company/18717"],
