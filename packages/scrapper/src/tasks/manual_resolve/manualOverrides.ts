@@ -1065,6 +1065,14 @@ export const manualOverrides: Record<
     urls: ["https://www.biondbio.com/privacy-policy", "https://www.biondbio.com/terms-of-use"],
     _meta: { isHomepage: true }
   },
+  "Biotic Circular Technologies": {
+    ws: ["https://biotic-labs.com"],
+    li: ["https://www.linkedin.com/company/biotic-circular"],
+    fb: ["https://www.facebook.com/bioticcirculartechnologies"],
+    ytp: ["https://www.youtube.com/@bioticcircular"],
+    urls: ["https://iamblunt.co.il"],
+    _meta: { isHomepage: true }
+  },
   Bit: {
     ws: ["https://bit.dev"],
     li: ["https://www.linkedin.com/company/bit-dev"],
