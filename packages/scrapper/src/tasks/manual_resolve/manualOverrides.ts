@@ -1000,6 +1000,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Bank Leumi": {
+    ws: ["https://bonus.leumi.co.il", "https://mortgage.leumi.co.il", "https://www.leumi.co.il"],
+    fb: ["https://www.facebook.com/leumidigital"],
+    tw: ["https://x.com/leumidigital"],
+    ytp: ["https://www.youtube.com/@leumidigital"],
+    urls: ["https://hb2.bankleumi.co.il/H/Login.html", "https://hb2.bankleumi.co.il/staticcontent/gate-keeper/he"],
+    _meta: { isHomepage: true }
+  },
   Base: {
     ws: ["https://clgcampus.base.ai", "https://go.base.ai", "https://www.base.ai"],
     li: ["https://www.linkedin.com/company/base-clg"],
