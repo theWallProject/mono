@@ -2634,6 +2634,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FieldIn: {
+    ws: ["https://api.fieldin.com", "https://fieldin.com"],
+    li: ["https://www.linkedin.com/company/fieldin-powered-by-agromentum-ltd-"],
+    tw: ["https://x.com/fieldintech"],
+    ig: ["https://www.instagram.com/fieldintech"],
+    urls: ["https://app.fieldintech.com"],
+    _meta: { isHomepage: true }
+  },
   Fincom: {
     ws: ["https://fincom.co"],
     li: ["https://www.linkedin.com/company/fincom-co"],
