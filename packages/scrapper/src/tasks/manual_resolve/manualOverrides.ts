@@ -548,6 +548,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@ArbeRobotics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Arbitrip: {
+    ws: ["https://app.arbitrip.com", "https://arbitrip.com"],
+    li: ["https://www.linkedin.com/company/arbitrip"],
+    _meta: { isHomepage: true }
+  },
   Arbox: {
     ws: [
       "https://academy.arboxapp.com",
