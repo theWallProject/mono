@@ -225,6 +225,22 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/CatoNetworks"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Air Doctor": {
+    ws: ["https://www.air-dr.com"],
+    li: ["https://www.linkedin.com/company/airdoctor"],
+    fb: ["https://www.facebook.com/airdoctorltd"],
+    tw: ["https://x.com/airdoctorapp"],
+    ig: ["https://www.instagram.com/airdoctorapp"],
+    ytp: ["https://www.youtube.com/@airdoctorapp"],
+    tt: ["https://www.tiktok.com/@airdoctorapp"],
+    urls: [
+      "https://apps.apple.com/il/app/air-doctor/id1208899318",
+      "https://apps.apple.com/us/app/air-doctor/id1208899318",
+      "https://www.hellodesign.co"
+    ],
+    android_app_ids: ["com.gaiamobile.airdoctor"],
+    _meta: { isHomepage: true }
+  },
   AirEye: {
     ws: ["https://aireye.tech"],
     li: ["https://www.linkedin.com/company/aireye"],
