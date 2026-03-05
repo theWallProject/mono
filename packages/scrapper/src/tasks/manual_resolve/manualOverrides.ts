@@ -4840,6 +4840,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@menteebot"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Mesh Security": {
+    ws: ["https://mesh.security"],
+    li: ["https://www.linkedin.com/company/mesh-cybersecurity"],
+    fb: ["https://www.facebook.com/thecybermesh"],
+    tw: ["https://x.com/meshsecurityzt"],
+    ytp: ["https://www.youtube.com/@meshsecurity"],
+    urls: ["https://mesh.security"],
+    _meta: { isHomepage: true }
+  },
   MetalBear: {
     ws: ["https://app.metalbear.com", "https://metalbear.com"],
     li: ["https://www.linkedin.com/company/metalbearco"],
