@@ -5639,6 +5639,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Pynt0-u8u"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  QEDIT: {
+    ws: ["https://qed-it.com"],
+    li: ["https://www.linkedin.com/company/qedit"],
+    fb: ["https://www.facebook.com/qeditzkp"],
+    tw: ["https://x.com/qeditzkp"],
+    urls: ["https://medium.com/qed-it", "https://zkproof.org"],
+    _meta: { isHomepage: true }
+  },
   Qodo: {
     ws: ["https://www.qodo.ai"],
     li: ["https://www.linkedin.com/company/qodoai"],
