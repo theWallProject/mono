@@ -988,6 +988,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.bettear.bettearApp"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Better Juice": {
+    ws: ["https://www.better-juice.com"],
+    li: ["https://www.linkedin.com/company/better-juice"],
+    _meta: { isHomepage: true }
+  },
   BetterSeeds: {
     ws: ["https://betterseeds.com"],
     li: ["https://www.linkedin.com/company/betterseeds-ltd"],
