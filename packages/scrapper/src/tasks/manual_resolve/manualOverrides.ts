@@ -3330,6 +3330,14 @@ export const manualOverrides: Record<
   },
   Genie: { ws: ["https://genie.cooking"], urls: ["https://www.pinterest.com"], _meta: { isHomepage: true } },
   GeoX: { ws: ["https://app.geox.ai"], _meta: { isHomepage: true, isVerified: true } },
+  GetPackage: {
+    ws: ["https://getpackage.com", "https://sender.getpackage.com"],
+    li: ["https://www.linkedin.com/company/getpackage"],
+    fb: ["https://www.facebook.com/getpackage"],
+    ig: ["https://www.instagram.com/getpackage"],
+    urls: ["https://direct.lc.chat/12920325", "https://getpackage.onelink.me/XI4x/df02984a"],
+    _meta: { isHomepage: true }
+  },
   "Gigantic LTD (Clawee)": {
     ws: ["https://clawee.com", "https://store.clawee.com"],
     fb: ["https://www.facebook.com/claweeisawesome"],
