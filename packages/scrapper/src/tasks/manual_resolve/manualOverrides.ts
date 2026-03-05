@@ -3231,6 +3231,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Flying SpArk": {
+    ws: ["https://www.theflyingspark.com"],
+    urls: ["https://www.theflyingspark.com"],
+    _meta: { isHomepage: true }
+  },
   Flytrex: {
     ws: ["https://www.flytrex.com"],
     li: ["https://il.linkedin.com/company/flytrex"],
