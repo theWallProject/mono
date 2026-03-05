@@ -5173,6 +5173,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   NewRocket: { ws: ["https://www.newrocket.co.il"], _meta: { isHomepage: true } },
+  NextFerm: {
+    ws: ["https://maximmune.nextferm.com", "https://nextferm.com"],
+    li: ["https://www.linkedin.com/company/nextferm"],
+    urls: ["https://maximmune.nextferm.com", "https://nextferm.com", "https://www.mar-comit.com"],
+    _meta: { isHomepage: true }
+  },
   NextSilicon: {
     ws: ["https://www.nextsilicon.com"],
     urls: ["https://silktide.com/consent-manager"],
