@@ -9083,6 +9083,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@i-braintech6306"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "i-EcoGuard": {
+    ws: ["https://i-ecoguard.com"],
+    li: ["https://www.linkedin.com/company/i-ecoguard-ltd"],
+    _meta: { isHomepage: true }
+  },
   illumex: {
     ws: ["https://illumex.ai"],
     li: ["https://www.linkedin.com/company/illumexai"],
