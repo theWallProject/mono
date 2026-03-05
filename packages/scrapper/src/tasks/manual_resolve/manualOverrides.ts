@@ -2454,6 +2454,12 @@ export const manualOverrides: Record<
     urls: ["https://attractive.co.il", "https://www.sec.gov/cgi-bin/browse-edgar"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Evrideo: {
+    ws: ["https://evrideo.com"],
+    li: ["https://www.linkedin.com/company/evrideo-playout"],
+    urls: ["https://www.termsfeed.com/live/c0db4d90-9e8d-4374-af10-d7d99e1cce00"],
+    _meta: { isHomepage: true }
+  },
   "Exero Medical": {
     ws: ["https://exeromedical.com"],
     li: ["https://www.linkedin.com/company/18838545"],
