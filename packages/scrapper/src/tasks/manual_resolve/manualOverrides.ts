@@ -4778,6 +4778,7 @@ export const manualOverrides: Record<
     urls: ["https://neurosense.investorroom.com", "https://www.neurosense-tx.com", "https://www.webnoise.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NewRocket: { ws: ["https://www.newrocket.co.il"], _meta: { isHomepage: true } },
   NextSilicon: {
     ws: ["https://www.nextsilicon.com"],
     urls: ["https://silktide.com/consent-manager"],
