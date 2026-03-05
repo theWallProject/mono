@@ -323,6 +323,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/weareintenthq"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Anan: {
+    ws: ["https://www.anandata.io"],
+    li: ["https://www.linkedin.com/company/anancloudsecuredatasolutions"],
+    urls: ["https://www.aeveagency.com", "https://www.anandata.io"],
+    _meta: { isHomepage: true }
+  },
   Anodot: {
     ws: [
       "https://app.anodot.com",
