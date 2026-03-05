@@ -439,6 +439,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Applitools"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Apply Design": {
+    ws: ["https://app.applydesign.io", "https://support.applydesign.io", "https://www.applydesign.io"],
+    li: ["https://www.linkedin.com/company/applydesign"],
+    fb: ["https://www.facebook.com/applydesign.io"],
+    ig: ["https://www.instagram.com/apply_design.io"],
+    _meta: { isHomepage: true }
+  },
   "Aqua Security": {
     ws: [
       "https://aquademy.aquasec.com",
