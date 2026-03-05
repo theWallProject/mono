@@ -6230,6 +6230,13 @@ export const manualOverrides: Record<
     urls: ["https://craftandroot.com"],
     _meta: { isHomepage: true }
   },
+  "Rise.ai": {
+    ws: ["https://dev.rise.ai", "https://help.rise.ai", "https://platform.rise.ai", "https://rise.ai"],
+    li: ["https://www.linkedin.com/company/rise-ai"],
+    fb: ["https://www.facebook.com/rise.aicompany"],
+    tw: ["https://x.com/rise_ai"],
+    _meta: { isHomepage: true }
+  },
   RiseUp: {
     ws: ["https://www.riseup.co.il"],
     urls: [
