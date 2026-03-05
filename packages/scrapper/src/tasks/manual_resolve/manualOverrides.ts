@@ -7118,6 +7118,7 @@ export const manualOverrides: Record<
     urls: ["https://www.google.com/maps/search/Hatnufa+5+,+Yokneam+Illit,+Israel"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  WeedOut: { ws: ["https://www.weedout-ibs.com"], _meta: { isHomepage: true } },
   Wenrix: {
     ws: ["https://docs.wenrix.com", "https://www.wenrix.com"],
     urls: [
