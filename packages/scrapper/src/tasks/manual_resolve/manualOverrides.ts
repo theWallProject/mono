@@ -7491,6 +7491,14 @@ export const manualOverrides: Record<
     urls: ["https://www.storywisenetwork.com", "https://www.storywisepublishers.com"],
     _meta: { isHomepage: true }
   },
+  Storywizard: {
+    ws: ["https://www.storywizard.ai"],
+    fb: ["https://www.facebook.com/storywizardai"],
+    tw: ["https://x.com/storywizardai"],
+    ig: ["https://www.instagram.com/storywizard.ai"],
+    urls: ["https://cert.privo.com"],
+    _meta: { isHomepage: true }
+  },
   "Stream Security": {
     ws: ["https://www.stream.security"],
     li: ["https://www.linkedin.com/company/streamsecurity"],
