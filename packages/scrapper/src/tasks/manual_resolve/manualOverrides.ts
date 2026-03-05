@@ -5525,6 +5525,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@REEAutomotive"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "REIGO Investments": {
+    ws: ["https://reigo-inv.com"],
+    li: ["https://www.linkedin.com/company/reigo-investments"],
+    urls: ["http://www.tbdm.co.il"],
+    _meta: { isHomepage: true }
+  },
   REplace: {
     ws: ["https://www.replace-energy.com"],
     li: ["https://www.linkedin.com/company/renewable-energy-place-ltd"],
