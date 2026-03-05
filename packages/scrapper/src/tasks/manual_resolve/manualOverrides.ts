@@ -2180,6 +2180,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@deepkeep_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Depoint: { ws: ["https://depoint.ai"], _meta: { isHomepage: true } },
   DeviceTotal: {
     ws: ["https://community.devicetotal.com", "https://devicetotal.com"],
     li: ["https://www.linkedin.com/company/device-total"],
