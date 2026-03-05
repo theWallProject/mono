@@ -8718,6 +8718,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/yonalink_"],
     _meta: { isHomepage: true }
   },
+  Youtiligent: {
+    ws: ["https://www.youtiligent.com"],
+    li: ["https://www.linkedin.com/company/youtiligent"],
+    _meta: { isHomepage: true }
+  },
   "ZOOZ Power": {
     ws: ["https://ir.zoozpower.com", "https://treasury.zoozpower.com", "https://www.zoozpower.com"],
     li: ["https://www.linkedin.com/company/zooz-power"],
