@@ -7640,6 +7640,19 @@ export const manualOverrides: Record<
     android_app_ids: ["com.pingapp.app"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Spinomenal: {
+    ws: ["https://spinomenal.com"],
+    li: ["https://www.linkedin.com/company/spinomenal"],
+    ig: ["https://www.instagram.com/spinomenal"],
+    urls: [
+      "http://onjn.gov.ro/lista-licentiati-clasa-a-ii-a",
+      "https://authorisation.mga.org.mt/verification.aspx",
+      "https://bmm.com",
+      "https://www.gambleaware.org",
+      "https://www.gamblingcommission.gov.uk/public-register/business/detail/58210"
+    ],
+    _meta: { isHomepage: true }
+  },
   Splisense: {
     ws: ["https://splisense.com"],
     li: ["https://www.linkedin.com/company/splisenseltd"],
