@@ -6073,6 +6073,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Phone.do": { ws: ["https://phone.do"], _meta: { isHomepage: true } },
   Phytech: {
     ws: ["https://app.phytech.com", "https://www.phytech.com"],
     li: ["https://www.linkedin.com/company/476356"],
