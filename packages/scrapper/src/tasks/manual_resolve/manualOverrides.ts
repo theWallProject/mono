@@ -23,6 +23,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/3d-battery"],
     _meta: { isHomepage: true }
   },
+  "3NT Medical": { ws: ["https://3ntmedical.com"], urls: ["https://3ntmedical.com"], _meta: { isHomepage: true } },
   "3d Signals": {
     ws: ["https://3dsignals.com"],
     li: ["https://www.linkedin.com/company/3dsignals"],
