@@ -4638,6 +4638,11 @@ export const manualOverrides: Record<
     urls: ["https://ir.microbotmedical.com/news-events/press-release", "https://thesulfurgroup.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Micronet: {
+    ws: ["https://www.micronet-inc.com"],
+    urls: ["http://mozinteractive.co.il", "https://www.micronet-inc.com"],
+    _meta: { isHomepage: true }
+  },
   "Miggo Security": {
     ws: ["https://www.miggo.io"],
     li: ["https://www.linkedin.com/company/miggo-security"],
