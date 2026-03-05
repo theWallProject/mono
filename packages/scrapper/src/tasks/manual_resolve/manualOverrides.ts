@@ -3832,6 +3832,12 @@ export const manualOverrides: Record<
     urls: ["https://www.madebyomnis.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Magentiq Eye Ltd": {
+    ws: ["https://magentiq.com"],
+    li: ["https://www.linkedin.com/company/magentiq-eye-ltd"],
+    tw: ["https://x.com/magentiqeye"],
+    _meta: { isHomepage: true }
+  },
   "Magnus Metal": {
     ws: ["https://magnusmetal.com"],
     urls: ["https://magnusmetal.com/privacy-policy", "https://magnusmetal.com/terms-of-use"],
