@@ -7050,6 +7050,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@strigo8642"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Stuff That Works": { ws: ["https://www.stuffthatworks.health"], _meta: { isHomepage: true } },
   Sufresca: {
     ws: ["https://sufresca.com"],
     li: ["https://www.linkedin.com/company/sufresca"],
