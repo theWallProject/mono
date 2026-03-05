@@ -4186,6 +4186,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/meala-foodtech"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MedAware: {
+    ws: ["https://www.medaware.com"],
+    li: ["https://www.linkedin.com/company/medaware"],
+    tw: ["https://x.com/medawarerx"],
+    _meta: { isHomepage: true }
+  },
   "MedHub-AI": {
     ws: ["https://www.medhub-ai.com"],
     li: ["https://www.linkedin.com/company/medhub-ai"],
