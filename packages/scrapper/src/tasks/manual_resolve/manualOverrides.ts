@@ -6411,6 +6411,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Spetz: {
+    ws: ["https://spetz.io"],
+    urls: ["https://spetz.io/the-role-of-personalization-in-chatbot-engagement"],
+    _meta: { isHomepage: true }
+  },
   Spike: {
     ws: ["https://www.spikenow.com"],
     li: ["https://www.linkedin.com/company/3240452"],
