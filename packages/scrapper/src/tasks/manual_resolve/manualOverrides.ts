@@ -407,6 +407,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Append Medical": {
+    ws: ["https://appendmedical.com"],
+    li: ["https://www.linkedin.com/company/append-medical"],
+    urls: ["https://pearlcom.co.il"],
+    _meta: { isHomepage: true }
+  },
   Applitools: {
     ws: [
       "https://applitools.com",
