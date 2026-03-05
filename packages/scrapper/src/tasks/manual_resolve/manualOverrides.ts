@@ -2490,6 +2490,16 @@ export const manualOverrides: Record<
     urls: ["https://eleventx.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Elgan Pharma Ltd.": {
+    ws: ["https://elganpharma.com"],
+    urls: [
+      "https://elganpharma.com/accessibility",
+      "https://elganpharma.com/privacy-policy",
+      "https://elganpharma.com/terms-of-use",
+      "https://minknvik.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   Emerix: {
     ws: ["https://www.emerix.ai"],
     li: ["https://www.linkedin.com/company/emerixai"],
