@@ -3099,6 +3099,18 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/hyperspace-db"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "IM Cannabis": {
+    ws: ["https://imcannabis.com", "https://investors.imcannabis.com"],
+    urls: [
+      "https://imcannabis.com/about",
+      "https://imcannabis.com/contact",
+      "https://imcannabis.com/he/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa",
+      "https://imcannabis.com/privacy-policy",
+      "https://imcannabis.com/term-of-use",
+      "https://investors.imcannabis.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   INCRMNTAL: {
     ws: ["https://knowledgebase.incrmntal.com", "https://www.incrmntal.com"],
     li: ["https://www.linkedin.com/company/incrmntal"],
