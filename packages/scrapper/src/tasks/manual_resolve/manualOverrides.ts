@@ -5911,6 +5911,7 @@ export const manualOverrides: Record<
     android_app_ids: ["com.Plus500"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PoLoPo: { ws: ["https://www.polopo.tech"], _meta: { isHomepage: true } },
   PointGrab: {
     ws: ["https://flex.pointgrab.com", "https://pointgrab.com", "https://support.pointgrab.com"],
     li: ["https://www.linkedin.com/company/pointgrab"],
