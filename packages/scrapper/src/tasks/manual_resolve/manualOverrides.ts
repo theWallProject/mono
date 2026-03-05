@@ -296,6 +296,11 @@ export const manualOverrides: Record<
     urls: ["https://amaiproteins.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Amplication: {
+    ws: ["https://amplication.com", "https://app.amplication.com", "https://docs.amplication.com"],
+    gh: ["https://github.com/amplication"],
+    _meta: { isHomepage: true }
+  },
   Anagog: {
     ws: ["https://docs.intenthq.com", "https://intenthq.com"],
     li: ["https://www.linkedin.com/company/intenthq"],
