@@ -4141,6 +4141,33 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@letskipp"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kirobo: {
+    ws: ["https://www.kirobo.io"],
+    li: ["https://www.linkedin.com/company/kirobo"],
+    tw: ["https://x.com/kirobo_io"],
+    ytp: ["https://www.youtube.com/@kiroboofficial4655"],
+    urls: [
+      "https://app.uniswap.org",
+      "https://discord.com/invite/TByNB8wr6D",
+      "https://drughub.io/de",
+      "https://fct.kirobo.me",
+      "https://fct.kirobo.me/builder",
+      "https://fct.kirobo.me/legal/FCT-Privacy.pdf",
+      "https://fct.kirobo.me/legal/FCT-Terms.pdf",
+      "https://kirobo.gitbook.io/fct-platform/overview/introduction",
+      "https://kirobo.gitbook.io/fct-plugins",
+      "https://kirobo.gitbook.io/welcome-to-kirobo-v2",
+      "https://pancakeswap.finance/swap",
+      "https://quickswap.exchange",
+      "https://staking.kirobo.me/new",
+      "https://undo.kirobo.me",
+      "https://vault.kirobo.me",
+      "https://www.bitrue.com/trade/kiro_eth",
+      "https://www.dauntlink.org/view/torzon-market",
+      "https://www.intentable.io"
+    ],
+    _meta: { isHomepage: true }
+  },
   Kissterra: {
     ws: ["https://kissterra.com"],
     li: ["https://www.linkedin.com/company/kissterra"],
