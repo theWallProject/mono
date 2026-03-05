@@ -2624,6 +2624,14 @@ export const manualOverrides: Record<
     urls: ["https://a-2-z.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  EntityMed: {
+    ws: ["https://entitymed.com"],
+    li: ["https://www.linkedin.com/company/entitymed"],
+    fb: ["https://www.facebook.com/entitymedcom"],
+    ig: ["https://www.instagram.com/entitymed_"],
+    urls: ["https://entitymed.web.app/login", "https://entitymed.web.app/start-now"],
+    _meta: { isHomepage: true }
+  },
   Entrio: {
     ws: ["https://docs.entrio.io", "https://www.entrio.io"],
     li: ["https://www.linkedin.com/company/entrioplatform"],
