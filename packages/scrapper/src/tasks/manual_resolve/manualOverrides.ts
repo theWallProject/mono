@@ -6218,6 +6218,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Quai MD": {
+    ws: ["https://quai.md"],
+    li: ["https://www.linkedin.com/company/quai-md"],
+    urls: ["https://titan-branding.com"],
+    _meta: { isHomepage: true }
+  },
   Qualifire: {
     ws: [
       "https://app.qualifire.ai",
