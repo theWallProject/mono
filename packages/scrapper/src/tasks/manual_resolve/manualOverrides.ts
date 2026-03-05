@@ -6051,6 +6051,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@plainid3877"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Plannie: {
+    ws: ["https://scheduler.plannieapp.com", "https://www.plannieapp.com"],
+    li: ["https://www.linkedin.com/company/plannie"],
+    fb: ["https://www.facebook.com/plannie.chenyo"],
+    ig: ["https://www.instagram.com/plannie_app"],
+    _meta: { isHomepage: true }
+  },
   PlantArcBio: {
     ws: ["https://plantarcbio.com"],
     li: ["https://www.linkedin.com/company/plantarcbio"],
