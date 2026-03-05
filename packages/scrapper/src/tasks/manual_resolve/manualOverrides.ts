@@ -6483,6 +6483,12 @@ export const manualOverrides: Record<
     urls: ["https://medium.com/qed-it", "https://zkproof.org"],
     _meta: { isHomepage: true }
   },
+  QLOG: {
+    ws: ["https://www.qlog.co"],
+    li: ["https://www.linkedin.com/company/qlog-co"],
+    urls: ["https://apps.apple.com/il/app/qlog-simply-manage/id6458547667", "https://play.google.com/store/search"],
+    _meta: { isHomepage: true }
+  },
   Qodo: {
     ws: ["https://www.qodo.ai"],
     li: ["https://www.linkedin.com/company/qodoai"],
