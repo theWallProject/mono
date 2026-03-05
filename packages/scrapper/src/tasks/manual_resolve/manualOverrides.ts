@@ -5248,6 +5248,13 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
+  Oddin: {
+    ws: ["https://adm.oddin.ai", "https://oddin.ai"],
+    li: ["https://www.linkedin.com/company/oddin"],
+    tw: ["https://x.com/oddinai"],
+    urls: ["https://t.me/oddinai"],
+    _meta: { isHomepage: true }
+  },
   Odeeo: {
     ws: ["https://blog.odeeo.io", "https://odeeo.io"],
     li: ["https://www.linkedin.com/company/odeeo"],
