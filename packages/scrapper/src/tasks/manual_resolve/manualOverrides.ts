@@ -3961,6 +3961,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  KIDOZ: {
+    ws: ["https://accounts.kidoz.net", "https://investor.kidoz.net", "https://www.kidoz.net"],
+    li: ["https://www.linkedin.com/company/kidoz"],
+    tw: ["https://x.com/kidozinc"],
+    urls: ["https://cert.privo.com"],
+    _meta: { isHomepage: true }
+  },
   KOIOS: {
     ws: ["https://koiostech.ai"],
     li: ["https://www.linkedin.com/company/koiostech"],
