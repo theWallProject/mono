@@ -7223,6 +7223,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@SkylineRobotics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Slauth.io": {
+    ws: ["https://blog.slauth.io", "https://www.slauth.io"],
+    gh: ["https://github.com/slauth-io"],
+    _meta: { isHomepage: true }
+  },
   "Slice Global": {
     ws: ["https://app.sliceglobal.com", "https://sliceglobal.com"],
     li: ["https://www.linkedin.com/company/globalslice"],
