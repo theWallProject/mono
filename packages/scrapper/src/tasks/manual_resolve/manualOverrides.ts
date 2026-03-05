@@ -8349,6 +8349,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Voyantis-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "W Cycle": {
+    ws: ["https://w-cycle.com"],
+    li: ["https://www.linkedin.com/company/wcycle"],
+    _meta: { isHomepage: true }
+  },
   "WSC Sports": {
     ws: ["https://wsc-sports.com"],
     li: ["https://il.linkedin.com/company/wsc-sports-technologies"],
