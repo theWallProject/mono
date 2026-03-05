@@ -1096,6 +1096,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  "Betalin Therapeutics": {
+    ws: ["https://betalintherapeutics.com"],
+    urls: ["https://www.waze.com/he/live-map/directions"],
+    _meta: { isHomepage: true }
+  },
   Bettear: {
     ws: ["https://www.bettear.com"],
     li: ["https://www.linkedin.com/company/bettear"],
