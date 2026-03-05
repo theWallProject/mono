@@ -4910,6 +4910,15 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
+  MyPart: {
+    ws: ["https://api.mypart.com", "https://www.mypart.com"],
+    li: ["https://www.linkedin.com/company/mypart-ltd."],
+    ig: ["https://www.instagram.com/mypartofficial"],
+    ytp: ["https://www.youtube.com/@mypartofficial"],
+    tt: ["https://www.tiktok.com/@mypartofficial"],
+    urls: ["https://www.mypart.ai/api-access", "https://www.mypart.ai/contact", "https://www.mypart.ai/privacy-policy"],
+    _meta: { isHomepage: true }
+  },
   MyndYou: {
     ws: ["https://www.arbiter.ai"],
     li: ["https://www.linkedin.com/company/arbiter-ai"],
