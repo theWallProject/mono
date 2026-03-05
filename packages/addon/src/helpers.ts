@@ -62,6 +62,8 @@ export type TR_NAME =
   | "options_share_wa"
   | "options_share_tg"
   | "options_contact"
+  | "options_vote_sadaqah"
+  | "options_android_app"
   | "linkedin_job_processing_enable"
   | "linkedin_job_processing_disable"
 

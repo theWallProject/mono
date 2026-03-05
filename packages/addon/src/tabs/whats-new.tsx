@@ -1,3 +1,4 @@
+import { FaAndroid } from "@react-icons/all-files/fa/FaAndroid"
 import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook"
 import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin"
 import { FaTelegram } from "@react-icons/all-files/fa/FaTelegram"
@@ -18,6 +19,7 @@ function WhatsNew() {
     document.body.style.margin = "0"
     document.body.style.padding = "0"
     document.body.style.background = "#b72b00"
+    document.title = "What's New - The Wall"
   }, [])
 
   // Get extension name from manifest
@@ -53,6 +55,16 @@ function WhatsNew() {
     }
   }
 
+  const handleVote = () => {
+    track("Button", "Click", "options_vote_sadaqah")
+    window.open("https://award.globalsadaqah.com/profiles/118", "_blank")
+  }
+
+  const handleAndroid = () => {
+    track("Button", "Click", "options_android_app")
+    window.open("https://play.google.com/store/apps/details?id=com.thewall.android", "_blank")
+  }
+
   const handleDonate = () => {
     track("Button", "Click", "options_donate")
     window.open("https://ko-fi.com/thewalladdon", "_blank")
@@ -85,84 +97,76 @@ function WhatsNew() {
             <img src={getExtensionURL(shieldIcon)} alt="The Wall Logo" className={styles.theWallLogo} />
             <div className={styles.versionContent}>
               <h2 className={styles.sectionTitle}>{extensionName}</h2>
-              <p className={styles.version}>Version 1.10.0 🎉</p>
+              <p className={styles.version}>Version 1.10.2</p>
             </div>
           </div>
 
-          {/* Upscrolled Feature */}
+          {/* Vote CTA - Time Critical */}
+          <section className={`${styles.featureSection} ${styles.voteCta}`}>
+            <h2 className={styles.sectionTitle} style={{ color: "#ffffff", fontSize: "24px" }}>
+              Help Us Win $5,000 <span className={styles.urgentBadge}>Time-Sensitive</span>
+            </h2>
+            <p className={styles.featureText} style={{ color: "#ffe1cd", fontSize: "18px" }}>
+              The Wall has been nominated for the Global Sadaqah Tech For Good Award. Winning this $5,000 grant would be
+              a game-changer for a solo developer project like this. It means more features, faster updates, and less
+              time freelancing to keep the lights on.
+            </p>
+            <p
+              className={styles.featureText}
+              style={{ fontWeight: "600", color: "#ffffff", fontSize: "19px" }}>
+              Every single vote counts. Yours could be the one that tips the scale. It takes 10 seconds and costs
+              nothing.
+            </p>
+            <div style={{ marginTop: "16px", textAlign: "center" }}>
+              <button className={styles.voteButton} onClick={handleVote}>
+                Vote Now - It Takes 10 Seconds
+              </button>
+            </div>
+          </section>
+
+          {/* Data Enhancements */}
           <section className={styles.featureSection}>
-            <a href="https://upscrolled.com/?ref=thewall" target="_blank" rel="noopener noreferrer">
-              <img
-                src="https://upscrolled.com/wp-content/uploads/2022/01/logo.png"
-                alt="Upscrolled"
-                style={{ maxWidth: "180px", marginBottom: "12px" }}
-              />
-            </a>
-            <h2 className={styles.sectionTitle}>Social Media, Unchained</h2>
+            <h2 className={styles.sectionTitle}>Massive Data Update</h2>
             <p className={styles.featureText}>
-              We now suggest{" "}
-              <a
-                href="https://upscrolled.com/?ref=thewall"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#b72b00", fontWeight: "600" }}>
-                Upscrolled
-              </a>{" "}
-              when you visit Instagram, TikTok, Facebook, or Threads. This Palestinian-founded platform has seen
-              incredible success - millions of users in just days! With chronological feeds, transparent algorithms, and
-              no shadowbanning, it&apos;s social media the way it should be. Support their mission for digital freedom.
+              Hundreds of data enhancements across the entire database. We ran extensive automation pipelines followed by
+              hours of manual verification to detect and link social media profiles for the 20,000+ companies we track.
+              LinkedIn, Facebook, X, Instagram, GitHub, YouTube, TikTok, Threads - if a flagged company has a presence
+              there, we now catch it.
+            </p>
+            <p className={styles.featureText}>
+              This means the extension now detects significantly more profiles when you browse social media. Fewer slip
+              through the cracks.
             </p>
           </section>
 
-          {/* VPN Detection */}
+          {/* Android App */}
           <section className={styles.featureSection}>
-            <h2 className={styles.sectionTitle}>Israeli VPN Detection</h2>
+            <h2 className={styles.sectionTitle}>
+              <FaAndroid size={22} color="#3DDC84" /> The Wall is Now on Android
+            </h2>
             <p className={styles.featureText}>
-              Did you know many popular VPNs have Israeli founders? We now detect ExpressVPN, CyberGhost, ZenMate,
-              Private Internet Access, and more. Your privacy tool shouldn&apos;t fund oppression.
+              The Android app is live on Google Play. It scans your installed apps against our database of 20,000+
+              companies and shows you which ones have Israeli connections. Available in English and Arabic, with more
+              languages coming soon.
             </p>
-            <a
-              href="https://boycat.io/vpn/order?via=theWall"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.boycatCta}>
-              <img
-                src="https://boycat.io/boycat-yes.png"
-                alt="BoycatVPN"
-                style={{ width: "80px", height: "80px", borderRadius: "12px", flexShrink: 0 }}
-              />
-              <div style={{ textAlign: "left" }}>
-                <span
-                  style={{
-                    display: "block",
-                    color: "#ffffff",
-                    fontSize: "28px",
-                    fontWeight: "800",
-                    marginBottom: "4px",
-                    textShadow: "0 2px 4px rgba(0,0,0,0.2)"
-                  }}>
-                  Switch to BoycatVPN
-                </span>
-                <span
-                  style={{
-                    display: "block",
-                    color: "#90EE90",
-                    fontSize: "20px",
-                    fontWeight: "700"
-                  }}>
-                  Get 1 Month FREE with our link!
-                </span>
-              </div>
-            </a>
+            <p className={styles.featureText}>
+              Hundreds of new companies are being added in the coming weeks - install now and you&apos;ll get them
+              automatically.
+            </p>
+            <div style={{ marginTop: "16px" }}>
+              <button className={`${styles.donateButton} ${styles.androidButton}`} onClick={handleAndroid}>
+                Get it on Google Play
+              </button>
+            </div>
           </section>
 
-          {/* Donation Message */}
+          {/* Support */}
           <section className={`${styles.featureSection} ${styles.donationSection}`}>
             <h2 className={styles.sectionTitle}>Support The Wall</h2>
             <p className={styles.featureText}>
-              Hope you like the new look! This redesign (and everything else) was made possible by donations and support
-              from Tech For Palestine. More donations = more time I can spend on updates instead of freelancing. Simple
-              math, really.
+              This project is built and maintained by a solo developer. Honestly, $1/month helps me more than a one-time
+              $100. Steady support means I can plan ahead and spend real time on this instead of chasing freelance gigs.
+              It takes one second to set up from the Android app or Ko-fi.
             </p>
             <div style={{ marginTop: "20px" }}>
               <button className={`${styles.donateButton} ${styles.largeDonateButton}`} onClick={handleDonate}>
@@ -174,8 +178,8 @@ function WhatsNew() {
 
         <div className={styles.footer}>
           <div className={styles.footerActions}>
-            <button className={styles.donateButton} onClick={handleDonate}>
-              Donate
+            <button className={styles.voteButton} onClick={handleVote}>
+              Vote for The Wall
             </button>
             <a href="https://the-wall.win" target="_blank" rel="noopener noreferrer" className={styles.link}>
               Visit the-wall.win

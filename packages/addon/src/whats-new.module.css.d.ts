@@ -1,4 +1,5 @@
 declare const styles: {
+  readonly androidButton: string
   readonly badgeShimmer: string
   readonly bgLayer: string
   readonly bgOverlay: string
@@ -39,9 +40,15 @@ declare const styles: {
   readonly shimmer: string
   readonly theWallLogo: string
   readonly title: string
+  readonly urgentBadge: string
+  readonly urgentPulse: string
   readonly version: string
   readonly versionContent: string
   readonly versionSection: string
   readonly versionText: string
+  readonly voteBtnPulse: string
+  readonly voteButton: string
+  readonly voteCta: string
+  readonly voteShine: string
 }
 export = styles
