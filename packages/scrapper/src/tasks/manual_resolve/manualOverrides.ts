@@ -779,6 +779,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Autobrains: {
+    ws: ["https://autobrains.ai"],
+    li: ["https://www.linkedin.com/company/autobrains-technologies"],
+    tw: ["https://x.com/autobrains_ai"],
+    ytp: ["https://www.youtube.com/@autobrainstechnologies"],
+    urls: ["https://www.comeet.com/jobs/autobrains/57.004"],
+    _meta: { isHomepage: true }
+  },
   Autofleet: {
     ws: ["https://autofleet.io", "https://ev.autofleet.io", "https://lp.autofleet.io", "https://taxi.autofleet.io"],
     li: ["https://www.linkedin.com/company/autofleet"],
