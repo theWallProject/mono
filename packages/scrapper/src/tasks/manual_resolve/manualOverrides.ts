@@ -3603,6 +3603,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@IntuitionRobotics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Ironblocks: {
+    ws: ["https://app.ironblocks.com", "https://docs.ironblocks.com", "https://www.ironblocks.com"],
+    tw: ["https://x.com/ironblocks_"],
+    gh: ["https://github.com/ironblocks"],
+    urls: ["https://discord.com/invite/XJkYXyxPZj", "https://t.me/ironbuilders"],
+    _meta: { isHomepage: true }
+  },
   "Israel Innovation Authority": {
     ws: ["https://innovationisrael.org.il"],
     li: ["https://www.linkedin.com/company/5094726/admin"],
