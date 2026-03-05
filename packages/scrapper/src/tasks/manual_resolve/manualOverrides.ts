@@ -7604,6 +7604,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/valerann_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Valid.it": {
+    ws: ["https://validit.ai"],
+    li: ["https://www.linkedin.com/company/validitai"],
+    _meta: { isHomepage: true }
+  },
   "Vanilla Vida": {
     ws: ["https://vanillavida.com"],
     li: ["https://www.linkedin.com/company/vanilla-technologies"],
