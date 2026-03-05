@@ -6922,6 +6922,22 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/sett-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Shalom Hartman Institute": {
+    ws: ["https://go.hartman.org.il", "https://heb.hartman.org.il", "https://www.hartman.org.il"],
+    fb: ["https://www.facebook.com/shalomhartmaninstituteeng"],
+    tw: ["https://x.com/hartman_inst"],
+    ig: ["https://www.instagram.com/shalomhartmaninstitute"],
+    ytp: ["https://www.youtube.com/@shalomhartmaninstituteeng"],
+    urls: [
+      "https://hartman.tfaforms.net/f/support-shalom-hartman",
+      "https://www.hartman.org.il/about-the-hartman-institute",
+      "https://www.hartman.org.il/contact-us",
+      "https://www.hartman.org.il/join-the-hartman-team",
+      "https://www.hartman.org.il/newsletter",
+      "https://www.hartman.org.il/terms-of-service"
+    ],
+    _meta: { isHomepage: true }
+  },
   Shield: {
     ws: ["https://kb.shieldfc.com", "https://www.shieldfc.com"],
     li: ["https://www.linkedin.com/company/shieldcommunicationcompliance"],
