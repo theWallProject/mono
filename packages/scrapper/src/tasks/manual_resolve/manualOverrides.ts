@@ -2352,6 +2352,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  EyeControl: {
+    ws: ["https://www.eyecontrol.co.il"],
+    li: ["https://www.linkedin.com/company/eyecontrol"],
+    fb: ["https://www.facebook.com/eyecontrol"],
+    _meta: { isHomepage: true }
+  },
   FEMSelect: {
     ws: ["https://www.femselect.com"],
     li: ["https://www.linkedin.com/company/28632694"],
