@@ -4321,6 +4321,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@NICE-Systems"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NOVOS: {
+    ws: ["https://app.novos.gg", "https://www.novos.gg"],
+    li: ["https://www.linkedin.com/company/novos"],
+    tw: ["https://x.com/novosgg"],
+    ig: ["https://www.instagram.com/novosgg"],
+    urls: ["https://discord.com/invite/vE4vu7z", "https://novos.typeform.com/to/tmZLi5GJ"],
+    _meta: { isHomepage: true }
+  },
   "NSO Group": {
     ws: ["https://www.nsogroup.com"],
     urls: [
