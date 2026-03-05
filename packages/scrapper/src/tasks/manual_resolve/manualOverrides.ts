@@ -7209,6 +7209,14 @@ export const manualOverrides: Record<
     urls: ["https://fidoalliance.org/company/secret-double-octopus", "https://vimeo.com/doubleoctopus"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Securithings: {
+    ws: ["https://securithings.com"],
+    li: ["https://www.linkedin.com/company/securithings"],
+    fb: ["https://www.facebook.com/securithingsiot"],
+    ig: ["https://www.instagram.com/lifeatsecurithings"],
+    ytp: ["https://www.youtube.com/@securithingsofficial"],
+    _meta: { isHomepage: true }
+  },
   SeeTree: {
     ws: ["https://myfarm.seetree.ai", "https://www.seetree.ai"],
     li: ["https://www.linkedin.com/company/seetree"],
