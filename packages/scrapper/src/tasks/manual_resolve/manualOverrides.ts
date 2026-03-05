@@ -8028,6 +8028,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@UrbanAero"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Urecsys - Urban Ecology Systems Indoor Air Management": {
+    ws: ["https://urecsys.com"],
+    urls: ["https://www.urecsys.com"],
+    _meta: { isHomepage: true }
+  },
   Utila: {
     ws: [
       "https://console.utila.io",
