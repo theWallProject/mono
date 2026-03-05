@@ -7984,6 +7984,35 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Zoomd: {
+    ws: ["https://lp.zoomd.com", "https://zoomd.com"],
+    li: ["https://www.linkedin.com/company/zoomd-com"],
+    fb: ["https://www.facebook.com/zoomd.since2012"],
+    tw: ["https://x.com/zoomdtech"],
+    urls: [
+      "https://zoomd.com/about-us",
+      "https://zoomd.com/accessibility-statement",
+      "https://zoomd.com/albert-ai",
+      "https://zoomd.com/blog",
+      "https://zoomd.com/creators-generated-content",
+      "https://zoomd.com/data-processing-addendum",
+      "https://zoomd.com/digital-360",
+      "https://zoomd.com/dsp-demand-side-platform",
+      "https://zoomd.com/e-commerce",
+      "https://zoomd.com/entertainment",
+      "https://zoomd.com/fintech",
+      "https://zoomd.com/gaming",
+      "https://zoomd.com/guides",
+      "https://zoomd.com/influencer-marketing",
+      "https://zoomd.com/investors-relations",
+      "https://zoomd.com/mobile-user-acquisition",
+      "https://zoomd.com/partners",
+      "https://zoomd.com/terms-and-conditions",
+      "https://zoomd.com/zoomd-advertiser-ua-tcs",
+      "https://zoomd.com/zoomd-careers"
+    ],
+    _meta: { isHomepage: true }
+  },
   Zsquare: {
     ws: ["https://www.zsquaremedical.com"],
     li: ["https://www.linkedin.com/company/zsquare"],
