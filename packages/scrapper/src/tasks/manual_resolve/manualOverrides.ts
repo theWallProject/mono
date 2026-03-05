@@ -3049,6 +3049,7 @@ export const manualOverrides: Record<
     urls: ["https://app.fieldintech.com"],
     _meta: { isHomepage: true }
   },
+  "Filo Systems": { ws: ["https://filo.systems"], _meta: { isHomepage: true } },
   Fincom: {
     ws: ["https://fincom.co"],
     li: ["https://www.linkedin.com/company/fincom-co"],
