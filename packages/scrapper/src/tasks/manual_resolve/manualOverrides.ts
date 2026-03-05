@@ -4675,6 +4675,15 @@ export const manualOverrides: Record<
     urls: ["https://intercom.help/munch-e1ea69d858ab/en", "https://www.producthunt.com/products/munch-studio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MyAir: {
+    ws: ["https://app.myair.ai", "https://myair.ai"],
+    li: ["https://www.linkedin.com/company/myair-foodtech"],
+    fb: ["https://www.facebook.com/myairsmartfood"],
+    ig: ["https://www.instagram.com/myairsmartfood"],
+    urls: ["https://apps.apple.com/us/app/myair-insights/id1606622213"],
+    android_app_ids: ["com.myairnativeapp"],
+    _meta: { isHomepage: true }
+  },
   "MyBiotics Pharma LTD": {
     ws: ["https://mybiotics-pharma.com"],
     urls: [
