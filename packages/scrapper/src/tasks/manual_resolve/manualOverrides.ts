@@ -7376,6 +7376,11 @@ export const manualOverrides: Record<
     urls: ["https://www.comeet.com/jobs/supercom/46.00A"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Superfy: {
+    ws: ["https://asksuperfy.com"],
+    urls: ["https://itunes.apple.com/app/apple-store/id1191453603"],
+    _meta: { isHomepage: true }
+  },
   Supersmart: {
     ws: ["https://developer.supersmart.me", "https://resources.supersmart.me", "https://supersmart.me"],
     li: ["https://www.linkedin.com/company/supersmart-ltd-"],
