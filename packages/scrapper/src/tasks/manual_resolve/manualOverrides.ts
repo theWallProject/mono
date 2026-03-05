@@ -2710,6 +2710,7 @@ export const manualOverrides: Record<
     urls: ["https://www.feelbetter.healthcare/privacy-policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Femto Technologies": { ws: ["https://femtocorp.com"], urls: ["https://femtocorp.com"], _meta: { isHomepage: true } },
   Fermata: {
     ws: ["https://www.fermata.tech"],
     li: ["https://www.linkedin.com/company/19152085"],
