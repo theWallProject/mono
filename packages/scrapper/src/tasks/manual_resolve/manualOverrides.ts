@@ -3055,6 +3055,7 @@ export const manualOverrides: Record<
     urls: ["https://entry.co.il", "https://firmabrands.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Gloww: { ws: ["https://app.gloww.com", "https://gloww.com"], _meta: { isHomepage: true } },
   Grain: {
     ws: ["https://www.grainfinance.com"],
     li: ["https://www.linkedin.com/company/grainfinance"],
