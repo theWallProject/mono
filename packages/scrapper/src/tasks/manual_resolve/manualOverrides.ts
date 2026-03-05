@@ -255,6 +255,13 @@ export const manualOverrides: Record<
     ig: ["https://instagram.com/airoboticsuav"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Airtouch: {
+    ws: ["https://airtouchsolar.com", "https://ir.airtouchsolar.com"],
+    li: ["https://www.linkedin.com/company/airtouchsolar"],
+    ytp: ["https://www.youtube.com/@airtouchsolar"],
+    urls: ["https://ozglobalb2b.com"],
+    _meta: { isHomepage: true }
+  },
   "Akeyless Security": {
     ws: [
       "https://console.akeyless.io",
