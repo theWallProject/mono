@@ -1491,6 +1491,11 @@ export const manualOverrides: Record<
     urls: ["https://classiq-community.slack.com/join/shared_invite/zt-39du2mz80-fE_GBGxMaDxBFRBr_4nrjw"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Click-Ins": {
+    ws: ["https://www.click-ins.com"],
+    li: ["https://www.linkedin.com/company/click-ins"],
+    _meta: { isHomepage: true }
+  },
   "Cnoga Medical": {
     ws: ["https://www.cnogacare.co"],
     li: ["https://www.linkedin.com/company/cnoga-medical"],
