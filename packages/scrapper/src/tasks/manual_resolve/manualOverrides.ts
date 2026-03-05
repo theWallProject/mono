@@ -3843,6 +3843,19 @@ export const manualOverrides: Record<
     tw: ["https://x.com/medcasehealth"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MediWound: {
+    ws: ["https://ir.mediwound.com", "https://mediwound.com"],
+    urls: [
+      "https://ir.mediwound.com",
+      "https://mediwound.com",
+      "https://mediwound.com/careers",
+      "https://mediwound.com/cookies-policy",
+      "https://mediwound.com/privacy-policy",
+      "https://mediwound.com/terms-conditions",
+      "https://mediwound.com/wp-content/uploads/2025/07/MDWD-corporate-deck-May-2025.pdf"
+    ],
+    _meta: { isHomepage: true }
+  },
   Medorion: {
     ws: ["https://medorion.com"],
     li: ["https://www.linkedin.com/company/medorion"],
