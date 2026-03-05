@@ -4792,6 +4792,13 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/vE4vu7z", "https://novos.typeform.com/to/tmZLi5GJ"],
     _meta: { isHomepage: true }
   },
+  NRGene: {
+    ws: ["https://nrgene.com"],
+    li: ["https://www.linkedin.com/company/nrgene-ltd"],
+    fb: ["https://www.facebook.com/nrgene-technologies-1003279819696574"],
+    tw: ["https://x.com/nrgene"],
+    _meta: { isHomepage: true }
+  },
   "NSO Group": {
     ws: ["https://www.nsogroup.com"],
     urls: [
