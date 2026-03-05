@@ -4259,6 +4259,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Lowental Hybrid": {
+    ws: ["https://www.lowental-hybrid.com"],
+    li: ["https://www.linkedin.com/company/lowental-hybrid-ltd"],
+    _meta: { isHomepage: true }
+  },
   Lumen: {
     ws: ["https://www.lumen.me"],
     fb: ["https://www.facebook.com/Lumen.me"],
