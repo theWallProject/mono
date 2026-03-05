@@ -5180,6 +5180,13 @@ export const manualOverrides: Record<
     urls: ["https://app.payemcard.com", "https://app.payemcard.com/login"],
     _meta: { isHomepage: true }
   },
+  PayKey: {
+    ws: ["https://paykey.com"],
+    li: ["https://www.linkedin.com/company/10358153", "https://www.linkedin.com/company/paykey"],
+    tw: ["https://x.com/getpaykey"],
+    urls: ["https://namelesspace.com", "https://vimeo.com/paykey"],
+    _meta: { isHomepage: true }
+  },
   "Payouts.com": {
     ws: ["https://integrations.payouts.com", "https://payouts.com", "https://status.payouts.com"],
     li: ["https://www.linkedin.com/company/payouts-com"],
