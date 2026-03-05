@@ -780,6 +780,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Axon Pulse": {
+    ws: ["https://axon-pulse.com"],
+    li: ["https://www.linkedin.com/company/axon-pulse"],
+    urls: ["https://fine-line.co"],
+    _meta: { isHomepage: true }
+  },
   "Azura Ophthalmics": {
     ws: ["https://azuraophthalmics.com"],
     li: ["https://www.linkedin.com/company/azura-ophthalmics-limited"],
