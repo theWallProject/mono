@@ -2127,6 +2127,7 @@ export const manualOverrides: Record<
     urls: ["https://dig.teamme.link"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Diptera: { ws: ["https://diptera.ai"], urls: ["https://diptera.ai"], _meta: { isHomepage: true } },
   "Discure Technologies": {
     ws: ["https://discuremd.com"],
     li: ["https://www.linkedin.com/company/discure-technologies"],
