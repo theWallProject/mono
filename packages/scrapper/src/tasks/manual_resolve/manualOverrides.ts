@@ -1598,6 +1598,13 @@ export const manualOverrides: Record<
     urls: ["https://candivore.zendesk.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Capsulab: {
+    ws: ["https://capsulab.com"],
+    li: ["https://www.linkedin.com/company/capsulab-ltd"],
+    ytp: ["https://www.youtube.com/@capsulabofficial5493"],
+    urls: ["https://drive.google.com/file/d/1qQkF_zlAnN3ABhbU6NYJ7YJODAlXGGyx/view"],
+    _meta: { isHomepage: true }
+  },
   "Captain's Eye": { ws: ["https://www.captain-eye.com"], _meta: { isHomepage: true, isVerified: true } },
   "Carbon Blue": {
     ws: ["https://carbonblue.cc"],
