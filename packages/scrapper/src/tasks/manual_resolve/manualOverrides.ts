@@ -2014,6 +2014,12 @@ export const manualOverrides: Record<
     urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Creomagic LTD": {
+    ws: ["https://creomagic.com"],
+    li: ["https://www.linkedin.com/company/creomagic"],
+    urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms"],
+    _meta: { isHomepage: true }
+  },
   CropX: {
     ws: ["https://cropx.com"],
     li: ["https://www.linkedin.com/company/10147582"],
