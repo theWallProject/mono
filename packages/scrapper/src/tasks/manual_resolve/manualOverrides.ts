@@ -4973,6 +4973,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PVML: {
+    ws: ["https://pvml.com"],
+    li: ["https://www.linkedin.com/company/pvml"],
+    urls: ["https://increativeweb.com", "https://pvml.com"],
+    _meta: { isHomepage: true }
+  },
   PainReform: {
     ws: ["https://prf-tech.com"],
     urls: [
