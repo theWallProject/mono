@@ -80,9 +80,24 @@ const loadData = (): LoadedData => {
   // re-processed via the dedicated Retry mode, not picked up again by Batch)
   const retryNames = new Set(loadRetryList().map((entry) => entry.companyName))
 
+  // Build a reverse map: renamed name → override key.
+  // Overrides with a `name` field rename the company in the merged data, so
+  // item.name in the merged data differs from the override key. Without this
+  // map, renamed companies are never found and get re-processed every run.
+  const renamedToKey = new Map<string, string>()
+  for (const [key, val] of Object.entries(currentOverrides)) {
+    if (val && typeof val === "object" && "name" in val && typeof val.name === "string") {
+      renamedToKey.set(val.name, key)
+    }
+  }
+
   // Filter: skip already processed, existing overrides, and companies on the retry list
   const unprocessedItems = sortedItems.filter((item) => {
-    const existing = currentOverrides[item.name]
+    // Look up override by item.name directly, or by reverse-mapping renamed names
+    const originalKey = renamedToKey.get(item.name)
+    const existing = currentOverrides[item.name] ?? (
+      originalKey !== undefined ? currentOverrides[originalKey] : undefined
+    )
     // Skip if human-verified (_meta.isVerified or _meta.isBrowserVerified)
     if (existing && isVerified(existing)) return false
     // Skip if auto-extracted (_meta.isHomepage)
