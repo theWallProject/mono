@@ -994,6 +994,11 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Biomica: { ws: ["https://www.biomicamed.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Biond Biologics": {
+    ws: ["https://www.biondbio.com"],
+    urls: ["https://www.biondbio.com/privacy-policy", "https://www.biondbio.com/terms-of-use"],
+    _meta: { isHomepage: true }
+  },
   Bit: {
     ws: ["https://bit.dev"],
     li: ["https://www.linkedin.com/company/bit-dev"],
