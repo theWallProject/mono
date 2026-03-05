@@ -2287,6 +2287,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Donkit: { ws: ["https://donkit.ai"], gh: ["https://github.com/donkit-ai"], _meta: { isHomepage: true } },
   "Doral Energy Group": {
     ws: ["https://doral-energy.com", "https://esg.doral-energy.com"],
     li: ["https://www.linkedin.com/company/doral-energy"],
