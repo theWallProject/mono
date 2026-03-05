@@ -7895,6 +7895,13 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/678qcsA57y", "https://docs.superwise.ai", "https://sdk.docs.superwise.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  viisights: {
+    ws: ["https://www.viisights.com"],
+    li: ["https://www.linkedin.com/company/viisights"],
+    fb: ["https://www.facebook.com/viisights"],
+    tw: ["https://x.com/@viisights"],
+    _meta: { isHomepage: true }
+  },
   weSure: {
     ws: ["https://b2c.we-sure.co.il", "https://we-sure.co.il"],
     fb: [
