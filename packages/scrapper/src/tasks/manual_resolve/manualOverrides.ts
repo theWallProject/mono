@@ -327,6 +327,36 @@ export const manualOverrides: Record<
     urls: ["https://app.pileuscloud.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Any.do": {
+    ws: [
+      "https://app.any.do",
+      "https://electron-app.any.do",
+      "https://static.any.do",
+      "https://support.any.do",
+      "https://whatsapp.any.do",
+      "https://www.any.do"
+    ],
+    li: ["https://www.linkedin.com/company/any.do"],
+    fb: ["https://www.facebook.com/any.do"],
+    tw: ["https://x.com/anydo"],
+    ig: ["https://www.instagram.com/anydo"],
+    ytp: ["https://www.youtube.com/@anydo"],
+    tt: ["https://www.tiktok.com/@anydoapp"],
+    urls: [
+      "https://addons.mozilla.org/en-US/firefox/addon/any-do-for-firefox",
+      "https://any-do.breezy.hr",
+      "https://appgallery.huawei.com",
+      "https://apps.apple.com/md/app/any-do-for-safari/id6475350661",
+      "https://apps.apple.com/us/app/any-do-to-do-list-calendar/id497328576",
+      "https://chrome.google.com/webstore/detail/anydo-extension/kdadialhpiikehpdeejjeiikopddkjem",
+      "https://itunes.apple.com/us/app/any-do-to-do-list-calendar/id497328576",
+      "https://microsoftedge.microsoft.com/addons/detail/anydo/cmpihamlofcdeaflimjioggfgiapcebl",
+      "https://slack.com/oauth/v2/authorize",
+      "https://workspace.google.com/marketplace/app/anydo_for_gmail/38800197956"
+    ],
+    android_app_ids: ["com.anydo"],
+    _meta: { isHomepage: true }
+  },
   AnyClip: {
     ws: ["https://anyclip.com", "https://docs.anyclip.com", "https://videomanager.anyclip.com"],
     li: ["https://www.linkedin.com/company/anyclip"],
