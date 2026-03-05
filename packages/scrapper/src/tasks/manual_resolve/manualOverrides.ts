@@ -4159,6 +4159,16 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "NakAI Robotics": {
+    ws: ["https://www.nakairobotics.com"],
+    li: ["https://www.linkedin.com/company/nakai-robotics"],
+    urls: [
+      "https://alizaglassman.wixsite.com/portfolio",
+      "https://api.whatsapp.com/send",
+      "https://www.nakairobotics.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   Namogoo: {
     ws: [
       "https://auth.abtasty.com",
