@@ -6851,6 +6851,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@techsee291"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TechsoMed: {
+    ws: ["https://techsomed.com"],
+    li: ["https://www.linkedin.com/company/techsomed"],
+    ytp: ["https://www.youtube.com/@techsomed-igt"],
+    _meta: { isHomepage: true }
+  },
   Tedooo: {
     ws: ["https://www.tedooo.com"],
     android_app_ids: ["com.mor.tedooo"],
