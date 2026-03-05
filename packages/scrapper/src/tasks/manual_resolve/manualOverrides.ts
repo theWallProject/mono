@@ -1047,6 +1047,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@MyBitesAI"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bizi: {
+    ws: ["https://cdn.bizi.co.il", "https://www.bizi.co.il"],
+    li: ["https://www.linkedin.com/company/bizi-finance"],
+    fb: ["https://www.facebook.com/bizi.co.il"],
+    ig: ["https://www.instagram.com/bizi.finance"],
+    tt: ["https://www.tiktok.com/@bizi_finance"],
+    urls: ["https://share-eu1.hsforms.com/158156UDqSXq6R53AWsoxvgfsc0x", "https://wa.link/587ljz"],
+    _meta: { isHomepage: true }
+  },
   Blender: {
     ws: ["https://blender.global"],
     urls: ["https://blender.loans", "https://www.blender.co.il", "https://www.blender.global"],
