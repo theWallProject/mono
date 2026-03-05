@@ -8018,6 +8018,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@proteantecs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  sensorz: { ws: ["https://www.sensorz.io"], urls: ["https://sensorznew.webflow.io"], _meta: { isHomepage: true } },
   "superwise.ai": {
     ws: [
       "https://app.superwise.ai",
