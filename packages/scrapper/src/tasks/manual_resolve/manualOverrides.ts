@@ -4176,6 +4176,11 @@ export const manualOverrides: Record<
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Lemna Pro": {
+    ws: ["https://www.lemnapro.com"],
+    li: ["https://www.linkedin.com/company/lemnaproltd"],
+    _meta: { isHomepage: true }
+  },
   Leverate: {
     ws: ["https://leverate.com"],
     li: ["https://www.linkedin.com/company/leverate"],
