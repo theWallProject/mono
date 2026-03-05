@@ -679,6 +679,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Azura Ophthalmics": {
+    ws: ["https://azuraophthalmics.com"],
+    li: ["https://www.linkedin.com/company/azura-ophthalmics-limited"],
+    tw: ["https://x.com/azura_op"],
+    _meta: { isHomepage: true }
+  },
   "BBT.live": {
     ws: ["https://bbt.live"],
     li: ["https://www.linkedin.com/company/bbt-live"],
