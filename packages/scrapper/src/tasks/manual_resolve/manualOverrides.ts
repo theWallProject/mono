@@ -1455,6 +1455,15 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "CU-BX": { ws: ["https://www.cu-bx.com"], urls: ["https://t.me/serpnames"], _meta: { isHomepage: true } },
+  "CVAid Medical": {
+    ws: ["https://www.cvaidmedical.com"],
+    urls: [
+      "https://www.cvaidmedical.com/general-5",
+      "https://www.cvaidmedical.com/general-5-1",
+      "https://www.cvaidmedical.com/general-5-2"
+    ],
+    _meta: { isHomepage: true }
+  },
   CYE: {
     ws: ["https://cyesec.com"],
     li: ["https://www.linkedin.com/company/cyesec"],
