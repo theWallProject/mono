@@ -2589,6 +2589,12 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/eyecontrol"],
     _meta: { isHomepage: true }
   },
+  EyeYon: {
+    ws: ["https://eye-yon.com"],
+    li: ["https://www.linkedin.com/company/eyeyon-medical"],
+    fb: ["https://www.facebook.com/eyeyon"],
+    _meta: { isHomepage: true }
+  },
   FEMSelect: {
     ws: ["https://www.femselect.com"],
     li: ["https://www.linkedin.com/company/28632694"],
