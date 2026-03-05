@@ -12,13 +12,13 @@
 import { execSync } from "child_process"
 import * as https from "https"
 import * as readline from "readline"
-
 import { z } from "zod"
 
-import { error as logError, log } from "../helper"
+import { log, error as logError } from "../helper"
+import { allLinksGreen, nameAppearsInLink } from "./validate/green_check"
 import { loadManualOverrides, mergeAndSaveManualOverrides } from "./validate/override_io"
-import { categorizeUrl } from "./validate/url_categorization"
 import { hasMeta, isHomepage, isVerified, type EntryMeta, type ManualOverrideValue } from "./validate/types"
+import { categorizeUrl } from "./validate/url_categorization"
 
 // ────────────────────────────────────────────────────────────────────────────
 // ANSI helpers
@@ -54,7 +54,7 @@ const FIELD_COLORS: Record<string, string> = {
   urls: YELLOW,
   android_dev_id: GREEN,
   android_app_ids: GREEN,
-  alt: CYAN,
+  alt: CYAN
 }
 
 const FIELD_LABELS: Record<string, string> = {
@@ -71,7 +71,7 @@ const FIELD_LABELS: Record<string, string> = {
   urls: "Other URLs",
   android_dev_id: "Android Dev",
   android_app_ids: "Android Apps",
-  alt: "Alternatives",
+  alt: "Alternatives"
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -106,63 +106,8 @@ const extractPackageId = (url: string): string | null => {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// Name-in-link matching
+// Name-in-link matching (imported from validate/green_check.ts)
 // ────────────────────────────────────────────────────────────────────────────
-
-/** Lowercase + strip non-alphanumeric for fuzzy comparison. */
-const normalize = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]/g, "")
-
-/**
- * Extract name candidates from a company name like "Acclym (formerly Agritask)".
- * Returns normalized tokens to check: the full name, the part before parens,
- * the part inside parens (without noise words), and individual words (≥3 chars).
- */
-const NOISE_WORDS = new Set(["formerly", "now", "part", "of", "acquired", "aquired", "by"])
-
-const extractNameCandidates = (companyName: string): string[] => {
-  const candidates: string[] = []
-
-  // Full name normalized
-  const full = normalize(companyName)
-  if (full.length > 0) candidates.push(full)
-
-  // Part before parenthetical: "Acclym (formerly Agritask)" → "Acclym"
-  const parenIdx = companyName.indexOf("(")
-  if (parenIdx > 0) {
-    const before = normalize(companyName.slice(0, parenIdx))
-    if (before.length >= 3) candidates.push(before)
-
-    // Words inside parenthetical, minus noise
-    const inside = companyName.slice(parenIdx + 1).replace(/\).*$/, "")
-    for (const word of inside.split(/\s+/)) {
-      const nw = normalize(word)
-      if (nw.length >= 3 && !NOISE_WORDS.has(nw)) {
-        candidates.push(nw)
-      }
-    }
-  }
-
-  // Individual words from the full name (≥3 chars, minus noise)
-  for (const word of companyName.split(/[\s\-_/]+/)) {
-    const nw = normalize(word)
-    if (nw.length >= 3 && !NOISE_WORDS.has(nw)) {
-      candidates.push(nw)
-    }
-  }
-
-  // Deduplicate
-  return [...new Set(candidates)]
-}
-
-/**
- * True when any name candidate appears inside the link, OR the link
- * appears inside a candidate (handles link slugs shorter than the full name).
- */
-const nameAppearsInLink = (companyName: string, linkValue: string): boolean => {
-  const link = normalize(linkValue)
-  if (link.length === 0) return false
-  return extractNameCandidates(companyName).some((c) => link.includes(c) || c.includes(link))
-}
 
 /** Green when company name is in the link, otherwise the field's default color. */
 const colorizeLink = (companyName: string, linkValue: string, fieldColor: string): string => {
@@ -170,56 +115,6 @@ const colorizeLink = (companyName: string, linkValue: string, fieldColor: string
     return `${GREEN}${linkValue}${RESET}`
   }
   return `${fieldColor}${linkValue}${RESET}`
-}
-
-/** Fields that are not checked for "all green" (non-link or dimmed). */
-const NON_LINK_FIELDS = new Set(["_meta", "urls", "alt"])
-
-/**
- * Returns true when every link-type field value contains the company name.
- * Fields in NON_LINK_FIELDS are excluded. android_app_ids are checked as
- * Play Store display URLs. ytc inherits green from ytp (same as render logic).
- */
-const allLinksGreen = (name: string, value: ManualOverrideValue): boolean => {
-  // Check if any ytp URL matches — ytc inherits green from ytp
-  const ytpGreen = (() => {
-    const ytp = "ytp" in value ? value.ytp : undefined
-    if (!ytp) return false
-    const urls = Array.isArray(ytp) ? ytp : [ytp]
-    return urls.some((u) => typeof u === "string" && nameAppearsInLink(name, u))
-  })()
-
-  let hasLinks = false
-
-  for (const [key, val] of Object.entries(value)) {
-    if (NON_LINK_FIELDS.has(key) || val === undefined) continue
-
-    // ytc inherits green from ytp
-    if (key === "ytc" && ytpGreen) continue
-
-    if (key === "android_app_ids" && Array.isArray(val)) {
-      for (const pkg of val) {
-        hasLinks = true
-        const displayUrl = `https://play.google.com/store/apps/details?id=${String(pkg)}`
-        if (!nameAppearsInLink(name, displayUrl)) return false
-      }
-      continue
-    }
-
-    if (Array.isArray(val)) {
-      for (const item of val) {
-        if (typeof item === "string") {
-          hasLinks = true
-          if (!nameAppearsInLink(name, item)) return false
-        }
-      }
-    } else if (typeof val === "string") {
-      hasLinks = true
-      if (!nameAppearsInLink(name, val)) return false
-    }
-  }
-
-  return hasLinks
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -243,53 +138,49 @@ const extractChannelId = (url: string): string | null => {
  */
 const resolveYouTubeHandle = async (channelId: string): Promise<string | null> => {
   return new Promise((resolve, reject) => {
-    const req = https.get(
-      `https://www.youtube.com/channel/${channelId}`,
-      { timeout: 10_000 },
-      (res) => {
-        if (res.statusCode === 404) {
-          res.resume()
-          resolve(null)
-          return
-        }
-        if (res.statusCode !== 200) {
-          res.resume()
-          reject(new Error(`YouTube returned HTTP ${res.statusCode ?? "unknown"} for channel/${channelId}`))
-          return
-        }
-
-        let data = ""
-        let resolved = false
-        res.on("data", (chunk: string) => {
-          if (resolved) return
-          data += chunk
-          const idx = data.indexOf("canonicalBaseUrl")
-          if (idx >= 0) {
-            const slice = data.slice(idx, idx + 80)
-            const m = /\/@([^"]+)/.exec(slice)
-            if (m?.[1]) {
-              resolved = true
-              resolve(m[1])
-              req.destroy()
-            }
-          }
-        })
-        res.on("end", () => {
-          if (resolved) return
-          const idx = data.indexOf("canonicalBaseUrl")
-          if (idx >= 0) {
-            const slice = data.slice(idx, idx + 80)
-            const m = /\/@([^"]+)/.exec(slice)
-            resolve(m?.[1] ?? null)
-          } else {
-            resolve(null)
-          }
-        })
-        res.on("error", (err) => {
-          if (!resolved) reject(err)
-        })
+    const req = https.get(`https://www.youtube.com/channel/${channelId}`, { timeout: 10_000 }, (res) => {
+      if (res.statusCode === 404) {
+        res.resume()
+        resolve(null)
+        return
       }
-    )
+      if (res.statusCode !== 200) {
+        res.resume()
+        reject(new Error(`YouTube returned HTTP ${res.statusCode ?? "unknown"} for channel/${channelId}`))
+        return
+      }
+
+      let data = ""
+      let resolved = false
+      res.on("data", (chunk: string) => {
+        if (resolved) return
+        data += chunk
+        const idx = data.indexOf("canonicalBaseUrl")
+        if (idx >= 0) {
+          const slice = data.slice(idx, idx + 80)
+          const m = /\/@([^"]+)/.exec(slice)
+          if (m?.[1]) {
+            resolved = true
+            resolve(m[1])
+            req.destroy()
+          }
+        }
+      })
+      res.on("end", () => {
+        if (resolved) return
+        const idx = data.indexOf("canonicalBaseUrl")
+        if (idx >= 0) {
+          const slice = data.slice(idx, idx + 80)
+          const m = /\/@([^"]+)/.exec(slice)
+          resolve(m?.[1] ?? null)
+        } else {
+          resolve(null)
+        }
+      })
+      res.on("error", (err) => {
+        if (!resolved) reject(err)
+      })
+    })
 
     req.on("timeout", () => {
       req.destroy(new Error(`YouTube request timed out for channel/${channelId}`))
@@ -362,7 +253,9 @@ const resolveAndInjectHandles = async (
           if (!existingYtp.has(ytpUrl)) {
             existingYtp.add(ytpUrl)
           }
-          log(`  ${GREEN}↳${RESET} ${DIM}Resolved${RESET} ${channelId} ${DIM}→${RESET} ${GREEN}@${handle}${RESET} ${DIM}(${elapsed}ms)${RESET}`)
+          log(
+            `  ${GREEN}↳${RESET} ${DIM}Resolved${RESET} ${channelId} ${DIM}→${RESET} ${GREEN}@${handle}${RESET} ${DIM}(${elapsed}ms)${RESET}`
+          )
         } else {
           channelResolveResults.set(channelId, { error: "no_handle" })
           log(`  ${YELLOW}↳${RESET} ${DIM}${channelId} — no @handle (${elapsed}ms)${RESET}`)
@@ -378,7 +271,9 @@ const resolveAndInjectHandles = async (
         process.stdout.write(`  ${DIM}Entry:${RESET}      ${entryName}\n`)
         process.stdout.write(`  ${DIM}Error:${RESET}      ${RED}${errMsg}${RESET}\n`)
         if (stack) {
-          process.stdout.write(`  ${DIM}Stack:${RESET}      ${DIM}${stack.split("\n").slice(1, 4).join("\n            ")}${RESET}\n`)
+          process.stdout.write(
+            `  ${DIM}Stack:${RESET}      ${DIM}${stack.split("\n").slice(1, 4).join("\n            ")}${RESET}\n`
+          )
         }
         process.stdout.write(`\n  ${YELLOW}y${RESET} retry    ${DIM}x${RESET} exit\n`)
 
@@ -443,7 +338,7 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
   lines.push(CLEAR_SCREEN)
 
   // Header — show custom name below the key name when present
-  const customName = ("name" in value && typeof value.name === "string") ? value.name : null
+  const customName = "name" in value && typeof value.name === "string" ? value.name : null
   lines.push(`${DIM}${"─".repeat(60)}${RESET}`)
   lines.push(`  ${DIM}[${index + 1}/${total}]${RESET}  ${BOLD}${WHITE}${name}${RESET}`)
   if (customName) {
@@ -471,7 +366,22 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
   })()
 
   // Controlled render order: social fields first, ytp+ytc adjacent, urls/alt last
-  const FIELD_ORDER = ["ws", "li", "fb", "tw", "ig", "gh", "tt", "th", "ytp", "ytc", "android_dev_id", "android_app_ids", "alt", "urls"]
+  const FIELD_ORDER = [
+    "ws",
+    "li",
+    "fb",
+    "tw",
+    "ig",
+    "gh",
+    "tt",
+    "th",
+    "ytp",
+    "ytc",
+    "android_dev_id",
+    "android_app_ids",
+    "alt",
+    "urls"
+  ]
 
   // Collect keys: ordered fields first, then any remaining unknown keys (excluding _meta), urls always last
   const entries = Object.entries(value).filter(([k, v]) => !SKIP_FIELDS.has(k) && v !== undefined)
@@ -548,7 +458,9 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
         lines.push(`  ${numPrefix} ${DIM}${label}: ${val}${RESET}`)
       } else if (key === "ytc") {
         const linkColor = ytpGreen ? `${GREEN}${val}${RESET}` : colorizeLink(name, val, effectiveColor)
-        lines.push(`  ${numPrefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET} ${linkColor}${ytcAnnotation(val)}`)
+        lines.push(
+          `  ${numPrefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET} ${linkColor}${ytcAnnotation(val)}`
+        )
       } else {
         lines.push(`  ${numPrefix} ${effectiveColor}${label}:${RESET} ${colorizeLink(name, val, effectiveColor)}`)
       }
@@ -566,7 +478,9 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
   lines.push("")
   const editHint = fieldIdx > 0 ? `    ${DIM}1-${NUM_CHARS[fieldIdx - 1] ?? "9"}${RESET} edit` : ""
   const defaultAction = green ? `${GREEN}↑ verify${RESET}` : `${YELLOW}↑ postpone${RESET}`
-  lines.push(`  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}${editHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`)
+  lines.push(
+    `  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}${editHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`
+  )
   lines.push("")
 
   return { output: lines.join("\n"), fieldKeys, allGreen: green }
@@ -730,7 +644,9 @@ const waitForAction = async (maxFieldIndex: number, allGreen: boolean): Promise<
         const idx = validChars.indexOf(ch)
         if (idx >= 0) {
           // Show sub-prompt for append/replace
-          process.stdout.write(`  ${DIM}${ch}${RESET} → ${GREEN}a${RESET} append  ${YELLOW}r${RESET} replace  ${DIM}esc${RESET} cancel`)
+          process.stdout.write(
+            `  ${DIM}${ch}${RESET} → ${GREEN}a${RESET} append  ${YELLOW}r${RESET} replace  ${DIM}esc${RESET} cancel`
+          )
           void (async () => {
             const mode = await waitForEditMode()
             if (mode === "cancel") {
@@ -963,7 +879,9 @@ const processQueue = async (
     if (needsResolve) {
       process.stdout.write(CLEAR_SCREEN)
       process.stdout.write(`${DIM}${"─".repeat(60)}${RESET}\n`)
-      process.stdout.write(`  ${DIM}[${startIndex + i + 1}/${startIndex + totalInQueue}]${RESET}  ${BOLD}${WHITE}${entry.name}${RESET}\n`)
+      process.stdout.write(
+        `  ${DIM}[${startIndex + i + 1}/${startIndex + totalInQueue}]${RESET}  ${BOLD}${WHITE}${entry.name}${RESET}\n`
+      )
       process.stdout.write(`${DIM}${"─".repeat(60)}${RESET}\n\n`)
       process.stdout.write(`  ${DIM}Resolving YouTube handles...${RESET}\n`)
       await resolveAndInjectHandles(entry.name, overrides, dirtyKeys)
@@ -1006,7 +924,7 @@ const processQueue = async (
         decided = true
       } else if (action === "rename") {
         const current = overrides[entry.name] ?? entry.value
-        const currentName = ("name" in current && typeof current.name === "string") ? current.name : entry.name
+        const currentName = "name" in current && typeof current.name === "string" ? current.name : entry.name
         const newName = await waitForTextInput(`${CYAN}Name:${RESET} `, currentName)
         if (newName === null) {
           // Cancelled — re-render
@@ -1015,10 +933,11 @@ const processQueue = async (
         const trimmed = newName.trim()
         if (trimmed.length === 0 || trimmed === entry.name) {
           // Empty or same as key — remove custom name if present
-            if ("name" in current) {
-              const { name: _removed, ...rest } = current
-              overrides[entry.name] = rest
+          if ("name" in current) {
+            const { name: _removed, ...rest } = current
+            overrides[entry.name] = rest
             dirtyKeys.add(entry.name)
+
             process.stdout.write(`  ${BG_BLUE}${WHITE} RENAMED ${RESET} ${DIM}(cleared — using key name)${RESET}\n`)
           }
         } else {
@@ -1057,9 +976,13 @@ const processQueue = async (
         const targetLabel = FIELD_LABELS[result.targetField] ?? result.targetField
         if (result.targetField !== fieldKey) {
           const srcLabel = FIELD_LABELS[fieldKey] ?? fieldKey
-          process.stdout.write(`  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${srcLabel} → ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`)
+          process.stdout.write(
+            `  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${srcLabel} → ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`
+          )
         } else {
-          process.stdout.write(`  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`)
+          process.stdout.write(
+            `  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`
+          )
         }
 
         // If ytc was updated, re-run YouTube handle resolution before re-rendering
@@ -1132,7 +1055,14 @@ const main = async (): Promise<void> => {
 
     if (freshPostponed.length > 0) {
       log(`\n${YELLOW}${BOLD}=== Postponed entries for deeper inspection ===${RESET}`)
-      const result = await processQueue(freshPostponed, overrides, saveQueue, dirtyKeys, "Postponed entries", totalProcessed)
+      const result = await processQueue(
+        freshPostponed,
+        overrides,
+        saveQueue,
+        dirtyKeys,
+        "Postponed entries",
+        totalProcessed
+      )
       totalProcessed += result.processed
       if (result.exitRequested) {
         printSummary(totalProcessed, overrides)

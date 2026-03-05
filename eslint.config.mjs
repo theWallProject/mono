@@ -241,7 +241,12 @@ const testConfig = {
   rules: {
     "no-console": "off", // Allow console.log in tests
     // Ensure unused variables are caught in tests
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_"
+      }
+    ],
     // Vitest plugin rules - prevent common test mistakes
     "vitest/no-standalone-expect": "error", // Prevent expect() outside of test/it blocks
     "vitest/valid-expect": "error", // Ensure expect() is called correctly

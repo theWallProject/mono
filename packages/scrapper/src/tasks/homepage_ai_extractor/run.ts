@@ -20,6 +20,7 @@ import { chromium, Page } from "playwright"
 
 import { error, log } from "../../helper"
 import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../../types"
+import { allLinksGreen, describeNonGreenFields } from "../validate/green_check"
 import { sortByReasonAndCbRank } from "../validate/sorting"
 import { displayStatistics } from "../validate/statistics"
 import { isVerified, isHomepage, type ManualOverrideValue, type MetaState, homepageMeta } from "../validate/types"
@@ -32,6 +33,7 @@ import {
   ExpectedExtractionError,
   closeSharedBrowser
 } from "./link_extractor"
+import { resolveLinkedInNumericalIds } from "./linkedin_resolver"
 import {
   addToRetryList,
   loadRetryList,
@@ -652,8 +654,39 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
       throw new Error(`processCompany returned success=true but no override for "${result.companyName}"`)
     }
 
+    // ── LinkedIn numerical ID resolution ──────────────────────────────────
+    // If the override contains numerical LinkedIn IDs (e.g., /company/12345),
+    // resolve them to string slugs via a persistent browser with LinkedIn login.
+    // This adds the resolved slug URL alongside the original numerical URL.
+    // Throws (fatal) if LinkedIn login has expired.
+    const batchLogger = new CompanyLogger(item.name)
+    let resolvedOverride: typeof result.override
+    try {
+      resolvedOverride = await resolveLinkedInNumericalIds(
+        result.override,
+        batchLogger
+      )
+    } catch (err) {
+      // LinkedIn login errors are fatal — stop the batch gracefully
+      await closeSharedBrowser()
+      throw err
+    }
+
+    // ── Green check ───────────────────────────────────────────────────────
+    // Verify all link-type fields contain the company name (are "green").
+    // If not, add to retry list for manual review instead of saving.
+    if (!allLinksGreen(item.name, resolvedOverride)) {
+      failCount++
+      const reason = describeNonGreenFields(item.name, resolvedOverride)
+      log(`NOT GREEN: ${reason}`)
+      addToRetryList(item.name, item.ws ?? "", "NON_GREEN_LINKS", reason)
+      log(`Added "${item.name}" to retry list (non-green links). Continuing with next company...`)
+      commitCompanyResult(item.name, false, "NON_GREEN_LINKS")
+      continue
+    }
+
     // Save immediately
-    currentOverrides[item.name] = result.override
+    currentOverrides[item.name] = resolvedOverride
     await saveManualOverrides(currentOverrides, { allowNewKeys: true })
     successCount++
     log(`SAVED (${successCount}/${itemsToProcess.length})`)
@@ -750,8 +783,31 @@ export const runRetry = async (): Promise<void> => {
       throw new Error(`processCompany returned success=true but no override for "${result.companyName}"`)
     }
 
+    // ── LinkedIn numerical ID resolution ──────────────────────────────────
+    const retryLogger = new CompanyLogger(item.name)
+    let resolvedOverride: typeof result.override
+    try {
+      resolvedOverride = await resolveLinkedInNumericalIds(
+        result.override,
+        retryLogger
+      )
+    } catch (err) {
+      await closeSharedBrowser()
+      throw err
+    }
+
+    // ── Green check ───────────────────────────────────────────────────────
+    if (!allLinksGreen(item.name, resolvedOverride)) {
+      failCount++
+      const reason = describeNonGreenFields(item.name, resolvedOverride)
+      log(`RETRY NOT GREEN: ${reason}`)
+      addToRetryList(item.name, item.ws ?? "", "NON_GREEN_LINKS", reason)
+      log(`"${item.name}" still in retry list (non-green links). Continuing...`)
+      continue
+    }
+
     // Save and remove from retry list
-    currentOverrides[item.name] = result.override
+    currentOverrides[item.name] = resolvedOverride
     await saveManualOverrides(currentOverrides, { allowNewKeys: true })
     removeFromRetryList(entry.companyName)
     successCount++
