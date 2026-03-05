@@ -5959,6 +5959,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@plainid3877"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PlantArcBio: {
+    ws: ["https://plantarcbio.com"],
+    li: ["https://www.linkedin.com/company/plantarcbio"],
+    _meta: { isHomepage: true }
+  },
   PlasFree: {
     ws: ["https://www.plas-free.com"],
     li: ["https://www.linkedin.com/company/plas-free"],
