@@ -2874,6 +2874,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@FIZEMedical"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FVMat: { ws: ["https://fvmat.com"], _meta: { isHomepage: true } },
   Factify: {
     ws: ["https://developers.factify.com", "https://www.factify.com"],
     li: ["https://www.linkedin.com/company/factifyinc"],
