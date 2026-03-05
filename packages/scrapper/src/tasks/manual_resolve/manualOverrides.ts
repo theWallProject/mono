@@ -7682,6 +7682,7 @@ export const manualOverrides: Record<
     urls: ["https://etyhadar.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Unicorn Technologies": { ws: ["https://unicorn-technologies.co.il"], _meta: { isHomepage: true } },
   "Uniper-care Technologies": {
     ws: ["https://www.unipercare.com"],
     li: ["https://www.linkedin.com/company/uniper-care-technologies"],
