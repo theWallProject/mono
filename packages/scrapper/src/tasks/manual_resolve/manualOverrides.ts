@@ -4332,6 +4332,11 @@ export const manualOverrides: Record<
     urls: ["https://irita.co.il", "https://www.tumblr.com/makemydayapp"],
     _meta: { isHomepage: true }
   },
+  Mappo: {
+    ws: ["https://www.mappo.world"],
+    li: ["https://www.linkedin.com/company/mappoworld"],
+    _meta: { isHomepage: true }
+  },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Marketeam.ai": {
     ws: ["https://app.marketeam.ai", "https://www.marketeam.ai"],
