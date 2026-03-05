@@ -1366,6 +1366,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/clewmed"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "CU-BX": { ws: ["https://www.cu-bx.com"], urls: ["https://t.me/serpnames"], _meta: { isHomepage: true } },
   CYE: {
     ws: ["https://cyesec.com"],
     li: ["https://www.linkedin.com/company/cyesec"],
