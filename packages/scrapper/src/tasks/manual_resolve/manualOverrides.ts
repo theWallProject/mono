@@ -3241,6 +3241,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Highcon: {
+    ws: ["https://highcon.net"],
+    li: ["https://www.linkedin.com/company/highcon"],
+    fb: ["https://www.facebook.com/highcon.euclid"],
+    tw: ["https://x.com/highcondart"],
+    ytp: ["https://www.youtube.com/@highcondart"],
+    urls: ["https://www.pinterest.com/HighconEuclid"],
+    _meta: { isHomepage: true }
+  },
   Hirundo: {
     ws: ["https://www.hirundo.io"],
     li: ["https://www.linkedin.com/company/gethirundo"],
