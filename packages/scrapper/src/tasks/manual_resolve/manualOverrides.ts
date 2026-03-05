@@ -3931,6 +3931,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  MedicannX: { ws: ["https://medicannx.com"], urls: ["https://wpastra.com"], _meta: { isHomepage: true } },
   Medorion: {
     ws: ["https://medorion.com"],
     li: ["https://www.linkedin.com/company/medorion"],
