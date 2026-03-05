@@ -6809,6 +6809,7 @@ export const manualOverrides: Record<
     urls: ["https://www.wix.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SparX: { ws: ["https://sparx.ai"], urls: ["https://sparxapp.ai"], _meta: { isHomepage: true } },
   Spectral: {
     ws: ["https://spectralops.io"],
     li: ["https://www.linkedin.com/company/spectralops-io"],
