@@ -1495,6 +1495,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bridgify: { ws: ["https://bridgify.io"], _meta: { isHomepage: true } },
   "Bright Way Vision": {
     ws: ["https://www.brightwayvision.com"],
     li: ["https://www.linkedin.com/company/brightway-vision-ltd-"],
