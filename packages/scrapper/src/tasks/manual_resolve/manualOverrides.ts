@@ -8905,6 +8905,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  "Yissum Technology Transfer Company of the Hebrew University": {
+    ws: ["https://www.yissum.co.il"],
+    li: ["https://www.linkedin.com/company/yissum"],
+    fb: ["https://www.facebook.com/yissum.technology.transfer"],
+    tw: ["https://x.com/yissumhuji"],
+    ytp: ["https://www.youtube.com/@yissum"],
+    _meta: { isHomepage: true }
+  },
   Yofix: { ws: ["https://yofix.co.il"], _meta: { isHomepage: true } },
   Yonalink: {
     ws: [
