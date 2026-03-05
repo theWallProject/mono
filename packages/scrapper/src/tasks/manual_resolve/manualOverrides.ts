@@ -7614,6 +7614,13 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/Kgqu4XQprN", "https://discord.gg/Kgqu4XQprN", "https://docs.lunar.dev"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  mPrest: {
+    ws: ["https://mprest.com"],
+    li: ["https://www.linkedin.com/company/mprest"],
+    fb: ["https://www.facebook.com/mprest-systems-658160444214300"],
+    urls: ["http://www.titan.co.il", "https://mprest-defense.com", "https://mprest-defense.com/solutions"],
+    _meta: { isHomepage: true }
+  },
   "monday.com": {
     ws: ["https://monday.com", "https://www.mondayert.org", "https://www.workcanvas.com"],
     li: ["https://www.linkedin.com/company/mondaydotcom", "https://www.linkedin.com/company/2525169"],
