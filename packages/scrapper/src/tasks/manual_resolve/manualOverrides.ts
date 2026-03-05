@@ -3104,6 +3104,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/hyperspace-db"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "IBI-Ag": {
+    ws: ["https://www.ibi-ag.com"],
+    li: ["https://www.linkedin.com/company/ibi-ag"],
+    _meta: { isHomepage: true }
+  },
   "IM Cannabis": {
     ws: ["https://imcannabis.com", "https://investors.imcannabis.com"],
     urls: [
