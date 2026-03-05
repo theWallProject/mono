@@ -323,8 +323,7 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Anywell: {
-    ws: ["https://www.afternic.com"],
-    urls: ["https://www.afternic.com/forsale/anywell.com"],
+    ws: ["https://www.anywell.com"],
     li: "https://www.linkedin.com/company/anywell",
     fb: "https://www.facebook.com/anywell.inc",
     tw: "https://x.com/anywell_inc",
