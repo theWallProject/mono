@@ -3224,6 +3224,17 @@ export const manualOverrides: Record<
     tw: ["https://x.com/hoopoiot"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  HopOn: {
+    ws: ["https://hopon.co"],
+    li: ["https://www.linkedin.com/company/hopon---travel-smart"],
+    urls: [
+      "https://apps.apple.com/il/app/rav-pass-by-hopon/id807807458",
+      "https://goo.gl/maps/KBzMxa9saVKqycaR8",
+      "https://goo.gl/maps/tMzztDP1Ly416NhQ7"
+    ],
+    android_app_ids: ["co.hopon.client"],
+    _meta: { isHomepage: true }
+  },
   Hopper: {
     ws: ["https://app.hopper.security", "https://www.hopper.security"],
     li: ["https://www.linkedin.com/company/hopper-security"],
