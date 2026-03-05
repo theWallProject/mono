@@ -4339,6 +4339,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Nectin Therapeutics": {
+    ws: ["https://www.nectintx.com"],
+    urls: [
+      "https://www.nectintx.com/about-us-our-technology",
+      "https://www.nectintx.com/contact-us",
+      "https://www.nectintx.com/our-team"
+    ],
+    _meta: { isHomepage: true }
+  },
   Neema: {
     ws: ["https://docs.getneema.com", "https://getneema.com"],
     li: ["https://www.linkedin.com/company/neema-official"],
