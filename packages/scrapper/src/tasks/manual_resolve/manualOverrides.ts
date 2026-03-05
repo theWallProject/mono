@@ -5310,6 +5310,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@plainid3877"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "PlaxidityX (Formerly Argus Cyber Security LTD.)": {
+    ws: ["https://plaxidityx.com"],
+    li: ["https://www.linkedin.com/company/plaxidityx"],
+    tw: ["https://x.com/plaxidityx"],
+    ytp: ["https://www.youtube.com/@plaxidityx"],
+    urls: ["https://www.aumovio.com/en/company/corporate-governance/integrity-line.html"],
+    _meta: { isHomepage: true }
+  },
   "PlaySight Interactive": {
     ws: ["https://playsight.com", "https://web.playsight.com"],
     li: ["https://www.linkedin.com/company/playsight-interactive"],
