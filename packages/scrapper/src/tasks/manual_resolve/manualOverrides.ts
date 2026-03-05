@@ -2553,6 +2553,17 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Eye-Net Mobile": {
+    ws: ["https://www.eyenet-mobile.com"],
+    li: ["https://www.linkedin.com/company/eyenet-mobile"],
+    tw: ["https://x.com/eyenetmobile1"],
+    ig: ["https://www.instagram.com/eyenetmobile1"],
+    urls: [
+      "https://www.google.com/maps/place/Eye-Net+Mobile/@32.8775302,35.7267218,9z/data=!4m10!1m2!2m1!1seye+net!3m6!1s0x1502b738cb97ac45:0x47212b78694850!8m2!3d31.9149952!4d34.8024204!15sCgdleWUgbmV0kgEQc29mdHdhcmVfY29tcGFueeABAA!16s%2Fg%2F11h1g6k339",
+      "https://www.ya-marketingservices.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   EyeControl: {
     ws: ["https://www.eyecontrol.co.il"],
     li: ["https://www.linkedin.com/company/eyecontrol"],
