@@ -1378,6 +1378,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/clewmed"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "CRIATERRA Innovations Ltd.": {
+    ws: ["https://criaterra.com"],
+    fb: ["https://www.facebook.com/criaterra"],
+    ig: ["https://www.instagram.com/criaterra"],
+    _meta: { isHomepage: true }
+  },
   "CU-BX": { ws: ["https://www.cu-bx.com"], urls: ["https://t.me/serpnames"], _meta: { isHomepage: true } },
   CYE: {
     ws: ["https://cyesec.com"],
