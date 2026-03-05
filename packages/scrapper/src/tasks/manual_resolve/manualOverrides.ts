@@ -8191,6 +8191,7 @@ export const manualOverrides: Record<
     urls: ["https://dev.xyte.io", "https://meetings.hubspot.com/xyte/website-demo-ash", "https://updates.xyte.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Yofix: { ws: ["https://yofix.co.il"], _meta: { isHomepage: true } },
   Yonalink: {
     ws: [
       "https://edc.eu.yonalink.com",
