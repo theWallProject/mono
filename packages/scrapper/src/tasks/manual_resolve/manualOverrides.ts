@@ -8693,6 +8693,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.wisdo.android.wisdo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Wisery Labs": {
+    ws: ["https://wiserylabs.ai"],
+    li: ["https://www.linkedin.com/company/wiserylabs-ai"],
+    _meta: { isHomepage: true }
+  },
   Wisor: {
     ws: ["https://app.wisor.ai", "https://wisor.ai"],
     li: ["https://www.linkedin.com/company/wisorai"],
