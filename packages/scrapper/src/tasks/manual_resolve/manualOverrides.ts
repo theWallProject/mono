@@ -8194,6 +8194,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/tresdotfinance"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TriEye: {
+    ws: ["https://trieye.tech"],
+    li: ["https://www.linkedin.com/company/trieye"],
+    tw: ["https://x.com/trieye_tech"],
+    ytp: ["https://www.youtube.com/@trieyetech"],
+    _meta: { isHomepage: true }
+  },
   Trigo: {
     ws: ["https://www.trigoretail.com"],
     li: ["https://www.linkedin.com/company/trigoretail"],
