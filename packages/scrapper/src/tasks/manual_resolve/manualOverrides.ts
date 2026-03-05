@@ -5757,6 +5757,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Polygreen: {
+    ws: ["https://www.polygreen-group.com"],
+    urls: [
+      "https://cordis.europa.eu/project/id/965715/reporting",
+      "https://www.polygreen-group.com",
+      "https://www.polygreen-group.com/contact"
+    ],
+    _meta: { isHomepage: true }
+  },
   Polyrizon: {
     ws: ["https://investor.polyrizon-biotech.com", "https://polyrizon-biotech.com"],
     urls: ["https://polyrizon-biotech.com"],
