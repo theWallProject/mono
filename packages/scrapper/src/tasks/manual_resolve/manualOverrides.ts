@@ -3118,6 +3118,27 @@ export const manualOverrides: Record<
     urls: ["https://www.avihaim.co.il", "https://www.hisense.co.il", "https://www.pinterest.com/babysensellc"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Hitech Zone Ltd.": {
+    ws: [
+      "https://crm.htzone.co.il",
+      "https://media.htzone.co.il",
+      "https://members.htzone.co.il",
+      "https://tripzone.htzone.co.il",
+      "https://www.htzone.co.il",
+      "https://zone.htzone.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/htzone"],
+    fb: ["https://www.facebook.com/htzone.co.il"],
+    ig: ["https://www.instagram.com/hitechzone_israel"],
+    tt: ["https://www.tiktok.com/@hitechzone_israel"],
+    urls: [
+      "https://gogift.co.il",
+      "https://htzone.arbitrip.com/search",
+      "https://members.htzone.co.il",
+      "https://www.cal-online.co.il/landing/ht-zone"
+    ],
+    _meta: { isHomepage: true }
+  },
   HiveWare: {
     ws: ["https://hiveware.io"],
     li: ["https://www.linkedin.com/company/hivewaretech%20"],
