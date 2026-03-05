@@ -2935,6 +2935,11 @@ export const manualOverrides: Record<
     urls: ["https://www.feelbetter.healthcare/privacy-policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FeezBack: {
+    ws: ["https://feezback.com"],
+    li: ["https://www.linkedin.com/company/feezback"],
+    _meta: { isHomepage: true }
+  },
   "Femto Technologies": { ws: ["https://femtocorp.com"], urls: ["https://femtocorp.com"], _meta: { isHomepage: true } },
   Fermata: {
     ws: ["https://www.fermata.tech"],
