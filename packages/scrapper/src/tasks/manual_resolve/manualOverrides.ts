@@ -1178,6 +1178,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Brightmerge: {
+    ws: ["https://www.brightmerge.com"],
+    li: ["https://www.linkedin.com/company/brightmerge"],
+    ytp: ["https://www.youtube.com/@brightmerge"],
+    urls: ["https://calendly.com/brettm-brightmerge/30min"],
+    _meta: { isHomepage: true }
+  },
   Bringg: {
     ws: ["https://security.bringg.com", "https://www.bringg.com"],
     li: ["https://www.linkedin.com/company/bringg"],
