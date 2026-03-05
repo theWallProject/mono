@@ -4098,6 +4098,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@inthegame6194"],
     _meta: { isHomepage: true }
   },
+  "Intsite Ltd.": {
+    ws: ["https://intsite.ai"],
+    urls: ["https://intsite.ai", "https://intsite.ai/smart-structures"],
+    _meta: { isHomepage: true }
+  },
   "Intuition Robotics": {
     ws: ["https://www.intuitionrobotics.com"],
     li: ["https://www.linkedin.com/company/intuition-robotics"],
