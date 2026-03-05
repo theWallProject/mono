@@ -3568,6 +3568,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@hailo2062"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Healium Medical": {
+    ws: ["https://www.healiumedical.com"],
+    li: ["https://www.linkedin.com/company/healium-medica"],
+    urls: ["http://www.gdigitalmedia.com", "https://www.healiumedical.com"],
+    _meta: { isHomepage: true }
+  },
   "Healthy.io": {
     ws: ["https://blog.healthy.io", "https://healthy.io"],
     li: ["https://www.linkedin.com/company/www-healthy-io"],
