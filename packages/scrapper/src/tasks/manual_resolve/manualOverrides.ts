@@ -1401,6 +1401,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@CADYSolutions"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "CAPS Medical": { ws: ["https://capsmedical.com"], _meta: { isHomepage: true } },
   "CLEW Medical": {
     ws: ["https://clewmed.com"],
     li: ["https://www.linkedin.com/company/clewmed"],
