@@ -6133,6 +6133,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Senecio Robotics": {
+    ws: ["https://heb.senecio-robotics.com", "https://www.senecio-robotics.com"],
+    li: ["https://www.linkedin.com/company/senecio-robotics"],
+    urls: ["https://www.senecio-robotics.com"],
+    _meta: { isHomepage: true }
+  },
   "Senseera Health": {
     ws: ["https://senseerahealth.com"],
     urls: ["https://pearlcom.co.il", "https://senseerahealth.com", "https://senseerahealth.com/privacy-policy"],
