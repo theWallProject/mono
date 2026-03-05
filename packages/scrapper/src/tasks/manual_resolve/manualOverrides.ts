@@ -5163,6 +5163,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@OKIBO1"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OMGene: { ws: ["https://omgene.ai"], _meta: { isHomepage: true } },
   "ONE ZERO": {
     ws: ["https://www.onezerobank.com"],
     li: ["https://www.linkedin.com/company/the-first-digital-bank"],
