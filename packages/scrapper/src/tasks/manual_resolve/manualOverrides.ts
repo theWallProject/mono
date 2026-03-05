@@ -2317,6 +2317,13 @@ export const manualOverrides: Record<
     urls: ["http://www.google.com"],
     _meta: { isHomepage: true }
   },
+  "Electriq Global": {
+    ws: ["https://www.electriq.com"],
+    li: ["https://www.linkedin.com/company/electriqglobal"],
+    fb: ["https://www.facebook.com/electriqglobal"],
+    tw: ["https://x.com/electriqglobal"],
+    _meta: { isHomepage: true }
+  },
   "Elementary Data": {
     ws: ["https://docs.elementary-data.com", "https://www.elementary-data.com"],
     li: ["https://www.linkedin.com/company/elementary-data"],
