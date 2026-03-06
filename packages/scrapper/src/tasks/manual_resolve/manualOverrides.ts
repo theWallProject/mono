@@ -8877,6 +8877,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/tissuedynamics"],
     _meta: { isHomepage: true }
   },
+  "Tiv.ai": { ws: ["https://tiv.ai"], urls: ["https://www.spaceship.com"], _meta: { isHomepage: true } },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
     li: ["https://www.linkedin.com/company/token-security"],
