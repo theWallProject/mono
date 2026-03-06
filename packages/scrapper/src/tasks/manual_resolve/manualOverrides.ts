@@ -723,6 +723,16 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucsm8sofdl36aekvq7pforsg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Arieli Group": {
+    ws: ["https://www.arieli-group.com"],
+    li: ["https://www.linkedin.com/company/arieli-group"],
+    urls: [
+      "https://maps.app.goo.gl/5kReYfMMPb4e1a1u8",
+      "https://maps.app.goo.gl/sb12BnTEBCwhh5rU8",
+      "https://maps.app.goo.gl/taknezbs8P24Bbwm8"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Ariga Technologies": {
     ws: ["https://ariga.io"],
     li: ["https://www.linkedin.com/company/arigaio"],
