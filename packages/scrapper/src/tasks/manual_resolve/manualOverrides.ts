@@ -7572,6 +7572,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/raaam"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "RDV Systems": {
+    ws: ["https://www.rdvsystems.com"],
+    li: ["https://www.linkedin.com/company/rdv-systems"],
+    fb: ["https://www.facebook.com/rdvsystems"],
+    ig: ["https://www.instagram.com/rdvsystems"],
+    ytp: ["https://www.youtube.com/@rdviz"],
+    _meta: { isHomepage: true }
+  },
   "REE Automotive": {
     ws: ["https://ree.auto"],
     li: ["https://www.linkedin.com/company/reeautoofficial"],
