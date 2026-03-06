@@ -6727,6 +6727,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/plas-free"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "PlasticBack Ltd.": {
+    ws: ["https://www.plastic-back.com"],
+    li: ["https://www.linkedin.com/company/plastic-back"],
+    _meta: { isHomepage: true }
+  },
   "PlaxidityX (Formerly Argus Cyber Security LTD.)": {
     ws: ["https://plaxidityx.com"],
     li: ["https://www.linkedin.com/company/plaxidityx"],
