@@ -2045,6 +2045,24 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/celery-controls"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Cellcom Israel": {
+    ws: [
+      "https://cellcom.co.il",
+      "https://cellcomtvplus.cellcom.co.il",
+      "https://internationalcarrierservices.cellcom.co.il",
+      "https://investors.cellcom.co.il",
+      "https://private.cellcom.co.il",
+      "https://shop.cellcom.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/cellcom"],
+    fb: ["https://www.facebook.com/cellcom.official"],
+    ig: ["https://www.instagram.com/cellcom"],
+    ytp: ["https://www.youtube.com/@cellcomofficial"],
+    tt: ["https://www.tiktok.com/@cellcom"],
+    urls: ["https://itunes.apple.com/il/app/tv-slqwm/id642315912"],
+    android_app_ids: ["com.cellcom.cellcomtv"],
+    _meta: { isHomepage: true }
+  },
   Cellebrite: {
     li: [
       "https://www.linkedin.com/company/cellebrite",
