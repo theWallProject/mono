@@ -7252,6 +7252,12 @@ export const manualOverrides: Record<
     urls: ["https://www.gad-remilk.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  RemitRix: {
+    ws: ["https://www.remitrix.com", "https://remitrix.com"],
+    li: ["https://www.linkedin.com/company/remitrix"],
+    tw: ["https://x.com/remitrix1"],
+    _meta: { isHomepage: true }
+  },
   RepAir: {
     ws: ["https://www.repair-carbon.com"],
     li: ["https://www.linkedin.com/company/repair-carbon"],
