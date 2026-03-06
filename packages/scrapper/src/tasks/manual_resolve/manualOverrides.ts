@@ -1359,6 +1359,11 @@ export const manualOverrides: Record<
     urls: ["https://share-eu1.hsforms.com/158156UDqSXq6R53AWsoxvgfsc0x", "https://wa.link/587ljz"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BladeRanger: {
+    ws: ["https://bladeranger.com"],
+    li: ["https://www.linkedin.com/company/bladeranger"],
+    _meta: { isHomepage: true }
+  },
   Blender: {
     ws: ["https://blender.global"],
     urls: ["https://blender.loans", "https://www.blender.co.il", "https://www.blender.global"],
