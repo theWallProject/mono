@@ -622,6 +622,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/ark-surgical"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Arko Holdings": {
+    ws: ["https://www.arkocorp.com"],
+    tw: ["https://x.com/arkoinvestors"],
+    urls: ["http://www.quotemedia.com", "http://www.quotemedia.com/legal/tos"],
+    _meta: { isHomepage: true }
+  },
   Artlist: {
     ws: [
       "https://artlist.io",
