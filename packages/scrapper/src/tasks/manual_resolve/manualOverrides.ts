@@ -8185,6 +8185,11 @@ export const manualOverrides: Record<
     urls: ["https://ir.railvision.io", "https://railvision.io", "https://soundcloud.com/rail-evolution-podcast"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ratio Petroleum Energy": {
+    ws: ["https://ratiopetroleum.com"],
+    urls: ["https://web.irm.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Razor Labs": {
     ws: ["https://www.razor-labs.com"],
     li: ["https://www.linkedin.com/company/razor-technologies-inc"],
