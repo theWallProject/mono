@@ -7121,6 +7121,13 @@ export const manualOverrides: Record<
     urls: ["https://craftandroot.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ricor Cryogenic and Vacuum Systems": {
+    ws: ["https://ricor.com"],
+    li: ["https://www.linkedin.com/company/ricor-cryogenic-vacuum-systems"],
+    urls: ["https://itunes.apple.com/us/app/ricorapp/id1459605935", "https://www.mar-comit.com"],
+    android_app_ids: ["app.ricor.com"],
+    _meta: { isHomepage: true }
+  },
   "Ripe Guard": {
     ws: ["https://ripeguard.com"],
     li: ["https://www.linkedin.com/company/ripe-guard"],
