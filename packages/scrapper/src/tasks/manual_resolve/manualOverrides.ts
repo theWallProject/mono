@@ -2955,6 +2955,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@femselect4756"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FFRobotics: { ws: ["https://www.ffrobotics.com"], urls: ["http://wix.com"], _meta: { isHomepage: true } },
   FINQ: {
     ws: ["https://finqai.com", "https://press.finqai.com"],
     li: ["https://www.linkedin.com/company/finqai"],
