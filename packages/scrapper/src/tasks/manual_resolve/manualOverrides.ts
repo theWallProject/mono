@@ -6284,6 +6284,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PNY: {
+    ws: ["https://www.ridepny.com"],
+    li: ["https://www.linkedin.com/company/ridepny"],
+    _meta: { isHomepage: true }
+  },
   PVML: {
     ws: ["https://pvml.com"],
     li: ["https://www.linkedin.com/company/pvml"],
