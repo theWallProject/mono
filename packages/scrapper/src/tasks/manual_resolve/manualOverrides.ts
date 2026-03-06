@@ -4409,6 +4409,12 @@ export const manualOverrides: Record<
     urls: ["https://joyned.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Juganu: {
+    ws: ["https://www.juganu.com"],
+    li: ["https://www.linkedin.com/company/juganu"],
+    ytp: ["https://www.youtube.com/@juganultd"],
+    _meta: { isHomepage: true }
+  },
   "Juno Journey": {
     ws: [
       "https://auth.junojourney.com",
