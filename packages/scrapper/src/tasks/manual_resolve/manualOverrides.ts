@@ -8907,6 +8907,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/symetrify"],
     _meta: { isHomepage: true }
   },
+  "Sync.ME": {
+    ws: ["https://sync.me"],
+    li: ["https://www.linkedin.com/company/sync-me"],
+    tw: ["https://x.com/syncme"],
+    urls: ["https://calendar.ai", "https://www.livecallerid.com"],
+    android_app_ids: ["com.syncme.syncmeapp"],
+    _meta: { isHomepage: true }
+  },
   "Synvertec LTD.": {
     ws: ["https://www.synvertec.com"],
     urls: ["http://taustudio.co.il"],
