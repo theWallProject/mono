@@ -6564,6 +6564,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/nemo-nanomaterials"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nemodata: {
+    ws: ["https://app.nemodata.ai", "https://www.nemodata.ai"],
+    li: ["https://www.linkedin.com/company/nemodata"],
+    _meta: { isHomepage: true }
+  },
   "NeoTX Therapeutics": { ws: ["https://predictivetx.com"], _meta: { isHomepage: true, isVerified: true } },
   Neolithics: {
     ws: ["https://www.neolithics.ai"],
