@@ -9304,6 +9304,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/steakholderfoods"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  StellarNova: {
+    ws: ["https://stellarnova.co"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true }
+  },
   "Stem Cell Medicine": {
     ws: ["https://www.stemcell-medicine.com"],
     urls: ["http://www.foothold-systems.co.il", "http://www.portnov-mishan.com"],
