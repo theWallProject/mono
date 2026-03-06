@@ -171,6 +171,22 @@ export const manualOverrides: Record<
     urls: ["https://www.axon-vision.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Abraham Travel": {
+    ws: ["https://simplebooking.abraham.travel", "https://www.abraham.travel", "https://www.abrahamtours.com"],
+    li: ["https://www.linkedin.com/company/abraham-travel"],
+    fb: ["https://www.facebook.com/abrahamil"],
+    tw: ["https://x.com/abrahamhostels"],
+    ig: ["https://www.instagram.com/abrahamhostels"],
+    ytp: ["https://www.youtube.com/@abrahamhostels"],
+    tt: ["https://www.tiktok.com/@abraham.travel"],
+    urls: [
+      "http://www.abrahamtours.com/tours/gaza-envelope-tour-october-7-survivor",
+      "https://www.simplebooking.it/ibe2/hotel/9178",
+      "https://www.simplebooking.it/ibe2/hotel/9319",
+      "https://www.simplebooking.it/loyalty/G4TYNHWNDE"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Accelario Software": {
     ws: ["https://accelario.com"],
     li: ["https://www.linkedin.com/company/accelario"],
