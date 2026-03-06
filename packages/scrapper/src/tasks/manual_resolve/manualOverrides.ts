@@ -8221,6 +8221,13 @@ export const manualOverrides: Record<
     ytp: "https://www.youtube.com/@SeeTreeAI",
     _meta: { isHomepage: true, isVerified: true }
   },
+  SeeTrue: {
+    ws: ["https://seetrue.ai"],
+    li: ["https://www.linkedin.com/company/seetrue-ai"],
+    tw: ["https://x.com/see_true_ai"],
+    ytp: ["https://www.youtube.com/@seetrue-ai"],
+    _meta: { isHomepage: true }
+  },
   Semperis: {
     ws: ["https://www.hipconf.com", "https://www.semperis.com"],
     li: [
