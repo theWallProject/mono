@@ -1116,6 +1116,13 @@ export const manualOverrides: Record<
     urls: ["https://xn--88-lqi2fvc3a1a4i.live/register"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BRAVE: {
+    ws: ["https://www.thebrave.io"],
+    li: ["https://www.linkedin.com/company/brave-global"],
+    tw: ["https://x.com/thebraveio"],
+    urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms", "https://www.tommyandyou.com"],
+    _meta: { isHomepage: true }
+  },
   "BWith AI": {
     ws: ["https://www.bwith.ai"],
     li: ["https://www.linkedin.com/company/bwith-ai"],
