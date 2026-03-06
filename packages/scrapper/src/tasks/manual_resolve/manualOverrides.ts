@@ -396,6 +396,11 @@ export const manualOverrides: Record<
     urls: ["https://www.aeveagency.com", "https://www.anandata.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Anchora Medical": {
+    ws: ["https://anchora-medical.com"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true }
+  },
   Annabella: {
     ws: ["https://insurance.annabella-pump.com", "https://www.annabella-pump.com"],
     fb: ["https://www.facebook.com/annabellapump"],
