@@ -6039,6 +6039,14 @@ export const manualOverrides: Record<
     gh: "https://github.com/odigos-io/odigos",
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Odysight.AI": {
+    ws: ["https://www.odysight.ai"],
+    li: ["https://www.linkedin.com/company/odysightai"],
+    tw: ["https://x.com/odysight.ai"],
+    ytp: ["https://www.youtube.com/@odysightai"],
+    urls: ["https://www.sec.gov/edgar/browse"],
+    _meta: { isHomepage: true }
+  },
   Oktopost: {
     ws: ["https://www.oktopost.com"],
     li: ["https://www.linkedin.com/company/oktopost"],
