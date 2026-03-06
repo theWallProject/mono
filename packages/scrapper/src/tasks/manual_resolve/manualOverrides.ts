@@ -8626,6 +8626,7 @@ export const manualOverrides: Record<
     urls: ["https://www.relieve-hf.info"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "VALFIX Medical": { ws: ["https://www.valfixmed.com"], urls: ["http://imaginet.co.il"], _meta: { isHomepage: true } },
   "VAST Data": {
     gh: ["https://github.com/vast-data"],
     ytp: ["https://www.youtube.com/vastdata", "https://www.youtube.com/@VASTData"],
