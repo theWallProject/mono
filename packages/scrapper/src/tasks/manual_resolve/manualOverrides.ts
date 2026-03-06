@@ -9763,6 +9763,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@yeschefhq"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Yevul Info": {
+    ws: ["https://www.yevulinfo.com"],
+    li: ["https://www.linkedin.com/company/yevul-info"],
+    _meta: { isHomepage: true }
+  },
   "Yissum Technology Transfer Company of the Hebrew University": {
     ws: ["https://www.yissum.co.il"],
     li: ["https://www.linkedin.com/company/yissum"],
