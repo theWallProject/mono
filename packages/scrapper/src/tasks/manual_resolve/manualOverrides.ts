@@ -207,6 +207,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Accessily: {
+    ws: ["https://accessily.com", "https://dashboard.accessily.com"],
+    li: ["https://www.linkedin.com/company/accessily"],
+    fb: ["https://www.facebook.com/accessily"],
+    tw: ["https://x.com/accessily"],
+    _meta: { isHomepage: true }
+  },
   "Acclym (formerly Agritask)": {
     ws: ["https://www.acclym.com"],
     li: ["https://www.linkedin.com/company/acclym"],
