@@ -5373,6 +5373,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/lemnaproltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Leo AI": {
+    ws: ["https://app.getleo.ai", "https://www.getleo.ai", "https://leo-ai.discourse.group"],
+    li: ["https://www.linkedin.com/company/leoai"],
+    ytp: ["https://www.youtube.com/@getleoai"],
+    _meta: { isHomepage: true }
+  },
   LetsTok: {
     ws: ["https://letstok.com", "https://studio-tools.letstok.com"],
     urls: ["https://wa.me/13155568056", "https://www.sora2api.dev"],
