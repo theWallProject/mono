@@ -590,6 +590,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Aran Technologies": {
+    ws: ["https://heb.aran-rd.com", "https://www.aran-rd.com"],
+    li: ["https://www.linkedin.com/company/aran-r&d"],
+    fb: ["https://www.facebook.com/aran-rd-103283489799020"],
+    urls: ["http://planwize.com", "https://waze.to/li/hsvbbepj92"],
+    _meta: { isHomepage: true }
+  },
   Arbe: {
     ws: ["https://arberobotics.com", "https://ir.arberobotics.com"],
     li: ["https://www.linkedin.com/company/arbe-robotics"],
