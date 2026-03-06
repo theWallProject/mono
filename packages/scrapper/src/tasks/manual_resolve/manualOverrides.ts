@@ -2825,6 +2825,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/droxi_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dustoss: {
+    ws: ["https://www.dustoss.com"],
+    li: ["https://www.linkedin.com/company/dustoss"],
+    urls: ["https://wa.me/972529455436"],
+    _meta: { isHomepage: true }
+  },
   Dymension: {
     ws: [
       "https://blog.dymension.xyz",
