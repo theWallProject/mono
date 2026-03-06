@@ -3932,6 +3932,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Homez: { ws: ["https://www.homez.com"], _meta: { isHomepage: true, isVerified: true } },
+  Homrun: {
+    ws: ["https://homrungroup.com"],
+    li: ["https://www.linkedin.com/company/homrun"],
+    fb: ["https://www.facebook.com/homrungroup"],
+    _meta: { isHomepage: true }
+  },
   Honeydew: {
     ws: ["https://honeydew.ai"],
     li: ["https://www.linkedin.com/company/honeydewai"],
