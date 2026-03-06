@@ -4079,6 +4079,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Green ELMF Cables": {
+    ws: ["https://www.green-elmf-cables.com"],
+    urls: ["http://www.elegantthemes.com", "http://www.wordpress.org"],
+    _meta: { isHomepage: true }
+  },
   "Green Invoice": {
     ws: ["https://auth.greeninvoice.co.il", "https://lp.greeninvoice.co.il", "https://www.greeninvoice.co.il"],
     li: ["https://www.linkedin.com/company/greeninvoice"],
