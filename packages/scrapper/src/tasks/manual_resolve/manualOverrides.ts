@@ -1243,6 +1243,13 @@ export const manualOverrides: Record<
     urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms", "https://www.tommyandyou.com"],
     _meta: { isHomepage: true }
   },
+  "BUYME Technologies": {
+    ws: ["https://buyme.co.il"],
+    fb: ["https://www.facebook.com/buyme.co.il"],
+    ig: ["https://www.instagram.com/buyme.co.il"],
+    urls: ["https://buyme.onelink.me/lRiV", "https://www.comeet.com/jobs/buyme/B2.008"],
+    _meta: { isHomepage: true }
+  },
   "BWith AI": {
     ws: ["https://www.bwith.ai"],
     li: ["https://www.linkedin.com/company/bwith-ai"],
