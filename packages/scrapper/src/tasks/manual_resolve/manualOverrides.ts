@@ -7109,6 +7109,12 @@ export const manualOverrides: Record<
     urls: ["https://craftandroot.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ripe Guard": {
+    ws: ["https://ripeguard.com"],
+    li: ["https://www.linkedin.com/company/ripe-guard"],
+    urls: ["https://wpastra.com"],
+    _meta: { isHomepage: true }
+  },
   "Rise.ai": {
     ws: ["https://dev.rise.ai", "https://help.rise.ai", "https://platform.rise.ai", "https://rise.ai"],
     li: ["https://www.linkedin.com/company/rise-ai"],
