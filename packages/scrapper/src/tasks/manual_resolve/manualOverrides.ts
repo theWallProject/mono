@@ -5574,6 +5574,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/nitrofix"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nobio: {
+    ws: ["https://www.nobio.com"],
+    li: ["https://www.linkedin.com/company/nobio"],
+    urls: ["https://www.infinix.com"],
+    _meta: { isHomepage: true }
+  },
   "Nofar Energy": {
     ws: ["https://ir.nofar-energy.com", "https://www.nofar-energy.com"],
     li: ["https://www.linkedin.com/company/nofarenergy"],
