@@ -9494,6 +9494,19 @@ export const manualOverrides: Record<
     urls: ["https://spetz.io/the-role-of-personalization-in-chatbot-engagement"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Spheron ABU": {
+    ws: ["https://docs.spheron.network", "https://www.spheron.network", "https://app.spheron.ai"],
+    li: ["https://www.linkedin.com/company/spheron-ai"],
+    tw: ["https://x.com/spheronai"],
+    gh: ["https://github.com/spheron-core"],
+    urls: [
+      "https://calendly.com/prashantsphn/new-meeting",
+      "https://sphn.wiki/discord",
+      "https://sphn.wiki/tg",
+      "https://sphn.wiki/yt"
+    ],
+    _meta: { isHomepage: true }
+  },
   Spike: {
     ws: ["https://www.spikenow.com"],
     li: ["https://www.linkedin.com/company/3240452"],
