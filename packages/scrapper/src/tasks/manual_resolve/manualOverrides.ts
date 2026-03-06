@@ -10386,6 +10386,14 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/tkYHJCA7mb"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Vitania: {
+    ws: ["https://vitania.co.il"],
+    li: ["https://www.linkedin.com/company/%d7%95%d7%99%d7%aa%d7%a0%d7%99%d7%94-vitania"],
+    fb: ["https://www.facebook.com/vitaniaisrael"],
+    ig: ["https://www.instagram.com/vitanialtd"],
+    urls: ["https://maya.tase.co.il/company/1515", "https://portal.vplans.com/he/vitania"],
+    _meta: { isHomepage: true }
+  },
   Voiceable: {
     ws: ["https://voiceable.co"],
     li: ["https://www.linkedin.com/company/voiceable"],
