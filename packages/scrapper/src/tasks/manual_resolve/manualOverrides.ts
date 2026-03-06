@@ -6107,6 +6107,16 @@ export const manualOverrides: Record<
     urls: ["https://www.pashoot-robotics.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PatenSee: {
+    ws: ["https://patensee.com"],
+    urls: [
+      "https://eng.sheba.co.il",
+      "https://www.bostonscientific.com/en-US/Home.html",
+      "https://www.medxelerator.com",
+      "https://www.medxventures.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   PayEm: {
     ws: ["https://www.payem.co"],
     li: ["https://www.linkedin.com/company/payemcard"],
