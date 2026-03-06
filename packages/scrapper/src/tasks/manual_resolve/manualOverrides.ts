@@ -5716,6 +5716,13 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/mobi---mobility-insight"],
     _meta: { isHomepage: true }
   },
+  "Mobius Protection Systems": {
+    ws: ["https://www.mobius-ps.com"],
+    li: ["https://www.linkedin.com/company/mobius-protection-systems"],
+    tw: ["https://x.com/systemsmobius"],
+    urls: ["https://extra.co.il"],
+    _meta: { isHomepage: true }
+  },
   Momentick: {
     ws: ["https://www.momentick.com"],
     li: ["https://www.linkedin.com/company/momentick"],
