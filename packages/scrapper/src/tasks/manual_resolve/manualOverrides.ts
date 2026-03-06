@@ -5441,6 +5441,16 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kovrrins"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kramer: {
+    ws: ["https://www.kramerav.com", "https://www1.kramerav.com", "https://www.kramercontrol.com"],
+    li: ["https://www.linkedin.com/company/kramer-electronics-ltd"],
+    fb: ["https://www.facebook.com/krameraudiovisual"],
+    tw: ["https://x.com/kramerelec"],
+    ig: ["https://www.instagram.com/kramer_audiovisual"],
+    ytp: ["https://www.youtube.com/@kramerelectronicsltd"],
+    urls: ["https://kramer.docebosaas.com/learn", "https://www.ashtonbentley.com", "https://www.zeevee.com"],
+    _meta: { isHomepage: true }
+  },
   LAVA: {
     ws: ["https://lavapower.com"],
     li: ["https://www.linkedin.com/company/lavapower"],
