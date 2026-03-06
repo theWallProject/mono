@@ -4263,6 +4263,12 @@ export const manualOverrides: Record<
     urls: ["https://portal.ionix.io/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "IR-MED": {
+    ws: ["https://investors.ir-medical.com", "https://www.ir-medical.com"],
+    li: ["https://www.linkedin.com/company/ir-medical"],
+    tw: ["https://x.com/ir_med_"],
+    _meta: { isHomepage: true }
+  },
   ITsMine: {
     ws: ["https://app.itsmine.io", "https://itsmine.io"],
     li: ["https://www.linkedin.com/company/itsmine"],
