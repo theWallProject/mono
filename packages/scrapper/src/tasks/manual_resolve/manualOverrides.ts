@@ -7788,6 +7788,13 @@ export const manualOverrides: Record<
     urls: ["http://www.foothold-systems.co.il", "http://www.portnov-mishan.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Stemrad: {
+    ws: ["https://stemrad.com"],
+    li: ["https://www.linkedin.com/company/stemrad-inc"],
+    fb: ["https://www.facebook.com/stemrad"],
+    tw: ["https://x.com/stemrad"],
+    _meta: { isHomepage: true }
+  },
   Stigg: {
     ws: [
       "https://app.stigg.io",
