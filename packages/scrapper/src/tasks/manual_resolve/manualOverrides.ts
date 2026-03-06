@@ -4337,6 +4337,15 @@ export const manualOverrides: Record<
     urls: ["https://blog.healthy.io", "https://minuteful.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Hear: {
+    ws: ["https://console.hear.ai", "https://trust.hear.ai", "https://www.hear.ai"],
+    li: ["https://www.linkedin.com/company/hear-ai"],
+    fb: ["https://www.facebook.com/wearehear"],
+    tw: ["https://x.com/hearai_"],
+    ig: ["https://www.instagram.com/wearehearai"],
+    ytp: ["https://www.youtube.com/@hear_ai"],
+    _meta: { isHomepage: true }
+  },
   Helios: {
     ws: ["https://heliosmatters.com"],
     li: ["https://www.linkedin.com/company/project-helios"],
