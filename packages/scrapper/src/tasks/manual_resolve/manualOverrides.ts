@@ -7303,6 +7303,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PowerPlug: {
+    ws: ["https://powerplug.ai", "https://powerplugltd.com"],
+    li: ["https://www.linkedin.com/company/powerplug-ltd"],
+    fb: ["https://www.facebook.com/powerplugltd"],
+    tw: ["https://x.com/powerplugltd"],
+    _meta: { isHomepage: true }
+  },
   "Powermat Technologies": {
     ws: ["https://powermat.com"],
     li: ["https://www.linkedin.com/company/940993"],
