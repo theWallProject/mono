@@ -9887,6 +9887,21 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/tissuedynamics"],
     _meta: { isHomepage: true }
   },
+  Titan: {
+    ws: ["https://academy.titandxp.com", "https://support.titandxp.com", "https://titandxp.com"],
+    li: ["https://www.linkedin.com/company/formtitan"],
+    fb: ["https://www.facebook.com/titandxp"],
+    tw: ["https://x.com/formtitan"],
+    ig: ["https://www.instagram.com/titandxp"],
+    ytp: ["https://www.youtube.com/@formtitan101salesforceformsdocuments"],
+    urls: [
+      "https://formtitan.com/TermsOfUse",
+      "https://formtitan.com/signin",
+      "https://start-chat.com/slack/titan/Jr47ZQ",
+      "https://start-chat.com/slack/titan/Kl4kZl"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Tiv.ai": { ws: ["https://tiv.ai"], urls: ["https://www.spaceship.com"], _meta: { isHomepage: true } },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
