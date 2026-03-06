@@ -10700,6 +10700,14 @@ export const manualOverrides: Record<
     urls: ["https://app.watchful.ai/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Waterfall Security Solutions Ltd.": {
+    ws: ["https://waterfall-security.com"],
+    li: ["https://www.linkedin.com/company/waterfall-security-solutions-ltd"],
+    fb: ["https://www.facebook.com/waterfallsolutions"],
+    tw: ["https://x.com/waterfallsecure"],
+    urls: ["https://waterfall.my.site.com/s/login"],
+    _meta: { isHomepage: true }
+  },
   WaveBL: {
     ws: ["https://coa.wavebl.com", "https://register.wavebl.com", "https://wavebl.com", "https://wsupport.wavebl.com"],
     li: ["https://www.linkedin.com/company/wavebl"],
