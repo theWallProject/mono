@@ -66,6 +66,23 @@ export const manualOverrides: Record<
     urls: ["http://www.thebunch.co.il", "http://www.tipoos.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ADCORE: {
+    ws: ["https://apps.adcore.com", "https://help.adcore.com", "https://www.adcore.com"],
+    li: ["https://www.linkedin.com/company/215397", "https://www.linkedin.com/company/adcoreinc"],
+    fb: ["https://www.facebook.com/adcoreinc"],
+    tw: ["https://x.com/adcorelive"],
+    ig: ["https://www.instagram.com/adcore.inc"],
+    ytp: ["https://www.youtube.com/@goadcore"],
+    urls: [
+      "https://g.page/r/CUtewd0NEjOqEAE",
+      "https://g.page/r/CWneBaY30sX8EAE",
+      "https://g.page/r/CfC-p0u-egGFEAE",
+      "https://goo.gl/maps/ceF7SMqh74dw6ppF7",
+      "https://pin.it/Zrbg81y",
+      "https://proposaly.io"
+    ],
+    _meta: { isHomepage: true }
+  },
   "AES Embedded Solutions": {
     ws: ["https://www.aes-connect.com"],
     li: ["https://www.linkedin.com/company/aes-amarel-engineering-services"],
