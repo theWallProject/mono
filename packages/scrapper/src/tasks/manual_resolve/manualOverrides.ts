@@ -5415,6 +5415,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@NanoDimension"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nanovel: {
+    ws: ["https://www.nanovel.co.il"],
+    li: ["https://www.linkedin.com/company/nanovel-israel-ltd"],
+    urls: ["https://www.studioalbo.com"],
+    _meta: { isHomepage: true }
+  },
   "Nanox Imaging": {
     ws: ["https://www.nanox.vision"],
     li: ["https://www.linkedin.com/company/nanox-imaging"],
