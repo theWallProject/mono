@@ -2003,6 +2003,19 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Cellint: {
+    ws: ["https://www.cellint.com"],
+    li: ["https://www.linkedin.com/company/cellint-traffic-solutions"],
+    urls: [
+      "http://www.mstudio.co.il",
+      "https://gdalabel.org.uk",
+      "https://paleoitalia.org",
+      "https://uk-sobs.org.uk",
+      "https://www.clintoncards.co.uk",
+      "https://www.smallcharityweek.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   Certora: {
     ws: [
       "https://careers.certora.com",
