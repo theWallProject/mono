@@ -6582,6 +6582,30 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/neolithics-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NetNut: {
+    ws: [
+      "https://affiliates.netnut.io",
+      "https://dashboard.netnut.io",
+      "https://help.netnut.io",
+      "https://netnut.io",
+      "https://ru.netnut.io",
+      "https://netnut.cn"
+    ],
+    li: ["https://www.linkedin.com/company/netnut"],
+    fb: ["https://www.facebook.com/netnut.io"],
+    tw: ["https://x.com/netnut_io"],
+    urls: [
+      "https://discord.com/users/825355638703259658",
+      "https://discord.gg/BUjgwh6eVG",
+      "https://t.me/+ccqtahCm52I1ZTI0",
+      "https://t.me/netnut_io",
+      "https://wa.me/972544564190",
+      "https://www.g2.com/products/netnut-io/reviews",
+      "https://www.g2.com/products/netnut-proxy-network/reviews",
+      "https://www.nasdaq.com/market-activity/stocks/alar"
+    ],
+    _meta: { isHomepage: true }
+  },
   "NetOp.Cloud": {
     ws: ["https://netop.ai"],
     li: ["https://www.linkedin.com/company/netop-ai"],
