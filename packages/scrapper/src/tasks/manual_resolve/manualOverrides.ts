@@ -6474,6 +6474,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Paragate Medical": {
+    ws: ["https://paragate-medical.com"],
+    li: ["https://www.linkedin.com/company/paragate-medical"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true }
+  },
   Particula: {
     ws: ["https://particula-tech.com"],
     fb: ["https://www.facebook.com/go.particula"],
