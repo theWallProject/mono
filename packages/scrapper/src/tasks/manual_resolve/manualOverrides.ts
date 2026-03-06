@@ -3709,6 +3709,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Fintica: {
+    ws: ["https://fintica-ai.com"],
+    li: ["https://www.linkedin.com/company/fintica"],
+    tw: ["https://x.com/fintica"],
+    ig: ["https://www.instagram.com/fintica_ai"],
+    _meta: { isHomepage: true }
+  },
   FireDome: {
     ws: ["https://www.fire-dome.com"],
     li: ["https://www.linkedin.com/company/firedomereclaimtomorrow"],
