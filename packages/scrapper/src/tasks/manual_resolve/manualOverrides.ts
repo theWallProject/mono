@@ -4770,6 +4770,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/mappoworld"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Marine Edge": {
+    ws: ["https://www.marine-edge.com"],
+    li: ["https://www.linkedin.com/company/marine-edge"],
+    fb: ["https://www.facebook.com/marine-edge-103036722047767"],
+    _meta: { isHomepage: true }
+  },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
   "Marketeam.ai": {
     ws: ["https://app.marketeam.ai", "https://www.marketeam.ai"],
