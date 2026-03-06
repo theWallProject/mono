@@ -3782,6 +3782,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@hailo2062"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Hallura: {
+    ws: ["https://www.hallura.com"],
+    li: ["https://www.linkedin.com/company/hallura"],
+    _meta: { isHomepage: true }
+  },
   "Healium Medical": {
     ws: ["https://www.healiumedical.com"],
     li: ["https://www.linkedin.com/company/healium-medica"],
