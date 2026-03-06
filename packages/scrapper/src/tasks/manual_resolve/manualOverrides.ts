@@ -7868,6 +7868,15 @@ export const manualOverrides: Record<
     urls: ["https://generatepress.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Smartair: {
+    ws: ["https://help.smartair.co.il", "https://www.smartair.co.il"],
+    urls: [
+      "http://www.travelyo.com",
+      "https://www.iaa.gov.il/airports/ben-gurion/flight-board",
+      "https://www.nevo.co.il/law_html/law00/119611.htm"
+    ],
+    _meta: { isHomepage: true }
+  },
   Sodot: {
     ws: ["https://docs.sodot.dev", "https://www.sodot.dev"],
     li: ["https://www.linkedin.com/company/sodot"],
