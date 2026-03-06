@@ -370,6 +370,7 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uc0sesi9gxry9lgedgwg2seg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AlgaHealth: { ws: ["https://alga-health.com"], urls: ["https://netrise.co.il"], _meta: { isHomepage: true } },
   Algoretail: {
     ws: ["https://nv.algoretail.io", "https://www.algoretail.io"],
     li: ["https://www.linkedin.com/company/algoretail"],
