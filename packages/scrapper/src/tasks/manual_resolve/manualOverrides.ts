@@ -7432,6 +7432,14 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/saffron_tech_ltd"],
     _meta: { isHomepage: true }
   },
+  SaliCrop: {
+    ws: ["https://www.salicrop.com"],
+    li: ["https://www.linkedin.com/company/salicrop"],
+    ig: ["https://www.instagram.com/salicrop"],
+    ytp: ["https://www.youtube.com/@salicrop"],
+    urls: ["http://www.duodiv.com/en"],
+    _meta: { isHomepage: true }
+  },
   Salignostics: {
     ws: ["https://www.salignostics.com"],
     li: ["https://www.linkedin.com/company/salignostics"],
