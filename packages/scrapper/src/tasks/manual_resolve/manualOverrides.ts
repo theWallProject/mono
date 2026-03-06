@@ -2907,6 +2907,15 @@ export const manualOverrides: Record<
     tw: ["https://x.com/diagnosticrobo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dialogue: {
+    ws: ["https://dashboard.nowdialogue.com", "https://nowdialogue.com"],
+    li: ["https://www.linkedin.com/company/nowdialogue"],
+    fb: ["https://www.facebook.com/nowdialogue"],
+    tw: ["https://x.com/ai_dialogue", "https://x.com/nowdialogue1%20"],
+    ig: ["https://www.instagram.com/nowdialogue"],
+    urls: ["https://abcommerce.io", "https://apps.shopify.com/automated-personalization"],
+    _meta: { isHomepage: true }
+  },
   Dig: {
     ws: ["https://dig.ai"],
     li: ["https://www.linkedin.com/company/dig-ai"],
