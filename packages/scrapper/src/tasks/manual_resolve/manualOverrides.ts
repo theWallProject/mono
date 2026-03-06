@@ -7701,6 +7701,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Shamaym: {
+    ws: ["https://dibi.shamaym.com", "https://www.shamaym.com"],
+    li: ["https://www.linkedin.com/company/-%d7%a9%d7%9e%d7%99%d7%99%d7%9d-shamaym"],
+    _meta: { isHomepage: true }
+  },
   ShapeDo: {
     ws: ["https://app.shapedo.com", "https://shapedo.com"],
     li: ["https://www.linkedin.com/company/5015898", "https://www.linkedin.com/company/shapedo"],
