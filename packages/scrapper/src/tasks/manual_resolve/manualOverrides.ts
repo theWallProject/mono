@@ -8685,6 +8685,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@saveatrain"],
     _meta: { isHomepage: true }
   },
+  "Save Foods": {
+    ws: ["https://savefoods.co"],
+    li: ["https://www.linkedin.com/company/save-foods-inc"],
+    fb: ["https://www.facebook.com/savefoodsinc"],
+    tw: ["https://x.com/savefoodsinc"],
+    _meta: { isHomepage: true }
+  },
   "Save It": {
     ws: ["https://save-it.co"],
     li: ["https://www.linkedin.com/company/save-it-a"],
