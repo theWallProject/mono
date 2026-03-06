@@ -9401,6 +9401,13 @@ export const manualOverrides: Record<
     android_dev_id: "com.wix",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Wizermed: {
+    ws: ["https://www.wizermed.com"],
+    li: ["https://www.linkedin.com/company/wizermed"],
+    urls: ["https://apps.apple.com/us/app/migraine-watch/id6754345965"],
+    android_app_ids: ["com.wizermed.migraine_watch"],
+    _meta: { isHomepage: true }
+  },
   Wonderful: {
     ws: ["https://www.wonderful.ai"],
     li: ["https://www.linkedin.com/company/wonderfulcx"],
