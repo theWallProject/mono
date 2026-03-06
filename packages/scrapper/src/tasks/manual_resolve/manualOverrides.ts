@@ -201,6 +201,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.agritask.mobile.android"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ActiveAging: {
+    ws: ["https://activeaging.ai"],
+    li: ["https://www.linkedin.com/company/activeaging-ai"],
+    _meta: { isHomepage: true }
+  },
   AdaSwap: {
     ws: [
       "https://dex.adaswap.com",
