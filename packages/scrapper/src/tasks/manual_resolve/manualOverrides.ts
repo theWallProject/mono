@@ -766,6 +766,12 @@ export const manualOverrides: Record<
     urls: ["https://redi.today/en/startup-marketing-solutions"],
     _meta: { isHomepage: true }
   },
+  "Arteevo Technologies": {
+    ws: ["https://arteevo.com"],
+    li: ["https://www.linkedin.com/company/arteevo-technologies-ltd."],
+    tw: ["https://x.com/arteevo"],
+    _meta: { isHomepage: true }
+  },
   Artlist: {
     ws: [
       "https://artlist.io",
