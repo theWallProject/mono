@@ -247,6 +247,11 @@ export const manualOverrides: Record<
     urls: ["https://warpcast.com/addressableio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Advanced Radar Technologies": {
+    ws: ["https://www.advancedradartechnologies.com"],
+    li: ["https://www.linkedin.com/company/advanced-radar-technologies-art-"],
+    _meta: { isHomepage: true }
+  },
   "Adversa AI": { ws: ["https://adversa.ai"], _meta: { isHomepage: true, isVerified: true } },
   Agora: {
     ws: ["https://agorareal.com"],
