@@ -7746,6 +7746,13 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/splisenseltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Squadded: {
+    ws: ["https://dashboard.squadded.co", "https://www.squadded.co"],
+    li: ["https://www.linkedin.com/company/squadded"],
+    ig: ["https://www.instagram.com/squadded.co"],
+    urls: ["https://squadded-new.webflow.io/customers"],
+    _meta: { isHomepage: true }
+  },
   Stargo: {
     ws: ["https://www.stargo.co"],
     li: ["https://www.linkedin.com/company/stargo-co"],
