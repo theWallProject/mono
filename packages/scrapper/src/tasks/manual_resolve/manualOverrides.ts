@@ -5577,6 +5577,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/nucleix_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Nucleon Cyber": {
+    ws: ["https://nucleon.sh", "https://www.nucleoncyber.com"],
+    urls: ["https://nucleoncyber.com/about", "https://nucleoncyber.com/technology"],
+    _meta: { isHomepage: true }
+  },
   "Nugen Clean Energy": {
     ws: ["https://nugeneco.com"],
     li: ["https://www.linkedin.com/company/nugencleanenergy"],
