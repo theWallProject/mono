@@ -2795,6 +2795,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  DEAN: {
+    ws: ["https://deanintelligence.com", "https://www.deanintelligence.com"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true }
+  },
   DOKKA: {
     ws: ["https://app.dokka.com", "https://dokka.com"],
     li: ["https://www.linkedin.com/company/dokkasoftware"],
