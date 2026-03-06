@@ -1,0 +1,991 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<meta name="robots" content="index, nofollow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.9 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>The Internet of Packaging Company | Formerly Water.io - impacX</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" /></noscript><link rel="stylesheet" href="https://impacx.io/wp-content/cache/min/1/a3b948b56abd6c75c9b73c2db90bae6b.css" media="all" data-minify="1">
+	<meta name="description" content="impacX, the Internet of Packaging company, brings a full end to end connected experience through an IoT smart packaging platform.">
+	<link rel="canonical" href="https://impacx.io/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="The Internet of Packaging Company | Formerly Water.io - impacX">
+	<meta property="og:description" content="impacX, the Internet of Packaging company, brings a full end to end connected experience through an IoT smart packaging platform.">
+	<meta property="og:url" content="https://impacx.io/">
+	<meta property="og:site_name" content="impacX">
+	<meta property="article:modified_time" content="2025-02-20T10:23:44+00:00">
+	<meta property="og:image" content="https://impacx.io/wp-content/uploads/2020/10/impacX-1.png">
+	<meta property="og:image:width" content="7568">
+	<meta property="og:image:height" content="3000">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Est. reading time">
+	<meta name="twitter:data1" content="13 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://impacx.io/","url":"https://impacx.io/","name":"The Internet of Packaging Company | Formerly Water.io - impacX","isPartOf":{"@id":"https://impacx.io/#website"},"about":{"@id":"https://impacx.io/#organization"},"primaryImageOfPage":{"@id":"https://impacx.io/#primaryimage"},"image":{"@id":"https://impacx.io/#primaryimage"},"thumbnailUrl":"https://impacx.io/wp-content/uploads/2020/10/impacX-1.png","datePublished":"2021-06-15T11:19:50+00:00","dateModified":"2025-02-20T10:23:44+00:00","description":"impacX, the Internet of Packaging company, brings a full end to end connected experience through an IoT smart packaging platform.","breadcrumb":{"@id":"https://impacx.io/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://impacx.io/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://impacx.io/#primaryimage","url":"https://impacx.io/wp-content/uploads/2020/10/impacX-1.png","contentUrl":"https://impacx.io/wp-content/uploads/2020/10/impacX-1.png","width":7568,"height":3000,"caption":"impacx logo blue and black- internet of packaging company"},{"@type":"BreadcrumbList","@id":"https://impacx.io/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://impacx.io/#website","url":"https://impacx.io/","name":"impacX","description":"The Internet of Packaging Company","publisher":{"@id":"https://impacx.io/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://impacx.io/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://impacx.io/#organization","name":"impacx","url":"https://impacx.io/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://impacx.io/#/schema/logo/image/","url":"","contentUrl":"","caption":"impacx"},"image":{"@id":"https://impacx.io/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<script type="rocketlazyloadscript" data-rocket-type="application/javascript">console.log('PixelYourSite Free version 9.2.1');</script>
+<link rel="dns-prefetch" href="//js.hs-scripts.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="impacX » Feed" href="https://impacx.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="impacX » Comments Feed" href="https://impacx.io/comments/feed/">
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+
+
+
+
+<link rel="stylesheet" id="elementor-post-1020-css" href="https://impacx.io/wp-content/uploads/elementor/css/post-1020.css?ver=1669897110" type="text/css" media="all">
+
+
+
+
+<link rel="stylesheet" id="elementor-global-css" href="https://impacx.io/wp-content/uploads/elementor/css/global.css?ver=1669822091" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-7729-css" href="https://impacx.io/wp-content/uploads/elementor/css/post-7729.css?ver=1740047028" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-6054-css" href="https://impacx.io/wp-content/uploads/elementor/css/post-6054.css?ver=1669822092" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-6062-css" href="https://impacx.io/wp-content/uploads/elementor/css/post-6062.css?ver=1669822092" type="text/css" media="all">
+
+
+
+
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-183383857-1&amp;ver=6.0.11" id="wk-analytics-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wk-analytics-script-js-after">
+function shouldTrack(){
+var trackLoggedIn = false;
+var loggedIn = false;
+if(!loggedIn){
+return true;
+} else if( trackLoggedIn ) {
+return true;
+}
+return false;
+}
+function hasWKGoogleAnalyticsCookie() {
+return (new RegExp('wp_wk_ga_untrack_' + document.location.hostname)).test(document.cookie);
+}
+if (!hasWKGoogleAnalyticsCookie() && shouldTrack()) {
+//Google Analytics
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-183383857-1');
+}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/pixelyoursite/dist/scripts/jquery.bind-first-0.2.3.min.js?ver=6.0.11" id="jquery-bind-first-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/pixelyoursite/dist/scripts/js.cookie-2.1.3.min.js?ver=2.1.3" id="js-cookie-js" defer=""></script>
+<script type="text/javascript" id="pys-js-extra">
+/* <![CDATA[ */
+var pysOptions = {"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"static","name":"PageView","pixelIds":["877398716385115"],"eventID":"290b374b-d2fc-4757-996a-5e56183735e6","params":{"page_title":"Home","post_type":"page","post_id":7729,"plugin":"PixelYourSite","user_role":"guest","event_url":"impacx.io\/"},"e_id":"init_event","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}]}},"dynamicEvents":{"automatic_event_form":{"facebook":{"delay":0,"type":"dyn","name":"Form","pixelIds":["877398716385115"],"eventID":"72eeea89-6f85-4a1f-a334-0b23784a6385","params":{"page_title":"Home","post_type":"page","post_id":7729,"plugin":"PixelYourSite","user_role":"guest","event_url":"impacx.io\/"},"e_id":"automatic_event_form","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_download":{"facebook":{"delay":0,"type":"dyn","name":"Download","extensions":["","doc","exe","js","pdf","ppt","tgz","zip","xls"],"pixelIds":["877398716385115"],"eventID":"42949e23-6134-45a9-9bc1-8ae400e5b1fa","params":{"page_title":"Home","post_type":"page","post_id":7729,"plugin":"PixelYourSite","user_role":"guest","event_url":"impacx.io\/"},"e_id":"automatic_event_download","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}},"automatic_event_comment":{"facebook":{"delay":0,"type":"dyn","name":"Comment","pixelIds":["877398716385115"],"eventID":"9bc599bc-199c-47f2-a4c8-c5f4f7e2a78a","params":{"page_title":"Home","post_type":"page","post_id":7729,"plugin":"PixelYourSite","user_role":"guest","event_url":"impacx.io\/"},"e_id":"automatic_event_comment","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}}},"triggerEvents":[],"triggerEventTypes":[],"facebook":{"pixelIds":["877398716385115"],"advancedMatching":[],"removeMetadata":false,"contentParams":{"post_type":"page","post_id":7729,"content_name":"Home"},"commentEventEnabled":true,"wooVariableAsSimple":false,"downloadEnabled":true,"formEventEnabled":true,"ajaxForServerEvent":true,"serverApiEnabled":false,"wooCRSendFromServer":false},"debug":"","siteUrl":"https:\/\/impacx.io","ajaxUrl":"https:\/\/impacx.io\/wp-admin\/admin-ajax.php","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_google_ads_consent_category":null,"cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false},"woo":{"enabled":false},"edd":{"enabled":false}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/cache/min/1/wp-content/plugins/pixelyoursite/dist/scripts/public.js?ver=1650286037" id="pys-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://impacx.io/wp-json/"><link rel="alternate" type="application/json" href="https://impacx.io/wp-json/wp/v2/pages/7729"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://impacx.io/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://impacx.io/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 6.0.11">
+<link rel="shortlink" href="https://impacx.io/">
+<link rel="alternate" type="application/json+oembed" href="https://impacx.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fimpacx.io%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://impacx.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fimpacx.io%2F&amp;format=xml">
+			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v9.0.338-->
+			<script type="rocketlazyloadscript" data-rocket-type="text/javascript" class="hsq-set-content-id" data-content-id="">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", ""]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<link rel="icon" href="https://impacx.io/wp-content/uploads/2020/10/cropped-impacX-1-2-32x32.png" sizes="32x32">
+<link rel="icon" href="https://impacx.io/wp-content/uploads/2020/10/cropped-impacX-1-2-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://impacx.io/wp-content/uploads/2020/10/cropped-impacX-1-2-180x180.png">
+<meta name="msapplication-TileImage" content="https://impacx.io/wp-content/uploads/2020/10/cropped-impacX-1-2-270x270.png">
+<link href="https://www.googletagmanager.com" rel="preconnect"></head>
+<body class="home page-template page-template-elementor_header_footer page page-id-7729 elementor-default elementor-template-full-width elementor-kit-1020 elementor-page elementor-page-7729">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627"></feFuncR><feFuncG type="table" tableValues="0 0.49803921568627"></feFuncG><feFuncB type="table" tableValues="0 0.49803921568627"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 0.27843137254902"></feFuncG><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0"></feFuncR><feFuncG type="table" tableValues="0 0.64705882352941"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.94901960784314"></feFuncG><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.44705882352941 0.4"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.66274509803922"></feFuncG><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg>		<header data-elementor-type="header" data-elementor-id="6054" class="elementor elementor-6054 elementor-location-header">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-64543c48 elementor-section-full_width elementor-section-stretched elementor-hidden-phone elementor-section-height-default elementor-section-height-default" data-id="64543c48" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-222c9e27" data-id="222c9e27" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3146ff70 elementor-widget elementor-widget-image" data-id="3146ff70" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/">
+							<img width="800" height="317" src="https://impacx.io/wp-content/uploads/2021/04/impacX-4-1024x406.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://impacx.io/wp-content/uploads/2021/04/impacX-4-1024x406.png 1024w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-300x119.png 300w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-768x304.png 768w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-1536x609.png 1536w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-2048x812.png 2048w" sizes="(max-width: 800px) 100vw, 800px">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-21da5ba9" data-id="21da5ba9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-440eb8bb elementor-nav-menu__align-center elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="440eb8bb" data-element_type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav migration_allowed="1" migrated="0" role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-grow">
+				<ul id="menu-1-440eb8bb" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2150"><a href="https://impacx.io/the-connected-experience/" class="elementor-item">The Connected Experience</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2139"><a href="https://impacx.io/the-connected-experience/" class="elementor-sub-item">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2142"><a href="https://impacx.io/smart-packaging/" class="elementor-sub-item">Smart Packaging</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2140"><a href="https://impacx.io/internet-of-things/" class="elementor-sub-item">Internet of Things</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2149"><a href="https://impacx.io/water-io/" class="elementor-item">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2141"><a href="https://impacx.io/water-io/" class="elementor-sub-item">Water.io</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2148"><a href="https://impacx.io/vitamins-io/" class="elementor-sub-item">Vitamins.io</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3621"><a href="https://impacx.io/technology/" class="elementor-sub-item">Technology</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4940"><a href="https://impacx.io/vitamins-io-pricing/" class="elementor-item">Pricing</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4939"><a href="https://impacx.io/vitamins-io-pricing/" class="elementor-sub-item">Vitamins.io</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2151"><a href="https://impacx.io/about/" class="elementor-item">Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2145"><a href="https://impacx.io/about/" class="elementor-sub-item">About</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2239"><a href="https://impacx.io/team/" class="elementor-sub-item">Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2143"><a href="https://impacx.io/media-coverage/" class="elementor-sub-item">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2146"><a href="https://impacx.io/careers/" class="elementor-sub-item">Careers</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2144"><a href="https://impacx.io/contact-us/" class="elementor-sub-item">Contact Us</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8833"><a href="https://ir.impacx.io" class="elementor-item">Investors</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2147"><a href="https://impacx.io/blog/" class="elementor-item">Blog</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="eicon-menu-bar"></i>			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true">
+				<ul id="menu-2-440eb8bb" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2150"><a href="https://impacx.io/the-connected-experience/" class="elementor-item" tabindex="-1">The Connected Experience</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2139"><a href="https://impacx.io/the-connected-experience/" class="elementor-sub-item" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2142"><a href="https://impacx.io/smart-packaging/" class="elementor-sub-item" tabindex="-1">Smart Packaging</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2140"><a href="https://impacx.io/internet-of-things/" class="elementor-sub-item" tabindex="-1">Internet of Things</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2149"><a href="https://impacx.io/water-io/" class="elementor-item" tabindex="-1">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2141"><a href="https://impacx.io/water-io/" class="elementor-sub-item" tabindex="-1">Water.io</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2148"><a href="https://impacx.io/vitamins-io/" class="elementor-sub-item" tabindex="-1">Vitamins.io</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3621"><a href="https://impacx.io/technology/" class="elementor-sub-item" tabindex="-1">Technology</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4940"><a href="https://impacx.io/vitamins-io-pricing/" class="elementor-item" tabindex="-1">Pricing</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4939"><a href="https://impacx.io/vitamins-io-pricing/" class="elementor-sub-item" tabindex="-1">Vitamins.io</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2151"><a href="https://impacx.io/about/" class="elementor-item" tabindex="-1">Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2145"><a href="https://impacx.io/about/" class="elementor-sub-item" tabindex="-1">About</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2239"><a href="https://impacx.io/team/" class="elementor-sub-item" tabindex="-1">Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2143"><a href="https://impacx.io/media-coverage/" class="elementor-sub-item" tabindex="-1">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2146"><a href="https://impacx.io/careers/" class="elementor-sub-item" tabindex="-1">Careers</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2144"><a href="https://impacx.io/contact-us/" class="elementor-sub-item" tabindex="-1">Contact Us</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8833"><a href="https://ir.impacx.io" class="elementor-item" tabindex="-1">Investors</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2147"><a href="https://impacx.io/blog/" class="elementor-item" tabindex="-1">Blog</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-9ce1f36" data-id="9ce1f36" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-58f7b4b elementor-widget__width-auto elementor-align-right elementor-widget elementor-widget-button" data-id="58f7b4b" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://impacx.io/contact-us/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Contact Us</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7329a21c elementor-section-full_width elementor-section-stretched elementor-hidden-desktop elementor-hidden-tablet elementor-section-height-default elementor-section-height-default" data-id="7329a21c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-65b46a21" data-id="65b46a21" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1863bb91 elementor-widget elementor-widget-image" data-id="1863bb91" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/">
+							<img width="7568" height="3000" src="https://impacx.io/wp-content/uploads/2021/04/impacX-4.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://impacx.io/wp-content/uploads/2021/04/impacX-4.png 7568w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-300x119.png 300w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-1024x406.png 1024w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-768x304.png 768w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-1536x609.png 1536w, https://impacx.io/wp-content/uploads/2021/04/impacX-4-2048x812.png 2048w" sizes="(max-width: 7568px) 100vw, 7568px">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-2a876f8a" data-id="2a876f8a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-75283421 elementor-nav-menu__text-align-center elementor-nav-menu--stretch elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="75283421" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;dropdown&quot;,&quot;full_width&quot;:&quot;stretch&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="eicon-menu-bar"></i>			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true">
+				<ul id="menu-2-75283421" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2150"><a href="https://impacx.io/the-connected-experience/" class="elementor-item" tabindex="-1">The Connected Experience</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2139"><a href="https://impacx.io/the-connected-experience/" class="elementor-sub-item" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2142"><a href="https://impacx.io/smart-packaging/" class="elementor-sub-item" tabindex="-1">Smart Packaging</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2140"><a href="https://impacx.io/internet-of-things/" class="elementor-sub-item" tabindex="-1">Internet of Things</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2149"><a href="https://impacx.io/water-io/" class="elementor-item" tabindex="-1">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2141"><a href="https://impacx.io/water-io/" class="elementor-sub-item" tabindex="-1">Water.io</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2148"><a href="https://impacx.io/vitamins-io/" class="elementor-sub-item" tabindex="-1">Vitamins.io</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3621"><a href="https://impacx.io/technology/" class="elementor-sub-item" tabindex="-1">Technology</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4940"><a href="https://impacx.io/vitamins-io-pricing/" class="elementor-item" tabindex="-1">Pricing</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4939"><a href="https://impacx.io/vitamins-io-pricing/" class="elementor-sub-item" tabindex="-1">Vitamins.io</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2151"><a href="https://impacx.io/about/" class="elementor-item" tabindex="-1">Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2145"><a href="https://impacx.io/about/" class="elementor-sub-item" tabindex="-1">About</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2239"><a href="https://impacx.io/team/" class="elementor-sub-item" tabindex="-1">Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2143"><a href="https://impacx.io/media-coverage/" class="elementor-sub-item" tabindex="-1">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2146"><a href="https://impacx.io/careers/" class="elementor-sub-item" tabindex="-1">Careers</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2144"><a href="https://impacx.io/contact-us/" class="elementor-sub-item" tabindex="-1">Contact Us</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8833"><a href="https://ir.impacx.io" class="elementor-item" tabindex="-1">Investors</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2147"><a href="https://impacx.io/blog/" class="elementor-item" tabindex="-1">Blog</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-1f9c3d56" data-id="1f9c3d56" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-41328725 elementor-widget__width-auto elementor-align-right elementor-mobile-align-right elementor-widget elementor-widget-button" data-id="41328725" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://impacx.io/contact-us/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Contact Us</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				</div>
+		</header>
+				<div data-elementor-type="wp-page" data-elementor-id="7729" class="elementor elementor-7729">
+									<section class="jet-tricks-particles-section elementor-section elementor-top-section elementor-element elementor-element-0c9ff05 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="0c9ff05" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2798a15" data-id="2798a15" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-de586b8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="de586b8" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-06f1932" data-id="06f1932" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-f5a2e37 elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="f5a2e37" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">CONNECTING BRANDS WITH THEIR CUSTOMERS</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-ccb55e3 elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="ccb55e3" data-element_type="widget" id="text1" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default"> THROUGH SMART PACKAGING</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d893b49 elementor-align-left elementor-widget elementor-widget-button" data-id="d893b49" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://impacx.io/request-a-demo" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Request a Demo</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-112bccd" data-id="112bccd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c77fd26 elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-absolute elementor-align-center elementor-widget elementor-widget-lottie" data-id="c77fd26" data-element_type="widget" data-settings="{&quot;source_json&quot;:{&quot;url&quot;:&quot;https:\/\/impacx.io\/wp-content\/uploads\/2021\/06\/Final-homepage-mobile-image2.json&quot;,&quot;id&quot;:7805},&quot;loop&quot;:&quot;yes&quot;,&quot;_position&quot;:&quot;absolute&quot;,&quot;source&quot;:&quot;media_file&quot;,&quot;caption_source&quot;:&quot;none&quot;,&quot;link_to&quot;:&quot;none&quot;,&quot;trigger&quot;:&quot;arriving_to_viewport&quot;,&quot;viewport&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;play_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1,&quot;sizes&quot;:[]},&quot;start_point&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;0&quot;,&quot;sizes&quot;:[]},&quot;end_point&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;100&quot;,&quot;sizes&quot;:[]},&quot;renderer&quot;:&quot;svg&quot;}" data-widget_type="lottie.default">
+				<div class="elementor-widget-container">
+			<div class="e-lottie__container"><div class="e-lottie__animation"></div></div>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-8e7045f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8e7045f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-1a720ee" data-id="1a720ee" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4da7d96 elementor-widget__width-auto elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="4da7d96" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/vitamins-io/">
+							<img width="280" height="90" src="https://impacx.io/wp-content/uploads/2021/07/vitaminsio30.png" class="attachment-full size-full" alt="" loading="lazy">								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-0739f81 elementor-widget__width-auto elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="0739f81" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/water-io/">
+							<img width="240" height="90" src="https://impacx.io/wp-content/uploads/2021/07/waterio3066.png" class="attachment-full size-full" alt="" loading="lazy">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7592a26 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="7592a26" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-61ced0b" data-id="61ced0b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-667ae1c elementor-widget elementor-widget-heading" data-id="667ae1c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">USED BY</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-44c91cc elementor-widget elementor-widget-image-carousel" data-id="44c91cc" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;7&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;slides_to_show_mobile&quot;:&quot;2&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image-carousel-wrapper swiper-container" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper">
+								<div class="swiper-slide"><figure class="swiper-slide-inner"><img width="98" height="40" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/logo-1-e1623653963455-p8n5rispf7ej9hvhpaqg0xaabvpv6zp4u0xmor48ow.png" alt="logo-1"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="67" height="40" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/logo-4-e1623654034423-p8n5tdj8wfxw5t6jvlkyfyg0i8kxdi22r793redaf4.png" alt="logo-4"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="107" height="40" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/logo-5-ovcvx8n7ia1qh1dfa27vayr6orfhhisyfkomlhg4jk.png" alt="logo-5"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="98" height="40" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/logo-7-ovcvx6rj4lz5ttg5l1em5z89hzor24lhrbdnmxiww0.png" alt="logo-7"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="60" height="40" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/logo-eden-white-ox97j8m6zsug7td9u21si6vgp5gxura7dkvl73eubk.png" alt="logo-eden white"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="59" height="40" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/Nolato-logo-white-p5w3g0czwoktqxwdll8a9kdn9nf9hv6a6u9g0qk83k.png" alt="nolato logo in white color"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="40" height="40" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/Font-vella-e1624456348652-p93bptn640sbpke5noisuot0b4cls3xwwe12zlwav4.png" alt="Font-vella"></figure></div>			</div>
+																</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-fcb9fdb elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="fcb9fdb" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;shape_divider_top&quot;:&quot;curve&quot;}">
+					<div class="elementor-shape elementor-shape-top" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+    <path class="elementor-shape-fill" d="M1000,4.3V0H0v4.3C0.9,23.1,126.7,99.2,500,100S1000,22.7,1000,4.3z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-218de65" data-id="218de65" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-31af04c elementor-widget elementor-widget-heading" data-id="31af04c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">What's in it for you</h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-0ab811a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0ab811a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-wide">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c9f8740" data-id="c9f8740" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5948224 elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="5948224" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="150" height="150" src="https://impacx.io/wp-content/uploads/2020/10/Custom-dimensions-150x150-px.png" class="attachment-full size-full" alt="Get to know your customers" loading="lazy"></figure><div class="elementor-image-box-content"><h2 class="elementor-image-box-title">Get to Know <br>Your Customers</h2><p class="elementor-image-box-description">Inform your customer engagement strategies by learning your customers’ hydration habits.</p></div></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5e851ca" data-id="5e851ca" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b2075c3 elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="b2075c3" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="150" height="150" src="https://impacx.io/wp-content/uploads/2020/10/page-2-1.png" class="attachment-full size-full" alt="Reveal usage data" loading="lazy"></figure><div class="elementor-image-box-content"><h2 class="elementor-image-box-title">Reveal Usage <br>Data</h2><p class="elementor-image-box-description">Keep on top of useable stats like adherence to reminders, consumption, and app usage.</p></div></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-69d74d5" data-id="69d74d5" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4e2ce08 elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="4e2ce08" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="150" height="150" src="https://impacx.io/wp-content/uploads/2020/10/page-5.png" class="attachment-full size-full" alt="Customer empowerment" loading="lazy"></figure><div class="elementor-image-box-content"><h2 class="elementor-image-box-title">Customer <br> Empowerment</h2><p class="elementor-image-box-description">Provide your customers with a path to wellbeing and a healthy
+lifestyle.</p></div></div>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-e959f06 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e959f06" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-wide">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-fe98ad6" data-id="fe98ad6" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1febfcd elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="1febfcd" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="150" height="150" src="https://impacx.io/wp-content/uploads/2020/10/revenues.png" class="attachment-full size-full" alt="Increase revenues" loading="lazy"></figure><div class="elementor-image-box-content"><h2 class="elementor-image-box-title">Increase<br>Revenues</h2><p class="elementor-image-box-description">Customers are willing to pay a premium for reusable bottles that promote sustainability.</p></div></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8d7d335" data-id="8d7d335" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-176b909 elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="176b909" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="150" height="150" src="https://impacx.io/wp-content/uploads/2020/10/experince.png" class="attachment-full size-full" alt="Enhance customer experience" loading="lazy"></figure><div class="elementor-image-box-content"><h2 class="elementor-image-box-title">Enhance Customer <br>Experience</h2><p class="elementor-image-box-description">Hydration reminders and relative content are delivered via an easy-to-use app.</p></div></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-bdf7e72" data-id="bdf7e72" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-076d03e elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-id="076d03e" data-element_type="widget" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="150" height="150" src="https://impacx.io/wp-content/uploads/2020/10/loyalty.png" class="attachment-full size-full" alt="Establish brand loyalty" loading="lazy"></figure><div class="elementor-image-box-content"><h2 class="elementor-image-box-title">Establish <br> Brand Loyalty</h2><p class="elementor-image-box-description">Differentiate your brand by prioritizing your customers’ health and wellness.</p></div></div>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-aff64b4 elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="aff64b4" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f6d150c" data-id="f6d150c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-272588f elementor-widget__width-inherit elementor-widget elementor-widget-image" data-id="272588f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="1933" height="181" src="https://impacx.io/wp-content/uploads/2021/06/arrow3.svg" class="attachment-full size-full" alt="" loading="lazy">															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-35a1a3a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="35a1a3a" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-387604c" data-id="387604c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b7402ff elementor-widget elementor-widget-heading" data-id="b7402ff" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">products</h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-cc1f6a2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="cc1f6a2" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-081fc02" data-id="081fc02" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-09f73c1 elementor-widget elementor-widget-image" data-id="09f73c1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/vitamins-io/">
+							<img width="391" height="70" src="https://impacx.io/wp-content/uploads/2020/08/logo-2.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://impacx.io/wp-content/uploads/2020/08/logo-2.png 391w, https://impacx.io/wp-content/uploads/2020/08/logo-2-300x54.png 300w" sizes="(max-width: 391px) 100vw, 391px">								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-5eefec1 elementor-widget elementor-widget-heading" data-id="5eefec1" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default"><a href="https://impacx.io/vitamins-io/">A smart packaging platform for supplements and vitamin brands</a></h4>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-d76fb50" data-id="d76fb50" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-cb274ba elementor-widget elementor-widget-image" data-id="cb274ba" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/vitamins-io/">
+							<img width="800" height="800" src="https://impacx.io/wp-content/uploads/2021/04/Group-2-1024x1024.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://impacx.io/wp-content/uploads/2021/04/Group-2-1024x1024.png 1024w, https://impacx.io/wp-content/uploads/2021/04/Group-2-300x300.png 300w, https://impacx.io/wp-content/uploads/2021/04/Group-2-150x150.png 150w, https://impacx.io/wp-content/uploads/2021/04/Group-2-768x768.png 768w, https://impacx.io/wp-content/uploads/2021/04/Group-2.png 1314w" sizes="(max-width: 800px) 100vw, 800px">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-32b8156 elementor-reverse-mobile elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="32b8156" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b824c13" data-id="b824c13" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-498758d elementor-widget elementor-widget-image" data-id="498758d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/vitamins-io/">
+							<img width="610" height="662" src="https://impacx.io/wp-content/uploads/2021/03/Group-4.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://impacx.io/wp-content/uploads/2021/03/Group-4.png 610w, https://impacx.io/wp-content/uploads/2021/03/Group-4-276x300.png 276w" sizes="(max-width: 610px) 100vw, 610px">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-da086f6" data-id="da086f6" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b032bc1 elementor-widget elementor-widget-image" data-id="b032bc1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://impacx.io/water-io/">
+							<img width="2500" height="561" src="https://impacx.io/wp-content/uploads/2020/09/Woter.io-White.png" class="attachment-full size-full" alt="water.io logo in blue and white" loading="lazy" srcset="https://impacx.io/wp-content/uploads/2020/09/Woter.io-White.png 2500w, https://impacx.io/wp-content/uploads/2020/09/Woter.io-White-300x67.png 300w, https://impacx.io/wp-content/uploads/2020/09/Woter.io-White-1024x230.png 1024w, https://impacx.io/wp-content/uploads/2020/09/Woter.io-White-768x172.png 768w, https://impacx.io/wp-content/uploads/2020/09/Woter.io-White-1536x345.png 1536w, https://impacx.io/wp-content/uploads/2020/09/Woter.io-White-2048x460.png 2048w" sizes="(max-width: 2500px) 100vw, 2500px">								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-0378aad elementor-widget elementor-widget-heading" data-id="0378aad" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default"><a href="https://impacx.io/water-io/">Innovative smart bottle technology for reusable bottles</a></h4>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2a418ee elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="2a418ee" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-27d82fa" data-id="27d82fa" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c9ad74d elementor-widget__width-inherit elementor-widget elementor-widget-image" data-id="c9ad74d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="1933" height="181" src="https://impacx.io/wp-content/uploads/2021/06/arrow3.svg" class="attachment-full size-full" alt="" loading="lazy">															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-503e3a0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="503e3a0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b765e63" data-id="b765e63" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b52550a elementor-widget elementor-widget-heading" data-id="b52550a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">News</h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-1510635 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default" data-id="1510635" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ff014e2" data-id="ff014e2" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+								<div class="elementor-element elementor-element-2341595 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-button" data-id="2341595" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://impacx.io/pr/water-io-announces-company-name-change-to-impacx/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Press Release</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0ef1901 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-heading" data-id="0ef1901" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default"><a href="https://impacx.io/pr/water-io-announces-company-name-change-to-impacx/">Water.io Announces Company Brand Name Change to impacX
+</a></h6>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5f09df2" data-id="5f09df2" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+								<div class="elementor-element elementor-element-84c5523 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-button" data-id="84c5523" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://www.youtube.com/watch?v=36rT-gSoq8Y&amp;t=9s" target="_blank" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Video</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-8ec454a elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-heading" data-id="8ec454a" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default"><a href="https://www.youtube.com/watch?v=36rT-gSoq8Y&amp;t" target="_blank">impacX by Newswatch TV - Connecting brands with customers through smart packaging</a></h6>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3fd52ba elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3fd52ba" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-753edfa" data-id="753edfa" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7447e15 elementor-widget elementor-widget-heading" data-id="7447e15" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">FEATURED AND PRESENTED AT</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-8ec37df elementor-widget elementor-widget-image-carousel" data-id="8ec37df" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;6&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image-carousel-wrapper swiper-container" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper">
+								<div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/19-ox97z36888jo43jsl8a2ltn9e6w00ssmo2io3xvcw0.png" alt="IoT Business News"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/20-ox97z51wlwm8rbh2a93bqt66kymqg703cbtn2hskjk.png" alt="happi"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/21-ox97yzevgweitnp976nkbulf0nej60dpbjwq6u0xkw.png" alt="Geektime"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/1-1-ox97z1ajukh3gvmiw7gtgu4c7f59lel5zt7p5dy58g.png" alt="FoodTech Nation"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/2-1-ox97ywlcweanuttcnnfomdb18hsfix2ib5y9r0543k.png" alt="Foodbev Media"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/3-1-ox97yxj738by6frzi5ub6v2htvnsqm68nalr8a3pxc.png" alt="Food ingredients first"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/4-1-ox97ysu0525ikdyt9lt6ce96uyayo4nkyncbtwaosg.png" alt="Beverage daily.com"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/5-1-ox97yupoiq837lw2ymmfhds41q1p3iv1mwnasg7wg0.png" alt="Aurora"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/6-1-ox97yq0hkk1nlk2wq2lamwyt2sov11cdy9dve2evb4.png" alt="Futurism"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/7-1-ox97yqybre2xx61jkkzx7eq9o6k88qg4ae1cvcdh4w.png" alt="Fast Company"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/8-1-ox97yn6z01xsmq706jdexfofan2rdy16xvfey8j1ts.png" alt="European Plastic Manufacturers"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/9-1-ox97yo4t6vz2yc5n11s1hxfvw0y4ln4xa02wfihnnk.png" alt="Packaging Gateway"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/10-1-ox97ykdgfjtxnwb3n05j7ye1ihgnqupzxhgyien8cg.png" alt="Modern Restaurant Management"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/11-1-ox97ylbamdv7zi9qhik5sg5i3vc0yjtq9m4fzolu68.png" alt="Trendencias"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/12-ox97yfo9hdni1uhxeg4edhkqjk3tod7c8u7j40u77k.png" alt="Globes"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/13-ox97yhjxv1q2p2f73gxnih3nqbuk3resx3ii2krev4.png" alt="Ynet"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/14-ox97yaz2j7h2fsor5w39j0rfkmqzlvook6y3pn162o.png" alt="The Times of Israel"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/15-ox97ybwwq1icrene0ehw3iiw60mctksewbll6wzrwg.png" alt="Packaging World"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/16-ox97yeqfajm7q8jajxprszt9y68ggo3lwpk1mqvlds.png" alt="Packaging News"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/17-ox97y77prvbx5cu7rugr91pl739ir39r7oc5sj6qrk.png" alt="Nutra ingredients.com"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/18-ox97y93e5jehskrhgva0e18idv096hh7vxn4r33yf4.png" alt="Israel 21"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/news-logos-2-ox97xr8gjoq1nzhfd5k3knqr3jga48ibhh8wmtufpc.png" alt="No camels"></figure></div><div class="swiper-slide"><figure class="swiper-slide-inner"><img width="117" height="70" class="swiper-slide-image" src="https://impacx.io/wp-content/uploads/elementor/thumbs/packaging-europe-1-ox97xnh3sckwdjmvz3xlaoowpzyt9g3e4ymypq00e8.png" alt="Packaging Europe"></figure></div>			</div>
+																</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7b8e467b elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="7b8e467b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-364f3a4f" data-id="364f3a4f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-72c494ae elementor-widget elementor-widget-heading" data-id="72c494ae" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default">Contact Us</h6>		</div>
+				</div>
+				<div class="elementor-element elementor-element-49a7223d elementor-button-align-center elementor-widget elementor-widget-form" data-id="49a7223d" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-form" method="post" id="homepage" name="[New Lead] Homepage">
+			<input type="hidden" name="post_id" value="7729">
+			<input type="hidden" name="form_id" value="49a7223d">
+			<input type="hidden" name="referer_title" value="The Internet of Packaging Company | Formerly Water.io - impacX">
+
+							<input type="hidden" name="queried_id" value="7729">
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50 elementor-field-required">
+													<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="First Name" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_3 elementor-col-50 elementor-field-required">
+													<input size="1" type="text" name="form_fields[field_3]" id="form-field-field_3" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Last Name" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
+													<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Email" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_1 elementor-col-50 elementor-field-required">
+													<input size="1" type="text" name="form_fields[field_1]" id="form-field-field_1" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Company" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100 elementor-field-required">
+					<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="4" placeholder="Message" required="required" aria-required="true"></textarea>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button type="submit" class="elementor-button elementor-size-sm">
+						<span>
+															<span class=" elementor-button-icon">
+																										</span>
+																						<span class="elementor-button-text">Send</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+							</div>
+				<footer data-elementor-type="footer" data-elementor-id="6062" class="elementor elementor-6062 elementor-location-footer">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-87a97bc elementor-section-full_width elementor-hidden-phone elementor-section-height-default elementor-section-height-default" data-id="87a97bc" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-cf46bc2" data-id="cf46bc2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-33da8bf ee-search-form-icon--search ee-search-form-icon-position--right ee-grid-columns-3 ee-grid-columns-tablet-2 ee-grid-columns-mobile-1 elementor-widget elementor-widget-ee-search-form" data-id="33da8bf" data-element_type="widget" data-settings="{&quot;columns&quot;:&quot;3&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_mobile&quot;:&quot;1&quot;}" data-widget_type="ee-search-form.classic">
+				<div class="elementor-widget-container">
+			<form class="ee-form ee-search-form ee-search-form-skin--classic" role="search" action="https://impacx.io" method="get" value="">
+			<input type="hidden" class="ee-form__field__control--sent" name="ee_search_query" value=""><div class="ee-search-form__container"><div class="ee-form__fields ee-search-form__fields">
+			<div class="ee-form__field ee-form__field--input ee-form__field--search ee-search-form__field">
+			<input placeholder="Search" class="ee-search-form__input ee-form__field__control ee-form__field__control--search ee-form__field__control--text ee-form__field__control--sent ee-form__field__control--input" type="search" name="s" title="Search" value="">
+		</div>		</div><button class="ee-search-form__submit ee-form__field__control ee-form__field__control--submit ee-form__field__control--text ee-form__field__control--sent ee-form__field__control--button ee-search-form__control--icon" type="submit">
+			<span class="elementor-screen-only">Search</span><i class="ee-search-form__icon nicon nicon-search" aria-hidden="true"></i>		</button></div></form>		</div>
+				</div>
+				<div class="elementor-element elementor-element-4b5aee2d elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4b5aee2d" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="mailto:info@water-io.com">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="far fa-envelope"></i>						</span>
+										<span class="elementor-icon-list-text">info@impacX.io</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="tel:00972-8373-0370">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-phone-alt"></i>						</span>
+										<span class="elementor-icon-list-text">+972-8373-0370</span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-37ead9c6 elementor-widget elementor-widget-heading" data-id="37ead9c6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">© Water.io LTD, 2021</span>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-3ca3a8b5" data-id="3ca3a8b5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2ebb1ad7 elementor-nav-menu__align-left elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="2ebb1ad7" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav migration_allowed="1" migrated="0" role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-grow">
+				<ul id="menu-1-2ebb1ad7" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2720"><a href="https://impacx.io/vitamins-io/" class="elementor-item">Vitamins.io</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2721"><a href="https://impacx.io/water-io/" class="elementor-item">Water.io</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3622"><a href="https://impacx.io/technology/" class="elementor-item">Technology</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="eicon-menu-bar"></i>			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true">
+				<ul id="menu-2-2ebb1ad7" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2720"><a href="https://impacx.io/vitamins-io/" class="elementor-item" tabindex="-1">Vitamins.io</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2721"><a href="https://impacx.io/water-io/" class="elementor-item" tabindex="-1">Water.io</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3622"><a href="https://impacx.io/technology/" class="elementor-item" tabindex="-1">Technology</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-6b5cef46" data-id="6b5cef46" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-74483253 elementor-nav-menu__align-left elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="74483253" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav migration_allowed="1" migrated="0" role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-grow">
+				<ul id="menu-1-74483253" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2136"><a href="https://impacx.io/media-coverage/" class="elementor-item">Media Coverage</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2137"><a href="https://impacx.io/press-releases/" class="elementor-item">Press Releases</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2135"><a href="https://impacx.io/our-awards/" class="elementor-item">Awards</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="eicon-menu-bar"></i>			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true">
+				<ul id="menu-2-74483253" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2136"><a href="https://impacx.io/media-coverage/" class="elementor-item" tabindex="-1">Media Coverage</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2137"><a href="https://impacx.io/press-releases/" class="elementor-item" tabindex="-1">Press Releases</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2135"><a href="https://impacx.io/our-awards/" class="elementor-item" tabindex="-1">Awards</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-8574ec9" data-id="8574ec9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1816ef38 elementor-nav-menu__align-left elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="1816ef38" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav migration_allowed="1" migrated="0" role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-grow">
+				<ul id="menu-1-1816ef38" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2835"><a href="https://impacx.io/privacy-policy/" class="elementor-item">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2836"><a href="https://impacx.io/cookie-policy/" class="elementor-item">Cookie Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5296"><a href="https://impacx.io/terms-conditions/" class="elementor-item">Terms and Conditions</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="eicon-menu-bar"></i>			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true">
+				<ul id="menu-2-1816ef38" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2835"><a href="https://impacx.io/privacy-policy/" class="elementor-item" tabindex="-1">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2836"><a href="https://impacx.io/cookie-policy/" class="elementor-item" tabindex="-1">Cookie Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5296"><a href="https://impacx.io/terms-conditions/" class="elementor-item" tabindex="-1">Terms and Conditions</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-6d7a7b4b" data-id="6d7a7b4b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-672a1066 elementor-align-right elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="672a1066" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://impacx.io/request-a-demo" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Request a Demo</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-125e6bf9 elementor-align-right elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="125e6bf9" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://dashboard.water-io.com/Login" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Login</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-61fd3808 elementor-shape-circle elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="61fd3808" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-d3dc12d" href="https://www.linkedin.com/company/water.io/" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<i class="fab fa-linkedin"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-81ebe19" href="https://www.facebook.com/impacX.io" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-a06ef1a" href="https://twitter.com/water_io" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<i class="fab fa-twitter"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-28331ab" href="https://www.youtube.com/channel/UCUg-O2C5Fu6XYfVX7k5Z5dQ" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-7846edc elementor-widget elementor-widget-heading" data-id="7846edc" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default"><a href="https://www.smartfish.co.il/%d7%91%d7%a0%d7%99%d7%99%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d/">Smartfish Web Development</a></span>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3e6bf2af elementor-section-full_width elementor-hidden-desktop elementor-hidden-tablet elementor-section-height-default elementor-section-height-default" data-id="3e6bf2af" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3b0cf8bc" data-id="3b0cf8bc" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-a5dee47 elementor-align-left elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="a5dee47" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="http://info@water-io.com">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="far fa-envelope"></i>						</span>
+										<span class="elementor-icon-list-text">info@impacX.io</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fas fa-phone-alt"></i>						</span>
+										<span class="elementor-icon-list-text">+972-8373-0370</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-dcab3ec" data-id="dcab3ec" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-970ea62 elementor-widget__width-auto elementor-align-right elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="970ea62" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://impacx.io/request-a-demo" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Request a Demo</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-8627c4b elementor-shape-circle elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons" data-id="8627c4b" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-d3dc12d" href="https://www.linkedin.com/company/10350539/" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<i class="fab fa-linkedin"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-81ebe19" href="https://www.facebook.com/wateriocompany" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-a06ef1a" href="https://twitter.com/water_io" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<i class="fab fa-twitter"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-28331ab" href="https://www.youtube.com/channel/UCUg-O2C5Fu6XYfVX7k5Z5dQ" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-a2e9644" data-id="a2e9644" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1e03b5de elementor-widget elementor-widget-heading" data-id="1e03b5de" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">© Water.io LTD, 2021</span>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				</div>
+		</footer>
+		
+<noscript><img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=877398716385115&ev=PageView&noscript=1&cd%5Bpage_title%5D=Home&cd%5Bpost_type%5D=page&cd%5Bpost_id%5D=7729&cd%5Bplugin%5D=PixelYourSite&cd%5Buser_role%5D=guest&cd%5Bevent_url%5D=impacx.io%2F" alt=""></noscript>
+
+
+<script type="text/javascript" id="leadin-script-loader-js-js-extra">
+/* <![CDATA[ */
+var leadin_wordpress = {"userRole":"visitor","pageType":"home","leadinPluginVersion":"9.0.338"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/cache/min/1/7929522.js?ver=1650286038" async="" defer="" id="hs-script-loader"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/impacx.io","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1" id="smartmenus-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-pro/assets/lib/lottie/lottie.min.js?ver=5.6.6" id="lottie-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/lib/e-select2/js/e-select2.full.min.js?ver=4.0.6-rc.1" id="jquery-elementor-select2-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/jet-tricks/assets/js/lib/ts-particles/tsparticles.min.js?ver=1.18.11" id="jet-tricks-ts-particles-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.5.1" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.7.8" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.7.8" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/impacx.io\/wp-admin\/admin-ajax.php","nonce":"008fe7980b","urls":{"assets":"https:\/\/impacx.io\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/impacx.io\/wp-json\/"},"i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/impacx.io\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.5.1" id="elementor-pro-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6" id="swiper-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.7.8" id="share-link-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.9.0" id="elementor-dialog-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.7.8","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_import_export":true,"e_hidden_wordpress_widgets":true,"theme_builder_v2":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"form-submissions":true},"urls":{"assets":"https:\/\/impacx.io\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":7729,"title":"The%20Internet%20of%20Packaging%20Company%20%7C%20Formerly%20Water.io%20-%20impacX","excerpt":"","featuredImage":"https:\/\/impacx.io\/wp-content\/uploads\/2020\/10\/impacX-1-1024x406.png"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.7.8" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.5.1" id="pro-preloaded-elements-handlers-js" defer=""></script>
+<script type="text/javascript" id="jet-tricks-frontend-js-extra">
+/* <![CDATA[ */
+var JetTricksSettings = {"elements_data":{"sections":{"64543c48":{"view_more":false,"particles":"false","particles_json":null},"7329a21c":{"view_more":false,"particles":"false","particles_json":null},"0c9ff05":{"view_more":false,"particles":"true","particles_json":"{\n  \"particles\": {\n    \"number\": {\n      \"value\": 160,\n      \"density\": {\n        \"enable\": true,\n        \"value_area\": 800\n      }\n    },\n    \"color\": {\n      \"value\": \"#ffffff\"\n    },\n    \"shape\": {\n      \"type\": \"circle\",\n      \"stroke\": {\n        \"width\": 0,\n        \"color\": \"#000000\"\n      },\n      \"polygon\": {\n        \"nb_sides\": 5\n      },\n      \"image\": {\n        \"src\": \"img\/github.svg\",\n        \"width\": 100,\n        \"height\": 100\n      }\n    },\n    \"opacity\": {\n      \"value\": 1,\n      \"random\": true,\n      \"anim\": {\n        \"enable\": true,\n        \"speed\": 1,\n        \"opacity_min\": 0,\n        \"sync\": false\n      }\n    },\n    \"size\": {\n      \"value\": 3,\n      \"random\": true,\n      \"anim\": {\n        \"enable\": false,\n        \"speed\": 4,\n        \"size_min\": 0.3,\n        \"sync\": false\n      }\n    },\n    \"line_linked\": {\n      \"enable\": false,\n      \"distance\": 150,\n      \"color\": \"#ffffff\",\n      \"opacity\": 0.4,\n      \"width\": 1\n    },\n    \"move\": {\n      \"enable\": true,\n      \"speed\": 1,\n      \"direction\": \"none\",\n      \"random\": true,\n      \"straight\": false,\n      \"out_mode\": \"out\",\n      \"bounce\": false,\n      \"attract\": {\n        \"enable\": false,\n        \"rotateX\": 600,\n        \"rotateY\": 600\n      }\n    }\n  },\n  \"interactivity\": {\n    \"detect_on\": \"canvas\",\n    \"events\": {\n      \"onhover\": {\n        \"enable\": true,\n        \"mode\": \"bubble\"\n      },\n      \"onclick\": {\n        \"enable\": true,\n        \"mode\": \"repulse\"\n      },\n      \"resize\": true\n    },\n    \"modes\": {\n      \"grab\": {\n        \"distance\": 400,\n        \"line_linked\": {\n          \"opacity\": 1\n        }\n      },\n      \"bubble\": {\n        \"distance\": 250,\n        \"size\": 0,\n        \"duration\": 2,\n        \"opacity\": 0,\n        \"speed\": 3\n      },\n      \"repulse\": {\n        \"distance\": 400,\n        \"duration\": 0.4\n      },\n      \"push\": {\n        \"particles_nb\": 4\n      },\n      \"remove\": {\n        \"particles_nb\": 2\n      }\n    }\n  },\n  \"retina_detect\": true\n}"},"de586b8":{"view_more":false,"particles":"false","particles_json":null},"8e7045f":{"view_more":false,"particles":"false","particles_json":null},"7592a26":{"view_more":false,"particles":"false","particles_json":null},"fcb9fdb":{"view_more":false,"particles":"false","particles_json":null},"0ab811a":{"view_more":false,"particles":"false","particles_json":null},"e959f06":{"view_more":false,"particles":"false","particles_json":null},"aff64b4":{"view_more":false,"particles":"false","particles_json":null},"35a1a3a":{"view_more":false,"particles":"false","particles_json":null},"cc1f6a2":{"view_more":false,"particles":"false","particles_json":null},"32b8156":{"view_more":false,"particles":"false","particles_json":null},"2a418ee":{"view_more":false,"particles":"false","particles_json":null},"503e3a0":{"view_more":false,"particles":"false","particles_json":null},"1510635":{"view_more":false,"particles":"false","particles_json":null},"3fd52ba":{"view_more":false,"particles":"false","particles_json":null},"7b8e467b":{"view_more":false,"particles":"false","particles_json":null},"87a97bc":{"view_more":false,"particles":"false","particles_json":null},"3e6bf2af":{"view_more":false,"particles":"false","particles_json":null}},"columns":[],"widgets":[]}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/cache/min/1/wp-content/plugins/jet-tricks/assets/js/jet-tricks-frontend.js?ver=1650286038" id="jet-tricks-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.7.8" id="preloaded-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.5.1" id="e-sticky-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/cache/min/1/ajax/libs/gsap/2.1.3/TweenMax.min.js?ver=1650286038" id="gsap-js-js" defer=""></script>
+<script type="text/javascript" id="elementor-extras-frontend-js-extra">
+/* <![CDATA[ */
+var elementorExtrasFrontendConfig = {"urls":{"assets":"https:\/\/impacx.io\/wp-content\/plugins\/elementor-extras\/assets\/"},"refreshableWidgets":["ee-offcanvas.classic","ee-popup.classic","gallery-slider.default","media-carousel.default","image-carousel.default","slides.default"]};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-extras/assets/js/frontend.min.js?ver=2.2.51" id="elementor-extras-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://impacx.io/wp-content/plugins/elementor-extras/assets/lib/hotips/hotips.min.js?ver=1.1.0" id="hotips-js" defer=""></script>
+
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>
