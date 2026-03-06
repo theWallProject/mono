@@ -10731,6 +10731,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/rippleanalytics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Viewbix: {
+    ws: ["https://www.viewbix.com"],
+    fb: ["https://www.facebook.com/viewbix"],
+    tw: ["https://x.com/viewbix"],
+    ytp: ["https://www.youtube.com/@viewbix"],
+    urls: ["https://goo.gl/Z9hszs"],
+    _meta: { isHomepage: true }
+  },
   "Vigor Medical Technologies": {
     ws: ["https://www.vigormt.com"],
     li: ["https://www.linkedin.com/company/vigor-medical-technologies-ltd-"],
