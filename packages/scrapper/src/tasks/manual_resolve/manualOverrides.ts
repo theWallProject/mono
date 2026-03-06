@@ -2819,6 +2819,14 @@ export const manualOverrides: Record<
     urls: ["https://bim.datumate.com", "https://www.datumate.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Deceptive Bytes": {
+    ws: ["https://deceptivebytes.com"],
+    li: ["https://www.linkedin.com/company/deceptivebytes"],
+    tw: ["https://x.com/deceptivebytes"],
+    ytp: ["https://www.youtube.com/@deceptivebytes"],
+    urls: ["https://wa.me/18448069069"],
+    _meta: { isHomepage: true }
+  },
   "Deep DAO": {
     ws: ["https://deepdao.io"],
     tw: ["https://x.com/deepdao_io"],
