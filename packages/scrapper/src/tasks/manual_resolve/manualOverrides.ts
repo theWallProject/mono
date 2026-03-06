@@ -9333,6 +9333,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/yabi-technologies-ltd"],
     _meta: { isHomepage: true }
   },
+  "Yeap Proteins": {
+    ws: ["https://yeap-proteins.com"],
+    li: ["https://www.linkedin.com/company/yeap-proteins"],
+    _meta: { isHomepage: true }
+  },
   YesChef: {
     ws: ["https://app.yeschef.me", "https://support.yeschef.me", "https://yeschef.me"],
     fb: ["https://www.facebook.com/yeschefhq"],
