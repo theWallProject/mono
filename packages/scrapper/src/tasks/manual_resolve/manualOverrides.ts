@@ -2800,6 +2800,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cynamics7032"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Cyngular Security": {
+    ws: ["https://www.cyngular.com"],
+    li: ["https://www.linkedin.com/company/cyngular-security"],
+    _meta: { isHomepage: true }
+  },
   Cynomi: {
     ws: ["https://cynomi.com"],
     li: ["https://www.linkedin.com/company/cynomi"],
