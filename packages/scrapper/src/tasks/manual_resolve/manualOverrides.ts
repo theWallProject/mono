@@ -2649,6 +2649,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "EZbra Advanced Wound Care": {
+    ws: ["https://ezbra.net"],
+    li: ["https://www.linkedin.com/company/ezbra"],
+    ig: ["https://www.instagram.com/ezbra"],
+    ytp: ["https://www.youtube.com/@ezbra1879"],
+    urls: ["https://www.shopify.com"],
+    _meta: { isHomepage: true }
+  },
   "Early Technologies": {
     ws: ["https://docs.startearly.ai", "https://www.startearly.ai"],
     li: ["https://www.linkedin.com/company/earlyai"],
