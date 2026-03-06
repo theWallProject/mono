@@ -3061,6 +3061,14 @@ export const manualOverrides: Record<
     urls: ["https://app.getcontrast.io/emerix", "https://calendly.com/arielpalones/emerix-demo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Emoona: {
+    ws: ["https://emoona.co"],
+    fb: ["https://www.facebook.com/emoona"],
+    tw: ["https://x.com/emoona"],
+    ig: ["https://www.instagram.com/emoona"],
+    urls: ["https://dribbble.com/Emoona", "https://www.behance.net/Emoona"],
+    _meta: { isHomepage: true }
+  },
   Empathy: {
     tw: ["https://x.com/empathy"],
     ig: ["https://www.instagram.com/empathy_com"],
