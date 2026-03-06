@@ -5345,6 +5345,7 @@ export const manualOverrides: Record<
     urls: ["https://limitlesscnc.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Lingacom: { ws: ["https://lingacom.com"], urls: ["http://103.82.221.21/LingaCom"], _meta: { isHomepage: true } },
   LiveU: {
     ws: ["https://www.liveu.tv"],
     li: ["https://www.linkedin.com/company/liveu"],
