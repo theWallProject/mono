@@ -7556,6 +7556,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Profisea: {
+    ws: ["https://www.profisea.com", "https://profisealabs.com"],
+    li: ["https://www.linkedin.com/company/profisea"],
+    fb: ["https://www.facebook.com/profisea"],
+    tw: ["https://x.com/profisea"],
+    ytp: ["https://www.youtube.com/@profisea5281"],
+    _meta: { isHomepage: true }
+  },
   Proggio: {
     ws: ["https://app.proggio.com", "https://landing.proggio.com", "https://www.proggio.com"],
     li: ["https://www.linkedin.com/company/proggio"],
