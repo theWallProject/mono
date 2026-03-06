@@ -7798,6 +7798,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@seraphicsecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Serenno Medical": {
+    ws: ["https://www.serenno-med.com"],
+    urls: ["https://maps.google.com"],
+    _meta: { isHomepage: true }
+  },
   Sett: {
     ws: ["https://www.sett.ai"],
     li: ["https://www.linkedin.com/company/sett-ai"],
