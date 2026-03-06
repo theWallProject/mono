@@ -10780,6 +10780,11 @@ export const manualOverrides: Record<
     urls: ["https://forms.monday.com/forms/feb5c201b3019c1b96d7e7e4a4d5ce4b"],
     _meta: { isHomepage: true }
   },
+  "Webbing Labs": {
+    ws: ["https://webbinglabs.com"],
+    urls: ["http://web.archive.org/web/20210305122812/mailto:Avraham@webbinglabs.com"],
+    _meta: { isHomepage: true }
+  },
   WeedOut: { ws: ["https://www.weedout-ibs.com"], _meta: { isHomepage: true, isVerified: true } },
   "Wematch.live": {
     ws: ["https://wematch.live"],
