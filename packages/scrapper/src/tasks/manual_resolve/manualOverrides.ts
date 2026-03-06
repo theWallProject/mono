@@ -2091,6 +2091,11 @@ export const manualOverrides: Record<
     urls: ["https://www.razgroup.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CoreBone: {
+    ws: ["https://www.core-bone.com"],
+    li: ["https://www.linkedin.com/company/corebone"],
+    _meta: { isHomepage: true }
+  },
   CoreTigo: {
     ws: ["https://support.coretigo.com", "https://www.coretigo.com"],
     li: ["https://www.linkedin.com/company/coretigo"],
