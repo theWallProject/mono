@@ -6903,6 +6903,14 @@ export const manualOverrides: Record<
     urls: ["https://www.sec.gov/edgar/browse"],
     _meta: { isHomepage: true }
   },
+  "Ofra Aqua Plants": {
+    ws: ["https://www.ofra-aqua.co.il", "https://www.ofra-aqua.com"],
+    fb: [
+      "https://www.facebook.com/ofra-aqua-%d7%a2%d7%a4%d7%a8%d7%94-%d7%a6%d7%9e%d7%97%d7%99-%d7%9e%d7%99%d7%9d-103220224636862"
+    ],
+    urls: ["http://www.biz-heaven.com"],
+    _meta: { isHomepage: true }
+  },
   Oktopost: {
     ws: ["https://www.oktopost.com"],
     li: ["https://www.linkedin.com/company/oktopost"],
