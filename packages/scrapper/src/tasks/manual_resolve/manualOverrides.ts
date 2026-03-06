@@ -8621,6 +8621,11 @@ export const manualOverrides: Record<
     urls: ["https://app.kenshoo.com/portal", "https://developers.kenshoo.com", "https://shopable2026.splashthat.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Skillzzgaming: {
+    ws: ["https://skillzzgaming.com"],
+    li: ["https://www.linkedin.com/company/skillzzgaming"],
+    _meta: { isHomepage: true }
+  },
   "Skyhawk Security": {
     ws: ["https://app.skyhawk.security", "https://partners.skyhawk.security", "https://skyhawk.security"],
     li: ["https://www.linkedin.com/company/skyhawkcloudsecurity"],
