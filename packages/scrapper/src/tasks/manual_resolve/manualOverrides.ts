@@ -8354,6 +8354,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@starkware_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  StartupBlink: {
+    ws: ["https://lp.startupblink.com", "https://www.startupblink.com", "https://startupblink.breezy.hr"],
+    li: ["https://www.linkedin.com/company/startupblink"],
+    fb: ["https://www.facebook.com/startupblink"],
+    tw: ["https://x.com/startupblink"],
+    urls: ["https://startupblink.us3.list-manage.com/subscribe"],
+    _meta: { isHomepage: true }
+  },
   "Steakholder Foods": {
     ws: ["https://www.steakholderfoods.com"],
     li: ["https://www.linkedin.com/company/steakholderfoods"],
