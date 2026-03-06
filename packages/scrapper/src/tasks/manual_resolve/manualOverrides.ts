@@ -703,6 +703,14 @@ export const manualOverrides: Record<
     urls: ["https://www.aspectiva.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Asperii: {
+    ws: ["https://www.asperii.com"],
+    li: ["https://www.linkedin.com/company/asperii"],
+    fb: ["https://www.facebook.com/asperii-100301368095863"],
+    tw: ["https://x.com/asperii1"],
+    ig: ["https://www.instagram.com/asperii_ltd"],
+    _meta: { isHomepage: true }
+  },
   "Astrix Security": {
     ws: ["https://astrix.security"],
     li: ["https://www.linkedin.com/company/astrix-security"],
