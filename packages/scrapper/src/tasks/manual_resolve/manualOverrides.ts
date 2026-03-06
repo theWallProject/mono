@@ -688,6 +688,12 @@ export const manualOverrides: Record<
     urls: ["http://www.quotemedia.com", "http://www.quotemedia.com/legal/tos"],
     _meta: { isHomepage: true }
   },
+  "Arrakis Bio": {
+    ws: ["https://www.arrakis.bio"],
+    li: ["https://www.linkedin.com/company/arrakis-bio"],
+    urls: ["https://redi.today/en/startup-marketing-solutions"],
+    _meta: { isHomepage: true }
+  },
   Artlist: {
     ws: [
       "https://artlist.io",
