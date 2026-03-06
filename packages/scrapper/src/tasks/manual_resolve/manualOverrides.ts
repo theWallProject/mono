@@ -4777,6 +4777,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@kissterra"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Klydoclock: {
+    ws: ["https://www.klydoclock.com"],
+    li: ["https://www.linkedin.com/company/klydo-clock"],
+    fb: ["https://www.facebook.com/klydoclock"],
+    ig: ["https://www.instagram.com/klydoclock"],
+    _meta: { isHomepage: true }
+  },
   Knostic: {
     ws: ["https://prompts.knostic.ai", "https://www.knostic.ai"],
     li: ["https://www.linkedin.com/company/knostic"],
