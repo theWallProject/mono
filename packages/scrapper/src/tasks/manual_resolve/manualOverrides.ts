@@ -269,6 +269,14 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   "Adversa AI": { ws: ["https://adversa.ai"], _meta: { isHomepage: true, isVerified: true } },
+  Affogata: {
+    ws: ["https://www.affogata.com"],
+    li: ["https://www.linkedin.com/company/affogata"],
+    fb: ["https://www.facebook.com/affogatateam"],
+    tw: ["https://x.com/affogatateam"],
+    ig: ["https://www.instagram.com/affogata_"],
+    _meta: { isHomepage: true }
+  },
   Agora: {
     ws: ["https://agorareal.com"],
     li: ["https://www.linkedin.com/company/agora-re"],
