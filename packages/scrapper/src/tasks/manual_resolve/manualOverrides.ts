@@ -7041,6 +7041,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OptiTex: {
+    ws: ["https://help.optitex.com", "https://learn.optitex.com", "https://optitex.com"],
+    li: ["https://www.linkedin.com/company/optitex"],
+    fb: ["https://www.facebook.com/optitexhq"],
+    ig: ["https://www.instagram.com/optitexofficial"],
+    ytp: ["https://www.youtube.com/@optitex"],
+    _meta: { isHomepage: true }
+  },
   Optibus: {
     ws: ["https://blog.optibus.com", "https://optibus.com"],
     li: ["https://www.linkedin.com/company/optibus-ltd"],
