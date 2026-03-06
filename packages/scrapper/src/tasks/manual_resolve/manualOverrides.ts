@@ -4138,6 +4138,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Genda: {
+    ws: ["https://console.gendatech.com", "https://www.gendatech.com"],
+    li: ["https://www.linkedin.com/company/genda"],
+    ytp: ["https://www.youtube.com/@gendatech"],
+    urls: ["https://www.helpfulhero.com"],
+    _meta: { isHomepage: true }
+  },
   Genie: {
     ws: ["https://genie.cooking"],
     urls: ["https://www.pinterest.com"],
