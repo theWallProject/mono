@@ -3130,6 +3130,12 @@ export const manualOverrides: Record<
     urls: ["https://www.shopify.com"],
     _meta: { isHomepage: true }
   },
+  "EarWays Medical": {
+    ws: ["https://earwaysmedical.com"],
+    fb: ["https://www.facebook.com/earwaysmedical"],
+    tw: ["https://x.com/earwaysmedical"],
+    _meta: { isHomepage: true }
+  },
   "Early Technologies": {
     ws: ["https://docs.startearly.ai", "https://www.startearly.ai"],
     li: ["https://www.linkedin.com/company/earlyai"],
