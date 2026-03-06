@@ -1297,6 +1297,14 @@ export const manualOverrides: Record<
     urls: ["https://hb2.bankleumi.co.il/H/Login.html", "https://hb2.bankleumi.co.il/staticcontent/gate-keeper/he"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Baran Group": {
+    ws: ["https://www.barangroup.com"],
+    li: ["https://www.linkedin.com/company/baran-group"],
+    fb: ["https://www.facebook.com/barangroupil"],
+    ig: ["https://www.instagram.com/baran_group_il"],
+    urls: ["http://www.user-a.co.il"],
+    _meta: { isHomepage: true }
+  },
   Barilliance: {
     ws: ["https://app.barilliance.com", "https://www.barilliance.com"],
     li: ["https://www.linkedin.com/company/barilliance"],
