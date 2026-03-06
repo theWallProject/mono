@@ -7154,6 +7154,15 @@ export const manualOverrides: Record<
     urls: ["https://docs.resight.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Reaction Club": {
+    ws: ["https://www.reaction-club.com"],
+    urls: [
+      "https://app.getwemove.com",
+      "https://www.capterra.com/p/252172/Reaction",
+      "https://www.getapp.com/hr-employee-management-software/a/reaction"
+    ],
+    _meta: { isHomepage: true }
+  },
   "RealView Imaging": {
     ws: ["https://realviewimaging.com"],
     li: ["https://www.linkedin.com/company/2239612"],
