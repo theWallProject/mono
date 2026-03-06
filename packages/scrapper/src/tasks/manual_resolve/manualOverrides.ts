@@ -3132,6 +3132,16 @@ export const manualOverrides: Record<
     tw: ["https://x.com/droxi_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "DryGair Energies": {
+    ws: ["https://drygair.com"],
+    li: ["https://www.linkedin.com/company/drygair-energies-ltd-"],
+    fb: ["https://www.facebook.com/drygair"],
+    tw: ["https://x.com/drygairenergies"],
+    ig: ["https://www.instagram.com/drygair"],
+    ytp: ["https://www.youtube.com/@drygairenergiesltd"],
+    urls: ["https://wa.me/972553174177"],
+    _meta: { isHomepage: true }
+  },
   Dustoss: {
     ws: ["https://www.dustoss.com"],
     li: ["https://www.linkedin.com/company/dustoss"],
