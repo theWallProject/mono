@@ -2517,6 +2517,28 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "DogBase - Empowering K9 Teams with AI-Powered Tools": {
+    ws: [
+      "https://app.dogbase.co",
+      "https://feedback.dogbase.co",
+      "https://status.dogbase.co",
+      "https://support.dogbase.co",
+      "https://www.dogbase.co"
+    ],
+    li: ["https://www.linkedin.com/company/dogbase"],
+    fb: ["https://www.facebook.com/mydogbase"],
+    tw: ["https://x.com/mydogbase"],
+    ig: ["https://www.instagram.com/mydogbase"],
+    ytp: ["https://www.youtube.com/@mydogbase"],
+    urls: [
+      "https://app.getterms.io/view/x6YYi/aup/en-us",
+      "https://app.getterms.io/view/x6YYi/cookie/en-us",
+      "https://app.getterms.io/view/x6YYi/privacy/en-us",
+      "https://app.getterms.io/view/x6YYi/return/en-us",
+      "https://app.getterms.io/view/x6YYi/tos/en-us"
+    ],
+    _meta: { isHomepage: true }
+  },
   Donkit: {
     ws: ["https://donkit.ai"],
     gh: ["https://github.com/donkit-ai"],
