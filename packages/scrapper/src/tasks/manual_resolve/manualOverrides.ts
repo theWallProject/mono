@@ -3406,6 +3406,17 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/gadfin"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  GalaPro: {
+    ws: ["https://www.galapro.com"],
+    li: ["https://www.linkedin.com/company/galapro"],
+    fb: ["https://www.facebook.com/galaproapp"],
+    tw: ["https://x.com/galaproapp"],
+    ig: ["https://www.instagram.com/galaproapp"],
+    ytp: ["https://www.youtube.com/@galaproapp"],
+    urls: ["https://apps.apple.com/us/app/galapro/id1050951056"],
+    android_app_ids: ["com.galapro.app"],
+    _meta: { isHomepage: true }
+  },
   Gankster: {
     ws: [
       "https://app.gankster.gg",
