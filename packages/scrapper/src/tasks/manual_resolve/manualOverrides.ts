@@ -2554,6 +2554,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@deepkeep_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Deliverider: { ws: ["https://www.deliverider.com"], urls: ["https://sorbetagency.com"], _meta: { isHomepage: true } },
   Depoint: { ws: ["https://depoint.ai"], _meta: { isHomepage: true, isVerified: true } },
   DermaDetect: {
     ws: ["https://www.dermadetect.com"],
