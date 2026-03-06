@@ -8255,6 +8255,11 @@ export const manualOverrides: Record<
     urls: ["http://www.tbdm.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  REIT1: {
+    ws: ["https://www.reit1.co.il"],
+    urls: ["http://fusion-studio.co.il", "https://multipark.co.il"],
+    _meta: { isHomepage: true }
+  },
   REplace: {
     ws: ["https://www.replace-energy.com"],
     li: ["https://www.linkedin.com/company/renewable-energy-place-ltd"],
