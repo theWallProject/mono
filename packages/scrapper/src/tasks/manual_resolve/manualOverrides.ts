@@ -7910,6 +7910,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@powermat"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Prashkovsky: {
+    ws: ["https://www.prashkovsky.co.il"],
+    fb: ["https://www.facebook.com/prashkovsky.ashi"],
+    ig: ["https://www.instagram.com/prashkovsky.ltd"],
+    urls: ["https://api.whatsapp.com/send"],
+    _meta: { isHomepage: true }
+  },
   "Precycle-ai": {
     ws: ["https://www.precycles.com"],
     li: ["https://www.linkedin.com/company/precycles"],
