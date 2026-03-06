@@ -2892,6 +2892,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@dotcompliance_eqms"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  DRIVEES: {
+    ws: ["https://app.drivees.com", "https://drivees.com"],
+    fb: ["https://www.facebook.com/drivees"],
+    ig: ["https://www.instagram.com/driveesapp"],
+    urls: ["http://templune.com"],
+    _meta: { isHomepage: true }
+  },
   DagsHub: {
     ws: ["https://dagshub.com"],
     li: ["https://www.linkedin.com/company/dagshub"],
