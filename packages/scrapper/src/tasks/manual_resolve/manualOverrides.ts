@@ -7537,6 +7537,16 @@ export const manualOverrides: Record<
     tw: ["https://x.com/remitrix1"],
     _meta: { isHomepage: true }
   },
+  Renbizz: {
+    ws: ["https://www.renbizz.com"],
+    li: ["https://www.linkedin.com/company/renbizz"],
+    urls: [
+      "http://renbizz.com-legal.s3-website-us-east-1.amazonaws.com/privacy.html",
+      "http://renbizz.com-legal.s3-website-us-east-1.amazonaws.com/terms.html",
+      "https://www.peanuts-studio.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   RepAir: {
     ws: ["https://www.repair-carbon.com"],
     li: ["https://www.linkedin.com/company/repair-carbon"],
