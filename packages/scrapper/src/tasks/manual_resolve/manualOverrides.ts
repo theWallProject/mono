@@ -4660,6 +4660,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/lemnaproltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  LetsTok: {
+    ws: ["https://letstok.com", "https://studio-tools.letstok.com"],
+    urls: ["https://wa.me/13155568056", "https://www.sora2api.dev"],
+    _meta: { isHomepage: true }
+  },
   Leverate: {
     ws: ["https://leverate.com"],
     li: ["https://www.linkedin.com/company/leverate"],
