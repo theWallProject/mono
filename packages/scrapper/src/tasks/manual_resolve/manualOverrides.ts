@@ -9034,6 +9034,7 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/app/tedooo/id1487331226"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Telicomm: { ws: ["https://www.telicomm.com"], urls: ["https://lamhas.com"], _meta: { isHomepage: true } },
   Teramount: {
     ws: ["https://teramount.com"],
     li: ["https://www.linkedin.com/company/teramount"],
