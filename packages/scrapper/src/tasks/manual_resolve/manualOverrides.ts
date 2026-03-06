@@ -2705,6 +2705,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/efrontier_io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Egg'n'up": {
+    ws: ["https://www.eggnup.com"],
+    li: ["https://www.linkedin.com/company/eggnup"],
+    _meta: { isHomepage: true }
+  },
   "Elbit Systems": {
     ws: ["https://www.elbitsystems.com", "https://elbitsystemscareer.com"],
     li: ["https://www.linkedin.com/company/elbitsystems"],
