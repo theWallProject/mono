@@ -2409,6 +2409,12 @@ export const manualOverrides: Record<
     urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Creative IC3D": {
+    ws: ["https://www.cic3d.com"],
+    li: ["https://www.linkedin.com/company/creative-ic3d-ltd"],
+    urls: ["http://wix.com"],
+    _meta: { isHomepage: true }
+  },
   "Creomagic LTD": {
     ws: ["https://creomagic.com"],
     li: ["https://www.linkedin.com/company/creomagic"],
