@@ -4389,6 +4389,15 @@ export const manualOverrides: Record<
     urls: ["https://www.fullpower.co.il"],
     _meta: { isHomepage: true }
   },
+  "Haifa Group": {
+    ws: ["https://multimatch.haifa-group.com", "https://www.haifa-group.com"],
+    li: ["https://www.linkedin.com/company/haifa-group"],
+    fb: ["https://www.facebook.com/haifagroup"],
+    tw: ["https://x.com/haifagroup"],
+    ytp: ["https://www.youtube.com/@haifagroupchannel"],
+    urls: ["https://comrax.com"],
+    _meta: { isHomepage: true }
+  },
   Hailo: {
     ws: ["https://hailo.ai"],
     li: ["https://www.linkedin.com/company/hailo-ai"],
