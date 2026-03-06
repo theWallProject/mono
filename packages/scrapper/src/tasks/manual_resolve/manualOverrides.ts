@@ -7183,6 +7183,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@sambiq-smb-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Saffron Tech": {
+    ws: ["https://saffron-tech.ag"],
+    li: ["https://www.linkedin.com/company/saffron-tech"],
+    fb: ["https://www.facebook.com/p/Saffron-Tech-100063958903157"],
+    tw: ["https://x.com/saffrontech_"],
+    ig: ["https://www.instagram.com/saffron_tech_ltd"],
+    _meta: { isHomepage: true }
+  },
   Salignostics: {
     ws: ["https://www.salignostics.com"],
     li: ["https://www.linkedin.com/company/salignostics"],
