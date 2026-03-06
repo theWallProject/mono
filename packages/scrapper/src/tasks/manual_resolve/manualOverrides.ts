@@ -8771,6 +8771,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@swimm_io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Symetrify: {
+    ws: ["https://symetrify.com"],
+    li: ["https://www.linkedin.com/company/symetrify"],
+    _meta: { isHomepage: true }
+  },
   "Synvertec LTD.": {
     ws: ["https://www.synvertec.com"],
     urls: ["http://taustudio.co.il"],
