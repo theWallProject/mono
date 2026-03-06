@@ -4834,6 +4834,11 @@ export const manualOverrides: Record<
     urls: ["https://www.godaddy.com/websites/website-builder", "https://www.ktrust.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "KaYama Foods": {
+    ws: ["https://www.kayamafoods.com"],
+    li: ["https://www.linkedin.com/company/kayama-foods"],
+    _meta: { isHomepage: true }
+  },
   "Kamari Pharma": {
     ws: ["https://kamaripharma.com"],
     li: ["https://www.linkedin.com/company/kamari-pharma"],
