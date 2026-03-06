@@ -5177,6 +5177,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MitoCareX Bio": { ws: ["https://mitocarexbio.com"], urls: ["https://epicod.co.il"], _meta: { isHomepage: true } },
   "Mizrahi Tefahot Bank": {
     ws: ["https://sc.mizrahi-tefahot.co.il", "https://www.mizrahi-tefahot.co.il"],
     li: ["https://www.linkedin.com/company/mizrahi-tefahot-bank"],
