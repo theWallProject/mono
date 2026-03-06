@@ -5249,6 +5249,12 @@ export const manualOverrides: Record<
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Lema AI": {
+    ws: ["https://www.lema.ai"],
+    li: ["https://www.linkedin.com/company/lema-ai"],
+    urls: ["https://www.comeet.com/jobs/lemalabs/EA.001"],
+    _meta: { isHomepage: true }
+  },
   "Lemna Pro": {
     ws: ["https://www.lemnapro.com"],
     li: ["https://www.linkedin.com/company/lemnaproltd"],
