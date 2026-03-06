@@ -10666,6 +10666,11 @@ export const manualOverrides: Record<
     urls: ["https://www.vessimed.com", "https://www.vessimed.com/privacy-policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Vetric: {
+    ws: ["https://www.vetric.io"],
+    li: ["https://www.linkedin.com/company/vetric"],
+    _meta: { isHomepage: true }
+  },
   "ViAqua Therapeutics": { ws: ["https://www.viaqua-t.com"], _meta: { isHomepage: true, isVerified: true } },
   "Vidac Pharma": { ws: ["https://vidacpharma.com"], _meta: { isHomepage: true, isVerified: true } },
   Videocites: {
