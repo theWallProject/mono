@@ -3014,6 +3014,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Draftt: {
+    ws: ["https://app.draftt.io", "https://docs.draftt.io", "https://www.draftt.io"],
+    li: ["https://www.linkedin.com/company/draftt"],
+    urls: ["https://www.comeet.com/jobs/draftt/3A.00F"],
+    _meta: { isHomepage: true }
+  },
   DragonflyDB: {
     ws: ["https://security.dragonflydb.io", "https://trust.dragonflydb.io", "https://www.dragonflydb.io"],
     li: ["https://www.linkedin.com/company/dragonflydb"],
