@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="no-referrer">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=() "> 
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View.ly - Premium Domain for Sale</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+  </style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const loaderElement = document.querySelector('.Loader');
+    if (loaderElement) {
+      const hostname = window.location.hostname;
+      loaderElement.setAttribute('data-text', hostname.charAt(0).toUpperCase() + hostname.slice(1));
+
+      // Adjust font-size if the hostname length is 8 or more, based on screen size
+      if (hostname.length >= 8) {
+        if (window.innerWidth > 1200) {
+          loaderElement.style.fontSize = '4.9vw'; // For large screens
+        } else if (window.innerWidth > 768) {
+          loaderElement.style.fontSize = '4.6vw'; // For medium screens
+        } else {
+          loaderElement.style.fontSize = '6.6vw'; // For small screens
+        }
+      }
+    }
+
+    const domain = window.location.hostname;
+
+    // Fetch the settings from Cloudflare Worker API
+    fetch(`https://charmingly.nexusus.workers.dev/?domain=${domain}`)
+      .then(response => response.json())
+      .then(data => {
+        // Update the document title
+        if (data.title) {
+          document.title = data.title;
+        }
+
+        // Update the "Buy It Now" form if enabled
+        const buyNowSection = document.querySelector('.buy-now-section');
+        if (buyNowSection) {
+          if (data.buyNow && data.buyNow.enabled) {
+            const form = document.querySelector('.buy-now-form');
+            if (form) {
+              form.querySelector('input[name="domain"]').value = domain;
+              form.querySelector('input[name="price"]').value = data.buyNow.price;
+              form.querySelector('input[name="non_initiator_email"]').value = data.buyNow.contactEmail;
+              form.querySelector('input[name="title"]').value = data.title;
+              form.querySelector('input[name="non_initiator_id"]').value = data.buyNow.nonInitiatorId;
+              form.querySelector('input[name="fee_payer"]').value = data.buyNow.feePayer;
+              form.querySelector('input[name="return_url"]').value = data.buyNow.returnUrl;
+              form.querySelector('input[name="button_types"]').value = data.buyNow.buttonTypes;
+            }
+            buyNowSection.style.display = 'block';
+          } else {
+            buyNowSection.style.display = 'none';
+          }
+        }
+
+        // Update the "Make Offer" form if enabled
+        const makeOfferSection = document.querySelector('.make-offer-section');
+        if (makeOfferSection) {
+          if (data.makeOffer && data.makeOffer.enabled) {
+            const form = document.querySelector('.make-offer-form');
+            if (form) {
+              form.querySelector('input[name="domain"]').value = domain;
+              form.querySelector('input[name="price"]').value = data.makeOffer.price;
+              form.querySelector('input[name="non_initiator_email"]').value = data.makeOffer.contactEmail;
+              form.querySelector('input[name="title"]').value = data.title;
+              form.querySelector('input[name="non_initiator_id"]').value = data.makeOffer.nonInitiatorId;
+              form.querySelector('input[name="auto_reject"]').value = data.makeOffer.autoReject;
+              form.querySelector('input[name="fee_payer"]').value = data.makeOffer.feePayer;
+              form.querySelector('input[name="return_url"]').value = data.makeOffer.returnUrl;
+              form.querySelector('input[name="button_types"]').value = data.makeOffer.buttonTypes;
+            }
+            makeOfferSection.style.display = 'block';
+          } else {
+            makeOfferSection.style.display = 'none';
+          }
+        }
+
+        // Update contact email link if enabled
+        const contactLink = document.querySelector('.contact-link');
+        if (contactLink) {
+          if (data.contactEnabled && data.contactEmail) {
+            contactLink.href = `mailto:${data.contactEmail}`;
+            contactLink.style.display = 'block';
+          } else {
+            contactLink.style.display = 'none';
+          }
+        }
+
+        // Update external link if enabled
+        const externalLink = document.querySelector('.external-link');
+        if (externalLink) {
+          if (data.externalLink && data.externalLink.enabled) {
+            externalLink.href = data.externalLink.url;
+            externalLink.textContent = data.externalLink.text;
+            externalLink.style.display = 'block';
+          } else {
+            externalLink.style.display = 'none';
+          }
+        }
+
+        // Update custom button if enabled
+        const customButton = document.querySelector('.custom-button');
+        if (customButton) {
+          if (data.customButton && data.customButton.enabled) {
+            customButton.href = data.customButton.url;
+            customButton.textContent = data.customButton.text;
+            customButton.style.display = 'block';
+          } else {
+            customButton.style.display = 'none';
+          }
+        }
+
+        // Toggle recent sales section
+        const recentSalesSection = document.querySelector('.last-sales');
+        if (recentSalesSection) {
+          if (data.recentSalesEnabled) {
+            recentSalesSection.style.display = 'block';
+            // Fetch recent sales data
+            fetch('https://charming.unily.workers.dev/')
+              .then(response => response.json())
+              .then(salesData => {
+                const lastSalesContent = document.getElementById('last-sales-content');
+                let index = 0;
+
+                function displayNextSale() {
+                  if (salesData.length > 0) {
+                    lastSalesContent.innerHTML = '';
+
+                    const saleElement = document.createElement('p');
+                    const saleData = salesData[index];
+
+                    if (saleData.link) {
+                      const linkElement = document.createElement('a');
+                      linkElement.href = saleData.link;
+                      linkElement.target = '_blank';
+                      linkElement.rel = 'nofollow';
+                      linkElement.textContent = `${saleData.domain} sold for ${saleData.price}`;
+                      saleElement.appendChild(linkElement);
+                    } else {
+                      saleElement.textContent = `${saleData.domain} sold for ${saleData.price}`;
+                    }
+
+                    lastSalesContent.appendChild(saleElement);
+
+                    setTimeout(() => {
+                      saleElement.classList.add('show');
+                    }, 100);
+
+                    index = (index + 1) % salesData.length;
+
+                    setTimeout(() => {
+                      saleElement.classList.remove('show');
+                      setTimeout(displayNextSale, 800);
+                    }, 3000);
+                  }
+                }
+
+                displayNextSale();
+              });
+          } else {
+            recentSalesSection.style.display = 'none';
+          }
+        }
+
+        // Add audio element if audio link is provided
+        const audioElement = document.querySelector('.audio-element');
+        if (audioElement && data.audioEnabled) {
+          // Create a new Audio object to verify if the file exists by attempting to load it
+          const audio = new Audio('./1.mp3');
+          audio.oncanplaythrough = () => {
+            // If audio loads successfully, show the player
+            audioElement.querySelector('source').src = './1.mp3';
+            audioElement.style.display = 'block';
+            audioElement.load();
+          };
+          audio.onerror = () => {
+            // If the file fails to load, hide the player
+            audioElement.style.display = 'none';
+          };
+        } else {
+          audioElement.style.display = 'none';
+        }
+      })
+      .catch(err => console.error('Error', err));
+  });
+</script>
+</head>
+<body>
+  <div class="gradient-bg">
+
+      <filter id="noiseFilterBg">
+        <feturbulence type="fractalNoise" basefrequency="0.6" stitchtiles="stitch">
+      </feturbulence></filter>
+      <rect width="100%" height="100%" preserveaspectratio="xMidYMid meet" filter="url(#noiseFilterBg)">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"></feColorMatrix>
+          <feBlend in="SourceGraphic" in2="goo"></feBlend>
+        </filter>
+      </defs>
+    </svg>
+    <div class="gradients-container">
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+      <div class="g5"></div>
+      <div class="interactive"></div>
+    </div>
+    <!-- Loader centered -->
+    <div class="Loader" data-text="View.ly">
+      <span class="Loader__Circle"></span>
+      <span class="Loader__Circle"></span>
+      <span class="Loader__Circle"></span>
+      <span class="Loader__Circle"></span>
+    </div>
+  </rect></div>
+
+  <div class="wrapper">
+    <h1 class="h1">Premium Domain is For Sale</h1>
+<!-- Audio Section -->
+<audio controls="" style="margin: 0 auto; display: none; width: 280px; height: 30px" class="audio-element">
+  <source src="" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+    <!-- Buy Now Form Section -->
+    <div class="buy-now-section" style="display: none;">
+      <form class="buy-now-form" action="https://www.escrow.com/checkout" method="post" target="_blank">
+        <input type="hidden" name="type" value="domain_name">
+        <input type="hidden" name="non_initiator_email" value="">
+        <input type="hidden" name="non_initiator_id" value="">
+        <input type="hidden" name="non_initiator_role" value="seller">
+        <input type="hidden" name="title" value="">
+        <input type="hidden" name="currency" value="USD">
+        <input type="hidden" name="domain" value="">
+        <input type="hidden" name="price" value="">
+        <input type="hidden" name="concierge" value="false">
+        <input type="hidden" name="with_content" value="false">
+        <input type="hidden" name="inspection_period" value="1">
+        <input type="hidden" name="fee_payer" value="">
+        <input type="hidden" name="return_url" value="">
+        <input type="hidden" name="button_types" value="buy_now">
+        <input type="hidden" name="auto_accept" value="">
+        <input type="hidden" name="auto_reject" value="">
+        <input type="hidden" name="item_key" value="">
+        <button class="btns">
+          <p>Buy It Now @ Escrow.com</p>
+          <span class="BorderTopBottom"></span>
+          <span class="BorderLeftRight"></span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Make Offer Form Section -->
+    <div class="make-offer-section" style="display: block;">
+      <form class="make-offer-form" action="https://www.escrow.com/offer" method="post">
+        <input type="hidden" name="type" value="domain_name">
+        <input type="hidden" name="non_initiator_email" value="sales@charming.ly">
+        <input type="hidden" name="non_initiator_id" value="2085867">
+        <input type="hidden" name="non_initiator_role" value="seller">
+        <input type="hidden" name="title" value="View.ly - Premium Domain for Sale">
+        <input type="hidden" name="currency" value="USD">
+        <input type="hidden" name="domain" value="view.ly">
+        <input type="hidden" name="price" value="0">
+        <input type="hidden" name="concierge" value="false">
+        <input type="hidden" name="with_content" value="false">
+        <input type="hidden" name="inspection_period" value="1">
+        <input type="hidden" name="fee_payer" value="split">
+        <input type="hidden" name="return_url" value="">
+        <input type="hidden" name="button_types" value="make_offer">
+        <input type="hidden" name="auto_accept" value="">
+        <input type="hidden" name="auto_reject" value="160">
+        <input type="hidden" name="item_key" value="">
+        <button class="btns">
+          <p>Make An Offer @ Escrow.com</p>
+          <span class="BorderTopBottom"></span>
+          <span class="BorderLeftRight"></span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Contact Section -->
+    <a href="mailto:sales@charming.ly" class="btn contact-link" style="display: block;">Contact Us</a>
+
+    <!-- External Link Section -->
+    <a href="https://reg.ly" rel="nofollow" class="btn external-link" style="display: block;">Find Available .LY Domain</a>
+
+    <!-- Custom Button Section -->
+    <a href="#" class="btn custom-button" style="display: none;">Default Button Text</a>
+
+    <!-- Last Sales Section -->
+    <div class="last-sales" id="last-sales" style="display: block;">
+      <div class="line-container">
+        <hr class="line">
+        <h2 class="last-sales-title">Recent .LY Domain Sales</h2>
+        <hr class="line">
+      </div>
+      <div id="last-sales-content" class="news-line"><p class="show"><a href="https://namebio.com/?s==UDN3YDMyYDN" target="_blank" rel="nofollow">Exact.ly sold for $16,000</a></p></div>
+    </div>
+  </div>
+
+
+</body></html>
