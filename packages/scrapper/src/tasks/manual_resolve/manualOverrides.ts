@@ -9609,6 +9609,26 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/yabi-technologies-ltd"],
     _meta: { isHomepage: true }
   },
+  "Yail Noa Group": {
+    ws: [
+      "https://www.yail-noa.co.il",
+      "http://www.yail-1995.co.il",
+      "http://www.yail-aerotec.co.il",
+      "http://www.yail-dcs.co.il",
+      "http://www.yail-medical.co.il",
+      "http://www.yail-pharma.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/yail-noa-group"],
+    fb: ["https://www.facebook.com/yailnoa"],
+    ytp: ["https://www.youtube.com/@yailnoa"],
+    urls: [
+      "http://www.kk-fabrics.com",
+      "http://www.metalem.co.il",
+      "http://www.motyknit.com",
+      "https://www.selected.co.il"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Yeap Proteins": {
     ws: ["https://yeap-proteins.com"],
     li: ["https://www.linkedin.com/company/yeap-proteins"],
