@@ -11172,6 +11172,7 @@ export const manualOverrides: Record<
     urls: ["https://minus273celsius.slack.com", "https://partners.zeronetworks.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ZipoApps: { ws: ["https://zipoapps.com"], urls: ["https://mobiri.se"], _meta: { isHomepage: true } },
   Zoog: {
     ws: ["https://app.getzoog.com", "https://getzoog.com", "https://story.getzoog.com"],
     li: ["https://www.linkedin.com/company/zoog-ai"],
