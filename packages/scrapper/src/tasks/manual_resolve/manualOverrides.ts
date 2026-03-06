@@ -8880,6 +8880,13 @@ export const manualOverrides: Record<
     urls: ["https://www.catom.co.il", "https://www.catom.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tuvis: {
+    ws: ["https://tuvis.com"],
+    li: ["https://www.linkedin.com/company/tuviscom"],
+    fb: ["https://www.facebook.com/tuviscom"],
+    ig: ["https://www.instagram.com/tuviscom"],
+    _meta: { isHomepage: true }
+  },
   Tweed: {
     ws: ["https://demo.paytweed.com", "https://paytweed.com"],
     li: ["https://www.linkedin.com/company/paytweed"],
