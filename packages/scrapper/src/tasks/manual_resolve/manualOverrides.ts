@@ -2397,6 +2397,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/convizit_life"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CoolVOC: {
+    ws: ["https://www.coolvoc.com"],
+    li: ["https://www.linkedin.com/company/coolvoc"],
+    urls: ["https://il.linkedin.com/in/avihai-israel-73199536", "https://il.linkedin.com/in/yariv-gober-4a510912"],
+    _meta: { isHomepage: true }
+  },
   Coralogix: {
     ws: [
       "https://coralogix.com",
