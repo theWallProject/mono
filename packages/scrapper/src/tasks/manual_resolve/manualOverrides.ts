@@ -1431,6 +1431,12 @@ export const manualOverrides: Record<
     urls: ["https://www.biondbio.com/privacy-policy", "https://www.biondbio.com/terms-of-use"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Biop-Medical": {
+    ws: ["https://www.biopmedical.com"],
+    fb: ["https://www.facebook.com/biopmedical"],
+    tw: ["https://x.com/biop_medical"],
+    _meta: { isHomepage: true }
+  },
   "Biotic Circular Technologies": {
     ws: ["https://biotic-labs.com"],
     li: ["https://www.linkedin.com/company/biotic-circular"],
