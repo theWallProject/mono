@@ -2460,6 +2460,11 @@ export const manualOverrides: Record<
     urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Covver: {
+    ws: ["https://success.covver.io", "https://www.covver.io"],
+    li: ["https://www.linkedin.com/company/covver"],
+    _meta: { isHomepage: true }
+  },
   "Creative IC3D": {
     ws: ["https://www.cic3d.com"],
     li: ["https://www.linkedin.com/company/creative-ic3d-ltd"],
