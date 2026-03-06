@@ -4642,6 +4642,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/ivix_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  IceBow: {
+    ws: ["https://www.icebow.co"],
+    li: ["https://www.linkedin.com/company/12954219", "https://www.linkedin.com/company/icebow-ltd."],
+    ig: ["https://www.instagram.com/icebow_branding"],
+    _meta: { isHomepage: true }
+  },
   "Identifai-genetics": { ws: ["https://identifai-genetics.com"], _meta: { isHomepage: true, isVerified: true } },
   Identiq: {
     ws: ["https://go.identiq.com", "https://trustcenter.identiq.com", "https://www.identiq.com"],
