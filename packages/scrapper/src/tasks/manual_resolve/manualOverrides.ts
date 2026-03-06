@@ -398,6 +398,11 @@ export const manualOverrides: Record<
     urls: ["https://amaiproteins.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ambrosia Bio": {
+    ws: ["https://www.ambrosia.bio"],
+    urls: ["https://www.adilinial.com"],
+    _meta: { isHomepage: true }
+  },
   Ameetee: {
     ws: ["https://ameetee.io", "https://platform.ameetee.io"],
     li: ["https://www.linkedin.com/company/ameetee"],
