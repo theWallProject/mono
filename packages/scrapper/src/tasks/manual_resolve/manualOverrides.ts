@@ -8996,6 +8996,11 @@ export const manualOverrides: Record<
     urls: ["https://www.comeet.com/jobs/utila/D9.00F"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Utilight: {
+    ws: ["https://www.utilight.com"],
+    li: ["https://www.linkedin.com/company/utilight-ltd"],
+    _meta: { isHomepage: true }
+  },
   "V-Wave": {
     ws: ["https://vwavemedical.com"],
     li: ["https://www.linkedin.com/company/johnson-&-johnson-medtech"],
