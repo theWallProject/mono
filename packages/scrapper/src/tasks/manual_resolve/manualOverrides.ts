@@ -1872,6 +1872,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@CYE_Security"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CYFOX: {
+    ws: ["https://cloud.cyfox.com", "https://help.cyfox.com", "https://www.cyfox.com"],
+    li: ["https://www.linkedin.com/company/cyfox-cybersecurity"],
+    _meta: { isHomepage: true }
+  },
   CYREBRO: {
     ws: ["https://app.cyrebro.io", "https://partners.cyrebro.io", "https://www.cyrebro.io"],
     li: ["https://www.linkedin.com/company/cyrebro"],
