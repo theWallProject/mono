@@ -4157,6 +4157,13 @@ export const manualOverrides: Record<
     urls: ["https://imagindairy.com", "https://ltu.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Immagnify Ltd.": {
+    ws: ["https://app.immagnify.com", "https://immagnify.com", "https://support.immagnify.com"],
+    li: ["https://www.linkedin.com/company/immagnify"],
+    ig: ["https://www.instagram.com/immagnify"],
+    urls: ["https://immagnify.typeform.com/to/s38olUjR"],
+    _meta: { isHomepage: true }
+  },
   InSightec: {
     ws: ["https://distributor.insightec.com", "https://documentation.insightec.com", "https://insightec.com"],
     li: ["https://www.linkedin.com/company/insightec"],
