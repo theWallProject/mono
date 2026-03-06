@@ -4262,6 +4262,14 @@ export const manualOverrides: Record<
     android_app_ids: ["com.opentech.haaretz"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Hagag Group": {
+    ws: ["https://adminpower.hagag-group.co.il", "https://www.hagag-group.co.il"],
+    li: ["https://www.linkedin.com/company/hagag-group2"],
+    fb: ["https://www.facebook.com/hagagroup"],
+    ig: ["https://www.instagram.com/hagag_group"],
+    urls: ["https://www.fullpower.co.il"],
+    _meta: { isHomepage: true }
+  },
   Hailo: {
     ws: ["https://hailo.ai"],
     li: ["https://www.linkedin.com/company/hailo-ai"],
