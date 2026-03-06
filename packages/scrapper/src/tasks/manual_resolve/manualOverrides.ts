@@ -8123,6 +8123,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@siga-otsolutions2428"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "SPACING digital ltd.": {
+    ws: ["https://spacing.co.il"],
+    li: ["https://www.linkedin.com/company/spacing-israel"],
+    fb: ["https://www.facebook.com/spacing-272644736489607"],
+    ig: ["https://www.instagram.com/spacing.pass"],
+    _meta: { isHomepage: true }
+  },
   "SSV Network": {
     ws: [
       "https://app.ssv.network",
