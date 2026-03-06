@@ -672,6 +672,13 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/apply_design.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Appnext: {
+    ws: ["https://appnext.com", "https://blog.appnext.com"],
+    fb: ["https://www.facebook.com/appnext"],
+    tw: ["https://x.com/appnext_updates"],
+    urls: ["https://www.comeet.co/jobs/appnext/42.003"],
+    _meta: { isHomepage: true }
+  },
   "Aqua Security": {
     ws: [
       "https://aquademy.aquasec.com",
