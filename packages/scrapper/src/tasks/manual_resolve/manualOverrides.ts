@@ -537,6 +537,15 @@ export const manualOverrides: Record<
     ig: "https://www.instagram.com/anywell_official",
     _meta: { isHomepage: true, isVerified: true }
   },
+  ApoWiser: {
+    ws: ["https://apowiser.com"],
+    li: ["https://www.linkedin.com/company/apowiser"],
+    fb: ["https://www.facebook.com/apowiser"],
+    tw: ["https://x.com/apowiser"],
+    ytp: ["https://www.youtube.com/@apowiser6180"],
+    urls: ["https://www.sii.org.il/eng/qualityauth/certificateexpirationdate"],
+    _meta: { isHomepage: true }
+  },
   Appcharge: {
     ws: ["https://www.appcharge.com"],
     li: ["https://www.linkedin.com/company/appcharge"],
