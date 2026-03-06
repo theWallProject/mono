@@ -9695,6 +9695,12 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/VERITISECURITY"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Verobotics: {
+    ws: ["https://verobotics.com"],
+    li: ["https://www.linkedin.com/company/verobotics"],
+    tw: ["https://x.com/verobotics"],
+    _meta: { isHomepage: true }
+  },
   Verto: {
     ws: ["https://www.verto.ai"],
     li: ["https://www.linkedin.com/company/verto3d"],
