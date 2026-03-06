@@ -1696,6 +1696,11 @@ export const manualOverrides: Record<
     urls: ["https://briya.careers.hibob.com/jobs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Bsense Bio Therapeutics": {
+    ws: ["https://www.bsense-bio.com"],
+    li: ["https://www.linkedin.com/company/bsense-bio-therapeutics"],
+    _meta: { isHomepage: true }
+  },
   Buildots: {
     ws: ["https://buildots.com"],
     li: ["https://www.linkedin.com/company/buildots"],
