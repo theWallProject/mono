@@ -8248,6 +8248,12 @@ export const manualOverrides: Record<
     urls: ["https://www.wix.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "SpacePharma R&D": {
+    ws: ["https://www.spacepharma.health"],
+    li: ["https://www.linkedin.com/company/spacepharma"],
+    tw: ["https://x.com/spacepharmaoff"],
+    _meta: { isHomepage: true }
+  },
   SparX: { ws: ["https://sparx.ai"], urls: ["https://sparxapp.ai"], _meta: { isHomepage: true, isVerified: true } },
   Spectral: {
     ws: ["https://spectralops.io"],
