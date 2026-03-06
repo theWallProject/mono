@@ -1001,6 +1001,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@audiocodesmedia"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AudioPixels: {
+    ws: ["https://audiopixels.com.au"],
+    urls: [
+      "http://www.nasdaq.com/symbol/adpxy",
+      "https://www.asx.com.au/markets/company/akp",
+      "https://www2.asx.com.au/markets/company/akp"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Aurora Labs": {
     ws: ["https://www.auroralabs.com"],
     li: ["https://www.linkedin.com/company/auroralabs"],
