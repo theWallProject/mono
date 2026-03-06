@@ -1709,6 +1709,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bridgez: {
+    ws: ["https://bridgez.co"],
+    urls: [
+      "https://www.spaceship.com",
+      "https://www.spaceship.com/marketplace/add-to-cart-lto/marketplacedomainid/bca895ad-5e23-45e2-beb0-b43d31c3e51e",
+      "https://www.spaceship.com/marketplace/add-to-cart/marketplacedomainid/bca895ad-5e23-45e2-beb0-b43d31c3e51e"
+    ],
+    _meta: { isHomepage: true }
+  },
   Bridgify: { ws: ["https://bridgify.io"], _meta: { isHomepage: true, isVerified: true } },
   "Bright Way Vision": {
     ws: ["https://www.brightwayvision.com"],
