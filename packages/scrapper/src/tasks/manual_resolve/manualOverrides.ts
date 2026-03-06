@@ -6319,6 +6319,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oosto6849"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Oporto Carbon": {
+    ws: ["https://www.oportocarbon.com"],
+    li: ["https://www.linkedin.com/company/oporto-carbon"],
+    _meta: { isHomepage: true }
+  },
   Opster: {
     ws: ["https://autoops.opster.com", "https://opster.com"],
     li: ["https://www.linkedin.com/company/opster"],
