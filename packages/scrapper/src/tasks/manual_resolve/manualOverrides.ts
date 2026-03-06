@@ -7939,6 +7939,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Pynt0-u8u"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Q.ai": {
+    ws: ["https://www.q.ai"],
+    li: ["https://www.linkedin.com/company/q-a-i"],
+    urls: ["https://www.apple.com/legal/privacy/en-ww"],
+    _meta: { isHomepage: true }
+  },
   QEDIT: {
     ws: ["https://qed-it.com"],
     li: ["https://www.linkedin.com/company/qedit"],
