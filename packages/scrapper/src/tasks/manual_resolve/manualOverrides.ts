@@ -818,6 +818,26 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life_at_aryonsecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ashtrom Group": {
+    ws: [
+      "https://cdn.ashtrom.co.il",
+      "https://www.ashtrom.co.il",
+      "https://www.ashtromconcessions.co.il",
+      "https://www.ashtromconstruction.co.il",
+      "https://www.ashtromegurim.co.il",
+      "https://www.ashtromindustries.co.il",
+      "https://www.ashtrominternational.com",
+      "https://www.ashtromproperties.co.il",
+      "https://www.ashtromrenewableenergy.co.il",
+      "https://www.ashtromrenewableenergy.com",
+      "https://www.ashtromresidencesforrent.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/ashtrom-group"],
+    fb: ["https://www.facebook.com/ashtromgroup"],
+    ig: ["https://www.instagram.com/ashtrom.group"],
+    ytp: ["https://www.youtube.com/@ashtromgroup6857"],
+    _meta: { isHomepage: true }
+  },
   "Ashtrom Renewable Energy": {
     ws: ["https://cdn.ashtrom.co.il", "https://www.ashtrom.co.il"],
     li: ["https://www.linkedin.com/company/ashtrom-group"],
