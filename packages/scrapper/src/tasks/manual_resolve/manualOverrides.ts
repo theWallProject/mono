@@ -9650,6 +9650,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@unipaas"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  UPnRIDE: {
+    ws: ["https://upnride.com"],
+    li: ["https://www.linkedin.com/company/upnride-robotics-ltd"],
+    fb: ["https://www.facebook.com/upnride"],
+    ig: ["https://www.instagram.com/upnride"],
+    ytp: ["https://www.youtube.com/@upnrideroboticsltd2298"],
+    urls: ["http://www.72dpi.co.il", "https://rightman.co.il"],
+    _meta: { isHomepage: true }
+  },
   Ubeya: {
     ws: ["https://careers.ubeya.com", "https://learn.ubeya.com", "https://ottavio.ubeya.com", "https://www.ubeya.com"],
     li: ["https://www.linkedin.com/company/ubeya"],
