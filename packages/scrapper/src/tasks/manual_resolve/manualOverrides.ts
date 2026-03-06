@@ -6129,6 +6129,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/nostromo-energy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nova: {
+    ws: ["https://www.novami.com"],
+    li: ["https://www.linkedin.com/company/nova-ltd."],
+    fb: ["https://www.facebook.com/nova.ltd"],
+    tw: ["https://x.com/nova_nvmi"],
+    ytp: ["https://www.youtube.com/@novameasuring"],
+    _meta: { isHomepage: true }
+  },
   Novidea: {
     ws: ["https://novidea.com"],
     li: ["https://www.linkedin.com/company/novidea-software"],
