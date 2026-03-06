@@ -9123,6 +9123,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@token.security"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tolstoy: {
+    ws: [
+      "https://app.gotolstoy.com",
+      "https://developers.gotolstoy.com",
+      "https://help.gotolstoy.com",
+      "https://platform.gotolstoy.com",
+      "https://www.gotolstoy.com"
+    ],
+    li: ["https://www.linkedin.com/company/gotolstoy"],
+    tw: ["https://x.com/gotolstoy"],
+    ig: ["https://www.instagram.com/gotolstoy"],
+    urls: ["https://apps.shopify.com/tolstoy", "https://www.stan.vision"],
+    _meta: { isHomepage: true }
+  },
   Tomi: {
     ws: ["https://dao.tomi.com", "https://www.tomi.com"],
     tw: ["https://x.com/tomipioneers"],
