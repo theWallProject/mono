@@ -8793,6 +8793,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/tailormed.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Tasq.ai": {
+    ws: ["https://www.tasq.ai"],
+    li: ["https://www.linkedin.com/company/tasq-ai"],
+    fb: ["https://www.facebook.com/tasqai"],
+    _meta: { isHomepage: true }
+  },
   Team8: {
     li: "https://www.linkedin.com/company/team8group",
     tw: "https://x.com/team8group",
