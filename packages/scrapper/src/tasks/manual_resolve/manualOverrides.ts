@@ -9033,6 +9033,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "SimilarSites.com": {
+    ws: ["https://similarsites.com"],
+    urls: ["https://developer.similarweb.com", "https://www.similarweb.com"],
+    _meta: { isHomepage: true }
+  },
   Simplex: {
     ws: [
       "https://buy.simplex.com",
