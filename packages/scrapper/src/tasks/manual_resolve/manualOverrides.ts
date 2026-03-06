@@ -7965,6 +7965,13 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Sorbet: { ws: ["https://advance.getsorbet.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Source Defense": {
+    ws: ["https://sourcedefense.com"],
+    li: ["https://www.linkedin.com/company/source-defense"],
+    tw: ["https://x.com/sourcedefense"],
+    urls: ["https://sourceforge.net/software/product/Source-Defense"],
+    _meta: { isHomepage: true }
+  },
   SpaceIL: {
     ws: ["https://arb.spaceil.com", "https://eng.spaceil.com", "https://kids.spaceil.com", "https://www.spaceil.com"],
     fb: ["https://www.facebook.com/spaceil"],
