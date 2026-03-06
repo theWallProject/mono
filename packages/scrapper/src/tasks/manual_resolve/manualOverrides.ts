@@ -5512,6 +5512,18 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ministry of Energy": {
+    ws: ["https://energy-sea.gov.il"],
+    li: ["https://www.linkedin.com/company/israel-ministry-of-energy"],
+    fb: ["https://www.facebook.com/energy.gov.il"],
+    ig: ["https://www.instagram.com/energy.gov.il"],
+    ytp: ["https://www.youtube.com/@energywateril"],
+    urls: [
+      "https://www.gov.il/en/Departments/General/accessibility-statement",
+      "https://www.gov.il/en/pages/gov_terms_of_use"
+    ],
+    _meta: { isHomepage: true }
+  },
   Mirato: {
     ws: ["https://graph.sayari.com", "https://sayari.com"],
     li: ["https://www.linkedin.com/company/sayarilabs"],
