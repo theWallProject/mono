@@ -3885,6 +3885,21 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/freezem_bsf"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Frontitude: {
+    ws: [
+      "https://app.frontitude.com",
+      "https://developer.frontitude.com",
+      "https://write.frontitude.com",
+      "https://www.frontitude.com"
+    ],
+    li: ["https://www.linkedin.com/company/frontitude"],
+    urls: [
+      "https://www.figma.com/community/file/1511723543914312690/frontitudes-ux-content-platform-playground",
+      "https://www.figma.com/community/plugin/809843676692807511/Frontitude-%E2%80%A2-UX-copy-management",
+      "https://www.producthunt.com/posts/frontitude"
+    ],
+    _meta: { isHomepage: true }
+  },
   Funzing: {
     ws: [
       "https://blog.funzing.com",
