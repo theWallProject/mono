@@ -4108,6 +4108,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@innoviztechnologies3315"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Inretio Medical Device": {
+    ws: ["https://www.inretio.co.il"],
+    li: ["https://www.linkedin.com/company/inretiomd"],
+    _meta: { isHomepage: true }
+  },
   Insighting: {
     ws: ["https://www.insighting.io"],
     li: ["https://www.linkedin.com/company/insightingio"],
