@@ -10385,6 +10385,13 @@ export const manualOverrides: Record<
     urls: ["https://human-creative.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "iwi Life": {
+    ws: ["https://iwilife.com"],
+    li: ["https://www.linkedin.com/company/myiwilife"],
+    fb: ["https://www.facebook.com/myiwilife"],
+    ig: ["https://www.instagram.com/myiwilife"],
+    _meta: { isHomepage: true }
+  },
   "lunar.dev": {
     ws: ["https://app.lunar.dev", "https://docs.lunar.dev", "https://www.lunar.dev"],
     li: ["https://www.linkedin.com/company/lunar-api"],
