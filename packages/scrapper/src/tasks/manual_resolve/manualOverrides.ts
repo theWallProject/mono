@@ -3696,6 +3696,19 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/freezem_bsf"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Funzing: {
+    ws: [
+      "https://blog.funzing.com",
+      "https://il.funzing.com",
+      "https://sg.funzing.com",
+      "https://uk.funzing.com",
+      "https://www.funzing.com"
+    ],
+    li: ["https://www.linkedin.com/company/3338342", "https://www.linkedin.com/company/funzing"],
+    fb: ["https://www.facebook.com/funzinguk"],
+    tw: ["https://x.com/funzinguk"],
+    _meta: { isHomepage: true }
+  },
   "Fuse.io": {
     ws: [
       "https://console.fuse.io",
