@@ -8066,6 +8066,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  SenSwim: {
+    ws: ["https://www.senswim.com"],
+    li: ["https://www.linkedin.com/company/senswim"],
+    _meta: { isHomepage: true }
+  },
   "Sency.": {
     ws: ["https://www.sency.ai"],
     li: ["https://www.linkedin.com/company/sencyai"],
