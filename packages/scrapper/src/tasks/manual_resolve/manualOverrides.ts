@@ -10509,6 +10509,15 @@ export const manualOverrides: Record<
     tw: ["https://x.com/XsightLabs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Xtras: {
+    ws: ["https://www.xtras.co.il"],
+    li: ["https://www.linkedin.com/company/xtras"],
+    fb: ["https://www.facebook.com/xtrasapp"],
+    ig: ["https://www.instagram.com/xtrasapp"],
+    urls: ["https://itunes.apple.com/il/app/xtras/id963720978", "https://xtras.online/auth"],
+    android_app_ids: ["com.ionicframework.xtras758914"],
+    _meta: { isHomepage: true }
+  },
   Xyte: {
     ws: ["https://www.xyte.ai"],
     li: ["https://www.linkedin.com/company/xyte"],
