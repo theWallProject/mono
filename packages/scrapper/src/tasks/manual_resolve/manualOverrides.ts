@@ -3752,6 +3752,11 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Gloww: { ws: ["https://app.gloww.com", "https://gloww.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Gordian Surgical": {
+    ws: ["https://www.gordiansurgical.com"],
+    li: ["https://www.linkedin.com/company/gordian_surgical"],
+    _meta: { isHomepage: true }
+  },
   "Gorilla Link Ltd.": {
     ws: ["https://preorder.gorilla.link", "https://www.gorilla.link"],
     li: ["https://www.linkedin.com/company/gorillalink"],
