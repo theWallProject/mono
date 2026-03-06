@@ -1039,6 +1039,13 @@ export const manualOverrides: Record<
     urls: ["https://xn--88-lqi2fvc3a1a4i.live/register"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "BWith AI": {
+    ws: ["https://www.bwith.ai"],
+    li: ["https://www.linkedin.com/company/bwith-ai"],
+    fb: ["https://www.facebook.com/bwithai"],
+    ig: ["https://www.instagram.com/bwithsoftware"],
+    _meta: { isHomepage: true }
+  },
   BackBox: {
     ws: ["https://backbox.com", "https://support.backbox.com"],
     li: ["https://www.linkedin.com/company/backbox"],
