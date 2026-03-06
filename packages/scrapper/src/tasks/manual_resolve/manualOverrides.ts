@@ -8398,6 +8398,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@seetrue-ai"],
     _meta: { isHomepage: true }
   },
+  Seenity: {
+    ws: ["https://www.seenity.com"],
+    li: ["https://www.linkedin.com/company/seenity"],
+    tw: ["https://x.com/seenitysoftware"],
+    _meta: { isHomepage: true }
+  },
   Semperis: {
     ws: ["https://www.hipconf.com", "https://www.semperis.com"],
     li: [
