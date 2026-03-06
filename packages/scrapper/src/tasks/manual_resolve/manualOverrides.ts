@@ -9259,6 +9259,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@CyeraSecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Trailze: {
+    ws: ["https://mytrailze.trailze.com", "https://trailze.com"],
+    fb: ["https://www.facebook.com/trailzeil"],
+    urls: ["https://jonnystudio.co.il", "https://morning-sale.page/beshvil-yael", "https://www.nextoctober.org"],
+    _meta: { isHomepage: true }
+  },
   TransAlgae: {
     ws: ["https://www.transalgae.com"],
     li: ["https://www.linkedin.com/company/transalgae-israel-ltd."],
