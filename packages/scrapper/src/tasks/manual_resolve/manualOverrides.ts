@@ -8886,6 +8886,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/c/hellosimply"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Singer Instruments and Control": {
+    ws: ["https://singer-instruments.com"],
+    li: ["https://www.linkedin.com/company/singer-instruments-and-control"],
+    fb: ["https://www.facebook.com/singerinstrumentsandcontrol"],
+    tw: ["https://x.com/controlsinger"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true }
+  },
   Skai: {
     ws: ["https://skai.io"],
     li: ["https://www.linkedin.com/company/skaicommerce"],
