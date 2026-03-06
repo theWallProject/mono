@@ -3062,6 +3062,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ellomay Capital": {
+    ws: ["https://ellomay.com"],
+    li: ["https://www.linkedin.com/company/ellomaycapital"],
+    urls: ["http://www.user-a.co.il", "https://web.irm.co.il"],
+    _meta: { isHomepage: true }
+  },
   Emerix: {
     ws: ["https://www.emerix.ai"],
     li: ["https://www.linkedin.com/company/emerixai"],
