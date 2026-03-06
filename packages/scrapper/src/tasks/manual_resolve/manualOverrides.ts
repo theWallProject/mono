@@ -3582,6 +3582,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/forseafoods"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Fortress: {
+    ws: ["https://www.fortresscyber.io"],
+    li: ["https://www.linkedin.com/company/fortresscyber", "https://www.linkedin.com/company/fortressio"],
+    tw: ["https://x.com/fortresscyber"],
+    _meta: { isHomepage: true }
+  },
   Forwrd: {
     ws: ["https://help.forwrd.ai", "https://www.forwrd.ai"],
     li: ["https://www.linkedin.com/company/forwrdai"],
