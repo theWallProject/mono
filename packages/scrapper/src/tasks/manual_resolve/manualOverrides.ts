@@ -8806,6 +8806,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@unipercare1086"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "United Hatzalah Of Israel": {
+    ws: ["https://israelrescue.org"],
+    li: ["https://www.linkedin.com/company/united-hatzalah-of-israel"],
+    fb: ["https://www.facebook.com/unitedhatzalahofisrael"],
+    tw: ["https://x.com/unitedhatzalah"],
+    ig: ["https://www.instagram.com/unitedhatzalahofisrael"],
+    ytp: ["https://www.youtube.com/@united5002020"],
+    urls: [
+      "https://leverage.it",
+      "https://midot.org.il/association/hatzalah",
+      "https://www.charitynavigator.org/ein/113533002"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Upright Technologies": {
     ws: ["https://store.uprightpose.com", "https://www.uprightpose.com"],
     _meta: { isHomepage: true, isVerified: true }
