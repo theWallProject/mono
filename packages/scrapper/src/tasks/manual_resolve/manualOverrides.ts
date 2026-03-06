@@ -2583,6 +2583,12 @@ export const manualOverrides: Record<
     urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Crispify: {
+    ws: ["https://www.crispify.io"],
+    li: ["https://www.linkedin.com/company/crispifyio"],
+    tw: ["https://x.com/crispifyio"],
+    _meta: { isHomepage: true }
+  },
   CropX: {
     ws: ["https://cropx.com"],
     li: ["https://www.linkedin.com/company/10147582"],
