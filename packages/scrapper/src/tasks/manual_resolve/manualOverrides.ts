@@ -5021,6 +5021,22 @@ export const manualOverrides: Record<
     urls: ["https://cert.privo.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "KMS Lighthouse": {
+    ws: ["https://kmslh.com"],
+    li: ["https://www.linkedin.com/company/kms-lighthouse"],
+    ytp: ["https://www.youtube.com/@kmslighthouseltd70"],
+    urls: [
+      "https://appexchange.salesforce.com/appxListingDetail",
+      "https://appfoundry.genesys.com/filter/genesyscloud/listing/d8aaab49-a762-439e-8bf0-74055236a614",
+      "https://appsource.microsoft.com/en-us/product/dynamics-365/kmslighthouseltd1633850950621.kmslh_d365",
+      "https://appsource.microsoft.com/en-us/product/web-apps/kmslighthouseltd1633850950621.kms_lighthouse_subscription_and_onboarding",
+      "https://appsource.microsoft.com/en-us/product/web-apps/kmslighthouseltd1633850950621.kms_lighthouse_teams",
+      "https://aws.amazon.com/marketplace/pp/prodview-r2m3bm22izyag",
+      "https://www.freshworks.com/apps/lighthouse",
+      "https://www.zendesk.com/marketplace/apps/support/237907/lighthouse"
+    ],
+    _meta: { isHomepage: true }
+  },
   KOIOS: {
     ws: ["https://koiostech.ai"],
     li: ["https://www.linkedin.com/company/koiostech"],
