@@ -5671,6 +5671,16 @@ export const manualOverrides: Record<
     tw: ["https://x.com/nsknoxtech"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Nubo Software": {
+    ws: ["https://gw.nubosoftware.com", "https://nubosoftware.com", "https://nubo.co"],
+    li: ["https://www.linkedin.com/company/nubo-software"],
+    fb: ["https://www.facebook.com/nubosoftware"],
+    tw: ["https://x.com/nubosoftware"],
+    gh: ["https://github.com/nubosoftware"],
+    urls: ["https://itunes.apple.com/us/app/nubo/id731859625", "https://plus.google.com/+NubosoftwareVMI"],
+    android_app_ids: ["com.nubo.login"],
+    _meta: { isHomepage: true }
+  },
   Nucleix: {
     ws: ["https://nucleix.com"],
     li: ["https://www.linkedin.com/company/nucleix-ltd-"],
