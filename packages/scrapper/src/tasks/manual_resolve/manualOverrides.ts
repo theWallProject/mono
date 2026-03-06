@@ -9616,6 +9616,16 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "The Agro Exchange": { ws: "https://www.agrox.io" },
+  "The Backyard beer garden": {
+    ws: ["https://beer-garden.co.il"],
+    fb: ["https://www.facebook.com/beergarden.kfar.saba"],
+    ig: ["https://www.instagram.com/beergardenks"],
+    urls: [
+      "https://ontopo.co.il/beergardenkfarsaba",
+      "https://wolt.com/he/isr/hasharon/restaurant/beer-garden-kfar-saba"
+    ],
+    _meta: { isHomepage: true }
+  },
   "The Mediterranean Food Lab": {
     ws: ["https://www.med-food-lab.com"],
     urls: ["http://cooksho.com"],
