@@ -1906,6 +1906,11 @@ export const manualOverrides: Record<
     urls: ["https://bringg.my.site.com/supportcenter/s/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bringoz: {
+    ws: ["https://www.bringoz.com"],
+    li: ["https://www.linkedin.com/company/bringoz"],
+    _meta: { isHomepage: true }
+  },
   Briya: {
     ws: ["https://aire.briya.com", "https://briya.com"],
     li: ["https://www.linkedin.com/company/briyahelath"],
