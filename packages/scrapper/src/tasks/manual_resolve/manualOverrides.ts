@@ -7358,6 +7358,12 @@ export const manualOverrides: Record<
     urls: ["https://trust.quanthealth.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Quantum Art": {
+    ws: ["https://www.quantum-art.tech"],
+    li: ["https://www.linkedin.com/company/quantum-art-tech"],
+    urls: ["https://g.co/kgs/34U9rre"],
+    _meta: { isHomepage: true }
+  },
   "Quantum Machines": {
     ws: ["https://www.quantum-machines.co"],
     li: ["https://www.linkedin.com/company/quantumachines"],
