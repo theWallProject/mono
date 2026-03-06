@@ -18,6 +18,7 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "270Surgical": { ws: ["https://270surgical.com"], _meta: { isHomepage: true, isVerified: true } },
+  "2key Network": { ws: ["https://2key.network"], urls: ["https://www.dcentralab.com"], _meta: { isHomepage: true } },
   "3DBattery": {
     ws: ["https://3dbattery.co.il"],
     li: ["https://www.linkedin.com/company/3d-battery"],
