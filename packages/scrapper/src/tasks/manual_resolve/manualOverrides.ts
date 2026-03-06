@@ -8590,6 +8590,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/seenitysoftware"],
     _meta: { isHomepage: true }
   },
+  "Sella Capital Real Estate": {
+    ws: ["https://www.sellacapital.com"],
+    urls: ["https://www.extra.co.il"],
+    _meta: { isHomepage: true }
+  },
   Semperis: {
     ws: ["https://www.hipconf.com", "https://www.semperis.com"],
     li: [
