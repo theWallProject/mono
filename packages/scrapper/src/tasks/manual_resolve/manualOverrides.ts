@@ -8510,6 +8510,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "S.T. Stent": {
+    ws: ["https://ststent.com"],
+    li: ["https://www.linkedin.com/company/s-t-stent"],
+    urls: ["http://www.imaginet.co.il"],
+    _meta: { isHomepage: true }
+  },
   "SAM Seamless Network": {
     ws: ["https://securingsam.com"],
     li: ["https://www.linkedin.com/company/sam-seamless-network"],
