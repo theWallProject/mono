@@ -4528,6 +4528,19 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/kardomevoice", "https://www.instagram.com/kardomevui"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kaymera: {
+    ws: [
+      "https://blog.kaymera.com",
+      "https://kaymera.com",
+      "https://privacy.kaymera.com",
+      "https://support.kaymera.com"
+    ],
+    li: ["https://www.linkedin.com/company/5363819", "https://www.linkedin.com/company/kaymera-technologies"],
+    fb: ["https://www.facebook.com/kaymeratech"],
+    ig: ["https://www.instagram.com/kaymera_technologlies"],
+    urls: ["https://mavericks.agency", "https://tamc365.com"],
+    _meta: { isHomepage: true }
+  },
   Keep: {
     ws: [
       "https://docs.keephq.dev",
