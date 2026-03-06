@@ -6045,6 +6045,15 @@ export const manualOverrides: Record<
     urls: ["https://silktide.com/consent-manager"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Niio: {
+    ws: ["https://help.niio.com", "https://www.niio.com"],
+    li: ["https://www.linkedin.com/company/niio-art"],
+    fb: ["https://www.facebook.com/niioart"],
+    ig: ["https://www.instagram.com/niioart"],
+    urls: ["http://.", "https://apps.apple.com/us/app/niio-art/id1489485883"],
+    android_app_ids: ["com.niioart.app"],
+    _meta: { isHomepage: true }
+  },
   Nilos: {
     ws: ["https://app.nilos.io", "https://status.nilos.io", "https://www.nilos.io"],
     urls: ["https://app.dover.com/jobs/nilos"],
