@@ -5995,6 +5995,22 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Nuvo Group": {
+    ws: [
+      "https://blog.nuvocares.com",
+      "https://invu-pro.nuvocares.com",
+      "https://knowledgebase.nuvocares.com",
+      "https://www.nuvocares.com"
+    ],
+    li: ["https://www.linkedin.com/company/nuvo-cares"],
+    fb: ["https://www.facebook.com/nuvocares"],
+    tw: ["https://x.com/nuvocares"],
+    ig: ["https://www.instagram.com/nuvocares"],
+    ytp: ["https://www.youtube.com/@nuvo-cares"],
+    urls: ["https://apps.apple.com/us/app/invu-by-nuvo/id1524609104"],
+    android_app_ids: ["com.nuvogroup.invu"],
+    _meta: { isHomepage: true }
+  },
   OCTOPAI: {
     ws: [
       "https://br.cloudera.com",
