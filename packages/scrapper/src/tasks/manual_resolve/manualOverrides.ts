@@ -9505,6 +9505,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Telicomm: { ws: ["https://www.telicomm.com"], urls: ["https://lamhas.com"], _meta: { isHomepage: true } },
+  Terafence: {
+    ws: ["https://terafence.com"],
+    li: ["https://www.linkedin.com/company/terafence"],
+    tw: ["https://x.com/terafence"],
+    _meta: { isHomepage: true }
+  },
   Teramount: {
     ws: ["https://teramount.com"],
     li: ["https://www.linkedin.com/company/teramount"],
