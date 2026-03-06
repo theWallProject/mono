@@ -9832,6 +9832,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/verobotics"],
     _meta: { isHomepage: true }
   },
+  Verstill: {
+    ws: ["https://www.verstill.com"],
+    li: ["https://www.linkedin.com/company/verstill"],
+    fb: ["https://www.facebook.com/verstill"],
+    _meta: { isHomepage: true }
+  },
   Verto: {
     ws: ["https://www.verto.ai"],
     li: ["https://www.linkedin.com/company/verto3d"],
