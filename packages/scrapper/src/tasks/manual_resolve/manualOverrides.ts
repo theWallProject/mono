@@ -9121,6 +9121,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Yabi Technologies": {
+    ws: ["https://www.yabi.cloud"],
+    li: ["https://www.linkedin.com/company/yabi-technologies-ltd"],
+    _meta: { isHomepage: true }
+  },
   YesChef: {
     ws: ["https://app.yeschef.me", "https://support.yeschef.me", "https://yeschef.me"],
     fb: ["https://www.facebook.com/yeschefhq"],
