@@ -4227,6 +4227,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/in_ziv"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Inango Systems": {
+    ws: ["https://www.inango.com"],
+    li: ["https://www.linkedin.com/company/508335", "https://www.linkedin.com/company/inango"],
+    tw: ["https://x.com/inango_systems"],
+    urls: ["https://www.freepik.com/free-vector/isometric-rpa-illustration_22379495.htm"],
+    _meta: { isHomepage: true }
+  },
   Incredibuild: {
     ws: [
       "https://app.incredibuild.com",
