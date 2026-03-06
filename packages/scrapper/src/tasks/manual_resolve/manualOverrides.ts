@@ -5454,6 +5454,15 @@ export const manualOverrides: Record<
     urls: ["https://share.hsforms.com/15SknWVK7TlWfVY6DbyGQAA3rtqh"],
     _meta: { isHomepage: true }
   },
+  "LSports Data": {
+    ws: ["https://www.lsports.eu"],
+    li: ["https://www.linkedin.com/company/lsports-data-ltd-"],
+    fb: ["https://www.facebook.com/lsportsdata"],
+    tw: ["https://x.com/lsports_intl"],
+    ig: ["https://www.instagram.com/lsportsvibes"],
+    ytp: ["https://www.youtube.com/@lsportsdata"],
+    _meta: { isHomepage: true }
+  },
   "Laguna Health": {
     ws: ["https://form.lagunahealth.com", "https://www.lagunahealth.com"],
     li: ["https://www.linkedin.com/company/getlaguna"],
