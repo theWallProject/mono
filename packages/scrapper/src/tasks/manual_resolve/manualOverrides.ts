@@ -10613,6 +10613,13 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/wcycle"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "WONDER JEWEL": {
+    ws: ["https://wonder-jewel.com"],
+    fb: ["https://www.facebook.com/wonderjewelrevolution"],
+    ig: ["https://www.instagram.com/wonderjewel__community"],
+    urls: ["https://www.shopify.com"],
+    _meta: { isHomepage: true }
+  },
   "WSC Sports": {
     ws: ["https://wsc-sports.com"],
     li: ["https://il.linkedin.com/company/wsc-sports-technologies"],
