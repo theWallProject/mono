@@ -4019,6 +4019,13 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/project-helios"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Heven Drones": {
+    ws: ["https://hevendrones.com"],
+    li: ["https://www.linkedin.com/company/hevendrones"],
+    tw: ["https://x.com/hevendrones"],
+    ytp: ["https://www.youtube.com/@hevendrones"],
+    _meta: { isHomepage: true }
+  },
   Hexagate: {
     ws: [
       "https://academy.chainalysis.com",
