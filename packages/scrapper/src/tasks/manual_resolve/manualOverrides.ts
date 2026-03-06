@@ -8943,6 +8943,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/splisenseltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Sprybuild: {
+    ws: ["https://www.sprybuild.com"],
+    li: ["https://www.linkedin.com/company/sprybuild"],
+    _meta: { isHomepage: true }
+  },
   Squadded: {
     ws: ["https://dashboard.squadded.co", "https://www.squadded.co"],
     li: ["https://www.linkedin.com/company/squadded"],
