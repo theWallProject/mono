@@ -7573,6 +7573,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Save A Train": {
+    ws: ["https://saveatrain.com"],
+    li: ["https://www.linkedin.com/company/save-a-train"],
+    fb: ["https://www.facebook.com/saveatrain"],
+    tw: ["https://x.com/saveatrain"],
+    ig: ["https://www.instagram.com/saveatrain"],
+    ytp: ["https://www.youtube.com/@saveatrain"],
+    _meta: { isHomepage: true }
+  },
   Savvy: {
     ws: [
       "https://community.sailpoint.com",
