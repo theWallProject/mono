@@ -8075,6 +8075,11 @@ export const manualOverrides: Record<
     urls: ["https://www.senecio-robotics.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SenseIT: {
+    ws: ["https://sense-it.io"],
+    li: ["https://www.linkedin.com/company/senseitexpert"],
+    _meta: { isHomepage: true }
+  },
   "Senseera Health": {
     ws: ["https://senseerahealth.com"],
     urls: ["https://pearlcom.co.il", "https://senseerahealth.com", "https://senseerahealth.com/privacy-policy"],
