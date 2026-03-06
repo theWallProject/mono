@@ -5102,6 +5102,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Mizrahi Tefahot Bank": {
+    ws: ["https://sc.mizrahi-tefahot.co.il", "https://www.mizrahi-tefahot.co.il"],
+    li: ["https://www.linkedin.com/company/mizrahi-tefahot-bank"],
+    fb: ["https://www.facebook.com/bank.mizrahi.tefahot"],
+    ig: ["https://www.instagram.com/mizrahi.tefahot"],
+    ytp: ["https://www.youtube.com/@mizrahitefahot"],
+    urls: ["https://www.etgar.co.il"],
+    _meta: { isHomepage: true }
+  },
   Mobileye: {
     ws: [
       "https://brand.mobileye.com",
