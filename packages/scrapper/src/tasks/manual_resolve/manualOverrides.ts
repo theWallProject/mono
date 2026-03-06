@@ -5213,6 +5213,21 @@ export const manualOverrides: Record<
     tw: ["https://x.com/magentiqeye"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Magic Software Enterprises": {
+    ws: [
+      "https://factoryeye.magicsoftware.com",
+      "https://lg.magicsoftware.com",
+      "https://webclient.magicsoftware.com",
+      "https://www.magicsoftware.com",
+      "https://magicsoftware.nl"
+    ],
+    li: ["https://www.linkedin.com/company/magic-software-enterprises"],
+    fb: ["https://www.facebook.com/magicsoftwareenterprises"],
+    tw: ["https://x.com/@magicsoftware"],
+    ytp: ["https://www.youtube.com/@magicsoftware"],
+    urls: ["https://magicsoftware.my.salesforce-sites.com/PublicKnowledge", "https://www.powwowmobile.com"],
+    _meta: { isHomepage: true }
+  },
   MagicYard: {
     ws: ["https://beta.magicyard.co", "https://magicyard.co"],
     li: ["https://www.linkedin.com/company/magicyardln"],
