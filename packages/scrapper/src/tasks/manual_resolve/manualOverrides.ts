@@ -793,6 +793,13 @@ export const manualOverrides: Record<
     urls: ["http://www.quotemedia.com", "http://www.quotemedia.com/legal/tos"],
     _meta: { isHomepage: true }
   },
+  Arpeely: {
+    ws: ["https://www.arpeely.com"],
+    li: ["https://www.linkedin.com/company/arpeely"],
+    ig: ["https://www.instagram.com/arpeely"],
+    urls: ["https://arpeely.com/privacy", "https://gdpr.eu"],
+    _meta: { isHomepage: true }
+  },
   "Arrakis Bio": {
     ws: ["https://www.arrakis.bio"],
     li: ["https://www.linkedin.com/company/arrakis-bio"],
