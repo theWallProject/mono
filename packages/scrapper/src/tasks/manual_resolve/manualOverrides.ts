@@ -4108,6 +4108,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@innoviztechnologies3315"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Insighting: {
+    ws: ["https://www.insighting.io"],
+    li: ["https://www.linkedin.com/company/insightingio"],
+    _meta: { isHomepage: true }
+  },
   "Inspira Technologies": {
     ws: ["https://inspira-technologies.com"],
     li: ["https://www.linkedin.com/company/18356393"],
