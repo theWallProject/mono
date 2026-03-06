@@ -3213,6 +3213,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "ECO-OS": {
+    ws: ["https://app1.ecoos.co", "https://ecoos.co"],
+    li: ["https://www.linkedin.com/company/eco-os"],
+    fb: ["https://www.facebook.com/ecoos44"],
+    _meta: { isHomepage: true }
+  },
   "ELSE Nutrition": {
     ws: ["https://elsenutrition.com", "https://hcp.elsenutrition.com", "https://investors.elsenutrition.com"],
     li: ["https://www.linkedin.com/company/else-nutrition"],
