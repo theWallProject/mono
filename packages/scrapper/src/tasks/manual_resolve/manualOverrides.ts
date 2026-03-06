@@ -10930,6 +10930,11 @@ export const manualOverrides: Record<
     urls: ["http://ir.xtend.me", "https://support.xtend.me/wp-login.php"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "XTL Biopharmaceuticals Ltd.": {
+    ws: ["https://xtlbio.com"],
+    urls: ["http://www.nasdaq.com/symbol/xtlb", "http://www.tase.co.il/eng/general/company/pages/companymaindata.aspx"],
+    _meta: { isHomepage: true }
+  },
   "Xenia Venture Capital": {
     ws: ["https://xenia.co.il"],
     urls: ["http://www.vlx.co.il", "https://jstudio.co.il"],
