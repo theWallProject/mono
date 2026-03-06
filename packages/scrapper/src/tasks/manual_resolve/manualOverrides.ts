@@ -5084,6 +5084,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/mndl-bio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Magdent: {
+    ws: ["https://magdentmed.com"],
+    li: ["https://www.linkedin.com/company/magdent"],
+    fb: ["https://www.facebook.com/magdentmed"],
+    ig: ["https://www.instagram.com/magdentmed"],
+    ytp: ["https://www.youtube.com/@magdentmed888"],
+    urls: ["https://digipanda.co.in"],
+    _meta: { isHomepage: true }
+  },
   "Magenta Medical": {
     ws: ["https://magentamed.com"],
     li: ["https://www.linkedin.com/company/magenta-medical"],
