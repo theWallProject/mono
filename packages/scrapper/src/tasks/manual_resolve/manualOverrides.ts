@@ -6094,6 +6094,12 @@ export const manualOverrides: Record<
     urls: ["https://www.dashboard.neurospeed.io/auth/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NeuroDerm: {
+    ws: ["https://neuroderm.com"],
+    li: ["https://www.linkedin.com/company/neuroderm"],
+    urls: ["https://www.iso.org/standard/59752.html"],
+    _meta: { isHomepage: true }
+  },
   NeuroKaire: {
     ws: ["https://hcp.neurokaire.com", "https://patient.neurokaire.com", "https://www.neurokaire.com"],
     li: ["https://www.linkedin.com/company/neurokaire"],
