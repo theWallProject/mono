@@ -8520,6 +8520,12 @@ export const manualOverrides: Record<
     urls: ["https://wpastra.com"],
     _meta: { isHomepage: true }
   },
+  Rise: {
+    ws: ["https://cloudfront.risecodes.com", "https://risecodes.com"],
+    li: ["https://www.linkedin.com/company/risecodes"],
+    ig: ["https://www.instagram.com/rise_adtech"],
+    _meta: { isHomepage: true }
+  },
   "Rise.ai": {
     ws: ["https://dev.rise.ai", "https://help.rise.ai", "https://platform.rise.ai", "https://rise.ai"],
     li: ["https://www.linkedin.com/company/rise-ai"],
