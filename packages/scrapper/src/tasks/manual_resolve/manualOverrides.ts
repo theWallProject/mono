@@ -3097,6 +3097,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Extreme Simulations": {
+    ws: ["https://extremesimulations.com"],
+    li: ["https://www.linkedin.com/company/extreme-simulations"],
+    fb: ["https://www.facebook.com/extremesimulations"],
+    ig: ["https://www.instagram.com/extremesimulations"],
+    urls: ["https://www.shopify.com"],
+    _meta: { isHomepage: true }
+  },
   "Eye-Net Mobile": {
     ws: ["https://www.eyenet-mobile.com"],
     li: ["https://www.linkedin.com/company/eyenet-mobile"],
