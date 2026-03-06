@@ -8432,6 +8432,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@sofwavemedical"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Sol Chip": {
+    ws: ["https://sol-chip.com"],
+    li: ["https://www.linkedin.com/company/sol-chip"],
+    _meta: { isHomepage: true }
+  },
   SolCold: {
     ws: ["https://www.solcold.co"],
     li: ["https://www.linkedin.com/company/solcold"],
