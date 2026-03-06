@@ -7273,6 +7273,14 @@ export const manualOverrides: Record<
     urls: ["https://www.reddit.com/r/Scinai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Scodix: {
+    ws: ["https://scodix.com", "https://support.scodix.com"],
+    fb: ["https://www.facebook.com/scodix"],
+    tw: ["https://x.com/scodixsense"],
+    ig: ["https://www.instagram.com/scodixsense"],
+    ytp: ["https://www.youtube.com/@scodixsense"],
+    _meta: { isHomepage: true }
+  },
   "Scopio Labs": {
     ws: ["https://learn.scopiolabs.com", "https://scopiolabs.com", "https://trust.scopiolabs.com"],
     li: ["https://www.linkedin.com/company/scopio-labs"],
