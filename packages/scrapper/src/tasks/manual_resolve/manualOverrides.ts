@@ -2200,6 +2200,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@commboxio1073"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Comparisun: {
+    ws: ["https://www.comparisun.com"],
+    li: ["https://www.linkedin.com/company/thecomparisun"],
+    fb: ["https://www.facebook.com/comparisun.reviews"],
+    tw: ["https://x.com/comparisun"],
+    _meta: { isHomepage: true }
+  },
   "Compete HR": {
     ws: ["https://competewith.com", "https://swp-us.competewith.com"],
     li: ["https://www.linkedin.com/company/competehr"],
