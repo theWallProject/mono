@@ -8563,6 +8563,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@CyeraSecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TransAlgae: {
+    ws: ["https://www.transalgae.com"],
+    li: ["https://www.linkedin.com/company/transalgae-israel-ltd."],
+    _meta: { isHomepage: true }
+  },
   Travelier: {
     ws: [
       "https://www.travelier.com",
