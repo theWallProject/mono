@@ -10197,6 +10197,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  "Yarok Microbio": {
+    ws: ["https://www.yaroktt.com"],
+    li: ["https://www.linkedin.com/company/yarok-technology-transfer"],
+    fb: ["https://www.facebook.com/yarokmicrobio"],
+    tw: ["https://x.com/yaroktt"],
+    _meta: { isHomepage: true }
+  },
   "Yeap Proteins": {
     ws: ["https://yeap-proteins.com"],
     li: ["https://www.linkedin.com/company/yeap-proteins"],
