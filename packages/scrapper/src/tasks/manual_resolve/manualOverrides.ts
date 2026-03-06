@@ -10883,6 +10883,11 @@ export const manualOverrides: Record<
     urls: ["http://ir.xtend.me", "https://support.xtend.me/wp-login.php"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Xenia Venture Capital": {
+    ws: ["https://xenia.co.il"],
+    urls: ["http://www.vlx.co.il", "https://jstudio.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Xpand (formerly 1MRobotics)": {
     ws: ["https://xpand.us"],
     li: ["https://www.linkedin.com/company/xpand-today"],
