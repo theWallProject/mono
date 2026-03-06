@@ -6454,6 +6454,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@orcamtech"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Orbit Communication Systems": {
+    ws: ["https://orbit-cs.com", "https://orbit-cs-usa.com"],
+    li: ["https://www.linkedin.com/company/orbit-communication-systems-ltd"],
+    urls: ["https://www.euclid-eng.com"],
+    _meta: { isHomepage: true }
+  },
   Orbs: {
     ws: ["https://www.orbs.com"],
     tw: ["https://x.com/orbs_network"],
