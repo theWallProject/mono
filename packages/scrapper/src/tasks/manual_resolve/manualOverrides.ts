@@ -4474,6 +4474,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/ibi-ag"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "IDE Technologies": {
+    ws: ["https://ide-tech.com"],
+    li: ["https://www.linkedin.com/company/ide-technologies-ltd."],
+    tw: ["https://x.com/idetechnologies"],
+    _meta: { isHomepage: true }
+  },
   IDEEZA: {
     ws: ["https://ideeza.com"],
     li: ["https://www.linkedin.com/company/makeideeza"],
