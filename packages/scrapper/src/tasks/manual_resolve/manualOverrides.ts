@@ -5938,6 +5938,13 @@ export const manualOverrides: Record<
     urls: ["https://www.dashboard.neurospeed.io/auth/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NeuroKaire: {
+    ws: ["https://hcp.neurokaire.com", "https://patient.neurokaire.com", "https://www.neurokaire.com"],
+    li: ["https://www.linkedin.com/company/neurokaire"],
+    fb: ["https://www.facebook.com/neurokaire"],
+    tw: ["https://x.com/neurokaire"],
+    _meta: { isHomepage: true }
+  },
   "NeuroSense Therapeutics": {
     ws: ["https://www.neurosense-tx.com"],
     li: ["https://www.linkedin.com/company/neurosense-therapeutics"],
