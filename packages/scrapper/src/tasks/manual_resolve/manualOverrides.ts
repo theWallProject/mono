@@ -10738,6 +10738,14 @@ export const manualOverrides: Record<
     urls: ["https://www.google.com/maps/search/Hatnufa+5+,+Yokneam+Illit,+Israel"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Webbing: {
+    ws: ["https://support.webbingsolutions.com", "https://webbingsolutions.com", "https://my.iamwebbing.com"],
+    li: ["https://www.linkedin.com/company/webbing-inc-"],
+    fb: ["https://www.facebook.com/webbingvibe"],
+    tw: ["https://x.com/webbinginc"],
+    urls: ["https://forms.monday.com/forms/feb5c201b3019c1b96d7e7e4a4d5ce4b"],
+    _meta: { isHomepage: true }
+  },
   WeedOut: { ws: ["https://www.weedout-ibs.com"], _meta: { isHomepage: true, isVerified: true } },
   "Wematch.live": {
     ws: ["https://wematch.live"],
