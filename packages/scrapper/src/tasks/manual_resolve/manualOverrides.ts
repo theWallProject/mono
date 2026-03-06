@@ -5288,6 +5288,22 @@ export const manualOverrides: Record<
     urls: ["https://calendly.com/whitney-marketeam/marketeam-meeting-clone", "https://huggingface.co/marketeam"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Marvell Israel": {
+    ws: [
+      "https://cn.marvell.com",
+      "https://investor.marvell.com",
+      "https://jp.marvell.com",
+      "https://videos.marvell.com",
+      "https://www.marvell.com"
+    ],
+    li: ["https://www.linkedin.com/company/marvell"],
+    fb: ["https://www.facebook.com/marvelltechnology"],
+    tw: ["https://x.com/marvelltech"],
+    ig: ["https://www.instagram.com/marvelltechnology"],
+    ytp: ["https://www.youtube.com/@marvelltechnology"],
+    urls: ["https://secure.ethicspoint.com/domain/media/en/gui/20485/index.html"],
+    _meta: { isHomepage: true }
+  },
   Masterschool: {
     ws: ["https://joinmsit.de"],
     fb: ["https://www.facebook.com/joinmsit.de"],
