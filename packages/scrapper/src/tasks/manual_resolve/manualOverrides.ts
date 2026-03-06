@@ -10128,6 +10128,17 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  eggXYt: {
+    ws: ["https://www.eggxyt.com"],
+    li: ["https://www.linkedin.com/company/eggxyt"],
+    fb: ["https://www.facebook.com/eggxyt"],
+    tw: ["https://x.com/eggxyt"],
+    urls: [
+      "https://forwardfooding.com/foodtech500/2020/company/eggxyt",
+      "https://unreasonablegroup.com/companies/eggxyt"
+    ],
+    _meta: { isHomepage: true }
+  },
   fintastic: {
     ws: ["https://fintastic.ai"],
     li: ["https://www.linkedin.com/company/fintastic-ai"],
