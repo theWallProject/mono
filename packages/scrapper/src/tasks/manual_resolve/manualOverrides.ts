@@ -2172,6 +2172,13 @@ export const manualOverrides: Record<
     urls: ["https://t.me/CyversAlertsOfficial", "https://t.me/CyversAlertsOfficial"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CyViation: {
+    ws: ["https://cyviation.aero"],
+    li: ["https://www.linkedin.com/company/cyviation"],
+    tw: ["https://x.com/cyviation_aero"],
+    urls: ["https://skyray.aero"],
+    _meta: { isHomepage: true }
+  },
   Cyabra: {
     ws: ["https://cyabra.com"],
     li: ["https://www.linkedin.com/company/cyabra"],
