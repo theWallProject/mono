@@ -8133,6 +8133,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@saveatrain"],
     _meta: { isHomepage: true }
   },
+  "Save It": {
+    ws: ["https://save-it.co"],
+    li: ["https://www.linkedin.com/company/save-it-a"],
+    fb: ["https://www.facebook.com/save.it.il"],
+    ig: ["https://www.instagram.com/save.it.gram"],
+    _meta: { isHomepage: true }
+  },
   Savvy: {
     ws: [
       "https://community.sailpoint.com",
