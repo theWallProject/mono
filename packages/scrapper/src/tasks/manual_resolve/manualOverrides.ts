@@ -7288,6 +7288,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@sapiensint"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Satcom Systems": {
+    ws: ["https://satcom-gilat.co.il"],
+    urls: ["https://gilat-telecom.co.il", "https://web.irm.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Satori Cyber": {
     ws: ["https://app.satoricyber.com", "https://blog.satoricyber.com", "https://satoricyber.com"],
     li: ["https://www.linkedin.com/company/satoricyber"],
