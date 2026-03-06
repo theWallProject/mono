@@ -5592,6 +5592,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/mobilicommob"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MobilityInsight: {
+    ws: ["https://www.mobilityinsight.net"],
+    li: ["https://www.linkedin.com/company/mobi---mobility-insight"],
+    _meta: { isHomepage: true }
+  },
   Momentick: {
     ws: ["https://www.momentick.com"],
     li: ["https://www.linkedin.com/company/momentick"],
