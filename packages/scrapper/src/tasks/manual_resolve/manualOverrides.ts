@@ -7451,6 +7451,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Poloriz: {
+    ws: ["https://www.poloriz.com"],
+    li: ["https://www.linkedin.com/company/poloriz"],
+    fb: ["https://www.facebook.com/poloriz.ltd"],
+    ig: ["https://www.instagram.com/poloriz"],
+    urls: ["http://bit.ly/poloriz-media-kit"],
+    _meta: { isHomepage: true }
+  },
   Polygreen: {
     ws: ["https://www.polygreen-group.com"],
     urls: [
