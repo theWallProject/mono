@@ -7281,6 +7281,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PARANA: {
+    ws: ["https://www.paranagames.com"],
+    li: ["https://www.linkedin.com/company/parana-games"],
+    urls: ["https://parana.onelink.me/3Cyl/wgr1cczv"],
+    _meta: { isHomepage: true }
+  },
   PNY: {
     ws: ["https://www.ridepny.com"],
     li: ["https://www.linkedin.com/company/ridepny"],
