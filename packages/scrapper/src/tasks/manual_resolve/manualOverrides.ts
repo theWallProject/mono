@@ -10733,6 +10733,16 @@ export const manualOverrides: Record<
     urls: ["https://app.watchful.ai/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  WaterGen: {
+    ws: ["https://watergen.com"],
+    li: ["https://www.linkedin.com/company/824932", "https://www.linkedin.com/company/watergen"],
+    fb: ["https://www.facebook.com/watergen.official"],
+    tw: ["https://x.com/watergen_inc"],
+    ig: ["https://www.instagram.com/watergen_official"],
+    ytp: ["https://www.youtube.com/@watergen_official"],
+    urls: ["https://wponetap.com"],
+    _meta: { isHomepage: true }
+  },
   "Waterfall Security Solutions Ltd.": {
     ws: ["https://waterfall-security.com"],
     li: ["https://www.linkedin.com/company/waterfall-security-solutions-ltd"],
