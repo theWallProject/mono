@@ -200,6 +200,25 @@ export const manualOverrides: Record<
     android_app_ids: ["com.agritask.mobile.android"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AdaSwap: {
+    ws: [
+      "https://dex.adaswap.com",
+      "https://testnet.adaswap.com",
+      "https://www.adaswap.com",
+      "https://adaswap-website.webflow.io"
+    ],
+    tw: ["https://x.com/adaswapapp"],
+    ig: ["https://www.instagram.com/adaswap"],
+    urls: [
+      "https://adanft.app",
+      "https://cardanoscan.io/token/f4352dfe35050aba8cec20956fbf2bcfd2622f8e",
+      "https://etherscan.io/address/0x56694577564FdD577a0ABB20FE95C1E2756C2a11",
+      "https://explorer-mainnet-cardano-evm.c1.milkomeda.com/token/0xAb033ae98BEeB92C267D1f02E3963A424A02B406",
+      "https://t.me/adaswapcommunity",
+      "https://www.gate.io/trade/ASW_USDT"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Adaptive Shield": {
     ws: [
       "https://community.crowdstrike.com",
