@@ -3357,6 +3357,19 @@ export const manualOverrides: Record<
     urls: ["http://www.user-a.co.il", "https://web.irm.co.il"],
     _meta: { isHomepage: true }
   },
+  "Elmo Motion Control": {
+    ws: ["https://lp.elmomc.com", "https://www.elmomc.com", "https://elmomc.cn", "https://www.elmomc.kr"],
+    li: ["https://www.linkedin.com/company/elmomotioncontrol"],
+    fb: ["https://www.facebook.com/elmomotioncontrol1"],
+    tw: ["https://x.com/elmomotioncontr"],
+    ytp: ["https://www.youtube.com/@elmomotioncontrolltd"],
+    urls: [
+      "https://elmomc.my.site.com/login",
+      "https://www.bosch.com/company/supply-chain/information-for-business-partners",
+      "https://www.bosch.com/sustainability/responsibility"
+    ],
+    _meta: { isHomepage: true }
+  },
   Emerix: {
     ws: ["https://www.emerix.ai"],
     li: ["https://www.linkedin.com/company/emerixai"],
