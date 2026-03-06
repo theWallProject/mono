@@ -2326,6 +2326,26 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@commboxio1073"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Common Ninja": {
+    ws: [
+      "https://careers.commoninja.com",
+      "https://community.commoninja.com",
+      "https://developers.commoninja.com",
+      "https://discover.commoninja.com",
+      "https://help.commoninja.com",
+      "https://www.commoninja.com",
+      "https://commonninja.statuspage.io",
+      "https://www.bracketsninja.com"
+    ],
+    li: ["https://www.linkedin.com/company/common-ninja"],
+    fb: ["https://www.facebook.com/commonninja"],
+    tw: ["https://x.com/commonninja"],
+    ig: ["https://www.instagram.com/commonninja_official"],
+    ytp: ["https://www.youtube.com/@commonninja"],
+    tt: ["https://www.tiktok.com/@commonninja_official"],
+    urls: ["https://commoninja.site/suggest-a-widget", "https://embeddable.co", "https://vidocu.ai"],
+    _meta: { isHomepage: true }
+  },
   Comparisun: {
     ws: ["https://www.comparisun.com"],
     li: ["https://www.linkedin.com/company/thecomparisun"],
