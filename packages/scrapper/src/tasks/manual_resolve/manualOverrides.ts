@@ -8413,6 +8413,23 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  Smartlation: {
+    ws: [
+      "https://app.smartlation.com",
+      "https://cdn.smartlation.com",
+      "https://smartlation.com",
+      "https://smartlationpro.com",
+      "https://www.smartlation.com"
+    ],
+    urls: [
+      "http://www.mastercard.com",
+      "http://www.visa.com",
+      "https://www.americanexpress.com",
+      "https://www.forbes.com/sites/ilyapozin/2014/11/12/five-apps-and-services-entrepreneurs-can-use-to-avoid-business-embarrassment/2",
+      "https://www.paypal.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   SodaStream: {
     ws: [
       "https://sodastream.com",
