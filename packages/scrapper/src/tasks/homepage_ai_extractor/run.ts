@@ -20,7 +20,7 @@ import { chromium, Page } from "playwright"
 
 import { error, log } from "../../helper"
 import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema } from "../../types"
-import { allLinksGreen, describeNonGreenFields } from "../validate/green_check"
+import { allLinksGreen, describeNonGreenFields, nameAppearsInLink } from "../validate/green_check"
 import { sortByReasonAndCbRank } from "../validate/sorting"
 import { displayStatistics } from "../validate/statistics"
 import { isVerified, isHomepage, type ManualOverrideValue, type MetaState, homepageMeta } from "../validate/types"
@@ -118,12 +118,78 @@ const loadData = (): LoadedData => {
 // Convert CategorizedLinks to ManualOverrideFields
 // ────────────────────────────────────────────────────────────────────────────
 
-const categorizedToOverride = (
-  categorized: CategorizedLinks
+/** @internal Exported for testing only */
+export const categorizedToOverride = (
+  categorized: CategorizedLinks,
+  companyName: string
 ): ManualOverrideFields & MetaState & { urls?: string[] } => {
   // Deduplicate social links by selector before saving
   // (e.g., linkedin.com/company/foo and linkedin.com/company/foo/?origin → keep only the canonical URL)
   const deduped = deduplicateSocialLinks(categorized)
+
+  // ── Post-processing: case-insensitive URL dedup across all array fields ──
+  // Safety net: collapse URLs that differ only in case within the same field.
+  // The selector-based dedup above should already handle social fields, but
+  // this catches any edge cases (e.g., different pipeline stages producing
+  // the same URL with different casing).
+  const arrayFields: Array<keyof CategorizedLinks> = [
+    "ws", "li", "fb", "tw", "ig", "gh", "ytp", "ytc", "tt", "th", "urls", "android_app_ids"
+  ]
+  for (const field of arrayFields) {
+    const arr = deduped[field]
+    if (!Array.isArray(arr) || arr.length <= 1) continue
+    const seen = new Set<string>()
+    const unique: string[] = []
+    for (const url of arr) {
+      const lower = url.toLowerCase()
+      if (!seen.has(lower)) {
+        seen.add(lower)
+        unique.push(url)
+      }
+    }
+    if (unique.length !== arr.length) {
+      // Mutate in-place: truncate and refill with unique values
+      arr.length = 0
+      arr.push(...unique)
+    }
+  }
+
+  // ── Promote green urls entries to ws ──
+  // URLs in the urls array that contain the company name are likely company-owned
+  // domains (e.g., foretellix.cn for Foretellix). Move them to ws where they belong.
+  if (deduped.urls && deduped.urls.length > 0) {
+    const wsSet = new Set((deduped.ws ?? []).map((u) => u.toLowerCase()))
+    const promotedToWs: string[] = []
+    const remainingUrls: string[] = []
+
+    for (const url of deduped.urls) {
+      // Only promote URLs that are green (company name appears in the URL)
+      // and are simple domain URLs (no deep paths suggesting app stores, etc.)
+      if (nameAppearsInLink(companyName, url) && isSimpleDomainUrl(url)) {
+        if (!wsSet.has(url.toLowerCase())) {
+          promotedToWs.push(url)
+          wsSet.add(url.toLowerCase())
+        }
+        // Drop from urls regardless (it's either promoted or already in ws)
+      } else {
+        remainingUrls.push(url)
+      }
+    }
+
+    if (promotedToWs.length > 0) {
+      deduped.ws = [...(deduped.ws ?? []), ...promotedToWs]
+    }
+    deduped.urls = remainingUrls.length > 0 ? remainingUrls : undefined
+  }
+
+  // ── Remove urls entries that duplicate ws entries ──
+  // After ws promotion (and potentially from the original pipeline), urls may
+  // contain entries whose origin is already in ws. Remove them.
+  if (deduped.urls && deduped.urls.length > 0 && deduped.ws && deduped.ws.length > 0) {
+    const wsOrigins = new Set(deduped.ws.map((u) => extractOrigin(u)))
+    const filtered = deduped.urls.filter((url) => !wsOrigins.has(extractOrigin(url)))
+    deduped.urls = filtered.length > 0 ? filtered : undefined
+  }
 
   const override: ManualOverrideFields & MetaState & { urls?: string[] } = {
     _meta: homepageMeta
@@ -148,6 +214,48 @@ const categorizedToOverride = (
   }
 
   return override
+}
+
+/**
+ * Returns true if the override has no meaningful social/link fields — only _meta,
+ * ws, and optionally urls. This means the homepage extraction found the website
+ * domain but nothing else (no social profiles, no app stores, etc.).
+ *
+ * These entries are not worth saving automatically — they should go to retry
+ * for manual review since the homepage likely blocks bots or has no outbound links.
+ */
+/** @internal Exported for testing only */
+export const isWsOnlyOverride = (override: Record<string, unknown>): boolean => {
+  const meaningfulFields = Object.keys(override).filter(
+    (key) => key !== "_meta" && key !== "ws"
+  )
+  return meaningfulFields.length === 0
+}
+
+/** Extract the origin (protocol + hostname) from a URL, lowercased. */
+const extractOrigin = (url: string): string => {
+  try {
+    const parsed = new URL(url)
+    return parsed.origin.toLowerCase()
+  } catch {
+    return url.toLowerCase()
+  }
+}
+
+/**
+ * Returns true if the URL is a simple domain URL (just an origin, possibly with
+ * a trailing slash or short path like /en). Excludes deep paths that suggest
+ * app store listings, API docs, or other non-homepage URLs.
+ */
+const isSimpleDomainUrl = (url: string): boolean => {
+  try {
+    const parsed = new URL(url)
+    // Pathname must be "/" or a short locale-style segment (e.g., "/en", "/zh-cn")
+    const path = parsed.pathname.replace(/\/+$/, "")
+    return path === "" || /^\/[a-z]{2}(-[a-z]{2})?$/i.test(path)
+  } catch {
+    return false
+  }
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -191,7 +299,7 @@ const processCompany = async (
     const categorized = await categorizeLinks(item.name, extraction, companyLogger)
 
     // Step 3: Convert to override format
-    const override = categorizedToOverride(categorized)
+    const override = categorizedToOverride(categorized, item.name)
 
     companyLogger.log(`Override fields: ${Object.keys(override).filter((k) => k !== "_meta").join(", ")}`)
     companyLogger.flush()
@@ -592,7 +700,7 @@ export const runInteractive = async (companyNameOverride?: string): Promise<stri
   )
 
   // Convert back to override if browser review changed anything
-  const finalOverride = categorizedToOverride(reviewedCategorized)
+  const finalOverride = categorizedToOverride(reviewedCategorized, selectedItem.name)
 
   // Step 3: Save to manualOverrides
   currentOverrides[selectedItem.name] = finalOverride
@@ -685,6 +793,23 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
       // LinkedIn login errors are fatal — stop the batch gracefully
       await closeSharedBrowser()
       throw err
+    }
+
+    // ── WS-only check ──────────────────────────────────────────────────────
+    // If the override only has _meta + ws (no social links, no app stores),
+    // the homepage didn't yield useful data. Send to retry for manual review.
+    if (isWsOnlyOverride(resolvedOverride)) {
+      failCount++
+      log(`WS-ONLY: no social links or app stores found — only website domain`)
+      addToRetryList(
+        item.name,
+        item.ws ?? "",
+        "WS_ONLY",
+        "Homepage extraction found only the website domain — no social profiles, app stores, or other links"
+      )
+      log(`Added "${item.name}" to retry list (ws-only). Continuing with next company...`)
+      commitCompanyResult(item.name, false, "WS_ONLY")
+      continue
     }
 
     // ── Green check ───────────────────────────────────────────────────────
@@ -809,6 +934,20 @@ export const runRetry = async (): Promise<void> => {
     } catch (err) {
       await closeSharedBrowser()
       throw err
+    }
+
+    // ── WS-only check ──────────────────────────────────────────────────────
+    if (isWsOnlyOverride(resolvedOverride)) {
+      failCount++
+      log(`RETRY WS-ONLY: no social links or app stores found — only website domain`)
+      addToRetryList(
+        item.name,
+        item.ws ?? "",
+        "WS_ONLY",
+        "Homepage extraction found only the website domain — no social profiles, app stores, or other links"
+      )
+      log(`"${item.name}" still in retry list (ws-only). Continuing...`)
+      continue
     }
 
     // ── Green check ───────────────────────────────────────────────────────
