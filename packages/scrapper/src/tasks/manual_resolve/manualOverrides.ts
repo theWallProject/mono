@@ -8736,6 +8736,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/trendemon"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Trendlines Group": {
+    ws: ["https://www.trendlines.com"],
+    li: ["https://www.linkedin.com/company/trendlines"],
+    fb: ["https://www.facebook.com/trendlinesgroup"],
+    tw: ["https://x.com/trendlinesgroup"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true }
+  },
   Tres: {
     ws: ["https://help.tres.finance", "https://tres.finance", "https://trustcenter.tres.finance"],
     li: ["https://www.linkedin.com/company/tresfinance"],
