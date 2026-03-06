@@ -290,6 +290,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Agrorim: {
+    ws: ["https://agrorim.com"],
+    li: ["https://www.linkedin.com/company/88963148", "https://www.linkedin.com/company/agrorim"],
+    fb: ["https://www.facebook.com/agrorim"],
+    tw: ["https://x.com/agrorim"],
+    ytp: ["https://www.youtube.com/@agrorim"],
+    urls: ["https://www.waze.com/en/live/32.150468,34.973125"],
+    _meta: { isHomepage: true }
+  },
   Aidoc: {
     fb: ["https://www.facebook.com/aidocmed"],
     tw: ["https://x.com/aidocmed"],
