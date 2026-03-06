@@ -1100,6 +1100,19 @@ export const manualOverrides: Record<
     ws: ["https://www.qualcomm.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Avaturn (formerly in3D)": {
+    ws: ["https://avaturn.me", "https://developer.avaturn.me", "https://docs.avaturn.me", "https://hub.avaturn.me"],
+    li: ["https://www.linkedin.com/company/28502076", "https://www.linkedin.com/company/avaturn"],
+    tw: ["https://x.com/avaturn_me"],
+    ytp: ["https://www.youtube.com/@avaturn"],
+    urls: [
+      "https://discord.com/invite/2xmxXv2SQk",
+      "https://docs.google.com/document/d/e/2PACX-1vT-lYthxjPO4SbgkB2kJN8dTFWvRVdF3srOs37oRBgL7IYXK0PAD62u-tF8JXo8ULV6_KVfRW_kuIMo/pub",
+      "https://docs.google.com/document/d/e/2PACX-1vT5_TR6-MNs29LqI-LLKHvIKHVE0iluuapOpHODGRVDaqyfuCsEgaiE3ZIliI1-FN_-9rxJZ3iVo_jJ/pub",
+      "https://form.typeform.com/to/zPNRWKvJ"
+    ],
+    _meta: { isHomepage: true }
+  },
   Avenews: {
     ws: ["https://www.avenews-gt.com"],
     li: ["https://www.linkedin.com/company/avenews-gt"],
