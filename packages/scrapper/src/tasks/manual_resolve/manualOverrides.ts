@@ -491,6 +491,14 @@ export const manualOverrides: Record<
     urls: ["https://amaiproteins.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Aman Group": {
+    ws: ["https://www.aman.co.il", "https://www.aman-global.com"],
+    li: ["https://www.linkedin.com/company/aman-group"],
+    fb: ["https://www.facebook.com/aman.group"],
+    ig: ["https://www.instagram.com/amangroup_il"],
+    urls: ["https://youtu.be/TKQ9QzD_dk0"],
+    _meta: { isHomepage: true }
+  },
   "Ambrosia Bio": {
     ws: ["https://www.ambrosia.bio"],
     urls: ["https://www.adilinial.com"],
