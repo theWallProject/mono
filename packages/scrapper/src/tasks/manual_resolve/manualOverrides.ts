@@ -3106,6 +3106,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Equinom"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Ettorney: {
+    ws: ["https://www.ettorney.co.il"],
+    li: ["https://www.linkedin.com/company/9360861", "https://www.linkedin.com/company/ettorney"],
+    fb: ["https://www.facebook.com/ettorney.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Ever After Foods": {
     ws: ["https://everafterfoods.com"],
     urls: [
