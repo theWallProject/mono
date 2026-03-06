@@ -1856,6 +1856,16 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/criaterra"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CRYMBO: {
+    ws: ["https://www.crymbo.com", "https://crymbo.redoc.ly", "https://tech.crymbo.link"],
+    li: ["https://www.linkedin.com/company/crymbo"],
+    tw: ["https://x.com/crymbotech"],
+    urls: [
+      "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N_3JguA21glB-1aPs1FHIDl8yKCkNrBXdOKzeUkOxtaq-t0aKzw_E6dNLIXxYfU7xLIQV-ibC",
+      "https://t.me/crymbotech"
+    ],
+    _meta: { isHomepage: true }
+  },
   "CU-BX": {
     ws: ["https://www.cu-bx.com"],
     urls: ["https://t.me/serpnames"],
