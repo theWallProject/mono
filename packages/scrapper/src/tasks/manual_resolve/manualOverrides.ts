@@ -2978,6 +2978,21 @@ export const manualOverrides: Record<
     urls: ["https://attractive.co.il", "https://www.sec.gov/cgi-bin/browse-edgar"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Evoke PLC": {
+    ws: ["https://www.evokeplc.com"],
+    li: ["https://www.linkedin.com/company/evokeplc"],
+    tw: ["https://x.com/evoke_plc"],
+    urls: [
+      "https://sports.williamhill.com",
+      "https://vegas.williamhill.com",
+      "https://www.888casino.com",
+      "https://www.888poker.com",
+      "https://www.888sport.com",
+      "https://www.design-portfolio.co.uk",
+      "https://www.mrgreen.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   Evrideo: {
     ws: ["https://evrideo.com"],
     li: ["https://www.linkedin.com/company/evrideo-playout"],
