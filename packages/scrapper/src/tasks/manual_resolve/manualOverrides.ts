@@ -7642,6 +7642,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ShapeDo: {
+    ws: ["https://app.shapedo.com", "https://shapedo.com"],
+    li: ["https://www.linkedin.com/company/5015898", "https://www.linkedin.com/company/shapedo"],
+    fb: ["https://www.facebook.com/shapedo"],
+    _meta: { isHomepage: true }
+  },
   Shield: {
     ws: ["https://kb.shieldfc.com", "https://www.shieldfc.com"],
     li: ["https://www.linkedin.com/company/shieldcommunicationcompliance"],
