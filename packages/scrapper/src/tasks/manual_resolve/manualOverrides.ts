@@ -4246,6 +4246,21 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Israelinnovationauthority"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Itamar Medical": {
+    ws: [
+      "https://cloudpat-au.itamar-medical.com",
+      "https://cloudpat-eu.itamar-medical.com",
+      "https://cloudpat-uk.itamar-medical.com",
+      "https://cloudpat.itamar-medical.com",
+      "https://es.itamar-medical.com",
+      "https://www.itamar-medical.com"
+    ],
+    li: ["https://www.linkedin.com/company/itamar-medical"],
+    fb: ["https://www.facebook.com/itamarmedical"],
+    tw: ["https://x.com/itamarmedical1"],
+    urls: ["https://assafmedia.co.il", "https://careers.zoll.com/careers-listing", "https://www.watchpat.fr"],
+    _meta: { isHomepage: true }
+  },
   Jeeng: {
     ws: ["https://setup.jeeng.com", "https://www.jeeng.com"],
     li: ["https://www.linkedin.com/company/jeengofficial"],
