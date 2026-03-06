@@ -5671,6 +5671,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Media Forest": {
+    ws: ["https://mediaforest-group.com"],
+    urls: ["https://t.me/mediaforest_bot", "https://wa.me/+972533666070"],
+    _meta: { isHomepage: true }
+  },
   MedicannX: {
     ws: ["https://medicannx.com"],
     urls: ["https://wpastra.com"],
