@@ -8579,6 +8579,16 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@unipaas"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Ubeya: {
+    ws: ["https://careers.ubeya.com", "https://learn.ubeya.com", "https://ottavio.ubeya.com", "https://www.ubeya.com"],
+    li: ["https://www.linkedin.com/company/ubeya"],
+    fb: ["https://www.facebook.com/ubeya"],
+    tw: ["https://x.com/ubeya_"],
+    ig: ["https://www.instagram.com/ubeya"],
+    urls: ["https://apps.apple.com/il/app/ubeya-crew/id1538331228"],
+    android_app_ids: ["com.ubeya.crew.app"],
+    _meta: { isHomepage: true }
+  },
   UltraSight: {
     ws: ["https://ultrasight.com"],
     li: ["https://linkedin.com/company/ultrasightai"],
