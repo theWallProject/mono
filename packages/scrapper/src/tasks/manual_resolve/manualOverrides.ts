@@ -5509,6 +5509,14 @@ export const manualOverrides: Record<
     urls: ["https://e-commander.com/trial-registration-email"],
     _meta: { isHomepage: true }
   },
+  "Longevity AI": {
+    ws: ["https://dashboard.longevity-ai.com", "https://www.longevity-ai.com"],
+    li: ["https://www.linkedin.com/company/76984236", "https://www.linkedin.com/company/longevity-ai"],
+    tw: ["https://x.com/longevity_ai"],
+    ig: ["https://www.instagram.com/longevityai"],
+    urls: ["https://vimeo.com/user171608365"],
+    _meta: { isHomepage: true }
+  },
   Loops: {
     ws: ["https://app.getloops.ai", "https://www.getloops.ai"],
     li: ["https://www.linkedin.com/company/getgetloops"],
