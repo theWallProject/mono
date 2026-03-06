@@ -2013,6 +2013,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cognataltd.1750"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Cognishape: { ws: ["https://cognishape.com"], urls: ["https://www.spaceship.com"], _meta: { isHomepage: true } },
   Cogniteam: {
     ws: ["https://www.cogniteam.com"],
     li: ["https://www.linkedin.com/company/cogniteam"],
