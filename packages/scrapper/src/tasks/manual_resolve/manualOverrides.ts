@@ -616,6 +616,16 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Aquafit Intimate": {
+    ws: ["https://aquafit-intimate.com"],
+    urls: [
+      "https://get-aquafit-intimate.com/self_care_space",
+      "https://shopify.com/4310630509/account",
+      "https://wa.me/972528221582",
+      "https://www.get-aquafit-intimate.com/self_care_space"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Aran Technologies": {
     ws: ["https://heb.aran-rd.com", "https://www.aran-rd.com"],
     li: ["https://www.linkedin.com/company/aran-r&d"],
