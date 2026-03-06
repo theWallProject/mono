@@ -5831,6 +5831,13 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "MitoCareX Bio": { ws: ["https://mitocarexbio.com"], urls: ["https://epicod.co.il"], _meta: { isHomepage: true } },
+  "Mixed Place": {
+    ws: ["https://www.mixed.place"],
+    urls: [
+      "https://www.designrush.com/agency/profile/mixed-place-ar-immersive-experiences-technologies-innovations-with-ar-vr-metaverse-holographic-technologies"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Mizrahi Tefahot Bank": {
     ws: ["https://sc.mizrahi-tefahot.co.il", "https://www.mizrahi-tefahot.co.il"],
     li: ["https://www.linkedin.com/company/mizrahi-tefahot-bank"],
