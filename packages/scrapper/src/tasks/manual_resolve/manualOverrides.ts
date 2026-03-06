@@ -8560,6 +8560,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.tipigo.signals.benzinga"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Tissue Dynamics": {
+    ws: ["https://www.tissuedynamics.com"],
+    li: ["https://www.linkedin.com/company/tissuedynamics"],
+    _meta: { isHomepage: true }
+  },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
     li: ["https://www.linkedin.com/company/token-security"],
