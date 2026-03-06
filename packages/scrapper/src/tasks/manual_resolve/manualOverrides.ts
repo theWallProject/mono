@@ -1987,6 +1987,17 @@ export const manualOverrides: Record<
     urls: ["https://caesarhansa.ee", "https://www.pinterest.com/caesarstoneus"],
     _meta: { isHomepage: true }
   },
+  CallApp: {
+    ws: ["https://callapp.com"],
+    li: ["https://www.linkedin.com/company/callapp"],
+    fb: ["https://www.facebook.com/callapp"],
+    tw: ["https://x.com/getcallapp"],
+    ig: ["https://www.instagram.com/getcallapp"],
+    ytp: ["https://www.youtube.com/@callapp"],
+    tt: ["https://www.tiktok.com/@callapp.latam"],
+    urls: ["https://apps.apple.com/us/app/callapp/id6739289261", "https://www.pinterest.com/callapp"],
+    _meta: { isHomepage: true }
+  },
   CaloSense: {
     ws: ["https://www.calosense.com"],
     li: ["https://www.linkedin.com/company/calosense"],
