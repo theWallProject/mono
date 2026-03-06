@@ -217,6 +217,29 @@ export const manualOverrides: Record<
     android_app_ids: ["com.agritask.mobile.android"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Actimize: {
+    ws: ["https://info.niceactimize.com", "https://resources.niceactimize.com", "https://www.niceactimize.com"],
+    li: ["https://www.linkedin.com/company/actimize"],
+    fb: ["https://www.facebook.com/niceactimize"],
+    tw: ["https://x.com/nice_actimize"],
+    urls: [
+      "https://info.nice.com/Digital-Acceleration.html",
+      "https://info.nice.com/lets-talk-fincrime.html",
+      "https://nice.customershome.com/login",
+      "https://www.nice.com",
+      "https://www.nice.com/careers",
+      "https://www.nice.com/company/about-us",
+      "https://www.nice.com/company/corporate-responsibility",
+      "https://www.nice.com/company/global-leadership",
+      "https://www.nice.com/company/global-locations",
+      "https://www.nice.com/company/investors",
+      "https://www.nice.com/company/legal/cookie-policy",
+      "https://www.nice.com/company/legal/privacy-policy",
+      "https://www.nice.com/company/legal/terms-of-use",
+      "https://www.nice.com/company/media-center"
+    ],
+    _meta: { isHomepage: true }
+  },
   ActiveAging: {
     ws: ["https://activeaging.ai"],
     li: ["https://www.linkedin.com/company/activeaging-ai"],
