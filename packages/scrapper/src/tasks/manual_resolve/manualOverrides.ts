@@ -2813,6 +2813,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Ecoppia"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Edocate: {
+    ws: ["https://www.edocate.com"],
+    li: ["https://www.linkedin.com/company/edocate-ltd"],
+    _meta: { isHomepage: true }
+  },
   "Efficient Frontier": {
     ws: ["https://efrontier.io"],
     li: ["https://www.linkedin.com/company/efficientfrontier"],
