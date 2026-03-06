@@ -5162,6 +5162,12 @@ export const manualOverrides: Record<
     urls: ["https://docs.mstone.ai", "https://mstone.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Milo Alpha": {
+    ws: ["https://miloalpha.com"],
+    li: ["https://www.linkedin.com/company/milo-alpha"],
+    urls: ["https://maps.app.goo.gl/oNedUE8XHvxk8K1T8"],
+    _meta: { isHomepage: true }
+  },
   Mindfly: {
     ws: ["https://www.mindfly.live"],
     urls: ["https://www.mindfly.live"],
