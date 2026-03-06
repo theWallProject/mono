@@ -8954,6 +8954,13 @@ export const manualOverrides: Record<
     urls: ["https://www.g2.com/products/scytale-g2/reviews"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SeatPick: {
+    ws: ["https://seatpick.com"],
+    fb: ["https://www.facebook.com/seatpick"],
+    tw: ["https://x.com/seatpick"],
+    ig: ["https://www.instagram.com/seatpick"],
+    _meta: { isHomepage: true }
+  },
   "Secret Double Octopus": {
     ws: ["https://doubleoctopus.com", "https://go.doubleoctopus.com", "https://support.doubleoctopus.com"],
     li: ["https://www.linkedin.com/company/secret-double-octopus"],
