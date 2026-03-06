@@ -3796,6 +3796,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Filo Systems": { ws: ["https://filo.systems"], _meta: { isHomepage: true, isVerified: true } },
+  "Final Israel": {
+    ws: ["https://www.final.co.il"],
+    li: ["https://www.linkedin.com/company/final"],
+    urls: ["https://www.webnoise.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Finally Foods": {
     ws: ["https://finally-foods.com"],
     li: ["https://www.linkedin.com/company/finally-foods-ltd"],
