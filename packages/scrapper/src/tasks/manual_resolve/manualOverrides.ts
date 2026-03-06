@@ -2965,6 +2965,12 @@ export const manualOverrides: Record<
     urls: ["https://a-2-z.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Enlivex Therapeutics": {
+    ws: ["https://enlivex.com"],
+    li: ["https://www.linkedin.com/company/enlivex-therapeutics-nasdaq-enlv"],
+    urls: ["https://raintreasury.com"],
+    _meta: { isHomepage: true }
+  },
   EntityMed: {
     ws: ["https://entitymed.com"],
     li: ["https://www.linkedin.com/company/entitymed"],
