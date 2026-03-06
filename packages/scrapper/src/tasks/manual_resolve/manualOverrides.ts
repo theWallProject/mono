@@ -10074,6 +10074,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/i-ecoguard-ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  iXDen: {
+    ws: ["https://ixden.com", "https://ixden.comcontact-us", "https://ixden.comprivacy-policy"],
+    li: ["https://www.linkedin.com/company/ixden"],
+    fb: ["https://www.facebook.com/ixden-194177084730394"],
+    tw: ["https://x.com/ixden2"],
+    urls: ["https://attractive.co.il"],
+    _meta: { isHomepage: true }
+  },
   illumex: {
     ws: ["https://illumex.ai"],
     li: ["https://www.linkedin.com/company/illumexai"],
