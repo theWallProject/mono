@@ -2149,6 +2149,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Coneuron: {
+    ws: ["https://coneuron.com"],
+    urls: ["https://forms.gle/Rm7DhQ14h1us91XU9"],
+    _meta: { isHomepage: true }
+  },
   Configu: {
     ws: ["https://configu.com", "https://docs.configu.com", "https://oops.configu.com", "https://status.configu.com"],
     li: ["https://www.linkedin.com/company/configu"],
