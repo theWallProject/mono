@@ -9429,6 +9429,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "YORAN Imaging": {
+    ws: ["https://yoran-imaging.com"],
+    li: ["https://www.linkedin.com/company/yoran-imaging"],
+    urls: [
+      "https://yoranimaging.wpenginepowered.com/company",
+      "https://yoranimaging.wpenginepowered.com/process-benefits"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Yabi Technologies": {
     ws: ["https://www.yabi.cloud"],
     li: ["https://www.linkedin.com/company/yabi-technologies-ltd"],
