@@ -5272,6 +5272,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/lynxight"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MAOLAC: { ws: ["https://maolac.com"], urls: ["https://brandsup.co.il"], _meta: { isHomepage: true } },
   MDClone: {
     ws: ["https://academy.mdclone.com", "https://mdclone.com"],
     li: ["https://www.linkedin.com/company/mdclone"],
