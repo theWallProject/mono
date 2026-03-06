@@ -5721,6 +5721,13 @@ export const manualOverrides: Record<
     urls: ["https://wpastra.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Medigus: {
+    ws: ["https://ir.medigus.com", "https://medigus.com"],
+    li: ["https://www.linkedin.com/company/medigus"],
+    fb: ["https://www.facebook.com/medigusltd"],
+    tw: ["https://x.com/medigus3"],
+    _meta: { isHomepage: true }
+  },
   Medorion: {
     ws: ["https://medorion.com"],
     li: ["https://www.linkedin.com/company/medorion"],
