@@ -4661,6 +4661,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/inretiomd"],
     _meta: { isHomepage: true }
   },
+  Insait: {
+    ws: ["https://insait.io"],
+    li: ["https://www.linkedin.com/company/insait-io"],
+    urls: ["https://wa.me/972525550000"],
+    _meta: { isHomepage: true }
+  },
   Insighting: {
     ws: ["https://www.insighting.io"],
     li: ["https://www.linkedin.com/company/insightingio"],
