@@ -8515,6 +8515,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Sentrycs: {
+    ws: ["https://sentrycs.com"],
+    li: ["https://www.linkedin.com/company/sentrycs"],
+    tw: ["https://x.com/sentrycs"],
+    ig: ["https://www.instagram.com/lifeatsentrycs"],
+    ytp: ["https://www.youtube.com/@sentrycs"],
+    _meta: { isHomepage: true }
+  },
   Sequentify: {
     ws: ["https://www.sequentify.com"],
     li: ["https://www.linkedin.com/company/sequentify"],
