@@ -3725,6 +3725,26 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   FVMat: { ws: ["https://fvmat.com"], _meta: { isHomepage: true, isVerified: true } },
+  Facetune: {
+    ws: ["https://static.facetuneapp.com", "https://www.facetuneapp.com"],
+    fb: ["https://www.facebook.com/facetune"],
+    tw: ["https://x.com/facetune"],
+    ig: ["https://www.instagram.com/facetune"],
+    ytp: ["https://www.youtube.com/@facetune"],
+    tt: ["https://www.tiktok.com/@facetune_by_lightricks"],
+    urls: [
+      "https://facetune.onelink.me/cBp1",
+      "https://lightricks.zendesk.com/hc/en-us/categories/360002911719-Facetune",
+      "https://ltx.studio",
+      "https://ltx.video",
+      "https://popularpays.com",
+      "https://trust.lightricks.com",
+      "https://www.lightricks.com/about",
+      "https://www.photoleapapp.com",
+      "https://www.videoleapapp.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   Factify: {
     ws: ["https://developers.factify.com", "https://www.factify.com"],
     li: ["https://www.linkedin.com/company/factifyinc"],
