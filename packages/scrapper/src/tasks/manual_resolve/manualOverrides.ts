@@ -8059,6 +8059,12 @@ export const manualOverrides: Record<
     urls: ["https://www.respirai.com/privacy-policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Results Digital": {
+    ws: ["https://www.resultsdigital.org", "http://resultsgroupus.com"],
+    ig: ["https://www.instagram.com/results_group"],
+    tt: ["https://www.tiktok.com/@resultsgroup"],
+    _meta: { isHomepage: true }
+  },
   ReturnGO: {
     ws: ["https://app.returngo.ai", "https://returngo.ai", "https://support.returngo.ai"],
     li: ["https://www.linkedin.com/company/returngo"],
