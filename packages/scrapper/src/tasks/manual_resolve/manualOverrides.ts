@@ -460,6 +460,7 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Alony Hetz": { ws: ["https://www.alony-hetz.com"], urls: ["https://san-i.co.il"], _meta: { isHomepage: true } },
   "Alpha Omega": {
     ws: ["https://www.alphaomega-eng.com"],
     li: ["https://www.linkedin.com/company/alpha-omega"],
