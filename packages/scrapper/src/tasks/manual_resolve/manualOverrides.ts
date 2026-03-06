@@ -10910,6 +10910,11 @@ export const manualOverrides: Record<
     urls: ["http://web.archive.org/web/20210305122812/mailto:Avraham@webbinglabs.com"],
     _meta: { isHomepage: true }
   },
+  Webselenese: {
+    ws: ["https://www.webselenese.com"],
+    li: ["https://www.linkedin.com/company/webselenese"],
+    _meta: { isHomepage: true }
+  },
   WeedOut: { ws: ["https://www.weedout-ibs.com"], _meta: { isHomepage: true, isVerified: true } },
   "Wematch.live": {
     ws: ["https://wematch.live"],
