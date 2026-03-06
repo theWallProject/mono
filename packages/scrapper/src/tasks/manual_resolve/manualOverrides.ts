@@ -6967,6 +6967,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Qsee: {
+    ws: ["https://www.qsee.io"],
+    li: ["https://www.linkedin.com/company/qsee"],
+    tw: ["https://x.com/qseeio"],
+    ytp: ["https://www.youtube.com/@qseezerodefectivemanufactu898"],
+    _meta: { isHomepage: true }
+  },
   "Quai MD": {
     ws: ["https://quai.md"],
     li: ["https://www.linkedin.com/company/quai-md"],
