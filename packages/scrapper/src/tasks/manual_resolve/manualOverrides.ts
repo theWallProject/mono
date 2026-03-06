@@ -1196,6 +1196,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/betterseeds-ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Betteryou: {
+    ws: ["https://accounts.betteryou.tech", "https://www.betteryou.tech"],
+    urls: ["https://form.typeform.com/to/otpBmj6K"],
+    _meta: { isHomepage: true }
+  },
   Beyeonics: {
     ws: ["https://beyeonics.com"],
     li: ["https://www.linkedin.com/company/18548655", "https://www.linkedin.com/company/beyeonics"],
