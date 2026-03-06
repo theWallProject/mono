@@ -3211,6 +3211,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Filo Systems": { ws: ["https://filo.systems"], _meta: { isHomepage: true, isVerified: true } },
+  "Finally Foods": {
+    ws: ["https://finally-foods.com"],
+    li: ["https://www.linkedin.com/company/finally-foods-ltd"],
+    urls: ["https://finsweet.com"],
+    _meta: { isHomepage: true }
+  },
   Fincom: {
     ws: ["https://fincom.co"],
     li: ["https://www.linkedin.com/company/fincom-co"],
