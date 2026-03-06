@@ -506,6 +506,11 @@ export const manualOverrides: Record<
     urls: ["http://imaginet.co.il"],
     _meta: { isHomepage: true }
   },
+  "Anima.ey": {
+    ws: ["https://anima-ey.com"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true }
+  },
   Annabella: {
     ws: ["https://insurance.annabella-pump.com", "https://www.annabella-pump.com"],
     fb: ["https://www.facebook.com/annabellapump"],
