@@ -10715,6 +10715,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@vigormedical6644"],
     _meta: { isHomepage: true }
   },
+  "Villar International": {
+    ws: ["https://villar.co.il"],
+    urls: ["https://www.waze.com/live-map/directions/israel/haifa-district/caesarea/haeshel-st-3"],
+    _meta: { isHomepage: true }
+  },
   VineSight: {
     ws: ["https://blog.vinesight.com", "https://www.vinesight.com"],
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
