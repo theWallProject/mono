@@ -5016,6 +5016,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/kayama-foods"],
     _meta: { isHomepage: true }
   },
+  Kadimastem: {
+    ws: ["https://www.kadimastem.com"],
+    li: ["https://www.linkedin.com/company/kadimastem"],
+    fb: ["https://www.facebook.com/kadimastem"],
+    tw: ["https://x.com/kadimastemltd"],
+    ig: ["https://www.instagram.com/kadimastem"],
+    urls: ["https://maya.tase.co.il/indexEng.html"],
+    _meta: { isHomepage: true }
+  },
   "Kamari Pharma": {
     ws: ["https://kamaripharma.com"],
     li: ["https://www.linkedin.com/company/kamari-pharma"],
