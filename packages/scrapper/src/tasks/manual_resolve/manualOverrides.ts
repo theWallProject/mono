@@ -7851,6 +7851,12 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/il/app/qlog-simply-manage/id6458547667", "https://play.google.com/store/search"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Qedma: {
+    ws: ["https://www.qedma.com"],
+    li: ["https://www.linkedin.com/company/qedma-quantum-computing"],
+    urls: ["https://www.comeet.com/jobs/qedma/7A.006"],
+    _meta: { isHomepage: true }
+  },
   Qodo: {
     ws: ["https://www.qodo.ai"],
     li: ["https://www.linkedin.com/company/qodoai"],
