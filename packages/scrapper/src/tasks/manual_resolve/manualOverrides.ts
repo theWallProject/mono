@@ -9059,6 +9059,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/tactilemobility"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tagado: {
+    ws: ["https://app.tagado.com", "https://tagado.com"],
+    li: ["https://www.linkedin.com/company/tagado"],
+    _meta: { isHomepage: true }
+  },
   TailorMed: {
     ws: ["https://go.tailormed.co", "https://resources.tailormed.co", "https://tailormed.co"],
     li: ["https://www.linkedin.com/company/tailormed---medical-journey-innovations"],
