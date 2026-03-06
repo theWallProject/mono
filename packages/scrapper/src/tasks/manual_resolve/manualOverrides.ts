@@ -6613,6 +6613,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/protaibio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Protalix BioTherapeutics": {
+    ws: ["https://ir.protalix.com", "https://protalix.com"],
+    li: ["https://www.linkedin.com/company/protalix-biotherapiutics"],
+    _meta: { isHomepage: true }
+  },
   "Protect AI": {
     gh: ["https://github.com/protectai"],
     ytp: ["https://www.youtube.com/@protectai"],
