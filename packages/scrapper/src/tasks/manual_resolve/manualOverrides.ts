@@ -9011,6 +9011,13 @@ export const manualOverrides: Record<
     urls: ["https://www.godaddy.com/websites/website-builder"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TKTZ: {
+    ws: ["https://www.tktz.io"],
+    li: ["https://www.linkedin.com/company/tktz-io"],
+    fb: ["https://www.facebook.com/tktzio-106727112058592"],
+    tw: ["https://x.com/tktzio"],
+    _meta: { isHomepage: true }
+  },
   TaTiO: {
     ws: ["https://www.tatio.io"],
     urls: [
