@@ -5079,6 +5079,20 @@ export const manualOverrides: Record<
     urls: ["https://mdclone.atlassian.net/servicedesk/customer/portal/7"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MMD SMART": {
+    ws: ["https://mmdsmart.com"],
+    li: ["https://www.linkedin.com/company/mmdsmart"],
+    fb: ["https://www.facebook.com/mmdsmartcom"],
+    tw: ["https://x.com/mmd_smart"],
+    ig: ["https://www.instagram.com/mmdsmart.bulgaria"],
+    ytp: ["https://www.youtube.com/@mmdsmartcommunications"],
+    urls: [
+      "https://mobileecosystemforum.com",
+      "https://mobileecosystemforum.com/programmes/future-of-messaging/fraud-management/trust-in-enterprise-messaging/a2p-code-of-conduct/code-of-conduct-disclaimer",
+      "https://www.gsma.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   "MNDL Bio": {
     ws: ["https://app.mndl.bio", "https://www.mndl.bio"],
     li: ["https://www.linkedin.com/company/mndl-bio"],
