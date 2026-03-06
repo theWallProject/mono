@@ -1612,6 +1612,26 @@ export const manualOverrides: Record<
     urls: ["https://botika-io.crisp.help/en", "https://help.botika.com/en"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Braavos: {
+    ws: ["https://braavos.app"],
+    li: ["https://www.linkedin.com/company/braavos-web3"],
+    tw: ["https://x.com/mybraavos"],
+    urls: [
+      "https://addons.mozilla.org/en-US/firefox/addon/braavos-wallet",
+      "https://apps.apple.com/app/apple-store/id1636013523",
+      "https://apps.apple.com/us/app/braavos-wallet/id1636013523",
+      "https://braavos.notion.site/4664cacfb7124cd0bf8c4ff8b85e3d27",
+      "https://chrome.google.com/webstore/detail/braavos-wallet/jnlgamecbpmbajjfhmmmlhejkemejdma",
+      "https://chromewebstore.google.com/detail/braavos-starknet-wallet/jnlgamecbpmbajjfhmmmlhejkemejdma",
+      "https://discord.com/invite/9Ks7V5DN9z",
+      "https://drive.google.com/drive/folders/1BwM7WhK4urO3n8sp3RqxFCr3tSQ1Y9Yi",
+      "https://microsoftedge.microsoft.com/addons/detail/braavos-starknet-wallet/hkkpjehhcnhgefhbdcgfkeegglpjchdc",
+      "https://microsoftedge.microsoft.com/addons/detail/braavos-wallet/hkkpjehhcnhgefhbdcgfkeegglpjchdc",
+      "https://t.me/mybraavos"
+    ],
+    android_app_ids: ["app.braavos.wallet"],
+    _meta: { isHomepage: true }
+  },
   BrainQ: {
     ws: ["https://brainqtech.com"],
     li: ["https://www.linkedin.com/company/brainq-technologies"],
