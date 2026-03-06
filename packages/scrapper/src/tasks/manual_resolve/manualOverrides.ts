@@ -7944,6 +7944,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/raaam"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  RCK: { ws: ["https://rckmc.com"], li: ["https://www.linkedin.com/company/rckmc"], _meta: { isHomepage: true } },
   "RDV Systems": {
     ws: ["https://www.rdvsystems.com"],
     li: ["https://www.linkedin.com/company/rdv-systems"],
