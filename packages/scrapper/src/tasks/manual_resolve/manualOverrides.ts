@@ -5420,6 +5420,23 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/lynxight"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "M.M.A. Tech": {
+    ws: ["https://mma-tech.com"],
+    urls: [
+      "http://mma-tech.com/articles",
+      "http://mma-tech.com/certificates",
+      "http://mma-tech.com/clinical-studies",
+      "http://mma-tech.com/contact-us",
+      "http://mma-tech.com/dental-2",
+      "http://mma-tech.com/hip",
+      "http://mma-tech.com/history",
+      "http://mma-tech.com/management-team",
+      "http://mma-tech.com/osteointegration",
+      "http://mma-tech.com/the-project-2",
+      "http://www.d-k-o.co.il"
+    ],
+    _meta: { isHomepage: true }
+  },
   MAOLAC: { ws: ["https://maolac.com"], urls: ["https://brandsup.co.il"], _meta: { isHomepage: true } },
   MDClone: {
     ws: ["https://academy.mdclone.com", "https://mdclone.com"],
