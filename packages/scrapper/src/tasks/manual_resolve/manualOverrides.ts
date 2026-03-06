@@ -1161,6 +1161,11 @@ export const manualOverrides: Record<
     urls: ["https://hb2.bankleumi.co.il/H/Login.html", "https://hb2.bankleumi.co.il/staticcontent/gate-keeper/he"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Barrel Protocol": {
+    ws: ["https://www.barrel.network"],
+    urls: ["https://a1.kikoicestick.com/barrel.html", "https://elements.envato.com"],
+    _meta: { isHomepage: true }
+  },
   Base: {
     ws: ["https://clgcampus.base.ai", "https://go.base.ai", "https://www.base.ai"],
     li: ["https://www.linkedin.com/company/base-clg"],
