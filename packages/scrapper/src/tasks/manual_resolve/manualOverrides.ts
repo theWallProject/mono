@@ -3497,6 +3497,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@endospanltd7002"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Endymed: {
+    ws: ["https://endymed.com", "https://shop.endymed.com"],
+    li: ["https://www.linkedin.com/company/endymed-ltd"],
+    fb: ["https://www.facebook.com/endymed"],
+    ig: ["https://www.instagram.com/endymedofficial"],
+    _meta: { isHomepage: true }
+  },
   Eneriqs: {
     ws: ["https://www.eneriqs.com"],
     urls: [
