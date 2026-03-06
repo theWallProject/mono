@@ -4347,6 +4347,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@inthegame6194"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  IntraPosition: {
+    ws: ["https://www.intraposition.com"],
+    li: ["https://www.linkedin.com/company/intraposition"],
+    _meta: { isHomepage: true }
+  },
   "Intsite Ltd.": {
     ws: ["https://intsite.ai"],
     urls: ["https://intsite.ai", "https://intsite.ai/smart-structures"],
