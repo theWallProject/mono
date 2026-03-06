@@ -8581,6 +8581,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/tigi"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Timing: {
+    ws: ["https://timing.tech"],
+    li: ["https://www.linkedin.com/company/timingtech"],
+    fb: ["https://www.facebook.com/timingtechsoftware"],
+    urls: ["https://apps.apple.com/il/app/timing-tech/id6742377000"],
+    android_app_ids: ["tech.timing"],
+    _meta: { isHomepage: true }
+  },
   TinyTap: {
     ws: [
       "https://blog.tinytap.com",
