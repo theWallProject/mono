@@ -4157,6 +4157,11 @@ export const manualOverrides: Record<
     urls: ["https://wa.me/972546337875"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  GreenSpense: {
+    ws: ["https://www.greenspense.com"],
+    li: ["https://www.linkedin.com/company/greenspense"],
+    _meta: { isHomepage: true }
+  },
   "Greeneye Technology": {
     ws: ["https://greeneye.ag", "https://techblog.greeneye.ag"],
     li: ["https://www.linkedin.com/company/greeneye-technology"],
