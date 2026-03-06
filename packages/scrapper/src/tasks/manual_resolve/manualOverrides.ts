@@ -6494,6 +6494,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OptimusQ: {
+    ws: ["https://optimusq.com"],
+    urls: ["https://calendly.com/optimusq/optimusq-demo"],
+    _meta: { isHomepage: true }
+  },
   "Opus Security": {
     ws: [
       "https://orca.security",
