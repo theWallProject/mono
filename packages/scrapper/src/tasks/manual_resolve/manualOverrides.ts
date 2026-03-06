@@ -4014,6 +4014,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/hallura"],
     _meta: { isHomepage: true }
   },
+  "Happy Things": {
+    ws: ["https://www.happythings.app"],
+    li: ["https://www.linkedin.com/company/happy-things"],
+    fb: ["https://www.facebook.com/happythingsapp"],
+    tw: ["https://x.com/happythingsapp"],
+    ig: ["https://www.instagram.com/happythings.app"],
+    urls: ["https://happythings.app.link/GetHT23", "https://www.pinterest.com/happythingsapp"],
+    _meta: { isHomepage: true }
+  },
   "Healium Medical": {
     ws: ["https://www.healiumedical.com"],
     li: ["https://www.linkedin.com/company/healium-medica"],
