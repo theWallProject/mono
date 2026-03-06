@@ -523,6 +523,11 @@ export const manualOverrides: Record<
     urls: ["https://pearlcom.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AppliedML: {
+    ws: ["https://appliedml.co"],
+    urls: ["https://wa.me/972544411968", "https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true }
+  },
   Applitools: {
     ws: [
       "https://applitools.com",
