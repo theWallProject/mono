@@ -3815,6 +3815,19 @@ export const manualOverrides: Record<
     urls: ["https://helfy.co", "https://helfy.co/careers", "https://helfy.co/contact"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  HORD: {
+    ws: ["https://app.hord.fi", "https://docs.hord.fi", "https://www.hord.fi"],
+    tw: ["https://x.com/hordapp"],
+    urls: [
+      "https://discord.gg/xeTWKHWEbS",
+      "https://snapshot.org",
+      "https://t.me/hordnews",
+      "https://tokensfarm.com/hord/staking/6",
+      "https://www.dcentralab.com",
+      "https://www.dcentralab.com/jobs"
+    ],
+    _meta: { isHomepage: true }
+  },
   "HUB Security": {
     ws: ["https://hub-technologies.com", "https://investors.hubsecurity.com"],
     li: "https://www.linkedin.com/company/hubtechnologiescom",
