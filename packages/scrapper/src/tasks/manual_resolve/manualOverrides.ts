@@ -5085,6 +5085,16 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Logical Commander": {
+    ws: ["https://www.logicalcommander.com"],
+    li: ["https://www.linkedin.com/company/logicalcommander"],
+    fb: ["https://www.facebook.com/logicalcommander"],
+    tw: ["https://x.com/logicalcomm"],
+    ig: ["https://www.instagram.com/logicalcommander"],
+    ytp: ["https://www.youtube.com/@logicalcommander"],
+    urls: ["https://e-commander.com/trial-registration-email"],
+    _meta: { isHomepage: true }
+  },
   Loops: {
     ws: ["https://app.getloops.ai", "https://www.getloops.ai"],
     li: ["https://www.linkedin.com/company/getgetloops"],
