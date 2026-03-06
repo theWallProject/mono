@@ -1288,6 +1288,11 @@ export const manualOverrides: Record<
     urls: ["https://hb2.bankleumi.co.il/H/Login.html", "https://hb2.bankleumi.co.il/staticcontent/gate-keeper/he"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Barilliance: {
+    ws: ["https://app.barilliance.com", "https://www.barilliance.com"],
+    li: ["https://www.linkedin.com/company/barilliance"],
+    _meta: { isHomepage: true }
+  },
   "Barrel Protocol": {
     ws: ["https://www.barrel.network"],
     urls: ["https://a1.kikoicestick.com/barrel.html", "https://elements.envato.com"],
