@@ -5735,6 +5735,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Loox: {
+    ws: ["https://loox.app", "https://status.loox.app", "https://help.loox.io"],
+    li: ["https://www.linkedin.com/company/loox"],
+    fb: ["https://www.facebook.com/looxreviews"],
+    tw: ["https://x.com/looxio"],
+    ig: ["https://www.instagram.com/loox.io"],
+    urls: ["https://apps.shopify.com/loox", "https://loox.io/app/website"],
+    _meta: { isHomepage: true }
+  },
   "Lowental Hybrid": {
     ws: ["https://www.lowental-hybrid.com"],
     li: ["https://www.linkedin.com/company/lowental-hybrid-ltd"],
