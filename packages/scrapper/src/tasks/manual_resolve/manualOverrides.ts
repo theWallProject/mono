@@ -9372,6 +9372,11 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   WeedOut: { ws: ["https://www.weedout-ibs.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Wematch.live": {
+    ws: ["https://wematch.live"],
+    li: ["https://www.linkedin.com/company/wematch.live"],
+    _meta: { isHomepage: true }
+  },
   Wenrix: {
     ws: ["https://docs.wenrix.com", "https://www.wenrix.com"],
     urls: [
