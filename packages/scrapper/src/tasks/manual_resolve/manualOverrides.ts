@@ -5448,6 +5448,7 @@ export const manualOverrides: Record<
     urls: ["https://discord.gg/UBe4kjgn"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Magico: { ws: ["https://magico.ai"], urls: ["https://www.spaceship.com"], _meta: { isHomepage: true } },
   "Magnus Metal": {
     ws: ["https://magnusmetal.com"],
     urls: ["https://magnusmetal.com/privacy-policy", "https://magnusmetal.com/terms-of-use"],
