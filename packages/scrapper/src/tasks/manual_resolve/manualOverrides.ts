@@ -6732,6 +6732,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@powermat"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Precycle-ai": {
+    ws: ["https://www.precycles.com"],
+    li: ["https://www.linkedin.com/company/precycles"],
+    ytp: ["https://www.youtube.com/@precycle2578"],
+    urls: ["https://wix.com", "https://youtu.be/BybGxRQ9X1o"],
+    _meta: { isHomepage: true }
+  },
   PrettyDamnQuick: {
     ws: ["https://support.prettydamnquick.com", "https://www.prettydamnquick.com"],
     urls: ["https://go.pdq.app", "https://www.checkoutpulse.com"],
