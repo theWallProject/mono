@@ -9134,6 +9134,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/rippleanalytics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Vigor Medical Technologies": {
+    ws: ["https://www.vigormt.com"],
+    li: ["https://www.linkedin.com/company/vigor-medical-technologies-ltd-"],
+    ytp: ["https://www.youtube.com/@vigormedical6644"],
+    _meta: { isHomepage: true }
+  },
   VineSight: {
     ws: ["https://blog.vinesight.com", "https://www.vinesight.com"],
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
