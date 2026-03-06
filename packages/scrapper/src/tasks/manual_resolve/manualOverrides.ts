@@ -6654,6 +6654,18 @@ export const manualOverrides: Record<
     urls: ["https://calendly.com/optimusq/optimusq-demo"],
     _meta: { isHomepage: true }
   },
+  "Option Samurai": {
+    ws: ["https://help.optionsamurai.com", "https://new.optionsamurai.com", "https://optionsamurai.com"],
+    li: ["https://www.linkedin.com/company/option-samurai"],
+    fb: ["https://www.facebook.com/optionsamurai"],
+    tw: ["https://x.com/optionsamurai"],
+    ytp: ["https://www.youtube.com/@optionsamuraiapp"],
+    urls: [
+      "https://samurai.froged.help/docs/en/42033144-option-samurai-affiliate-program",
+      "https://stocktwits.com/OptionSamurai"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Opus Security": {
     ws: [
       "https://orca.security",
