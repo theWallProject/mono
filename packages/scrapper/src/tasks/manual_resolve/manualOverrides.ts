@@ -3071,6 +3071,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@endospanltd7002"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Eneriqs: {
+    ws: ["https://www.eneriqs.com"],
+    urls: [
+      "http://www.wersparrow.com",
+      "https://www.google.com/maps/place/Eneriqs/@32.1675623,34.9285095,17.1z/data=!4m6!3m5!1s0x151d399eb90de665:0x741ec1035c404fe4!8m2!3d32.1674227!4d34.9285291!16s%2Fg%2F11kqck27cj"
+    ],
+    _meta: { isHomepage: true }
+  },
   Enervibe: {
     ws: ["https://enervibe.co"],
     li: ["https://www.linkedin.com/company/enervibe"],
