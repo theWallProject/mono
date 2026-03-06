@@ -9312,6 +9312,11 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/tkYHJCA7mb"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Voiceable: {
+    ws: ["https://voiceable.co"],
+    li: ["https://www.linkedin.com/company/voiceable"],
+    _meta: { isHomepage: true }
+  },
   Voiceitt: {
     ws: ["https://voiceitt.com", "https://web.voiceitt.com"],
     li: ["https://www.linkedin.com/company/viking-maccabee-ventures", "https://www.linkedin.com/company/voiceitt"],
