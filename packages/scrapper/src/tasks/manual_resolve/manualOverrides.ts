@@ -6924,6 +6924,11 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/reflectiz.cyber"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Regentis Biomaterials": {
+    ws: ["https://investors.regentis.co.il", "https://www.regentis.co.il"],
+    urls: ["https://www.volle.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Regulus Cyber": {
     ws: ["https://regulus.com"],
     li: ["https://www.linkedin.com/company/regulus-cyber"],
