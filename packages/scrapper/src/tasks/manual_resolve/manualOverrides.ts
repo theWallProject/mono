@@ -6510,6 +6510,13 @@ export const manualOverrides: Record<
     urls: ["https://increativeweb.com", "https://pvml.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PaidIt: {
+    ws: ["https://www.paidit.io"],
+    li: ["https://www.linkedin.com/company/paidit"],
+    fb: ["https://www.facebook.com/justpaidit"],
+    ig: ["https://www.instagram.com/paidit_insider"],
+    _meta: { isHomepage: true }
+  },
   PainReform: {
     ws: ["https://prf-tech.com"],
     urls: [
