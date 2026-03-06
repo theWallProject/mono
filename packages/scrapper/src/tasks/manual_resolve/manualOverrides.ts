@@ -4497,6 +4497,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lavaahealth"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  LEVnARO: {
+    ws: ["https://www.levnaro.com"],
+    ig: ["https://www.instagram.com/levnaro"],
+    urls: ["https://share.hsforms.com/15SknWVK7TlWfVY6DbyGQAA3rtqh"],
+    _meta: { isHomepage: true }
+  },
   "Laguna Health": {
     ws: ["https://form.lagunahealth.com", "https://www.lagunahealth.com"],
     li: ["https://www.linkedin.com/company/getlaguna"],
