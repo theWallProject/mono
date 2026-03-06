@@ -2374,6 +2374,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cropx_global"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Curiosity Robotics": {
+    ws: ["https://www.curiosity-robotics.com"],
+    li: ["https://www.linkedin.com/company/curiosity-robotics"],
+    urls: ["https://wix.com"],
+    _meta: { isHomepage: true }
+  },
   CyVers: {
     ws: ["https://cyvers.ai", "https://docs.cyvers.ai", "https://vigilens.cyvers.ai"],
     li: ["https://www.linkedin.com/company/cyvers"],
