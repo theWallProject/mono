@@ -3105,6 +3105,13 @@ export const manualOverrides: Record<
     urls: ["https://www.feelbetter.healthcare/privacy-policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Feelter: {
+    ws: ["https://blog.feelter.com", "https://www.feelter.com", "http://blog.feelter.com"],
+    li: ["https://www.linkedin.com/company/feelter"],
+    fb: ["https://www.facebook.com/feeltersystems"],
+    urls: ["http://www.oi-studio.com"],
+    _meta: { isHomepage: true }
+  },
   FeezBack: {
     ws: ["https://feezback.com"],
     li: ["https://www.linkedin.com/company/feezback"],
