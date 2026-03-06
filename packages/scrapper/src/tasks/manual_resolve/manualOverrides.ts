@@ -7825,6 +7825,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@samseamlessnetwork5685"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SAN: {
+    ws: ["https://san.co.il"],
+    li: ["https://www.linkedin.com/company/sanltd"],
+    ytp: ["https://www.youtube.com/@sanltdhaifa"],
+    _meta: { isHomepage: true }
+  },
   "SGTech - Zero carbon, sustainable farming": {
     ws: ["https://sgtech.co.il"],
     urls: ["https://sgtech.co.il", "https://www.mar-comit.com"],
