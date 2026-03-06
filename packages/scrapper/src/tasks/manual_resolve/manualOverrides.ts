@@ -3757,6 +3757,20 @@ export const manualOverrides: Record<
     urls: ["https://entry.co.il", "https://firmabrands.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ginger Travel Insurance": {
+    ws: ["https://www.gingerbit.co.il"],
+    li: ["https://www.linkedin.com/company/ginger-travel-insurance"],
+    fb: ["https://www.facebook.com/ginger.insurance"],
+    ig: ["https://www.instagram.com/ginger.travel.insurance"],
+    ytp: ["https://www.youtube.com/@ginger3209"],
+    urls: [
+      "http://www.hellodesign.co",
+      "https://itunes.apple.com/il/app/gingerbit/id1453402954",
+      "https://wa.me/972584074371"
+    ],
+    android_app_ids: ["com.gingerbit"],
+    _meta: { isHomepage: true }
+  },
   Ginzi: {
     ws: ["https://ginzi.io", "https://newsletter.ginzi.io"],
     li: ["https://www.linkedin.com/company/ginzi"],
