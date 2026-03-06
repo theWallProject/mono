@@ -10081,6 +10081,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Tre Capital GP Ltd": { tw: [""] },
+  Treedis: {
+    ws: ["https://info.treedis.com", "https://my.treedis.com", "https://www.treedis.com"],
+    li: ["https://www.linkedin.com/company/treedis"],
+    fb: ["https://www.facebook.com/treedismsp"],
+    _meta: { isHomepage: true }
+  },
   Treetoscope: {
     ws: ["https://www.treetoscope.com"],
     li: ["https://www.linkedin.com/company/treetoscope"],
