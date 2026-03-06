@@ -110,6 +110,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/aisap.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "AKSATA (formerly AGRIDRONES)": {
+    ws: ["https://www.aksata360.com"],
+    li: ["https://www.linkedin.com/company/aksata-tech"],
+    fb: ["https://www.facebook.com/agridronesil"],
+    _meta: { isHomepage: true }
+  },
   APEX: { ws: ["https://www.dot-training.org"], _meta: { isHomepage: true, isVerified: true } },
   ARMO: {
     ws: [
