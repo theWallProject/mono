@@ -2177,6 +2177,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@collplantbio8262"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Colu: {
+    ws: ["https://colu.com"],
+    li: ["https://www.linkedin.com/company/colu-co"],
+    tw: ["https://x.com/coluapp"],
+    _meta: { isHomepage: true }
+  },
   "Colugo Systems": {
     ws: ["https://www.colugo-sys.com"],
     li: ["https://www.linkedin.com/company/colugo-systems"],
