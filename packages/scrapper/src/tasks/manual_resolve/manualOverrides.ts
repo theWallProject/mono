@@ -478,6 +478,12 @@ export const manualOverrides: Record<
     android_app_ids: ["com.anydo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AnyBook: {
+    ws: ["http://book-kiosk.anybook.ai", "https://anybook.ai", "https://api.anybook.ai"],
+    urls: ["https://apps.apple.com/il/app/anybook/id1571499511"],
+    android_app_ids: ["ai.anybook"],
+    _meta: { isHomepage: true }
+  },
   AnyClip: {
     ws: ["https://anyclip.com", "https://docs.anyclip.com", "https://videomanager.anyclip.com"],
     li: ["https://www.linkedin.com/company/anyclip"],
