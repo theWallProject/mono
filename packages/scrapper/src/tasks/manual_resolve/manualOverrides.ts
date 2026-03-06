@@ -876,6 +876,21 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Atlantium: {
+    ws: [
+      "https://atlantium.com",
+      "https://go.atlantium.com",
+      "https://pr.atlantium.com",
+      "https://purestream.atlantium.com",
+      "https://atlantium.com.cn"
+    ],
+    li: ["https://www.linkedin.com/company/atlantium"],
+    fb: ["https://www.facebook.com/atlantiumuv"],
+    tw: ["https://x.com/atlantiumuv"],
+    ig: ["https://www.instagram.com/atlantium_technologies"],
+    ytp: ["https://www.youtube.com/@atlantiumtechnologies3600"],
+    _meta: { isHomepage: true }
+  },
   "Atlas Invest": {
     ws: ["https://atlas-invest.co", "https://backoffice.atlas-invest.co"],
     li: ["https://www.linkedin.com/company/atlas-invest-ai"],
