@@ -9242,6 +9242,12 @@ export const manualOverrides: Record<
     urls: ["https://finder.startupnationcentral.org/company_page/roadsense"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Roundforest: {
+    ws: ["https://roundforest.com"],
+    fb: ["https://www.facebook.com/roundforest1"],
+    ig: ["https://www.instagram.com/roundforest"],
+    _meta: { isHomepage: true }
+  },
   Rounds: {
     ws: ["https://rounds.com"],
     li: ["https://www.linkedin.com/company/roundscom"],
