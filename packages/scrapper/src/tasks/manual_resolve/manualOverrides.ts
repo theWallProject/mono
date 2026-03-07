@@ -11176,6 +11176,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.wisdo.android.wisdo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Wiserpay: {
+    ws: ["https://wiserpay.co"],
+    li: ["https://www.linkedin.com/company/wiserpay"],
+    _meta: { isHomepage: true }
+  },
   "Wisery Labs": {
     ws: ["https://wiserylabs.ai"],
     li: ["https://www.linkedin.com/company/wiserylabs-ai"],
