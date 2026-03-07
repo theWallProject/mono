@@ -6685,6 +6685,15 @@ export const manualOverrides: Record<
     urls: ["https://brandsup.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MAX Security": {
+    ws: ["https://app.max-security.com", "https://www.max-security.com"],
+    li: ["https://www.linkedin.com/company/max-security-solutions-ltd-"],
+    fb: ["https://www.facebook.com/maxsec"],
+    tw: ["https://x.com/maxsecurityltd"],
+    ytp: ["https://www.youtube.com/@maxsecurityltd"],
+    urls: ["https://group107.com", "https://www.fdesign.co.il"],
+    _meta: { isHomepage: true }
+  },
   MDClone: {
     ws: ["https://academy.mdclone.com", "https://mdclone.com"],
     li: ["https://www.linkedin.com/company/mdclone"],
