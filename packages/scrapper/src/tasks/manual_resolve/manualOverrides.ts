@@ -7074,6 +7074,13 @@ export const manualOverrides: Record<
     urls: ["https://www.giraff.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  N2OFF: {
+    ws: ["https://www.n2off.com", "https://www.n2off.net"],
+    li: ["https://www.linkedin.com/company/n2off-inc"],
+    fb: ["https://www.facebook.com/n2offinc"],
+    ytp: ["https://www.youtube.com/@n2off-i5q"],
+    _meta: { isHomepage: true }
+  },
   NICE: {
     ws: ["https://help.nice.com", "https://resources.nice.com", "https://www.nice.com"],
     li: ["https://www.linkedin.com/company/nice-systems"],
