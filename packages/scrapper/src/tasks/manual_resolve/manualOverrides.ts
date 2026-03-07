@@ -5644,6 +5644,16 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@juganultd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Jungo Software": {
+    ws: ["https://jungo.com", "https://windriver.jungo.com"],
+    li: ["https://www.linkedin.com/company/jungo-connectivity-ltd"],
+    fb: ["https://www.facebook.com/jungoconnectivity"],
+    tw: ["https://x.com/jungoconnect"],
+    ig: ["https://www.instagram.com/jungolife"],
+    urls: ["https://goo.gl/maps/9sc8JCJ9BF3DUrNG9"],
+    android_app_ids: ["com.jungo.vudrivenet"],
+    _meta: { isHomepage: true }
+  },
   "Juno Journey": {
     ws: [
       "https://auth.junojourney.com",
