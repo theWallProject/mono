@@ -5066,6 +5066,12 @@ export const manualOverrides: Record<
     android_app_ids: ["com.opentech.haaretz"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Hadar Group": {
+    ws: ["https://www.a-hadar.co.il"],
+    fb: ["https://www.facebook.com/kvotzathadar"],
+    urls: ["https://www.profilesoft.com"],
+    _meta: { isHomepage: true }
+  },
   "Hagag Group": {
     ws: ["https://adminpower.hagag-group.co.il", "https://www.hagag-group.co.il"],
     li: ["https://www.linkedin.com/company/hagag-group2"],
