@@ -3921,6 +3921,13 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Esh: { ws: ["https://esh.com"], urls: ["https://www.comeet.com/jobs/esh/87.003"], _meta: { isHomepage: true } },
+  Eshet: {
+    ws: ["https://eshet.com"],
+    fb: ["https://www.facebook.com/eshet.tours"],
+    ig: ["https://www.instagram.com/eshettours"],
+    ytp: ["https://www.youtube.com/@eshettourstv"],
+    _meta: { isHomepage: true }
+  },
   "Essence Group": {
     ws: ["https://go.essence-grp.com", "https://www.essence-grp.com", "https://www.essencesmartcare.com"],
     li: ["https://www.linkedin.com/company/essence-group"],
