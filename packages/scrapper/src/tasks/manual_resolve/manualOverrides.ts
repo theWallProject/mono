@@ -9708,6 +9708,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SnatchBot: {
+    ws: ["https://snatchbot.me"],
+    li: ["https://www.linkedin.com/company/snatchbot"],
+    fb: ["https://www.facebook.com/snatchbot"],
+    tw: ["https://x.com/snatchbot"],
+    ytp: ["https://www.youtube.com/@snatchbot"],
+    _meta: { isHomepage: true }
+  },
   SodaStream: {
     ws: [
       "https://sodastream.com",
