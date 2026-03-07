@@ -474,6 +474,14 @@ export const manualOverrides: Record<
     ytp: "https://www.youtube.com/user/emindcloud",
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Allium Medical": {
+    ws: ["https://allium-medical.com"],
+    li: ["https://www.linkedin.com/company/alliumltd"],
+    ig: ["https://www.instagram.com/alliumstents66"],
+    ytp: ["https://www.youtube.com/@alliummedical"],
+    urls: ["https://lnkd.in/eEKv3ekD"],
+    _meta: { isHomepage: true }
+  },
   Allot: {
     ws: [
       "https://customers.allot.com",
