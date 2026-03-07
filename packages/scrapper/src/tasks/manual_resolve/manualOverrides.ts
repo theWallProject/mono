@@ -6748,6 +6748,15 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@drinknina"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NLPearl: {
+    ws: ["https://developers.nlpearl.ai", "https://nlpearl.ai", "https://platform.nlpearl.ai"],
+    li: ["https://www.linkedin.com/company/nlpearl"],
+    tw: ["https://x.com/nlpearlai"],
+    ytp: ["https://www.youtube.com/@nlpearl"],
+    ytc: ["https://www.youtube.com/channel/UC8epTrUo_3J0d4RrawX1dYw"],
+    urls: ["https://form.typeform.com/to/MtvDZ6Vb", "https://form.typeform.com/to/nrQPIJ8h"],
+    _meta: { isHomepage: true }
+  },
   NOVOS: {
     ws: ["https://app.novos.gg", "https://www.novos.gg"],
     li: ["https://www.linkedin.com/company/novos"],
