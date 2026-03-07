@@ -4116,6 +4116,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@FIZEMedical"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FUGU: {
+    ws: ["https://app.fugu-it.com", "https://fugu-it.com"],
+    li: ["https://www.linkedin.com/company/fugurisk"],
+    ytp: ["https://www.youtube.com/@fugurisk"],
+    urls: ["https://apps.shopify.com/fugu-sensing-post-payment-risk"],
+    _meta: { isHomepage: true }
+  },
   FVMat: { ws: ["https://fvmat.com"], _meta: { isHomepage: true, isVerified: true } },
   Facetune: {
     ws: ["https://static.facetuneapp.com", "https://www.facetuneapp.com"],
