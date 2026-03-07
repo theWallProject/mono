@@ -4726,6 +4726,13 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true }
   },
   GeoX: { ws: ["https://app.geox.ai"], _meta: { isHomepage: true, isVerified: true } },
+  "Get SAT": {
+    ws: ["https://www.getsat.com"],
+    li: ["https://www.linkedin.com/company/10300670", "https://www.linkedin.com/company/getsat-ltd-"],
+    tw: ["https://x.com/get_sat_comm"],
+    ytp: ["https://www.youtube.com/@getsat4638"],
+    _meta: { isHomepage: true }
+  },
   GetPackage: {
     ws: ["https://getpackage.com", "https://sender.getpackage.com"],
     li: ["https://www.linkedin.com/company/getpackage"],
