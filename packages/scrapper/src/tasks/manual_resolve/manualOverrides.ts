@@ -9024,6 +9024,13 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/renewable-energy-place-ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Radcom: {
+    ws: ["https://radcom.com"],
+    li: ["https://www.linkedin.com/company/radcom"],
+    tw: ["https://x.com/radcomupdates"],
+    ytp: ["https://www.youtube.com/@radcomltd8429"],
+    _meta: { isHomepage: true }
+  },
   Radiflow: {
     ws: ["https://www.radiflow.com"],
     li: ["https://www.linkedin.com/company/radiflow"],
