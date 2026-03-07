@@ -388,6 +388,11 @@ export const manualOverrides: Record<
     tt: ["https://www.tiktok.com/@afimilk.ltd"],
     _meta: { isHomepage: true }
   },
+  AgPlenus: {
+    ws: ["https://agplenus.com"],
+    li: ["https://www.linkedin.com/company/agplenus2019"],
+    _meta: { isHomepage: true }
+  },
   Agora: {
     ws: ["https://agorareal.com"],
     li: ["https://www.linkedin.com/company/agora-re"],
