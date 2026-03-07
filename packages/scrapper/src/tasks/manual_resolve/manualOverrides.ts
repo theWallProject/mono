@@ -441,6 +441,18 @@ export const manualOverrides: Record<
     urls: ["https://ozglobalb2b.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Aiso: {
+    ws: ["https://app.getaiso.com", "https://www.getaiso.com"],
+    li: ["https://www.linkedin.com/company/getaiso"],
+    ytp: ["https://www.youtube.com/@aiso-aisearchoptimization"],
+    urls: [
+      "https://searchengineland.com/schema-ai-overviews-structured-data-visibility-462353",
+      "https://theresanaiforthat.com/ai/aiso",
+      "https://www.mind.eu.com/retail/fr/search-ai-comment-la-start-up-aiso-a-multiplie-par-cinq-la-visibilite-de-le-commercant-americain-particle",
+      "https://www.producthunt.com/posts/aiso"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Akeyless Security": {
     ws: [
       "https://console.akeyless.io",
