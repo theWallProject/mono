@@ -4378,6 +4378,18 @@ export const manualOverrides: Record<
     urls: ["https://apps.shopify.com/fugu-sensing-post-payment-risk"],
     _meta: { isHomepage: true }
   },
+  FUNDit: {
+    ws: [
+      "https://invest.fundit.co.il",
+      "https://realestate.fundit.co.il",
+      "https://realestateil.fundit.co.il",
+      "https://smb.fundit.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/fundit"],
+    fb: ["https://www.facebook.com/fundit.co.il"],
+    urls: ["https://beactive.co.il", "https://giveback.co.il", "https://headstart.co.il", "https://mynumberz.co.il"],
+    _meta: { isHomepage: true }
+  },
   FVMat: { ws: ["https://fvmat.com"], _meta: { isHomepage: true, isVerified: true } },
   Facetune: {
     ws: ["https://static.facetuneapp.com", "https://www.facetuneapp.com"],
