@@ -9728,6 +9728,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@siga-otsolutions2428"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "SMARTGEN ISRAEL": {
+    ws: ["https://rus.smartgenisrael.com", "https://www.smartgenisrael.com"],
+    li: ["https://www.linkedin.com/company/smartgenisrael"],
+    fb: ["https://www.facebook.com/smartgenwealth"],
+    urls: ["https://t.me/smartgen_israel"],
+    _meta: { isHomepage: true }
+  },
   SOSA: {
     ws: ["https://sosa.co"],
     li: ["https://www.linkedin.com/company/5397941", "https://www.linkedin.com/company/sosa"],
