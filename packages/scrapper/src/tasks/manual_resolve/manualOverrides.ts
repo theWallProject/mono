@@ -12274,6 +12274,7 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "nT-Tao Compact Fusion Power": { ws: ["https://www.nt-tao.com"], _meta: { isHomepage: true, isVerified: true } },
+  noosa: { ws: ["https://noosa.io"], li: ["https://www.linkedin.com/company/noosaio"], _meta: { isHomepage: true } },
   proteanTecs: {
     ws: ["https://customers.proteantecs.com", "https://go.proteantecs.com", "https://www.proteantecs.com"],
     li: ["https://www.linkedin.com/company/proteantecs"],
