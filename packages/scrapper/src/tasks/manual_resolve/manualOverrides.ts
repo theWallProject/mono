@@ -6014,6 +6014,19 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Lexense: { ws: ["https://lexense.com"], _meta: { isHomepage: true, isVerified: true } },
+  "LiVA Bio": {
+    ws: ["https://www.liva.ag"],
+    urls: [
+      "http://menomadinfoundation.com/work/liva-bio-protection-technologies",
+      "https://openvalley.co.il/en",
+      "https://thriveagrifood.com/svg-ventures-thrive-announces-tenth-cohort-of-global-scale-ups",
+      "https://www.arcimpact.org",
+      "https://www.atooro.com",
+      "https://www.designbyadida.com",
+      "https://www.summus.vc/portfolio"
+    ],
+    _meta: { isHomepage: true }
+  },
   Lidwave: {
     ws: ["https://www.lidwave.com"],
     li: ["https://www.linkedin.com/company/lidwaveil"],
