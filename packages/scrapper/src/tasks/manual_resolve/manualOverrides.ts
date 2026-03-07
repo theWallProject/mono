@@ -11630,6 +11630,11 @@ export const manualOverrides: Record<
     urls: ["https://vinesight-20319268.hs-sites.com/webinar-the-blindspot-threat"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Viridian Analytics": {
+    ws: ["https://viridian.earth", "https://www.viridian.earth"],
+    li: ["https://www.linkedin.com/company/viridian-data-analytics"],
+    _meta: { isHomepage: true }
+  },
   "VisIC Technologies": {
     ws: ["https://visic-tech.com"],
     li: ["https://www.linkedin.com/company/5443001"],
