@@ -12879,6 +12879,15 @@ export const manualOverrides: Record<
     urls: ["https://attractive.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "iamops.io": {
+    ws: ["https://iamops.io"],
+    urls: [
+      "https://generatepress.com",
+      "https://partners.amazonaws.com/partners/0010L00001jRtIoQAK/IAMOPS",
+      "https://www.goodfirms.co/company/iamops"
+    ],
+    _meta: { isHomepage: true }
+  },
   illumex: {
     ws: ["https://illumex.ai"],
     li: ["https://www.linkedin.com/company/illumexai"],
