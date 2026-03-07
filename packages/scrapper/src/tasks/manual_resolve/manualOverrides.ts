@@ -10536,6 +10536,12 @@ export const manualOverrides: Record<
     urls: ["https://www.spaceship.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Together Pharma": {
+    ws: ["https://www.together-pharma.com"],
+    li: ["https://www.linkedin.com/company/together-pharma"],
+    urls: ["https://theguy.co.il", "https://ul.waze.com/ul"],
+    _meta: { isHomepage: true }
+  },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
     li: ["https://www.linkedin.com/company/token-security"],
