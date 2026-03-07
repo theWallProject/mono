@@ -11164,6 +11164,21 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   SparX: { ws: ["https://sparx.ai"], urls: ["https://sparxapp.ai"], _meta: { isHomepage: true, isVerified: true } },
+  SpeakingPal: {
+    ws: [
+      "https://citycomp-beit-shean.speakingpal.com",
+      "https://citycomp-budur.speakingpal.com",
+      "https://citycomp-mc.speakingpal.com",
+      "https://citycomp-th.speakingpal.com",
+      "https://www.speakingpal.com"
+    ],
+    fb: ["https://www.facebook.com/speakingpal"],
+    tw: ["https://x.com/speakingpal"],
+    ig: ["https://www.instagram.com/speak_english_with_speakingpal"],
+    urls: ["https://itunes.apple.com/us/app/speakingpal-english-tutor/id437219346"],
+    android_app_ids: ["com.speakingpal.speechtrainer.sp"],
+    _meta: { isHomepage: true }
+  },
   Spectral: {
     ws: ["https://spectralops.io"],
     li: ["https://www.linkedin.com/company/spectralops-io"],
