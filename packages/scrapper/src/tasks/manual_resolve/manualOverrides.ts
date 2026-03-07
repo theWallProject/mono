@@ -1391,6 +1391,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@BaseAI"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BeProfit: {
+    ws: [
+      "https://app.beprofit.co",
+      "https://beprofit.co",
+      "https://integrations.beprofit.co",
+      "https://partners.beprofit.co"
+    ],
+    li: ["https://www.linkedin.com/company/beprofit-co"],
+    fb: ["https://www.facebook.com/beprofit.co"],
+    tw: ["https://x.com/beprofit_co"],
+    ig: ["https://www.instagram.com/beprofit_app"],
+    urls: ["https://apply.workable.com/beprofit"],
+    _meta: { isHomepage: true }
+  },
   "Beach Bum": {
     ws: ["https://www.bbumgames.com"],
     li: ["https://www.linkedin.com/company/beach-bum-ltd"],
