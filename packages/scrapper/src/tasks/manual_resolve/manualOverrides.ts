@@ -7424,6 +7424,11 @@ export const manualOverrides: Record<
     urls: ["https://www.etgar.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MobiTech: {
+    ws: ["https://blog.mobitech.io", "https://mobitech.io", "https://ui.mobitech.io"],
+    li: ["https://www.linkedin.com/company/mobitech-io"],
+    _meta: { isHomepage: true }
+  },
   Mobileye: {
     ws: [
       "https://brand.mobileye.com",
