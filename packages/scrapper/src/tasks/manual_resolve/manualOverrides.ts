@@ -12427,6 +12427,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/visionary-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Visual Factories": {
+    ws: ["https://visualfactories.com"],
+    urls: ["https://synycsoft.com"],
+    _meta: { isHomepage: true }
+  },
   "Visual Layer": {
     ws: ["https://app.visual-layer.com", "https://docs.visual-layer.com", "https://www.visual-layer.com"],
     li: ["https://www.linkedin.com/company/visual-layer"],
