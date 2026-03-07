@@ -6790,6 +6790,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@melingo-ai"],
     _meta: { isHomepage: true }
   },
+  Melodea: {
+    ws: ["https://melodea.eu"],
+    li: ["https://www.linkedin.com/company/melodea-bio"],
+    ytp: ["https://www.youtube.com/@melodealtd"],
+    urls: ["https://liquid.co.il"],
+    _meta: { isHomepage: true }
+  },
   Memcyco: {
     ws: ["https://www.memcyco.com"],
     li: ["https://www.linkedin.com/company/77059698"],
