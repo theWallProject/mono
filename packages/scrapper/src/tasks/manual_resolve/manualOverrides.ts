@@ -6558,6 +6558,19 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@morphisecinc"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Moveo Group": {
+    ws: [
+      "https://www.moveo.group",
+      "https://www.moveoboost.com",
+      "https://www.moveohls.com",
+      "https://www.moveomedical.com"
+    ],
+    li: ["https://www.linkedin.com/company/moveo-group"],
+    fb: ["https://www.facebook.com/moveogroup"],
+    ig: ["https://www.instagram.com/moveo_group"],
+    urls: ["https://apps.apple.com/mt/app/goto-mt/id1455817170", "https://strapi.io"],
+    _meta: { isHomepage: true }
+  },
   Munch: {
     ws: ["https://app.munchstudio.com", "https://www.munchstudio.com"],
     li: ["https://www.linkedin.com/company/mnch"],
