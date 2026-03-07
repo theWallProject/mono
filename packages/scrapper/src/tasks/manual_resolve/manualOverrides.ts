@@ -4263,6 +4263,16 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  EverSQL: {
+    ws: ["https://eversql.com"],
+    urls: [
+      "https://aiven.io/blog/aiven-acquires-eversql",
+      "https://aiven.io/cookies",
+      "https://aiven.io/privacy",
+      "https://aiven.io/tools/sql-query-optimizer"
+    ],
+    _meta: { isHomepage: true }
+  },
   Everafter: {
     ws: ["https://app.everafter.ai", "https://www.everafter.ai"],
     li: ["https://www.linkedin.com/company/everafter-ai"],
