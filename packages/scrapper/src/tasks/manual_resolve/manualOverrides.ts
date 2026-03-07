@@ -8577,6 +8577,13 @@ export const manualOverrides: Record<
     urls: ["https://calendly.com/david_franco/pery-1"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Phantom Technologies": {
+    ws: ["https://phantom-technologies.com"],
+    li: ["https://www.linkedin.com/company/phantom-technologies-ltd"],
+    tw: ["https://x.com/phantomjammers"],
+    ytp: ["https://www.youtube.com/@phantom14739"],
+    _meta: { isHomepage: true }
+  },
   "Phoenix Financial": {
     ws: [
       "https://agent.fnx.co.il",
