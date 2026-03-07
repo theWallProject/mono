@@ -1291,6 +1291,18 @@ export const manualOverrides: Record<
     urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms", "https://www.tommyandyou.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "BUFFERZONE Security Ltd": {
+    ws: ["https://bufferzonesecurity.com"],
+    li: ["https://www.linkedin.com/company/bufferzone-security"],
+    fb: ["https://www.facebook.com/bufferzonepro"],
+    tw: ["https://x.com/bufferzonesec"],
+    urls: [
+      "https://bufferzone.atlassian.net/servicedesk/customer/portals",
+      "https://bufferzone.atlassian.net/servicedesk/customer/user/login",
+      "https://vimeo.com/bufferzonesecurity"
+    ],
+    _meta: { isHomepage: true }
+  },
   "BUYME Technologies": {
     ws: ["https://buyme.co.il"],
     fb: ["https://www.facebook.com/buyme.co.il"],
