@@ -2810,6 +2810,14 @@ export const manualOverrides: Record<
     urls: ["http://wix.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Credito: {
+    ws: ["https://credito.co.il", "https://mortgage.credito.co.il"],
+    li: ["https://www.linkedin.com/company/creditoisrael"],
+    fb: ["https://www.facebook.com/creditotime"],
+    ig: ["https://www.instagram.com/credito.fintech"],
+    urls: ["https://wa.me/972777313333"],
+    _meta: { isHomepage: true }
+  },
   "Creomagic LTD": {
     ws: ["https://creomagic.com"],
     li: ["https://www.linkedin.com/company/creomagic"],
