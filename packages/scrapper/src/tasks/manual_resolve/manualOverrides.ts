@@ -3163,6 +3163,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@deepkeep_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Deeyook: {
+    ws: ["https://www.deeyook.com"],
+    li: ["https://www.linkedin.com/company/deeyook"],
+    _meta: { isHomepage: true }
+  },
   Deliverider: {
     ws: ["https://www.deliverider.com"],
     urls: ["https://sorbetagency.com"],
