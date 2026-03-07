@@ -1943,6 +1943,13 @@ export const manualOverrides: Record<
     urls: ["https://investors.brainsway.com", "https://mybrainsway.com", "https://www.brainsway.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Brainvivo: {
+    ws: ["https://brainvivo.com"],
+    li: ["https://www.linkedin.com/company/brainvivo"],
+    tw: ["https://x.com/brainvivo"],
+    ig: ["https://www.instagram.com/brainvivo"],
+    _meta: { isHomepage: true }
+  },
   BrandShield: {
     ws: ["https://platform.brandshield.com", "https://www.brandshield.com"],
     li: ["https://www.linkedin.com/company/2231196"],
