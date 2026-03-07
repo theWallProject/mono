@@ -5899,6 +5899,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  InnerEye: {
+    ws: ["https://innereye.ai"],
+    li: ["https://www.linkedin.com/company/innereye"],
+    _meta: { isHomepage: true }
+  },
   "Innoviz Technologies": {
     ws: ["https://innoviz.tech", "https://ir.innoviz.tech"],
     li: ["https://www.linkedin.com/company/innoviz-technologies"],
