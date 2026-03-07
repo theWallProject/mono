@@ -12552,6 +12552,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@visictechnologies1097"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Vision.bi": {
+    ws: ["https://www.vision.bi"],
+    li: ["https://www.linkedin.com/company/vision.bi"],
+    fb: ["https://www.facebook.com/vision.bi"],
+    urls: ["https://www.arctica.ai"],
+    _meta: { isHomepage: true }
+  },
   "Visionary.ai": {
     ws: ["https://visionary.ai"],
     li: ["https://www.linkedin.com/company/visionary-ai"],
