@@ -11781,6 +11781,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/tresdotfinance"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Tri-Logical": {
+    ws: ["https://www.trilogical.com"],
+    li: ["https://www.linkedin.com/company/trilogical-technologies-ltd"],
+    urls: ["http://www.zivav.co.il"],
+    _meta: { isHomepage: true }
+  },
   TriEye: {
     ws: ["https://trieye.tech"],
     li: ["https://www.linkedin.com/company/trieye"],
