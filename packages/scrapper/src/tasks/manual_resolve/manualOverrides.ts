@@ -118,6 +118,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "AION Labs": {
+    ws: ["https://aionlabs.com"],
+    li: ["https://www.linkedin.com/company/aion-labs"],
+    tw: ["https://x.com/aionlabs"],
+    ytp: ["https://www.youtube.com/@aionlabs"],
+    urls: ["https://pearlcom.co.il", "https://pearlcom.co.il/strategy"],
+    _meta: { isHomepage: true }
+  },
   "AIR VEV": {
     ws: ["https://www.airev.aero"],
     li: ["https://www.linkedin.com/company/air-ev"],
