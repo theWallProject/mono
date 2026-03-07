@@ -5797,6 +5797,12 @@ export const manualOverrides: Record<
     urls: ["https://share.hsforms.com/15SknWVK7TlWfVY6DbyGQAA3rtqh"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  LIGHTYX: {
+    ws: ["https://app.lightyx.com", "https://www.lightyx.com"],
+    li: ["https://www.linkedin.com/company/lightyx"],
+    fb: ["https://www.facebook.com/lightyx-1887799191259487"],
+    _meta: { isHomepage: true }
+  },
   "LSports Data": {
     ws: ["https://www.lsports.eu"],
     li: ["https://www.linkedin.com/company/lsports-data-ltd-"],
