@@ -12619,6 +12619,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/youtiligent"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ZIMARK: { ws: ["https://zimark.io"], li: ["https://www.linkedin.com/company/zimark"], _meta: { isHomepage: true } },
   "ZOOZ Power": {
     ws: ["https://ir.zoozpower.com", "https://treasury.zoozpower.com", "https://www.zoozpower.com"],
     li: ["https://www.linkedin.com/company/zooz-power"],
