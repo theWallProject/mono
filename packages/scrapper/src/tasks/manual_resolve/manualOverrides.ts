@@ -5351,6 +5351,13 @@ export const manualOverrides: Record<
     urls: ["https://assafmedia.co.il", "https://careers.zoll.com/careers-listing", "https://www.watchpat.fr"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Jeen AI": {
+    ws: ["https://jeen.ai"],
+    li: ["https://www.linkedin.com/company/jeen-ai"],
+    tw: ["https://x.com/jeenailtd"],
+    ytp: ["https://www.youtube.com/@jeenailtd"],
+    _meta: { isHomepage: true }
+  },
   Jeeng: {
     ws: ["https://setup.jeeng.com", "https://www.jeeng.com"],
     li: ["https://www.linkedin.com/company/jeengofficial"],
