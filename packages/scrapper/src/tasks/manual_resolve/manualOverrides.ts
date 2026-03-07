@@ -447,6 +447,11 @@ export const manualOverrides: Record<
     urls: ["https://ozglobalb2b.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Airwayz: {
+    ws: ["https://airwayz.co"],
+    li: ["https://www.linkedin.com/company/airwayz"],
+    _meta: { isHomepage: true }
+  },
   Aiso: {
     ws: ["https://app.getaiso.com", "https://www.getaiso.com"],
     li: ["https://www.linkedin.com/company/getaiso"],
