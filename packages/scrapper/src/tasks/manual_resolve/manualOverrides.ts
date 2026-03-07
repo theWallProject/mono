@@ -9333,6 +9333,14 @@ export const manualOverrides: Record<
     urls: ["https://craftandroot.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "RiT Technologies Ltd.": {
+    ws: ["https://www.rittech.com"],
+    li: ["https://www.linkedin.com/company/200833", "https://www.linkedin.com/company/rit-technologies"],
+    fb: ["https://www.facebook.com/rit-tech-ltd-131370933569814"],
+    tw: ["https://x.com/@rittechintel"],
+    ytp: ["https://www.youtube.com/@rittech1"],
+    _meta: { isHomepage: true }
+  },
   "Ricor Cryogenic and Vacuum Systems": {
     ws: ["https://ricor.com"],
     li: ["https://www.linkedin.com/company/ricor-cryogenic-vacuum-systems"],
