@@ -784,6 +784,12 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucsm8sofdl36aekvq7pforsg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Arcuro Medical": {
+    ws: ["https://www.arcuromedical.com"],
+    li: ["https://www.linkedin.com/company/arcuro-medical"],
+    ytp: ["https://www.youtube.com/@arcuromedical"],
+    _meta: { isHomepage: true }
+  },
   "Arieli Group": {
     ws: ["https://www.arieli-group.com"],
     li: ["https://www.linkedin.com/company/arieli-group"],
