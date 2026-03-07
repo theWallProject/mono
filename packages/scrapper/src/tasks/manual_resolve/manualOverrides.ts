@@ -10314,6 +10314,15 @@ export const manualOverrides: Record<
     urls: ["https://surancecheck.me"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Surecomp: {
+    ws: ["https://surecomp.com"],
+    li: ["https://www.linkedin.com/company/surecomp"],
+    urls: [
+      "https://app.rivo.trade/login",
+      "https://www.swift.com/about-us/swift-partner-programme/find-partner/swift-compatible-applications-finder"
+    ],
+    _meta: { isHomepage: true }
+  },
   Suridata: {
     ws: ["https://www.suridata.ai"],
     li: ["https://www.linkedin.com/company/suridataai"],
