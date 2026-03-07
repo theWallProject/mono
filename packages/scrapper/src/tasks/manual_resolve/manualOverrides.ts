@@ -3800,6 +3800,17 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@easy_send"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  EasyTeam: {
+    ws: ["https://docs.easyteam.com", "https://www.easyteam.com"],
+    urls: [
+      "https://apps.shopify.com/staffy/reviews",
+      "https://calendly.com/easyteam/easyteam-partnerships",
+      "https://calendly.com/easyteam/embedded",
+      "https://docs.easyteam.io/home-782004m0",
+      "https://www.shopify.com/webinar/easyteam-20225"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Eco Wave Power": {
     ws: ["https://www.ecowavepower.com"],
     li: ["https://www.linkedin.com/company/eco-wave-power"],
