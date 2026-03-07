@@ -12498,6 +12498,12 @@ export const manualOverrides: Record<
     urls: ["https://fintastic.freshteam.com/jobs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  flexiWAN: {
+    ws: ["https://docs.flexiwan.com", "https://flexiwan.com"],
+    li: ["https://www.linkedin.com/company/flexiwan"],
+    tw: ["https://x.com/flexiwan"],
+    _meta: { isHomepage: true }
+  },
   "frontline.io": {
     ws: ["https://helpdesk.frontline.io", "https://login.frontline.io", "https://www.frontline.io"],
     li: ["https://www.linkedin.com/company/5205929", "https://www.linkedin.com/company/ll-software"],
