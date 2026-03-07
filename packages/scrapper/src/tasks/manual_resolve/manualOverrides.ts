@@ -10921,6 +10921,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@terminalx8198"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TerraZone: {
+    ws: ["https://terrazone.io"],
+    li: ["https://www.linkedin.com/company/terrazone"],
+    fb: ["https://www.facebook.com/terrazone1"],
+    tw: ["https://x.com/terrazone_ltd"],
+    ytp: ["https://www.youtube.com/@terrazonehybridcloud"],
+    _meta: { isHomepage: true }
+  },
   "Teva Pharmaceuticals": {
     ws: ["https://www.tevapharm.com"],
     li: ["https://www.linkedin.com/company/teva-pharmaceuticals"],
