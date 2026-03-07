@@ -9666,6 +9666,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/raaam"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  RADWIN: {
+    ws: ["https://www.radwin.com", "https://radwinportal.amp.vg"],
+    li: ["https://www.linkedin.com/company/radwin"],
+    fb: ["https://www.facebook.com/radwin"],
+    ig: ["https://www.instagram.com/radwinofficial"],
+    ytp: ["https://www.youtube.com/@radwinofficial"],
+    _meta: { isHomepage: true }
+  },
   RCK: {
     ws: ["https://rckmc.com"],
     li: ["https://www.linkedin.com/company/rckmc"],
