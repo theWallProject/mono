@@ -9706,6 +9706,15 @@ export const manualOverrides: Record<
     urls: ["http://www.imaginet.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "SAGE Marketing": {
+    ws: ["https://www.sagemarketing.io"],
+    li: ["https://www.linkedin.com/company/sagemarketing"],
+    fb: ["https://www.facebook.com/sagemarketingio"],
+    ig: ["https://www.instagram.com/marketing.sage"],
+    ytp: ["https://www.youtube.com/@sagemarketing2239"],
+    urls: ["https://rubicon-creo.com"],
+    _meta: { isHomepage: true }
+  },
   "SAM Seamless Network": {
     ws: ["https://securingsam.com"],
     li: ["https://www.linkedin.com/company/sam-seamless-network"],
