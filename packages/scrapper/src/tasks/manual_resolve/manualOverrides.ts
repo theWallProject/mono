@@ -11253,6 +11253,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "The Hive Studio": {
+    ws: ["https://thehivepro.com"],
+    li: ["https://www.linkedin.com/company/thehivestudio"],
+    fb: ["https://www.facebook.com/hive.pro"],
+    ig: ["https://www.instagram.com/thehivepro"],
+    urls: ["https://just-brief.com", "https://vimeo.com/thehivepro"],
+    _meta: { isHomepage: true }
+  },
   "The Mediterranean Food Lab": {
     ws: ["https://www.med-food-lab.com"],
     urls: ["http://cooksho.com"],
