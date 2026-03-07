@@ -2952,6 +2952,21 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/convizit_life"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CoolAutomation: {
+    ws: ["https://coolautomation.com", "https://support.coolautomation.com"],
+    li: ["https://www.linkedin.com/company/1456190", "https://www.linkedin.com/company/cool-automation"],
+    fb: ["https://www.facebook.com/coolautomation"],
+    tw: ["https://x.com/cool_automation"],
+    ytp: ["https://www.youtube.com/@coolautomation"],
+    urls: [
+      "https://apps.apple.com/us/developer/coolautomation/id976962384",
+      "https://control.coolremote.net/login",
+      "https://coolautomation.my.salesforce-sites.com/OrderForm/resource/15000/OrderForm/index.html",
+      "https://professional.coolremote.net"
+    ],
+    android_dev_id: "CoolAutomation",
+    _meta: { isHomepage: true }
+  },
   CoolVOC: {
     ws: ["https://www.coolvoc.com"],
     li: ["https://www.linkedin.com/company/coolvoc"],
