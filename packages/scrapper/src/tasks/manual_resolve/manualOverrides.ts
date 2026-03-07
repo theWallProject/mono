@@ -4794,6 +4794,12 @@ export const manualOverrides: Record<
     urls: ["https://helfy.co", "https://helfy.co/careers", "https://helfy.co/contact"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "HEQA Security": {
+    ws: ["https://heqa-sec.com"],
+    li: ["https://www.linkedin.com/company/heqa-sec"],
+    tw: ["https://x.com/heqasec"],
+    _meta: { isHomepage: true }
+  },
   HORD: {
     ws: ["https://app.hord.fi", "https://docs.hord.fi", "https://www.hord.fi"],
     tw: ["https://x.com/hordapp"],
