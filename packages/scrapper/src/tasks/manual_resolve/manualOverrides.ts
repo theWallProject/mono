@@ -8848,6 +8848,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "R2 Wireless": {
+    ws: ["https://r2-wireless.com"],
+    li: ["https://www.linkedin.com/company/r2-wireless"],
+    _meta: { isHomepage: true }
+  },
   "RAAAM Memory Technologies Ltd.": {
     ws: ["https://raaam-tech.com"],
     li: ["https://www.linkedin.com/company/raaam"],
