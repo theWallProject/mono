@@ -5188,6 +5188,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@hunters_security"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Hyper Food Robotics": {
+    ws: ["https://www.hyper-robotics.com"],
+    li: ["https://www.linkedin.com/company/hyper-robotics"],
+    ig: ["https://www.instagram.com/hyper_food_robotics"],
+    _meta: { isHomepage: true }
+  },
   "HyperGuest Ltd.": {
     ws: ["https://app.hyperguest.com", "https://www.hyperguest.com"],
     li: ["https://www.linkedin.com/company/hyperguest"],
