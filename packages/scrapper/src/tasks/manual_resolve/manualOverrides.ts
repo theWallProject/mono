@@ -3827,6 +3827,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@ecowavepower"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Eco-Bill": {
+    ws: ["https://app.eco-bill.com", "https://eco-bill.com"],
+    li: ["https://www.linkedin.com/company/ecobill"],
+    fb: ["https://www.facebook.com/ecobillapp"],
+    ig: ["https://www.instagram.com/ecobill.il"],
+    ytc: ["https://www.youtube.com/channel/UC4P-sn6zKIdbAxEl7vAt8Ow"],
+    _meta: { isHomepage: true }
+  },
   "Econergy Renewable Energy": {
     ws: ["https://www.econergytech.com"],
     li: ["https://www.linkedin.com/company/econergy-renewable-energy-ltd"],
