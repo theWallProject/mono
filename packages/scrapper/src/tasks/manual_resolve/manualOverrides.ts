@@ -9093,6 +9093,14 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Red Alert": { ws: "" },
+  "Red Sea": {
+    ws: ["https://g1.redseafish.com", "https://redseafish.com", "http://www.redseafish.cn"],
+    fb: ["https://www.facebook.com/red.sea.ltd"],
+    ig: ["https://www.instagram.com/redsea.aquatics"],
+    ytp: ["https://www.youtube.com/@redseafish2010"],
+    urls: ["https://bit.ly/2DLThnI"],
+    _meta: { isHomepage: true }
+  },
   RedDress: {
     ws: ["https://rct.reddressmedical.com", "https://reddressmedical.com"],
     li: ["https://www.linkedin.com/company/reddress"],
