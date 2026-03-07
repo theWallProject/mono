@@ -6592,6 +6592,13 @@ export const manualOverrides: Record<
     urls: ["https://www.peninsula.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Melingo: {
+    ws: ["https://melingo.com"],
+    li: ["https://www.linkedin.com/company/melingo-ltd."],
+    fb: ["https://www.facebook.com/melingoai"],
+    ytp: ["https://www.youtube.com/@melingo-ai"],
+    _meta: { isHomepage: true }
+  },
   Memcyco: {
     ws: ["https://www.memcyco.com"],
     li: ["https://www.linkedin.com/company/77059698"],
