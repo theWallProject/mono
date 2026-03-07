@@ -4250,6 +4250,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Falkor: {
+    ws: ["https://falkor.ai", "https://help.falkor.ai"],
+    li: ["https://www.linkedin.com/company/falkorai"],
+    urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms"],
+    _meta: { isHomepage: true }
+  },
   Fanton: {
     ws: ["https://fan-ton.com"],
     tw: ["https://x.com/fantasyfanton"],
