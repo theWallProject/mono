@@ -5304,6 +5304,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Jojoba Desert": {
+    ws: ["https://www.jojobadesert.com"],
+    li: ["https://www.linkedin.com/company/jojoba-desert-a.c.s-ltd."],
+    fb: ["https://www.facebook.com/jojoba.desert"],
+    ig: ["https://www.instagram.com/jojoba.desert"],
+    ytp: ["https://www.youtube.com/@jojobadesert"],
+    urls: ["http://www.stgltd.com"],
+    _meta: { isHomepage: true }
+  },
   Jotit: {
     ws: ["https://www.jotit.io"],
     li: "https://www.linkedin.com/company/jotit-ed",
