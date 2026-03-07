@@ -12317,6 +12317,11 @@ export const manualOverrides: Record<
     android_app_ids: ["me.vivid.vivid"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  VOCAI: {
+    ws: ["https://www.vocai.tech"],
+    li: ["https://www.linkedin.com/company/vocaitech"],
+    _meta: { isHomepage: true }
+  },
   "VREE LABS": {
     ws: ["https://console.vree.ai", "https://vree.ai"],
     li: ["https://www.linkedin.com/company/vree-ai"],
