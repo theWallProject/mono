@@ -6179,6 +6179,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kemtaiftns"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kendago: {
+    ws: ["https://www.kendago.com"],
+    li: ["https://www.linkedin.com/company/kendago"],
+    fb: ["https://www.facebook.com/kendagob2cmedia"],
+    ig: ["https://www.instagram.com/lifeatkendago"],
+    _meta: { isHomepage: true }
+  },
   "Keshet International": {
     ws: ["https://www.keshetinternational.com"],
     li: ["https://www.linkedin.com/company/keshet-international"],
