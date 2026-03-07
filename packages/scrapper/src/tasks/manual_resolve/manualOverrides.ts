@@ -3696,6 +3696,23 @@ export const manualOverrides: Record<
     urls: ["https://envuemed.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Equally AI": {
+    ws: [
+      "https://blog.equally.ai",
+      "https://docs.equally.ai",
+      "https://my.equally.ai",
+      "https://support.equally.ai",
+      "https://www.equally.ai"
+    ],
+    li: ["https://www.linkedin.com/company/equally-ai"],
+    urls: [
+      "https://www.capterra.com/reviews/233222/Equally-AI",
+      "https://www.g2.com/products/equally-ai/reviews",
+      "https://www.getapp.com/finance-accounting-software/a/equally-ai/reviews",
+      "https://www.softwareadvice.com/artificial-intelligence/equally-ai-profile/reviews"
+    ],
+    _meta: { isHomepage: true }
+  },
   Equinom: {
     ws: ["https://www.equi-nom.com"],
     li: ["https://www.linkedin.com/company/equinom", "https://www.linkedin.com/company/orangeeclipse-studio"],
