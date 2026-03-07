@@ -3058,6 +3058,14 @@ export const manualOverrides: Record<
     urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CouponRoller: {
+    ws: ["https://blog.couponroller.com", "https://couponroller.com", "http://blog.couponroller.com"],
+    fb: ["https://www.facebook.com/couponroller"],
+    tw: ["https://x.com/couponroller"],
+    ytp: ["https://www.youtube.com/@couponrollercom"],
+    urls: ["http://www.pinterest.com/couponroller"],
+    _meta: { isHomepage: true }
+  },
   Covver: {
     ws: ["https://success.covver.io", "https://www.covver.io"],
     li: ["https://www.linkedin.com/company/covver"],
