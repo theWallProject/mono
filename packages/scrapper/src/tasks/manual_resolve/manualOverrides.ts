@@ -5477,6 +5477,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Insuline Medical": {
+    ws: ["https://www.insuline-medical.com"],
+    urls: ["https://napitwptech.com/themes/creative-blog", "https://wordpress.org"],
+    _meta: { isHomepage: true }
+  },
   "Intail.ai": {
     ws: ["https://app.orbb.com", "https://orbb.com"],
     urls: ["https://www.nmore.co"],
