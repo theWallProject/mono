@@ -11959,6 +11959,12 @@ export const manualOverrides: Record<
     urls: ["https://maya.tase.co.il/company/1515", "https://portal.vplans.com/he/vitania"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  VoiceSense: {
+    ws: ["https://voicesense.com"],
+    li: ["https://www.linkedin.com/company/18399267", "https://www.linkedin.com/company/voicesense"],
+    ytp: ["https://www.youtube.com/@voicesenseltd.4362"],
+    _meta: { isHomepage: true }
+  },
   Voiceable: {
     ws: ["https://voiceable.co"],
     li: ["https://www.linkedin.com/company/voiceable"],
