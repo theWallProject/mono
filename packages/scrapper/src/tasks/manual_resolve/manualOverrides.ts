@@ -1128,6 +1128,19 @@ export const manualOverrides: Record<
     urls: ["https://www.pearlcom.co.il", "https://www.pearlcom.co.il/strategy"],
     _meta: { isHomepage: true }
   },
+  "Aura Smart Air": {
+    ws: ["https://auraair.io", "https://aura-air-privacy-policy.web.app", "https://aura-air-terms-of-service.web.app"],
+    li: ["https://www.linkedin.com/company/auraair"],
+    fb: ["https://www.facebook.com/auraair.io"],
+    tw: ["https://x.com/auraair_io"],
+    ig: ["https://www.instagram.com/auraair.io"],
+    urls: [
+      "https://auraair.co.il/pages/investors",
+      "https://auraair.freshdesk.com/support/home",
+      "https://auraairhelp.zendesk.com/hc/en-us/articles/360011929817-What-is-your-Returns-Policy-"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Aurora Labs": {
     ws: ["https://www.auroralabs.com"],
     li: ["https://www.linkedin.com/company/auroralabs"],
