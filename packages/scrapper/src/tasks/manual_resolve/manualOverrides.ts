@@ -338,6 +338,12 @@ export const manualOverrides: Record<
     urls: ["https://warpcast.com/addressableio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Adipolo: {
+    ws: ["https://adipolo.com"],
+    li: ["https://www.linkedin.com/company/adipolo"],
+    ig: ["https://www.instagram.com/adipolo_"],
+    _meta: { isHomepage: true }
+  },
   "Advanced Radar Technologies": {
     ws: ["https://www.advancedradartechnologies.com"],
     li: ["https://www.linkedin.com/company/advanced-radar-technologies-art-"],
