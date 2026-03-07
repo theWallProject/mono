@@ -11829,6 +11829,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Truvid: {
+    ws: ["https://console.truvid.com", "https://truvid.com"],
+    li: ["https://www.linkedin.com/company/truvid"],
+    fb: ["https://www.facebook.com/truvidovp"],
+    tw: ["https://x.com/truvidovp"],
+    ig: ["https://www.instagram.com/truvid_inc"],
+    urls: ["https://www.widelab.co"],
+    _meta: { isHomepage: true }
+  },
   Turpaz: {
     ws: ["https://www.turpaz.co.il"],
     urls: ["https://www.catom.co.il", "https://www.catom.com"],
