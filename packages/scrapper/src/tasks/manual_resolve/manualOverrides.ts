@@ -9322,6 +9322,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Promodotcom"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Proofig: {
+    ws: ["https://app.proofig.com", "https://www.proofig.com"],
+    li: ["https://www.linkedin.com/company/proofig"],
+    fb: ["https://www.facebook.com/proofig"],
+    tw: ["https://x.com/proofig"],
+    _meta: { isHomepage: true }
+  },
   Propel: {
     ws: ["https://propel-ai.com"],
     li: ["https://www.linkedin.com/company/propel-crm"],
