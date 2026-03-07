@@ -8813,6 +8813,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Path Keeper Surgical": {
+    ws: ["https://www.path-keeper.com"],
+    li: ["https://www.linkedin.com/company/pathkeeper"],
+    ytp: ["https://www.youtube.com/@pathkeepersurgical"],
+    _meta: { isHomepage: true }
+  },
   PayEm: {
     ws: ["https://www.payem.co"],
     li: ["https://www.linkedin.com/company/payemcard"],
