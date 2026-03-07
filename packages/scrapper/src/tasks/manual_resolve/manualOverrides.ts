@@ -10856,6 +10856,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@syteproductdiscoveryplatfo6994"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TAKO: {
+    ws: ["https://docs.tako.com", "https://tako.com"],
+    li: ["https://www.linkedin.com/company/takoviz"],
+    tw: ["https://x.com/takoviz"],
+    urls: ["https://takoviz.notion.site/Tako-Jobs-f4fcc77967004747ae9b197a61277c11"],
+    _meta: { isHomepage: true }
+  },
   "TAT Technologies": {
     ws: ["https://tat-technologies.com"],
     li: ["https://www.linkedin.com/company/tat-technologies-group"],
