@@ -9525,6 +9525,16 @@ export const manualOverrides: Record<
     urls: ["https://dolphinsoft.co.il"],
     _meta: { isHomepage: true }
   },
+  Pumba: {
+    ws: ["https://pumbaparking.com", "https://report25.pumbaparking.com"],
+    li: ["https://www.linkedin.com/company/pumbaparking"],
+    fb: ["https://www.facebook.com/pumbaparking"],
+    ig: ["https://www.instagram.com/pumbaparking"],
+    ytp: ["https://www.youtube.com/@pumbaparking"],
+    tt: ["https://www.tiktok.com/@pumba_parking_"],
+    urls: ["https://pumba.onelink.me/bk3N/ut24k8dv"],
+    _meta: { isHomepage: true }
+  },
   Pynt: {
     ws: ["https://app.pynt.io", "https://docs.pynt.io", "https://www.pynt.io"],
     li: ["https://www.linkedin.com/company/pynt"],
