@@ -2450,6 +2450,12 @@ export const manualOverrides: Record<
     urls: ["https://cert.privo.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Cofix: {
+    ws: ["https://cofix.co.il"],
+    fb: ["https://www.facebook.com/cofix.co.il"],
+    ig: ["https://www.instagram.com/cofix_israel"],
+    _meta: { isHomepage: true }
+  },
   Cognata: {
     ws: ["https://www.cognata.com"],
     li: ["https://www.linkedin.com/company/cognata-ltd"],
