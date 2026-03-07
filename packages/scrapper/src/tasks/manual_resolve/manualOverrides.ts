@@ -2027,6 +2027,12 @@ export const manualOverrides: Record<
     urls: ["https://app.bldts.io", "https://buildots.net"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Bulls Media": {
+    ws: ["https://bulls-media.com"],
+    li: ["https://www.linkedin.com/company/bullsmedia"],
+    fb: ["https://www.facebook.com/bullsmediareal"],
+    _meta: { isHomepage: true }
+  },
   "Butterfly Medical": {
     ws: ["https://butterfly-medical.com"],
     urls: ["http://imaginet.co.il", "https://butterfly-medical.com"],
