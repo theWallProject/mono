@@ -6064,6 +6064,15 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/XJkYXyxPZj", "https://t.me/ironbuilders"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  IsraAID: {
+    ws: ["https://giving.israaid.org", "https://www.israaid.org"],
+    li: ["https://www.linkedin.com/company/israaid"],
+    fb: ["https://www.facebook.com/israaid"],
+    tw: ["https://x.com/israaid"],
+    ig: ["https://www.instagram.com/israaid"],
+    urls: ["https://natie.com"],
+    _meta: { isHomepage: true }
+  },
   "Israel Defense Store": {
     ws: ["https://israeldefensestore.com"],
     fb: ["https://www.facebook.com/israeldefensestore"],
