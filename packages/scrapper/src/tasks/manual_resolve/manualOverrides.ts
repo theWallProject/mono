@@ -11906,6 +11906,14 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   WeedOut: { ws: ["https://www.weedout-ibs.com"], _meta: { isHomepage: true, isVerified: true } },
+  WellyBox: {
+    ws: ["https://app.wellybox.com", "https://help.wellybox.com", "https://www.wellybox.com"],
+    li: ["https://www.linkedin.com/company/wellybox"],
+    fb: ["https://www.facebook.com/wellybox-100496698217431"],
+    tw: ["https://x.com/wellyboxhq"],
+    urls: ["https://calendly.com/miroslav-wellybox/wellybox-demo-call"],
+    _meta: { isHomepage: true }
+  },
   "Wematch.live": {
     ws: ["https://wematch.live"],
     li: ["https://www.linkedin.com/company/wematch.live"],
