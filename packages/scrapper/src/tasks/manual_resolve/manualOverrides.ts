@@ -8161,6 +8161,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oneai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "One-eSIM": {
+    ws: ["https://www.1-esim.com"],
+    li: ["https://www.linkedin.com/company/1-esim", "https://www.linkedin.com/company/one-esim-africa"],
+    urls: ["https://only-sim.com/en/guides/getting-started", "https://only-sim.com/en/tools/available-devices"],
+    _meta: { isHomepage: true }
+  },
   OneView: { ws: ["https://one-view.ai"], _meta: { isHomepage: true, isVerified: true } },
   Onebeat: {
     li: ["https://www.linkedin.com/company/1beat"],
