@@ -8623,6 +8623,11 @@ export const manualOverrides: Record<
     urls: ["https://app.mvpr.io/company/repair-carbon"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Rescana: {
+    ws: ["https://www.rescana.com"],
+    li: ["https://www.linkedin.com/company/rescana"],
+    _meta: { isHomepage: true }
+  },
   "RespirAI Medical": {
     ws: ["https://www.respirai.com"],
     urls: ["https://www.respirai.com/privacy-policy"],
