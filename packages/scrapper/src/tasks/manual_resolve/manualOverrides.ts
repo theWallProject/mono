@@ -1105,6 +1105,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Aummune: {
+    ws: ["https://aummune.com"],
+    urls: ["https://www.pearlcom.co.il", "https://www.pearlcom.co.il/strategy"],
+    _meta: { isHomepage: true }
+  },
   "Aurora Labs": {
     ws: ["https://www.auroralabs.com"],
     li: ["https://www.linkedin.com/company/auroralabs"],
