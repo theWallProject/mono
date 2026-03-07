@@ -8993,6 +8993,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Quiiiz LLC": {
+    ws: ["https://quiiiz.com", "https://test.quiiiz.com"],
+    tw: ["https://x.com/quiiizgame"],
+    ig: ["https://www.instagram.com/quiiizonline"],
+    ytp: ["https://www.youtube.com/@quiiiz-trivia"],
+    tt: ["https://www.tiktok.com/@quiiiztrivialive"],
+    urls: ["https://quiiiz.onelink.me/9mKG/fhyzh13q"],
+    _meta: { isHomepage: true }
+  },
   Quris: {
     ws: ["https://www.quris.ai"],
     li: ["https://www.linkedin.com/company/quris-ai"],
