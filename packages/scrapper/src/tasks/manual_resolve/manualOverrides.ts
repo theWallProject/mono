@@ -11785,6 +11785,20 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "The Elephant": {
+    ws: ["https://thelephant.io"],
+    li: ["https://www.linkedin.com/company/thelephant"],
+    fb: ["https://www.facebook.com/thelephant.io"],
+    tw: ["https://x.com/thelephant_"],
+    ytp: ["https://www.youtube.com/@thelephant_io"],
+    urls: [
+      "http://www.finra.org",
+      "https://brokercheck.finra.org/firm/summary/130032",
+      "https://t.me/thelephant_io",
+      "https://www.sipc.org"
+    ],
+    _meta: { isHomepage: true }
+  },
   "The Hive Studio": {
     ws: ["https://thehivepro.com"],
     li: ["https://www.linkedin.com/company/thehivestudio"],
