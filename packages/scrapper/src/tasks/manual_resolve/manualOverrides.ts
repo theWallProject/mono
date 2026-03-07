@@ -10358,6 +10358,23 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/tailormed.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Taro Pharmaceutical Industries": {
+    ws: [
+      "https://taro.co.il",
+      "http://taro.com",
+      "http://www.tarointl.com",
+      "https://taro.gcs-web.com",
+      "https://www.taro.ca"
+    ],
+    urls: [
+      "http://www.chattemchemicals.com",
+      "http://www.sunpharma-europe.com",
+      "http://www.sunpharma.com",
+      "http://www.sunpharmausa.com",
+      "http://www.taro.com/usa"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Tasq.ai": {
     ws: ["https://www.tasq.ai"],
     li: ["https://www.linkedin.com/company/tasq-ai"],
