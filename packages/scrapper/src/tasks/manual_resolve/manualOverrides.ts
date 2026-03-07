@@ -4483,6 +4483,14 @@ export const manualOverrides: Record<
     urls: ["https://ginzimail.com", "https://www.newsletter.ginzi.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Globaldev Group": {
+    ws: ["https://globaldev.tech"],
+    li: ["https://www.linkedin.com/company/globaldev-tech"],
+    fb: ["https://www.facebook.com/globaldev.engineering"],
+    ig: ["https://www.instagram.com/globaldev.tech"],
+    urls: ["https://app.termly.io/policy-viewer/policy.html"],
+    _meta: { isHomepage: true }
+  },
   Gloww: { ws: ["https://app.gloww.com", "https://gloww.com"], _meta: { isHomepage: true, isVerified: true } },
   "Gordian Surgical": {
     ws: ["https://www.gordiansurgical.com"],
