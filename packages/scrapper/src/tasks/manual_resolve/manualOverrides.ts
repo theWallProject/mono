@@ -12078,6 +12078,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Vaxa Technologies": {
+    ws: ["https://www.vaxa.life", "http://vaxa.life"],
+    urls: ["https://orlonutrition.com", "https://orlonutrition.is", "https://www.hellodesign.co"],
+    _meta: { isHomepage: true }
+  },
   Vayu: {
     ws: ["https://app.withvayu.com", "https://guide.withvayu.com", "https://www.withvayu.com"],
     li: ["https://www.linkedin.com/company/withvayu"],
