@@ -1961,6 +1961,18 @@ export const manualOverrides: Record<
     urls: ["https://comeet.com/jobs/blockaid/69.00b", "https://t.me/+YCEZbt_QrE8zMjI0"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Blockfence: {
+    ws: ["https://blockfence.io"],
+    tw: ["https://x.com/blockfence_io"],
+    gh: ["https://github.com/blockfence-io"],
+    urls: [
+      "https://chrome.google.com/webstore/detail/blockfence/cpgbcelefhmacblaocimfilfnchkghba",
+      "https://form.typeform.com/to/bivONce2",
+      "https://t.me/blockfence",
+      "https://www.reddit.com/r/blockfence"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Blue Tree Technologies Ltd.": { ws: ["https://bluetree-tech.com"], _meta: { isHomepage: true, isVerified: true } },
   "BlueGreen Water Technologies": {
     ws: ["https://bluegreenwatertech.com"],
