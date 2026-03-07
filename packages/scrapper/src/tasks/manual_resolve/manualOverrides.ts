@@ -7479,6 +7479,11 @@ export const manualOverrides: Record<
     urls: ["https://www.giraff.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "N-Trig": {
+    ws: ["https://www.n-trig.com"],
+    urls: ["https://glthemes.com", "https://wordpress.org"],
+    _meta: { isHomepage: true }
+  },
   N2OFF: {
     ws: ["https://www.n2off.com", "https://www.n2off.net"],
     li: ["https://www.linkedin.com/company/n2off-inc"],
