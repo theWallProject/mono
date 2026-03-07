@@ -5071,6 +5071,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@proofpoint"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Iluria: {
+    ws: ["https://www.iluriahealth.com"],
+    li: ["https://www.linkedin.com/company/iluria-ltd"],
+    _meta: { isHomepage: true }
+  },
   "ImPact Biotech": {
     ws: ["https://impactbiotech.com"],
     urls: ["https://impactbiotech.com"],
