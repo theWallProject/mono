@@ -388,6 +388,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Agrematch: {
+    ws: ["https://www.agrematch.com"],
+    li: ["https://www.linkedin.com/company/agrematch"],
+    urls: ["https://youtu.be/2z6ZoPUWw-4"],
+    _meta: { isHomepage: true }
+  },
   Agrorim: {
     ws: ["https://agrorim.com"],
     li: ["https://www.linkedin.com/company/88963148", "https://www.linkedin.com/company/agrorim"],
