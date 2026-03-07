@@ -606,6 +606,12 @@ export const manualOverrides: Record<
     urls: ["https://www.godaddy.com/websites/website-builder"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ann-Education": {
+    ws: ["https://www.ann-education.com"],
+    li: ["https://www.linkedin.com/company/ann-education"],
+    urls: ["https://www.powerschool.com/company/partners/ann-education"],
+    _meta: { isHomepage: true }
+  },
   Annabella: {
     ws: ["https://insurance.annabella-pump.com", "https://www.annabella-pump.com"],
     fb: ["https://www.facebook.com/annabellapump"],
