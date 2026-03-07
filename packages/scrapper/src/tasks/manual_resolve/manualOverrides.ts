@@ -2715,6 +2715,13 @@ export const manualOverrides: Record<
     urls: ["https://commoninja.site/suggest-a-widget", "https://embeddable.co", "https://vidocu.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Commugen: {
+    ws: ["https://commugen.com", "https://cyber.commugen.com"],
+    li: ["https://www.linkedin.com/company/commugen"],
+    fb: ["https://www.facebook.com/commugen"],
+    tw: ["https://x.com/commugennews"],
+    _meta: { isHomepage: true }
+  },
   Comparisun: {
     ws: ["https://www.comparisun.com"],
     li: ["https://www.linkedin.com/company/thecomparisun"],
