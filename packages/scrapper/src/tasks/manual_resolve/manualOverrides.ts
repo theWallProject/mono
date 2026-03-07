@@ -1313,6 +1313,16 @@ export const manualOverrides: Record<
     urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms", "https://www.tommyandyou.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "BST Group": {
+    ws: ["https://bst.co.il"],
+    li: ["https://www.linkedin.com/company/bstgroup"],
+    fb: ["https://www.facebook.com/bstgr"],
+    ig: ["https://www.instagram.com/bstgroup_official"],
+    ytp: ["https://www.youtube.com/@bstgroup1972"],
+    tt: ["https://www.tiktok.com/@bst.group64"],
+    urls: ["https://login.segment.co.il", "https://www.dofinity.com"],
+    _meta: { isHomepage: true }
+  },
   "BUFFERZONE Security Ltd": {
     ws: ["https://bufferzonesecurity.com"],
     li: ["https://www.linkedin.com/company/bufferzone-security"],
