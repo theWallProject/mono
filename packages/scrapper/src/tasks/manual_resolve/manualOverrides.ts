@@ -18,6 +18,14 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "270Surgical": { ws: ["https://270surgical.com"], _meta: { isHomepage: true, isVerified: true } },
+  "2bcloud": {
+    ws: ["https://2bcloud.io", "https://support.2bcloud.io"],
+    li: ["https://www.linkedin.com/company/2bcloud"],
+    fb: ["https://www.facebook.com/2bcloud"],
+    tw: ["https://x.com/2bcloud_io"],
+    ig: ["https://www.instagram.com/2bcloud"],
+    _meta: { isHomepage: true }
+  },
   "2key Network": {
     ws: ["https://2key.network"],
     urls: ["https://www.dcentralab.com"],
