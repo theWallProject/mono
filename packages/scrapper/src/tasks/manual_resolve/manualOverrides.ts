@@ -5474,6 +5474,11 @@ export const manualOverrides: Record<
     urls: ["https://immagnify.typeform.com/to/s38olUjR"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Improvate: {
+    ws: ["https://www.improvate.net"],
+    urls: ["https://www.absale.co.il", "https://www.israelcybercampus.com"],
+    _meta: { isHomepage: true }
+  },
   InSightec: {
     ws: ["https://distributor.insightec.com", "https://documentation.insightec.com", "https://insightec.com"],
     li: ["https://www.linkedin.com/company/insightec"],
