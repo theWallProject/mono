@@ -12036,6 +12036,13 @@ export const manualOverrides: Record<
     urls: ["https://bit.ly/492GAV7", "https://bit.ly/49fHvjP", "https://bit.ly/4beHmj3", "https://bit.ly/4seWBP7"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  atriis: {
+    ws: ["https://www.atriis.com"],
+    li: ["https://www.linkedin.com/company/atriis"],
+    ig: ["https://www.instagram.com/atriistech"],
+    urls: ["https://www.gtp-marketplace.com"],
+    _meta: { isHomepage: true }
+  },
   bananaz: {
     ws: ["https://go.bananaz.ai", "https://pages.bananaz.ai", "https://www.bananaz.ai"],
     li: ["https://www.linkedin.com/company/bananaz-ai"],
