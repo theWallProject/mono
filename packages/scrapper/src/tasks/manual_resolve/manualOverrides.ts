@@ -11203,6 +11203,21 @@ export const manualOverrides: Record<
     android_app_ids: ["tech.timing"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Tiny Love": {
+    ws: ["https://tinylove.com"],
+    fb: ["https://www.facebook.com/tinyloveusa"],
+    ig: ["https://www.instagram.com/tinyloveusa"],
+    ytp: ["https://www.youtube.com/@tinylovetoys"],
+    tt: ["https://www.tiktok.com/@tinyloveusa"],
+    urls: [
+      "https://consumercare.maxicosi.com/s/contactsupport",
+      "https://consumercare.maxicosi.com/s/product-registration-us",
+      "https://doreljuvenile.com/careers",
+      "https://my.datasubject.com/AzqgT7Tgz4UT450W7/26899",
+      "https://www.pinterest.com/TinyLoveUS"
+    ],
+    _meta: { isHomepage: true }
+  },
   TinyTap: {
     ws: [
       "https://blog.tinytap.com",
