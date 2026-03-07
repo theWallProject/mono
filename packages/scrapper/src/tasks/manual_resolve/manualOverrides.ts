@@ -4870,6 +4870,27 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/hyperspace-db"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "IBI Investment House": {
+    ws: [
+      "https://art.ibi.co.il",
+      "https://campaign.ibi.co.il",
+      "https://capitalexpert.ibi.co.il",
+      "https://mycapital.ibi.co.il",
+      "https://onboarding.ibi.co.il",
+      "https://www.ibi.co.il",
+      "https://ibiportal.powerappsportals.com",
+      "https://sparkibi.ordernet.co.il",
+      "https://www.ibispikes.com",
+      "https://www.ibiui.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/i.b.i-investment-house-ltd"],
+    fb: ["https://www.facebook.com/ibiinvest"],
+    tw: ["https://x.com/ibi_investment"],
+    ig: ["https://www.instagram.com/ibinvestmenthouse"],
+    ytp: ["https://www.youtube.com/@ibi2010"],
+    urls: ["https://ibi.onelink.me/i8jg/9", "https://ibi.orbisfn.io/login"],
+    _meta: { isHomepage: true }
+  },
   "IBI-Ag": {
     ws: ["https://www.ibi-ag.com"],
     li: ["https://www.linkedin.com/company/ibi-ag"],
