@@ -12167,6 +12167,12 @@ export const manualOverrides: Record<
     urls: ["http://www.vlx.co.il", "https://jstudio.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Xinnor: {
+    ws: ["https://xinnor.io"],
+    li: ["https://www.linkedin.com/company/xinnor"],
+    ytp: ["https://www.youtube.com/@xinnorcompany"],
+    _meta: { isHomepage: true }
+  },
   "Xpand (formerly 1MRobotics)": {
     ws: ["https://xpand.us"],
     li: ["https://www.linkedin.com/company/xpand-today"],
