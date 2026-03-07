@@ -7977,6 +7977,19 @@ export const manualOverrides: Record<
     urls: ["https://www.sec.gov/edgar/browse"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ofakim Travel & Tours": {
+    ws: ["https://www.ofakim.co.il"],
+    fb: ["https://www.facebook.com/ofakim"],
+    urls: [
+      "https://www.ofakimlive.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%95%D7%AA",
+      "https://www.ofakimlive.co.il/%D7%97%D7%91%D7%99%D7%9C%D7%95%D7%AA-%D7%9E%D7%95%D7%96%D7%99%D7%A7%D7%94",
+      "https://www.ofakimlive.co.il/%D7%9B%D7%93%D7%95%D7%A8%D7%92%D7%9C",
+      "https://www.ofakimlive.co.il/%D7%9C%D7%99%D7%92%D7%94%D7%A1%D7%A4%D7%A8%D7%93%D7%99%D7%AA",
+      "https://www.ofakimlive.co.il/metallica",
+      "https://www.ofakimlive.co.il/premierleague"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Ofra Aqua Plants": {
     ws: ["https://www.ofra-aqua.co.il", "https://www.ofra-aqua.com"],
     fb: [
