@@ -3376,6 +3376,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/entera.bio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "ESR Group": {
+    ws: ["https://www.esr.co.il"],
+    fb: ["https://www.facebook.com/esr-cyber-jobs-606174212818946"],
+    urls: ["http://site-map.asp", "https://rnr-sys.com"],
+    _meta: { isHomepage: true }
+  },
   EZMEMS: {
     ws: ["https://www.ezmems.com"],
     urls: [
