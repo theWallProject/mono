@@ -3232,6 +3232,16 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@devicetotal950"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Dexcel Pharma": {
+    ws: [
+      "https://www.dexcel.com",
+      "https://dexcel.co.uk",
+      "https://dexcelpharmausa.com",
+      "https://www.dexcel-pharma.de"
+    ],
+    urls: ["https://www.moveo.group", "https://www.nicapur.com"],
+    _meta: { isHomepage: true }
+  },
   Diagnocat: {
     ws: ["https://diagnocat.com", "https://diagnocat.ru"],
     li: ["https://www.linkedin.com/company/diagnocat"],
