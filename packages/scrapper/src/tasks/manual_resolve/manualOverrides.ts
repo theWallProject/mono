@@ -12370,6 +12370,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@vigormedical6644"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Vikisense: {
+    ws: ["https://vikisense.com"],
+    fb: ["https://www.facebook.com/vikisense"],
+    ig: ["https://www.instagram.com/vikisense"],
+    ytp: ["https://www.youtube.com/@vikisense"],
+    urls: ["http://web4all.co.il", "https://api.whatsapp.com/send", "https://waze.com/ul"],
+    _meta: { isHomepage: true }
+  },
   "Villar International": {
     ws: ["https://villar.co.il"],
     urls: ["https://www.waze.com/live-map/directions/israel/haifa-district/caesarea/haeshel-st-3"],
