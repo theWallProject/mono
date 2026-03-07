@@ -3474,6 +3474,21 @@ export const manualOverrides: Record<
     urls: ["https://www.comrax.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Elcam Medical": {
+    ws: [
+      "https://products.elcam-medical.com",
+      "https://www.elcam-medical.com",
+      "https://elcam3d.com",
+      "https://www.elcam3d.com"
+    ],
+    li: ["https://www.linkedin.com/company/elcam-medical"],
+    fb: ["https://www.facebook.com/elcammedical"],
+    tw: ["https://x.com/elcammedical"],
+    ig: ["https://www.instagram.com/elcam_medical"],
+    ytp: ["https://www.youtube.com/@elcammedical"],
+    urls: ["https://ozglobalb2b.com/en", "https://www.infusesafety.com"],
+    _meta: { isHomepage: true }
+  },
   ElectReon: {
     ws: ["https://electreon.com"],
     li: ["https://www.linkedin.com/company/electreon"],
