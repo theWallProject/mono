@@ -352,6 +352,16 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/affogata_"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Afimilk: {
+    ws: ["https://docs.afimilk.com", "https://www.afimilk.com"],
+    li: ["https://www.linkedin.com/company/85260", "https://www.linkedin.com/company/afimilk-ltd"],
+    fb: ["https://www.facebook.com/afimilk"],
+    tw: ["https://x.com/afimilkltd"],
+    ig: ["https://www.instagram.com/afimilk"],
+    ytp: ["https://www.youtube.com/@afimilk"],
+    tt: ["https://www.tiktok.com/@afimilk.ltd"],
+    _meta: { isHomepage: true }
+  },
   Agora: {
     ws: ["https://agorareal.com"],
     li: ["https://www.linkedin.com/company/agora-re"],
