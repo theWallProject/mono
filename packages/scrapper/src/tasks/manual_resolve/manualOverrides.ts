@@ -2999,6 +2999,13 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/9gU36Y6", "https://forms.fillout.com/t/3ioiagnP7mus"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Dalia Energy": {
+    ws: ["https://dalia-power.co.il", "https://dalia-power.com"],
+    li: ["https://www.linkedin.com/company/dalia-power"],
+    fb: ["https://www.facebook.com/daliapowerplants"],
+    urls: ["https://b2b.eshkol-om.com", "https://dpe.co.il"],
+    _meta: { isHomepage: true }
+  },
   Darrow: {
     ws: ["https://portal.darrow.ai", "https://www.darrow.ai"],
     li: ["https://www.linkedin.com/company/darrow-ai"],
