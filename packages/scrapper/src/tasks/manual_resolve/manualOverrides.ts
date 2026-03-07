@@ -1127,6 +1127,14 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/autofleet.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Automat-IT": {
+    ws: ["https://www.automat-it.com"],
+    li: ["https://www.linkedin.com/company/automat-it"],
+    fb: ["https://www.facebook.com/automatit"],
+    tw: ["https://x.com/automatitdevops"],
+    urls: ["https://t.me/joinchat/E61TXg-lkaNusP9FdqtxMg"],
+    _meta: { isHomepage: true }
+  },
   AutomatedRules: {
     ws: ["https://app.automatedrules.com", "https://automatedrules.com"],
     _meta: { isHomepage: true, isVerified: true }
