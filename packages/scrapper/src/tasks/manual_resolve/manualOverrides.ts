@@ -7986,6 +7986,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/neurokaire"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NeuroQuest: {
+    ws: ["https://www.neuroquest-usa.com"],
+    li: ["https://www.linkedin.com/company/neuroquest-ltd"],
+    urls: ["https://www.wix.com/studio"],
+    _meta: { isHomepage: true }
+  },
   "NeuroSense Therapeutics": {
     ws: ["https://www.neurosense-tx.com"],
     li: ["https://www.linkedin.com/company/neurosense-therapeutics"],
