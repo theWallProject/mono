@@ -5833,6 +5833,12 @@ export const manualOverrides: Record<
     urls: ["https://www.nmore.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Integrity Consulting & Risk Management": {
+    ws: ["https://corporateintegrity.co.il"],
+    li: ["https://www.linkedin.com/company/integrity-consulting-and-risk-management"],
+    urls: ["https://api.whatsapp.com/send"],
+    _meta: { isHomepage: true }
+  },
   InterCure: {
     ws: ["https://www.intercure.co"],
     urls: ["https://www.canndoc.com"],
