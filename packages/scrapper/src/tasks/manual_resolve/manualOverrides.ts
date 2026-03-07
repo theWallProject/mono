@@ -3285,6 +3285,13 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/ecoos44"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "EDAL Engineering": {
+    ws: ["https://www.edal.co.il"],
+    li: ["https://www.linkedin.com/company/edal-projects"],
+    fb: ["https://www.facebook.com/edalprojects"],
+    urls: ["http://www.catom.co.il", "http://www.catom.com"],
+    _meta: { isHomepage: true }
+  },
   "ELSE Nutrition": {
     ws: ["https://elsenutrition.com", "https://hcp.elsenutrition.com", "https://investors.elsenutrition.com"],
     li: ["https://www.linkedin.com/company/else-nutrition"],
