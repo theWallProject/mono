@@ -11565,6 +11565,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/yonalink_"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Yoola: {
+    ws: ["https://yoola.com"],
+    li: ["https://www.linkedin.com/company/yoola-media"],
+    fb: ["https://www.facebook.com/yoola"],
+    ig: ["https://www.instagram.com/yoola"],
+    urls: ["https://new.yoola.app/auth"],
+    _meta: { isHomepage: true }
+  },
   Youtiligent: {
     ws: ["https://www.youtiligent.com"],
     li: ["https://www.linkedin.com/company/youtiligent"],
