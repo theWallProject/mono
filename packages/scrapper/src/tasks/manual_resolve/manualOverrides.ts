@@ -3497,6 +3497,12 @@ export const manualOverrides: Record<
     urls: ["http://site-map.asp", "https://rnr-sys.com"],
     _meta: { isHomepage: true }
   },
+  "EVR Motors Ltd": {
+    ws: ["https://evr-motors.com"],
+    li: ["https://www.linkedin.com/company/evr-motors"],
+    urls: ["https://dvivodesign.com"],
+    _meta: { isHomepage: true }
+  },
   EZMEMS: {
     ws: ["https://www.ezmems.com"],
     urls: [
