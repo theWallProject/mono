@@ -4109,6 +4109,14 @@ export const manualOverrides: Record<
     urls: ["http://wix.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FINBOT: {
+    ws: ["https://www.fin-bot.co.il"],
+    li: ["https://www.linkedin.com/company/fin-bot"],
+    fb: ["https://www.facebook.com/finbot11"],
+    ytp: ["https://www.youtube.com/@finbot-tutorial"],
+    urls: ["http://www.user-a.co.il"],
+    _meta: { isHomepage: true }
+  },
   FINQ: {
     ws: ["https://finqai.com", "https://press.finqai.com"],
     li: ["https://www.linkedin.com/company/finqai"],
