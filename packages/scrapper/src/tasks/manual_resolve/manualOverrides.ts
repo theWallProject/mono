@@ -12173,6 +12173,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@xinnorcompany"],
     _meta: { isHomepage: true }
   },
+  Xoltar: {
+    ws: ["https://xoltar.com", "https://www.xoltar.com"],
+    li: ["https://www.linkedin.com/company/xoltar"],
+    _meta: { isHomepage: true }
+  },
   "Xpand (formerly 1MRobotics)": {
     ws: ["https://xpand.us"],
     li: ["https://www.linkedin.com/company/xpand-today"],
