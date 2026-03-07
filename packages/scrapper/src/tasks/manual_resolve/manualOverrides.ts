@@ -7490,6 +7490,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@morphisecinc"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Motiv8AI: {
+    ws: ["https://marketing.motiv8ai.com", "https://www.motiv8ai.com"],
+    li: ["https://www.linkedin.com/company/motiv8ai"],
+    _meta: { isHomepage: true }
+  },
   "Moveo Group": {
     ws: [
       "https://www.moveo.group",
