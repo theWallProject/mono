@@ -2634,6 +2634,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Cellxpert: {
+    ws: ["https://www.cellxpert.com"],
+    li: ["https://www.linkedin.com/company/cellxpert"],
+    _meta: { isHomepage: true }
+  },
   Certora: {
     ws: [
       "https://careers.certora.com",
