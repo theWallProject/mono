@@ -6814,6 +6814,11 @@ export const manualOverrides: Record<
     urls: ["https://www.momentick.com/blog"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Momentis Surgical": {
+    ws: ["https://www.momentissurgical.com"],
+    urls: ["https://healthcareprofessionals.momentisuniversity.com/Account/Login"],
+    _meta: { isHomepage: true }
+  },
   Moodify: {
     ws: ["https://www.moodify.ai"],
     li: ["https://www.linkedin.com/company/moodify"],
