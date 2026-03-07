@@ -12732,6 +12732,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@proteantecs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  replantin: {
+    ws: ["https://replantin.com"],
+    li: ["https://www.linkedin.com/company/replantin"],
+    ig: ["https://www.instagram.com/replantin_pici"],
+    urls: ["https://web-skipper.co.il", "https://wordpress-828407-3879913.cloudwaysapps.com/privacy-policy"],
+    _meta: { isHomepage: true }
+  },
   sensorz: {
     ws: ["https://www.sensorz.io"],
     urls: ["https://sensorznew.webflow.io"],
