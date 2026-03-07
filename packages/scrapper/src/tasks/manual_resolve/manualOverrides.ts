@@ -3117,6 +3117,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cropx_global"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Cubic: {
+    ws: ["https://app.gocubic.io", "https://www.gocubic.io"],
+    li: ["https://www.linkedin.com/company/gocubic"],
+    tw: ["https://x.com/gocubic"],
+    _meta: { isHomepage: true }
+  },
   "Curiosity Robotics": {
     ws: ["https://www.curiosity-robotics.com"],
     li: ["https://www.linkedin.com/company/curiosity-robotics"],
