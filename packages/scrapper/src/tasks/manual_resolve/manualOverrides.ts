@@ -1911,6 +1911,13 @@ export const manualOverrides: Record<
     urls: ["https://chat.openai.com", "https://www.awesome-deloitte.com"],
     _meta: { isHomepage: true }
   },
+  Bllink: {
+    ws: ["https://app.bllink.co", "https://marketplace.bllink.co", "https://www.bllink.co"],
+    li: ["https://www.linkedin.com/company/bllink"],
+    fb: ["https://www.facebook.com/bllink.co"],
+    urls: ["https://avocadostories.com"],
+    _meta: { isHomepage: true }
+  },
   BlockSite: {
     ws: ["https://blocksite.co", "https://user.blocksite.co"],
     li: ["https://www.linkedin.com/company/blocksite"],
