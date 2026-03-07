@@ -12,6 +12,13 @@ export const manualOverrides: Record<
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders" },
   "100X": { ws: ["https://get100x.com"], urls: ["https://dany.ai"], _meta: { isHomepage: true, isVerified: true } },
   "101 Therapeutics": { ws: ["https://101therapeutics.com"], _meta: { isHomepage: true, isVerified: true } },
+  "10bis": {
+    ws: ["https://comp.10bis.co.il", "https://www.10bis.co.il"],
+    fb: ["https://www.facebook.com/10bis"],
+    ig: ["https://www.instagram.com/10bis"],
+    urls: ["https://www.paypo.com", "https://www.takeaway.com/jobs/vacancies"],
+    _meta: { isHomepage: true }
+  },
   "1E Therapeutics": {
     ws: ["https://1etx.com"],
     urls: ["https://www.pearlcom.co.il"],
