@@ -4970,6 +4970,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "HT BioImaging": {
+    ws: ["https://www.htbioimaging.com"],
+    li: ["https://www.linkedin.com/company/ht-bioimaging"],
+    _meta: { isHomepage: true }
+  },
   "HUB Security": {
     ws: ["https://hub-technologies.com", "https://investors.hubsecurity.com"],
     li: "https://www.linkedin.com/company/hubtechnologiescom",
