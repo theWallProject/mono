@@ -1292,6 +1292,15 @@ export const manualOverrides: Record<
     ytp: "https://www.youtube.com/@belkinvision",
     _meta: { isHomepage: true, isVerified: true }
   },
+  BERMAD: {
+    ws: ["https://bermadize.bermad.com", "https://portal.bermad.com", "https://www.bermad.com"],
+    li: ["https://www.linkedin.com/company/bermadglobal"],
+    fb: ["https://www.facebook.com/bermadglobal"],
+    ig: ["https://www.instagram.com/bermad.global"],
+    ytp: ["https://www.youtube.com/@bermadwatercontrolsolutions"],
+    urls: ["https://www.whiteweb.co.il"],
+    _meta: { isHomepage: true }
+  },
   "BLEND Localization": {
     ws: [
       "https://apidocs.getblend.com",
