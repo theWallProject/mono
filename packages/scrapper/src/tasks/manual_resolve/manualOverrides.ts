@@ -7793,6 +7793,11 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   NewRocket: { ws: ["https://www.newrocket.co.il"], _meta: { isHomepage: true, isVerified: true } },
+  "Newton Tech": {
+    ws: ["https://go.newton-tech.net", "https://www.newton-tech.net"],
+    li: ["https://www.linkedin.com/company/newtontech-ai"],
+    _meta: { isHomepage: true }
+  },
   "Next Dim": {
     ws: ["https://next-dim.com"],
     li: ["https://www.linkedin.com/company/nextdim"],
