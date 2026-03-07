@@ -7928,6 +7928,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oosto6849"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OpenLM: {
+    ws: ["https://cdn.openlm.com", "https://learn.openlm.com", "https://www.openlm.com", "https://www.openlm.jp"],
+    li: ["https://www.linkedin.com/company/openlm"],
+    fb: ["https://www.facebook.com/openlm"],
+    tw: ["https://x.com/openlm"],
+    ytp: ["https://www.youtube.com/@openlm"],
+    urls: ["https://outlook.live.com/owa", "https://outlook.office.com/owa", "https://www.google.com/calendar/render"],
+    _meta: { isHomepage: true }
+  },
   "Oporto Carbon": {
     ws: ["https://www.oportocarbon.com"],
     li: ["https://www.linkedin.com/company/oporto-carbon"],
