@@ -3907,6 +3907,14 @@ export const manualOverrides: Record<
     urls: ["https://raintreasury.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Entail AI": {
+    ws: ["https://app.entail.ai", "https://entail.ai"],
+    li: ["https://www.linkedin.com/company/entailai"],
+    fb: ["https://www.facebook.com/entailai"],
+    tw: ["https://x.com/entail_ai"],
+    ig: ["https://www.instagram.com/entail.ai"],
+    _meta: { isHomepage: true }
+  },
   EntityMed: {
     ws: ["https://entitymed.com"],
     li: ["https://www.linkedin.com/company/entitymed"],
