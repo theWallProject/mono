@@ -3058,6 +3058,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Cygobel Media": {
+    ws: ["https://cygobel.com"],
+    li: ["https://www.linkedin.com/company/cygobel-media"],
+    _meta: { isHomepage: true }
+  },
   Cylus: {
     ws: ["https://www.cylus.com"],
     li: ["https://www.linkedin.com/company/cylus"],
