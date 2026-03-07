@@ -4368,6 +4368,12 @@ export const manualOverrides: Record<
     urls: ["https://finsweet.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Finateco: {
+    ws: ["https://finateco.com", "https://merchants.finateco.com"],
+    li: ["https://www.linkedin.com/company/finateco"],
+    urls: ["https://t.me/FNTC2"],
+    _meta: { isHomepage: true }
+  },
   Fincom: {
     ws: ["https://fincom.co"],
     li: ["https://www.linkedin.com/company/fincom-co"],
