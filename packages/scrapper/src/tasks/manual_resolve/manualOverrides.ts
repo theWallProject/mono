@@ -4890,6 +4890,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@HopperSecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Hudson Rock": {
+    ws: [
+      "https://bayonet.hudsonrock.com",
+      "https://cavalier.hudsonrock.com",
+      "https://docs.hudsonrock.com",
+      "https://partners.hudsonrock.com",
+      "https://www.hudsonrock.com"
+    ],
+    li: ["https://www.linkedin.com/company/hudson-rock"],
+    tw: ["https://x.com/rockhudsonrock"],
+    ytp: ["https://www.youtube.com/@hudsonrock7164"],
+    urls: ["https://infostealers.com"],
+    _meta: { isHomepage: true }
+  },
   Humanz: {
     ws: ["https://plus.humanz.com", "https://www.humanz.com"],
     li: ["https://www.linkedin.com/company/humanz"],
