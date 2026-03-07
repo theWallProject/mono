@@ -9573,6 +9573,15 @@ export const manualOverrides: Record<
     urls: ["https://generatepress.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Smart Shooter": {
+    ws: ["https://www.smart-shooter.com"],
+    li: ["https://www.linkedin.com/company/smart-shooter"],
+    fb: ["https://www.facebook.com/smashbysmartshooter"],
+    tw: ["https://x.com/smart_shooter_"],
+    ig: ["https://www.instagram.com/smartshooter_ssl"],
+    ytp: ["https://www.youtube.com/@smartshooter_ltd"],
+    _meta: { isHomepage: true }
+  },
   Smartair: {
     ws: ["https://help.smartair.co.il", "https://www.smartair.co.il"],
     urls: [
