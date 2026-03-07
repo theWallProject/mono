@@ -2039,6 +2039,19 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/cyfox-cybersecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "CYMOTIVE Technologies": {
+    ws: ["https://www.cymotive.com"],
+    li: ["https://www.linkedin.com/company/cymotive-technologies"],
+    fb: ["https://www.facebook.com/cymotive"],
+    tw: ["https://x.com/cymotivetech"],
+    ig: ["https://www.instagram.com/cymotive"],
+    urls: [
+      "https://www.comeet.com/jobs/cymotive/F1.008",
+      "https://www.xing.com/pages/cymotive",
+      "https://yourvoice.hibob.com/consult/aOIazLht9F"
+    ],
+    _meta: { isHomepage: true }
+  },
   CYREBRO: {
     ws: ["https://app.cyrebro.io", "https://partners.cyrebro.io", "https://www.cyrebro.io"],
     li: ["https://www.linkedin.com/company/cyrebro"],
