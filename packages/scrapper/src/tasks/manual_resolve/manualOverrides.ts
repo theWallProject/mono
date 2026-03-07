@@ -6120,6 +6120,17 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/jiga3d"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Jika.io": {
+    ws: ["https://www.jika.io"],
+    li: ["https://www.linkedin.com/company/jika-io"],
+    tw: ["https://x.com/jika_io"],
+    urls: [
+      "https://fb.me/www.jika.io",
+      "https://www.producthunt.com/products/jika/reviews",
+      "https://www.reddit.com/r/growthstonks"
+    ],
+    _meta: { isHomepage: true }
+  },
   Jit: {
     ws: ["https://docs.jit.io", "https://platform.jit.io", "https://www.jit.io"],
     li: ["https://www.linkedin.com/company/jit"],
