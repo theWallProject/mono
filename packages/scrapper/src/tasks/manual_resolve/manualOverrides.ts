@@ -1096,6 +1096,12 @@ export const manualOverrides: Record<
     urls: ["https://apps.apple.com/us/app/atly-know-where-to-go/id1449597018", "https://play.google.com/store/search"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Atreo: {
+    ws: ["https://www.atreo.co"],
+    li: ["https://www.linkedin.com/company/atreo"],
+    ig: ["https://www.instagram.com/atreo.co"],
+    _meta: { isHomepage: true }
+  },
   Atrinet: {
     ws: ["https://www.atrinet.com"],
     li: ["https://www.linkedin.com/company/atrinet"],
