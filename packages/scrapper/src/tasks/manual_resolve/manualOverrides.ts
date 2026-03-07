@@ -3645,6 +3645,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Equinom"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Esh: { ws: ["https://esh.com"], urls: ["https://www.comeet.com/jobs/esh/87.003"], _meta: { isHomepage: true } },
   Ettorney: {
     ws: ["https://www.ettorney.co.il"],
     li: ["https://www.linkedin.com/company/9360861", "https://www.linkedin.com/company/ettorney"],
