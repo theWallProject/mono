@@ -10339,6 +10339,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@solasecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Solano: {
+    ws: ["https://solano.co.il"],
+    fb: ["https://www.facebook.com/solano.co.il"],
+    ig: ["https://www.instagram.com/solano.co.il"],
+    urls: ["https://api.whatsapp.com/send"],
+    _meta: { isHomepage: true }
+  },
   "SolarEdge Technologiesa": {
     ws: [
       "https://corporate.solaredge.com",
