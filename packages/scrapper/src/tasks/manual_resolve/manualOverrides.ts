@@ -5892,6 +5892,11 @@ export const manualOverrides: Record<
     urls: ["https://assafmedia.co.il", "https://careers.zoll.com/careers-listing", "https://www.watchpat.fr"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  JUX: {
+    ws: ["https://app.jux.io", "https://docs.jux.io", "https://www.jux.io"],
+    li: ["https://www.linkedin.com/company/jux-io"],
+    _meta: { isHomepage: true }
+  },
   "Jeen AI": {
     ws: ["https://jeen.ai"],
     li: ["https://www.linkedin.com/company/jeen-ai"],
