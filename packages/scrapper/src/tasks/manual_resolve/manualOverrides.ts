@@ -5868,6 +5868,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@kissterra"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Klarecon: {
+    ws: ["https://www.klarecon.com"],
+    li: ["https://www.linkedin.com/company/klarecon"],
+    fb: ["https://www.facebook.com/klarecon"],
+    _meta: { isHomepage: true }
+  },
   Klutch: {
     ws: ["https://help.klutch.app", "https://klutch.app", "https://web.klutch.app"],
     urls: [
