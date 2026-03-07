@@ -3687,6 +3687,15 @@ export const manualOverrides: Record<
     urls: ["https://www.shopify.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  EZmob: {
+    ws: ["https://dashboard.ezmob.com", "https://ezmob.com"],
+    li: ["https://www.linkedin.com/company/2742966", "https://www.linkedin.com/company/ezmob"],
+    fb: ["https://www.facebook.com/ezmob"],
+    tw: ["https://x.com/ezmob_marketing"],
+    ytp: ["https://www.youtube.com/@ezmobmarketing"],
+    urls: ["https://vk.com/ezmob_dsp", "https://www.securitymetrics.com/site_certificate"],
+    _meta: { isHomepage: true }
+  },
   "EarWays Medical": {
     ws: ["https://earwaysmedical.com"],
     fb: ["https://www.facebook.com/earwaysmedical"],
