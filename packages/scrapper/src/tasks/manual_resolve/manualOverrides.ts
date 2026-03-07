@@ -782,6 +782,11 @@ export const manualOverrides: Record<
     urls: ["http://planwize.com", "https://waze.to/li/hsvbbepj92"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Arava Power": {
+    ws: ["https://aravapower.com"],
+    li: ["https://www.linkedin.com/company/arava-power-company"],
+    _meta: { isHomepage: true }
+  },
   Arbe: {
     ws: ["https://arberobotics.com", "https://ir.arberobotics.com"],
     li: ["https://www.linkedin.com/company/arbe-robotics"],
