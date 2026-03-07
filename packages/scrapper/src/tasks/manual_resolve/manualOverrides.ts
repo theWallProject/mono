@@ -1236,6 +1236,11 @@ export const manualOverrides: Record<
     ws: ["https://www.qualcomm.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Avantis Team": {
+    ws: ["https://www.avantisteam.com"],
+    urls: ["https://cyberchimps.com"],
+    _meta: { isHomepage: true }
+  },
   "Avaturn (formerly in3D)": {
     ws: ["https://avaturn.me", "https://developer.avaturn.me", "https://docs.avaturn.me", "https://hub.avaturn.me"],
     li: ["https://www.linkedin.com/company/28502076", "https://www.linkedin.com/company/avaturn"],
