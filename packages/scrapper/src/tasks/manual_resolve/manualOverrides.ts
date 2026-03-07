@@ -4067,6 +4067,12 @@ export const manualOverrides: Record<
     urls: ["https://www.medxelerator.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Exon Media": {
+    ws: ["https://www.exon-media.com"],
+    li: ["https://www.linkedin.com/company/exon-media"],
+    urls: ["http://3.87.221.108", "https://madebyomnis.com", "https://www.k2design.co.il"],
+    _meta: { isHomepage: true }
+  },
   Exosomm: { ws: ["https://www.exosomm.com"], _meta: { isHomepage: true, isVerified: true } },
   Explorium: {
     ws: ["https://www.explorium.ai"],
