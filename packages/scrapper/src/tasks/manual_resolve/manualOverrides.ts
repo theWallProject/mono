@@ -8920,6 +8920,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@salvadortechnologies7400"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Samplead: {
+    ws: ["https://dashboard.samplead.co", "https://www.samplead.co"],
+    urls: [
+      "https://23363506.fs1.hubspotusercontent-na1.net/hubfs/23363506/PRIVACY%20POLICY%20Samplead.pdf",
+      "https://23363506.fs1.hubspotusercontent-na1.net/hubfs/23363506/Samplead%20Terms%20of%20Service%20-%20Final%20.%20(1).pdf",
+      "https://meetings.hubspot.com/dor-vardi-samplead/demo-coming-from-website"
+    ],
+    _meta: { isHomepage: true }
+  },
   Sapiens: {
     ws: [
       "https://careers.sapiens.com",
