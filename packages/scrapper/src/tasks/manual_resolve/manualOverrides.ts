@@ -9046,6 +9046,18 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@radiflowSec"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Rafa Laboratories Ltd.": {
+    ws: ["https://www.rafa.co.il", "http://midlife-rafa.co.il"],
+    urls: [
+      "http://dikaon.co.il",
+      "http://www.hedrin.co.il",
+      "http://www.kelocote.co.il",
+      "https://ul.waze.com/ul",
+      "https://www.daleket-basheten.co.il",
+      "https://www.waze.com/en/live-map/directions/%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Rafael Advanced Defense Systems": {
     ws: ["https://career.rafael.co.il", "https://www.rafael.co.il"],
     li: ["https://www.linkedin.com/company/rafael-advanced-defense-systems-official"],
