@@ -5605,6 +5605,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.creations.partychamps", "com.creations.runnergame", "nature.magic.dash"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Korra: {
+    ws: ["https://app.korra.ai", "https://korra.ai"],
+    li: ["https://www.linkedin.com/company/korra-ai"],
+    _meta: { isHomepage: true }
+  },
   Kovrr: {
     ws: ["https://resources.kovrr.com", "https://www.kovrr.com"],
     li: ["https://www.linkedin.com/company/kovrr"],
