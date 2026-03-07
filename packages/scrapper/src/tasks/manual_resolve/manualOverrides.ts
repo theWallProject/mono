@@ -1917,6 +1917,11 @@ export const manualOverrides: Record<
     urls: ["https://chat.openai.com", "https://www.awesome-deloitte.com"],
     _meta: { isHomepage: true }
   },
+  Blix: {
+    ws: ["https://app.blix.ai", "https://blix.ai"],
+    li: ["https://www.linkedin.com/company/blix-ai"],
+    _meta: { isHomepage: true }
+  },
   Bllink: {
     ws: ["https://app.bllink.co", "https://marketplace.bllink.co", "https://www.bllink.co"],
     li: ["https://www.linkedin.com/company/bllink"],

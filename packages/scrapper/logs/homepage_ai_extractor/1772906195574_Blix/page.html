@@ -1,0 +1,404 @@
+<!DOCTYPE html><html data-wf-domain="blix.ai" data-wf-page="66952f26f98863f8ad44015d" data-wf-site="66952f25f98863f8ad4400fa" lang="en" class="w-mod-js wf-poppins-n6-active wf-poppins-n3-active wf-poppins-n4-active wf-poppins-n5-active wf-inter-n4-active wf-inter-n7-active wf-inter-n5-active wf-inter-n6-active wf-inter-n3-active wf-poppins-n7-active wf-active w-mod-ix"><head><style>.wf-force-outline-none[tabindex="-1"]:focus{outline:none;}</style><meta charset="utf-8"><title>Blix - AI-Powered Text Analysis</title><meta content="Blix verbatim coding software turns open-ended survey questions, online reviews &amp; other textual feedback to insights effortlessly with AI-powered text analysis." name="description"><meta content="Blix - AI-Powered Text Analysis" property="og:title"><meta content="Blix verbatim coding software turns open-ended survey questions, online reviews &amp; other textual feedback to insights effortlessly with AI-powered text analysis." property="og:description"><meta content="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66fa96b262a6d2d4ee490142_OG_image.png" property="og:image"><meta content="Blix - AI-Powered Text Analysis" property="twitter:title"><meta content="Blix verbatim coding software turns open-ended survey questions, online reviews &amp; other textual feedback to insights effortlessly with AI-powered text analysis." property="twitter:description"><meta content="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66fa96b262a6d2d4ee490142_OG_image.png" property="twitter:image"><meta property="og:type" content="website"><meta content="summary_large_image" name="twitter:card"><meta content="width=device-width, initial-scale=1" name="viewport"><link href="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/css/blix-f.webflow.shared.e34fc3858.min.css" rel="stylesheet" type="text/css" integrity="sha384-40/DhYksjmogGTiGGqJZkzadlaeQXUdgotQLTc4xmzcmdFXHI28RycZiNSXUF03T" crossorigin="anonymous"><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-16750680122&amp;cx=c&amp;gtm=4e6341"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=G-M27L1JY5NS&amp;cx=c&amp;gtm=4e6341"></script><script type="text/javascript" crossorigin="anonymous" async="" src="https://us-assets.i.posthog.com/static/array.js"></script><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700%7CPoppins:300,400,500,600,700" media="all"><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700","Poppins:300,400,500,600,700"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69724d6a7d58bc204c26feff_favicon.png" rel="shortcut icon" type="image/x-icon"><link href="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69724ecde3e9a98ba2a1c7d6_blix.png" rel="apple-touch-icon"><link href="https://blix.ai" rel="canonical">
+<!-- Crisp chat widget -->
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="66def91d-4d87-4985-8779-c3a915445a7a";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script><script src="https://client.crisp.chat/l.js" async=""></script>
+
+<style>
+.truncate { white-space: nowrap; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+overflow: hidden; text-overflow: ellipsis; 
+</style>
+
+<!-- Blix email validation & Calendly utils -->
+<script>
+  
+// 1) “General/free” email domains to block (extend as needed)
+  const FREE_DOMAINS = new Set([
+    "gmail.com","googlemail.com","outlook.com","hotmail.com","live.com","msn.com",
+    "yahoo.com","ymail.com","rocketmail.com","icloud.com","me.com","mac.com",
+    "proton.me","protonmail.com","aol.com","zoho.com","mail.com","gmx.com","yandex.com"
+  ]);
+
+  // 2) Known disposable/burner domains (seed list — add more over time)
+  const BURNER_DOMAINS = new Set([
+    "mailinator.com","guerrillamail.com","10minutemail.com","tempmail.com",
+    "dispostable.com","trashmail.com","getnada.com","yopmail.com"
+  ]);
+  // substring hints for new/unknown burners
+  const BURNER_HINTS = ["mailinator","tempmail","10min","disposable","trashmail","guerrilla","yopmail","getnada"];
+
+  // 3) Block your own domain (spammers spoof it)
+  const BLOCKED_OWN_DOMAINS = new Set(["blix.ai"]);
+
+  // 4) Manual blacklist (either full emails or domains)
+  const MANUAL_BLACKLIST_EMAILS = new Set([
+    // "bad.actor@example.com",
+  ]);
+  const MANUAL_BLACKLIST_DOMAINS = new Set([
+    // "shady-domain.com",
+  ]);
+
+  // ---- HELPERS ----
+  function getEmailInput(form, email_input_name = "email_address") {
+    return form.querySelector(`input[name=${email_input_name}], input[type="email"]`);
+  }
+  
+  function extractDomain(email) {
+    const at = email.lastIndexOf("@");
+    if (at === -1) return "";
+    return email.slice(at + 1).trim().toLowerCase();
+  }
+
+  function isValidEmailFormat(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  function isFreeOrBurnerDomain(domain) {
+    if (FREE_DOMAINS.has(domain) || BURNER_DOMAINS.has(domain)) return true;
+    return BURNER_HINTS.some(h => domain.includes(h));
+  }
+  
+  function isBurnerDomain(domain) {
+    if (BURNER_DOMAINS.has(domain)) return true;
+    return BURNER_HINTS.some(h => domain.includes(h));
+  }
+
+  function isOwnDomain(domain) {
+    return BLOCKED_OWN_DOMAINS.has(domain);
+  }
+
+  function inManualBlacklist(email, domain) {
+    if (MANUAL_BLACKLIST_EMAILS.has(email)) return true;
+    if (MANUAL_BLACKLIST_DOMAINS.has(domain)) return true;
+    return false;
+  }
+
+  function setInlineError(input, msg) {
+    input.setCustomValidity(msg);
+    input.reportValidity();
+    input.addEventListener("input", () => input.setCustomValidity(""), { once: true });
+  }
+  
+ 
+</script>
+
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init fi Cr Or ci Tr Ir capture Mi calculateEventProperties Ar register register_once register_for_session unregister unregister_for_session Nr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty jr Mr createPersonProfile Lr kr Ur opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Fr debug M Dr getPageViewId captureTraceFeedback captureTraceMetric Sr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_a0vKDIrtTIRfj9sOsQAiXfohwVZpQt8EcdcM0orCh9I', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2025-05-24',
+        person_profiles: 'always', // or 'always' to create profiles for anonymous users as well
+    })
+</script><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"USD","symbol":"$","decimal":".","fractionDigits":2,"group":",","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script><link href="https://client.relay.crisp.chat" rel="dns-prefetch" crossorigin=""><link href="https://client.crisp.chat" rel="preconnect" crossorigin=""><script src="https://client.crisp.chat/static/javascripts/client_default_20541ac.js" type="module" async=""></script><link href="https://client.crisp.chat/static/stylesheets/client_default_20541ac.css" type="text/css" rel="stylesheet"><script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WZM73MXN"></script><script src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=eio8uj" async="" defer=""></script></head><body class="body"><div data-animation="default" class="navbar07_component w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" data-w-id="e086ee53-c490-a7f7-0b24-50d5edc4353b" role="banner" data-no-scroll="1" data-duration="400" style="border-color: rgba(211, 205, 238, 0); will-change: background; background-color: rgba(255, 255, 255, 0); transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><div class="navbar07_container"><a href="/" aria-current="page" class="navbar07_logo-link w-nav-brand w--current" aria-label="home"><div class="logo_component"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66a1aea42cfb6b5169868463_blix_logo.svg" loading="lazy" alt="Blix Logo" class="logo_logotype"></div></a><nav role="navigation" class="navbar07_menu w-nav-menu"><div class="navbar07_menu-left"><a href="/" aria-current="page" class="nav_link w-nav-link w--current">Home</a><div data-delay="0" data-hover="true" class="menu-item-toggle w-dropdown"><div class="dropdown-toggle-2 w-dropdown-toggle" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="toggle-text">Use Cases</div><div class="nav-arrow-icon hide w-icon-dropdown-toggle" aria-hidden="true"></div></div><nav class="dropdown-list w-dropdown-list" id="w-dropdown-list-0" aria-labelledby="w-dropdown-toggle-0"><a href="/use-cases/market-research" class="flex-box-horizontal-3 w-inline-block" tabindex="0"><div class="sizing-animated-object"></div><div class="dropdown-link">Market Research</div></a><a href="/use-cases/consumer-insights" class="flex-box-horizontal-3 w-inline-block" tabindex="0"><div class="sizing-animated-object"></div><div class="dropdown-link">Consumer Insights</div></a></nav></div><div data-delay="0" data-hover="true" class="menu-item-toggle w-dropdown"><div class="dropdown-toggle-2 w-dropdown-toggle" id="w-dropdown-toggle-1" aria-controls="w-dropdown-list-1" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0"><div class="toggle-text">Product</div><div class="nav-arrow-icon hide w-icon-dropdown-toggle" aria-hidden="true"></div></div><nav class="dropdown-list w-dropdown-list" id="w-dropdown-list-1" aria-labelledby="w-dropdown-toggle-1"><a href="/features/thematic-analysis-software" class="flex-box-horizontal-3 w-inline-block" tabindex="0"><div class="sizing-animated-object"></div><div class="dropdown-link">Thematic Analysis</div></a><a href="/features/open-ends-coding-software" class="flex-box-horizontal-3 w-inline-block" tabindex="0"><div class="sizing-animated-object"></div><div class="dropdown-link">Automated Coding</div></a></nav></div><a href="/about" class="nav_link w-nav-link">About</a><a href="/blog" class="nav_link w-nav-link">Blog</a><a href="/contact-us" class="nav_link w-nav-link">Contact Us</a></div><div class="navbar07_menu-right"><div class="navbar07_button-wrapper"><a href="https://app.blix.ai/auth" class="uui-button-secondary-gray-2 show-tablet-2 w-inline-block"><div>Log in</div></a><a href="https://app.blix.ai/auth" class="uui-button-tertiary-gray-2 hide-tablet-2 w-inline-block"><div>Log in</div></a><a href="/book-a-demo" class="uui-button w-inline-block"><div class="text-block">Book a Demo</div></a></div></div></nav><div class="navbar07_menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><div class="menu-icon_component"><div class="menu-icon_line-top"></div><div class="menu-icon_line-middle"><div class="menu-icon_line-middle-inner"></div></div><div class="menu-icon_line-bottom"></div></div></div></div><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div><div class="section hero-section"><div class="container w-container"><div class="w-layout-grid top-section-grid"><div id="w-node-f53e142b-cd72-b316-d90c-c93b5cfb0544-ad44015d" class="hero-section-block homepage"><h1 class="heading-alternative">Analyze Customer Feedback in Minutes, Not Days</h1><p class="p-20">Built for researchers who need to turn open-ended responses into clear, compelling insights. fast.</p><div class="hero-section-buttons-block"><a href="/book-a-demo" class="primary-button w-button">Book a Demo</a></div></div><a href="#" class="lightbox-link w-inline-block w-lightbox" aria-label="open lightbox" aria-haspopup="dialog"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680cfacc72d2c51bf8976d7e_Video%20Thumbnail.webp" loading="lazy" width="1280" height="Auto" alt="Purple-themed software interface with a play button and text prompting to watch a demo video." srcset="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680cfacc72d2c51bf8976d7e_Video%20Thumbnail-p-500.webp 500w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680cfacc72d2c51bf8976d7e_Video%20Thumbnail-p-800.webp 800w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680cfacc72d2c51bf8976d7e_Video%20Thumbnail-p-1080.webp 1080w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680cfacc72d2c51bf8976d7e_Video%20Thumbnail-p-1600.webp 1600w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680cfacc72d2c51bf8976d7e_Video%20Thumbnail-p-2000.webp 2000w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680cfacc72d2c51bf8976d7e_Video%20Thumbnail.webp 2560w" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" class="video_thumbnail"><script type="application/json" class="w-json">{
+  "items": [
+    {
+      "url": "https://www.youtube.com/watch?v=BMhBQCNGmlw?autoplay=1",
+      "originalUrl": "https://www.youtube.com/watch?v=BMhBQCNGmlw?autoplay=1",
+      "width": 940,
+      "height": 528,
+      "thumbnailUrl": "https://i.ytimg.com/vi/BMhBQCNGmlw/hqdefault.jpg",
+      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FBMhBQCNGmlw%3Fautoplay%3D1%26feature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DBMhBQCNGmlw&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FBMhBQCNGmlw%2Fhqdefault.jpg&autoplay=1&type=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
+      "type": "video"
+    }
+  ],
+  "group": ""
+}</script></a></div></div></div><div class="section padding-top-0 logo-carousel"><div class="container w-container"><div class="title-m">Trusted by top brands &amp; market research firms:</div><div class="w-layout-grid our-partners-logo-grid"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66f4c27051d72b9903cccb20_nespresso.svg" loading="lazy" alt="Nespresso Logo" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367eff41ddb77569d0fd4e_mint_mobile.svg" loading="lazy" alt="" height="58" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367effc9ec48264ed24ab3_kantar.svg" loading="lazy" alt="" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680d90dbd3c0ca215597de34_opinium.svg" loading="lazy" alt="" height="58" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367effaddb13811d0b1f9c_morning_consult.svg" loading="lazy" alt="" height="58" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367eff5340ea3accaf8af3_L%26E_research.svg" loading="lazy" alt="" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680d925611ae712d280ad019_povaddo.svg" loading="lazy" alt="" height="58" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7e6f7c5a797b91271fe9c_insights_exchange.png" loading="lazy" width="Auto" height="Auto" alt="Insights Exchange Logo" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367eff277af0e988d1d2dc_carmans_kitchen.svg" loading="lazy" alt="" class="clients-logo hidden"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367effc9ec48264ed24aaf_finn_partners.svg" loading="lazy" alt="" class="clients-logo hidden"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367eff35ae76391b80b412_moore.svg" loading="lazy" alt="" class="clients-logo hidden"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/680d9c19a6098113682d19b9_mhz%20networks.svg" loading="lazy" alt="" height="58" class="clients-logo hidden"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367eff2f5a5c71d36e84cc_kings_league.svg" loading="lazy" alt="" height="58" class="clients-logo hidden"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/69367eff14e7785e1962fabc_nextplora.svg" loading="lazy" alt="" height="Auto" class="clients-logo hidden"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7e6fecc371817d44b345e_spark_emotions.png" loading="lazy" alt="Spark Emotions Logo" class="clients-logo hidden"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/67bfb30a38889ca46bccfd15_taloustutkimus.svg" loading="lazy" alt="" class="clients-logo hidden"></div></div></div><div class="section section-padding"><div class="container w-container"><div class="w-layout-grid container-grid-left"><div id="w-node-fc3d3010-6956-d0d8-892b-7c65752f8b75-ad44015d" class="block-image"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d39913223b8886a2cfa962_problem.svg" loading="lazy" width="480" alt="Someone drowning in paperwork" class="image-holder"></div><div id="w-node-fc3d3010-6956-d0d8-892b-7c65752f8b78-ad44015d" class="capabilities-block"><div class="section-tag"><div class="section-title">Problem</div></div><div class="capabilities-block-elements"><h2 class="heading-2">Say Goodbye to Tedious Text Analysis</h2><p>Analyzing survey open ends and online reviews manually is time-consuming, slow, and tedious. Even traditional coding platforms fall short, requiring significant manual effort without delivering human-level analysis.<br></p><p>This leaves you with a tough choice: either dedicate valuable resources to this laborious manual process or miss out on the crucial insights hidden in your customers open text feedback.<br></p></div></div></div></div></div><div class="section section-padding"><div class="container w-container"><div class="w-layout-grid container-grid-image-right"><div id="w-node-af43070f-6f65-2454-624b-b0ecee74c582-ad44015d" class="capabilities-block"><div class="capabilities-block-elements"><div class="section-tag"><div class="section-title">Solution</div></div><h2 class="heading-2">Transform Feedback into Actionable Insights quickly &amp;&nbsp;easily</h2><p>Blix automates the process of coding survey open ends, online reviews, and other open-text feedback, turning them into actionable business insights quickly and easily powered by Generative AI.</p><p>Blix takes care of the tedious coding and analysis, so your team can focus on the important stuff, generating insights and driving your business forward.</p></div></div><div id="w-node-af43070f-6f65-2454-624b-b0ecee74c5af-ad44015d" class="solutions-image"><img width="480" loading="lazy" alt="Blix verbatim coding dashboard" src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d3cdea49372b26b3afafc4_report.svg" class="image-holder"></div></div></div></div><div class="section alternative-cta"><div class="alternative-small-cta"><div class="cta-text-dark">Open ends coding in minutes with Blix. <br></div><a href="/book-a-demo" class="primary-button w-button">Book a Demo</a></div></div><div class="section section-padding"><div class="container w-container"><div class="w-layout-grid additional-features-grid-right"><div id="w-node-df689ca5-85d7-ad36-cbc5-df56997f7439-ad44015d" class="additional-features-block"><h2 class="heading-2">Automated Topic Discovery</h2><p>Our advanced AI scans through your open text feedback and automatically identifies key topics and themes, ensuring no valuable insight is overlooked.<br></p></div><div class="block-image"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7db211453caa551801f09_automated_topic_discovery.svg" loading="lazy" width="480" alt="Blix mockup image" class="image-holder"></div></div></div></div><div class="section ai-powered-coding"><div class="container w-container"><div class="w-layout-grid additional-features-grid-left"><div class="block-image"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7dc5ec5a797b91267e844_Ai-Powered%20Coding.svg" loading="lazy" width="480" alt="" class="image-holder"></div><div id="w-node-fc1b84b4-5d1a-677e-ff11-f3a579a45431-ad44015d" class="additional-features-block"><h2 class="heading-2">Quick &amp; Effortless AI-Powered Coding</h2><p>Say goodbye to manual coding. Our AI-powered platform effortlessly categorizes and codes open-ended responses, transforming unstructured text into structured, quantitative data in no time.<br></p></div></div></div></div><div class="section section-padding"><div class="container w-container"><div class="w-layout-grid additional-features-grid-right"><div id="w-node-_79a23b41-04ff-6ec5-b53a-a39c8f504cc3-ad44015d" class="additional-features-block"><h2 class="heading-2">Automated Reports and Summaries</h2><p>Receive comprehensive reports and summaries without lifting a finger. Our platform generates detailed insights and actionable summaries, ready to be shared with your team and stakeholders.<br></p></div><div class="block-image"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7de2e08b4fcf5f8726964_reports.svg" loading="lazy" width="480" alt="Blix Chart Image" class="image-holder"></div></div></div></div><div class="section testimonials"><div class="container w-container"><div data-delay="6000" data-animation="slide" class="home-minimal-slider w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="1000" data-infinite="true" role="region" aria-label="carousel"><div class="w-slider-mask" id="w-slider-mask-0"><div class="w-slide" aria-label="1 of 3" role="group" style="transition: all; transform: translateX(0px); opacity: 1;"><div class="slide"><div class="slide-content"><img loading="lazy" height="Auto" alt="Moa Wirde, Project Manager, Convosphere" src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/676ce7271f7b49ecaf621b32_Moa%20Wirde.avif" class="slider-main-photo"><div><p class="slider-quote">“Our clients are over the moon with the insights we've been able to pull out thanks to Blix. We couldn't be happier!”</p><div class="w-layout-hflex quote-company"><div class="quote-autor-left"><div class="quote-author-s">Moa Wirde</div><div class="medium-paragraph-second-style">Project Manager, Convosphere</div></div><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/67633b11140b7613a34ceb3d_convosphere.svg" loading="lazy" alt="Convosphere logo" height="Auto"></div></div></div></div></div><div class="w-slide" aria-label="2 of 3" role="group" aria-hidden="true" style="transition: all; transform: translateX(0px); opacity: 1;"><div class="slide" aria-hidden="true"><div class="slide-content" aria-hidden="true"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/676ce7e9dd9c3959a5358656_Matt%20Hussey-p-500.jpeg 500w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/676ce7e9dd9c3959a5358656_Matt%20Hussey.jpeg 800w" alt="Matt Hussey, Founder of Generosity X" src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/676ce7e9dd9c3959a5358656_Matt%20Hussey.jpeg" loading="lazy" class="slider-main-photo" aria-hidden="true"><div aria-hidden="true"><p class="slider-quote" aria-hidden="true">“We can now confidently ask open-ended questions. What once felt overwhelming now feels exciting, like Christmas morning! And our clients LOVE the insights!”<br aria-hidden="true"></p><div class="w-layout-hflex quote-company" aria-hidden="true"><div class="quote-autor-left" aria-hidden="true"><div class="quote-author-s" aria-hidden="true">Matt Hussey</div><div class="medium-paragraph-second-style" aria-hidden="true">Founder of Generosity X</div></div><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7e6ea7cf6461383368b26_Generosity%20X.png" loading="lazy" alt="Generosity X logo" height="Auto" aria-hidden="true"></div></div></div></div></div><div class="w-slide" aria-label="3 of 3" role="group" aria-hidden="true" style="transition: all; transform: translateX(0px); opacity: 1;"><div class="slide" aria-hidden="true"><div class="slide-content" aria-hidden="true"><img loading="lazy" src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66e21966d913e3ff87d8c253_marc_solby.jpeg" alt="Marc Solby " class="slider-main-photo" aria-hidden="true"><div aria-hidden="true"><p class="slider-quote" aria-hidden="true">"I was 100% impressed by the results. Blix is super simple to use and very accurate.”<br aria-hidden="true"></p><div class="w-layout-hflex quote-company" aria-hidden="true"><div class="quote-autor-left" aria-hidden="true"><div class="quote-author-s" aria-hidden="true">Marc Solby</div><div class="medium-paragraph-second-style" aria-hidden="true">Owner, Lighthouse Consulting</div></div><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66e4df8a03cd70fb09d53063_lighthouse_consulting.png" loading="lazy" alt="Lighthouse Logo" height="Auto" aria-hidden="true"></div></div></div></div></div><div aria-live="off" aria-atomic="true" class="w-slider-aria-label" data-wf-ignore=""></div></div><div class="slider-arrow-left w-slider-arrow-left" role="button" tabindex="0" aria-controls="w-slider-mask-0" aria-label="previous slide"><img loading="lazy" src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7d876ce2866767a69c4ee_arrow-left.svg" alt="back icon"></div><div class="slider-arrow-right w-slider-arrow-right" role="button" tabindex="0" aria-controls="w-slider-mask-0" aria-label="next slide"><img loading="lazy" src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7d875955691f749f37bd6_arrow-right.svg" alt="forward icon"></div><div class="slide-nav-phantom w-slider-nav"><div class="w-slider-dot w-active" data-wf-ignore="" aria-label="Show slide 1 of 3" aria-pressed="true" role="button" tabindex="0" style="margin-left: 3px; margin-right: 3px;"></div><div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 2 of 3" aria-pressed="false" role="button" tabindex="-1" style="margin-left: 3px; margin-right: 3px;"></div><div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 3 of 3" aria-pressed="false" role="button" tabindex="-1" style="margin-left: 3px; margin-right: 3px;"></div></div></div></div></div><div class="section basic-features-background-alternative-padding-top-0"><div class="container w-container"><div class="basic-features-main-block"><div class="subheader-holder-small"><h2>Blix is perfect for</h2></div><div class="basic-feature-cards-grid-alternative-home"><div class="basic-features-card"><a href="/use-cases/market-research" class="w-inline-block"><div class="image-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d3cfe0ea785d53b3a58200_market_researchers.svg" loading="lazy" width="72" height="Auto" alt="" class="basic-features-image"></div><h3 class="card-heading margin-bottom-15">Market<br>Researchers</h3><p>Faster coding. Better insights.<br><br>Turn open-ended survey responses into coded data in minutes. Deliver insights quickly, use more open-ends, and skip the manual grunt work.</p></a><a href="/use-cases/market-research" class="secondary-button margin-top-20 w-button">Explore Blix for Market Research</a></div><div class="basic-features-card"><a href="/use-cases/consumer-insights" class="w-inline-block"><div class="image-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/68dc1a1c7999b7846169e35c_ci-teams.svg" loading="lazy" width="72" height="Auto" alt="" class="basic-features-image"></div><h3 class="card-heading margin-bottom-15">Consumer Insight Teams</h3><p>Turn feedback into strategy.<br><br>Your customers are telling you exactly what they want, don’t let it go to waste. Turn customer comments into business insights that drive real impact.</p></a><a href="/use-cases/consumer-insights" class="secondary-button margin-top-20 w-button">Explore Blix for Consumer Insights</a></div><div class="basic-features-card"><div class="image-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/68dc1be6fc536350d5419e47_cx_professionals.svg" loading="lazy" width="72" height="Auto" alt="" class="basic-features-image"></div><h3 class="margin-bottom-15">CX <br>Professionals</h3><p>Find and fix what’s broken.<br><br>Blix analyzes NPS and CSAT comments to uncover pain points, track issues over time, and drive measurable improvements in customer experience.<br></p></div></div></div><div class="hero-section-buttons-block flex-horizontal-center"><a href="/book-a-demo" class="primary-button w-button">Schedule a Call</a></div></div></div><div class="section bottom-section-home"><div class="container w-container"><div class="small-cta"><div class="cta-text left-align">Analyze open ended responses with a few clicks</div><div class="white-button-big"><a href="/book-a-demo" class="white-button w-button">Try Blix free</a></div></div></div></div><div class="section how-it-works"><div class="container w-container"><div class="section-tag align-center"><div class="section-title">How It works</div></div><h2 class="text-align-center">Quick &amp; effortless verbatim coding software</h2><div class="w-layout-grid home-minimal-grid-process"><div class="flex-horizontal-align-top"><div><div class="flex-horizontal"><div class="more-features-image-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7d198f44c720f8c7efcb6_import.svg" loading="lazy" width="90" alt="" class="more-features-icon"></div><div class="process-divider"></div></div><h5 class="heading-5-home-minimal">Import Your Data</h5><p class="m-bottom-0 padding-left-40 padding-right-40">Easily upload your data in Excel, CSV, or SPSS format from any source. With Blix, bringing in your data is as simple as drag-and-drop!<br></p></div></div><div class="flex-horizontal-align-top"><div><div class="flex-horizontal"><div class="process-divider"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66e26daaf5e8b3798d357077_r_arrow.svg" loading="lazy" alt="" class="arrow"></div><div class="more-features-image-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7d198ade3d85423666089_analysis.svg" loading="lazy" width="90" alt="" class="more-features-icon"></div><div class="process-divider"></div></div><h5 class="heading-5-home-minimal">AI-Powered Analysis</h5><p class="m-bottom-0 padding-left-40 padding-right-40">Sit back and let Blix do the heavy lifting. Our smart AI dives into your data, discovering topics and performing semantic coding to turn text into actionable insights.<br></p></div></div><div class="flex-horizontal-align-top"><div><div class="flex-horizontal flex-horizontal-left"><div class="process-divider"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66e26daaf5e8b3798d357077_r_arrow.svg" loading="lazy" alt="" class="arrow"></div><div class="more-features-image-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7d1dfc5a797b9125d14ea_data.svg" loading="lazy" width="90" alt="" class="more-features-icon"></div></div><h5 class="heading-5-home-minimal">Ready-to-Use Data</h5><p class="m-bottom-0 padding-left-40 padding-right-40">Get instant access to your insights. Blix creates an automated dashboard with cool graphs and summaries, plus a full Excel file with all your coded data. Everything you need, ready to go!</p></div></div></div></div></div><div class="section privacy-security"><div class="container w-container"><div class="w-layout-grid language-support-block"><div id="w-node-_597dd8f8-56d5-6120-440e-cf8fbc7b1048-ad44015d" class="language-support-blockellements"><h2 class="heading-2 text-align-center">Out-of-the-Box Multiple Language Support</h2><p>Analyze feedback from a global audience with ease. Blix supports multiple languages out of the box, enabling you to gain insights from diverse markets without translation or additional setup.</p><div class="hero-section-buttons-block flex-horizontal-center"><a href="/book-a-demo" class="primary-button w-button">Get Started</a></div></div><div id="w-node-_597dd8f8-56d5-6120-440e-cf8fbc7b1044-ad44015d" class="block-image alternative-home-background"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d3df22eff87c641fc289e5_globe.svg" loading="lazy" width="500" alt="Blix multiple language support" class="image-holder"></div></div></div></div><div class="section privacy-security"><div class="container w-container"><div class="w-layout-grid privacy-security-block"><div id="w-node-_0a1f2832-c5c3-0fb1-3cb4-b33ab481b360-ad44015d" class="capabilities-block-elements"><h2 class="heading-2">Private &amp;&nbsp;Secure</h2><div class="flex-box-horizontal"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7b43a9c298d69860cd758_blue_dash.svg" loading="lazy" width="18" alt="" class="blue-dash"><h5>Secure Enterprise Environment</h5></div><p class="paragraph padding-left-50">Your data stays encrypted and protected within our closed enterprise environment.</p><div class="flex-box-horizontal"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7b43a9c298d69860cd758_blue_dash.svg" loading="lazy" width="18" alt="" class="blue-dash"><h5>No Model Training. Your Data, Your Ownership</h5></div><p class="paragraph padding-left-50 margin-bottom-15">We never use your data for model training or share it with others.<br></p><div class="flex-box-horizontal"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d7b43a9c298d69860cd758_blue_dash.svg" loading="lazy" width="18" alt="" class="blue-dash"><h5>Privacy Guaranteed</h5></div><p class="paragraph padding-left-50">We prioritize your privacy and ensure that your data is handled with the utmost confidentiality.</p><div class="hero-section-buttons-block"><a href="/book-a-demo" class="primary-button w-button">Schedule a Call</a></div></div><div id="w-node-_0a1f2832-c5c3-0fb1-3cb4-b33ab481b38d-ad44015d" class="block-image alternative-home-background"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66d3b7556f5853686658ce01_privacy_security.svg" loading="lazy" width="420" alt="Blix security" class="image-holder"></div></div></div></div><div class="section customer-stories"><div class="container w-container"><div class="section-tag align-center"><div class="section-title">Customers Stories</div></div><h2 class="text-align-center">Don't just take our word for it.</h2><div class="w-layout-grid customer-stories-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/678c6f3b5003822935d6936f_Matt%20Hussey.webp" loading="lazy" width="480" sizes="(max-width: 479px) 100vw, 480px" alt="Headshot of Matt Hussey, Founder of Generosity X" srcset="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/678c6f3b5003822935d6936f_Matt%20Hussey-p-500.webp 500w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/678c6f3b5003822935d6936f_Matt%20Hussey-p-800.webp 800w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/678c6f3b5003822935d6936f_Matt%20Hussey-p-1080.webp 1080w, https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/678c6f3b5003822935d6936f_Matt%20Hussey.webp 1350w" class="case-study-image"><div class="collection-list-wrapper-2 w-dyn-list"><div role="list" class="w-dyn-items"><div role="listitem" class="w-dyn-item"><a href="/case-studies/transforming-insights-into-impact-how-generosity-x-uses-blix-for-greater-good" class="w-inline-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/678c7e40e554368dd4fae827_Generosity%20X.avif" loading="lazy" alt="Generosity X company logo" height="Auto" class="case-study-logo"></a><h3 class="m-top-0">"We can now confidently ask open-ended questions. What once felt overwhelming now feels exciting, like Christmas morning! And our clients LOVE the insights!"</h3><p class="cs-customer">Matt Hussey</p><p class="xs-paragraph">Founder of Generosity X</p><a href="/case-studies/transforming-insights-into-impact-how-generosity-x-uses-blix-for-greater-good" class="secondary-button w-button">Read the case study</a></div></div></div></div></div></div><section class="section faq"><div class="w-layout-blockcontainer w-container"><h2 class="text-align-center">FAQs</h2><div class="faq01_component"><div class="faq01_list"><div class="faq_accordion"><div data-w-id="2e701fa2-44bc-4e20-b4cf-633e8cdb1827" class="faq_question"><div class="faq01_heading">Who is Blix for?</div><div class="faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div style="height: 0px;" class="faq_answer"><p>Blix is designed for market research agencies, customer insights teams, and anyone looking to turn open-ended feedback into actionable insights quickly and efficiently. Whether you're analyzing survey responses, online reviews, or customer support tickets, Blix helps you get the job done without the hassle of manual coding. It's perfect for professionals who need fast, accurate insights while keeping full control over the process.</p><div class="space-medium"></div></div></div><div class="faq_accordion"><div data-w-id="2e701fa2-44bc-4e20-b4cf-633e8cdb1833" class="faq_question"><div class="faq01_heading">How accurate is Blix’s coding?</div><div class="faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div style="height: 0px;" class="faq_answer"><p>Blix is designed for professional-grade accuracy. Our AI delivers precise coding that can match or even surpass manual coding, saving you time while maintaining high quality. You can always review and adjust the results to ensure everything meets your standards.</p><div class="space-medium"></div></div></div><div class="faq_accordion"><div data-w-id="2e701fa2-44bc-4e20-b4cf-633e8cdb183f" class="faq_question"><div class="faq01_heading">Can I customize the coding process to fit my needs?</div><div class="faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div style="height: 0px;" class="faq_answer"><p>Absolutely! Blix gives you full control over the coding process. You can adjust categories, review results, and fine-tune the analysis to fit your unique needs, ensuring the insights are relevant to your business.</p><div class="space-medium"></div></div></div><div class="faq_accordion"><div data-w-id="2e701fa2-44bc-4e20-b4cf-633e8cdb184b" class="faq_question"><div class="faq01_heading">Is Blix suitable for large datasets?</div><div class="faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div style="height: 0px;" class="faq_answer"><p>Yes! Blix is built to scale, whether you’re working with a small survey or massive datasets. It can handle large volumes of data efficiently without compromising speed or accuracy.</p><div class="space-medium"></div></div></div><div class="faq_accordion"><div data-w-id="2e701fa2-44bc-4e20-b4cf-633e8cdb1857" class="faq_question"><div class="faq01_heading">How is Blix different from other coding tools?</div><div class="faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div style="height: 0px;" class="faq_answer"><p>Blix stands out by offering a quick, easy-to-use platform with full control and customization options. Unlike other tools that may require extensive setup or manual effort, Blix is designed to be effortless while delivering professional, accurate results—without the grunt work.</p><div class="space-medium"></div></div></div><div class="faq_accordion"><div data-w-id="2c7422d3-6e5b-3ded-be08-d6d5dcbe1712" class="faq_question"><div class="faq01_heading">Is there a trial period?</div><div class="faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div style="height: 0px;" class="faq_answer"><p>Yes, we offer a free trial period so you can experience Blix firsthand before making any commitment. Ready to see it in action? Book a demo today and our team will walk you through the platform and help you get started.</p><div class="space-medium"></div></div></div><div class="faq_accordion last-item"><div data-w-id="c11a765a-52b8-63a7-1d94-1259ffa43b14" class="faq_question"><div class="faq01_heading">Do I need a subscription?</div><div class="faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div style="height: 0px;" class="faq_answer"><p>Not necessarily. We offer both subscription plans and flexible pay-as-you-go options, so you can choose what works best for your needs.</p><div class="space-medium"></div></div></div></div></div></div></section><div class="section blog"><div class="container w-container"><h2 class="margin-bottom-60 align-center">Latest Insights</h2><div class="w-dyn-list"><div role="list" class="collection-list-classic w-dyn-items w-row"><div role="listitem" class="collection-item-classic w-dyn-item w-col w-col-4"><div class="post-holder"><a style="background-image:url(&quot;https://cdn.prod.website-files.com/66952f26f98863f8ad440156/67a20e0bcdf0c3614e95ec24_qualitative-data-analysis.avif&quot;)" href="/blog/qualitative-data-analysis" class="thumbnai w-inline-block"></a><div class="blog-content"><a href="/tags/market-research" class="blog-tag">Market research &amp; Insights</a><a href="/blog/qualitative-data-analysis" class="w-inline-block"><h4 class="blog-post-heading">Step-By-Step Guide to Qualitative Data Analysis</h4><div class="blog-text-block">Learn the steps, methods, tools, and best practices to analyze qualitative data and uncover actionable insights for your research or business.</div><p class="read-more-text">Read full post</p></a></div></div></div><div role="listitem" class="collection-item-classic w-dyn-item w-col w-col-4"><div class="post-holder"><a style="background-image:url(&quot;https://cdn.prod.website-files.com/66952f26f98863f8ad440156/681b7977c89c220a67a57e82_7%20Best%20Survey%20Analysis%20Software%20for%20Data-Driven%20Decisions%20in%202025.webp&quot;)" href="/blog/survey-analysis-software" class="thumbnai w-inline-block"></a><div class="blog-content"><a href="/tags/survey-data-analysis" class="blog-tag">Survey Data Analysis</a><a href="/blog/survey-analysis-software" class="w-inline-block"><h4 class="blog-post-heading">8 Best Survey Analysis Software for Data-Driven Decisions in 2026</h4><div class="blog-text-block">Looking for the best survey analysis software in 2026? Discover 7 top-rated tools—featuring AI insights and powerful visualizations to help you turn survey data into smarter decisions.</div><p class="read-more-text">Read full post</p></a></div></div></div><div role="listitem" class="collection-item-classic w-dyn-item w-col w-col-4"><div class="post-holder"><a style="background-image:url(&quot;https://cdn.prod.website-files.com/66952f26f98863f8ad440156/69a9a66aada8427df7370dbe_What%20Is%20MaxDiff%20Analysis%20(Best-Worst%20Scaling).webp&quot;)" href="/blog/maxdiff-analysis" class="thumbnai w-inline-block"></a><div class="blog-content"><a href="/tags/survey-data-analysis" class="blog-tag">Survey Data Analysis</a><a href="/blog/maxdiff-analysis" class="w-inline-block"><h4 class="blog-post-heading">What Is MaxDiff Analysis (Best-Worst Scaling)?</h4><div class="blog-text-block">Learn what MaxDiff Analysis is, how it works, and how research, CX, and product teams use it to prioritize features, messaging, and experiences based on real preference data.</div><p class="read-more-text">Read full post</p></a></div></div></div></div></div></div></div><div class="section dark-bg section-2"><div class="container w-container"><div class="w-layout-grid book-a-demo-grid"><div class="about-company-block-elements"><h2 class="heading-2 text-white">Tired of manual coding? Talk to us</h2><p class="text-light">Save hours of manual work with AI&nbsp;powered open ends coding, with human-level quality and zero manual work.<br> <br>Turn qualitative feedback into data and insights in minutes, with a few clicks.</p><div class="divider-dark"></div><p class="xs-paragraph text-light">Blix is trusted by top brands and market research firms worldwide:</p><div class="w-layout-grid left-align our-partners-logo-grid"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/693682b67f212b947f89908a_nespresso.svg" loading="lazy" alt="" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/693682b882483065864c1ab5_mint_mobile.svg" loading="lazy" alt="" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/693682b819e49ad08bec451f_carmans_kitchen.svg" loading="lazy" alt="" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/693682b6803dd6d333bb961c_kantar.svg" loading="lazy" alt="" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/693682b81ab81a39d514d96f_opinium.svg" loading="lazy" alt="" class="clients-logo"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/693682b6e658f331ca826f7c_morning_consult.svg" loading="lazy" alt="" class="clients-logo"></div></div><div class="book-a-demo-alt-block w-form"><form id="wf-form-Book-a-Demo-2" name="wf-form-Book-a-Demo-2" data-name="Book a Demo" method="get" class="book-a-demo-alt-form" data-wf-page-id="66952f26f98863f8ad44015d" data-wf-element-id="f44f835a-7b23-b10e-5821-0c8f1f7a1436" data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e" aria-label="Book a Demo"><h3 class="h3-alt m-bottom-0">Book a demo</h3><p class="p-14 m-bottom-24">You can reach us anytime via <a target="_blank" href="mailto:info@blix.ai">info@blix.ai</a></p><input class="text-field-2 w-input" maxlength="256" name="homepage_addr" data-name="homepage_addr" placeholder="www.example.com" type="text" id="homepage_addr"><input class="text-field w-input" maxlength="256" name="gclid_field" data-name="gclid_field" placeholder="" type="text" id="gclid_field"><label for="full_name">Full name *</label><input class="input w-input" maxlength="256" name="full_name" data-name="full_name" placeholder="" type="text" id="full_name" required=""><label for="email_address">Work Email *</label><input class="input w-input" maxlength="256" name="email_address" data-name="email_address" placeholder="" type="email" id="email_address" required=""><label for="company">Company name *</label><input class="input w-input" maxlength="256" name="company" data-name="company" placeholder="" type="text" id="company" required=""><label for="more_info">Is there any other information you’d like to share with us? </label><textarea id="more_info" name="more_info" maxlength="5000" data-name="more_info" placeholder="" class="textarea-dark w-input"></textarea><input type="submit" data-wait="Please wait..." class="contact-form-button w-button" value="Schedule my demo" disabled=""><label for="Is-there-any-other-information-you-d-like-to-share-with-us" class="subtext">By submitting this form, you agree to our <a href="/privacy-policy" class="hyperlinks">Privacy Policy</a> and consent to receive occasional marketing emails from Blix. You can unsubscribe at any time.</label><div id="calendly-pop-up" class="w-embed w-script"><script>
+  // ---- CONFIG ----
+  const FORM_ID = "wf-form-Book-a-Demo-2";
+	const CALENDLY_URL = "https://calendly.com/blix-ai/30min";
+  // const CALENDLY_URL = "https://calendly.com/idan-blix/coffee";
+  let lastSuccessEl = null;  // Global var- used for manipulating success copy on calendly schedule success
+	
+ 	let detectedCountry = null;
+  let detectedContinent = null;
+
+  async function detectLocation() {
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      const data = await res.json();
+      detectedCountry = (data.country || "").toUpperCase();
+      detectedContinent = (data.continent_code || "").toUpperCase();
+      console.log("Detected:", detectedCountry, detectedContinent);
+    } catch (err) {
+      console.warn("Geo lookup failed", err);
+    }
+  }
+
+  detectLocation(); // start immediately
+  
+  function renderCalendlyPopup(successEl, { name, email, company }) {
+    lastSuccessEl = successEl; 
+  	Calendly.initPopupWidget({
+      url: CALENDLY_URL,              // you can also append ?name=&email= on the URL
+      prefill: { name, email, customAnswers: { a1: company } }
+      // utm: { utmSource: "webflow", utmCampaign: "book-demo" } // optional
+    });
+  }
+  
+    // Helper to ensure messages originate from Calendly
+  function isCalendlyEvent(e) {
+    return e.origin === "https://calendly.com" && e.data && e.data.event && e.data.event.indexOf("calendly.") === 0;
+  }
+    
+  window.addEventListener("message", function(e) {
+    if (!isCalendlyEvent(e)) return;
+
+    // e.data.event is one of: "calendly.profile_page_viewed", "calendly.event_type_viewed",
+    // "calendly.date_and_time_selected", "calendly.event_scheduled"
+    switch (e.data.event) {
+      case "calendly.profile_page_viewed":
+        // analytics("calendly_profile_view");
+        break;
+      case "calendly.event_type_viewed":
+        posthog.capture('calendly_event_type_view', {
+          page_url: window.location.href,
+          page_title: document.title
+        });
+        break;
+      case "calendly.date_and_time_selected":
+ 				posthog.capture('calendly_date_and_time_selected', {
+          page_url: window.location.href,
+          page_title: document.title
+        });
+        break;
+      case "calendly.event_scheduled":
+        // booking confirmed
+        const { event, invitee } = e.data.payload || {};
+        posthog.capture('calendly_event_scheduled', {
+          page_url: window.location.href,
+          page_title: document.title,
+          invitee
+        });
+        
+        if (lastSuccessEl) {
+            const msgEl = document.getElementById("book-a-demo-success-message");
+            if (msgEl) msgEl.textContent = "Your demo is booked, a calendar invitation has been sent to your email. Looking forward to meeting you!";
+
+            // clear reference so we don't accidentally restore again
+            lastSuccessEl = null;
+          
+            Calendly.closePopupWidget()
+          }
+        
+        break;
+    }
+  });
+  
+  // ---- MAIN ----
+  window.Webflow = window.Webflow || [];
+  window.Webflow.push(function () {
+    const form = document.getElementById(FORM_ID);
+    if (!form) return;
+
+    const successEl = form.parentElement.querySelector(".w-form-done");
+    if (successEl) {
+      const obs = new MutationObserver(() => {
+        const payload = sessionStorage.getItem("blix_form_valid_email_payload");
+        if (payload) {
+          const { name, email, company } = JSON.parse(payload);
+          // 🚫 Block Africa + India
+          if (detectedContinent === "AF" || ["IN", "ID", "PK", "BD", "IR", "MM", "AF", "UZ", "MY", "SY", "KZ", "TJ"].includes(detectedCountry)) {
+          	posthog.capture('calendly_widget_hidden_for_geo_location', {
+              page_url: window.location.href,
+              page_title: document.title,
+              detectedContinent,
+              detectedCountry
+            });
+          } else {
+          	posthog.capture('calendly_widget_shown_for_geo_location', {
+              page_url: window.location.href,
+              page_title: document.title,
+              detectedContinent,
+              detectedCountry
+            });
+            renderCalendlyPopup(successEl, { name, email, company })
+          }
+
+          sessionStorage.removeItem("blix_form_valid_email_payload");
+        }
+      });
+      obs.observe(successEl, { attributes: true, attributeFilter: ["style","class"] });
+    }
+
+    form.addEventListener("submit", function onSubmit(e){
+			const honeypot = document.querySelector("#homepage_addr");
+			if (honeypot.value.length > 0) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === "function") {
+        	e.stopImmediatePropagation();
+        }
+				return
+      }
+      
+      const emailInput = getEmailInput(form, "email_address");
+      if (!emailInput) return;
+
+      const email  = (emailInput.value || "").trim().toLowerCase();
+      const domain = extractDomain(email);
+
+      let error = "";
+
+      if (!isValidEmailFormat(email)) {
+        error = "Oops, it doesn’t look like a valid email address";
+      } else if (isFreeOrBurnerDomain(domain) ) {
+        error = "Please use your work or school email address";
+      } else if (isOwnDomain(domain)) {
+        error = "Please use your work or school email address";
+      } else if (inManualBlacklist(email, domain)) {
+        error = "Please use your work or school email address";
+      }
+
+      if (error) {
+        posthog.capture('form_submit_error', {
+          form_name: 'Book a Demo',
+          page_url: window.location.href,
+          page_title: document.title,
+          error
+        });
+        
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === "function") e.stopImmediatePropagation();
+        setInlineError(emailInput, error);
+        emailInput.focus();
+        return false;
+      }
+
+      const fullName = (form.querySelector('input[name="full_name"]') || {}).value || "";
+      const company = (form.querySelector('input[name="Company"]') || {}).value || "";
+
+      sessionStorage.setItem("blix_form_valid_email_payload", JSON.stringify({ name: fullName, email, company }));
+      
+      posthog.capture('form_submitted', {
+        form_name: 'Book a Demo',
+        page_url: window.location.href,
+        page_title: document.title
+      });
+      // allow submit to continue normally
+    }, true); // capture
+  });
+</script></div><div><div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-96qps_response" value=""></div></div></form><div class="success-message-dark w-form-done" tabindex="-1" role="region" aria-label="Book a Demo success"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66eb8dd4b79f98031486b306_success.svg" loading="lazy" alt="check icon" height="140" class="form-image"><h2 class="text-align-center text-light">Thank you</h2><div id="book-a-demo-success-message" class="paragraph text-light">We will contact you shortly to book a demo.</div></div><div class="error-message w-form-fail" tabindex="-1" role="region" aria-label="Book a Demo failure"><div class="heading-5-desktop">Oops! Something went wrong while submitting the form.<br><br>Please try again.</div></div></div></div></div><div class="w-embed w-script"><script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var gclidValue = localStorage.getItem('blix_gclid');
+        var gclidField = document.getElementById('gclid_field');
+
+        // If a gclid value exists and the field exists, set the hidden field's value
+        if (gclidValue && gclidField) {
+            gclidField.value = gclidValue;
+        }
+    });
+</script></div></div><footer class="footer"><div class="footer-container w-container"><div class="w-layout-grid footer_top-wrapper"><div id="w-node-f61aa3e0-6487-af1c-46c3-7c3733d0052e-0f1cde6f" class="footer_left-wrapper"><a href="/" aria-current="page" class="link-block-2 w-inline-block w--current"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/66a1aea42cfb6b5169868463_blix_logo.svg" loading="lazy" alt="Blix logo" height="32" class="footer-logo"></a></div><div id="w-node-_732beb87-1016-3dff-5c8a-26224589f920-0f1cde6f" class="w-layout-vflex footer_link-list"><div class="footer-section-title">Use Cases</div><a id="w-node-_732beb87-1016-3dff-5c8a-26224589f924-0f1cde6f" href="/use-cases/market-research" class="footer-link w-inline-block"><div>Market Research</div></a><a id="w-node-_732beb87-1016-3dff-5c8a-26224589f927-0f1cde6f" href="/use-cases/consumer-insights" class="footer-link w-inline-block"><div>Consumer Insights</div></a></div><div id="w-node-b34f7fc1-2b71-0f5c-3025-23aed879ac70-0f1cde6f" class="w-layout-vflex footer_link-list"><div class="footer-section-title">Resources</div><a href="/blog" class="footer-link w-inline-block"><div>Blog</div></a><a href="/competitors/ascribe" class="footer-link w-inline-block"><div>Blix vs Ascribe</div></a><a href="/competitors/qualtrics-text-iq" class="footer-link w-inline-block"><div>Blix vs Qualtrics Text IQ</div></a></div><div id="w-node-_019243c8-7ed2-3c46-bcf5-865b99d9adae-0f1cde6f" class="footer_link-list"><div class="footer-section-title">Company</div><a href="/about" class="footer-link w-inline-block"><div>About Us</div></a><a id="w-node-_732beb87-1016-3dff-5c8a-26224589f92d-0f1cde6f" href="/contact-us" class="footer-link w-inline-block"><div>Contact Us</div></a><a href="https://www.linkedin.com/company/blix-ai/" target="_blank" class="link-block w-inline-block"><img src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/6976b5e585b2ab77258e97fb_linkedin.svg" loading="lazy" width="Auto" height="20" alt="LinkedIn Logo" class="social-icon"></a></div><div class="w-layout-vflex footer_link-list"><div class="footer-section-title">Features</div><a id="w-node-_8a411e3e-961f-443e-be0d-4781feb91164-0f1cde6f" href="/features/thematic-analysis-software" class="footer-link w-inline-block"><div>Thematic Analysis</div></a><a id="w-node-_8a411e3e-961f-443e-be0d-4781feb91167-0f1cde6f" href="/features/open-ends-coding-software" class="footer-link w-inline-block"><div>Automated Coding</div></a></div><div id="w-node-_655ddde2-0f7a-e4ff-3dbd-3a38502013c6-0f1cde6f" class="w-layout-hflex newsletter-container"><div class="w-layout-grid newsletter-wrapper"><div class="footer-section-title">Join our newsletter!</div><div id="w-node-_655ddde2-0f7a-e4ff-3dbd-3a38502013ca-0f1cde6f" class="footer_form-block w-form"><form id="email-form" name="email-form" data-name="Email Form" method="get" class="footer_form" data-wf-page-id="66952f26f98863f8ad44015d" data-wf-element-id="655ddde2-0f7a-e4ff-3dbd-3a38502013cb" data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e" aria-label="Email Form"><input class="form_input w-node-_655ddde2-0f7a-e4ff-3dbd-3a38502013cc-0f1cde6f w-input" maxlength="256" name="email_address2" data-name="email_address2" placeholder="Enter your email" type="email" id="email_address2" required=""><input type="submit" data-wait="Please wait..." id="w-node-_655ddde2-0f7a-e4ff-3dbd-3a38502013cd-0f1cde6f" class="button-small w-button" value="Subscribe" disabled=""><label for="Is-there-any-other-information-you-d-like-to-share-with-us" id="w-node-_655ddde2-0f7a-e4ff-3dbd-3a38502013ce-0f1cde6f" class="subtext-light">By submitting this form, you agree to our <a href="/privacy-policy" class="hyperlinks">Privacy Policy</a> and consent to receive occasional marketing emails from Blix. You can unsubscribe at any time.</label><div id="w-node-_655ddde2-0f7a-e4ff-3dbd-3a38502013d3-0f1cde6f" class="w-embed w-script"><script>
+ 
+  window.Webflow = window.Webflow || [];
+  window.Webflow.push(function () {
+    const form = document.getElementById("email-form");
+    if (!form) return;
+
+    form.addEventListener("submit", function onSubmit(e){
+      const emailInput = getEmailInput(form, "email_address2");
+      if (!emailInput) return;
+
+      const email  = (emailInput.value || "").trim().toLowerCase();
+      const domain = extractDomain(email);
+
+      let error = "";
+      if (!isValidEmailFormat(email)) {
+        error = "Oops, it doesn’t look like a valid email address";
+      } else if (isBurnerDomain(domain) || isOwnDomain(domain) || inManualBlacklist(email, domain)) {
+        error = "Please use your work or school email address";
+      }
+
+      if (error) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === "function") e.stopImmediatePropagation();
+        setInlineError(emailInput, error);
+        emailInput.focus();
+        return false;
+      }
+
+    }, true); // capture
+  });
+</script></div><div><div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-uxuip_response" value=""></div></div></form><div class="success-message-2 w-form-done" tabindex="-1" role="region" aria-label="Email Form success"><div>Thank you! Your submission has been received!</div></div><div class="error-message-2 w-form-fail" tabindex="-1" role="region" aria-label="Email Form failure"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div></div><div class="footer_bottom-wrapper"><div class="footer-copyright-text">© Blix Ltd. All Rights Reserved 2026</div><div class="w-layout-grid footer-copyright-block"><a href="/terms-and-conditions" class="link-footer-copyright w-inline-block"><div>Terms And Conditions</div></a><a href="/privacy-policy" class="link-footer-copyright w-inline-block"><div>Privacy Policy</div></a><a href="/data-processing-addendum" class="link-footer-copyright w-inline-block"><div>Data Processing Addendum</div></a></div></div></div><div class="w-embed w-script"><script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var gclidValue = localStorage.getItem('blix_gclid');
+        var gclidField = document.getElementById('contact_us_gclid_field');
+
+        // If a gclid value exists and the field exists, set the hidden field's value
+        if (gclidValue && gclidField) {
+            gclidField.value = gclidValue;
+        }
+    });
+</script></div></footer><div class="hidden-keywords">customer feedback analysis survey text analysis thematic analysis coding software survey open ended coding coding open ended questions nps text analysis open end coding market research verbatim analysis market research verbatim coding verbatim coding ai survey text analysis how to analyze open ended survey responses online review analysis verbatim coding software ai market research tools coding verbatim best software for verbatim analysis automated verbatim coding text reviews analysis market research verbatim coding software analyze reviews with AI thematic coding tools thematic coding with AI coding verbatim comments Ascribe coder Ascribe coding ai survey analysis automated survey analysis best survey analysis software customer experience analysis how to analyze data from a survey market research ai tools nps analysis open end coding survey analysis tools survey coding sentiment analysis</div><script type="text/javascript" crossorigin="anonymous" src="https://us-assets.i.posthog.com/static/surveys.js?v=1.359.0"></script><script type="text/javascript" crossorigin="anonymous" src="https://us-assets.i.posthog.com/static/posthog-recorder.js?v=1.359.0"></script><script type="text/javascript" crossorigin="anonymous" src="https://us-assets.i.posthog.com/array/phc_a0vKDIrtTIRfj9sOsQAiXfohwVZpQt8EcdcM0orCh9I/config.js"></script><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66952f25f98863f8ad4400fa" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/66952f25f98863f8ad4400fa/js/webflow.7d8df2e9.9f15e6f7c20f9c50.js" type="text/javascript" integrity="sha384-cmAWldi5xPBGdlQq+o5L/SiYutP4Q62RfGkTnRTUn4GQ7z2aqVUf/gVydUrzNBOn" crossorigin="anonymous"></script><!-- 1) Calendly widget script -->
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script async="" src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+
+
+<script async="">
+function initGTM() {
+  if (window.gtmDidInit) {
+    return false;
+  }
+  window.gtmDidInit = true; // flag to ensure script does not get added to DOM more than once.
+  
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.async = true;
+  // ensure PageViews is always tracked (on script load)
+  script.onload = () => {
+    dataLayer.push({ event: 'gtm.js', 'gtm.start': new Date().getTime(), 'gtm.uniqueEventId': 0 });
+  };
+  script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WZM73MXN';
+  document.head.appendChild(script);
+}
+  
+function initGTMOnEvent(event) {
+  initGTM();
+  event.currentTarget.removeEventListener(event.type, initGTMOnEvent); // remove the event listener that got triggered
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  /** init gtm after 3500 seconds - this could be adjusted */
+  setTimeout(initGTM, 3500);
+});
+document.addEventListener('scroll', initGTMOnEvent);
+document.addEventListener('mousemove', initGTMOnEvent);
+document.addEventListener('touchstart', initGTMOnEvent);
+
+</script>
+<script>
+  // Function to get a URL parameter by name
+  function getUrlParam(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    var results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+  // If gclid is present in the URL, store it in local storage
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // Get the gclid from the URL
+    var gclid = getUrlParam('gclid');
+    
+    if (gclid) {
+      localStorage.setItem('blix_gclid', gclid);
+    }
+  });
+    
+</script><style>
+.blog-text-block {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.blog-post-heading {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+</style><div class="crisp-client" aria-live="polite" translate="no" tabindex="-1" lang="en" dir="ltr" style="--crisp-color-theme-10: 240, 242, 245; --crisp-color-theme-20: 241, 247, 247; --crisp-color-theme-100: 219, 247, 249; --crisp-color-theme-200: 102, 120, 138; --crisp-color-theme-500: 1, 162, 180; --crisp-color-theme-600: 0, 156, 174; --crisp-color-theme-700: 0, 138, 154; --crisp-color-theme-800: 0, 132, 147; --crisp-color-theme-900: 0, 123, 137; --crisp-color-theme-reverse: 255, 255, 255;"><div class="cc-1lkve"></div><div class="cc-yv368" id="crisp-chatbox" data-hidden="false" data-force-show="false" data-color-mode="light" data-availability="away" data-lock-maximized="false" data-website-logo="false" data-last-operator-face="false" data-ongoing-operator-face="false" data-availability-tooltip="false" data-hide-vacation="false" data-blocked="false" data-mobile-view="false" data-full-view="false" data-small-view="false" data-large-view="false" data-has-local-messages="false" data-was-availability-online="false" data-is-activity-ongoing="false" data-hide-on-away="false" data-hide-on-mobile="false" data-position-reverse="false"><div class="cc-1kr6o cc-cxjxh cc-s0g61 cc-jx6a3"><div class="cc-18ov6" data-maximized="false" data-is-failure="false" role="button" tabindex="0" aria-label="Open chat" data-pane-animate-entrance="false" data-pop="minimized:open"><span class="cc-1442g"><!--v-if--></span><span class="cc-1qbp0" data-is-ongoing="false"><span class="cc-otlyh" data-id="chat_closed"><span class="cc-11f3x cc-16kzz" data-partial-pending="false"><!--v-if--></span></span></span></div></div></div><div class="cc-yv368 cc-vx6i0"></div><div class="cc-yv368 cc-1tx1r"></div></div><script type="text/javascript" id="" charset="">function getParam(a){return(a=RegExp("[?\x26]"+a+"\x3d([^\x26]*)").exec(window.location.search))&&decodeURIComponent(a[1].replace(/\+/g," "))}function getExpiryRecord(a){var b=7776E6;b=(new Date).getTime()+b;return{value:a,expiryDate:b}}
+function addGclid(){var a=getParam("gclid"),b=["gclid_field","contact_us_gclid_field"],d=null,e,c=getParam("gclsrc");c=!c||c.indexOf("aw")!==-1;b.forEach(function(f){document.getElementById(f)&&(e=document.getElementById(f))});a&&c&&(d=getExpiryRecord(a),localStorage.setItem("gclid",JSON.stringify(d)));b=(a=d||JSON.parse(localStorage.getItem("gclid")))&&(new Date).getTime()<a.expiryDate;e&&b&&(e.value=a.value)}window.addEventListener("load",addGclid);</script><script type="text/javascript" id="" charset="">function initApollo(){var b=Math.random().toString(36).substring(7),a=document.createElement("script");a.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache\x3d"+b;a.async=!0;a.defer=!0;a.onload=function(){window.trackingFunctions.onLoad({appId:"68f76d083b1139000d63c015"})};document.head.appendChild(a)}initApollo();</script></body></html>
