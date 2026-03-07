@@ -9335,6 +9335,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@radiflowSec"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Radix Technologies Ltd": {
+    ws: ["https://radix-int.com"],
+    li: ["https://www.linkedin.com/company/radix-technologies-ltd."],
+    fb: ["https://www.facebook.com/radixtechnologiesltd"],
+    tw: ["https://x.com/radixtech"],
+    ytp: ["https://www.youtube.com/@radix9777"],
+    urls: ["http://visomdm.com"],
+    _meta: { isHomepage: true }
+  },
   "Rafa Laboratories Ltd.": {
     ws: ["https://www.rafa.co.il", "http://midlife-rafa.co.il"],
     urls: [
