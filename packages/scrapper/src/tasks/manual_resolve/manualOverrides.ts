@@ -7599,6 +7599,12 @@ export const manualOverrides: Record<
     _meta: { isVerified: true, isBrowserVerified: true }
   },
   Moovex: { ws: ["https://admin.moovex.ai", "https://moovex.ai"], _meta: { isHomepage: true, isVerified: true } },
+  MoovingON: {
+    ws: ["https://www.moovingon.com"],
+    li: ["https://www.linkedin.com/company/moovingon"],
+    urls: ["https://maps.app.goo.gl/g848yFKhS5dDi2Qt6"],
+    _meta: { isHomepage: true }
+  },
   Moovit: {
     ws: ["https://moovit.com"],
     urls: [
