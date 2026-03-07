@@ -10351,6 +10351,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/seenitysoftware"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Seevix Material Sciences Ltd.": {
+    ws: ["https://www.seevix.com"],
+    urls: ["https://pearlcom.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Sella Capital Real Estate": {
     ws: ["https://www.sellacapital.com"],
     urls: ["https://www.extra.co.il"],
