@@ -748,6 +748,14 @@ export const manualOverrides: Record<
     urls: ["https://www.sii.org.il/eng/qualityauth/certificateexpirationdate"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Apollo Power": {
+    ws: ["https://apollo-power.com"],
+    li: ["https://www.linkedin.com/company/apollopower1"],
+    fb: ["https://www.facebook.com/apollopowerenergyeverywhere"],
+    ig: ["https://www.instagram.com/apollo_power_official"],
+    ytp: ["https://www.youtube.com/@apollopowerrethinkenergy"],
+    _meta: { isHomepage: true }
+  },
   Appcharge: {
     ws: ["https://www.appcharge.com"],
     li: ["https://www.linkedin.com/company/appcharge"],
