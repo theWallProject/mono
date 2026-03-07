@@ -71,6 +71,13 @@ export const manualOverrides: Record<
     urls: ["https://open.spotify.com/show/21oVqvA6id4pM7EYTEDAqB"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "ACS Motion Control": {
+    ws: ["https://acsmotioncontrol.com", "https://acsmotioncontrol.cn"],
+    li: ["https://www.linkedin.com/company/acs-motion-control"],
+    ytp: ["https://www.youtube.com/@acsmotioncontrol"],
+    urls: ["https://weixin.qq.com/r/DhJSSnDEpS3arTQp90cc", "https://www.windmillstrategy.com"],
+    _meta: { isHomepage: true }
+  },
   ADASKY: {
     ws: ["https://www.adasky.com"],
     li: ["https://www.linkedin.com/company/adasky"],
