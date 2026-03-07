@@ -11168,6 +11168,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@wavebl7286"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Waves: {
+    ws: ["https://www.waves.com"],
+    urls: ["http://ds.tl/help-third-party-plugins"],
+    _meta: { isHomepage: true }
+  },
   WeSki: {
     ws: ["https://careers.weski.com", "https://terms.weski.com", "https://www.weski.com"],
     fb: ["https://www.facebook.com/weskiofficialpage"],
