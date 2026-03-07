@@ -11106,6 +11106,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "ULTRA-RED": {
+    ws: ["https://www.ultrared.ai"],
+    li: ["https://www.linkedin.com/company/ultra-red-ltd"],
+    tw: ["https://x.com/ultraredonx"],
+    _meta: { isHomepage: true }
+  },
   "UNIPaaS Payments Technologies": {
     ws: ["https://docs.unipaas.com", "https://portal.unipaas.com", "https://www.unipaas.com"],
     li: ["https://www.linkedin.com/company/unipaas"],
