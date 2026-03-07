@@ -2650,6 +2650,11 @@ export const manualOverrides: Record<
     urls: ["https://firmabrands.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Comm-IT": {
+    ws: ["https://www.comm-it.com", "https://www.commit-offshore.com", "https://www.commit.us"],
+    urls: ["https://twingo.co.il", "https://www.itsoft.co.il"],
+    _meta: { isHomepage: true }
+  },
   "CommBox.io": {
     ws: ["https://help.commbox.io", "https://manage.commbox.io", "https://www.commbox.io"],
     li: ["https://www.linkedin.com/company/commbox1"],
