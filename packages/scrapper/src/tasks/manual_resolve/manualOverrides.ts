@@ -7688,6 +7688,13 @@ export const manualOverrides: Record<
     urls: ["https://maps.app.goo.gl/m3zhiPZpWrWWPCcx6"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Netspark: {
+    ws: ["https://www.netspark.com", "http://www.netsparkmobile.com"],
+    li: ["https://www.linkedin.com/company/netspark-ltd"],
+    fb: ["https://www.facebook.com/netsparkmobile"],
+    urls: ["https://casescan.com", "https://casescan.com/ugc", "https://www.razgroup.co.il"],
+    _meta: { isHomepage: true }
+  },
   NeuraLight: {
     ws: ["https://neuralight.ai"],
     li: ["https://www.linkedin.com/company/neuralight"],
