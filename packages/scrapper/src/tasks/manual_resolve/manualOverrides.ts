@@ -10332,6 +10332,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@sapiensint"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Sapo Group": {
+    ws: ["https://www.sapo-group.com"],
+    li: ["https://www.linkedin.com/company/sapo__group"],
+    fb: ["https://www.facebook.com/sapo-group-100725659345948"],
+    _meta: { isHomepage: true }
+  },
   "Satcom Systems": {
     ws: ["https://satcom-gilat.co.il"],
     urls: ["https://gilat-telecom.co.il", "https://web.irm.co.il"],
