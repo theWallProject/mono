@@ -1869,6 +1869,21 @@ export const manualOverrides: Record<
     urls: ["https://chat.openai.com", "https://www.awesome-deloitte.com"],
     _meta: { isHomepage: true }
   },
+  BlockSite: {
+    ws: ["https://blocksite.co", "https://user.blocksite.co"],
+    li: ["https://www.linkedin.com/company/blocksite"],
+    fb: ["https://www.facebook.com/blocksite.co"],
+    tw: ["https://x.com/blocksite_"],
+    ig: ["https://www.instagram.com/blocksite_official"],
+    urls: [
+      "https://blocksite.onelink.me/Sk2D/AppleStore",
+      "https://blocksite.onelink.me/Sk2D/ChromeStore",
+      "https://blocksite.onelink.me/Sk2D/Edge",
+      "https://blocksite.onelink.me/Sk2D/GooglePlay",
+      "https://blocksite.onelink.me/Sk2D/Safari"
+    ],
+    _meta: { isHomepage: true }
+  },
   Blockaid: {
     ws: ["https://blockaid.io", "https://docs.blockaid.io", "https://report.blockaid.io"],
     li: ["https://www.linkedin.com/company/blockaid"],
