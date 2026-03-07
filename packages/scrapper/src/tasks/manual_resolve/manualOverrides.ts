@@ -1354,6 +1354,14 @@ export const manualOverrides: Record<
     urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms", "https://www.tommyandyou.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "BRM Group": {
+    ws: ["https://www.brm.com"],
+    li: ["https://www.linkedin.com/company/brm"],
+    fb: ["https://www.facebook.com/brmgroup"],
+    tw: ["https://x.com/brmgroup"],
+    urls: ["https://plus.google.com/BRMGroup", "https://www.pinterest.com/BRMGroup"],
+    _meta: { isHomepage: true }
+  },
   "BST Group": {
     ws: ["https://bst.co.il"],
     li: ["https://www.linkedin.com/company/bstgroup"],
