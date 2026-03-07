@@ -5825,6 +5825,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kimonix: {
+    ws: ["https://help.kimonix.com", "https://www.kimonix.com", "https://kimonix.statuspage.io"],
+    li: ["https://www.linkedin.com/company/kimonix"],
+    tw: ["https://x.com/kimonix_"],
+    urls: ["https://apps.shopify.com/kimonix/install", "https://www.shopify.com", "https://www.shopify.com/plus"],
+    _meta: { isHomepage: true }
+  },
   "Kipp Authorize More": {
     ws: ["https://app.letskipp.com", "https://letskipp.com"],
     li: ["https://www.linkedin.com/company/letskipp"],
