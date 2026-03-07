@@ -5860,6 +5860,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@lsportsdata"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  LabOS: {
+    ws: ["https://labos.co"],
+    li: ["https://www.linkedin.com/company/labosco"],
+    fb: ["https://www.facebook.com/laboslis"],
+    tw: ["https://x.com/labos_lis"],
+    urls: ["https://www.capterra.com/p/10018701/LabOS"],
+    _meta: { isHomepage: true }
+  },
   "Laguna Health": {
     ws: ["https://form.lagunahealth.com", "https://www.lagunahealth.com"],
     li: ["https://www.linkedin.com/company/getlaguna"],
