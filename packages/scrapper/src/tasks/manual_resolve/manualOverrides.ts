@@ -9617,6 +9617,15 @@ export const manualOverrides: Record<
     tw: ["https://x.com/simplexcc"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Simplex 3D": {
+    ws: ["https://www.simplex3d.com"],
+    li: ["https://www.linkedin.com/company/simplexmapping"],
+    fb: ["https://www.facebook.com/3dsimplex"],
+    ig: ["https://www.instagram.com/3dsimplex"],
+    ytp: ["https://www.youtube.com/@simplex3d"],
+    urls: ["https://simplex-smart3d.com/myapps"],
+    _meta: { isHomepage: true }
+  },
   Simpliigood: {
     ws: ["https://shop.simpliigood.com", "https://simpliigood.com"],
     li: ["https://www.linkedin.com/company/simpliigood"],
