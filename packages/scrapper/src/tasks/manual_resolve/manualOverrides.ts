@@ -8225,6 +8225,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oneai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "One Hamsa": {
+    ws: ["https://shop.onehamsa.com", "https://www.onehamsa.com"],
+    fb: ["https://www.facebook.com/onehamsa"],
+    tw: ["https://x.com/one_hamsa"],
+    urls: ["https://discord.gg/onehamsa"],
+    _meta: { isHomepage: true }
+  },
   "One-eSIM": {
     ws: ["https://www.1-esim.com"],
     li: ["https://www.linkedin.com/company/1-esim", "https://www.linkedin.com/company/one-esim-africa"],
