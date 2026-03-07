@@ -9792,6 +9792,19 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@starkware_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Start-Up Nation Central": {
+    ws: [
+      "https://finder.startupnationcentral.org",
+      "https://lp.startupnationcentral.org",
+      "https://startupnationcentral.org"
+    ],
+    li: ["https://www.linkedin.com/company/startup-nation-central"],
+    fb: ["https://www.facebook.com/startupnationcentral"],
+    tw: ["https://x.com/sncentral_"],
+    ig: ["https://www.instagram.com/sncentral"],
+    urls: ["https://www.8400thn.org", "https://www.google.com/maps"],
+    _meta: { isHomepage: true }
+  },
   StartupBlink: {
     ws: ["https://lp.startupblink.com", "https://www.startupblink.com", "https://startupblink.breezy.hr"],
     li: ["https://www.linkedin.com/company/startupblink"],
