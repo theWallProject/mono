@@ -7078,6 +7078,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NYX: {
+    ws: ["https://www.nyx-tech.com"],
+    li: ["https://www.linkedin.com/company/nyx-tech"],
+    fb: ["https://www.facebook.com/nyx.life.technologies"],
+    _meta: { isHomepage: true }
+  },
   "NakAI Robotics": {
     ws: ["https://www.nakairobotics.com"],
     li: ["https://www.linkedin.com/company/nakai-robotics"],
