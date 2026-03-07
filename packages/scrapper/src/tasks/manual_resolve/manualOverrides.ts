@@ -8015,6 +8015,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@ONEZEROBANK"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Obli: {
+    ws: ["https://obli.co.il"],
+    li: ["https://www.linkedin.com/company/obliguarantees"],
+    fb: ["https://www.facebook.com/obliguarantees"],
+    ig: ["https://www.instagram.com/obli.co.il"],
+    urls: ["https://api.whatsapp.com/send", "https://www.brn.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Ocon Healthcare": {
     ws: ["https://oconmed.com"],
     li: ["https://www.linkedin.com/company/o-con-medical"],
