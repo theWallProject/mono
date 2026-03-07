@@ -289,6 +289,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/activeaging-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Actual Signal": {
+    ws: ["https://www.actualsignal.com"],
+    li: ["https://www.linkedin.com/company/actualsignal"],
+    fb: ["https://www.facebook.com/actualsignal"],
+    tw: ["https://x.com/actualsignal"],
+    ig: ["https://www.instagram.com/actualsignal"],
+    _meta: { isHomepage: true }
+  },
   AdaSwap: {
     ws: [
       "https://dex.adaswap.com",
