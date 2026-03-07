@@ -5550,6 +5550,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@kissterra"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Klutch: {
+    ws: ["https://help.klutch.app", "https://klutch.app", "https://web.klutch.app"],
+    urls: [
+      "https://chrome.google.com/webstore/detail/klutch-canned-responses-c/iinfjdloicbbgbdliglpofadahlmgjop",
+      "https://microsoftedge.microsoft.com/addons/detail/canned-responses-compan/ifehnjhpgkjapjpibniblcmgkmcgcnkc",
+      "https://www.producthunt.com/posts/klutch-app"
+    ],
+    _meta: { isHomepage: true }
+  },
   Klydoclock: {
     ws: ["https://www.klydoclock.com"],
     li: ["https://www.linkedin.com/company/klydo-clock"],
