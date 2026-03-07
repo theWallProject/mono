@@ -10909,6 +10909,15 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true }
   },
+  SnatchApp: {
+    ws: ["https://snatchapp.me"],
+    urls: [
+      "https://snatchbot.me",
+      "https://snatchbot.me/botstore/template",
+      "https://www.microsoft.com/p/snatchapp/9nblggh526j6"
+    ],
+    _meta: { isHomepage: true }
+  },
   SnatchBot: {
     ws: ["https://snatchbot.me"],
     li: ["https://www.linkedin.com/company/snatchbot"],
