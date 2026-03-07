@@ -6280,6 +6280,28 @@ export const manualOverrides: Record<
     urls: ["https://wa.me/13155568056", "https://www.sora2api.dev"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Leumit Health Services": {
+    ws: [
+      "https://app.leumit.co.il",
+      "https://legalnew.leumit.co.il",
+      "https://leumit.co.il",
+      "https://online2.leumit.co.il"
+    ],
+    fb: ["https://www.facebook.com/leumit"],
+    ig: ["https://www.instagram.com/leumit_healthcare"],
+    urls: [
+      "https://leumit.app.link/mftJSjYjHM",
+      "https://leumit.pigment-adv.co.il/health-classes",
+      "https://leumit.pigment-adv.co.il/women1st",
+      "https://leumit.pigment-adv.co.il/women1st_kochava",
+      "https://night-car-forms-client.digitalprd.femi.com/availability",
+      "https://night-car-forms-client.digitalprd.femi.com/home",
+      "https://night-car-forms-client.digitalprd.femi.com/skinhome",
+      "https://onelink.to/leumit-fit",
+      "https://www.google.com"
+    ],
+    _meta: { isHomepage: true }
+  },
   Leverate: {
     ws: ["https://leverate.com"],
     li: ["https://www.linkedin.com/company/leverate"],
