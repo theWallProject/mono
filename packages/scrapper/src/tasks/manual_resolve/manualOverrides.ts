@@ -11461,6 +11461,19 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/tagado"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tagbox: {
+    ws: ["https://app.tagbox.io", "https://monitor.tagbox.io", "https://www.tagbox.io"],
+    li: ["https://www.linkedin.com/company/tagboxapp"],
+    fb: ["https://www.facebook.com/tagboxapp"],
+    tw: ["https://x.com/tagboxapp"],
+    ig: ["https://www.instagram.com/tagboxapp"],
+    urls: [
+      "https://producthunt.com/posts/tagbox",
+      "https://tagbox.notion.site/Tagbox-s-Help-Center-ad93580eb41d4b7dabe45bdf706cc397",
+      "https://www.producthunt.com/posts/tagbox-io-2"
+    ],
+    _meta: { isHomepage: true }
+  },
   TailorMed: {
     ws: ["https://go.tailormed.co", "https://resources.tailormed.co", "https://tailormed.co"],
     li: ["https://www.linkedin.com/company/tailormed---medical-journey-innovations"],
