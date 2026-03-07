@@ -12422,6 +12422,17 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/i-ecoguard-ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  iMDSoft: {
+    ws: ["https://imd-soft.com", "https://learn.imd-soft.com", "https://portal.imd-soft.com"],
+    li: ["https://www.linkedin.com/company/imdsoft"],
+    fb: ["https://www.facebook.com/imdsoft"],
+    ytp: ["https://www.youtube.com/@imdsoft"],
+    urls: [
+      "https://imdsoftstg.wpenginepowered.com/privacy-policy",
+      "https://imdsoftstg.wpenginepowered.com/terms-of-use"
+    ],
+    _meta: { isHomepage: true }
+  },
   iXDen: {
     ws: ["https://ixden.com", "https://ixden.comcontact-us", "https://ixden.comprivacy-policy"],
     li: ["https://www.linkedin.com/company/ixden"],
