@@ -1681,6 +1681,14 @@ export const manualOverrides: Record<
     android_app_ids: ["com.biocatch.are_you_rat", "com.biocatchbank"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "BioChange Ltd.": {
+    ws: ["https://biochange.life"],
+    li: ["https://www.linkedin.com/company/biochange-ltd"],
+    fb: ["https://www.facebook.com/biochange.life"],
+    ytp: ["https://www.youtube.com/@biochange"],
+    urls: ["https://maps.app.goo.gl/Sgp7q1SX9FCejULp8"],
+    _meta: { isHomepage: true }
+  },
   BioGenCell: {
     ws: ["https://www.biogencell.net"],
     urls: [
