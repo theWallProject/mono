@@ -2226,6 +2226,12 @@ export const manualOverrides: Record<
     urls: ["https://candivore.zendesk.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Cappsool Technologies": {
+    ws: ["https://www.cappsool.com"],
+    li: ["https://www.linkedin.com/company/cappsool"],
+    fb: ["https://www.facebook.com/cappsool"],
+    _meta: { isHomepage: true }
+  },
   Capsulab: {
     ws: ["https://capsulab.com"],
     li: ["https://www.linkedin.com/company/capsulab-ltd"],
