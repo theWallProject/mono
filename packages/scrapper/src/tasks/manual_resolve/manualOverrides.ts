@@ -7089,6 +7089,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/medigus3"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Medoc: {
+    ws: ["https://www.medoc-web.com"],
+    li: ["https://www.linkedin.com/company/medoc"],
+    fb: ["https://www.facebook.com/medocltd"],
+    tw: ["https://x.com/medocmedicalsys"],
+    ytp: ["https://www.youtube.com/@medocsupport"],
+    _meta: { isHomepage: true }
+  },
   Medorion: {
     ws: ["https://medorion.com"],
     li: ["https://www.linkedin.com/company/medorion"],
