@@ -10350,6 +10350,13 @@ export const manualOverrides: Record<
     urls: ["https://www.8400thn.org", "https://www.google.com/maps"],
     _meta: { isHomepage: true }
   },
+  "Startup Stash": {
+    ws: ["https://startupstash.com"],
+    li: ["https://www.linkedin.com/company/startup-stash"],
+    fb: ["https://www.facebook.com/startupstash"],
+    tw: ["https://x.com/startupstash"],
+    _meta: { isHomepage: true }
+  },
   StartupBlink: {
     ws: ["https://lp.startupblink.com", "https://www.startupblink.com", "https://startupblink.breezy.hr"],
     li: ["https://www.linkedin.com/company/startupblink"],
