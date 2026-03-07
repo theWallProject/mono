@@ -10069,6 +10069,15 @@ export const manualOverrides: Record<
     urls: ["https://wogi.io"],
     _meta: { isHomepage: true }
   },
+  "Soltell Systems": {
+    ws: ["https://www.soltell.com"],
+    li: ["https://www.linkedin.com/company/27215240", "https://www.linkedin.com/company/soltell"],
+    fb: ["https://www.facebook.com/soltell-systems-207149226504953"],
+    tw: ["https://x.com/soltellsystems"],
+    ytp: ["https://www.youtube.com/@soltell"],
+    urls: ["http://eepurl.com/dqcIHj", "https://www.f6s.com/soltellsystems"],
+    _meta: { isHomepage: true }
+  },
   Solutum: {
     ws: ["https://www.solutum.co"],
     li: ["https://www.linkedin.com/company/19138464", "https://www.linkedin.com/company/solutum-ltd"],
