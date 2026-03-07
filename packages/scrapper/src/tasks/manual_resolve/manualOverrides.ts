@@ -4436,6 +4436,12 @@ export const manualOverrides: Record<
     urls: ["https://firstpoint-mg.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Fitness22: {
+    ws: ["https://careers.fitness22.com", "https://fitness22.com"],
+    li: ["https://www.linkedin.com/company/fitness22"],
+    fb: ["https://www.facebook.com/fitness22.company"],
+    _meta: { isHomepage: true }
+  },
   "Five Sigma": {
     ws: ["https://fivesigmalabs.com"],
     li: ["https://www.linkedin.com/company/five-sigma"],
