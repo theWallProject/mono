@@ -4423,6 +4423,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/feezback"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Femi: {
+    ws: ["https://femi.com", "https://health-client.digitalprd.femi.com", "https://suppliersearch.digitalprd.femi.com"],
+    li: ["https://www.linkedin.com/company/femi-premium"],
+    fb: ["https://www.facebook.com/femipremium"],
+    ig: ["https://www.instagram.com/femi360_"],
+    urls: ["https://patient.ummanu.health", "https://www.lemon-mss.com"],
+    _meta: { isHomepage: true }
+  },
   "Femto Technologies": {
     ws: ["https://femtocorp.com"],
     urls: ["https://femtocorp.com"],
