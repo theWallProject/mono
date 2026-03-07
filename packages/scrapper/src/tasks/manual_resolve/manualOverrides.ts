@@ -4637,6 +4637,13 @@ export const manualOverrides: Record<
     urls: ["https://app.fieldintech.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Fillip: {
+    ws: ["https://www.fillip.co"],
+    li: ["https://www.linkedin.com/company/fillip-co"],
+    fb: ["https://www.facebook.com/fillip.co"],
+    tw: ["https://x.com/fillipapp"],
+    _meta: { isHomepage: true }
+  },
   "Filo Systems": { ws: ["https://filo.systems"], _meta: { isHomepage: true, isVerified: true } },
   "Final Israel": {
     ws: ["https://www.final.co.il"],
