@@ -8698,6 +8698,17 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Panda Trading Systems": {
+    ws: ["https://careers.pandats.com", "https://pandats.com"],
+    li: ["https://www.linkedin.com/company/1029346", "https://www.linkedin.com/company/panda-trading-systems"],
+    ig: ["https://www.instagram.com/pandatsofficial"],
+    urls: [
+      "https://meetings.hubspot.com/dragos-petrea",
+      "https://www.google.com/maps/search/145%20Jaffa%20Road,%20Haifa,%203525114",
+      "https://www.google.com/maps/search/Pamelva%20Court,%20Kaningos%20and%20Anastasi%20Shoukri%20Streets,%20Limassol"
+    ],
+    _meta: { isHomepage: true }
+  },
   Panjaya: {
     ws: ["https://docs.panjaya.ai", "https://www.panjaya.ai"],
     li: ["https://www.linkedin.com/company/panjaya-ai"],
