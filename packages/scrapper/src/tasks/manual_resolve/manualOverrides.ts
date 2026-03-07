@@ -11538,6 +11538,12 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/tasqai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Team Me": {
+    ws: ["https://www.teamme.io"],
+    li: ["https://www.linkedin.com/company/77073320", "https://www.linkedin.com/company/teamme"],
+    ytp: ["https://www.youtube.com/@teammeio"],
+    _meta: { isHomepage: true }
+  },
   Team8: {
     li: "https://www.linkedin.com/company/team8group",
     tw: "https://x.com/team8group",
