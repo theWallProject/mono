@@ -445,6 +445,11 @@ export const manualOverrides: Record<
     urls: ["https://aireye.tech"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AirGreen: {
+    ws: ["https://www.airgreen.co.il"],
+    fb: ["https://www.facebook.com/airgreenofficial"],
+    _meta: { isHomepage: true }
+  },
   Airobotics: {
     ws: ["https://www.airoboticsdrones.com"],
     li: ["https://www.linkedin.com/company/airobotics"],
