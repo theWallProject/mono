@@ -8753,6 +8753,20 @@ export const manualOverrides: Record<
     android_app_ids: ["com.Plus500"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Ply: {
+    ws: [
+      "https://app.ply.io",
+      "https://docs.ply.io",
+      "https://info.ply.io",
+      "https://ply.io",
+      "https://status.ply.io",
+      "https://videos.ply.io"
+    ],
+    li: ["https://www.linkedin.com/company/heyply"],
+    tw: ["https://x.com/ply_io"],
+    urls: ["https://ply.canny.io/changelog"],
+    _meta: { isHomepage: true }
+  },
   PoLoPo: { ws: ["https://www.polopo.tech"], _meta: { isHomepage: true, isVerified: true } },
   PointGrab: {
     ws: ["https://flex.pointgrab.com", "https://pointgrab.com", "https://support.pointgrab.com"],
