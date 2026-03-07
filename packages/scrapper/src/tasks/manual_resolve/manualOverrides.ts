@@ -10619,6 +10619,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  StreamKey: {
+    ws: ["https://dashboard.streamkey.tv", "https://www.streamkey.tv"],
+    li: ["https://www.linkedin.com/company/109691123", "https://www.linkedin.com/company/streamkey-tv"],
+    fb: ["https://www.facebook.com/streamkeytv"],
+    _meta: { isHomepage: true }
+  },
   Strigo: {
     ws: [
       "https://app.strigo.io",
