@@ -6737,6 +6737,13 @@ export const manualOverrides: Record<
     urls: ["https://extra.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Mobupps: {
+    ws: ["https://mobupps.com"],
+    li: ["https://www.linkedin.com/company/10212650", "https://www.linkedin.com/company/mobupps"],
+    fb: ["https://www.facebook.com/mobupps"],
+    ytp: ["https://www.youtube.com/@mobupps"],
+    _meta: { isHomepage: true }
+  },
   Momentick: {
     ws: ["https://www.momentick.com"],
     li: ["https://www.linkedin.com/company/momentick"],
