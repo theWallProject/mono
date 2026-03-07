@@ -5295,6 +5295,13 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Homez: { ws: ["https://www.homez.com"], _meta: { isHomepage: true, isVerified: true } },
+  HomiSmart: {
+    ws: ["https://www.homismart.com", "https://www.homismart.co.il"],
+    li: ["https://www.linkedin.com/company/5197514", "https://www.linkedin.com/company/homi-smart"],
+    urls: ["https://itunes.apple.com/us/app/homismart/id875786870", "https://wa.link/dyvvv4"],
+    android_app_ids: ["com.epsilonltd.homi_smart"],
+    _meta: { isHomepage: true }
+  },
   Homrun: {
     ws: ["https://homrungroup.com"],
     li: ["https://www.linkedin.com/company/homrun"],
