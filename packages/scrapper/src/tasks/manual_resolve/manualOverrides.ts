@@ -12371,6 +12371,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  inabit: {
+    ws: ["https://inabit.com", "https://status.inabit.com", "https://terminal.inabit.com", "https://use.inabit.com"],
+    li: ["https://www.linkedin.com/company/inabit"],
+    tw: ["https://x.com/@inabit_tech"],
+    gh: ["https://github.com/in-a-bit"],
+    ytp: ["https://www.youtube.com/@inabit-yt"],
+    _meta: { isHomepage: true }
+  },
   infiniDome: {
     ws: ["https://infinidome.com"],
     li: ["https://www.linkedin.com/company/gps-dome-ltd"],
