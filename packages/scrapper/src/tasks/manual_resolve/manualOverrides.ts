@@ -9172,6 +9172,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@siga-otsolutions2428"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SOSA: {
+    ws: ["https://sosa.co"],
+    li: ["https://www.linkedin.com/company/5397941", "https://www.linkedin.com/company/sosa"],
+    fb: ["https://www.facebook.com/sosa.global"],
+    tw: ["https://x.com/sosa__co"],
+    _meta: { isHomepage: true }
+  },
   "SPACING digital ltd.": {
     ws: ["https://spacing.co.il"],
     li: ["https://www.linkedin.com/company/spacing-israel"],
