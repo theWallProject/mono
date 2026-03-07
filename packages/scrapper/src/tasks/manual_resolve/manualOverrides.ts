@@ -4431,6 +4431,14 @@ export const manualOverrides: Record<
     urls: ["https://www.pinterest.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  GeoEdge: {
+    ws: ["https://site.geoedge.com", "https://www.geoedge.com"],
+    li: ["https://www.linkedin.com/company/geoedge"],
+    fb: ["https://www.facebook.com/geoedgepro"],
+    tw: ["https://x.com/geoedgepro"],
+    urls: ["https://appharbr.com", "https://pangeopro.com"],
+    _meta: { isHomepage: true }
+  },
   GeoX: { ws: ["https://app.geox.ai"], _meta: { isHomepage: true, isVerified: true } },
   GetPackage: {
     ws: ["https://getpackage.com", "https://sender.getpackage.com"],
