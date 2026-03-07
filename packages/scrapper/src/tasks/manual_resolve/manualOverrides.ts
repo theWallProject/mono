@@ -12648,6 +12648,12 @@ export const manualOverrides: Record<
     urls: ["http://www.vlx.co.il", "https://jstudio.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Xfloat: {
+    ws: ["https://xfloat.co"],
+    li: ["https://www.linkedin.com/company/xfloatsolar"],
+    urls: ["https://www.muze-studio.co.il"],
+    _meta: { isHomepage: true }
+  },
   Xinnor: {
     ws: ["https://xinnor.io"],
     li: ["https://www.linkedin.com/company/xinnor"],
