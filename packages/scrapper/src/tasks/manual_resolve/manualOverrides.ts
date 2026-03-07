@@ -6963,6 +6963,18 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Lydus Medical": { ws: ["https://www.lydus-medical.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Lynx Finance": {
+    ws: ["https://app.lynx.finance", "https://lynx.finance"],
+    tw: ["https://x.com/lynx_protocol"],
+    urls: [
+      "https://discord.gg/4CGxEYwrF2",
+      "https://discord.gg/DTcw3rT28J",
+      "https://lynx-finance.gitbook.io/lynx-finance",
+      "https://medium.com/lynx-finance",
+      "https://t.me/lynx_protocol"
+    ],
+    _meta: { isHomepage: true }
+  },
   Lynxight: {
     ws: ["https://dashboard.lynxight.com", "https://success.lynxight.com", "https://www.lynxight.com"],
     li: ["https://www.linkedin.com/company/lynxight"],
