@@ -12345,6 +12345,13 @@ export const manualOverrides: Record<
     urls: ["https://www.urecsys.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Usearch: {
+    ws: ["https://cse.usearch.com", "https://usearch.com"],
+    li: ["https://www.linkedin.com/company/usearch"],
+    fb: ["https://www.facebook.com/usearchengine"],
+    tw: ["https://x.com/usearchengine"],
+    _meta: { isHomepage: true }
+  },
   Utila: {
     ws: [
       "https://console.utila.io",
