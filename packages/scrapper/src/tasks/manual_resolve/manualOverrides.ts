@@ -5468,6 +5468,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kemtaiftns"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Keshet International": {
+    ws: ["https://www.keshetinternational.com"],
+    li: ["https://www.linkedin.com/company/keshet-international"],
+    fb: ["https://www.facebook.com/keshetinternational"],
+    tw: ["https://x.com/keshetintl"],
+    ig: ["https://www.instagram.com/keshetinternational"],
+    _meta: { isHomepage: true }
+  },
   Kiinns: {
     ws: ["https://www.kiinns.com"],
     li: ["https://www.linkedin.com/company/kiinns"],
