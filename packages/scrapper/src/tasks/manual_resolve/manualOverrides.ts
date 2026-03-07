@@ -5760,6 +5760,12 @@ export const manualOverrides: Record<
     urls: ["https://kramer.docebosaas.com/learn", "https://www.ashtonbentley.com", "https://www.zeevee.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kueez: {
+    ws: ["https://weare.kueez.com"],
+    li: ["https://www.linkedin.com/company/kueez"],
+    ig: ["https://www.instagram.com/we_are_kueez"],
+    _meta: { isHomepage: true }
+  },
   LAVA: {
     ws: ["https://lavapower.com"],
     li: ["https://www.linkedin.com/company/lavapower"],
