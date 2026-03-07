@@ -8423,6 +8423,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Persona.ly": {
+    ws: ["https://persona.ly", "https://dashboard.personaly.bid"],
+    li: ["https://www.linkedin.com/company/persona-ly"],
+    fb: ["https://www.facebook.com/persona.ly.monetization"],
+    tw: ["https://x.com/persona_ly"],
+    _meta: { isHomepage: true }
+  },
   Pery: {
     ws: ["https://mypery.com"],
     li: ["https://www.linkedin.com/company/peryhealth"],
