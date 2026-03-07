@@ -5812,6 +5812,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Livez: {
+    ws: ["https://livez.ai"],
+    li: ["https://www.linkedin.com/company/livez"],
+    urls: ["https://apps.apple.com/us/app/livez/id1578649580"],
+    android_app_ids: ["com.livez"],
+    _meta: { isHomepage: true }
+  },
   "Logical Commander": {
     ws: ["https://www.logicalcommander.com"],
     li: ["https://www.linkedin.com/company/logicalcommander"],
