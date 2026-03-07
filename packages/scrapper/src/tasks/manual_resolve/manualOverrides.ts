@@ -8283,6 +8283,11 @@ export const manualOverrides: Record<
     urls: ["https://wix.com", "https://youtu.be/BybGxRQ9X1o"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Predicta Med": {
+    ws: ["https://predicta-med.com"],
+    li: ["https://www.linkedin.com/company/predicta-med"],
+    _meta: { isHomepage: true }
+  },
   PrettyDamnQuick: {
     ws: ["https://support.prettydamnquick.com", "https://www.prettydamnquick.com"],
     urls: ["https://go.pdq.app", "https://www.checkoutpulse.com"],
