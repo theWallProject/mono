@@ -10571,6 +10571,12 @@ export const manualOverrides: Record<
     urls: ["https://pearlcom.co.il"],
     _meta: { isHomepage: true }
   },
+  SelectMedia: {
+    ws: ["https://www.selectmedia.asia", "https://dashboard.selectmedia.io"],
+    li: ["https://www.linkedin.com/company/selectmedia-pte-ltd-"],
+    fb: ["https://www.facebook.com/selectmedia"],
+    _meta: { isHomepage: true }
+  },
   "Sella Capital Real Estate": {
     ws: ["https://www.sellacapital.com"],
     urls: ["https://www.extra.co.il"],
