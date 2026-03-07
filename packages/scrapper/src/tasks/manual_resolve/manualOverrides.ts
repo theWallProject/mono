@@ -3462,6 +3462,11 @@ export const manualOverrides: Record<
     urls: ["http://www.catom.co.il", "http://www.catom.com"],
     _meta: { isHomepage: true }
   },
+  EExion: {
+    ws: ["https://www.eexion.com"],
+    li: ["https://www.linkedin.com/company/eexion"],
+    _meta: { isHomepage: true }
+  },
   "ELSE Nutrition": {
     ws: ["https://elsenutrition.com", "https://hcp.elsenutrition.com", "https://investors.elsenutrition.com"],
     li: ["https://www.linkedin.com/company/else-nutrition"],
