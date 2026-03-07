@@ -3695,6 +3695,14 @@ export const manualOverrides: Record<
     urls: ["https://wa.me/972553174177"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dustico: {
+    ws: ["https://dusti.co"],
+    li: ["https://www.linkedin.com/company/dustico"],
+    tw: ["https://x.com/dusticosec"],
+    gh: ["https://github.com/dustico"],
+    urls: ["https://calendly.com/dustico/demo"],
+    _meta: { isHomepage: true }
+  },
   Dustoss: {
     ws: ["https://www.dustoss.com"],
     li: ["https://www.linkedin.com/company/dustoss"],
