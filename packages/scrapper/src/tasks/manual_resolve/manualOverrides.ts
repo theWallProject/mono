@@ -1916,6 +1916,12 @@ export const manualOverrides: Record<
     urls: ["https://boards.onelink.me/0fu0/d3icoa9w", "https://boards.onelink.me/0fu0/tkc2lr0a"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bold: {
+    ws: ["https://www.boldintel.com"],
+    li: ["https://www.linkedin.com/company/boldanalytics"],
+    ig: ["https://www.instagram.com/lifeatbold"],
+    _meta: { isHomepage: true }
+  },
   BondIT: {
     ws: ["https://bonditglobal.com"],
     li: ["https://www.linkedin.com/company/3222746", "https://www.linkedin.com/company/bondit"],
