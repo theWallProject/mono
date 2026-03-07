@@ -4814,6 +4814,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@fixiconl"],
     _meta: { isHomepage: true }
   },
+  Flanksource: {
+    ws: ["https://accounts.flanksource.com", "https://app.flanksource.com", "https://flanksource.com"],
+    li: ["https://www.linkedin.com/company/flanksource"],
+    gh: ["https://github.com/flanksource"],
+    _meta: { isHomepage: true }
+  },
   Flashy: {
     ws: ["https://flashy.app", "https://my.flashy.app"],
     li: ["https://www.linkedin.com/company/18053532", "https://www.linkedin.com/company/flashy"],

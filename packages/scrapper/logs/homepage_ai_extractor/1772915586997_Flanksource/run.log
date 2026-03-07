@@ -1,0 +1,61 @@
+[2026-03-07T20:33:06.998Z] === Homepage AI Extractor: Flanksource ===
+[2026-03-07T20:33:06.998Z] Started at: 2026-03-07T20:33:06.998Z
+[2026-03-07T20:33:06.998Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772915586997_Flanksource
+[2026-03-07T20:33:06.998Z] Company: Flanksource
+[2026-03-07T20:33:06.998Z] Website: flanksource.com
+[2026-03-07T20:33:06.998Z] cbRank: 342770
+[2026-03-07T20:33:06.998Z] Reasons: h
+[2026-03-07T20:33:06.998Z] Fetching: https://flanksource.com
+[2026-03-07T20:33:09.625Z] Redirected: https://flanksource.com -> https://flanksource.com/
+[2026-03-07T20:33:09.629Z] Saved HTML (42294 bytes) to page.html
+[2026-03-07T20:33:09.631Z] Extracted 20 unique links from page
+[2026-03-07T20:33:09.632Z] Saved 20 links to links.json
+[2026-03-07T20:33:09.635Z] Extracted footer HTML (10365 chars)
+[2026-03-07T20:33:09.635Z] Extracted header HTML (3134 chars)
+[2026-03-07T20:33:09.639Z] Website (post-redirect): https://flanksource.com/ → origin: https://flanksource.com
+[2026-03-07T20:33:09.640Z]   SUBDOMAIN: accounts.flanksource.com (added to ws)
+[2026-03-07T20:33:09.640Z]   SUBDOMAIN: app.flanksource.com (added to ws)
+[2026-03-07T20:33:09.640Z] Website subdomains found: 2
+[2026-03-07T20:33:09.640Z] External links: 3 (of 20 total)
+[2026-03-07T20:33:09.640Z] ── All external links ──
+[2026-03-07T20:33:09.640Z]   EXT: https://github.com/flanksource
+[2026-03-07T20:33:09.640Z]   EXT: https://www.linkedin.com/company/flanksource
+[2026-03-07T20:33:09.640Z]   EXT: https://youtu.be/TK5sqwfUyps
+[2026-03-07T20:33:09.640Z] ── Step 1: Programmatic categorization ──
+[2026-03-07T20:33:09.640Z]   REGEX: gh <- https://github.com/flanksource
+[2026-03-07T20:33:09.640Z]   REGEX: li <- https://www.linkedin.com/company/flanksource
+[2026-03-07T20:33:09.640Z]   UNCATEGORIZED: https://youtu.be/TK5sqwfUyps
+[2026-03-07T20:33:09.641Z] Programmatic result: ws:3, gh:1, li:1 | 1 uncategorized
+[2026-03-07T20:33:09.641Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-07T20:33:09.641Z] Saved AI prompt (2445 chars) to ai_prompt.txt
+[2026-03-07T20:33:21.139Z] Saved AI response to ai_response.json
+[2026-03-07T20:33:21.139Z] ── Parsing AI response (2 lines) ──
+[2026-03-07T20:33:21.139Z]   AI LINK: https://github.com/flanksource
+[2026-03-07T20:33:21.139Z]   AI LINK: https://www.linkedin.com/company/flanksource/
+[2026-03-07T20:33:21.139Z] AI returned 2 valid links
+[2026-03-07T20:33:21.139Z] ── Categorizing 2 AI-returned links ──
+[2026-03-07T20:33:21.140Z]   AI→REGEX: gh <- https://github.com/flanksource (duplicate, skipped)
+[2026-03-07T20:33:21.140Z]   AI→REGEX: li <- https://www.linkedin.com/company/flanksource/ (duplicate, skipped)
+[2026-03-07T20:33:21.140Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-07T20:33:21.140Z] Footer/header origins (4):
+[2026-03-07T20:33:21.140Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-07T20:33:21.140Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-07T20:33:21.140Z]   FOOTER/HEADER ORIGIN: https://app.flanksource.com
+[2026-03-07T20:33:21.141Z]   FOOTER/HEADER ORIGIN: https://accounts.flanksource.com
+[2026-03-07T20:33:21.141Z]   SKIP (not in footer/header): https://youtu.be/TK5sqwfUyps
+[2026-03-07T20:33:21.141Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-07T20:33:21.141Z] ── Step 3: Final dedup ──
+[2026-03-07T20:33:21.141Z] No urls to dedup
+[2026-03-07T20:33:21.141Z] ── FINAL RESULT ──
+[2026-03-07T20:33:21.141Z]   ws (3):
+[2026-03-07T20:33:21.141Z]     - https://accounts.flanksource.com
+[2026-03-07T20:33:21.141Z]     - https://app.flanksource.com
+[2026-03-07T20:33:21.141Z]     - https://flanksource.com
+[2026-03-07T20:33:21.141Z]   li (1):
+[2026-03-07T20:33:21.141Z]     - https://www.linkedin.com/company/flanksource
+[2026-03-07T20:33:21.141Z]   gh (1):
+[2026-03-07T20:33:21.141Z]     - https://github.com/flanksource
+[2026-03-07T20:33:21.141Z] Summary: ws:3, gh:1, li:1
+[2026-03-07T20:33:21.142Z] Saved final result to result.json
+[2026-03-07T20:33:21.142Z] Override fields: ws, li, gh
+[2026-03-07T20:33:21.142Z] Finished at: 2026-03-07T20:33:21.142Z
