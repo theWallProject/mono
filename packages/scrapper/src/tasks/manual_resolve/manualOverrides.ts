@@ -1549,6 +1549,15 @@ export const manualOverrides: Record<
     urls: ["https://www.waze.com/he/live-map/directions"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Betsson Group": {
+    ws: ["https://betssongroup.com", "https://www.betssonab.com"],
+    li: ["https://www.linkedin.com/company/betsson-group"],
+    fb: ["https://www.facebook.com/betssongroup"],
+    tw: ["https://x.com/betssongroup"],
+    ig: ["https://www.instagram.com/betsson_group"],
+    urls: ["https://9hdigital.com"],
+    _meta: { isHomepage: true }
+  },
   Bettear: {
     ws: ["https://www.bettear.com"],
     li: ["https://www.linkedin.com/company/bettear"],
