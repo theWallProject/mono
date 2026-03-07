@@ -8265,6 +8265,11 @@ export const manualOverrides: Record<
     urls: ["https://vimeo.com/1072158726", "https://vimeo.com/user105679847", "https://www.costa.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Plain Text Offenders": {
+    ws: ["https://plaintextoffenders.com"],
+    urls: ["https://rebrand.ly/poe2025"],
+    _meta: { isHomepage: true }
+  },
   PlainID: {
     ws: [
       "https://go.plainid.com",
