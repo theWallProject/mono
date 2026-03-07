@@ -12914,6 +12914,11 @@ export const manualOverrides: Record<
     urls: ["https://human-creative.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ioTech: {
+    ws: ["https://i-o-tech.com"],
+    li: ["https://www.linkedin.com/company/io-tech-group"],
+    _meta: { isHomepage: true }
+  },
   "iwi Life": {
     ws: ["https://iwilife.com"],
     li: ["https://www.linkedin.com/company/myiwilife"],
