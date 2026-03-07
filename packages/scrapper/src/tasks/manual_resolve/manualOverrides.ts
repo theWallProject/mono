@@ -2499,6 +2499,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/click-ins"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CloudZone: {
+    ws: ["https://portal.cloudzone.io", "https://trust.cloudzone.io", "https://www.cloudzone.io"],
+    li: ["https://www.linkedin.com/company/cloudzone"],
+    _meta: { isHomepage: true }
+  },
   Cloudify: {
     ws: ["https://cloudify.co", "https://docs.cloudify.co"],
     gh: ["https://github.com/cloudify-cosmo"],
