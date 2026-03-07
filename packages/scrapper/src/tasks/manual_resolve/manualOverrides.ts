@@ -4604,6 +4604,13 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.fiverr"
   },
+  Fixico: {
+    ws: ["https://fixico.com", "https://fixico.be", "https://fixico.de", "https://www.fixico.nl"],
+    li: ["https://www.linkedin.com/company/fixico-nl"],
+    ig: ["https://www.instagram.com/fixicohq"],
+    ytp: ["https://www.youtube.com/@fixiconl"],
+    _meta: { isHomepage: true }
+  },
   Flashy: {
     ws: ["https://flashy.app", "https://my.flashy.app"],
     li: ["https://www.linkedin.com/company/18053532", "https://www.linkedin.com/company/flashy"],
