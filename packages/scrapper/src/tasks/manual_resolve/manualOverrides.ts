@@ -10534,6 +10534,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/shieldiot1"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Shinez: {
+    ws: ["https://shinez.io"],
+    urls: ["https://shinez.typeform.com/to/sijFsj", "https://teaminternet.com"],
+    _meta: { isHomepage: true }
+  },
   "Shlomo Group - Car and Credit Unit": {
     ws: ["https://pleasing.shlomo.co.il", "https://www.shlomo.co.il"],
     li: ["https://www.linkedin.com/company/738582"],
