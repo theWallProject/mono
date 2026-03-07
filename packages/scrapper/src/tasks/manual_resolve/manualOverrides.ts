@@ -3247,6 +3247,11 @@ export const manualOverrides: Record<
     urls: ["https://sorbetagency.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "DenovAI Biotech": {
+    ws: ["https://denovai.com"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true }
+  },
   Depoint: { ws: ["https://depoint.ai"], _meta: { isHomepage: true, isVerified: true } },
   DermaDetect: {
     ws: ["https://www.dermadetect.com"],
