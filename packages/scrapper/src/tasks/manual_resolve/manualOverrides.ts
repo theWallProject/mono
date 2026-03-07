@@ -9077,6 +9077,12 @@ export const manualOverrides: Record<
     urls: ["https://finder.startupnationcentral.org/company_page/roadsense"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Rounds: {
+    ws: ["https://rounds.com"],
+    li: ["https://www.linkedin.com/company/roundscom"],
+    tw: ["https://x.com/rounds_com"],
+    _meta: { isHomepage: true }
+  },
   "Run:AI": {
     ws: [
       "https://blogs.nvidia.com",
