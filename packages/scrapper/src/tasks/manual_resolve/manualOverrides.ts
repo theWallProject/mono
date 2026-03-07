@@ -9758,6 +9758,14 @@ export const manualOverrides: Record<
     urls: ["https://il.linkedin.com/in/ziv-cohen-695a765"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Solitics Ltd": {
+    ws: ["https://dashboard.solitics.com", "https://solitics.com"],
+    li: ["https://www.linkedin.com/company/solitics"],
+    fb: ["https://www.facebook.com/solitics"],
+    tw: ["https://x.com/solitics1"],
+    urls: ["https://wogi.io"],
+    _meta: { isHomepage: true }
+  },
   Solutum: {
     ws: ["https://www.solutum.co"],
     li: ["https://www.linkedin.com/company/19138464", "https://www.linkedin.com/company/solutum-ltd"],
