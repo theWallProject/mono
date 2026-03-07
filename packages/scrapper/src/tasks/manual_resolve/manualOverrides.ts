@@ -5753,6 +5753,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Journeyz: {
+    ws: ["https://www.journeyz.io"],
+    li: ["https://www.linkedin.com/company/journeyz"],
+    _meta: { isHomepage: true }
+  },
   Joyned: {
     ws: [
       "https://demo.joyned.co",
