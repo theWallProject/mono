@@ -6949,6 +6949,16 @@ export const manualOverrides: Record<
     urls: ["https://mdclone.atlassian.net/servicedesk/customer/portal/7"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MIS Implants Technologies": {
+    ws: ["https://lab.mis-implants.com", "https://mis-implants.com", "https://patient.mis-implants.com"],
+    li: ["https://www.linkedin.com/company/mis-implants-technologies-ltd-"],
+    fb: ["https://www.facebook.com/misimplantstechnologiesltdglobal"],
+    tw: ["https://x.com/misimplantsglob"],
+    ig: ["https://www.instagram.com/mis_implants_ltd_global"],
+    ytp: ["https://www.youtube.com/@misimplantsltd"],
+    urls: ["https://vimeo.com/misimplants"],
+    _meta: { isHomepage: true }
+  },
   "MMD SMART": {
     ws: ["https://mmdsmart.com"],
     li: ["https://www.linkedin.com/company/mmdsmart"],
