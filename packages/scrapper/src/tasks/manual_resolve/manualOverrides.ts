@@ -9735,6 +9735,19 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Smore: {
+    ws: ["https://secure.smore.com", "https://www.smore.com"],
+    li: ["https://www.linkedin.com/company/smore"],
+    fb: ["https://www.facebook.com/smorenewsletter"],
+    tw: ["https://x.com/smorenewsletter"],
+    urls: [
+      "https://help.smore.schoolstatus.com/hc/en-us",
+      "https://www.schoolstatus.com",
+      "https://www.schoolstatus.com/careers",
+      "https://www.schoolstatus.com/master-services-agreement"
+    ],
+    _meta: { isHomepage: true }
+  },
   SnatchBot: {
     ws: ["https://snatchbot.me"],
     li: ["https://www.linkedin.com/company/snatchbot"],
