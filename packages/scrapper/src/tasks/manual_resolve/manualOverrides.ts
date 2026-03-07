@@ -551,6 +551,16 @@ export const manualOverrides: Record<
     gh: ["https://github.com/amplication"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Amplify: {
+    ws: [
+      "https://app.heyamplify.com",
+      "https://heyamplify.com",
+      "https://support.heyamplify.com",
+      "https://try.heyamplify.com"
+    ],
+    urls: ["https://ats.rippling.com/amplify/jobs"],
+    _meta: { isHomepage: true }
+  },
   Anagog: {
     ws: ["https://docs.intenthq.com", "https://intenthq.com"],
     li: ["https://www.linkedin.com/company/intenthq"],
