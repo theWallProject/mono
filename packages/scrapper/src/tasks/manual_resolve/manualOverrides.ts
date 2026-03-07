@@ -10652,6 +10652,20 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/skillzzgaming"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SkyPath: {
+    ws: [
+      "https://app.skypath.io",
+      "https://docs.skypath.io",
+      "https://skypath.io",
+      "https://status.skypath.io",
+      "https://skypath.breezy.hr"
+    ],
+    li: ["https://www.linkedin.com/company/skypath1"],
+    tw: ["https://x.com/skypath_io"],
+    ig: ["https://www.instagram.com/skypath.io"],
+    urls: ["https://apps.apple.com/us/app/skypath-pro/id1504870778"],
+    _meta: { isHomepage: true }
+  },
   "Skyhawk Security": {
     ws: ["https://app.skyhawk.security", "https://partners.skyhawk.security", "https://skyhawk.security"],
     li: ["https://www.linkedin.com/company/skyhawkcloudsecurity"],
