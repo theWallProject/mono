@@ -2729,6 +2729,15 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/covver"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CrazyLabs: {
+    ws: ["https://developers.crazylabs.com", "https://www.crazylabs.com"],
+    li: ["https://www.linkedin.com/company/crazylabs"],
+    fb: ["https://www.facebook.com/crazylabsgames"],
+    tw: ["https://x.com/crazylabsgames"],
+    ig: ["https://www.instagram.com/crazy_labs"],
+    ytp: ["https://www.youtube.com/@crazylabsgames"],
+    _meta: { isHomepage: true }
+  },
   "Creative IC3D": {
     ws: ["https://www.cic3d.com"],
     li: ["https://www.linkedin.com/company/creative-ic3d-ltd"],
