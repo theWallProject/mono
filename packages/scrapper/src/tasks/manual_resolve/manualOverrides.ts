@@ -9919,6 +9919,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/sweetchhealth"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Swift Duct": {
+    ws: ["https://swiftduct.com"],
+    li: ["https://www.linkedin.com/company/swiftduct"],
+    _meta: { isHomepage: true }
+  },
   Swimm: {
     ws: ["https://app.swimm.io", "https://docs.swimm.io", "https://swimm.io"],
     li: ["https://www.linkedin.com/company/swimm-io"],
