@@ -6083,6 +6083,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Israelinnovationauthority"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Istra: {
+    ws: ["https://istrallc.com"],
+    li: ["https://www.linkedin.com/company/istraresearch"],
+    urls: ["https://kfirbakish.com"],
+    _meta: { isHomepage: true }
+  },
   "Itamar Medical": {
     ws: [
       "https://cloudpat-au.itamar-medical.com",
