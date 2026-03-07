@@ -3129,6 +3129,11 @@ export const manualOverrides: Record<
     urls: ["https://bim.datumate.com", "https://www.datumate.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dealigence: {
+    ws: ["https://dealigence.vc"],
+    li: ["https://www.linkedin.com/company/dealigencevc"],
+    _meta: { isHomepage: true }
+  },
   "Deceptive Bytes": {
     ws: ["https://deceptivebytes.com"],
     li: ["https://www.linkedin.com/company/deceptivebytes"],
