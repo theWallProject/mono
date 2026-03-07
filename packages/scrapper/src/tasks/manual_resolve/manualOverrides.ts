@@ -11147,6 +11147,13 @@ export const manualOverrides: Record<
     android_app_ids: ["com.ubeya.crew.app"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ultra Information Solutions": {
+    ws: ["https://es.ultra.global", "https://ultra.global"],
+    li: ["https://www.linkedin.com/company/ultraglobal"],
+    fb: ["https://www.facebook.com/ultra-information-solutions-111600141289000"],
+    tw: ["https://x.com/ultravetting"],
+    _meta: { isHomepage: true }
+  },
   UltraSight: {
     ws: ["https://ultrasight.com"],
     li: ["https://linkedin.com/company/ultrasightai"],
