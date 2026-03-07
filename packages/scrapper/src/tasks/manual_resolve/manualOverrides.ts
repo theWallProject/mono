@@ -4138,6 +4138,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/freezem_bsf"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Friendly Technologies": {
+    ws: ["https://friendly-tech.com"],
+    li: ["https://www.linkedin.com/company/friendly-technologies"],
+    ytp: ["https://www.youtube.com/@tr069friendlytechnologies"],
+    _meta: { isHomepage: true }
+  },
   Frontitude: {
     ws: [
       "https://app.frontitude.com",
