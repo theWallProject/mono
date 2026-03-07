@@ -9589,6 +9589,11 @@ export const manualOverrides: Record<
     urls: ["https://web.irm.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Rayzone Group": {
+    ws: ["https://rayzone.com"],
+    li: ["https://www.linkedin.com/company/rayzone-group"],
+    _meta: { isHomepage: true }
+  },
   "Razor Labs": {
     ws: ["https://www.razor-labs.com"],
     li: ["https://www.linkedin.com/company/razor-technologies-inc"],
