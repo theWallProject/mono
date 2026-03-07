@@ -5982,6 +5982,11 @@ export const manualOverrides: Record<
     urls: ["https://api.whatsapp.com/send"],
     _meta: { isHomepage: true }
   },
+  Intelos: {
+    ws: ["https://www.intelos.io"],
+    urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms"],
+    _meta: { isHomepage: true }
+  },
   InterCure: {
     ws: ["https://www.intercure.co"],
     urls: ["https://www.canndoc.com"],
