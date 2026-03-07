@@ -7551,6 +7551,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@novameasuring"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Novella: {
+    ws: ["https://www.novella.co.il"],
+    li: ["https://www.linkedin.com/company/novellatech"],
+    _meta: { isHomepage: true }
+  },
   Novidea: {
     ws: ["https://novidea.com"],
     li: ["https://www.linkedin.com/company/novidea-software"],
