@@ -110,10 +110,26 @@ const tryDismissCookieConsent = async (page: Page, logger: CompanyLogger): Promi
       if (element) {
         const isVisible = await element.isVisible()
         if (isVisible) {
+          // Clicking a cookie consent button often triggers a page reload.
+          // Use Promise.race to handle both cases:
+          //   1. Navigation occurs → waitForNavigation resolves
+          //   2. No navigation (popup just closes) → timeout after 3s
+          const navigationPromise = page
+            .waitForNavigation({ waitUntil: "domcontentloaded", timeout: 3000 })
+            .catch(() => null) // No navigation is fine — popup may just close
+
           await element.click({ timeout: 2000 })
           logger.log(`Dismissed cookie consent popup via: ${selector}`)
-          // Wait a moment for the popup to close
-          await page.waitForTimeout(500)
+
+          await navigationPromise
+
+          // If a navigation occurred, wait for the network to settle again
+          try {
+            await page.waitForLoadState("networkidle", { timeout: 5000 })
+          } catch {
+            // Non-fatal: page may have persistent connections
+          }
+
           return
         }
       }

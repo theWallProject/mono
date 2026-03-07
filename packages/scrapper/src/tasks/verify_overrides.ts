@@ -479,7 +479,7 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
   const editHint = fieldIdx > 0 ? `    ${DIM}1-${NUM_CHARS[fieldIdx - 1] ?? "9"}${RESET} edit` : ""
   const defaultAction = green ? `${GREEN}↑ verify${RESET}` : `${YELLOW}↑ postpone${RESET}`
   lines.push(
-    `  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}${editHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`
+    `  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}    ${DIM}↓${RESET} back${editHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`
   )
   lines.push("")
 
@@ -491,7 +491,7 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
 // ────────────────────────────────────────────────────────────────────────────
 
 type EditMode = "append" | "replace" | "delete"
-type Action = "verify" | "postpone" | "delete" | "rename" | "exit" | { field: number; mode: EditMode }
+type Action = "verify" | "postpone" | "delete" | "rename" | "exit" | "back" | { field: number; mode: EditMode }
 
 let stdinSessionActive = false
 let stdinWasRaw: boolean | undefined
@@ -632,6 +632,8 @@ const waitForAction = async (maxFieldIndex: number, allGreen: boolean): Promise<
         resolve("postpone")
       } else if (key.name === "up") {
         resolve(allGreen ? "verify" : "postpone")
+      } else if (key.name === "down") {
+        resolve("back")
       } else if (key.name === "d") {
         resolve("delete")
       } else if (key.name === "n") {
@@ -868,6 +870,13 @@ const processQueue = async (
 
   let processed = 0
 
+  // ── Back (↓) support: undo the last verify/postpone/delete once ──────
+  // We snapshot the previous entry's override value before each action so we
+  // can restore it if the user presses ↓. Only one level of undo is allowed;
+  // after a back, canGoBack resets to false until the next decision.
+  let prevSnapshot: { name: string; value: ManualOverrideValue; wasDeleted: boolean } | undefined
+  let canGoBack = false
+
   for (let i = 0; i < queue.length; i++) {
     const entry = queue[i]
     if (!entry) throw new Error(`Unexpected: queue[${i}] is undefined`)
@@ -887,8 +896,12 @@ const processQueue = async (
       await resolveAndInjectHandles(entry.name, overrides, dirtyKeys)
     }
 
+    // Snapshot current entry's value before the user acts on it
+    const snapshotBeforeAction = overrides[entry.name] ?? entry.value
+
     // Show entry — loop to allow in-place edits before verify/postpone
     let decided = false
+    let decidedAction: Action | null = null
     while (!decided) {
       const { output, fieldKeys, allGreen } = renderEntry(
         entry.name,
@@ -907,21 +920,50 @@ const processQueue = async (
         return { processed, exitRequested: true }
       }
 
+      if (action === "back") {
+        if (!canGoBack || !prevSnapshot || i === 0) {
+          process.stdout.write(`  ${DIM}Nothing to go back to${RESET}\n`)
+          await sleep(600)
+          continue
+        }
+        // Restore the previous entry's state
+        if (prevSnapshot.wasDeleted) {
+          overrides[prevSnapshot.name] = prevSnapshot.value
+        } else {
+          overrides[prevSnapshot.name] = prevSnapshot.value
+        }
+        dirtyKeys.add(prevSnapshot.name)
+        process.stdout.write(`  ${CYAN}${BOLD} UNDO ${RESET} Restored ${prevSnapshot.name}\n`)
+        await sleep(600)
+
+        // Go back: decrement i by 2 so the for-loop's i++ brings us to the previous entry
+        i -= 2
+        processed--
+        canGoBack = false
+        prevSnapshot = undefined
+        decided = true
+        decidedAction = "back"
+        continue
+      }
+
       if (action === "verify") {
         overrides[entry.name] = updateMeta(overrides[entry.name] ?? entry.value, { isVerified: true })
         dirtyKeys.add(entry.name)
         process.stdout.write(`  ${BG_GREEN}${WHITE} VERIFIED ${RESET} ${entry.name}\n`)
         decided = true
+        decidedAction = action
       } else if (action === "postpone") {
         overrides[entry.name] = updateMeta(overrides[entry.name] ?? entry.value, { isVerified: false })
         dirtyKeys.add(entry.name)
         process.stdout.write(`  ${BG_YELLOW}${WHITE} POSTPONED ${RESET} ${entry.name}\n`)
         decided = true
+        decidedAction = action
       } else if (action === "delete") {
         Reflect.deleteProperty(overrides, entry.name)
         dirtyKeys.add(entry.name)
         process.stdout.write(`  ${RED}${BOLD} DELETED ${RESET} ${entry.name}\n`)
         decided = true
+        decidedAction = action
       } else if (action === "rename") {
         const current = overrides[entry.name] ?? entry.value
         const currentName = "name" in current && typeof current.name === "string" ? current.name : entry.name
@@ -997,6 +1039,17 @@ const processQueue = async (
         await sleep(600)
       }
     }
+
+    // If back was pressed, don't count this entry and don't save
+    if (decidedAction === "back") continue
+
+    // Save snapshot of this entry so ↓ can undo it from the next screen
+    prevSnapshot = {
+      name: entry.name,
+      value: snapshotBeforeAction,
+      wasDeleted: decidedAction === "delete"
+    }
+    canGoBack = true
 
     processed++
 
