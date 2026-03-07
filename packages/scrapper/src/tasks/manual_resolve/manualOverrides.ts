@@ -3714,6 +3714,16 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@endospanltd7002"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Endotech: {
+    ws: ["https://app.endotech.io", "https://endotech.io"],
+    li: ["https://www.linkedin.com/company/endotech-algo"],
+    fb: ["https://www.facebook.com/endotech.algo"],
+    tw: ["https://x.com/endotech_algo"],
+    ig: ["https://www.instagram.com/endotechalgo"],
+    ytp: ["https://www.youtube.com/@endotech"],
+    urls: ["https://t.me/EndoTech"],
+    _meta: { isHomepage: true }
+  },
   Endymed: {
     ws: ["https://endymed.com", "https://shop.endymed.com"],
     li: ["https://www.linkedin.com/company/endymed-ltd"],
