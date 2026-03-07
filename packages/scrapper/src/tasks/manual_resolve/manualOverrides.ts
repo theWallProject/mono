@@ -12999,6 +12999,22 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/yabi-technologies-ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Yael Group": {
+    ws: ["https://yaelgroup.com", "https://portalyael.com"],
+    li: ["https://www.linkedin.com/company/yael-software"],
+    fb: ["https://www.facebook.com/yaelsoft"],
+    ig: ["https://www.instagram.com/life_at_yael"],
+    urls: [
+      "https://policies.google.com/privacy",
+      "https://policies.google.com/terms",
+      "https://uniqui.co.il",
+      "https://www.consienta.com",
+      "https://www.daatsolutions.co.il",
+      "https://www.korentext.co.il",
+      "https://yael.win-web.co.il/jobs"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Yail Noa Group": {
     ws: [
       "https://www.yail-noa.co.il",
