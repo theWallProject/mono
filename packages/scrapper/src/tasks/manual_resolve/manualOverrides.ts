@@ -12505,6 +12505,11 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/tkYHJCA7mb"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Visualead: {
+    ws: ["https://www.visualead.com"],
+    urls: ["https://www.qrstuff.com", "https://www.qrstuff.com/visualead-welcome"],
+    _meta: { isHomepage: true }
+  },
   Vitania: {
     ws: ["https://vitania.co.il"],
     li: ["https://www.linkedin.com/company/%d7%95%d7%99%d7%aa%d7%a0%d7%99%d7%94-vitania"],
