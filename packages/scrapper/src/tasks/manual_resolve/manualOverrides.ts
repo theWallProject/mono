@@ -469,6 +469,11 @@ export const manualOverrides: Record<
     urls: ["https://netrise.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AlgoZ: {
+    ws: ["https://www.algoz.io"],
+    li: ["https://www.linkedin.com/company/algoz-multi-strategy-fund"],
+    _meta: { isHomepage: true }
+  },
   Algoretail: {
     ws: ["https://nv.algoretail.io", "https://www.algoretail.io"],
     li: ["https://www.linkedin.com/company/algoretail"],
