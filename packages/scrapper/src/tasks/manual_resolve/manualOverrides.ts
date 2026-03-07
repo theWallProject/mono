@@ -8360,6 +8360,13 @@ export const manualOverrides: Record<
     urls: ["https://go.pdq.app", "https://www.checkoutpulse.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Primis: {
+    ws: ["https://console.primis.tech", "https://docs.primis.tech", "https://www.primis.tech"],
+    li: ["https://www.linkedin.com/company/primis-um"],
+    fb: ["https://www.facebook.com/primisum"],
+    urls: ["https://sellers.guide", "https://www.webstick.co.il"],
+    _meta: { isHomepage: true }
+  },
   "Priority Software": {
     ws: ["https://www.priority-software.com"],
     li: ["https://www.linkedin.com/company/prioritysoftware"],
