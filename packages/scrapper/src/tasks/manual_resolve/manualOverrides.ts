@@ -8876,6 +8876,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Psifas: {
+    ws: ["https://acmg.psifas.org.il", "https://psifas.org.il"],
+    urls: ["https://dolphinsoft.co.il"],
+    _meta: { isHomepage: true }
+  },
   Pynt: {
     ws: ["https://app.pynt.io", "https://docs.pynt.io", "https://www.pynt.io"],
     li: ["https://www.linkedin.com/company/pynt"],
