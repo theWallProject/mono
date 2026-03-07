@@ -7326,6 +7326,21 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MiniHotel SaaS": {
+    ws: ["https://minihotel.io", "https://referrals.minihotel.io"],
+    li: ["https://www.linkedin.com/company/minihotel"],
+    fb: ["https://www.facebook.com/minihotelsoftware"],
+    ig: ["https://www.instagram.com/minihotel.io"],
+    ytp: ["https://www.youtube.com/@minihotel-io"],
+    tt: ["https://www.tiktok.com/@minihotel.io"],
+    urls: [
+      "https://hoteltechreport.com/operations/property-management-systems/minihotel",
+      "https://wa.me/447441924516",
+      "https://www.capterra.com/p/198407/Mini-Hotel-PMS",
+      "https://www.dmca.com/Protection/Status.aspx"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Ministry of Energy": {
     ws: ["https://energy-sea.gov.il"],
     li: ["https://www.linkedin.com/company/israel-ministry-of-energy"],
