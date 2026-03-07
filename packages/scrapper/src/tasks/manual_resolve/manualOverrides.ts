@@ -1855,6 +1855,16 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Blue Tree Technologies Ltd.": { ws: ["https://bluetree-tech.com"], _meta: { isHomepage: true, isVerified: true } },
+  "BlueGreen Water Technologies": {
+    ws: ["https://bluegreenwatertech.com"],
+    li: ["https://www.linkedin.com/company/bluegreen-water-tech"],
+    fb: ["https://www.facebook.com/bluegreenwatertechnologies"],
+    tw: ["https://x.com/bluegreenwatert"],
+    ig: ["https://www.instagram.com/bluegreenwatertech"],
+    ytp: ["https://www.youtube.com/@bluegreenwatertechnologiesltd"],
+    urls: ["https://www.lakeguardblue.com", "https://www.netbluezero.com"],
+    _meta: { isHomepage: true }
+  },
   "BlueWind Medical": {
     ws: ["https://bluewindmedical.com"],
     li: ["https://www.linkedin.com/company/bluewind-medical"],
