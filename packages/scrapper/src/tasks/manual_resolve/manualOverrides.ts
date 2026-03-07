@@ -12610,6 +12610,14 @@ export const manualOverrides: Record<
     tw: ["https://x.com/XsightLabs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Xsight Systems": {
+    ws: ["https://xsightsys.com"],
+    li: ["https://www.linkedin.com/company/xsight-systems"],
+    fb: ["https://www.facebook.com/xsightsys"],
+    ig: ["https://www.instagram.com/xsightsys"],
+    ytp: ["https://www.youtube.com/@xsightsystems"],
+    _meta: { isHomepage: true }
+  },
   Xtras: {
     ws: ["https://www.xtras.co.il"],
     li: ["https://www.linkedin.com/company/xtras"],
