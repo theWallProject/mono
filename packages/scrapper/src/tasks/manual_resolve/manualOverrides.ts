@@ -10306,6 +10306,13 @@ export const manualOverrides: Record<
     android_app_ids: ["com.tomiapp.production"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Tonic Security": {
+    ws: ["https://www.tonicsecurity.com"],
+    li: ["https://www.linkedin.com/company/tonicsecurity"],
+    ig: ["https://www.instagram.com/lifeattonic"],
+    ytp: ["https://www.youtube.com/@tonicsecurity"],
+    _meta: { isHomepage: true }
+  },
   Torii: {
     ws: ["https://www.toriihq.com"],
     li: ["https://www.linkedin.com/company/11298659"],
