@@ -10140,6 +10140,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/scala-biodesign"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Scanovate: {
+    ws: ["https://scanovate.com"],
+    li: ["https://www.linkedin.com/company/scanovate"],
+    tw: ["https://x.com/scanovate"],
+    _meta: { isHomepage: true }
+  },
   SciSparc: {
     ws: ["https://investor.scisparc.com", "https://scisparc.com"],
     urls: ["https://investor.scisparc.com/investors", "https://scisparc.com"],
