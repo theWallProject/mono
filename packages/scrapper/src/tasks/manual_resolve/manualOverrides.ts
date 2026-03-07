@@ -3592,6 +3592,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Ecoppia"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "EdiTy Therapeutics": {
+    ws: ["https://edity-tx.com"],
+    li: ["https://www.linkedin.com/company/edity-therapeutics"],
+    _meta: { isHomepage: true }
+  },
   Edocate: {
     ws: ["https://www.edocate.com"],
     li: ["https://www.linkedin.com/company/edocate-ltd"],
