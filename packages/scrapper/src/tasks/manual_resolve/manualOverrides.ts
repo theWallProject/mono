@@ -1026,6 +1026,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/asperii_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Asterix Foods": {
+    ws: ["https://www.asterixfoods.com"],
+    li: ["https://www.linkedin.com/company/asterix-foods"],
+    ig: ["https://www.instagram.com/asterixfoods"],
+    _meta: { isHomepage: true }
+  },
   "Astrix Security": {
     ws: ["https://astrix.security"],
     li: ["https://www.linkedin.com/company/astrix-security"],
