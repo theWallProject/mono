@@ -3288,6 +3288,17 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cynamics7032"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Cynet - Holistic Security Simplified": {
+    ws: ["https://help.cynet.com", "https://portal.cynet.com", "https://www.cynet.com"],
+    li: ["https://www.linkedin.com/company/cynet-security"],
+    fb: ["https://www.facebook.com/cynet360"],
+    tw: ["https://x.com/cynet360"],
+    urls: [
+      "https://cta-service-cms2.hubspot.com/web-interactives/public/v1/track/click",
+      "https://www.g2.com/products/cynet-360-autoxdr/reviews"
+    ],
+    _meta: { isHomepage: true }
+  },
   "Cyngular Security": {
     ws: ["https://www.cyngular.com"],
     li: ["https://www.linkedin.com/company/cyngular-security"],
