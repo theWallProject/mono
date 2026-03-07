@@ -4254,6 +4254,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Fair Fintech": {
+    ws: ["https://account.fair.co.il", "https://funds.fair.co.il", "https://join.fair.co.il", "https://www.fair.co.il"],
+    li: ["https://www.linkedin.com/company/fair-fintech"],
+    ig: ["https://www.instagram.com/fairfunds"],
+    _meta: { isHomepage: true }
+  },
   Faireez: {
     ws: ["https://faireez.com", "https://getapp.faireez.com", "https://register.faireez.com"],
     li: ["https://www.linkedin.com/company/faireez"],
