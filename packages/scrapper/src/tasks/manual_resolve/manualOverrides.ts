@@ -3159,6 +3159,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@devicetotal950"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Diagnocat: {
+    ws: ["https://diagnocat.com", "https://diagnocat.ru"],
+    li: ["https://www.linkedin.com/company/diagnocat"],
+    _meta: { isHomepage: true }
+  },
   "Diagnostic Robotics": {
     ws: ["https://www.diagnosticrobotics.com"],
     li: ["https://www.linkedin.com/company/diagnostic-robotics"],
