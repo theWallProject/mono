@@ -11308,6 +11308,11 @@ export const manualOverrides: Record<
     urls: ["https://www.spaceship.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Toga Networks": {
+    ws: ["https://toganetworks.com", "http://toga-jobs.hunterhrms.com"],
+    li: ["https://www.linkedin.com/company/toga-networks"],
+    _meta: { isHomepage: true }
+  },
   "Together Pharma": {
     ws: ["https://www.together-pharma.com"],
     li: ["https://www.linkedin.com/company/together-pharma"],
