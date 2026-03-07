@@ -3445,6 +3445,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dormotech: {
+    ws: ["https://www.dormotech.com"],
+    urls: ["https://dormotech.app/auth/login", "https://www.emilia.digital"],
+    _meta: { isHomepage: true }
+  },
   Draftt: {
     ws: ["https://app.draftt.io", "https://docs.draftt.io", "https://www.draftt.io"],
     li: ["https://www.linkedin.com/company/draftt"],
