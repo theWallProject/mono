@@ -3966,6 +3966,12 @@ export const manualOverrides: Record<
     urls: ["https://www.termsfeed.com/live/c0db4d90-9e8d-4374-af10-d7d99e1cce00"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Exaware: {
+    ws: ["https://www.exaware.com"],
+    li: ["https://www.linkedin.com/company/exaware"],
+    tw: ["https://x.com/exawarerouting"],
+    _meta: { isHomepage: true }
+  },
   "Exero Medical": {
     ws: ["https://exeromedical.com"],
     li: ["https://www.linkedin.com/company/18838545"],
