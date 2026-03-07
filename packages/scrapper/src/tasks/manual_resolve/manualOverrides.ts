@@ -8769,6 +8769,14 @@ export const manualOverrides: Record<
     urls: ["https://eic.ec.europa.eu/index_en", "https://ltu.co.il", "https://quantumtransistors.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Questar: {
+    ws: ["https://questarauto.com"],
+    li: ["https://www.linkedin.com/company/809070", "https://www.linkedin.com/company/questarauto"],
+    fb: ["https://www.facebook.com/questarauto"],
+    ig: ["https://www.instagram.com/questar_auto"],
+    urls: ["https://app.traffilog.com/traffilink/index.htm", "https://questar.applytojob.com/apply"],
+    _meta: { isHomepage: true }
+  },
   Quicklizard: {
     ws: ["https://login.euca.quicklizard.com", "https://lp.quicklizard.com", "https://quicklizard.com"],
     li: ["https://www.linkedin.com/company/quicklizard"],
