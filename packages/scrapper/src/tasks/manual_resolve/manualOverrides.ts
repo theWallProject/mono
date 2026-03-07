@@ -13010,6 +13010,14 @@ export const manualOverrides: Record<
     urls: ["https://www.crunchbase.com/organization/zygofix"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  abra: {
+    ws: ["https://www.abra-it.com"],
+    li: ["https://www.linkedin.com/company/abra-it"],
+    fb: ["https://www.facebook.com/abrainformationtechnology"],
+    tw: ["https://x.com/abra_it_tech"],
+    ig: ["https://www.instagram.com/life_at_abra"],
+    _meta: { isHomepage: true }
+  },
   accessiBe: {
     ws: [
       "https://accessibe.com",
