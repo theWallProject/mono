@@ -169,6 +169,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   APEX: { ws: ["https://www.dot-training.org"], _meta: { isHomepage: true, isVerified: true } },
+  "ARAD Ltd": {
+    ws: ["https://il.arad.co.il", "https://www.arad.co.il", "https://aradtec.com"],
+    li: ["https://www.linkedin.com/company/arad-arad-group"],
+    ytp: ["https://www.youtube.com/@thearadgroup"],
+    _meta: { isHomepage: true }
+  },
   ARMO: {
     ws: [
       "https://auth.armosec.io",
