@@ -6028,6 +6028,11 @@ export const manualOverrides: Record<
     urls: ["https://investor.jeffsbrands.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Jether Energy": {
+    ws: ["https://www.jether-energy.com"],
+    li: ["https://www.linkedin.com/company/jether-energy"],
+    _meta: { isHomepage: true }
+  },
   Jiga: {
     ws: ["https://app.jiga.io", "https://jiga.io"],
     li: ["https://www.linkedin.com/company/jiga3d"],
