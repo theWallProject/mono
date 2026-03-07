@@ -2320,6 +2320,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Carbonade: {
+    ws: ["https://www.carbonade.co"],
+    li: ["https://www.linkedin.com/company/carbonade"],
+    urls: ["https://app.websitepolicies.com/policies/view/plvuho0i"],
+    _meta: { isHomepage: true }
+  },
   "Cardiac Success": {
     ws: ["https://cardiacsuccess.com"],
     li: ["https://www.linkedin.com/company/cardiac-success-ltd"],
