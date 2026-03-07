@@ -12088,6 +12088,12 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/kaltura"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "eTeacher Group": {
+    ws: ["https://student.eteachergroup.com", "https://www.eteachergroup.com"],
+    li: ["https://www.linkedin.com/company/eteacher"],
+    urls: ["https://israelbiblicalstudies.com", "https://langaroo.com"],
+    _meta: { isHomepage: true }
+  },
   eToro: {
     ws: ["https://www.etoro.com", "https://etoropartners.com"],
     fb: [
