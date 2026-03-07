@@ -11011,6 +11011,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@techsee291"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TechSors: {
+    ws: ["https://www.techsors.com"],
+    li: ["https://www.linkedin.com/company/techsors"],
+    fb: ["https://www.facebook.com/techsors"],
+    _meta: { isHomepage: true }
+  },
   TechsoMed: {
     ws: ["https://techsomed.com"],
     li: ["https://www.linkedin.com/company/techsomed"],
