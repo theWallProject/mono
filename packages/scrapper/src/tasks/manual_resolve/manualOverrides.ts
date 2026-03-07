@@ -10822,6 +10822,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/tailormed.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Talma: {
+    ws: ["https://talma.com"],
+    li: ["https://www.linkedin.com/company/talma-travel"],
+    _meta: { isHomepage: true }
+  },
   "Taro Pharmaceutical Industries": {
     ws: [
       "https://taro.co.il",
