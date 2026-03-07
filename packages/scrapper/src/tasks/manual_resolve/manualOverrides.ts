@@ -4535,6 +4535,22 @@ export const manualOverrides: Record<
     android_app_ids: ["com.flytrex.foodapp"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Fooducate: {
+    ws: ["https://api.prod.fooducate.com", "https://www.fooducate.com"],
+    fb: ["https://www.facebook.com/fooducate"],
+    tw: ["https://x.com/fooducate"],
+    ig: ["https://www.instagram.com/fooducate"],
+    urls: [
+      "http://api.prod.fooducate.com/fdct/promotional/getfooducateapp",
+      "https://appbundles.com/best-apps-bundle",
+      "https://fooducate.zendesk.com/hc/en-us",
+      "https://fooducate.zendesk.com/hc/en-us/requests/new",
+      "https://maplemedia.io/privacy",
+      "https://maplemedia.io/privacy/consumer-health",
+      "https://www.pinterest.com/FooducateMe"
+    ],
+    _meta: { isHomepage: true }
+  },
   "ForSight Robotics": {
     ws: ["https://www.forsightrobotics.com"],
     li: ["https://www.linkedin.com/company/forsightrobotics"],
