@@ -1,0 +1,265 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="shortcut icon" type="image/jpg" href="img/favicon.jpg">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+	<script src="rtcms/tinymce/tinymce.min.js"></script>
+	<script src="rtcms/tinymce/jquery.tinymce.min.js"></script>
+	<link rel="stylesheet" href="rtcms/jtable/jTable.css">
+	<script src="rtcms/jtable/jTable.js"></script>
+	<link rel="stylesheet" href="rtcms/fontawesome/css/all.min.css">
+	<script src="rtcms/rtcms.js"></script>
+	<link rel="stylesheet" href="rtcms/rtcms.css">
+	<script>
+		var rtPath="rtcms/";
+		var rtAdmin=true;
+	</script>
+	<title>FINTICA</title>
+
+	<link rel="stylesheet" href="fintica.css">
+	<style>
+		</style>
+
+<script>
+	$(function() {
+		// Animate menu / language
+		$(".menu li").not(".current").hover(function() {$(this).animate({color:"rgb(152, 188, 209)"},200)}, function() {$(this).animate({color:"#333"},200)});
+		$(".menu li").click(function() {
+			location=$(this).find("a").attr("href");
+		});
+		$(".dropdown").hover(function() {
+			$(".dropdown-content").show(120);
+			$(this).animate({color:"rgb(152, 188, 209)"},200);
+		},function() {
+			$(".dropdown-content").hide();
+			$(this).animate({color:"#333"},200);
+		});
+
+
+		$(".mobile_menu").click(function() {
+			$(".menu").show();
+		});
+	});
+</script>
+
+<link rel="stylesheet" type="text/css" id="mce-u0" href="https://fintica-ai.com/rtcms/tinymce/skins/ui/oxide/skin.min.css"></head>
+<body>
+	<div class="wrapper">
+
+        <div class="header">
+        
+        	<div class="logo"><div id="rtControl"></div><div id="rtVars"></div></div>
+        	<div class="menu">
+        		<ul>
+            		<li class="current"><a href="./?l=en"><div class="rtEditable" id="menu-home">
+	<div class="rtContainer" style="line-height: 17px;">
+		<div class="rtValue rtIsGlobal" style="vertical-align:top;"><div>HOME</div></div>
+	</div>
+</div>
+</a></li>
+            		<li><a href="./about.php?l=en"><div class="rtEditable" id="menu-about">
+	<div class="rtContainer" style="line-height: 17px;">
+		<div class="rtValue rtIsGlobal" style="vertical-align:top;"><div>ABOUT</div></div>
+	</div>
+</div>
+</a></li>
+            		<li><a href="./technology.php?l=en"><div class="rtEditable" id="menu-technology">
+	<div class="rtContainer" style="line-height: 17px;">
+		<div class="rtValue rtIsGlobal" style="vertical-align:top;"><div>TECHNOLOGY</div></div>
+	</div>
+</div>
+</a></li>
+            		<li><a href="./team.php?l=en"><div class="rtEditable" id="menu-team">
+	<div class="rtContainer" style="line-height: 17px;">
+		<div class="rtValue rtIsGlobal" style="vertical-align:top;"><div>TEAM</div></div>
+	</div>
+</div>
+</a></li>
+            		<!--<li><a href="./news.php?l=en"><div class="rtEditable" id="menu-news">
+	<div class="rtContainer">
+		<div class="rtValue rtIsGlobal" style="vertical-align:top;"><div>NEWS</div></div>
+	</div>
+</div>
+</a></li>-->
+            		<li><a href="./award.php?l=en"><div class="rtEditable" id="menu-award">
+	<div class="rtContainer" style="line-height: 17px;">
+		<div class="rtValue rtIsGlobal" style="vertical-align:top;"><div>AWARDS</div></div>
+	</div>
+</div>
+</a></li>
+            		<li><a href="./contact.php?l=en"><div class="rtEditable" id="menu-contact">
+	<div class="rtContainer" style="line-height: 17px;">
+		<div class="rtValue rtIsGlobal" style="vertical-align:top;"><div>CONTACT</div></div>
+	</div>
+</div>
+</a></li>
+            		                        <li class="m_language m_first"><a href="./?l=en">English</a></li>
+                                                <li class="m_language"><a href="./?l=es">Español</a></li>
+                                                <li class="m_language"><a href="./?l=it">Italiano</a></li>
+                                                <li class="m_language"><a href="./?l=jp">日本</a></li>
+                                                <li class="m_language"><a href="./?l=cn">中文</a></li>
+                                                <li class="m_language"><a href="./?l=ko">한국인</a></li>
+                                                <li class="m_language"><a href="./?l=ar">العربية</a></li>
+                                		</ul>
+        	</div>
+        	<div class="lang">
+                <div class="dropdown">
+                  <span>English</span><span class="fas fa-chevron-down" style="padding-left: 30px"></span>
+                  <div class="dropdown-content">
+                  	<div style="width:100%; background-color:rgb(152, 188, 209); height:1px; margin-bottom:15px"></div>
+                                            <p><a href="./?l=es">Español</a></p>
+                                                <p><a href="./?l=it">Italiano</a></p>
+                                                <p><a href="./?l=jp">日本</a></p>
+                                                <p><a href="./?l=cn">中文</a></p>
+                                                <p><a href="./?l=ko">한국인</a></p>
+                                                <p><a href="./?l=ar">العربية</a></p>
+                                          </div>
+                </div> 
+        	</div>
+	        <div class="mobile_menu">
+	        	<span class="fas fa-bars"></span>
+	        </div>
+        </div>
+        
+        <div class="body">
+        	<div class="page-title"><div class="rtEditable" id="title">
+	<div class="rtContainer" style="line-height: 134px;">
+		<div class="rtValue" style="vertical-align:top;"><div>FINTICA</div></div>
+	</div>
+</div>
+</div>
+        	<div class="page-abstract"><div class="rtEditable" id="abstract">
+	<div class="rtContainer" style="line-height: 33px;">
+		<div class="rtValue" style="vertical-align:top;"><div>NEXT GENERATION ARTIFICIAL INTELLIGENCE FOR GLOBAL CAPITAL MARKETS</div></div>
+	</div>
+</div>
+</div>
+        	<div class="page-text"><div class="rtEditable" id="text1">
+	<div class="rtContainer" style="line-height: 22px;">
+		<div class="rtValue" style="vertical-align:top;"><div>FINTICA IS A FINTECH THAT IS BRINGING AUTONOMOUS AI TO THE FINANCIAL INDUSTRY</div></div>
+	</div>
+</div>
+</div>
+       		<style>
+                .card {
+                    float: left;
+                    width: 293px;
+                    height: 393px;
+                    margin-right: 26px;
+					background-color: #3D96D1;
+                    direction: ltr !important;
+					border-radius: 24px;
+                }
+                .card-img {
+                    width: 100%;
+                    height: 210px;
+					
+                    text-align: center;
+                    vertical-align: middle;
+                }
+                .card-img img {
+                    vertical-align: middle;
+                }
+                .card-img .helper {
+                    display: inline-block;
+                    height: 100%;
+                    vertical-align: middle;
+                }
+                .card .card-body {
+                                        background-color: #3D96D1;
+                    color: white;
+                    font: normal 13.5px helvetica-w01-roman, sans-serif;
+                    line-height: 20px;
+                    padding: 10px 10px 10px 15px;
+                }
+                
+                @media only screen and (max-width: 600px) {
+                    .card {
+                        margin: 0px auto 25px auto;
+                        float: none;
+                    }
+                }	
+        	</style>
+        	<div class="card"><div id="card-style" style="position:absolute; z-index:-1;">
+    			<!-- <div style="position:relative; background-color:#4684ac; width:237px; height:7px;"></div>
+    			<div style="position:relative; top:-7px; background-color:#4684ac; height:210px; width:7px;"></div>
+    			<div style="position:relative; top:-217px; left:237px; background-image:url('img/card_corner.png'); width:57px; height:67px;"></div>
+    			<div style="position:relative; top:-217px; left:286px; background-color:#4684ac; width:7px; height:143px;"></div> -->
+        	</div>
+        		<div class="card-img"><span class="helper"></span><img src="img/about-g01.webp"></div>
+        		<table width="100%" height="183px" cellspacing="0" cellpadding="0" border="0">
+        			<tbody><tr><td valign="middle" class="card-body">
+        				<div class="rtEditable" id="home-card1">
+	<div class="rtContainer" style="line-height: 15px;">
+		<div class="rtValue" style="vertical-align:top;"><div>Capital Markets are experiencing a massive business model shift, across geographies, asset classes and players. Big Data and AI technology have shaken the design, production and distribution economics.</div></div>
+	</div>
+</div>
+        			</td>
+        		</tr></tbody></table>
+        	</div>
+        	<div class="card"><div id="card-style" style="position:absolute; z-index:-1;">
+    			<!-- <div style="position:relative; background-color:#4684ac; width:237px; height:7px;"></div>
+    			<div style="position:relative; top:-7px; background-color:#4684ac; height:210px; width:7px;"></div>
+    			<div style="position:relative; top:-217px; left:237px; background-image:url('img/card_corner.png'); width:57px; height:67px;"></div>
+    			<div style="position:relative; top:-217px; left:286px; background-color:#4684ac; width:7px; height:143px;"></div> -->
+        	</div>
+        		<div class="card-img"><span class="helper"></span><img src="img/about-g02.webp"></div>
+        		<table width="100%" height="183px" cellspacing="0" cellpadding="0" border="0">
+        			<tbody><tr><td valign="middle" class="card-body">
+        				<div class="rtEditable" id="home-card2">
+	<div class="rtContainer" style="line-height: 15px;">
+		<div class="rtValue" style="vertical-align:top;"><div>Fintica's multi-disciplinary team is composed of leading practitioners, researchers, data scientists, AI engineers and financial markets executives joining forces with global industry players to develop AI solutions on pervasive industry challenges.</div></div>
+	</div>
+</div>
+        			</td>
+        		</tr></tbody></table>
+        	</div>
+        	<div class="card"><div id="card-style" style="position:absolute; z-index:-1;">
+    			<!-- <div style="position:relative; background-color:#4684ac; width:237px; height:7px;"></div>
+    			<div style="position:relative; top:-7px; background-color:#4684ac; height:210px; width:7px;"></div>
+    			<div style="position:relative; top:-217px; left:237px; background-image:url('img/card_corner.png'); width:57px; height:67px;"></div>
+    			<div style="position:relative; top:-217px; left:286px; background-color:#4684ac; width:7px; height:143px;"></div> -->
+        	</div>
+        		<div class="card-img"><span class="helper"></span><img src="img/about-g03.webp"></div>
+        		<table width="100%" height="183px" cellspacing="0" cellpadding="0" border="0">
+        			<tbody><tr><td valign="middle" class="card-body" style="padding-left:18px;">
+        				<div class="rtEditable" id="home-card3">
+	<div class="rtContainer" style="line-height: 15px;">
+		<div class="rtValue" style="vertical-align:top;"><div>Fintica relies on semi and unsupervised AI technology, which includes explainable and online learning capabilities necessary to adapt to changing market conditions and regulatory expectations.</div></div>
+	</div>
+</div>
+        			</td>
+        		</tr></tbody></table>
+        	</div>
+        	<div style="clear:both;"></div>
+        	
+        	<script>
+				$(".card").prepend($("#card-style"));
+        	</script>
+        	<div style="height:10em;"></div>
+        </div>
+        
+        <div class="footer">
+        	<span class="pre">FINTICA AI LTD</span><br>
+        	<!--<span class=pre>TEL AVIV  I  ZURICH  I  HONG KONG  I  NEW YORK</span><br>-->
+        	<span class="pre">ZURICH  I  HONG KONG  I  NEW YORK</span><br>
+        	<br>
+			<span class="pre">ALL RIGHTS RESERVED</span>
+        	<br><br>
+        	<a href="https://www.linkedin.com/company/fintica"><img src="img/sn_linkedin.webp"></a>
+        	<a href="https://www.twitter.com/fintica"><img src="img/sn_twitter.webp"></a>
+        	<a href="https://www.instagram.com/fintica_ai/"><img src="img/sn_instagram.webp" style="margin:0"></a>
+        </div>
+	</div>
+	
+	<script>
+	var rtVars={
+		"lang-style":["",false],
+		"site-title":["FINTICA",false]	}
+</script>
+
+
+<div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-draggable ui-resizable" aria-describedby="rtDialogMCE" aria-labelledby="ui-id-1" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Content editor</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="rtDialogMCE" dir="ltr" class="ui-dialog-content ui-widget-content" style="display: block;"><textarea id="rtTinyMCE" style="display: none;" aria-hidden="true"></textarea><div role="application" class="tox tox-tinymce" aria-disabled="false" style="visibility: hidden; width: 100px; height: 100px;"><div class="tox-editor-container"><div data-alloy-vertical-dir="toptobottom" class="tox-editor-header"><div class="tox-toolbar-overlord"><div role="group" class="tox-toolbar" aria-disabled="false"><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button title="Fonts" aria-label="Fonts" aria-haspopup="true" type="button" unselectable="on" tabindex="-1" class="tox-tbtn tox-tbtn--select tox-tbtn--bespoke" aria-expanded="false" style="user-select: none;"><span class="tox-tbtn__select-label">System Font</span><div class="tox-tbtn__select-chevron"><svg width="10" height="10" focusable="false"><path d="M8.7 2.2c.3-.3.8-.3 1 0 .4.4.4.9 0 1.2L5.7 7.8c-.3.3-.9.3-1.2 0L.2 3.4a.8.8 0 010-1.2c.3-.3.8-.3 1.1 0L5 6l3.7-3.8z" fill-rule="nonzero"></path></svg></div></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button title="Font sizes" aria-label="Font sizes" aria-haspopup="true" type="button" unselectable="on" tabindex="-1" class="tox-tbtn tox-tbtn--select tox-tbtn--bespoke" aria-expanded="false" style="user-select: none;"><span class="tox-tbtn__select-label">16</span><div class="tox-tbtn__select-chevron"><svg width="10" height="10" focusable="false"><path d="M8.7 2.2c.3-.3.8-.3 1 0 .4.4.4.9 0 1.2L5.7 7.8c-.3.3-.9.3-1.2 0L.2 3.4a.8.8 0 010-1.2c.3-.3.8-.3 1.1 0L5 6l3.7-3.8z" fill-rule="nonzero"></path></svg></div></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Align left" title="Align left" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M5 5h14c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 110-2zm0 4h8c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 110-2zm0 8h8c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 010-2zm0-4h14c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 010-2z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Align center" title="Align center" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M5 5h14c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 110-2zm3 4h8c.6 0 1 .4 1 1s-.4 1-1 1H8a1 1 0 110-2zm0 8h8c.6 0 1 .4 1 1s-.4 1-1 1H8a1 1 0 010-2zm-3-4h14c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 010-2z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Align right" title="Align right" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M5 5h14c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 110-2zm6 4h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 010-2zm0 8h8c.6 0 1 .4 1 1s-.4 1-1 1h-8a1 1 0 010-2zm-6-4h14c.6 0 1 .4 1 1s-.4 1-1 1H5a1 1 0 010-2z" fill-rule="evenodd"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Top" title="Top" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="10" height="10" focusable="false"><path d="M8.7 7.8L5 4 1.3 7.8c-.3.3-.8.3-1 0a.8.8 0 010-1.2l4.1-4.4c.3-.3.9-.3 1.2 0l4.2 4.4c.3.3.3.9 0 1.2-.3.3-.8.3-1.1 0z" fill-rule="nonzero"></path></svg></span></button><button aria-label="Middle" title="Middle" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M4 11h16v2H4z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Bottom" title="Bottom" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="10" height="10" focusable="false"><path d="M8.7 2.2c.3-.3.8-.3 1 0 .4.4.4.9 0 1.2L5.7 7.8c-.3.3-.9.3-1.2 0L.2 3.4a.8.8 0 010-1.2c.3-.3.8-.3 1.1 0L5 6l3.7-3.8z" fill-rule="nonzero"></path></svg></span></button></div></div><div role="group" class="tox-toolbar" aria-disabled="false"><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Left to right" title="Left to right" type="button" tabindex="-1" class="tox-tbtn tox-tbtn--enabled" aria-disabled="false" aria-pressed="true"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M11 5h7a1 1 0 010 2h-1v11a1 1 0 01-2 0V7h-2v11a1 1 0 01-2 0v-6c-.5 0-1 0-1.4-.3A3.4 3.4 0 017.8 10a3.3 3.3 0 010-2.8 3.4 3.4 0 011.8-1.8L11 5zM4.4 16.2L6.2 15l-1.8-1.2a1 1 0 011.2-1.6l3 2a1 1 0 010 1.6l-3 2a1 1 0 11-1.2-1.6z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Right to left" title="Right to left" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M8 5h8v2h-2v12h-2V7h-2v12H8v-7c-.5 0-1 0-1.4-.3A3.4 3.4 0 014.8 10a3.3 3.3 0 010-2.8 3.4 3.4 0 011.8-1.8L8 5zm12 11.2a1 1 0 11-1 1.6l-3-2a1 1 0 010-1.6l3-2a1 1 0 111 1.6L18.4 15l1.8 1.2z" fill-rule="evenodd"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Bold" title="Bold" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M7.8 19c-.3 0-.5 0-.6-.2l-.2-.5V5.7c0-.2 0-.4.2-.5l.6-.2h5c1.5 0 2.7.3 3.5 1 .7.6 1.1 1.4 1.1 2.5a3 3 0 01-.6 1.9c-.4.6-1 1-1.6 1.2.4.1.9.3 1.3.6s.8.7 1 1.2c.4.4.5 1 .5 1.6 0 1.3-.4 2.3-1.3 3-.8.7-2.1 1-3.8 1H7.8zm5-8.3c.6 0 1.2-.1 1.6-.5.4-.3.6-.7.6-1.3 0-1.1-.8-1.7-2.3-1.7H9.3v3.5h3.4zm.5 6c.7 0 1.3-.1 1.7-.4.4-.4.6-.9.6-1.5s-.2-1-.7-1.4c-.4-.3-1-.4-2-.4H9.4v3.8h4z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Italic" title="Italic" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M16.7 4.7l-.1.9h-.3c-.6 0-1 0-1.4.3-.3.3-.4.6-.5 1.1l-2.1 9.8v.6c0 .5.4.8 1.4.8h.2l-.2.8H8l.2-.8h.2c1.1 0 1.8-.5 2-1.5l2-9.8.1-.5c0-.6-.4-.8-1.4-.8h-.3l.2-.9h5.8z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Underline" title="Underline" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M16 5c.6 0 1 .4 1 1v5.5a4 4 0 01-.4 1.8l-1 1.4a5.3 5.3 0 01-5.5 1 5 5 0 01-1.6-1c-.5-.4-.8-.9-1.1-1.4a4 4 0 01-.4-1.8V6c0-.6.4-1 1-1s1 .4 1 1v5.5c0 .3 0 .6.2 1l.6.7a3.3 3.3 0 002.2.8 3.4 3.4 0 002.2-.8c.3-.2.4-.5.6-.8l.2-.9V6c0-.6.4-1 1-1zM8 17h8c.6 0 1 .4 1 1s-.4 1-1 1H8a1 1 0 010-2z" fill-rule="evenodd"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><div aria-pressed="false" aria-label="Text color" title="Text color" role="button" aria-haspopup="true" unselectable="on" tabindex="-1" class="tox-split-button" aria-disabled="false" aria-expanded="false" aria-describedby="aria_5322448291661772790808121" style="user-select: none;"><span role="presentation" tabindex="-1" class="tox-tbtn" aria-disabled="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><g fill-rule="evenodd"><path id="tox-icon-text-color__color" d="M3 18h18v3H3z"></path><path d="M8.7 16h-.8a.5.5 0 01-.5-.6l2.7-9c.1-.3.3-.4.5-.4h2.8c.2 0 .4.1.5.4l2.7 9a.5.5 0 01-.5.6h-.8a.5.5 0 01-.4-.4l-.7-2.2c0-.3-.3-.4-.5-.4h-3.4c-.2 0-.4.1-.5.4l-.7 2.2c0 .3-.2.4-.4.4zm2.6-7.6l-.6 2a.5.5 0 00.5.6h1.6a.5.5 0 00.5-.6l-.6-2c0-.3-.3-.4-.5-.4h-.4c-.2 0-.4.1-.5.4z"></path></g></svg></span></span><span role="presentation" tabindex="-1" class="tox-tbtn tox-split-button__chevron" aria-disabled="false"><svg width="10" height="10" focusable="false"><path d="M8.7 2.2c.3-.3.8-.3 1 0 .4.4.4.9 0 1.2L5.7 7.8c-.3.3-.9.3-1.2 0L.2 3.4a.8.8 0 010-1.2c.3-.3.8-.3 1.1 0L5 6l3.7-3.8z" fill-rule="nonzero"></path></svg></span><span aria-hidden="true" id="aria_5322448291661772790808121" style="display: none;">To open the popup, press Shift+Enter</span></div><div aria-pressed="false" aria-label="Background color" title="Background color" role="button" aria-haspopup="true" unselectable="on" tabindex="-1" class="tox-split-button" aria-disabled="false" aria-expanded="false" aria-describedby="aria_5709511681681772790808122" style="user-select: none;"><span role="presentation" tabindex="-1" class="tox-tbtn" aria-disabled="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><g fill-rule="evenodd"><path id="tox-icon-highlight-bg-color__color" d="M3 18h18v3H3z"></path><path fill-rule="nonzero" d="M7.7 16.7H3l3.3-3.3-.7-.8L10.2 8l4 4.1-4 4.2c-.2.2-.6.2-.8 0l-.6-.7-1.1 1.1zm5-7.5L11 7.4l3-2.9a2 2 0 012.6 0L18 6c.7.7.7 2 0 2.7l-2.9 2.9-1.8-1.8-.5-.6"></path></g></svg></span></span><span role="presentation" tabindex="-1" class="tox-tbtn tox-split-button__chevron" aria-disabled="false"><svg width="10" height="10" focusable="false"><path d="M8.7 2.2c.3-.3.8-.3 1 0 .4.4.4.9 0 1.2L5.7 7.8c-.3.3-.9.3-1.2 0L.2 3.4a.8.8 0 010-1.2c.3-.3.8-.3 1.1 0L5 6l3.7-3.8z" fill-rule="nonzero"></path></svg></span><span aria-hidden="true" id="aria_5709511681681772790808122" style="display: none;">To open the popup, press Shift+Enter</span></div></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Cut" title="Cut" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M18 15c.6.7 1 1.4 1 2.3 0 .8-.2 1.5-.7 2l-.8.5-1 .2c-.4 0-.8 0-1.2-.3a3.9 3.9 0 01-2.1-2.2c-.2-.5-.3-1-.2-1.5l-1-1-1 1c0 .5 0 1-.2 1.5-.1.5-.4 1-.9 1.4-.3.4-.7.6-1.2.8l-1.2.3c-.4 0-.7 0-1-.2-.3 0-.6-.3-.8-.5-.5-.5-.8-1.2-.7-2 0-.9.4-1.6 1-2.2A3.7 3.7 0 018.6 14H9l1-1-4-4-.5-1a3.3 3.3 0 010-2c0-.4.3-.7.5-1l6 6 6-6 .5 1a3.3 3.3 0 010 2c0 .4-.3.7-.5 1l-4 4 1 1h.5c.4 0 .8 0 1.2.3.5.2.9.4 1.2.8zm-8.5 2.2l.1-.4v-.3-.4a1 1 0 00-.2-.5 1 1 0 00-.4-.2 1.6 1.6 0 00-.8 0 2.6 2.6 0 00-.8.3 2.5 2.5 0 00-.9 1.1l-.1.4v.7l.2.5.5.2h.7a2.5 2.5 0 00.8-.3 2.8 2.8 0 001-1zm2.5-2.8c.4 0 .7-.1 1-.4.3-.3.4-.6.4-1s-.1-.7-.4-1c-.3-.3-.6-.4-1-.4s-.7.1-1 .4c-.3.3-.4.6-.4 1s.1.7.4 1c.3.3.6.4 1 .4zm5.4 4l.2-.5v-.4-.3a2.6 2.6 0 00-.3-.8 2.4 2.4 0 00-.7-.7 2.5 2.5 0 00-.8-.3 1.5 1.5 0 00-.8 0 1 1 0 00-.4.2 1 1 0 00-.2.5 1.5 1.5 0 000 .7v.4l.3.4.3.4a2.8 2.8 0 00.8.5l.4.1h.7l.5-.2z" fill-rule="evenodd"></path></svg></span></button><button aria-label="Copy" title="Copy" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M16 3H6a2 2 0 00-2 2v11h2V5h10V3zm1 4a2 2 0 012 2v10a2 2 0 01-2 2h-7a2 2 0 01-2-2V9c0-1.2.9-2 2-2h7zm0 12V9h-7v10h7z" fill-rule="nonzero"></path></svg></span></button><button aria-label="Paste" title="Paste" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M18 9V5h-2v1c0 .6-.4 1-1 1H9a1 1 0 01-1-1V5H6v13h3V9h9zM9 20H6a2 2 0 01-2-2V5c0-1.1.9-2 2-2h3.2A3 3 0 0112 1a3 3 0 012.8 2H18a2 2 0 012 2v4h1v12H9v-1zm1.5-9.5v9h9v-9h-9zM12 3a1 1 0 00-1 1c0 .5.4 1 1 1s1-.5 1-1-.4-1-1-1z" fill-rule="nonzero"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Undo" title="Undo" type="button" tabindex="-1" class="tox-tbtn tox-tbtn--disabled" aria-disabled="true"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M6.4 8H12c3.7 0 6.2 2 6.8 5.1.6 2.7-.4 5.6-2.3 6.8a1 1 0 01-1-1.8c1.1-.6 1.8-2.7 1.4-4.6-.5-2.1-2.1-3.5-4.9-3.5H6.4l3.3 3.3a1 1 0 11-1.4 1.4l-5-5a1 1 0 010-1.4l5-5a1 1 0 011.4 1.4L6.4 8z" fill-rule="nonzero"></path></svg></span></button><button aria-label="Redo" title="Redo" type="button" tabindex="-1" class="tox-tbtn tox-tbtn--disabled" aria-disabled="true"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M17.6 10H12c-2.8 0-4.4 1.4-4.9 3.5-.4 2 .3 4 1.4 4.6a1 1 0 11-1 1.8c-2-1.2-2.9-4.1-2.3-6.8.6-3 3-5.1 6.8-5.1h5.6l-3.3-3.3a1 1 0 111.4-1.4l5 5a1 1 0 010 1.4l-5 5a1 1 0 01-1.4-1.4l3.3-3.3z" fill-rule="nonzero"></path></svg></span></button></div><div title="" role="toolbar" data-alloy-tabstop="true" tabindex="-1" class="tox-toolbar__group"><button aria-label="Global" title="Global" type="button" tabindex="-1" class="tox-tbtn" aria-disabled="false" aria-pressed="false"><span class="tox-icon tox-tbtn__icon-wrap"><svg width="24" height="24" focusable="false"><path d="M6.2 12.3a1 1 0 011.4 1.4l-2.1 2a2 2 0 102.7 2.8l4.8-4.8a1 1 0 000-1.4 1 1 0 111.4-1.3 2.9 2.9 0 010 4L9.6 20a3.9 3.9 0 01-5.5-5.5l2-2zm11.6-.6a1 1 0 01-1.4-1.4l2-2a2 2 0 10-2.6-2.8L11 10.3a1 1 0 000 1.4A1 1 0 119.6 13a2.9 2.9 0 010-4L14.4 4a3.9 3.9 0 015.5 5.5l-2 2z" fill-rule="nonzero"></path></svg></span></button></div></div></div><div class="tox-anchorbar"></div></div><div class="tox-sidebar-wrap"><div class="tox-edit-area"><iframe id="rtTinyMCE_ifr" frameborder="0" allowtransparency="true" title="Rich Text Area. Press ALT-0 for help." class="tox-edit-area__iframe"></iframe></div><div role="complementary" class="tox-sidebar"><div data-alloy-tabstop="true" tabindex="-1" class="tox-sidebar__slider tox-sidebar--sliding-closed" style="width: 0px;"><div class="tox-sidebar__pane-container"></div></div></div></div></div><div aria-hidden="true" class="tox-throbber" style="display: none;"></div></div></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-corner-all ui-widget">ok</button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-draggable ui-resizable" aria-describedby="rtDialogVARS" aria-labelledby="ui-id-2" style="display: none; position: absolute;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-2" class="ui-dialog-title">Variables editor</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="rtDialogVARS" dir="ltr" class="ui-dialog-content ui-widget-content">	<div id="rtVarsTable" class="jTable" style="width: 764px;"><ul><li class="tblHead tblFirstCol" style="width:250px">Variable</li><li class="tblHead" style="width:450px">Value</li><li class="tblHead tblLastCol" style="width:60px;">&nbsp;</li><li style="width: 250px;" class="tblCell tblFirstCol"><span>lang-style</span></li><li style="width: 450px;" class="tblCell"><span>&nbsp;</span></li><li style="width: 60px;" class="tblCell tblLastCol"><span><div align="center"><div class="control fas fa-pen" action="edit"></div></div></span></li><li style="width: 250px;" class="tblCell tblFirstCol tblLastRow"><span>site-title</span></li><li style="width: 450px;" class="tblCell tblLastRow"><span>FINTICA</span></li><li style="width: 60px;" class="tblCell tblLastCol tblLastRow"><span><div align="center"><div class="control fas fa-pen" action="edit"></div></div></span></li></ul></div><div style="clear:both"></div>	<div style="display:none;">		<input id="rtVarsTable_edit_var" class="tblInput">		<div id="rtVarsTable_edit_actions">			<div class="control far fa-check-circle" action="accept"></div>&nbsp;			<div class="control far fa-times-circle" action="discard"></div>		</div>	</div></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-corner-all ui-widget"><span class="ui-button-icon ui-icon ui-icon-check"></span><span class="ui-button-icon-space"> </span>Ok</button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div class="tox tox-silver-sink tox-tinymce-aux" style="position: relative;"></div></body></html>

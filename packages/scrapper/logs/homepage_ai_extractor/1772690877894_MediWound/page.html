@@ -1,0 +1,1006 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.3",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseenter","mouseout","mouseleave","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input","visibilitychange"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),this.F("domReady"),await this.T(),await this.j(),await this.I(),this.F("windowLoad"),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise((t=>setTimeout(t,500-Date.now()+this.lastTouchEnd))),this.H(),this.F("all"),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))}),{isRocket:!0})}o(){window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0}),{isRocket:!0}),window.addEventListener("pagehide",(()=>{this.onFirstUserAction=null}),{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",(function i(o){Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1})),event.preventDefault(),window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}))}),{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),this.savedUserEvents.length>0&&(t.stopPropagation(),t.stopImmediatePropagation()),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach((t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})))}U(){this.userEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0}))),this.savedUserEvents.forEach((t=>{t.target.dispatchEvent(new window[t.constructor.name](t.type,t))}))}m(){this.eventsMutationObserver=new MutationObserver((t=>{const e="return false";for(const i of t){if("attributes"===i.type){const t=i.target.getAttribute(i.attributeName);t&&t!==e&&(i.target.setAttribute("data-rocket-"+i.attributeName,t),i.target["rocket"+i.attributeName]=new Function("event",t),i.target.setAttribute(i.attributeName,e))}"childList"===i.type&&i.addedNodes.forEach((t=>{if(t.nodeType===Node.ELEMENT_NODE)for(const i of t.attributes)this.attributeEvents.includes(i.name)&&i.value&&""!==i.value&&(t.setAttribute("data-rocket-"+i.name,i.value),t["rocket"+i.name]=new Function("event",i.value),t.setAttribute(i.name,e))}))}})),this.eventsMutationObserver.observe(document,{subtree:!0,childList:!0,attributeFilter:this.attributeEvents})}H(){this.eventsMutationObserver.disconnect(),this.attributeEvents.forEach((t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach((e=>{e.setAttribute(t,e.getAttribute("data-rocket-"+t)),e.removeAttribute("data-rocket-"+t)}))}))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o})},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}F(t){"all"===t&&(EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener),this.savedEventListeners=this.savedEventListeners.filter((e=>{let i=e.type,o=e.target||window;return"domReady"===t&&"DOMContentLoaded"!==i&&"readystatechange"!==i||("windowLoad"===t&&"load"!==i&&"readystatechange"!==i&&"pageshow"!==i||(this.B(i,o)&&(i="rocket-"+i),e.remove?o.removeEventListener(i,e.func,e.options):o.addEventListener(i,e.func,e.options),!1))}))}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,(()=>{e[t].forEach((t=>t()))}),{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout((()=>i.bind(document)(o))):i.bind(document)(o)}return t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise((t=>{this.userActionTriggered?t():this.onFirstUserAction=t}))}async L(){return new Promise((t=>{document.addEventListener("DOMContentLoaded",(()=>{this.realDomReadyFired=!0,t()}),{isRocket:!0})}))}async I(){return this.realWindowLoadedFired?Promise.resolve():new Promise((t=>{window.addEventListener("load",t,{isRocket:!0})}))}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver((t=>{for(const e of t)e.addedNodes.forEach((t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise((e=>{const i=()=>{const i=this.pendingScripts.findIndex((e=>e.script===t));i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)}))})}))})),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async j(){await this.J(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.j()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.N(t,"preconnect")}async $(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",(()=>{i.setAttribute("data-rocket-status","failed-network"),e()}),{isRocket:!0}),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.$(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())}),{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.$(e),this.C(t)):Promise.resolve()}O(){this.N([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}N(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach((t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}})),document.head.appendChild(o)}W(){this.trash.forEach((t=>t.remove()))}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async G(){Date.now()-this.lastBreath>45&&(await this.J(),this.lastBreath=Date.now())}async J(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v25.0 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Home - Mediwound</title>
+<link rel="preload" as="font" href="https://mediwound.com/wp-content/uploads/elementor/google-fonts/fonts/rubik-ijwkbxyifdniv7nbrxw.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://mediwound.com/wp-content/uploads/elementor/google-fonts/fonts/dosis-hhyau5sn9vomlzloc_u.woff2" crossorigin=""><link rel="preload" data-rocket-preload="" as="image" href="https://mediwound.com/wp-content/uploads/2025/05/video.png" fetchpriority="high">
+	<link rel="canonical" href="https://mediwound.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Home - Mediwound">
+	<meta property="og:description" content="NexoBrid® EscharEx® About MediWound One Pager Corporate Deck Recent Updates A New Paradigm in Treatment of Severe Burns Indication: Eschar removal in deep partial-thickness and full-thickness thermal burns Classification: Orphan biological drug Target Audience: Hospitalized patients Status: U.S./EU/Japan approved EMAFDA Read More Next-Generation Enzymatic Therapy Candidate for Wound Care Indication: Debridement of chronic/hard-to-heal wounds Classification: […]">
+	<meta property="og:url" content="https://mediwound.com/">
+	<meta property="og:site_name" content="Mediwound">
+	<meta property="article:modified_time" content="2026-01-29T10:03:21+00:00">
+	<meta property="og:image" content="https://mediwound.com/wp-content/uploads/2025/05/NB-product-image.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://mediwound.com/","url":"https://mediwound.com/","name":"Home - Mediwound","isPartOf":{"@id":"https://mediwound.com/#website"},"about":{"@id":"https://mediwound.com/#organization"},"primaryImageOfPage":{"@id":"https://mediwound.com/#primaryimage"},"image":{"@id":"https://mediwound.com/#primaryimage"},"thumbnailUrl":"https://mediwound.com/wp-content/uploads/2025/05/NB-product-image.png","datePublished":"2024-04-14T10:31:33+00:00","dateModified":"2026-01-29T10:03:21+00:00","breadcrumb":{"@id":"https://mediwound.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://mediwound.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://mediwound.com/#primaryimage","url":"https://mediwound.com/wp-content/uploads/2025/05/NB-product-image.png","contentUrl":"https://mediwound.com/wp-content/uploads/2025/05/NB-product-image.png","width":712,"height":592,"caption":"NB product image"},{"@type":"BreadcrumbList","@id":"https://mediwound.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית"}]},{"@type":"WebSite","@id":"https://mediwound.com/#website","url":"https://mediwound.com/","name":"Mediwound","description":"Next Generation Enzymatic Therapeutics for Non-Surgical Tissue Repair","publisher":{"@id":"https://mediwound.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://mediwound.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://mediwound.com/#organization","name":"Mediwound","url":"https://mediwound.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://mediwound.com/#/schema/logo/image/","url":"https://mediwound.com/wp-content/uploads/2024/04/Logo-original.svg","contentUrl":"https://mediwound.com/wp-content/uploads/2024/04/Logo-original.svg","width":364,"height":94,"caption":"Mediwound"},"image":{"@id":"https://mediwound.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Mediwound » Feed" href="https://mediwound.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Mediwound » Comments Feed" href="https://mediwound.com/comments/feed/">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link rel="stylesheet" id="jet-engine-frontend-css" href="https://mediwound.com/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=3.6.7.1" media="all">
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel="stylesheet" id="ditty-displays-css" href="https://mediwound.com/wp-content/plugins/ditty-news-ticker/build/dittyDisplays.css?ver=3.1.59" media="all">
+<link rel="stylesheet" id="hello-elementor-css" href="https://mediwound.com/wp-content/themes/hello-elementor/style.min.css?ver=3.0.1" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://mediwound.com/wp-content/themes/hello-elementor/theme.min.css?ver=3.0.1" media="all">
+<link rel="stylesheet" id="e-animation-shrink-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-divider-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-nav-menu-css" href="https://mediwound.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.28.3" media="all">
+<link rel="stylesheet" id="e-animation-fadeInLeft-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInLeft.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-off-canvas-css" href="https://mediwound.com/wp-content/plugins/elementor-pro/assets/css/widget-off-canvas.min.css?ver=3.28.3" media="all">
+<link rel="stylesheet" id="e-sticky-css" href="https://mediwound.com/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.28.3" media="all">
+<link rel="stylesheet" id="e-shapes-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/conditionals/shapes.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-icon-list-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-image-box-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-image-box.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="elementor-post-10-css" href="https://mediwound.com/wp-content/uploads/elementor/css/post-10.css?ver=1771454053" media="all">
+<link rel="stylesheet" id="e-animation-fadeIn-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="e-animation-fadeInUp-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="e-animation-fadeInRight-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-icon-box-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="elementor-post-2-css" href="https://mediwound.com/wp-content/uploads/elementor/css/post-2.css?ver=1771454054" media="all">
+<link rel="stylesheet" id="elementor-post-404-css" href="https://mediwound.com/wp-content/uploads/elementor/css/post-404.css?ver=1771454054" media="all">
+<link rel="stylesheet" id="elementor-post-480-css" href="https://mediwound.com/wp-content/uploads/elementor/css/post-480.css?ver=1771454054" media="all">
+<link rel="stylesheet" id="elementor-post-272-css" href="https://mediwound.com/wp-content/uploads/elementor/css/post-272.css?ver=1771454054" media="all">
+<link rel="stylesheet" id="elementor-post-309-css" href="https://mediwound.com/wp-content/uploads/elementor/css/post-309.css?ver=1771454054" media="all">
+<link rel="stylesheet" id="hello-elementor-child-style-css" href="https://mediwound.com/wp-content/themes/hello-theme-child-master/style.css?ver=1.0.0" media="all">
+<link rel="stylesheet" id="elementor-gf-local-dosis-css" href="https://mediwound.com/wp-content/uploads/elementor/google-fonts/css/dosis.css?ver=1751790054" media="all">
+<link rel="stylesheet" id="elementor-gf-local-rubik-css" href="https://mediwound.com/wp-content/uploads/elementor/google-fonts/css/rubik.css?ver=1751790095" media="all">
+<script src="https://mediwound.com/wp-content/plugins/elementor-pro/assets/js/page-transitions.min.js?ver=3.28.3" id="page-transitions-js"></script>
+<script src="https://mediwound.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://mediwound.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<meta name="generator" content="Elementor 3.33.3; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://mediwound.com/wp-content/uploads/2024/04/favicon.svg" sizes="32x32">
+<link rel="icon" href="https://mediwound.com/wp-content/uploads/2024/04/favicon.svg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://mediwound.com/wp-content/uploads/2024/04/favicon.svg">
+<meta name="msapplication-TileImage" content="https://mediwound.com/wp-content/uploads/2024/04/favicon.svg">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.18.3" data-wpr-features="wpr_delay_js wpr_preload_fonts wpr_lazyload_images wpr_automatic_lazy_rendering wpr_oci wpr_desktop"></head>
+<body class="home wp-singular page-template-default page page-id-2 wp-custom-logo wp-theme-hello-elementor wp-child-theme-hello-theme-child-master elementor-default elementor-kit-10 elementor-page elementor-page-2 e--ua-isTouchDevice e--ua-blink e--ua-webkit" data-elementor-device-mode="desktop">
+
+		<e-page-transition class="e-page-transition--entered" exclude="^https\:\/\/mediwound\.com\/wp\-admin\/"><style>e-page-transition{--preloader-fade-duration: .5s;--preloader-delay: calc( var( --e-page-transition-animation-duration, 0s ) + var( --e-preloader-delay, 0s ) );--page-transition-delay: var( --preloader-fade-duration );position:fixed;inset:0;display:grid;place-items:center;z-index:10000;background:#fff;animation-fill-mode:both;animation-duration:var(--e-page-transition-animation-duration)}e-page-transition[disabled]{display:none}e-page-transition e-preloader,e-page-transition .e-page-transition--preloader{opacity:0}e-page-transition .e-page-transition--preloader{position:absolute;font-size:var(--e-preloader-size);color:var(--e-preloader-color);fill:var(--e-preloader-color);width:var(--e-preloader-width);max-width:var(--e-preloader-max-width);transform:rotate(var(--e-preloader-rotate, 0deg));animation-name:var(--e-preloader-animation);animation-duration:var(--e-preloader-animation-duration, 1000ms);animation-iteration-count:infinite;animation-timing-function:linear}e-page-transition svg.e-page-transition--preloader{width:var(--e-preloader-size)}.e-page-transition--entering{animation-name:var(--e-page-transition-entrance-animation);animation-delay:var(--preloader-fade-duration, 0s)}.e-page-transition--entering e-preloader,.e-page-transition--entering .e-page-transition--preloader{animation:var(--e-preloader-animation, none) var(--e-preloader-animation-duration, 0s) linear infinite,e-page-transition-fade-out var(--preloader-fade-duration) both;transition:none}.e-page-transition--exiting{animation-name:var(--e-page-transition-exit-animation)}.e-page-transition--exiting e-preloader,.e-page-transition--exiting .e-page-transition--preloader{opacity:var(--e-preloader-opacity, 1);transition:var(--preloader-fade-duration) all;transition-delay:var(--preloader-delay, 0s)}.e-page-transition--entered:not(.e-page-transition--preview){display:none}.e-page-transition--preview{animation-fill-mode:initial}.e-page-transition--preview.e-page-transition--entered e-preloader,.e-page-transition--preview.e-page-transition--entered .e-page-transition--preloader{opacity:var(--e-preloader-opacity, 1)}@media(prefers-reduced-motion: reduce){e-page-transition{display:none}}@keyframes e-page-transition-fade-in{from{opacity:0}to{opacity:1}}@keyframes e-page-transition-fade-in-down{from{opacity:0;transform:translate3d(0, -100%, 0)}to{opacity:1;transform:none}}@keyframes e-page-transition-fade-in-left{from{opacity:0;transform:translate3d(-100%, 0, 0)}to{opacity:1;transform:none}}@keyframes e-page-transition-fade-in-right{from{opacity:0;transform:translate3d(100%, 0, 0)}to{opacity:1;transform:none}}@keyframes e-page-transition-fade-in-up{from{opacity:0;transform:translate3d(0, 100%, 0)}to{opacity:1;transform:none}}@keyframes e-page-transition-zoom-in{from{opacity:0;transform:scale3d(0.3, 0.3, 0.3)}50%{opacity:1}}@keyframes e-page-transition-slide-in-down{from{transform:translate3d(0, -100%, 0);visibility:visible}to{transform:translate3d(0, 0, 0)}}@keyframes e-page-transition-slide-in-left{from{transform:translate3d(-100%, 0, 0);visibility:visible}to{transform:translate3d(0, 0, 0)}}@keyframes e-page-transition-slide-in-right{from{transform:translate3d(100%, 0, 0);visibility:visible}to{transform:translate3d(0, 0, 0)}}@keyframes e-page-transition-slide-in-up{from{transform:translate3d(0, 100%, 0);visibility:visible}to{transform:translate3d(0, 0, 0)}}@keyframes e-page-transition-fade-out{from{opacity:1}to{opacity:0}}@keyframes e-page-transition-fade-out-up{from{opacity:1;transform:none}to{opacity:0;transform:translate3d(0, -100%, 0)}}@keyframes e-page-transition-fade-out-left{from{opacity:1;transform:none}to{opacity:0;transform:translate3d(-100%, 0, 0)}}@keyframes e-page-transition-fade-out-right{from{opacity:1;transform:none}to{opacity:0;transform:translate3d(100%, 0, 0)}}@keyframes e-page-transition-fade-out-down{from{opacity:1;transform:none}to{opacity:0;transform:translate3d(0, 100%, 0)}}@keyframes e-page-transition-slide-out-up{from{transform:translate3d(0, 0, 0)}to{transform:translate3d(0, -100%, 0);visibility:visible}}@keyframes e-page-transition-slide-out-left{from{transform:translate3d(0, 0, 0)}to{transform:translate3d(-100%, 0, 0);visibility:visible}}@keyframes e-page-transition-slide-out-right{from{transform:translate3d(0, 0, 0)}to{transform:translate3d(100%, 0, 0);visibility:visible}}@keyframes e-page-transition-slide-out-down{from{transform:translate3d(0, 0, 0)}to{transform:translate3d(0, 100%, 0);visibility:visible}}@keyframes e-page-transition-zoom-out{from{opacity:1}50%{opacity:0;transform:scale3d(0.3, 0.3, 0.3)}}</style>
+					</e-page-transition>
+		<style>
+.cv-form .elementor-field-type-upload input[type="file"]::file-selector-button {
+    background-color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dfec560-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+		font-size: var(--e-global-typography-16d640d-font-size);
+    color: var(--e-global-color-text);
+    border-style: none;
+    border-radius: 0px 0px 0px 0px;
+    padding: 6px 26px;
+}
+	
+.cv-form .elementor-field-type-upload input[type="file"]::before {
+    content: 'Upload CV';
+		background-color: var(--e-global-color-primary);
+    font-family: var(--e-global-typography-dfec560-font-family), Sans-serif;
+    font-weight: var(--e-global-typography-primary-font-weight);
+		font-size: var(--e-global-typography-16d640d-font-size);
+    color: var(--e-global-color-text);
+    border-style: none;
+    border-radius: 0px 0px 0px 0px;
+    padding: 6px 26px;
+		cursor: pointer;
+		transition: .3s ease-in-out;
+		margin-inline-end: 10px;
+}
+	
+	.cv-form .elementor-field-type-upload input[type="file"]:hover::before {
+		background-color: var(--e-global-color-text);
+		color: var(--e-global-color-primary);
+	}
+
+.cv-form .elementor-field-type-upload input[type="file"]::file-selector-button {
+    display: none;
+}
+</style>
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-elementor-type="header" data-elementor-id="272" class="elementor elementor-272 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-91dab56 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="91dab56" data-element_type="container">
+					<div class="e-con-inner">
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-d03c4bb e-flex e-con-boxed e-con e-parent elementor-sticky e-lazyloaded" data-id="d03c4bb" data-element_type="container" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d8a40e6 elementor-hidden-desktop elementor-view-default elementor-widget elementor-widget-icon" data-id="d8a40e6" data-element_type="widget" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="#elementor-action%3Aaction%3Doff_canvas%3Atoggle%26settings%3DeyJpZCI6IjYzZmYwNDkiLCJkaXNwbGF5TW9kZSI6InRvZ2dsZSJ9" aria-controls="off-canvas-63ff049" aria-expanded="false">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="20" width="24" x="0px" y="0px" viewBox="0 0 24 20" xml:space="preserve"><g><rect x="5" y="5" width="15" height="1"></rect><rect x="5" y="9" width="15" height="1"></rect><rect x="5" y="13" width="15" height="1"></rect></g></svg>			</a>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-63ff049 elementor-widget elementor-widget-off-canvas" data-id="63ff049" data-element_type="widget" data-settings="{&quot;entrance_animation&quot;:&quot;fadeInLeft&quot;,&quot;exit_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="off-canvas.default">
+							<nav id="off-canvas-63ff049" class="e-off-canvas" role="dialog" aria-hidden="true" aria-label="Menu" aria-modal="true" inert="" data-delay-child-handlers="true">
+			<div class="e-off-canvas__overlay"></div>
+			<div class="e-off-canvas__main">
+				<div class="e-off-canvas__content">
+					<div class="elementor-element elementor-element-55b88b7 e-con-full mobile-menu-container e-flex e-con e-child" data-id="55b88b7" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-8a8776b elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget elementor-widget-image" data-id="8a8776b" data-element_type="widget" data-widget_type="image.default">
+																<a href="https://mediwound.com">
+							<img width="76" height="54" src="https://mediwound.com/wp-content/uploads/2024/04/favicon.svg" class="attachment-large size-large wp-image-279" alt="favicon logo">								</a>
+															</div>
+				<div class="elementor-element elementor-element-b05f910 elementor-view-default elementor-widget elementor-widget-icon" data-id="b05f910" data-element_type="widget" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="#elementor-action%3Aaction%3Doff_canvas%3Aclose%26settings%3DeyJpZCI6IjYzZmYwNDkiLCJkaXNwbGF5TW9kZSI6ImNsb3NlIn0%3D" aria-controls="off-canvas-63ff049" aria-expanded="false">
+			<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 21.5 20.2"><defs><style>      .x-icon {        fill: none;        stroke: #213565;        stroke-miterlimit: 10;      }    </style></defs><line class="x-icon" x1="1.4" y1=".7" x2="19.9" y2="19.2"></line><line class="x-icon" x1="1.4" y1="19.2" x2="19.9" y2=".7"></line></svg>			</a>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-e7a71e0 elementor-widget-mobile__width-inherit elementor-widget__width-inherit elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="e7a71e0" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-c9589ea elementor-widget__width-inherit elementor-widget elementor-widget-nav-menu" data-id="c9589ea" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;dropdown&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-c9589ea" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-291"><a href="https://mediwound.com/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-290"><a href="https://mediwound.com/about/" class="elementor-item" tabindex="-1">About</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-292"><a href="/about/#overview" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293"><a href="/about/#bench-to-bedside" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Bench to Bedside</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-294"><a href="/about/#senior-management" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Leadership</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-289"><a href="https://mediwound.com/science/" class="elementor-item" tabindex="-1">Science</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-295"><a href="/science/#core-platform" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Core Platform</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-296"><a href="/science/#from-plant-to-drag" class="elementor-sub-item elementor-item-anchor" tabindex="-1">From Plant to Drug</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-297"><a href="/science/#publications" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Publications</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-302"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-301"><a href="/product/nexobrid/" class="elementor-sub-item" tabindex="-1">NexoBrid<sup>®</sup></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-300"><a href="/product/escharex/" class="elementor-sub-item" tabindex="-1">EscharEx<sup>®</sup></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2639"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Investors</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2694"><a href="https://ir.mediwound.com/" class="elementor-sub-item" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2640"><a href="https://ir.mediwound.com/news-events/press-releases" class="elementor-sub-item" tabindex="-1">Press Releases</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2641"><a href="https://ir.mediwound.com/news-events/events-presentations" class="elementor-sub-item" tabindex="-1">Events &amp; Presentations</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2645"><a href="https://mediwound.com/wp-content/uploads/2025/07/MDWD-corporate-deck-May-2025.pdf" class="elementor-sub-item" tabindex="-1">Corporate Presentation</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2646"><a href="https://ir.mediwound.com/stock-information/quote-chart" class="elementor-sub-item" tabindex="-1">Stock Information</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2647"><a href="https://ir.mediwound.com/financial-information/annual-reports" class="elementor-sub-item" tabindex="-1">Financial Reports</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2648"><a href="https://ir.mediwound.com/financial-information/sec-filings" class="elementor-sub-item" tabindex="-1">SEC Filings</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2649"><a href="https://ir.mediwound.com/corporate-governance" class="elementor-sub-item" tabindex="-1">Corporate Governance</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2650"><a href="https://ir.mediwound.com/resources/investor-faqs" class="elementor-sub-item" tabindex="-1">Investor FAQs</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="https://mediwound.com/collaborations/" class="elementor-item" tabindex="-1">Collaborations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-286"><a href="https://mediwound.com/contact-us/" class="elementor-item" tabindex="-1">Contact Us</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-287"><a href="https://mediwound.com/careers/" class="elementor-sub-item" tabindex="-1">Careers</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						</div>
+				</div>
+						</div>
+			</div>
+		</nav>
+						</div>
+				<div class="elementor-element elementor-element-8599dfa elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="8599dfa" data-element_type="widget" data-widget_type="theme-site-logo.default">
+											<a href="https://mediwound.com">
+			<img width="364" height="94" src="https://mediwound.com/wp-content/uploads/2024/04/Logo-original.svg" class="attachment-full size-full wp-image-2037" alt="Logo original">				</a>
+											</div>
+				<div class="elementor-element elementor-element-ee046ce elementor-nav-menu__align-end elementor-nav-menu--stretch elementor-widget-mobile__width-initial elementor-hidden-tablet elementor-hidden-mobile elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="ee046ce" data-element_type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-ee046ce" class="elementor-nav-menu" data-smartmenus-id="17726908792193584"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-291"><a href="https://mediwound.com/" aria-current="page" class="elementor-item elementor-item-active">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-290"><a href="https://mediwound.com/about/" class="elementor-item has-submenu" id="sm-17726908792193584-1" aria-haspopup="true" aria-controls="sm-17726908792193584-2" aria-expanded="false">About<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792193584-2" role="group" aria-hidden="true" aria-labelledby="sm-17726908792193584-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-292"><a href="/about/#overview" class="elementor-sub-item elementor-item-anchor">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293"><a href="/about/#bench-to-bedside" class="elementor-sub-item elementor-item-anchor">Bench to Bedside</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-294"><a href="/about/#senior-management" class="elementor-sub-item elementor-item-anchor">Leadership</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-289"><a href="https://mediwound.com/science/" class="elementor-item has-submenu" id="sm-17726908792193584-3" aria-haspopup="true" aria-controls="sm-17726908792193584-4" aria-expanded="false">Science<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792193584-4" role="group" aria-hidden="true" aria-labelledby="sm-17726908792193584-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-295"><a href="/science/#core-platform" class="elementor-sub-item elementor-item-anchor">Core Platform</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-296"><a href="/science/#from-plant-to-drag" class="elementor-sub-item elementor-item-anchor">From Plant to Drug</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-297"><a href="/science/#publications" class="elementor-sub-item elementor-item-anchor">Publications</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-302"><a href="#" class="elementor-item elementor-item-anchor has-submenu" id="sm-17726908792193584-5" aria-haspopup="true" aria-controls="sm-17726908792193584-6" aria-expanded="false">Products<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792193584-6" role="group" aria-hidden="true" aria-labelledby="sm-17726908792193584-5" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-301"><a href="/product/nexobrid/" class="elementor-sub-item">NexoBrid<sup>®</sup></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-300"><a href="/product/escharex/" class="elementor-sub-item">EscharEx<sup>®</sup></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2639"><a href="#" class="elementor-item elementor-item-anchor has-submenu" id="sm-17726908792193584-7" aria-haspopup="true" aria-controls="sm-17726908792193584-8" aria-expanded="false">Investors<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792193584-8" role="group" aria-hidden="true" aria-labelledby="sm-17726908792193584-7" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2694"><a href="https://ir.mediwound.com/" class="elementor-sub-item">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2640"><a href="https://ir.mediwound.com/news-events/press-releases" class="elementor-sub-item">Press Releases</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2641"><a href="https://ir.mediwound.com/news-events/events-presentations" class="elementor-sub-item">Events &amp; Presentations</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2645"><a href="https://mediwound.com/wp-content/uploads/2025/07/MDWD-corporate-deck-May-2025.pdf" class="elementor-sub-item">Corporate Presentation</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2646"><a href="https://ir.mediwound.com/stock-information/quote-chart" class="elementor-sub-item">Stock Information</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2647"><a href="https://ir.mediwound.com/financial-information/annual-reports" class="elementor-sub-item">Financial Reports</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2648"><a href="https://ir.mediwound.com/financial-information/sec-filings" class="elementor-sub-item">SEC Filings</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2649"><a href="https://ir.mediwound.com/corporate-governance" class="elementor-sub-item">Corporate Governance</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2650"><a href="https://ir.mediwound.com/resources/investor-faqs" class="elementor-sub-item">Investor FAQs</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="https://mediwound.com/collaborations/" class="elementor-item">Collaborations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-286"><a href="https://mediwound.com/contact-us/" class="elementor-item has-submenu" id="sm-17726908792193584-9" aria-haspopup="true" aria-controls="sm-17726908792193584-10" aria-expanded="false">Contact Us<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792193584-10" role="group" aria-hidden="true" aria-labelledby="sm-17726908792193584-9" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-287"><a href="https://mediwound.com/careers/" class="elementor-sub-item">Careers</a></li>
+</ul>
+</li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false" style="">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true" style="width: 1280px; left: 0px; top: 44px;">
+				<ul id="menu-2-ee046ce" class="elementor-nav-menu" data-smartmenus-id="17726908792242703"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-291"><a href="https://mediwound.com/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-290"><a href="https://mediwound.com/about/" class="elementor-item has-submenu" tabindex="-1" id="sm-17726908792242703-1" aria-haspopup="true" aria-controls="sm-17726908792242703-2" aria-expanded="false">About<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792242703-2" role="group" aria-hidden="true" aria-labelledby="sm-17726908792242703-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-292"><a href="/about/#overview" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293"><a href="/about/#bench-to-bedside" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Bench to Bedside</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-294"><a href="/about/#senior-management" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Leadership</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-289"><a href="https://mediwound.com/science/" class="elementor-item has-submenu" tabindex="-1" id="sm-17726908792242703-3" aria-haspopup="true" aria-controls="sm-17726908792242703-4" aria-expanded="false">Science<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792242703-4" role="group" aria-hidden="true" aria-labelledby="sm-17726908792242703-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-295"><a href="/science/#core-platform" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Core Platform</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-296"><a href="/science/#from-plant-to-drag" class="elementor-sub-item elementor-item-anchor" tabindex="-1">From Plant to Drug</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-297"><a href="/science/#publications" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Publications</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-302"><a href="#" class="elementor-item elementor-item-anchor has-submenu" tabindex="-1" id="sm-17726908792242703-5" aria-haspopup="true" aria-controls="sm-17726908792242703-6" aria-expanded="false">Products<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792242703-6" role="group" aria-hidden="true" aria-labelledby="sm-17726908792242703-5" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-301"><a href="/product/nexobrid/" class="elementor-sub-item" tabindex="-1">NexoBrid<sup>®</sup></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-300"><a href="/product/escharex/" class="elementor-sub-item" tabindex="-1">EscharEx<sup>®</sup></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2639"><a href="#" class="elementor-item elementor-item-anchor has-submenu" tabindex="-1" id="sm-17726908792242703-7" aria-haspopup="true" aria-controls="sm-17726908792242703-8" aria-expanded="false">Investors<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792242703-8" role="group" aria-hidden="true" aria-labelledby="sm-17726908792242703-7" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2694"><a href="https://ir.mediwound.com/" class="elementor-sub-item" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2640"><a href="https://ir.mediwound.com/news-events/press-releases" class="elementor-sub-item" tabindex="-1">Press Releases</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2641"><a href="https://ir.mediwound.com/news-events/events-presentations" class="elementor-sub-item" tabindex="-1">Events &amp; Presentations</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2645"><a href="https://mediwound.com/wp-content/uploads/2025/07/MDWD-corporate-deck-May-2025.pdf" class="elementor-sub-item" tabindex="-1">Corporate Presentation</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2646"><a href="https://ir.mediwound.com/stock-information/quote-chart" class="elementor-sub-item" tabindex="-1">Stock Information</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2647"><a href="https://ir.mediwound.com/financial-information/annual-reports" class="elementor-sub-item" tabindex="-1">Financial Reports</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2648"><a href="https://ir.mediwound.com/financial-information/sec-filings" class="elementor-sub-item" tabindex="-1">SEC Filings</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2649"><a href="https://ir.mediwound.com/corporate-governance" class="elementor-sub-item" tabindex="-1">Corporate Governance</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2650"><a href="https://ir.mediwound.com/resources/investor-faqs" class="elementor-sub-item" tabindex="-1">Investor FAQs</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="https://mediwound.com/collaborations/" class="elementor-item" tabindex="-1">Collaborations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-286"><a href="https://mediwound.com/contact-us/" class="elementor-item has-submenu" tabindex="-1" id="sm-17726908792242703-9" aria-haspopup="true" aria-controls="sm-17726908792242703-10" aria-expanded="false">Contact Us<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792242703-10" role="group" aria-hidden="true" aria-labelledby="sm-17726908792242703-9" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-287"><a href="https://mediwound.com/careers/" class="elementor-sub-item" tabindex="-1">Careers</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						</div>
+					</div>
+				</div>
+				</header>
+		
+<main id="content" class="site-main post-2 page type-page status-publish hentry">
+
+	
+	<div class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="2" class="elementor elementor-2" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-8f4904d e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="8f4904d" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;shape_divider_bottom&quot;:&quot;curve&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_video_link&quot;:&quot;https:\/\/mediwound.com\/wp-content\/uploads\/2025\/05\/Homepage-video-background-compressed.mp4&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-background-video-container" aria-hidden="true">
+							<video class="elementor-background-video-hosted" autoplay="" muted="" playsinline="" loop="" src="https://mediwound.com/wp-content/uploads/2025/05/Homepage-video-background-compressed.mp4"></video>
+					</div>		<div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+    <path class="elementor-shape-fill" d="M1000,4.3V0H0v4.3C0.9,23.1,126.7,99.2,500,100S1000,22.7,1000,4.3z"></path>
+</svg>		</div>
+				<div class="elementor-element elementor-element-7a16c61 elementor-widget__width-initial blockanim-blur-scale-repeat elementor-widget elementor-widget-heading animated fadeIn" data-id="7a16c61" data-element_type="widget" data-settings="{}" data-widget_type="heading.default">
+					<h1 class="elementor-heading-title elementor-size-default">Next Generation Enzymatic Therapeutics for<br class="desktop-only"> Non-Surgical Tissue Repair</h1>				</div>
+				<div class="elementor-element elementor-element-a9de93a elementor-widget__width-inherit animated-fast elementor-widget elementor-widget-heading animated fadeInUp" data-id="a9de93a" data-element_type="widget" data-settings="{&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+					<div class="elementor-heading-title elementor-size-default">Redefining the Standard of Care</div>				</div>
+				<div class="elementor-element elementor-element-1c1aa15 elementor-widget elementor-widget-button animated fadeInRight" data-id="1c1aa15" data-element_type="widget" data-settings="{&quot;_animation_delay&quot;:400}" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://mediwound.com/product/nexobrid/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">NexoBrid<sup>®</sup></span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-ea4eb4f elementor-widget elementor-widget-button animated fadeInRight" data-id="ea4eb4f" data-element_type="widget" data-settings="{&quot;_animation_delay&quot;:500}" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://mediwound.com/product/escharex/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">EscharEx<sup>®</sup></span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-7bead9b e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="7bead9b" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-68e47dd e-con-full e-flex e-con e-child" data-id="68e47dd" data-element_type="container">
+				<div class="elementor-element elementor-element-d4b7cef elementor-widget elementor-widget-heading" data-id="d4b7cef" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Innovating. Developing. Delivering.</h2>				</div>
+				<div class="elementor-element elementor-element-d2bd558 elementor-widget elementor-widget-text-editor" data-id="d2bd558" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>At MediWound, we’re redefining wound care with next-generation enzymatic treatments that selectively remove escar tissue while preserving healthy tissue. Our patient-centered solutions for burns and chronic wounds are designed to accelerate healing, improve outcomes, and lower healthcare costs.</p>
+<p>As a fully integrated biotechnology company — we’re uniquely equipped to deliver transformative therapies at scale and broaden access to advanced&nbsp; wound care around the world.<br>
+With a commercial product and strong pipeline, we are expanding our platform into new indications, addressing significant unmet medical needs, and improving patients’ lives worldwide.</p>
+								</div>
+				<div class="elementor-element elementor-element-32cb6bd btn-with-big-icon elementor-mobile-align-left elementor-widget-mobile__width-inherit elementor-widget elementor-widget-button" data-id="32cb6bd" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://mediwound.com/about/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 70.7 70.2"><defs><style>      .read-more {        fill: none;        stroke: #50abf2;        stroke-miterlimit: 10;        stroke-width: 3px;      }    </style></defs><circle class="read-more" cx="35.3" cy="35.1" r="31.8"></circle><g><polyline class="read-more" points="34.9 51.9 51.8 35 35 18.2"></polyline><line class="read-more" x1="18.9" y1="35.1" x2="51.5" y2="35.1"></line></g></svg>			</span>
+									<span class="elementor-button-text">About MediWound</span>
+					</span>
+					</a>
+								</div>
+		<div class="elementor-element elementor-element-026cdbb e-con-full e-flex e-con e-child" data-id="026cdbb" data-element_type="container">
+				<div class="elementor-element elementor-element-92c6b34 elementor-position-left elementor-mobile-position-left elementor-view-default elementor-widget elementor-widget-icon-box" data-id="92c6b34" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<a href="https://mediwound.com/wp-content/uploads/2026/01/Mediwound-One-Pager.pdf" target="_blank" class="elementor-icon" tabindex="-1" aria-label="One Pager">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 53.2 53"><defs><style>      .onepager0 {        fill: #f9d006;      }      .onepager1 {        fill: none;        stroke: #213666;        stroke-linecap: round;        stroke-miterlimit: 10;        stroke-width: 2px;      }    </style></defs><rect class="onepager0" x=".3" y="0" width="52.8" height="52.8"></rect><g><path class="onepager1" d="M38.3,20.7h-5.7c-1.5,0-2.6-1.2-2.6-2.6v-5.1"></path><path class="onepager1" d="M38.8,20.7v16.8c0,1.5-1.2,2.6-2.6,2.6h-18c-1.5,0-2.6-1.2-2.6-2.6V15.6c0-1.5,1.2-2.6,2.6-2.6h12.3l8.4,7.7Z"></path><line class="onepager1" x1="19.5" y1="26.2" x2="34.8" y2="26.2"></line><line class="onepager1" x1="19.5" y1="29.7" x2="34.8" y2="29.7"></line><line class="onepager1" x1="19.5" y1="33.3" x2="34.8" y2="33.3"></line></g></svg>				</a>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<span class="elementor-icon-box-title">
+						<a href="https://mediwound.com/wp-content/uploads/2026/01/Mediwound-One-Pager.pdf" target="_blank">
+							One Pager						</a>
+					</span>
+				
+				
+			</div>
+			
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-c063eaf elementor-position-left elementor-mobile-position-left elementor-view-default elementor-widget elementor-widget-icon-box" data-id="c063eaf" data-element_type="widget" data-widget_type="icon-box.default">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<a href="https://mediwound.com/wp-content/uploads/2026/01/MediWound-Company-Presentation-January-2026.pdf" target="_blank" class="elementor-icon" tabindex="-1" aria-label="Corporate Deck ">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 53.2 53"><defs><style>      .ppt0 {        fill: #f9d006;      }      .ppt1 {        fill: none;        stroke: #213666;        stroke-linecap: round;        stroke-miterlimit: 10;        stroke-width: 2px;      }    </style></defs><rect class="ppt0" x=".3" y="0" width="52.8" height="52.8"></rect><g><path class="ppt1" d="M38.4,14.4v16.8c0,1.5-1.2,2.6-2.6,2.6h-18c-1.5,0-2.6-1.2-2.6-2.6V14.6"></path><line class="ppt1" x1="19.1" y1="20.4" x2="34.3" y2="20.4"></line><line class="ppt1" x1="19.1" y1="24" x2="34.3" y2="24"></line><line class="ppt1" x1="19.1" y1="27.5" x2="34.3" y2="27.5"></line><line class="ppt1" x1="11.2" y1="14.2" x2="42.2" y2="14.2"></line><line class="ppt1" x1="26.7" y1="34.2" x2="26.7" y2="40.6"></line><path class="ppt1" d="M26.7,41.6"></path><line class="ppt1" x1="21.2" y1="41.2" x2="26.4" y2="37.2"></line><line class="ppt1" x1="31.8" y1="41.2" x2="26.6" y2="37.2"></line></g></svg>				</a>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<span class="elementor-icon-box-title">
+						<a href="https://mediwound.com/wp-content/uploads/2026/01/MediWound-Company-Presentation-January-2026.pdf" target="_blank">
+							Corporate Deck 						</a>
+					</span>
+				
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-8923cd3 e-con-full elementor-hidden-mobile e-flex e-con e-child" data-id="8923cd3" data-element_type="container">
+				<div class="elementor-element elementor-element-a6af9c3 elementor-invisible elementor-widget elementor-widget-heading" data-id="a6af9c3" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Recent Updates</h2>				</div>
+				<div class="elementor-element elementor-element-b295e74 elementor-widget elementor-widget-shortcode" data-id="b295e74" data-element_type="widget" data-widget_type="shortcode.default">
+							<div class="elementor-shortcode"><div class="ditty ditty--pre" data-id="576" data-uniqid="ditty-69a890de95383" data-live_updates="1"></div>	</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-cf3823a e-flex e-con-boxed e-con e-parent" data-id="cf3823a" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-c6bcd5d e-con-full e-flex e-con e-child" data-id="c6bcd5d" data-element_type="container">
+				<div class="elementor-element elementor-element-50f2631 elementor-widget elementor-widget-heading" data-id="50f2631" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Our Products</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-84818c9 elementor-widget__width-inherit elementor-absolute elementor-hidden-mobile elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="84818c9" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-6ca3224 e-con-full e-flex e-con e-child" data-id="6ca3224" data-element_type="container">
+				<div class="elementor-element elementor-element-384fbda elementor-invisible elementor-widget elementor-widget-heading" data-id="384fbda" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+					<div class="elementor-heading-title elementor-size-default">Redefining the <br class="desktop-only"> Standard of Care</div>				</div>
+				<div class="elementor-element elementor-element-65c1d1d elementor-widget__width-initial elementor-widget elementor-widget-jet-listing-grid" data-id="65c1d1d" data-element_type="widget" data-settings="{&quot;columns&quot;:&quot;1&quot;}" data-widget_type="jet-listing-grid.default">
+					<div class="jet-listing-grid jet-listing"><div class="jet-listing-grid__items grid-col-desk-1 grid-col-tablet-1 grid-col-mobile-1 jet-listing-grid--404 grid-collapse-gap" data-queried-id="2|WP_Post" data-nav="{&quot;enabled&quot;:false,&quot;type&quot;:null,&quot;more_el&quot;:null,&quot;query&quot;:[],&quot;widget_settings&quot;:{&quot;lisitng_id&quot;:404,&quot;posts_num&quot;:6,&quot;columns&quot;:1,&quot;columns_tablet&quot;:1,&quot;columns_mobile&quot;:1,&quot;column_min_width&quot;:240,&quot;column_min_width_tablet&quot;:240,&quot;column_min_width_mobile&quot;:240,&quot;inline_columns_css&quot;:false,&quot;is_archive_template&quot;:&quot;&quot;,&quot;post_status&quot;:[&quot;publish&quot;],&quot;use_random_posts_num&quot;:&quot;&quot;,&quot;max_posts_num&quot;:9,&quot;not_found_message&quot;:&quot;No data was found&quot;,&quot;is_masonry&quot;:false,&quot;equal_columns_height&quot;:&quot;&quot;,&quot;use_load_more&quot;:&quot;&quot;,&quot;load_more_id&quot;:&quot;&quot;,&quot;load_more_type&quot;:&quot;click&quot;,&quot;load_more_offset&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;use_custom_post_types&quot;:&quot;&quot;,&quot;custom_post_types&quot;:[],&quot;hide_widget_if&quot;:&quot;&quot;,&quot;carousel_enabled&quot;:&quot;&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;arrows&quot;:&quot;true&quot;,&quot;arrow_icon&quot;:&quot;fa fa-angle-left&quot;,&quot;dots&quot;:&quot;&quot;,&quot;autoplay&quot;:&quot;true&quot;,&quot;pause_on_hover&quot;:&quot;true&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;true&quot;,&quot;center_mode&quot;:&quot;&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;inject_alternative_items&quot;:&quot;&quot;,&quot;injection_items&quot;:[],&quot;scroll_slider_enabled&quot;:&quot;&quot;,&quot;scroll_slider_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;custom_query&quot;:false,&quot;custom_query_id&quot;:&quot;&quot;,&quot;_element_id&quot;:&quot;&quot;,&quot;collapse_first_last_gap&quot;:&quot;true&quot;,&quot;list_items_wrapper_tag&quot;:&quot;div&quot;,&quot;list_item_tag&quot;:&quot;div&quot;,&quot;empty_items_wrapper_tag&quot;:&quot;div&quot;}}" data-page="1" data-pages="1" data-listing-source="posts" data-listing-id="404" data-query-id=""><div class="jet-listing-grid__item jet-listing-dynamic-post-298" data-post-id="298">		<div data-elementor-type="jet-listing-items" data-elementor-id="404" class="elementor elementor-404" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-0f0277d e-flex e-con-boxed elementor-invisible e-con e-parent" data-id="0f0277d" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d9b310f elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="d9b310f" data-element_type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image"><img fetchpriority="high" decoding="async" width="712" height="592" src="https://mediwound.com/wp-content/uploads/2025/05/NB-product-image.png" class="jet-listing-dynamic-image__img attachment-full size-full" alt="NB product image" srcset="https://mediwound.com/wp-content/uploads/2025/05/NB-product-image.png 712w, https://mediwound.com/wp-content/uploads/2025/05/NB-product-image-300x249.png 300w" sizes="(max-width: 712px) 100vw, 712px" loading="eager"></div>				</div>
+		<div class="elementor-element elementor-element-0fe0ea0 e-con-full e-flex e-con e-child" data-id="0fe0ea0" data-element_type="container">
+				<div class="elementor-element elementor-element-a076e32 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="a076e32" data-element_type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">NexoBrid<sup>®</sup></h3>				</div>
+				<div class="elementor-element elementor-element-f8b6f17 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="f8b6f17" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content">A New Paradigm in Treatment of Severe Burns</div></div></div>				</div>
+				<div class="elementor-element elementor-element-fb67f80 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="fb67f80" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Indication: </b>Eschar removal in deep partial and full-thickness thermal burns </div></div></div>				</div>
+				<div class="elementor-element elementor-element-2824769 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="2824769" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Classification: </b> Orphan biological drug</div></div></div>				</div>
+				<div class="elementor-element elementor-element-4159b2c elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="4159b2c" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Target Audience: </b>Hospitalized patients</div></div></div>				</div>
+				<div class="elementor-element elementor-element-b6c1657 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="b6c1657" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Status: </b>U.S./EU/Japan approved</div></div></div>				</div>
+				<div class="elementor-element elementor-element-4c93a1b elementor-widget elementor-widget-jet-listing-dynamic-terms" data-id="4c93a1b" data-element_type="widget" data-widget_type="jet-listing-dynamic-terms.default">
+				<div class="elementor-widget-container">
+					<div class="jet-listing jet-listing-dynamic-terms"><span class="jet-listing-dynamic-terms__link">EMA</span><span class="jet-listing-dynamic-terms__link">FDA</span></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-d690d8c elementor-widget elementor-widget-button" data-id="d690d8c" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://mediwound.com/product/nexobrid/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 22.2 21.6"><defs><style>      .arrow_right {        fill: none;        stroke: #213565;        stroke-miterlimit: 10;        stroke-width: 2px;      }    </style></defs><line class="arrow_right" x1="20.4" y1="10.9" x2="1.5" y2="10.9"></line><polyline class="arrow_right" points="11.5 20 20.7 10.9 11.5 1.7"></polyline></svg>			</span>
+									<span class="elementor-button-text">Read More</span>
+					</span>
+					</a>
+								</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-299" data-post-id="299">		<div data-elementor-type="jet-listing-items" data-elementor-id="404" class="elementor elementor-404" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-0f0277d e-flex e-con-boxed elementor-invisible e-con e-parent" data-id="0f0277d" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d9b310f elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="d9b310f" data-element_type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image"><img decoding="async" width="1042" height="1079" src="https://mediwound.com/wp-content/uploads/2025/05/Plastic-ampule_NO-Shadow2.png" class="jet-listing-dynamic-image__img attachment-full size-full" alt="Plastic ampule NO Shadow(2)" srcset="https://mediwound.com/wp-content/uploads/2025/05/Plastic-ampule_NO-Shadow2.png 1042w, https://mediwound.com/wp-content/uploads/2025/05/Plastic-ampule_NO-Shadow2-290x300.png 290w, https://mediwound.com/wp-content/uploads/2025/05/Plastic-ampule_NO-Shadow2-989x1024.png 989w, https://mediwound.com/wp-content/uploads/2025/05/Plastic-ampule_NO-Shadow2-768x795.png 768w" sizes="(max-width: 1042px) 100vw, 1042px" loading="eager"></div>				</div>
+		<div class="elementor-element elementor-element-0fe0ea0 e-con-full e-flex e-con e-child" data-id="0fe0ea0" data-element_type="container">
+				<div class="elementor-element elementor-element-a076e32 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="a076e32" data-element_type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">EscharEx<sup>®</sup></h3>				</div>
+				<div class="elementor-element elementor-element-f8b6f17 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="f8b6f17" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content">Next-Generation Enzymatic Therapy Candidate for Wound Care</div></div></div>				</div>
+				<div class="elementor-element elementor-element-fb67f80 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="fb67f80" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Indication: </b>Debridement of chronic/hard-to-heal wounds</div></div></div>				</div>
+				<div class="elementor-element elementor-element-2824769 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="2824769" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Classification: </b> Biological drug</div></div></div>				</div>
+				<div class="elementor-element elementor-element-4159b2c elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="4159b2c" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Target Audience: </b>Patients in all wound care settings</div></div></div>				</div>
+				<div class="elementor-element elementor-element-b6c1657 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="b6c1657" data-element_type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content"><b>Status: </b>Phase 3 in VLU ongoing; DFU trial planned for H2 2026</div></div></div>				</div>
+				<div class="elementor-element elementor-element-4c93a1b elementor-widget elementor-widget-jet-listing-dynamic-terms" data-id="4c93a1b" data-element_type="widget" data-widget_type="jet-listing-dynamic-terms.default">
+				<div class="elementor-widget-container">
+					<div class="jet-listing jet-listing-dynamic-terms"><span class="jet-listing-dynamic-terms__link">Phase II</span><span class="jet-listing-dynamic-terms__link">Phase III</span></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-d690d8c elementor-widget elementor-widget-button" data-id="d690d8c" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://mediwound.com/product/escharex/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 22.2 21.6"><defs><style>      .arrow_right {        fill: none;        stroke: #213565;        stroke-miterlimit: 10;        stroke-width: 2px;      }    </style></defs><line class="arrow_right" x1="20.4" y1="10.9" x2="1.5" y2="10.9"></line><polyline class="arrow_right" points="11.5 20 20.7 10.9 11.5 1.7"></polyline></svg>			</span>
+									<span class="elementor-button-text">Read More</span>
+					</span>
+					</a>
+								</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		</div></div></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-89a50a9 elementor-widget__width-inherit elementor-absolute elementor-hidden-mobile elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="89a50a9" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-f788529 e-con-full e-flex e-con e-parent" data-id="f788529" data-element_type="container">
+		<div class="elementor-element elementor-element-2e191bf e-flex e-con-boxed e-con e-child" data-id="2e191bf" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-85139bb elementor-widget__width-initial linear-transparent-wrapper elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-image" data-id="85139bb" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="image.default">
+															<img decoding="async" width="595" height="345" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20595%20345'%3E%3C/svg%3E" class="attachment-large size-large wp-image-437" alt="r d image" data-lazy-srcset="https://mediwound.com/wp-content/uploads/2025/05/r-d-image.jpg 595w, https://mediwound.com/wp-content/uploads/2025/05/r-d-image-300x174.jpg 300w" data-lazy-sizes="(max-width: 595px) 100vw, 595px" data-lazy-src="https://mediwound.com/wp-content/uploads/2025/05/r-d-image.jpg"><noscript><img decoding="async" width="595" height="345" src="https://mediwound.com/wp-content/uploads/2025/05/r-d-image.jpg" class="attachment-large size-large wp-image-437" alt="r d image" srcset="https://mediwound.com/wp-content/uploads/2025/05/r-d-image.jpg 595w, https://mediwound.com/wp-content/uploads/2025/05/r-d-image-300x174.jpg 300w" sizes="(max-width: 595px) 100vw, 595px" /></noscript>															</div>
+		<div class="elementor-element elementor-element-b722490 e-con-full e-flex e-con e-child" data-id="b722490" data-element_type="container">
+				<div class="elementor-element elementor-element-7bb9b01 elementor-invisible elementor-widget elementor-widget-heading" data-id="7bb9b01" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+					<h3 class="elementor-heading-title elementor-size-default">Research &amp; Development</h3>				</div>
+				<div class="elementor-element elementor-element-efeace0 elementor-widget elementor-widget-jet-listing-dynamic-repeater" data-id="efeace0" data-element_type="widget" data-widget_type="jet-listing-dynamic-repeater.default">
+				<div class="elementor-widget-container">
+					<div class="jet-listing jet-listing-dynamic-repeater"><div class="jet-listing-dynamic-repeater__items "><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;In Vitro / In Vivo Models: </span> &nbsp;<span>Advanced efficacy and safety testing</span></span></div><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;Analytical Methods: </span> &nbsp;<span>Precise characterization and quality control</span></span></div><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;Product Formulation: </span> &nbsp;<span>Optimized for stability, ease of use, and therapeutic performance</span></span></div></div></div>				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-dc1b079 e-flex e-con-boxed e-con e-child" data-id="dc1b079" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-3cc7467 e-con-full e-transform e-flex e-con e-child" data-id="3cc7467" data-element_type="container" data-settings="{&quot;_transform_translateX_effect&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:100,&quot;sizes&quot;:[]},&quot;_transform_translateX_effect_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:40,&quot;sizes&quot;:[]},&quot;_transform_translateX_effect_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;_transform_translateY_effect&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_translateY_effect_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_translateY_effect_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}">
+				<div class="elementor-element elementor-element-5b774f7 elementor-invisible elementor-widget elementor-widget-heading" data-id="5b774f7" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+					<h3 class="elementor-heading-title elementor-size-default">Manufacturing</h3>				</div>
+				<div class="elementor-element elementor-element-af1c1b9 elementor-widget elementor-widget-jet-listing-dynamic-repeater" data-id="af1c1b9" data-element_type="widget" data-widget_type="jet-listing-dynamic-repeater.default">
+				<div class="elementor-widget-container">
+					<div class="jet-listing jet-listing-dynamic-repeater"><div class="jet-listing-dynamic-repeater__items "><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;cGMP Certified: </span> &nbsp;<span>Compliant with global standards</span></span></div><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;Aseptic Processing: </span> &nbsp;<span>Sterile, high-integrity production</span></span></div><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;Development Suites: </span> &nbsp;<span>Advanced formulation and scale-up</span></span></div></div></div>				</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-dfa4fea elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-image" data-id="dfa4fea" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="image.default">
+															<img decoding="async" width="489" height="357" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20489%20357'%3E%3C/svg%3E" class="attachment-large size-large wp-image-438" alt="manufacturing image" data-lazy-srcset="https://mediwound.com/wp-content/uploads/2025/05/manufacturing-image.jpg 489w, https://mediwound.com/wp-content/uploads/2025/05/manufacturing-image-300x219.jpg 300w" data-lazy-sizes="(max-width: 489px) 100vw, 489px" data-lazy-src="https://mediwound.com/wp-content/uploads/2025/05/manufacturing-image.jpg"><noscript><img decoding="async" width="489" height="357" src="https://mediwound.com/wp-content/uploads/2025/05/manufacturing-image.jpg" class="attachment-large size-large wp-image-438" alt="manufacturing image" srcset="https://mediwound.com/wp-content/uploads/2025/05/manufacturing-image.jpg 489w, https://mediwound.com/wp-content/uploads/2025/05/manufacturing-image-300x219.jpg 300w" sizes="(max-width: 489px) 100vw, 489px" /></noscript>															</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-1937648 e-flex e-con-boxed e-con e-child" data-id="1937648" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-5b72462 elementor-widget__width-initial linear-transparent-wrapper elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-image" data-id="5b72462" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="image.default">
+															<img decoding="async" width="777" height="345" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20777%20345'%3E%3C/svg%3E" class="attachment-large size-large wp-image-439" alt="commercialization image" data-lazy-srcset="https://mediwound.com/wp-content/uploads/2025/05/commercialization-image.jpg 777w, https://mediwound.com/wp-content/uploads/2025/05/commercialization-image-300x133.jpg 300w, https://mediwound.com/wp-content/uploads/2025/05/commercialization-image-768x341.jpg 768w" data-lazy-sizes="(max-width: 777px) 100vw, 777px" data-lazy-src="https://mediwound.com/wp-content/uploads/2025/05/commercialization-image.jpg"><noscript><img decoding="async" width="777" height="345" src="https://mediwound.com/wp-content/uploads/2025/05/commercialization-image.jpg" class="attachment-large size-large wp-image-439" alt="commercialization image" srcset="https://mediwound.com/wp-content/uploads/2025/05/commercialization-image.jpg 777w, https://mediwound.com/wp-content/uploads/2025/05/commercialization-image-300x133.jpg 300w, https://mediwound.com/wp-content/uploads/2025/05/commercialization-image-768x341.jpg 768w" sizes="(max-width: 777px) 100vw, 777px" /></noscript>															</div>
+		<div class="elementor-element elementor-element-d41f652 e-con-full e-flex e-con e-child" data-id="d41f652" data-element_type="container">
+				<div class="elementor-element elementor-element-8b7e120 elementor-invisible elementor-widget elementor-widget-heading" data-id="8b7e120" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+					<h3 class="elementor-heading-title elementor-size-default">Commercialization</h3>				</div>
+				<div class="elementor-element elementor-element-e026e77 elementor-widget elementor-widget-jet-listing-dynamic-repeater" data-id="e026e77" data-element_type="widget" data-widget_type="jet-listing-dynamic-repeater.default">
+				<div class="elementor-widget-container">
+					<div class="jet-listing jet-listing-dynamic-repeater"><div class="jet-listing-dynamic-repeater__items "><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;U.S.: </span> &nbsp;<span>Strategic partnership with Vericel Corp</span></span></div><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;Europe: </span> &nbsp;<span>Direct sales; PMI promotion in DACH region</span></span></div><div class="jet-listing-dynamic-repeater__item"><span style="text-indent: -1em;padding-left: 1em"><span style="font-weight: var( --e-global-typography-text-font-weight )">•&nbsp;&nbsp;Global: </span> &nbsp;<span>Collaborations in Japan, Australia and additional markets</span></span></div></div></div>				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-f6b57cc e-flex e-con-boxed e-con e-parent" data-id="f6b57cc" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d38ffdc elementor-widget__width-inherit elementor-widget elementor-widget-heading" data-id="d38ffdc" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Summing Up Success</h2>				</div>
+				<div class="elementor-element elementor-element-e5a4720 elementor-invisible elementor-widget elementor-widget-heading" data-id="e5a4720" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+					<div class="elementor-heading-title elementor-size-default">MediWound Facts and Figures</div>				</div>
+				<div class="elementor-element elementor-element-15be081 elementor-widget__width-inherit elementor-widget elementor-widget-jet-listing-grid" data-id="15be081" data-element_type="widget" data-settings="{&quot;columns&quot;:&quot;5&quot;,&quot;columns_tablet&quot;:&quot;3&quot;,&quot;columns_mobile&quot;:&quot;2&quot;}" data-widget_type="jet-listing-grid.default">
+					<div class="jet-listing-grid jet-listing"><div class="jet-listing-grid__items grid-col-desk-5 grid-col-tablet-3 grid-col-mobile-2 jet-listing-grid--480 jet-equal-columns__wrapper" data-queried-id="2|WP_Post" data-nav="{&quot;enabled&quot;:false,&quot;type&quot;:null,&quot;more_el&quot;:null,&quot;query&quot;:[],&quot;widget_settings&quot;:{&quot;lisitng_id&quot;:480,&quot;posts_num&quot;:6,&quot;columns&quot;:5,&quot;columns_tablet&quot;:3,&quot;columns_mobile&quot;:2,&quot;column_min_width&quot;:240,&quot;column_min_width_tablet&quot;:240,&quot;column_min_width_mobile&quot;:240,&quot;inline_columns_css&quot;:false,&quot;is_archive_template&quot;:&quot;&quot;,&quot;post_status&quot;:[&quot;publish&quot;],&quot;use_random_posts_num&quot;:&quot;&quot;,&quot;max_posts_num&quot;:9,&quot;not_found_message&quot;:&quot;No data found&quot;,&quot;is_masonry&quot;:false,&quot;equal_columns_height&quot;:&quot;yes&quot;,&quot;use_load_more&quot;:&quot;&quot;,&quot;load_more_id&quot;:&quot;&quot;,&quot;load_more_type&quot;:&quot;click&quot;,&quot;load_more_offset&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;use_custom_post_types&quot;:&quot;&quot;,&quot;custom_post_types&quot;:[],&quot;hide_widget_if&quot;:&quot;&quot;,&quot;carousel_enabled&quot;:&quot;&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;arrows&quot;:&quot;true&quot;,&quot;arrow_icon&quot;:&quot;fa fa-angle-left&quot;,&quot;dots&quot;:&quot;&quot;,&quot;autoplay&quot;:&quot;true&quot;,&quot;pause_on_hover&quot;:&quot;true&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;true&quot;,&quot;center_mode&quot;:&quot;&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;inject_alternative_items&quot;:&quot;&quot;,&quot;injection_items&quot;:[],&quot;scroll_slider_enabled&quot;:&quot;&quot;,&quot;scroll_slider_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;custom_query&quot;:false,&quot;custom_query_id&quot;:&quot;&quot;,&quot;_element_id&quot;:&quot;&quot;,&quot;collapse_first_last_gap&quot;:false,&quot;list_items_wrapper_tag&quot;:&quot;div&quot;,&quot;list_item_tag&quot;:&quot;div&quot;,&quot;empty_items_wrapper_tag&quot;:&quot;div&quot;}}" data-page="1" data-pages="1" data-listing-source="repeater" data-listing-id="480" data-query-id=""><div class="jet-listing-grid__item jet-listing-dynamic-post-2 jet-equal-columns" data-post-id="2">		<div data-elementor-type="jet-listing-items" data-elementor-id="480" class="elementor elementor-480" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-ab8e26a e-flex e-con-boxed e-con e-parent" data-id="ab8e26a" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d87a9d3 elementor-widget elementor-widget-counter" data-id="d87a9d3" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Publications</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="150" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix"></span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-ed8bfe1 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-spacer" data-id="ed8bfe1" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-2 jet-equal-columns" data-post-id="2">		<div data-elementor-type="jet-listing-items" data-elementor-id="480" class="elementor elementor-480" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-ab8e26a e-flex e-con-boxed e-con e-parent" data-id="ab8e26a" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d87a9d3 elementor-widget elementor-widget-counter" data-id="d87a9d3" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Products</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="2" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix"></span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-ed8bfe1 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-spacer" data-id="ed8bfe1" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-2 jet-equal-columns" data-post-id="2">		<div data-elementor-type="jet-listing-items" data-elementor-id="480" class="elementor elementor-480" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-ab8e26a e-flex e-con-boxed e-con e-parent" data-id="ab8e26a" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d87a9d3 elementor-widget elementor-widget-counter" data-id="d87a9d3" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Countries</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="45" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix"></span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-ed8bfe1 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-spacer" data-id="ed8bfe1" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-2 jet-equal-columns" data-post-id="2">		<div data-elementor-type="jet-listing-items" data-elementor-id="480" class="elementor elementor-480" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-ab8e26a e-flex e-con-boxed e-con e-parent" data-id="ab8e26a" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d87a9d3 elementor-widget elementor-widget-counter" data-id="d87a9d3" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Strategic Partnerships</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="12" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix"></span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-ed8bfe1 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-spacer" data-id="ed8bfe1" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-2 jet-equal-columns" data-post-id="2">		<div data-elementor-type="jet-listing-items" data-elementor-id="480" class="elementor elementor-480" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-ab8e26a e-flex e-con-boxed e-con e-parent" data-id="ab8e26a" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d87a9d3 elementor-widget elementor-widget-counter" data-id="d87a9d3" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Revenue in 2025</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix">$</span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="17" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">M</span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-ed8bfe1 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-spacer" data-id="ed8bfe1" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		</div></div></div>				</div>
+					</div>
+				</div>
+				</div>
+				<div data-wpr-lazyrender="1" class="post-tags">
+					</div>
+			</div>
+
+	
+</main>
+
+			<footer data-elementor-type="footer" data-elementor-id="309" class="elementor elementor-309 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-cd0e16d e-flex e-con-boxed e-con e-parent" data-id="cd0e16d" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_bottom&quot;:&quot;curve&quot;,&quot;shape_divider_bottom_negative&quot;:&quot;yes&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="true">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"></path>
+</svg>		</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-a68fc31 e-flex e-con-boxed e-con e-parent" data-id="a68fc31" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-a08fd3d elementor-widget elementor-widget-image" data-id="a08fd3d" data-element_type="widget" data-widget_type="image.default">
+															<img width="209" height="53" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20209%2053'%3E%3C/svg%3E" class="attachment-large size-large wp-image-724" alt="logo white" data-lazy-src="https://mediwound.com/wp-content/uploads/2025/05/logo-white.png"><noscript><img width="209" height="53" src="https://mediwound.com/wp-content/uploads/2025/05/logo-white.png" class="attachment-large size-large wp-image-724" alt="logo white" /></noscript>															</div>
+				<div class="elementor-element elementor-element-614f781 elementor-widget__width-inherit elementor-absolute elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="614f781" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-6dfe77d elementor-widget__width-inherit elementor-nav-menu--dropdown-none footer-menu elementor-hidden-mobile elementor-widget elementor-widget-nav-menu" data-id="6dfe77d" data-element_type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;layout&quot;:&quot;horizontal&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-6dfe77d" class="elementor-nav-menu" data-smartmenus-id="17726908792277175"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-291"><a href="https://mediwound.com/" aria-current="page" class="elementor-item elementor-item-active">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-290"><a href="https://mediwound.com/about/" class="elementor-item has-submenu" id="sm-17726908792277175-1" aria-haspopup="true" aria-controls="sm-17726908792277175-2" aria-expanded="false">About<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792277175-2" role="group" aria-hidden="true" aria-labelledby="sm-17726908792277175-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-292"><a href="/about/#overview" class="elementor-sub-item elementor-item-anchor">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293"><a href="/about/#bench-to-bedside" class="elementor-sub-item elementor-item-anchor">Bench to Bedside</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-294"><a href="/about/#senior-management" class="elementor-sub-item elementor-item-anchor">Leadership</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-289"><a href="https://mediwound.com/science/" class="elementor-item has-submenu" id="sm-17726908792277175-3" aria-haspopup="true" aria-controls="sm-17726908792277175-4" aria-expanded="false">Science<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792277175-4" role="group" aria-hidden="true" aria-labelledby="sm-17726908792277175-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-295"><a href="/science/#core-platform" class="elementor-sub-item elementor-item-anchor">Core Platform</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-296"><a href="/science/#from-plant-to-drag" class="elementor-sub-item elementor-item-anchor">From Plant to Drug</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-297"><a href="/science/#publications" class="elementor-sub-item elementor-item-anchor">Publications</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-302"><a href="#" class="elementor-item elementor-item-anchor has-submenu" id="sm-17726908792277175-5" aria-haspopup="true" aria-controls="sm-17726908792277175-6" aria-expanded="false">Products<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792277175-6" role="group" aria-hidden="true" aria-labelledby="sm-17726908792277175-5" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-301"><a href="/product/nexobrid/" class="elementor-sub-item">NexoBrid<sup>®</sup></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-300"><a href="/product/escharex/" class="elementor-sub-item">EscharEx<sup>®</sup></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2639"><a href="#" class="elementor-item elementor-item-anchor has-submenu" id="sm-17726908792277175-7" aria-haspopup="true" aria-controls="sm-17726908792277175-8" aria-expanded="false">Investors<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792277175-8" role="group" aria-hidden="true" aria-labelledby="sm-17726908792277175-7" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2694"><a href="https://ir.mediwound.com/" class="elementor-sub-item">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2640"><a href="https://ir.mediwound.com/news-events/press-releases" class="elementor-sub-item">Press Releases</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2641"><a href="https://ir.mediwound.com/news-events/events-presentations" class="elementor-sub-item">Events &amp; Presentations</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2645"><a href="https://mediwound.com/wp-content/uploads/2025/07/MDWD-corporate-deck-May-2025.pdf" class="elementor-sub-item">Corporate Presentation</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2646"><a href="https://ir.mediwound.com/stock-information/quote-chart" class="elementor-sub-item">Stock Information</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2647"><a href="https://ir.mediwound.com/financial-information/annual-reports" class="elementor-sub-item">Financial Reports</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2648"><a href="https://ir.mediwound.com/financial-information/sec-filings" class="elementor-sub-item">SEC Filings</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2649"><a href="https://ir.mediwound.com/corporate-governance" class="elementor-sub-item">Corporate Governance</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2650"><a href="https://ir.mediwound.com/resources/investor-faqs" class="elementor-sub-item">Investor FAQs</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="https://mediwound.com/collaborations/" class="elementor-item">Collaborations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-286"><a href="https://mediwound.com/contact-us/" class="elementor-item has-submenu" id="sm-17726908792277175-9" aria-haspopup="true" aria-controls="sm-17726908792277175-10" aria-expanded="false">Contact Us<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792277175-10" role="group" aria-hidden="true" aria-labelledby="sm-17726908792277175-9" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-287"><a href="https://mediwound.com/careers/" class="elementor-sub-item">Careers</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-6dfe77d" class="elementor-nav-menu" data-smartmenus-id="17726908792280808"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-291"><a href="https://mediwound.com/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-290"><a href="https://mediwound.com/about/" class="elementor-item has-submenu" tabindex="-1" id="sm-17726908792280808-1" aria-haspopup="true" aria-controls="sm-17726908792280808-2" aria-expanded="false">About<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792280808-2" role="group" aria-hidden="true" aria-labelledby="sm-17726908792280808-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-292"><a href="/about/#overview" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-293"><a href="/about/#bench-to-bedside" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Bench to Bedside</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-294"><a href="/about/#senior-management" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Leadership</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-289"><a href="https://mediwound.com/science/" class="elementor-item has-submenu" tabindex="-1" id="sm-17726908792280808-3" aria-haspopup="true" aria-controls="sm-17726908792280808-4" aria-expanded="false">Science<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792280808-4" role="group" aria-hidden="true" aria-labelledby="sm-17726908792280808-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-295"><a href="/science/#core-platform" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Core Platform</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-296"><a href="/science/#from-plant-to-drag" class="elementor-sub-item elementor-item-anchor" tabindex="-1">From Plant to Drug</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-297"><a href="/science/#publications" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Publications</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-302"><a href="#" class="elementor-item elementor-item-anchor has-submenu" tabindex="-1" id="sm-17726908792280808-5" aria-haspopup="true" aria-controls="sm-17726908792280808-6" aria-expanded="false">Products<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792280808-6" role="group" aria-hidden="true" aria-labelledby="sm-17726908792280808-5" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-301"><a href="/product/nexobrid/" class="elementor-sub-item" tabindex="-1">NexoBrid<sup>®</sup></a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-300"><a href="/product/escharex/" class="elementor-sub-item" tabindex="-1">EscharEx<sup>®</sup></a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2639"><a href="#" class="elementor-item elementor-item-anchor has-submenu" tabindex="-1" id="sm-17726908792280808-7" aria-haspopup="true" aria-controls="sm-17726908792280808-8" aria-expanded="false">Investors<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792280808-8" role="group" aria-hidden="true" aria-labelledby="sm-17726908792280808-7" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2694"><a href="https://ir.mediwound.com/" class="elementor-sub-item" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2640"><a href="https://ir.mediwound.com/news-events/press-releases" class="elementor-sub-item" tabindex="-1">Press Releases</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2641"><a href="https://ir.mediwound.com/news-events/events-presentations" class="elementor-sub-item" tabindex="-1">Events &amp; Presentations</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2645"><a href="https://mediwound.com/wp-content/uploads/2025/07/MDWD-corporate-deck-May-2025.pdf" class="elementor-sub-item" tabindex="-1">Corporate Presentation</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2646"><a href="https://ir.mediwound.com/stock-information/quote-chart" class="elementor-sub-item" tabindex="-1">Stock Information</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2647"><a href="https://ir.mediwound.com/financial-information/annual-reports" class="elementor-sub-item" tabindex="-1">Financial Reports</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2648"><a href="https://ir.mediwound.com/financial-information/sec-filings" class="elementor-sub-item" tabindex="-1">SEC Filings</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2649"><a href="https://ir.mediwound.com/corporate-governance" class="elementor-sub-item" tabindex="-1">Corporate Governance</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2650"><a href="https://ir.mediwound.com/resources/investor-faqs" class="elementor-sub-item" tabindex="-1">Investor FAQs</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-288"><a href="https://mediwound.com/collaborations/" class="elementor-item" tabindex="-1">Collaborations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-286"><a href="https://mediwound.com/contact-us/" class="elementor-item has-submenu" tabindex="-1" id="sm-17726908792280808-9" aria-haspopup="true" aria-controls="sm-17726908792280808-10" aria-expanded="false">Contact Us<span class="sub-arrow"><i class=""></i></span></a>
+<ul class="sub-menu elementor-nav-menu--dropdown" id="sm-17726908792280808-10" role="group" aria-hidden="true" aria-labelledby="sm-17726908792280808-9" aria-expanded="false">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-287"><a href="https://mediwound.com/careers/" class="elementor-sub-item" tabindex="-1">Careers</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-4cf6409 elementor-mobile-align-center elementor-widget-mobile__width-inherit elementor-hidden-desktop elementor-hidden-tablet elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4cf6409" data-element_type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="#elementor-action%3Aaction%3Doff_canvas%3Atoggle%26settings%3DeyJpZCI6IjYzZmYwNDkiLCJkaXNwbGF5TW9kZSI6InRvZ2dsZSJ9" aria-controls="off-canvas-63ff049" aria-expanded="false">
+
+												<span class="elementor-icon-list-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="20" width="24" x="0px" y="0px" viewBox="0 0 24 20" xml:space="preserve"><g><rect x="5" y="5" width="15" height="1"></rect><rect x="5" y="9" width="15" height="1"></rect><rect x="5" y="13" width="15" height="1"></rect></g></svg>						</span>
+										<span class="elementor-icon-list-text">Menu</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				<div class="elementor-element elementor-element-cf191f0 elementor-position-left elementor-vertical-align-middle elementor-position-top elementor-widget-mobile__width-inherit elementor-position-left elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="cf191f0" data-element_type="widget" data-widget_type="image-box.default">
+					<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img width="41" height="34" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2041%2034'%3E%3C/svg%3E" class="attachment-full size-full wp-image-725" alt="white con" data-lazy-src="https://mediwound.com/wp-content/uploads/2025/05/white-con.png"><noscript><img width="41" height="34" src="https://mediwound.com/wp-content/uploads/2025/05/white-con.png" class="attachment-full size-full wp-image-725" alt="white con" /></noscript></figure><div class="elementor-image-box-content"><span class="elementor-image-box-title">Copyright ©2026, MediWound. All rights reserved.</span></div></div>				</div>
+				<div class="elementor-element elementor-element-ed5669c elementor-nav-menu__align-center elementor-nav-menu--dropdown-none elementor-widget-mobile__width-inherit elementor-widget elementor-widget-nav-menu" data-id="ed5669c" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-ed5669c" class="elementor-nav-menu" data-smartmenus-id="17726908792294211"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-319"><a rel="privacy-policy" href="https://mediwound.com/privacy-policy/" class="elementor-item">Privacy policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320"><a href="https://mediwound.com/terms-conditions/" class="elementor-item">Terms &amp; Conditions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-321"><a href="https://mediwound.com/cookies-policy/" class="elementor-item">Cookies Policy</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-ed5669c" class="elementor-nav-menu" data-smartmenus-id="17726908792291758"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-319"><a rel="privacy-policy" href="https://mediwound.com/privacy-policy/" class="elementor-item" tabindex="-1">Privacy policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320"><a href="https://mediwound.com/terms-conditions/" class="elementor-item" tabindex="-1">Terms &amp; Conditions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-321"><a href="https://mediwound.com/cookies-policy/" class="elementor-item" tabindex="-1">Cookies Policy</a></li>
+</ul>			</nav>
+						</div>
+					</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-theme-child-master/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<link rel="stylesheet" id="swiper-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-counter-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-counter.min.css?ver=3.33.3" media="all">
+<link rel="stylesheet" id="widget-spacer-css" href="https://mediwound.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=3.33.3" media="all">
+<script src="https://mediwound.com/wp-content/plugins/elementor-pro/assets//lib/instant-page/instant-page.min.js?ver=3.28.3" id="instant-page-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.33.3" id="elementor-webpack-runtime-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.33.3" id="elementor-frontend-modules-js"></script>
+<script src="https://mediwound.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.33.3","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true},"urls":{"assets":"https:\/\/mediwound.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/mediwound.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/mediwound.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"5506b5c15b"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":2,"title":"Home%20-%20Mediwound","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script src="https://mediwound.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.33.3" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script src="https://mediwound.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.28.3" id="e-sticky-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/jet-engine/assets/lib/jet-plugins/jet-plugins.js?ver=1.1.0" id="jet-plugins-js"></script>
+<script id="jet-engine-frontend-js-extra">
+var JetEngineSettings = {"ajaxurl":"https://mediwound.com/wp-admin/admin-ajax.php","ajaxlisting":"https://mediwound.com/?nocache=1772654814","restNonce":"37a9dfc6a1","hoverActionTimeout":"400","post_id":"2","addedPostCSS":["404","480"]};
+//# sourceURL=jet-engine-frontend-js-extra
+</script>
+<script id="jet-engine-frontend-js-before">
+			jQuery( window ).on( 'jet-engine/frontend/loaded', function() {
+				window.JetPlugins.hooks.addFilter(
+					'jet-popup.show-popup.data',
+					'JetEngine.popupData',
+					function( popupData, popup, triggeredBy ) {
+
+						if ( ! triggeredBy ) {
+							return popupData;
+						}
+
+						if ( ! triggeredBy.data( 'popupIsJetEngine' ) ) {
+							return popupData;
+						}
+
+						var wrapper = triggeredBy.closest( '.jet-listing-grid__items' );
+
+						if ( wrapper.length && wrapper.data( 'cctSlug' ) ) {
+							popupData['cctSlug'] = wrapper.data( 'cctSlug' );
+						}
+
+						return popupData;
+					}
+				);
+			} );
+		
+//# sourceURL=jet-engine-frontend-js-before
+</script>
+<script src="https://mediwound.com/wp-content/plugins/jet-engine/assets/js/frontend.js?ver=3.6.7.1" id="jet-engine-frontend-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min.js?ver=0.2.1" id="jquery-numerator-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.28.3" id="elementor-pro-webpack-runtime-js"></script>
+<script src="https://mediwound.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script src="https://mediwound.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/mediwound.com\/wp-admin\/admin-ajax.php","nonce":"1e415d5658","urls":{"assets":"https:\/\/mediwound.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/mediwound.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/mediwound.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script src="https://mediwound.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.28.3" id="elementor-pro-frontend-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.28.3" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
+<script src="https://mediwound.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.13.3" id="jquery-effects-core-js"></script>
+<script id="ditty-js-before">
+const dittyVars = {"ajaxurl":"https:\/\/mediwound.com\/wp-admin\/admin-ajax.php","security":"b4c8f43ae8","mode":"production","strings":{"add_title":"Add title","confirm_delete_item":"Are you sure you want to delete this Item? This action cannot be undone.","confirm_delete_display":"Are you sure you want to delete this Display?","confirm_delete_layout":"Are you sure you want to delete this Layout?","layout_css_error":"There is an error in your css.<br\/>Click to close this message."},"adminStrings":false,"globals":[],"updateIcon":"fas fa-sync-alt fa-spin","updateInterval":600,"googleFonts":false,"dittyDevelopment":false}
+//# sourceURL=ditty-js-before
+</script>
+<script src="https://mediwound.com/wp-content/plugins/ditty-news-ticker/build/ditty.js?ver=3.1.59" id="ditty-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/ditty-news-ticker/includes/js/partials/helpers.js?ver=3.1.59" id="ditty-helpers-js"></script>
+<script src="https://mediwound.com/wp-content/plugins/ditty-news-ticker/build/dittyDisplayTicker.js?ver=3.1.59" id="ditty-display-ticker-js"></script>
+			<script type="rocketlazyloadscript" id="ditty-singles">
+				jQuery( function( $ ) {
+						$( 'div[data-uniqid="ditty-69a890de95383"]' ).ditty_ticker({"direction":"up","itemMaxWidth":"220px","itemElementsWrap":"wrap","minHeight":"450px","spacing":"15","speed":"5","heightEase":"easeInOutQuint","heightSpeed":"1","scrollInit":"filled","scrollDelay":"3","cloneItems":"yes","wrapItems":"yes","hoverPause":"1","titleDisplay":"none","titleContentsSize":"stretch","titleContentsPosition":"start","titleElement":"h3","titleElementPosition":"start","titleElementVerticalPosition":"start","paging":"1","perPage":"10","autoplay":"0","transition":"fade","transitionEase":"easeInOutQuint","transitionSpeed":"1","initTransition":"fade","initTransitionEase":"easeInOutQuint","initTransitionSpeed":"1","initHeightEase":"easeInOutQuint","initHeightSpeed":"1","arrows":"none","arrowsPosition":"center","arrowsIconColor":"#777","arrowsStatic":"1","arrowsPadding":{"paddingTop":"","paddingBottom":"","paddingLeft":"","paddingRight":""},"bullets":"style1","bulletsPosition":"bottomCenter","bulletsColor":"#777","bulletsColorActive":"#000","bulletsSpacing":"5px","bulletsPadding":{"paddingTop":"","paddingBottom":"","paddingLeft":"","paddingRight":""},"borderStyle":"none","contentsBorderStyle":"none","pageBorderStyle":"none","itemBorderStyle":"none","orderby":"list","order":"desc","playPauseButton":"1","id":"576","uniqid":"ditty-69a890de95383","title":"Vertical news ticker","status":"publish","display":"576","items":[{"id":"5","uniq_id":"5_2812","parent_id":"0","timestamp":"1771506021","timestamp_iso":"2026-02-19T13:00:21+00:00","html":"<div class=\"ditty-item ditty-item--5 ditty-item--5_2812 ditty-item-type--posts_feed ditty-layout--5_default\" data-item_id=\"5\" data-item_uniq_id=\"5_2812\" data-parent_id=\"0\" data-item_type=\"posts_feed\" data-layout_id=\"5_default\"><div class=\"ditty-item__elements\"><div class=\"ditty-item__categories no-link\"><span class=\"ditty-rss__categories__item\"><a href=\"https:\/\/mediwound.com\/category\/news\/\" target=\"_self\">News<\/a><\/span><\/div>\n\n<div class=\"ditty-item-heading\">\n\t\t\n\t<div class=\"ditty-item-heading__content\">\n\t\t\n\t\t<div class=\"ditty-item__time\">19.02.26<\/div>\n\t<\/div>\n<\/div>\n<h3 class=\"ditty-item__title\"><a href=\"https:\/\/ir.mediwound.com\/news-releases\/news-release-details\/mediwound-report-fourth-quarter-and-full-year-2025-financial\" class=\"ditty-item__title__link\" target=\"_blank\" rel=\"\" title=\"MediWound to Report Fourth Quarter and Full Year 2025 Financial Results and Provides Corporate Update\">MediWound to Report Fourth Quarter and Full Year 2025 Financial Results and Provides Corporate Update<\/a><\/h3>\n<\/div><\/div>","css":".ditty .ditty-layout--5_default .ditty-item__elements { position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", sans-serif; font-size: 15px; line-height: 1.3125; } .ditty .ditty-layout--5_default .ditty-item__elements a { text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__image { overflow: hidden; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__image img { display: block; width: 100%; height: auto; line-height: 0; transition: -ms-transform .75s ease; transition: -webkit-transform .75s ease; transition: transform .75s ease; -webkit-transition: -webkit-transform .75s ease; } .ditty .ditty-layout--5_default .ditty-item__image a:hover img { -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); } .ditty .ditty-layout--5_default .ditty-item__icon { display: none; position: absolute; top: 15px; left: 15px; font-size: 25px; line-height: 25px; color: #fff; opacity: .8; text-shadow: 0 0 2px rgba(0, 0, 0, .3); pointer-events: none; } .ditty .ditty-layout--5_default .ditty-item__icon a { color: #fff; } .ditty .ditty-layout--5_default .ditty-item__image + .ditty-item__icon { display: block; } .ditty .ditty-layout--5_default .ditty-item-heading { display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-align: center; align-items: center; -ms-flex-pack: start; justify-content: flex-start; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar { -ms-flex: 0 0 auto; flex: 0 0 auto; margin-right: 10px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar img { display: block; line-height: 0; border-radius: 50%; } .ditty .ditty-layout--5_default .ditty-item__author_name { font-weight: 500; } .ditty .ditty-layout--5_default .ditty-item__author_name a { color: #050505; } .ditty .ditty-layout--5_default .ditty-item__time { font-size: 13px; font-weight: 300; } .ditty .ditty-layout--5_default .ditty-item__time a { color: #6b6d71; text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__time a:hover { text-decoration: underline; } .ditty .ditty-layout--5_default .ditty-item__title { font-size: 18px; margin: 0; } .ditty .ditty-layout--5_default .ditty-item__content, .ditty .ditty-layout--5_default .ditty-item__excerpt { font-size: 15px; line-height: 1.3125; margin: 5px 0 0 0; } .ditty .ditty-layout--5_default .ditty-item__content p { font-size: 15px; line-height: 1.3125; margin-top: 0; } .ditty .ditty-layout--5_default .ditty-item__content p:last-child { margin-bottom: 0; }","layout_id":"5_default","meta":[]},{"id":"5","uniq_id":"5_2828","parent_id":"0","timestamp":"1765371453","timestamp_iso":"2025-12-10T12:57:33+00:00","html":"<div class=\"ditty-item ditty-item--5 ditty-item--5_2828 ditty-item-type--posts_feed ditty-layout--5_default\" data-item_id=\"5\" data-item_uniq_id=\"5_2828\" data-parent_id=\"0\" data-item_type=\"posts_feed\" data-layout_id=\"5_default\"><div class=\"ditty-item__elements\"><div class=\"ditty-item__categories no-link\"><span class=\"ditty-rss__categories__item\"><a href=\"https:\/\/mediwound.com\/category\/news\/\" target=\"_self\">News<\/a><\/span><\/div>\n\n<div class=\"ditty-item-heading\">\n\t\t\n\t<div class=\"ditty-item-heading__content\">\n\t\t\n\t\t<div class=\"ditty-item__time\">10.12.25<\/div>\n\t<\/div>\n<\/div>\n<h3 class=\"ditty-item__title\"><a href=\"https:\/\/ir.mediwound.com\/news-releases\/news-release-details\/mediwound-reports-new-clinical-data-demonstrating-nexobridrs\" class=\"ditty-item__title__link\" target=\"_blank\" rel=\"\" title=\"MediWound Reports New Clinical Data Demonstrating NexoBrid\u00ae\u2019s Effectiveness in Preventing Traumatic Tattoos After Abrasion and Blast Injuries\">MediWound Reports New Clinical Data Demonstrating NexoBrid\u00ae\u2019s Effectiveness in Preventing Traumatic Tattoos After Abrasion and Blast Injuries<\/a><\/h3>\n<\/div><\/div>","css":".ditty .ditty-layout--5_default .ditty-item__elements { position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", sans-serif; font-size: 15px; line-height: 1.3125; } .ditty .ditty-layout--5_default .ditty-item__elements a { text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__image { overflow: hidden; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__image img { display: block; width: 100%; height: auto; line-height: 0; transition: -ms-transform .75s ease; transition: -webkit-transform .75s ease; transition: transform .75s ease; -webkit-transition: -webkit-transform .75s ease; } .ditty .ditty-layout--5_default .ditty-item__image a:hover img { -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); } .ditty .ditty-layout--5_default .ditty-item__icon { display: none; position: absolute; top: 15px; left: 15px; font-size: 25px; line-height: 25px; color: #fff; opacity: .8; text-shadow: 0 0 2px rgba(0, 0, 0, .3); pointer-events: none; } .ditty .ditty-layout--5_default .ditty-item__icon a { color: #fff; } .ditty .ditty-layout--5_default .ditty-item__image + .ditty-item__icon { display: block; } .ditty .ditty-layout--5_default .ditty-item-heading { display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-align: center; align-items: center; -ms-flex-pack: start; justify-content: flex-start; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar { -ms-flex: 0 0 auto; flex: 0 0 auto; margin-right: 10px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar img { display: block; line-height: 0; border-radius: 50%; } .ditty .ditty-layout--5_default .ditty-item__author_name { font-weight: 500; } .ditty .ditty-layout--5_default .ditty-item__author_name a { color: #050505; } .ditty .ditty-layout--5_default .ditty-item__time { font-size: 13px; font-weight: 300; } .ditty .ditty-layout--5_default .ditty-item__time a { color: #6b6d71; text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__time a:hover { text-decoration: underline; } .ditty .ditty-layout--5_default .ditty-item__title { font-size: 18px; margin: 0; } .ditty .ditty-layout--5_default .ditty-item__content, .ditty .ditty-layout--5_default .ditty-item__excerpt { font-size: 15px; line-height: 1.3125; margin: 5px 0 0 0; } .ditty .ditty-layout--5_default .ditty-item__content p { font-size: 15px; line-height: 1.3125; margin-top: 0; } .ditty .ditty-layout--5_default .ditty-item__content p:last-child { margin-bottom: 0; }","layout_id":"5_default","meta":[]},{"id":"5","uniq_id":"5_577","parent_id":"0","timestamp":"1747802600","timestamp_iso":"2025-05-21T04:43:20+00:00","html":"<div class=\"ditty-item ditty-item--5 ditty-item--5_577 ditty-item-type--posts_feed ditty-layout--5_default\" data-item_id=\"5\" data-item_uniq_id=\"5_577\" data-parent_id=\"0\" data-item_type=\"posts_feed\" data-layout_id=\"5_default\"><div class=\"ditty-item__elements\"><div class=\"ditty-item__categories no-link\"><span class=\"ditty-rss__categories__item\"><a href=\"https:\/\/mediwound.com\/category\/publications\/\" target=\"_self\">Publications<\/a><\/span><\/div>\n\n<div class=\"ditty-item-heading\">\n\t\t\n\t<div class=\"ditty-item-heading__content\">\n\t\t\n\t\t<div class=\"ditty-item__time\">21.05.25<\/div>\n\t<\/div>\n<\/div>\n<h3 class=\"ditty-item__title\"><a href=\"https:\/\/mediwound.com\/wp-content\/uploads\/2025\/05\/2-DETECT-study-.pdf\" class=\"ditty-item__title__link\" target=\"_blank\" rel=\"\" title=\"NexoBrid-DETECT Study\">NexoBrid-DETECT Study<\/a><\/h3>\n<\/div><\/div>","css":".ditty .ditty-layout--5_default .ditty-item__elements { position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", sans-serif; font-size: 15px; line-height: 1.3125; } .ditty .ditty-layout--5_default .ditty-item__elements a { text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__image { overflow: hidden; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__image img { display: block; width: 100%; height: auto; line-height: 0; transition: -ms-transform .75s ease; transition: -webkit-transform .75s ease; transition: transform .75s ease; -webkit-transition: -webkit-transform .75s ease; } .ditty .ditty-layout--5_default .ditty-item__image a:hover img { -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); } .ditty .ditty-layout--5_default .ditty-item__icon { display: none; position: absolute; top: 15px; left: 15px; font-size: 25px; line-height: 25px; color: #fff; opacity: .8; text-shadow: 0 0 2px rgba(0, 0, 0, .3); pointer-events: none; } .ditty .ditty-layout--5_default .ditty-item__icon a { color: #fff; } .ditty .ditty-layout--5_default .ditty-item__image + .ditty-item__icon { display: block; } .ditty .ditty-layout--5_default .ditty-item-heading { display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-align: center; align-items: center; -ms-flex-pack: start; justify-content: flex-start; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar { -ms-flex: 0 0 auto; flex: 0 0 auto; margin-right: 10px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar img { display: block; line-height: 0; border-radius: 50%; } .ditty .ditty-layout--5_default .ditty-item__author_name { font-weight: 500; } .ditty .ditty-layout--5_default .ditty-item__author_name a { color: #050505; } .ditty .ditty-layout--5_default .ditty-item__time { font-size: 13px; font-weight: 300; } .ditty .ditty-layout--5_default .ditty-item__time a { color: #6b6d71; text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__time a:hover { text-decoration: underline; } .ditty .ditty-layout--5_default .ditty-item__title { font-size: 18px; margin: 0; } .ditty .ditty-layout--5_default .ditty-item__content, .ditty .ditty-layout--5_default .ditty-item__excerpt { font-size: 15px; line-height: 1.3125; margin: 5px 0 0 0; } .ditty .ditty-layout--5_default .ditty-item__content p { font-size: 15px; line-height: 1.3125; margin-top: 0; } .ditty .ditty-layout--5_default .ditty-item__content p:last-child { margin-bottom: 0; }","layout_id":"5_default","meta":[]},{"id":"5","uniq_id":"5_2715","parent_id":"0","timestamp":"1747132834","timestamp_iso":"2025-05-13T10:40:34+00:00","html":"<div class=\"ditty-item ditty-item--5 ditty-item--5_2715 ditty-item-type--posts_feed ditty-layout--5_default\" data-item_id=\"5\" data-item_uniq_id=\"5_2715\" data-parent_id=\"0\" data-item_type=\"posts_feed\" data-layout_id=\"5_default\"><div class=\"ditty-item__elements\"><div class=\"ditty-item__categories no-link\"><span class=\"ditty-rss__categories__item\"><a href=\"https:\/\/mediwound.com\/category\/news\/\" target=\"_self\">News<\/a><\/span><\/div>\n\n<div class=\"ditty-item-heading\">\n\t\t\n\t<div class=\"ditty-item-heading__content\">\n\t\t\n\t\t<div class=\"ditty-item__time\">13.05.25<\/div>\n\t<\/div>\n<\/div>\n<h3 class=\"ditty-item__title\"><a href=\"https:\/\/www.liebertpub.com\/doi\/10.1177\/21621918251366644\" class=\"ditty-item__title__link\" target=\"_blank\" rel=\"\" title=\"The Correlation Between Wound Bed Preparation and Wound Closure in Venous Leg Ulcers: A Post Hoc Analysis of the ChronEx Multicenter Randomized Controlled Trial\">The Correlation Between Wound Bed Preparation and Wound Closure in Venous Leg Ulcers: A Post Hoc Analysis of the ChronEx Multicenter Randomized Controlled Trial<\/a><\/h3>\n<\/div><\/div>","css":".ditty .ditty-layout--5_default .ditty-item__elements { position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", sans-serif; font-size: 15px; line-height: 1.3125; } .ditty .ditty-layout--5_default .ditty-item__elements a { text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__image { overflow: hidden; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__image img { display: block; width: 100%; height: auto; line-height: 0; transition: -ms-transform .75s ease; transition: -webkit-transform .75s ease; transition: transform .75s ease; -webkit-transition: -webkit-transform .75s ease; } .ditty .ditty-layout--5_default .ditty-item__image a:hover img { -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); } .ditty .ditty-layout--5_default .ditty-item__icon { display: none; position: absolute; top: 15px; left: 15px; font-size: 25px; line-height: 25px; color: #fff; opacity: .8; text-shadow: 0 0 2px rgba(0, 0, 0, .3); pointer-events: none; } .ditty .ditty-layout--5_default .ditty-item__icon a { color: #fff; } .ditty .ditty-layout--5_default .ditty-item__image + .ditty-item__icon { display: block; } .ditty .ditty-layout--5_default .ditty-item-heading { display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-align: center; align-items: center; -ms-flex-pack: start; justify-content: flex-start; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar { -ms-flex: 0 0 auto; flex: 0 0 auto; margin-right: 10px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar img { display: block; line-height: 0; border-radius: 50%; } .ditty .ditty-layout--5_default .ditty-item__author_name { font-weight: 500; } .ditty .ditty-layout--5_default .ditty-item__author_name a { color: #050505; } .ditty .ditty-layout--5_default .ditty-item__time { font-size: 13px; font-weight: 300; } .ditty .ditty-layout--5_default .ditty-item__time a { color: #6b6d71; text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__time a:hover { text-decoration: underline; } .ditty .ditty-layout--5_default .ditty-item__title { font-size: 18px; margin: 0; } .ditty .ditty-layout--5_default .ditty-item__content, .ditty .ditty-layout--5_default .ditty-item__excerpt { font-size: 15px; line-height: 1.3125; margin: 5px 0 0 0; } .ditty .ditty-layout--5_default .ditty-item__content p { font-size: 15px; line-height: 1.3125; margin-top: 0; } .ditty .ditty-layout--5_default .ditty-item__content p:last-child { margin-bottom: 0; }","layout_id":"5_default","meta":[]},{"id":"5","uniq_id":"5_2586","parent_id":"0","timestamp":"1745758137","timestamp_iso":"2025-04-27T12:48:57+00:00","html":"<div class=\"ditty-item ditty-item--5 ditty-item--5_2586 ditty-item-type--posts_feed ditty-layout--5_default\" data-item_id=\"5\" data-item_uniq_id=\"5_2586\" data-parent_id=\"0\" data-item_type=\"posts_feed\" data-layout_id=\"5_default\"><div class=\"ditty-item__elements\"><div class=\"ditty-item__categories no-link\"><span class=\"ditty-rss__categories__item\"><a href=\"https:\/\/mediwound.com\/category\/publications\/\" target=\"_self\">Publications<\/a><\/span><\/div>\n\n<div class=\"ditty-item-heading\">\n\t\t\n\t<div class=\"ditty-item-heading__content\">\n\t\t\n\t\t<div class=\"ditty-item__time\">27.04.25<\/div>\n\t<\/div>\n<\/div>\n<h3 class=\"ditty-item__title\"><a href=\"https:\/\/mediwound.com\/wp-content\/uploads\/2025\/05\/5-Post-hoc-analysis-vs.-SANTYL-Collagenase-Ointment-Debridement-of-Venous-Leg-Ulcers_-Post-Hoc-A.pdf\" class=\"ditty-item__title__link\" target=\"_blank\" rel=\"\" title=\"EscharEx- Post Hoc Analysis\">EscharEx- Post Hoc Analysis<\/a><\/h3>\n<\/div><\/div>","css":".ditty .ditty-layout--5_default .ditty-item__elements { position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", sans-serif; font-size: 15px; line-height: 1.3125; } .ditty .ditty-layout--5_default .ditty-item__elements a { text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__image { overflow: hidden; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__image img { display: block; width: 100%; height: auto; line-height: 0; transition: -ms-transform .75s ease; transition: -webkit-transform .75s ease; transition: transform .75s ease; -webkit-transition: -webkit-transform .75s ease; } .ditty .ditty-layout--5_default .ditty-item__image a:hover img { -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); } .ditty .ditty-layout--5_default .ditty-item__icon { display: none; position: absolute; top: 15px; left: 15px; font-size: 25px; line-height: 25px; color: #fff; opacity: .8; text-shadow: 0 0 2px rgba(0, 0, 0, .3); pointer-events: none; } .ditty .ditty-layout--5_default .ditty-item__icon a { color: #fff; } .ditty .ditty-layout--5_default .ditty-item__image + .ditty-item__icon { display: block; } .ditty .ditty-layout--5_default .ditty-item-heading { display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-align: center; align-items: center; -ms-flex-pack: start; justify-content: flex-start; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar { -ms-flex: 0 0 auto; flex: 0 0 auto; margin-right: 10px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar img { display: block; line-height: 0; border-radius: 50%; } .ditty .ditty-layout--5_default .ditty-item__author_name { font-weight: 500; } .ditty .ditty-layout--5_default .ditty-item__author_name a { color: #050505; } .ditty .ditty-layout--5_default .ditty-item__time { font-size: 13px; font-weight: 300; } .ditty .ditty-layout--5_default .ditty-item__time a { color: #6b6d71; text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__time a:hover { text-decoration: underline; } .ditty .ditty-layout--5_default .ditty-item__title { font-size: 18px; margin: 0; } .ditty .ditty-layout--5_default .ditty-item__content, .ditty .ditty-layout--5_default .ditty-item__excerpt { font-size: 15px; line-height: 1.3125; margin: 5px 0 0 0; } .ditty .ditty-layout--5_default .ditty-item__content p { font-size: 15px; line-height: 1.3125; margin-top: 0; } .ditty .ditty-layout--5_default .ditty-item__content p:last-child { margin-bottom: 0; }","layout_id":"5_default","meta":[]},{"id":"5","uniq_id":"5_2582","parent_id":"0","timestamp":"1738746782","timestamp_iso":"2025-02-05T09:13:02+00:00","html":"<div class=\"ditty-item ditty-item--5 ditty-item--5_2582 ditty-item-type--posts_feed ditty-layout--5_default\" data-item_id=\"5\" data-item_uniq_id=\"5_2582\" data-parent_id=\"0\" data-item_type=\"posts_feed\" data-layout_id=\"5_default\"><div class=\"ditty-item__elements\"><div class=\"ditty-item__categories no-link\"><span class=\"ditty-rss__categories__item\"><a href=\"https:\/\/mediwound.com\/category\/publications\/\" target=\"_self\">Publications<\/a><\/span><\/div>\n\n<div class=\"ditty-item-heading\">\n\t\t\n\t<div class=\"ditty-item-heading__content\">\n\t\t\n\t\t<div class=\"ditty-item__time\">05.02.25<\/div>\n\t<\/div>\n<\/div>\n<h3 class=\"ditty-item__title\"><a href=\"https:\/\/mediwound.com\/wp-content\/uploads\/2025\/05\/4-Pediatric-study-.pdf\" class=\"ditty-item__title__link\" target=\"_blank\" rel=\"\" title=\"NexoBrid- Pediatric Study\">NexoBrid- Pediatric Study<\/a><\/h3>\n<\/div><\/div>","css":".ditty .ditty-layout--5_default .ditty-item__elements { position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", sans-serif; font-size: 15px; line-height: 1.3125; } .ditty .ditty-layout--5_default .ditty-item__elements a { text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__image { overflow: hidden; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__image img { display: block; width: 100%; height: auto; line-height: 0; transition: -ms-transform .75s ease; transition: -webkit-transform .75s ease; transition: transform .75s ease; -webkit-transition: -webkit-transform .75s ease; } .ditty .ditty-layout--5_default .ditty-item__image a:hover img { -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); } .ditty .ditty-layout--5_default .ditty-item__icon { display: none; position: absolute; top: 15px; left: 15px; font-size: 25px; line-height: 25px; color: #fff; opacity: .8; text-shadow: 0 0 2px rgba(0, 0, 0, .3); pointer-events: none; } .ditty .ditty-layout--5_default .ditty-item__icon a { color: #fff; } .ditty .ditty-layout--5_default .ditty-item__image + .ditty-item__icon { display: block; } .ditty .ditty-layout--5_default .ditty-item-heading { display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-align: center; align-items: center; -ms-flex-pack: start; justify-content: flex-start; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar { -ms-flex: 0 0 auto; flex: 0 0 auto; margin-right: 10px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar img { display: block; line-height: 0; border-radius: 50%; } .ditty .ditty-layout--5_default .ditty-item__author_name { font-weight: 500; } .ditty .ditty-layout--5_default .ditty-item__author_name a { color: #050505; } .ditty .ditty-layout--5_default .ditty-item__time { font-size: 13px; font-weight: 300; } .ditty .ditty-layout--5_default .ditty-item__time a { color: #6b6d71; text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__time a:hover { text-decoration: underline; } .ditty .ditty-layout--5_default .ditty-item__title { font-size: 18px; margin: 0; } .ditty .ditty-layout--5_default .ditty-item__content, .ditty .ditty-layout--5_default .ditty-item__excerpt { font-size: 15px; line-height: 1.3125; margin: 5px 0 0 0; } .ditty .ditty-layout--5_default .ditty-item__content p { font-size: 15px; line-height: 1.3125; margin-top: 0; } .ditty .ditty-layout--5_default .ditty-item__content p:last-child { margin-bottom: 0; }","layout_id":"5_default","meta":[]},{"id":"5","uniq_id":"5_2584","parent_id":"0","timestamp":"1735307251","timestamp_iso":"2024-12-27T13:47:31+00:00","html":"<div class=\"ditty-item ditty-item--5 ditty-item--5_2584 ditty-item-type--posts_feed ditty-layout--5_default\" data-item_id=\"5\" data-item_uniq_id=\"5_2584\" data-parent_id=\"0\" data-item_type=\"posts_feed\" data-layout_id=\"5_default\"><div class=\"ditty-item__elements\"><div class=\"ditty-item__categories no-link\"><span class=\"ditty-rss__categories__item\"><a href=\"https:\/\/mediwound.com\/category\/publications\/\" target=\"_self\">Publications<\/a><\/span><\/div>\n\n<div class=\"ditty-item-heading\">\n\t\t\n\t<div class=\"ditty-item-heading__content\">\n\t\t\n\t\t<div class=\"ditty-item__time\">27.12.24<\/div>\n\t<\/div>\n<\/div>\n<h3 class=\"ditty-item__title\"><a href=\"https:\/\/mediwound.com\/wp-content\/uploads\/2025\/05\/6-Mechanism-of-action.pdf\" class=\"ditty-item__title__link\" target=\"_blank\" rel=\"\" title=\"EscharEx- Mechanism of Action\">EscharEx- Mechanism of Action<\/a><\/h3>\n<\/div><\/div>","css":".ditty .ditty-layout--5_default .ditty-item__elements { position: relative; font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", sans-serif; font-size: 15px; line-height: 1.3125; } .ditty .ditty-layout--5_default .ditty-item__elements a { text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__image { overflow: hidden; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__image img { display: block; width: 100%; height: auto; line-height: 0; transition: -ms-transform .75s ease; transition: -webkit-transform .75s ease; transition: transform .75s ease; -webkit-transition: -webkit-transform .75s ease; } .ditty .ditty-layout--5_default .ditty-item__image a:hover img { -ms-transform: scale(1.05); -webkit-transform: scale(1.05); transform: scale(1.05); } .ditty .ditty-layout--5_default .ditty-item__icon { display: none; position: absolute; top: 15px; left: 15px; font-size: 25px; line-height: 25px; color: #fff; opacity: .8; text-shadow: 0 0 2px rgba(0, 0, 0, .3); pointer-events: none; } .ditty .ditty-layout--5_default .ditty-item__icon a { color: #fff; } .ditty .ditty-layout--5_default .ditty-item__image + .ditty-item__icon { display: block; } .ditty .ditty-layout--5_default .ditty-item-heading { display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-direction: row; flex-direction: row; -ms-flex-align: center; align-items: center; -ms-flex-pack: start; justify-content: flex-start; margin-bottom: 15px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar { -ms-flex: 0 0 auto; flex: 0 0 auto; margin-right: 10px; } .ditty .ditty-layout--5_default .ditty-item__author_avatar img { display: block; line-height: 0; border-radius: 50%; } .ditty .ditty-layout--5_default .ditty-item__author_name { font-weight: 500; } .ditty .ditty-layout--5_default .ditty-item__author_name a { color: #050505; } .ditty .ditty-layout--5_default .ditty-item__time { font-size: 13px; font-weight: 300; } .ditty .ditty-layout--5_default .ditty-item__time a { color: #6b6d71; text-decoration: none; } .ditty .ditty-layout--5_default .ditty-item__time a:hover { text-decoration: underline; } .ditty .ditty-layout--5_default .ditty-item__title { font-size: 18px; margin: 0; } .ditty .ditty-layout--5_default .ditty-item__content, .ditty .ditty-layout--5_default .ditty-item__excerpt { font-size: 15px; line-height: 1.3125; margin: 5px 0 0 0; } .ditty .ditty-layout--5_default .ditty-item__content p { font-size: 15px; line-height: 1.3125; margin-top: 0; } .ditty .ditty-layout--5_default .ditty-item__content p:last-child { margin-bottom: 0; }","layout_id":"5_default","meta":[]}]});
+						} );
+			</script>
+			<script type="rocketlazyloadscript">
+  function updateSecondRowClasses() {
+    const items = document.querySelectorAll('.footer-menu .elementor-nav-menu > .menu-item');
+    if (items.length === 0) return;
+        let firstRowTop = items[0].offsetTop;
+    
+        items.forEach((el) => {
+              el.classList.remove('second-row'); // reset
+              if (el.offsetTop > firstRowTop) {
+                    el.classList.add('second-row');
+              }
+        });
+  }
+
+  document.addEventListener("DOMContentLoaded", updateSecondRowClasses);
+  window.addEventListener("resize", updateSecondRowClasses);
+</script>
+<script type="rocketlazyloadscript">
+jQuery(document).ready(function($) {
+    $(document).on('click', '.e-off-canvas a', function() {
+        let linkHref = $(this).attr('href');
+
+        // Skip if no href
+        if (!linkHref) return;
+
+        // Skip if it's an Elementor close action
+        if (linkHref.startsWith('#elementor-action')) return;
+
+        // Skip if inside a .prevent-anchor-close container
+        if ($(this).closest('.prevent-anchor-close').length) return;
+
+        // Create a temporary anchor element to parse the link
+        let link = document.createElement('a');
+        link.href = linkHref;
+
+        // Check if the link is internal (same domain) AND contains a hash
+        let isSameDomain = link.hostname === window.location.hostname;
+        let hasHash = !!link.hash;
+
+        if (!(isSameDomain && hasHash)) return;
+
+        // Find the closest Off Canvas
+        let offCanvas = $(this).closest('.e-off-canvas');
+        let offCanvasId = offCanvas.attr('id')?.replace('off-canvas-', '');
+        if (!offCanvasId) return;
+
+        // Dispatch the close event
+        let eventDetail = {
+            id: offCanvasId,
+            displayMode: 'toggle',
+            previousEvent: {}
+        };
+        let toggleEvent = new CustomEvent('elementor-pro/off-canvas/toggle-display-mode', { detail: eventDetail });
+        window.dispatchEvent(toggleEvent);
+    });
+});
+</script>
+
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://mediwound.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach((t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}}))}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find((t=>e[t]))];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout((()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)}),i);window.addEventListener("rocket-startLoading",(function(){clearTimeout(o)}))}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach((t=>{e.forEach((e=>{i.push(t+e)}))})),i}l(t,e){this.i().forEach((t=>delete e[t])),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

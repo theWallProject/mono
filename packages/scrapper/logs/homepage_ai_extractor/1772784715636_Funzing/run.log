@@ -1,0 +1,73 @@
+[2026-03-06T08:11:55.639Z] === Homepage AI Extractor: Funzing ===
+[2026-03-06T08:11:55.639Z] Started at: 2026-03-06T08:11:55.639Z
+[2026-03-06T08:11:55.639Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772784715636_Funzing
+[2026-03-06T08:11:55.639Z] Company: Funzing
+[2026-03-06T08:11:55.639Z] Website: funzing.com
+[2026-03-06T08:11:55.639Z] cbRank: 164770
+[2026-03-06T08:11:55.639Z] Reasons: h
+[2026-03-06T08:11:55.639Z] Fetching: https://funzing.com
+[2026-03-06T08:11:59.762Z] Redirected: https://funzing.com -> https://www.funzing.com/
+[2026-03-06T08:11:59.768Z] Saved HTML (158363 bytes) to page.html
+[2026-03-06T08:11:59.771Z] Extracted 15 unique links from page
+[2026-03-06T08:11:59.772Z] Saved 15 links to links.json
+[2026-03-06T08:11:59.775Z] Extracted footer HTML (2920 chars)
+[2026-03-06T08:11:59.775Z] Extracted header HTML (1287 chars)
+[2026-03-06T08:11:59.779Z] Website (post-redirect): https://www.funzing.com/ → origin: https://www.funzing.com
+[2026-03-06T08:11:59.780Z]   SUBDOMAIN: blog.funzing.com (added to ws)
+[2026-03-06T08:11:59.780Z]   SUBDOMAIN: il.funzing.com (added to ws)
+[2026-03-06T08:11:59.780Z]   SUBDOMAIN: sg.funzing.com (added to ws)
+[2026-03-06T08:11:59.780Z]   SUBDOMAIN: uk.funzing.com (added to ws)
+[2026-03-06T08:11:59.780Z] Website subdomains found: 4
+[2026-03-06T08:11:59.780Z] External links: 3 (of 15 total)
+[2026-03-06T08:11:59.780Z] ── All external links ──
+[2026-03-06T08:11:59.780Z]   EXT: http://www.linkedin.com/company/3338342
+[2026-03-06T08:11:59.780Z]   EXT: https://twitter.com/funzinguk
+[2026-03-06T08:11:59.780Z]   EXT: https://www.facebook.com/FunzingUK
+[2026-03-06T08:11:59.780Z] ── Step 1: Programmatic categorization ──
+[2026-03-06T08:11:59.781Z]   REGEX: li <- http://www.linkedin.com/company/3338342
+[2026-03-06T08:11:59.781Z]   REGEX: tw <- https://twitter.com/funzinguk
+[2026-03-06T08:11:59.781Z]   REGEX: fb <- https://www.facebook.com/FunzingUK
+[2026-03-06T08:11:59.781Z] Programmatic result: ws:5, li:1, tw:1, fb:1 | 0 uncategorized
+[2026-03-06T08:11:59.781Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-06T08:11:59.781Z] Saved AI prompt (4270 chars) to ai_prompt.txt
+[2026-03-06T08:12:24.518Z] Saved AI response to ai_response.json
+[2026-03-06T08:12:24.518Z] ── Parsing AI response (4 lines) ──
+[2026-03-06T08:12:24.518Z]   AI LINK: https://www.facebook.com/FunzingUK
+[2026-03-06T08:12:24.518Z]   AI LINK: https://twitter.com/funzinguk
+[2026-03-06T08:12:24.518Z]   AI LINK: http://www.linkedin.com/company/3338342
+[2026-03-06T08:12:24.519Z]   AI LINK: https://blog.funzing.com
+[2026-03-06T08:12:24.519Z] AI returned 4 valid links
+[2026-03-06T08:12:24.519Z] ── Categorizing 4 AI-returned links ──
+[2026-03-06T08:12:24.519Z]   AI→REGEX: fb <- https://www.facebook.com/FunzingUK (duplicate, skipped)
+[2026-03-06T08:12:24.519Z]   AI→REGEX: tw <- https://twitter.com/funzinguk (duplicate, skipped)
+[2026-03-06T08:12:24.519Z]   AI→REGEX: li <- http://www.linkedin.com/company/3338342 (duplicate, skipped)
+[2026-03-06T08:12:24.519Z]   AI→URLS: https://blog.funzing.com
+[2026-03-06T08:12:24.520Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-06T08:12:24.520Z] Footer/header origins (5):
+[2026-03-06T08:12:24.520Z]   FOOTER/HEADER ORIGIN: https://www.funzing.com
+[2026-03-06T08:12:24.520Z]   FOOTER/HEADER ORIGIN: https://blog.funzing.com
+[2026-03-06T08:12:24.520Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-06T08:12:24.520Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-06T08:12:24.520Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-06T08:12:24.520Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-06T08:12:24.520Z] ── Step 3: Final dedup ──
+[2026-03-06T08:12:24.520Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-06T08:12:24.520Z] ── FINAL RESULT ──
+[2026-03-06T08:12:24.521Z]   ws (5):
+[2026-03-06T08:12:24.521Z]     - https://blog.funzing.com
+[2026-03-06T08:12:24.521Z]     - https://il.funzing.com
+[2026-03-06T08:12:24.521Z]     - https://sg.funzing.com
+[2026-03-06T08:12:24.521Z]     - https://uk.funzing.com
+[2026-03-06T08:12:24.521Z]     - https://www.funzing.com
+[2026-03-06T08:12:24.521Z]   li (1):
+[2026-03-06T08:12:24.521Z]     - https://www.linkedin.com/company/3338342
+[2026-03-06T08:12:24.521Z]   fb (1):
+[2026-03-06T08:12:24.521Z]     - https://www.facebook.com/funzinguk
+[2026-03-06T08:12:24.521Z]   tw (1):
+[2026-03-06T08:12:24.521Z]     - https://x.com/funzinguk
+[2026-03-06T08:12:24.521Z]   urls (1):
+[2026-03-06T08:12:24.522Z]     - https://blog.funzing.com
+[2026-03-06T08:12:24.522Z] Summary: ws:5, li:1, tw:1, fb:1, urls:1
+[2026-03-06T08:12:24.522Z] Saved final result to result.json
+[2026-03-06T08:12:24.522Z] Override fields: ws, li, fb, tw
+[2026-03-06T08:12:24.522Z] Finished at: 2026-03-06T08:12:24.522Z

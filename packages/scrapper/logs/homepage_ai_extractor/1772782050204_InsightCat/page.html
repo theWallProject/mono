@@ -1,0 +1,430 @@
+<!DOCTYPE html><html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <title>Insight Cat - Full-stack monitoring</title>
+    <meta name="description" content="InsightCat is a SaaS full-stack monitoring solution, suited for both cloud and on-premise environments. We prevent downtimes by predicting the next incident.">
+    <meta name="keywords" content="">
+    <meta name="“facebook-domain-verification”" content="“r3djbs0odyjajkm7zofg4ngno7ikoz”">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        /*preload*/
+        .loaded .preload {
+            display: block;
+        }
+
+        .loaded .main-wrapper {
+            opacity: 0;
+        }
+
+        .preload {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: #151821;
+            display: none;
+            z-index: 1000;
+        }
+
+        .circle {
+            display: block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border: 2px solid transparent;
+            border-top-color: #fe9900;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            margin-top: -40px;
+            margin-left: -40px;
+            -webkit-animation: rotation 2s infinite linear;
+            animation: rotation 2s infinite linear;
+        }
+
+        .circle:before {
+            content: "";
+            position: absolute;
+            border: 2px solid transparent;
+            border-top-color: #64c542;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            -webkit-animation: rotation 2.5s infinite linear;
+            animation: rotation 2.5s infinite linear;
+        }
+
+        .circle:after {
+            content: "";
+            position: absolute;
+            border: 2px solid transparent;
+            border-top-color: #f85f71;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            -webkit-animation: rotation 3s infinite linear;
+            animation: rotation 3s infinite linear;
+        }
+
+        @-webkit-keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        /*preload*/
+
+    </style>
+    <script async="" src="https://scripts.clarity.ms/0.8.56/clarity.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-M837VQH52S&amp;cx=c&amp;_slc=1"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-0WXFT22C5X&amp;cx=c&amp;gtm=4e6341"></script><script async="" src="https://www.clarity.ms/tag/7uwrje0rq4"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://sc.lfeeder.com/lftracker_v1_bElvO73wN367ZMqj.js" async=""></script><script src="https://connect.facebook.net/signals/config/1548180518882879?v=2.9.274&amp;r=stable&amp;domain=insightcat.com&amp;hme=8830461b0a3fda5230edea4335366eb6d682f53a525e54f7adf6ff7b70c96c39&amp;ex_m=100%2C193%2C142%2C22%2C69%2C70%2C135%2C65%2C64%2C11%2C150%2C86%2C16%2C129%2C122%2C72%2C75%2C128%2C147%2C152%2C8%2C4%2C5%2C7%2C6%2C3%2C87%2C97%2C153%2C158%2C207%2C59%2C174%2C175%2C52%2C251%2C30%2C71%2C219%2C218%2C217%2C23%2C32%2C99%2C58%2C10%2C60%2C93%2C94%2C95%2C101%2C125%2C31%2C29%2C127%2C124%2C123%2C143%2C73%2C146%2C144%2C145%2C47%2C57%2C118%2C15%2C149%2C42%2C239%2C240%2C238%2C26%2C27%2C28%2C45%2C136%2C74%2C108%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C88%2C92%2C106%2C134%2C137%2C43%2C107%2C24%2C21%2C114%2C66%2C35%2C139%2C138%2C140%2C131%2C130%2C25%2C34%2C56%2C105%2C148%2C67%2C17%2C141%2C110%2C78%2C63%2C19%2C81%2C82%2C111%2C33%2C264%2C200%2C189%2C190%2C188%2C267%2C259%2C49%2C201%2C103%2C126%2C77%2C116%2C51%2C44%2C46%2C109%2C115%2C121%2C55%2C61%2C50%2C53%2C96%2C151%2C1%2C119%2C14%2C117%2C12%2C2%2C54%2C89%2C62%2C113%2C85%2C84%2C154%2C155%2C90%2C91%2C9%2C120%2C98%2C48%2C132%2C83%2C76%2C68%2C112%2C102%2C40%2C133%2C0%2C79%2C36%2C104%2C13%2C156" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NW3M2HB"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0WXFT22C5X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-0WXFT22C5X');
+    </script>
+    
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW3M2HB');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1548180518882879');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1548180518882879&ev=PageView&noscript=1"
+    /></noscript>
+
+</head>
+<body class="web">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW3M2HB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- BEGIN BODY -->
+    <div class="main-wrapper">
+        <!-- BEGIN CONTENT -->
+        <main class="content home-page">
+            <div class="wrapper text-center">
+                <h1><span class="text-orange">Full-stack</span> monitoring is&nbsp;here</h1>
+                <p class="sub-title">Deep visibility into every aspect. Works like magic.</p>
+                <a href="//portal.insightcat.com/register" class="btn btn-lg btn-yellow home-page__btn-main-screen">Try it free</a>
+                <div class="main-screen-dashbord">
+                    <img src="img/main-chart.png" srcset="img/main-chart@2x.png 2x" alt="">
+                </div>
+            </div>
+            <div class="section-logos">
+                <div class="big-circle-bg"></div>
+                <div class="wrapper text-center">
+                    <div class="h1"><span class="text-orange text-block">Integrate</span> everything</div>
+                    <p class="sub-title-sm sub-title-sm_sm-width">Observe every detail using hundreds of simple integrations. Load balancers? Databases? Clouds? Serverless? We've got you covered.</p>
+                    <div class="logos">
+                        <div class="logos__item logos__item_1">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-1.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_2">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-2.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_3">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-3.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_4">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-4.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_5">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-5.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_6">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-6.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_7">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-7.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_8">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-8.svg" class="js-img" alt="">
+                        </div>
+                        <div class="logos__item logos__item_9">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/partners-9.svg" class="js-img" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper text-center">
+                <div class="h1"><span class="text-orange text-block">Bring your own</span> infrastructure</div>
+                <p class="sub-title-sm">No cardinal changes. No pain points to overcome. Implement InsightCat in couple of minutes.</p>
+                <div class="advantages-list">
+                    <div class="advantages-list__item">
+                        <i class="icon-fire"></i>
+                        <div class="advantages-list__cont">
+                            <div class="advantages-list__title">Prometheus</div>
+                            <p>Just add InsightCat server as a remote_write destination and join the full-stack monitoring revolution. Powerful visualization with zero configuration.</p>
+                        </div>
+                    </div>
+                    <div class="advantages-list__item advantages-list__item_blue">
+                        <i class="icon-cub"></i>
+                        <div class="advantages-list__cont">
+                            <div class="advantages-list__title">Telegraf</div>
+                            <p>Add one line to your telegraf.conf and start getting real-time insights and smart alerts for your infrastructure. Effortless changes can bring tremendous progress.</p>
+                        </div>
+                    </div>
+                    <div class="advantages-list__item advantages-list__item_orange">
+                        <i class="icon-eye"></i>
+                        <div class="advantages-list__cont">
+                            <div class="advantages-list__title">InsightCat client</div>
+                            <p>Use InsightCat client to get the most of your monitoring suite - dynamic inventory, faster metrics delivery, logs, APM and much more. And, of course, it's open-source. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="h1"><span class="text-orange text-block">Smart alerts</span> &amp; Escalations</div>
+                <p class="sub-title-sm">Never miss an incident again. Notify your team on time.</p>
+                <div class="screen-img screen-img_smart-alerts">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/screen.png" data-srcset="img/screen@2x.png 2x" class="js-img" alt="">
+                </div>
+                <div class="h1"><span class="text-orange text-block">Real-time</span> Insights</div>
+                <p class="sub-title-sm">The best to way to avoid downtime is to prevent it. </p>
+                <div class="screen-img screen-img_weight">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/screen-1.jpg" data-srcset="img/screen-1@2x.jpg 2x" class="js-img" alt="">
+                </div>
+                <div class="h1"><span class="text-orange">Our </span>clients</div>
+                <p class="sub-title-sm">Companies worldwide switch to full-stack monitoring to prevent downtimes and gain better observability.</p>
+                <div class="clients-list">
+                    <div class="clients-list__item clients-list__item_1">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/client-1.svg" class="js-img" alt="">
+                    </div>
+                    <div class="clients-list__item clients-list__item_2">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/client-2.svg" class="js-img" alt="">
+                    </div>
+                    <div class="clients-list__item clients-list__item_3">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/client-3.svg" class="js-img" alt="">
+                    </div>
+                    <div class="clients-list__item clients-list__item_4">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/client-4.svg" class="js-img" alt="">
+                    </div>
+                    <div class="clients-list__item clients-list__item_5">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="img/client-5.svg" class="js-img" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="lets-start">
+                <div class="wrapper">
+                    <div class="lets-start__title"><span>Let’s</span> start</div>
+                    <p class="sub-title">Get full-stack monitoring in minutes</p>
+                    <a href="//portal.insightcat.com/register" class="btn btn-v-lg btn-dark">FREE TRIAL</a>
+                </div>
+            </div>
+        </main>
+        <!-- CONTENT EOF   -->
+        <!-- BEGIN HEADER -->
+        <header>
+            <div class="wrapper wrapper-fluid">
+                <a href="#" class="button-nav js-button-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+                <div class="logo">
+                    <img src="img/logo.svg" alt="">
+                </div>
+                <nav class="main-nav">
+                    <ul class="main-nav-list">
+                        <!--
+                            <li class="main-nav-list__item">
+                            <a href="#" class="main-nav-list__link main-nav-list__link_sub">Product</a>
+                            <ul class="drop-nav">
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Full-stack monitoring</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Smart alerts & Escalations</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Integrations</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Ready for teams</a>
+                                </li>
+                                <li class="drop-nav__item show-table">
+                                    <a href="#" class="drop-nav__link drop-nav__link_orange">Pricing</a>
+                                </li>
+                            </ul>
+                        </li>
+                        -->
+                        <li class="main-nav-list__item hide-tablet"><a href="/" class="main-nav-list__link">Product</a></li>
+                        <li class="main-nav-list__item hide-tablet"><a href="/pricing.html" class="main-nav-list__link">Pricing</a></li>
+                        <!--<li class="main-nav-list__item">
+                            <a href="#" class="main-nav-list__link main-nav-list__link_sub">Features</a>
+                            <ul class="drop-nav">
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Infrastructure monitoring</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">APM</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Error tracking</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Log-based monitoring</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Serverless monitoring</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Cloud monitoring</a>
+                                </li>
+                            </ul>
+                        </li>
+                        -->
+                        <li class="main-nav-list__item">
+                            <a href="#" class="main-nav-list__link main-nav-list__link_sub">Company</a>
+                            <ul class="drop-nav">
+                                <li class="drop-nav__item">
+                                    <a href="/about.html" class="drop-nav__link">About Company</a>
+                                </li>
+                                <!--<li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Blog</a>
+                                </li>-->
+                                <li class="drop-nav__item">
+                                    <a href="/career.html" class="drop-nav__link">Careers</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="/team.html" class="drop-nav__link">Leadership</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="main-nav-list__item">
+                            <a href="#" class="main-nav-list__link main-nav-list__link_sub">Contact</a>
+                            <ul class="drop-nav">
+                                <li class="drop-nav__item">
+                                    <a href="mailto:support@insightcat.com" target="_blank" class="drop-nav__link">Support</a>
+                                </li>
+                                <li class="drop-nav__item">
+                                    <a href="https://form.jotform.com/203067359543458" target="_blank" class="drop-nav__link">Contact Us</a>
+                                </li>
+                                <!--<li class="drop-nav__item">
+                                    <a href="#" class="drop-nav__link">Contact support</a>
+                                </li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="https://portal.insightcat.com/login" class="header__sign white-link">Sign In</a>
+                <!--<a href="#" class="btn btn-yellow">Sign Up Free</a>-->
+                <!-- if user login 
+        <a href="#" class="header__sign white-link">Sign Out</a>
+        <a href="#" class="btn btn-blue header__launch">Launch</a>
+        -->
+            </div>
+        </header>
+        <!-- HEADER EOF   -->
+        <!-- BEGIN FOOTER -->
+        <footer>
+            <div class="wrapper">
+                <div class="footer-col footer-col_1">
+                    <div class="logo">
+                        <img src="img/logo.svg" alt="">
+                    </div>
+                    <div class="copyright">
+                        Copyright <span id="js-copyright-year">2026</span> <br class="show-only-tablet"> © InsightCat Inc.
+                    </div>
+                    <ul class="social-list">
+                        <li class="social-list__item">
+                            <a href="https://www.facebook.com/insightcat" class="social-list__link" target="_blank"><i class="icon-fb"></i></a>
+                        </li>
+                        <li class="social-list__item">
+                            <a href="https://www.linkedin.com/company/insightcat/" class="social-list__link" target="_blank"><i class="icon-in"></i></a>
+                        </li>
+                        <li class="social-list__item">
+                            <a href="https://twitter.com/insightcat1" class="social-list__link" target="_blank"><i class="icon-tw"></i></a>
+                        </li>
+                        <li class="social-list__item">
+                            <a href="https://www.youtube.com/channel/UCGm1BrPM4Claa-MfOYXy2Kw/featured" class="social-list__link" target="_blank"><i class="icon-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col_2">
+                    <a href="/" class="footer-title-link">Product</a><br>
+                    <a href="/pricing.html" class="footer-title-link">Pricing</a><br>
+                    <a href="/features.html" class="footer-title-link">Features</a><br>
+                </div>
+                <div class="footer-col footer-col_3">
+                    <div class="footer-title-link">Company</div>
+                    <ul class="footer-nav">
+                        <li class="footer-nav__item"><a href="/about.html" class="footer-nav__link">About Company</a></li>
+<!--                        <li class="footer-nav__item"><a href="#" class="footer-nav__link">Blog</a></li>-->
+                        <li class="footer-nav__item"><a href="/career.html" class="footer-nav__link">Careers</a></li>
+                        <li class="footer-nav__item"><a href="/team.html" class="footer-nav__link">Our Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col_4">
+                    <div class="footer-title-link">Support</div>
+                    <ul class="footer-nav">
+                        <li class="footer-nav__item"><a href="https://docs.insightcat.com" target="_blank" class="footer-nav__link">Docs</a></li>
+                        <li class="footer-nav__item"><a href="https://form.jotform.com/203067359543458" target="_blank" class="footer-nav__link">Contact support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <div class="nav-mask"></div>
+        
+        <!-- LeadFeeder code -->
+    <script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('bElvO73wN367ZMqj'); </script>
+    
+        <!-- FOOTER EOF   -->
+    </div>
+    <div class="preload">
+        <div class="circle"></div>
+    </div>
+    <!-- BODY EOF   -->
+    <link rel="preload stylesheet" as="style" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery-3.5.1.min.js"></script><script type="text/javascript" id="" charset="">(function(a,e,b,f,g,c,d){a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)};c=e.createElement(f);c.async=1;c.src="https://www.clarity.ms/tag/"+g;d=e.getElementsByTagName(f)[0];d.parentNode.insertBefore(c,d)})(window,document,"clarity","script","7uwrje0rq4");</script><meta name="facebook-domain-verification" content="8rst8gi8gv7vx49jay15jgljfj0jma">
+    <script src="js/components/jquery.formstyler.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async="" defer="" src="//js.hs-scripts.com/19643736.js"></script>
+    <!-- End of HubSpot Embed Code -->
+
+
+</body></html>

@@ -1,0 +1,73 @@
+[2026-03-05T07:50:09.434Z] === Homepage AI Extractor: FieldIn ===
+[2026-03-05T07:50:09.434Z] Started at: 2026-03-05T07:50:09.434Z
+[2026-03-05T07:50:09.435Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772697009434_FieldIn
+[2026-03-05T07:50:09.435Z] Company: FieldIn
+[2026-03-05T07:50:09.435Z] Website: fieldin.com
+[2026-03-05T07:50:09.435Z] cbRank: 61061
+[2026-03-05T07:50:09.435Z] Reasons: h
+[2026-03-05T07:50:09.435Z] Fetching: https://fieldin.com
+[2026-03-05T07:50:13.244Z] Redirected: https://fieldin.com -> https://fieldin.com/
+[2026-03-05T07:50:13.252Z] Saved HTML (164761 bytes) to page.html
+[2026-03-05T07:50:13.255Z] Extracted 42 unique links from page
+[2026-03-05T07:50:13.256Z] Saved 42 links to links.json
+[2026-03-05T07:50:13.258Z] Extracted footer HTML (2052 chars)
+[2026-03-05T07:50:13.258Z] Extracted header HTML (3584 chars)
+[2026-03-05T07:50:13.262Z] Website (post-redirect): https://fieldin.com/ → origin: https://fieldin.com
+[2026-03-05T07:50:13.263Z]   SUBDOMAIN: api.fieldin.com (added to ws)
+[2026-03-05T07:50:13.263Z] Website subdomains found: 1
+[2026-03-05T07:50:13.263Z] External links: 5 (of 42 total)
+[2026-03-05T07:50:13.263Z] ── All external links ──
+[2026-03-05T07:50:13.263Z]   EXT: https://app.fieldintech.com/#/login
+[2026-03-05T07:50:13.263Z]   EXT: https://twitter.com/fieldintech
+[2026-03-05T07:50:13.263Z]   EXT: https://www.instagram.com/fieldintech/?hl=en
+[2026-03-05T07:50:13.263Z]   EXT: https://www.linkedin.com/company/fieldin-powered-by-agromentum-ltd-
+[2026-03-05T07:50:13.263Z]   EXT: https://www.youtube.com/watch?v=TaWhzQPicZw
+[2026-03-05T07:50:13.264Z] ── Step 1: Programmatic categorization ──
+[2026-03-05T07:50:13.264Z]   UNCATEGORIZED: https://app.fieldintech.com/#/login
+[2026-03-05T07:50:13.264Z]   REGEX: tw <- https://twitter.com/fieldintech
+[2026-03-05T07:50:13.264Z]   REGEX: ig <- https://www.instagram.com/fieldintech/?hl=en
+[2026-03-05T07:50:13.264Z]   REGEX: li <- https://www.linkedin.com/company/fieldin-powered-by-agromentum-ltd-
+[2026-03-05T07:50:13.264Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-05T07:50:13.264Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=TaWhzQPicZw
+[2026-03-05T07:50:13.264Z] Programmatic result: ws:2, tw:1, ig:1, li:1 | 1 uncategorized
+[2026-03-05T07:50:13.264Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-05T07:50:13.265Z] Saved AI prompt (3286 chars) to ai_prompt.txt
+[2026-03-05T07:50:34.604Z] Saved AI response to ai_response.json
+[2026-03-05T07:50:34.605Z] ── Parsing AI response (4 lines) ──
+[2026-03-05T07:50:34.605Z]   AI LINK: https://app.fieldintech.com/#/login
+[2026-03-05T07:50:34.605Z]   AI LINK: https://www.linkedin.com/company/fieldin-powered-by-agromentum-ltd-/
+[2026-03-05T07:50:34.605Z]   AI LINK: https://www.instagram.com/fieldintech/?hl=en
+[2026-03-05T07:50:34.605Z]   AI LINK: https://twitter.com/fieldintech
+[2026-03-05T07:50:34.605Z] AI returned 4 valid links
+[2026-03-05T07:50:34.605Z] ── Categorizing 4 AI-returned links ──
+[2026-03-05T07:50:34.606Z]   AI→URLS: https://app.fieldintech.com (cleaned from https://app.fieldintech.com/#/login)
+[2026-03-05T07:50:34.606Z]   AI→REGEX: li <- https://www.linkedin.com/company/fieldin-powered-by-agromentum-ltd-/ (duplicate, skipped)
+[2026-03-05T07:50:34.606Z]   AI→REGEX: ig <- https://www.instagram.com/fieldintech/?hl=en (duplicate, skipped)
+[2026-03-05T07:50:34.606Z]   AI→REGEX: tw <- https://twitter.com/fieldintech (duplicate, skipped)
+[2026-03-05T07:50:34.606Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-05T07:50:34.607Z] Footer/header origins (5):
+[2026-03-05T07:50:34.607Z]   FOOTER/HEADER ORIGIN: https://fieldin.com
+[2026-03-05T07:50:34.607Z]   FOOTER/HEADER ORIGIN: https://app.fieldintech.com
+[2026-03-05T07:50:34.607Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-05T07:50:34.607Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-05T07:50:34.607Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-05T07:50:34.607Z]   SKIP (AI claimed): https://app.fieldintech.com/#/login
+[2026-03-05T07:50:34.607Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-05T07:50:34.607Z] ── Step 3: Final dedup ──
+[2026-03-05T07:50:34.607Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-05T07:50:34.607Z] ── FINAL RESULT ──
+[2026-03-05T07:50:34.607Z]   ws (2):
+[2026-03-05T07:50:34.607Z]     - https://api.fieldin.com
+[2026-03-05T07:50:34.607Z]     - https://fieldin.com
+[2026-03-05T07:50:34.608Z]   li (1):
+[2026-03-05T07:50:34.608Z]     - https://www.linkedin.com/company/fieldin-powered-by-agromentum-ltd-
+[2026-03-05T07:50:34.608Z]   tw (1):
+[2026-03-05T07:50:34.608Z]     - https://x.com/fieldintech
+[2026-03-05T07:50:34.608Z]   ig (1):
+[2026-03-05T07:50:34.608Z]     - https://www.instagram.com/fieldintech
+[2026-03-05T07:50:34.608Z]   urls (1):
+[2026-03-05T07:50:34.608Z]     - https://app.fieldintech.com
+[2026-03-05T07:50:34.608Z] Summary: ws:2, tw:1, ig:1, li:1, urls:1
+[2026-03-05T07:50:34.610Z] Saved final result to result.json
+[2026-03-05T07:50:34.611Z] Override fields: ws, li, tw, ig, urls
+[2026-03-05T07:50:34.611Z] Finished at: 2026-03-05T07:50:34.611Z

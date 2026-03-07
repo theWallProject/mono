@@ -4,5 +4,7 @@ export const manualDeleteIds = [
   "BIT_Affogata",
   "b-tselem",
   "applied-research-institute-jerusalem",
-  "sajilni"
+  "sajilni",
+  "baladi-supermarket",
+  "sbitany"
 ]

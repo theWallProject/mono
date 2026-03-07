@@ -17,6 +17,22 @@ export const manualOverrides: Record<
     urls: ["https://www.pearlcom.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "270Surgical": { ws: ["https://270surgical.com"], _meta: { isHomepage: true, isVerified: true } },
+  "2key Network": {
+    ws: ["https://2key.network"],
+    urls: ["https://www.dcentralab.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "3DBattery": {
+    ws: ["https://3dbattery.co.il"],
+    li: ["https://www.linkedin.com/company/3d-battery"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "3NT Medical": {
+    ws: ["https://3ntmedical.com"],
+    urls: ["https://3ntmedical.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "3d Signals": {
     ws: ["https://3dsignals.com"],
     li: ["https://www.linkedin.com/company/3dsignals"],
@@ -24,6 +40,20 @@ export const manualOverrides: Record<
     tw: ["https://x.com/3dsignals"],
     ytc: ["https://www.youtube.com/channel/uczyjpabddohxtm9_4c0ryjq"],
     urls: ["https://dview.3dsignals.io", "https://www.xing.com/companies/3dsignals"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "40seas": {
+    ws: [
+      "https://40seas.com",
+      "https://dashboard.40seas.com",
+      "https://support.40seas.com",
+      "https://vi.40seas.com",
+      "https://zh.40seas.com"
+    ],
+    li: ["https://www.linkedin.com/company/40seas"],
+    fb: ["https://www.facebook.com/40seas"],
+    tw: ["https://x.com/40seasinc"],
+    tt: ["https://www.tiktok.com/@40seas"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "4M Analytics": {
@@ -38,6 +68,29 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/adasky"],
     ytc: ["https://www.youtube.com/channel/ucioha19ovggip7_gkbce-pa"],
     urls: ["http://www.thebunch.co.il", "http://www.tipoos.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ADCORE: {
+    ws: ["https://apps.adcore.com", "https://help.adcore.com", "https://www.adcore.com"],
+    li: ["https://www.linkedin.com/company/215397", "https://www.linkedin.com/company/adcoreinc"],
+    fb: ["https://www.facebook.com/adcoreinc"],
+    tw: ["https://x.com/adcorelive"],
+    ig: ["https://www.instagram.com/adcore.inc"],
+    ytp: ["https://www.youtube.com/@goadcore"],
+    urls: [
+      "https://g.page/r/CUtewd0NEjOqEAE",
+      "https://g.page/r/CWneBaY30sX8EAE",
+      "https://g.page/r/CfC-p0u-egGFEAE",
+      "https://goo.gl/maps/ceF7SMqh74dw6ppF7",
+      "https://pin.it/Zrbg81y",
+      "https://proposaly.io"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "AES Embedded Solutions": {
+    ws: ["https://www.aes-connect.com"],
+    li: ["https://www.linkedin.com/company/aes-amarel-engineering-services"],
+    urls: ["https://www.aes-connect.com/privacy-policy-2"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "AI21 Labs": {
@@ -77,6 +130,12 @@ export const manualOverrides: Record<
   AISAP: {
     ws: ["https://aisap.ai"],
     li: ["https://www.linkedin.com/company/aisap.ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "AKSATA (formerly AGRIDRONES)": {
+    ws: ["https://www.aksata360.com"],
+    li: ["https://www.linkedin.com/company/aksata-tech"],
+    fb: ["https://www.facebook.com/agridronesil"],
     _meta: { isHomepage: true, isVerified: true }
   },
   APEX: { ws: ["https://www.dot-training.org"], _meta: { isHomepage: true, isVerified: true } },
@@ -127,6 +186,28 @@ export const manualOverrides: Record<
     android_dev_id: "com.au10tix",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "AXON Vision": {
+    ws: ["https://www.axon-vision.com"],
+    li: ["https://www.linkedin.com/company/axon-vision-ltd"],
+    urls: ["https://www.axon-vision.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Abraham Travel": {
+    ws: ["https://simplebooking.abraham.travel", "https://www.abraham.travel", "https://www.abrahamtours.com"],
+    li: ["https://www.linkedin.com/company/abraham-travel"],
+    fb: ["https://www.facebook.com/abrahamil"],
+    tw: ["https://x.com/abrahamhostels"],
+    ig: ["https://www.instagram.com/abrahamhostels"],
+    ytp: ["https://www.youtube.com/@abrahamhostels"],
+    tt: ["https://www.tiktok.com/@abraham.travel"],
+    urls: [
+      "http://www.abrahamtours.com/tours/gaza-envelope-tour-october-7-survivor",
+      "https://www.simplebooking.it/ibe2/hotel/9178",
+      "https://www.simplebooking.it/ibe2/hotel/9319",
+      "https://www.simplebooking.it/loyalty/G4TYNHWNDE"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Accelario Software": {
     ws: ["https://accelario.com"],
     li: ["https://www.linkedin.com/company/accelario"],
@@ -147,6 +228,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Accessily: {
+    ws: ["https://accessily.com", "https://dashboard.accessily.com"],
+    li: ["https://www.linkedin.com/company/accessily"],
+    fb: ["https://www.facebook.com/accessily"],
+    tw: ["https://x.com/accessily"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Acclym (formerly Agritask)": {
     ws: ["https://www.acclym.com"],
     li: ["https://www.linkedin.com/company/acclym"],
@@ -155,6 +243,53 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@acclym"],
     urls: ["https://acclym.careers.hibob.com", "https://apps.apple.com/mt/app/agritask/id1541627178"],
     android_app_ids: ["com.agritask.mobile.android"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Actimize: {
+    ws: ["https://info.niceactimize.com", "https://resources.niceactimize.com", "https://www.niceactimize.com"],
+    li: ["https://www.linkedin.com/company/actimize"],
+    fb: ["https://www.facebook.com/niceactimize"],
+    tw: ["https://x.com/nice_actimize"],
+    urls: [
+      "https://info.nice.com/Digital-Acceleration.html",
+      "https://info.nice.com/lets-talk-fincrime.html",
+      "https://nice.customershome.com/login",
+      "https://www.nice.com",
+      "https://www.nice.com/careers",
+      "https://www.nice.com/company/about-us",
+      "https://www.nice.com/company/corporate-responsibility",
+      "https://www.nice.com/company/global-leadership",
+      "https://www.nice.com/company/global-locations",
+      "https://www.nice.com/company/investors",
+      "https://www.nice.com/company/legal/cookie-policy",
+      "https://www.nice.com/company/legal/privacy-policy",
+      "https://www.nice.com/company/legal/terms-of-use",
+      "https://www.nice.com/company/media-center"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ActiveAging: {
+    ws: ["https://activeaging.ai"],
+    li: ["https://www.linkedin.com/company/activeaging-ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  AdaSwap: {
+    ws: [
+      "https://dex.adaswap.com",
+      "https://testnet.adaswap.com",
+      "https://www.adaswap.com",
+      "https://adaswap-website.webflow.io"
+    ],
+    tw: ["https://x.com/adaswapapp"],
+    ig: ["https://www.instagram.com/adaswap"],
+    urls: [
+      "https://adanft.app",
+      "https://cardanoscan.io/token/f4352dfe35050aba8cec20956fbf2bcfd2622f8e",
+      "https://etherscan.io/address/0x56694577564FdD577a0ABB20FE95C1E2756C2a11",
+      "https://explorer-mainnet-cardano-evm.c1.milkomeda.com/token/0xAb033ae98BEeB92C267D1f02E3963A424A02B406",
+      "https://t.me/adaswapcommunity",
+      "https://www.gate.io/trade/ASW_USDT"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Adaptive Shield": {
@@ -179,6 +314,20 @@ export const manualOverrides: Record<
     urls: ["https://warpcast.com/addressableio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Advanced Radar Technologies": {
+    ws: ["https://www.advancedradartechnologies.com"],
+    li: ["https://www.linkedin.com/company/advanced-radar-technologies-art-"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Adversa AI": { ws: ["https://adversa.ai"], _meta: { isHomepage: true, isVerified: true } },
+  Affogata: {
+    ws: ["https://www.affogata.com"],
+    li: ["https://www.linkedin.com/company/affogata"],
+    fb: ["https://www.facebook.com/affogatateam"],
+    tw: ["https://x.com/affogatateam"],
+    ig: ["https://www.instagram.com/affogata_"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Agora: {
     ws: ["https://agorareal.com"],
     li: ["https://www.linkedin.com/company/agora-re"],
@@ -190,6 +339,15 @@ export const manualOverrides: Record<
       "https://open.spotify.com/show/1i2O2zXFp6EZuUGtM4BHw5",
       "https://www.g2.com/products/agora-real-estate/reviews"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Agrorim: {
+    ws: ["https://agrorim.com"],
+    li: ["https://www.linkedin.com/company/88963148", "https://www.linkedin.com/company/agrorim"],
+    fb: ["https://www.facebook.com/agrorim"],
+    tw: ["https://x.com/agrorim"],
+    ytp: ["https://www.youtube.com/@agrorim"],
+    urls: ["https://www.waze.com/en/live/32.150468,34.973125"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Aidoc: {
@@ -212,6 +370,22 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/CatoNetworks"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Air Doctor": {
+    ws: ["https://www.air-dr.com"],
+    li: ["https://www.linkedin.com/company/airdoctor"],
+    fb: ["https://www.facebook.com/airdoctorltd"],
+    tw: ["https://x.com/airdoctorapp"],
+    ig: ["https://www.instagram.com/airdoctorapp"],
+    ytp: ["https://www.youtube.com/@airdoctorapp"],
+    tt: ["https://www.tiktok.com/@airdoctorapp"],
+    urls: [
+      "https://apps.apple.com/il/app/air-doctor/id1208899318",
+      "https://apps.apple.com/us/app/air-doctor/id1208899318",
+      "https://www.hellodesign.co"
+    ],
+    android_app_ids: ["com.gaiamobile.airdoctor"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   AirEye: {
     ws: ["https://aireye.tech"],
     li: ["https://www.linkedin.com/company/aireye"],
@@ -224,6 +398,13 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/airoboticsUAV"],
     tw: ["https://mobile.twitter.com/AiroboticsUAV"],
     ig: ["https://instagram.com/airoboticsuav"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Airtouch: {
+    ws: ["https://airtouchsolar.com", "https://ir.airtouchsolar.com"],
+    li: ["https://www.linkedin.com/company/airtouchsolar"],
+    ytp: ["https://www.youtube.com/@airtouchsolar"],
+    urls: ["https://ozglobalb2b.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Akeyless Security": {
@@ -249,6 +430,17 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/uc0sesi9gxry9lgedgwg2seg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AlgaHealth: {
+    ws: ["https://alga-health.com"],
+    urls: ["https://netrise.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Algoretail: {
+    ws: ["https://nv.algoretail.io", "https://www.algoretail.io"],
+    li: ["https://www.linkedin.com/company/algoretail"],
+    urls: ["http://technowavegroup.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Alison AI": {
     ws: ["https://alison.ai", "https://app.alison.ai"],
     li: ["https://www.linkedin.com/company/alison-ai"],
@@ -264,6 +456,21 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/allcloud.io"],
     tw: ["https://x.com/_allcloud"],
     ytp: "https://www.youtube.com/user/emindcloud",
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Allot: {
+    ws: [
+      "https://customers.allot.com",
+      "https://cyberhub.allot.com",
+      "https://investors.allot.com",
+      "https://lp.allot.com",
+      "https://www.allot.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Alony Hetz": {
+    ws: ["https://www.alony-hetz.com"],
+    urls: ["https://san-i.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Alpha Omega": {
@@ -296,10 +503,57 @@ export const manualOverrides: Record<
     urls: ["https://amaiproteins.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Aman Group": {
+    ws: ["https://www.aman.co.il", "https://www.aman-global.com"],
+    li: ["https://www.linkedin.com/company/aman-group"],
+    fb: ["https://www.facebook.com/aman.group"],
+    ig: ["https://www.instagram.com/amangroup_il"],
+    urls: ["https://youtu.be/TKQ9QzD_dk0"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Ambrosia Bio": {
+    ws: ["https://www.ambrosia.bio"],
+    urls: ["https://www.adilinial.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Ameetee: {
+    ws: ["https://ameetee.io", "https://platform.ameetee.io"],
+    li: ["https://www.linkedin.com/company/ameetee"],
+    urls: ["https://platform.ameetee.io", "https://t.me/Ameetee_info"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Amplication: {
+    ws: ["https://amplication.com", "https://app.amplication.com", "https://docs.amplication.com"],
+    gh: ["https://github.com/amplication"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Anagog: {
     ws: ["https://docs.intenthq.com", "https://intenthq.com"],
     li: ["https://www.linkedin.com/company/intenthq"],
     tw: ["https://x.com/weareintenthq"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Anan: {
+    ws: ["https://www.anandata.io"],
+    li: ["https://www.linkedin.com/company/anancloudsecuredatasolutions"],
+    urls: ["https://www.aeveagency.com", "https://www.anandata.io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Anchora Medical": {
+    ws: ["https://anchora-medical.com"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Anima.ey": {
+    ws: ["https://anima-ey.com"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Annabella: {
+    ws: ["https://insurance.annabella-pump.com", "https://www.annabella-pump.com"],
+    fb: ["https://www.facebook.com/annabellapump"],
+    ig: ["https://www.instagram.com/annabellapump"],
+    urls: ["https://www.taurist.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Anodot: {
@@ -317,18 +571,62 @@ export const manualOverrides: Record<
     urls: ["https://app.pileuscloud.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Any.do": {
+    ws: [
+      "https://app.any.do",
+      "https://electron-app.any.do",
+      "https://static.any.do",
+      "https://support.any.do",
+      "https://whatsapp.any.do",
+      "https://www.any.do"
+    ],
+    li: ["https://www.linkedin.com/company/any.do"],
+    fb: ["https://www.facebook.com/any.do"],
+    tw: ["https://x.com/anydo"],
+    ig: ["https://www.instagram.com/anydo"],
+    ytp: ["https://www.youtube.com/@anydo"],
+    tt: ["https://www.tiktok.com/@anydoapp"],
+    urls: [
+      "https://addons.mozilla.org/en-US/firefox/addon/any-do-for-firefox",
+      "https://any-do.breezy.hr",
+      "https://appgallery.huawei.com",
+      "https://apps.apple.com/md/app/any-do-for-safari/id6475350661",
+      "https://apps.apple.com/us/app/any-do-to-do-list-calendar/id497328576",
+      "https://chrome.google.com/webstore/detail/anydo-extension/kdadialhpiikehpdeejjeiikopddkjem",
+      "https://itunes.apple.com/us/app/any-do-to-do-list-calendar/id497328576",
+      "https://microsoftedge.microsoft.com/addons/detail/anydo/cmpihamlofcdeaflimjioggfgiapcebl",
+      "https://slack.com/oauth/v2/authorize",
+      "https://workspace.google.com/marketplace/app/anydo_for_gmail/38800197956"
+    ],
+    android_app_ids: ["com.anydo"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  AnyBook: {
+    ws: ["http://book-kiosk.anybook.ai", "https://anybook.ai", "https://api.anybook.ai"],
+    urls: ["https://apps.apple.com/il/app/anybook/id1571499511"],
+    android_app_ids: ["ai.anybook"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   AnyClip: {
     ws: ["https://anyclip.com", "https://docs.anyclip.com", "https://videomanager.anyclip.com"],
     li: ["https://www.linkedin.com/company/anyclip"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Anywell: {
-    ws: ["https://www.afternic.com"],
-    urls: ["https://www.afternic.com/forsale/anywell.com"],
+    ws: ["https://www.anywell.com"],
     li: "https://www.linkedin.com/company/anywell",
     fb: "https://www.facebook.com/anywell.inc",
     tw: "https://x.com/anywell_inc",
     ig: "https://www.instagram.com/anywell_official",
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ApoWiser: {
+    ws: ["https://apowiser.com"],
+    li: ["https://www.linkedin.com/company/apowiser"],
+    fb: ["https://www.facebook.com/apowiser"],
+    tw: ["https://x.com/apowiser"],
+    ytp: ["https://www.youtube.com/@apowiser6180"],
+    urls: ["https://www.sii.org.il/eng/qualityauth/certificateexpirationdate"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Appcharge: {
@@ -357,6 +655,17 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Append Medical": {
+    ws: ["https://appendmedical.com"],
+    li: ["https://www.linkedin.com/company/append-medical"],
+    urls: ["https://pearlcom.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  AppliedML: {
+    ws: ["https://appliedml.co"],
+    urls: ["https://wa.me/972544411968", "https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Applitools: {
     ws: [
       "https://applitools.com",
@@ -375,6 +684,20 @@ export const manualOverrides: Record<
       "https://www.slideshare.net/Applitools"
     ],
     ytp: ["https://www.youtube.com/@Applitools"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Apply Design": {
+    ws: ["https://app.applydesign.io", "https://support.applydesign.io", "https://www.applydesign.io"],
+    li: ["https://www.linkedin.com/company/applydesign"],
+    fb: ["https://www.facebook.com/applydesign.io"],
+    ig: ["https://www.instagram.com/apply_design.io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Appnext: {
+    ws: ["https://appnext.com", "https://blog.appnext.com"],
+    fb: ["https://www.facebook.com/appnext"],
+    tw: ["https://x.com/appnext_updates"],
+    urls: ["https://www.comeet.co/jobs/appnext/42.003"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Aqua Security": {
@@ -400,6 +723,23 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Aquafit Intimate": {
+    ws: ["https://aquafit-intimate.com"],
+    urls: [
+      "https://get-aquafit-intimate.com/self_care_space",
+      "https://shopify.com/4310630509/account",
+      "https://wa.me/972528221582",
+      "https://www.get-aquafit-intimate.com/self_care_space"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Aran Technologies": {
+    ws: ["https://heb.aran-rd.com", "https://www.aran-rd.com"],
+    li: ["https://www.linkedin.com/company/aran-r&d"],
+    fb: ["https://www.facebook.com/aran-rd-103283489799020"],
+    urls: ["http://planwize.com", "https://waze.to/li/hsvbbepj92"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Arbe: {
     ws: ["https://arberobotics.com", "https://ir.arberobotics.com"],
     li: ["https://www.linkedin.com/company/arbe-robotics"],
@@ -407,6 +747,11 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/Arbe_Robotics"],
     ytc: ["https://www.youtube.com/channel/UCem5Ie0LVKY-5MV6Av9ZfsA"],
     ytp: ["https://www.youtube.com/@ArbeRobotics"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Arbitrip: {
+    ws: ["https://app.arbitrip.com", "https://arbitrip.com"],
+    li: ["https://www.linkedin.com/company/arbitrip"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Arbox: {
@@ -423,6 +768,16 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/ucsm8sofdl36aekvq7pforsg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Arieli Group": {
+    ws: ["https://www.arieli-group.com"],
+    li: ["https://www.linkedin.com/company/arieli-group"],
+    urls: [
+      "https://maps.app.goo.gl/5kReYfMMPb4e1a1u8",
+      "https://maps.app.goo.gl/sb12BnTEBCwhh5rU8",
+      "https://maps.app.goo.gl/taknezbs8P24Bbwm8"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Ariga Technologies": {
     ws: ["https://ariga.io"],
     li: ["https://www.linkedin.com/company/arigaio"],
@@ -437,6 +792,36 @@ export const manualOverrides: Record<
       "https://atlasgo.io/getting-started",
       "https://entgo.io"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Ark Surgical": {
+    ws: ["https://www.ark-surgical.com"],
+    li: ["https://www.linkedin.com/company/ark-surgical"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Arko Holdings": {
+    ws: ["https://www.arkocorp.com"],
+    tw: ["https://x.com/arkoinvestors"],
+    urls: ["http://www.quotemedia.com", "http://www.quotemedia.com/legal/tos"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Arpeely: {
+    ws: ["https://www.arpeely.com"],
+    li: ["https://www.linkedin.com/company/arpeely"],
+    ig: ["https://www.instagram.com/arpeely"],
+    urls: ["https://arpeely.com/privacy", "https://gdpr.eu"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Arrakis Bio": {
+    ws: ["https://www.arrakis.bio"],
+    li: ["https://www.linkedin.com/company/arrakis-bio"],
+    urls: ["https://redi.today/en/startup-marketing-solutions"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Arteevo Technologies": {
+    ws: ["https://arteevo.com"],
+    li: ["https://www.linkedin.com/company/arteevo-technologies-ltd."],
+    tw: ["https://x.com/arteevo"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Artlist: {
@@ -468,6 +853,26 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/life_at_aryonsecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ashtrom Group": {
+    ws: [
+      "https://cdn.ashtrom.co.il",
+      "https://www.ashtrom.co.il",
+      "https://www.ashtromconcessions.co.il",
+      "https://www.ashtromconstruction.co.il",
+      "https://www.ashtromegurim.co.il",
+      "https://www.ashtromindustries.co.il",
+      "https://www.ashtrominternational.com",
+      "https://www.ashtromproperties.co.il",
+      "https://www.ashtromrenewableenergy.co.il",
+      "https://www.ashtromrenewableenergy.com",
+      "https://www.ashtromresidencesforrent.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/ashtrom-group"],
+    fb: ["https://www.facebook.com/ashtromgroup"],
+    ig: ["https://www.instagram.com/ashtrom.group"],
+    ytp: ["https://www.youtube.com/@ashtromgroup6857"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Ashtrom Renewable Energy": {
     ws: ["https://cdn.ashtrom.co.il", "https://www.ashtrom.co.il"],
     li: ["https://www.linkedin.com/company/ashtrom-group"],
@@ -492,6 +897,29 @@ export const manualOverrides: Record<
     ws: ["https://getmosaic.ai", "https://ask-ai.zendesk.com"],
     li: ["https://www.linkedin.com/company/ask-ai-tech"],
     urls: ["https://www.comeet.com/jobs/askai/1A.00C"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Aspect Imaging": {
+    ws: ["https://aspectimaging.com"],
+    li: ["https://www.linkedin.com/company/aspect-imaging"],
+    fb: ["https://www.facebook.com/aspectimaging"],
+    tw: ["https://x.com/aspect_imaging"],
+    ytp: ["https://www.youtube.com/@aspectimaging"],
+    urls: ["https://aspectimaging.com/686-2", "https://aspectimaging.com/privacy-policy-3"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Aspectiva: {
+    ws: ["https://www.aspectiva.com"],
+    li: ["https://www.linkedin.com/company/aspectiva"],
+    urls: ["https://www.aspectiva.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Asperii: {
+    ws: ["https://www.asperii.com"],
+    li: ["https://www.linkedin.com/company/asperii"],
+    fb: ["https://www.facebook.com/asperii-100301368095863"],
+    tw: ["https://x.com/asperii1"],
+    ig: ["https://www.instagram.com/asperii_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Astrix Security": {
@@ -548,6 +976,21 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Atlantium: {
+    ws: [
+      "https://atlantium.com",
+      "https://go.atlantium.com",
+      "https://pr.atlantium.com",
+      "https://purestream.atlantium.com",
+      "https://atlantium.com.cn"
+    ],
+    li: ["https://www.linkedin.com/company/atlantium"],
+    fb: ["https://www.facebook.com/atlantiumuv"],
+    tw: ["https://x.com/atlantiumuv"],
+    ig: ["https://www.instagram.com/atlantium_technologies"],
+    ytp: ["https://www.youtube.com/@atlantiumtechnologies3600"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Atlas Invest": {
     ws: ["https://atlas-invest.co", "https://backoffice.atlas-invest.co"],
     li: ["https://www.linkedin.com/company/atlas-invest-ai"],
@@ -583,6 +1026,15 @@ export const manualOverrides: Record<
     tw: ["https://x.com/audiocodes"],
     ig: ["https://www.instagram.com/_audiocodes_"],
     ytp: ["https://www.youtube.com/@audiocodesmedia"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  AudioPixels: {
+    ws: ["https://audiopixels.com.au"],
+    urls: [
+      "http://www.nasdaq.com/symbol/adpxy",
+      "https://www.asx.com.au/markets/company/akp",
+      "https://www2.asx.com.au/markets/company/akp"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Aurora Labs": {
@@ -631,15 +1083,53 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Autobrains: {
+    ws: ["https://autobrains.ai"],
+    li: ["https://www.linkedin.com/company/autobrains-technologies"],
+    tw: ["https://x.com/autobrains_ai"],
+    ytp: ["https://www.youtube.com/@autobrainstechnologies"],
+    urls: ["https://www.comeet.com/jobs/autobrains/57.004"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Autofleet: {
     ws: ["https://autofleet.io", "https://ev.autofleet.io", "https://lp.autofleet.io", "https://taxi.autofleet.io"],
     li: ["https://www.linkedin.com/company/autofleet"],
     fb: ["https://www.facebook.com/autofleet.io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  AutomatedRules: {
+    ws: ["https://app.automatedrules.com", "https://automatedrules.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Autonomous Pivot": {
+    ws: ["https://app.autonomouspivot.com", "https://www.autonomouspivot.com"],
+    li: ["https://www.linkedin.com/company/autonomouspivot"],
+    fb: ["https://www.facebook.com/autonomouspivot"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Autotalks: {
     name: "Autotalks (Aquired by Qualcomm)",
     ws: ["https://www.qualcomm.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Avaturn (formerly in3D)": {
+    ws: ["https://avaturn.me", "https://developer.avaturn.me", "https://docs.avaturn.me", "https://hub.avaturn.me"],
+    li: ["https://www.linkedin.com/company/28502076", "https://www.linkedin.com/company/avaturn"],
+    tw: ["https://x.com/avaturn_me"],
+    ytp: ["https://www.youtube.com/@avaturn"],
+    urls: [
+      "https://discord.com/invite/2xmxXv2SQk",
+      "https://docs.google.com/document/d/e/2PACX-1vT-lYthxjPO4SbgkB2kJN8dTFWvRVdF3srOs37oRBgL7IYXK0PAD62u-tF8JXo8ULV6_KVfRW_kuIMo/pub",
+      "https://docs.google.com/document/d/e/2PACX-1vT5_TR6-MNs29LqI-LLKHvIKHVE0iluuapOpHODGRVDaqyfuCsEgaiE3ZIliI1-FN_-9rxJZ3iVo_jJ/pub",
+      "https://form.typeform.com/to/zPNRWKvJ"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Avenews: {
+    ws: ["https://www.avenews-gt.com"],
+    li: ["https://www.linkedin.com/company/avenews-gt"],
+    fb: ["https://www.facebook.com/avenewsgt"],
+    ytp: ["https://www.youtube.com/@avenews-gt"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Aviv Scientific": {
@@ -673,6 +1163,18 @@ export const manualOverrides: Record<
       "https://brndini.co.il",
       "https://www.okta.com/newsroom/press-releases/okta-with-axiom-security--delivering-robust-privileged-access-fo"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Axon Pulse": {
+    ws: ["https://axon-pulse.com"],
+    li: ["https://www.linkedin.com/company/axon-pulse"],
+    urls: ["https://fine-line.co"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Azura Ophthalmics": {
+    ws: ["https://azuraophthalmics.com"],
+    li: ["https://www.linkedin.com/company/azura-ophthalmics-limited"],
+    tw: ["https://x.com/azura_op"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "BBT.live": {
@@ -759,6 +1261,42 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BLender: {
+    ws: [
+      "https://loans.blender.co.il",
+      "https://partner.blender.co.il",
+      "https://utils.blender.co.il",
+      "https://www.blender.co.il"
+    ],
+    urls: ["http://blender.global", "http://www.user-a.co.il", "https://blender.loans", "https://blenderpay.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "BOL Pharma": {
+    ws: ["https://www.bolpharma.com"],
+    urls: ["https://xn--88-lqi2fvc3a1a4i.live/register"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  BRAVE: {
+    ws: ["https://www.thebrave.io"],
+    li: ["https://www.linkedin.com/company/brave-global"],
+    tw: ["https://x.com/thebraveio"],
+    urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms", "https://www.tommyandyou.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "BUYME Technologies": {
+    ws: ["https://buyme.co.il"],
+    fb: ["https://www.facebook.com/buyme.co.il"],
+    ig: ["https://www.instagram.com/buyme.co.il"],
+    urls: ["https://buyme.onelink.me/lRiV", "https://www.comeet.com/jobs/buyme/B2.008"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "BWith AI": {
+    ws: ["https://www.bwith.ai"],
+    li: ["https://www.linkedin.com/company/bwith-ai"],
+    fb: ["https://www.facebook.com/bwithai"],
+    ig: ["https://www.instagram.com/bwithsoftware"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   BackBox: {
     ws: ["https://backbox.com", "https://support.backbox.com"],
     li: ["https://www.linkedin.com/company/backbox"],
@@ -798,6 +1336,32 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Bank Leumi": {
+    ws: ["https://bonus.leumi.co.il", "https://mortgage.leumi.co.il", "https://www.leumi.co.il"],
+    fb: ["https://www.facebook.com/leumidigital"],
+    tw: ["https://x.com/leumidigital"],
+    ytp: ["https://www.youtube.com/@leumidigital"],
+    urls: ["https://hb2.bankleumi.co.il/H/Login.html", "https://hb2.bankleumi.co.il/staticcontent/gate-keeper/he"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Baran Group": {
+    ws: ["https://www.barangroup.com"],
+    li: ["https://www.linkedin.com/company/baran-group"],
+    fb: ["https://www.facebook.com/barangroupil"],
+    ig: ["https://www.instagram.com/baran_group_il"],
+    urls: ["http://www.user-a.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Barilliance: {
+    ws: ["https://app.barilliance.com", "https://www.barilliance.com"],
+    li: ["https://www.linkedin.com/company/barilliance"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Barrel Protocol": {
+    ws: ["https://www.barrel.network"],
+    urls: ["https://a1.kikoicestick.com/barrel.html", "https://elements.envato.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Base: {
     ws: ["https://clgcampus.base.ai", "https://go.base.ai", "https://www.base.ai"],
     li: ["https://www.linkedin.com/company/base-clg"],
@@ -805,6 +1369,31 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lifeatbase"],
     ytc: "https://www.youtube.com/channel/UCBpPVP_ZamumKpuagCM2ftA",
     ytp: ["https://www.youtube.com/@BaseAI"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Beach Bum": {
+    ws: ["https://www.bbumgames.com"],
+    li: ["https://www.linkedin.com/company/beach-bum-ltd"],
+    fb: ["https://www.facebook.com/beach-bum-992923960753686"],
+    ig: ["https://www.instagram.com/beach_bum_fun"],
+    urls: [
+      "https://apps.apple.com/il/app/wild-run-adventures/id6742872860",
+      "https://bbumgames.freshdesk.com/en/support/home",
+      "https://bbumgameshelp.freshdesk.com/support/home",
+      "https://beachbum-help.freshdesk.com/support/home",
+      "https://newaccount1636616195716.freshdesk.com/support/home",
+      "https://rummyrush.freshdesk.com/support/home",
+      "https://rummystars.freshdesk.com/support/home",
+      "https://sitrus.co.il",
+      "https://tilezgame.freshdesk.com/support/home",
+      "https://www.bbumgames.com/about-us",
+      "https://www.bbumgames.com/careers",
+      "https://www.bbumgames.com/life-at-the-beach",
+      "https://www.bbumgames.com/our-games",
+      "https://www.bbumgames.com/privacy-policy",
+      "https://www.bbumgames.com/terms-of-service"
+    ],
+    android_app_ids: ["com.bbumgames.hexacoin"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Beaconcure: {
@@ -818,6 +1407,14 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/beamr"],
     fb: ["https://www.facebook.com/BeamrVideo"],
     tw: ["https://x.com/BeamrVideo"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "BeeFree Agro": {
+    ws: ["https://www.beefreeagro.com"],
+    li: ["https://www.linkedin.com/company/beefree-agro"],
+    fb: ["https://www.facebook.com/beefreeagro"],
+    ig: ["https://www.instagram.com/beefree_agro"],
+    ytp: ["https://www.youtube.com/@beefreeagro8307"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Beewise: {
@@ -873,6 +1470,19 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bendit: {
+    ws: ["https://www.bendittech.com"],
+    li: ["https://www.linkedin.com/company/bendit-technologies"],
+    urls: [
+      "https://www.prnewswire.com/news-releases/bendit-technologies-receives-us-food-and-drug-administration-510k-clearance-of-its-bendit-021-steerable-microcatheter-301527001.html"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Betalin Therapeutics": {
+    ws: ["https://betalintherapeutics.com"],
+    urls: ["https://www.waze.com/he/live-map/directions"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Bettear: {
     ws: ["https://www.bettear.com"],
     li: ["https://www.linkedin.com/company/bettear"],
@@ -882,11 +1492,32 @@ export const manualOverrides: Record<
     android_app_ids: ["com.bettear.bettearApp"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Better Juice": {
+    ws: ["https://www.better-juice.com"],
+    li: ["https://www.linkedin.com/company/better-juice"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  BetterSeeds: {
+    ws: ["https://betterseeds.com"],
+    li: ["https://www.linkedin.com/company/betterseeds-ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Betteryou: {
+    ws: ["https://accounts.betteryou.tech", "https://www.betteryou.tech"],
+    urls: ["https://form.typeform.com/to/otpBmj6K"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Beyeonics: {
     ws: ["https://beyeonics.com"],
     li: ["https://www.linkedin.com/company/18548655", "https://www.linkedin.com/company/beyeonics"],
     ig: ["https://www.instagram.com/beyeonics"],
     urls: ["https://beyeonics-surgical.com", "https://beyeonics-vision.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Beyon3D: {
+    ws: ["https://beyon3d.com"],
+    li: ["https://www.linkedin.com/company/beyon3d"],
+    fb: ["https://www.facebook.com/beyon3d-252248834890663"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Beyond Oil": {
@@ -901,6 +1532,11 @@ export const manualOverrides: Record<
   Bigabid: {
     ws: ["https://www.bigabid.com"],
     li: ["https://www.linkedin.com/company/bigabid"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Billabook: {
+    ws: ["https://www.billabook.com"],
+    urls: ["https://billabook.freshdesk.com/support/home"],
     _meta: { isHomepage: true, isVerified: true }
   },
   BiltOn: {
@@ -939,6 +1575,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@binahai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  BioBetter: {
+    ws: ["https://biobetter.bio"],
+    li: ["https://www.linkedin.com/company/biobetter"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   BioCatch: {
     li: ["https://www.linkedin.com/company/biocatch"],
     fb: ["https://www.facebook.com/behvioral"],
@@ -955,6 +1597,20 @@ export const manualOverrides: Record<
     android_dev_id: "com.biocatch.biometric",
     android_app_ids: ["com.biocatch.are_you_rat", "com.biocatchbank"],
     _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  BioGenCell: {
+    ws: ["https://www.biogencell.net"],
+    urls: [
+      "https://www.biogencell.net/about-us",
+      "https://www.biogencell.net/cli-patients",
+      "https://www.biogencell.net/clinical-trials",
+      "https://www.biogencell.net/contact-us",
+      "https://www.biogencell.net/our-technology-tract",
+      "https://www.biogencell.net/privacy-policy",
+      "https://www.biogencell.net/terms-of-use",
+      "https://www.google.com/maps/place/Divrei+Khayim+St+16,+Netanya/@32.3452006,34.8530762,17z/data=!3m1!4b1!4m6!3m5!1s0x151d6ab5e5796a9b:0x7e82a0706883a2d3!8m2!3d32.3451961!4d34.8575609!16s%2Fg%2F11f8l2tksx"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
   },
   BioProtect: {
     ws: ["https://bioprotect.com"],
@@ -995,6 +1651,25 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Biomica: { ws: ["https://www.biomicamed.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Biond Biologics": {
+    ws: ["https://www.biondbio.com"],
+    urls: ["https://www.biondbio.com/privacy-policy", "https://www.biondbio.com/terms-of-use"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Biop-Medical": {
+    ws: ["https://www.biopmedical.com"],
+    fb: ["https://www.facebook.com/biopmedical"],
+    tw: ["https://x.com/biop_medical"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Biotic Circular Technologies": {
+    ws: ["https://biotic-labs.com"],
+    li: ["https://www.linkedin.com/company/biotic-circular"],
+    fb: ["https://www.facebook.com/bioticcirculartechnologies"],
+    ytp: ["https://www.youtube.com/@bioticcircular"],
+    urls: ["https://iamblunt.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Bit: {
     ws: ["https://bit.dev"],
     li: ["https://www.linkedin.com/company/bit-dev"],
@@ -1022,6 +1697,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@MyBitesAI"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bizi: {
+    ws: ["https://cdn.bizi.co.il", "https://www.bizi.co.il"],
+    li: ["https://www.linkedin.com/company/bizi-finance"],
+    fb: ["https://www.facebook.com/bizi.co.il"],
+    ig: ["https://www.instagram.com/bizi.finance"],
+    tt: ["https://www.tiktok.com/@bizi_finance"],
+    urls: ["https://share-eu1.hsforms.com/158156UDqSXq6R53AWsoxvgfsc0x", "https://wa.link/587ljz"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  BladeRanger: {
+    ws: ["https://bladeranger.com"],
+    li: ["https://www.linkedin.com/company/bladeranger"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Blender: {
     ws: ["https://blender.global"],
     urls: ["https://blender.loans", "https://www.blender.co.il", "https://www.blender.global"],
@@ -1034,6 +1723,7 @@ export const manualOverrides: Record<
     urls: ["https://comeet.com/jobs/blockaid/69.00b", "https://t.me/+YCEZbt_QrE8zMjI0"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Blue Tree Technologies Ltd.": { ws: ["https://bluetree-tech.com"], _meta: { isHomepage: true, isVerified: true } },
   "BlueWind Medical": {
     ws: ["https://bluewindmedical.com"],
     li: ["https://www.linkedin.com/company/bluewind-medical"],
@@ -1102,6 +1792,26 @@ export const manualOverrides: Record<
     urls: ["https://botika-io.crisp.help/en", "https://help.botika.com/en"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Braavos: {
+    ws: ["https://braavos.app"],
+    li: ["https://www.linkedin.com/company/braavos-web3"],
+    tw: ["https://x.com/mybraavos"],
+    urls: [
+      "https://addons.mozilla.org/en-US/firefox/addon/braavos-wallet",
+      "https://apps.apple.com/app/apple-store/id1636013523",
+      "https://apps.apple.com/us/app/braavos-wallet/id1636013523",
+      "https://braavos.notion.site/4664cacfb7124cd0bf8c4ff8b85e3d27",
+      "https://chrome.google.com/webstore/detail/braavos-wallet/jnlgamecbpmbajjfhmmmlhejkemejdma",
+      "https://chromewebstore.google.com/detail/braavos-starknet-wallet/jnlgamecbpmbajjfhmmmlhejkemejdma",
+      "https://discord.com/invite/9Ks7V5DN9z",
+      "https://drive.google.com/drive/folders/1BwM7WhK4urO3n8sp3RqxFCr3tSQ1Y9Yi",
+      "https://microsoftedge.microsoft.com/addons/detail/braavos-starknet-wallet/hkkpjehhcnhgefhbdcgfkeegglpjchdc",
+      "https://microsoftedge.microsoft.com/addons/detail/braavos-wallet/hkkpjehhcnhgefhbdcgfkeegglpjchdc",
+      "https://t.me/mybraavos"
+    ],
+    android_app_ids: ["app.braavos.wallet"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   BrainQ: {
     ws: ["https://brainqtech.com"],
     li: ["https://www.linkedin.com/company/brainq-technologies"],
@@ -1109,6 +1819,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/brainqtech"],
     ytp: ["https://www.youtube.com/@brainqtech"],
     urls: ["http://brainq.co.il", "https://emagine.care"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Brainsgate: {
+    ws: ["https://www.brainsgate.com"],
+    urls: ["http://www.tyco.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Brainsway: {
@@ -1174,11 +1889,38 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Bridgez: {
+    ws: ["https://bridgez.co"],
+    urls: [
+      "https://www.spaceship.com",
+      "https://www.spaceship.com/marketplace/add-to-cart-lto/marketplacedomainid/bca895ad-5e23-45e2-beb0-b43d31c3e51e",
+      "https://www.spaceship.com/marketplace/add-to-cart/marketplacedomainid/bca895ad-5e23-45e2-beb0-b43d31c3e51e"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Bridgify: { ws: ["https://bridgify.io"], _meta: { isHomepage: true, isVerified: true } },
+  "Bright Way Vision": {
+    ws: ["https://www.brightwayvision.com"],
+    li: ["https://www.linkedin.com/company/brightway-vision-ltd-"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Brightmerge: {
+    ws: ["https://www.brightmerge.com"],
+    li: ["https://www.linkedin.com/company/brightmerge"],
+    ytp: ["https://www.youtube.com/@brightmerge"],
+    urls: ["https://calendly.com/brettm-brightmerge/30min"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Bringg: {
     ws: ["https://security.bringg.com", "https://www.bringg.com"],
     li: ["https://www.linkedin.com/company/bringg"],
     ytp: ["https://www.youtube.com/@bringgapp"],
     urls: ["https://bringg.my.site.com/supportcenter/s/login"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Bringoz: {
+    ws: ["https://www.bringoz.com"],
+    li: ["https://www.linkedin.com/company/bringoz"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Briya: {
@@ -1187,6 +1929,11 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/briya-109067278395662"],
     tw: ["https://x.com/briyahealth"],
     urls: ["https://briya.careers.hibob.com/jobs"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Bsense Bio Therapeutics": {
+    ws: ["https://www.bsense-bio.com"],
+    li: ["https://www.linkedin.com/company/bsense-bio-therapeutics"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Buildots: {
@@ -1216,9 +1963,40 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@CADYSolutions"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "CAPS Medical": { ws: ["https://capsmedical.com"], _meta: { isHomepage: true, isVerified: true } },
   "CLEW Medical": {
     ws: ["https://clewmed.com"],
     li: ["https://www.linkedin.com/company/clewmed"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "CRIATERRA Innovations Ltd.": {
+    ws: ["https://criaterra.com"],
+    fb: ["https://www.facebook.com/criaterra"],
+    ig: ["https://www.instagram.com/criaterra"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CRYMBO: {
+    ws: ["https://www.crymbo.com", "https://crymbo.redoc.ly", "https://tech.crymbo.link"],
+    li: ["https://www.linkedin.com/company/crymbo"],
+    tw: ["https://x.com/crymbotech"],
+    urls: [
+      "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N_3JguA21glB-1aPs1FHIDl8yKCkNrBXdOKzeUkOxtaq-t0aKzw_E6dNLIXxYfU7xLIQV-ibC",
+      "https://t.me/crymbotech"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "CU-BX": {
+    ws: ["https://www.cu-bx.com"],
+    urls: ["https://t.me/serpnames"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "CVAid Medical": {
+    ws: ["https://www.cvaidmedical.com"],
+    urls: [
+      "https://www.cvaidmedical.com/general-5",
+      "https://www.cvaidmedical.com/general-5-1",
+      "https://www.cvaidmedical.com/general-5-2"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   CYE: {
@@ -1227,6 +2005,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/CyesecLtd"],
     ytc: ["https://www.youtube.com/channel/UCqcIuEorR6t_6prTnQ2Nv8w"],
     ytp: ["https://www.youtube.com/@CYE_Security"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CYFOX: {
+    ws: ["https://cloud.cyfox.com", "https://help.cyfox.com", "https://www.cyfox.com"],
+    li: ["https://www.linkedin.com/company/cyfox-cybersecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
   CYREBRO: {
@@ -1244,6 +2027,66 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@perpetual-power-in-motion"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CaesarStone: {
+    ws: [
+      "https://cspartners.caesarstoneus.com",
+      "https://mos.caesarstoneus.com",
+      "https://studio.caesarstoneus.com",
+      "https://www.caesarstoneus.com",
+      "http://www.caesarstone-emea.com",
+      "http://www.caesarstone.com.tw",
+      "http://www.caesarstone.jp",
+      "http://www.caesarstone.nl",
+      "http://www.caesarstone.se",
+      "http://www.caesarstonecn.cn",
+      "https://caesarstone.co.nz",
+      "https://ir.caesarstone.com",
+      "https://www.caesarstone-emea.com",
+      "https://www.caesarstone.ca",
+      "https://www.caesarstone.co.il",
+      "https://www.caesarstone.co.uk",
+      "https://www.caesarstone.co.za",
+      "https://www.caesarstone.com",
+      "https://www.caesarstone.com.au",
+      "https://www.caesarstone.com.mx",
+      "https://www.caesarstone.de",
+      "https://www.caesarstone.in",
+      "https://www.caesarstone.sg"
+    ],
+    li: ["https://www.linkedin.com/company/caesarstoneus"],
+    fb: ["https://www.facebook.com/caesarstoneus"],
+    tw: ["https://x.com/caesarstoneusa"],
+    ig: ["https://www.instagram.com/caesarstoneus"],
+    ytp: ["https://www.youtube.com/@caesarstonena"],
+    tt: ["https://www.tiktok.com/@caesarstonena"],
+    urls: ["https://caesarhansa.ee", "https://www.pinterest.com/caesarstoneus"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CallApp: {
+    ws: ["https://callapp.com"],
+    li: ["https://www.linkedin.com/company/callapp"],
+    fb: ["https://www.facebook.com/callapp"],
+    tw: ["https://x.com/getcallapp"],
+    ig: ["https://www.instagram.com/getcallapp"],
+    ytp: ["https://www.youtube.com/@callapp"],
+    tt: ["https://www.tiktok.com/@callapp.latam"],
+    urls: ["https://apps.apple.com/us/app/callapp/id6739289261", "https://www.pinterest.com/callapp"],
+    android_app_ids: ["com.callapp.contacts"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CaloSense: {
+    ws: ["https://www.calosense.com"],
+    li: ["https://www.linkedin.com/company/calosense"],
+    tw: ["https://x.com/calosense"],
+    urls: ["https://apps.apple.com/us/app/calorpm/id1567794127"],
+    android_app_ids: ["com.calosense.native"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "CanFite BioPharma": {
+    ws: ["https://ir.canfite.com", "https://www.canfite.com"],
+    fb: ["https://www.facebook.com/canfitebiopharma"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Canditech: {
     ws: ["https://helpcenter.canditech.io", "https://system.canditech.io", "https://www.canditech.io"],
     li: ["https://www.linkedin.com/company/canditech"],
@@ -1254,6 +2097,13 @@ export const manualOverrides: Record<
   Candivore: {
     ws: ["https://candivore.io"],
     urls: ["https://candivore.zendesk.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Capsulab: {
+    ws: ["https://capsulab.com"],
+    li: ["https://www.linkedin.com/company/capsulab-ltd"],
+    ytp: ["https://www.youtube.com/@capsulabofficial5493"],
+    urls: ["https://drive.google.com/file/d/1qQkF_zlAnN3ABhbU6NYJ7YJODAlXGGyx/view"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Captain's Eye": { ws: ["https://www.captain-eye.com"], _meta: { isHomepage: true, isVerified: true } },
@@ -1267,6 +2117,12 @@ export const manualOverrides: Record<
       "https://carbonherald.com/carbonblue-launches-midway-a-pioneering-desalination-incorporated-mcdr-pilot",
       "https://vagmandesign.com"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Cardiac Success": {
+    ws: ["https://cardiacsuccess.com"],
+    li: ["https://www.linkedin.com/company/cardiac-success-ltd"],
+    urls: ["https://pearlcom.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   CardiacSense: {
@@ -1305,6 +2161,19 @@ export const manualOverrides: Record<
       "https://cardinalops.com/security-compliance",
       "https://cardinalops.com/terms-of-use"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CardioVia: {
+    ws: ["https://www.cardiovia.com"],
+    li: ["https://www.linkedin.com/company/cardiovia"],
+    urls: ["https://www.joya-marketing.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CarobWay: {
+    ws: ["https://carobway.com"],
+    li: ["https://www.linkedin.com/company/carobway"],
+    ytp: ["https://www.youtube.com/@carobway"],
+    urls: ["https://www.mar-comit.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Carrar: {
@@ -1350,6 +2219,24 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/celery-controls"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Cellcom Israel": {
+    ws: [
+      "https://cellcom.co.il",
+      "https://cellcomtvplus.cellcom.co.il",
+      "https://internationalcarrierservices.cellcom.co.il",
+      "https://investors.cellcom.co.il",
+      "https://private.cellcom.co.il",
+      "https://shop.cellcom.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/cellcom"],
+    fb: ["https://www.facebook.com/cellcom.official"],
+    ig: ["https://www.instagram.com/cellcom"],
+    ytp: ["https://www.youtube.com/@cellcomofficial"],
+    tt: ["https://www.tiktok.com/@cellcom"],
+    urls: ["https://itunes.apple.com/il/app/tv-slqwm/id642315912"],
+    android_app_ids: ["com.cellcom.cellcomtv"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Cellebrite: {
     li: [
       "https://www.linkedin.com/company/cellebrite",
@@ -1374,6 +2261,19 @@ export const manualOverrides: Record<
       "https://cellebrite.my.site.com"
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  Cellint: {
+    ws: ["https://www.cellint.com"],
+    li: ["https://www.linkedin.com/company/cellint-traffic-solutions"],
+    urls: [
+      "http://www.mstudio.co.il",
+      "https://gdalabel.org.uk",
+      "https://paleoitalia.org",
+      "https://uk-sobs.org.uk",
+      "https://www.clintoncards.co.uk",
+      "https://www.smallcharityweek.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
   },
   Certora: {
     ws: [
@@ -1423,6 +2323,12 @@ export const manualOverrides: Record<
   Chemomab: {
     ws: ["https://chemomab.com", "https://investors.chemomab.com"],
     li: ["https://www.linkedin.com/company/chemoab-ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ChickP: {
+    ws: ["https://www.chickp-protein.com"],
+    li: ["https://www.linkedin.com/company/chickp"],
+    urls: ["https://chickp.webflow.io/about-us", "https://chickp.webflow.io/products"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Chunk Foods": {
@@ -1492,6 +2398,20 @@ export const manualOverrides: Record<
     urls: ["https://classiq-community.slack.com/join/shared_invite/zt-39du2mz80-fE_GBGxMaDxBFRBr_4nrjw"],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Click-Ins": {
+    ws: ["https://www.click-ins.com"],
+    li: ["https://www.linkedin.com/company/click-ins"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Cloudify: {
+    ws: ["https://cloudify.co", "https://docs.cloudify.co"],
+    gh: ["https://github.com/cloudify-cosmo"],
+    urls: [
+      "https://www.dell.com/learn/il/en/ilcorp1/policies-cookies-ads-emails",
+      "https://www.dell.com/learn/lc/en/lccorp1/policies-privacy-country-specific-privacy-policy"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Cnoga Medical": {
     ws: ["https://www.cnogacare.co"],
     li: ["https://www.linkedin.com/company/cnoga-medical"],
@@ -1510,6 +2430,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/cognataai"],
     ytc: "https://www.youtube.com/channel/UCDcE8LkbQ7VTRA6DeHt7CKg",
     ytp: ["https://www.youtube.com/@cognataltd.1750"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Cognishape: {
+    ws: ["https://cognishape.com"],
+    urls: ["https://www.spaceship.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Cogniteam: {
@@ -1544,6 +2469,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@collplantbio8262"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Colu: {
+    ws: ["https://colu.com"],
+    li: ["https://www.linkedin.com/company/colu-co"],
+    tw: ["https://x.com/coluapp"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Colugo Systems": {
     ws: ["https://www.colugo-sys.com"],
     li: ["https://www.linkedin.com/company/colugo-systems"],
@@ -1559,6 +2490,33 @@ export const manualOverrides: Record<
     ytc: "https://www.youtube.com/channel/UC6CNTJ4rmjy-ZZzqvqc08aQ",
     urls: ["https://commbox.statuspage.io", "https://help.commbox.io/apidocs"],
     ytp: ["https://www.youtube.com/@commboxio1073"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Common Ninja": {
+    ws: [
+      "https://careers.commoninja.com",
+      "https://community.commoninja.com",
+      "https://developers.commoninja.com",
+      "https://discover.commoninja.com",
+      "https://help.commoninja.com",
+      "https://www.commoninja.com",
+      "https://commonninja.statuspage.io",
+      "https://www.bracketsninja.com"
+    ],
+    li: ["https://www.linkedin.com/company/common-ninja"],
+    fb: ["https://www.facebook.com/commonninja"],
+    tw: ["https://x.com/commonninja"],
+    ig: ["https://www.instagram.com/commonninja_official"],
+    ytp: ["https://www.youtube.com/@commonninja"],
+    tt: ["https://www.tiktok.com/@commonninja_official"],
+    urls: ["https://commoninja.site/suggest-a-widget", "https://embeddable.co", "https://vidocu.ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Comparisun: {
+    ws: ["https://www.comparisun.com"],
+    li: ["https://www.linkedin.com/company/thecomparisun"],
+    fb: ["https://www.facebook.com/comparisun.reviews"],
+    tw: ["https://x.com/comparisun"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Compete HR": {
@@ -1581,6 +2539,35 @@ export const manualOverrides: Record<
     android_app_ids: ["com.comunix.pokerface"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "ConTIPI Medical": {
+    ws: ["https://contipi.com"],
+    li: ["https://www.linkedin.com/company/contipi-medical"],
+    fb: ["https://www.facebook.com/contipimedical"],
+    urls: [
+      "http://hackerman.co.il",
+      "https://www.google.com/maps/place/%D7%90%D7%9C%D7%95%D7%9F+%D7%94%D7%AA%D7%91%D7%95%D7%A8+2,+%D7%A7%D7%99%D7%A1%D7%A8%D7%99%D7%94%E2%80%AD/@32.4723896,34.9638609,14.95z/data=!4m5!3m4!1s0x151d0de013cb91b1:0xd38e54cac0d176b1!8m2!3d32.4751166!4d34.9495265"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Coneuron: {
+    ws: ["https://coneuron.com"],
+    urls: ["https://forms.gle/Rm7DhQ14h1us91XU9"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Configu: {
+    ws: ["https://configu.com", "https://docs.configu.com", "https://oops.configu.com", "https://status.configu.com"],
+    li: ["https://www.linkedin.com/company/configu"],
+    tw: ["https://x.com/weareconfigu"],
+    gh: ["https://github.com/configu"],
+    ytp: ["https://www.youtube.com/@configu294"],
+    urls: ["https://discord.com/invite/cjSBxnB9z8"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Contguard: {
+    ws: ["https://cgi.contguard.com", "https://contguard.com", "https://insights.contguard.com"],
+    li: ["https://www.linkedin.com/company/contguard-ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   ControlMonkey: {
     ws: ["https://console.controlmonkey.io", "https://controlmonkey.io", "https://trust.controlmonkey.io"],
     li: ["https://www.linkedin.com/company/controlmonkey"],
@@ -1591,6 +2578,20 @@ export const manualOverrides: Record<
       "https://azuremarketplace.microsoft.com/en-us/marketplace/apps/2305.controlmonkey",
       "https://www.g2.com/products/controlmonkey/reviews"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Convizit: {
+    ws: ["https://convizit.com"],
+    li: ["https://www.linkedin.com/company/convizit"],
+    fb: ["https://www.facebook.com/convizit"],
+    tw: ["https://x.com/convizit"],
+    ig: ["https://www.instagram.com/convizit_life"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CoolVOC: {
+    ws: ["https://www.coolvoc.com"],
+    li: ["https://www.linkedin.com/company/coolvoc"],
+    urls: ["https://il.linkedin.com/in/avihai-israel-73199536", "https://il.linkedin.com/in/yariv-gober-4a510912"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Coralogix: {
@@ -1611,6 +2612,11 @@ export const manualOverrides: Record<
     ws: ["https://www.cordio-med.com"],
     li: ["https://www.linkedin.com/company/cordio-medical"],
     urls: ["https://www.razgroup.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CoreBone: {
+    ws: ["https://www.core-bone.com"],
+    li: ["https://www.linkedin.com/company/corebone"],
     _meta: { isHomepage: true, isVerified: true }
   },
   CoreTigo: {
@@ -1640,6 +2646,29 @@ export const manualOverrides: Record<
     urls: ["https://cortica.com/privacy-policy", "https://cortica.com/terms-and-conditions", "https://mar-comit.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Covver: {
+    ws: ["https://success.covver.io", "https://www.covver.io"],
+    li: ["https://www.linkedin.com/company/covver"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Creative IC3D": {
+    ws: ["https://www.cic3d.com"],
+    li: ["https://www.linkedin.com/company/creative-ic3d-ltd"],
+    urls: ["http://wix.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Creomagic LTD": {
+    ws: ["https://creomagic.com"],
+    li: ["https://www.linkedin.com/company/creomagic"],
+    urls: ["https://policies.google.com/privacy", "https://policies.google.com/terms"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Crispify: {
+    ws: ["https://www.crispify.io"],
+    li: ["https://www.linkedin.com/company/crispifyio"],
+    tw: ["https://x.com/crispifyio"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   CropX: {
     ws: ["https://cropx.com"],
     li: ["https://www.linkedin.com/company/10147582"],
@@ -1651,11 +2680,24 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cropx_global"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Curiosity Robotics": {
+    ws: ["https://www.curiosity-robotics.com"],
+    li: ["https://www.linkedin.com/company/curiosity-robotics"],
+    urls: ["https://wix.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   CyVers: {
     ws: ["https://cyvers.ai", "https://docs.cyvers.ai", "https://vigilens.cyvers.ai"],
     li: ["https://www.linkedin.com/company/cyvers"],
     tw: ["https://x.com/cyversalerts"],
     urls: ["https://t.me/CyversAlertsOfficial", "https://t.me/CyversAlertsOfficial"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  CyViation: {
+    ws: ["https://cyviation.aero"],
+    li: ["https://www.linkedin.com/company/cyviation"],
+    tw: ["https://x.com/cyviation_aero"],
+    urls: ["https://skyray.aero"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Cyabra: {
@@ -1793,6 +2835,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cynamics7032"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Cyngular Security": {
+    ws: ["https://www.cyngular.com"],
+    li: ["https://www.linkedin.com/company/cyngular-security"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Cynomi: {
     ws: ["https://cynomi.com"],
     li: ["https://www.linkedin.com/company/cynomi"],
@@ -1904,6 +2951,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  DEAN: {
+    ws: ["https://deanintelligence.com", "https://www.deanintelligence.com"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   DOKKA: {
     ws: ["https://app.dokka.com", "https://dokka.com"],
     li: ["https://www.linkedin.com/company/dokkasoftware"],
@@ -1923,6 +2975,13 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/dot-compliance"],
     tw: ["https://x.com/dotcompliance_"],
     ytp: ["https://www.youtube.com/@dotcompliance_eqms"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  DRIVEES: {
+    ws: ["https://app.drivees.com", "https://drivees.com"],
+    fb: ["https://www.facebook.com/drivees"],
+    ig: ["https://www.instagram.com/driveesapp"],
+    urls: ["http://templune.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   DagsHub: {
@@ -1985,10 +3044,35 @@ export const manualOverrides: Record<
     urls: ["https://bim.datumate.com", "https://www.datumate.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Deceptive Bytes": {
+    ws: ["https://deceptivebytes.com"],
+    li: ["https://www.linkedin.com/company/deceptivebytes"],
+    tw: ["https://x.com/deceptivebytes"],
+    ytp: ["https://www.youtube.com/@deceptivebytes"],
+    urls: ["https://wa.me/18448069069"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Deep DAO": {
+    ws: ["https://deepdao.io"],
+    tw: ["https://x.com/deepdao_io"],
+    urls: ["https://discord.com/invite/BQBEUS9V9N", "https://medium.com/deep-dao"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   DeepKeep: {
     ws: ["https://docs.deepkeep.ai", "https://www.deepkeep.ai"],
     li: ["https://www.linkedin.com/company/deepkeep"],
     ytp: ["https://www.youtube.com/@deepkeep_ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Deliverider: {
+    ws: ["https://www.deliverider.com"],
+    urls: ["https://sorbetagency.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Depoint: { ws: ["https://depoint.ai"], _meta: { isHomepage: true, isVerified: true } },
+  DermaDetect: {
+    ws: ["https://www.dermadetect.com"],
+    urls: ["https://www.dermadetect.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   DeviceTotal: {
@@ -2006,12 +3090,27 @@ export const manualOverrides: Record<
     tw: ["https://x.com/diagnosticrobo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dialogue: {
+    ws: ["https://dashboard.nowdialogue.com", "https://nowdialogue.com"],
+    li: ["https://www.linkedin.com/company/nowdialogue"],
+    fb: ["https://www.facebook.com/nowdialogue"],
+    tw: ["https://x.com/ai_dialogue", "https://x.com/nowdialogue1%20"],
+    ig: ["https://www.instagram.com/nowdialogue"],
+    urls: ["https://abcommerce.io", "https://apps.shopify.com/automated-personalization"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Dig: {
     ws: ["https://dig.ai"],
     li: ["https://www.linkedin.com/company/dig-ai"],
     urls: ["https://dig.teamme.link"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Dio Tree": {
+    ws: ["https://www.dio-tree.com"],
+    li: ["https://www.linkedin.com/company/dio-tree"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Diptera: { ws: ["https://diptera.ai"], urls: ["https://diptera.ai"], _meta: { isHomepage: true, isVerified: true } },
   "Discure Technologies": {
     ws: ["https://discuremd.com"],
     li: ["https://www.linkedin.com/company/discure-technologies"],
@@ -2028,6 +3127,54 @@ export const manualOverrides: Record<
       "https://discord.com/invite/rdGPpVFUWv",
       "https://www.diversion.dev/blog/rss.xml"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "DogBase - Empowering K9 Teams with AI-Powered Tools": {
+    ws: [
+      "https://app.dogbase.co",
+      "https://feedback.dogbase.co",
+      "https://status.dogbase.co",
+      "https://support.dogbase.co",
+      "https://www.dogbase.co"
+    ],
+    li: ["https://www.linkedin.com/company/dogbase"],
+    fb: ["https://www.facebook.com/mydogbase"],
+    tw: ["https://x.com/mydogbase"],
+    ig: ["https://www.instagram.com/mydogbase"],
+    ytp: ["https://www.youtube.com/@mydogbase"],
+    urls: [
+      "https://app.getterms.io/view/x6YYi/aup/en-us",
+      "https://app.getterms.io/view/x6YYi/cookie/en-us",
+      "https://app.getterms.io/view/x6YYi/privacy/en-us",
+      "https://app.getterms.io/view/x6YYi/return/en-us",
+      "https://app.getterms.io/view/x6YYi/tos/en-us"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Donkit: {
+    ws: ["https://donkit.ai"],
+    gh: ["https://github.com/donkit-ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Doral Energy Group": {
+    ws: ["https://doral-energy.com", "https://esg.doral-energy.com"],
+    li: ["https://www.linkedin.com/company/doral-energy"],
+    fb: ["https://www.facebook.com/doralenergy"],
+    tw: ["https://x.com/doralenergy"],
+    ig: ["https://www.instagram.com/doralenergy"],
+    urls: [
+      "https://doral-llc.com",
+      "https://doral-tech.com",
+      "https://live.altecog.com/auth/login",
+      "https://mozinteractive.co.il",
+      "https://www.doral-urban.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Draftt: {
+    ws: ["https://app.draftt.io", "https://docs.draftt.io", "https://www.draftt.io"],
+    li: ["https://www.linkedin.com/company/draftt"],
+    urls: ["https://www.comeet.com/jobs/draftt/3A.00F"],
     _meta: { isHomepage: true, isVerified: true }
   },
   DragonflyDB: {
@@ -2053,6 +3200,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/dreamsecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Dreame: { ws: ["https://about.dreame.me", "https://dreame.me"], _meta: { isHomepage: true, isVerified: true } },
   DriveNets: {
     ws: [
       "https://drivenets.com",
@@ -2086,6 +3234,22 @@ export const manualOverrides: Record<
     tw: ["https://x.com/droxi_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "DryGair Energies": {
+    ws: ["https://drygair.com"],
+    li: ["https://www.linkedin.com/company/drygair-energies-ltd-"],
+    fb: ["https://www.facebook.com/drygair"],
+    tw: ["https://x.com/drygairenergies"],
+    ig: ["https://www.instagram.com/drygair"],
+    ytp: ["https://www.youtube.com/@drygairenergiesltd"],
+    urls: ["https://wa.me/972553174177"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Dustoss: {
+    ws: ["https://www.dustoss.com"],
+    li: ["https://www.linkedin.com/company/dustoss"],
+    urls: ["https://wa.me/972529455436"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Dymension: {
     ws: [
       "https://blog.dymension.xyz",
@@ -2108,6 +3272,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "ECO-OS": {
+    ws: ["https://app1.ecoos.co", "https://ecoos.co"],
+    li: ["https://www.linkedin.com/company/eco-os"],
+    fb: ["https://www.facebook.com/ecoos44"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "ELSE Nutrition": {
     ws: ["https://elsenutrition.com", "https://hcp.elsenutrition.com", "https://investors.elsenutrition.com"],
     li: ["https://www.linkedin.com/company/else-nutrition"],
@@ -2123,12 +3293,36 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@elsenutrition"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ELV8: { ws: ["https://www.elv8.pro"], _meta: { isHomepage: true, isVerified: true } },
   "ENTERA BIO": {
     ws: ["https://enterabio.com", "https://investors.enterabio.com"],
     li: ["https://www.linkedin.com/company/entera-bio"],
     fb: ["https://www.facebook.com/enterabio"],
     tw: ["https://x.com/enterabio"],
     ig: ["https://www.instagram.com/entera.bio"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  EZMEMS: {
+    ws: ["https://www.ezmems.com"],
+    urls: [
+      "https://www.ezmems.com/about",
+      "https://www.ezmems.com/copy-of-technology",
+      "https://www.ezmems.com/technology"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "EZbra Advanced Wound Care": {
+    ws: ["https://ezbra.net"],
+    li: ["https://www.linkedin.com/company/ezbra"],
+    ig: ["https://www.instagram.com/ezbra"],
+    ytp: ["https://www.youtube.com/@ezbra1879"],
+    urls: ["https://www.shopify.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "EarWays Medical": {
+    ws: ["https://earwaysmedical.com"],
+    fb: ["https://www.facebook.com/earwaysmedical"],
+    tw: ["https://x.com/earwaysmedical"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Early Technologies": {
@@ -2158,6 +3352,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@easy_send"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Eco Wave Power": {
+    ws: ["https://www.ecowavepower.com"],
+    li: ["https://www.linkedin.com/company/eco-wave-power"],
+    fb: ["https://www.facebook.com/ecowavepowerltd"],
+    tw: ["https://x.com/ecowavepower"],
+    ig: ["https://www.instagram.com/ecowavepower"],
+    ytp: ["https://www.youtube.com/@ecowavepower"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Econergy Renewable Energy": {
     ws: ["https://www.econergytech.com"],
     li: ["https://www.linkedin.com/company/econergy-renewable-energy-ltd"],
@@ -2172,10 +3375,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Ecoppia"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Edocate: {
+    ws: ["https://www.edocate.com"],
+    li: ["https://www.linkedin.com/company/edocate-ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Efficient Frontier": {
     ws: ["https://efrontier.io"],
     li: ["https://www.linkedin.com/company/efficientfrontier"],
     tw: ["https://x.com/efrontier_io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Egg'n'up": {
+    ws: ["https://www.eggnup.com"],
+    li: ["https://www.linkedin.com/company/eggnup"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Elbit Systems": {
@@ -2185,6 +3398,22 @@ export const manualOverrides: Record<
     tw: ["https://x.com/ElbitSystemsLtd"],
     ytp: ["https://www.youtube.com/elbitsystems"],
     urls: ["https://www.comrax.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ElectReon: {
+    ws: ["https://electreon.com"],
+    li: ["https://www.linkedin.com/company/electreon"],
+    fb: ["https://www.facebook.com/electreonwireless"],
+    ig: ["https://www.instagram.com/electreon_wireless"],
+    ytp: ["https://www.youtube.com/@electreon"],
+    urls: ["http://www.google.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Electriq Global": {
+    ws: ["https://www.electriq.com"],
+    li: ["https://www.linkedin.com/company/electriqglobal"],
+    fb: ["https://www.facebook.com/electriqglobal"],
+    tw: ["https://x.com/electriqglobal"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Elementary Data": {
@@ -2230,10 +3459,47 @@ export const manualOverrides: Record<
     urls: ["https://eleventx.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Elgan Pharma Ltd.": {
+    ws: ["https://elganpharma.com"],
+    urls: [
+      "https://elganpharma.com/accessibility",
+      "https://elganpharma.com/privacy-policy",
+      "https://elganpharma.com/terms-of-use",
+      "https://minknvik.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Ellomay Capital": {
+    ws: ["https://ellomay.com"],
+    li: ["https://www.linkedin.com/company/ellomaycapital"],
+    urls: ["http://www.user-a.co.il", "https://web.irm.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Elmo Motion Control": {
+    ws: ["https://lp.elmomc.com", "https://www.elmomc.com", "https://elmomc.cn", "https://www.elmomc.kr"],
+    li: ["https://www.linkedin.com/company/elmomotioncontrol"],
+    fb: ["https://www.facebook.com/elmomotioncontrol1"],
+    tw: ["https://x.com/elmomotioncontr"],
+    ytp: ["https://www.youtube.com/@elmomotioncontrolltd"],
+    urls: [
+      "https://elmomc.my.site.com/login",
+      "https://www.bosch.com/company/supply-chain/information-for-business-partners",
+      "https://www.bosch.com/sustainability/responsibility"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Emerix: {
     ws: ["https://www.emerix.ai"],
     li: ["https://www.linkedin.com/company/emerixai"],
     urls: ["https://app.getcontrast.io/emerix", "https://calendly.com/arielpalones/emerix-demo"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Emoona: {
+    ws: ["https://emoona.co"],
+    fb: ["https://www.facebook.com/emoona"],
+    tw: ["https://x.com/emoona"],
+    ig: ["https://www.instagram.com/emoona"],
+    urls: ["https://dribbble.com/Emoona", "https://www.behance.net/Emoona"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Empathy: {
@@ -2257,6 +3523,27 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@endospanltd7002"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Endymed: {
+    ws: ["https://endymed.com", "https://shop.endymed.com"],
+    li: ["https://www.linkedin.com/company/endymed-ltd"],
+    fb: ["https://www.facebook.com/endymed"],
+    ig: ["https://www.instagram.com/endymedofficial"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Eneriqs: {
+    ws: ["https://www.eneriqs.com"],
+    urls: [
+      "http://www.wersparrow.com",
+      "https://www.google.com/maps/place/Eneriqs/@32.1675623,34.9285095,17.1z/data=!4m6!3m5!1s0x151d399eb90de665:0x741ec1035c404fe4!8m2!3d32.1674227!4d34.9285291!16s%2Fg%2F11kqck27cj"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Enervibe: {
+    ws: ["https://enervibe.co"],
+    li: ["https://www.linkedin.com/company/enervibe"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Engie: { ws: ["https://engieapp.com"], _meta: { isHomepage: true, isVerified: true } },
   "Enlight Renewable Energy": {
     ws: ["https://enlightenergy.co.il"],
     li: ["https://www.linkedin.com/company/9025493"],
@@ -2267,9 +3554,28 @@ export const manualOverrides: Record<
     urls: ["https://a-2-z.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Enlivex Therapeutics": {
+    ws: ["https://enlivex.com"],
+    li: ["https://www.linkedin.com/company/enlivex-therapeutics-nasdaq-enlv"],
+    urls: ["https://raintreasury.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  EntityMed: {
+    ws: ["https://entitymed.com"],
+    li: ["https://www.linkedin.com/company/entitymed"],
+    fb: ["https://www.facebook.com/entitymedcom"],
+    ig: ["https://www.instagram.com/entitymed_"],
+    urls: ["https://entitymed.web.app/login", "https://entitymed.web.app/start-now"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Entrio: {
     ws: ["https://docs.entrio.io", "https://www.entrio.io"],
     li: ["https://www.linkedin.com/company/entrioplatform"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Envizion Medical": {
+    ws: ["https://www.envizionmed.com"],
+    urls: ["https://envuemed.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Equinom: {
@@ -2277,6 +3583,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/equinom", "https://www.linkedin.com/company/orangeeclipse-studio"],
     ytc: "https://www.youtube.com/channel/UC-5PAy0xsYuvkeU1ePBlZHg",
     ytp: ["https://www.youtube.com/@Equinom"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Ettorney: {
+    ws: ["https://www.ettorney.co.il"],
+    li: ["https://www.linkedin.com/company/9360861", "https://www.linkedin.com/company/ettorney"],
+    fb: ["https://www.facebook.com/ettorney.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Ever After Foods": {
@@ -2303,12 +3615,41 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@eviationaircraftinc.5845"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Evinature: {
+    ws: ["https://evinature.com", "https://shop.evinature.com"],
+    li: ["https://www.linkedin.com/company/evinature"],
+    fb: ["https://www.facebook.com/evinature"],
+    ig: ["https://www.instagram.com/evinature"],
+    tt: ["https://www.tiktok.com/@evinature"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Evogene: {
     ws: ["https://evogene.com"],
     li: ["https://www.linkedin.com/company/evogene"],
     fb: ["https://www.facebook.com/evogene123"],
     ytp: ["https://www.youtube.com/@evogeneltd."],
     urls: ["https://attractive.co.il", "https://www.sec.gov/cgi-bin/browse-edgar"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Evoke PLC": {
+    ws: ["https://www.evokeplc.com"],
+    li: ["https://www.linkedin.com/company/evokeplc"],
+    tw: ["https://x.com/evoke_plc"],
+    urls: [
+      "https://sports.williamhill.com",
+      "https://vegas.williamhill.com",
+      "https://www.888casino.com",
+      "https://www.888poker.com",
+      "https://www.888sport.com",
+      "https://www.design-portfolio.co.uk",
+      "https://www.mrgreen.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Evrideo: {
+    ws: ["https://evrideo.com"],
+    li: ["https://www.linkedin.com/company/evrideo-playout"],
+    urls: ["https://www.termsfeed.com/live/c0db4d90-9e8d-4374-af10-d7d99e1cce00"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Exero Medical": {
@@ -2336,6 +3677,37 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Extreme Simulations": {
+    ws: ["https://extremesimulations.com"],
+    li: ["https://www.linkedin.com/company/extreme-simulations"],
+    fb: ["https://www.facebook.com/extremesimulations"],
+    ig: ["https://www.instagram.com/extremesimulations"],
+    urls: ["https://www.shopify.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Eye-Net Mobile": {
+    ws: ["https://www.eyenet-mobile.com"],
+    li: ["https://www.linkedin.com/company/eyenet-mobile"],
+    tw: ["https://x.com/eyenetmobile1"],
+    ig: ["https://www.instagram.com/eyenetmobile1"],
+    urls: [
+      "https://www.google.com/maps/place/Eye-Net+Mobile/@32.8775302,35.7267218,9z/data=!4m10!1m2!2m1!1seye+net!3m6!1s0x1502b738cb97ac45:0x47212b78694850!8m2!3d31.9149952!4d34.8024204!15sCgdleWUgbmV0kgEQc29mdHdhcmVfY29tcGFueeABAA!16s%2Fg%2F11h1g6k339",
+      "https://www.ya-marketingservices.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  EyeControl: {
+    ws: ["https://www.eyecontrol.co.il"],
+    li: ["https://www.linkedin.com/company/eyecontrol"],
+    fb: ["https://www.facebook.com/eyecontrol"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  EyeYon: {
+    ws: ["https://eye-yon.com"],
+    li: ["https://www.linkedin.com/company/eyeyon-medical"],
+    fb: ["https://www.facebook.com/eyeyon"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   FEMSelect: {
     ws: ["https://www.femselect.com"],
     li: ["https://www.linkedin.com/company/28632694"],
@@ -2344,6 +3716,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/fem.select"],
     ytc: ["https://www.youtube.com/channel/UCUXuID-G3yt22gTkPV8Ovuw"],
     ytp: ["https://www.youtube.com/@femselect4756"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  FFRobotics: {
+    ws: ["https://www.ffrobotics.com"],
+    urls: ["http://wix.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   FINQ: {
@@ -2370,6 +3747,27 @@ export const manualOverrides: Record<
     ytc: "https://www.youtube.com/channel/UCPqxRAZdpqeM935Zgn3aq7Q",
     urls: ["https://okimta.com", "https://www.kukushka.co.il"],
     ytp: ["https://www.youtube.com/@FIZEMedical"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  FVMat: { ws: ["https://fvmat.com"], _meta: { isHomepage: true, isVerified: true } },
+  Facetune: {
+    ws: ["https://static.facetuneapp.com", "https://www.facetuneapp.com"],
+    fb: ["https://www.facebook.com/facetune"],
+    tw: ["https://x.com/facetune"],
+    ig: ["https://www.instagram.com/facetune"],
+    ytp: ["https://www.youtube.com/@facetune"],
+    tt: ["https://www.tiktok.com/@facetune_by_lightricks"],
+    urls: [
+      "https://facetune.onelink.me/cBp1",
+      "https://lightricks.zendesk.com/hc/en-us/categories/360002911719-Facetune",
+      "https://ltx.studio",
+      "https://ltx.video",
+      "https://popularpays.com",
+      "https://trust.lightricks.com",
+      "https://www.lightricks.com/about",
+      "https://www.photoleapapp.com",
+      "https://www.videoleapapp.com"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   Factify: {
@@ -2444,6 +3842,23 @@ export const manualOverrides: Record<
     urls: ["https://www.feelbetter.healthcare/privacy-policy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Feelter: {
+    ws: ["https://blog.feelter.com", "https://www.feelter.com", "http://blog.feelter.com"],
+    li: ["https://www.linkedin.com/company/feelter"],
+    fb: ["https://www.facebook.com/feeltersystems"],
+    urls: ["http://www.oi-studio.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  FeezBack: {
+    ws: ["https://feezback.com"],
+    li: ["https://www.linkedin.com/company/feezback"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Femto Technologies": {
+    ws: ["https://femtocorp.com"],
+    urls: ["https://femtocorp.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Fermata: {
     ws: ["https://www.fermata.tech"],
     li: ["https://www.linkedin.com/company/19152085"],
@@ -2451,6 +3866,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/fermatatech"],
     ig: ["https://www.instagram.com/fermatatech"],
     urls: ["https://www.fermata.tech/privacy_policy"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  FertilAI: {
+    ws: ["https://www.fertilai.com"],
+    li: ["https://www.linkedin.com/company/74549314", "https://www.linkedin.com/company/fertilai"],
+    fb: ["https://www.facebook.com/fertilai"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Fetcherr: {
@@ -2486,6 +3907,27 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  FieldIn: {
+    ws: ["https://api.fieldin.com", "https://fieldin.com"],
+    li: ["https://www.linkedin.com/company/fieldin-powered-by-agromentum-ltd-"],
+    tw: ["https://x.com/fieldintech"],
+    ig: ["https://www.instagram.com/fieldintech"],
+    urls: ["https://app.fieldintech.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Filo Systems": { ws: ["https://filo.systems"], _meta: { isHomepage: true, isVerified: true } },
+  "Final Israel": {
+    ws: ["https://www.final.co.il"],
+    li: ["https://www.linkedin.com/company/final"],
+    urls: ["https://www.webnoise.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Finally Foods": {
+    ws: ["https://finally-foods.com"],
+    li: ["https://www.linkedin.com/company/finally-foods-ltd"],
+    urls: ["https://finsweet.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Fincom: {
     ws: ["https://fincom.co"],
     li: ["https://www.linkedin.com/company/fincom-co"],
@@ -2504,6 +3946,13 @@ export const manualOverrides: Record<
       "https://start-chat.com/slack/finout/HwVAXB",
       "https://www.g2.com/products/finout/reviews"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Fintica: {
+    ws: ["https://fintica-ai.com"],
+    li: ["https://www.linkedin.com/company/fintica"],
+    tw: ["https://x.com/fintica"],
+    ig: ["https://www.instagram.com/fintica_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
   FireDome: {
@@ -2563,6 +4012,12 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/firmbase-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "FirstPoint Mobile Guard": {
+    ws: ["https://firstpoint-mg.com"],
+    li: ["https://www.linkedin.com/company/firstpoint-mobile-guard"],
+    urls: ["https://firstpoint-mg.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Five Sigma": {
     ws: ["https://fivesigmalabs.com"],
     li: ["https://www.linkedin.com/company/five-sigma"],
@@ -2613,6 +4068,11 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Flying SpArk": {
+    ws: ["https://www.theflyingspark.com"],
+    urls: ["https://www.theflyingspark.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Flytrex: {
     ws: ["https://www.flytrex.com"],
     li: ["https://il.linkedin.com/company/flytrex"],
@@ -2626,6 +4086,28 @@ export const manualOverrides: Record<
   "ForSight Robotics": {
     ws: ["https://www.forsightrobotics.com"],
     li: ["https://www.linkedin.com/company/forsightrobotics"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Foresee Genomics": { ws: ["https://foreseegenomics.com"], _meta: { isHomepage: true, isVerified: true } },
+  Foretellix: {
+    ws: ["https://www.foretellix.com"],
+    li: ["https://www.linkedin.com/company/foretellix"],
+    fb: ["https://www.facebook.com/foretellix"],
+    tw: ["https://x.com/foretellixhq"],
+    ytp: ["https://www.youtube.com/@foretellix", "https://www.youtube.com/@Foretellix"],
+    ytc: ["https://www.youtube.com/channel/UC1_RHjB1GlgKrewVk4GZCyQ"],
+    urls: ["https://foretellix.cn"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Forsea Foods": {
+    ws: ["https://www.forseafoods.com"],
+    li: ["https://www.linkedin.com/company/forseafoods"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Fortress: {
+    ws: ["https://www.fortresscyber.io"],
+    li: ["https://www.linkedin.com/company/fortresscyber", "https://www.linkedin.com/company/fortressio"],
+    tw: ["https://x.com/fortresscyber"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Forwrd: {
@@ -2647,6 +4129,34 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/freezem-102195254834998"],
     tw: ["https://x.com/freezem5"],
     ig: ["https://www.instagram.com/freezem_bsf"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Frontitude: {
+    ws: [
+      "https://app.frontitude.com",
+      "https://developer.frontitude.com",
+      "https://write.frontitude.com",
+      "https://www.frontitude.com"
+    ],
+    li: ["https://www.linkedin.com/company/frontitude"],
+    urls: [
+      "https://www.figma.com/community/file/1511723543914312690/frontitudes-ux-content-platform-playground",
+      "https://www.figma.com/community/plugin/809843676692807511/Frontitude-%E2%80%A2-UX-copy-management",
+      "https://www.producthunt.com/posts/frontitude"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Funzing: {
+    ws: [
+      "https://blog.funzing.com",
+      "https://il.funzing.com",
+      "https://sg.funzing.com",
+      "https://uk.funzing.com",
+      "https://www.funzing.com"
+    ],
+    li: ["https://www.linkedin.com/company/3338342", "https://www.linkedin.com/company/funzing"],
+    fb: ["https://www.facebook.com/funzinguk"],
+    tw: ["https://x.com/funzinguk"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Fuse.io": {
@@ -2687,9 +4197,26 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@gk8bygalaxy"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  GOARC: {
+    ws: ["https://go-arc.com"],
+    li: ["https://www.linkedin.com/company/goarc"],
+    urls: ["https://cta-redirect.hubspot.com/cta/redirect/9293548/89da0f61-57bd-413e-903d-90ba3c1d91b4"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Gadfin: {
     ws: ["https://www.gadfin.com"],
     li: ["https://www.linkedin.com/company/gadfin"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  GalaPro: {
+    ws: ["https://www.galapro.com"],
+    li: ["https://www.linkedin.com/company/galapro"],
+    fb: ["https://www.facebook.com/galaproapp"],
+    tw: ["https://x.com/galaproapp"],
+    ig: ["https://www.instagram.com/galaproapp"],
+    ytp: ["https://www.youtube.com/@galaproapp"],
+    urls: ["https://apps.apple.com/us/app/galapro/id1050951056"],
+    android_app_ids: ["com.galapro.app"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Gankster: {
@@ -2737,7 +4264,27 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Genda: {
+    ws: ["https://console.gendatech.com", "https://www.gendatech.com"],
+    li: ["https://www.linkedin.com/company/genda"],
+    ytp: ["https://www.youtube.com/@gendatech"],
+    urls: ["https://www.helpfulhero.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Genie: {
+    ws: ["https://genie.cooking"],
+    urls: ["https://www.pinterest.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   GeoX: { ws: ["https://app.geox.ai"], _meta: { isHomepage: true, isVerified: true } },
+  GetPackage: {
+    ws: ["https://getpackage.com", "https://sender.getpackage.com"],
+    li: ["https://www.linkedin.com/company/getpackage"],
+    fb: ["https://www.facebook.com/getpackage"],
+    ig: ["https://www.instagram.com/getpackage"],
+    urls: ["https://direct.lc.chat/12920325", "https://getpackage.onelink.me/XI4x/df02984a"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Gigantic LTD (Clawee)": {
     ws: ["https://clawee.com", "https://store.clawee.com"],
     fb: ["https://www.facebook.com/claweeisawesome"],
@@ -2761,11 +4308,47 @@ export const manualOverrides: Record<
     urls: ["https://entry.co.il", "https://firmabrands.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ginger Travel Insurance": {
+    ws: ["https://www.gingerbit.co.il"],
+    li: ["https://www.linkedin.com/company/ginger-travel-insurance"],
+    fb: ["https://www.facebook.com/ginger.insurance"],
+    ig: ["https://www.instagram.com/ginger.travel.insurance"],
+    ytp: ["https://www.youtube.com/@ginger3209"],
+    urls: [
+      "http://www.hellodesign.co",
+      "https://itunes.apple.com/il/app/gingerbit/id1453402954",
+      "https://wa.me/972584074371"
+    ],
+    android_app_ids: ["com.gingerbit"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Ginzi: {
+    ws: ["https://ginzi.io", "https://newsletter.ginzi.io"],
+    li: ["https://www.linkedin.com/company/ginzi"],
+    urls: ["https://ginzimail.com", "https://www.newsletter.ginzi.io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Gloww: { ws: ["https://app.gloww.com", "https://gloww.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Gordian Surgical": {
+    ws: ["https://www.gordiansurgical.com"],
+    li: ["https://www.linkedin.com/company/gordian_surgical"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Gorilla Link Ltd.": {
+    ws: ["https://preorder.gorilla.link", "https://www.gorilla.link"],
+    li: ["https://www.linkedin.com/company/gorillalink"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Grain: {
     ws: ["https://www.grainfinance.com"],
     li: ["https://www.linkedin.com/company/grainfinance"],
     tw: ["https://x.com/grainfinance_co"],
     urls: ["https://console.grainfinance.co"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Gravity Blanket": {
+    ws: ["https://gravityblankets.com"],
+    urls: ["https://rebuyengine.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "GrayMatters Health": {
@@ -2779,6 +4362,11 @@ export const manualOverrides: Record<
       "https://www.graymatters-health.com/regulatory",
       "https://www.graymatters-health.com/terms-of-use"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Green ELMF Cables": {
+    ws: ["https://www.green-elmf-cables.com"],
+    urls: ["http://www.elegantthemes.com", "http://www.wordpress.org"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Green Invoice": {
@@ -2797,6 +4385,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/greenonyx.ag"],
     ytp: ["https://www.youtube.com/@greenonyx.youtube"],
     urls: ["https://wa.me/972546337875"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  GreenSpense: {
+    ws: ["https://www.greenspense.com"],
+    li: ["https://www.linkedin.com/company/greenspense"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Greeneye Technology": {
@@ -2830,12 +4423,34 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@groundworkbioagltd.8359"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Grow Director": {
+    ws: ["https://app.growdirector.com", "https://growdirector.com"],
+    li: ["https://www.linkedin.com/company/growdirector"],
+    fb: ["https://www.facebook.com/growdirectorltd"],
+    ig: ["https://www.instagram.com/growdirectoragri"],
+    ytp: ["https://www.youtube.com/@growdirector", "https://www.youtube.com/@growdirector8723"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Guardoc Health": {
     ws: ["https://www.guardoc.health"],
     urls: [
       "https://guardoc.health/support",
       "https://www.guardoc.health/privacy-policy",
       "https://www.guardoc.health/terms-of-use"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  GuruShots: {
+    ws: ["https://gurushots.com", "https://support.gurushots.com"],
+    li: ["https://www.linkedin.com/company/gurushots"],
+    fb: ["https://www.facebook.com/gurushots"],
+    tw: ["https://x.com/gurushots"],
+    ig: ["https://www.instagram.com/gurushots"],
+    ytp: ["https://www.youtube.com/@gurushots"],
+    urls: [
+      "https://gurushots.jobspage.co",
+      "https://www.aiartmaster.co",
+      "https://www.pinterest.com/gurushotsphotography"
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
@@ -2861,12 +4476,65 @@ export const manualOverrides: Record<
     urls: ["https://helfy.co", "https://helfy.co/careers", "https://helfy.co/contact"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  HORD: {
+    ws: ["https://app.hord.fi", "https://docs.hord.fi", "https://www.hord.fi"],
+    tw: ["https://x.com/hordapp"],
+    urls: [
+      "https://discord.gg/xeTWKHWEbS",
+      "https://snapshot.org",
+      "https://t.me/hordnews",
+      "https://tokensfarm.com/hord/staking/6",
+      "https://www.dcentralab.com",
+      "https://www.dcentralab.com/jobs"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "HUB Security": {
     ws: ["https://hub-technologies.com", "https://investors.hubsecurity.com"],
     li: "https://www.linkedin.com/company/hubtechnologiescom",
     tw: ["https://twitter.com/hubsecurityio"],
     ytp: ["https://www.youtube.com/@HUBSecurityio"],
     urls: ["https://hubsecurity.com/hubtechnologies", "https://www.comeet.com/jobs/hub-technologies/07.00F"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Haaretz: {
+    ws: ["https://login.haaretz.com", "https://promotion.haaretz.com", "https://www.haaretz.com"],
+    fb: ["https://www.facebook.com/haaretzcom"],
+    tw: ["https://x.com/haaretzcom"],
+    ig: ["https://www.instagram.com/haaretzcom"],
+    urls: [
+      "https://apps.apple.com/us/app/haaretz-english-edition/id504537897",
+      "https://www.haaretz.co.il/2022-04-11/ty-article-static-ext/0000017f-a795-d7c6-a37f-ff9777ad0000",
+      "https://www.haaretz.co.il/debate",
+      "https://www.haaretz.co.il/digital/podcast/hesketos",
+      "https://www.haaretz.co.il/gallery/cinema/2023-06-07/ty-article-static-ext/00000188-1e0e-df77-afe9-5fceba2b0000",
+      "https://www.haaretz.co.il/gallery/television/2023-10-31/ty-article-static-ext/0000018a-5eed-d845-adfe-feedb1dc0000",
+      "https://www.haaretz.co.il/news/2023-11-23/ty-article-magazine/0000018b-4196-d242-abef-53b654760000",
+      "https://www.haaretz.co.il/news/law/2021-03-11/ty-article-magazine/.highlight/0000017f-e7fe-dc7e-adff-f7ffd2820000",
+      "https://www.haaretz.co.il/news/security/2026-02-10/ty-article-magazine/.premium/0000019c-4193-d682-abfe-ebb7599c0000",
+      "https://www.haaretz.co.il/news/security/2026-02-15/ty-article-magazine/.premium/0000019c-50e7-d667-a19c-53efd8650000",
+      "https://www.haaretz.co.il/news/security/2026-02-22/ty-article-magazine/.premium/0000019c-6f38-d618-a19d-7fffd3cc0000",
+      "https://www.haaretz.co.il/riddles/ty-page/haaretz-wordle",
+      "https://www.haaretz.co.il/riddles/ty-page/meduyeket/index.html"
+    ],
+    android_app_ids: ["com.opentech.haaretz"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Hagag Group": {
+    ws: ["https://adminpower.hagag-group.co.il", "https://www.hagag-group.co.il"],
+    li: ["https://www.linkedin.com/company/hagag-group2"],
+    fb: ["https://www.facebook.com/hagagroup"],
+    ig: ["https://www.instagram.com/hagag_group"],
+    urls: ["https://www.fullpower.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Haifa Group": {
+    ws: ["https://multimatch.haifa-group.com", "https://www.haifa-group.com"],
+    li: ["https://www.linkedin.com/company/haifa-group"],
+    fb: ["https://www.facebook.com/haifagroup"],
+    tw: ["https://x.com/haifagroup"],
+    ytp: ["https://www.youtube.com/@haifagroupchannel"],
+    urls: ["https://comrax.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Hailo: {
@@ -2880,6 +4548,26 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@hailo2062"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Hallura: {
+    ws: ["https://www.hallura.com"],
+    li: ["https://www.linkedin.com/company/hallura"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Happy Things": {
+    ws: ["https://www.happythings.app"],
+    li: ["https://www.linkedin.com/company/happy-things"],
+    fb: ["https://www.facebook.com/happythingsapp"],
+    tw: ["https://x.com/happythingsapp"],
+    ig: ["https://www.instagram.com/happythings.app"],
+    urls: ["https://happythings.app.link/GetHT23", "https://www.pinterest.com/happythingsapp"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Healium Medical": {
+    ws: ["https://www.healiumedical.com"],
+    li: ["https://www.linkedin.com/company/healium-medica"],
+    urls: ["http://www.gdigitalmedia.com", "https://www.healiumedical.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Healthy.io": {
     ws: ["https://blog.healthy.io", "https://healthy.io"],
     li: ["https://www.linkedin.com/company/www-healthy-io"],
@@ -2888,9 +4576,25 @@ export const manualOverrides: Record<
     urls: ["https://blog.healthy.io", "https://minuteful.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Hear: {
+    ws: ["https://console.hear.ai", "https://trust.hear.ai", "https://www.hear.ai"],
+    li: ["https://www.linkedin.com/company/hear-ai"],
+    fb: ["https://www.facebook.com/wearehear"],
+    tw: ["https://x.com/hearai_"],
+    ig: ["https://www.instagram.com/wearehearai"],
+    ytp: ["https://www.youtube.com/@hear_ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Helios: {
     ws: ["https://heliosmatters.com"],
     li: ["https://www.linkedin.com/company/project-helios"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Heven Drones": {
+    ws: ["https://hevendrones.com"],
+    li: ["https://www.linkedin.com/company/hevendrones"],
+    tw: ["https://x.com/hevendrones"],
+    ytp: ["https://www.youtube.com/@hevendrones"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Hexagate: {
@@ -2928,6 +4632,20 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Highcon: {
+    ws: ["https://highcon.net"],
+    li: ["https://www.linkedin.com/company/highcon"],
+    fb: ["https://www.facebook.com/highcon.euclid"],
+    tw: ["https://x.com/highcondart"],
+    ytp: ["https://www.youtube.com/@highcondart"],
+    urls: ["https://www.pinterest.com/HighconEuclid"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Hinoman: {
+    ws: ["https://www.hinoman.com"],
+    urls: ["https://www.eatmankai.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Hirundo: {
     ws: ["https://www.hirundo.io"],
     li: ["https://www.linkedin.com/company/gethirundo"],
@@ -2941,9 +4659,35 @@ export const manualOverrides: Record<
     urls: ["https://www.avihaim.co.il", "https://www.hisense.co.il", "https://www.pinterest.com/babysensellc"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Hitech Zone Ltd.": {
+    ws: [
+      "https://crm.htzone.co.il",
+      "https://media.htzone.co.il",
+      "https://members.htzone.co.il",
+      "https://tripzone.htzone.co.il",
+      "https://www.htzone.co.il",
+      "https://zone.htzone.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/htzone"],
+    fb: ["https://www.facebook.com/htzone.co.il"],
+    ig: ["https://www.instagram.com/hitechzone_israel"],
+    tt: ["https://www.tiktok.com/@hitechzone_israel"],
+    urls: [
+      "https://gogift.co.il",
+      "https://htzone.arbitrip.com/search",
+      "https://members.htzone.co.il",
+      "https://www.cal-online.co.il/landing/ht-zone"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   HiveWare: {
     ws: ["https://hiveware.io"],
     li: ["https://www.linkedin.com/company/hivewaretech%20"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Hola: {
+    ws: ["https://hola.org", "https://support.hola.org"],
+    urls: ["https://chromewebstore.google.com/detail/hola-vpn-the-website-unbl/gkojfkhlekighikafcpjkiklfbnlmeio"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Holisto: {
@@ -2953,6 +4697,12 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   Homez: { ws: ["https://www.homez.com"], _meta: { isHomepage: true, isVerified: true } },
+  Homrun: {
+    ws: ["https://homrungroup.com"],
+    li: ["https://www.linkedin.com/company/homrun"],
+    fb: ["https://www.facebook.com/homrungroup"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Honeydew: {
     ws: ["https://honeydew.ai"],
     li: ["https://www.linkedin.com/company/honeydewai"],
@@ -2970,6 +4720,17 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/hoopo"],
     fb: ["https://www.facebook.com/hooposystems"],
     tw: ["https://x.com/hoopoiot"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  HopOn: {
+    ws: ["https://hopon.co"],
+    li: ["https://www.linkedin.com/company/hopon---travel-smart"],
+    urls: [
+      "https://apps.apple.com/il/app/rav-pass-by-hopon/id807807458",
+      "https://goo.gl/maps/KBzMxa9saVKqycaR8",
+      "https://goo.gl/maps/tMzztDP1Ly416NhQ7"
+    ],
+    android_app_ids: ["co.hopon.client"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Hopper: {
@@ -3011,6 +4772,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@hyperguest11"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Hypercore: {
+    ws: ["https://www.hypercore.ai"],
+    li: ["https://www.linkedin.com/company/hypercore-ai"],
+    fb: ["https://www.facebook.com/hypercoreai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Hypernative: {
     ws: ["https://www.hypernative.io", "https://app.hypernative.xyz"],
     li: ["https://www.linkedin.com/company/hypernative"],
@@ -3035,6 +4802,38 @@ export const manualOverrides: Record<
   Hyperspace: {
     ws: ["https://docs.hyper-space.io", "https://www.hyper-space.io"],
     li: ["https://www.linkedin.com/company/hyperspace-db"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "IBI-Ag": {
+    ws: ["https://www.ibi-ag.com"],
+    li: ["https://www.linkedin.com/company/ibi-ag"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "IDE Technologies": {
+    ws: ["https://ide-tech.com"],
+    li: ["https://www.linkedin.com/company/ide-technologies-ltd."],
+    tw: ["https://x.com/idetechnologies"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  IDEEZA: {
+    ws: ["https://ideeza.com"],
+    li: ["https://www.linkedin.com/company/makeideeza"],
+    fb: ["https://www.facebook.com/makeideeza"],
+    tw: ["https://x.com/make_ideeza"],
+    ig: ["https://www.instagram.com/the_ideeza"],
+    urls: ["https://discord.com/invite/7U5cCe7ECY", "https://t.me/IDEEZA_Airdrop_bot"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "IM Cannabis": {
+    ws: ["https://imcannabis.com", "https://investors.imcannabis.com"],
+    urls: [
+      "https://imcannabis.com/about",
+      "https://imcannabis.com/contact",
+      "https://imcannabis.com/he/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa",
+      "https://imcannabis.com/privacy-policy",
+      "https://imcannabis.com/term-of-use",
+      "https://investors.imcannabis.com"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   INCRMNTAL: {
@@ -3073,10 +4872,35 @@ export const manualOverrides: Record<
     urls: ["https://portal.ionix.io/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "IR-MED": {
+    ws: ["https://investors.ir-medical.com", "https://www.ir-medical.com"],
+    li: ["https://www.linkedin.com/company/ir-medical"],
+    tw: ["https://x.com/ir_med_"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ITsMine: {
+    ws: ["https://app.itsmine.io", "https://itsmine.io"],
+    li: ["https://www.linkedin.com/company/itsmine"],
+    fb: ["https://www.facebook.com/itsmineltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   IVIX: {
     ws: ["https://www.ivix.ai"],
     li: ["https://www.linkedin.com/company/ivix-ai"],
     tw: ["https://x.com/ivix_ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  IceBow: {
+    ws: ["https://www.icebow.co"],
+    li: ["https://www.linkedin.com/company/12954219", "https://www.linkedin.com/company/icebow-ltd."],
+    ig: ["https://www.instagram.com/icebow_branding"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Identifai-genetics": { ws: ["https://identifai-genetics.com"], _meta: { isHomepage: true, isVerified: true } },
+  Identiq: {
+    ws: ["https://go.identiq.com", "https://trustcenter.identiq.com", "https://www.identiq.com"],
+    li: ["https://www.linkedin.com/company/identiqprotocol"],
+    urls: ["https://maps.app.goo.gl/AZUM454Y23dim4ih7"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Igentify: {
@@ -3154,6 +4978,13 @@ export const manualOverrides: Record<
     urls: ["https://imagindairy.com", "https://ltu.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Immagnify Ltd.": {
+    ws: ["https://app.immagnify.com", "https://immagnify.com", "https://support.immagnify.com"],
+    li: ["https://www.linkedin.com/company/immagnify"],
+    ig: ["https://www.instagram.com/immagnify"],
+    urls: ["https://immagnify.typeform.com/to/s38olUjR"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   InSightec: {
     ws: ["https://distributor.insightec.com", "https://documentation.insightec.com", "https://insightec.com"],
     li: ["https://www.linkedin.com/company/insightec"],
@@ -3161,6 +4992,19 @@ export const manualOverrides: Record<
     tw: ["https://x.com/insightec"],
     ytc: "https://www.youtube.com/channel/UCFKMAN-01TyFr-t6KuWlHUg",
     ytp: ["https://www.youtube.com/@insightec4135"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  InZiv: {
+    ws: ["https://inziv.com"],
+    li: ["https://www.linkedin.com/company/inziv"],
+    tw: ["https://x.com/in_ziv"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Inango Systems": {
+    ws: ["https://www.inango.com"],
+    li: ["https://www.linkedin.com/company/508335", "https://www.linkedin.com/company/inango"],
+    tw: ["https://x.com/inango_systems"],
+    urls: ["https://www.freepik.com/free-vector/isometric-rpa-illustration_22379495.htm"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Incredibuild: {
@@ -3248,6 +5092,27 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@innoviztechnologies3315"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Inovytec: {
+    ws: ["https://academy.inovytec.com", "https://www.inovytec.com"],
+    urls: ["https://attractive.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Inretio Medical Device": {
+    ws: ["https://www.inretio.co.il"],
+    li: ["https://www.linkedin.com/company/inretiomd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Insait: {
+    ws: ["https://insait.io"],
+    li: ["https://www.linkedin.com/company/insait-io"],
+    urls: ["https://wa.me/972525550000"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Insighting: {
+    ws: ["https://www.insighting.io"],
+    li: ["https://www.linkedin.com/company/insightingio"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Inspira Technologies": {
     ws: ["https://inspira-technologies.com"],
     li: ["https://www.linkedin.com/company/18356393"],
@@ -3282,6 +5147,23 @@ export const manualOverrides: Record<
     urls: ["https://www.canndoc.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Inthegame: {
+    ws: ["https://www.inthegame.io"],
+    li: ["https://www.linkedin.com/company/inthegame-io"],
+    fb: ["https://www.facebook.com/inthegame.io"],
+    ytp: ["https://www.youtube.com/@inthegame6194"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  IntraPosition: {
+    ws: ["https://www.intraposition.com"],
+    li: ["https://www.linkedin.com/company/intraposition"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Intsite Ltd.": {
+    ws: ["https://intsite.ai"],
+    urls: ["https://intsite.ai", "https://intsite.ai/smart-structures"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Intuition Robotics": {
     ws: ["https://www.intuitionrobotics.com"],
     li: ["https://www.linkedin.com/company/intuition-robotics"],
@@ -3293,6 +5175,30 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@IntuitionRobotics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Ironblocks: {
+    ws: ["https://app.ironblocks.com", "https://docs.ironblocks.com", "https://www.ironblocks.com"],
+    tw: ["https://x.com/ironblocks_"],
+    gh: ["https://github.com/ironblocks"],
+    urls: ["https://discord.com/invite/XJkYXyxPZj", "https://t.me/ironbuilders"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Israel Discount Bank": {
+    ws: [
+      "https://investors.discountbank.co.il",
+      "https://links.private.discountbank.co.il",
+      "https://mobile.discountbank.co.il",
+      "https://mortgage.discountbank.co.il",
+      "https://www.discountbank.co.il",
+      "https://www.discountech.co.il",
+      "https://www.openbanking.co.il"
+    ],
+    fb: ["https://www.facebook.com/discountbank"],
+    tw: ["https://x.com/discountbank"],
+    ig: ["https://www.instagram.com/discountbank"],
+    ytp: ["https://www.youtube.com/@discountbank1"],
+    urls: ["https://start.telebank.co.il/login", "https://www.idbny.com", "https://www.mercantile.co.il/MB/private"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Israel Innovation Authority": {
     ws: ["https://innovationisrael.org.il"],
     li: ["https://www.linkedin.com/company/5094726/admin"],
@@ -3300,6 +5206,27 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UCp-kDY6DiCq6PuI6srBaAPw"],
     urls: ["http://innovationisrael.mag.calltext.co.il", "https://www.daatsolutions.co.il"],
     ytp: ["https://www.youtube.com/@Israelinnovationauthority"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Itamar Medical": {
+    ws: [
+      "https://cloudpat-au.itamar-medical.com",
+      "https://cloudpat-eu.itamar-medical.com",
+      "https://cloudpat-uk.itamar-medical.com",
+      "https://cloudpat.itamar-medical.com",
+      "https://es.itamar-medical.com",
+      "https://www.itamar-medical.com"
+    ],
+    li: ["https://www.linkedin.com/company/itamar-medical"],
+    fb: ["https://www.facebook.com/itamarmedical"],
+    tw: ["https://x.com/itamarmedical1"],
+    urls: ["https://assafmedia.co.il", "https://careers.zoll.com/careers-listing", "https://www.watchpat.fr"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Jeeng: {
+    ws: ["https://setup.jeeng.com", "https://www.jeeng.com"],
+    li: ["https://www.linkedin.com/company/jeengofficial"],
+    ig: ["https://www.instagram.com/jeengofficial"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Jeffs’ Brands": {
@@ -3348,6 +5275,12 @@ export const manualOverrides: Record<
       "https://traveller-voice.joyned.co"
     ],
     urls: ["https://joyned.co"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Juganu: {
+    ws: ["https://www.juganu.com"],
+    li: ["https://www.linkedin.com/company/juganu"],
+    ytp: ["https://www.youtube.com/@juganultd"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Juno Journey": {
@@ -3408,6 +5341,29 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  KIDOZ: {
+    ws: ["https://accounts.kidoz.net", "https://investor.kidoz.net", "https://www.kidoz.net"],
+    li: ["https://www.linkedin.com/company/kidoz"],
+    tw: ["https://x.com/kidozinc"],
+    urls: ["https://cert.privo.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "KMS Lighthouse": {
+    ws: ["https://kmslh.com"],
+    li: ["https://www.linkedin.com/company/kms-lighthouse"],
+    ytp: ["https://www.youtube.com/@kmslighthouseltd70"],
+    urls: [
+      "https://appexchange.salesforce.com/appxListingDetail",
+      "https://appfoundry.genesys.com/filter/genesyscloud/listing/d8aaab49-a762-439e-8bf0-74055236a614",
+      "https://appsource.microsoft.com/en-us/product/dynamics-365/kmslighthouseltd1633850950621.kmslh_d365",
+      "https://appsource.microsoft.com/en-us/product/web-apps/kmslighthouseltd1633850950621.kms_lighthouse_subscription_and_onboarding",
+      "https://appsource.microsoft.com/en-us/product/web-apps/kmslighthouseltd1633850950621.kms_lighthouse_teams",
+      "https://aws.amazon.com/marketplace/pp/prodview-r2m3bm22izyag",
+      "https://www.freshworks.com/apps/lighthouse",
+      "https://www.zendesk.com/marketplace/apps/support/237907/lighthouse"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   KOIOS: {
     ws: ["https://koiostech.ai"],
     li: ["https://www.linkedin.com/company/koiostech"],
@@ -3416,6 +5372,20 @@ export const manualOverrides: Record<
   KTrust: {
     ws: ["https://ktrust.io"],
     urls: ["https://www.godaddy.com/websites/website-builder", "https://www.ktrust.io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "KaYama Foods": {
+    ws: ["https://www.kayamafoods.com"],
+    li: ["https://www.linkedin.com/company/kayama-foods"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Kadimastem: {
+    ws: ["https://www.kadimastem.com"],
+    li: ["https://www.linkedin.com/company/kadimastem"],
+    fb: ["https://www.facebook.com/kadimastem"],
+    tw: ["https://x.com/kadimastemltd"],
+    ig: ["https://www.instagram.com/kadimastem"],
+    urls: ["https://maya.tase.co.il/indexEng.html"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Kamari Pharma": {
@@ -3433,12 +5403,33 @@ export const manualOverrides: Record<
     urls: ["https://www.kando.eco"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  KanduAI: {
+    ws: ["https://www.kanduai.com"],
+    li: ["https://www.linkedin.com/company/kanduai"],
+    ig: ["https://www.instagram.com/kandu.ai"],
+    tt: ["https://www.tiktok.com/@kanduai"],
+    urls: ["https://www.maaor.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Kardome: {
     ws: ["https://www.kardome.com"],
     li: ["https://www.linkedin.com/company/kardome"],
     fb: ["https://facebook.com/kardomevui"],
     tw: ["https://x.com/kardomevui"],
     ig: ["https://www.instagram.com/kardomevoice", "https://www.instagram.com/kardomevui"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Kaymera: {
+    ws: [
+      "https://blog.kaymera.com",
+      "https://kaymera.com",
+      "https://privacy.kaymera.com",
+      "https://support.kaymera.com"
+    ],
+    li: ["https://www.linkedin.com/company/5363819", "https://www.linkedin.com/company/kaymera-technologies"],
+    fb: ["https://www.facebook.com/kaymeratech"],
+    ig: ["https://www.instagram.com/kaymera_technologlies"],
+    urls: ["https://mavericks.agency", "https://tamc365.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Keep: {
@@ -3470,11 +5461,56 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kemtaiftns"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kiinns: {
+    ws: ["https://www.kiinns.com"],
+    li: ["https://www.linkedin.com/company/kiinns"],
+    urls: ["http://www.tamarindi.com", "https://www.kiinns.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Kima Network": {
+    ws: ["https://docs.kima.finance", "https://www.kima.finance"],
+    gh: ["https://github.com/kima-finance"],
+    ytp: ["https://www.youtube.com/@kimanetwork"],
+    urls: [
+      "https://demo.kima.network",
+      "https://docs.kima.network/kima-network",
+      "https://kima-2.gitbook.io/kima-whitepaper-1",
+      "https://www.kima.network"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Kipp Authorize More": {
     ws: ["https://app.letskipp.com", "https://letskipp.com"],
     li: ["https://www.linkedin.com/company/letskipp"],
     tw: ["https://x.com/letskipp_com"],
     ytp: ["https://www.youtube.com/@letskipp"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Kirobo: {
+    ws: ["https://www.kirobo.io"],
+    li: ["https://www.linkedin.com/company/kirobo"],
+    tw: ["https://x.com/kirobo_io"],
+    ytp: ["https://www.youtube.com/@kiroboofficial4655"],
+    urls: [
+      "https://app.uniswap.org",
+      "https://discord.com/invite/TByNB8wr6D",
+      "https://drughub.io/de",
+      "https://fct.kirobo.me",
+      "https://fct.kirobo.me/builder",
+      "https://fct.kirobo.me/legal/FCT-Privacy.pdf",
+      "https://fct.kirobo.me/legal/FCT-Terms.pdf",
+      "https://kirobo.gitbook.io/fct-platform/overview/introduction",
+      "https://kirobo.gitbook.io/fct-plugins",
+      "https://kirobo.gitbook.io/welcome-to-kirobo-v2",
+      "https://pancakeswap.finance/swap",
+      "https://quickswap.exchange",
+      "https://staking.kirobo.me/new",
+      "https://undo.kirobo.me",
+      "https://vault.kirobo.me",
+      "https://www.bitrue.com/trade/kiro_eth",
+      "https://www.dauntlink.org/view/torzon-market",
+      "https://www.intentable.io"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   Kissterra: {
@@ -3484,6 +5520,13 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kissterra"],
     ig: ["https://www.instagram.com/life_at_kissterra"],
     ytp: ["https://www.youtube.com/@kissterra"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Klydoclock: {
+    ws: ["https://www.klydoclock.com"],
+    li: ["https://www.linkedin.com/company/klydo-clock"],
+    fb: ["https://www.facebook.com/klydoclock"],
+    ig: ["https://www.instagram.com/klydoclock"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Knostic: {
@@ -3553,6 +5596,16 @@ export const manualOverrides: Record<
     tw: ["https://x.com/kovrrins"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Kramer: {
+    ws: ["https://www.kramerav.com", "https://www1.kramerav.com", "https://www.kramercontrol.com"],
+    li: ["https://www.linkedin.com/company/kramer-electronics-ltd"],
+    fb: ["https://www.facebook.com/krameraudiovisual"],
+    tw: ["https://x.com/kramerelec"],
+    ig: ["https://www.instagram.com/kramer_audiovisual"],
+    ytp: ["https://www.youtube.com/@kramerelectronicsltd"],
+    urls: ["https://kramer.docebosaas.com/learn", "https://www.ashtonbentley.com", "https://www.zeevee.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   LAVA: {
     ws: ["https://lavapower.com"],
     li: ["https://www.linkedin.com/company/lavapower"],
@@ -3566,10 +5619,35 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lavaahealth"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  LEVnARO: {
+    ws: ["https://www.levnaro.com"],
+    ig: ["https://www.instagram.com/levnaro"],
+    urls: ["https://share.hsforms.com/15SknWVK7TlWfVY6DbyGQAA3rtqh"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "LSports Data": {
+    ws: ["https://www.lsports.eu"],
+    li: ["https://www.linkedin.com/company/lsports-data-ltd-"],
+    fb: ["https://www.facebook.com/lsportsdata"],
+    tw: ["https://x.com/lsports_intl"],
+    ig: ["https://www.instagram.com/lsportsvibes"],
+    ytp: ["https://www.youtube.com/@lsportsdata"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Laguna Health": {
     ws: ["https://form.lagunahealth.com", "https://www.lagunahealth.com"],
     li: ["https://www.linkedin.com/company/getlaguna"],
     ig: ["https://www.instagram.com/lagunahealth"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Laminate Medical": {
+    ws: ["https://www.laminatemedical.com"],
+    urls: [
+      "https://www.laminatemedical.com/contact-us",
+      "https://www.laminatemedical.com/imprint",
+      "https://www.laminatemedical.com/privacy-policy",
+      "https://www.laminatemedical.com/terms-of-use"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Landa Digital Printing": {
@@ -3607,6 +5685,36 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@LayerXSecurity"],
     urls: ["https://www.facebook.com/people/LayerX-Security/100063772826342"],
     _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  "Lema AI": {
+    ws: ["https://www.lema.ai"],
+    li: ["https://www.linkedin.com/company/lema-ai"],
+    urls: ["https://www.comeet.com/jobs/lemalabs/EA.001"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Lemna Pro": {
+    ws: ["https://www.lemnapro.com"],
+    li: ["https://www.linkedin.com/company/lemnaproltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Leo AI": {
+    ws: ["https://app.getleo.ai", "https://www.getleo.ai", "https://leo-ai.discourse.group"],
+    li: ["https://www.linkedin.com/company/leoai"],
+    ytp: ["https://www.youtube.com/@getleoai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  LetsTok: {
+    ws: ["https://letstok.com", "https://studio-tools.letstok.com"],
+    urls: ["https://wa.me/13155568056", "https://www.sora2api.dev"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Leverate: {
+    ws: ["https://leverate.com"],
+    li: ["https://www.linkedin.com/company/leverate"],
+    fb: ["https://www.facebook.com/leverate"],
+    tw: ["https://x.com/leveratelive"],
+    urls: ["https://leverate.com/blog"],
+    _meta: { isHomepage: true, isVerified: true }
   },
   Lexense: { ws: ["https://lexense.com"], _meta: { isHomepage: true, isVerified: true } },
   Lidwave: {
@@ -3664,6 +5772,11 @@ export const manualOverrides: Record<
     urls: ["https://limitlesscnc.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Lingacom: {
+    ws: ["https://lingacom.com"],
+    urls: ["http://103.82.221.21/LingaCom"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   LiveU: {
     ws: ["https://www.liveu.tv"],
     li: ["https://www.linkedin.com/company/liveu"],
@@ -3684,6 +5797,24 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Logical Commander": {
+    ws: ["https://www.logicalcommander.com"],
+    li: ["https://www.linkedin.com/company/logicalcommander"],
+    fb: ["https://www.facebook.com/logicalcommander"],
+    tw: ["https://x.com/logicalcomm"],
+    ig: ["https://www.instagram.com/logicalcommander"],
+    ytp: ["https://www.youtube.com/@logicalcommander"],
+    urls: ["https://e-commander.com/trial-registration-email"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Longevity AI": {
+    ws: ["https://dashboard.longevity-ai.com", "https://www.longevity-ai.com"],
+    li: ["https://www.linkedin.com/company/76984236", "https://www.linkedin.com/company/longevity-ai"],
+    tw: ["https://x.com/longevity_ai"],
+    ig: ["https://www.instagram.com/longevityai"],
+    urls: ["https://vimeo.com/user171608365"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Loops: {
     ws: ["https://app.getloops.ai", "https://www.getloops.ai"],
     li: ["https://www.linkedin.com/company/getgetloops"],
@@ -3702,6 +5833,20 @@ export const manualOverrides: Record<
       "https://loora.onelink.me/ntkb/AndroidDownload",
       "https://loora.onelink.me/ntkb/websiteDownload"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Loox: {
+    ws: ["https://loox.app", "https://status.loox.app", "https://help.loox.io"],
+    li: ["https://www.linkedin.com/company/loox"],
+    fb: ["https://www.facebook.com/looxreviews"],
+    tw: ["https://x.com/looxio"],
+    ig: ["https://www.instagram.com/loox.io"],
+    urls: ["https://apps.shopify.com/loox", "https://loox.io/app/website"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Lowental Hybrid": {
+    ws: ["https://www.lowental-hybrid.com"],
+    li: ["https://www.linkedin.com/company/lowental-hybrid-ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Lumen: {
@@ -3728,9 +5873,32 @@ export const manualOverrides: Record<
     urls: ["http://www.webview.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Lydus Medical": { ws: ["https://www.lydus-medical.com"], _meta: { isHomepage: true, isVerified: true } },
   Lynxight: {
     ws: ["https://dashboard.lynxight.com", "https://success.lynxight.com", "https://www.lynxight.com"],
     li: ["https://www.linkedin.com/company/lynxight"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "M.M.A. Tech": {
+    ws: ["https://mma-tech.com"],
+    urls: [
+      "http://mma-tech.com/articles",
+      "http://mma-tech.com/certificates",
+      "http://mma-tech.com/clinical-studies",
+      "http://mma-tech.com/contact-us",
+      "http://mma-tech.com/dental-2",
+      "http://mma-tech.com/hip",
+      "http://mma-tech.com/history",
+      "http://mma-tech.com/management-team",
+      "http://mma-tech.com/osteointegration",
+      "http://mma-tech.com/the-project-2",
+      "http://www.d-k-o.co.il"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  MAOLAC: {
+    ws: ["https://maolac.com"],
+    urls: ["https://brandsup.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   MDClone: {
@@ -3741,6 +5909,34 @@ export const manualOverrides: Record<
     urls: ["https://mdclone.atlassian.net/servicedesk/customer/portal/7"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "MMD SMART": {
+    ws: ["https://mmdsmart.com"],
+    li: ["https://www.linkedin.com/company/mmdsmart"],
+    fb: ["https://www.facebook.com/mmdsmartcom"],
+    tw: ["https://x.com/mmd_smart"],
+    ig: ["https://www.instagram.com/mmdsmart.bulgaria"],
+    ytp: ["https://www.youtube.com/@mmdsmartcommunications"],
+    urls: [
+      "https://mobileecosystemforum.com",
+      "https://mobileecosystemforum.com/programmes/future-of-messaging/fraud-management/trust-in-enterprise-messaging/a2p-code-of-conduct/code-of-conduct-disclaimer",
+      "https://www.gsma.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "MNDL Bio": {
+    ws: ["https://app.mndl.bio", "https://www.mndl.bio"],
+    li: ["https://www.linkedin.com/company/mndl-bio"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Magdent: {
+    ws: ["https://magdentmed.com"],
+    li: ["https://www.linkedin.com/company/magdent"],
+    fb: ["https://www.facebook.com/magdentmed"],
+    ig: ["https://www.instagram.com/magdentmed"],
+    ytp: ["https://www.youtube.com/@magdentmed888"],
+    urls: ["https://digipanda.co.in"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Magenta Medical": {
     ws: ["https://magentamed.com"],
     li: ["https://www.linkedin.com/company/magenta-medical"],
@@ -3748,9 +5944,62 @@ export const manualOverrides: Record<
     urls: ["https://www.madebyomnis.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Magentiq Eye Ltd": {
+    ws: ["https://magentiq.com"],
+    li: ["https://www.linkedin.com/company/magentiq-eye-ltd"],
+    tw: ["https://x.com/magentiqeye"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Magic Software Enterprises": {
+    ws: [
+      "https://factoryeye.magicsoftware.com",
+      "https://lg.magicsoftware.com",
+      "https://webclient.magicsoftware.com",
+      "https://www.magicsoftware.com",
+      "https://magicsoftware.nl"
+    ],
+    li: ["https://www.linkedin.com/company/magic-software-enterprises"],
+    fb: ["https://www.facebook.com/magicsoftwareenterprises"],
+    tw: ["https://x.com/@magicsoftware"],
+    ytp: ["https://www.youtube.com/@magicsoftware"],
+    urls: ["https://magicsoftware.my.salesforce-sites.com/PublicKnowledge", "https://www.powwowmobile.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  MagicYard: {
+    ws: ["https://beta.magicyard.co", "https://magicyard.co"],
+    li: ["https://www.linkedin.com/company/magicyardln"],
+    tw: ["https://x.com/magicyard"],
+    ig: ["https://www.instagram.com/magicyardtv"],
+    urls: ["https://discord.gg/UBe4kjgn"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Magico: {
+    ws: ["https://magico.ai"],
+    urls: ["https://www.spaceship.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Magnus Metal": {
     ws: ["https://magnusmetal.com"],
     urls: ["https://magnusmetal.com/privacy-policy", "https://magnusmetal.com/terms-of-use"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Make My Day, Inc.": {
+    ws: ["https://www.makemydayapp.com"],
+    li: ["https://www.linkedin.com/company/make-my-day-app"],
+    fb: ["https://www.facebook.com/makemydayapp"],
+    tw: ["https://x.com/make_my_day_app"],
+    urls: ["https://irita.co.il", "https://www.tumblr.com/makemydayapp"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Mappo: {
+    ws: ["https://www.mappo.world"],
+    li: ["https://www.linkedin.com/company/mappoworld"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Marine Edge": {
+    ws: ["https://www.marine-edge.com"],
+    li: ["https://www.linkedin.com/company/marine-edge"],
+    fb: ["https://www.facebook.com/marine-edge-103036722047767"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Maris Tech Ltd.": { fb: "https://www.facebook.com/MarisTech" },
@@ -3761,6 +6010,22 @@ export const manualOverrides: Record<
     gh: ["https://github.com/marketeam-ai"],
     ytp: ["https://www.youtube.com/@marketeam-ai"],
     urls: ["https://calendly.com/whitney-marketeam/marketeam-meeting-clone", "https://huggingface.co/marketeam"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Marvell Israel": {
+    ws: [
+      "https://cn.marvell.com",
+      "https://investor.marvell.com",
+      "https://jp.marvell.com",
+      "https://videos.marvell.com",
+      "https://www.marvell.com"
+    ],
+    li: ["https://www.linkedin.com/company/marvell"],
+    fb: ["https://www.facebook.com/marvelltechnology"],
+    tw: ["https://x.com/marvelltech"],
+    ig: ["https://www.instagram.com/marvelltechnology"],
+    ytp: ["https://www.youtube.com/@marvelltechnology"],
+    urls: ["https://secure.ethicspoint.com/domain/media/en/gui/20485/index.html"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Masterschool: {
@@ -3819,6 +6084,17 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/meala-foodtech"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MeatAfora: {
+    ws: ["https://meatafora.com"],
+    urls: ["https://meatafora.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  MedAware: {
+    ws: ["https://www.medaware.com"],
+    li: ["https://www.linkedin.com/company/medaware"],
+    tw: ["https://x.com/medawarerx"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "MedHub-AI": {
     ws: ["https://www.medhub-ai.com"],
     li: ["https://www.linkedin.com/company/medhub-ai"],
@@ -3837,6 +6113,36 @@ export const manualOverrides: Record<
     ws: ["https://app.medcase.health", "https://medcase.health", "https://portal.medcase.health"],
     li: ["https://www.linkedin.com/company/medcasehealth"],
     tw: ["https://x.com/medcasehealth"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  MediWound: {
+    ws: ["https://ir.mediwound.com", "https://mediwound.com"],
+    urls: [
+      "https://ir.mediwound.com",
+      "https://mediwound.com",
+      "https://mediwound.com/careers",
+      "https://mediwound.com/cookies-policy",
+      "https://mediwound.com/privacy-policy",
+      "https://mediwound.com/terms-conditions",
+      "https://mediwound.com/wp-content/uploads/2025/07/MDWD-corporate-deck-May-2025.pdf"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Media Forest": {
+    ws: ["https://mediaforest-group.com"],
+    urls: ["https://t.me/mediaforest_bot", "https://wa.me/+972533666070"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  MedicannX: {
+    ws: ["https://medicannx.com"],
+    urls: ["https://wpastra.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Medigus: {
+    ws: ["https://ir.medigus.com", "https://medigus.com"],
+    li: ["https://www.linkedin.com/company/medigus"],
+    fb: ["https://www.facebook.com/medigusltd"],
+    tw: ["https://x.com/medigus3"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Medorion: {
@@ -3888,6 +6194,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@menteebot"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Mesh Security": {
+    ws: ["https://mesh.security"],
+    li: ["https://www.linkedin.com/company/mesh-cybersecurity"],
+    fb: ["https://www.facebook.com/thecybermesh"],
+    tw: ["https://x.com/meshsecurityzt"],
+    ytp: ["https://www.youtube.com/@meshsecurity"],
+    urls: ["https://mesh.security"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   MetalBear: {
     ws: ["https://app.metalbear.com", "https://metalbear.com"],
     li: ["https://www.linkedin.com/company/metalbearco"],
@@ -3902,6 +6217,11 @@ export const manualOverrides: Record<
     urls: ["https://ir.microbotmedical.com/news-events/press-release", "https://thesulfurgroup.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Micronet: {
+    ws: ["https://www.micronet-inc.com"],
+    urls: ["http://mozinteractive.co.il", "https://www.micronet-inc.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Miggo Security": {
     ws: ["https://www.miggo.io"],
     li: ["https://www.linkedin.com/company/miggo-security"],
@@ -3914,6 +6234,17 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/milestoneai"],
     tw: ["https://x.com/mstone_ai"],
     urls: ["https://docs.mstone.ai", "https://mstone.ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Milo Alpha": {
+    ws: ["https://miloalpha.com"],
+    li: ["https://www.linkedin.com/company/milo-alpha"],
+    urls: ["https://maps.app.goo.gl/oNedUE8XHvxk8K1T8"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Mindfly: {
+    ws: ["https://www.mindfly.live"],
+    urls: ["https://www.mindfly.live"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Mindspace: {
@@ -3966,6 +6297,18 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ministry of Energy": {
+    ws: ["https://energy-sea.gov.il"],
+    li: ["https://www.linkedin.com/company/israel-ministry-of-energy"],
+    fb: ["https://www.facebook.com/energy.gov.il"],
+    ig: ["https://www.instagram.com/energy.gov.il"],
+    ytp: ["https://www.youtube.com/@energywateril"],
+    urls: [
+      "https://www.gov.il/en/Departments/General/accessibility-statement",
+      "https://www.gov.il/en/pages/gov_terms_of_use"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Mirato: {
     ws: ["https://graph.sayari.com", "https://sayari.com"],
     li: ["https://www.linkedin.com/company/sayarilabs"],
@@ -3981,6 +6324,60 @@ export const manualOverrides: Record<
       "https://bsky.app/profile/mitiga.bsky.social",
       "https://www.gartner.com/reviews/market/cloud-investigation-and-response-automation-cira/vendor/mitiga/product/mitiga"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "MitoCareX Bio": {
+    ws: ["https://mitocarexbio.com"],
+    urls: ["https://epicod.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Mixed Place": {
+    ws: ["https://www.mixed.place"],
+    urls: [
+      "https://www.designrush.com/agency/profile/mixed-place-ar-immersive-experiences-technologies-innovations-with-ar-vr-metaverse-holographic-technologies"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Mizrahi Tefahot Bank": {
+    ws: ["https://sc.mizrahi-tefahot.co.il", "https://www.mizrahi-tefahot.co.il"],
+    li: ["https://www.linkedin.com/company/mizrahi-tefahot-bank"],
+    fb: ["https://www.facebook.com/bank.mizrahi.tefahot"],
+    ig: ["https://www.instagram.com/mizrahi.tefahot"],
+    ytp: ["https://www.youtube.com/@mizrahitefahot"],
+    urls: ["https://www.etgar.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Mobileye: {
+    ws: [
+      "https://brand.mobileye.com",
+      "https://careers.mobileye.com",
+      "https://ims.mobileye.com",
+      "https://ir.mobileye.com",
+      "https://www.mobileye.com"
+    ],
+    li: ["https://www.linkedin.com/company/24017", "https://www.linkedin.com/company/mobileye"],
+    fb: ["https://www.facebook.com/mobileye"],
+    tw: ["https://x.com/mobileye"],
+    ig: ["https://www.instagram.com/mobileye"],
+    ytp: ["https://www.youtube.com/@mobileyeaws"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Mobilicom: {
+    ws: ["https://ir.mobilicom.com", "https://mobilicom.com"],
+    li: ["https://www.linkedin.com/company/mobilicom"],
+    tw: ["https://x.com/mobilicommob"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  MobilityInsight: {
+    ws: ["https://www.mobilityinsight.net"],
+    li: ["https://www.linkedin.com/company/mobi---mobility-insight"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Mobius Protection Systems": {
+    ws: ["https://www.mobius-ps.com"],
+    li: ["https://www.linkedin.com/company/mobius-protection-systems"],
+    tw: ["https://x.com/systemsmobius"],
+    urls: ["https://extra.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Momentick: {
@@ -4039,6 +6436,7 @@ export const manualOverrides: Record<
     android_dev_id: "com.moonpay",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Moovex: { ws: ["https://admin.moovex.ai", "https://moovex.ai"], _meta: { isHomepage: true, isVerified: true } },
   Moovit: {
     ws: ["https://moovit.com"],
     urls: [
@@ -4085,7 +6483,34 @@ export const manualOverrides: Record<
     urls: ["https://intercom.help/munch-e1ea69d858ab/en", "https://www.producthunt.com/products/munch-studio"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  MyAir: {
+    ws: ["https://app.myair.ai", "https://myair.ai"],
+    li: ["https://www.linkedin.com/company/myair-foodtech"],
+    fb: ["https://www.facebook.com/myairsmartfood"],
+    ig: ["https://www.instagram.com/myairsmartfood"],
+    urls: ["https://apps.apple.com/us/app/myair-insights/id1606622213"],
+    android_app_ids: ["com.myairnativeapp"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "MyBiotics Pharma LTD": {
+    ws: ["https://mybiotics-pharma.com"],
+    urls: [
+      "http://mybiotics.s139.upress.link/product-pipeline",
+      "http://mybiotics.s139.upress.link/technology",
+      "http://scoopsites.co.il"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   MyHeritage: { li: "https://www.linkedin.com/company/myheritage" },
+  MyPart: {
+    ws: ["https://api.mypart.com", "https://www.mypart.com"],
+    li: ["https://www.linkedin.com/company/mypart-ltd."],
+    ig: ["https://www.instagram.com/mypartofficial"],
+    ytp: ["https://www.youtube.com/@mypartofficial"],
+    tt: ["https://www.tiktok.com/@mypartofficial"],
+    urls: ["https://www.mypart.ai/api-access", "https://www.mypart.ai/contact", "https://www.mypart.ai/privacy-policy"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   MyndYou: {
     ws: ["https://www.arbiter.ai"],
     li: ["https://www.linkedin.com/company/arbiter-ai"],
@@ -4102,6 +6527,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@MyndliftNeurofeedback"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Mytower: { ws: ["https://mytowerapp.com"], _meta: { isHomepage: true, isVerified: true } },
   "N-Drip": {
     ws: ["https://ndrip.com"],
     li: ["https://www.linkedin.com/company/n-drip-gravity-micro-irrigation"],
@@ -4129,6 +6555,29 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@NICE-Systems"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NINA: {
+    ws: ["https://www.drinknina.com"],
+    li: ["https://www.linkedin.com/company/nina-iot"],
+    fb: ["https://www.facebook.com/drinknina"],
+    ig: ["https://www.instagram.com/drinknina"],
+    tt: ["https://www.tiktok.com/@drinknina"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  NOVOS: {
+    ws: ["https://app.novos.gg", "https://www.novos.gg"],
+    li: ["https://www.linkedin.com/company/novos"],
+    tw: ["https://x.com/novosgg"],
+    ig: ["https://www.instagram.com/novosgg"],
+    urls: ["https://discord.com/invite/vE4vu7z", "https://novos.typeform.com/to/tmZLi5GJ"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  NRGene: {
+    ws: ["https://nrgene.com"],
+    li: ["https://www.linkedin.com/company/nrgene-ltd"],
+    fb: ["https://www.facebook.com/nrgene-technologies-1003279819696574"],
+    tw: ["https://x.com/nrgene"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "NSO Group": {
     ws: ["https://www.nsogroup.com"],
     urls: [
@@ -4139,6 +6588,16 @@ export const manualOverrides: Record<
       "https://www.nsogroup.com/news",
       "https://www.nsogroup.com/privacy-policy",
       "https://www.nsogroup.com/terms-conditions"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "NakAI Robotics": {
+    ws: ["https://www.nakairobotics.com"],
+    li: ["https://www.linkedin.com/company/nakai-robotics"],
+    urls: [
+      "https://alizaglassman.wixsite.com/portfolio",
+      "https://api.whatsapp.com/send",
+      "https://www.nakairobotics.com"
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
@@ -4175,6 +6634,12 @@ export const manualOverrides: Record<
       "https://www.tctmagazine.com/additive-manufacturing-3d-printing-industry-insights/technology-insights/nano-dimension-additively-manufactured-electronics-part-of-core"
     ],
     ytp: ["https://www.youtube.com/@NanoDimension"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Nanovel: {
+    ws: ["https://www.nanovel.co.il"],
+    li: ["https://www.linkedin.com/company/nanovel-israel-ltd"],
+    urls: ["https://www.studioalbo.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Nanox Imaging": {
@@ -4237,16 +6702,59 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Nectin Therapeutics": {
+    ws: ["https://www.nectintx.com"],
+    urls: [
+      "https://www.nectintx.com/about-us-our-technology",
+      "https://www.nectintx.com/contact-us",
+      "https://www.nectintx.com/our-team"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Neema: {
     ws: ["https://docs.getneema.com", "https://getneema.com"],
     li: ["https://www.linkedin.com/company/neema-official"],
     urls: ["https://share-eu1.hsforms.com/1064gI4P7QBGKIuYKlPukCA2et0fn"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Nemo Nanomaterials": {
+    ws: ["https://nemonano.com"],
+    li: ["https://www.linkedin.com/company/nemo-nanomaterials"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Nemodata: {
+    ws: ["https://app.nemodata.ai", "https://www.nemodata.ai"],
+    li: ["https://www.linkedin.com/company/nemodata"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "NeoTX Therapeutics": { ws: ["https://predictivetx.com"], _meta: { isHomepage: true, isVerified: true } },
   Neolithics: {
     ws: ["https://www.neolithics.ai"],
     li: ["https://www.linkedin.com/company/neolithics-ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  NetNut: {
+    ws: [
+      "https://affiliates.netnut.io",
+      "https://dashboard.netnut.io",
+      "https://help.netnut.io",
+      "https://netnut.io",
+      "https://ru.netnut.io",
+      "https://netnut.cn"
+    ],
+    li: ["https://www.linkedin.com/company/netnut"],
+    fb: ["https://www.facebook.com/netnut.io"],
+    tw: ["https://x.com/netnut_io"],
+    urls: [
+      "https://discord.com/users/825355638703259658",
+      "https://discord.gg/BUjgwh6eVG",
+      "https://t.me/+ccqtahCm52I1ZTI0",
+      "https://t.me/netnut_io",
+      "https://wa.me/972544564190",
+      "https://www.g2.com/products/netnut-io/reviews",
+      "https://www.g2.com/products/netnut-proxy-network/reviews",
+      "https://www.nasdaq.com/market-activity/stocks/alar"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   "NetOp.Cloud": {
@@ -4271,6 +6779,27 @@ export const manualOverrides: Record<
     urls: ["https://thefinanceherald.com/amazon-expands-its-israeli-footprint-snatching-up-neuroblades-coreteam"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NeuroBrave: {
+    ws: ["https://neurobrave.com"],
+    li: ["https://www.linkedin.com/company/neurobrave"],
+    fb: ["https://www.facebook.com/neurobrave-104790162010192"],
+    tw: ["https://x.com/neurobrave"],
+    urls: ["https://www.dashboard.neurospeed.io/auth/login"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  NeuroDerm: {
+    ws: ["https://neuroderm.com"],
+    li: ["https://www.linkedin.com/company/neuroderm"],
+    urls: ["https://www.iso.org/standard/59752.html"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  NeuroKaire: {
+    ws: ["https://hcp.neurokaire.com", "https://patient.neurokaire.com", "https://www.neurokaire.com"],
+    li: ["https://www.linkedin.com/company/neurokaire"],
+    fb: ["https://www.facebook.com/neurokaire"],
+    tw: ["https://x.com/neurokaire"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "NeuroSense Therapeutics": {
     ws: ["https://www.neurosense-tx.com"],
     li: ["https://www.linkedin.com/company/neurosense-therapeutics"],
@@ -4280,9 +6809,25 @@ export const manualOverrides: Record<
     urls: ["https://neurosense.investorroom.com", "https://www.neurosense-tx.com", "https://www.webnoise.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  NewRocket: { ws: ["https://www.newrocket.co.il"], _meta: { isHomepage: true, isVerified: true } },
+  NextFerm: {
+    ws: ["https://maximmune.nextferm.com", "https://nextferm.com"],
+    li: ["https://www.linkedin.com/company/nextferm"],
+    urls: ["https://maximmune.nextferm.com", "https://nextferm.com", "https://www.mar-comit.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   NextSilicon: {
     ws: ["https://www.nextsilicon.com"],
     urls: ["https://silktide.com/consent-manager"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Niio: {
+    ws: ["https://help.niio.com", "https://www.niio.com"],
+    li: ["https://www.linkedin.com/company/niio-art"],
+    fb: ["https://www.facebook.com/niioart"],
+    ig: ["https://www.instagram.com/niioart"],
+    urls: ["http://.", "https://apps.apple.com/us/app/niio-art/id1489485883"],
+    android_app_ids: ["com.niioart.app"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Nilos: {
@@ -4290,9 +6835,27 @@ export const manualOverrides: Record<
     urls: ["https://app.dover.com/jobs/nilos"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Nisko: {
+    ws: ["https://www.niskoelec.com"],
+    li: ["https://www.linkedin.com/company/nisko-group"],
+    fb: ["https://www.facebook.com/niskogroup"],
+    ig: ["https://www.instagram.com/niskogroup"],
+    ytp: ["https://www.youtube.com/@niskoelec"],
+    tt: ["https://www.tiktok.com/@niskogroup_"],
+    urls: [
+      "https://digital.niskogroup.com/%D7%A7%D7%98%D7%9C%D7%95%D7%92%D7%99%D7%9D_%D7%A0%D7%99%D7%A1%D7%A7%D7%95/general/ISO9001.pdf"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   NitroFix: {
     ws: ["https://nitro-fix.com"],
     li: ["https://www.linkedin.com/company/nitrofix"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Nobio: {
+    ws: ["https://www.nobio.com"],
+    li: ["https://www.linkedin.com/company/nobio"],
+    urls: ["https://www.infinix.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Nofar Energy": {
@@ -4325,9 +6888,24 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Nominis: {
+    ws: ["https://www.nominis.io"],
+    li: ["https://www.linkedin.com/company/nominisio"],
+    tw: ["https://x.com/nominisio"],
+    urls: ["https://medium.com/nominis"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Nostromo: {
     ws: ["https://nostromo.energy"],
     li: ["https://www.linkedin.com/company/nostromo-energy"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Nova: {
+    ws: ["https://www.novami.com"],
+    li: ["https://www.linkedin.com/company/nova-ltd."],
+    fb: ["https://www.facebook.com/nova.ltd"],
+    tw: ["https://x.com/nova_nvmi"],
+    ytp: ["https://www.youtube.com/@novameasuring"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Novidea: {
@@ -4362,12 +6940,32 @@ export const manualOverrides: Record<
     tw: ["https://x.com/nsknoxtech"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Nubo Software": {
+    ws: ["https://gw.nubosoftware.com", "https://nubosoftware.com", "https://nubo.co"],
+    li: ["https://www.linkedin.com/company/nubo-software"],
+    fb: ["https://www.facebook.com/nubosoftware"],
+    tw: ["https://x.com/nubosoftware"],
+    gh: ["https://github.com/nubosoftware"],
+    urls: ["https://itunes.apple.com/us/app/nubo/id731859625", "https://plus.google.com/+NubosoftwareVMI"],
+    android_app_ids: ["com.nubo.login"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Nucleix: {
     ws: ["https://nucleix.com"],
     li: ["https://www.linkedin.com/company/nucleix-ltd-"],
     fb: ["https://www.facebook.com/nucleix-100608201471224"],
     tw: ["https://x.com/nucleix2"],
     ig: ["https://www.instagram.com/nucleix_ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Nucleon Cyber": {
+    ws: ["https://nucleon.sh", "https://www.nucleoncyber.com"],
+    urls: ["https://nucleoncyber.com/about", "https://nucleoncyber.com/technology"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Nugen Clean Energy": {
+    ws: ["https://nugeneco.com"],
+    li: ["https://www.linkedin.com/company/nugencleanenergy"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "NurExone Biologic": {
@@ -4377,6 +6975,35 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/NBiologic"],
     ytc: ["https://www.youtube.com/channel/UCpcZmZlFTj7fnEBZyFx9aYA"],
     ytp: ["https://www.youtube.com/@nurexonebiologic737"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Nutrino: {
+    ws: ["https://www.nutrinohealth.com"],
+    li: ["https://www.linkedin.com/company/2329594", "https://www.linkedin.com/company/nutrino"],
+    fb: ["https://www.facebook.com/nutrino.co"],
+    ig: ["https://www.instagram.com/nutrinoco"],
+    urls: [
+      "http://www.nutrinohealth.com/cookies-policy",
+      "http://www.nutrinohealth.com/privacy-law-and-legal-notice",
+      "http://www.nutrinohealth.com/terms-of-use",
+      "https://www.nutrinohealth.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Nuvo Group": {
+    ws: [
+      "https://blog.nuvocares.com",
+      "https://invu-pro.nuvocares.com",
+      "https://knowledgebase.nuvocares.com",
+      "https://www.nuvocares.com"
+    ],
+    li: ["https://www.linkedin.com/company/nuvo-cares"],
+    fb: ["https://www.facebook.com/nuvocares"],
+    tw: ["https://x.com/nuvocares"],
+    ig: ["https://www.instagram.com/nuvocares"],
+    ytp: ["https://www.youtube.com/@nuvo-cares"],
+    urls: ["https://apps.apple.com/us/app/invu-by-nuvo/id1524609104"],
+    android_app_ids: ["com.nuvogroup.invu"],
     _meta: { isHomepage: true, isVerified: true }
   },
   OCTOPAI: {
@@ -4416,6 +7043,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@OKIBO1"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OMGene: { ws: ["https://omgene.ai"], _meta: { isHomepage: true, isVerified: true } },
   "ONE ZERO": {
     ws: ["https://www.onezerobank.com"],
     li: ["https://www.linkedin.com/company/the-first-digital-bank"],
@@ -4439,6 +7067,13 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Od Podcast": { ws: "", li: "https://www.linkedin.com/company/guykatsovichpodcast" },
+  Oddin: {
+    ws: ["https://adm.oddin.ai", "https://oddin.ai"],
+    li: ["https://www.linkedin.com/company/oddin"],
+    tw: ["https://x.com/oddinai"],
+    urls: ["https://t.me/oddinai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Odeeo: {
     ws: ["https://blog.odeeo.io", "https://odeeo.io"],
     li: ["https://www.linkedin.com/company/odeeo"],
@@ -4450,6 +7085,22 @@ export const manualOverrides: Record<
   Odigos: {
     ws: ["https://odigos.io"],
     gh: "https://github.com/odigos-io/odigos",
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Odysight.AI": {
+    ws: ["https://www.odysight.ai"],
+    li: ["https://www.linkedin.com/company/odysightai"],
+    tw: ["https://x.com/odysight.ai"],
+    ytp: ["https://www.youtube.com/@odysightai"],
+    urls: ["https://www.sec.gov/edgar/browse"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Ofra Aqua Plants": {
+    ws: ["https://www.ofra-aqua.co.il", "https://www.ofra-aqua.com"],
+    fb: [
+      "https://www.facebook.com/ofra-aqua-%d7%a2%d7%a4%d7%a8%d7%94-%d7%a6%d7%9e%d7%97%d7%99-%d7%9e%d7%99%d7%9d-103220224636862"
+    ],
+    urls: ["http://www.biz-heaven.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Oktopost: {
@@ -4491,6 +7142,13 @@ export const manualOverrides: Record<
     android_dev_id: "com.healthcoda",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  "Omnix Medical": {
+    ws: ["https://omnixmedical.com"],
+    li: ["https://www.linkedin.com/company/omnix-medical"],
+    tw: ["https://x.com/medicalomnix"],
+    urls: ["http://a-2-z.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   OncoHost: {
     ws: ["https://www.oncohost.com"],
     li: ["https://www.linkedin.com/company/oncohost"],
@@ -4514,6 +7172,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@oneai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OneView: { ws: ["https://one-view.ai"], _meta: { isHomepage: true, isVerified: true } },
   Onebeat: {
     li: ["https://www.linkedin.com/company/1beat"],
     fb: ["https://www.facebook.com/1beatretail"],
@@ -4526,6 +7185,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/oosto"],
     tw: ["https://x.com/oostoai"],
     ytp: ["https://www.youtube.com/@oosto6849"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Oporto Carbon": {
+    ws: ["https://www.oportocarbon.com"],
+    li: ["https://www.linkedin.com/company/oporto-carbon"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Opster: {
@@ -4577,6 +7241,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  OptiTex: {
+    ws: ["https://help.optitex.com", "https://learn.optitex.com", "https://optitex.com"],
+    li: ["https://www.linkedin.com/company/optitex"],
+    fb: ["https://www.facebook.com/optitexhq"],
+    ig: ["https://www.instagram.com/optitexofficial"],
+    ytp: ["https://www.youtube.com/@optitex"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Optibus: {
     ws: ["https://blog.optibus.com", "https://optibus.com"],
     li: ["https://www.linkedin.com/company/optibus-ltd"],
@@ -4599,6 +7271,23 @@ export const manualOverrides: Record<
       "https://open.spotify.com/user/317eskl3ir4ypt4sd5nvj7srcpbe",
       "https://partners.optimove.com",
       "https://trust.optimove.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  OptimusQ: {
+    ws: ["https://optimusq.com"],
+    urls: ["https://calendly.com/optimusq/optimusq-demo"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Option Samurai": {
+    ws: ["https://help.optionsamurai.com", "https://new.optionsamurai.com", "https://optionsamurai.com"],
+    li: ["https://www.linkedin.com/company/option-samurai"],
+    fb: ["https://www.facebook.com/optionsamurai"],
+    tw: ["https://x.com/optionsamurai"],
+    ytp: ["https://www.youtube.com/@optionsamuraiapp"],
+    urls: [
+      "https://samurai.froged.help/docs/en/42033144-option-samurai-affiliate-program",
+      "https://stocktwits.com/OptionSamurai"
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
@@ -4631,6 +7320,12 @@ export const manualOverrides: Record<
     tw: ["https://x.com/orcam"],
     ig: ["https://www.instagram.com/orcam_technologies"],
     ytp: ["https://www.youtube.com/@orcamtech"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Orbit Communication Systems": {
+    ws: ["https://orbit-cs.com", "https://orbit-cs-usa.com"],
+    li: ["https://www.linkedin.com/company/orbit-communication-systems-ltd"],
+    urls: ["https://www.euclid-eng.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Orbs: {
@@ -4768,6 +7463,30 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PARANA: {
+    ws: ["https://www.paranagames.com"],
+    li: ["https://www.linkedin.com/company/parana-games"],
+    urls: ["https://parana.onelink.me/3Cyl/wgr1cczv"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PNY: {
+    ws: ["https://www.ridepny.com"],
+    li: ["https://www.linkedin.com/company/ridepny"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PVML: {
+    ws: ["https://pvml.com"],
+    li: ["https://www.linkedin.com/company/pvml"],
+    urls: ["https://increativeweb.com", "https://pvml.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PaidIt: {
+    ws: ["https://www.paidit.io"],
+    li: ["https://www.linkedin.com/company/paidit"],
+    fb: ["https://www.facebook.com/justpaidit"],
+    ig: ["https://www.instagram.com/paidit_insider"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   PainReform: {
     ws: ["https://prf-tech.com"],
     urls: [
@@ -4807,6 +7526,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Paragate Medical": {
+    ws: ["https://paragate-medical.com"],
+    li: ["https://www.linkedin.com/company/paragate-medical"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Particula: {
     ws: ["https://particula-tech.com"],
     fb: ["https://www.facebook.com/go.particula"],
@@ -4815,6 +7540,43 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@go.particula"],
     tt: ["https://www.tiktok.com/@go.particula"],
     urls: ["https://drive.google.com/file/d/1c-Y8MqMWdPedtG1nmDV4xVqyd2W1HDes/view"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Pashoot Robotics": {
+    ws: ["https://www.pashoot-robotics.com"],
+    li: ["https://www.linkedin.com/company/76115456", "https://www.linkedin.com/company/pashoot-robotics"],
+    urls: ["https://www.pashoot-robotics.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PatenSee: {
+    ws: ["https://patensee.com"],
+    urls: [
+      "https://eng.sheba.co.il",
+      "https://www.bostonscientific.com/en-US/Home.html",
+      "https://www.medxelerator.com",
+      "https://www.medxventures.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PayEm: {
+    ws: ["https://www.payem.co"],
+    li: ["https://www.linkedin.com/company/payemcard"],
+    fb: ["https://www.facebook.com/payem-100922072326032"],
+    ig: ["https://www.instagram.com/life.at.payem"],
+    urls: ["https://app.payemcard.com", "https://app.payemcard.com/login"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PayKey: {
+    ws: ["https://paykey.com"],
+    li: ["https://www.linkedin.com/company/10358153", "https://www.linkedin.com/company/paykey"],
+    tw: ["https://x.com/getpaykey"],
+    urls: ["https://namelesspace.com", "https://vimeo.com/paykey"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Paygilant: {
+    ws: ["https://paygilant.com"],
+    li: ["https://www.linkedin.com/company/paygilant"],
+    tw: ["https://x.com/paygilant"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Payouts.com": {
@@ -4829,6 +7591,17 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/pecanai"],
     tw: ["https://x.com/pecan_ai"],
     urls: ["https://www.g2.com/products/pecan/reviews"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PeerPlay: {
+    ws: ["https://www.peerplay.com"],
+    urls: [
+      "https://apps.apple.com/us/app/merge-cruise-mystery-puzzle/id6459056553",
+      "https://www.peerplay.com",
+      "https://www.peerplay.com/privacy",
+      "https://www.peerplay.com/support"
+    ],
+    android_app_ids: ["com.peerplay.megamerge"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Pepticom Ltd.": {
@@ -4900,6 +7673,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Pery: {
+    ws: ["https://mypery.com"],
+    li: ["https://www.linkedin.com/company/peryhealth"],
+    urls: ["https://calendly.com/david_franco/pery-1"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Phoenix Financial": {
     ws: [
       "https://agent.fnx.co.il",
@@ -4928,6 +7707,12 @@ export const manualOverrides: Record<
       "https://www.xnes.co.il/fnx-w",
       "https://www.xnes.co.il/trading"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Phone.do": { ws: ["https://phone.do"], _meta: { isHomepage: true, isVerified: true } },
+  PhoneOptika: {
+    ws: ["https://www.phoneoptika.com"],
+    urls: ["http://www.absocial.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Phytech: {
@@ -4961,12 +7746,26 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Pickommerce AI Robotics": {
+    ws: ["https://www.pickommerce.com"],
+    li: ["https://www.linkedin.com/company/pickommerce-ai-robotics"],
+    urls: ["https://maps.app.goo.gl/AE6EU9kAEZHjJwZB7"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Picodya Technologies Ltd.": { ws: ["https://picodya.com"], _meta: { isHomepage: true, isVerified: true } },
   Piiano: {
     ws: ["https://go.mcptotal.io", "https://mcptotal.io"],
     li: ["https://www.linkedin.com/company/mcptotal"],
     tw: ["https://x.com/mcptotal"],
     gh: ["https://github.com/piiano"],
     urls: ["https://calendly.com/mcptotal"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "PixCell Medical": {
+    ws: ["https://www.pixcell-medical.com"],
+    li: ["https://www.linkedin.com/company/pixcell-medical-technologies"],
+    tw: ["https://x.com/pixcellmedical"],
+    urls: ["https://www.whiteweb.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Pixellot: {
@@ -4990,6 +7789,36 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@plainid3877"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Plannie: {
+    ws: ["https://scheduler.plannieapp.com", "https://www.plannieapp.com"],
+    li: ["https://www.linkedin.com/company/plannie"],
+    fb: ["https://www.facebook.com/plannie.chenyo"],
+    ig: ["https://www.instagram.com/plannie_app"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PlantArcBio: {
+    ws: ["https://plantarcbio.com"],
+    li: ["https://www.linkedin.com/company/plantarcbio"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  PlasFree: {
+    ws: ["https://www.plas-free.com"],
+    li: ["https://www.linkedin.com/company/plas-free"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "PlasticBack Ltd.": {
+    ws: ["https://www.plastic-back.com"],
+    li: ["https://www.linkedin.com/company/plastic-back"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "PlaxidityX (Formerly Argus Cyber Security LTD.)": {
+    ws: ["https://plaxidityx.com"],
+    li: ["https://www.linkedin.com/company/plaxidityx"],
+    tw: ["https://x.com/plaxidityx"],
+    ytp: ["https://www.youtube.com/@plaxidityx"],
+    urls: ["https://www.aumovio.com/en/company/corporate-governance/integrity-line.html"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "PlaySight Interactive": {
     ws: ["https://playsight.com", "https://web.playsight.com"],
     li: ["https://www.linkedin.com/company/playsight-interactive"],
@@ -4999,6 +7828,17 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@playsightinteractive"],
     urls: ["https://apps.apple.com/app/id976177330", "https://apps.apple.com/il/app/playsight/id976177330"],
     android_app_ids: ["com.playsight.tennis"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Playnance: {
+    ws: ["https://docs.playnance.com", "https://playnance.com"],
+    li: ["https://www.linkedin.com/company/playnance"],
+    tw: ["https://x.com/playnance_"],
+    urls: [
+      "https://explorer.playblock.io",
+      "https://skynet.certik.com/projects/Playnance",
+      "https://t.me/playnance_official"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   Playtech: {
@@ -5123,6 +7963,7 @@ export const manualOverrides: Record<
     android_app_ids: ["com.Plus500"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PoLoPo: { ws: ["https://www.polopo.tech"], _meta: { isHomepage: true, isVerified: true } },
   PointGrab: {
     ws: ["https://flex.pointgrab.com", "https://pointgrab.com", "https://support.pointgrab.com"],
     li: ["https://www.linkedin.com/company/pointgrab"],
@@ -5141,6 +7982,23 @@ export const manualOverrides: Record<
       "https://pointgrab.com/technology",
       "https://pointgrab.com/use-cases",
       "https://theguy.co.il"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Poloriz: {
+    ws: ["https://www.poloriz.com"],
+    li: ["https://www.linkedin.com/company/poloriz"],
+    fb: ["https://www.facebook.com/poloriz.ltd"],
+    ig: ["https://www.instagram.com/poloriz"],
+    urls: ["http://bit.ly/poloriz-media-kit"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Polygreen: {
+    ws: ["https://www.polygreen-group.com"],
+    urls: [
+      "https://cordis.europa.eu/project/id/965715/reporting",
+      "https://www.polygreen-group.com",
+      "https://www.polygreen-group.com/contact"
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
@@ -5172,6 +8030,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  PowerPlug: {
+    ws: ["https://powerplug.ai", "https://powerplugltd.com"],
+    li: ["https://www.linkedin.com/company/powerplug-ltd"],
+    fb: ["https://www.facebook.com/powerplugltd"],
+    tw: ["https://x.com/powerplugltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Powermat Technologies": {
     ws: ["https://powermat.com"],
     li: ["https://www.linkedin.com/company/940993"],
@@ -5179,6 +8044,20 @@ export const manualOverrides: Record<
     tw: ["https://x.com/powermat"],
     ig: ["https://www.instagram.com/powermat"],
     ytp: ["https://www.youtube.com/@powermat"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Prashkovsky: {
+    ws: ["https://www.prashkovsky.co.il"],
+    fb: ["https://www.facebook.com/prashkovsky.ashi"],
+    ig: ["https://www.instagram.com/prashkovsky.ltd"],
+    urls: ["https://api.whatsapp.com/send"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Precycle-ai": {
+    ws: ["https://www.precycles.com"],
+    li: ["https://www.linkedin.com/company/precycles"],
+    ytp: ["https://www.youtube.com/@precycle2578"],
+    urls: ["https://wix.com", "https://youtu.be/BybGxRQ9X1o"],
     _meta: { isHomepage: true, isVerified: true }
   },
   PrettyDamnQuick: {
@@ -5211,6 +8090,14 @@ export const manualOverrides: Record<
       "https://profuse-tech.com/news",
       "https://profuse-tech.com/technology"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Profisea: {
+    ws: ["https://www.profisea.com", "https://profisealabs.com"],
+    li: ["https://www.linkedin.com/company/profisea"],
+    fb: ["https://www.facebook.com/profisea"],
+    tw: ["https://x.com/profisea"],
+    ytp: ["https://www.youtube.com/@profisea5281"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Proggio: {
@@ -5254,10 +8141,16 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@PropelMyPR"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Propin: { ws: ["https://app.propin.ai", "https://www.propin.ai"], _meta: { isHomepage: true, isVerified: true } },
   Protai: {
     ws: ["https://www.protai.bio"],
     li: ["https://www.linkedin.com/company/protai-bio"],
     tw: ["https://x.com/protaibio"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Protalix BioTherapeutics": {
+    ws: ["https://ir.protalix.com", "https://protalix.com"],
+    li: ["https://www.linkedin.com/company/protalix-biotherapiutics"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Protect AI": {
@@ -5265,6 +8158,20 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@protectai"],
     urls: ["https://mlsecops.slack.com/signup#/domain-signup"],
     _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  "Protected Media": {
+    ws: ["https://www.protected.media"],
+    li: ["https://www.linkedin.com/company/protected-media"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Protekt Therapeutics": {
+    ws: ["https://www.protektx.com"],
+    urls: [
+      "https://www.protektx.com/accessibilitystatement",
+      "https://www.protektx.com/privacy-policy",
+      "https://www.protektx.com/terms-of-use"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
   },
   Pynt: {
     ws: ["https://app.pynt.io", "https://docs.pynt.io", "https://www.pynt.io"],
@@ -5280,6 +8187,32 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Pynt0-u8u"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Q.ai": {
+    ws: ["https://www.q.ai"],
+    li: ["https://www.linkedin.com/company/q-a-i"],
+    urls: ["https://www.apple.com/legal/privacy/en-ww"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  QEDIT: {
+    ws: ["https://qed-it.com"],
+    li: ["https://www.linkedin.com/company/qedit"],
+    fb: ["https://www.facebook.com/qeditzkp"],
+    tw: ["https://x.com/qeditzkp"],
+    urls: ["https://medium.com/qed-it", "https://zkproof.org"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  QLOG: {
+    ws: ["https://www.qlog.co"],
+    li: ["https://www.linkedin.com/company/qlog-co"],
+    urls: ["https://apps.apple.com/il/app/qlog-simply-manage/id6458547667", "https://play.google.com/store/search"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Qedma: {
+    ws: ["https://www.qedma.com"],
+    li: ["https://www.linkedin.com/company/qedma-quantum-computing"],
+    urls: ["https://www.comeet.com/jobs/qedma/7A.006"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Qodo: {
     ws: ["https://www.qodo.ai"],
     li: ["https://www.linkedin.com/company/qodoai"],
@@ -5292,6 +8225,19 @@ export const manualOverrides: Record<
       "https://docs.qodo.ai/qodo-release-notes",
       "https://plugins.jetbrains.com/plugin/21206-codiumai--meaningful-tests-in-python-powered-by-testgpt"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Qsee: {
+    ws: ["https://www.qsee.io"],
+    li: ["https://www.linkedin.com/company/qsee"],
+    tw: ["https://x.com/qseeio"],
+    ytp: ["https://www.youtube.com/@qseezerodefectivemanufactu898"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Quai MD": {
+    ws: ["https://quai.md"],
+    li: ["https://www.linkedin.com/company/quai-md"],
+    urls: ["https://titan-branding.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Qualifire: {
@@ -5328,6 +8274,12 @@ export const manualOverrides: Record<
     urls: ["https://trust.quanthealth.ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Quantum Art": {
+    ws: ["https://www.quantum-art.tech"],
+    li: ["https://www.linkedin.com/company/quantum-art-tech"],
+    urls: ["https://g.co/kgs/34U9rre"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Quantum Machines": {
     ws: ["https://www.quantum-machines.co"],
     li: ["https://www.linkedin.com/company/quantumachines"],
@@ -5343,6 +8295,11 @@ export const manualOverrides: Record<
     tw: ["https://x.com/qs_labs"],
     ytc: "https://www.youtube.com/channel/UC0beEcUIGopYE1I6PlLeJvQ",
     ytp: ["https://www.youtube.com/@QuantumSourcelabs"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Quantum transistors": {
+    ws: ["https://quantumtransistors.com"],
+    urls: ["https://eic.ec.europa.eu/index_en", "https://ltu.co.il", "https://quantumtransistors.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Quicklizard: {
@@ -5384,6 +8341,19 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/raaam"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  RCK: {
+    ws: ["https://rckmc.com"],
+    li: ["https://www.linkedin.com/company/rckmc"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "RDV Systems": {
+    ws: ["https://www.rdvsystems.com"],
+    li: ["https://www.linkedin.com/company/rdv-systems"],
+    fb: ["https://www.facebook.com/rdvsystems"],
+    ig: ["https://www.instagram.com/rdvsystems"],
+    ytp: ["https://www.youtube.com/@rdviz"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "REE Automotive": {
     ws: ["https://ree.auto"],
     li: ["https://www.linkedin.com/company/reeautoofficial"],
@@ -5393,6 +8363,17 @@ export const manualOverrides: Record<
     ytc: ["https://www.youtube.com/channel/UC9sDIkFJSj0A7_AvCuHl3gw"],
     urls: ["https://investors.ree.auto", "https://medium.com/@ReeAutoOfficial"],
     ytp: ["https://www.youtube.com/@REEAutomotive"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "REIGO Investments": {
+    ws: ["https://reigo-inv.com"],
+    li: ["https://www.linkedin.com/company/reigo-investments"],
+    urls: ["http://www.tbdm.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  REIT1: {
+    ws: ["https://www.reit1.co.il"],
+    urls: ["http://fusion-studio.co.il", "https://multipark.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   REplace: {
@@ -5419,6 +8400,13 @@ export const manualOverrides: Record<
     urls: ["https://rafael-uk.com", "https://www.rafael-usa.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Raftt: {
+    ws: ["https://docs.raftt.io", "https://www.raftt.io"],
+    li: ["https://www.linkedin.com/company/raftt"],
+    tw: ["https://x.com/rafttio"],
+    urls: ["https://join.slack.com/t/rafttcommunity/shared_invite/zt-196nlb5ra-ZcIw~2T7Glq5NuBaqIlgcA"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   RailVision: {
     ws: ["https://ir.railvision.io", "https://railvision.io"],
     li: ["https://www.linkedin.com/company/rail-vision"],
@@ -5428,11 +8416,30 @@ export const manualOverrides: Record<
     urls: ["https://ir.railvision.io", "https://railvision.io", "https://soundcloud.com/rail-evolution-podcast"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Ratio Petroleum Energy": {
+    ws: ["https://ratiopetroleum.com"],
+    urls: ["https://web.irm.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Razor Labs": {
     ws: ["https://www.razor-labs.com"],
     li: ["https://www.linkedin.com/company/razor-technologies-inc"],
     ytp: ["https://www.youtube.com/@razorlabsai"],
     urls: ["https://wponetap.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ReSight: {
+    ws: ["https://docs.resight.io", "https://resight.io"],
+    urls: ["https://docs.resight.io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Reaction Club": {
+    ws: ["https://www.reaction-club.com"],
+    urls: [
+      "https://app.getwemove.com",
+      "https://www.capterra.com/p/252172/Reaction",
+      "https://www.getapp.com/hr-employee-management-software/a/reaction"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   "RealView Imaging": {
@@ -5456,6 +8463,13 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/reddressltd1"],
     tw: ["https://x.com/reddressltd1"],
     ytp: ["https://www.youtube.com/@reddressmedical"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "RedHill Biopharma": {
+    ws: ["https://redhillbio.com"],
+    li: ["https://www.linkedin.com/company/redhill-biopharma"],
+    tw: ["https://x.com/redhillbio"],
+    urls: ["https://www.q4inc.com/Powered-by-Q4"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Redefine Meat": {
@@ -5488,10 +8502,23 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/refine-intelligence"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Reflect Innovation": {
+    ws: ["https://www.meetreflect.com"],
+    fb: ["https://www.facebook.com/meetreflect"],
+    ig: ["https://www.instagram.com/meetreflect"],
+    tt: ["https://www.tiktok.com/@meetreflect"],
+    urls: ["https://meetreflect.tapfiliate.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Reflectiz: {
     ws: ["https://dashboard.reflectiz.com", "https://www.reflectiz.com"],
     li: ["https://www.linkedin.com/company/reflectiz"],
     fb: ["https://www.facebook.com/reflectiz.cyber"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Regentis Biomaterials": {
+    ws: ["https://investors.regentis.co.il", "https://www.regentis.co.il"],
+    urls: ["https://www.volle.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Regulus Cyber": {
@@ -5518,6 +8545,22 @@ export const manualOverrides: Record<
     urls: ["https://www.gad-remilk.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  RemitRix: {
+    ws: ["https://www.remitrix.com", "https://remitrix.com"],
+    li: ["https://www.linkedin.com/company/remitrix"],
+    tw: ["https://x.com/remitrix1"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Renbizz: {
+    ws: ["https://www.renbizz.com"],
+    li: ["https://www.linkedin.com/company/renbizz"],
+    urls: [
+      "http://renbizz.com-legal.s3-website-us-east-1.amazonaws.com/privacy.html",
+      "http://renbizz.com-legal.s3-website-us-east-1.amazonaws.com/terms.html",
+      "https://www.peanuts-studio.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   RepAir: {
     ws: ["https://www.repair-carbon.com"],
     li: ["https://www.linkedin.com/company/repair-carbon"],
@@ -5527,6 +8570,12 @@ export const manualOverrides: Record<
   "RespirAI Medical": {
     ws: ["https://www.respirai.com"],
     urls: ["https://www.respirai.com/privacy-policy"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Results Digital": {
+    ws: ["https://www.resultsdigital.org", "http://resultsgroupus.com"],
+    ig: ["https://www.instagram.com/results_group"],
+    tt: ["https://www.tiktok.com/@resultsgroup"],
     _meta: { isHomepage: true, isVerified: true }
   },
   ReturnGO: {
@@ -5564,6 +8613,40 @@ export const manualOverrides: Record<
       "https://vimeo.com/revuze",
       "https://www.cgsmsummit.com"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Rewind: {
+    ws: ["https://www.rewind.earth"],
+    li: ["https://www.linkedin.com/company/rewindearth"],
+    tw: ["https://x.com/rewind_earth"],
+    ytp: ["https://www.youtube.com/@rewind_earth"],
+    urls: ["https://craftandroot.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Ricor Cryogenic and Vacuum Systems": {
+    ws: ["https://ricor.com"],
+    li: ["https://www.linkedin.com/company/ricor-cryogenic-vacuum-systems"],
+    urls: ["https://itunes.apple.com/us/app/ricorapp/id1459605935", "https://www.mar-comit.com"],
+    android_app_ids: ["app.ricor.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Ripe Guard": {
+    ws: ["https://ripeguard.com"],
+    li: ["https://www.linkedin.com/company/ripe-guard"],
+    urls: ["https://wpastra.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Rise: {
+    ws: ["https://cloudfront.risecodes.com", "https://risecodes.com"],
+    li: ["https://www.linkedin.com/company/risecodes"],
+    ig: ["https://www.instagram.com/rise_adtech"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Rise.ai": {
+    ws: ["https://dev.rise.ai", "https://help.rise.ai", "https://platform.rise.ai", "https://rise.ai"],
+    li: ["https://www.linkedin.com/company/rise-ai"],
+    fb: ["https://www.facebook.com/rise.aicompany"],
+    tw: ["https://x.com/rise_ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
   RiseUp: {
@@ -5614,6 +8697,13 @@ export const manualOverrides: Record<
       "https://youtu.be/YTH_BmcHuxo"
     ],
     ytp: ["https://www.youtube.com/@Rivulis_drip_micro_irrigation"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  RoadSense: {
+    ws: ["https://www.roadsense.tech"],
+    li: ["https://www.linkedin.com/company/roadsense-advanced-technologies"],
+    ig: ["https://www.instagram.com/roadsense_tech"],
+    urls: ["https://finder.startupnationcentral.org/company_page/roadsense"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Run:AI": {
@@ -5671,6 +8761,12 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "S.T. Stent": {
+    ws: ["https://ststent.com"],
+    li: ["https://www.linkedin.com/company/s-t-stent"],
+    urls: ["http://www.imaginet.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "SAM Seamless Network": {
     ws: ["https://securingsam.com"],
     li: ["https://www.linkedin.com/company/sam-seamless-network"],
@@ -5680,12 +8776,30 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@samseamlessnetwork5685"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SAN: {
+    ws: ["https://san.co.il"],
+    li: ["https://www.linkedin.com/company/sanltd"],
+    ytp: ["https://www.youtube.com/@sanltdhaifa"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "SGTech - Zero carbon, sustainable farming": {
+    ws: ["https://sgtech.co.il"],
+    urls: ["https://sgtech.co.il", "https://www.mar-comit.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "SIGA OT Solutions": {
     ws: ["https://sigasec.com"],
     li: ["https://www.linkedin.com/company/sigaotsolutions"],
     ytc: "https://www.youtube.com/channel/UC-MRJHPMCuo8ByTinnV7CXg",
     urls: ["https://attractive.co.il", "https://sigaotsolution.wpengine.com/request-a-demo"],
     ytp: ["https://www.youtube.com/@siga-otsolutions2428"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "SPACING digital ltd.": {
+    ws: ["https://spacing.co.il"],
+    li: ["https://www.linkedin.com/company/spacing-israel"],
+    fb: ["https://www.facebook.com/spacing-272644736489607"],
+    ig: ["https://www.instagram.com/spacing.pass"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "SSV Network": {
@@ -5722,6 +8836,29 @@ export const manualOverrides: Record<
     ws: ["https://strikeco.io"],
     li: ["https://www.linkedin.com/company/strikeco-sports"],
     ig: ["https://www.instagram.com/strikeco_sports"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  SaMBiQ: {
+    ws: ["https://sambiq.com"],
+    li: ["https://www.linkedin.com/company/sambiq"],
+    tw: ["https://x.com/sambiq_smb_ai"],
+    ytp: ["https://www.youtube.com/@sambiq-smb-ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Saffron Tech": {
+    ws: ["https://saffron-tech.ag"],
+    li: ["https://www.linkedin.com/company/saffron-tech"],
+    fb: ["https://www.facebook.com/p/Saffron-Tech-100063958903157"],
+    tw: ["https://x.com/saffrontech_"],
+    ig: ["https://www.instagram.com/saffron_tech_ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  SaliCrop: {
+    ws: ["https://www.salicrop.com"],
+    li: ["https://www.linkedin.com/company/salicrop"],
+    ig: ["https://www.instagram.com/salicrop"],
+    ytp: ["https://www.youtube.com/@salicrop"],
+    urls: ["http://www.duodiv.com/en"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Salignostics: {
@@ -5764,6 +8901,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@sapiensint"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Satcom Systems": {
+    ws: ["https://satcom-gilat.co.il"],
+    urls: ["https://gilat-telecom.co.il", "https://web.irm.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Satori Cyber": {
     ws: ["https://app.satoricyber.com", "https://blog.satoricyber.com", "https://satoricyber.com"],
     li: ["https://www.linkedin.com/company/satoricyber"],
@@ -5774,6 +8916,29 @@ export const manualOverrides: Record<
       "https://www.commvault.com/blogs/commvault-closes-acquisition-of-satori",
       "https://www.g2.com/products/satori-data-security-platform/reviews"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Save A Train": {
+    ws: ["https://saveatrain.com"],
+    li: ["https://www.linkedin.com/company/save-a-train"],
+    fb: ["https://www.facebook.com/saveatrain"],
+    tw: ["https://x.com/saveatrain"],
+    ig: ["https://www.instagram.com/saveatrain"],
+    ytp: ["https://www.youtube.com/@saveatrain"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Save Foods": {
+    ws: ["https://savefoods.co"],
+    li: ["https://www.linkedin.com/company/save-foods-inc"],
+    fb: ["https://www.facebook.com/savefoodsinc"],
+    tw: ["https://x.com/savefoodsinc"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Save It": {
+    ws: ["https://save-it.co"],
+    li: ["https://www.linkedin.com/company/save-it-a"],
+    fb: ["https://www.facebook.com/save.it.il"],
+    ig: ["https://www.instagram.com/save.it.gram"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Savvy: {
@@ -5799,6 +8964,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/scala-biodesign"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SciSparc: {
+    ws: ["https://investor.scisparc.com", "https://scisparc.com"],
+    urls: ["https://investor.scisparc.com/investors", "https://scisparc.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Scinai Immunotherapeutics": {
     ws: ["https://www.scinai.com"],
     li: ["https://www.linkedin.com/company/scinai"],
@@ -5807,6 +8977,14 @@ export const manualOverrides: Record<
     ig: ["http://instagram.com/scinai.immunotherapeutics"],
     ytp: ["https://youtube.com/@Scinai"],
     urls: ["https://www.reddit.com/r/Scinai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Scodix: {
+    ws: ["https://scodix.com", "https://support.scodix.com"],
+    fb: ["https://www.facebook.com/scodix"],
+    tw: ["https://x.com/scodixsense"],
+    ig: ["https://www.instagram.com/scodixsense"],
+    ytp: ["https://www.youtube.com/@scodixsense"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Scopio Labs": {
@@ -5841,12 +9019,27 @@ export const manualOverrides: Record<
     urls: ["https://www.g2.com/products/scytale-g2/reviews"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SeatPick: {
+    ws: ["https://seatpick.com"],
+    fb: ["https://www.facebook.com/seatpick"],
+    tw: ["https://x.com/seatpick"],
+    ig: ["https://www.instagram.com/seatpick"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Secret Double Octopus": {
     ws: ["https://doubleoctopus.com", "https://go.doubleoctopus.com", "https://support.doubleoctopus.com"],
     li: ["https://www.linkedin.com/company/secret-double-octopus"],
     tw: ["https://x.com/double_octopus"],
     ytp: ["https://www.youtube.com/@secretdoubleoctopus5220"],
     urls: ["https://fidoalliance.org/company/secret-double-octopus", "https://vimeo.com/doubleoctopus"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Securithings: {
+    ws: ["https://securithings.com"],
+    li: ["https://www.linkedin.com/company/securithings"],
+    fb: ["https://www.facebook.com/securithingsiot"],
+    ig: ["https://www.instagram.com/lifeatsecurithings"],
+    ytp: ["https://www.youtube.com/@securithingsofficial"],
     _meta: { isHomepage: true, isVerified: true }
   },
   SeeTree: {
@@ -5856,6 +9049,24 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/seetree_ai"],
     ytc: ["https://www.youtube.com/channel/ucckjsmtcxdou7bdgb2eoysq"],
     ytp: "https://www.youtube.com/@SeeTreeAI",
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  SeeTrue: {
+    ws: ["https://seetrue.ai"],
+    li: ["https://www.linkedin.com/company/seetrue-ai"],
+    tw: ["https://x.com/see_true_ai"],
+    ytp: ["https://www.youtube.com/@seetrue-ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Seenity: {
+    ws: ["https://www.seenity.com"],
+    li: ["https://www.linkedin.com/company/seenity"],
+    tw: ["https://x.com/seenitysoftware"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Sella Capital Real Estate": {
+    ws: ["https://www.sellacapital.com"],
+    urls: ["https://www.extra.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Semperis: {
@@ -5876,12 +9087,28 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  SenSwim: {
+    ws: ["https://www.senswim.com"],
+    li: ["https://www.linkedin.com/company/senswim"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Sency.": {
     ws: ["https://www.sency.ai"],
     li: ["https://www.linkedin.com/company/sencyai"],
     urls: [
       "https://docs.google.com/document/d/e/2PACX-1vS7EGUqOaDmV4XGEcqchOLhh9iX6Sb3tRvkMljYYcfAcLi4z_2o1_nS3JSLbqDn0vkGoz85003-YbC8/pub"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Senecio Robotics": {
+    ws: ["https://heb.senecio-robotics.com", "https://www.senecio-robotics.com"],
+    li: ["https://www.linkedin.com/company/senecio-robotics"],
+    urls: ["https://www.senecio-robotics.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  SenseIT: {
+    ws: ["https://sense-it.io"],
+    li: ["https://www.linkedin.com/company/senseitexpert"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Senseera Health": {
@@ -5926,6 +9153,14 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Sentrycs: {
+    ws: ["https://sentrycs.com"],
+    li: ["https://www.linkedin.com/company/sentrycs"],
+    tw: ["https://x.com/sentrycs"],
+    ig: ["https://www.instagram.com/lifeatsentrycs"],
+    ytp: ["https://www.youtube.com/@sentrycs"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Sequentify: {
     ws: ["https://www.sequentify.com"],
     li: ["https://www.linkedin.com/company/sequentify"],
@@ -5940,9 +9175,41 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@seraphicsecurity"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Serenno Medical": {
+    ws: ["https://www.serenno-med.com"],
+    urls: ["https://maps.google.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Sett: {
     ws: ["https://www.sett.ai"],
     li: ["https://www.linkedin.com/company/sett-ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Shalom Hartman Institute": {
+    ws: ["https://go.hartman.org.il", "https://heb.hartman.org.il", "https://www.hartman.org.il"],
+    fb: ["https://www.facebook.com/shalomhartmaninstituteeng"],
+    tw: ["https://x.com/hartman_inst"],
+    ig: ["https://www.instagram.com/shalomhartmaninstitute"],
+    ytp: ["https://www.youtube.com/@shalomhartmaninstituteeng"],
+    urls: [
+      "https://hartman.tfaforms.net/f/support-shalom-hartman",
+      "https://www.hartman.org.il/about-the-hartman-institute",
+      "https://www.hartman.org.il/contact-us",
+      "https://www.hartman.org.il/join-the-hartman-team",
+      "https://www.hartman.org.il/newsletter",
+      "https://www.hartman.org.il/terms-of-service"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Shamaym: {
+    ws: ["https://dibi.shamaym.com", "https://www.shamaym.com"],
+    li: ["https://www.linkedin.com/company/-%d7%a9%d7%9e%d7%99%d7%99%d7%9d-shamaym"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ShapeDo: {
+    ws: ["https://app.shapedo.com", "https://shapedo.com"],
+    li: ["https://www.linkedin.com/company/5015898", "https://www.linkedin.com/company/shapedo"],
+    fb: ["https://www.facebook.com/shapedo"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Shield: {
@@ -5973,6 +9240,24 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/drill.neuromarketing"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Shupperz: {
+    ws: ["https://shupperz.com"],
+    urls: [
+      "https://hokikale.me/daftarhptoto777",
+      "https://hokikale.me/hptotoalte777",
+      "https://hokikale.me/hptotolc777",
+      "https://hokikale.me/joinhoki777",
+      "https://hokikale.me/loginhptoto777",
+      "https://terbang-terus.b-cdn.net/shupper.html"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Sight Diagnostics": {
+    ws: ["https://www.sightdx.com"],
+    li: ["https://www.linkedin.com/company/sight-diagnostics"],
+    urls: ["http://lin.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Sightful: {
     ws: ["https://sightful.com"],
     li: ["https://www.linkedin.com/company/heysightful"],
@@ -5986,6 +9271,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/387937"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Silib: { ws: ["https://www.si-lib.com"], _meta: { isHomepage: true, isVerified: true } },
   Silverfort: {
     ig: ["https://www.instagram.com/life_at_silverfort"],
     gh: ["https://github.com/silverfort-open-source"],
@@ -6002,6 +9288,11 @@ export const manualOverrides: Record<
       { n: "One Identity", ws: "https://www.oneidentity.com" }
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  "SimilarSites.com": {
+    ws: ["https://similarsites.com"],
+    urls: ["https://developer.similarweb.com", "https://www.similarweb.com"],
+    _meta: { isHomepage: true, isVerified: true }
   },
   Simplex: {
     ws: [
@@ -6037,6 +9328,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/c/hellosimply"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Singer Instruments and Control": {
+    ws: ["https://singer-instruments.com"],
+    li: ["https://www.linkedin.com/company/singer-instruments-and-control"],
+    fb: ["https://www.facebook.com/singerinstrumentsandcontrol"],
+    tw: ["https://x.com/controlsinger"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Skai: {
     ws: ["https://skai.io"],
     li: ["https://www.linkedin.com/company/skaicommerce"],
@@ -6045,6 +9344,11 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/lifeatskai"],
     ytp: ["https://www.youtube.com/@skaicommerce"],
     urls: ["https://app.kenshoo.com/portal", "https://developers.kenshoo.com", "https://shopable2026.splashthat.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Skillzzgaming: {
+    ws: ["https://skillzzgaming.com"],
+    li: ["https://www.linkedin.com/company/skillzzgaming"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Skyhawk Security": {
@@ -6066,16 +9370,113 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@SkylineRobotics"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Slauth.io": {
+    ws: ["https://blog.slauth.io", "https://www.slauth.io"],
+    gh: ["https://github.com/slauth-io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Slice Global": {
     ws: ["https://app.sliceglobal.com", "https://sliceglobal.com"],
     li: ["https://www.linkedin.com/company/globalslice"],
     urls: ["https://www.widelab.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Smart Agro": {
+    ws: ["https://smartagrofund.com"],
+    li: ["https://www.linkedin.com/company/smart-agro-fund"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Smart Medical Systems": {
+    ws: ["https://smartmedsys.com"],
+    urls: ["https://generatepress.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Smartair: {
+    ws: ["https://help.smartair.co.il", "https://www.smartair.co.il"],
+    urls: [
+      "http://www.travelyo.com",
+      "https://www.iaa.gov.il/airports/ben-gurion/flight-board",
+      "https://www.nevo.co.il/law_html/law00/119611.htm"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Smartlation: {
+    ws: [
+      "https://app.smartlation.com",
+      "https://cdn.smartlation.com",
+      "https://smartlation.com",
+      "https://smartlationpro.com",
+      "https://www.smartlation.com"
+    ],
+    urls: [
+      "http://www.mastercard.com",
+      "http://www.visa.com",
+      "https://www.americanexpress.com",
+      "https://www.forbes.com/sites/ilyapozin/2014/11/12/five-apps-and-services-entrepreneurs-can-use-to-avoid-business-embarrassment/2",
+      "https://www.paypal.com"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  SodaStream: {
+    ws: [
+      "https://sodastream.com",
+      "https://support-us.sodastream.com",
+      "https://support.sodastream.com",
+      "http://www.sodastream.com.tw",
+      "http://www.sodastream.it",
+      "https://sodastream.at",
+      "https://sodastream.be",
+      "https://sodastream.ca",
+      "https://sodastream.ch",
+      "https://sodastream.co.il",
+      "https://sodastream.co.uk",
+      "https://sodastream.com.au",
+      "https://sodastream.com.ua",
+      "https://sodastream.de",
+      "https://sodastream.dk",
+      "https://sodastream.es",
+      "https://sodastream.fi",
+      "https://sodastream.fr",
+      "https://sodastream.kr",
+      "https://sodastream.nl",
+      "https://sodastream.no",
+      "https://sodastream.pl",
+      "https://sodastream.se",
+      "https://sodastream.sg",
+      "https://sodastream.si",
+      "https://sodastreammexico.com",
+      "https://www.sodastream.co.nz",
+      "https://www.sodastream.co.za",
+      "https://www.sodastream.com.ar",
+      "https://www.sodastream.com.br",
+      "https://www.sodastream.cz",
+      "https://www.sodastream.de",
+      "https://www.sodastream.hu",
+      "https://www.sodastream.jp",
+      "https://www.sodastream.sk"
+    ],
+    fb: ["https://www.facebook.com/sodastream"],
+    ig: ["https://www.instagram.com/sodastream"],
+    ytp: ["https://www.youtube.com/@sodastreamguru"],
+    tt: ["https://www.tiktok.com/@sodastream"],
+    th: ["https://www.threads.net/@sodastream"],
+    urls: [
+      "https://privacyportal-eu.onetrust.com/webform/ababfb1c-faac-4fea-b1a8-0c2676a95f4f/aa61fc20-d05c-4dd2-a287-9424faaae90c",
+      "https://www.pepsicojobs.com/sodastream",
+      "https://www.pinterest.com/sodastreamusa"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Sodot: {
     ws: ["https://docs.sodot.dev", "https://www.sodot.dev"],
     li: ["https://www.linkedin.com/company/sodot"],
     tw: ["https://x.com/sodot_hq"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Sodyo: {
+    ws: ["https://www.sodyo.com"],
+    li: ["https://www.linkedin.com/company/sodyotech"],
+    ytp: ["https://www.youtube.com/@sodyoltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "SofWave Medical": {
@@ -6087,6 +9488,11 @@ export const manualOverrides: Record<
     ytc: "https://www.youtube.com/channel/UC3RyhVm1CRtmU0EscGI3FrA",
     tt: ["https://www.tiktok.com/@sofwavemed"],
     ytp: ["https://www.youtube.com/@sofwavemedical"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Sol Chip": {
+    ws: ["https://sol-chip.com"],
+    li: ["https://www.linkedin.com/company/sol-chip"],
     _meta: { isHomepage: true, isVerified: true }
   },
   SolCold: {
@@ -6130,9 +9536,47 @@ export const manualOverrides: Record<
     urls: ["https://hubs.la/Q02XTTQ10", "https://investors.solaredge.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SolidT: {
+    ws: ["https://solidt-tech.com"],
+    urls: ["https://il.linkedin.com/in/ziv-cohen-695a765"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Solutum: {
+    ws: ["https://www.solutum.co"],
+    li: ["https://www.linkedin.com/company/19138464", "https://www.linkedin.com/company/solutum-ltd"],
+    fb: ["https://www.facebook.com/solutumltd"],
+    ytp: ["https://www.youtube.com/@solutumteam"],
+    urls: [
+      "https://www.solutum.co/contact-us",
+      "https://www.solutum.co/privacy-policy",
+      "https://www.solutum.co/team",
+      "https://www.solutum.co/terms-conditions",
+      "https://www.solutum.co/why-solutum"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Somite: { tw: "https://x.com/somiteai" },
   SonicEdge: { ws: ["https://sonicedge.io"], _meta: { isHomepage: true, isVerified: true } },
+  Sonovia: {
+    ws: ["https://sonoviatech.com"],
+    urls: [
+      "https://sonoviatech.com",
+      "https://sonoviatech.com/about-us",
+      "https://sonoviatech.com/contact-us",
+      "https://sonoviatech.com/faq",
+      "https://sonoviatech.com/investor-relations",
+      "https://sonoviatech.com/technology"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Sorbet: { ws: ["https://advance.getsorbet.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Source Defense": {
+    ws: ["https://sourcedefense.com"],
+    li: ["https://www.linkedin.com/company/source-defense"],
+    tw: ["https://x.com/sourcedefense"],
+    urls: ["https://sourceforge.net/software/product/Source-Defense"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   SpaceIL: {
     ws: ["https://arb.spaceil.com", "https://eng.spaceil.com", "https://kids.spaceil.com", "https://www.spaceil.com"],
     fb: ["https://www.facebook.com/spaceil"],
@@ -6142,6 +9586,13 @@ export const manualOverrides: Record<
     urls: ["https://www.wix.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "SpacePharma R&D": {
+    ws: ["https://www.spacepharma.health"],
+    li: ["https://www.linkedin.com/company/spacepharma"],
+    tw: ["https://x.com/spacepharmaoff"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  SparX: { ws: ["https://sparx.ai"], urls: ["https://sparxapp.ai"], _meta: { isHomepage: true, isVerified: true } },
   Spectral: {
     ws: ["https://spectralops.io"],
     li: ["https://www.linkedin.com/company/spectralops-io"],
@@ -6172,6 +9623,24 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Spetz: {
+    ws: ["https://spetz.io"],
+    urls: ["https://spetz.io/the-role-of-personalization-in-chatbot-engagement"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Spheron ABU": {
+    ws: ["https://docs.spheron.network", "https://www.spheron.network", "https://app.spheron.ai"],
+    li: ["https://www.linkedin.com/company/spheron-ai"],
+    tw: ["https://x.com/spheronai"],
+    gh: ["https://github.com/spheron-core"],
+    urls: [
+      "https://calendly.com/prashantsphn/new-meeting",
+      "https://sphn.wiki/discord",
+      "https://sphn.wiki/tg",
+      "https://sphn.wiki/yt"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Spike: {
     ws: ["https://www.spikenow.com"],
     li: ["https://www.linkedin.com/company/3240452"],
@@ -6184,6 +9653,36 @@ export const manualOverrides: Record<
       "https://www.g2.com/products/spike"
     ],
     android_app_ids: ["com.pingapp.app"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Spinomenal: {
+    ws: ["https://spinomenal.com"],
+    li: ["https://www.linkedin.com/company/spinomenal"],
+    ig: ["https://www.instagram.com/spinomenal"],
+    urls: [
+      "http://onjn.gov.ro/lista-licentiati-clasa-a-ii-a",
+      "https://authorisation.mga.org.mt/verification.aspx",
+      "https://bmm.com",
+      "https://www.gambleaware.org",
+      "https://www.gamblingcommission.gov.uk/public-register/business/detail/58210"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Splisense: {
+    ws: ["https://splisense.com"],
+    li: ["https://www.linkedin.com/company/splisenseltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Sprybuild: {
+    ws: ["https://www.sprybuild.com"],
+    li: ["https://www.linkedin.com/company/sprybuild"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Squadded: {
+    ws: ["https://dashboard.squadded.co", "https://www.squadded.co"],
+    li: ["https://www.linkedin.com/company/squadded"],
+    ig: ["https://www.instagram.com/squadded.co"],
+    urls: ["https://squadded-new.webflow.io/customers"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Stargo: {
@@ -6203,12 +9702,37 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@starkware_ltd"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  StartupBlink: {
+    ws: ["https://lp.startupblink.com", "https://www.startupblink.com", "https://startupblink.breezy.hr"],
+    li: ["https://www.linkedin.com/company/startupblink"],
+    fb: ["https://www.facebook.com/startupblink"],
+    tw: ["https://x.com/startupblink"],
+    urls: ["https://startupblink.us3.list-manage.com/subscribe"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Steakholder Foods": {
     ws: ["https://www.steakholderfoods.com"],
     li: ["https://www.linkedin.com/company/steakholderfoods"],
     fb: ["https://www.facebook.com/steakholderfoods"],
     tw: ["https://x.com/stkhfoods"],
     ig: ["https://www.instagram.com/steakholderfoods"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  StellarNova: {
+    ws: ["https://stellarnova.co"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Stem Cell Medicine": {
+    ws: ["https://www.stemcell-medicine.com"],
+    urls: ["http://www.foothold-systems.co.il", "http://www.portnov-mishan.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Stemrad: {
+    ws: ["https://stemrad.com"],
+    li: ["https://www.linkedin.com/company/stemrad-inc"],
+    fb: ["https://www.facebook.com/stemrad"],
+    tw: ["https://x.com/stemrad"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Stigg: {
@@ -6227,6 +9751,7 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@trystigg"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Storage Drop": { ws: ["https://storagedrop.co.il"], _meta: { isHomepage: true, isVerified: true } },
   StoreDot: {
     ws: ["https://www.store-dot.com"],
     li: ["https://www.linkedin.com/company/storedot"],
@@ -6236,6 +9761,19 @@ export const manualOverrides: Record<
     ytc: "https://www.youtube.com/channel/UC5ChQSDVUxSLokJjP42Wmqg",
     urls: ["https://goo.gl/maps/shPJd5niNA5LsX62A", "https://maps.app.goo.gl/sEhaP5sZy3QUJ2hF7"],
     ytp: ["https://www.youtube.com/@StoreDotLtd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Storywise: {
+    ws: ["https://www.storywise.ai"],
+    urls: ["https://www.storywisenetwork.com", "https://www.storywisepublishers.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Storywizard: {
+    ws: ["https://www.storywizard.ai"],
+    fb: ["https://www.facebook.com/storywizardai"],
+    tw: ["https://x.com/storywizardai"],
+    ig: ["https://www.instagram.com/storywizard.ai"],
+    urls: ["https://cert.privo.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Stream Security": {
@@ -6265,6 +9803,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@strigo8642"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Stuff That Works": { ws: ["https://www.stuffthatworks.health"], _meta: { isHomepage: true, isVerified: true } },
+  Sufresca: {
+    ws: ["https://sufresca.com"],
+    li: ["https://www.linkedin.com/company/sufresca"],
+    urls: ["https://www.mar-comit.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   SuperBuzz: {
     ws: ["https://analyze.superbuzz.io", "https://app.superbuzz.io", "https://www.superbuzz.io"],
     li: ["https://www.linkedin.com/company/superbuzz-io"],
@@ -6287,6 +9832,17 @@ export const manualOverrides: Record<
     urls: ["https://www.comeet.com/jobs/supercom/46.00A"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Superfy: {
+    ws: ["https://asksuperfy.com"],
+    urls: ["https://itunes.apple.com/app/apple-store/id1191453603"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Supersmart: {
+    ws: ["https://developer.supersmart.me", "https://resources.supersmart.me", "https://supersmart.me"],
+    li: ["https://www.linkedin.com/company/supersmart-ltd-"],
+    fb: ["https://www.facebook.com/supersmart-shopping-experience-774463189399153"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Superstream: {
     ws: [
       "https://app.superstream.ai",
@@ -6298,6 +9854,11 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/superstreamai"],
     tw: ["https://x.com/superstreamai"],
     urls: ["https://www.npmjs.com/package/superstream-kafka-analyzer"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Surance.io": {
+    ws: ["https://www.surance.io"],
+    urls: ["https://surancecheck.me"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Suridata: {
@@ -6342,6 +9903,24 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@swimm_io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Symetrify: {
+    ws: ["https://symetrify.com"],
+    li: ["https://www.linkedin.com/company/symetrify"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Sync.ME": {
+    ws: ["https://sync.me"],
+    li: ["https://www.linkedin.com/company/sync-me"],
+    tw: ["https://x.com/syncme"],
+    urls: ["https://calendar.ai", "https://www.livecallerid.com"],
+    android_app_ids: ["com.syncme.syncmeapp"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Synvertec LTD.": {
+    ws: ["https://www.synvertec.com"],
+    urls: ["http://taustudio.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Syqe Medical": {
     ws: ["https://www.syqemedical.com"],
     urls: [
@@ -6382,6 +9961,23 @@ export const manualOverrides: Record<
     fb: ["https://www.facebook.com/tattechnologiesgroup"],
     tw: ["https://x.com/tattecnologies"],
     urls: ["https://web-skipper.co.il", "https://www.sinapistech.com", "https://www.yoti.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  TERA: {
+    ws: ["https://partners.tera.group", "https://www.tera.group"],
+    li: ["https://www.linkedin.com/company/the-teragroup"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  TEXEL: {
+    ws: ["https://texel.live"],
+    urls: ["https://www.godaddy.com/websites/website-builder"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  TKTZ: {
+    ws: ["https://www.tktz.io"],
+    li: ["https://www.linkedin.com/company/tktz-io"],
+    fb: ["https://www.facebook.com/tktzio-106727112058592"],
+    tw: ["https://x.com/tktzio"],
     _meta: { isHomepage: true, isVerified: true }
   },
   TaTiO: {
@@ -6432,12 +10028,23 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/tactilemobility"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tagado: {
+    ws: ["https://app.tagado.com", "https://tagado.com"],
+    li: ["https://www.linkedin.com/company/tagado"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   TailorMed: {
     ws: ["https://go.tailormed.co", "https://resources.tailormed.co", "https://tailormed.co"],
     li: ["https://www.linkedin.com/company/tailormed---medical-journey-innovations"],
     fb: ["https://www.facebook.com/tailormed.co"],
     tw: ["https://x.com/tailormedtweet"],
     ig: ["https://www.instagram.com/tailormed.co"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Tasq.ai": {
+    ws: ["https://www.tasq.ai"],
+    li: ["https://www.linkedin.com/company/tasq-ai"],
+    fb: ["https://www.facebook.com/tasqai"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Team8: {
@@ -6474,11 +10081,28 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@techsee291"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TechsoMed: {
+    ws: ["https://techsomed.com"],
+    li: ["https://www.linkedin.com/company/techsomed"],
+    ytp: ["https://www.youtube.com/@techsomed-igt"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Tedooo: {
     ws: ["https://www.tedooo.com"],
     android_app_ids: ["com.mor.tedooo"],
     android_dev_id: "591913365560966627100",
     urls: ["https://apps.apple.com/us/app/tedooo/id1487331226"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Telicomm: {
+    ws: ["https://www.telicomm.com"],
+    urls: ["https://lamhas.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Terafence: {
+    ws: ["https://terafence.com"],
+    li: ["https://www.linkedin.com/company/terafence"],
+    tw: ["https://x.com/terafence"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Teramount: {
@@ -6517,6 +10141,16 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "The Agro Exchange": { ws: "https://www.agrox.io" },
+  "The Backyard beer garden": {
+    ws: ["https://beer-garden.co.il"],
+    fb: ["https://www.facebook.com/beergarden.kfar.saba"],
+    ig: ["https://www.instagram.com/beergardenks"],
+    urls: [
+      "https://ontopo.co.il/beergardenkfarsaba",
+      "https://wolt.com/he/isr/hasharon/restaurant/beer-garden-kfar-saba"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "The Mediterranean Food Lab": {
     ws: ["https://www.med-food-lab.com"],
     urls: ["http://cooksho.com"],
@@ -6557,6 +10191,19 @@ export const manualOverrides: Record<
     urls: ["https://tidhar.my.site.com/community", "https://www.dofinity.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tigi: {
+    ws: ["https://www.tigisolar.com"],
+    li: ["https://www.linkedin.com/company/tigi"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Timing: {
+    ws: ["https://timing.tech"],
+    li: ["https://www.linkedin.com/company/timingtech"],
+    fb: ["https://www.facebook.com/timingtechsoftware"],
+    urls: ["https://apps.apple.com/il/app/timing-tech/id6742377000"],
+    android_app_ids: ["tech.timing"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   TinyTap: {
     ws: [
       "https://blog.tinytap.com",
@@ -6592,12 +10239,59 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@TIPAcorp"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Tipigo: {
+    ws: ["https://insight.tipigo.com", "https://www.tipigo.com"],
+    li: ["https://www.linkedin.com/company/tipigo"],
+    fb: ["https://www.facebook.com/tipigo-solutions-105994188333079"],
+    urls: ["https://apps.apple.com/us/app/funl-analyst-ideas/id1390347293"],
+    android_app_ids: ["com.tipigo.signals.benzinga"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Tissue Dynamics": {
+    ws: ["https://www.tissuedynamics.com"],
+    li: ["https://www.linkedin.com/company/tissuedynamics"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Titan: {
+    ws: ["https://academy.titandxp.com", "https://support.titandxp.com", "https://titandxp.com"],
+    li: ["https://www.linkedin.com/company/formtitan"],
+    fb: ["https://www.facebook.com/titandxp"],
+    tw: ["https://x.com/formtitan"],
+    ig: ["https://www.instagram.com/titandxp"],
+    ytp: ["https://www.youtube.com/@formtitan101salesforceformsdocuments"],
+    urls: [
+      "https://formtitan.com/TermsOfUse",
+      "https://formtitan.com/signin",
+      "https://start-chat.com/slack/titan/Jr47ZQ",
+      "https://start-chat.com/slack/titan/Kl4kZl"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Tiv.ai": {
+    ws: ["https://tiv.ai"],
+    urls: ["https://www.spaceship.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Token Security": {
     ws: ["https://privilege-guardian.ai.token.security", "https://token.security", "https://trust.token.security"],
     li: ["https://www.linkedin.com/company/token-security"],
     tw: ["https://x.com/thetokensec"],
     gh: ["https://github.com/tokensec"],
     ytp: ["https://www.youtube.com/@token.security"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Tolstoy: {
+    ws: [
+      "https://app.gotolstoy.com",
+      "https://developers.gotolstoy.com",
+      "https://help.gotolstoy.com",
+      "https://platform.gotolstoy.com",
+      "https://www.gotolstoy.com"
+    ],
+    li: ["https://www.linkedin.com/company/gotolstoy"],
+    tw: ["https://x.com/gotolstoy"],
+    ig: ["https://www.instagram.com/gotolstoy"],
+    urls: ["https://apps.shopify.com/tolstoy", "https://www.stan.vision"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Tomi: {
@@ -6655,6 +10349,15 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Towerjazz_official"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Toya Pioneering Women": {
+    ws: ["https://www.toyaplay.com"],
+    tw: ["https://x.com/toyaplaystudio"],
+    ig: ["https://www.instagram.com/toyaplay"],
+    ytp: ["https://www.youtube.com/@toyaplaystudio"],
+    tt: ["https://www.tiktok.com/@toyaplaystudio"],
+    urls: ["http://clbthemes.com", "https://1.envato.market/5Q25j", "https://discord.com/invite/zENRjzh"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Traceloop: {
     ws: ["https://traceloop.com"],
     li: ["https://www.linkedin.com/company/traceloop"],
@@ -6670,6 +10373,17 @@ export const manualOverrides: Record<
     ytc: "https://www.youtube.com/channel/UCQZhCZIe6xRDjCkfzzwPBCg",
     urls: ["https://portal.datasecai.io/hc", "https://security.cyera.io", "https://www.cyera.io/legal/privacy-policy"],
     ytp: ["https://www.youtube.com/@CyeraSecurity"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Trailze: {
+    ws: ["https://mytrailze.trailze.com", "https://trailze.com"],
+    fb: ["https://www.facebook.com/trailzeil"],
+    urls: ["https://jonnystudio.co.il", "https://morning-sale.page/beshvil-yael", "https://www.nextoctober.org"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  TransAlgae: {
+    ws: ["https://www.transalgae.com"],
+    li: ["https://www.linkedin.com/company/transalgae-israel-ltd."],
     _meta: { isHomepage: true, isVerified: true }
   },
   Travelier: {
@@ -6736,16 +10450,49 @@ export const manualOverrides: Record<
     _meta: { isHomepage: true, isVerified: true }
   },
   "Tre Capital GP Ltd": { tw: [""] },
+  Treedis: {
+    ws: ["https://info.treedis.com", "https://my.treedis.com", "https://www.treedis.com"],
+    li: ["https://www.linkedin.com/company/treedis"],
+    fb: ["https://www.facebook.com/treedismsp"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Treetoscope: {
     ws: ["https://www.treetoscope.com"],
     li: ["https://www.linkedin.com/company/treetoscope"],
     urls: ["https://app.treetoscopeapp.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TrenDemon: {
+    ws: [
+      "https://demo-webapp.trendemon.com",
+      "https://st.trendemon.com",
+      "https://support.trendemon.com",
+      "https://trendemon.com",
+      "https://webapp.trendemon.com"
+    ],
+    li: ["https://www.linkedin.com/company/trendemon"],
+    tw: ["https://x.com/trendemon"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Trendlines Group": {
+    ws: ["https://www.trendlines.com"],
+    li: ["https://www.linkedin.com/company/trendlines"],
+    fb: ["https://www.facebook.com/trendlinesgroup"],
+    tw: ["https://x.com/trendlinesgroup"],
+    urls: ["http://imaginet.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Tres: {
     ws: ["https://help.tres.finance", "https://tres.finance", "https://trustcenter.tres.finance"],
     li: ["https://www.linkedin.com/company/tresfinance"],
     tw: ["https://x.com/tresdotfinance"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  TriEye: {
+    ws: ["https://trieye.tech"],
+    li: ["https://www.linkedin.com/company/trieye"],
+    tw: ["https://x.com/trieye_tech"],
+    ytp: ["https://www.youtube.com/@trieyetech"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Trigo: {
@@ -6792,6 +10539,13 @@ export const manualOverrides: Record<
   Turpaz: {
     ws: ["https://www.turpaz.co.il"],
     urls: ["https://www.catom.co.il", "https://www.catom.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Tuvis: {
+    ws: ["https://tuvis.com"],
+    li: ["https://www.linkedin.com/company/tuviscom"],
+    fb: ["https://www.facebook.com/tuviscom"],
+    ig: ["https://www.instagram.com/tuviscom"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Tweed: {
@@ -6846,6 +10600,25 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@unipaas"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  UPnRIDE: {
+    ws: ["https://upnride.com"],
+    li: ["https://www.linkedin.com/company/upnride-robotics-ltd"],
+    fb: ["https://www.facebook.com/upnride"],
+    ig: ["https://www.instagram.com/upnride"],
+    ytp: ["https://www.youtube.com/@upnrideroboticsltd2298"],
+    urls: ["http://www.72dpi.co.il", "https://rightman.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Ubeya: {
+    ws: ["https://careers.ubeya.com", "https://learn.ubeya.com", "https://ottavio.ubeya.com", "https://www.ubeya.com"],
+    li: ["https://www.linkedin.com/company/ubeya"],
+    fb: ["https://www.facebook.com/ubeya"],
+    tw: ["https://x.com/ubeya_"],
+    ig: ["https://www.instagram.com/ubeya"],
+    urls: ["https://apps.apple.com/il/app/ubeya-crew/id1538331228"],
+    android_app_ids: ["com.ubeya.crew.app"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   UltraSight: {
     ws: ["https://ultrasight.com"],
     li: ["https://linkedin.com/company/ultrasightai"],
@@ -6853,6 +10626,7 @@ export const manualOverrides: Record<
     urls: ["https://etyhadar.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Unicorn Technologies": { ws: ["https://unicorn-technologies.co.il"], _meta: { isHomepage: true, isVerified: true } },
   "Uniper-care Technologies": {
     ws: ["https://www.unipercare.com"],
     li: ["https://www.linkedin.com/company/uniper-care-technologies"],
@@ -6867,6 +10641,20 @@ export const manualOverrides: Record<
     ],
     android_app_ids: ["com.uniper.uniapp"],
     ytp: ["https://www.youtube.com/@unipercare1086"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "United Hatzalah Of Israel": {
+    ws: ["https://israelrescue.org"],
+    li: ["https://www.linkedin.com/company/united-hatzalah-of-israel"],
+    fb: ["https://www.facebook.com/unitedhatzalahofisrael"],
+    tw: ["https://x.com/unitedhatzalah"],
+    ig: ["https://www.instagram.com/unitedhatzalahofisrael"],
+    ytp: ["https://www.youtube.com/@united5002020"],
+    urls: [
+      "https://leverage.it",
+      "https://midot.org.il/association/hatzalah",
+      "https://www.charitynavigator.org/ein/113533002"
+    ],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Upright Technologies": {
@@ -6893,6 +10681,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@UrbanAero"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Urecsys - Urban Ecology Systems Indoor Air Management": {
+    ws: ["https://urecsys.com"],
+    urls: ["https://www.urecsys.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Utila: {
     ws: [
       "https://console.utila.io",
@@ -6907,10 +10700,20 @@ export const manualOverrides: Record<
     urls: ["https://www.comeet.com/jobs/utila/D9.00F"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Utilight: {
+    ws: ["https://www.utilight.com"],
+    li: ["https://www.linkedin.com/company/utilight-ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "V-Wave": {
     ws: ["https://vwavemedical.com"],
     li: ["https://www.linkedin.com/company/johnson-&-johnson-medtech"],
     urls: ["https://www.relieve-hf.info"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "VALFIX Medical": {
+    ws: ["https://www.valfixmed.com"],
+    urls: ["http://imaginet.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "VAST Data": {
@@ -6921,6 +10724,30 @@ export const manualOverrides: Record<
       "https://www.carahsoft.com/vast"
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
+  },
+  VFR: {
+    ws: ["https://vfr.ai"],
+    li: ["https://www.linkedin.com/company/vfrai"],
+    fb: ["https://www.facebook.com/vfrctv"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  VIVID: {
+    ws: ["https://link.vivid.me", "https://www.vivid.me"],
+    urls: ["https://apps.apple.com/app/VIVID/id1570270579"],
+    android_app_ids: ["me.vivid.vivid"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "VREE LABS": {
+    ws: ["https://console.vree.ai", "https://vree.ai"],
+    li: ["https://www.linkedin.com/company/vree-ai"],
+    tw: ["https://x.com/vreeai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "VSL Labs": {
+    ws: ["https://status.vsllabs.com", "https://vsllabs.com"],
+    li: ["https://www.linkedin.com/company/vsllabs"],
+    urls: ["https://status.vsllabs.com"],
+    _meta: { isHomepage: true, isVerified: true }
   },
   "Valens Semiconductor": {
     ws: ["https://investors.valens.com", "https://www.valens.com"],
@@ -6937,6 +10764,11 @@ export const manualOverrides: Record<
     ws: ["https://valerann.com"],
     li: ["https://www.linkedin.com/company/valerann"],
     tw: ["https://x.com/valerann_ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Valid.it": {
+    ws: ["https://validit.ai"],
+    li: ["https://www.linkedin.com/company/validitai"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "Vanilla Vida": {
@@ -6972,6 +10804,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@vee.channel"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Velotix: {
+    ws: ["https://www.velotix.ai"],
+    li: ["https://www.linkedin.com/company/velotix"],
+    tw: ["https://x.com/velotixai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Velox: { ws: ["https://velox-digital.com"], _meta: { isHomepage: true, isVerified: true } },
   Vendict: {
     ws: ["https://myapp.vendict.com", "https://trust.vendict.com", "https://vendict.com"],
@@ -6992,10 +10830,70 @@ export const manualOverrides: Record<
     tw: ["https://twitter.com/VERITISECURITY"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Verobotics: {
+    ws: ["https://verobotics.com"],
+    li: ["https://www.linkedin.com/company/verobotics"],
+    tw: ["https://x.com/verobotics"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Verstill: {
+    ws: ["https://www.verstill.com"],
+    li: ["https://www.linkedin.com/company/verstill"],
+    fb: ["https://www.facebook.com/verstill"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Verto: {
+    ws: ["https://www.verto.ai"],
+    li: ["https://www.linkedin.com/company/verto3d"],
+    fb: ["https://www.facebook.com/verto3d"],
+    urls: [
+      "https://calendly.com/nadav_dadon_verto/verto_information_and_demo_call",
+      "https://www.crunchbase.com/organization/verto"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Vespper: {
+    ws: ["https://app.vespper.com", "https://www.vespper.com"],
+    li: ["https://www.linkedin.com/company/vespper"],
+    tw: ["https://x.com/vespperdotcom"],
+    urls: ["https://cal.com/callwithtopaz/30min"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Vessi Medical": {
+    ws: ["https://www.vessimed.com"],
+    li: ["https://www.linkedin.com/company/vessi-medical"],
+    urls: ["https://www.vessimed.com", "https://www.vessimed.com/privacy-policy"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Vetric: {
+    ws: ["https://www.vetric.io"],
+    li: ["https://www.linkedin.com/company/vetric"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "ViAqua Therapeutics": { ws: ["https://www.viaqua-t.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Vidac Pharma": { ws: ["https://vidacpharma.com"], _meta: { isHomepage: true, isVerified: true } },
   Videocites: {
     ws: ["https://www.rippleanalytics.com"],
     li: ["https://www.linkedin.com/company/rippleanalytics"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Viewbix: {
+    ws: ["https://www.viewbix.com"],
+    fb: ["https://www.facebook.com/viewbix"],
+    tw: ["https://x.com/viewbix"],
+    ytp: ["https://www.youtube.com/@viewbix"],
+    urls: ["https://goo.gl/Z9hszs"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Vigor Medical Technologies": {
+    ws: ["https://www.vigormt.com"],
+    li: ["https://www.linkedin.com/company/vigor-medical-technologies-ltd-"],
+    ytp: ["https://www.youtube.com/@vigormedical6644"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Villar International": {
+    ws: ["https://villar.co.il"],
+    urls: ["https://www.waze.com/live-map/directions/israel/haifa-district/caesarea/haeshel-st-3"],
     _meta: { isHomepage: true, isVerified: true }
   },
   VineSight: {
@@ -7023,6 +10921,19 @@ export const manualOverrides: Record<
     urls: ["https://discord.com/invite/tkYHJCA7mb"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Vitania: {
+    ws: ["https://vitania.co.il"],
+    li: ["https://www.linkedin.com/company/%d7%95%d7%99%d7%aa%d7%a0%d7%99%d7%94-vitania"],
+    fb: ["https://www.facebook.com/vitaniaisrael"],
+    ig: ["https://www.instagram.com/vitanialtd"],
+    urls: ["https://maya.tase.co.il/company/1515", "https://portal.vplans.com/he/vitania"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Voiceable: {
+    ws: ["https://voiceable.co"],
+    li: ["https://www.linkedin.com/company/voiceable"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Voiceitt: {
     ws: ["https://voiceitt.com", "https://web.voiceitt.com"],
     li: ["https://www.linkedin.com/company/viking-maccabee-ventures", "https://www.linkedin.com/company/voiceitt"],
@@ -7045,6 +10956,18 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@Voyantis-ai"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "W Cycle": {
+    ws: ["https://w-cycle.com"],
+    li: ["https://www.linkedin.com/company/wcycle"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "WONDER JEWEL": {
+    ws: ["https://wonder-jewel.com"],
+    fb: ["https://www.facebook.com/wonderjewelrevolution"],
+    ig: ["https://www.instagram.com/wonderjewel__community"],
+    urls: ["https://www.shopify.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "WSC Sports": {
     ws: ["https://wsc-sports.com"],
     li: ["https://il.linkedin.com/company/wsc-sports-technologies"],
@@ -7062,6 +10985,24 @@ export const manualOverrides: Record<
   "Watchful Technologies": {
     ws: ["https://app.watchful.ai", "https://watchful.ai"],
     urls: ["https://app.watchful.ai/login"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  WaterGen: {
+    ws: ["https://watergen.com"],
+    li: ["https://www.linkedin.com/company/824932", "https://www.linkedin.com/company/watergen"],
+    fb: ["https://www.facebook.com/watergen.official"],
+    tw: ["https://x.com/watergen_inc"],
+    ig: ["https://www.instagram.com/watergen_official"],
+    ytp: ["https://www.youtube.com/@watergen_official"],
+    urls: ["https://wponetap.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Waterfall Security Solutions Ltd.": {
+    ws: ["https://waterfall-security.com"],
+    li: ["https://www.linkedin.com/company/waterfall-security-solutions-ltd"],
+    fb: ["https://www.facebook.com/waterfallsolutions"],
+    tw: ["https://x.com/waterfallsecure"],
+    urls: ["https://waterfall.my.site.com/s/login"],
     _meta: { isHomepage: true, isVerified: true }
   },
   WaveBL: {
@@ -7083,6 +11024,30 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/wearable-devices-ltd"],
     ytp: ["https://www.youtube.com/@mudraband"],
     urls: ["https://www.google.com/maps/search/Hatnufa+5+,+Yokneam+Illit,+Israel"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Webbing: {
+    ws: ["https://support.webbingsolutions.com", "https://webbingsolutions.com", "https://my.iamwebbing.com"],
+    li: ["https://www.linkedin.com/company/webbing-inc-"],
+    fb: ["https://www.facebook.com/webbingvibe"],
+    tw: ["https://x.com/webbinginc"],
+    urls: ["https://forms.monday.com/forms/feb5c201b3019c1b96d7e7e4a4d5ce4b"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Webbing Labs": {
+    ws: ["https://webbinglabs.com"],
+    urls: ["http://web.archive.org/web/20210305122812/mailto:Avraham@webbinglabs.com"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Webselenese: {
+    ws: ["https://www.webselenese.com"],
+    li: ["https://www.linkedin.com/company/webselenese"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  WeedOut: { ws: ["https://www.weedout-ibs.com"], _meta: { isHomepage: true, isVerified: true } },
+  "Wematch.live": {
+    ws: ["https://wematch.live"],
+    li: ["https://www.linkedin.com/company/wematch.live"],
     _meta: { isHomepage: true, isVerified: true }
   },
   Wenrix: {
@@ -7189,6 +11154,11 @@ export const manualOverrides: Record<
     android_app_ids: ["com.wisdo.android.wisdo"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Wisery Labs": {
+    ws: ["https://wiserylabs.ai"],
+    li: ["https://www.linkedin.com/company/wiserylabs-ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Wisor: {
     ws: ["https://app.wisor.ai", "https://wisor.ai"],
     li: ["https://www.linkedin.com/company/wisorai"],
@@ -7235,6 +11205,13 @@ export const manualOverrides: Record<
     android_dev_id: "com.wix",
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  Wizermed: {
+    ws: ["https://www.wizermed.com"],
+    li: ["https://www.linkedin.com/company/wizermed"],
+    urls: ["https://apps.apple.com/us/app/migraine-watch/id6754345965"],
+    android_app_ids: ["com.wizermed.migraine_watch"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Wonderful: {
     ws: ["https://www.wonderful.ai"],
     li: ["https://www.linkedin.com/company/wonderfulcx"],
@@ -7263,6 +11240,21 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@xjetnpj"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  XTEND: {
+    ws: ["https://ir.xtend.me", "https://support.xtend.me", "https://www.xtend.me"],
+    urls: ["http://ir.xtend.me", "https://support.xtend.me/wp-login.php"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "XTL Biopharmaceuticals Ltd.": {
+    ws: ["https://xtlbio.com"],
+    urls: ["http://www.nasdaq.com/symbol/xtlb", "http://www.tase.co.il/eng/general/company/pages/companymaindata.aspx"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Xenia Venture Capital": {
+    ws: ["https://xenia.co.il"],
+    urls: ["http://www.vlx.co.il", "https://jstudio.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "Xpand (formerly 1MRobotics)": {
     ws: ["https://xpand.us"],
     li: ["https://www.linkedin.com/company/xpand-today"],
@@ -7276,6 +11268,15 @@ export const manualOverrides: Record<
     tw: ["https://x.com/XsightLabs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Xtras: {
+    ws: ["https://www.xtras.co.il"],
+    li: ["https://www.linkedin.com/company/xtras"],
+    fb: ["https://www.facebook.com/xtrasapp"],
+    ig: ["https://www.instagram.com/xtrasapp"],
+    urls: ["https://itunes.apple.com/il/app/xtras/id963720978", "https://xtras.online/auth"],
+    android_app_ids: ["com.ionicframework.xtras758914"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Xyte: {
     ws: ["https://www.xyte.ai"],
     li: ["https://www.linkedin.com/company/xyte"],
@@ -7283,6 +11284,102 @@ export const manualOverrides: Record<
     ig: ["https://www.instagram.com/xyte.io"],
     ytp: ["https://www.youtube.com/@xytexaas"],
     urls: ["https://dev.xyte.io", "https://meetings.hubspot.com/xyte/website-demo-ash", "https://updates.xyte.io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  YDLabs: {
+    ws: ["https://yd-labs.com"],
+    li: ["https://www.linkedin.com/company/ydlabs"],
+    urls: [
+      "http://calendly.com/ydlabs",
+      "https://calendly.com/ydlabs",
+      "https://user-a.co.il",
+      "https://www.digitale.co.il/%d7%94%d7%a0%d7%92%d7%a9%d7%aa-%d7%90%d7%aa%d7%a8%d7%99%d7%9d-2"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "YORAN Imaging": {
+    ws: ["https://yoran-imaging.com"],
+    li: ["https://www.linkedin.com/company/yoran-imaging"],
+    urls: [
+      "https://yoranimaging.wpenginepowered.com/company",
+      "https://yoranimaging.wpenginepowered.com/process-benefits"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Yabi Technologies": {
+    ws: ["https://www.yabi.cloud"],
+    li: ["https://www.linkedin.com/company/yabi-technologies-ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Yail Noa Group": {
+    ws: [
+      "https://www.yail-noa.co.il",
+      "http://www.yail-1995.co.il",
+      "http://www.yail-aerotec.co.il",
+      "http://www.yail-dcs.co.il",
+      "http://www.yail-medical.co.il",
+      "http://www.yail-pharma.co.il"
+    ],
+    li: ["https://www.linkedin.com/company/yail-noa-group"],
+    fb: ["https://www.facebook.com/yailnoa"],
+    ytp: ["https://www.youtube.com/@yailnoa"],
+    urls: [
+      "http://www.kk-fabrics.com",
+      "http://www.metalem.co.il",
+      "http://www.motyknit.com",
+      "https://www.selected.co.il"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Yarok Microbio": {
+    ws: ["https://www.yaroktt.com"],
+    li: ["https://www.linkedin.com/company/yarok-technology-transfer"],
+    fb: ["https://www.facebook.com/yarokmicrobio"],
+    tw: ["https://x.com/yaroktt"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Yeap Proteins": {
+    ws: ["https://yeap-proteins.com"],
+    li: ["https://www.linkedin.com/company/yeap-proteins"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  YesChef: {
+    ws: ["https://app.yeschef.me", "https://support.yeschef.me", "https://yeschef.me"],
+    fb: ["https://www.facebook.com/yeschefhq"],
+    ig: ["https://www.instagram.com/yeschefhq"],
+    ytp: ["https://www.youtube.com/@yeschefhq"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Yevul Info": {
+    ws: ["https://www.yevulinfo.com"],
+    li: ["https://www.linkedin.com/company/yevul-info"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  "Yissum Technology Transfer Company of the Hebrew University": {
+    ws: ["https://www.yissum.co.il"],
+    li: ["https://www.linkedin.com/company/yissum"],
+    fb: ["https://www.facebook.com/yissum.technology.transfer"],
+    tw: ["https://x.com/yissumhuji"],
+    ytp: ["https://www.youtube.com/@yissum"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Yofix: { ws: ["https://yofix.co.il"], _meta: { isHomepage: true, isVerified: true } },
+  Yonalink: {
+    ws: [
+      "https://edc.eu.yonalink.com",
+      "https://edc.us.yonalink.com",
+      "https://ehr.eu.yonalink.com",
+      "https://ehr.us.yonalink.com",
+      "https://status.yonalink.com",
+      "https://www.yonalink.com"
+    ],
+    li: ["https://www.linkedin.com/company/yonalink"],
+    tw: ["https://x.com/yonalink_"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  Youtiligent: {
+    ws: ["https://www.youtiligent.com"],
+    li: ["https://www.linkedin.com/company/youtiligent"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "ZOOZ Power": {
@@ -7334,6 +11431,11 @@ export const manualOverrides: Record<
     urls: ["https://minus273celsius.slack.com", "https://partners.zeronetworks.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  ZipoApps: {
+    ws: ["https://zipoapps.com"],
+    urls: ["https://mobiri.se"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Zoog: {
     ws: ["https://app.getzoog.com", "https://getzoog.com", "https://story.getzoog.com"],
     li: ["https://www.linkedin.com/company/zoog-ai"],
@@ -7347,6 +11449,35 @@ export const manualOverrides: Record<
     ],
     _meta: { isHomepage: true, isVerified: true }
   },
+  Zoomd: {
+    ws: ["https://lp.zoomd.com", "https://zoomd.com"],
+    li: ["https://www.linkedin.com/company/zoomd-com"],
+    fb: ["https://www.facebook.com/zoomd.since2012"],
+    tw: ["https://x.com/zoomdtech"],
+    urls: [
+      "https://zoomd.com/about-us",
+      "https://zoomd.com/accessibility-statement",
+      "https://zoomd.com/albert-ai",
+      "https://zoomd.com/blog",
+      "https://zoomd.com/creators-generated-content",
+      "https://zoomd.com/data-processing-addendum",
+      "https://zoomd.com/digital-360",
+      "https://zoomd.com/dsp-demand-side-platform",
+      "https://zoomd.com/e-commerce",
+      "https://zoomd.com/entertainment",
+      "https://zoomd.com/fintech",
+      "https://zoomd.com/gaming",
+      "https://zoomd.com/guides",
+      "https://zoomd.com/influencer-marketing",
+      "https://zoomd.com/investors-relations",
+      "https://zoomd.com/mobile-user-acquisition",
+      "https://zoomd.com/partners",
+      "https://zoomd.com/terms-and-conditions",
+      "https://zoomd.com/zoomd-advertiser-ua-tcs",
+      "https://zoomd.com/zoomd-careers"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   Zsquare: {
     ws: ["https://www.zsquaremedical.com"],
     li: ["https://www.linkedin.com/company/zsquare"],
@@ -7356,6 +11487,16 @@ export const manualOverrides: Record<
       "https://www.zsquaremedical.com/privacy-policy",
       "https://www.zsquaremedical.com/terms-of-use"
     ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  ZygoFix: {
+    ws: ["https://www.zygofix.com"],
+    li: ["https://www.linkedin.com/company/zygofix"],
+    fb: ["https://www.facebook.com/zygofix"],
+    tw: ["https://x.com/zygofix"],
+    ig: ["https://www.instagram.com/zygofix"],
+    ytp: ["https://www.youtube.com/@zygofix"],
+    urls: ["https://www.crunchbase.com/organization/zygofix"],
     _meta: { isHomepage: true, isVerified: true }
   },
   accessiBe: {
@@ -7489,6 +11630,17 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  eggXYt: {
+    ws: ["https://www.eggxyt.com"],
+    li: ["https://www.linkedin.com/company/eggxyt"],
+    fb: ["https://www.facebook.com/eggxyt"],
+    tw: ["https://x.com/eggxyt"],
+    urls: [
+      "https://forwardfooding.com/foodtech500/2020/company/eggxyt",
+      "https://unreasonablegroup.com/companies/eggxyt"
+    ],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   fintastic: {
     ws: ["https://fintastic.ai"],
     li: ["https://www.linkedin.com/company/fintastic-ai"],
@@ -7531,6 +11683,19 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@i-braintech6306"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "i-EcoGuard": {
+    ws: ["https://i-ecoguard.com"],
+    li: ["https://www.linkedin.com/company/i-ecoguard-ltd"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  iXDen: {
+    ws: ["https://ixden.com", "https://ixden.comcontact-us", "https://ixden.comprivacy-policy"],
+    li: ["https://www.linkedin.com/company/ixden"],
+    fb: ["https://www.facebook.com/ixden-194177084730394"],
+    tw: ["https://x.com/ixden2"],
+    urls: ["https://attractive.co.il"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   illumex: {
     ws: ["https://illumex.ai"],
     li: ["https://www.linkedin.com/company/illumexai"],
@@ -7558,6 +11723,13 @@ export const manualOverrides: Record<
     urls: ["https://human-creative.co"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "iwi Life": {
+    ws: ["https://iwilife.com"],
+    li: ["https://www.linkedin.com/company/myiwilife"],
+    fb: ["https://www.facebook.com/myiwilife"],
+    ig: ["https://www.instagram.com/myiwilife"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "lunar.dev": {
     ws: ["https://app.lunar.dev", "https://docs.lunar.dev", "https://www.lunar.dev"],
     li: ["https://www.linkedin.com/company/lunar-api"],
@@ -7566,6 +11738,13 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@lunardev-api"],
     ytc: ["https://www.youtube.com/channel/ucgwge-0djzcm-jwu82fbr7a"],
     urls: ["https://discord.com/invite/Kgqu4XQprN", "https://discord.gg/Kgqu4XQprN", "https://docs.lunar.dev"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  mPrest: {
+    ws: ["https://mprest.com"],
+    li: ["https://www.linkedin.com/company/mprest"],
+    fb: ["https://www.facebook.com/mprest-systems-658160444214300"],
+    urls: ["http://www.titan.co.il", "https://mprest-defense.com", "https://mprest-defense.com/solutions"],
     _meta: { isHomepage: true, isVerified: true }
   },
   "monday.com": {
@@ -7640,6 +11819,11 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@proteantecs"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  sensorz: {
+    ws: ["https://www.sensorz.io"],
+    urls: ["https://sensorznew.webflow.io"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
   "superwise.ai": {
     ws: [
       "https://app.superwise.ai",
@@ -7653,6 +11837,13 @@ export const manualOverrides: Record<
     gh: ["https://github.com/superwise-ai"],
     ytp: ["https://www.youtube.com/@superwiseai"],
     urls: ["https://discord.com/invite/678qcsA57y", "https://docs.superwise.ai", "https://sdk.docs.superwise.ai"],
+    _meta: { isHomepage: true, isVerified: true }
+  },
+  viisights: {
+    ws: ["https://www.viisights.com"],
+    li: ["https://www.linkedin.com/company/viisights"],
+    fb: ["https://www.facebook.com/viisights"],
+    tw: ["https://x.com/@viisights"],
     _meta: { isHomepage: true, isVerified: true }
   },
   weSure: {

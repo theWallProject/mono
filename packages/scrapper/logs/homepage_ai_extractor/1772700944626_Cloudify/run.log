@@ -1,0 +1,60 @@
+[2026-03-05T08:55:44.627Z] === Homepage AI Extractor: Cloudify ===
+[2026-03-05T08:55:44.627Z] Started at: 2026-03-05T08:55:44.627Z
+[2026-03-05T08:55:44.627Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772700944626_Cloudify
+[2026-03-05T08:55:44.627Z] Company: Cloudify
+[2026-03-05T08:55:44.627Z] Website: cloudify.co
+[2026-03-05T08:55:44.627Z] cbRank: 67854
+[2026-03-05T08:55:44.627Z] Reasons: h
+[2026-03-05T08:55:44.627Z] Fetching: https://cloudify.co
+[2026-03-05T08:55:47.960Z] Redirected: https://cloudify.co -> https://docs.cloudify.co/
+[2026-03-05T08:55:47.966Z] Saved HTML (138665 bytes) to page.html
+[2026-03-05T08:55:47.974Z] Extracted 426 unique links from page
+[2026-03-05T08:55:47.975Z] Saved 426 links to links.json
+[2026-03-05T08:55:47.979Z] Extracted footer HTML (970 chars)
+[2026-03-05T08:55:47.979Z] Extracted header HTML (1149 chars)
+[2026-03-05T08:55:47.982Z] Website (post-redirect): https://docs.cloudify.co/ → origin: https://docs.cloudify.co
+[2026-03-05T08:55:47.982Z]   SUBDOMAIN: cloudify.co (added to ws)
+[2026-03-05T08:55:47.983Z] Website subdomains found: 1
+[2026-03-05T08:55:47.984Z] External links: 4 (of 426 total)
+[2026-03-05T08:55:47.984Z] ── All external links ──
+[2026-03-05T08:55:47.984Z]   EXT: https://github.com/cloudify-cosmo
+[2026-03-05T08:55:47.984Z]   EXT: https://github.com/cloudify-cosmo/docs.getcloudify.org/edit/latest-build/content//_index.md
+[2026-03-05T08:55:47.984Z]   EXT: https://www.dell.com/learn/il/en/ilcorp1/policies-cookies-ads-emails
+[2026-03-05T08:55:47.984Z]   EXT: https://www.dell.com/learn/lc/en/lccorp1/policies-privacy-country-specific-privacy-policy
+[2026-03-05T08:55:47.984Z] ── Step 1: Programmatic categorization ──
+[2026-03-05T08:55:47.984Z]   REGEX: gh <- https://github.com/cloudify-cosmo
+[2026-03-05T08:55:47.985Z]   REGEX: gh <- https://github.com/cloudify-cosmo/docs.getcloudify.org/edit/latest-build/content//_index.md (duplicate, skipped)
+[2026-03-05T08:55:47.985Z]   UNCATEGORIZED: https://www.dell.com/learn/il/en/ilcorp1/policies-cookies-ads-emails
+[2026-03-05T08:55:47.985Z]   UNCATEGORIZED: https://www.dell.com/learn/lc/en/lccorp1/policies-privacy-country-specific-privacy-policy
+[2026-03-05T08:55:47.985Z] Programmatic result: ws:2, gh:1 | 2 uncategorized
+[2026-03-05T08:55:47.985Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-05T08:55:47.986Z] Saved AI prompt (2872 chars) to ai_prompt.txt
+[2026-03-05T08:55:59.411Z] Saved AI response to ai_response.json
+[2026-03-05T08:55:59.412Z] ── Parsing AI response (1 lines) ──
+[2026-03-05T08:55:59.412Z]   AI LINK: https://github.com/cloudify-cosmo/
+[2026-03-05T08:55:59.412Z] AI returned 1 valid links
+[2026-03-05T08:55:59.412Z] ── Categorizing 1 AI-returned links ──
+[2026-03-05T08:55:59.412Z]   AI→REGEX: gh <- https://github.com/cloudify-cosmo/ (duplicate, skipped)
+[2026-03-05T08:55:59.412Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-05T08:55:59.412Z] Footer/header origins (3):
+[2026-03-05T08:55:59.413Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-05T08:55:59.413Z]   FOOTER/HEADER ORIGIN: https://www.dell.com
+[2026-03-05T08:55:59.413Z]   FOOTER/HEADER ORIGIN: https://cloudify.co
+[2026-03-05T08:55:59.413Z]   ADDED: urls <- https://www.dell.com/learn/il/en/ilcorp1/policies-cookies-ads-emails
+[2026-03-05T08:55:59.413Z]   ADDED: urls <- https://www.dell.com/learn/lc/en/lccorp1/policies-privacy-country-specific-privacy-policy
+[2026-03-05T08:55:59.413Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-05T08:55:59.413Z] ── Step 3: Final dedup ──
+[2026-03-05T08:55:59.413Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-05T08:55:59.413Z] ── FINAL RESULT ──
+[2026-03-05T08:55:59.413Z]   ws (2):
+[2026-03-05T08:55:59.413Z]     - https://cloudify.co
+[2026-03-05T08:55:59.414Z]     - https://docs.cloudify.co
+[2026-03-05T08:55:59.414Z]   gh (1):
+[2026-03-05T08:55:59.414Z]     - https://github.com/cloudify-cosmo
+[2026-03-05T08:55:59.414Z]   urls (2):
+[2026-03-05T08:55:59.414Z]     - https://www.dell.com/learn/il/en/ilcorp1/policies-cookies-ads-emails
+[2026-03-05T08:55:59.414Z]     - https://www.dell.com/learn/lc/en/lccorp1/policies-privacy-country-specific-privacy-policy
+[2026-03-05T08:55:59.414Z] Summary: ws:2, gh:1, urls:2
+[2026-03-05T08:55:59.416Z] Saved final result to result.json
+[2026-03-05T08:55:59.416Z] Override fields: ws, gh, urls
+[2026-03-05T08:55:59.416Z] Finished at: 2026-03-05T08:55:59.416Z

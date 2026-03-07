@@ -1,0 +1,75 @@
+[2026-03-05T12:15:48.911Z] === Homepage AI Extractor: GetPackage ===
+[2026-03-05T12:15:48.911Z] Started at: 2026-03-05T12:15:48.911Z
+[2026-03-05T12:15:48.911Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772712948910_GetPackage
+[2026-03-05T12:15:48.911Z] Company: GetPackage
+[2026-03-05T12:15:48.911Z] Website: getpackage.com
+[2026-03-05T12:15:48.911Z] cbRank: 94011
+[2026-03-05T12:15:48.911Z] Reasons: h
+[2026-03-05T12:15:48.911Z] Fetching: https://getpackage.com
+[2026-03-05T12:15:50.349Z] Redirected: https://getpackage.com -> https://getpackage.com/
+[2026-03-05T12:15:50.365Z] Saved HTML (476200 bytes) to page.html
+[2026-03-05T12:15:50.369Z] Extracted 28 unique links from page
+[2026-03-05T12:15:50.370Z] Saved 28 links to links.json
+[2026-03-05T12:15:50.373Z] Extracted footer HTML (19753 chars)
+[2026-03-05T12:15:50.373Z] Extracted header HTML (8323 chars)
+[2026-03-05T12:15:50.377Z] Website (post-redirect): https://getpackage.com/ → origin: https://getpackage.com
+[2026-03-05T12:15:50.377Z]   SUBDOMAIN: sender.getpackage.com (added to ws)
+[2026-03-05T12:15:50.377Z] Website subdomains found: 1
+[2026-03-05T12:15:50.377Z] External links: 5 (of 28 total)
+[2026-03-05T12:15:50.377Z] ── All external links ──
+[2026-03-05T12:15:50.378Z]   EXT: https://direct.lc.chat/12920325
+[2026-03-05T12:15:50.378Z]   EXT: https://getpackage.onelink.me/XI4x/df02984a
+[2026-03-05T12:15:50.378Z]   EXT: https://il.linkedin.com/company/getpackage
+[2026-03-05T12:15:50.378Z]   EXT: https://www.facebook.com/GetPackage
+[2026-03-05T12:15:50.378Z]   EXT: https://www.instagram.com/getpackage
+[2026-03-05T12:15:50.378Z] ── Step 1: Programmatic categorization ──
+[2026-03-05T12:15:50.378Z]   UNCATEGORIZED: https://direct.lc.chat/12920325
+[2026-03-05T12:15:50.378Z]   UNCATEGORIZED: https://getpackage.onelink.me/XI4x/df02984a
+[2026-03-05T12:15:50.378Z]   REGEX: li <- https://il.linkedin.com/company/getpackage
+[2026-03-05T12:15:50.379Z]   REGEX: fb <- https://www.facebook.com/GetPackage
+[2026-03-05T12:15:50.379Z]   REGEX: ig <- https://www.instagram.com/getpackage
+[2026-03-05T12:15:50.379Z] Programmatic result: ws:2, li:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-05T12:15:50.379Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-05T12:15:50.380Z] Saved AI prompt (10392 chars) to ai_prompt.txt
+[2026-03-05T12:16:48.822Z] Saved AI response to ai_response.json
+[2026-03-05T12:16:48.823Z] ── Parsing AI response (4 lines) ──
+[2026-03-05T12:16:48.823Z]   AI LINK: https://www.facebook.com/GetPackage
+[2026-03-05T12:16:48.823Z]   AI LINK: https://il.linkedin.com/company/getpackage
+[2026-03-05T12:16:48.823Z]   AI LINK: https://www.instagram.com/getpackage/
+[2026-03-05T12:16:48.823Z]   AI LINK: https://getpackage.onelink.me/XI4x/df02984a
+[2026-03-05T12:16:48.823Z] AI returned 4 valid links
+[2026-03-05T12:16:48.823Z] ── Categorizing 4 AI-returned links ──
+[2026-03-05T12:16:48.823Z]   AI→REGEX: fb <- https://www.facebook.com/GetPackage (duplicate, skipped)
+[2026-03-05T12:16:48.823Z]   AI→REGEX: li <- https://il.linkedin.com/company/getpackage (duplicate, skipped)
+[2026-03-05T12:16:48.824Z]   AI→REGEX: ig <- https://www.instagram.com/getpackage/ (duplicate, skipped)
+[2026-03-05T12:16:48.824Z]   AI→URLS: https://getpackage.onelink.me/XI4x/df02984a
+[2026-03-05T12:16:48.824Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-05T12:16:48.824Z] Footer/header origins (6):
+[2026-03-05T12:16:48.824Z]   FOOTER/HEADER ORIGIN: https://direct.lc.chat
+[2026-03-05T12:16:48.824Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-05T12:16:48.824Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-05T12:16:48.824Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-05T12:16:48.824Z]   FOOTER/HEADER ORIGIN: https://sender.getpackage.com
+[2026-03-05T12:16:48.824Z]   FOOTER/HEADER ORIGIN: https://getpackage.com
+[2026-03-05T12:16:48.825Z]   ADDED: urls <- https://direct.lc.chat/12920325
+[2026-03-05T12:16:48.825Z]   SKIP (AI claimed): https://getpackage.onelink.me/XI4x/df02984a
+[2026-03-05T12:16:48.825Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-05T12:16:48.825Z] ── Step 3: Final dedup ──
+[2026-03-05T12:16:48.825Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-05T12:16:48.825Z] ── FINAL RESULT ──
+[2026-03-05T12:16:48.825Z]   ws (2):
+[2026-03-05T12:16:48.825Z]     - https://getpackage.com
+[2026-03-05T12:16:48.825Z]     - https://sender.getpackage.com
+[2026-03-05T12:16:48.825Z]   li (1):
+[2026-03-05T12:16:48.825Z]     - https://www.linkedin.com/company/getpackage
+[2026-03-05T12:16:48.825Z]   fb (1):
+[2026-03-05T12:16:48.825Z]     - https://www.facebook.com/getpackage
+[2026-03-05T12:16:48.825Z]   ig (1):
+[2026-03-05T12:16:48.826Z]     - https://www.instagram.com/getpackage
+[2026-03-05T12:16:48.826Z]   urls (2):
+[2026-03-05T12:16:48.826Z]     - https://direct.lc.chat/12920325
+[2026-03-05T12:16:48.826Z]     - https://getpackage.onelink.me/XI4x/df02984a
+[2026-03-05T12:16:48.826Z] Summary: ws:2, li:1, fb:1, ig:1, urls:2
+[2026-03-05T12:16:48.826Z] Saved final result to result.json
+[2026-03-05T12:16:48.826Z] Override fields: ws, li, fb, ig, urls
+[2026-03-05T12:16:48.827Z] Finished at: 2026-03-05T12:16:48.827Z

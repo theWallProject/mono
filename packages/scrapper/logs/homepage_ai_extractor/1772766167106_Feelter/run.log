@@ -1,0 +1,64 @@
+[2026-03-06T03:02:47.106Z] === Homepage AI Extractor: Feelter ===
+[2026-03-06T03:02:47.106Z] Started at: 2026-03-06T03:02:47.106Z
+[2026-03-06T03:02:47.107Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772766167106_Feelter
+[2026-03-06T03:02:47.107Z] Company: Feelter
+[2026-03-06T03:02:47.107Z] Website: feelter.com
+[2026-03-06T03:02:47.107Z] cbRank: 110171
+[2026-03-06T03:02:47.107Z] Reasons: h
+[2026-03-06T03:02:47.107Z] Fetching: https://feelter.com
+[2026-03-06T03:02:53.369Z] Redirected: https://feelter.com -> https://www.feelter.com/
+[2026-03-06T03:02:53.375Z] Saved HTML (113145 bytes) to page.html
+[2026-03-06T03:02:53.379Z] Extracted 12 unique links from page
+[2026-03-06T03:02:53.380Z] Saved 12 links to links.json
+[2026-03-06T03:02:53.383Z] Extracted footer HTML (2739 chars)
+[2026-03-06T03:02:53.383Z] Extracted header HTML (2934 chars)
+[2026-03-06T03:02:53.387Z] Website (post-redirect): https://www.feelter.com/ → origin: https://www.feelter.com
+[2026-03-06T03:02:53.387Z]   SUBDOMAIN: blog.feelter.com (added to ws)
+[2026-03-06T03:02:53.387Z] Website subdomains found: 1
+[2026-03-06T03:02:53.387Z] External links: 3 (of 12 total)
+[2026-03-06T03:02:53.388Z] ── All external links ──
+[2026-03-06T03:02:53.388Z]   EXT: http://www.oi-studio.com
+[2026-03-06T03:02:53.388Z]   EXT: https://www.facebook.com/FeelterSystems
+[2026-03-06T03:02:53.388Z]   EXT: https://www.linkedin.com/company/feelter
+[2026-03-06T03:02:53.388Z] ── Step 1: Programmatic categorization ──
+[2026-03-06T03:02:53.388Z]   UNCATEGORIZED: http://www.oi-studio.com
+[2026-03-06T03:02:53.388Z]   REGEX: fb <- https://www.facebook.com/FeelterSystems
+[2026-03-06T03:02:53.388Z]   REGEX: li <- https://www.linkedin.com/company/feelter
+[2026-03-06T03:02:53.389Z] Programmatic result: ws:2, fb:1, li:1 | 1 uncategorized
+[2026-03-06T03:02:53.389Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-06T03:02:53.389Z] Saved AI prompt (3622 chars) to ai_prompt.txt
+[2026-03-06T03:03:13.419Z] Saved AI response to ai_response.json
+[2026-03-06T03:03:13.419Z] ── Parsing AI response (3 lines) ──
+[2026-03-06T03:03:13.420Z]   AI LINK: https://www.facebook.com/FeelterSystems/
+[2026-03-06T03:03:13.420Z]   AI LINK: https://www.linkedin.com/company/feelter
+[2026-03-06T03:03:13.420Z]   AI LINK: http://blog.feelter.com
+[2026-03-06T03:03:13.420Z] AI returned 3 valid links
+[2026-03-06T03:03:13.420Z] ── Categorizing 3 AI-returned links ──
+[2026-03-06T03:03:13.420Z]   AI→REGEX: fb <- https://www.facebook.com/FeelterSystems/ (duplicate, skipped)
+[2026-03-06T03:03:13.420Z]   AI→REGEX: li <- https://www.linkedin.com/company/feelter (duplicate, skipped)
+[2026-03-06T03:03:13.420Z]   AI→URLS: http://blog.feelter.com
+[2026-03-06T03:03:13.421Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-06T03:03:13.421Z] Footer/header origins (4):
+[2026-03-06T03:03:13.421Z]   FOOTER/HEADER ORIGIN: http://blog.feelter.com
+[2026-03-06T03:03:13.421Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-06T03:03:13.421Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-06T03:03:13.421Z]   FOOTER/HEADER ORIGIN: http://www.oi-studio.com
+[2026-03-06T03:03:13.421Z]   ADDED: urls <- http://www.oi-studio.com
+[2026-03-06T03:03:13.421Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-06T03:03:13.421Z] ── Step 3: Final dedup ──
+[2026-03-06T03:03:13.421Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-06T03:03:13.422Z] ── FINAL RESULT ──
+[2026-03-06T03:03:13.422Z]   ws (2):
+[2026-03-06T03:03:13.422Z]     - https://blog.feelter.com
+[2026-03-06T03:03:13.422Z]     - https://www.feelter.com
+[2026-03-06T03:03:13.422Z]   li (1):
+[2026-03-06T03:03:13.422Z]     - https://www.linkedin.com/company/feelter
+[2026-03-06T03:03:13.422Z]   fb (1):
+[2026-03-06T03:03:13.422Z]     - https://www.facebook.com/feeltersystems
+[2026-03-06T03:03:13.422Z]   urls (2):
+[2026-03-06T03:03:13.422Z]     - http://blog.feelter.com
+[2026-03-06T03:03:13.422Z]     - http://www.oi-studio.com
+[2026-03-06T03:03:13.422Z] Summary: ws:2, fb:1, li:1, urls:2
+[2026-03-06T03:03:13.423Z] Saved final result to result.json
+[2026-03-06T03:03:13.423Z] Override fields: ws, li, fb, urls
+[2026-03-06T03:03:13.423Z] Finished at: 2026-03-06T03:03:13.423Z

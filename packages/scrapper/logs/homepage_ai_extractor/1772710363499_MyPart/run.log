@@ -1,0 +1,83 @@
+[2026-03-05T11:32:43.500Z] === Homepage AI Extractor: MyPart ===
+[2026-03-05T11:32:43.500Z] Started at: 2026-03-05T11:32:43.500Z
+[2026-03-05T11:32:43.500Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772710363499_MyPart
+[2026-03-05T11:32:43.500Z] Company: MyPart
+[2026-03-05T11:32:43.500Z] Website: mypart.com
+[2026-03-05T11:32:43.500Z] cbRank: 86461
+[2026-03-05T11:32:43.500Z] Reasons: h
+[2026-03-05T11:32:43.500Z] Fetching: https://mypart.com
+[2026-03-05T11:32:51.606Z] Redirected: https://mypart.com -> https://www.mypart.com/v2s/
+[2026-03-05T11:32:51.613Z] Saved HTML (167333 bytes) to page.html
+[2026-03-05T11:32:51.617Z] Extracted 8 unique links from page
+[2026-03-05T11:32:51.618Z] Saved 8 links to links.json
+[2026-03-05T11:32:51.622Z] Extracted footer HTML (7520 chars)
+[2026-03-05T11:32:51.622Z] Extracted header HTML (19579 chars)
+[2026-03-05T11:32:51.625Z] Website (post-redirect): https://www.mypart.com/v2s/ → origin: https://www.mypart.com
+[2026-03-05T11:32:51.626Z]   SUBDOMAIN: api.mypart.com (added to ws)
+[2026-03-05T11:32:51.626Z] Website subdomains found: 1
+[2026-03-05T11:32:51.626Z] External links: 7 (of 8 total)
+[2026-03-05T11:32:51.626Z] ── All external links ──
+[2026-03-05T11:32:51.626Z]   EXT: https://il.linkedin.com/company/mypart-ltd.
+[2026-03-05T11:32:51.626Z]   EXT: https://www.instagram.com/mypartofficial
+[2026-03-05T11:32:51.626Z]   EXT: https://www.mypart.ai/api-access
+[2026-03-05T11:32:51.626Z]   EXT: https://www.mypart.ai/contact
+[2026-03-05T11:32:51.626Z]   EXT: https://www.mypart.ai/privacy-policy
+[2026-03-05T11:32:51.626Z]   EXT: https://www.tiktok.com/@mypartofficial
+[2026-03-05T11:32:51.626Z]   EXT: https://www.youtube.com/mypartofficial
+[2026-03-05T11:32:51.627Z] ── Step 1: Programmatic categorization ──
+[2026-03-05T11:32:51.627Z]   REGEX: li <- https://il.linkedin.com/company/mypart-ltd.
+[2026-03-05T11:32:51.627Z]   REGEX: ig <- https://www.instagram.com/mypartofficial
+[2026-03-05T11:32:51.627Z]   UNCATEGORIZED: https://www.mypart.ai/api-access
+[2026-03-05T11:32:51.627Z]   UNCATEGORIZED: https://www.mypart.ai/contact
+[2026-03-05T11:32:51.627Z]   UNCATEGORIZED: https://www.mypart.ai/privacy-policy
+[2026-03-05T11:32:51.627Z]   REGEX: tt <- https://www.tiktok.com/@mypartofficial
+[2026-03-05T11:32:51.628Z]   REGEX: ytp <- https://www.youtube.com/mypartofficial
+[2026-03-05T11:32:51.628Z] Programmatic result: ws:2, li:1, ig:1, tt:1, ytp:1 | 3 uncategorized
+[2026-03-05T11:32:51.628Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-05T11:32:51.628Z] Saved AI prompt (3149 chars) to ai_prompt.txt
+[2026-03-05T11:33:11.867Z] Saved AI response to ai_response.json
+[2026-03-05T11:33:11.868Z] ── Parsing AI response (4 lines) ──
+[2026-03-05T11:33:11.868Z]   AI LINK: https://il.linkedin.com/company/mypart-ltd.
+[2026-03-05T11:33:11.868Z]   AI LINK: https://www.instagram.com/mypartofficial/
+[2026-03-05T11:33:11.868Z]   AI LINK: https://www.youtube.com/mypartofficial
+[2026-03-05T11:33:11.868Z]   AI LINK: https://www.tiktok.com/@mypartofficial
+[2026-03-05T11:33:11.868Z] AI returned 4 valid links
+[2026-03-05T11:33:11.868Z] ── Categorizing 4 AI-returned links ──
+[2026-03-05T11:33:11.868Z]   AI→REGEX: li <- https://il.linkedin.com/company/mypart-ltd. (duplicate, skipped)
+[2026-03-05T11:33:11.869Z]   AI→REGEX: ig <- https://www.instagram.com/mypartofficial/ (duplicate, skipped)
+[2026-03-05T11:33:11.869Z]   AI→REGEX: ytp <- https://www.youtube.com/mypartofficial (duplicate, skipped)
+[2026-03-05T11:33:11.869Z]   AI→REGEX: tt <- https://www.tiktok.com/@mypartofficial (duplicate, skipped)
+[2026-03-05T11:33:11.869Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-05T11:33:11.869Z] Footer/header origins (6):
+[2026-03-05T11:33:11.870Z]   FOOTER/HEADER ORIGIN: https://www.mypart.ai
+[2026-03-05T11:33:11.870Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-05T11:33:11.870Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-05T11:33:11.870Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-05T11:33:11.870Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-05T11:33:11.870Z]   FOOTER/HEADER ORIGIN: https://api.mypart.com
+[2026-03-05T11:33:11.870Z]   ADDED: urls <- https://www.mypart.ai/api-access
+[2026-03-05T11:33:11.870Z]   ADDED: urls <- https://www.mypart.ai/contact
+[2026-03-05T11:33:11.870Z]   ADDED: urls <- https://www.mypart.ai/privacy-policy
+[2026-03-05T11:33:11.870Z] Step 2b result: added 3 uncategorized domains from footer/header
+[2026-03-05T11:33:11.871Z] ── Step 3: Final dedup ──
+[2026-03-05T11:33:11.871Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-05T11:33:11.871Z] ── FINAL RESULT ──
+[2026-03-05T11:33:11.871Z]   ws (2):
+[2026-03-05T11:33:11.871Z]     - https://api.mypart.com
+[2026-03-05T11:33:11.871Z]     - https://www.mypart.com
+[2026-03-05T11:33:11.871Z]   li (1):
+[2026-03-05T11:33:11.871Z]     - https://www.linkedin.com/company/mypart-ltd.
+[2026-03-05T11:33:11.871Z]   ig (1):
+[2026-03-05T11:33:11.871Z]     - https://www.instagram.com/mypartofficial
+[2026-03-05T11:33:11.871Z]   ytp (1):
+[2026-03-05T11:33:11.871Z]     - https://www.youtube.com/@mypartofficial
+[2026-03-05T11:33:11.871Z]   tt (1):
+[2026-03-05T11:33:11.872Z]     - https://www.tiktok.com/@mypartofficial
+[2026-03-05T11:33:11.872Z]   urls (3):
+[2026-03-05T11:33:11.872Z]     - https://www.mypart.ai/api-access
+[2026-03-05T11:33:11.872Z]     - https://www.mypart.ai/contact
+[2026-03-05T11:33:11.872Z]     - https://www.mypart.ai/privacy-policy
+[2026-03-05T11:33:11.872Z] Summary: ws:2, li:1, ig:1, tt:1, ytp:1, urls:3
+[2026-03-05T11:33:11.872Z] Saved final result to result.json
+[2026-03-05T11:33:11.873Z] Override fields: ws, li, ig, ytp, tt, urls
+[2026-03-05T11:33:11.873Z] Finished at: 2026-03-05T11:33:11.873Z

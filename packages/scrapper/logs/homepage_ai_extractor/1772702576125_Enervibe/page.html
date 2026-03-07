@@ -1,0 +1,1191 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.5.1",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),document.addEventListener("DOMContentLoaded",(()=>{this.p()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}k(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.M(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.M(t.target,"rocket-onclick","onclick"),this.O()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.M(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.O()}D(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}S(){return new Promise((t=>{this.T?this.O=t:t()}))}C(){this.T=!0}O(){this.T=!1}M(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}p(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&0!==i.indexOf("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.j(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.P(this),this.F(this),this.q(),this.A(),this.I(),await this.U(this.delayedScripts.normal),await this.U(this.delayedScripts.defer),await this.U(this.delayedScripts.async);try{await this.W(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.S().then((()=>{this.D()})),this.N()}A(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(function(){t.setAttribute("data-rocket-status","failed"),e()})),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed"),e()}}));t.setAttribute("data-rocket-status","skipped")}async U(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.U(t)):Promise.resolve()}I(){this.j([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}j(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o){const n=document.createElement("link");n.href=o,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),i.appendChild(n),this.trash.push(n)}})),document.head.appendChild(i)}P(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function n(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(n){t.everythingLoaded?o=n:e["rocket"+i]=o=n}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){if(o&&o.fn&&!t.allJQueries.includes(o)){o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])};const e=o.fn.on;o.fn.on=o.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this},t.allJQueries.push(o)}e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async W(){this.domReadyFired=!0,await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}q(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),n=i.parentElement;let s=t.get(i);void 0===s&&(s=i.nextSibling,t.set(i,s));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),n.insertBefore(c,s)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.k(t)}}RocketLazyLoadScripts.run()})();</script>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.9 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Enervibe - Energy Harvesting Solutions - Energy Harvesting Solutions</title><link rel="preload" as="image" href="https://enervibe.co/wp-content/uploads/2025/03/Untitled.webp%20linear" fetchpriority="high">
+	<link rel="canonical" href="https://enervibe.co/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Enervibe - Energy Harvesting Solutions - Energy Harvesting Solutions">
+	<meta property="og:description" content="Get endless data from moving IoT devices by harvesting zero-emission kinetic energy Bring fleet costs down with smart tire datafrom commercial and passenger vehicles Request a 1:1 consult Our customers see ROI within 6 months. Make commercial fleets safer, more efficient and more sustainable with Enervibe. Lower fuel costs 0 % Less tire-related downtime 0 […]">
+	<meta property="og:url" content="https://enervibe.co/">
+	<meta property="og:site_name" content="Energy Harvesting Solutions">
+	<meta property="article:modified_time" content="2025-12-30T08:46:10+00:00">
+	<meta property="og:image" content="https://enervibe.co/wp-content/uploads/2025/03/Group-54-1.webp">
+	<meta property="og:image:width" content="402">
+	<meta property="og:image:height" content="204">
+	<meta property="og:image:type" content="image/webp">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://enervibe.co/","url":"https://enervibe.co/","name":"Enervibe - Energy Harvesting Solutions - Energy Harvesting Solutions","isPartOf":{"@id":"https://enervibe.co/#website"},"about":{"@id":"https://enervibe.co/#organization"},"primaryImageOfPage":{"@id":"https://enervibe.co/#primaryimage"},"image":{"@id":"https://enervibe.co/#primaryimage"},"thumbnailUrl":"https://enervibe.co/wp-content/uploads/2025/03/Group-54-1.webp","datePublished":"2025-03-08T05:09:08+00:00","dateModified":"2025-12-30T08:46:10+00:00","breadcrumb":{"@id":"https://enervibe.co/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://enervibe.co/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://enervibe.co/#primaryimage","url":"https://enervibe.co/wp-content/uploads/2025/03/Group-54-1.webp","contentUrl":"https://enervibe.co/wp-content/uploads/2025/03/Group-54-1.webp","width":402,"height":204},{"@type":"BreadcrumbList","@id":"https://enervibe.co/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://enervibe.co/#website","url":"https://enervibe.co/","name":"Energy Harvesting Solutions","description":"Energy harvesting solutions","publisher":{"@id":"https://enervibe.co/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://enervibe.co/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://enervibe.co/#organization","name":"Enervibe","url":"https://enervibe.co/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://enervibe.co/#/schema/logo/image/","url":"https://enervibe.co/wp-content/uploads/2019/01/Enervibe-w-text_blue.png","contentUrl":"https://enervibe.co/wp-content/uploads/2019/01/Enervibe-w-text_blue.png","width":1500,"height":1295,"caption":"Enervibe"},"image":{"@id":"https://enervibe.co/#/schema/logo/image/"},"sameAs":["https://www.linkedin.com/company/enervibe/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//cdn.elementor.com">
+
+<link rel="alternate" type="application/rss+xml" title="Energy Harvesting Solutions » Feed" href="https://enervibe.co/feed/">
+<link rel="alternate" type="application/rss+xml" title="Energy Harvesting Solutions » Comments Feed" href="https://enervibe.co/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://enervibe.co/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fenervibe.co%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://enervibe.co/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fenervibe.co%2F&amp;format=xml">
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v8.27.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script type="rocketlazyloadscript" data-rocket-src="//www.googletagmanager.com/gtag/js?id=G-HEMV4BC27L" data-cfasync="false" data-wpfc-render="false" async=""></script>
+			<script type="rocketlazyloadscript" data-cfasync="false" data-wpfc-render="false">
+				var mi_version = '8.27.0';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+								var MonsterInsightsDefaultLocations = {"page_location":"https:\/\/enervibe.co\/"};
+				if ( typeof MonsterInsightsPrivacyGuardFilter === 'function' ) {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsPrivacyGuardFilter( MonsterInsightsExcludeQuery ) : MonsterInsightsPrivacyGuardFilter( MonsterInsightsDefaultLocations );
+				} else {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsExcludeQuery : MonsterInsightsDefaultLocations;
+				}
+
+								var disableStrs = [
+										'ga-disable-G-HEMV4BC27L',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (mi_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = monsterinsights_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
+								MonsterInsightsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+						} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dZGIzZG': true,
+											});
+					if ( MonsterInsightsLocations.page_location ) {
+						__gtagTracker('set', MonsterInsightsLocations);
+					}
+										__gtagTracker('config', 'G-HEMV4BC27L', {"forceSSL":"true"} );
+															window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+									'referrer' : 'page_referrer',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+				<!-- / Google Analytics by MonsterInsights -->
+		<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="ea11y-skip-link-css" href="https://enervibe.co/wp-content/cache/min/1/wp-content/plugins/pojo-accessibility/assets/build/skip-link.css?ver=1770157521" media="all">
+<link rel="stylesheet" id="hello-elementor-css" href="https://enervibe.co/wp-content/themes/hello-elementor/style.min.css?ver=2.6.1" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://enervibe.co/wp-content/themes/hello-elementor/theme.min.css?ver=2.6.1" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="elementor-post-838-css" href="https://enervibe.co/wp-content/uploads/elementor/css/post-838.css?ver=1770157521" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-nav-menu-css" href="https://enervibe.co/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="e-animation-shrink-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-social-icons-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="e-apple-webkit-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-menu-anchor-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-menu-anchor.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-form-css" href="https://enervibe.co/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=3.27.5" media="all">
+<link data-minify="1" rel="stylesheet" id="font-awesome-5-all-css" href="https://enervibe.co/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=1770157521" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-spacer-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-counter-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-counter.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="e-animation-fadeInRight-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-divider-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="e-animation-fadeInLeft-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInLeft.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-flip-box-css" href="https://enervibe.co/wp-content/plugins/elementor-pro/assets/css/widget-flip-box.min.css?ver=3.27.5" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-css" href="https://enervibe.co/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1770157529" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="widget-nested-carousel-css" href="https://enervibe.co/wp-content/plugins/elementor-pro/assets/css/widget-nested-carousel.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="widget-image-carousel-css" href="https://enervibe.co/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css?ver=3.29.1" media="all">
+<link rel="stylesheet" id="e-motion-fx-css" href="https://enervibe.co/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="elementor-post-3347-css" href="https://enervibe.co/wp-content/uploads/elementor/css/post-3347.css?ver=1770159897" media="all">
+<link rel="stylesheet" id="elementor-post-4450-css" href="https://enervibe.co/wp-content/uploads/elementor/css/post-4450.css?ver=1770157521" media="all">
+<link rel="stylesheet" id="elementor-post-4478-css" href="https://enervibe.co/wp-content/uploads/elementor/css/post-4478.css?ver=1770157521" media="all">
+<link rel="stylesheet" id="hello-elementor-child-style-css" href="https://enervibe.co/wp-content/themes/hello-theme-child-master/style.css?ver=1.0.0" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-gf-local-roboto-css" href="https://enervibe.co/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1770157521" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=8.27.0" id="monsterinsights-frontend-script-js" defer=""></script>
+<script data-cfasync="false" data-wpfc-render="false" id="monsterinsights-frontend-script-js-extra">var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[]","home_url":"https:\/\/enervibe.co","hash_tracking":"false","v4_id":"G-HEMV4BC27L"};</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.29.1" id="font-awesome-4-shim-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://enervibe.co/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://enervibe.co/wp-json/wp/v2/pages/3347"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://enervibe.co/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.1">
+<link rel="shortlink" href="https://enervibe.co/">
+<meta name="generator" content="Elementor 3.29.1; features: e_font_icon_svg, additional_custom_breakpoints, e_local_google_fonts, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<script type="rocketlazyloadscript">
+  document.addEventListener('DOMContentLoaded', function () {
+    document.documentElement.classList.remove('loading');
+    document.documentElement.classList.add('loaded');
+
+    // Handle anchor scroll (delayed to avoid hero animation conflict)
+    const anchor = window.location.hash;
+    if (anchor) {
+      setTimeout(() => {
+        const target = document.querySelector(anchor);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 1300);
+    }
+
+    // Dispatch event for lazy-loading components
+    setTimeout(() => {
+      document.dispatchEvent(new Event('afterHeroAnimation'));
+    }, 1300);
+
+    // ✅ Smart prepare videos for Safari autoplay
+    const allVideos = document.querySelectorAll('video');
+
+    allVideos.forEach(video => {
+      const src = video.querySelector('source')?.getAttribute('src') || '';
+
+      if (!src.includes('ENERVIBE-LOOP-BRIGHT.mp4')) {
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('autoplay', '');
+        video.setAttribute('preload', 'none');
+      }
+    });
+  });
+
+  // 🔄 Lazy-load trigger (custom usage)
+  document.addEventListener('afterHeroAnimation', () => {
+    if (typeof initLazyGallery === 'function') {
+      initLazyGallery();
+    }
+  });
+</script>
+<style>
+/* Initial hidden state */
+html.loading .hero-auto {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+/* Animate on loaded */
+html.loaded .hero-auto {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+</style>
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://enervibe.co/wp-content/uploads/2025/04/cropped-Vector-32x32.webp" sizes="32x32">
+<link rel="icon" href="https://enervibe.co/wp-content/uploads/2025/04/cropped-Vector-192x192.webp" sizes="192x192">
+<link rel="apple-touch-icon" href="https://enervibe.co/wp-content/uploads/2025/04/cropped-Vector-180x180.webp">
+<meta name="msapplication-TileImage" content="https://enervibe.co/wp-content/uploads/2025/04/cropped-Vector-270x270.webp">
+		<style id="wp-custom-css">
+			a{color:#969696;}
+a:hover{color:#afd0ed}
+.elementor-widget-counter .elementor-counter-title{
+	margin-top: 20px;
+}
+.page-id-220 #confooter{display:none;}
+.elementor-slide-heading{
+text-shadow: 1px 1px 1px black, 3px 3px 5px black;
+}
+.elementor-post-navigation__next.elementor-post-navigation__link{
+	padding-left:20px;
+}
+.elementor-post-navigation__prev.elementor-post-navigation__link{
+	padding-right:20px;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	
+<script type="rocketlazyloadscript" async="" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-S7R264SP7V"></script><script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S7R264SP7V');
+</script><link href="https://www.googletagmanager.com" rel="preconnect"><link href="https://cdn.elementor.com" rel="preconnect"><link href="https://www.google.com" rel="preconnect"></head>
+	<!-- Google tag (gtag.js) -->
+
+
+<body class="home wp-singular page-template-default page page-id-3347 wp-custom-logo wp-theme-hello-elementor wp-child-theme-hello-theme-child-master elementor-default elementor-kit-838 elementor-page elementor-page-3347">
+
+		<script type="rocketlazyloadscript">
+			const onSkipLinkClick = () => {
+				const htmlElement = document.querySelector('html');
+
+				htmlElement.style['scroll-behavior'] = 'smooth';
+
+				setTimeout( () => htmlElement.style['scroll-behavior'] = null, 1000 );
+			}
+			document.addEventListener("DOMContentLoaded", () => {
+				if (!document.querySelector('#content')) {
+					document.querySelector('.ea11y-skip-to-content-link').remove();
+				}
+			});
+		</script>
+
+		<a class="ea11y-skip-to-content-link" href="#content" tabindex="1" onclick="onSkipLinkClick()">
+			Skip to content
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<path d="M18 6V12C18 12.7956 17.6839 13.5587 17.1213 14.1213C16.5587 14.6839 15.7956 15 15 15H5M5 15L9 11M5 15L9 19" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</a>
+
+		<div class="ea11y-skip-to-content-backdrop"></div>
+		
+<a class="skip-link screen-reader-text" href="#content">
+	Skip to content</a>
+
+		<div data-elementor-type="header" data-elementor-id="4450" class="elementor elementor-4450 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-e9cdeef e-flex e-con-boxed e-con e-parent" data-id="e9cdeef" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-f0529c4 elementor-widget-mobile__width-initial elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="f0529c4" data-element_type="widget" data-widget_type="image.default">
+																<a href="https://enervibe.co">
+							<img width="795" height="186" src="https://enervibe.co/wp-content/uploads/2025/03/Group-131.webp" class="attachment-full size-full wp-image-4577" alt="" srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-131.webp 795w, https://enervibe.co/wp-content/uploads/2025/03/Group-131-300x70.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-131-768x180.webp 768w" sizes="(max-width: 795px) 100vw, 795px">								</a>
+															</div>
+				<div class="elementor-element elementor-element-f225e36 elementor-nav-menu__align-end elementor-nav-menu--stretch elementor-widget-mobile__width-initial elementor-hidden-tablet elementor-hidden-mobile elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="f225e36" data-element_type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-double-line e--animation-fade">
+				<ul id="menu-1-f225e36" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4456"><a href="https://enervibe.co/product-page/" class="elementor-item">Technology</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4469"><a href="https://enervibe.co/product-page#one" class="elementor-sub-item elementor-item-anchor">Tire data management</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4470"><a href="https://enervibe.co/product-page#two" class="elementor-sub-item elementor-item-anchor">Self-powered sensors</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4471"><a href="https://enervibe.co/product-page#three" class="elementor-sub-item elementor-item-anchor">Electromagnetic energy harvesters</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4472"><a href="https://enervibe.co/product-page#four" class="elementor-sub-item elementor-item-anchor">Electrostatic energy harvesters</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4457"><a href="https://enervibe.co/solutions-page/" class="elementor-item">Solutions</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4473"><a href="https://enervibe.co/solutions-page#one" class="elementor-sub-item elementor-item-anchor">Commercial &amp; passenger fleets</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4474"><a href="https://enervibe.co/solutions-page#two" class="elementor-sub-item elementor-item-anchor">Tire manufacturers</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4475"><a href="https://enervibe.co/solutions-page#three" class="elementor-sub-item elementor-item-anchor">Telematics providers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4455"><a href="https://enervibe.co/about-page/" class="elementor-item">Company</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4458"><a href="https://enervibe.co/vision-page/" class="elementor-item">Industries</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-f225e36" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4456"><a href="https://enervibe.co/product-page/" class="elementor-item" tabindex="-1">Technology</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4469"><a href="https://enervibe.co/product-page#one" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Tire data management</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4470"><a href="https://enervibe.co/product-page#two" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Self-powered sensors</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4471"><a href="https://enervibe.co/product-page#three" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Electromagnetic energy harvesters</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4472"><a href="https://enervibe.co/product-page#four" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Electrostatic energy harvesters</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4457"><a href="https://enervibe.co/solutions-page/" class="elementor-item" tabindex="-1">Solutions</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4473"><a href="https://enervibe.co/solutions-page#one" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Commercial &amp; passenger fleets</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4474"><a href="https://enervibe.co/solutions-page#two" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Tire manufacturers</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4475"><a href="https://enervibe.co/solutions-page#three" class="elementor-sub-item elementor-item-anchor" tabindex="-1">Telematics providers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4455"><a href="https://enervibe.co/about-page/" class="elementor-item" tabindex="-1">Company</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4458"><a href="https://enervibe.co/vision-page/" class="elementor-item" tabindex="-1">Industries</a></li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-fa96648 elementor-nav-menu__align-end elementor-nav-menu--stretch elementor-widget-mobile__width-initial elementor-hidden-desktop elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="fa96648" data-element_type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-double-line e--animation-fade">
+				<ul id="menu-1-fa96648" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5077"><a href="https://enervibe.co/product-page/" class="elementor-item">Technology</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5078"><a href="https://enervibe.co/solutions-page/" class="elementor-item">Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5076"><a href="https://enervibe.co/about-page/" class="elementor-item">Company</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5079"><a href="https://enervibe.co/vision-page/" class="elementor-item">Industries</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-fa96648" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5077"><a href="https://enervibe.co/product-page/" class="elementor-item" tabindex="-1">Technology</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5078"><a href="https://enervibe.co/solutions-page/" class="elementor-item" tabindex="-1">Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5076"><a href="https://enervibe.co/about-page/" class="elementor-item" tabindex="-1">Company</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5079"><a href="https://enervibe.co/vision-page/" class="elementor-item" tabindex="-1">Industries</a></li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-e8ae156 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-button" data-id="e8ae156" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#footer">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Request a pilot</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+		
+<main id="content" class="site-main post-3347 page type-page status-publish has-post-thumbnail hentry" role="main">
+		<div class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="3347" class="elementor elementor-3347" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-819f87f e-con-full hero-auto e-flex e-con e-parent" data-id="819f87f" data-element_type="container" data-settings="{&quot;background_video_link&quot;:&quot;https:\/\/enervibe.co\/wp-content\/uploads\/2025\/03\/ENERVIBE-LOOP-BRIGHT.mp4&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_video_start&quot;:0,&quot;background_background&quot;:&quot;video&quot;}">
+		<div class="elementor-background-video-container">
+							<video class="elementor-background-video-hosted" autoplay="" muted="" playsinline="" loop=""></video>
+					</div><div class="elementor-element elementor-element-f796add e-flex e-con-boxed e-con e-child" data-id="f796add" data-element_type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-3b4b64e e-con-full e-flex e-con e-child" data-id="3b4b64e" data-element_type="container">
+				<div class="elementor-element elementor-element-d91c4cc elementor-widget elementor-widget-heading" data-id="d91c4cc" data-element_type="widget" data-widget_type="heading.default">
+					<h1 class="elementor-heading-title elementor-size-default">Get endless data from moving 
+IoT devices by harvesting
+zero-emission kinetic energy
+</h1>				</div>
+				<div class="elementor-element elementor-element-28ae0a1 elementor-widget elementor-widget-text-editor" data-id="28ae0a1" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><span style="font-weight: 400;">Bring fleet costs down with smart tire data</span><span style="font-weight: 400;"><br></span><span style="font-weight: 400;">from commercial and passenger vehicles</span></p>								</div>
+				<div class="elementor-element elementor-element-2bde168 elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="2bde168" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#footer">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Request a 1:1 consult</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-98311a1 e-con-full e-flex e-con e-child" data-id="98311a1" data-element_type="container">
+				</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-fa5ecac e-con-full e-flex e-con e-parent" data-id="fa5ecac" data-element_type="container">
+		<div class="elementor-element elementor-element-04be944 e-flex e-con-boxed e-con e-child" data-id="04be944" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e56df10 elementor-widget elementor-widget-heading" data-id="e56df10" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Our customers see ROI within 6 months. <br>
+Make commercial fleets safer, more efficient and more sustainable with Enervibe. 
+</h2>				</div>
+				<div class="elementor-element elementor-element-5a8a073 elementor-widget elementor-widget-spacer" data-id="5a8a073" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-7e90ea0 e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-id="7e90ea0" data-element_type="container">
+		<div class="elementor-element elementor-element-d919814 e-con-full e-flex e-con e-child" data-id="d919814" data-element_type="container">
+				<div class="elementor-element elementor-element-5e5a3a8 elementor-widget elementor-widget-counter" data-id="5e5a3a8" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Lower fuel costs</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="5" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-5cfb89f e-con-full e-flex e-con e-child" data-id="5cfb89f" data-element_type="container">
+				<div class="elementor-element elementor-element-838c50f elementor-widget elementor-widget-counter" data-id="838c50f" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Less tire-related downtime</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="70" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-a2056c4 e-con-full e-flex e-con e-child" data-id="a2056c4" data-element_type="container">
+				<div class="elementor-element elementor-element-d8b9497 elementor-widget elementor-widget-counter" data-id="d8b9497" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Longer tire lifetime</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="20" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-03586b6 e-con-full elementor-hidden-desktop e-flex e-con e-child" data-id="03586b6" data-element_type="container">
+				<div class="elementor-element elementor-element-db45feb elementor-widget-mobile__width-initial elementor-widget elementor-widget-counter" data-id="db45feb" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Lower fuel costs</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="5" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-9e16fa0 elementor-widget-mobile__width-initial elementor-widget elementor-widget-counter" data-id="9e16fa0" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Less tire-related downtime</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="70" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-628f4fc elementor-widget-mobile__width-initial elementor-widget elementor-widget-counter" data-id="628f4fc" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Fewer accidents due to tire issues</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="40" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-d37f4ac elementor-widget-mobile__width-initial elementor-widget elementor-widget-counter" data-id="d37f4ac" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Longer tire lifetime</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="20" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-991d73d e-con-full e-flex e-con e-child" data-id="991d73d" data-element_type="container">
+		<div class="elementor-element elementor-element-5b4eaff e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-id="5b4eaff" data-element_type="container">
+				<div class="elementor-element elementor-element-8eebe2e elementor-widget elementor-widget-counter" data-id="8eebe2e" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Fewer accidents due to tire issues</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="40" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">%</span>
+			</div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-1c4c2ac e-con-full e-flex e-con e-child" data-id="1c4c2ac" data-element_type="container">
+				<div class="elementor-element elementor-element-de1627a kgco2 elementor-widget elementor-widget-counter" data-id="de1627a" data-element_type="widget" data-widget_type="counter.default">
+							<div class="elementor-counter">
+			<div class="elementor-counter-title">Lower emissions per truck per year</div>			<div class="elementor-counter-number-wrapper">
+				<span class="elementor-counter-number-prefix"></span>
+				<span class="elementor-counter-number" data-duration="2000" data-to-value="3600" data-from-value="0" data-delimiter=",">0</span>
+				<span class="elementor-counter-number-suffix">Kg CO2</span>
+			</div>
+		</div>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-65a905c e-con-full e-flex e-con e-parent" data-id="65a905c" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-1ccde15 e-flex e-con-boxed e-con e-child" data-id="1ccde15" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e332099 elementor-widget elementor-widget-spacer" data-id="e332099" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-f289adc elementor-widget elementor-widget-heading" data-id="f289adc" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Got 6- to 24-wheelers in your fleet?</h2>				</div>
+				<div class="elementor-element elementor-element-846be82 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="846be82" data-element_type="widget" data-widget_type="heading.default">
+					<h3 class="elementor-heading-title elementor-size-default">Real-time alerts tell you exactly which tires to take care of –  before fuel consumption goes up
+</h3>				</div>
+				<div class="elementor-element elementor-element-9dd04e0 elementor-widget elementor-widget-spacer" data-id="9dd04e0" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-df1f37f e-con-full e-flex elementor-invisible e-con e-child" data-id="df1f37f" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInLeft&quot;}">
+		<div class="elementor-element elementor-element-13b45a6 e-con-full e-flex e-con e-child" data-id="13b45a6" data-element_type="container" data-settings="{&quot;animation_mobile&quot;:&quot;fadeInRight&quot;}">
+				<div class="elementor-element elementor-element-af8887f elementor-widget elementor-widget-image" data-id="af8887f" data-element_type="widget" data-widget_type="image.default">
+															<img fetchpriority="high" decoding="async" width="724" height="724" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20724%20724'%3E%3C/svg%3E" class="attachment-full size-full wp-image-3828" alt="" data-lazy-srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-41.webp 724w, https://enervibe.co/wp-content/uploads/2025/03/Group-41-300x300.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-41-150x150.webp 150w" data-lazy-sizes="(max-width: 724px) 100vw, 724px" data-lazy-src="https://enervibe.co/wp-content/uploads/2025/03/Group-41.webp"><noscript><img fetchpriority="high" decoding="async" width="724" height="724" src="https://enervibe.co/wp-content/uploads/2025/03/Group-41.webp" class="attachment-full size-full wp-image-3828" alt="" srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-41.webp 724w, https://enervibe.co/wp-content/uploads/2025/03/Group-41-300x300.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-41-150x150.webp 150w" sizes="(max-width: 724px) 100vw, 724px" /></noscript>															</div>
+				</div>
+		<div class="elementor-element elementor-element-d6e2160 e-con-full e-flex elementor-invisible e-con e-child" data-id="d6e2160" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_delay&quot;:1000,&quot;animation_mobile&quot;:&quot;none&quot;}">
+				<div class="elementor-element elementor-element-644cee5 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="644cee5" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-6f3f282 elementor-widget elementor-widget-heading" data-id="6f3f282" data-element_type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">Improve fuel efficiency 5% 
+<br>and tire lifetime 20%
+<br>with low pressure alerts
+</h4>				</div>
+				<div class="elementor-element elementor-element-697c1f2 elementor-widget elementor-widget-text-editor" data-id="697c1f2" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><span style="font-weight: 400;">Pinpoint which tires on which trucks and </span><span style="font-weight: 400;">trailers are losing too much pressure, </span><span style="font-weight: 400;"><br></span><span style="font-weight: 400;">before they cause fuel consumption </span><span style="font-weight: 400;"><br></span><span style="font-weight: 400;">and costs to shoot up</span></p>								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-4e315db elementor-widget elementor-widget-spacer" data-id="4e315db" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-13103fe e-con-full e-flex elementor-invisible e-con e-child" data-id="13103fe" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_mobile&quot;:&quot;fadeInRight&quot;}">
+		<div class="elementor-element elementor-element-c4a7149 e-con-full e-flex e-con e-child" data-id="c4a7149" data-element_type="container" data-settings="{&quot;animation_mobile&quot;:&quot;fadeInLeft&quot;}">
+				<div class="elementor-element elementor-element-d02424e elementor-widget elementor-widget-image" data-id="d02424e" data-element_type="widget" data-widget_type="image.default">
+															<img decoding="async" width="724" height="724" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20724%20724'%3E%3C/svg%3E" class="attachment-full size-full wp-image-3829" alt="" data-lazy-srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-43.webp 724w, https://enervibe.co/wp-content/uploads/2025/03/Group-43-300x300.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-43-150x150.webp 150w" data-lazy-sizes="(max-width: 724px) 100vw, 724px" data-lazy-src="https://enervibe.co/wp-content/uploads/2025/03/Group-43.webp"><noscript><img decoding="async" width="724" height="724" src="https://enervibe.co/wp-content/uploads/2025/03/Group-43.webp" class="attachment-full size-full wp-image-3829" alt="" srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-43.webp 724w, https://enervibe.co/wp-content/uploads/2025/03/Group-43-300x300.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-43-150x150.webp 150w" sizes="(max-width: 724px) 100vw, 724px" /></noscript>															</div>
+				</div>
+		<div class="elementor-element elementor-element-b987f2f e-con-full e-flex elementor-invisible e-con e-child" data-id="b987f2f" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_delay&quot;:1000}">
+				<div class="elementor-element elementor-element-fa60f3a elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="fa60f3a" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-ba0aeeb elementor-widget elementor-widget-heading" data-id="ba0aeeb" data-element_type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">Reduce downtime 70% <br>
+with real-time alerts</h4>				</div>
+				<div class="elementor-element elementor-element-f1371cd elementor-widget elementor-widget-text-editor" data-id="f1371cd" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><span style="font-weight: 400;">Get alerts that battery-powered sensors can’t provide. </span><span style="font-weight: 400;">Detect flat tires, blowouts &amp; overweight loads before </span><span style="font-weight: 400;">your truck gets stuck on the side of the road</span><span style="font-weight: 400;"><br></span></p>								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-787ba49 elementor-widget elementor-widget-spacer" data-id="787ba49" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-5ea8809 e-con-full e-flex elementor-invisible e-con e-child" data-id="5ea8809" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInLeft&quot;,&quot;animation_mobile&quot;:&quot;fadeInLeft&quot;}">
+		<div class="elementor-element elementor-element-ac27c0a e-con-full e-flex e-con e-child" data-id="ac27c0a" data-element_type="container" data-settings="{&quot;animation_mobile&quot;:&quot;fadeInRight&quot;}">
+				<div class="elementor-element elementor-element-1a5560f elementor-widget elementor-widget-image" data-id="1a5560f" data-element_type="widget" data-widget_type="image.default">
+															<img decoding="async" width="724" height="724" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20724%20724'%3E%3C/svg%3E" class="attachment-full size-full wp-image-3830" alt="" data-lazy-srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-44.webp 724w, https://enervibe.co/wp-content/uploads/2025/03/Group-44-300x300.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-44-150x150.webp 150w" data-lazy-sizes="(max-width: 724px) 100vw, 724px" data-lazy-src="https://enervibe.co/wp-content/uploads/2025/03/Group-44.webp"><noscript><img decoding="async" width="724" height="724" src="https://enervibe.co/wp-content/uploads/2025/03/Group-44.webp" class="attachment-full size-full wp-image-3830" alt="" srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-44.webp 724w, https://enervibe.co/wp-content/uploads/2025/03/Group-44-300x300.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-44-150x150.webp 150w" sizes="(max-width: 724px) 100vw, 724px" /></noscript>															</div>
+				</div>
+		<div class="elementor-element elementor-element-5d11a5d e-con-full e-flex elementor-invisible e-con e-child" data-id="5d11a5d" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_delay&quot;:1000}">
+				<div class="elementor-element elementor-element-cbe2fa2 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="cbe2fa2" data-element_type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-a6810f1 elementor-widget elementor-widget-heading" data-id="a6810f1" data-element_type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">Prevent 40% of tire-related accidents <br>and 
+get early warning of flat tires <br>with 
+predictive maintenance</h4>				</div>
+				<div class="elementor-element elementor-element-3914230 elementor-widget elementor-widget-text-editor" data-id="3914230" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><span style="font-weight: 400;">Prevent tire-related accidents with &nbsp;flat tire </span><span style="font-weight: 400;">prevention plus alerts for high temperature, excess </span><span style="font-weight: 400;">mileage, and overweight or unbalanced loads</span></p>								</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-e6ffc8d elementor-widget elementor-widget-spacer" data-id="e6ffc8d" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-5236142 e-con-full e-flex e-con e-parent" data-id="5236142" data-element_type="container">
+		<div class="elementor-element elementor-element-020487a e-flex e-con-boxed e-con e-child" data-id="020487a" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-873fbcb elementor-widget elementor-widget-spacer" data-id="873fbcb" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-6da0a03 elementor-widget elementor-widget-heading" data-id="6da0a03" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default"><span style="color: #04FFEF">Enertire™ solutions</span> for fleets, tire<br> manufacturers and telematics service<br>providers (TSPs)</h2>				</div>
+				<div class="elementor-element elementor-element-df72c5e elementor-widget elementor-widget-spacer" data-id="df72c5e" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+		<div class="elementor-element elementor-element-e183cab e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-id="e183cab" data-element_type="container">
+				<div class="elementor-element elementor-element-3e79e49 elementor-flip-box--direction-right elementor-flip-box--effect-flip elementor-widget elementor-widget-flip-box" data-id="3e79e49" data-element_type="widget" data-widget_type="flip-box.default">
+							<div class="elementor-flip-box" tabindex="0">
+			<div class="elementor-flip-box__layer elementor-flip-box__front">
+				<div class="elementor-flip-box__layer__overlay">
+					<div class="elementor-flip-box__layer__inner">
+						
+													<h3 class="elementor-flip-box__layer__title">
+								Commercial  and <br>passenger fleets							</h3>
+						
+											</div>
+				</div>
+			</div>
+			<div class="elementor-flip-box__layer elementor-flip-box__back">
+			<div class="elementor-flip-box__layer__overlay">
+				<div class="elementor-flip-box__layer__inner">
+											<h3 class="elementor-flip-box__layer__title">
+							Commercial  and <br>passenger Fleets						</h3>
+					
+											<div class="elementor-flip-box__layer__description">
+							Reduce fuel consumption&nbsp;with predictive maintenance alerts for tire pressure &amp; load						</div>
+					
+											<a class="elementor-flip-box__button elementor-button elementor-size-sm" href="https://enervibe.co/solutions-page/#one">
+							Learn more						</a>
+								</div>
+		</div>
+		</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-dfa6dac elementor-flip-box--direction-right elementor-flip-box--effect-flip elementor-widget elementor-widget-flip-box" data-id="dfa6dac" data-element_type="widget" data-widget_type="flip-box.default">
+							<div class="elementor-flip-box" tabindex="0">
+			<div class="elementor-flip-box__layer elementor-flip-box__front">
+				<div class="elementor-flip-box__layer__overlay">
+					<div class="elementor-flip-box__layer__inner">
+						
+													<h3 class="elementor-flip-box__layer__title">
+								Tire manufacturers							</h3>
+						
+											</div>
+				</div>
+			</div>
+			<div class="elementor-flip-box__layer elementor-flip-box__back">
+			<div class="elementor-flip-box__layer__overlay">
+				<div class="elementor-flip-box__layer__inner">
+											<h3 class="elementor-flip-box__layer__title">
+							Tire Manufacturers						</h3>
+					
+											<div class="elementor-flip-box__layer__description">
+							Provide commercial fleets with Tires as a Service to keep them coming back 
+						</div>
+					
+											<a class="elementor-flip-box__button elementor-button elementor-size-sm" href="https://enervibe.co/solutions-page/#two">
+							Learn more						</a>
+								</div>
+		</div>
+		</div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-59fcfbd elementor-flip-box--direction-right elementor-flip-box--effect-flip elementor-widget elementor-widget-flip-box" data-id="59fcfbd" data-element_type="widget" data-widget_type="flip-box.default">
+							<div class="elementor-flip-box" tabindex="0">
+			<div class="elementor-flip-box__layer elementor-flip-box__front">
+				<div class="elementor-flip-box__layer__overlay">
+					<div class="elementor-flip-box__layer__inner">
+						
+													<h3 class="elementor-flip-box__layer__title">
+								Telematics service providers (TSP)							</h3>
+						
+											</div>
+				</div>
+			</div>
+			<div class="elementor-flip-box__layer elementor-flip-box__back">
+			<div class="elementor-flip-box__layer__overlay">
+				<div class="elementor-flip-box__layer__inner">
+											<h3 class="elementor-flip-box__layer__title">
+							Telematics Service Providers (TSP)						</h3>
+					
+											<div class="elementor-flip-box__layer__description">
+							Give your customers an edge with smart tire data they can’t get with standard monitoring						</div>
+					
+											<a class="elementor-flip-box__button elementor-button elementor-size-sm" href="https://enervibe.co/solutions-page/#three">
+							Learn more						</a>
+								</div>
+		</div>
+		</div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-c16253f e-con-full elementor-hidden-desktop e-flex e-con e-child" data-id="c16253f" data-element_type="container">
+				<div class="elementor-element elementor-element-abc8b2d elementor-pagination-type-bullets elementor-arrows-position-inside elementor-pagination-position-outside elementor-widget elementor-widget-n-carousel" data-id="abc8b2d" data-element_type="widget" data-settings="{&quot;carousel_items&quot;:[{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;28c360c&quot;},{&quot;slide_title&quot;:&quot;Slide #2&quot;,&quot;_id&quot;:&quot;1b6e63a&quot;},{&quot;slide_title&quot;:&quot;Slide #3&quot;,&quot;_id&quot;:&quot;78a1ff7&quot;}],&quot;slides_to_show_tablet&quot;:&quot;2&quot;,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;offset_sides&quot;:&quot;none&quot;,&quot;arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="nested-carousel.default">
+							<div class="e-n-carousel swiper" role="region" aria-roledescription="carousel" aria-label="Carousel" dir="ltr">
+			<div class="swiper-wrapper" aria-live="off">
+										<div class="swiper-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="1 of 3">
+							<div class="elementor-element elementor-element-0bb15ab e-flex e-con-boxed e-con e-child" data-id="0bb15ab" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-9d47540 e-con-full e-flex e-con e-child" data-id="9d47540" data-element_type="container">
+				<div class="elementor-element elementor-element-0c9bf4c elementor-widget elementor-widget-heading" data-id="0c9bf4c" data-element_type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">Commercial fleets</h4>				</div>
+				<div class="elementor-element elementor-element-ad2c37d elementor-widget elementor-widget-text-editor" data-id="ad2c37d" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Reduce fuel consumption&nbsp;<br>with predictive maintenance<br>alerts for tire pressure &amp; load</p>								</div>
+				<div class="elementor-element elementor-element-8998063 elementor-mobile-align-left elementor-widget elementor-widget-button" data-id="8998063" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="https://enervibe.co/solutions-page#one">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Solution</span>
+					</span>
+					</a>
+								</div>
+				</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="2 of 3">
+							<div class="elementor-element elementor-element-d768324 e-flex e-con-boxed e-con e-child" data-id="d768324" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-c8bf8bb e-con-full e-flex e-con e-child" data-id="c8bf8bb" data-element_type="container">
+				<div class="elementor-element elementor-element-54237c0 elementor-widget elementor-widget-heading" data-id="54237c0" data-element_type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">Tire manufacturers</h4>				</div>
+				<div class="elementor-element elementor-element-faef181 elementor-widget elementor-widget-text-editor" data-id="faef181" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Provide commercial fleets with Tires as a Service to keep them coming back&nbsp;</p>								</div>
+				<div class="elementor-element elementor-element-5b7cb07 elementor-mobile-align-left elementor-widget elementor-widget-button" data-id="5b7cb07" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="https://enervibe.co/solutions-page#two">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Solution</span>
+					</span>
+					</a>
+								</div>
+				</div>
+					</div>
+				</div>
+								</div>
+											<div class="swiper-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="3 of 3">
+							<div class="elementor-element elementor-element-dc867aa e-flex e-con-boxed e-con e-child" data-id="dc867aa" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-00b2fd6 e-con-full e-flex e-con e-child" data-id="00b2fd6" data-element_type="container">
+				<div class="elementor-element elementor-element-3dd94bf elementor-widget elementor-widget-heading" data-id="3dd94bf" data-element_type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">Telematics service providers (TSP)</h4>				</div>
+				<div class="elementor-element elementor-element-1240b45 elementor-widget elementor-widget-text-editor" data-id="1240b45" data-element_type="widget" data-widget_type="text-editor.default">
+									<p>Give your customers an edge with smart tire data they can’t get with standard monitoring</p>								</div>
+				<div class="elementor-element elementor-element-d64b475 elementor-mobile-align-left elementor-widget elementor-widget-button" data-id="d64b475" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="https://enervibe.co/solutions-page#three">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Solution</span>
+					</span>
+					</a>
+								</div>
+				</div>
+					</div>
+				</div>
+								</div>
+								</div>
+		</div>
+					<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0" aria-label="Previous">
+				<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-left" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"></path></svg>			</div>
+			<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0" aria-label="Next">
+				<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-right" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"></path></svg>			</div>
+					<div class="swiper-pagination"></div>
+						</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-309537c elementor-widget elementor-widget-spacer" data-id="309537c" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-38e6ec3 e-con-full e-flex e-con e-parent" data-id="38e6ec3" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-36615d8 elementor-widget elementor-widget-spacer" data-id="36615d8" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-0cb3dfd elementor-widget elementor-widget-heading" data-id="0cb3dfd" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Our partners</h2>				</div>
+		<div class="elementor-element elementor-element-a8d63fe e-con-full e-flex e-con e-child" data-id="a8d63fe" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-00e0c60 elementor-arrows-position-outside elementor-widget elementor-widget-image-carousel" data-id="00e0c60" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;5&quot;,&quot;navigation&quot;:&quot;arrows&quot;,&quot;lazyload&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:0,&quot;speed&quot;:3000,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;}" data-widget_type="image-carousel.default">
+							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 7"><figure class="swiper-slide-inner"><img class="swiper-slide-image swiper-lazy" data-src="https://enervibe.co/wp-content/uploads/elementor/thumbs/Group-115-r3p8gwtj9wkmdt5pplqtnitaetord8e238whf2xft0.webp" alt="Group 115"><div class="swiper-lazy-preloader"></div></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 7"><figure class="swiper-slide-inner"><img class="swiper-slide-image swiper-lazy" data-src="https://enervibe.co/wp-content/uploads/elementor/thumbs/Group-117-r3p8gxrdgqlwpf4ck45g80kr07k4kxhsfdjywcw1ms.webp" alt="Group 117"><div class="swiper-lazy-preloader"></div></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 7"><figure class="swiper-slide-inner"><img class="swiper-slide-image swiper-lazy" data-src="https://enervibe.co/wp-content/uploads/elementor/thumbs/Group-119-r3p8gzn1ueohcn1m94ypd03o6zav0bp93muxuwt9ac.webp" alt="Group 119"><div class="swiper-lazy-preloader"></div></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 7"><figure class="swiper-slide-inner"><img class="swiper-slide-image swiper-lazy" data-src="https://enervibe.co/wp-content/uploads/elementor/thumbs/Group-121-r3p8h0kw18pro9093ndbxhv4sd6880szfrifc6rv44.webp" alt="Group 121"><div class="swiper-lazy-preloader"></div></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 of 7"><figure class="swiper-slide-inner"><img class="swiper-slide-image swiper-lazy" data-src="https://enervibe.co/wp-content/uploads/elementor/thumbs/Group-123-r3p8h1iq82r1zuyvy5ryhzmldr1lfpwprw5wtgqgxw.webp" alt="Group 123"><div class="swiper-lazy-preloader"></div></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="6 of 7"><figure class="swiper-slide-inner"><img class="swiper-slide-image swiper-lazy" data-src="https://enervibe.co/wp-content/uploads/elementor/thumbs/iKfkWhjh1e81qiAsXaLWj9mkaHg1734083596489_200x200-1-r3p8h2gkewscbgxiso6l2he1z4wynf0g40teaqp2ro.webp" alt="iKfkWhjh1e81qiAsXaLWj9mkaHg1734083596489_200x200 1"><div class="swiper-lazy-preloader"></div></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="7 of 7"><figure class="swiper-slide-inner"><img class="swiper-slide-image swiper-lazy" data-src="https://enervibe.co/wp-content/uploads/elementor/thumbs/Group-90-r3razpudkx4rf88e09f99ixfnuh6t8y0xwl2093sjo.png" alt="Group 90"><div class="swiper-lazy-preloader"></div></figure></div>			</div>
+												<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0">
+						<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-left" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"></path></svg>					</div>
+					<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0">
+						<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-right" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"></path></svg>					</div>
+				
+									</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-67a3075 elementor-widget elementor-widget-spacer" data-id="67a3075" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-ea265bc e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-parent" data-id="ea265bc" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-72fbcc6 elementor-widget elementor-widget-heading" data-id="72fbcc6" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Get smart <br>
+tire data</h2>				</div>
+				<div class="elementor-element elementor-element-b090465 elementor-align-center elementor-widget elementor-widget-button" data-id="b090465" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#footer">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Request a 1:1 consult</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-d2f445b elementor-hidden-desktop e-flex e-con-boxed e-con e-parent" data-id="d2f445b" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-11cce4e elementor-widget elementor-widget-image" data-id="11cce4e" data-element_type="widget" data-settings="{&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:2,&quot;sizes&quot;:[]},&quot;motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="image.default">
+															<img decoding="async" width="691" height="485" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20691%20485'%3E%3C/svg%3E" class="attachment-full size-full wp-image-4355" alt="" data-lazy-srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-54.webp 691w, https://enervibe.co/wp-content/uploads/2025/03/Group-54-300x211.webp 300w" data-lazy-sizes="(max-width: 691px) 100vw, 691px" data-lazy-src="https://enervibe.co/wp-content/uploads/2025/03/Group-54.webp"><noscript><img loading="lazy" decoding="async" width="691" height="485" src="https://enervibe.co/wp-content/uploads/2025/03/Group-54.webp" class="attachment-full size-full wp-image-4355" alt="" srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-54.webp 691w, https://enervibe.co/wp-content/uploads/2025/03/Group-54-300x211.webp 300w" sizes="(max-width: 691px) 100vw, 691px" /></noscript>															</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-c65b059 e-con-full e-flex e-con e-parent" data-id="c65b059" data-element_type="container">
+				<div class="elementor-element elementor-element-91e81d3 elementor-hidden-desktop elementor-widget elementor-widget-heading" data-id="91e81d3" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Get smart <br>tire data</h2>				</div>
+				<div class="elementor-element elementor-element-9b32138 elementor-mobile-align-center elementor-hidden-desktop elementor-widget elementor-widget-button" data-id="9b32138" data-element_type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="#footer">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Request a 1:1 consult</span>
+					</span>
+					</a>
+								</div>
+				</div>
+				</div>
+				<div class="post-tags">
+					</div>
+			</div>
+
+	<section id="comments" class="comments-area">
+
+	
+
+
+</section><!-- .comments-area -->
+</main>
+
+			<div data-elementor-type="footer" data-elementor-id="4478" class="elementor elementor-4478 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-bbfb884 e-flex e-con-boxed e-con e-parent" data-id="bbfb884" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-c58487e e-con-full e-flex e-con e-child" data-id="c58487e" data-element_type="container">
+		<div class="elementor-element elementor-element-0068b71 e-con-full e-flex e-con e-child" data-id="0068b71" data-element_type="container">
+				<div class="elementor-element elementor-element-d2647d5 elementor-widget elementor-widget-image" data-id="d2647d5" data-element_type="widget" data-widget_type="image.default">
+															<img width="795" height="186" src="https://enervibe.co/wp-content/uploads/2025/03/Group-131.webp" class="attachment-full size-full wp-image-4577" alt="" srcset="https://enervibe.co/wp-content/uploads/2025/03/Group-131.webp 795w, https://enervibe.co/wp-content/uploads/2025/03/Group-131-300x70.webp 300w, https://enervibe.co/wp-content/uploads/2025/03/Group-131-768x180.webp 768w" sizes="(max-width: 795px) 100vw, 795px">															</div>
+				<div class="elementor-element elementor-element-f60bca6 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="f60bca6" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><span style="font-weight: 400;">Beit Bareket 1</span></p><p><span style="font-weight: 400;">1 Golan Street</span><span style="font-weight: 400;"><br></span><span style="font-weight: 400;">Airport City, Israel</span></p><p><a href="mailto:contact@enervibe.co"><span style="font-weight: 400;">contact@enervibe.co</span></a><span style="font-weight: 400;">&nbsp;</span></p>								</div>
+				<div class="elementor-element elementor-element-8d06bcb e-grid-align-left e-grid-align-mobile-center elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="8d06bcb" data-element_type="widget" data-widget_type="social-icons.default">
+							<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-fc79a85" href="https://www.linkedin.com/company/enervibe/" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				<div class="elementor-element elementor-element-d0e3bd8 elementor-widget elementor-widget-menu-anchor" data-id="d0e3bd8" data-element_type="widget" data-widget_type="menu-anchor.default">
+							<div class="elementor-menu-anchor" id="footer"></div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-372a02d e-con-full e-flex e-con e-child" data-id="372a02d" data-element_type="container">
+				<div class="elementor-element elementor-element-1c40564 elementor-widget elementor-widget-heading" data-id="1c40564" data-element_type="widget" data-widget_type="heading.default">
+					<h5 class="elementor-heading-title elementor-size-default">Navigation</h5>				</div>
+				<div class="elementor-element elementor-element-51034ad elementor-hidden-desktop elementor-widget elementor-widget-text-editor" data-id="51034ad" data-element_type="widget" data-widget_type="text-editor.default">
+									<p><a href="https://enervibe.co/product-page/">Technology</a> | <a href="https://enervibe.co/solutions-page/">Solutions</a> | <a href="https://enervibe.co/about-page/">Company</a> | <a href="https://enervibe.co/vision-page/">Industries</a> | <a href="https://enervibe.co/privacy-policy/">Privacy Policy</a> | <a href="https://enervibe.co/accessibility-statement/">Accesability Statement</a></p>								</div>
+				<div class="elementor-element elementor-element-612df99 sitemap elementor-nav-menu--stretch elementor-widget-mobile__width-inherit elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-widget elementor-widget-nav-menu" data-id="612df99" data-element_type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;&quot;},&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-612df99" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4958"><a href="https://enervibe.co/product-page/" class="elementor-item">Technology</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4959"><a href="https://enervibe.co/solutions-page/" class="elementor-item">Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4957"><a href="https://enervibe.co/about-page/" class="elementor-item">Company</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4960"><a href="https://enervibe.co/vision-page/" class="elementor-item">Industries</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4969"><a href="https://enervibe.co/privacy-policy/" class="elementor-item">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4968"><a href="https://enervibe.co/accessibility-statement/" class="elementor-item">Accessibility statement</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-612df99" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4958"><a href="https://enervibe.co/product-page/" class="elementor-item" tabindex="-1">Technology</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4959"><a href="https://enervibe.co/solutions-page/" class="elementor-item" tabindex="-1">Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4957"><a href="https://enervibe.co/about-page/" class="elementor-item" tabindex="-1">Company</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4960"><a href="https://enervibe.co/vision-page/" class="elementor-item" tabindex="-1">Industries</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4969"><a href="https://enervibe.co/privacy-policy/" class="elementor-item" tabindex="-1">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4968"><a href="https://enervibe.co/accessibility-statement/" class="elementor-item" tabindex="-1">Accessibility statement</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-63e8d77 e-con-full e-flex e-con e-child" data-id="63e8d77" data-element_type="container">
+				<div class="elementor-element elementor-element-75d824a elementor-widget elementor-widget-heading" data-id="75d824a" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Contact us – we read our mail!</h2>				</div>
+				<div class="elementor-element elementor-element-7c986b6 elementor-widget__width-inherit elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="7c986b6" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+							<form class="elementor-form" method="post" name="New Form">
+			<input type="hidden" name="post_id" value="4478">
+			<input type="hidden" name="form_id" value="7c986b6">
+			<input type="hidden" name="referer_title" value="Page not found - Energy Harvesting Solutions">
+
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-33 elementor-field-required">
+												<label for="form-field-name" class="elementor-field-label elementor-screen-only">
+								Name							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Your full name" required="required">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-field_3a99766 elementor-col-33 elementor-field-required">
+												<label for="form-field-field_3a99766" class="elementor-field-label elementor-screen-only">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[field_3a99766]" id="form-field-field_3a99766" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Your work email" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_d8072b9 elementor-col-33 elementor-field-required">
+												<label for="form-field-field_d8072b9" class="elementor-field-label elementor-screen-only">
+								Company							</label>
+														<input size="1" type="text" name="form_fields[field_d8072b9]" id="form-field-field_d8072b9" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Company name" required="required">
+											</div>
+								<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_73eb624 elementor-col-100 elementor-field-required">
+												<label for="form-field-field_73eb624" class="elementor-field-label elementor-screen-only">
+								Subject							</label>
+								<div class="elementor-field elementor-select-wrapper remove-before ">
+			<div class="select-caret-down-wrapper">
+				<svg aria-hidden="true" class="e-font-icon-svg e-eicon-caret-down" viewBox="0 0 571.4 571.4" xmlns="http://www.w3.org/2000/svg"><path d="M571 393Q571 407 561 418L311 668Q300 679 286 679T261 668L11 418Q0 407 0 393T11 368 36 357H536Q550 357 561 368T571 393Z"></path></svg>			</div>
+			<select name="form_fields[field_73eb624]" id="form-field-field_73eb624" class="elementor-field-textual elementor-size-sm" required="required">
+									<option value="A consult or pilot">A consult or pilot</option>
+									<option value="More info about Enervibe">More info about Enervibe</option>
+									<option value="Partner with us">Partner with us</option>
+									<option value="Product customization">Product customization</option>
+									<option value="Other">Other</option>
+							</select>
+		</div>
+						</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+												<label for="form-field-message" class="elementor-field-label elementor-screen-only">
+								Message							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="4" placeholder="What should we know in order to help you?"></textarea>				</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_14d7134 elementor-col-100 recaptcha_v3-bottomright">
+					<div class="elementor-field" id="form-field-field_14d7134"><div class="elementor-g-recaptcha" data-sitekey="6Le9CNUfAAAAAN1og-We8qTYUNo6vdOJenCxie2S" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Submit your request</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-theme-child-master/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script id="ea11y-widget-js-extra">
+var ea11yWidget = {"iconSettings":{"style":{"icon":"person","size":"medium","color":"#2563eb"},"position":{"desktop":{"hidden":false,"enableExactPosition":false,"exactPosition":{"horizontal":{"direction":"right","value":10,"unit":"px"},"vertical":{"direction":"bottom","value":10,"unit":"px"}},"position":"bottom-left"},"mobile":{"hidden":false,"enableExactPosition":false,"exactPosition":{"horizontal":{"direction":"right","value":10,"unit":"px"},"vertical":{"direction":"bottom","value":10,"unit":"px"}},"position":"bottom-left"}}},"toolsSettings":{"bigger-text":{"enabled":true},"bigger-line-height":{"enabled":true},"text-align":{"enabled":true},"readable-font":{"enabled":true},"grayscale":{"enabled":true},"contrast":{"enabled":true},"page-structure":{"enabled":true},"sitemap":{"enabled":false,"url":"https://enervibe.co/wp-sitemap.xml"},"reading-mask":{"enabled":true},"hide-images":{"enabled":true},"pause-animations":{"enabled":true},"highlight-links":{"enabled":true},"focus-outline":{"enabled":true},"screen-reader":{"enabled":false},"remove-elementor-label":{"enabled":false}},"accessibilityStatementURL":"https://enervibe.co/accessibility-statement/","analytics":{"enabled":false,"url":null}};
+//# sourceURL=ea11y-widget-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://cdn.elementor.com/a11y/widget.js?api_key=ea11y-60721078-87fb-41fe-9dc5-f08d75f5f996&amp;ver=3.2.0" id="ea11y-widget-js" referrerpolicy="origin" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=1.0.0" id="hello-theme-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.29.1" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.29.1" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.29.1","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"e_local_google_fonts":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"editor_v2":true,"e_element_cache":true,"home_screen":true,"cloud-library":true,"e_opt_in_v4_page":true},"urls":{"assets":"https:\/\/enervibe.co\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/enervibe.co\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/enervibe.co\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"833f38fe43"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":3347,"title":"Enervibe%20-%20Energy%20Harvesting%20Solutions%20-%20Energy%20Harvesting%20Solutions","excerpt":"","featuredImage":"https:\/\/enervibe.co\/wp-content\/uploads\/2025\/03\/Group-54-1.webp"}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.29.1" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min.js?ver=0.2.1" id="jquery-numerator-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=explicit&amp;ver=3.27.5" id="elementor-recaptcha_v3-api-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.27.5" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/enervibe.co\/wp-admin\/admin-ajax.php","nonce":"b63124eafe","urls":{"assets":"https:\/\/enervibe.co\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/enervibe.co\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/enervibe.co\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.27.5" id="elementor-pro-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://enervibe.co/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.27.5" id="pro-elements-handlers-js" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://enervibe.co/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>
