@@ -10255,6 +10255,12 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@sanltdhaifa"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  SATEC: {
+    ws: ["https://www.satec-global.com"],
+    li: ["https://www.linkedin.com/company/satec-ltd."],
+    urls: ["https://go.mysatec.com/hc/en-us/requests/new"],
+    _meta: { isHomepage: true }
+  },
   "SGTech - Zero carbon, sustainable farming": {
     ws: ["https://sgtech.co.il"],
     urls: ["https://sgtech.co.il", "https://www.mar-comit.com"],
