@@ -2242,6 +2242,14 @@ export const manualOverrides: Record<
     urls: ["http://imaginet.co.il", "https://butterfly-medical.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "C-DATA": {
+    ws: ["https://c-data.co.il", "https://reseller.c-data.co.il"],
+    li: ["https://www.linkedin.com/company/2967153", "https://www.linkedin.com/company/computer-c-data"],
+    fb: ["https://www.facebook.com/computercdata"],
+    ig: ["https://www.instagram.com/c__data"],
+    urls: ["http://shopily.co.il", "https://www.bdicode.co.il", "https://www.nopcommerce.com"],
+    _meta: { isHomepage: true }
+  },
   "C2A Security": {
     ws: ["https://c2a-sec.com"],
     li: ["https://www.linkedin.com/company/c2a-security"],
