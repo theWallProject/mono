@@ -1716,6 +1716,13 @@ export const manualOverrides: Record<
     urls: ["https://blender.loans", "https://www.blender.co.il", "https://www.blender.global"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Blings.io": {
+    ws: ["https://app.blings.io", "https://help.blings.io", "https://www.blings.io"],
+    li: ["https://www.linkedin.com/company/blings-io"],
+    fb: ["https://www.facebook.com/blings.io"],
+    urls: ["https://chat.openai.com", "https://www.awesome-deloitte.com"],
+    _meta: { isHomepage: true }
+  },
   Blockaid: {
     ws: ["https://blockaid.io", "https://docs.blockaid.io", "https://report.blockaid.io"],
     li: ["https://www.linkedin.com/company/blockaid"],
