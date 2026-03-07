@@ -485,6 +485,14 @@ export const manualOverrides: Record<
     urls: ["https://cloudsecurityalliance.org/star/registry/akeyless-io"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "Alango Technologies": {
+    ws: ["https://alango.com", "https://www.alango-behear.com"],
+    li: ["https://www.linkedin.com/company/alango-technologies"],
+    fb: ["https://www.facebook.com/alango-technologies-1011650075567983"],
+    ig: ["https://www.instagram.com/alango_technologies"],
+    ytp: ["https://www.youtube.com/@alangotechnologies"],
+    _meta: { isHomepage: true }
+  },
   "Aleph Farms": {
     ws: ["https://aleph-farms.com"],
     li: ["https://www.linkedin.com/company/aleph-farms"],
