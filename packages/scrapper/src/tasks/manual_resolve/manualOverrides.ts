@@ -2306,6 +2306,20 @@ export const manualOverrides: Record<
     urls: ["https://cc.catonetworks.com", "https://connect.catonetworks.com", "https://partners.catonetworks.com"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CauseMatch: {
+    ws: [
+      "https://blog.causematch.com",
+      "https://campaigns.causematch.com",
+      "https://dashboard.causematch.com",
+      "https://www.causematch.com"
+    ],
+    li: ["https://www.linkedin.com/company/the-cause-match"],
+    fb: ["https://www.facebook.com/causematchpage"],
+    tw: ["https://x.com/thecausematch"],
+    ig: ["https://www.instagram.com/thecausematch"],
+    urls: ["https://www.bbb.org/us/co/arvada/profile/professional-fundraiser/causematch-1296-1000132011"],
+    _meta: { isHomepage: true }
+  },
   "Cedar Money": {
     ws: ["https://app.cedar.money", "https://www.cedar.money"],
     li: ["https://www.linkedin.com/company/cedar-money"],
