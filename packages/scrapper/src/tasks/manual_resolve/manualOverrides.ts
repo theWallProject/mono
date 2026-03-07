@@ -11902,6 +11902,13 @@ export const manualOverrides: Record<
     ],
     _meta: { isVerified: true, isBrowserVerified: true }
   },
+  ThoughtLeaders: {
+    ws: ["https://app.thoughtleaders.io", "https://www.thoughtleaders.io"],
+    li: ["https://www.linkedin.com/company/thoughtleaders-io"],
+    fb: ["https://www.facebook.com/thoughtleaders.io"],
+    ig: ["https://www.instagram.com/thoughtleaders.io"],
+    _meta: { isHomepage: true }
+  },
   Tidhar: {
     ws: ["https://tidhar.co.il"],
     fb: ["https://www.facebook.com/tidhargroup"],
