@@ -4418,6 +4418,12 @@ export const manualOverrides: Record<
     ],
     android_dev_id: "com.fiverr"
   },
+  Flashy: {
+    ws: ["https://flashy.app", "https://my.flashy.app"],
+    li: ["https://www.linkedin.com/company/18053532", "https://www.linkedin.com/company/flashy"],
+    fb: ["https://www.facebook.com/flashyapp"],
+    _meta: { isHomepage: true }
+  },
   "Flo-optics": {
     ws: ["https://www.flo-optics.com"],
     urls: [
