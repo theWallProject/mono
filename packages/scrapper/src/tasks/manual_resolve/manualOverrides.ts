@@ -11396,6 +11396,14 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@syteproductdiscoveryplatfo6994"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  TA9: {
+    ws: ["https://www.t-a9.com"],
+    li: ["https://www.linkedin.com/company/ta9"],
+    fb: ["https://www.facebook.com/ta9company"],
+    tw: ["https://x.com/ta9_leapp"],
+    urls: ["https://store.sap.com/dcp/en/product/display-0000059895_live_v1/TA9%20IntSight"],
+    _meta: { isHomepage: true }
+  },
   TAKO: {
     ws: ["https://docs.tako.com", "https://tako.com"],
     li: ["https://www.linkedin.com/company/takoviz"],
