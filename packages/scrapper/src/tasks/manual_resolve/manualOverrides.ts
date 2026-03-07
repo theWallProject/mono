@@ -3148,6 +3148,21 @@ export const manualOverrides: Record<
     ytp: ["https://www.youtube.com/@cropx_global"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  CryptoJungle: {
+    ws: ["https://ads.cryptojungle.co.il", "https://bdcc.cryptojungle.co.il", "https://www.cryptojungle.co.il"],
+    fb: ["https://www.facebook.com/cryptojungleil"],
+    tw: ["https://x.com/gocryptojungle"],
+    ig: ["https://www.instagram.com/cryptojungle.co.il"],
+    ytp: ["https://www.youtube.com/@cryptojungleil"],
+    urls: [
+      "https://lp.bdcc.co.il/blockchain-expert-accountant",
+      "https://lp.bdcc.co.il/blockchain-expert-course-lawyers",
+      "https://lp.bdcc.co.il/digital",
+      "https://t.me/bensamocha",
+      "https://www.bdcc.co.il"
+    ],
+    _meta: { isHomepage: true }
+  },
   Cubic: {
     ws: ["https://app.gocubic.io", "https://www.gocubic.io"],
     li: ["https://www.linkedin.com/company/gocubic"],
