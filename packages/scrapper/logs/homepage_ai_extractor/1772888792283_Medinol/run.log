@@ -1,0 +1,66 @@
+[2026-03-07T13:06:32.283Z] === Homepage AI Extractor: Medinol ===
+[2026-03-07T13:06:32.283Z] Started at: 2026-03-07T13:06:32.283Z
+[2026-03-07T13:06:32.284Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772888792283_Medinol
+[2026-03-07T13:06:32.284Z] Company: Medinol
+[2026-03-07T13:06:32.284Z] Website: medinol.com
+[2026-03-07T13:06:32.284Z] cbRank: 237858
+[2026-03-07T13:06:32.284Z] Reasons: h
+[2026-03-07T13:06:32.284Z] Fetching: https://medinol.com
+[2026-03-07T13:06:39.131Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-07T13:06:42.116Z] Redirected: https://medinol.com -> https://medinol.com/
+[2026-03-07T13:06:42.126Z] Saved HTML (196051 bytes) to page.html
+[2026-03-07T13:06:42.130Z] Extracted 59 unique links from page
+[2026-03-07T13:06:42.131Z] Saved 59 links to links.json
+[2026-03-07T13:06:42.134Z] Extracted footer HTML (1829 chars)
+[2026-03-07T13:06:42.134Z] Extracted header HTML (11065 chars)
+[2026-03-07T13:06:42.138Z] Website (post-redirect): https://medinol.com/ → origin: https://medinol.com
+[2026-03-07T13:06:42.139Z] External links: 5 (of 59 total)
+[2026-03-07T13:06:42.139Z] ── All external links ──
+[2026-03-07T13:06:42.139Z]   EXT: https://twitter.com/medinol_stents?lang=en
+[2026-03-07T13:06:42.139Z]   EXT: https://www.codenroll.co.il
+[2026-03-07T13:06:42.139Z]   EXT: https://www.linkedin.com/company/european-society-of-cardiology
+[2026-03-07T13:06:42.139Z]   EXT: https://www.linkedin.com/company/medinol
+[2026-03-07T13:06:42.139Z]   EXT: https://www.youtube.com/@medinol1219/videos
+[2026-03-07T13:06:42.139Z] ── Step 1: Programmatic categorization ──
+[2026-03-07T13:06:42.139Z]   REGEX: tw <- https://twitter.com/medinol_stents?lang=en
+[2026-03-07T13:06:42.140Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-07T13:06:42.140Z]   REGEX: li <- https://www.linkedin.com/company/european-society-of-cardiology
+[2026-03-07T13:06:42.140Z]   REGEX: li <- https://www.linkedin.com/company/medinol
+[2026-03-07T13:06:42.140Z]   REGEX: ytp <- https://www.youtube.com/@medinol1219/videos
+[2026-03-07T13:06:42.140Z] Programmatic result: ws:1, tw:1, li:2, ytp:1 | 1 uncategorized
+[2026-03-07T13:06:42.140Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-07T13:06:42.141Z] Saved AI prompt (2908 chars) to ai_prompt.txt
+[2026-03-07T13:07:00.352Z] Saved AI response to ai_response.json
+[2026-03-07T13:07:00.352Z] ── Parsing AI response (3 lines) ──
+[2026-03-07T13:07:00.353Z]   AI LINK: https://www.linkedin.com/company/medinol/
+[2026-03-07T13:07:00.353Z]   AI LINK: https://twitter.com/medinol_stents?lang=en
+[2026-03-07T13:07:00.353Z]   AI LINK: https://www.youtube.com/@medinol1219/videos
+[2026-03-07T13:07:00.353Z] AI returned 3 valid links
+[2026-03-07T13:07:00.353Z] ── Categorizing 3 AI-returned links ──
+[2026-03-07T13:07:00.353Z]   AI→REGEX: li <- https://www.linkedin.com/company/medinol/ (duplicate, skipped)
+[2026-03-07T13:07:00.353Z]   AI→REGEX: tw <- https://twitter.com/medinol_stents?lang=en (duplicate, skipped)
+[2026-03-07T13:07:00.353Z]   AI→REGEX: ytp <- https://www.youtube.com/@medinol1219/videos (duplicate, skipped)
+[2026-03-07T13:07:00.354Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-07T13:07:00.354Z] Footer/header origins (4):
+[2026-03-07T13:07:00.354Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-07T13:07:00.354Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-07T13:07:00.354Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-07T13:07:00.354Z]   FOOTER/HEADER ORIGIN: https://medinol.com
+[2026-03-07T13:07:00.354Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-07T13:07:00.355Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-07T13:07:00.355Z] ── Step 3: Final dedup ──
+[2026-03-07T13:07:00.355Z] No urls to dedup
+[2026-03-07T13:07:00.355Z] ── FINAL RESULT ──
+[2026-03-07T13:07:00.355Z]   ws (1):
+[2026-03-07T13:07:00.355Z]     - https://medinol.com
+[2026-03-07T13:07:00.355Z]   li (2):
+[2026-03-07T13:07:00.355Z]     - https://www.linkedin.com/company/european-society-of-cardiology
+[2026-03-07T13:07:00.355Z]     - https://www.linkedin.com/company/medinol
+[2026-03-07T13:07:00.355Z]   tw (1):
+[2026-03-07T13:07:00.355Z]     - https://x.com/medinol_stents
+[2026-03-07T13:07:00.355Z]   ytp (1):
+[2026-03-07T13:07:00.355Z]     - https://www.youtube.com/@medinol1219
+[2026-03-07T13:07:00.355Z] Summary: ws:1, tw:1, li:2, ytp:1
+[2026-03-07T13:07:00.356Z] Saved final result to result.json
+[2026-03-07T13:07:00.356Z] Override fields: ws, li, tw, ytp
+[2026-03-07T13:07:00.356Z] Finished at: 2026-03-07T13:07:00.356Z

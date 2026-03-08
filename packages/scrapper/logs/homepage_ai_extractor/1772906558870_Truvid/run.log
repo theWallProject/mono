@@ -1,0 +1,75 @@
+[2026-03-07T18:02:38.870Z] === Homepage AI Extractor: Truvid ===
+[2026-03-07T18:02:38.870Z] Started at: 2026-03-07T18:02:38.870Z
+[2026-03-07T18:02:38.870Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1772906558870_Truvid
+[2026-03-07T18:02:38.871Z] Company: Truvid
+[2026-03-07T18:02:38.871Z] Website: truvid.com
+[2026-03-07T18:02:38.871Z] cbRank: 302530
+[2026-03-07T18:02:38.871Z] Reasons: h
+[2026-03-07T18:02:38.871Z] Fetching: https://truvid.com
+[2026-03-07T18:02:42.125Z] Redirected: https://truvid.com -> https://truvid.com/
+[2026-03-07T18:02:42.132Z] Saved HTML (182667 bytes) to page.html
+[2026-03-07T18:02:42.136Z] Extracted 33 unique links from page
+[2026-03-07T18:02:42.137Z] Saved 33 links to links.json
+[2026-03-07T18:02:42.140Z] Extracted footer HTML (14574 chars)
+[2026-03-07T18:02:42.140Z] Extracted header HTML (9442 chars)
+[2026-03-07T18:02:42.143Z] Website (post-redirect): https://truvid.com/ → origin: https://truvid.com
+[2026-03-07T18:02:42.144Z]   SUBDOMAIN: console.truvid.com (added to ws)
+[2026-03-07T18:02:42.144Z] Website subdomains found: 1
+[2026-03-07T18:02:42.144Z] External links: 5 (of 33 total)
+[2026-03-07T18:02:42.144Z] ── All external links ──
+[2026-03-07T18:02:42.144Z]   EXT: https://twitter.com/truvidovp
+[2026-03-07T18:02:42.144Z]   EXT: https://www.facebook.com/truvidovp
+[2026-03-07T18:02:42.144Z]   EXT: https://www.instagram.com/truvid_inc
+[2026-03-07T18:02:42.144Z]   EXT: https://www.linkedin.com/company/truvid
+[2026-03-07T18:02:42.144Z]   EXT: https://www.widelab.co
+[2026-03-07T18:02:42.144Z] ── Step 1: Programmatic categorization ──
+[2026-03-07T18:02:42.144Z]   REGEX: tw <- https://twitter.com/truvidovp
+[2026-03-07T18:02:42.144Z]   REGEX: fb <- https://www.facebook.com/truvidovp
+[2026-03-07T18:02:42.145Z]   REGEX: ig <- https://www.instagram.com/truvid_inc
+[2026-03-07T18:02:42.145Z]   REGEX: li <- https://www.linkedin.com/company/truvid
+[2026-03-07T18:02:42.145Z]   UNCATEGORIZED: https://www.widelab.co
+[2026-03-07T18:02:42.145Z] Programmatic result: ws:2, tw:1, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-07T18:02:42.145Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-07T18:02:42.148Z] Saved AI prompt (4446 chars) to ai_prompt.txt
+[2026-03-07T18:03:08.348Z] Saved AI response to ai_response.json
+[2026-03-07T18:03:08.348Z] ── Parsing AI response (4 lines) ──
+[2026-03-07T18:03:08.348Z]   AI LINK: https://www.facebook.com/truvidovp/
+[2026-03-07T18:03:08.348Z]   AI LINK: https://www.linkedin.com/company/truvid/
+[2026-03-07T18:03:08.348Z]   AI LINK: https://twitter.com/truvidovp
+[2026-03-07T18:03:08.348Z]   AI LINK: https://www.instagram.com/truvid_inc/
+[2026-03-07T18:03:08.349Z] AI returned 4 valid links
+[2026-03-07T18:03:08.349Z] ── Categorizing 4 AI-returned links ──
+[2026-03-07T18:03:08.349Z]   AI→REGEX: fb <- https://www.facebook.com/truvidovp/ (duplicate, skipped)
+[2026-03-07T18:03:08.349Z]   AI→REGEX: li <- https://www.linkedin.com/company/truvid/ (duplicate, skipped)
+[2026-03-07T18:03:08.349Z]   AI→REGEX: tw <- https://twitter.com/truvidovp (duplicate, skipped)
+[2026-03-07T18:03:08.349Z]   AI→REGEX: ig <- https://www.instagram.com/truvid_inc/ (duplicate, skipped)
+[2026-03-07T18:03:08.350Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-07T18:03:08.350Z] Footer/header origins (6):
+[2026-03-07T18:03:08.350Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-07T18:03:08.350Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-07T18:03:08.350Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-07T18:03:08.350Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-07T18:03:08.350Z]   FOOTER/HEADER ORIGIN: https://www.widelab.co
+[2026-03-07T18:03:08.350Z]   FOOTER/HEADER ORIGIN: https://console.truvid.com
+[2026-03-07T18:03:08.350Z]   ADDED: urls <- https://www.widelab.co
+[2026-03-07T18:03:08.351Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-07T18:03:08.351Z] ── Step 3: Final dedup ──
+[2026-03-07T18:03:08.351Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-07T18:03:08.351Z] ── FINAL RESULT ──
+[2026-03-07T18:03:08.351Z]   ws (2):
+[2026-03-07T18:03:08.351Z]     - https://console.truvid.com
+[2026-03-07T18:03:08.351Z]     - https://truvid.com
+[2026-03-07T18:03:08.351Z]   li (1):
+[2026-03-07T18:03:08.351Z]     - https://www.linkedin.com/company/truvid
+[2026-03-07T18:03:08.351Z]   fb (1):
+[2026-03-07T18:03:08.351Z]     - https://www.facebook.com/truvidovp
+[2026-03-07T18:03:08.351Z]   tw (1):
+[2026-03-07T18:03:08.351Z]     - https://x.com/truvidovp
+[2026-03-07T18:03:08.351Z]   ig (1):
+[2026-03-07T18:03:08.352Z]     - https://www.instagram.com/truvid_inc
+[2026-03-07T18:03:08.352Z]   urls (1):
+[2026-03-07T18:03:08.352Z]     - https://www.widelab.co
+[2026-03-07T18:03:08.352Z] Summary: ws:2, tw:1, fb:1, ig:1, li:1, urls:1
+[2026-03-07T18:03:08.352Z] Saved final result to result.json
+[2026-03-07T18:03:08.352Z] Override fields: ws, li, fb, tw, ig, urls
+[2026-03-07T18:03:08.352Z] Finished at: 2026-03-07T18:03:08.352Z

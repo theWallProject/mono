@@ -38,6 +38,7 @@ import com.thewallboycott.android.data.billing.BillingStage
 import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.components.SupporterShareDialog
 import com.thewallboycott.android.ui.theme.*
+import com.thewallboycott.android.util.SUPPORT_EMAIL
 
 @Composable
 fun SupportScreen() {
@@ -305,7 +306,7 @@ fun SupportScreen() {
                 onClick = {
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
                         data = Uri.parse("mailto:")
-                        putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
+                        putExtra(Intent.EXTRA_EMAIL, arrayOf(SUPPORT_EMAIL))
                         putExtra(Intent.EXTRA_SUBJECT, emailSubject)
                         putExtra(Intent.EXTRA_TEXT, emailBodyPlaceholder)
                     }
@@ -322,7 +323,7 @@ fun SupportScreen() {
                 onClick = {
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
                         data = Uri.parse("mailto:")
-                        putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
+                        putExtra(Intent.EXTRA_EMAIL, arrayOf(SUPPORT_EMAIL))
                         putExtra(Intent.EXTRA_SUBJECT, emailSubject)
                     }
                     context.startActivity(Intent.createChooser(intent, chooserSendEmail))
