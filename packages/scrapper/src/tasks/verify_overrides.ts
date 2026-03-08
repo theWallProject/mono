@@ -2,9 +2,11 @@
  * Interactive quick-verify script for auto-extracted (isHomepage) override entries.
  *
  * Displays one company at a time. The user verifies (←), postpones (→),
- * or exits (x). Saves run fire-and-forget in the background so the next
- * entry appears instantly. Data is loaded once at startup and mutated
- * in-memory — only the background writer touches disk.
+ * or exits (x). Press v to paste a link from clipboard. Urls entries are
+ * numbered — press a number to select, then w to promote to ws, or r to
+ * remove. Saves run fire-and-forget in the background so the next entry
+ * appears instantly. Data is loaded once at startup and mutated in-memory
+ * — only the background writer touches disk.
  *
  * Usage: pnpm data:verify
  */
@@ -316,23 +318,32 @@ const ytcAnnotation = (url: string): string => {
 // ────────────────────────────────────────────────────────────────────────────
 
 const SKIP_FIELDS = new Set(["_meta", "name"])
-const DIM_FIELDS = new Set(["urls"])
 
-/** Characters used for field numbering: 1-9, then a-z (excluding d=delete, n=rename, x=exit) */
-const NUM_CHARS = "123456789abcefghijklmopqrstuvwyz"
+/** Characters used for numbering urls entries: 1-9, then a-z (excluding action keys d,n,r,v,w,x) */
+const NUM_CHARS = "123456789abcefghijklmopqstuyz"
 
 type RenderResult = {
   /** The rendered string (includes CLEAR_SCREEN) */
   output: string
-  /** Ordered field keys — index corresponds to NUM_CHARS position */
-  fieldKeys: string[]
+  /** Number of urls entries (for selection by number) */
+  urlsCount: number
   /** True when every link-type field contains the company name (all green) */
   allGreen: boolean
+  /** Index of the currently selected urls entry, or -1 if none */
+  selectedUrlIndex: number
+  /** The raw footer line (for restoring after sub-prompt cancel) */
+  footerLine: string
 }
 
-const renderEntry = (name: string, value: ManualOverrideValue, index: number, total: number): RenderResult => {
+const renderEntry = (
+  name: string,
+  value: ManualOverrideValue,
+  index: number,
+  total: number,
+  selectedUrlIndex: number
+): RenderResult => {
   const lines: string[] = []
-  const fieldKeys: string[] = []
+  let urlsCount = 0
 
   // Clear screen — one company at a time
   lines.push(CLEAR_SCREEN)
@@ -403,21 +414,16 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
     }
   }
 
-  // Render fields in order, with numbering
-  let fieldIdx = 0
-
+  // Render fields in order — no numbering except for urls entries
   const renderField = (key: string, val: unknown): void => {
     const color = FIELD_COLORS[key] ?? WHITE
     const label = FIELD_LABELS[key] ?? key
     const effectiveColor = key === "ytc" && ytpGreen ? GREEN : color
-    const numChar = NUM_CHARS[fieldIdx] ?? "?"
-    const numPrefix = `${DIM}${numChar}${RESET}`
-    fieldKeys.push(key)
-    fieldIdx++
+    const prefix = "  "
 
     // android_app_ids: display as full Play Store links but data is stored as package IDs
     if (key === "android_app_ids" && Array.isArray(val)) {
-      lines.push(`  ${numPrefix} ${color}${label}:${RESET}`)
+      lines.push(`${prefix} ${color}${label}:${RESET}`)
       for (const item of val) {
         const pkg = String(item)
         const displayUrl = `https://play.google.com/store/apps/details?id=${pkg}`
@@ -426,46 +432,55 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
       return
     }
 
+    // urls: numbered entries for selection
+    if (key === "urls") {
+      const items = Array.isArray(val) ? val : typeof val === "string" ? [val] : []
+      urlsCount = items.length
+      if (items.length === 0) return
+      lines.push(`${prefix} ${DIM}${label}:${RESET}`)
+      for (let ui = 0; ui < items.length; ui++) {
+        const numChar = NUM_CHARS[ui] ?? "?"
+        const isSelected = ui === selectedUrlIndex
+        const marker = isSelected ? `${CYAN}${BOLD}${numChar}${RESET}` : `${DIM}${numChar}${RESET}`
+        const itemStr = String(items[ui])
+        const itemDisplay = isSelected ? `${CYAN}${BOLD}${itemStr}${RESET}` : `${DIM}${itemStr}${RESET}`
+        lines.push(`    ${marker} ${itemDisplay}`)
+      }
+      return
+    }
+
     if (Array.isArray(val)) {
       if (key === "alt") {
-        lines.push(`  ${numPrefix} ${color}${label}:${RESET}`)
+        lines.push(`${prefix} ${color}${label}:${RESET}`)
         for (const alt of val) {
           if (typeof alt === "object" && alt !== null && "n" in alt && "ws" in alt) {
             lines.push(`    ${DIM}→${RESET} ${String(alt.n)} ${DIM}(${String(alt.ws)})${RESET}`)
           }
         }
-      } else if (DIM_FIELDS.has(key)) {
-        lines.push(`  ${numPrefix} ${DIM}${label}:`)
-        for (const item of val) {
-          lines.push(`    → ${item}`)
-        }
-        lines.push(RESET)
       } else if (key === "ytc") {
-        lines.push(`  ${numPrefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET}`)
+        lines.push(`${prefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET}`)
         for (const item of val) {
           const itemStr = String(item)
           const linkColor = ytpGreen ? `${GREEN}${itemStr}${RESET}` : colorizeLink(name, itemStr, effectiveColor)
           lines.push(`    ${DIM}→${RESET} ${linkColor}${ytcAnnotation(itemStr)}`)
         }
       } else {
-        lines.push(`  ${numPrefix} ${effectiveColor}${label}:${RESET}`)
+        lines.push(`${prefix} ${effectiveColor}${label}:${RESET}`)
         for (const item of val) {
           lines.push(`    ${DIM}→${RESET} ${colorizeLink(name, String(item), effectiveColor)}`)
         }
       }
     } else if (typeof val === "string") {
-      if (DIM_FIELDS.has(key)) {
-        lines.push(`  ${numPrefix} ${DIM}${label}: ${val}${RESET}`)
-      } else if (key === "ytc") {
+      if (key === "ytc") {
         const linkColor = ytpGreen ? `${GREEN}${val}${RESET}` : colorizeLink(name, val, effectiveColor)
         lines.push(
-          `  ${numPrefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET} ${linkColor}${ytcAnnotation(val)}`
+          `${prefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET} ${linkColor}${ytcAnnotation(val)}`
         )
       } else {
-        lines.push(`  ${numPrefix} ${effectiveColor}${label}:${RESET} ${colorizeLink(name, val, effectiveColor)}`)
+        lines.push(`${prefix} ${effectiveColor}${label}:${RESET} ${colorizeLink(name, val, effectiveColor)}`)
       }
     } else if (typeof val === "object" && val !== null) {
-      lines.push(`  ${numPrefix} ${effectiveColor}${label}:${RESET} ${JSON.stringify(val)}`)
+      lines.push(`${prefix} ${effectiveColor}${label}:${RESET} ${JSON.stringify(val)}`)
     }
   }
 
@@ -476,14 +491,28 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
   const green = allLinksGreen(name, value)
 
   lines.push("")
-  const editHint = fieldIdx > 0 ? `    ${DIM}1-${NUM_CHARS[fieldIdx - 1] ?? "9"}${RESET} edit` : ""
-  const defaultAction = green ? `${GREEN}↑ verify${RESET}` : `${YELLOW}↑ postpone${RESET}`
-  lines.push(
-    `  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}    ${DIM}↓${RESET} back${editHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`
-  )
+  let footerLine: string
+  if (selectedUrlIndex >= 0) {
+    // Sub-level: only show actions for the selected url entry
+    const selectHint =
+      urlsCount > 1
+        ? `    ${DIM}1-${NUM_CHARS[urlsCount - 1] ?? "9"}${RESET} reselect`
+        : ""
+    footerLine = `  ${CYAN}w${RESET} →ws    ${RED}r${RESET} remove${selectHint}    ${DIM}esc${RESET} deselect`
+  } else {
+    // Top-level: all actions
+    const defaultAction = green ? `${GREEN}↑ verify${RESET}` : `${YELLOW}↑ postpone${RESET}`
+    const pasteHint = `    ${MAGENTA}v${RESET} paste`
+    const selectHint =
+      urlsCount > 0
+        ? `    ${DIM}1-${NUM_CHARS[urlsCount - 1] ?? "9"}${RESET} select`
+        : ""
+    footerLine = `  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}    ${DIM}↓${RESET} back${pasteHint}${selectHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`
+  }
+  lines.push(footerLine)
   lines.push("")
 
-  return { output: lines.join("\n"), fieldKeys, allGreen: green }
+  return { output: lines.join("\n"), urlsCount, allGreen: green, selectedUrlIndex, footerLine }
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -491,7 +520,17 @@ const renderEntry = (name: string, value: ManualOverrideValue, index: number, to
 // ────────────────────────────────────────────────────────────────────────────
 
 type EditMode = "append" | "replace" | "delete"
-type Action = "verify" | "postpone" | "delete" | "rename" | "exit" | "back" | { field: number; mode: EditMode }
+type Action =
+  | "verify"
+  | "postpone"
+  | "delete"
+  | "rename"
+  | "exit"
+  | "back"
+  | { type: "paste"; mode: EditMode }
+  | { type: "select"; urlIndex: number }
+  | { type: "promote_ws" }
+  | { type: "remove_url" }
 
 let stdinSessionActive = false
 let stdinWasRaw: boolean | undefined
@@ -616,11 +655,16 @@ const waitForTextInput = async (prompt: string, prefill: string): Promise<string
   })
 }
 
-const waitForAction = async (maxFieldIndex: number, allGreen: boolean): Promise<Action> => {
+const waitForAction = async (
+  urlsCount: number,
+  allGreen: boolean,
+  selectedUrlIndex: number,
+  footerLine: string
+): Promise<Action> => {
   activateStdinSession()
 
-  // Build the set of valid field-select characters for the current entry
-  const validChars = NUM_CHARS.slice(0, maxFieldIndex)
+  // Build the set of valid url-select characters for the current entry
+  const validChars = NUM_CHARS.slice(0, urlsCount)
 
   return new Promise((resolve) => {
     const onKeypress = (_str: string | undefined, key: readline.Key): void => {
@@ -640,26 +684,36 @@ const waitForAction = async (maxFieldIndex: number, allGreen: boolean): Promise<
         resolve("rename")
       } else if (key.name === "x" || (key.ctrl && key.name === "c")) {
         resolve("exit")
+      } else if (key.name === "v") {
+        // Paste link — replace footer with sub-prompt to avoid confusion
+        process.stdout.write(`\x1b[1A\r\x1b[2K`)
+        process.stdout.write(
+          `  ${MAGENTA}v${RESET} → ${GREEN}a${RESET} append  ${YELLOW}r${RESET} replace  ${DIM}esc${RESET} cancel`
+        )
+        void (async () => {
+          const mode = await waitForEditMode()
+          if (mode === "cancel") {
+            // Restore the original footer
+            process.stdout.write(`\r\x1b[2K`)
+            process.stdout.write(footerLine)
+            process.stdin.once("keypress", onKeypress)
+          } else {
+            process.stdout.write(`\n`)
+            resolve({ type: "paste", mode })
+          }
+        })()
+      } else if (key.name === "escape" && selectedUrlIndex >= 0) {
+        resolve({ type: "select", urlIndex: selectedUrlIndex }) // toggle off = deselect
+      } else if (key.name === "w" && selectedUrlIndex >= 0) {
+        resolve({ type: "promote_ws" })
+      } else if (key.name === "r" && selectedUrlIndex >= 0) {
+        resolve({ type: "remove_url" })
       } else {
-        // Check if this is a field-select key (1-9, a-z)
+        // Check if this is a url-select key (1-9, a-z)
         const ch = key.name ?? _str ?? ""
         const idx = validChars.indexOf(ch)
         if (idx >= 0) {
-          // Show sub-prompt for append/replace
-          process.stdout.write(
-            `  ${DIM}${ch}${RESET} → ${GREEN}a${RESET} append  ${YELLOW}r${RESET} replace  ${DIM}esc${RESET} cancel`
-          )
-          void (async () => {
-            const mode = await waitForEditMode()
-            if (mode === "cancel") {
-              // Erase the sub-prompt line and re-listen
-              process.stdout.write(`\r\x1b[2K`)
-              process.stdin.once("keypress", onKeypress)
-            } else {
-              process.stdout.write(`\n`)
-              resolve({ field: idx, mode })
-            }
-          })()
+          resolve({ type: "select", urlIndex: idx })
         } else {
           // Unknown key — re-listen
           process.stdin.once("keypress", onKeypress)
@@ -902,16 +956,18 @@ const processQueue = async (
     // Show entry — loop to allow in-place edits before verify/postpone
     let decided = false
     let decidedAction: Action | null = null
+    let selectedUrlIdx = -1 // Currently selected urls entry index
     while (!decided) {
-      const { output, fieldKeys, allGreen } = renderEntry(
+      const { output, urlsCount, allGreen, selectedUrlIndex, footerLine } = renderEntry(
         entry.name,
         overrides[entry.name] ?? entry.value,
         startIndex + i,
-        startIndex + totalInQueue
+        startIndex + totalInQueue,
+        selectedUrlIdx
       )
       process.stdout.write(output)
 
-      const action = await waitForAction(fieldKeys.length, allGreen)
+      const action = await waitForAction(urlsCount, allGreen, selectedUrlIndex, footerLine)
 
       if (action === "exit") {
         deactivateStdinSession()
@@ -988,11 +1044,75 @@ const processQueue = async (
           process.stdout.write(`  ${BG_BLUE}${WHITE} RENAMED ${RESET} ${trimmed}\n`)
         }
         await sleep(600)
-      } else {
-        // Edit field from clipboard (append or replace)
-        const fieldKey = fieldKeys[action.field]
-        if (!fieldKey) continue
+      } else if (action.type === "select") {
+        // Toggle selection: pressing the same number deselects
+        selectedUrlIdx = selectedUrlIdx === action.urlIndex ? -1 : action.urlIndex
+        // Re-render immediately (no sleep)
+        continue
+      } else if (action.type === "promote_ws") {
+        // Promote selected urls entry to ws field
+        const current = overrides[entry.name] ?? entry.value
+        const urlsRaw = "urls" in current ? current.urls : undefined
+        const urlsArr = Array.isArray(urlsRaw) ? urlsRaw : typeof urlsRaw === "string" ? [urlsRaw] : []
+        const selectedUrl = urlsArr[selectedUrlIdx]
+        if (typeof selectedUrl !== "string") continue
 
+        // Set target field (auto-categorize in case it's a social link)
+        const category = categorizeUrl(selectedUrl)
+        const targetField = category ?? "ws"
+        const targetLabel = FIELD_LABELS[targetField] ?? targetField
+
+        // Append to target field (don't replace existing value)
+        const fields = Object.fromEntries(Object.entries(current))
+        const existing = ExistingFieldSchema.parse(fields[targetField])
+        let newFieldValue: string | string[]
+        if (existing === undefined) {
+          newFieldValue = selectedUrl
+        } else if (Array.isArray(existing)) {
+          newFieldValue = [...existing, selectedUrl]
+        } else {
+          newFieldValue = [existing, selectedUrl]
+        }
+
+        // Remove from urls
+        const newUrls = urlsArr.filter((_, idx) => idx !== selectedUrlIdx)
+        const updated = { ...current, [targetField]: newFieldValue } as ManualOverrideValue
+        if (newUrls.length === 0) {
+          Reflect.deleteProperty(updated, "urls")
+        } else {
+          Object.assign(updated, { urls: newUrls })
+        }
+        overrides[entry.name] = updated
+        dirtyKeys.add(entry.name)
+        selectedUrlIdx = -1
+
+        process.stdout.write(
+          `  ${BG_GREEN}${WHITE} PROMOTED ${RESET} → ${targetLabel}: ${DIM}${selectedUrl}${RESET}\n`
+        )
+        await sleep(600)
+      } else if (action.type === "remove_url") {
+        // Remove selected urls entry
+        const current = overrides[entry.name] ?? entry.value
+        const urlsRaw = "urls" in current ? current.urls : undefined
+        const urlsArr = Array.isArray(urlsRaw) ? urlsRaw : typeof urlsRaw === "string" ? [urlsRaw] : []
+        const removedUrl = urlsArr[selectedUrlIdx]
+        if (typeof removedUrl !== "string") continue
+
+        const newUrls = urlsArr.filter((_, idx) => idx !== selectedUrlIdx)
+        const updated = { ...current } as ManualOverrideValue
+        if (newUrls.length === 0) {
+          Reflect.deleteProperty(updated, "urls")
+        } else {
+          Object.assign(updated, { urls: newUrls })
+        }
+        overrides[entry.name] = updated
+        dirtyKeys.add(entry.name)
+        selectedUrlIdx = -1
+
+        process.stdout.write(`  ${RED}${BOLD} REMOVED ${RESET} ${DIM}${removedUrl}${RESET}\n`)
+        await sleep(600)
+      } else if (action.type === "paste") {
+        // Paste link from clipboard (auto-categorized)
         const clipboard = readClipboard()
         if (!clipboard) {
           process.stdout.write(`  ${RED}Clipboard is empty${RESET}\n`)
@@ -1000,9 +1120,9 @@ const processQueue = async (
           continue
         }
 
-        // Apply the edit
+        // Apply the edit — target field is "urls" by default, but auto-categorization may redirect
         const current = overrides[entry.name] ?? entry.value
-        const result = applyFieldEdit(current, fieldKey, clipboard, action.mode)
+        const result = applyFieldEdit(current, "urls", clipboard, action.mode)
         if (!result.ok) {
           process.stdout.write(`  ${RED}${result.error}${RESET}\n`)
           await sleep(800)
@@ -1013,19 +1133,12 @@ const processQueue = async (
         dirtyKeys.add(entry.name)
 
         // Flash confirmation then re-render (loop continues)
-        const modeLabel = action.mode === "append" ? "APPENDED" : "REPLACED"
-        const bgColor = action.mode === "append" ? BG_GREEN : BG_BLUE
+        const modeLabel = action.mode === "append" ? "APPENDED" : action.mode === "replace" ? "REPLACED" : "DELETED"
+        const bgColor = action.mode === "append" ? BG_GREEN : action.mode === "replace" ? BG_BLUE : BG_YELLOW
         const targetLabel = FIELD_LABELS[result.targetField] ?? result.targetField
-        if (result.targetField !== fieldKey) {
-          const srcLabel = FIELD_LABELS[fieldKey] ?? fieldKey
-          process.stdout.write(
-            `  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${srcLabel} → ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`
-          )
-        } else {
-          process.stdout.write(
-            `  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`
-          )
-        }
+        process.stdout.write(
+          `  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`
+        )
 
         // If ytc was updated, re-run YouTube handle resolution before re-rendering
         if (result.targetField === "ytc") {

@@ -63,6 +63,7 @@ import com.thewallboycott.android.share.ShareScenario
 import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.components.SharePromptCard
 import com.thewallboycott.android.ui.theme.*
+import com.thewallboycott.android.util.SUPPORT_EMAIL
 import androidx.compose.runtime.derivedStateOf
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.delay
@@ -807,7 +808,7 @@ fun AppInfoCard(
                             val encodedSubject = URLEncoder.encode(reportSubject, "UTF-8").replace("+", "%20")
                             val encodedBody = URLEncoder.encode(reportBody, "UTF-8").replace("+", "%20")
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
-                                data = Uri.parse("mailto:app@thewall.bot?subject=$encodedSubject&body=$encodedBody")
+                                data = Uri.parse("mailto:$SUPPORT_EMAIL?subject=$encodedSubject&body=$encodedBody")
                             }
                             context.startActivity(Intent.createChooser(intent, chooserTitle))
                         }

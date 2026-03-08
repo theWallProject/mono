@@ -76,6 +76,7 @@ import com.thewallboycott.android.share.ShareManager
 import com.thewallboycott.android.ui.components.ShareButton
 import com.thewallboycott.android.ui.components.ShareDialog
 import com.thewallboycott.android.ui.theme.*
+import com.thewallboycott.android.util.SUPPORT_EMAIL
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
@@ -303,7 +304,7 @@ fun UrlLookupScreen(
             fun sendReportEmail() {
                 val intent = Intent(Intent.ACTION_SENDTO).apply {
                     data = Uri.parse("mailto:")
-                    putExtra(Intent.EXTRA_EMAIL, arrayOf("the.wall.addon@proton.me"))
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf(SUPPORT_EMAIL))
                     putExtra(Intent.EXTRA_SUBJECT, reportSubject)
                     putExtra(Intent.EXTRA_TEXT, reportBody)
                 }
