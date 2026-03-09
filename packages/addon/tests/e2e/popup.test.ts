@@ -100,30 +100,35 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
   })
 
   describe("Hints System Settings", () => {
-    it("should display hints system toggle button", async () => {
-      console.log("[TEST] Starting: should display hints system toggle button")
+    it("should display hints system toggle", async () => {
+      console.log("[TEST] Starting: should display hints system toggle")
 
       const popup = await getExtensionPopup(context, extensionId)
       try {
-        console.log("[TEST] Verifying toggle button is visible")
-        const toggleButton = popup.getByRole("button", { name: /hints system/i })
-        const buttonCount = await toggleButton.count()
-        expect(buttonCount).toBeGreaterThan(0)
+        console.log("[TEST] Verifying hints toggle checkbox is visible")
+        // The hints toggle is a checkbox with label "Enable Hints"
+        const hintsCheckbox = popup.getByRole("checkbox").first()
 
         await waitFor(
           async () => {
-            return await toggleButton.first().isVisible()
+            const count = await hintsCheckbox.count()
+            return count > 0 && (await hintsCheckbox.isVisible())
           },
           {
             timeout: 5000,
-            description: "hints system toggle button to be visible"
+            description: "hints system toggle checkbox to be visible"
           }
         )
 
-        const isVisible = await toggleButton.first().isVisible()
+        const isVisible = await hintsCheckbox.isVisible()
         expect(isVisible).toBe(true)
 
-        console.log(`[TEST] ✓ Test passed: hints system toggle button displayed`)
+        // Verify label text mentions "Hints"
+        const hintsLabel = popup.locator("label", { hasText: /hints/i }).first()
+        const labelCount = await hintsLabel.count()
+        expect(labelCount).toBeGreaterThan(0)
+
+        console.log(`[TEST] ✓ Test passed: hints system toggle displayed`)
       } finally {
         await popup.close()
       }
@@ -138,27 +143,28 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
       const popup = await getExtensionPopup(context, extensionId)
       try {
         console.log("[TEST] Getting initial state")
-        const toggleButton = popup.getByRole("button", { name: /hints system/i })
+        // The hints toggle is a clickable div containing a checkbox and label
+        const hintsToggleContainer = popup.locator("label", { hasText: /hints/i }).first().locator("..")
+        const hintsCheckbox = popup.getByRole("checkbox").first()
+
         await waitFor(
           async () => {
-            return await toggleButton.first().isVisible()
+            const count = await hintsCheckbox.count()
+            return count > 0 && (await hintsCheckbox.isVisible())
           },
           {
             timeout: 5000,
-            description: "toggle button to be visible"
+            description: "hints checkbox to be visible"
           }
         )
 
-        // Get initial button text to determine current state
-        const initialButtonText = await toggleButton.first().textContent()
-        expect(initialButtonText).toBeTruthy()
+        // Get initial checkbox state
+        const initialChecked = await hintsCheckbox.isChecked()
+        console.log(`[TEST] Initial state: hints system ${initialChecked ? "enabled" : "disabled"}`)
 
-        const isInitiallyDisabled = initialButtonText!.toLowerCase().includes("enable")
-        console.log(`[TEST] Initial state: hints system ${isInitiallyDisabled ? "disabled" : "enabled"}`)
-
-        // Click toggle
-        console.log("[TEST] Clicking toggle button")
-        await toggleButton.first().click()
+        // Click the container to toggle (the div has onClick handler)
+        console.log("[TEST] Clicking toggle")
+        await hintsToggleContainer.click()
 
         // Wait for success message
         console.log("[TEST] Waiting for success message")
@@ -178,11 +184,8 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
         )
 
         // Verify state changed
-        const newButtonText = await toggleButton.first().textContent()
-        expect(newButtonText).toBeTruthy()
-
-        const isNowDisabled = newButtonText!.toLowerCase().includes("enable")
-        expect(isInitiallyDisabled).not.toBe(isNowDisabled)
+        const newChecked = await hintsCheckbox.isChecked()
+        expect(initialChecked).not.toBe(newChecked)
 
         console.log(`[TEST] ✓ Test passed: hints system toggled correctly`)
       } finally {
@@ -200,30 +203,31 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
       const popup1 = await getExtensionPopup(context, extensionId)
       try {
         console.log("[TEST] Setting hints system to disabled")
-        const toggleButton = popup1.getByRole("button", { name: /hints system/i })
+        const hintsToggleContainer = popup1.locator("label", { hasText: /hints/i }).first().locator("..")
+        const hintsCheckbox = popup1.getByRole("checkbox").first()
+
         await waitFor(
           async () => {
-            return await toggleButton.first().isVisible()
+            const count = await hintsCheckbox.count()
+            return count > 0 && (await hintsCheckbox.isVisible())
           },
           {
             timeout: 5000,
-            description: "toggle button to be visible"
+            description: "hints checkbox to be visible"
           }
         )
 
-        const initialText = await toggleButton.first().textContent()
-        const needsToggle = initialText?.toLowerCase().includes("disable")
-
-        if (needsToggle) {
-          await toggleButton.first().click()
+        // If hints are currently enabled (checked), click to disable
+        const isChecked = await hintsCheckbox.isChecked()
+        if (isChecked) {
+          await hintsToggleContainer.click()
           await waitFor(
             async () => {
-              const text = await toggleButton.first().textContent()
-              return text !== null && text.toLowerCase().includes("enable")
+              return !(await hintsCheckbox.isChecked())
             },
             {
               timeout: 5000,
-              description: "button text to change to 'enable'"
+              description: "checkbox to become unchecked"
             }
           )
         }
@@ -240,19 +244,21 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
       console.log("[TEST] Reopening popup to verify persistence")
       const popup2 = await getExtensionPopup(context, extensionId)
       try {
-        const toggleButton = popup2.getByRole("button", { name: /hints system/i })
+        const hintsCheckbox = popup2.getByRole("checkbox").first()
         await waitFor(
           async () => {
-            return await toggleButton.first().isVisible()
+            const count = await hintsCheckbox.count()
+            return count > 0 && (await hintsCheckbox.isVisible())
           },
           {
             timeout: 5000,
-            description: "toggle button to be visible"
+            description: "hints checkbox to be visible"
           }
         )
 
-        const buttonText = await toggleButton.first().textContent()
-        expect(buttonText?.toLowerCase().includes("enable")).toBe(true)
+        // Hints should still be disabled (unchecked)
+        const isChecked = await hintsCheckbox.isChecked()
+        expect(isChecked).toBe(false)
 
         console.log(`[TEST] ✓ Test passed: setting persisted correctly`)
       } finally {
@@ -433,31 +439,31 @@ describe("Popup Functionality - Settings Tests via Options Dialogue", () => {
     })
   })
 
-  describe("Contact Button in Popup", () => {
-    it("should display contact button", async () => {
-      console.log("[TEST] Starting: should display contact button")
+  describe("Website Link in Popup", () => {
+    it("should display website link", async () => {
+      console.log("[TEST] Starting: should display website link")
 
       const popup = await getExtensionPopup(context, extensionId)
       try {
-        console.log("[TEST] Verifying contact button is visible")
-        const contactButton = popup.getByRole("button", { name: /contact/i })
-        const buttonCount = await contactButton.count()
-        expect(buttonCount).toBeGreaterThan(0)
+        console.log("[TEST] Verifying website link is visible")
+        const websiteLink = popup.locator('a[href*="the-wall.win"]').first()
+        const linkCount = await websiteLink.count()
+        expect(linkCount).toBeGreaterThan(0)
 
         await waitFor(
           async () => {
-            return await contactButton.first().isVisible()
+            return await websiteLink.isVisible()
           },
           {
             timeout: 5000,
-            description: "contact button to be visible"
+            description: "website link to be visible"
           }
         )
 
-        const isVisible = await contactButton.first().isVisible()
+        const isVisible = await websiteLink.isVisible()
         expect(isVisible).toBe(true)
 
-        console.log(`[TEST] ✓ Test passed: contact button displayed`)
+        console.log(`[TEST] ✓ Test passed: website link displayed`)
       } finally {
         await popup.close()
       }

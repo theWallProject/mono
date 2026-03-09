@@ -30,7 +30,10 @@ const globalIgnores = {
     "packages/common/scripts/**",
     "packages/common/vitest.config.ts",
     "packages/scrapper/vitest.config.ts",
-    "packages/telegram-bot/scripts/**"
+    "packages/scrapper/src/tmp.js",
+    "packages/telegram-bot/scripts/**",
+    // Root-level scripts run via tsx, not included in any tsconfig project
+    "scripts/**"
   ]
 }
 

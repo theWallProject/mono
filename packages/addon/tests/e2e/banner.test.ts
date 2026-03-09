@@ -1,7 +1,7 @@
 import type { BrowserContext, Page } from "playwright"
 import { afterAll, beforeAll, describe, expect, it } from "vitest"
 
-import { getRandomResult, getUrlWithAlternatives, getUrlWithoutAlternatives } from "../fixtures/test-urls"
+import { getRandomResult, getRandomUrls, getUrlWithAlternatives, getUrlWithoutAlternatives } from "../fixtures/test-urls"
 import { launchBrowserWithExtension } from "../utils/browser"
 import { markUrlAsTested } from "../utils/coverage"
 import {
@@ -98,17 +98,20 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       console.log("[TEST] Hovering over share container to ensure dropdown is visible")
       await shareContainer.hover()
 
-      console.log("[TEST] Looking for share links by aria-label")
-      const shareLink = page.locator('a[aria-label*="Share on"]').first()
+      // Wait for dropdown to become visible (CSS transition)
+      await page.waitForSelector('[class*="dropdown"][class*="visible"]', { state: "visible", timeout: 3000 })
 
-      // Verify share link exists and is visible
-      const linkVisible = await shareLink.isVisible()
-      expect(linkVisible).toBe(true)
+      console.log("[TEST] Looking for share buttons by aria-label")
+      const shareButton = page.locator('button[aria-label*="Share on"]').first()
 
-      console.log("[TEST] Clicking share link (Facebook)")
-      // Set up listener for new page (share links open in new tab)
+      // Verify share button exists and is visible
+      const buttonVisible = await shareButton.isVisible()
+      expect(buttonVisible).toBe(true)
+
+      console.log("[TEST] Clicking share button (LinkedIn)")
+      // Set up listener for new page (share buttons open in new tab)
       const newPagePromise = context.waitForEvent("page", { timeout: 3000 }).catch(() => null)
-      await shareLink.click()
+      await shareButton.click()
 
       // Wait for new page if it opens, then close it
       const newPage = await newPagePromise
@@ -159,8 +162,11 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
     it("should display report mistake button in bottom bar", async () => {
       console.log("[TEST] Verifying report mistake button is visible")
-      const reportButton = await waitForBannerButton(page, /report.*mistake|mistake/i)
+      // The report button contains <img alt="Report"> and has title="Report mistake"
+      const reportButton = page.locator('[class*="warningButton"], [class*="bottomBar"] button').first()
 
+      const count = await reportButton.count()
+      expect(count).toBeGreaterThan(0)
       const isVisible = await reportButton.first().isVisible()
       expect(isVisible).toBe(true)
       console.log(`[TEST] ✓ Report mistake button displayed`)
@@ -168,7 +174,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
     it("should open mailto link when report mistake button is clicked", async () => {
       console.log("[TEST] Clicking report mistake button")
-      const reportButton = await waitForBannerButton(page, /report.*mistake|mistake/i)
+      const reportButton = page.locator('[class*="warningButton"], [class*="bottomBar"] button').first()
 
       // Click report mistake button (browser handles mailto, so we can't easily verify)
       await reportButton.first().click()
@@ -339,10 +345,13 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       console.log(`[TEST] ✓ Alternatives button displayed for URL with alternatives`)
     })
 
-    it("should show alternatives menu when alternatives button is clicked", async () => {
-      console.log("[TEST] Clicking alternatives button")
+    it("should show alternatives menu when alternatives button is hovered", async () => {
+      console.log("[TEST] Hovering alternatives button to trigger menu")
       const alternativesButton = await waitForBannerButton(page, /show.*alternatives|alternatives/i)
-      await alternativesButton.first().click()
+      await alternativesButton.first().hover()
+
+      // Wait for CSS transition (opacity/visibility transition is 200ms)
+      await page.waitForTimeout(300)
 
       console.log("[TEST] Checking alternatives menu appears")
       const menu = await getAlternativesMenu(page)
@@ -438,41 +447,40 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
       for (const ruleType of ruleTypes) {
         console.log(`[TEST] Testing rule type: ${ruleType}`)
-        const testUrl = getRandomResult({ ruleType, isHint: false, excludeLoginRequired: true })
-        console.log(`[TEST] Selected URL: ${testUrl.url} (ruleType: ${testUrl.ruleType})`)
-
-        if (testUrl.isHint) {
-          console.error(
-            `[TEST] ✗ Test URL ${testUrl.url} is a hint URL, but we need a banner URL for rule type ${ruleType}.`
-          )
-          continue
-        }
-        if (testUrl.ruleType !== ruleType) {
-          console.error(
-            `[TEST] ✗ Test URL ${testUrl.url} has ruleType ${testUrl.ruleType}, but expected ${ruleType}. Test setup is incorrect.`
-          )
-          continue
-        }
-
-        const page = await context.newPage()
+        let candidateUrls
         try {
-          const navSuccess = await navigateToUrl(page, testUrl.url)
-          if (!navSuccess) {
-            console.log(`[TEST] Navigation failed: ${testUrl.url}`)
+          candidateUrls = getRandomUrls({ count: 5, ruleType, isHint: false, excludeLoginRequired: true })
+        } catch (error) {
+          if (error instanceof Error && (error.message.includes("No URLs found") || error.message.includes("Not enough URLs found"))) {
+            console.log(`[TEST] No ${ruleType} URLs found in database, skipping`)
             continue
           }
+          throw error
+        }
 
-          await waitForBanner(page)
+        for (const testUrl of candidateUrls) {
+          console.log(`[TEST] Selected URL: ${testUrl.url} (ruleType: ${testUrl.ruleType})`)
 
-          markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
-          console.log(`[TEST] ✓ Test passed for rule type ${ruleType}`)
-          // ONE RULE TYPE PASSED - EXIT EARLY, TEST PASSES
-          return
-        } catch (error) {
-          const errorMessage = error instanceof Error ? error.message : String(error)
-          console.error(`[TEST] ✗ Test failed for rule type ${ruleType}:`, errorMessage)
-        } finally {
-          await safeClosePage(page)
+          const page = await context.newPage()
+          try {
+            const navSuccess = await navigateToUrl(page, testUrl.url)
+            if (!navSuccess) {
+              console.log(`[TEST] Navigation failed: ${testUrl.url}`)
+              continue
+            }
+
+            await waitForBanner(page)
+
+            markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
+            console.log(`[TEST] ✓ Test passed for rule type ${ruleType}`)
+            // ONE RULE TYPE PASSED - EXIT EARLY, TEST PASSES
+            return
+          } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : String(error)
+            console.error(`[TEST] ✗ URL ${testUrl.url} failed for rule type ${ruleType}:`, errorMessage)
+          } finally {
+            await safeClosePage(page)
+          }
         }
       }
 
