@@ -199,8 +199,8 @@ export function getRandomResult(options?: {
     const results = extractResults(entry)
 
     for (const result of results) {
-      // Exclude LinkedIn URLs if excludeLoginRequired is true (but keep other URLs from same entry)
-      if (excludeLoginRequired && result.domain === "linkedin.com") {
+      // Exclude URLs requiring login (LinkedIn, Instagram) if excludeLoginRequired is true
+      if (excludeLoginRequired && (result.domain === "linkedin.com" || result.domain === "instagram.com")) {
         continue
       }
 
@@ -231,18 +231,9 @@ export function getRandomResult(options?: {
     throw new Error(`No URLs found matching filters: ${filters || "none"}`)
   }
 
-  // Sort by URL for deterministic selection, then pick based on a consistent index
-  // Using a simple hash of filter options to determine which result to pick
-  const sorted = filtered.sort((a, b) => a.url.localeCompare(b.url))
-  const filterHash = JSON.stringify(options || {})
-  let hash = 0
-  for (let i = 0; i < filterHash.length; i++) {
-    const char = filterHash.charCodeAt(i)
-    hash = (hash << 5) - hash + char
-    hash = hash & hash // Convert to 32-bit integer
-  }
-  const index = Math.abs(hash) % sorted.length
-  return sorted[index]!
+  // Pick a truly random URL from the filtered results
+  const index = Math.floor(Math.random() * filtered.length)
+  return filtered[index]!
 }
 
 /**
@@ -266,8 +257,8 @@ export function getRandomUrls(options: {
     const results = extractResults(entry)
 
     for (const result of results) {
-      // Exclude LinkedIn URLs if excludeLoginRequired is true (but keep other URLs from same entry)
-      if (excludeLoginRequired && result.domain === "linkedin.com") {
+      // Exclude URLs requiring login (LinkedIn, Instagram) if excludeLoginRequired is true
+      if (excludeLoginRequired && (result.domain === "linkedin.com" || result.domain === "instagram.com")) {
         continue
       }
 
@@ -289,20 +280,22 @@ export function getRandomUrls(options: {
     }
   }
 
-  // Sort by URL for deterministic selection
-  const sorted = filtered.sort((a, b) => a.url.localeCompare(b.url))
-  const result = sorted.slice(0, Math.min(count, sorted.length))
-
   // Fail fast if we don't have enough URLs
-  if (result.length < count) {
+  if (filtered.length < count) {
     const filters = Object.entries({ ruleType, isHint, hasSocialMedia, reason, excludeLoginRequired })
       .filter(([, value]) => value !== undefined && value !== false)
       .map(([key, value]) => `${key}=${value}`)
       .join(", ")
-    throw new Error(`Not enough URLs found: requested ${count}, found ${result.length}. Filters: ${filters || "none"}`)
+    throw new Error(`Not enough URLs found: requested ${count}, found ${filtered.length}. Filters: ${filters || "none"}`)
   }
 
-  return result
+  // Fisher-Yates shuffle for truly random selection
+  for (let i = filtered.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[filtered[i], filtered[j]] = [filtered[j]!, filtered[i]!]
+  }
+
+  return filtered.slice(0, count)
 }
 
 /**
@@ -477,7 +470,7 @@ export function getUrlWithAlternatives(options?: { excludeLoginRequired?: boolea
   let filtered = allUrlsWithAlternatives.filter((url) => !url.isHint)
 
   if (excludeLoginRequired) {
-    filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
+    filtered = filtered.filter((u) => !u.url.includes("linkedin.com") && !u.url.includes("instagram.com"))
   }
 
   if (filtered.length === 0) {
@@ -516,7 +509,7 @@ export function getUrlWithoutAlternatives(options?: { excludeLoginRequired?: boo
   let filtered = allUrlsWithoutAlternatives.filter((url) => !url.isHint)
 
   if (excludeLoginRequired) {
-    filtered = filtered.filter((u) => !u.url.includes("linkedin.com"))
+    filtered = filtered.filter((u) => !u.url.includes("linkedin.com") && !u.url.includes("instagram.com"))
   }
 
   if (filtered.length === 0) {
