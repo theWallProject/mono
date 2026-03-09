@@ -17,7 +17,6 @@ const formatMeta = (meta: EntryMeta): string => {
   if (meta.isHomepage !== undefined) parts.push(`isHomepage: ${meta.isHomepage}`)
   if (meta.isVerified !== undefined) parts.push(`isVerified: ${meta.isVerified}`)
   if (meta.isBrowserVerified !== undefined) parts.push(`isBrowserVerified: ${meta.isBrowserVerified}`)
-  if (meta.isAssetlinks !== undefined) parts.push(`isAssetlinks: ${meta.isAssetlinks}`)
   return `{ ${parts.join(", ")} }`
 }
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { hasMeta, isVerified, isHomepage, isBrowserVerified, isAssetlinks, assertNoLegacyProcessed } from "./types"
+import { hasMeta, isVerified, isHomepage, isBrowserVerified, assertNoLegacyProcessed } from "./types"
 import type { ManualOverrideValue } from "./types"
 
 describe("hasMeta", () => {
@@ -32,11 +32,6 @@ describe("isHomepage", () => {
 
   it("returns false for _meta.isVerified: true", () => {
     const value: ManualOverrideValue = { _meta: { isVerified: true } }
-    expect(isHomepage(value)).toBe(false)
-  })
-
-  it("returns false for _meta.isAssetlinks: true", () => {
-    const value: ManualOverrideValue = { _meta: { isAssetlinks: true } }
     expect(isHomepage(value)).toBe(false)
   })
 
@@ -80,33 +75,6 @@ describe("isBrowserVerified", () => {
   })
 })
 
-describe("isAssetlinks", () => {
-  it("returns true for { _meta: { isAssetlinks: true } }", () => {
-    const value: ManualOverrideValue = { _meta: { isAssetlinks: true } }
-    expect(isAssetlinks(value)).toBe(true)
-  })
-
-  it("returns true for fields with _meta.isAssetlinks: true", () => {
-    const value: ManualOverrideValue = { android_app_ids: ["com.example.app"], _meta: { isAssetlinks: true } }
-    expect(isAssetlinks(value)).toBe(true)
-  })
-
-  it("returns false for _meta.isHomepage: true", () => {
-    const value: ManualOverrideValue = { _meta: { isHomepage: true } }
-    expect(isAssetlinks(value)).toBe(false)
-  })
-
-  it("returns false for _meta.isVerified: true", () => {
-    const value: ManualOverrideValue = { _meta: { isVerified: true } }
-    expect(isAssetlinks(value)).toBe(false)
-  })
-
-  it("returns false for plain fields", () => {
-    const value: ManualOverrideValue = { ws: "https://example.com" }
-    expect(isAssetlinks(value)).toBe(false)
-  })
-})
-
 describe("assertNoLegacyProcessed", () => {
   it("throws for entries with _processed field", () => {
     const value = { _processed: true }
@@ -132,26 +100,22 @@ describe("type guard exclusivity", () => {
       { _meta: { isHomepage: true } },
       { _meta: { isVerified: true } },
       { _meta: { isBrowserVerified: true, isVerified: true } },
-      { _meta: { isAssetlinks: true } },
       { ws: "https://example.com" }
     ]
 
     const results = states.map((s) => ({
       homepage: isHomepage(s),
       verified: isVerified(s),
-      browserVerified: isBrowserVerified(s),
-      assetlinks: isAssetlinks(s)
+      browserVerified: isBrowserVerified(s)
     }))
 
     // _meta: { isHomepage: true }
-    expect(results[0]).toEqual({ homepage: true, verified: false, browserVerified: false, assetlinks: false })
+    expect(results[0]).toEqual({ homepage: true, verified: false, browserVerified: false })
     // _meta: { isVerified: true }
-    expect(results[1]).toEqual({ homepage: false, verified: true, browserVerified: false, assetlinks: false })
+    expect(results[1]).toEqual({ homepage: false, verified: true, browserVerified: false })
     // _meta: { isBrowserVerified: true, isVerified: true }
-    expect(results[2]).toEqual({ homepage: false, verified: true, browserVerified: true, assetlinks: false })
-    // _meta: { isAssetlinks: true }
-    expect(results[3]).toEqual({ homepage: false, verified: false, browserVerified: false, assetlinks: true })
+    expect(results[2]).toEqual({ homepage: false, verified: true, browserVerified: true })
     // no _meta
-    expect(results[4]).toEqual({ homepage: false, verified: false, browserVerified: false, assetlinks: false })
+    expect(results[3]).toEqual({ homepage: false, verified: false, browserVerified: false })
   })
 })
