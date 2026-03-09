@@ -260,6 +260,76 @@ class AppScannerTest {
         assertEquals("other: 1", 1, results.other.size)
     }
 
+    // ==================== DevId Prefix Matching ====================
+
+    @Test
+    fun scan_devIdPrefix_requiresDotSeparator() = runTest {
+        // "com.wix" should NOT match "com.wixsite.builder" (no dot separator)
+        val packages = listOf(fakePackage("com.wixsite.builder"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(wixEntry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertTrue(
+            "com.wixsite.builder should NOT match devId com.wix",
+            results.blacklisted.isEmpty() && results.bdsApps.isEmpty()
+        )
+        assertEquals("Should be in other", 1, results.other.size)
+    }
+
+    @Test
+    fun scan_devIdPrefix_matchesWithDotSeparator() = runTest {
+        // "com.wix" SHOULD match "com.wix.android" (has dot separator)
+        val packages = listOf(fakePackage("com.wix.android"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(wixEntry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        val flagged = results.blacklisted + results.bdsApps
+        assertEquals("com.wix.android should match devId com.wix", 1, flagged.size)
+    }
+
+    @Test
+    fun scan_devIdPrefix_matchesExactDevId() = runTest {
+        // Exact match: package name equals the devId itself
+        val entry = AllItem(
+            id = "exact_match",
+            r = listOf("h"),
+            n = "Exact Co",
+            androidDevId = "com.exactco"
+        )
+        val packages = listOf(fakePackage("com.exactco"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(entry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertEquals("Exact devId match should be detected", 1, results.blacklisted.size)
+    }
+
+    @Test
+    fun scan_devIdPrefix_noFalsePositiveOnSimilarPrefix() = runTest {
+        // "com.amazon" should NOT match "com.amazonfoobar"
+        val entry = AllItem(
+            id = "amazon_test",
+            r = listOf("h"),
+            n = "Amazon Test",
+            androidDevId = "com.amazon"
+        )
+        val packages = listOf(fakePackage("com.amazonfoobar"))
+        val scanner = AppScanner(
+            FakeDatabaseProvider(listOf(entry)),
+            FakePackageScanner(packages)
+        )
+        val results = scanner.scan()
+        assertTrue(
+            "com.amazonfoobar should NOT match devId com.amazon",
+            results.blacklisted.isEmpty()
+        )
+    }
+
     // ==================== Real Database Integration ====================
 
     @Test

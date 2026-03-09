@@ -141,7 +141,7 @@ class ScanWorker(
             // Check against blacklist first (takes priority)
             val matchingBlacklistItem = blacklistWithAndroid.find { item ->
                 val appIdsMatch = item.androidAppIds?.contains(app.packageName) == true
-                val devIdMatch = item.androidDevId?.let { app.packageName.startsWith(it) } == true
+                val devIdMatch = item.androidDevId?.let { app.packageName.startsWith("$it.") || app.packageName == it } == true
                 appIdsMatch || devIdMatch
             }
 

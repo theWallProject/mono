@@ -6,5 +6,7 @@ export const manualDeleteIds = [
   "applied-research-institute-jerusalem",
   "sajilni",
   "baladi-supermarket",
-  "sbitany"
+  "sbitany",
+  "katkuti",
+  "watani-mall"
 ]
