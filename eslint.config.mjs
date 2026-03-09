@@ -30,7 +30,6 @@ const globalIgnores = {
     "packages/common/scripts/**",
     "packages/common/vitest.config.ts",
     "packages/scrapper/vitest.config.ts",
-    "packages/scrapper/src/tmp.js",
     "packages/telegram-bot/scripts/**"
   ]
 }
@@ -66,7 +65,7 @@ const baseConfig = {
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
-        "varsIgnorePattern": "^_"
+        varsIgnorePattern: "^_"
       }
     ],
     "@typescript-eslint/no-dynamic-delete": "warn",
@@ -244,7 +243,7 @@ const testConfig = {
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
-        "varsIgnorePattern": "^_"
+        varsIgnorePattern: "^_"
       }
     ],
     // Vitest plugin rules - prevent common test mistakes
