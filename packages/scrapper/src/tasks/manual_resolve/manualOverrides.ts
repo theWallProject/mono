@@ -10,6 +10,7 @@ export const manualOverrides: Record<
   | (ManualOverrideFields & { _meta: EntryMeta; urls?: string[] })
 > = {
   "01 Founders": { li: "https://www.linkedin.com/school/01-founders" },
+  "Checker Software": { android_app_ids: ["com.touchetv.player", "com.yazamos", "com.touche.player"] },
   "100X": { ws: ["https://get100x.com"], urls: ["https://dany.ai"], _meta: { isHomepage: true, isVerified: true } },
   "101 Therapeutics": { ws: ["https://101therapeutics.com"], _meta: { isHomepage: true, isVerified: true } },
   "10bis": {
@@ -24,6 +25,7 @@ export const manualOverrides: Record<
     urls: ["https://www.pearlcom.co.il"],
     _meta: { isHomepage: true, isVerified: true }
   },
+  "24me": { android_app_ids: ["me.twentyfour.www"] },
   "270Surgical": { ws: ["https://270surgical.com"], _meta: { isHomepage: true, isVerified: true } },
   "2bcloud": {
     ws: ["https://2bcloud.io", "https://support.2bcloud.io"],

@@ -19,6 +19,7 @@ import {
 
 import { cleanWebsite, error, log } from "../helper"
 import { CrunchbaseScrappedItemsSchema, ManualEntriesSchema, MergedDataItem } from "../types"
+import { androidDeleteIds } from "./manual_resolve/androidDeleteIds"
 import { androidDiscoveries } from "./manual_resolve/androidDiscoveries"
 import { manualAdditions } from "./manual_resolve/manualAdditions"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
@@ -674,35 +675,54 @@ const loadJsonFiles = async (folderPath: string) => {
 
   // Apply Android app discoveries (from assetlinks.json probing and other sources).
   // Each discovery maps a company name to its Android package IDs.
-  // Manual overrides take precedence — discoveries are skipped when android_app_ids already exists.
+  // Validate androidDeleteIds: every package ID must exist in at least one discovery
+  const androidDeleteSet = new Set(androidDeleteIds)
+  const allDiscoveredPackages = new Set(androidDiscoveries.flatMap((d) => d.packages))
+  for (const deleteId of androidDeleteIds) {
+    if (!allDiscoveredPackages.has(deleteId)) {
+      throw new Error(
+        `androidDeleteIds contains "${deleteId}" which does not exist in any androidDiscoveries entry. ` +
+          "Remove it from androidDeleteIds.ts or fix the package ID."
+      )
+    }
+  }
+
+  // Merge android discoveries into existing entries.
+  // New package IDs are added alongside any existing ones (deduped).
+  // Individual package IDs in androidDeleteIds are filtered out.
   let androidApplied = 0
-  let androidSkipped = 0
+  let androidPackagesDeleted = 0
   for (const discovery of androidDiscoveries) {
+    const filteredPackages = discovery.packages.filter((id) => {
+      if (androidDeleteSet.has(id)) {
+        androidPackagesDeleted++
+        return false
+      }
+      return true
+    })
+    if (filteredPackages.length === 0) continue
+
     const matchIndex = processedItems.findIndex((item) => item.name === discovery.company)
     if (matchIndex !== -1) {
       const existing = processedItems[matchIndex]
       if (!existing) continue
-      if (existing.android_app_ids && existing.android_app_ids.length > 0) {
-        androidSkipped++
-        continue
-      }
-      processedItems[matchIndex] = { ...existing, android_app_ids: [...discovery.packages] }
+      const existingIds = new Set(existing.android_app_ids ?? [])
+      const merged = [...existingIds, ...filteredPackages.filter((id) => !existingIds.has(id))]
+      processedItems[matchIndex] = { ...existing, android_app_ids: merged }
       androidApplied++
     } else {
       const addIdx = additionalItems.findIndex((item) => item.name === discovery.company)
       if (addIdx !== -1) {
         const existing = additionalItems[addIdx]
         if (!existing) continue
-        if (existing.android_app_ids && existing.android_app_ids.length > 0) {
-          androidSkipped++
-          continue
-        }
-        additionalItems[addIdx] = { ...existing, android_app_ids: [...discovery.packages] }
+        const existingIds = new Set(existing.android_app_ids ?? [])
+        const merged = [...existingIds, ...filteredPackages.filter((id) => !existingIds.has(id))]
+        additionalItems[addIdx] = { ...existing, android_app_ids: merged }
         androidApplied++
       }
     }
   }
-  log(`Applied ${androidApplied}/${androidDiscoveries.length} Android app discoveries (${androidSkipped} skipped — manual override exists)`)
+  log(`Applied ${androidApplied}/${androidDiscoveries.length} Android app discoveries (${androidPackagesDeleted} package(s) excluded via androidDeleteIds)`)
 
   // Combine processed items with additional items
   const manuallyUpdatedArray = [...processedItems, ...additionalItems]

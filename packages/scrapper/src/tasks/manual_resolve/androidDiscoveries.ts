@@ -1798,19 +1798,6 @@ export const androidDiscoveries: readonly AndroidDiscovery[] = [
     discoveredAt: "2026-02-28"
   },
   {
-    company: "Upscrolled",
-    domain: "facebook.com",
-    packages: [
-      "com.facebook.appmanager",
-      "com.oculus.facebook",
-      "com.facebook.stella",
-      "com.facebook.vibes",
-      "com.facebook.wakizashi"
-    ],
-    source: "assetlinks",
-    discoveredAt: "2026-02-28"
-  },
-  {
     company: "Uptime.com",
     domain: "uptime.com",
     packages: ["com.apppartner.uptime.uptime"],

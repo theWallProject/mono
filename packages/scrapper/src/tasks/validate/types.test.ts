@@ -1,110 +1,157 @@
 import { describe, it, expect } from "vitest"
-import { isAssetlinksExtracted, isAutoExtracted, isProcessed } from "./types"
+import { hasMeta, isVerified, isHomepage, isBrowserVerified, isAssetlinks, assertNoLegacyProcessed } from "./types"
 import type { ManualOverrideValue } from "./types"
 
-describe("isProcessed", () => {
-  it("returns true for { _processed: true }", () => {
-    const value: ManualOverrideValue = { _processed: true }
-    expect(isProcessed(value)).toBe(true)
+describe("hasMeta", () => {
+  it("returns true for { _meta: {} }", () => {
+    const value: ManualOverrideValue = { _meta: {} }
+    expect(hasMeta(value)).toBe(true)
   })
 
-  it("returns true for fields with _processed: true", () => {
-    const value: ManualOverrideValue = { ws: "https://example.com", _processed: true }
-    expect(isProcessed(value)).toBe(true)
+  it("returns true for fields with _meta", () => {
+    const value: ManualOverrideValue = { ws: "https://example.com", _meta: { isHomepage: true } }
+    expect(hasMeta(value)).toBe(true)
   })
 
-  it("returns false for _processed: 'auto'", () => {
-    const value: ManualOverrideValue = { _processed: "auto" }
-    expect(isProcessed(value)).toBe(false)
-  })
-
-  it("returns false for _processed: 'assetlinks'", () => {
-    const value: ManualOverrideValue = { _processed: "assetlinks" }
-    expect(isProcessed(value)).toBe(false)
-  })
-
-  it("returns false for plain fields without _processed", () => {
+  it("returns false for plain fields without _meta", () => {
     const value: ManualOverrideValue = { ws: "https://example.com" }
-    expect(isProcessed(value)).toBe(false)
+    expect(hasMeta(value)).toBe(false)
   })
 })
 
-describe("isAutoExtracted", () => {
-  it("returns true for { _processed: 'auto' }", () => {
-    const value: ManualOverrideValue = { _processed: "auto" }
-    expect(isAutoExtracted(value)).toBe(true)
+describe("isHomepage", () => {
+  it("returns true for { _meta: { isHomepage: true } }", () => {
+    const value: ManualOverrideValue = { _meta: { isHomepage: true } }
+    expect(isHomepage(value)).toBe(true)
   })
 
-  it("returns true for fields with _processed: 'auto'", () => {
-    const value: ManualOverrideValue = { android_app_ids: ["com.example"], _processed: "auto" }
-    expect(isAutoExtracted(value)).toBe(true)
+  it("returns true for fields with _meta.isHomepage: true", () => {
+    const value: ManualOverrideValue = { android_app_ids: ["com.example"], _meta: { isHomepage: true } }
+    expect(isHomepage(value)).toBe(true)
   })
 
-  it("returns false for _processed: true", () => {
-    const value: ManualOverrideValue = { _processed: true }
-    expect(isAutoExtracted(value)).toBe(false)
+  it("returns false for _meta.isVerified: true", () => {
+    const value: ManualOverrideValue = { _meta: { isVerified: true } }
+    expect(isHomepage(value)).toBe(false)
   })
 
-  it("returns false for _processed: 'assetlinks'", () => {
-    const value: ManualOverrideValue = { _processed: "assetlinks" }
-    expect(isAutoExtracted(value)).toBe(false)
+  it("returns false for _meta.isAssetlinks: true", () => {
+    const value: ManualOverrideValue = { _meta: { isAssetlinks: true } }
+    expect(isHomepage(value)).toBe(false)
   })
 
   it("returns false for plain fields", () => {
     const value: ManualOverrideValue = { ws: "https://example.com" }
-    expect(isAutoExtracted(value)).toBe(false)
+    expect(isHomepage(value)).toBe(false)
   })
 })
 
-describe("isAssetlinksExtracted", () => {
-  it("returns true for { _processed: 'assetlinks' }", () => {
-    const value: ManualOverrideValue = { _processed: "assetlinks" }
-    expect(isAssetlinksExtracted(value)).toBe(true)
+describe("isVerified", () => {
+  it("returns true for { _meta: { isVerified: true } }", () => {
+    const value: ManualOverrideValue = { _meta: { isVerified: true } }
+    expect(isVerified(value)).toBe(true)
   })
 
-  it("returns true for fields with _processed: 'assetlinks'", () => {
-    const value: ManualOverrideValue = { android_app_ids: ["com.example.app"], _processed: "assetlinks" }
-    expect(isAssetlinksExtracted(value)).toBe(true)
-  })
-
-  it("returns false for _processed: true", () => {
-    const value: ManualOverrideValue = { _processed: true }
-    expect(isAssetlinksExtracted(value)).toBe(false)
-  })
-
-  it("returns false for _processed: 'auto'", () => {
-    const value: ManualOverrideValue = { _processed: "auto" }
-    expect(isAssetlinksExtracted(value)).toBe(false)
+  it("returns false for _meta.isHomepage: true", () => {
+    const value: ManualOverrideValue = { _meta: { isHomepage: true } }
+    expect(isVerified(value)).toBe(false)
   })
 
   it("returns false for plain fields", () => {
     const value: ManualOverrideValue = { ws: "https://example.com" }
-    expect(isAssetlinksExtracted(value)).toBe(false)
+    expect(isVerified(value)).toBe(false)
+  })
+})
+
+describe("isBrowserVerified", () => {
+  it("returns true for { _meta: { isBrowserVerified: true } }", () => {
+    const value: ManualOverrideValue = { _meta: { isVerified: true, isBrowserVerified: true } }
+    expect(isBrowserVerified(value)).toBe(true)
+  })
+
+  it("returns false for _meta.isVerified without isBrowserVerified", () => {
+    const value: ManualOverrideValue = { _meta: { isVerified: true } }
+    expect(isBrowserVerified(value)).toBe(false)
+  })
+
+  it("returns false for plain fields", () => {
+    const value: ManualOverrideValue = { ws: "https://example.com" }
+    expect(isBrowserVerified(value)).toBe(false)
+  })
+})
+
+describe("isAssetlinks", () => {
+  it("returns true for { _meta: { isAssetlinks: true } }", () => {
+    const value: ManualOverrideValue = { _meta: { isAssetlinks: true } }
+    expect(isAssetlinks(value)).toBe(true)
+  })
+
+  it("returns true for fields with _meta.isAssetlinks: true", () => {
+    const value: ManualOverrideValue = { android_app_ids: ["com.example.app"], _meta: { isAssetlinks: true } }
+    expect(isAssetlinks(value)).toBe(true)
+  })
+
+  it("returns false for _meta.isHomepage: true", () => {
+    const value: ManualOverrideValue = { _meta: { isHomepage: true } }
+    expect(isAssetlinks(value)).toBe(false)
+  })
+
+  it("returns false for _meta.isVerified: true", () => {
+    const value: ManualOverrideValue = { _meta: { isVerified: true } }
+    expect(isAssetlinks(value)).toBe(false)
+  })
+
+  it("returns false for plain fields", () => {
+    const value: ManualOverrideValue = { ws: "https://example.com" }
+    expect(isAssetlinks(value)).toBe(false)
+  })
+})
+
+describe("assertNoLegacyProcessed", () => {
+  it("throws for entries with _processed field", () => {
+    const value = { _processed: true }
+    expect(() => assertNoLegacyProcessed(value, "test_entry")).toThrow(
+      'Legacy _processed field found on entry "test_entry"'
+    )
+  })
+
+  it("does not throw for entries without _processed", () => {
+    const value = { _meta: { isHomepage: true } }
+    expect(() => assertNoLegacyProcessed(value, "test_entry")).not.toThrow()
+  })
+
+  it("does not throw for plain fields", () => {
+    const value = { ws: "https://example.com" }
+    expect(() => assertNoLegacyProcessed(value, "test_entry")).not.toThrow()
   })
 })
 
 describe("type guard exclusivity", () => {
-  it("each guard matches exactly one _processed state", () => {
+  it("each guard matches exactly one _meta state", () => {
     const states: ManualOverrideValue[] = [
-      { _processed: true },
-      { _processed: "auto" },
-      { _processed: "assetlinks" },
+      { _meta: { isHomepage: true } },
+      { _meta: { isVerified: true } },
+      { _meta: { isBrowserVerified: true, isVerified: true } },
+      { _meta: { isAssetlinks: true } },
       { ws: "https://example.com" }
     ]
 
     const results = states.map((s) => ({
-      processed: isProcessed(s),
-      auto: isAutoExtracted(s),
-      assetlinks: isAssetlinksExtracted(s)
+      homepage: isHomepage(s),
+      verified: isVerified(s),
+      browserVerified: isBrowserVerified(s),
+      assetlinks: isAssetlinks(s)
     }))
 
-    // _processed: true
-    expect(results[0]).toEqual({ processed: true, auto: false, assetlinks: false })
-    // _processed: "auto"
-    expect(results[1]).toEqual({ processed: false, auto: true, assetlinks: false })
-    // _processed: "assetlinks"
-    expect(results[2]).toEqual({ processed: false, auto: false, assetlinks: true })
-    // no _processed
-    expect(results[3]).toEqual({ processed: false, auto: false, assetlinks: false })
+    // _meta: { isHomepage: true }
+    expect(results[0]).toEqual({ homepage: true, verified: false, browserVerified: false, assetlinks: false })
+    // _meta: { isVerified: true }
+    expect(results[1]).toEqual({ homepage: false, verified: true, browserVerified: false, assetlinks: false })
+    // _meta: { isBrowserVerified: true, isVerified: true }
+    expect(results[2]).toEqual({ homepage: false, verified: true, browserVerified: true, assetlinks: false })
+    // _meta: { isAssetlinks: true }
+    expect(results[3]).toEqual({ homepage: false, verified: false, browserVerified: false, assetlinks: true })
+    // no _meta
+    expect(results[4]).toEqual({ homepage: false, verified: false, browserVerified: false, assetlinks: false })
   })
 })
