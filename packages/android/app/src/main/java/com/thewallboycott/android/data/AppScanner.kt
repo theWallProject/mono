@@ -90,9 +90,14 @@ class AppScanner(
     /**
      * Checks if a database item matches a given package name.
      * Matches by exact app ID or developer ID prefix.
+     *
+     * Developer ID matching requires a dot separator to prevent false positives:
+     * - devId="com.wix" matches "com.wix.android" (dot after prefix)
+     * - devId="com.wix" matches "com.wix" (exact match)
+     * - devId="com.wix" does NOT match "com.wixsite.builder" (no dot separator)
      */
     private fun matchesPackage(item: AllItem, packageName: String): Boolean {
         return (item.androidAppIds?.contains(packageName) == true) ||
-            (item.androidDevId?.let { packageName.startsWith(it) } == true)
+            (item.androidDevId?.let { packageName.startsWith("$it.") || packageName == it } == true)
     }
 }
