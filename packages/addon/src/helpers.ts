@@ -36,7 +36,7 @@ export type TR_CAT = "Button"
 export type TR_ACTION = "Click"
 
 export type TR_NAME =
-  | "allow_month"
+  | "dismiss_close"
   | "support_pal"
   | "support_ko_fi"
   | "show_alternatives"

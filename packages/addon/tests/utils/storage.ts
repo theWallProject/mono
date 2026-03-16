@@ -58,9 +58,7 @@ export async function clearAllStorage(context: BrowserContext, extensionId: stri
     await page.evaluate(async () => {
       return new Promise<void>((resolve) => {
         chrome.storage.local.clear(() => {
-          chrome.storage.session.clear(() => {
-            resolve()
-          })
+          resolve()
         })
       })
     })

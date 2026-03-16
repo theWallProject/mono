@@ -18,5 +18,6 @@ export const androidDeleteIds: string[] = [
   "com.woocommerce.android.prealpha",
   "com.celray",
   "com.tumblr",
-  "notion.id"
+  "notion.id",
+  "com.substack.app"
 ]

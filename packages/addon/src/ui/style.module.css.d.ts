@@ -10,8 +10,8 @@ declare const styles: {
   readonly bottomShareBar: string
   readonly button: string
   readonly buttonFadeIn: string
-  readonly buttonSecondary: string
   readonly buttonsWrapper: string
+  readonly closeButton: string
   readonly container: string
   readonly modalContainer: string
   readonly modalContentWrapper: string

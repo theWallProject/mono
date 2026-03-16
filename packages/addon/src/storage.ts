@@ -15,7 +15,7 @@ import {
 import ALL from "./db/ALL.json"
 import { error, log } from "./helpers"
 import { getI18nMessage } from "./helpers/i18n-keys"
-import { getStorageItem } from "./storageHelpers"
+import { getLocalStorageItem } from "./storageHelpers"
 import { type UrlTestResult } from "./types"
 
 const ONE_MIN = 60 * 1000
@@ -55,7 +55,7 @@ const checkIsDissmissed = async (testKey: string) => {
   let isDismissed: boolean
 
   try {
-    const dismissedTS = await getStorageItem(testKey)
+    const dismissedTS = await getLocalStorageItem(testKey)
 
     if (dismissedTS && typeof dismissedTS === "number") {
       //compare dismissedTS which is a timestamp to see if it is older than 1 month
@@ -73,7 +73,7 @@ const checkIsDissmissed = async (testKey: string) => {
       isDismissed = false
     }
   } catch {
-    error(`isUrlFlagged getStorageItem failed for key ${testKey}`)
+    error(`isUrlFlagged getLocalStorageItem failed for key ${testKey}`)
     isDismissed = false
   }
 
