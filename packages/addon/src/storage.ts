@@ -82,6 +82,7 @@ const checkIsDissmissed = async (testKey: string) => {
 
 /**
  * Creates an .il domain hint result with i18n (addon-specific).
+ * Used as a last-resort fallback when no database match or hint is found.
  * Uses chrome.i18n for internationalization.
  */
 function createIlHint(domain: string): UrlTestResult {
@@ -103,11 +104,6 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
 
   const domain = getMainDomain(url)
 
-  // Handle .il domains separately with i18n (addon-specific concern)
-  if (domain.endsWith(".il")) {
-    return Promise.resolve(createIlHint(domain))
-  }
-
   return new Promise((resolve) => {
     const executeAsync = async () => {
       // Use shared pure functions for rule matching
@@ -127,12 +123,6 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
         }
 
         const selectorKey = getSelectorKey(rule.domain, url)
-
-        // "il" is not a database field, skip database lookup
-        if (selectorKey === "il") {
-          resolve(undefined)
-          return
-        }
 
         const localTestKey = `${selectorKey}_${selector}`
         const isDismissed = await checkIsDissmissed(localTestKey)
@@ -196,6 +186,11 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
               }
             })
           } else {
+            // Last resort: check if domain ends with .il (Israeli TLD)
+            if (domain.endsWith(".il")) {
+              resolve(createIlHint(domain))
+              return
+            }
             resolve(undefined)
           }
         }
@@ -247,6 +242,11 @@ export const isUrlFlagged = async (url: string): Promise<UrlTestResult> => {
               }
             })
           } else {
+            // Last resort: check if domain ends with .il (Israeli TLD)
+            if (domain.endsWith(".il")) {
+              resolve(createIlHint(domain))
+              return
+            }
             resolve(undefined)
           }
         }

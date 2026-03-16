@@ -15,8 +15,15 @@ export const HOMEPAGE_AI_EXTRACTOR_CONFIG = {
     maxTokens: 4096,
     /** Low temperature for deterministic extraction */
     temperature: 0.1,
-    /** Request timeout in milliseconds (15 minutes for large models with big prompts) */
-    requestTimeout: 900_000
+    /** Overall hard deadline for the entire AI request in milliseconds (45 minutes) */
+    requestTimeout: 1000 * 60 * 45,
+    /**
+     * Max time to wait with no streaming data before considering the server stalled.
+     * Must be generous: LM Studio sends NO data during prompt processing, which can
+     * take 30+ minutes for large prompts on a 72B model (~512 tokens/30s at ~29K tokens).
+     * This only catches true stalls (server crash mid-stream), not slow inference.
+     */
+    streamIdleTimeout: 1000 * 60 * 35
   },
   playwright: {
     /** Page load timeout in milliseconds */
@@ -33,7 +40,13 @@ export const HOMEPAGE_AI_EXTRACTOR_CONFIG = {
     /** Default batch size for automated mode */
     defaultSize: 100,
     /** Delay between processing companies in milliseconds (be polite to servers) */
-    delayBetweenRequests: 2000
+    delayBetweenRequests: 2000,
+    /**
+     * Maximum number of companies that can be skipped (due to unexpected errors
+     * that persist after retry) before the entire batch fails hard.
+     * Prevents silent degradation when something systemic is wrong.
+     */
+    maxSkipsPerBatch: 5
   },
   logging: {
     /** Base directory for per-company debug logs (relative to scrapper package root) */

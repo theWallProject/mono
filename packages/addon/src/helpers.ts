@@ -1,7 +1,7 @@
 // Flag to control content script logging
 // Enabled only in development mode, disabled in production builds
 // Note: NODE_ENV is a built-in Plasmo variable automatically set to "development" or "production"
-const ENABLE_CONTENT_SCRIPT_LOGGING = false
+const ENABLE_CONTENT_SCRIPT_LOGGING = true
 // console.log("🍉 process.env.NODE_ENV", process.env?.NODE_ENV, process.env)
 
 export function log(...params: unknown[]) {

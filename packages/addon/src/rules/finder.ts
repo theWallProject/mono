@@ -7,15 +7,13 @@ export { findMatchingRule, findRuleOfType, isUrlOnlyRule }
 /**
  * Check if a URL matches any rule
  */
-export const hasMatchingRule = async (url: string): Promise<boolean> => {
-  const rule = await findMatchingRule(url)
-  return rule !== null
+export const hasMatchingRule = (url: string): boolean => {
+  return findMatchingRule(url) !== null
 }
 
 /**
  * Get the type of rule that matches a URL (if any)
  */
-export const getMatchingRuleType = async (url: string): Promise<Rule["type"] | null> => {
-  const rule = await findMatchingRule(url)
-  return rule?.type ?? null
+export const getMatchingRuleType = (url: string): Rule["type"] | null => {
+  return findMatchingRule(url)?.type ?? null
 }

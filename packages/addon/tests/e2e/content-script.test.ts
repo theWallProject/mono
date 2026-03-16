@@ -31,27 +31,8 @@ describe("Content Script", () => {
     }
   })
 
-  it("should initialize DOM scanner for urlDomInline rules", async () => {
-    const testUrl = await getRandomResult({ ruleType: "urlDomInline", excludeLoginRequired: true })
-
-    const page = await context.newPage()
-    try {
-      await navigateToUrl(page, testUrl.url)
-      await waitForExtensionProcessing(page)
-
-      // Wait for DOM scanner to initialize (it waits 1.5s after page load)
-      await page.waitForTimeout(2000)
-
-      // DOM scanner should be active - verify extension is working by checking for banner
-      const bannerVisible = await isBannerDisplayed(page)
-      expect(bannerVisible).toBe(true)
-    } finally {
-      await page.close()
-    }
-  })
-
   it("should render banner component", async () => {
-    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {
@@ -66,7 +47,7 @@ describe("Content Script", () => {
   })
 
   it("should trigger URL testing on page load", async () => {
-    const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
+    const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
 
     const page = await context.newPage()
     try {

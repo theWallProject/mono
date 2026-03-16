@@ -748,6 +748,8 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
 
   let successCount = 0
   let failCount = 0
+  const skippedCompanies: Array<{ name: string; errorMessage: string }> = []
+  const maxSkips = HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.maxSkipsPerBatch
 
   for (let i = 0; i < itemsToProcess.length; i++) {
     const item = itemsToProcess[i]
@@ -756,7 +758,50 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
     log(`\n[${'─'.repeat(60)}]`)
     log(`[${i + 1}/${itemsToProcess.length}] ${item.name} (cbRank: ${item.cbRank ?? "N/A"})`)
 
-    const result = await processCompany(item)
+    // Try processCompany with one automatic retry on unexpected failure.
+    // Transient errors (e.g., "Execution context was destroyed" after cookie
+    // consent navigation) often succeed on a second attempt.
+    let result: Awaited<ReturnType<typeof processCompany>>
+    try {
+      result = await processCompany(item)
+    } catch (firstErr) {
+      const errMsg = firstErr instanceof Error ? firstErr.message : String(firstErr)
+      log(`UNEXPECTED failure (attempt 1/2): ${errMsg}`)
+      log(`Retrying "${item.name}" once...`)
+
+      try {
+        result = await processCompany(item)
+      } catch (retryErr) {
+        // Both attempts failed — skip this company and add to retry list
+        const retryErrMsg = retryErr instanceof Error ? retryErr.message : String(retryErr)
+        log(`UNEXPECTED failure (attempt 2/2): ${retryErrMsg}`)
+
+        skippedCompanies.push({ name: item.name, errorMessage: retryErrMsg })
+        failCount++
+        addToRetryList(
+          item.name,
+          item.ws ?? "",
+          "UNEXPECTED_SKIP",
+          `Skipped after 2 attempts: ${retryErrMsg}`
+        )
+        commitCompanyResult(item.name, false, "UNEXPECTED_SKIP")
+        log(`Skipped "${item.name}" (${skippedCompanies.length}/${maxSkips} max). Added to retry list.`)
+
+        if (skippedCompanies.length >= maxSkips) {
+          await closeSharedBrowser()
+          error(`\nBATCH ABORTED: reached maximum of ${maxSkips} skipped companies due to unexpected errors.`)
+          error(`Skipped companies:`)
+          for (const s of skippedCompanies) {
+            error(`  - ${s.name}: ${s.errorMessage}`)
+          }
+          throw new Error(
+            `Batch aborted: ${skippedCompanies.length} companies skipped due to unexpected errors (max ${maxSkips}). ` +
+            `This likely indicates a systemic issue.`
+          )
+        }
+        continue
+      }
+    }
 
     if (!result.success) {
       // Expected failure — add to retry list and continue with next company
@@ -808,7 +853,7 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
         "Homepage extraction found only the website domain — no social profiles, app stores, or other links"
       )
       log(`Added "${item.name}" to retry list (ws-only). Continuing with next company...`)
-      commitCompanyResult(item.name, false, "WS_ONLY")
+      commitCompanyResult(item.name, true)
       continue
     }
 
@@ -821,7 +866,7 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
       log(`NOT GREEN: ${reason}`)
       addToRetryList(item.name, item.ws ?? "", "NON_GREEN_LINKS", reason)
       log(`Added "${item.name}" to retry list (non-green links). Continuing with next company...`)
-      commitCompanyResult(item.name, false, "NON_GREEN_LINKS")
+      commitCompanyResult(item.name, true)
       continue
     }
 
@@ -856,6 +901,12 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
   log(`BATCH COMPLETE`)
   log(`  Success: ${successCount}`)
   log(`  Failed:  ${failCount} (see retry_list.json)`)
+  if (skippedCompanies.length > 0) {
+    log(`  Skipped: ${skippedCompanies.length} (unexpected errors, retried once):`)
+    for (const s of skippedCompanies) {
+      log(`    - ${s.name}: ${s.errorMessage}`)
+    }
+  }
   log(`${"═".repeat(60)}`)
 
   const updatedOverrides = loadManualOverrides()

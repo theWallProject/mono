@@ -36,14 +36,11 @@ export const run = async (merged: CrunchbaseScrappedItemsType) => {
           domain.includes("business.site") ||
           domain.includes(".steampowered") ||
           domain.includes("meetup") ||
-          domain.includes(".apple.com") ||
-          domain.endsWith(".il")
+          domain.includes(".apple.com")
         )
 
         if (!shouldKeep) {
-          if (!domain.endsWith(".il")) {
-            warn(`Website excluded ${website} => ${domain}`)
-          }
+          warn(`Website excluded ${website} => ${domain}`)
         }
       }
 

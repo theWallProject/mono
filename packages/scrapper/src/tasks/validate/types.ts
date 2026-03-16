@@ -86,6 +86,22 @@ export const isBrowserVerified = (value: ManualOverrideValue): boolean => {
   return hasMeta(value) && value._meta.isBrowserVerified === true
 }
 
+/**
+ * Returns true if the override entry is trusted and should be applied during merge.
+ *
+ * An override is trusted if:
+ * - It has NO `_meta` at all (old hand-curated entry), OR
+ * - It has `_meta.isVerified === true` or `_meta.isBrowserVerified === true`
+ *
+ * An override is NOT trusted (skipped during merge) if:
+ * - It has `_meta` but neither `isVerified` nor `isBrowserVerified` is true
+ *   (e.g. auto-extracted with `{ isHomepage: true }` only)
+ */
+export const isOverrideTrusted = (value: ManualOverrideValue): boolean => {
+  if (!hasMeta(value)) return true // no _meta = old hand-curated, trusted
+  return value._meta.isVerified === true || value._meta.isBrowserVerified === true
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // Meta constructors — convenience helpers for creating _meta objects
 // ────────────────────────────────────────────────────────────────────────────

@@ -60,6 +60,7 @@ function getDomainHintForUrl(domain: string): DomainHint | undefined {
 
 /**
  * Creates an .il domain hint result (platform-specific, not shared).
+ * Used as a last-resort fallback when no database match or hint is found.
  * Each package can customize the hint text (e.g., with i18n).
  */
 function createIlHint(domain: string, t: TFunction): UrlCheckResult {
@@ -91,11 +92,6 @@ function checkUrl(url: string, database: FinalDBFileType[], t: TFunction): UrlCh
   }
 
   const domain = getMainDomain(url)
-
-  // Handle .il domains separately (platform-specific concern)
-  if (domain.endsWith(".il")) {
-    return createIlHint(domain, t)
-  }
 
   // Use shared pure functions for rule matching
   const rule = findMatchingRule(url)
@@ -173,6 +169,11 @@ function checkUrl(url: string, database: FinalDBFileType[], t: TFunction): UrlCh
         rule: { selector: domain, key: "ws" }
       }
     }
+  }
+
+  // Last resort: check if domain ends with .il (Israeli TLD)
+  if (domain.endsWith(".il")) {
+    return createIlHint(domain, t)
   }
 
   return undefined

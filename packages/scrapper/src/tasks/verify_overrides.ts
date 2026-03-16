@@ -12,11 +12,15 @@
  */
 
 import { execSync } from "child_process"
-import * as https from "https"
+import fs from "fs"
+import path from "path"
 import * as readline from "readline"
 import { z } from "zod"
 
+import { FinalDBFileSchema, type FinalDBFileType } from "@theWallProject/common"
+
 import { log, error as logError } from "../helper"
+import { classifyEntry, classifyEntryFields, type FieldClassification } from "./validate/classify_entry"
 import { allLinksGreen, nameAppearsInLink } from "./validate/green_check"
 import { loadManualOverrides, mergeAndSaveManualOverrides } from "./validate/override_io"
 import { hasMeta, isHomepage, isVerified, type EntryMeta, type ManualOverrideValue } from "./validate/types"
@@ -119,199 +123,7 @@ const colorizeLink = (companyName: string, linkValue: string, fieldColor: string
   return `${fieldColor}${linkValue}${RESET}`
 }
 
-// ────────────────────────────────────────────────────────────────────────────
-// YouTube channel → @handle resolution
-// ────────────────────────────────────────────────────────────────────────────
 
-const YT_CHANNEL_RE = /youtube\.com\/channel\/([a-zA-Z0-9_-]+)/i
-
-/** Extract the UC... channel ID from a YouTube channel URL, or null. */
-const extractChannelId = (url: string): string | null => {
-  const m = YT_CHANNEL_RE.exec(url)
-  return m?.[1] ?? null
-}
-
-/**
- * Resolve a YouTube channel ID to its @handle by fetching the channel page.
- * Works with any casing (e.g. "ucsm8sofdl36aekvq7pforsg").
- * Streams the response and aborts as soon as `canonicalBaseUrl` is found.
- * Returns the handle (without @) or null if the channel has no handle.
- * Throws on network/HTTP errors — caller decides how to handle.
- */
-const resolveYouTubeHandle = async (channelId: string): Promise<string | null> => {
-  return new Promise((resolve, reject) => {
-    const req = https.get(`https://www.youtube.com/channel/${channelId}`, { timeout: 10_000 }, (res) => {
-      if (res.statusCode === 404) {
-        res.resume()
-        resolve(null)
-        return
-      }
-      if (res.statusCode !== 200) {
-        res.resume()
-        reject(new Error(`YouTube returned HTTP ${res.statusCode ?? "unknown"} for channel/${channelId}`))
-        return
-      }
-
-      let data = ""
-      let resolved = false
-      res.on("data", (chunk: string) => {
-        if (resolved) return
-        data += chunk
-        const idx = data.indexOf("canonicalBaseUrl")
-        if (idx >= 0) {
-          const slice = data.slice(idx, idx + 80)
-          const m = /\/@([^"]+)/.exec(slice)
-          if (m?.[1]) {
-            resolved = true
-            resolve(m[1])
-            req.destroy()
-          }
-        }
-      })
-      res.on("end", () => {
-        if (resolved) return
-        const idx = data.indexOf("canonicalBaseUrl")
-        if (idx >= 0) {
-          const slice = data.slice(idx, idx + 80)
-          const m = /\/@([^"]+)/.exec(slice)
-          resolve(m?.[1] ?? null)
-        } else {
-          resolve(null)
-        }
-      })
-      res.on("error", (err) => {
-        if (!resolved) reject(err)
-      })
-    })
-
-    req.on("timeout", () => {
-      req.destroy(new Error(`YouTube request timed out for channel/${channelId}`))
-    })
-    req.on("error", (err) => {
-      if (!err.message.includes("socket hang up")) reject(err)
-    })
-  })
-}
-
-/**
- * For a given override entry, find all ytc channel URLs that need resolution
- * (have a UC... channel ID and no corresponding ytp @handle URL).
- * Returns the list of channel IDs to resolve.
- */
-const findUnresolvedChannelIds = (value: ManualOverrideValue): string[] => {
-  const ytcRaw = "ytc" in value ? value.ytc : undefined
-  if (!ytcRaw) return []
-
-  const ytcUrls = Array.isArray(ytcRaw) ? ytcRaw : [ytcRaw]
-  const ids: string[] = []
-  for (const url of ytcUrls) {
-    if (typeof url !== "string") continue
-    const id = extractChannelId(url)
-    if (id) ids.push(id)
-  }
-  return ids
-}
-
-/** Per-channel resolution result, shown inline next to ytc links in the rendered entry. */
-type ChannelResolveResult = { handle: string } | { error: "no_handle" } | { error: "not_found" }
-
-/** Map from channel ID → resolution result, populated during resolve, read during render. */
-const channelResolveResults = new Map<string, ChannelResolveResult>()
-
-/**
- * Resolve all ytc channel IDs for an entry and inject ytp URLs.
- * Blocks until all resolve or user aborts. On failure, shows diagnostics
- * and waits for retry (y) or exit (x).
- * Results are stored in `channelResolveResults` so `renderEntry` can show them inline.
- */
-const resolveAndInjectHandles = async (
-  entryName: string,
-  overrides: Record<string, ManualOverrideValue>,
-  dirtyKeys: Set<string>
-): Promise<void> => {
-  const value = overrides[entryName]
-  if (!value) return
-
-  const channelIds = findUnresolvedChannelIds(value)
-  if (channelIds.length === 0) return
-
-  // Collect existing ytp URLs to avoid duplicates
-  const ytpRaw = "ytp" in value ? value.ytp : undefined
-  const existingYtp = new Set<string>(
-    ytpRaw ? (Array.isArray(ytpRaw) ? ytpRaw.filter((u): u is string => typeof u === "string") : [ytpRaw]) : []
-  )
-
-  for (const channelId of channelIds) {
-    let resolved = false
-    while (!resolved) {
-      try {
-        const start = Date.now()
-        const handle = await resolveYouTubeHandle(channelId)
-        const elapsed = Date.now() - start
-
-        if (handle) {
-          channelResolveResults.set(channelId, { handle })
-          const ytpUrl = `https://www.youtube.com/@${handle}`
-          if (!existingYtp.has(ytpUrl)) {
-            existingYtp.add(ytpUrl)
-          }
-          log(
-            `  ${GREEN}↳${RESET} ${DIM}Resolved${RESET} ${channelId} ${DIM}→${RESET} ${GREEN}@${handle}${RESET} ${DIM}(${elapsed}ms)${RESET}`
-          )
-        } else {
-          channelResolveResults.set(channelId, { error: "no_handle" })
-          log(`  ${YELLOW}↳${RESET} ${DIM}${channelId} — no @handle (${elapsed}ms)${RESET}`)
-        }
-
-        resolved = true
-      } catch (err) {
-        const errMsg = err instanceof Error ? err.message : String(err)
-        const stack = err instanceof Error ? err.stack : undefined
-
-        process.stdout.write(`\n  ${RED}YouTube resolve failed${RESET}\n`)
-        process.stdout.write(`  ${DIM}Channel ID:${RESET} ${channelId}\n`)
-        process.stdout.write(`  ${DIM}Entry:${RESET}      ${entryName}\n`)
-        process.stdout.write(`  ${DIM}Error:${RESET}      ${RED}${errMsg}${RESET}\n`)
-        if (stack) {
-          process.stdout.write(
-            `  ${DIM}Stack:${RESET}      ${DIM}${stack.split("\n").slice(1, 4).join("\n            ")}${RESET}\n`
-          )
-        }
-        process.stdout.write(`\n  ${YELLOW}y${RESET} retry    ${DIM}x${RESET} exit\n`)
-
-        const action = await waitForRetryOrExit()
-        if (action === "exit") {
-          process.exit(1)
-        }
-        process.stdout.write(`  ${DIM}Retrying...${RESET}\n`)
-      }
-    }
-  }
-
-  // Inject resolved ytp URLs back into the entry
-  if (existingYtp.size > 0) {
-    const current = overrides[entryName]
-    if (current) {
-      const ytpArray = [...existingYtp]
-      overrides[entryName] = { ...current, ytp: ytpArray.length === 1 ? ytpArray : ytpArray }
-      dirtyKeys.add(entryName)
-    }
-  }
-}
-
-/**
- * Build an inline annotation for a ytc link based on its resolve result.
- * Shown after the URL in the rendered entry.
- */
-const ytcAnnotation = (url: string): string => {
-  const id = extractChannelId(url)
-  if (!id) return ""
-  const result = channelResolveResults.get(id)
-  if (!result) return ""
-  if ("handle" in result) return ` ${DIM}→${RESET} ${GREEN}@${result.handle}${RESET}`
-  if (result.error === "no_handle") return ` ${DIM}(no @handle)${RESET}`
-  return ` ${YELLOW}(404 — bad channel URL)${RESET}`
-}
 
 // ────────────────────────────────────────────────────────────────────────────
 // Rendering
@@ -340,7 +152,8 @@ const renderEntry = (
   value: ManualOverrideValue,
   index: number,
   total: number,
-  selectedUrlIndex: number
+  selectedUrlIndex: number,
+  fieldClassification?: FieldClassification
 ): RenderResult => {
   const lines: string[] = []
   let urlsCount = 0
@@ -415,19 +228,20 @@ const renderEntry = (
   }
 
   // Render fields in order — no numbering except for urls entries
-  const renderField = (key: string, val: unknown): void => {
+  const renderField = (key: string, val: unknown, isFieldNew: boolean): void => {
     const color = FIELD_COLORS[key] ?? WHITE
     const label = FIELD_LABELS[key] ?? key
     const effectiveColor = key === "ytc" && ytpGreen ? GREEN : color
     const prefix = "  "
+    const newTag = isFieldNew ? " \u{1F7E2}" : ""
 
     // android_app_ids: display as full Play Store links but data is stored as package IDs
     if (key === "android_app_ids" && Array.isArray(val)) {
-      lines.push(`${prefix} ${color}${label}:${RESET}`)
+      lines.push(`${prefix} ${color}${label}:${RESET}${newTag}`)
       for (const item of val) {
         const pkg = String(item)
         const displayUrl = `https://play.google.com/store/apps/details?id=${pkg}`
-        lines.push(`    ${DIM}→${RESET} ${colorizeLink(name, displayUrl, color)}`)
+        lines.push(`    ${DIM}\u2192${RESET} ${colorizeLink(name, displayUrl, color)}`)
       }
       return
     }
@@ -451,41 +265,64 @@ const renderEntry = (
 
     if (Array.isArray(val)) {
       if (key === "alt") {
-        lines.push(`${prefix} ${color}${label}:${RESET}`)
+        lines.push(`${prefix} ${color}${label}:${RESET}${newTag}`)
         for (const alt of val) {
           if (typeof alt === "object" && alt !== null && "n" in alt && "ws" in alt) {
-            lines.push(`    ${DIM}→${RESET} ${String(alt.n)} ${DIM}(${String(alt.ws)})${RESET}`)
+            lines.push(`    ${DIM}\u2192${RESET} ${String(alt.n)} ${DIM}(${String(alt.ws)})${RESET}`)
           }
         }
       } else if (key === "ytc") {
-        lines.push(`${prefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET}`)
+        lines.push(`${prefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET}${newTag}`)
         for (const item of val) {
           const itemStr = String(item)
           const linkColor = ytpGreen ? `${GREEN}${itemStr}${RESET}` : colorizeLink(name, itemStr, effectiveColor)
-          lines.push(`    ${DIM}→${RESET} ${linkColor}${ytcAnnotation(itemStr)}`)
+          lines.push(`    ${DIM}\u2192${RESET} ${linkColor}`)
         }
       } else {
-        lines.push(`${prefix} ${effectiveColor}${label}:${RESET}`)
+        lines.push(`${prefix} ${effectiveColor}${label}:${RESET}${newTag}`)
         for (const item of val) {
-          lines.push(`    ${DIM}→${RESET} ${colorizeLink(name, String(item), effectiveColor)}`)
+          lines.push(`    ${DIM}\u2192${RESET} ${colorizeLink(name, String(item), effectiveColor)}`)
         }
       }
     } else if (typeof val === "string") {
       if (key === "ytc") {
         const linkColor = ytpGreen ? `${GREEN}${val}${RESET}` : colorizeLink(name, val, effectiveColor)
         lines.push(
-          `${prefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET} ${linkColor}${ytcAnnotation(val)}`
+          `${prefix} ${ytpGreen ? GREEN : effectiveColor}${label}:${RESET}${newTag} ${linkColor}`
         )
       } else {
-        lines.push(`${prefix} ${effectiveColor}${label}:${RESET} ${colorizeLink(name, val, effectiveColor)}`)
+        lines.push(`${prefix} ${effectiveColor}${label}:${RESET}${newTag} ${colorizeLink(name, val, effectiveColor)}`)
       }
     } else if (typeof val === "object" && val !== null) {
-      lines.push(`${prefix} ${effectiveColor}${label}:${RESET} ${JSON.stringify(val)}`)
+      lines.push(`${prefix} ${effectiveColor}${label}:${RESET}${newTag} ${JSON.stringify(val)}`)
     }
   }
 
-  for (const key of orderedKeys) {
-    renderField(key, entryMap.get(key))
+  // Split fields into new and known sections when classification is available
+  const hasClassification = fieldClassification && Object.keys(fieldClassification).length > 0
+  const newKeys = hasClassification
+    ? orderedKeys.filter((k) => fieldClassification[k] === "new")
+    : []
+  const knownKeys = hasClassification
+    ? orderedKeys.filter((k) => fieldClassification[k] !== "new")
+    : orderedKeys
+
+  // Render new fields first (with section header and markers)
+  if (newKeys.length > 0) {
+    lines.push(`  ${GREEN}${BOLD}New:${RESET}`)
+    for (const key of newKeys) {
+      renderField(key, entryMap.get(key), true)
+    }
+  }
+
+  // Render known/duplicate fields (or all fields if no classification)
+  if (knownKeys.length > 0) {
+    if (newKeys.length > 0) {
+      lines.push(`  ${DIM}Known:${RESET}`)
+    }
+    for (const key of knownKeys) {
+      renderField(key, entryMap.get(key), false)
+    }
   }
 
   const green = allLinksGreen(name, value)
@@ -498,16 +335,16 @@ const renderEntry = (
       urlsCount > 1
         ? `    ${DIM}1-${NUM_CHARS[urlsCount - 1] ?? "9"}${RESET} reselect`
         : ""
-    footerLine = `  ${CYAN}w${RESET} →ws    ${RED}r${RESET} remove${selectHint}    ${DIM}esc${RESET} deselect`
+    footerLine = `  ${CYAN}w${RESET} \u2192ws    ${RED}r${RESET} remove${selectHint}    ${DIM}esc${RESET} deselect`
   } else {
     // Top-level: all actions
-    const defaultAction = green ? `${GREEN}↑ verify${RESET}` : `${YELLOW}↑ postpone${RESET}`
+    const defaultAction = green ? `${GREEN}\u2191 verify${RESET}` : `${YELLOW}\u2191 postpone${RESET}`
     const pasteHint = `    ${MAGENTA}v${RESET} paste`
     const selectHint =
       urlsCount > 0
         ? `    ${DIM}1-${NUM_CHARS[urlsCount - 1] ?? "9"}${RESET} select`
         : ""
-    footerLine = `  ${GREEN}←${RESET} verify    ${YELLOW}→${RESET} postpone    ${defaultAction}    ${DIM}↓${RESET} back${pasteHint}${selectHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`
+    footerLine = `  ${GREEN}\u2190${RESET} verify    ${YELLOW}\u2192${RESET} postpone    ${defaultAction}    ${DIM}\u2193${RESET} back${pasteHint}${selectHint}    ${CYAN}n${RESET} rename    ${RED}d${RESET} delete    ${DIM}x${RESET} exit`
   }
   lines.push(footerLine)
   lines.push("")
@@ -725,25 +562,6 @@ const waitForAction = async (
   })
 }
 
-const waitForRetryOrExit = async (): Promise<"retry" | "exit"> => {
-  activateStdinSession()
-
-  return new Promise((resolve) => {
-    const onKeypress = (_str: string | undefined, key: readline.Key): void => {
-      process.stdin.removeListener("keypress", onKeypress)
-
-      if (key.name === "y") {
-        resolve("retry")
-      } else if (key.name === "x" || (key.ctrl && key.name === "c")) {
-        resolve("exit")
-      } else {
-        process.stdin.once("keypress", onKeypress)
-      }
-    }
-
-    process.stdin.once("keypress", onKeypress)
-  })
-}
 
 // ────────────────────────────────────────────────────────────────────────────
 // Fire-and-forget save queue
@@ -881,6 +699,8 @@ const applyFieldEdit = (
 type QueueEntry = {
   readonly name: string
   readonly value: ManualOverrideValue
+  /** Per-field new/duplicate classification (absent if ALL.json was unavailable) */
+  readonly fieldClassification?: FieldClassification
 }
 
 const buildQueues = (
@@ -936,20 +756,6 @@ const processQueue = async (
     if (!entry) throw new Error(`Unexpected: queue[${i}] is undefined`)
     const totalInQueue = queue.length
 
-    // Clear screen and show loading if YouTube resolution is needed
-    const value = overrides[entry.name] ?? entry.value
-    const needsResolve = findUnresolvedChannelIds(value).length > 0
-    if (needsResolve) {
-      process.stdout.write(CLEAR_SCREEN)
-      process.stdout.write(`${DIM}${"─".repeat(60)}${RESET}\n`)
-      process.stdout.write(
-        `  ${DIM}[${startIndex + i + 1}/${startIndex + totalInQueue}]${RESET}  ${BOLD}${WHITE}${entry.name}${RESET}\n`
-      )
-      process.stdout.write(`${DIM}${"─".repeat(60)}${RESET}\n\n`)
-      process.stdout.write(`  ${DIM}Resolving YouTube handles...${RESET}\n`)
-      await resolveAndInjectHandles(entry.name, overrides, dirtyKeys)
-    }
-
     // Snapshot current entry's value before the user acts on it
     const snapshotBeforeAction = overrides[entry.name] ?? entry.value
 
@@ -963,7 +769,8 @@ const processQueue = async (
         overrides[entry.name] ?? entry.value,
         startIndex + i,
         startIndex + totalInQueue,
-        selectedUrlIdx
+        selectedUrlIdx,
+        entry.fieldClassification
       )
       process.stdout.write(output)
 
@@ -1140,15 +947,6 @@ const processQueue = async (
           `  ${bgColor}${WHITE} ${modeLabel} ${RESET} ${targetLabel}: ${DIM}${result.displayValue}${RESET}\n`
         )
 
-        // If ytc was updated, re-run YouTube handle resolution before re-rendering
-        if (result.targetField === "ytc") {
-          const updated = overrides[entry.name]
-          if (updated && findUnresolvedChannelIds(updated).length > 0) {
-            process.stdout.write(`  ${DIM}Resolving YouTube handles...${RESET}\n`)
-            await resolveAndInjectHandles(entry.name, overrides, dirtyKeys)
-          }
-        }
-
         await sleep(600)
       }
     }
@@ -1179,6 +977,62 @@ const processQueue = async (
 // Main
 // ────────────────────────────────────────────────────────────────────────────
 
+/**
+ * Load the final ALL.json database for duplicate comparison.
+ * This allows us to determine whether each override entry would produce
+ * any change to the final database — if not, auto-verify it.
+ */
+const loadAllJson = (): FinalDBFileType[] => {
+  const allJsonPath = path.join(__dirname, "../../results/4_final/ALL.json")
+  if (!fs.existsSync(allJsonPath)) {
+    log(`${YELLOW}Warning: ALL.json not found at ${allJsonPath} — skipping auto-verify${RESET}`)
+    return []
+  }
+  const raw: unknown = JSON.parse(fs.readFileSync(allJsonPath, "utf-8"))
+  return z.array(FinalDBFileSchema).parse(raw)
+}
+
+/**
+ * Auto-verify entries that are duplicates (would produce no change to ALL.json).
+ * Classifies each entry, auto-verifies duplicates, and returns only new entries
+ * sorted to the front for interactive review.
+ *
+ * Processes all queued auto-verifications BEFORE the user sees anything interactive,
+ * so the user only reviews entries with genuinely new data.
+ */
+const autoVerifyDuplicates = (
+  queue: QueueEntry[],
+  overrides: Record<string, ManualOverrideValue>,
+  dirtyKeys: Set<string>,
+  allJsonDb: FinalDBFileType[]
+): { remaining: QueueEntry[]; autoVerifiedCount: number } => {
+  if (allJsonDb.length === 0) {
+    // No ALL.json available — no per-field classification possible, skip auto-verify
+    return { remaining: [...queue], autoVerifiedCount: 0 }
+  }
+
+  const remaining: QueueEntry[] = []
+  let autoVerifiedCount = 0
+
+  for (const entry of queue) {
+    const entryValue = overrides[entry.name] ?? entry.value
+    const classification = classifyEntry(entry.name, entryValue, allJsonDb)
+
+    if (classification === "duplicate") {
+      // Auto-verify: set isVerified: true in-memory and mark dirty
+      overrides[entry.name] = updateMeta(entryValue, { isVerified: true })
+      dirtyKeys.add(entry.name)
+      autoVerifiedCount++
+    } else {
+      // "new" — needs interactive review; attach per-field classification
+      const fc = classifyEntryFields(entry.name, entryValue, allJsonDb)
+      remaining.push({ ...entry, fieldClassification: fc })
+    }
+  }
+
+  return { remaining, autoVerifiedCount }
+}
+
 const main = async (): Promise<void> => {
   log(`${BOLD}${WHITE}`)
   log("  data:verify — Quick verification of auto-extracted entries")
@@ -1198,26 +1052,67 @@ const main = async (): Promise<void> => {
 
   log(`${DIM}Unverified: ${unverified.length}  |  Postponed: ${postponed.length}${RESET}`)
 
+  // Load ALL.json for duplicate comparison
+  log(`${DIM}Loading ALL.json for duplicate detection...${RESET}`)
+  const allJsonDb = loadAllJson()
+
   // Track which entries were modified during this session
   const dirtyKeys = new Set<string>()
 
   // Single save queue shared across both passes
   const saveQueue = createSaveQueue(overrides, dirtyKeys)
 
+  // ── Phase 1: Auto-verify duplicates (no user interaction) ──────────
+  const unverifiedResult = autoVerifyDuplicates(unverified, overrides, dirtyKeys, allJsonDb)
+  const postponedResult = autoVerifyDuplicates(postponed, overrides, dirtyKeys, allJsonDb)
+  const totalAutoVerified = unverifiedResult.autoVerifiedCount + postponedResult.autoVerifiedCount
+
+  if (totalAutoVerified > 0) {
+    log(`${GREEN}Auto-verified ${totalAutoVerified} duplicate entries (no changes to ALL.json)${RESET}`)
+    // Flush auto-verified entries to disk immediately
+    saveQueue.enqueue()
+  }
+
+  const remainingUnverified = unverifiedResult.remaining
+  const remainingPostponed = postponedResult.remaining
+
+  if (remainingUnverified.length === 0 && remainingPostponed.length === 0) {
+    await saveQueue.drain()
+    printSummary(0, totalAutoVerified, overrides)
+    return
+  }
+
+  log(`${DIM}Remaining for review: ${remainingUnverified.length} unverified  |  ${remainingPostponed.length} postponed${RESET}`)
+
+  // ── Phase 2: Interactive review (only genuinely new entries) ────────
   let totalProcessed = 0
 
-  if (unverified.length > 0) {
-    const result = await processQueue(unverified, overrides, saveQueue, dirtyKeys, "Unverified entries", 0)
+  if (remainingUnverified.length > 0) {
+    const result = await processQueue(
+      remainingUnverified,
+      overrides,
+      saveQueue,
+      dirtyKeys,
+      "Unverified entries",
+      0
+    )
     totalProcessed += result.processed
     if (result.exitRequested) {
-      printSummary(totalProcessed, overrides)
+      printSummary(totalProcessed, totalAutoVerified, overrides)
       process.exit(0)
     }
   }
 
-  if (postponed.length > 0) {
+  if (remainingPostponed.length > 0) {
+    // Re-classify postponed entries: some may have been verified during unverified pass
     const freshQueues = buildQueues(overrides)
-    const freshPostponed = freshQueues.postponed
+    const freshPostponed = allJsonDb.length > 0
+      ? freshQueues.postponed.map((e) => {
+          const entryValue = overrides[e.name] ?? e.value
+          const fc = classifyEntryFields(e.name, entryValue, allJsonDb)
+          return { ...e, fieldClassification: fc }
+        })
+      : freshQueues.postponed
 
     if (freshPostponed.length > 0) {
       log(`\n${YELLOW}${BOLD}=== Postponed entries for deeper inspection ===${RESET}`)
@@ -1231,7 +1126,7 @@ const main = async (): Promise<void> => {
       )
       totalProcessed += result.processed
       if (result.exitRequested) {
-        printSummary(totalProcessed, overrides)
+        printSummary(totalProcessed, totalAutoVerified, overrides)
         process.exit(0)
       }
     }
@@ -1241,17 +1136,24 @@ const main = async (): Promise<void> => {
   // Flush any remaining dirty entries, then wait for all saves to finish
   if (dirtyKeys.size > 0) saveQueue.enqueue()
   await saveQueue.drain()
-  printSummary(totalProcessed, overrides)
+  printSummary(totalProcessed, totalAutoVerified, overrides)
   process.exit(0)
 }
 
-const printSummary = (totalProcessed: number, overrides: Record<string, ManualOverrideValue>): void => {
+const printSummary = (
+  totalProcessed: number,
+  totalAutoVerified: number,
+  overrides: Record<string, ManualOverrideValue>
+): void => {
   const { unverified, postponed } = buildQueues(overrides)
 
   log(`\n${BOLD}${WHITE}=== Summary ===${RESET}`)
-  log(`  ${GREEN}Processed this session:${RESET} ${totalProcessed}`)
-  log(`  ${DIM}Remaining unverified:${RESET}  ${unverified.length}`)
-  log(`  ${YELLOW}Postponed:${RESET}             ${postponed.length}`)
+  if (totalAutoVerified > 0) {
+    log(`  ${GREEN}Auto-verified (no changes):${RESET} ${totalAutoVerified}`)
+  }
+  log(`  ${GREEN}Processed this session:${RESET}     ${totalProcessed}`)
+  log(`  ${DIM}Remaining unverified:${RESET}       ${unverified.length}`)
+  log(`  ${YELLOW}Postponed:${RESET}                 ${postponed.length}`)
   log("")
 }
 

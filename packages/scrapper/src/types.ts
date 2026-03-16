@@ -275,6 +275,11 @@ export type ManualOverrideFields = {
    */
   android_app_ids?: string[]
   /**
+   * Unsupported/uncategorized URLs collected during extraction.
+   * These are URLs that couldn't be mapped to a specific link field.
+   */
+  urls?: string[]
+  /**
    * Alternatives array with name and website
    */
   alt?: Array<{

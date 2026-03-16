@@ -43,7 +43,7 @@ const loadJsonFiles = async (folderPath: string) => {
         if (existingRow === undefined) {
           throw new Error(`Unexpected: testRow exists but idRecord[${newRow.id}] is undefined`)
         }
-        // @ts-expect-error -- key is LinkField but FinalDBFileType doesn't include "il", which is fine since scrapper never uses "il"
+        // @ts-expect-error -- key is LinkField but FinalDBFileType doesn't include "il" (only used as a last-resort result key, not a database field)
         existingRow[key] = newRow.selector
       } else {
         idRecord[newRow.id] = {

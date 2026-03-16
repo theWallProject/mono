@@ -383,7 +383,7 @@ Softer warnings for companies/services without Israeli connections (e.g., media 
 - **Why**: Simplifies intermediate pipeline, each entry maps 1:1 to a URL
 - **Schema/Functions**: Support both strings and arrays for flexibility
 
-**Special case:** All `.il` domains auto-generate hints in `storage.ts:createIlHint()`
+**Special case:** `.il` domains are checked as a last-resort fallback via `createIlHint()`. If a URL matches a database entry or hint through normal lookups, the `.il` check is skipped. Only when no other result is found does the `.il` TLD fallback fire, generating a hint. This applies to addon (`storage.ts`), telegram-bot (`urlCheckerBot.ts`), and android (`UrlChecker.kt`).
 
 **UI:** Less aggressive, dismissible notifications, permanently dismissible via storage.
 

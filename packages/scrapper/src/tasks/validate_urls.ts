@@ -9,11 +9,17 @@ import { CrunchbaseScrappedItemType, ManualOverrideFields, MergedDataFileSchema 
 import type { ManualAdditionItem } from "./manual_resolve/manualAdditions"
 import { loadManualAdditions, saveManualAdditions } from "./validate/addition_io"
 import { loadManualOverrides, saveManualOverrides } from "./validate/override_io"
-import { isBrowserVerified, browserVerifiedMeta, type ManualOverrideValue, type MetaState } from "./validate/types"
+import {
+  isBrowserVerified,
+  isVerified,
+  browserVerifiedMeta,
+  type ManualOverrideValue,
+  type MetaState
+} from "./validate/types"
 import { categorizeUrl, isFromRegexDomain } from "./validate/url_categorization"
 import { extractUrlOrigin } from "./validate/url_utils"
 
-// ScrapperLinkField excludes "il" since it's not a database field (only used in bot/addon for .il domains)
+// ScrapperLinkField excludes "il" since it's not a database field (only used as a last-resort result key for .il domain detection)
 type ScrapperLinkField = Exclude<LinkField, "il">
 
 const inputFilePath = path.join(__dirname, "../../results/2_merged/2_MERGED_ALL.json")
@@ -1121,6 +1127,8 @@ const drawProgressBar = (current: number, total: number, width: number = 40): st
 const getStatistics = (allItems: CrunchbaseScrappedItemType[], processedItems: Record<string, ManualOverrideValue>) => {
   const total = allItems.length
   let processed = 0
+  let verified = 0
+  let browserVerified = 0
   let unprocessed = 0
   const byReason: Record<string, { total: number; processed: number }> = {
     h: { total: 0, processed: 0 },
@@ -1130,10 +1138,16 @@ const getStatistics = (allItems: CrunchbaseScrappedItemType[], processedItems: R
 
   for (const item of allItems) {
     const processedItem = processedItems[item.name]
-    const isProcessedItem = processedItem !== undefined && isBrowserVerified(processedItem)
+    const isProcessedItem =
+      processedItem !== undefined && (isVerified(processedItem) || isBrowserVerified(processedItem))
 
     if (isProcessedItem) {
       processed++
+      if (processedItem !== undefined && isBrowserVerified(processedItem)) {
+        browserVerified++
+      } else {
+        verified++
+      }
     } else {
       unprocessed++
     }
@@ -1164,6 +1178,8 @@ const getStatistics = (allItems: CrunchbaseScrappedItemType[], processedItems: R
   return {
     total,
     processed,
+    verified,
+    browserVerified,
     unprocessed,
     byReason
   }
@@ -1202,6 +1218,8 @@ const displayStatistics = (
   log("\n📊 Summary:")
   log(`   Total companies:     ${stats.total}`)
   log(`   ✅ Processed:        ${stats.processed} (${((stats.processed / stats.total) * 100).toFixed(1)}%)`)
+  log(`      ├─ Quick:         ${stats.verified}`)
+  log(`      └─ Full:          ${stats.browserVerified}`)
   log(`   ⏳ Remaining:        ${stats.unprocessed} (${((stats.unprocessed / stats.total) * 100).toFixed(1)}%)`)
 
   log("\n📋 Remaining by Reason:")

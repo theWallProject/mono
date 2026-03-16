@@ -12,7 +12,6 @@ interface CoverageData {
   testedByRuleType: {
     urlOnly: number
     urlDomFull: number
-    urlDomInline: number
   }
   testedByReason: {
     f: number
@@ -57,8 +56,7 @@ function loadCoverage(): CoverageData {
     testedUrls: [],
     testedByRuleType: {
       urlOnly: 0,
-      urlDomFull: 0,
-      urlDomInline: 0
+      urlDomFull: 0
     },
     testedByReason: {
       f: 0,
@@ -85,7 +83,7 @@ function saveCoverage(data: CoverageData): void {
  */
 export function markUrlAsTested(
   url: string,
-  ruleType?: "urlOnly" | "urlDomFull" | "urlDomInline",
+  ruleType?: "urlOnly" | "urlDomFull",
   reasons?: string[]
 ): void {
   const coverage = loadCoverage()
@@ -152,8 +150,7 @@ export function resetCoverage(): void {
     testedUrls: [],
     testedByRuleType: {
       urlOnly: 0,
-      urlDomFull: 0,
-      urlDomInline: 0
+      urlDomFull: 0
     },
     testedByReason: {
       f: 0,
@@ -181,7 +178,6 @@ export function generateCoverageReport(): string {
     "By Rule Type:",
     `  urlOnly: ${stats.byRuleType.urlOnly}`,
     `  urlDomFull: ${stats.byRuleType.urlDomFull}`,
-    `  urlDomInline: ${stats.byRuleType.urlDomInline}`,
     "",
     "By Reason:",
     `  Founder (f): ${stats.byReason.f}`,

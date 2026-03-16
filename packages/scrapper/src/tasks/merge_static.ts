@@ -24,6 +24,7 @@ import { androidDiscoveries } from "./manual_resolve/androidDiscoveries"
 import { manualAdditions } from "./manual_resolve/manualAdditions"
 import { manualDeleteIds } from "./manual_resolve/manualDeleteIds"
 import { manualOverrides } from "./manual_resolve/manualOverrides"
+import { isOverrideTrusted } from "./validate/types"
 
 /** Extracts the profile identifier from a URL for a given link field. Used for ID generation and dedup. */
 export const extractIdentifier = (url: string, field: LinkField): string => {
@@ -346,6 +347,15 @@ const loadJsonFiles = async (folderPath: string) => {
     const override = manualOverrides[row.name]
 
     if (override) {
+      // Skip unverified overrides — let the original CB data pass through unchanged.
+      // An override is trusted if it has no _meta (old hand-curated) or has isVerified/isBrowserVerified.
+      // Unverified entries (e.g. isHomepage-only) are skipped until human-verified.
+      if (!isOverrideTrusted(override)) {
+        log(`⏭️ Skipping unverified override for ${row.name}`)
+        processedItems.push(row)
+        continue
+      }
+
       // Apply override, but exclude the meta state flags, urls field, and alt field (used only in final.ts)
       const excludeKeys = new Set(["_meta", "urls", "alt"])
       const overrideFields = Object.fromEntries(Object.entries(override).filter(([key]) => !excludeKeys.has(key)))

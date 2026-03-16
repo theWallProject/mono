@@ -13,7 +13,7 @@ import { execSync } from "child_process"
 import inquirer from "inquirer"
 
 import { error, log } from "./helper"
-import { testConnection } from "./tasks/homepage_ai_extractor/ai_client"
+import { warmUpModel } from "./tasks/homepage_ai_extractor/ai_client"
 import { HOMEPAGE_AI_EXTRACTOR_CONFIG } from "./tasks/homepage_ai_extractor/config"
 import { runInteractive, runBatch, runRetry } from "./tasks/homepage_ai_extractor/run"
 import { getRetryListCount } from "./tasks/homepage_ai_extractor/retry_list"
@@ -155,9 +155,9 @@ const main = async () => {
   log(`Model:     ${HOMEPAGE_AI_EXTRACTOR_CONFIG.lmStudio.model}`)
   log("")
 
-  // Test AI server connectivity first
-  log("Testing LM Studio connection...")
-  await testConnection()
+  // Warm up the model — forces it to load into memory so real requests don't stall
+  log("Warming up LM Studio model (this may take a moment on first run)...")
+  await warmUpModel()
   log("")
 
   const mode = await promptForMode()
