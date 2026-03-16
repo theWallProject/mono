@@ -1,0 +1,68 @@
+[2026-03-10T02:42:45.066Z] === Homepage AI Extractor: BLST Security ===
+[2026-03-10T02:42:45.067Z] Started at: 2026-03-10T02:42:45.067Z
+[2026-03-10T02:42:45.067Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773110565066_BLST_Security
+[2026-03-10T02:42:45.067Z] Company: BLST Security
+[2026-03-10T02:42:45.067Z] Website: blstsecurity.com
+[2026-03-10T02:42:45.067Z] cbRank: 352904
+[2026-03-10T02:42:45.067Z] Reasons: h
+[2026-03-10T02:42:45.067Z] Fetching: https://blstsecurity.com
+[2026-03-10T02:42:48.521Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-10T02:42:56.499Z] Redirected: https://blstsecurity.com -> https://blstsecurity.com/
+[2026-03-10T02:42:56.503Z] Saved HTML (54018 bytes) to page.html
+[2026-03-10T02:42:56.506Z] Extracted 17 unique links from page
+[2026-03-10T02:42:56.506Z] Saved 17 links to links.json
+[2026-03-10T02:42:56.510Z] Extracted footer HTML (6405 chars)
+[2026-03-10T02:42:56.510Z] Extracted header HTML (6100 chars)
+[2026-03-10T02:42:56.515Z] Website (post-redirect): https://blstsecurity.com/ → origin: https://blstsecurity.com
+[2026-03-10T02:42:56.515Z]   SUBDOMAIN: docs.blstsecurity.com (added to ws)
+[2026-03-10T02:42:56.515Z] Website subdomains found: 1
+[2026-03-10T02:42:56.515Z] External links: 3 (of 17 total)
+[2026-03-10T02:42:56.516Z] ── All external links ──
+[2026-03-10T02:42:56.516Z]   EXT: https://discord.gg/WdHhv4DqwU
+[2026-03-10T02:42:56.516Z]   EXT: https://github.com/blst-security/cherrybomb
+[2026-03-10T02:42:56.516Z]   EXT: https://www.linkedin.com/company/blstsecurity
+[2026-03-10T02:42:56.516Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T02:42:56.516Z]   UNCATEGORIZED: https://discord.gg/WdHhv4DqwU
+[2026-03-10T02:42:56.516Z]   REGEX: gh <- https://github.com/blst-security/cherrybomb
+[2026-03-10T02:42:56.516Z]   REGEX: li <- https://www.linkedin.com/company/blstsecurity
+[2026-03-10T02:42:56.516Z] Programmatic result: ws:2, gh:1, li:1 | 1 uncategorized
+[2026-03-10T02:42:56.516Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T02:42:56.517Z] Saved AI prompt (3586 chars) to ai_prompt.txt
+[2026-03-10T02:42:56.518Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T02:42:56.536Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T02:43:09.471Z]   AI: First token received, streaming...
+[2026-03-10T02:43:16.275Z] AI response complete: 120 chars in 19.8s
+[2026-03-10T02:43:16.276Z] Saved AI response to ai_response.json
+[2026-03-10T02:43:16.276Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T02:43:16.277Z]   AI LINK: https://discord.gg/WdHhv4DqwU
+[2026-03-10T02:43:16.277Z]   AI LINK: https://www.linkedin.com/company/blstsecurity/
+[2026-03-10T02:43:16.277Z]   AI LINK: https://github.com/blst-security/cherrybomb
+[2026-03-10T02:43:16.277Z] AI returned 3 valid links
+[2026-03-10T02:43:16.277Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T02:43:16.277Z]   AI→URLS: https://discord.gg/WdHhv4DqwU
+[2026-03-10T02:43:16.277Z]   AI→REGEX: li <- https://www.linkedin.com/company/blstsecurity/ (duplicate, skipped)
+[2026-03-10T02:43:16.277Z]   AI→REGEX: gh <- https://github.com/blst-security/cherrybomb (duplicate, skipped)
+[2026-03-10T02:43:16.278Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T02:43:16.278Z] Footer/header origins (4):
+[2026-03-10T02:43:16.278Z]   FOOTER/HEADER ORIGIN: https://discord.gg
+[2026-03-10T02:43:16.278Z]   FOOTER/HEADER ORIGIN: https://docs.blstsecurity.com
+[2026-03-10T02:43:16.278Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-10T02:43:16.278Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T02:43:16.279Z]   SKIP (AI claimed): https://discord.gg/WdHhv4DqwU
+[2026-03-10T02:43:16.279Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T02:43:16.279Z] ── Step 3: Final dedup ──
+[2026-03-10T02:43:16.279Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T02:43:16.279Z] ── FINAL RESULT ──
+[2026-03-10T02:43:16.279Z]   ws (2):
+[2026-03-10T02:43:16.279Z]     - https://blstsecurity.com
+[2026-03-10T02:43:16.279Z]     - https://docs.blstsecurity.com
+[2026-03-10T02:43:16.279Z]   li (1):
+[2026-03-10T02:43:16.279Z]     - https://www.linkedin.com/company/blstsecurity
+[2026-03-10T02:43:16.279Z]   gh (1):
+[2026-03-10T02:43:16.279Z]     - https://github.com/blst-security
+[2026-03-10T02:43:16.280Z]   urls (1):
+[2026-03-10T02:43:16.280Z]     - https://discord.gg/WdHhv4DqwU
+[2026-03-10T02:43:16.280Z] Summary: ws:2, gh:1, li:1, urls:1
+[2026-03-10T02:43:16.280Z] Saved final result to result.json
+[2026-03-10T02:43:16.280Z] Override fields: ws, li, gh, urls
+[2026-03-10T02:43:16.281Z] Finished at: 2026-03-10T02:43:16.280Z

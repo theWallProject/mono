@@ -1,0 +1,70 @@
+[2026-03-13T13:23:50.612Z] === Homepage AI Extractor: IHA- Israel Hotel Association ===
+[2026-03-13T13:23:50.612Z] Started at: 2026-03-13T13:23:50.612Z
+[2026-03-13T13:23:50.612Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773408230612_IHA-_Israel_Hotel_Association
+[2026-03-13T13:23:50.612Z] Company: IHA- Israel Hotel Association
+[2026-03-13T13:23:50.612Z] Website: ihahotels.org.il
+[2026-03-13T13:23:50.612Z] cbRank: 1167655
+[2026-03-13T13:23:50.612Z] Reasons: h
+[2026-03-13T13:23:50.612Z] Fetching: https://ihahotels.org.il
+[2026-03-13T13:23:53.357Z] Redirected: https://ihahotels.org.il -> https://ihahotels.org.il/
+[2026-03-13T13:23:53.364Z] Saved HTML (130995 bytes) to page.html
+[2026-03-13T13:23:53.367Z] Extracted 14 unique links from page
+[2026-03-13T13:23:53.370Z] Saved 14 links to links.json
+[2026-03-13T13:23:53.373Z] Extracted footer HTML (1860 chars)
+[2026-03-13T13:23:53.373Z] Extracted header HTML (10150 chars)
+[2026-03-13T13:23:53.377Z] Website (post-redirect): https://ihahotels.org.il/ → origin: https://ihahotels.org.il
+[2026-03-13T13:23:53.377Z] External links: 4 (of 14 total)
+[2026-03-13T13:23:53.377Z] ── All external links ──
+[2026-03-13T13:23:53.377Z]   EXT: http://www.yayasoft.co.il
+[2026-03-13T13:23:53.377Z]   EXT: https://melonaim.org/hotels-phone-numbers
+[2026-03-13T13:23:53.377Z]   EXT: https://twitter.com/israelhotel
+[2026-03-13T13:23:53.377Z]   EXT: https://www.facebook.com/Israelhotelsassociation
+[2026-03-13T13:23:53.377Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T13:23:53.378Z]   UNCATEGORIZED: http://www.yayasoft.co.il
+[2026-03-13T13:23:53.378Z]   UNCATEGORIZED: https://melonaim.org/hotels-phone-numbers
+[2026-03-13T13:23:53.378Z]   REGEX: tw <- https://twitter.com/israelhotel
+[2026-03-13T13:23:53.378Z]   REGEX: fb <- https://www.facebook.com/Israelhotelsassociation
+[2026-03-13T13:23:53.378Z] Programmatic result: ws:1, tw:1, fb:1 | 2 uncategorized
+[2026-03-13T13:23:53.378Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T13:23:53.379Z] Saved AI prompt (2838 chars) to ai_prompt.txt
+[2026-03-13T13:23:53.379Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T13:23:53.398Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T13:24:03.327Z]   AI: First token received, streaming...
+[2026-03-13T13:24:08.079Z] AI response complete: 107 chars in 14.7s
+[2026-03-13T13:24:08.080Z] Saved AI response to ai_response.json
+[2026-03-13T13:24:08.080Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T13:24:08.080Z]   AI LINK: https://ihahotels.org.il/
+[2026-03-13T13:24:08.080Z]   AI LINK: https://www.facebook.com/Israelhotelsassociation/
+[2026-03-13T13:24:08.080Z]   AI LINK: https://twitter.com/israelhotel
+[2026-03-13T13:24:08.080Z] AI returned 3 valid links
+[2026-03-13T13:24:08.080Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T13:24:08.080Z]   AI→URLS: https://ihahotels.org.il (cleaned from https://ihahotels.org.il/)
+[2026-03-13T13:24:08.081Z]   AI→REGEX: fb <- https://www.facebook.com/Israelhotelsassociation/ (duplicate, skipped)
+[2026-03-13T13:24:08.081Z]   AI→REGEX: tw <- https://twitter.com/israelhotel (duplicate, skipped)
+[2026-03-13T13:24:08.081Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T13:24:08.081Z] Footer/header origins (4):
+[2026-03-13T13:24:08.081Z]   FOOTER/HEADER ORIGIN: https://ihahotels.org.il
+[2026-03-13T13:24:08.081Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T13:24:08.081Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-13T13:24:08.081Z]   FOOTER/HEADER ORIGIN: http://www.yayasoft.co.il
+[2026-03-13T13:24:08.081Z]   ADDED: urls <- http://www.yayasoft.co.il
+[2026-03-13T13:24:08.081Z]   SKIP (not in footer/header): https://melonaim.org/hotels-phone-numbers
+[2026-03-13T13:24:08.081Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T13:24:08.082Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T13:24:08.082Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T13:24:08.082Z] ── Step 3: Final dedup ──
+[2026-03-13T13:24:08.082Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T13:24:08.082Z] ── FINAL RESULT ──
+[2026-03-13T13:24:08.082Z]   ws (1):
+[2026-03-13T13:24:08.082Z]     - https://ihahotels.org.il
+[2026-03-13T13:24:08.082Z]   fb (1):
+[2026-03-13T13:24:08.082Z]     - https://www.facebook.com/israelhotelsassociation
+[2026-03-13T13:24:08.082Z]   tw (1):
+[2026-03-13T13:24:08.082Z]     - https://x.com/israelhotel
+[2026-03-13T13:24:08.082Z]   urls (2):
+[2026-03-13T13:24:08.083Z]     - http://www.yayasoft.co.il
+[2026-03-13T13:24:08.083Z]     - https://ihahotels.org.il
+[2026-03-13T13:24:08.083Z] Summary: ws:1, tw:1, fb:1, urls:2
+[2026-03-13T13:24:08.083Z] Saved final result to result.json
+[2026-03-13T13:24:08.084Z] Override fields: ws, fb, tw, urls
+[2026-03-13T13:24:08.084Z] Finished at: 2026-03-13T13:24:08.084Z

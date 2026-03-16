@@ -1,0 +1,66 @@
+[2026-03-10T06:22:11.592Z] === Homepage AI Extractor: Clocate ===
+[2026-03-10T06:22:11.592Z] Started at: 2026-03-10T06:22:11.592Z
+[2026-03-10T06:22:11.592Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773123731591_Clocate
+[2026-03-10T06:22:11.592Z] Company: Clocate
+[2026-03-10T06:22:11.592Z] Website: clocate.com
+[2026-03-10T06:22:11.592Z] cbRank: 409141
+[2026-03-10T06:22:11.592Z] Reasons: h
+[2026-03-10T06:22:11.592Z] Fetching: https://clocate.com
+[2026-03-10T06:22:14.612Z] Redirected: https://clocate.com -> https://www.clocate.com/
+[2026-03-10T06:22:14.638Z] Saved HTML (694243 bytes) to page.html
+[2026-03-10T06:22:14.646Z] Extracted 196 unique links from page
+[2026-03-10T06:22:14.647Z] Saved 196 links to links.json
+[2026-03-10T06:22:14.651Z] No footer section found in DOM
+[2026-03-10T06:22:14.651Z] Extracted header HTML (4973 chars)
+[2026-03-10T06:22:14.657Z] Website (post-redirect): https://www.clocate.com/ → origin: https://www.clocate.com
+[2026-03-10T06:22:14.657Z] External links: 6 (of 196 total)
+[2026-03-10T06:22:14.657Z] ── All external links ──
+[2026-03-10T06:22:14.657Z]   EXT: https://www.facebook.com/Clocate
+[2026-03-10T06:22:14.658Z]   EXT: https://www.linkedin.com/company/clocate
+[2026-03-10T06:22:14.658Z]   EXT: https://www.venuedir.com
+[2026-03-10T06:22:14.658Z]   EXT: https://www.viator.com/?pid=P00212334&mcid=42383&medium=link&campaign=btn_home
+[2026-03-10T06:22:14.658Z]   EXT: https://www.viator.com/?pid=P00212334&mcid=42383&medium=link&campaign=nav_home
+[2026-03-10T06:22:14.658Z]   EXT: https://x.com/clocate
+[2026-03-10T06:22:14.658Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:22:14.658Z]   REGEX: fb <- https://www.facebook.com/Clocate
+[2026-03-10T06:22:14.658Z]   REGEX: li <- https://www.linkedin.com/company/clocate
+[2026-03-10T06:22:14.658Z]   UNCATEGORIZED: https://www.venuedir.com
+[2026-03-10T06:22:14.658Z]   UNCATEGORIZED: https://www.viator.com/?pid=P00212334&mcid=42383&medium=link&campaign=btn_home
+[2026-03-10T06:22:14.658Z]   UNCATEGORIZED: https://www.viator.com/?pid=P00212334&mcid=42383&medium=link&campaign=nav_home
+[2026-03-10T06:22:14.658Z]   REGEX: tw <- https://x.com/clocate
+[2026-03-10T06:22:14.659Z] Programmatic result: ws:1, fb:1, li:1, tw:1 | 3 uncategorized
+[2026-03-10T06:22:14.659Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:22:14.659Z] Saved AI prompt (2116 chars) to ai_prompt.txt
+[2026-03-10T06:22:14.659Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:22:14.690Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:22:20.878Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-10T06:22:20.879Z] AI response complete: 0 chars in 6.2s
+[2026-03-10T06:22:20.880Z] Saved AI response to ai_response.json
+[2026-03-10T06:22:20.880Z] ── Parsing AI response (1 lines) ──
+[2026-03-10T06:22:20.880Z] AI returned 0 valid links
+[2026-03-10T06:22:20.880Z] ── Categorizing 0 AI-returned links ──
+[2026-03-10T06:22:20.881Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:22:20.881Z] Footer/header origins (2):
+[2026-03-10T06:22:20.881Z]   FOOTER/HEADER ORIGIN: https://www.clocate.com
+[2026-03-10T06:22:20.881Z]   FOOTER/HEADER ORIGIN: https://www.viator.com
+[2026-03-10T06:22:20.881Z]   SKIP (not in footer/header): https://www.venuedir.com
+[2026-03-10T06:22:20.881Z]   ADDED: urls <- https://www.viator.com (cleaned from https://www.viator.com/?pid=P00212334&mcid=42383&medium=link&campaign=btn_home)
+[2026-03-10T06:22:20.882Z]   SKIP (duplicate): https://www.viator.com
+[2026-03-10T06:22:20.882Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T06:22:20.882Z] ── Step 3: Final dedup ──
+[2026-03-10T06:22:20.882Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T06:22:20.882Z] ── FINAL RESULT ──
+[2026-03-10T06:22:20.882Z]   ws (1):
+[2026-03-10T06:22:20.882Z]     - https://www.clocate.com
+[2026-03-10T06:22:20.882Z]   li (1):
+[2026-03-10T06:22:20.882Z]     - https://www.linkedin.com/company/clocate
+[2026-03-10T06:22:20.882Z]   fb (1):
+[2026-03-10T06:22:20.882Z]     - https://www.facebook.com/clocate
+[2026-03-10T06:22:20.882Z]   tw (1):
+[2026-03-10T06:22:20.882Z]     - https://x.com/clocate
+[2026-03-10T06:22:20.883Z]   urls (1):
+[2026-03-10T06:22:20.883Z]     - https://www.viator.com
+[2026-03-10T06:22:20.883Z] Summary: ws:1, fb:1, li:1, tw:1, urls:1
+[2026-03-10T06:22:20.883Z] Saved final result to result.json
+[2026-03-10T06:22:20.883Z] Override fields: ws, li, fb, tw, urls
+[2026-03-10T06:22:20.883Z] Finished at: 2026-03-10T06:22:20.883Z

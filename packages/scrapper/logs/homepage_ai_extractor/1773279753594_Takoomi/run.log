@@ -1,0 +1,64 @@
+[2026-03-12T01:42:33.595Z] === Homepage AI Extractor: Takoomi ===
+[2026-03-12T01:42:33.595Z] Started at: 2026-03-12T01:42:33.595Z
+[2026-03-12T01:42:33.595Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773279753594_Takoomi
+[2026-03-12T01:42:33.595Z] Company: Takoomi
+[2026-03-12T01:42:33.595Z] Website: takoomi.com
+[2026-03-12T01:42:33.595Z] cbRank: 743951
+[2026-03-12T01:42:33.596Z] Reasons: h
+[2026-03-12T01:42:33.596Z] Fetching: https://takoomi.com
+[2026-03-12T01:42:35.055Z] Redirected: https://takoomi.com -> https://www.takoomi.com/
+[2026-03-12T01:42:35.058Z] Saved HTML (10342 bytes) to page.html
+[2026-03-12T01:42:35.060Z] Extracted 12 unique links from page
+[2026-03-12T01:42:35.063Z] Saved 12 links to links.json
+[2026-03-12T01:42:35.066Z] Extracted footer HTML (762 chars)
+[2026-03-12T01:42:35.066Z] Extracted header HTML (964 chars)
+[2026-03-12T01:42:35.070Z] Website (post-redirect): https://www.takoomi.com/ → origin: https://www.takoomi.com
+[2026-03-12T01:42:35.071Z] External links: 4 (of 12 total)
+[2026-03-12T01:42:35.071Z] ── All external links ──
+[2026-03-12T01:42:35.071Z]   EXT: http://wikipedia.org/wiki/HTTP_cookie
+[2026-03-12T01:42:35.071Z]   EXT: https://cookieinfoscript.com
+[2026-03-12T01:42:35.071Z]   EXT: https://www.facebook.com/Takoomi-232322370169543
+[2026-03-12T01:42:35.071Z]   EXT: https://www.linkedin.com/company/2637973?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A2637973%2Cidx%3A1-1-1%2CtarId%3A1459948251514%2Ctas%3Atakoomi
+[2026-03-12T01:42:35.071Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T01:42:35.071Z]   UNCATEGORIZED: http://wikipedia.org/wiki/HTTP_cookie
+[2026-03-12T01:42:35.071Z]   UNCATEGORIZED: https://cookieinfoscript.com
+[2026-03-12T01:42:35.071Z]   REGEX: fb <- https://www.facebook.com/Takoomi-232322370169543
+[2026-03-12T01:42:35.071Z]   REGEX: li <- https://www.linkedin.com/company/2637973?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A2637973%2Cidx%3A1-1-1%2CtarId%3A1459948251514%2Ctas%3Atakoomi
+[2026-03-12T01:42:35.072Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-12T01:42:35.072Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T01:42:35.072Z] Saved AI prompt (2492 chars) to ai_prompt.txt
+[2026-03-12T01:42:35.072Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T01:42:35.087Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T01:42:43.858Z]   AI: First token received, streaming...
+[2026-03-12T01:43:08.521Z]   AI streaming: 200 chars received (33.4s elapsed)
+[2026-03-12T01:43:09.192Z] AI response complete: 219 chars in 34.1s
+[2026-03-12T01:43:09.193Z] Saved AI response to ai_response.json
+[2026-03-12T01:43:09.193Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T01:43:09.193Z]   AI LINK: https://www.facebook.com/Takoomi-232322370169543/
+[2026-03-12T01:43:09.194Z]   AI LINK: https://www.linkedin.com/company/2637973?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A2637973%2Cidx%3A1-1-1%2CtarId%3A1459948251514%2Ctas%3Atakoomi
+[2026-03-12T01:43:09.194Z] AI returned 2 valid links
+[2026-03-12T01:43:09.194Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T01:43:09.194Z]   AI→REGEX: fb <- https://www.facebook.com/Takoomi-232322370169543/ (duplicate, skipped)
+[2026-03-12T01:43:09.194Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/company/2637973?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A2637973%2Cidx%3A1-1-1%2CtarId%3A1459948251514%2Ctas%3Atakoomi
+[2026-03-12T01:43:09.194Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T01:43:09.195Z] Footer/header origins (2):
+[2026-03-12T01:43:09.195Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T01:43:09.195Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T01:43:09.195Z]   SKIP (not in footer/header): http://wikipedia.org/wiki/HTTP_cookie
+[2026-03-12T01:43:09.195Z]   SKIP (not in footer/header): https://cookieinfoscript.com
+[2026-03-12T01:43:09.195Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T01:43:09.195Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T01:43:09.195Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T01:43:09.195Z] ── Step 3: Final dedup ──
+[2026-03-12T01:43:09.195Z] No urls to dedup
+[2026-03-12T01:43:09.195Z] ── FINAL RESULT ──
+[2026-03-12T01:43:09.195Z]   ws (1):
+[2026-03-12T01:43:09.195Z]     - https://www.takoomi.com
+[2026-03-12T01:43:09.195Z]   li (1):
+[2026-03-12T01:43:09.196Z]     - https://www.linkedin.com/company/2637973
+[2026-03-12T01:43:09.196Z]   fb (1):
+[2026-03-12T01:43:09.196Z]     - https://www.facebook.com/takoomi-232322370169543
+[2026-03-12T01:43:09.196Z] Summary: ws:1, fb:1, li:1
+[2026-03-12T01:43:09.196Z] Saved final result to result.json
+[2026-03-12T01:43:09.196Z] Override fields: ws, li, fb
+[2026-03-12T01:43:09.196Z] Finished at: 2026-03-12T01:43:09.196Z

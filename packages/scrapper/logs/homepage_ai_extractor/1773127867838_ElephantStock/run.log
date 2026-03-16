@@ -1,0 +1,91 @@
+[2026-03-10T07:31:07.838Z] === Homepage AI Extractor: ElephantStock ===
+[2026-03-10T07:31:07.838Z] Started at: 2026-03-10T07:31:07.838Z
+[2026-03-10T07:31:07.839Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773127867838_ElephantStock
+[2026-03-10T07:31:07.839Z] Company: ElephantStock
+[2026-03-10T07:31:07.839Z] Website: elephantstock.com
+[2026-03-10T07:31:07.839Z] cbRank: 429753
+[2026-03-10T07:31:07.839Z] Reasons: h
+[2026-03-10T07:31:07.839Z] Fetching: https://elephantstock.com
+[2026-03-10T07:31:15.321Z] Redirected: https://elephantstock.com -> https://www.elephantstock.com/
+[2026-03-10T07:31:15.336Z] Saved HTML (491519 bytes) to page.html
+[2026-03-10T07:31:15.342Z] Extracted 255 unique links from page
+[2026-03-10T07:31:15.343Z] Saved 255 links to links.json
+[2026-03-10T07:31:15.347Z] Extracted footer HTML (17217 chars)
+[2026-03-10T07:31:15.347Z] Extracted header HTML (14533 chars)
+[2026-03-10T07:31:15.354Z] Website (post-redirect): https://www.elephantstock.com/ → origin: https://www.elephantstock.com
+[2026-03-10T07:31:15.354Z]   SUBDOMAIN: account.elephantstock.com (added to ws)
+[2026-03-10T07:31:15.354Z]   SUBDOMAIN: help.elephantstock.com (added to ws)
+[2026-03-10T07:31:15.354Z] Website subdomains found: 2
+[2026-03-10T07:31:15.355Z] External links: 3 (of 255 total)
+[2026-03-10T07:31:15.355Z] ── All external links ──
+[2026-03-10T07:31:15.355Z]   EXT: https://www.facebook.com/elephantstockart
+[2026-03-10T07:31:15.355Z]   EXT: https://www.instagram.com/elephantstock
+[2026-03-10T07:31:15.355Z]   EXT: https://www.pinterest.com/elephantstock
+[2026-03-10T07:31:15.355Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T07:31:15.355Z]   REGEX: fb <- https://www.facebook.com/elephantstockart
+[2026-03-10T07:31:15.356Z]   REGEX: ig <- https://www.instagram.com/elephantstock
+[2026-03-10T07:31:15.356Z]   UNCATEGORIZED: https://www.pinterest.com/elephantstock
+[2026-03-10T07:31:15.356Z] Programmatic result: ws:3, fb:1, ig:1 | 1 uncategorized
+[2026-03-10T07:31:15.356Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T07:31:15.357Z] Saved AI prompt (10651 chars) to ai_prompt.txt
+[2026-03-10T07:31:15.357Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T07:31:15.378Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T07:31:54.795Z]   AI: First token received, streaming...
+[2026-03-10T07:32:08.433Z]   AI streaming: 200 chars received (53.1s elapsed)
+[2026-03-10T07:32:24.963Z]   AI streaming: 403 chars received (69.6s elapsed)
+[2026-03-10T07:32:24.965Z] AI response complete: 411 chars in 69.6s
+[2026-03-10T07:32:24.965Z] Saved AI response to ai_response.json
+[2026-03-10T07:32:24.965Z] ── Parsing AI response (9 lines) ──
+[2026-03-10T07:32:24.965Z]   AI LINK: https://www.pinterest.com/elephantstock
+[2026-03-10T07:32:24.965Z]   AI LINK: https://www.facebook.com/elephantstockart
+[2026-03-10T07:32:24.966Z]   AI LINK: https://www.instagram.com/elephantstock/
+[2026-03-10T07:32:24.966Z]   AI LINK: https://help.elephantstock.com/en-US
+[2026-03-10T07:32:24.966Z]   AI LINK: https://account.elephantstock.com/
+[2026-03-10T07:32:24.966Z]   AI LINK: https://help.elephantstock.com/en-US/articles/Shipping-65735
+[2026-03-10T07:32:24.966Z]   AI LINK: https://help.elephantstock.com/en-US/articles/Returns-65737
+[2026-03-10T07:32:24.966Z]   AI LINK: https://www.elephantstock.com/pages/gift-guide-2025
+[2026-03-10T07:32:24.966Z]   AI LINK: https://www.elephantstock.com/pages/coupons
+[2026-03-10T07:32:24.966Z] AI returned 9 valid links
+[2026-03-10T07:32:24.966Z] ── Categorizing 9 AI-returned links ──
+[2026-03-10T07:32:24.966Z]   AI→URLS: https://www.pinterest.com/elephantstock
+[2026-03-10T07:32:24.966Z]   AI→REGEX: fb <- https://www.facebook.com/elephantstockart (duplicate, skipped)
+[2026-03-10T07:32:24.966Z]   AI→REGEX: ig <- https://www.instagram.com/elephantstock/ (duplicate, skipped)
+[2026-03-10T07:32:24.966Z]   AI→URLS: https://help.elephantstock.com/en-US
+[2026-03-10T07:32:24.966Z]   AI→URLS: https://account.elephantstock.com (cleaned from https://account.elephantstock.com/)
+[2026-03-10T07:32:24.967Z]   AI→URLS: https://help.elephantstock.com/en-US/articles/Shipping-65735
+[2026-03-10T07:32:24.967Z]   AI→URLS: https://help.elephantstock.com/en-US/articles/Returns-65737
+[2026-03-10T07:32:24.967Z]   AI→URLS: https://www.elephantstock.com/pages/gift-guide-2025
+[2026-03-10T07:32:24.967Z]   AI→URLS: https://www.elephantstock.com/pages/coupons
+[2026-03-10T07:32:24.968Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T07:32:24.968Z] Footer/header origins (6):
+[2026-03-10T07:32:24.968Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T07:32:24.968Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T07:32:24.968Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-10T07:32:24.968Z]   FOOTER/HEADER ORIGIN: https://help.elephantstock.com
+[2026-03-10T07:32:24.968Z]   FOOTER/HEADER ORIGIN: https://account.elephantstock.com
+[2026-03-10T07:32:24.968Z]   FOOTER/HEADER ORIGIN: https://www.elephantstock.com
+[2026-03-10T07:32:24.968Z]   SKIP (AI claimed): https://www.pinterest.com/elephantstock
+[2026-03-10T07:32:24.968Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T07:32:24.968Z] ── Step 3: Final dedup ──
+[2026-03-10T07:32:24.968Z] Dedup: removed 0 of 7 URLs already in specialized fields
+[2026-03-10T07:32:24.969Z] ── FINAL RESULT ──
+[2026-03-10T07:32:24.969Z]   ws (3):
+[2026-03-10T07:32:24.969Z]     - https://account.elephantstock.com
+[2026-03-10T07:32:24.969Z]     - https://help.elephantstock.com
+[2026-03-10T07:32:24.969Z]     - https://www.elephantstock.com
+[2026-03-10T07:32:24.969Z]   fb (1):
+[2026-03-10T07:32:24.969Z]     - https://www.facebook.com/elephantstockart
+[2026-03-10T07:32:24.969Z]   ig (1):
+[2026-03-10T07:32:24.969Z]     - https://www.instagram.com/elephantstock
+[2026-03-10T07:32:24.969Z]   urls (7):
+[2026-03-10T07:32:24.969Z]     - https://account.elephantstock.com
+[2026-03-10T07:32:24.969Z]     - https://help.elephantstock.com/en-US
+[2026-03-10T07:32:24.969Z]     - https://help.elephantstock.com/en-US/articles/Returns-65737
+[2026-03-10T07:32:24.969Z]     - https://help.elephantstock.com/en-US/articles/Shipping-65735
+[2026-03-10T07:32:24.969Z]     - https://www.elephantstock.com/pages/coupons
+[2026-03-10T07:32:24.970Z]     - https://www.elephantstock.com/pages/gift-guide-2025
+[2026-03-10T07:32:24.970Z]     - https://www.pinterest.com/elephantstock
+[2026-03-10T07:32:24.970Z] Summary: ws:3, fb:1, ig:1, urls:7
+[2026-03-10T07:32:24.970Z] Saved final result to result.json
+[2026-03-10T07:32:24.970Z] Override fields: ws, fb, ig, urls
+[2026-03-10T07:32:24.970Z] Finished at: 2026-03-10T07:32:24.970Z

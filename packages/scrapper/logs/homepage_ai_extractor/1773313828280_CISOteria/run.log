@@ -1,0 +1,68 @@
+[2026-03-12T11:10:28.280Z] === Homepage AI Extractor: CISOteria ===
+[2026-03-12T11:10:28.280Z] Started at: 2026-03-12T11:10:28.280Z
+[2026-03-12T11:10:28.280Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773313828280_CISOteria
+[2026-03-12T11:10:28.280Z] Company: CISOteria
+[2026-03-12T11:10:28.280Z] Website: cisoteria.com
+[2026-03-12T11:10:28.280Z] cbRank: 924322
+[2026-03-12T11:10:28.281Z] Reasons: h
+[2026-03-12T11:10:28.281Z] Fetching: https://cisoteria.com
+[2026-03-12T11:10:31.491Z] Redirected: https://cisoteria.com -> https://cisoteria.com/
+[2026-03-12T11:10:31.499Z] Saved HTML (176649 bytes) to page.html
+[2026-03-12T11:10:31.504Z] Extracted 27 unique links from page
+[2026-03-12T11:10:31.505Z] Saved 27 links to links.json
+[2026-03-12T11:10:31.509Z] Extracted footer HTML (5889 chars)
+[2026-03-12T11:10:31.509Z] Extracted header HTML (15411 chars)
+[2026-03-12T11:10:31.515Z] Website (post-redirect): https://cisoteria.com/ → origin: https://cisoteria.com
+[2026-03-12T11:10:31.516Z] External links: 4 (of 27 total)
+[2026-03-12T11:10:31.516Z] ── All external links ──
+[2026-03-12T11:10:31.516Z]   EXT: https://vimeo.com/671689549
+[2026-03-12T11:10:31.516Z]   EXT: https://vimeo.com/984924302
+[2026-03-12T11:10:31.516Z]   EXT: https://wa.me/972528971314
+[2026-03-12T11:10:31.516Z]   EXT: https://www.linkedin.com/company/cisoteria
+[2026-03-12T11:10:31.516Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T11:10:31.516Z]   UNCATEGORIZED: https://vimeo.com/671689549
+[2026-03-12T11:10:31.516Z]   UNCATEGORIZED: https://vimeo.com/984924302
+[2026-03-12T11:10:31.516Z]   UNCATEGORIZED: https://wa.me/972528971314
+[2026-03-12T11:10:31.516Z]   REGEX: li <- https://www.linkedin.com/company/cisoteria
+[2026-03-12T11:10:31.517Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-12T11:10:31.517Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T11:10:31.518Z] Saved AI prompt (4777 chars) to ai_prompt.txt
+[2026-03-12T11:10:31.518Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T11:10:31.544Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T11:10:50.136Z]   AI: First token received, streaming...
+[2026-03-12T11:10:55.577Z] AI response complete: 70 chars in 24.1s
+[2026-03-12T11:10:55.578Z] Saved AI response to ai_response.json
+[2026-03-12T11:10:55.579Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T11:10:55.579Z]   AI LINK: https://www.linkedin.com/company/cisoteria/
+[2026-03-12T11:10:55.579Z]   AI LINK: https://wa.me/972528971314
+[2026-03-12T11:10:55.579Z] AI returned 2 valid links
+[2026-03-12T11:10:55.579Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T11:10:55.579Z]   AI→REGEX: li <- https://www.linkedin.com/company/cisoteria/ (duplicate, skipped)
+[2026-03-12T11:10:55.580Z]   AI→URLS: https://wa.me/972528971314
+[2026-03-12T11:10:55.581Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T11:10:55.581Z] Footer/header origins (4):
+[2026-03-12T11:10:55.581Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-12T11:10:55.581Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T11:10:55.581Z]   FOOTER/HEADER ORIGIN: https://cisoteria.com
+[2026-03-12T11:10:55.581Z]   FOOTER/HEADER ORIGIN: https://vimeo.com
+[2026-03-12T11:10:55.581Z]   ADDED: urls <- https://vimeo.com/671689549
+[2026-03-12T11:10:55.581Z]   ADDED: urls <- https://vimeo.com/984924302
+[2026-03-12T11:10:55.581Z]   SKIP (AI claimed): https://wa.me/972528971314
+[2026-03-12T11:10:55.582Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T11:10:55.582Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T11:10:55.582Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T11:10:55.582Z] ── Step 3: Final dedup ──
+[2026-03-12T11:10:55.582Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-12T11:10:55.582Z] ── FINAL RESULT ──
+[2026-03-12T11:10:55.582Z]   ws (1):
+[2026-03-12T11:10:55.582Z]     - https://cisoteria.com
+[2026-03-12T11:10:55.582Z]   li (1):
+[2026-03-12T11:10:55.582Z]     - https://www.linkedin.com/company/cisoteria
+[2026-03-12T11:10:55.582Z]   urls (3):
+[2026-03-12T11:10:55.582Z]     - https://vimeo.com/671689549
+[2026-03-12T11:10:55.582Z]     - https://vimeo.com/984924302
+[2026-03-12T11:10:55.582Z]     - https://wa.me/972528971314
+[2026-03-12T11:10:55.583Z] Summary: ws:1, li:1, urls:3
+[2026-03-12T11:10:55.583Z] Saved final result to result.json
+[2026-03-12T11:10:55.583Z] Override fields: ws, li, urls
+[2026-03-12T11:10:55.584Z] Finished at: 2026-03-12T11:10:55.584Z

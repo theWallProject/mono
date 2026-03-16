@@ -1,0 +1,807 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <title>השוואת מחירים וקניות - ret</title>
+    <meta name="description" property="og:description" content="ret הינו מנוע לחיפוש מוצרים והשוואת מחירים, באתר מאות אלפי מוצרים במגוון קטגוריות.">
+        <meta property="og:image" content="https://www.ad.co.il/images/logo/ret.png">
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ret">
+    <meta property="fb:app_id" content="1402067583374557">
+    <meta property="og:locale" content="he_IL">
+    <link rel="dns-prefetch" href="//img1.ad.co.il">
+    <link rel="dns-prefetch" href="//img2.ad.co.il">
+    <link rel="dns-prefetch" href="//img3.ad.co.il">
+    <link rel="dns-prefetch" href="//img4.ad.co.il">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+        
+        
+            <link href="/sb/css.css.v11" rel="stylesheet">
+        
+
+    <script async="" defer="" src="/lib/twitter-bootstrap/js/bootstrap.bundle.min.js?v=xLI5SjD6DkojxrMIVBNT4ghypv12Xtj7cOa0AgKd6wA"></script>
+    <link rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet';" href="/css/fa.min.css?v=uoyWlFT6vWexr9--1CbuH4YCEsSj3UVHu3_o8ChRbcM">
+    <link rel="stylesheet" media="all" onload="this.media = 'all'" href="/css/fa.min.css?v=uoyWlFT6vWexr9--1CbuH4YCEsSj3UVHu3_o8ChRbcM">
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-24275153-1');
+        const googCsa = '_googCsa';
+        window[googCsa] = window[googCsa] || function () { (window[googCsa]['q'] = window[googCsa]['q'] || []).push(arguments); }, window[googCsa]['t'] = 1 * new Date;
+        window['opix'] || ((p = window['opix'] = function () { p.process ? p.process.apply(p, arguments) : p.queue.push(arguments) }).queue = [], p.t = +new Date);
+    </script>
+    
+    
+    
+        <script defer="" src="/sb/vendor.js.v11"></script>
+    
+    
+
+<script src="/lib/autocompleter/autocomplete.min.js"></script><script src="/lib/autocompleter/autocomplete.min.js"></script><script async="" src="https://www.googletagservices.com/tag/js/gpt.js"></script><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202603090101/pubads_impl.js" async=""></script><link href="https://securepubads.g.doubleclick.net/pagead/managed/dict/m202603100101/gpt" rel="compression-dictionary"></head>
+<body data-ready="hp" data-noads="" itemscope="" itemtype="http://schema.org/WebPage">
+    <main class="main" id="top">
+    <nav class="custom-nav navbar navbar-light navbar-glass navbar-top navbar-expand-lg fixed-top navbar-dark">
+    <div class="nav-wrap">
+        <div class="container pt-md-0 pt-lg-2 pb-lg-2 pb-md-0">
+            <div class="d-flex align-items-center w-lg-100">
+                <a title="דף הבית" class="navbar-brand" href="/">
+                    <div class="d-flex align-items-center d-none d-sm-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="70" viewBox="100 370 760 20">
+                            <g transform="matrix(0.0149 0 0 0.0149 165.83 381.4975)">
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4;  fill: rgb(46,166,229); fill-rule: nonzero; opacity: 1;" transform=" translate(-6261.5, -9321.5023)" d="M 695 17740 c 17 -5 107 -25 200 -45 c 341 -74 867 -211 1250 -326 c 1470 -443 2589 -1005 3405 -1710 l 135 -117 l 165 -168 c 278 -283 444 -495 636 -812 c 273 -450 460 -1013 514 -1547 c 6 -60 13 -128 15 -150 c 3 -22 5 -154 5 -295 l 1 -255 l -11 -120 c -71 -819 -323 -1636 -786 -2555 c -598 -1187 -1574 -2514 -2673 -3632 l -193 -197 l 128 73 c 525 299 1202 629 1694 826 c 694 278 1296 441 1905 517 l 140 17 l 340 0 l 340 0 l 178 -27 l 177 -27 l 133 -34 c 72 -19 186 -53 252 -76 l 120 -42 l 160 -78 l 160 -78 l 110 -72 c 60 -40 152 -106 205 -147 l 95 -76 l 140 -141 l 140 -141 l 65 -83 c 84 -108 171 -233 244 -352 c 63 -102 198 -360 235 -450 c 13 -30 33 -77 45 -105 c 190 -428 369 -1170 436 -1805 c 25 -239 28 -278 36 -390 c 3 -52 8 -111 11 -130 c 3 -19 7 -287 8 -595 l 3 -560 l -8 -127 c -4 -70 -11 -178 -15 -240 c -3 -62 -8 -124 -10 -138 c -2 -14 -6 -63 -10 -110 c -3 -47 -13 -138 -21 -204 c -8 -65 -13 -120 -11 -122 c 2 -2 34 92 70 208 c 559 1795 900 3543 983 5043 c 3 61 8 130 10 155 c 3 25 7 306 9 625 l 3 580 l -9 165 c -85 1609 -421 2964 -1044 4210 c -823 1649 -2126 2996 -3875 4007 c -621 359 -1398 718 -2060 952 c -916 322 -2361 646 -3870 866 c -167 25 -311 45 -320 44 l -15 -1 l 30 -8 z" stroke-linecap="round"></path>
+                            </g>
+                            <g transform="matrix(0.0149 0 0 0.0149 190.4493 283.0876)">
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4;  fill: rgb(46,166,229); fill-rule: nonzero; opacity: 1;" transform=" translate(-7394.3314, -4049.8834)" d="M 9067.694840221095 4049.8834236837583 C 9067.694840221095 4974.056527228731 8318.504513347663 5723.246854102163 7394.33140980269 5723.246854102163 C 6470.158306257717 5723.246854102163 5720.967979384286 4974.056527228731 5720.967979384286 4049.8834236837583 C 5720.967979384286 3125.710320138786 6470.158306257717 2376.5199932653536 7394.33140980269 2376.5199932653536 C 8318.504513347663 2376.5199932653536 9067.694840221095 3125.710320138786 9067.694840221095 4049.8834236837583 Z M 7165 5709" stroke-linecap="round"></path>
+                            </g>
+                            <g transform="matrix(5.2384 0 0 5.2384 781.1398 373.8972)">
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4;  fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" translate(-138.3164, -24.8732)" d="M 139.167969 3.839844 C 136.777344 4.371094 133.484375 5.097656 131.855469 5.457031 L 128.875 6.121094 L 128.875 12.820312 L 124.667969 12.820312 L 124.667969 23.867188 L 128.875 23.867188 L 128.875 29.460938 C 128.875 35.207031 128.917969 36.1875 129.277344 37.847656 C 129.714844 39.949219 130.808594 42.105469 132.085938 43.433594 C 134.144531 45.550781 136.929688 46.621094 141.019531 46.855469 C 144.589844 47.050781 148.535156 46.511719 151.464844 45.417969 L 151.964844 45.230469 L 151.964844 35.550781 L 151.542969 35.675781 C 150.773438 35.910156 149.332031 36.160156 148.375 36.222656 C 146.226562 36.355469 144.867188 35.828125 144.242188 34.597656 C 143.945312 34.023438 143.910156 33.304688 143.910156 28.5625 L 143.910156 23.867188 L 150.691406 23.867188 L 150.746094 22.894531 C 150.773438 22.367188 150.863281 20.300781 150.933594 18.296875 C 151.007812 16.296875 151.085938 14.25 151.113281 13.738281 L 151.167969 12.820312 L 143.910156 12.820312 L 143.910156 2.851562 L 143.710938 2.863281 C 143.597656 2.863281 141.554688 3.300781 139.167969 3.839844 Z M 139.167969 3.839844" stroke-linecap="round"></path>
+                            </g>
+                            <g transform="matrix(5.2384 0 0 5.2384 386.6244 396.3742)">
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4;  fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" translate(-63.0039, -29.1641)" d="M 75.265625 12.164062 C 74.503906 12.21875 73.164062 12.382812 72.402344 12.515625 C 70.191406 12.910156 67.167969 13.925781 65.539062 14.816406 L 64.894531 15.164062 L 64.847656 14.957031 C 64.796875 14.734375 64.527344 12.972656 64.527344 12.875 C 64.527344 12.847656 61.222656 12.820312 57.1875 12.820312 L 49.847656 12.820312 L 49.847656 46.226562 L 64.972656 46.226562 L 64.972656 25.238281 L 65.492188 25.050781 C 67.425781 24.359375 71.347656 23.640625 74.414062 23.410156 C 75.160156 23.355469 75.847656 23.292969 75.964844 23.273438 L 76.160156 23.238281 L 76.160156 12.101562 L 75.917969 12.121094 C 75.777344 12.128906 75.488281 12.148438 75.265625 12.164062 Z M 75.265625 12.164062" stroke-linecap="round"></path>
+                            </g>
+                            <g transform="matrix(5.2384 0 0 5.2384 579.1271 398.2086)">
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4;  fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" translate(-99.7524, -29.5142)" d="M 97.632812 12.191406 C 90.640625 12.738281 85.828125 15.695312 83.304688 20.976562 C 82.191406 23.300781 81.664062 25.761719 81.558594 29.03125 C 81.441406 32.738281 82.28125 36.25 83.902344 38.773438 C 86.445312 42.742188 90.480469 45.300781 95.886719 46.359375 C 98.1875 46.820312 100.664062 46.960938 103.886719 46.847656 C 109.09375 46.65625 112.898438 45.984375 115.691406 44.746094 L 116.164062 44.527344 L 116.164062 36.007812 L 115.34375 36.277344 C 113.730469 36.796875 110.929688 37.34375 108.816406 37.5625 C 107.054688 37.738281 103.859375 37.738281 102.355469 37.5625 C 98.867188 37.148438 96.726562 36.125 95.574219 34.300781 C 95.429688 34.078125 95.3125 33.851562 95.3125 33.816406 C 95.3125 33.78125 100.40625 33.746094 106.632812 33.746094 L 117.957031 33.746094 L 117.957031 30.351562 C 117.957031 25.914062 117.8125 24.546875 117.132812 22.5 C 115.746094 18.261719 112.820312 15.28125 108.351562 13.53125 C 106.0625 12.632812 103.71875 12.226562 100.386719 12.15625 C 99.394531 12.128906 98.148438 12.148438 97.632812 12.191406 Z M 102.417969 21.585938 C 104.191406 22.042969 105.066406 23.238281 105.066406 25.1875 L 105.066406 25.933594 L 95.285156 25.933594 L 95.347656 25.292969 C 95.574219 23.039062 96.816406 21.765625 99.089844 21.441406 C 99.859375 21.332031 101.765625 21.414062 102.417969 21.585938 Z M 102.417969 21.585938" stroke-linecap="round"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="d-flex align-items-center my-2 px-0 me-0 d-block d-sm-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="55" height="45" viewBox="50 350 250 10">
+                            <g transform="matrix(0.0149 0 0 0.0149 165.83 381.4975)">
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(46,166,229); fill-rule: nonzero; opacity: 1;" transform=" translate(-6261.5, -9321.5023)" d="M 695 17740 c 17 -5 107 -25 200 -45 c 341 -74 867 -211 1250 -326 c 1470 -443 2589 -1005 3405 -1710 l 135 -117 l 165 -168 c 278 -283 444 -495 636 -812 c 273 -450 460 -1013 514 -1547 c 6 -60 13 -128 15 -150 c 3 -22 5 -154 5 -295 l 1 -255 l -11 -120 c -71 -819 -323 -1636 -786 -2555 c -598 -1187 -1574 -2514 -2673 -3632 l -193 -197 l 128 73 c 525 299 1202 629 1694 826 c 694 278 1296 441 1905 517 l 140 17 l 340 0 l 340 0 l 178 -27 l 177 -27 l 133 -34 c 72 -19 186 -53 252 -76 l 120 -42 l 160 -78 l 160 -78 l 110 -72 c 60 -40 152 -106 205 -147 l 95 -76 l 140 -141 l 140 -141 l 65 -83 c 84 -108 171 -233 244 -352 c 63 -102 198 -360 235 -450 c 13 -30 33 -77 45 -105 c 190 -428 369 -1170 436 -1805 c 25 -239 28 -278 36 -390 c 3 -52 8 -111 11 -130 c 3 -19 7 -287 8 -595 l 3 -560 l -8 -127 c -4 -70 -11 -178 -15 -240 c -3 -62 -8 -124 -10 -138 c -2 -14 -6 -63 -10 -110 c -3 -47 -13 -138 -21 -204 c -8 -65 -13 -120 -11 -122 c 2 -2 34 92 70 208 c 559 1795 900 3543 983 5043 c 3 61 8 130 10 155 c 3 25 7 306 9 625 l 3 580 l -9 165 c -85 1609 -421 2964 -1044 4210 c -823 1649 -2126 2996 -3875 4007 c -621 359 -1398 718 -2060 952 c -916 322 -2361 646 -3870 866 c -167 25 -311 45 -320 44 l -15 -1 l 30 -8 z" stroke-linecap="round"></path>
+                            </g>
+                            <g transform="matrix(0.0149 0 0 0.0149 190.4493 283.0876)">
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(46,166,229); fill-rule: nonzero; opacity: 1;" transform=" translate(-7394.3314, -4049.8834)" d="M 9067.694840221095 4049.8834236837583 C 9067.694840221095 4974.056527228731 8318.504513347663 5723.246854102163 7394.33140980269 5723.246854102163 C 6470.158306257717 5723.246854102163 5720.967979384286 4974.056527228731 5720.967979384286 4049.8834236837583 C 5720.967979384286 3125.710320138786 6470.158306257717 2376.5199932653536 7394.33140980269 2376.5199932653536 C 8318.504513347663 2376.5199932653536 9067.694840221095 3125.710320138786 9067.694840221095 4049.8834236837583 Z M 7165 5709" stroke-linecap="round"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </a>
+                <div class="search-desk d-none d-lg-block w-100 me-3 ms-3">
+                    <form id="desktop-search-form" class="search-box w-100" action="/search" method="get" data-turbo="false">
+                        <input class="form-control rounded-pill search-input" id="search-input" name="q" autocomplete="off" type="search" placeholder="חיפוש...">
+                        <i class="position-absolute fas fa-search text-400 search-box-icon"></i>
+                    </form>
+                </div>
+                <ul class="navbar-nav links d-none d-lg-flex text-end mob-links">
+                    <li class="nav-item">
+                        <span id="nagish-desk-button" class="nav-link">
+                            <span class="d-none d-lg-inline-block cursor-pointer" data-bs-toggle="tooltip" data-placement="bottom" title="הפעלת נגישות">
+                                <i class="fas fa-universal-access fa-fw fa-lg"></i>
+                            </span>
+                            <span class="d-lg-none">נגישות</span>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <span id="dark-mode-button" class="nav-link">
+                            <span class="d-none d-lg-inline-block cursor-pointer" data-bs-toggle="tooltip" data-placement="bottom" title="מצב כהה">
+                                <i id="dark-mode-icon" class="far fa-moon fa-fw fa-lg" data-turbo-permanent=""></i>
+                            </span>
+                            <span class="d-lg-none">מצב כהה</span>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle login-item" id="navbarDropdownLogin" href="/login" title="האזור האישי">
+                            <span class="d-none d-lg-inline-block" title="חשבון"><i class="fas fa-user fa-fw fa-lg"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search-mob w-100 d-lg-none ms-2 me-1">
+                <form id="mobile-search-form" class="search-box w-100" action="/search" method="get" data-turbo="false">
+                    <input class="form-control rounded-pill search-input" id="search-input-mobile" name="q" autocomplete="off" type="search" placeholder="חיפוש...">
+                    <i class="position-absolute fas fa-search text-400 search-box-icon"></i>
+                </form>
+            </div>
+            <div class="menu-mob d-lg-none me-2 ms-2 mt-2 cursor-pointer">
+                <i id="dark-mode-mobile-button" class="far fa-moon fa-fw fa-2x mob-dark-icon" data-turbo-permanent=""></i>
+            </div>
+
+            <div class="menu-mob d-lg-none ms-2 mt-2">
+                <input type="checkbox" id="checkbox-menu">
+                <label for="checkbox-menu" class="burger-wrap" id="burger-menu">
+                    <span class="burger mt-1"></span>
+                </label>
+
+                <div class="menu-overlay" id="menu-overlay"></div>
+                <div class="menu-custom touch overflow-auto shadow">
+                    <span class="burger-close" id="close_menu"></span>
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item">
+                                <a rel="nofollow" href="/login">
+                                    <div class="d-flex">
+                                        <i class="fas fa-user-circle fa-fw fa-4x"></i>
+                                    </div>
+                                    <div class="d-flex">
+                                        <span class="pt-2 d-block text-center">התחברות</span>
+                                    </div>
+                                </a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav flex-row justify-content-center flex-wrap">
+                        <li class="nav-item col-4 d-flex flex-column align-items-center">
+                            <a class="nav-link" href="/faq">
+                                <span class="d-flex flex-column align-items-center">
+                                    <i class="fas fa-question fa-2x"></i>
+                                    <span class="pt-2">שאלות נפוצות</span>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item col-4 d-flex flex-column align-items-center">
+                            <span class="nav-link text-black">
+                                <span id="nagish-mobile-button" class="d-flex flex-column align-items-center">
+                                    <i class="fas fa-universal-access fa-2x"></i>
+                                    <span class="pt-2">נגישות</span>
+                                </span>
+                            </span>
+                        </li>
+
+                            <li class="nav-item col-4 d-flex flex-column align-items-center">
+                                <a rel="nofollow" class="nav-link" href="/register">
+                                    <span class="d-flex flex-column align-items-center">
+                                        <i class="fas fa-check fa-2x"></i>
+                                        <span class="pt-2">הרשמה</span>
+                                    </span>
+                                </a>
+                            </li>
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown dropdown-on-hover">
+                            <a class="nav-link" href="/shop/electronics" role="button">חשמל ואלקטרוניקה</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/pc" role="button">מחשבים ותוכנות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/home" role="button">לבית לגן ולמשרד</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/sport" role="button">פנאי וספורט</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/other" role="button">מתנות ושונות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/kids" role="button">ילדים</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/health" role="button">טיפוח יופי ובריאות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/health" role="button">טיפוח יופי ובריאות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/fashion" role="button">אופנה</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/all" role="button">כל הקטגוריות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://www.ad.co.il" role="button">לוח מודעות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/pricedrops" role="button">ירידות מחירים</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-desk d-none d-lg-block">
+        <div class="container">
+            <div class="menu-desk-wrap w-100">
+                <div class="collapse navbar-collapse scrollbar justify-content-between menu" id="navbarStandard">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/electronics" role="button">חשמל ואלקטרוניקה</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/pc" role="button">מחשבים</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/home" role="button">לבית ולגן</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/sport" role="button">פנאי וספורט</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/other" role="button">לבית ולגן</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/kids" role="button">ילדים</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/health" role="button">בריאות ויופי</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop/fashion" role="button">אופנה</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://www.ad.co.il" role="button">לוח מודעות</a>
+                        </li>
+                        <li class="nav-item dropdown dropdown-on-hover dropbtn">
+                                <a rel="nofollow" class="nav-link" href="/login" role="button">כניסה</a>
+                    </li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <div id="g_id_onload" data-client_id="707908397097-bsfurqln87i0dahiphp2aso04bvrj3u4.apps.googleusercontent.com" data-login_uri="/googleauthentication/onetap?returnUrl=https%3A%2F%2Fwww.ret.co.il%2F">
+    </div>
+
+    <div class="container">
+        <h1 class="m-3 m-sm-4 text-center text-sm-start">השוואת מחירים ret</h1>
+
+<div class="row g-0">
+	<div class="col-lg-4 col-xl-3 col-md-4 pe-lg-2 pe-md-2 order-last order-sm-0 mb-3 mb-sm-0">
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/electronics">
+						<h3 class="mb-0">חשמל ואלקטרוניקה</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/cellphone">טלפונים סלולריים</a><span>, </span>
+						<a class="fs-1" href="/shop/tv">טלויזיות</a><span>, </span>
+						<a class="fs-1" href="/shop/camera">מצלמות</a><span>, </span>
+						<a class="fs-1" href="/shop/headphone">אוזניות</a><span>, </span>
+						<a class="fs-1" href="/shop/airconditioner">מזגנים</a><span>, </span>
+						<a class="fs-1" href="/shop/fridge">מקררים</a><span>, </span>
+						<a class="fs-1" href="/shop/coffeemachine">מכונות קפה</a><span>, </span>
+						<a class="fs-1" href="/shop/washingmachine">מכונות כביסה</a><span>, </span>
+						<a class="fs-1" href="/shop/dishwasher">מדיחי כלים</a><span>, </span>
+						<a class="fs-1" href="/shop/oven">תנורי אפייה</a><span>, </span>
+						<a class="fs-1" href="/shop/vaccumcleaner">שואבי אבק</a><span>, </span>
+						<a class="fs-1" href="/shop/mixer">מיקסרים</a><span>, </span>
+						<a class="fs-1" href="/shop/microwaveoven">מיקרוגלים</a><span>, </span>
+					<a class="fs-1" href="/shop/electronics">עוד...</a>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/pc">
+						<h3 class="mb-0">מחשבים ותוכנות</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/gpu">כרטיסי מסך</a><span>, </span>
+						<a class="fs-1" href="/shop/tablet">טאבלטים</a><span>, </span>
+						<a class="fs-1" href="/shop/laptop">מחשבים ניידים</a><span>, </span>
+						<a class="fs-1" href="/shop/desktoppc">מחשבים נייחים</a><span>, </span>
+						<a class="fs-1" href="/shop/monitor">מסכי מחשב</a><span>, </span>
+						<a class="fs-1" href="/shop/printer">מדפסות</a><span>, </span>
+						<a class="fs-1" href="/shop/ink">דיו וטונרים</a><span>, </span>
+						<a class="fs-1" href="/shop/hdd">כוננים קשיחים</a><span>, </span>
+					<a class="fs-1" href="/shop/pc">עוד...</a>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/home">
+						<h3 class="mb-0">לבית לגן ולמשרד</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/gardenfurniture">ריהוט גן</a><span>, </span>
+						<a class="fs-1" href="/shop/cabinet">ארונות בגדים, שידות וכונניות</a><span>, </span>
+						<a class="fs-1" href="/shop/chair">כסאות</a><span>, </span>
+						<a class="fs-1" href="/shop/grill">גרילים ומעשנות</a><span>, </span>
+						<a class="fs-1" href="/shop/livingroomset">ספות ומערכות ישיבה</a><span>, </span>
+					<a class="fs-1" href="/shop/home">עוד...</a>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/sport">
+						<h3 class="mb-0">פנאי וספורט</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/treadmill">הליכונים</a><span>, </span>
+						<a class="fs-1" href="/shop/gametables">שולחנות משחק</a><span>, </span>
+						<a class="fs-1" href="/shop/tent">אוהלים</a><span>, </span>
+						<a class="fs-1" href="/shop/rucksack">תרמילים</a><span>, </span>
+						<a class="fs-1" href="/shop/trampoline">טרמפולינות</a><span>, </span>
+						<a class="fs-1" href="/shop/multitrainer">מולטי טריינרים</a><span>, </span>
+						<a class="fs-1" href="/shop/bycicle">אופניים</a><span>, </span>
+					<a class="fs-1" href="/shop/sport">עוד...</a>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/other">
+						<h3 class="mb-0">מתנות ושונות</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/watch">שעוני יד</a><span>, </span>
+						<a class="fs-1" href="/shop/dogfood">מזון כלבים וחתולים</a><span>, </span>
+						<a class="fs-1" href="/shop/bags">תיקים</a><span>, </span>
+						<a class="fs-1" href="/shop/jewlery">תכשיטים</a><span>, </span>
+					<a class="fs-1" href="/shop/other">עוד...</a>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/kids">
+						<h3 class="mb-0">ילדים</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/korkinet">קורקינטים</a><span>, </span>
+						<a class="fs-1" href="/shop/puppet">בובות</a><span>, </span>
+						<a class="fs-1" href="/shop/babycarriage">עגלות וטיולונים</a><span>, </span>
+						<a class="fs-1" href="/shop/safetyseat">כסאות בטיחות לרכב</a><span>, </span>
+						<a class="fs-1" href="/shop/lego">לגו ומשחקי הרכבה</a><span>, </span>
+					<a class="fs-1" href="/shop/kids">עוד...</a>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/health">
+						<h3 class="mb-0">טיפוח יופי ובריאות</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/personalhygiene">חיטוי והיגיינה אישית</a><span>, </span>
+						<a class="fs-1" href="/shop/perfume">בשמים לאישה</a><span>, </span>
+						<a class="fs-1" href="/shop/sunglasses">משקפי שמש</a><span>, </span>
+						<a class="fs-1" href="/shop/vitamin">ויטמינים</a><span>, </span>
+						<a class="fs-1" href="/shop/shoe">נעליים</a><span>, </span>
+					<a class="fs-1" href="/shop/health">עוד...</a>
+				</div>
+			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="/shop/fashion">
+						<h3 class="mb-0">אופנה</h3>
+					</a>
+				</div>
+				<div class="card-body bg-light">
+						<a class="fs-1" href="/shop/lipstick">שפתונים</a><span>, </span>
+						<a class="fs-1" href="/shop/sportclothing">בגדי ספורט</a><span>, </span>
+						<a class="fs-1" href="/shop/shoe">נעליים</a><span>, </span>
+						<a class="fs-1" href="/shop/coat">מעילים</a><span>, </span>
+						<a class="fs-1" href="/shop/visionglasses">משקפי ראייה</a><span>, </span>
+						<a class="fs-1" href="/shop/facemakeup">איפור פנים</a><span>, </span>
+					<a class="fs-1" href="/shop/fashion">עוד...</a>
+				</div>
+			</div>
+        <div class="card">
+            <div class="card-header">
+                <a class="fs-1 d-block" href="/shop/all">לכל הקטגוריות<i class="ms-2 fas fa-chevron-left"></i></a>
+                <a class="fs-1 d-block" href="/shop/pricedrops">ירידות מחירים<i class="ms-2 fas fa-arrow-down"></i></a>
+            </div>
+        </div>
+    </div>
+	<div class="col-lg-8 col-xl-9 col-md-8 ps-lg-2 ps-md-2 mb-3 mb-sm-0">
+		<div class="cards-wrap cards-shop s m l">
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/cellphone">
+								<span>טלפונים סלולריים</span>
+								<img class="img-fluid" src="/images/shoptiles/cellphone.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/tablet">
+								<span>טאבלטים</span>
+								<img class="img-fluid" src="/images/shoptiles/tablet.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/tv">
+								<span>טלויזיות</span>
+								<img class="img-fluid" src="/images/shoptiles/tv.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/laptop">
+								<span>מחשבים ניידים</span>
+								<img class="img-fluid" src="/images/shoptiles/laptop.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/camera">
+								<span>מצלמות</span>
+								<img class="img-fluid" src="/images/shoptiles/camera.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/monitor">
+								<span>מסכי מחשב</span>
+								<img class="img-fluid" src="/images/shoptiles/monitor.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/gpu">
+								<span>כרטיסי מסך</span>
+								<img class="img-fluid" src="/images/shoptiles/gpu.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/coffeemachine">
+								<span>מכונות קפה</span>
+								<img class="img-fluid" src="/images/shoptiles/coffeemachine.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/headphone">
+								<span>אוזניות</span>
+								<img class="img-fluid" src="/images/shoptiles/headphone.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/dishwasher">
+								<span>מדיחי כלים</span>
+								<img class="img-fluid" src="/images/shoptiles/dishwasher.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/receiver">
+								<span>רסיברים ומגברים</span>
+								<img class="img-fluid" src="/images/shoptiles/receiver.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/fridge">
+								<span>מקררים</span>
+								<img class="img-fluid" src="/images/shoptiles/fridge.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/foodproccessor">
+								<span>מעבדי מזון</span>
+								<img class="img-fluid" src="/images/shoptiles/foodproccessor.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/washingmachine">
+								<span>מכונות כביסה</span>
+								<img class="img-fluid" src="/images/shoptiles/washingmachine.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/vaccumcleaner">
+								<span>שואבי אבק</span>
+								<img class="img-fluid" src="/images/shoptiles/vaccumcleaner.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/airconditioner">
+								<span>מזגנים</span>
+								<img class="img-fluid" src="/images/shoptiles/airconditioner.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/korkinet">
+								<span>קורקינטים</span>
+								<img class="img-fluid" src="/images/shoptiles/korkinet.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/bedroom">
+								<span>חדרי שינה</span>
+								<img class="img-fluid" src="/images/shoptiles/bedroom.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/hdd">
+								<span>כוננים קשיחים</span>
+								<img class="img-fluid" src="/images/shoptiles/hdd.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/drone">
+								<span>רחפנים</span>
+								<img class="img-fluid" src="/images/shoptiles/drone.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/tvconsole">
+								<span>משחקי טלוויזיה - קונסולות</span>
+								<img class="img-fluid" src="/images/shoptiles/tvconsole.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/handicrafttools">
+								<span>כלי עבודה</span>
+								<img class="img-fluid" src="/images/shoptiles/handicrafttools.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/hobs">
+								<span>כיריים</span>
+								<img class="img-fluid" src="/images/shoptiles/hobs.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/pool">
+								<span>בריכות</span>
+								<img class="img-fluid" src="/images/shoptiles/pool.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/trampoline">
+								<span>טרמפולינות</span>
+								<img class="img-fluid" src="/images/shoptiles/trampoline.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/grill">
+								<span>גרילים ומעשנות</span>
+								<img class="img-fluid" src="/images/shoptiles/grill.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/dogfood">
+								<span>מזון כלבים וחתולים</span>
+								<img class="img-fluid" src="/images/shoptiles/dogfood.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/treadmill">
+								<span>הליכונים</span>
+								<img class="img-fluid" src="/images/shoptiles/treadmill.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/livingroomset">
+								<span>ספות ומערכות ישיבה</span>
+								<img class="img-fluid" src="/images/shoptiles/livingroomset.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="card overflow-hidden">
+						<div class="card-img-top">
+							<a class="home-card-link" href="/shop/gardenfurniture">
+								<span>ריהוט גן</span>
+								<img class="img-fluid" src="/images/shoptiles/gardenfurniture.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+    </div>
+</main>
+<footer class="mt-6 pt-sm-4">
+    <div class="container py-3">
+        <div class="row footer-column-wrap">
+            <div class="col-md-4 col-lg-3 pe-lg-0">
+                <h2 class="opacity-85 mb-4">אודות</h2>
+                <ul class="footer-list">
+                    <li class="py-2"><a href="/about">אודות ret השוואת מחירים</a></li>
+                    <li class="py-2"><a href="/faq">שאלות נפוצות</a></li>
+                    <li class="py-2"><a href="/terms">תנאי שימוש</a></li>
+                    <li class="py-2"><a href="/privacy">מדיניות פרטיות</a></li>
+                    <li class="py-2"><a href="/accessibility">הצהרת נגישות</a></li>
+                    <li class="py-2"><a rel="nofollow" href="/account">האזור האישי</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-lg-3 pe-lg-0">
+                <h2 class="opacity-85 mb-4">מידע שימושי</h2>
+                <ul class="footer-list">
+                    <li class="py-2"><a href="/shop/pricedrops">ירידת מחירים</a></li>
+                    <li class="py-2"><a href="/stores">מדריך חנויות</a></li>
+                    
+                    <li class="py-2"><a href="/shop/all">כל הקטגוריות</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-lg-3 pe-lg-0">
+                <h2 class="opacity-85 mb-4">פרסום ב ret</h2>
+                <ul class="footer-list">
+                    <li class="py-2"><a rel="nofollow" href="/joinshop">הצטרפות כאתר קניות</a></li>
+                    <li class="py-2"><a href="/contactus">צור קשר</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <h2 class="opacity-85 mb-4">דווח לנו על באג</h2>
+                <form class="needs-validation" method="post" id="submit-bug-form" data-turbo="false">
+                    <div class="mb-2">
+                        <label class="form-label mb-1" for="footer_name">שם<span class="text-danger" title="שם מלא שדה חובה.">*</span></label>
+                        <input class="form-control" id="footer_name" type="text" name="name" required="">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label mb-1" for="footer_email">דוא"ל<span class="text-danger" title="דואל שדה חובה.">*</span></label>
+                        <input class="form-control" id="footer_email" type="email" name="email" required="">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label mb-1" for="footer_text">תוכן ההודעה<span class="text-danger" title="תוכן ההודעה שדה חובה.">*</span></label>
+                        <textarea class="form-control" id="footer_text" rows="4" name="bug" required=""></textarea>
+                    </div>
+                    <input type="submit" class="btn btn-primary w-100" value="שלח">
+                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8FJA7QR3kRZHi3_nGY10vKqKfZg79EsFP1tdarbmbJNIYffrnUM82R7tufTIzNQdVhWSXO9n5yQ81jBCWPA-jw8cwJYZb-cLGz1NKHO42hXrC4tuDq7xjedbsCXlGvMgRoVekd6ID0yWnNJcohrWq2o"></form>
+            </div>
+        </div>
+    </div>
+    <div class="py-0 bg-dark light">
+        <hr class="my-0 border-600 opacity-25">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between flex-wrap footer-socials">
+                <div class="text-center d-flex align-items-center py-3 me-2">
+                    <p class="mb-0 text-600 opacity-85"><span class="d-none d-sm-inline-block"></span><span class="text-white opacity-85">© כל הזכויות שמורות ret</span></p>
+                </div>
+                <div class="text-center d-flex align-items-center py-3">
+                    <div class="icon-group text-600">
+                        <a rel="external" target="_blank" class="icon-item bg-white text-facebook" href="https://www.facebook.com/retcoil"><i class="fab fa-facebook-f"></i></a>
+                        <a rel="external" target="_blank" class="icon-item bg-white text-twitter" href="https://twitter.com/retcoil"><i class="fab fa-twitter"></i></a>
+                        <a rel="external" target="_blank" class="icon-item bg-white text-google-plus" href="https://www.youtube.com/user/retcoil"><i class="fab fa-youtube"></i></a>
+                        <a class="icon-item bg-white text-primary" href="/rss"><i class="fas fa-rss"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body></html>

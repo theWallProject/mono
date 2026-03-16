@@ -180,7 +180,7 @@ export const Banner = () => {
     }
 
     // Check if there's a URL + DOM + full block rule for this page
-    const urlDomFullRule = await findRuleOfType(url, "urlDomFull")
+    const urlDomFullRule = findRuleOfType(url, "urlDomFull")
     if (urlDomFullRule) {
       log("[Banner] URL + DOM + full block rule found, extracting URL from DOM")
       const extractedUrl = await processRule(urlDomFullRule)
@@ -190,7 +190,7 @@ export const Banner = () => {
       } else {
         log("[Banner] Could not extract URL from DOM, testing page URL")
       }
-    } else if (await isUrlOnlyRule(url)) {
+    } else if (isUrlOnlyRule(url)) {
       // URL-only is the default fallback (thousands of rules in ALL.json)
       // No extraction needed - use current page URL
       log("[Banner] Treating as URL-only rule (default fallback)")
@@ -227,18 +227,16 @@ export const Banner = () => {
   useEffect(() => {
     let lastUrl = window.location.href
     const checkInterval = setInterval(() => {
-      void (async () => {
-        if (window.location.href !== lastUrl) {
-          lastUrl = window.location.href
-          // Re-test if there's a urlDomFull rule or if it's URL-only (default fallback)
-          const urlDomFullRule = await findRuleOfType(lastUrl, "urlDomFull")
-          const isUrlOnly = await isUrlOnlyRule(lastUrl)
-          if (urlDomFullRule || isUrlOnly) {
-            log("[Banner] URL changed on page with rule, re-testing")
-            void testCurrentUrl()
-          }
+      if (window.location.href !== lastUrl) {
+        lastUrl = window.location.href
+        // Re-test if there's a urlDomFull rule or if it's URL-only (default fallback)
+        const urlDomFullRule = findRuleOfType(lastUrl, "urlDomFull")
+        const isUrlOnly = isUrlOnlyRule(lastUrl)
+        if (urlDomFullRule || isUrlOnly) {
+          log("[Banner] URL changed on page with rule, re-testing")
+          void testCurrentUrl()
         }
-      })()
+      }
     }, 1000)
 
     return () => {

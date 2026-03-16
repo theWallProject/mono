@@ -1,0 +1,58 @@
+[2026-03-11T03:09:00.567Z] === Homepage AI Extractor: PrivacyTeam ===
+[2026-03-11T03:09:00.567Z] Started at: 2026-03-11T03:09:00.567Z
+[2026-03-11T03:09:00.568Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773198540567_PrivacyTeam
+[2026-03-11T03:09:00.568Z] Company: PrivacyTeam
+[2026-03-11T03:09:00.568Z] Website: privacyteam.com
+[2026-03-11T03:09:00.568Z] cbRank: 562450
+[2026-03-11T03:09:00.568Z] Reasons: h
+[2026-03-11T03:09:00.568Z] Fetching: https://privacyteam.com
+[2026-03-11T03:09:11.635Z] Network idle timeout — continuing with current state
+[2026-03-11T03:09:11.685Z] Redirected: https://privacyteam.com -> https://www.privacyteam.com/
+[2026-03-11T03:09:11.720Z] Saved HTML (1127850 bytes) to page.html
+[2026-03-11T03:09:11.723Z] Extracted 8 unique links from page
+[2026-03-11T03:09:11.724Z] Saved 8 links to links.json
+[2026-03-11T03:09:11.728Z] Extracted footer HTML (1745 chars)
+[2026-03-11T03:09:11.728Z] Extracted header HTML (7628 chars)
+[2026-03-11T03:09:11.733Z] Website (post-redirect): https://www.privacyteam.com/ → origin: https://www.privacyteam.com
+[2026-03-11T03:09:11.734Z] External links: 3 (of 8 total)
+[2026-03-11T03:09:11.734Z] ── All external links ──
+[2026-03-11T03:09:11.734Z]   EXT: http://protected.fm
+[2026-03-11T03:09:11.734Z]   EXT: https://www.facebook.com/goprivacyteam
+[2026-03-11T03:09:11.734Z]   EXT: https://www.linkedin.com/company/privacyteam
+[2026-03-11T03:09:11.734Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:09:11.734Z]   UNCATEGORIZED: http://protected.fm
+[2026-03-11T03:09:11.734Z]   REGEX: fb <- https://www.facebook.com/goprivacyteam
+[2026-03-11T03:09:11.734Z]   REGEX: li <- https://www.linkedin.com/company/privacyteam
+[2026-03-11T03:09:11.734Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-11T03:09:11.734Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:09:11.735Z] Saved AI prompt (2720 chars) to ai_prompt.txt
+[2026-03-11T03:09:11.735Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:09:11.754Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:09:20.326Z]   AI: First token received, streaming...
+[2026-03-11T03:09:20.561Z] AI response complete: 19 chars in 8.8s
+[2026-03-11T03:09:20.562Z] Saved AI response to ai_response.json
+[2026-03-11T03:09:20.562Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T03:09:20.562Z]   AI LINK: http://protected.fm
+[2026-03-11T03:09:20.562Z] AI returned 1 valid links
+[2026-03-11T03:09:20.563Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T03:09:20.563Z]   AI→URLS: http://protected.fm
+[2026-03-11T03:09:20.563Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:09:20.563Z] Footer/header origins (1):
+[2026-03-11T03:09:20.563Z]   FOOTER/HEADER ORIGIN: https://www.privacyteam.com
+[2026-03-11T03:09:20.563Z]   SKIP (AI claimed): http://protected.fm
+[2026-03-11T03:09:20.563Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T03:09:20.563Z] ── Step 3: Final dedup ──
+[2026-03-11T03:09:20.563Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T03:09:20.563Z] ── FINAL RESULT ──
+[2026-03-11T03:09:20.564Z]   ws (1):
+[2026-03-11T03:09:20.564Z]     - https://www.privacyteam.com
+[2026-03-11T03:09:20.564Z]   li (1):
+[2026-03-11T03:09:20.564Z]     - https://www.linkedin.com/company/privacyteam
+[2026-03-11T03:09:20.564Z]   fb (1):
+[2026-03-11T03:09:20.564Z]     - https://www.facebook.com/goprivacyteam
+[2026-03-11T03:09:20.564Z]   urls (1):
+[2026-03-11T03:09:20.564Z]     - http://protected.fm
+[2026-03-11T03:09:20.564Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-11T03:09:20.565Z] Saved final result to result.json
+[2026-03-11T03:09:20.565Z] Override fields: ws, li, fb, urls
+[2026-03-11T03:09:20.565Z] Finished at: 2026-03-11T03:09:20.565Z

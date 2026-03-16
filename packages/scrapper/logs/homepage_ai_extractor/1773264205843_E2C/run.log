@@ -1,0 +1,71 @@
+[2026-03-11T21:23:25.844Z] === Homepage AI Extractor: E2C ===
+[2026-03-11T21:23:25.844Z] Started at: 2026-03-11T21:23:25.844Z
+[2026-03-11T21:23:25.844Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773264205843_E2C
+[2026-03-11T21:23:25.844Z] Company: E2C
+[2026-03-11T21:23:25.844Z] Website: e2c.co.il
+[2026-03-11T21:23:25.844Z] cbRank: 666559
+[2026-03-11T21:23:25.844Z] Reasons: h
+[2026-03-11T21:23:25.844Z] Fetching: https://e2c.co.il
+[2026-03-11T21:23:29.289Z] Redirected: https://e2c.co.il -> https://www.e2c.co.il/
+[2026-03-11T21:23:29.298Z] Saved HTML (227744 bytes) to page.html
+[2026-03-11T21:23:29.302Z] Extracted 13 unique links from page
+[2026-03-11T21:23:29.305Z] Saved 13 links to links.json
+[2026-03-11T21:23:29.310Z] Extracted footer HTML (4922 chars)
+[2026-03-11T21:23:29.310Z] Extracted header HTML (31963 chars)
+[2026-03-11T21:23:29.313Z] Website (post-redirect): https://www.e2c.co.il/ → origin: https://www.e2c.co.il
+[2026-03-11T21:23:29.313Z] External links: 4 (of 13 total)
+[2026-03-11T21:23:29.313Z] ── All external links ──
+[2026-03-11T21:23:29.313Z]   EXT: http://www.allinternet.co.il
+[2026-03-11T21:23:29.313Z]   EXT: https://wa.me/97236167640
+[2026-03-11T21:23:29.313Z]   EXT: https://www.facebook.com/BasicSmartphone
+[2026-03-11T21:23:29.313Z]   EXT: https://www.linkedin.com/company/e2c---easy-to-connect
+[2026-03-11T21:23:29.313Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T21:23:29.314Z]   UNCATEGORIZED: http://www.allinternet.co.il
+[2026-03-11T21:23:29.314Z]   UNCATEGORIZED: https://wa.me/97236167640
+[2026-03-11T21:23:29.314Z]   REGEX: fb <- https://www.facebook.com/BasicSmartphone
+[2026-03-11T21:23:29.314Z]   REGEX: li <- https://www.linkedin.com/company/e2c---easy-to-connect
+[2026-03-11T21:23:29.314Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-11T21:23:29.314Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T21:23:29.315Z] Saved AI prompt (5411 chars) to ai_prompt.txt
+[2026-03-11T21:23:29.315Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T21:23:29.324Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T21:23:51.287Z]   AI: First token received, streaming...
+[2026-03-11T21:23:59.542Z] AI response complete: 122 chars in 30.2s
+[2026-03-11T21:23:59.544Z] Saved AI response to ai_response.json
+[2026-03-11T21:23:59.544Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T21:23:59.544Z]   AI LINK: https://www.facebook.com/BasicSmartphone/
+[2026-03-11T21:23:59.544Z]   AI LINK: https://www.linkedin.com/company/e2c---easy-to-connect
+[2026-03-11T21:23:59.544Z]   AI LINK: https://wa.me/97236167640
+[2026-03-11T21:23:59.544Z] AI returned 3 valid links
+[2026-03-11T21:23:59.544Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T21:23:59.544Z]   AI→REGEX: fb <- https://www.facebook.com/BasicSmartphone/ (duplicate, skipped)
+[2026-03-11T21:23:59.545Z]   AI→REGEX: li <- https://www.linkedin.com/company/e2c---easy-to-connect (duplicate, skipped)
+[2026-03-11T21:23:59.545Z]   AI→URLS: https://wa.me/97236167640
+[2026-03-11T21:23:59.545Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T21:23:59.545Z] Footer/header origins (5):
+[2026-03-11T21:23:59.545Z]   FOOTER/HEADER ORIGIN: https://www.e2c.co.il
+[2026-03-11T21:23:59.545Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T21:23:59.545Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T21:23:59.545Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-11T21:23:59.545Z]   FOOTER/HEADER ORIGIN: http://www.allinternet.co.il
+[2026-03-11T21:23:59.545Z]   ADDED: urls <- http://www.allinternet.co.il
+[2026-03-11T21:23:59.545Z]   SKIP (AI claimed): https://wa.me/97236167640
+[2026-03-11T21:23:59.546Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T21:23:59.546Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T21:23:59.546Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T21:23:59.546Z] ── Step 3: Final dedup ──
+[2026-03-11T21:23:59.546Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-11T21:23:59.546Z] ── FINAL RESULT ──
+[2026-03-11T21:23:59.546Z]   ws (1):
+[2026-03-11T21:23:59.546Z]     - https://www.e2c.co.il
+[2026-03-11T21:23:59.546Z]   li (1):
+[2026-03-11T21:23:59.546Z]     - https://www.linkedin.com/company/e2c---easy-to-connect
+[2026-03-11T21:23:59.546Z]   fb (1):
+[2026-03-11T21:23:59.546Z]     - https://www.facebook.com/basicsmartphone
+[2026-03-11T21:23:59.546Z]   urls (2):
+[2026-03-11T21:23:59.546Z]     - http://www.allinternet.co.il
+[2026-03-11T21:23:59.546Z]     - https://wa.me/97236167640
+[2026-03-11T21:23:59.546Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-11T21:23:59.547Z] Saved final result to result.json
+[2026-03-11T21:23:59.547Z] Override fields: ws, li, fb, urls
+[2026-03-11T21:23:59.547Z] Finished at: 2026-03-11T21:23:59.547Z

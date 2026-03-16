@@ -1,0 +1,67 @@
+[2026-03-11T03:50:09.539Z] === Homepage AI Extractor: Briefery ===
+[2026-03-11T03:50:09.539Z] Started at: 2026-03-11T03:50:09.539Z
+[2026-03-11T03:50:09.539Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773201009539_Briefery
+[2026-03-11T03:50:09.540Z] Company: Briefery
+[2026-03-11T03:50:09.540Z] Website: briefery.com
+[2026-03-11T03:50:09.540Z] cbRank: 575463
+[2026-03-11T03:50:09.540Z] Reasons: h
+[2026-03-11T03:50:09.540Z] Fetching: https://briefery.com
+[2026-03-11T03:50:20.282Z] Network idle timeout — continuing with current state
+[2026-03-11T03:50:20.359Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-11T03:50:28.342Z] Redirected: https://briefery.com -> https://www.briefery.com/
+[2026-03-11T03:50:28.375Z] Saved HTML (956568 bytes) to page.html
+[2026-03-11T03:50:28.377Z] Extracted 11 unique links from page
+[2026-03-11T03:50:28.378Z] Saved 11 links to links.json
+[2026-03-11T03:50:28.381Z] Extracted footer HTML (1701 chars)
+[2026-03-11T03:50:28.381Z] Extracted header HTML (7108 chars)
+[2026-03-11T03:50:28.385Z] Website (post-redirect): https://www.briefery.com/ → origin: https://www.briefery.com
+[2026-03-11T03:50:28.386Z]   SUBDOMAIN: sweb.briefery.com (added to ws)
+[2026-03-11T03:50:28.386Z] Website subdomains found: 1
+[2026-03-11T03:50:28.386Z] External links: 3 (of 11 total)
+[2026-03-11T03:50:28.386Z] ── All external links ──
+[2026-03-11T03:50:28.386Z]   EXT: https://video.wixstatic.com/video/78fe09_d7764de1d96c407e83d8956514c63100/1080p/mp4/file.mp4
+[2026-03-11T03:50:28.386Z]   EXT: https://www.linkedin.com/company/briefery/https://www.linkedin.com/company/briefery
+[2026-03-11T03:50:28.386Z]   EXT: https://www.youtube.com/channel/UCpxbMC4rQxu4Smt7X3Vj8-g
+[2026-03-11T03:50:28.386Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:50:28.386Z]   UNCATEGORIZED: https://video.wixstatic.com/video/78fe09_d7764de1d96c407e83d8956514c63100/1080p/mp4/file.mp4
+[2026-03-11T03:50:28.387Z]   REGEX: li <- https://www.linkedin.com/company/briefery/https://www.linkedin.com/company/briefery
+[2026-03-11T03:50:28.387Z]   REGEX: ytc <- https://www.youtube.com/channel/UCpxbMC4rQxu4Smt7X3Vj8-g
+[2026-03-11T03:50:28.387Z] Programmatic result: ws:2, li:1, ytc:1 | 1 uncategorized
+[2026-03-11T03:50:28.387Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:50:28.388Z] Saved AI prompt (2979 chars) to ai_prompt.txt
+[2026-03-11T03:50:28.388Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:50:28.403Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:50:38.799Z]   AI: First token received, streaming...
+[2026-03-11T03:50:42.615Z] AI response complete: 75 chars in 14.2s
+[2026-03-11T03:50:42.616Z] Saved AI response to ai_response.json
+[2026-03-11T03:50:42.616Z] ── Parsing AI response (2 lines) ──
+[2026-03-11T03:50:42.616Z]   AI LINK: https://www.briefery.com/privecy-policy
+[2026-03-11T03:50:42.616Z]   AI LINK: https://www.briefery.com/contact-us
+[2026-03-11T03:50:42.616Z] AI returned 2 valid links
+[2026-03-11T03:50:42.616Z] ── Categorizing 2 AI-returned links ──
+[2026-03-11T03:50:42.616Z]   AI→URLS: https://www.briefery.com/privecy-policy
+[2026-03-11T03:50:42.616Z]   AI→URLS: https://www.briefery.com/contact-us
+[2026-03-11T03:50:42.617Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:50:42.617Z] Footer/header origins (3):
+[2026-03-11T03:50:42.617Z]   FOOTER/HEADER ORIGIN: https://www.briefery.com
+[2026-03-11T03:50:42.617Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T03:50:42.617Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T03:50:42.617Z]   SKIP (noise): https://video.wixstatic.com/video/78fe09_d7764de1d96c407e83d8956514c63100/1080p/mp4/file.mp4
+[2026-03-11T03:50:42.617Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T03:50:42.617Z] ── Step 3: Final dedup ──
+[2026-03-11T03:50:42.617Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-11T03:50:42.617Z] ── FINAL RESULT ──
+[2026-03-11T03:50:42.617Z]   ws (2):
+[2026-03-11T03:50:42.617Z]     - https://sweb.briefery.com
+[2026-03-11T03:50:42.617Z]     - https://www.briefery.com
+[2026-03-11T03:50:42.618Z]   li (1):
+[2026-03-11T03:50:42.618Z]     - https://www.linkedin.com/company/briefery
+[2026-03-11T03:50:42.618Z]   ytc (1):
+[2026-03-11T03:50:42.618Z]     - https://www.youtube.com/channel/UCpxbMC4rQxu4Smt7X3Vj8-g
+[2026-03-11T03:50:42.618Z]   urls (2):
+[2026-03-11T03:50:42.618Z]     - https://www.briefery.com/contact-us
+[2026-03-11T03:50:42.618Z]     - https://www.briefery.com/privecy-policy
+[2026-03-11T03:50:42.618Z] Summary: ws:2, li:1, ytc:1, urls:2
+[2026-03-11T03:50:42.618Z] Saved final result to result.json
+[2026-03-11T03:50:42.619Z] Override fields: ws, li, ytc
+[2026-03-11T03:50:42.619Z] Finished at: 2026-03-11T03:50:42.619Z

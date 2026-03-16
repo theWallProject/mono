@@ -1,0 +1,62 @@
+[2026-03-12T04:53:46.280Z] === Homepage AI Extractor: GeoDrones ===
+[2026-03-12T04:53:46.280Z] Started at: 2026-03-12T04:53:46.280Z
+[2026-03-12T04:53:46.280Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773291226279_GeoDrones
+[2026-03-12T04:53:46.280Z] Company: GeoDrones
+[2026-03-12T04:53:46.280Z] Website: geodrones.co.il
+[2026-03-12T04:53:46.280Z] cbRank: 802967
+[2026-03-12T04:53:46.280Z] Reasons: h
+[2026-03-12T04:53:46.280Z] Fetching: https://geodrones.co.il
+[2026-03-12T04:53:58.743Z] Network idle timeout — continuing with current state
+[2026-03-12T04:53:58.789Z] Redirected: https://geodrones.co.il -> https://www.geodrones.co.il/
+[2026-03-12T04:53:58.797Z] Saved HTML (211610 bytes) to page.html
+[2026-03-12T04:53:58.803Z] Extracted 22 unique links from page
+[2026-03-12T04:53:58.804Z] Saved 22 links to links.json
+[2026-03-12T04:53:58.807Z] Extracted footer HTML (516 chars)
+[2026-03-12T04:53:58.807Z] Extracted header HTML (7534 chars)
+[2026-03-12T04:53:58.811Z] Website (post-redirect): https://www.geodrones.co.il/ → origin: https://www.geodrones.co.il
+[2026-03-12T04:53:58.811Z] External links: 3 (of 22 total)
+[2026-03-12T04:53:58.811Z] ── All external links ──
+[2026-03-12T04:53:58.811Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-12T04:53:58.811Z]   EXT: https://twitter.com/DronesGeo
+[2026-03-12T04:53:58.811Z]   EXT: https://www.facebook.com/GeoDrones.co.il
+[2026-03-12T04:53:58.811Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T04:53:58.812Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-12T04:53:58.812Z]   REGEX: tw <- https://twitter.com/DronesGeo
+[2026-03-12T04:53:58.812Z]   REGEX: fb <- https://www.facebook.com/GeoDrones.co.il
+[2026-03-12T04:53:58.812Z] Programmatic result: ws:1, tw:1, fb:1 | 1 uncategorized
+[2026-03-12T04:53:58.812Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T04:53:58.813Z] Saved AI prompt (2266 chars) to ai_prompt.txt
+[2026-03-12T04:53:58.813Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T04:53:58.829Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T04:54:06.088Z]   AI: First token received, streaming...
+[2026-03-12T04:54:09.478Z] AI response complete: 70 chars in 10.7s
+[2026-03-12T04:54:09.478Z] Saved AI response to ai_response.json
+[2026-03-12T04:54:09.478Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T04:54:09.479Z]   AI LINK: https://www.facebook.com/GeoDrones.co.il
+[2026-03-12T04:54:09.479Z]   AI LINK: https://twitter.com/DronesGeo
+[2026-03-12T04:54:09.479Z] AI returned 2 valid links
+[2026-03-12T04:54:09.479Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T04:54:09.479Z]   AI→REGEX: fb <- https://www.facebook.com/GeoDrones.co.il (duplicate, skipped)
+[2026-03-12T04:54:09.479Z]   AI→REGEX: tw <- https://twitter.com/DronesGeo (duplicate, skipped)
+[2026-03-12T04:54:09.479Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T04:54:09.479Z] Footer/header origins (3):
+[2026-03-12T04:54:09.479Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T04:54:09.480Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T04:54:09.480Z]   FOOTER/HEADER ORIGIN: https://www.geodrones.co.il
+[2026-03-12T04:54:09.480Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-12T04:54:09.480Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T04:54:09.480Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T04:54:09.480Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T04:54:09.480Z] ── Step 3: Final dedup ──
+[2026-03-12T04:54:09.480Z] No urls to dedup
+[2026-03-12T04:54:09.480Z] ── FINAL RESULT ──
+[2026-03-12T04:54:09.480Z]   ws (1):
+[2026-03-12T04:54:09.480Z]     - https://www.geodrones.co.il
+[2026-03-12T04:54:09.480Z]   fb (1):
+[2026-03-12T04:54:09.480Z]     - https://www.facebook.com/geodrones.co.il
+[2026-03-12T04:54:09.480Z]   tw (1):
+[2026-03-12T04:54:09.481Z]     - https://x.com/dronesgeo
+[2026-03-12T04:54:09.481Z] Summary: ws:1, tw:1, fb:1
+[2026-03-12T04:54:09.481Z] Saved final result to result.json
+[2026-03-12T04:54:09.481Z] Override fields: ws, fb, tw
+[2026-03-12T04:54:09.481Z] Finished at: 2026-03-12T04:54:09.481Z

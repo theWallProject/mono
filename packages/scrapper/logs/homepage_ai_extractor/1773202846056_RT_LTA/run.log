@@ -1,0 +1,57 @@
+[2026-03-11T04:20:46.057Z] === Homepage AI Extractor: RT LTA ===
+[2026-03-11T04:20:46.057Z] Started at: 2026-03-11T04:20:46.057Z
+[2026-03-11T04:20:46.057Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773202846056_RT_LTA
+[2026-03-11T04:20:46.057Z] Company: RT LTA
+[2026-03-11T04:20:46.057Z] Website: rt.co.il
+[2026-03-11T04:20:46.058Z] cbRank: 582811
+[2026-03-11T04:20:46.058Z] Reasons: h
+[2026-03-11T04:20:46.058Z] Fetching: https://rt.co.il
+[2026-03-11T04:20:58.990Z] Network idle timeout — continuing with current state
+[2026-03-11T04:20:59.035Z] Redirected: https://rt.co.il -> https://www.rt.co.il/
+[2026-03-11T04:20:59.042Z] Saved HTML (152651 bytes) to page.html
+[2026-03-11T04:20:59.047Z] Extracted 37 unique links from page
+[2026-03-11T04:20:59.047Z] Saved 37 links to links.json
+[2026-03-11T04:20:59.052Z] Extracted footer HTML (11175 chars)
+[2026-03-11T04:20:59.052Z] Extracted header HTML (50575 chars)
+[2026-03-11T04:20:59.057Z] Website (post-redirect): https://www.rt.co.il/ → origin: https://www.rt.co.il
+[2026-03-11T04:20:59.057Z] External links: 2 (of 37 total)
+[2026-03-11T04:20:59.057Z] ── All external links ──
+[2026-03-11T04:20:59.057Z]   EXT: https://iconstudio.co.il
+[2026-03-11T04:20:59.058Z]   EXT: https://www.linkedin.com/company/rtaerostats
+[2026-03-11T04:20:59.058Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T04:20:59.058Z]   UNCATEGORIZED: https://iconstudio.co.il
+[2026-03-11T04:20:59.058Z]   REGEX: li <- https://www.linkedin.com/company/rtaerostats
+[2026-03-11T04:20:59.058Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-11T04:20:59.058Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T04:20:59.059Z] Saved AI prompt (6736 chars) to ai_prompt.txt
+[2026-03-11T04:20:59.059Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T04:20:59.076Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T04:21:26.992Z]   AI: First token received, streaming...
+[2026-03-11T04:21:28.949Z] AI response complete: 45 chars in 29.9s
+[2026-03-11T04:21:28.950Z] Saved AI response to ai_response.json
+[2026-03-11T04:21:28.950Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T04:21:28.950Z]   AI LINK: https://www.linkedin.com/company/rtaerostats/
+[2026-03-11T04:21:28.950Z] AI returned 1 valid links
+[2026-03-11T04:21:28.950Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T04:21:28.950Z]   AI→REGEX: li <- https://www.linkedin.com/company/rtaerostats/ (duplicate, skipped)
+[2026-03-11T04:21:28.951Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T04:21:28.951Z] Footer/header origins (4):
+[2026-03-11T04:21:28.951Z]   FOOTER/HEADER ORIGIN: https://www.rt.co.il
+[2026-03-11T04:21:28.951Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T04:21:28.951Z]   FOOTER/HEADER ORIGIN: http://www.rt.co.il
+[2026-03-11T04:21:28.951Z]   FOOTER/HEADER ORIGIN: https://iconstudio.co.il
+[2026-03-11T04:21:28.952Z]   ADDED: urls <- https://iconstudio.co.il
+[2026-03-11T04:21:28.952Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T04:21:28.952Z] ── Step 3: Final dedup ──
+[2026-03-11T04:21:28.952Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T04:21:28.952Z] ── FINAL RESULT ──
+[2026-03-11T04:21:28.952Z]   ws (1):
+[2026-03-11T04:21:28.952Z]     - https://www.rt.co.il
+[2026-03-11T04:21:28.952Z]   li (1):
+[2026-03-11T04:21:28.952Z]     - https://www.linkedin.com/company/rtaerostats
+[2026-03-11T04:21:28.952Z]   urls (1):
+[2026-03-11T04:21:28.952Z]     - https://iconstudio.co.il
+[2026-03-11T04:21:28.952Z] Summary: ws:1, li:1, urls:1
+[2026-03-11T04:21:28.953Z] Saved final result to result.json
+[2026-03-11T04:21:28.953Z] Override fields: ws, li, urls
+[2026-03-11T04:21:28.953Z] Finished at: 2026-03-11T04:21:28.953Z

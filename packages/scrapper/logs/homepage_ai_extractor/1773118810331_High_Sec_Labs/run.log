@@ -1,0 +1,69 @@
+[2026-03-10T05:00:10.332Z] === Homepage AI Extractor: High Sec Labs ===
+[2026-03-10T05:00:10.332Z] Started at: 2026-03-10T05:00:10.332Z
+[2026-03-10T05:00:10.332Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773118810331_High_Sec_Labs
+[2026-03-10T05:00:10.332Z] Company: High Sec Labs
+[2026-03-10T05:00:10.332Z] Website: highseclabs.com
+[2026-03-10T05:00:10.332Z] cbRank: 383910
+[2026-03-10T05:00:10.332Z] Reasons: h
+[2026-03-10T05:00:10.332Z] Fetching: https://highseclabs.com
+[2026-03-10T05:00:16.755Z] Redirected: https://highseclabs.com -> https://highseclabs.com/
+[2026-03-10T05:00:16.781Z] Saved HTML (829815 bytes) to page.html
+[2026-03-10T05:00:16.790Z] Extracted 129 unique links from page
+[2026-03-10T05:00:16.790Z] Saved 129 links to links.json
+[2026-03-10T05:00:16.798Z] Extracted footer HTML (94485 chars)
+[2026-03-10T05:00:16.798Z] Extracted header HTML (81738 chars)
+[2026-03-10T05:00:16.803Z] Website (post-redirect): https://highseclabs.com/ → origin: https://highseclabs.com
+[2026-03-10T05:00:16.803Z] External links: 5 (of 129 total)
+[2026-03-10T05:00:16.803Z] ── All external links ──
+[2026-03-10T05:00:16.804Z]   EXT: http://152.181.133.140
+[2026-03-10T05:00:16.804Z]   EXT: https://il.linkedin.com/company/high-sec-labs-ltd.
+[2026-03-10T05:00:16.804Z]   EXT: https://www.enable.co.il
+[2026-03-10T05:00:16.804Z]   EXT: https://www.upress.co.il
+[2026-03-10T05:00:16.804Z]   EXT: https://www.youtube.com/channel/UCORDbCT05HGGDWpt31qX8Bw
+[2026-03-10T05:00:16.804Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T05:00:16.804Z]   UNCATEGORIZED: http://152.181.133.140
+[2026-03-10T05:00:16.804Z]   REGEX: li <- https://il.linkedin.com/company/high-sec-labs-ltd.
+[2026-03-10T05:00:16.804Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-10T05:00:16.804Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-10T05:00:16.804Z]   REGEX: ytc <- https://www.youtube.com/channel/UCORDbCT05HGGDWpt31qX8Bw
+[2026-03-10T05:00:16.804Z] Programmatic result: ws:1, li:1, ytc:1 | 3 uncategorized
+[2026-03-10T05:00:16.804Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T05:00:16.806Z] Saved AI prompt (9754 chars) to ai_prompt.txt
+[2026-03-10T05:00:16.807Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T05:00:16.823Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T05:00:53.820Z]   AI: First token received, streaming...
+[2026-03-10T05:01:02.246Z] AI response complete: 107 chars in 45.4s
+[2026-03-10T05:01:02.248Z] Saved AI response to ai_response.json
+[2026-03-10T05:01:02.248Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T05:01:02.248Z]   AI LINK: https://il.linkedin.com/company/high-sec-labs-ltd.
+[2026-03-10T05:01:02.248Z]   AI LINK: https://www.youtube.com/channel/UCORDbCT05HGGDWpt31qX8Bw
+[2026-03-10T05:01:02.248Z] AI returned 2 valid links
+[2026-03-10T05:01:02.249Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T05:01:02.249Z]   AI→REGEX: li <- https://il.linkedin.com/company/high-sec-labs-ltd. (duplicate, skipped)
+[2026-03-10T05:01:02.249Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCORDbCT05HGGDWpt31qX8Bw (duplicate, skipped)
+[2026-03-10T05:01:02.250Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T05:01:02.250Z] Footer/header origins (5):
+[2026-03-10T05:01:02.250Z]   FOOTER/HEADER ORIGIN: https://highseclabs.com
+[2026-03-10T05:01:02.250Z]   FOOTER/HEADER ORIGIN: http://+97249591191
+[2026-03-10T05:01:02.250Z]   FOOTER/HEADER ORIGIN: http://152.181.133.140
+[2026-03-10T05:01:02.250Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-10T05:01:02.250Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T05:01:02.250Z]   ADDED: urls <- http://152.181.133.140
+[2026-03-10T05:01:02.250Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-10T05:01:02.250Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-10T05:01:02.251Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T05:01:02.251Z] ── Step 3: Final dedup ──
+[2026-03-10T05:01:02.251Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T05:01:02.251Z] ── FINAL RESULT ──
+[2026-03-10T05:01:02.251Z]   ws (1):
+[2026-03-10T05:01:02.251Z]     - https://highseclabs.com
+[2026-03-10T05:01:02.251Z]   li (1):
+[2026-03-10T05:01:02.251Z]     - https://www.linkedin.com/company/high-sec-labs-ltd.
+[2026-03-10T05:01:02.251Z]   ytc (1):
+[2026-03-10T05:01:02.251Z]     - https://www.youtube.com/channel/UCORDbCT05HGGDWpt31qX8Bw
+[2026-03-10T05:01:02.251Z]   urls (1):
+[2026-03-10T05:01:02.251Z]     - http://152.181.133.140
+[2026-03-10T05:01:02.251Z] Summary: ws:1, li:1, ytc:1, urls:1
+[2026-03-10T05:01:02.252Z] Saved final result to result.json
+[2026-03-10T05:01:02.252Z] Override fields: ws, li, ytc, urls
+[2026-03-10T05:01:02.252Z] Finished at: 2026-03-10T05:01:02.252Z

@@ -1,0 +1,64 @@
+[2026-03-12T03:41:25.347Z] === Homepage AI Extractor: FirstOffer ===
+[2026-03-12T03:41:25.347Z] Started at: 2026-03-12T03:41:25.347Z
+[2026-03-12T03:41:25.347Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773286885346_FirstOffer
+[2026-03-12T03:41:25.347Z] Company: FirstOffer
+[2026-03-12T03:41:25.347Z] Website: firstofferz.com
+[2026-03-12T03:41:25.347Z] cbRank: 777227
+[2026-03-12T03:41:25.347Z] Reasons: h
+[2026-03-12T03:41:25.347Z] Fetching: https://firstofferz.com
+[2026-03-12T03:41:29.075Z] Redirected: https://firstofferz.com -> https://firstofferz.com/
+[2026-03-12T03:41:29.080Z] Saved HTML (35854 bytes) to page.html
+[2026-03-12T03:41:29.084Z] Extracted 6 unique links from page
+[2026-03-12T03:41:29.085Z] Saved 6 links to links.json
+[2026-03-12T03:41:29.089Z] Extracted footer HTML (1173 chars)
+[2026-03-12T03:41:29.089Z] No header section found in DOM
+[2026-03-12T03:41:29.095Z] Website (post-redirect): https://firstofferz.com/ → origin: https://firstofferz.com
+[2026-03-12T03:41:29.095Z] External links: 3 (of 6 total)
+[2026-03-12T03:41:29.095Z] ── All external links ──
+[2026-03-12T03:41:29.095Z]   EXT: http://www.linkedin.com/company/3253550
+[2026-03-12T03:41:29.095Z]   EXT: https://twitter.com/FirstOffer1
+[2026-03-12T03:41:29.095Z]   EXT: https://www.facebook.com/Firstoffer-201157916725029
+[2026-03-12T03:41:29.095Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T03:41:29.096Z]   REGEX: li <- http://www.linkedin.com/company/3253550
+[2026-03-12T03:41:29.096Z]   REGEX: tw <- https://twitter.com/FirstOffer1
+[2026-03-12T03:41:29.096Z]   REGEX: fb <- https://www.facebook.com/Firstoffer-201157916725029
+[2026-03-12T03:41:29.096Z] Programmatic result: ws:1, li:1, tw:1, fb:1 | 0 uncategorized
+[2026-03-12T03:41:29.096Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T03:41:29.097Z] Saved AI prompt (2702 chars) to ai_prompt.txt
+[2026-03-12T03:41:29.097Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T03:41:29.111Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T03:41:37.786Z]   AI: First token received, streaming...
+[2026-03-12T03:41:47.931Z] AI response complete: 124 chars in 18.8s
+[2026-03-12T03:41:47.932Z] Saved AI response to ai_response.json
+[2026-03-12T03:41:47.932Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T03:41:47.932Z]   AI LINK: https://www.facebook.com/Firstoffer-201157916725029/
+[2026-03-12T03:41:47.932Z]   AI LINK: https://twitter.com/FirstOffer1
+[2026-03-12T03:41:47.933Z]   AI LINK: http://www.linkedin.com/company/3253550
+[2026-03-12T03:41:47.933Z] AI returned 3 valid links
+[2026-03-12T03:41:47.933Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T03:41:47.933Z]   AI→REGEX: fb <- https://www.facebook.com/Firstoffer-201157916725029/ (duplicate, skipped)
+[2026-03-12T03:41:47.933Z]   AI→REGEX: tw <- https://twitter.com/FirstOffer1 (duplicate, skipped)
+[2026-03-12T03:41:47.933Z]   AI→REGEX: li <- http://www.linkedin.com/company/3253550 (duplicate, skipped)
+[2026-03-12T03:41:47.933Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T03:41:47.933Z] Footer/header origins (3):
+[2026-03-12T03:41:47.934Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T03:41:47.934Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T03:41:47.934Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-12T03:41:47.934Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T03:41:47.934Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T03:41:47.934Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T03:41:47.934Z] ── Step 3: Final dedup ──
+[2026-03-12T03:41:47.934Z] No urls to dedup
+[2026-03-12T03:41:47.934Z] ── FINAL RESULT ──
+[2026-03-12T03:41:47.934Z]   ws (1):
+[2026-03-12T03:41:47.934Z]     - https://firstofferz.com
+[2026-03-12T03:41:47.934Z]   li (1):
+[2026-03-12T03:41:47.935Z]     - https://www.linkedin.com/company/3253550
+[2026-03-12T03:41:47.935Z]   fb (1):
+[2026-03-12T03:41:47.935Z]     - https://www.facebook.com/firstoffer-201157916725029
+[2026-03-12T03:41:47.935Z]   tw (1):
+[2026-03-12T03:41:47.935Z]     - https://x.com/firstoffer1
+[2026-03-12T03:41:47.935Z] Summary: ws:1, li:1, tw:1, fb:1
+[2026-03-12T03:41:47.935Z] Saved final result to result.json
+[2026-03-12T03:41:47.936Z] Override fields: ws, li, fb, tw
+[2026-03-12T03:41:47.936Z] Finished at: 2026-03-12T03:41:47.936Z

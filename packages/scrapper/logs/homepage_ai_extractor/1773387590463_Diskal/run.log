@@ -1,0 +1,61 @@
+[2026-03-13T07:39:50.463Z] === Homepage AI Extractor: Diskal ===
+[2026-03-13T07:39:50.464Z] Started at: 2026-03-13T07:39:50.464Z
+[2026-03-13T07:39:50.464Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773387590463_Diskal
+[2026-03-13T07:39:50.464Z] Company: Diskal
+[2026-03-13T07:39:50.464Z] Website: diskal.co.il
+[2026-03-13T07:39:50.464Z] cbRank: 1046386
+[2026-03-13T07:39:50.464Z] Reasons: h
+[2026-03-13T07:39:50.464Z] Fetching: https://diskal.co.il
+[2026-03-13T07:39:57.367Z] Redirected: https://diskal.co.il -> https://diskal.co.il/
+[2026-03-13T07:39:57.378Z] Saved HTML (317083 bytes) to page.html
+[2026-03-13T07:39:57.383Z] Extracted 23 unique links from page
+[2026-03-13T07:39:57.384Z] Saved 23 links to links.json
+[2026-03-13T07:39:57.388Z] Extracted footer HTML (24583 chars)
+[2026-03-13T07:39:57.388Z] Extracted header HTML (27131 chars)
+[2026-03-13T07:39:57.392Z] Website (post-redirect): https://diskal.co.il/ → origin: https://diskal.co.il
+[2026-03-13T07:39:57.392Z] External links: 3 (of 23 total)
+[2026-03-13T07:39:57.392Z] ── All external links ──
+[2026-03-13T07:39:57.392Z]   EXT: https://www.facebook.com/diskalgroup
+[2026-03-13T07:39:57.392Z]   EXT: https://www.linkedin.com/company/diskal-it/about
+[2026-03-13T07:39:57.392Z]   EXT: https://zfrmz.com/ftGnneCd6u4Ko9q3ntG4
+[2026-03-13T07:39:57.392Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T07:39:57.392Z]   REGEX: fb <- https://www.facebook.com/diskalgroup
+[2026-03-13T07:39:57.393Z]   REGEX: li <- https://www.linkedin.com/company/diskal-it/about
+[2026-03-13T07:39:57.393Z]   UNCATEGORIZED: https://zfrmz.com/ftGnneCd6u4Ko9q3ntG4
+[2026-03-13T07:39:57.393Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-13T07:39:57.393Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T07:39:57.394Z] Saved AI prompt (9151 chars) to ai_prompt.txt
+[2026-03-13T07:39:57.394Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T07:39:57.417Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T07:40:44.605Z]   AI: First token received, streaming...
+[2026-03-13T07:40:44.839Z] AI response complete: 20 chars in 47.4s
+[2026-03-13T07:40:44.839Z] Saved AI response to ai_response.json
+[2026-03-13T07:40:44.840Z] ── Parsing AI response (1 lines) ──
+[2026-03-13T07:40:44.840Z]   AI LINK: https://diskal.co.il
+[2026-03-13T07:40:44.840Z] AI returned 1 valid links
+[2026-03-13T07:40:44.840Z] ── Categorizing 1 AI-returned links ──
+[2026-03-13T07:40:44.840Z]   AI→URLS: https://diskal.co.il
+[2026-03-13T07:40:44.840Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T07:40:44.841Z] Footer/header origins (2):
+[2026-03-13T07:40:44.841Z]   FOOTER/HEADER ORIGIN: https://diskal.co.il
+[2026-03-13T07:40:44.841Z]   FOOTER/HEADER ORIGIN: https://zfrmz.com
+[2026-03-13T07:40:44.841Z]   ADDED: urls <- https://zfrmz.com/ftGnneCd6u4Ko9q3ntG4
+[2026-03-13T07:40:44.841Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T07:40:44.841Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T07:40:44.841Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T07:40:44.841Z] ── Step 3: Final dedup ──
+[2026-03-13T07:40:44.841Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T07:40:44.841Z] ── FINAL RESULT ──
+[2026-03-13T07:40:44.841Z]   ws (1):
+[2026-03-13T07:40:44.841Z]     - https://diskal.co.il
+[2026-03-13T07:40:44.842Z]   li (1):
+[2026-03-13T07:40:44.842Z]     - https://www.linkedin.com/company/diskal-it
+[2026-03-13T07:40:44.842Z]   fb (1):
+[2026-03-13T07:40:44.842Z]     - https://www.facebook.com/diskalgroup
+[2026-03-13T07:40:44.842Z]   urls (2):
+[2026-03-13T07:40:44.842Z]     - https://diskal.co.il
+[2026-03-13T07:40:44.842Z]     - https://zfrmz.com/ftGnneCd6u4Ko9q3ntG4
+[2026-03-13T07:40:44.842Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-13T07:40:44.842Z] Saved final result to result.json
+[2026-03-13T07:40:44.843Z] Override fields: ws, li, fb, urls
+[2026-03-13T07:40:44.843Z] Finished at: 2026-03-13T07:40:44.843Z

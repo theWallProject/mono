@@ -1,0 +1,1419 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+
+<!-- Meta Tags -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>
+
+Homepage - Phoebus Energy</title>
+
+<!--[if lte IE 8]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="pingback" href="https://www.phoebus-energy.com/xmlrpc.php">
+
+ 
+
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+	WebFontConfig = {
+		google: { families: [ "Lato:300,400,400italic,500,600,700,700italic:latin,greek-ext,cyrillic,latin-ext,greek,cyrillic-ext,vietnamese", "Raleway:300,400,400italic,500,600,700,700italic:latin,greek-ext,cyrillic,latin-ext,greek,cyrillic-ext,vietnamese", "Crete+Round:300,400,400italic,500,600,700,700italic:latin,greek-ext,cyrillic,latin-ext,greek,cyrillic-ext,vietnamese" ] } ,		custom: {
+            families: [ 'fontAwesome'  ],
+             urls: ['https://www.phoebus-energy.com/wp-content/themes/Aperio/css/icons.css' ]
+         }
+	};
+	(function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+		  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	})();
+</script>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="alternate" hreflang="en-us" href="https://www.phoebus-energy.com/">
+<link rel="alternate" hreflang="es-es" href="https://www.phoebus-energy.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://www.phoebus-energy.com/">
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<link rel="canonical" href="https://www.phoebus-energy.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Homepage - Phoebus Energy">
+	<meta property="og:url" content="https://www.phoebus-energy.com/">
+	<meta property="og:site_name" content="Phoebus Energy">
+	<meta property="article:modified_time" content="2023-08-10T11:00:55+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.phoebus-energy.com/","url":"https://www.phoebus-energy.com/","name":"Homepage - Phoebus Energy","isPartOf":{"@id":"https://www.phoebus-energy.com/#website"},"datePublished":"2014-12-28T13:41:32+00:00","dateModified":"2023-08-10T11:00:55+00:00","breadcrumb":{"@id":"https://www.phoebus-energy.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.phoebus-energy.com/"]}]},{"@type":"BreadcrumbList","@id":"https://www.phoebus-energy.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.phoebus-energy.com/#website","url":"https://www.phoebus-energy.com/","name":"Phoebus Energy","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.phoebus-energy.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Phoebus Energy » Feed" href="https://www.phoebus-energy.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Phoebus Energy » Comments Feed" href="https://www.phoebus-energy.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Phoebus Energy » Homepage Comments Feed" href="https://www.phoebus-energy.com/homepage-layout-5-3-2/feed/">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.phoebus-energy.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.3"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link data-minify="1" rel="stylesheet" id="simple_tooltips_style-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/simple-tooltips/zebra_tooltips.css?ver=1711952840" type="text/css" media="all">
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="https://www.phoebus-energy.com/wp-includes/css/dist/block-library/style.min.css?ver=6.4.3" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel="stylesheet" id="contact-form-7-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1711952840" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="rs-plugin-settings-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/revslider/public/assets/css/settings.css?ver=1711952840" type="text/css" media="all">
+<style id="rs-plugin-settings-inline-css" type="text/css">
+#rs-demo-id {}
+</style>
+<link rel="stylesheet" id="wpml-legacy-horizontal-list-0-css" href="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css?ver=1" type="text/css" media="all">
+<style id="wpml-legacy-horizontal-list-0-inline-css" type="text/css">
+.wpml-ls-statics-shortcode_actions{background-color:#ffffff;}.wpml-ls-statics-shortcode_actions, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu, .wpml-ls-statics-shortcode_actions a {border-color:#cdcdcd;}.wpml-ls-statics-shortcode_actions a, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:link, .wpml-ls-statics-shortcode_actions li:not(.wpml-ls-current-language) .wpml-ls-link, .wpml-ls-statics-shortcode_actions li:not(.wpml-ls-current-language) .wpml-ls-link:link {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions a, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:hover,.wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:focus, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:link:hover, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu a:link:focus {color:#000000;background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language > a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language:hover>a, .wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a:focus {color:#000000;background-color:#eeeeee;}
+</style>
+<link rel="stylesheet" id="wpml-menu-item-0-css" href="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.min.css?ver=1" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="style-css-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio-Child/style.css?ver=1711952840" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="layout-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/css/layout.css?ver=1711952840" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="main-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/css/main.css?ver=1711952840" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="shortcodes-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/css/shortcodes.css?ver=1711952840" type="text/css" media="all">
+<link rel="stylesheet" id="mediaelement-css" href="https://www.phoebus-energy.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="prettyPhoto-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/css/prettyPhoto.css?ver=1711952840" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="responsive-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/css/responsive.css?ver=1711952840" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="js_composer_front-css" href="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=1711952840" type="text/css" media="all">
+<style id="rocket-lazyload-inline-css" type="text/css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://www.phoebus-energy.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/plugins/enable-jquery-migrate-helper/js/jquery/jquery-1.12.4-wp.js?ver=1.12.4-wp" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/enable-jquery-migrate-helper/js/jquery-migrate/jquery-migrate-1.4.1-wp.js?ver=1711952840" id="jquery-migrate-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.7.2" id="tp-tools-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.7.2" id="revmin-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio-Child/popbox.js?ver=1711952840" id="popbpx-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.5.7" id="ga-external-tracking-js"></script>
+<link rel="https://api.w.org/" href="https://www.phoebus-energy.com/wp-json/"><link rel="alternate" type="application/json" href="https://www.phoebus-energy.com/wp-json/wp/v2/pages/7792"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.phoebus-energy.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.4.3">
+<link rel="shortlink" href="https://www.phoebus-energy.com/">
+<link rel="alternate" type="application/json+oembed" href="https://www.phoebus-energy.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.phoebus-energy.com%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.phoebus-energy.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.phoebus-energy.com%2F&amp;format=xml">
+<meta name="generator" content="WPML ver:4.6.9 stt:1,2;">
+<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress.">
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://www.phoebus-energy.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://www.phoebus-energy.com/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.7.2 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<link rel="icon" href="https://www.phoebus-energy.com/wp-content/uploads/2022/04/logo-phoebust-80x80.jpg" sizes="32x32">
+<link rel="icon" href="https://www.phoebus-energy.com/wp-content/uploads/2022/04/logo-phoebust.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.phoebus-energy.com/wp-content/uploads/2022/04/logo-phoebust.jpg">
+<meta name="msapplication-TileImage" content="https://www.phoebus-energy.com/wp-content/uploads/2022/04/logo-phoebust.jpg">
+<!-- Google Analytics Tracking by Google Analyticator 6.5.7 -->
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    var analyticsFileTypes = [];
+    var analyticsSnippet = 'disabled';
+    var analyticsEventTracking = 'enabled';
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-34389663-1', 'auto');
+ 
+	ga('send', 'pageview');
+</script>
+   <!-- Custom Stylesheet -->
+  <style type="text/css">
+  
+  	
+    body,
+    .boxed-layout{
+	   	   
+	  	
+	   background-color:#ffffff;
+	   background-repeat:no-repeat;
+	   background-position:center center;
+	   -webkit-background-size: cover; 
+       -moz-background-size: cover; 
+	   -o-background-size: cover; 
+	   background-size: cover;
+	   background-attachment:0;
+    }
+	 
+    body{
+        font-family: Lato ;
+        font-size: 15px;
+        font-style: ;
+		font-weight: ;
+	    line-height:24px;
+        color: #626262;
+	       }
+   
+   .button , input[type="submit"],
+   .brad-info-box{
+	   font-family:Lato ;
+   }
+   
+   ul.product_list_widget li a,
+   .button,
+   .counter-title > span.counter-value,
+   .readmore{
+	   font-family:Lato;
+   }
+   
+   .post-meta-data.style2{
+	   font-family:Lato;
+	   font-weight:;
+	   font-style:;
+	   letter-spacing:0.5px;
+	   text-transform:uppercase;
+	   font-size: 13px;
+   }
+   
+   .posts-grid .post-meta-data.style2{
+	   font-size:12px;
+   }
+   
+	 
+  /*blockquote style */
+  blockquote{
+    font-family: Crete Round ;
+    font-size: 21px;
+    font-style: ;
+	font-weight: ;
+	line-height:31px;
+	letter-spacing:0px;
+	text-transform:none;
+    color: #999999;
+  }
+
+   /*-----------------------------------------------------*/
+   /* Heading Styles
+   /*-----------------------------------------------------*/
+
+   h1{
+    font-family: Raleway ;
+    font-size: 39px;
+    font-style: ;
+	font-weight: 400;
+	line-height:55px;
+	letter-spacing:1px;
+	text-transform:none;
+    color: #2d2d2d;
+	}
+
+  h2{
+    font-family: Raleway ;
+    font-size: 28px;
+    font-style: ;
+	 font-weight: 400;
+	line-height:40px;
+	letter-spacing:1.5px;
+	text-transform:none;
+    color: #2d2d2d;
+   }
+
+   h3{
+    font-family: Raleway ;
+    font-size: 20px;
+    font-style: ;
+	font-weight: ;
+	line-height:30px;
+	letter-spacing:1px;
+	text-transform:none;
+    color: #2d2d2d; 
+   }
+
+  h4{
+    font-family: Raleway;
+    font-size: 15px;
+    font-style: ;
+	font-weight: 400;
+	line-height:21px;
+	letter-spacing:1px;
+	text-transform:none;
+    color: #2d2d2d;
+   } 
+
+  h5{
+    font-family: Raleway;
+    font-size: 15px;
+    font-style: ;
+	font-weight: ;
+	line-height:23px;
+	letter-spacing:3px;
+	text-transform:uppercase;
+    color: #2d2d2d;
+   }
+
+  h6{
+    font-family: Raleway;
+    font-size: 17px;
+    font-style: ;
+	font-weight: ;
+	line-height:29px;
+	letter-spacing:0px;
+	text-transform:none;
+    color: #666666; 
+   }
+   
+  .sidebar .widget > h4 {
+	font-family: Raleway;
+    font-size: 18px;
+    font-style: ;
+	font-weight: 500;
+	line-height:45px;
+	letter-spacing:0px;
+	text-transform:none;
+    color: #f58220;
+	background-color:transparent;
+   }
+   
+
+   a{
+	   color:#f58220;
+   }
+    a:hover{
+		color:#626262;
+	}
+	
+  
+  .tooltips a{
+	  border-bottom-color:#f58220  }
+  
+  .tooltips a:hover{
+	  border-bottom-color:#626262  }
+  
+ 
+   .boxed-layout{
+	   border:0 solid ;
+   }
+
+  /*----------------------------------------------*/ 
+  /* Topbar 
+  /*----------------------------------------------*/
+
+  #top_bar {
+	background-color:#ffffff;
+	border-bottom-color:#e8e8e8;
+	color:#bbbbbb;
+  }
+  #top_bar .social-icons li{
+	  border-color:#e8e8e8;
+  }
+   #top_bar .contact-info span,
+   #top_bar .top-menu > li {
+     border-color:#e8e8e8;
+  }
+  
+  #top_bar .social-icons li a ,
+  #top_bar .top-menu > li a ,
+  #top_bar  a {
+	  color:#999999;
+  }
+  #top_bar .social-icons li a:hover ,
+  #top_bar .top-menu > li a:hover ,
+  #top_bar a:hover {
+	  color:#f9831e;
+  }
+
+
+  /*----------------------------------------------*/
+  /* Main Navigation Styles
+  /*----------------------------------------------*/
+
+   #header.shrinked #main_navigation{
+	 min-height:65px;
+  }
+  
+  #header.shrinked #main_navigation #logo ,
+  #header.shrinked #main_navigation ul.main_menu > li,
+  #header.shrinked.type3 #header-search-button,
+  #header.shrinked.type3 .cart-container,
+  #header.shrinked.type3 .header-nav .social-icons{
+	  height:65px!important;
+	  line-height:65px!important;
+	  max-height:65px!important;
+  }
+  
+  
+    .logo-container{
+	   width:175px;
+   }
+   #header.type2 .logo-container{
+	   margin-left:-87px;
+   }
+   #header.type2 .left-nav-container{
+	   padding-right:127px;
+   }
+   #header.type2 .right-nav-container{
+	   padding-left:127px;
+   }
+   
+
+  #main_navigation{
+	  min-height:110px;
+  }
+  #main_navigation ,
+  .header_container,
+  #header.type3 .nav-container,
+  #side_header {
+      background:#ffffff;
+  }
+  ul.main_menu > li > a ,
+  #side_header ul.side_menu > li > a { 
+      color:#555555;
+      font-size:13px;
+      font-weight: 700;
+	  letter-spacing: 1px;
+      font-family:Raleway;
+	  text-transform:uppercase;
+	  border-bottom-color:#f9831e   }
+   
+   .brad-mega-menu .brad-megamenu-title{
+	  color:#ffffff;
+	  border-bottom-color:#ffffff;
+      font-size:13px;
+      font-weight: 600;
+	  letter-spacing: 1px;
+      font-family:Raleway;
+	  text-transform:uppercase;
+   }
+   
+  .main_menu > li:hover > a,
+  .main_menu > li > a:hover ,
+  #side_header ul.side_menu > li > a:hover {
+	  color: #f9831e  }
+  
+  #side_header ul.side_menu > li > a,
+  #side_header ul.side_menu > li > ul{
+	  border-bottom-color:#dddddd  }
+
+  .main_menu > li.active a,
+  .main_menu > li.active a:hover ,
+  #side_header ul.side_menu > li.active > a,
+  #side_header ul.side_menu > li.active > a:hover
+   {
+	   color: #f9831e;
+	   border-top-color:#f9831e;
+}
+  .main_menu ul.sub-menu {
+	background-color:#454545;
+	background-color:rgba(69,69,69,0.98);
+	border-color:#f9831e;
+	border-color:#f9831e	
+}
+
+ .main_menu ul.sub-menu li a ,
+ #side_header .sub-menu li a {
+	color:#cccccc;
+    font-size:12px;
+    font-weight:600; 
+    font-family:Raleway;
+	text-transform:uppercase;
+	letter-spacing:1px;
+  }
+
+  .main_menu .sub-menu li.current-menu-item > a,
+  .main_menu .sub-menu li.current-menu-item > a:hover,
+  .main_menu .sub-menu li.current_page_item > a,
+  .main_menu .sub-menu li.current_page_item > a:hover ,
+
+  #side_header .sub-menu li.current-menu-item >  a,
+  #side_header .sub-menu li.current-menu-item > a:hover,
+  #side_header .sub-menu li.current_page_item > a,
+  #side_header .sub-menu li.current_page_item > a:hover{
+	 color:#ffffff;
+  }
+
+
+  .main_menu .sub-menu li a:hover{
+	 color:#f9831e;
+}
+
+  #side_header .sub-menu li a:hover{
+	 color:#f9831e;
+  }
+
+  #header-search-button a ,
+  .cart-icon-wrapper ,
+  .toggle-menu ,
+  .header-nav .social-icons li a ,
+  .carticon-mobile{
+	 color:#454545;
+	 background-color:transparent;
+	 
+  }
+
+
+  #header-search-button a:hover ,
+  .cart-icon-wrapper:hover ,
+  .toggle-menu:hover ,
+  .header-nav .social-icons li a:hover ,
+  .carticon-mobile:hover{
+	 color:#3d3d3d;
+	 background-color:transparent;
+  }
+  
+  #logo ,
+  ul.main_menu > li ,
+  #header.type3 #header-search-button,
+  #header.type3 .cart-container,
+  #header.type3 .header-nav .social-icons{
+	  height:110px;
+	  line-height:110px;
+	  max-height:110px;
+ }
+
+ .main_menu > li > ul.sub-menu.brad-mega-menu > li{
+	 border-right-color:#999999 }
+ 
+
+  
+
+  #titlebar.titlebar-type-transparent{
+	 padding-top:110px;
+ }
+
+ 
+ 
+ /* Woocart Stylings */
+ .cart-container .widget_shopping_cart{
+	 
+	 background-color:#ffffff;
+	 background-color:rgba(255,255,255,0.98);
+	 color:#999999;
+ }
+ 
+ .cart-container ul.product_list_widget li a{
+	 color:#454545;
+ }
+ 
+ .cart-container ul.product_list_widget li a:hover{
+	 color:#f9831e;
+ }
+ 
+ .cart-container p.buttons .button{
+	 color:#454545!important;
+	 border-color:#454545!important;
+ }
+ 
+ .cart-container p.buttons .button:hover{
+	 color:#f9831e!important;
+	 border-color:#f9831e!important;
+ }
+ 
+ .cart-container .widget_shopping_cart_content .total{
+	 border-bottom-color:#e8e8e8!important;
+	 border-top-color:#e8e8e8!important;
+ }
+ 
+ .cart-container .widget_shopping_cart{
+	 border:1px solid #e8e8e8;
+ }
+ 
+ .cart-container ul.product_list_widget li .quantity{
+	 color:#999999;
+ }
+ 
+ /* Brad Slider*/
+ .carousel-caption h6{
+	font-family: Crete Round;
+    font-size: 21px;
+    font-weight: ;
+	font-style: ;
+	line-height:31px;
+	letter-spacing:0px;
+	text-transform:none;
+  }
+
+ 
+ .carousel-caption h2{
+	font-family: Raleway;
+    font-size: 55px;
+    font-style: ;
+	font-weight: ;
+	line-height:65px;
+	letter-spacing:2px;
+	text-transform:uppercase;
+  }
+  
+  
+  .carousel-caption .slider-content{
+	font-family: Raleway;
+    font-size: 19px;
+    font-style: ;
+	 font-weight: ;
+	line-height:30px;
+	letter-spacing:0px;
+	text-transform:none;
+  }
+  
+   
+ /*----------------------------------------------*/
+ /* titlebar Style
+ /*----------------------------------------------*/
+ #titlebar{
+	  background-color:#414141!important;  }
+  
+  #titlebar .titlebar-heading h1{
+	  font-family: Raleway;
+      font-style: ;
+	  font-weight: ;
+	  line-height:20px;
+	  font-size: 15px;
+	  letter-spacing:1px;
+	  text-transform:uppercase;
+  }
+  
+  #titlebar.titlebar-size-medium .titlebar-heading h1 {
+	line-height:20px;
+	font-size: 15px;
+	letter-spacing:1px;
+	text-transform:uppercase;
+  }
+  
+  #titlebar.titlebar-size-large .titlebar-heading h1 {
+	line-height:55px;
+	font-size: 48px;
+	letter-spacing:2px;
+	text-transform:uppercase;
+  }
+
+  #titlebar .parallax-image{
+	 	   background-repeat:no-repeat;
+	   background-position:center center;
+	   -webkit-background-size: cover; 
+       -moz-background-size: cover; 
+	   -o-background-size: cover; 
+	   background-size: cover;
+  }
+  
+     #titlebar .section-overlay{
+	   background-color:#2c3e50;
+	   opacity:0.65;
+	   filter:alpha(opacity=65);
+ }
+ 
+ #titlebar .titlebar-wrapper{
+	 	 height:500px;
+	 min-height:500px;
+ }
+
+ #titlebar.titlebar-type-transparent .titlebar-wrapper{
+	 padding-bottom:45px;
+ }
+
+ #titlebar .titlebar-subcontent{
+	 font-family: Raleway;
+      font-style: ;
+	  font-weight: ;
+	  letter-spacing:1px;
+	  text-transform:uppercase;
+}
+  
+
+/*-------------------------------------------------*/
+/* Overlay and buttons
+*---------------------------------------------------*/
+
+
+  .button ,
+  .button:focus ,
+  input[type="submit"]{
+	  background-color:#f9831e;
+	  color:#ffffff;
+}
+
+  
+/*---------------------------------------------------*/
+/* Footer Styles
+/*---------------------------------------------------*/
+
+  #footer{
+	font-size:14px;
+	line-height:24px;
+  }
+
+/*Fotter Widget Area1*/
+ #footer .footer-widgets{
+	 border-top:0 solid ;
+	 background-color:#757575;
+	 color: #ffffff;
+ }
+ 
+ #footer  .widget_nav_menu ul ul{
+	  border-top:1px solid #f9831e;
+  }
+  
+  #footer .footer-widgets .widget-posts li .date {
+      color : #ffffff;
+  }
+
+  #footer .footer-widgets .widget h4 {
+     color:#f9831e!important;
+     font-family:Raleway,sans-serif;
+     font-style:;
+	 font-weight:700;
+     font-size:14px;
+	 line-height:35px;
+	 letter-spacing:1px;
+	 text-transform:uppercase;
+	 background-color:transparent  }
+  
+   #footer .footer-widgets a:link, #footer .footer-widgets a, #footer .footer-widgets a:visited, #footer .footer-widgets a:active{
+      color:#ffffff!important;
+  }
+  #footer .footer-widgets a:hover, #footer .footer-widgets .widget_tag_cloud a:hover{
+      color:#f9831e;
+  }
+    
+  
+    
+  /*footer copyright area */
+  #copyright a  , 
+  #copyright a:link ,
+  #copyright a:active,
+  #copyright .social-icons a ,
+  #copyright .footer-menu > li a ,
+  #copyright .go-top {
+	 color: #ffffff;
+  }
+  #copyright a:hover,
+  #copyright .social-icons a:hover ,
+  #copyright .footer-menu > li a:hover,
+  #copyright .go-top:hover{
+	 color:#ffffff;
+  }
+  .footer-menu > li{
+	  border-right:1px solid #555555;
+  }
+  
+  #copyright{
+	  border-top:0 solid ;
+	  background-color:#616161;
+	  color: #e5e5e5;
+  }
+
+
+ /* overlay color */
+ .overlay{
+	 	background-color:#333333;
+	background-color:rgba(51,51,51,0.9) }
+ 
+ .overlay-content,
+  .portfolio-items.portfolio-style1 .portfolio-item .info h5,
+ .portfolio-items.portfolio-style1 .portfolio-item .info h5 a{
+	 color:#dddddd!important;
+ }
+ 
+ .portfolio-items.portfolio-style1 .portfolio-item .info h3,
+ .portfolio-items.portfolio-style1 .portfolio-item .info h3 a,
+ .overlay-content h1,.overlay-content h2,.overlay-content h3,.overlay-content h4,.overlay-content h5,.overlay-content h6{
+	 color:#ffffff!important;
+ }
+ 
+ .overlay .lightbox-icon,
+ .overlay .love-it{
+	 color:#454545;
+	 background-color:#eeeeee;
+ }
+
+/*--------------------------------------------*/
+/* Color Primary
+/*--------------------------------------------*/
+
+  .special_amp,
+  #top_bar .social-icons li a:hover,
+  #top_bar .top-menu > li a:hover ,
+  .social-icons a:hover,
+  .commentlist .reply a ,
+  .commentlist .comment-meta a:hover,
+  .post-share-menu li a:hover,
+  .widget-posts li h6 a:hover,
+  .highlighted,
+  .star-rating,
+  .shop_table .remove:hover,
+  .form-row label .required,
+   ul.product_list_widget li .amount ,
+  .single-product-tabset .comment-form label .required,
+  .products .product .price ,
+  .woocommerce-checkout .chosen-container .chosen-results li.active-result.highlighted,
+  .woocommerce-account .chosen-container .chosen-results li.active-result.highlighted,
+  .post-meta-data.style2 .post-meta-cats,
+  .post-meta-data.style2 .post-meta-cats a,
+  .button.button_alternateprimary,
+  .button.button_alternateprimary:focus,
+  ul.product_list_widget li a:hover,
+  .post-meta-data > span a:hover,
+  .quantity .minus, .quantity .plus,
+  .widget > ul > li > a:hover ,
+  .widget_nav_menu ul li a:hover
+  {
+	  color:#f58220;
+  }
+  
+
+  .color-primary,
+  .primary-color,
+  .portfolio-tabs ul li.sort-item.active a,
+  .button.button_alternatewhite:hover{
+	  color:#f58220!important;
+  }
+  
+
+
+    .pagination a.active,
+    ul.styled-list li i ,
+	ul.styled-list.style2 li i ,
+   .button.button_alternateprimary,
+   .button.button_alternateprimary:focus,
+   .shop_table .remove:hover,
+   .commentlist .reply a ,
+   .quantity .minus,
+   .quantity .plus,
+   .bx-pager-item a.active, .pagination a.selected,
+   .bx-carousel-container .bx-prev:hover,
+   .bx-carousel-container .bx-next:hover,
+   .clients-carousel-container .bx-prev:hover,
+   .clients-carousel-container .bx-next:hover,
+   .title.style1.divider-primary.textright,
+   .title.style3.bc-primary span,
+   .title.style4.bc-primary span,
+   blockquote{
+	  border-color:#f58220;
+  }
+  
+  .button.button_alternateprimary{
+		border-color:#f58220!important;
+   }
+  
+  .portfolio-carousel a.carousel-prev:hover,
+  .portfolio-carousel a.carousel-next:hover,
+   ul.styled-list.style2 li i,
+  .progress .bar,
+  .highlighted.style2,
+  .product-wrapper .onsale,
+  .single-product-wrapper .onsale,
+  .widget_price_filter .price_slider_wrapper .price_slider .ui-slider-handle,
+  .bubblingG span,
+  .toggle .toggle-title a span.plus ,
+  .accordion .accordion-title a span.plus,
+  .commentlist .reply a:hover,
+  .quantity .minus:hover,
+  .quantity .plus:hover,
+  .portfolio-tabs ul li.sort-item a:after,
+  .bx-carousel-container .bx-prev:hover,
+  .bx-carousel-container .bx-next:hover,
+  .clients-carousel-container .bx-prev:hover,
+  .clients-carousel-container .bx-next:hover,
+  .cart-icon-wrapper .count,
+  .person .divider span{
+	  background-color:#f58220;
+  }
+  
+ 
+  .hr.hr-border-primary span:before ,
+  .hr.hr-border-primary span:after,
+  .hr-color-primary .hr span:after,
+  .hr-color-primary .hr span:before,
+  .button.button_alternateprimary:hover,
+  .title.style1.divider-primary span:after,
+  .title.style2.divider-primary span:after,
+  .title.style3.divider-primary span:after,
+  .title.style1.textcenter.divider-primary span:before,
+  .title.style2.textcenter.divider-primary span:before,
+  .title.style3.textcenter.divider-primary span:before{
+	  background-color:#f58220!important;
+  }
+  
+  .button.button_alternateprimary:hover{
+	color:#fff;
+}
+ 
+
+</style>
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">function setREVStartSize(e){									
+
+						try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+
+							if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
+
+						}catch(d){console.log("Failure at Presize of Slider:"+d)}						
+
+					};</script>
+<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1419774459749{background-color: #ffffff !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><!--[if IE]>
+	<link rel="stylesheet" href="https://www.phoebus-energy.com/wp-content/themes/Aperio/css/ie.css">
+<![endif]-->
+<!--[if lte IE 8]>
+	<script type="text/javascript" src="https://www.phoebus-energy.com/wp-content/themes/Aperio/js/respond.min.js"></script>
+<![endif]-->
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MMVRDTV');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+
+<body id="home" class="home page-template page-template-fullwidth page-template-fullwidth-php page page-id-7792  solid-header header-scheme-light type1 header-fullwidth-no border-default wpb-js-composer js-comp-ver-4.12 vc_responsive">
+<div style="display: none;">
+saneleon hot sax vedio <a href="https://its-ross-wp1.ur.rochester.edu/rsrb/Rooms/RoomComponents/LoginView/GetSessionAndBack?_webrVerifySession=637584002324910712&amp;redirectback=//www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> sexgals
+zorla sikiş <a href="http://aquaculture.seagrant.uaf.edu/click-thru.html?url=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> tu egalore com
+cake farts porn hub <a href="http://fishbiz.seagrant.uaf.edu/click-thru.html?url=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> kizumonogatari hentai
+planetsuzy ava addams <a href="http://cat.sustech.edu/cgi-bin/koha/tracklinks.pl?uri=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> pukejob
+abbywintersfree <a href="http://library.sust.edu/cgi-bin/koha/tracklinks.pl?biblionumber=3967&amp;uri=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> hwporner
+hrntaihaven <a href="http://openlink.ca.skku.edu/link.n2s?url=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> okusama ga seitokaichou! hentai
+jinx blowjob <a href="https://research.ece.cmu.edu/protoflex/lib/exe/fetch.php?media=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> lindsey woods anal
+gifwithsauce <a href="http://web.stanford.edu/cgi-bin/redirect?dest=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> trash nurses 4
+anonib alternative <a href="https://www.ece.cmu.edu/~protoflex/lib/exe/fetch.php?media=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> fnaf bonnie porn
+fuckyeahhotcouple <a href="https://ecap.hss.edu/eCap/sd/Rooms/RoomComponents/LoginView/GetSessionAndBack?redirectBack=https://www.indiansexmovies.mobi/&amp;_webrVerifySession=637551295835868790" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> mnfclub updates
+barbara borges nude <a href="https://e-irb.jhmi.edu/eirb2/sd/Rooms/RoomComponents/LoginView/GetSessionAndBack?redirectBack=https://www.indiansexmovies.mobi/&amp;_webrVerifySession=637804005339104182" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> jazmine miner nude
+dirtyakira porn <a href="https://login.aup.edu/cas/login?gateway=true&amp;service=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> shemale cum while fucked
+erome joi <a href="https://m2.capella.edu/mobile-feed/auth/redirect.feed?token=sOnnlFdVN8eBpDXSDHxrqe-sdmY.*AAJTSQACMDIAAlNLABxlR0JyRi9uSmI0Qzhpb0NKMXlqTWZrKzl5Zk09AAJTMQACMDE.*&amp;url=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> czech hunter 271
+britney amber boobpedia <a href="https://rrp.rush.edu/researchportal/sd/Rooms/RoomComponents/LoginView/GetSessionAndBack?redirectBack=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> tsunade cosplay porn
+kaity sun fuck <a href="https://sunysullivan.edu/urlRedir.php?redir=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> cnnamador
+trike patrol celine <a href="https://ur.umich.edu/adfix2.php?id=205&amp;url=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> teenshoplyfter
+tiffany thompson pov <a href="http://games.lynms.edu.hk/jump.php?url=https://www.indiansexmovies.mobi/" rel="dofollow" target="_self" title="Indian Sex">Indian Sex</a> rachellromeo
+</div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMVRDTV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+ 
+
+<!-- mobile menu Starts Here-->
+
+<div id="mobile_navigation">
+  <a id="close-mobile-menu" href="#">X</a>
+  <ul id="mobile_menu" class="mobile_menu"><li id="menu-item-8598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8598"><a href="#">The Company</a>
+<ul class="sub-menu">
+	<li id="menu-item-8603" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8603"><a href="https://www.phoebus-energy.com/about/">About</a></li>
+	<li id="menu-item-10562" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10562"><a href="https://www.phoebus-energy.com/management/">Management</a></li>
+	<li id="menu-item-8607" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8607"><a href="https://www.phoebus-energy.com/investors/">Investors</a></li>
+	<li id="menu-item-8722" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8722"><a href="https://www.phoebus-energy.com/clients/">Clients</a></li>
+</ul>
+</li>
+<li id="menu-item-8614" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8614"><a href="https://www.phoebus-energy.com/solution/">Solution</a></li>
+<li id="menu-item-9122" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-9122"><a href="https://www.phoebus-energy.com/products/">Products</a>
+<ul class="sub-menu">
+	<li id="menu-item-8690" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8690"><a href="https://www.phoebus-energy.com/products/hydra-balance/">Hydra Balance</a></li>
+	<li id="menu-item-8853" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8853"><a href="https://www.phoebus-energy.com/products/hydra-air/">Hydra Air</a></li>
+</ul>
+</li>
+<li id="menu-item-8691" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8691"><a href="https://www.phoebus-energy.com/case-studies/">Case Studies</a>
+<ul class="sub-menu">
+	<li id="menu-item-8974" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-8974"><a href="https://www.phoebus-energy.com/portfolio/crowne-plaza-athens/">Crowne Plaza Athens</a></li>
+	<li id="menu-item-8971" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-8971"><a href="https://www.phoebus-energy.com/portfolio/holiday-inn-athens/">Holiday Inn Athens</a></li>
+	<li id="menu-item-8973" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-8973"><a href="https://www.phoebus-energy.com/portfolio/ramada-jerusalem/">Ramada Jerusalem</a></li>
+	<li id="menu-item-8969" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-8969"><a href="https://www.phoebus-energy.com/portfolio/royal-beach-tel-aviv/">Royal Beach Tel Aviv</a></li>
+	<li id="menu-item-10210" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-10210"><a href="https://www.phoebus-energy.com/portfolio/beresheet-hotel/">Beresheet  hotel</a></li>
+	<li id="menu-item-8972" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-8972"><a href="https://www.phoebus-energy.com/portfolio/sheraton-tel-aviv/">Sheraton Tel Aviv</a></li>
+	<li id="menu-item-10477" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-10477"><a href="https://www.phoebus-energy.com/portfolio/cramim-hotel/">Cramim hotel</a></li>
+	<li id="menu-item-10502" class="menu-item menu-item-type-post_type menu-item-object-portfolio menu-item-10502"><a href="https://www.phoebus-energy.com/portfolio/royal-beach-eilat/">Royal beach Eilat</a></li>
+</ul>
+</li>
+<li id="menu-item-8696" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8696"><a href="https://www.phoebus-energy.com/contact/">Contact</a></li>
+</ul></div>
+<!-- End Mobile Navigation -->
+
+
+<!-- Header -->
+                 
+<div id="header_wrapper" class=" solid-header header-scheme-light type1">
+  
+<div id="top_bar" class="top-bar">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="row-fluid">
+        <div class="span6 topbar-left-content">
+                  </div>
+        <div class="span6 topbar-right-content">
+          <ul id="top_menu" class="top-menu"><li id="menu-item-8906" class="access menu-item menu-item-type-custom menu-item-object-custom menu-item-8906"><a target="_blank" rel="noopener" href="https://site.phoebus-energy.com/phoebus">Client Access</a></li>
+<li id="menu-item-wpml-ls-66-en" class="menu-item-language menu-item-language-current menu-item wpml-ls-slot-66 wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-menu-item wpml-ls-first-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-66-en"><a title="English" href="https://www.phoebus-energy.com/"><img width="18" height="12" class="wpml-ls-flag entered lazyloaded" src="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="" data-lazy-src="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" data-ll-status="loaded"><noscript><img width="18" height="12"
+            class="wpml-ls-flag"
+            src="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png"
+            alt=""
+            width=18
+            height=12
+    /></noscript><span class="wpml-ls-native" lang="en">English</span></a></li>
+<li id="menu-item-wpml-ls-66-es" class="menu-item-language menu-item wpml-ls-slot-66 wpml-ls-item wpml-ls-item-es wpml-ls-menu-item wpml-ls-last-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-66-es"><a title="Español" href="https://www.phoebus-energy.com/es/"><img width="18" height="12" class="wpml-ls-flag entered lazyloaded" src="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt="" data-lazy-src="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" data-ll-status="loaded"><noscript><img width="18" height="12"
+            class="wpml-ls-flag"
+            src="https://www.phoebus-energy.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png"
+            alt=""
+            width=18
+            height=12
+    /></noscript><span class="wpml-ls-native" lang="es">Español</span></a></li>
+</ul>        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="header_container">
+    <div id="header" class="header-v1  second-nav" data-height="110" data-shrinked-height="65" data-auto-offset="1" data-offset="0" data-second-nav-offset="0">
+      <section id="main_navigation" class="header-nav shrinking-nav">
+        <div class="container">
+          <div id="main_navigation_container" class="row-fluid">
+            <div class="row-fluid"> 
+              <!-- logo -->
+              <div class="logo-container">
+                <a id="logo" href="https://www.phoebus-energy.com">
+                                    <img width="173" height="51" src="https://www.phoebus-energy.com/wp-content/uploads/2015/12/logo-phoebust1.png" class="default-logo entered lazyloaded" alt="Phoebus Energy" data-lazy-src="https://www.phoebus-energy.com/wp-content/uploads/2015/12/logo-phoebust1.png" data-ll-status="loaded"><noscript><img width="173" height="51" src="https://www.phoebus-energy.com/wp-content/uploads/2015/12/logo-phoebust1.png" class="default-logo" alt="Phoebus Energy"></noscript>
+                                    <img src="" class="white-logo" alt="Phoebus Energy">
+                                    </a>
+         
+              </div>  
+                
+              <!-- Tooggle Menu will displace on mobile devices -->
+              <div id="mobile-menu-container">
+                            <a class="toggle-menu" href="#"><i class="fa-navicon"></i></a>  
+              </div>
+              
+              <nav class="nav-container">
+                <ul id="main_menu" class="main_menu">
+                <!-- Main Navigation Menu -->
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">The Company</a>
+<ul class="sub-menu ">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/about/">About</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/management/">Management</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/investors/">Investors</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/clients/">Clients</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/solution/">Solution</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://www.phoebus-energy.com/products/">Products</a>
+<ul class="sub-menu ">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/products/hydra-balance/">Hydra Balance</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/products/hydra-air/">Hydra Air</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://www.phoebus-energy.com/case-studies/">Case Studies</a>
+<ul class="sub-menu ">
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/crowne-plaza-athens/">Crowne Plaza Athens</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/holiday-inn-athens/">Holiday Inn Athens</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/ramada-jerusalem/">Ramada Jerusalem</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/royal-beach-tel-aviv/">Royal Beach Tel Aviv</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/beresheet-hotel/">Beresheet  hotel</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/sheraton-tel-aviv/">Sheraton Tel Aviv</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/cramim-hotel/">Cramim hotel</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-portfolio"><a href="https://www.phoebus-energy.com/portfolio/royal-beach-eilat/">Royal beach Eilat</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.phoebus-energy.com/contact/">Contact</a></li>
+                             
+                                
+                  
+				               
+               </ul>
+               </nav>
+              </div>
+            </div>
+          </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+
+                <!-- Static Page Titlebar -->
+<section id="titlebar" class="titlebar  titlebar-type-solid border-no titlebar-scheme-light titlebar-alignment-center titlebar-valignment-center titlebar-size-large enable-hr-yes" data-height="500" data-rs-height="yes">
+  <div class="parallax-image parallax-section-no"></div>
+  <div class="section-overlay"></div>
+  <div class="titlebar-wrapper">
+    <div class="titlebar-content">
+      <div class="container">
+        <div class="row-fluid">
+          <div class="row-fluid">
+            <div class="titlebar-heading">
+              <h1><span> Award-winning cleantech company</span></h1>              <div class="hr hr-border-primary double-border border-medium"><span></span></div>
+            <div class="titlebar-subcontent">Few degrees make all the difference</div>            </div>
+                                            
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End Header -->     <div class="fullwidth">
+    <section id="section_1924213365" class="section content-box   section-border-no section-bborder-no section-height-content section-bgtype- section-fixed-background-no  section-bgstyle-stretch section-triangle-no triangle-location-top parallax-section-no section-overlay-no section-overlay-dot-no " style="padding-top:90px;padding-bottom:90px;background-color:#ffffff;" data-video-ratio="" data-parallax-speed="1"><div class="section-overlay" style=""></div><div class="container section-content"><div class="row-fluid"><div class="row-fluid equal-cheight-no  element-padding-default element-vpadding-default">
+	<div class="section-column span12" style="">
+		<div class="inner-content  content-box  textcenter" style="padding-top:0px;padding-bottom:0px;padding-left:30px;padding-right:30px;">
+			
+	<div class="column-text ">
+		
+<h4 style="text-align: center;">Phoebus Energy is an Award-winning cleantech company with a patented energy-saving solution for water heating and cooling in medium to large commercial facilities.</h4>
+<h4 style="text-align: center;">The company has developed a proven technology for dramatically reducing greenhouse gas pollution in medium to large commercial facilities, contributing to a greener planet while saving money for its clients.</h4>
+<h4 style="text-align: center;">Phoebus Energy’s solution smartly utilizes energy that would otherwise go to waste.</h4>
+<h4 style="text-align: center;">Designed for commercial use, the system makes efficient use of unutilized energy and optimizes consumption using smart algorithms. It works with existing heating and cooling systems to bring immediate savings and pollution reduction.</h4>
+
+	</div> 
+		</div> 
+	</div> 
+</div></div></div></section><section id="section_353883779" class="section content-box   section-border-no section-bborder-no section-height-content section-bgtype- section-fixed-background-no  section-bgstyle-stretch section-triangle-no triangle-location-top parallax-section-no section-overlay-no section-overlay-dot-no " style="padding-top:60px;padding-bottom:60px;background-color:#f5f5f5;" data-video-ratio="" data-parallax-speed="1"><div class="section-overlay" style=""></div><div class="container section-content"><div class="row-fluid"><div class="row-fluid equal-cheight-no  element-padding-default element-vpadding-default">
+	<div class="section-column span12" style="">
+		<div class="inner-content  content-box  textnone" style="padding-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px;">
+			
+	<h2 class="title textcenter style1 bw-defaultpx dh-defaultpx  divider-primary bc-default  dw-default color-default" style="margin-bottom:55px"><span>Testimonials</span>
+	</h2>
+
+	<div class="quotes-slider-container bx-carousel-container navigation-align-bottom" data-navigation="yes" data-effect="horizontal" data-autoplay="no" data-interval="5000" data-pagination="no">
+		<span class="carousel-next"></span><span class="carousel-prev"></span>
+			<ul class="quotes-slider bx-fake-slider">
+				
+	<li class="quote-slider-item"><div class="quote-logo"><img fetchpriority="high" decoding="async" width="300" height="350" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20350'%3E%3C/svg%3E" class="attachment-fullwidth" alt="" data-lazy-srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/LogoHandler.png 300w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/LogoHandler-257x300.png 257w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/LogoHandler.png"><noscript><img fetchpriority="high" decoding="async" width="300" height="350" src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/LogoHandler.png" class="attachment-fullwidth" alt="" srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/LogoHandler.png 300w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/LogoHandler-257x300.png 257w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div>
+		<blockquote><q>“We’re very pleased with the recent installation of Hydra Balance by Phoebus Energy. From the moment the system started operating, we noticed a big drop in our boiler usage, which translates to a reduction of costs and pollutants.”</q></blockquote><h3 class="cite">
+			<span class="quote-name"> - Mr. Ivan Alsina</span>, 
+				<span class="quote-desc">Director of Engineering, Sheraton Hotel &amp; Casino Puerto Rico</span></h3>
+	</li>
+	<li class="quote-slider-item"><div class="quote-logo"><img decoding="async" width="896" height="350" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20896%20350'%3E%3C/svg%3E" class="attachment-fullwidth" alt="" data-lazy-srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza.jpg 896w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-300x117.jpg 300w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-768x300.jpg 768w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-600x234.jpg 600w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-800x313.jpg 800w" data-lazy-sizes="(max-width: 896px) 100vw, 896px" data-lazy-src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza.jpg"><noscript><img decoding="async" width="896" height="350" src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza.jpg" class="attachment-fullwidth" alt="" srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza.jpg 896w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-300x117.jpg 300w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-768x300.jpg 768w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-600x234.jpg 600w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/Crowne_Plaza-800x313.jpg 800w" sizes="(max-width: 896px) 100vw, 896px" /></noscript></div>
+		<blockquote><q>“Energy expenses are very significant for hotels. We started using Hydra Balance in January 2014. Our current gas savings are between 90% to 95%, which is simply amazing!”</q></blockquote><h3 class="cite">
+			<span class="quote-name"> - Mr. Meir Ben Ari</span>, 
+				<span class="quote-desc">Technical Manager, Crowne Plaza Tel Aviv</span></h3>
+	</li>
+	<li class="quote-slider-item"><div class="quote-logo"><img decoding="async" width="499" height="350" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20499%20350'%3E%3C/svg%3E" class="attachment-fullwidth" alt="" data-lazy-srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/1280px-Holiday_Inn_Logo.jpg 499w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/1280px-Holiday_Inn_Logo-300x210.jpg 300w" data-lazy-sizes="(max-width: 499px) 100vw, 499px" data-lazy-src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/1280px-Holiday_Inn_Logo.jpg"><noscript><img decoding="async" width="499" height="350" src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/1280px-Holiday_Inn_Logo.jpg" class="attachment-fullwidth" alt="" srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/1280px-Holiday_Inn_Logo.jpg 499w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/1280px-Holiday_Inn_Logo-300x210.jpg 300w" sizes="(max-width: 499px) 100vw, 499px" /></noscript></div>
+		<blockquote><q>“Hydra Balance was installed in our Crowne Plaza Athens after a successful installation of Hydra Air in the Holiday Inn Attica in Athens. It brought significant savings to both 5-star hotels and the real-time website interface provides very useful data, far superior to any competing systems. At the Holiday Inn, we cut our related energy expenses by 59%, amounting to savings of €378,000 since installation. At the Crown Plaza, we saved 61% or €262,000 since installation.”</q></blockquote><h3 class="cite">
+			<span class="quote-name"> - Mr. Yani Keskinoglou</span>, 
+				<span class="quote-desc">Technical Manager at Holiday Inn Athens</span></h3>
+	</li>
+	<li class="quote-slider-item"><div class="quote-logo"><img decoding="async" width="350" height="350" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20350%20350'%3E%3C/svg%3E" class="attachment-fullwidth" alt="" data-lazy-srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv.jpg 350w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv-150x150.jpg 150w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv-300x300.jpg 300w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv-80x80.jpg 80w" data-lazy-sizes="(max-width: 350px) 100vw, 350px" data-lazy-src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv.jpg"><noscript><img decoding="async" width="350" height="350" src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv.jpg" class="attachment-fullwidth" alt="" srcset="https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv.jpg 350w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv-150x150.jpg 150w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv-300x300.jpg 300w, https://www.phoebus-energy.com/wp-content/uploads/2014/12/sheraton-telaviv-80x80.jpg 80w" sizes="(max-width: 350px) 100vw, 350px" /></noscript></div>
+		<blockquote><q>“By implementing the Hydra Balance system by Phoebus Energy, we’ve reduced yearly pollution by 64 tons and costs by 79%. The results exceeded our expectations and support the Starwood ’30/20 by 20′ environmental goals.”</q></blockquote><h3 class="cite">
+			<span class="quote-name"> - Mr. Eran Zohar</span>, 
+				<span class="quote-desc">Director of Engineering, Sheraton Tel Aviv Hotel</span></h3>
+	</li>
+	<li class="quote-slider-item"><div class="quote-logo"><img decoding="async" width="297" height="74" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20297%2074'%3E%3C/svg%3E" class="attachment-fullwidth" alt="" data-lazy-src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/רמדה-קטן.jpg"><noscript><img decoding="async" width="297" height="74" src="https://www.phoebus-energy.com/wp-content/uploads/2014/12/רמדה-קטן.jpg" class="attachment-fullwidth" alt="" /></noscript></div>
+		<blockquote><q>“With the purchase of the Phoebus Energy system, we managed to reduce our fuel consumption by 70% to 80%, which translates into saving about 400,000 NIS (over $100,000) over the course of the first three months. Purchasing the system was among the most important decisions that I made as General Manager of the hotel.”</q></blockquote><h3 class="cite">
+			<span class="quote-name"> - Mr. Yacov Shaari </span>, 
+				<span class="quote-desc">General Manager of Ramada Hotel Jerusalem</span></h3>
+	</li>
+			</ul>
+			<div class="carousel-pagination"></div>
+	</div>
+		</div> 
+	</div> 
+</div></div></div></section>
+  
+   </div>
+  
+
+<footer id="footer" class="cover-padding-no">
+    <div class="footer-widgets headline-bg-transparent">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="footer-widget-container row-fluid">
+          <div id="text-2" class="widget widget_meta widget_text span3"><h4>About Phoebus Energy</h4>			<div class="textwidget">Phoebus Energy is a leading global cleantech company in the field of water heating and cooling for large commercial facilities. The company has developed a patented energy-saving solution that works with existing systems to boost energy efficiency while dramatically reducing emissions and energy costs.</div>
+		</div><div id="text-3" class="widget widget_meta widget_text span3"><h4>Contact Details</h4>			<div class="textwidget"><p><i class="fa fa-phone"></i><span>+972-9-7401999</span></p>
+<p><i class="fa fa-fax"></i><span>+972-9-7409044</span></p>
+<p><i class="fa fa-map-marker"></i><span>7 Hapelech Street Tel Aviv 6816727</span></p>
+<p><i class="fa fa-envelope"></i><span><a href="mailto:info@phoebus-energy.com">info@phoebus-energy.com
+</a></span></p></div>
+		</div><div id="text-4" class="widget widget_meta widget_text span3"><h4>Newsletter</h4>			<div class="textwidget"><div id="mc_embed_signup">
+<form action="//phoebus-energy.us12.list-manage.com/subscribe/post?u=7edd2dbb47b85b3e244dc4fd7&amp;id=26ccef10b6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+<div class="mc-field-group">
+        <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+        <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7edd2dbb47b85b3e244dc4fd7_26ccef10b6" tabindex="-1" value=""></div>
+  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+
+</form></div>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/downloads.mailchimp.com/js/mc-validate.js?ver=1711952841"></script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+		</div><div id="text-6" class="widget widget_meta widget_text span3">			<div class="textwidget"><h3>Phoebus Energy is the proud winner of the Global Cleantech 100</h3><a href="http://www.cleantech.com/" target="_blank" rel="noopener"><img width="213" height="93" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20213%2093'%3E%3C/svg%3E" data-lazy-src="https://www.phoebus-energy.com/wp-content/uploads/2016/01/Cleantech-100-Logo-1.png"><noscript><img width="213" height="93" src="https://www.phoebus-energy.com/wp-content/uploads/2016/01/Cleantech-100-Logo-1.png"/></noscript></a>
+</div>
+		</div>                  </div>
+      </div>
+    </div>
+  </div>
+    
+  
+    
+  <div id="copyright">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="row-fluid">
+          <div class="copyright-text copyright-left">
+                        Copyright 2023 <a href="/">PHOEBUS ENERGY</a><span class="sep">|</span>Developed by <a href="http://www.aeroplane.co.il" target="_blank">AEROPLANE</a>                      </div>
+          <div class="textright copyright-right">
+            <a class="go-top readmore" href="#"><span>Go to Top</span><span class="brad-icon"><i class="fa fa-caret-up"></i></span></a>            <!-- Top Bar Social Icons END --> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end copyright -->
+
+
+	<script type="rocketlazyloadscript">
+	/***********************
+	MODAL
+	***********************/
+
+	$(function(){
+
+	var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
+
+	  $('a[data-modal-id]').click(function(e) {
+	    e.preventDefault();
+	    $("body").append(appendthis);
+	    $("body").css("overflow-y", "hidden");
+	    $(".modal-overlay").fadeTo(500, 0.7);
+	    //$(".js-modalbox").fadeIn(500);
+	    var modalBox = $(this).attr('data-modal-id');
+	    $('#'+modalBox).fadeIn($(this).data());
+	  });  
+		$('.js-modal-close, .modal-overlay').click(function() {
+		  $(".modal-box, .modal-overlay").fadeOut(500, function() {
+		    $(".modal-overlay").remove();
+		    $("body").css("overflow-y", "visible");
+		  });
+		});
+	 
+	$(window).resize(function() {
+	  $(".modal-box").css({
+	    top: ($(window).height() - $(".modal-box").outerHeight()) / 2,
+	    left: ($(window).width() - $(".modal-box").outerWidth()) / 2
+	  });
+	});
+	 
+	$(window).resize();
+	 
+	});	
+
+	/***********/
+		jQuery(document).ready(function($) {
+			$(".portfolio-item").click(function() {
+			  window.location = $(this).find("a").attr("href"); 
+			  return false;
+			});
+			 $('.popbox').popbox();
+		 });
+	</script>
+			<script type="rocketlazyloadscript">
+	jQuery( document ).ready(function() {
+		init();
+	});
+	
+	function init(){
+		//refreshTotalSummaryData();	
+		// refreshMachineData();		
+	}
+	function commaSeparateNumber(val){
+			while (/(\d+)(\d{3})/.test(val.toString())){
+			  val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+			}
+			return val;
+  	}		
+	
+	function refreshMachineData()	  
+	{
+			// var url = 'https://phoebus.point-app.com/PhoebusCommercialService2/Service.svc/GetCompleteCommercialData';
+			var url = 'https://phoebus.point-app.com/commercialservice/api/getcompletecommercialdata';
+			
+			var jqxhr = jQuery.ajax({
+			   type: 'GET',
+				url: url,
+				data:{machineId : getSelectedMachineId()},
+				async: false,
+				jsonpCallback: '$callback',
+				dataType: 'jsonp',
+				crossDomain : "true"
+			})
+			
+			 jqxhr.done(function(data) {
+						setMachineData(data);
+				  })
+				  .fail(function(err) {
+						console.error( err );
+				  })
+				  .always(function(jqXHR, textStatus, errorThrown ) {
+					setTimerdata();	
+				  });
+
+	}	
+				
+		function setTimerdata()  
+		{
+			//setTimeout(refreshData, 5000);
+		}
+		
+		function setMachineData(data)	  
+		{			
+				console.log(data);	
+				jQuery("#KwhThermalM").html(commaSeparateNumber(data.SummaryMonth[0].KwhThermal));
+				jQuery("#SavedCO2M").html(commaSeparateNumber(data.SummaryMonth[0].SavedCO2));
+				jQuery("#SavingM").html(commaSeparateNumber(data.SummaryMonth[0].Saving));
+				jQuery("#SavingPercentM").html(Math.round(data.SummaryMonth[0].SavingPercent));
+									
+				jQuery("#KwhThermalY").html(commaSeparateNumber(data.SummaryYear[0].KwhThermal));
+				jQuery("#SavedCO2Y").html(commaSeparateNumber(data.SummaryYear[0].SavedCO2));
+				jQuery("#SavingY").html(commaSeparateNumber(data.SummaryYear[0].Saving));
+				jQuery("#SavingPercentY").html(Math.round(data.SummaryYear[0].SavingPercent));
+				
+		}
+			
+		
+		function getSelectedMachineId()	  
+		{
+				return parseInt(jQuery("#select-site").html());
+		}
+		
+		function changeSite()	  
+		{
+				refreshMachineData();
+		}
+		(function ($) {	
+			
+			maxTries = 40;
+			intervals = 100;
+			tries = 0;
+			
+			function waitForCarousel () {
+				// console.log (tries);
+				
+				if (undefined !== $('.portfolio-items').triggerHandler("queue"))
+					initCarousel();
+				else if (tries++ < maxTries)	
+					setTimeout(waitForCarousel, intervals);
+			}
+			function refreshCarousel () {
+				// console.log('boo');
+				refreshMachineData();
+			}
+			
+			function initCarousel () {
+				$('.portfolio-items').trigger("configuration",{scroll:{onAfter:refreshCarousel}})
+			}
+			
+			setTimeout(waitForCarousel, intervals);
+			
+		
+		
+		})(jQuery);	
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/simple-tooltips/zebra_tooltips.js?ver=1711952841" id="simple_tooltips_base-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1711952841" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.phoebus-energy.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1711952841" id="contact-form-7-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/www.phoebus-energy.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/js/brad-love.js?ver=1711952841" id="brad-love-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6Lf3z4EfAAAAANZ-AvNJQ0yLrzxi-sG_KFtoi_3Q&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id="wp-polyfill-inert-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0" id="regenerator-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6Lf3z4EfAAAAANZ-AvNJQ0yLrzxi-sG_KFtoi_3Q","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1711952841" id="wpcf7-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.12" id="wpb_composer_front_js-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/js/modernizr.js?ver=1711952841" id="modernizr-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/themes/Aperio/js/fitvids.min.js" id="fitvids-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/js/prettyPhoto.js?ver=1711952841" id="prettyPhoto-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/js/plugins.js?ver=1711952841" id="plugins-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/js/skrollr.js?ver=1711952841" id="skrollr-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/cache/min/1/wp-content/themes/Aperio/js/imagesloaded.js?ver=1711952841" id="jquery.imagesloaded-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/themes/Aperio/js/jquery.scrollTo.min.js" id="jquery.scrollTo-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.min.js?ver=4.12" id="waypoints-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/themes/Aperio/js/bxslider.min.js" id="bxslider-js"></script>
+<script type="text/javascript" id="main-js-extra">
+/* <![CDATA[ */
+var main = {"url":"https:\/\/www.phoebus-energy.com\/wp-content\/themes\/Aperio","nomoreposts":"No more Posts to Load","nomoreprojects":"No more Projects to Load","ajaxurl":"https:\/\/www.phoebus-energy.com\/wp-admin\/admin-ajax.php","contactNonce":"06114105f4","lightboxArg":{"animation_speed":"fast","overlay_gallery":true,"autoplay_slideshow":false,"slideshow":"5000","theme":"pp_default","opacity":"0.8","show_title":true,"social_tools":true,"disable_for_sma":false}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-content/themes/Aperio/js/main.min.js" id="main-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://www.phoebus-energy.com/wp-includes/js/comment-reply.min.js?ver=6.4.3" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+ 
+<!-- Custom Scripts -->
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+(function($){
+    'use strict';
+	jQuery(document).ready(function($){ 
+	
+		  
+	  var retina = window.devicePixelRatio > 1 ? true : false;
+                 if(retina) {
+        	jQuery('#logo .default-logo').attr('src', 'https://www.phoebus-energy.com/wp-content/uploads/2015/12/logo-phoebust1.png');
+        	jQuery('#logo img').css('max-width', '175px');
+						jQuery('#logo .white-logo').attr('src', 'https://www.phoebus-energy.com/wp-content/uploads/2015/12/logo-phoebust1.png');
+						        }
+        		
+	});
+}(jQuery))	
+</script>
+                        			            
+                <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+                    jQuery(function() {
+                                                
+                        jQuery(".tooltips img").closest(".tooltips").css("display", "inline-block");
+                    
+                        new jQuery.Zebra_Tooltips(jQuery('.tooltips').not('.custom_m_bubble'), {
+                            'background_color':     '#ffffff',
+                            'color':				'#353535',
+                            'max_width':  250,
+                            'opacity':    .95, 
+                            'position':    'center'
+                        });
+                        
+                                            
+                    });
+                </script>        
+		<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://www.phoebus-energy.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><!-- End footer -->
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript"> _linkedin_data_partner_id = "120902"; </script><script type="rocketlazyloadscript" data-rocket-type="text/javascript"> (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=120902&fmt=gif" /> </noscript>
+
+</body></html>

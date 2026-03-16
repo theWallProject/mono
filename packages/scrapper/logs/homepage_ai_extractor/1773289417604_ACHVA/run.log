@@ -1,0 +1,75 @@
+[2026-03-12T04:23:37.604Z] === Homepage AI Extractor: ACHVA ===
+[2026-03-12T04:23:37.604Z] Started at: 2026-03-12T04:23:37.604Z
+[2026-03-12T04:23:37.604Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773289417604_ACHVA
+[2026-03-12T04:23:37.605Z] Company: ACHVA
+[2026-03-12T04:23:37.605Z] Website: halva.co.il
+[2026-03-12T04:23:37.605Z] cbRank: 794412
+[2026-03-12T04:23:37.605Z] Reasons: h
+[2026-03-12T04:23:37.605Z] Fetching: https://halva.co.il
+[2026-03-12T04:23:39.929Z] Redirected: https://halva.co.il -> https://halva.co.il/
+[2026-03-12T04:23:39.947Z] Saved HTML (525159 bytes) to page.html
+[2026-03-12T04:23:39.951Z] Extracted 31 unique links from page
+[2026-03-12T04:23:39.952Z] Saved 31 links to links.json
+[2026-03-12T04:23:39.955Z] Extracted footer HTML (638 chars)
+[2026-03-12T04:23:39.955Z] Extracted header HTML (6751 chars)
+[2026-03-12T04:23:39.960Z] Website (post-redirect): https://halva.co.il/ → origin: https://halva.co.il
+[2026-03-12T04:23:39.960Z]   SUBDOMAIN: english.halva.co.il (added to ws)
+[2026-03-12T04:23:39.960Z] Website subdomains found: 1
+[2026-03-12T04:23:39.960Z] External links: 7 (of 31 total)
+[2026-03-12T04:23:39.960Z] ── All external links ──
+[2026-03-12T04:23:39.960Z]   EXT: https://www.enable.co.il
+[2026-03-12T04:23:39.961Z]   EXT: https://www.facebook.com/achvafood
+[2026-03-12T04:23:39.961Z]   EXT: https://www.instagram.com/achvafood
+[2026-03-12T04:23:39.961Z]   EXT: https://www.upress.co.il
+[2026-03-12T04:23:39.961Z]   EXT: https://www.youtube.com/channel/UCFyMbyGi6jJMr0sNUVKfd1A
+[2026-03-12T04:23:39.961Z]   EXT: https://www.youtube.com/watch?v=mtjDSJVtRVw
+[2026-03-12T04:23:39.961Z]   EXT: https://www.youtube.com/watch?v=mtjDSJVtRVw&t=3s
+[2026-03-12T04:23:39.961Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T04:23:39.961Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-12T04:23:39.961Z]   REGEX: fb <- https://www.facebook.com/achvafood
+[2026-03-12T04:23:39.961Z]   REGEX: ig <- https://www.instagram.com/achvafood
+[2026-03-12T04:23:39.961Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-12T04:23:39.961Z]   REGEX: ytc <- https://www.youtube.com/channel/UCFyMbyGi6jJMr0sNUVKfd1A
+[2026-03-12T04:23:39.962Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-12T04:23:39.962Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=mtjDSJVtRVw
+[2026-03-12T04:23:39.962Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=mtjDSJVtRVw&t=3s
+[2026-03-12T04:23:39.962Z] Programmatic result: ws:2, fb:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-12T04:23:39.962Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T04:23:39.963Z] Saved AI prompt (2360 chars) to ai_prompt.txt
+[2026-03-12T04:23:39.963Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T04:23:39.974Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T04:23:47.254Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-12T04:23:47.254Z] AI response complete: 0 chars in 7.3s
+[2026-03-12T04:23:47.255Z] Saved AI response to ai_response.json
+[2026-03-12T04:23:47.255Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T04:23:47.255Z] AI returned 0 valid links
+[2026-03-12T04:23:47.255Z] ── Categorizing 0 AI-returned links ──
+[2026-03-12T04:23:47.256Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T04:23:47.256Z] Footer/header origins (2):
+[2026-03-12T04:23:47.256Z]   FOOTER/HEADER ORIGIN: https://halva.co.il
+[2026-03-12T04:23:47.256Z]   FOOTER/HEADER ORIGIN: http://english.halva.co.il
+[2026-03-12T04:23:47.256Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-12T04:23:47.256Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-12T04:23:47.256Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T04:23:47.256Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T04:23:47.256Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T04:23:47.569Z]   YOUTUBE: resolved UCFyMbyGi6jJMr0sNUVKfd1A → @%D7%90%D7%97%D7%95%D7%94-%D7%947%D7%9B
+[2026-03-12T04:23:47.570Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T04:23:47.570Z] ── Step 3: Final dedup ──
+[2026-03-12T04:23:47.570Z] No urls to dedup
+[2026-03-12T04:23:47.570Z] ── FINAL RESULT ──
+[2026-03-12T04:23:47.570Z]   ws (2):
+[2026-03-12T04:23:47.570Z]     - https://english.halva.co.il
+[2026-03-12T04:23:47.570Z]     - https://halva.co.il
+[2026-03-12T04:23:47.570Z]   fb (1):
+[2026-03-12T04:23:47.570Z]     - https://www.facebook.com/achvafood
+[2026-03-12T04:23:47.570Z]   ig (1):
+[2026-03-12T04:23:47.570Z]     - https://www.instagram.com/achvafood
+[2026-03-12T04:23:47.570Z]   ytp (1):
+[2026-03-12T04:23:47.571Z]     - https://www.youtube.com/@%D7%90%D7%97%D7%95%D7%94-%D7%947%D7%9B
+[2026-03-12T04:23:47.571Z]   ytc (1):
+[2026-03-12T04:23:47.571Z]     - https://www.youtube.com/channel/UCFyMbyGi6jJMr0sNUVKfd1A
+[2026-03-12T04:23:47.571Z] Summary: ws:2, fb:1, ig:1, ytc:1, ytp:1
+[2026-03-12T04:23:47.571Z] Saved final result to result.json
+[2026-03-12T04:23:47.572Z] Override fields: ws, fb, ig, ytp, ytc
+[2026-03-12T04:23:47.572Z] Finished at: 2026-03-12T04:23:47.572Z

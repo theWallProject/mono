@@ -1,0 +1,1659 @@
+<!DOCTYPE html><html lang="en-US" class="hydrated"><head>
+		<meta charset="UTF-8"><style data-styles="">slot-fb{display:contents}slot-fb[hidden]{display:none}presto-playlist,presto-player-skeleton,presto-timestamp,presto-video-curtain-ui,presto-search-bar-ui,presto-player-button,presto-cta-overlay-ui,presto-video,presto-action-bar-ui,presto-youtube-subscribe-button,presto-email-overlay-ui,presto-player-spinner,presto-action-bar,presto-cta-overlay,presto-email-overlay,presto-bunny,presto-dynamic-overlays,presto-search-bar,presto-youtube,presto-audio,presto-business-skin,presto-modern-skin,presto-muted-overlay,presto-stacked-skin,presto-vimeo,presto-action-bar-controller,presto-cta-overlay-controller,presto-email-overlay-controller,presto-dynamic-overlay-ui,presto-player,presto-playlist-item,presto-playlist-overlay,presto-playlist-ui{visibility:hidden}.hydrated{visibility:inherit}</style>
+		<link rel="profile" href="https://gmpg.org/xfn/11">
+		<title>DanceDemy – Innovative online dance learning app based on computer vision and AI technology which provides automatically immediate feedback and guidance for better performance  without human intervention!</title>
+<script type="text/html" id="tmpl-bb-link-preview">
+<% if ( link_scrapping ) { %>
+	<% if ( link_loading ) { %>
+		<span class="bb-url-scrapper-loading bb-ajax-loader"><i class="bb-icon-l bb-icon-spinner animate-spin"></i>Loading preview...</span>
+	<% } %>
+	<% if ( link_success || link_error ) { %>
+		<a title="Cancel Preview" href="#" id="bb-close-link-suggestion">Remove Preview</a>
+		<div class="bb-link-preview-container">
+
+			<% if ( link_images && link_images.length && link_success && ! link_error && '' !== link_image_index ) { %>
+				<div id="bb-url-scrapper-img-holder">
+					<div class="bb-link-preview-image">
+						<div class="bb-link-preview-image-cover">
+							<img src="<%= link_images[link_image_index] %>"/>
+						</div>
+						<div class="bb-link-preview-icons">
+							<%
+							if ( link_images.length > 1 ) { %>
+								<a data-bp-tooltip-pos="up" data-bp-tooltip="Change image" href="#" class="icon-exchange toolbar-button bp-tooltip" id="icon-exchange"><i class="bb-icon-l bb-icon-exchange"></i></a>
+							<% } %>
+							<% if ( link_images.length ) { %>
+								<a data-bp-tooltip-pos="up" data-bp-tooltip="Remove image" href="#" class="icon-image-slash toolbar-button bp-tooltip" id="bb-link-preview-remove-image"><i class="bb-icon-l bb-icon-image-slash"></i></a>
+							<% } %>
+							<a data-bp-tooltip-pos="up" data-bp-tooltip="Confirm" class="toolbar-button bp-tooltip" href="#" id="bb-link-preview-select-image">
+								<i class="bb-icon-check bb-icon-l"></i>
+							</a>
+						</div>
+					</div>
+					<% if ( link_images.length > 1 ) { %>
+						<div class="bb-url-thumb-nav">
+							<button type="button" id="bb-url-prevPicButton"><span class="bb-icon-l bb-icon-angle-left"></span></button>
+							<button type="button" id="bb-url-nextPicButton"><span class="bb-icon-l bb-icon-angle-right"></span></button>
+							<div id="bb-url-scrapper-img-count">
+								Image <%= link_image_index + 1 %>&nbsp;of&nbsp;<%= link_images.length %>
+							</div>
+						</div>
+					<% } %>
+				</div>
+			<% } %>
+
+			<% if ( link_success && ! link_error && link_url ) { %>
+				<div class="bb-link-preview-info">
+					<% var a = document.createElement('a');
+						a.href = link_url;
+						var hostname = a.hostname;
+						var domainName = hostname.replace('www.', '' );
+					%>
+
+					<% if ( 'undefined' !== typeof link_title && link_title.trim() && link_description ) { %>
+						<p class="bb-link-preview-link-name"><%= domainName %></p>
+					<% } %>
+
+					<% if ( link_success && ! link_error ) { %>
+						<p class="bb-link-preview-title"><%= link_title %></p>
+					<% } %>
+
+					<% if ( link_success && ! link_error ) { %>
+						<div class="bb-link-preview-excerpt"><p><%= link_description %></p></div>
+					<% } %>
+				</div>
+			<% } %>
+			<% if ( link_error && ! link_success ) { %>
+				<div id="bb-url-error" class="bb-url-error"><%= link_error_msg %></div>
+			<% } %>
+		</div>
+	<% } %>
+<% } %>
+</script>
+<script type="text/html" id="tmpl-profile-card-popup">
+	<div id="profile-card" class="bb-profile-card bb-popup-card" data-bp-item-id="" data-bp-item-component="members">
+
+		<div class="skeleton-card">
+			<div class="skeleton-card-body">
+				<div class="skeleton-card-avatar bb-loading-bg"></div>
+				<div class="skeleton-card-entity">
+					<div class="skeleton-card-type bb-loading-bg"></div>
+					<div class="skeleton-card-heading bb-loading-bg"></div>
+					<div class="skeleton-card-meta bb-loading-bg"></div>
+				</div>
+			</div>
+						<div class="skeleton-card-footer skeleton-footer-plain">
+				<div class="skeleton-card-button bb-loading-bg"></div>
+				<div class="skeleton-card-button bb-loading-bg"></div>
+				<div class="skeleton-card-button bb-loading-bg"></div>
+			</div>
+		</div>
+
+		<div class="bb-card-content">
+			<div class="bb-card-body">
+				<div class="bb-card-avatar">
+					<span class="card-profile-status"></span>
+					<img src="" alt="">
+				</div>
+				<div class="bb-card-entity">
+					<div class="bb-card-profile-type"></div>
+					<h4 class="bb-card-heading"></h4>
+					<div class="bb-card-meta">
+						<span class="card-meta-item card-meta-joined">Joined <span></span></span>
+						<span class="card-meta-item card-meta-last-active"></span>
+											</div>
+				</div>
+			</div>
+			<div class="bb-card-footer">
+								<div class="bb-card-action bb-card-action-outline">
+					<a href="" class="card-button card-button-profile">View Profile</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</script>
+<script type="text/html" id="tmpl-group-card-popup">
+	<div id="group-card" class="bb-group-card bb-popup-card" data-bp-item-id="" data-bp-item-component="groups">
+
+		<div class="skeleton-card">
+			<div class="skeleton-card-body">
+				<div class="skeleton-card-avatar bb-loading-bg"></div>
+				<div class="skeleton-card-entity">
+					<div class="skeleton-card-heading bb-loading-bg"></div>
+					<div class="skeleton-card-meta bb-loading-bg"></div>
+				</div>
+			</div>
+						<div class="skeleton-card-footer skeleton-footer-plain">
+				<div class="skeleton-card-button bb-loading-bg"></div>
+				<div class="skeleton-card-button bb-loading-bg"></div>
+			</div>
+		</div>
+
+		<div class="bb-card-content">
+			<div class="bb-card-body">
+				<div class="bb-card-avatar">
+					<img src="" alt="">
+				</div>
+				<div class="bb-card-entity">
+					<h4 class="bb-card-heading"></h4>
+					<div class="bb-card-meta">
+						<span class="card-meta-item card-meta-status"></span>
+						<span class="card-meta-item card-meta-type"></span>
+						<span class="card-meta-item card-meta-last-active"></span>
+					</div>
+					<div class="card-group-members">
+						<span class="bs-group-members"></span>
+					</div>
+				</div>
+			</div>
+			<div class="bb-card-footer">
+								<div class="bb-card-action bb-card-action-outline">
+					<a href="" class="card-button card-button-group">View Group</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</script>
+
+            <style id="bb_learndash_30_custom_colors">
+
+                
+                
+                
+                .learndash-wrapper .ld-item-list .ld-item-list-item.ld-item-lesson-item .ld-item-name .ld-item-title .ld-item-components span.ld-status-waiting,
+                .learndash-wrapper .ld-item-list .ld-item-list-item.ld-item-lesson-item .ld-item-name .ld-item-title .ld-item-components span.ld-status-waiting span.ld-icon,
+                .learndash-wrapper .ld-status-waiting {
+                    background-color: #ffd200 !important;
+                }
+
+                
+            </style>
+
+			<meta name="robots" content="max-image-preview:large">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel="alternate" type="application/rss+xml" title="DanceDemy » Feed" href="https://dancedemy.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="DanceDemy » Comments Feed" href="https://dancedemy.com/comments/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/dancedemy.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.5"}};
+/*! This file is auto-generated */
+!function(s,n){var o,i,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),a=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===a[t]})}function u(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);for(var n=e.getImageData(16,16,1,1),a=0;a<n.data.length;a++)if(0!==n.data[a])return!1;return!0}function f(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\udedf")}return!1}function g(e,t,n,a){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):s.createElement("canvas"),o=r.getContext("2d",{willReadFrequently:!0}),i=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(function(e){i[e]=t(o,e,n,a)}),i}function t(e){var t=s.createElement("script");t.src=e,t.defer=!0,s.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",i=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){s.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+g.toString()+"("+[JSON.stringify(i),f.toString(),p.toString(),u.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"}),r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=function(e){c(n=e.data),r.terminate(),t(n)})}catch(e){}c(n=g(i,f,p,u))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel="stylesheet" id="dashicons-css" href="https://dancedemy.com/wp-includes/css/dashicons.min.css?ver=6.8.5" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="https://dancedemy.com/wp-includes/css/admin-bar.min.css?ver=6.8.5" type="text/css" media="all">
+<style id="admin-bar-inline-css" type="text/css">
+
+		@media screen { html { margin-top: 32px !important; } }
+		@media screen and ( max-width: 782px ) { html { margin-top: 46px !important; } }
+	
+@media print { #wpadminbar { display:none; } }
+</style>
+<link rel="stylesheet" id="bp-nouveau-icons-map-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/icons-map.min.css?ver=2.8.61" type="text/css" media="all">
+<link rel="stylesheet" id="bp-nouveau-bb-icons-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/bb-icons.min.css?ver=1.0.8" type="text/css" media="all">
+<link rel="stylesheet" id="bp-nouveau-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/css/buddypress.min.css?ver=2.8.61" type="text/css" media="all">
+<style id="bp-nouveau-inline-css" type="text/css">
+.list-wrap .bs-group-cover a:before{ background:unset; }
+</style>
+<link rel="stylesheet" id="buddyboss_legacy-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/buddyboss_legacy.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="elusive-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/elusive.css?ver=2.0" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/font-awesome.css?ver=4.7.0" type="text/css" media="all">
+<link rel="stylesheet" id="foundation-icons-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/foundation-icons.css?ver=3.0" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/genericons.css?ver=3.4" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<link rel="stylesheet" id="bb_theme_block-buddypanel-style-css-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/blocks/buddypanel/build/style-buddypanel.css?ver=a43481f57c3cc73f6cce06223a569c14" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="bp-admin-bar-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/css/admin-bar.min.css?ver=2.8.61" type="text/css" media="all">
+<link rel="stylesheet" id="bb-pro-enqueue-scripts-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/assets/css/index.min.css?ver=2.7.21" type="text/css" media="all">
+<link rel="stylesheet" id="bb-access-control-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/access-control/assets/css/bb-access-control.min.css?ver=2.7.21" type="text/css" media="all">
+<link rel="stylesheet" id="bb-meprlms-frontend-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/css/meprlms-frontend.min.css?ver=2.8.61" type="text/css" media="all">
+<link rel="stylesheet" id="bb-tutorlms-admin-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/tutorlms/assets/css/bb-tutorlms-admin.min.css?ver=2.8.61" type="text/css" media="all">
+<link rel="stylesheet" id="bp-mentions-css-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/css/mentions.min.css?ver=2.8.61" type="text/css" media="all">
+<link rel="stylesheet" id="woocommerce-layout-css" href="https://dancedemy.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=9.8.5" type="text/css" media="all">
+<link rel="stylesheet" id="woocommerce-smallscreen-css" href="https://dancedemy.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=9.8.5" type="text/css" media="only screen and (max-width: 768px)">
+<link rel="stylesheet" id="woocommerce-general-css" href="https://dancedemy.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=9.8.5" type="text/css" media="all">
+<style id="woocommerce-inline-inline-css" type="text/css">
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel="stylesheet" id="learndash_quiz_front_css-css" href="//dancedemy.com/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_quiz_front.min.css?ver=4.21.4" type="text/css" media="all">
+<link rel="stylesheet" id="learndash-css" href="//dancedemy.com/wp-content/plugins/sfwd-lms/src/assets/dist/css/styles.css?ver=4.21.4" type="text/css" media="all">
+<link rel="stylesheet" id="jquery-dropdown-css-css" href="//dancedemy.com/wp-content/plugins/sfwd-lms/assets/css/jquery.dropdown.min.css?ver=4.21.4" type="text/css" media="all">
+<link rel="stylesheet" id="learndash_lesson_video-css" href="//dancedemy.com/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_lesson_video.min.css?ver=4.21.4" type="text/css" media="all">
+<link rel="stylesheet" id="learndash-admin-bar-css" href="https://dancedemy.com/wp-content/plugins/sfwd-lms/src/assets/dist/css/admin-bar/styles.css?ver=4.21.4" type="text/css" media="all">
+<link rel="stylesheet" id="brands-styles-css" href="https://dancedemy.com/wp-content/plugins/woocommerce/assets/css/brands.css?ver=9.8.5" type="text/css" media="all">
+<link rel="stylesheet" id="redux-extendify-styles-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/inc/admin/framework/redux-core/assets/css/extendify-utilities.css?ver=4.4.11" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-fonts-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/fonts/fonts.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="learndash-front-css" href="//dancedemy.com/wp-content/plugins/sfwd-lms/themes/ld30/assets/css/learndash.min.css?ver=4.21.4" type="text/css" media="all">
+<style id="learndash-front-inline-css" type="text/css">
+		.learndash-wrapper .ld-focus .ld-focus-main .ld-focus-content {
+			max-width: 1600px;
+		}
+		
+</style>
+<link rel="stylesheet" id="elementor-icons-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.40.0" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-wp-admin-bar-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/css/admin-bar.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-26508-css" href="https://dancedemy.com/wp-content/uploads/elementor/css/post-26508.css?ver=1748336528" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="e-shapes-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/css/conditionals/shapes.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="widget-video-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/css/widget-video.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="e-animation-shrink-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="widget-spacer-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="e-animation-float-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-float.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="e-animation-fadeInDown-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInDown.min.css?ver=3.29.0" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-17-css" href="https://dancedemy.com/wp-content/uploads/elementor/css/post-17.css?ver=1748336529" type="text/css" media="all">
+<link rel="stylesheet" id="buddypress-learndash-css" href="https://dancedemy.com/wp-content/plugins/buddypress-learndash/assets/css/buddypress-learndash.min.css?ver=1.3.0" type="text/css" media="all">
+<link rel="stylesheet" id="bp-zoom-css" href="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/zoom/assets/css/bp-zoom.min.css?ver=2.7.21" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-magnific-popup-css-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/vendors/magnific-popup.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-select2-css-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/vendors/select2.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-css-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/theme.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-template-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/template-v2.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-buddypress-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/buddypress.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-forums-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/bbpress.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-learndash-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/learndash.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-woocommerce-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/woocommerce.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="buddyboss-theme-elementor-css" href="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/css/elementor.min.css?ver=2.7.40" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-gf-local-roboto-css" href="https://dancedemy.com/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1748334524" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-gf-local-robotoslab-css" href="https://dancedemy.com/wp-content/uploads/elementor/google-fonts/css/robotoslab.css?ver=1748334528" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-gf-local-oswald-css" href="https://dancedemy.com/wp-content/uploads/elementor/google-fonts/css/oswald.css?ver=1748334530" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-gf-local-poppins-css" href="https://dancedemy.com/wp-content/uploads/elementor/google-fonts/css/poppins.css?ver=1748334534" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-gf-local-barlow-css" href="https://dancedemy.com/wp-content/uploads/elementor/google-fonts/css/barlow.css?ver=1748334538" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-regular-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min.css?ver=5.15.3" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-solid-css" href="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3" type="text/css" media="all">
+<script type="text/javascript">
+            window._bbssoDOMReady = function (callback) {
+                if ( document.readyState === "complete" || document.readyState === "interactive" ) {
+                    callback();
+                } else {
+                    document.addEventListener( "DOMContentLoaded", callback );
+                }
+            };
+            </script><script type="text/javascript" src="https://dancedemy.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="bb-twemoji-js-extra">
+/* <![CDATA[ */
+var bbemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/twemoji.min.js?ver=2.8.61" id="bb-twemoji-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/bb-emoji-loader.min.js?ver=2.8.61" id="bb-emoji-loader-js"></script>
+<script type="text/javascript" id="bb-reaction-js-extra">
+/* <![CDATA[ */
+var bbReactionVars = {"ajax_url":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/reactions/assets/js/bb-reaction.min.js?ver=2.7.21" id="bb-reaction-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/js/bb-meprlms-frontend.min.js?ver=2.8.61" id="bb-meprlms-frontend-js"></script>
+<script type="text/javascript" id="bb-tutorlms-admin-js-extra">
+/* <![CDATA[ */
+var bbTutorLMSVars = {"ajax_url":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","select_course_placeholder":"Start typing a course name to associate with this group."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/tutorlms/assets/js/bb-tutorlms-admin.min.js?ver=2.8.61" id="bb-tutorlms-admin-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/magnific-popup.js?ver=2.8.61" id="bp-nouveau-magnific-popup-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/widget-members.min.js?ver=2.8.61" id="bp-widget-members-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/jquery-query.min.js?ver=2.8.61" id="bp-jquery-query-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-cookie.min.js?ver=2.8.61" id="bp-jquery-cookie-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-scroll-to.min.js?ver=2.8.61" id="bp-jquery-scroll-to-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.9.8.5" id="jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.9.8.5" id="js-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="woocommerce-js-extra">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_password_show":"Show password","i18n_password_hide":"Hide password"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=9.8.5" id="woocommerce-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.29.0" id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="https://dancedemy.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://dancedemy.com/wp-json/wp/v2/pages/17"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://dancedemy.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.8.5">
+<meta name="generator" content="WooCommerce 9.8.5">
+<link rel="canonical" href="https://dancedemy.com/">
+<link rel="shortlink" href="https://dancedemy.com/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://dancedemy.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdancedemy.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://dancedemy.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdancedemy.com%2F&amp;format=xml">
+
+	<script>var ajaxurl = 'https://dancedemy.com/wp-admin/admin-ajax.php';</script>
+
+	<meta name="generator" content="Redux 4.4.11"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1">	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Elementor 3.29.0; features: additional_custom_breakpoints, e_local_google_fonts; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<meta name="facebook-domain-verification" content="39ypzlumkkraxkuu4o6enl35spjl0w">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://dancedemy.com/wp-content/uploads/2020/12/cropped-דאנס-דמי-32x32.png" sizes="32x32">
+<link rel="icon" href="https://dancedemy.com/wp-content/uploads/2020/12/cropped-דאנס-דמי-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://dancedemy.com/wp-content/uploads/2020/12/cropped-דאנס-דמי-180x180.png">
+<meta name="msapplication-TileImage" content="https://dancedemy.com/wp-content/uploads/2020/12/cropped-דאנס-דמי-270x270.png">
+<style id="buddyboss_theme-style">:root{--bb-primary-color:#007CFF;--bb-primary-color-rgb:0, 124, 255;--bb-body-background-color:#FAFBFD;--bb-body-background-color-rgb:250, 251, 253;--bb-content-background-color:#FFFFFF;--bb-content-alternate-background-color:#FBFBFC;--bb-content-border-color:#E7E9EC;--bb-content-border-color-rgb:231, 233, 236;--bb-cover-image-background-color:#607387;--bb-headings-color:#122B46;--bb-headings-color-rgb:18, 43, 70;--bb-body-text-color:#4D5C6D;--bb-body-text-color-rgb:77, 92, 109;--bb-alternate-text-color:#A3A5A9;--bb-alternate-text-color-rgb:163, 165, 169;--bb-primary-button-background-regular:#385DFF;--bb-primary-button-background-hover:#1E42DD;--bb-primary-button-border-regular:#385DFF;--bb-primary-button-border-hover:#1E42DD;--bb-primary-button-text-regular:#FFFFFF;--bb-primary-button-text-regular-rgb:255, 255, 255;--bb-primary-button-text-hover:#FFFFFF;--bb-primary-button-text-hover-rgb:255, 255, 255;--bb-secondary-button-background-regular:#F2F4F5;--bb-secondary-button-background-hover:#385DFF;--bb-secondary-button-border-regular:#F2F4F5;--bb-secondary-button-border-hover:#385DFF;--bb-secondary-button-text-regular:#1E2132;--bb-secondary-button-text-hover:#FFFFFF;--bb-header-background:#FFFFFF;--bb-header-alternate-background:#F2F4F5;--bb-header-links:#939597;--bb-header-links-hover:#007CFF;--bb-header-mobile-logo-size:px;--bb-header-height:76px;--bb-sidenav-background:#FFFFFF;--bb-sidenav-text-regular:#939597;--bb-sidenav-text-hover:#939597;--bb-sidenav-text-active:#FFFFFF;--bb-sidenav-menu-background-color-regular:#FFFFFF;--bb-sidenav-menu-background-color-hover:#F2F4F5;--bb-sidenav-menu-background-color-active:#007CFF;--bb-sidenav-count-text-color-regular:#939597;--bb-sidenav-count-text-color-hover:#FFFFFF;--bb-sidenav-count-text-color-active:#007CFF;--bb-sidenav-count-background-color-regular:#F2F4F5;--bb-sidenav-count-background-color-hover:#007CFF;--bb-sidenav-count-background-color-active:#FFFFFF;--bb-footer-background:#FFFFFF;--bb-footer-widget-background:#FFFFFF;--bb-footer-text-color:#5A5A5A;--bb-footer-menu-link-color-regular:#5A5A5A;--bb-footer-menu-link-color-hover:#385DFF;--bb-footer-menu-link-color-active:#1E2132;--bb-admin-screen-bgr-color:#FAFBFD;--bb-admin-screen-txt-color:#122B46;--bb-login-register-link-color-regular:#5A5A5A;--bb-login-register-link-color-hover:#1E42DD;--bb-login-register-button-background-color-regular:#385DFF;--bb-login-register-button-background-color-hover:#1E42DD;--bb-login-register-button-border-color-regular:#385DFF;--bb-login-register-button-border-color-hover:#1E42DD;--bb-login-register-button-text-color-regular:#FFFFFF;--bb-login-register-button-text-color-hover:#FFFFFF;--bb-label-background-color:#D7DFFF;--bb-label-text-color:#385DFF;--bb-tooltip-background:#122B46;--bb-tooltip-background-rgb:18, 43, 70;--bb-tooltip-color:#FFFFFF;--bb-default-notice-color:#007CFF;--bb-default-notice-color-rgb:0, 124, 255;--bb-success-color:#1CD991;--bb-success-color-rgb:28, 217, 145;--bb-warning-color:#F7BA45;--bb-warning-color-rgb:247, 186, 69;--bb-danger-color:#EF3E46;--bb-danger-color-rgb:239, 62, 70;--bb-login-custom-heading-color:#FFFFFF;--bb-button-radius:100px;--bb-block-radius:10px;--bb-option-radius:5px;--bb-block-radius-inner:6px;--bb-input-radius:6px;--bb-label-type-radius:6px;--bb-checkbox-radius:5.4px;--bb-primary-button-focus-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 2px rgba(0, 0, 0, 0.08);--bb-secondary-button-focus-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 2px rgba(0, 0, 0, 0.08);--bb-outline-button-focus-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 2px rgba(0, 0, 0, 0.08);--bb-input-focus-shadow:0px 0px 0px 2px rgba(var(--bb-primary-color-rgb), 0.1);--bb-input-focus-border-color:var(--bb-primary-color);--bb-widget-title-text-transform:none;}.bb-style-primary-bgr-color {background-color:#007CFF;}.bb-style-border-radius {border-radius:100px;}.site-header-container #site-logo .bb-logo img,.site-header-container #site-logo .site-title img.bb-logo,.site-title img.bb-mobile-logo {max-height:76px}.sticky-header .site-content,body.buddypress.sticky-header .site-content,.bb-buddypanel.sticky-header .site-content,.single-sfwd-quiz.bb-buddypanel.sticky-header .site-content,.single-sfwd-lessons.bb-buddypanel.sticky-header .site-content,.single-sfwd-topic.bb-buddypanel.sticky-header .site-content {padding-top:76px}.site-header .site-header-container,.header-search-wrap,.header-search-wrap input.search-field,.header-search-wrap form.search-form {height:76px;}.sticky-header .bp-feedback.bp-sitewide-notice {top:76px;}@media screen and (max-width:767px) {.bb-mobile-header {height:76px;}#learndash-content .lms-topic-sidebar-wrapper .lms-topic-sidebar-data {height:calc(90vh - 76px);}}[data-balloon]:after,[data-bp-tooltip]:after {background-color:rgba( 18,43,70,1 );box-shadow:none;}[data-balloon]:before,[data-bp-tooltip]:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba( 18,43,70,1 )%22%20transform%3D%22rotate(0)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}[data-bp-tooltip][data-bp-tooltip-pos="right"]:before,[data-balloon][data-balloon-pos='right']:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba( 18,43,70,1 )%22%20transform%3D%22rotate(90 6 6)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}[data-bp-tooltip][data-bp-tooltip-pos="left"]:before,[data-balloon][data-balloon-pos='left']:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba( 18,43,70,1 )%22%20transform%3D%22rotate(-90 18 18)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}[data-bp-tooltip][data-bp-tooltip-pos="down-left"]:before,[data-bp-tooltip][data-bp-tooltip-pos="down"]:before,[data-balloon][data-balloon-pos='down']:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba( 18,43,70,1 )%22%20transform%3D%22rotate(180 18 6)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}</style>
+            <style id="buddyboss_theme-bp-style">
+                #buddypress #header-cover-image.has-default,#buddypress #header-cover-image.has-default .guillotine-window img,.bs-group-cover.has-default a {background-color:#607387;}.login-split {background-image:url(https://dancedemy.com/wp-content/uploads/2022/07/קאבר-ליוטיוב-דאנס-דמי-100.jpg);background-size:cover;background-position:50% 50%;}body.buddypress.register.login-split-page .login-split .split-overlay,body.buddypress.activation.login-split-page .login-split .split-overlay {opacity:0.3;}body.buddypress.register .register-section-logo img,body.buddypress.activation .activate-section-logo img {width:145px;}
+            </style>
+            
+            <style id="buddyboss_theme-forums-style">
+                .bbpress .widget_display_forums > ul.bb-sidebar-forums > li a:before {border-color:#904bb8;}.bbpress .widget_display_forums > ul.bb-sidebar-forums > li a:before {background-color:rgba( 144,75,184,0.5 );}
+            </style>
+            
+            <style id="buddyboss_theme-learndash-style">
+                .learndash-wrapper .bb-ld-tabs #learndash-course-content {top:-86px;}html[dir="rtl"] .learndash_next_prev_link a.next-link,html[dir="rtl"] .learndash_next_prev_link span.next-link {border-radius:100px 0 0 100px;}html[dir="rtl"] .learndash_next_prev_link a.prev-link,html[dir="rtl"] .learndash_next_prev_link span.prev-link {border-radius:0 100px 100px 0;}
+            </style>
+            
+		<style id="buddyboss_theme-custom-style">
+
+		a.bb-close-panel i {top:67px;}
+		</style>
+		<style id="learndash-focus-mode-style">.ld-in-focus-mode .learndash-wrapper .learndash_content_wrap{max-width: 1600px}.ld-in-focus-mode .learndash-wrapper .bb-lms-header .lms-header-title, .ld-in-focus-mode .learndash-wrapper .bb-lms-header .lms-header-instructor{max-width: 1600px}.ld-in-focus-mode.single #learndash-course-header{max-width: 1600px}</style>
+	<script src="https://dancedemy.com/wp-includes/js/wp-emoji-release.min.js?ver=6.8.5" defer=""></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+	<body class="home-page bp-nouveau home wp-singular page-template-default page page-id-17 page-parent admin-bar no-customize-support wp-theme-buddyboss-theme theme-buddyboss-theme woocommerce-js buddyboss-theme bb-template-v2 buddypanel-logo-off bb-custom-typo header-style-1 menu-style-standard sticky-header bp-search elementor-default elementor-kit-26508 elementor-page elementor-page-17 learndash-theme js bb-page-loaded e--ua-isTouchDevice e--ua-blink e--ua-webkit" data-elementor-device-mode="desktop">
+
+        		<div id="wpadminbar" class="nojq">
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar">
+				<ul role="menu" id="wp-admin-bar-root-default" class="ab-top-menu"><li role="group" id="wp-admin-bar-wp-logo" class="menupop"><div class="ab-item ab-empty-item" tabindex="0" role="menuitem" aria-expanded="false"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">About WordPress</span></div><div class="ab-sub-wrapper"><ul role="menu" id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu"><li role="group" id="wp-admin-bar-wporg"><a class="ab-item" role="menuitem" href="https://wordpress.org/">WordPress.org</a></li><li role="group" id="wp-admin-bar-documentation"><a class="ab-item" role="menuitem" href="https://wordpress.org/documentation/">Documentation</a></li><li role="group" id="wp-admin-bar-learn"><a class="ab-item" role="menuitem" href="https://learn.wordpress.org/">Learn WordPress</a></li><li role="group" id="wp-admin-bar-support-forums"><a class="ab-item" role="menuitem" href="https://wordpress.org/support/forums/">Support</a></li><li role="group" id="wp-admin-bar-feedback"><a class="ab-item" role="menuitem" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li></ul></div></li><li role="group" id="wp-admin-bar-bp-login"><a class="ab-item" role="menuitem" href="https://dancedemy.com/wp-login.php?redirect_to=https%3A%2F%2Fdancedemy.com%2F">Log In</a></li></ul><ul role="menu" id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu"><li role="group" id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1" role="menuitem"><form action="https://dancedemy.com/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"></form></div></li></ul>			</div>
+		</div>
+
+		
+		
+		<div id="page" class="site">
+
+			
+			<header id="masthead" class="site-header site-header--bb">
+				<div class="container site-header-container flex default-header">
+    <a href="#" class="bb-toggle-panel"><i class="bb-icon-l bb-icon-sidebar"></i></a>
+    
+<div id="site-logo" class="site-branding buddypanel_logo_display_off">
+	<div class="site-title">
+		<a href="https://dancedemy.com/" rel="home">
+			<img fetchpriority="high" width="934" height="458" src="https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1.png" class="bb-logo" alt="" decoding="async" srcset="https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1.png 934w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-300x147.png 300w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-768x377.png 768w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-400x196.png 400w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-600x294.png 600w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-250x123.png 250w" sizes="(max-width: 934px) 100vw, 934px">		</a>
+	</div>
+</div>	<nav id="site-navigation" class="main-navigation" data-menu-space="120">
+		<div id="primary-navbar">
+			<ul id="primary-menu" class="primary-menu"><li id="menu-item-28905" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-28905 no-icon"><a href="https://heb.dancedemy.com"><span>Language</span></a>
+<div class="wrapper ab-submenu"><ul class="bb-sub-menu">
+	<li id="menu-item-28906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28906 no-icon"><a href="https://heb.dancedemy.com"><span>עברית</span></a></li>
+</ul></div>
+</li>
+<li id="menu-item-27447" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27447 no-icon"><a href="https://dancedemy.com/all-dance-courses/"><span>Dance Courses</span></a></li>
+<li id="menu-item-27311" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-27311 no-icon"><a href="https://dancedemy.com/category/level/"><span>Level</span></a>
+<div class="wrapper ab-submenu"><ul class="bb-sub-menu">
+	<li id="menu-item-27313" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27313 no-icon"><a href="https://dancedemy.com/category/level/beginners/"><span>Beginners</span></a></li>
+	<li id="menu-item-27314" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27314 no-icon"><a href="https://dancedemy.com/category/level/intermediate/"><span>Intermediate</span></a></li>
+	<li id="menu-item-27312" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27312 no-icon"><a href="https://dancedemy.com/category/level/advance/"><span>Advance</span></a></li>
+	<li id="menu-item-27315" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27315 no-icon"><a href="https://dancedemy.com/category/level/professional/"><span>professional</span></a></li>
+</ul></div>
+</li>
+<li id="menu-item-27316" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-27316 icon-added"><a href="https://dancedemy.com/category/authors-creators/"><i class="_mi _before bb-icon-l buddyboss bb-icon-profile-types" aria-hidden="true"></i><span>Authors &amp; creators</span></a>
+<div class="wrapper ab-submenu"><ul class="bb-sub-menu">
+	<li id="menu-item-27317" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27317 no-icon"><a href="https://dancedemy.com/category/authors-creators/choreographer/"><span>Choreographer</span></a></li>
+	<li id="menu-item-27318" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27318 no-icon"><a href="https://dancedemy.com/category/authors-creators/dance-academy/"><span>Dance Academy</span></a></li>
+	<li id="menu-item-27319" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27319 no-icon"><a href="https://dancedemy.com/category/authors-creators/dance-club/"><span>Dance Club</span></a></li>
+	<li id="menu-item-27320" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27320 no-icon"><a href="https://dancedemy.com/category/authors-creators/dance-instructors/"><span>Dance Instructors</span></a></li>
+	<li id="menu-item-27321" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27321 no-icon"><a href="https://dancedemy.com/category/authors-creators/dance-school/"><span>Dance School</span></a></li>
+	<li id="menu-item-27322" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27322 no-icon"><a href="https://dancedemy.com/category/authors-creators/dance-studio/"><span>Dance Studio</span></a></li>
+	<li id="menu-item-27323" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27323 no-icon"><a href="https://dancedemy.com/category/authors-creators/professional-dancer/"><span>Professional Dancer</span></a></li>
+</ul></div>
+</li>
+<li id="menu-item-27296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27296 icon-added"><a href="https://dancedemy.com/groups/"><i class="_mi _before bb-icon-l buddyboss bb-icon-groups" aria-hidden="true"></i><span>Groups</span></a></li>
+<li id="menu-item-27297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27297 icon-added"><a href="https://dancedemy.com/members/"><i class="_mi _before bb-icon-l buddyboss bb-icon-members" aria-hidden="true"></i><span>Members</span></a></li>
+
+
+
+
+</ul>			<div id="navbar-collapse" class="hasItems">
+				<a class="more-button" href="#"><i class="bb-icon-f bb-icon-ellipsis-h"></i></a>
+				<div class="sub-menu">
+					<div class="wrapper">
+						<ul id="navbar-extend" class="sub-menu-inner"><li id="menu-item-27309" class="bp-menu bp-login-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-27309 icon-added"><a href="https://dancedemy.com/wp-login.php?redirect_to=https%3A%2F%2Fdancedemy.com%2F"><i class="_mi _before bb-icon-l buddyboss bb-icon-log-in" aria-hidden="true"></i><span>Log In</span></a></li><li id="menu-item-27310" class="bp-menu bp-register-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-27310 icon-added"><a href="https://dancedemy.com/register/"><i class="_mi _before bb-icon-l buddyboss bb-icon-clipboard" aria-hidden="true"></i><span>Register</span></a></li><li id="menu-item-27455" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27455 icon-added"><a href="https://dancedemy.com/affiliate-area/"><i class="_mi _before fa fa-money" aria-hidden="true"></i><span>Affiliate Area</span></a></li><li id="menu-item-27492" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27492 icon-added"><a href="https://dancedemy.com/contact/"><i class="_mi _before bb-icon-l buddyboss fi-telephone" aria-hidden="true"></i><span>Contact</span></a></li></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+		
+<div id="header-aside" class="header-aside name_and_avatar">
+	<div class="header-aside-inner">
+
+		
+							<a href="#" class="header-search-link" data-balloon-pos="down" data-balloon="Search" aria-label="Search"><i class="bb-icon-l bb-icon-search"></i></a>
+				<span class="search-separator bb-separator"></span>
+				<div class="notification-wrap header-cart-link-wrap cart-wrap menu-item-has-children">
+	<a href="https://dancedemy.com/cart/" class="header-cart-link notification-link" data-e-disable-page-transition="true" aria-label="Cart">
+        <span data-balloon-pos="down" data-balloon="Cart">
+			<i class="bb-icon-l bb-icon-shopping-cart"></i>
+                    </span>
+	</a>
+    <section class="notification-dropdown">
+        <header class="notification-header">
+            <h2 class="title">Shopping Cart</h2>
+                    </header>
+        <div class="header-mini-cart">
+            	<div class="woocommerce-mini-cart__empty-message">No products in the cart.</div>
+        </div>
+    </section>
+</div>				<div class="bb-header-buttons">
+					<a href="https://dancedemy.com/wp-login.php" class="button small outline signin-button link">Sign in</a>
+
+									</div>
+			
+	</div><!-- .header-aside-inner -->
+</div><!-- #header-aside -->
+</div>
+<div class="bb-mobile-header-wrapper ">
+	<div class="bb-mobile-header flex align-items-center">
+		<div class="bb-left-panel-icon-wrap">
+			<a href="#" class="push-left bb-left-panel-mobile"><i class="bb-icon-l bb-icon-bars"></i></a>
+		</div>
+
+		<div class="flex-1 mobile-logo-wrapper">
+			
+			<div class="site-title">
+
+				<a href="https://dancedemy.com/" rel="home">
+					<img width="934" height="458" src="https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1.png" class="bb-mobile-logo" alt="" decoding="async" srcset="https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1.png 934w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-300x147.png 300w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-768x377.png 768w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-400x196.png 400w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-600x294.png 600w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-250x123.png 250w" sizes="(max-width: 934px) 100vw, 934px">				</a>
+
+			</div>
+		</div>
+		<div class="header-aside">
+								<a data-balloon-pos="left" data-balloon="Search" aria-label="Search" href="#" class="push-right header-search-link"><i class="bb-icon-l bb-icon-search"></i></a>
+											<span class="search-separator bb-separator"></span>
+					<div class="notification-wrap header-cart-link-wrap cart-wrap menu-item-has-children">
+	<a href="https://dancedemy.com/cart/" class="header-cart-link notification-link" data-e-disable-page-transition="true" aria-label="Cart">
+        <span data-balloon-pos="down" data-balloon="Cart">
+			<i class="bb-icon-l bb-icon-shopping-cart"></i>
+                    </span>
+	</a>
+    <section class="notification-dropdown">
+        <header class="notification-header">
+            <h2 class="title">Shopping Cart</h2>
+                    </header>
+        <div class="header-mini-cart">
+            	<div class="woocommerce-mini-cart__empty-message">No products in the cart.</div>
+        </div>
+    </section>
+</div>		</div>
+	</div>
+
+	<div class="header-search-wrap">
+		<div class="container">
+			
+<form role="search" method="get" class="search-form" action="https://dancedemy.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field-top ui-autocomplete-input" placeholder="Search" value="" name="s" autocomplete="off">
+	</label>
+<input type="hidden" name="bp_search" value="1"><input type="hidden" name="view" value="content"></form>
+			<a data-balloon-pos="left" data-balloon="Close" href="#" class="close-search"><i class="bb-icon-l bb-icon-times"></i></a>
+		</div>
+	</div>
+</div>
+
+<div class="bb-mobile-panel-wrapper left light closed">
+	<div class="bb-mobile-panel-inner">
+		<div class="bb-mobile-panel-header">
+							<div class="logo-wrap">
+					<a href="https://dancedemy.com/" rel="home">
+						<img width="934" height="458" src="https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1.png" class="bb-mobile-logo" alt="" decoding="async" srcset="https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1.png 934w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-300x147.png 300w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-768x377.png 768w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-400x196.png 400w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-600x294.png 600w, https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1-250x123.png 250w" sizes="(max-width: 934px) 100vw, 934px">					</a>
+				</div>
+						<a href="#" class="bb-close-panel"><i class="bb-icon-l bb-icon-times"></i></a>
+		</div>
+
+		<nav class="main-navigation" data-menu-space="120">
+			<ul id="menu-title-bar" class="bb-primary-menu mobile-menu buddypanel-menu side-panel-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-28905"><a href="https://heb.dancedemy.com">Language<i class="bb-icon-l bb-icon-angle-down bs-submenu-toggle"></i></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-28906"><a href="https://heb.dancedemy.com">עברית</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27447"><a href="https://dancedemy.com/all-dance-courses/">Dance Courses</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-27311"><a href="https://dancedemy.com/category/level/">Level<i class="bb-icon-l bb-icon-angle-down bs-submenu-toggle"></i></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27313"><a href="https://dancedemy.com/category/level/beginners/">Beginners</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27314"><a href="https://dancedemy.com/category/level/intermediate/">Intermediate</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27312"><a href="https://dancedemy.com/category/level/advance/">Advance</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27315"><a href="https://dancedemy.com/category/level/professional/">professional</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-27316"><a href="https://dancedemy.com/category/authors-creators/"><i class="_mi _before bb-icon-l buddyboss bb-icon-profile-types" aria-hidden="true"></i><span>Authors &amp; creators</span><i class="bb-icon-l bb-icon-angle-down bs-submenu-toggle"></i></a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27317"><a href="https://dancedemy.com/category/authors-creators/choreographer/">Choreographer</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27318"><a href="https://dancedemy.com/category/authors-creators/dance-academy/">Dance Academy</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27319"><a href="https://dancedemy.com/category/authors-creators/dance-club/">Dance Club</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27320"><a href="https://dancedemy.com/category/authors-creators/dance-instructors/">Dance Instructors</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27321"><a href="https://dancedemy.com/category/authors-creators/dance-school/">Dance School</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27322"><a href="https://dancedemy.com/category/authors-creators/dance-studio/">Dance Studio</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27323"><a href="https://dancedemy.com/category/authors-creators/professional-dancer/">Professional Dancer</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27296"><a href="https://dancedemy.com/groups/"><i class="_mi _before bb-icon-l buddyboss bb-icon-groups" aria-hidden="true"></i><span>Groups</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27297"><a href="https://dancedemy.com/members/"><i class="_mi _before bb-icon-l buddyboss bb-icon-members" aria-hidden="true"></i><span>Members</span></a></li>
+<li class="bp-menu bp-login-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-27309"><a href="https://dancedemy.com/wp-login.php?redirect_to=https%3A%2F%2Fdancedemy.com%2F"><i class="_mi _before bb-icon-l buddyboss bb-icon-log-in" aria-hidden="true"></i><span>Log In</span></a></li>
+<li class="bp-menu bp-register-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-27310"><a href="https://dancedemy.com/register/"><i class="_mi _before bb-icon-l buddyboss bb-icon-clipboard" aria-hidden="true"></i><span>Register</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27455"><a href="https://dancedemy.com/affiliate-area/"><i class="_mi _before fa fa-money" aria-hidden="true"></i><span>Affiliate Area</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27492"><a href="https://dancedemy.com/contact/"><i class="_mi _before bb-icon-l buddyboss fi-telephone" aria-hidden="true"></i><span>Contact</span></a></li>
+</ul>		</nav>
+
+	</div>
+</div>
+<div class="header-search-wrap">
+	<div class="container">
+		
+<form role="search" method="get" class="search-form" action="https://dancedemy.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field-top ui-autocomplete-input" placeholder="Search..." value="" name="s" autocomplete="off">
+	</label>
+<input type="hidden" name="bp_search" value="1"><input type="hidden" name="view" value="content"></form>
+		<a href="#" class="close-search"><i class="bb-icon-l bb-icon-times"></i></a>
+	</div>
+</div>			</header>
+
+			
+			
+			<div id="content" class="site-content">
+
+				
+				<div class="container">
+					<div class="bb-grid site-content-grid">
+    <div id="primary" class="content-area bb-grid-cell">
+        <main id="main" class="site-main">
+
+			
+<article id="post-17" class="post-17 page type-page status-publish has-post-thumbnail hentry">
+            <header class="entry-header"><h1 class="entry-title">Home</h1></header>
+    
+	<div class="entry-content">
+				<div data-elementor-type="wp-post" data-elementor-id="17" class="elementor elementor-17" data-elementor-post-type="page">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-33ecd01b elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="33ecd01b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_bottom&quot;:&quot;arrow&quot;}">
+							<div class="elementor-background-overlay"></div>
+						<div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 10" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M350,10L340,0h20L350,10z"></path>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6794c3e7" data-id="6794c3e7" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5d1a77fc elementor-widget elementor-widget-heading" data-id="5d1a77fc" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">- Dance Demy -</h4>				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-2cc99b6c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2cc99b6c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-29053bed" data-id="29053bed" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-10abdb91 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="10abdb91" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">It's time to step up</h2>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-e578b89 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e578b89" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-168742d" data-id="168742d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5c106b5 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="5c106b5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">Innovative Online</h4>				</div>
+				</div>
+				<div class="elementor-element elementor-element-6217125 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="6217125" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">Dance Academy</h4>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-513581ff elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="513581ff" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-43e54e94" data-id="43e54e94" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-e831245 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e831245" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-530f7b1b" data-id="530f7b1b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-170a1616 elementor-widget elementor-widget-video fitvidsignore" data-id="170a1616" data-element_type="widget" data-settings="{&quot;video_type&quot;:&quot;hosted&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;play_on_mobile&quot;:&quot;yes&quot;,&quot;mute&quot;:&quot;yes&quot;,&quot;loop&quot;:&quot;yes&quot;,&quot;controls&quot;:&quot;yes&quot;}" data-widget_type="video.default">
+				<div class="elementor-widget-container">
+							<div class="e-hosted-video elementor-wrapper elementor-open-inline">
+					<video class="elementor-video" src="https://dancedemy.s3.eu-west-3.amazonaws.com/Marketing/Dance+Demy+App.mp4" autoplay="" loop="" controls="" muted="muted" playsinline="" controlslist="nodownload" poster="https://zone.dancedemy.com/wp-content/uploads/2021/02/דאנס-דמי-קדמי-copy.jpg"></video>
+				</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-66c67349 elementor-align-right elementor-mobile-align-right animated-fast elementor-widget elementor-widget-button" data-id="66c67349" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="https://dancedemy.com/all-dance-courses/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-play-circle"></i>			</span>
+									<span class="elementor-button-text">Start Now</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-706374d4 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="706374d4" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-71092259" data-id="71092259" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2fc72990 elementor-widget elementor-widget-heading" data-id="2fc72990" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">-Dance Demy zone-</h4>				</div>
+				</div>
+				<div class="elementor-element elementor-element-23a3ee88 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="23a3ee88" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Learn</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-11f7d186 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="11f7d186" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">ONLINE</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5170c1c1 elementor-widget elementor-widget-heading" data-id="5170c1c1" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">innovative online dance academy</h4>				</div>
+				</div>
+				<div class="elementor-element elementor-element-2a44b983 elementor-widget elementor-widget-text-editor" data-id="2a44b983" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="bb-theme-elementor-wrap bb-elementor-custom-color bb-elementor-custom-family bb-elementor-custom-size bb-elementor-mobile-custom-size bb-elementor-custom-line-height">				<p>Innovative online dance learning app based on computer vision and AI technology which provides automatically immediate feedback and guidance for better performance</p><p><strong>without human intervention!</strong></p>				</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-602b29d5 elementor-widget elementor-widget-spacer" data-id="602b29d5" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-413b7986 elementor-align-right elementor-mobile-align-right animated-fast elementor-tablet-align-right elementor-invisible elementor-widget elementor-widget-button" data-id="413b7986" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-size-sm elementor-animation-float" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-circle"></i>			</span>
+									<span class="elementor-button-text">explore</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-64554718" data-id="64554718" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-77ccebb9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="77ccebb9" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-657d243d" data-id="657d243d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4cf41c2e elementor-align-center elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="4cf41c2e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-check-square"></i>			</span>
+									<span class="elementor-button-text">ON</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3a61ade2" data-id="3a61ade2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-762f4df7 elementor-widget elementor-widget-heading" data-id="762f4df7" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">it's time to step up</h4>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-66c71206" data-id="66c71206" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-229fba4d elementor-align-right elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="229fba4d" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://dancedemy.com/all-dance-courses/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-eye"></i>			</span>
+									<span class="elementor-button-text">courses</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-4ee90288 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4ee90288" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7813fe25" data-id="7813fe25" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-606943bf elementor-align-center elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="606943bf" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-check-square"></i>			</span>
+									<span class="elementor-button-text">ON</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-293efc77" data-id="293efc77" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4fc20270 elementor-widget elementor-widget-heading" data-id="4fc20270" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">Learn from the best</h4>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-16e77a47" data-id="16e77a47" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3ec34977 elementor-align-right elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="3ec34977" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-size-sm elementor-animation-float" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-address-card"></i>			</span>
+									<span class="elementor-button-text">authors</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-1ec1eebd elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1ec1eebd" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-2be9d88b" data-id="2be9d88b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4c751efb elementor-align-center elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="4c751efb" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-check-square"></i>			</span>
+									<span class="elementor-button-text">ON</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-24941c85" data-id="24941c85" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-176e8d3d elementor-widget elementor-widget-heading" data-id="176e8d3d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">starting from the first step</h4>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-61bfe6ea" data-id="61bfe6ea" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-544361ea elementor-align-right elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="544361ea" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://dancedemy.com/all-dance-courses/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-graduation-cap"></i>			</span>
+									<span class="elementor-button-text">levels</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-3e4e2322 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3e4e2322" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3a6b8ce7" data-id="3a6b8ce7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5ca19d99 elementor-align-center elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="5ca19d99" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-check-square"></i>			</span>
+									<span class="elementor-button-text">on</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-23022e1" data-id="23022e1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2befbe59 elementor-widget elementor-widget-heading" data-id="2befbe59" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">Become an Instructor</h4>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-20b709d0" data-id="20b709d0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2203c852 elementor-align-right elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="2203c852" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://dancedemy.com/become-an-instructor/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-angle-double-up"></i>			</span>
+									<span class="elementor-button-text">Scale Up</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-158af5aa elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="158af5aa" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-1952276a" data-id="1952276a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4a3c835c elementor-align-center elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="4a3c835c" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-check-square"></i>			</span>
+									<span class="elementor-button-text">on</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-62b5702d" data-id="62b5702d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-278aa2b0 elementor-widget elementor-widget-heading" data-id="278aa2b0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">Meet worldwide dancers</h4>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3f164fa6" data-id="3f164fa6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-577fdc62 elementor-align-right elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="577fdc62" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://dancedemy.com/groups/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-people-carry"></i>			</span>
+									<span class="elementor-button-text">Social</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-770d29e6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="770d29e6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-89fa137" data-id="89fa137" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-18cae805 elementor-align-center elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="18cae805" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-check-square"></i>			</span>
+									<span class="elementor-button-text">on</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-151b8294" data-id="151b8294" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5790aff4 elementor-widget elementor-widget-heading" data-id="5790aff4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">share your knowledge</h4>				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7cf72dea" data-id="7cf72dea" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4f1c340a elementor-align-right elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="4f1c340a" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://dancedemy.com/?page_id=27204">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-pen-nib"></i>			</span>
+									<span class="elementor-button-text">Create</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-23abffef elementor-section-content-middle elementor-reverse-mobile elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="23abffef" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-25356ed1" data-id="25356ed1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5fb249e elementor-widget elementor-widget-heading" data-id="5fb249e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">-Dance Demy-</h4>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7515b6d6 elementor-widget elementor-widget-heading" data-id="7515b6d6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">All Courses</h2>				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-5bf8ab81 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5bf8ab81" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-3b5f8d5" data-id="3b5f8d5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-441949d5 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="441949d5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">It's Time To</h4>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5112cec0 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="5112cec0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">Step Up</h4>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-56c07c21 elementor-align-center elementor-mobile-align-center animated-fast elementor-tablet-align-center elementor-invisible elementor-widget elementor-widget-button" data-id="56c07c21" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://dancedemy.com/all-dance-courses/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="far fa-play-circle"></i>			</span>
+									<span class="elementor-button-text">Dance</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7bda790 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7bda790" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1b7a26ff" data-id="1b7a26ff" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8a50abb elementor-widget elementor-widget-ld-courses" data-id="8a50abb" data-element_type="widget" data-widget_type="ld-courses.default">
+				<div class="elementor-widget-container">
+					<div id="learndash-content" class="learndash-course-list learndash-course-list--elementor learndash-course-list--classic noTitle noCourseNavigation noPagination learndash-course-list--featured noProgress noPrice noMeta noExcerpt">
+	<form data-current_page_url="https://dancedemy.com/" id="bb-courses-directory-form" class="bb-elementor-widget bb-courses-directory" method="get" action="">
+
+
+					<input type="hidden" name="current_page" value="1">
+			<div class="flex align-items-center bb-courses-header">
+								</div>
+		
+		<div class="ld-secondary-header">
+			<div class="bb-secondary-list-tabs flex align-items-center" id="subnav" aria-label="Members directory secondary navigation" role="navigation">
+
+				<input type="hidden" id="course-order" name="order" value="desc">
+				<input type="hidden" id="post-per-page" name="posts_per_page" value="8">
+				<input type="hidden" id="current-page" name="current_page" value="0">
+
+				<div class="sfwd-courses-filters flex push-right">
+					<div class="select-wrap active">
+						<select id="sfwd_prs-order-by" name="orderby">
+							<option value="alphabetical" selected="selected">Alphabetical</option><option value="recent">Newly Created</option>						</select>
+					</div>
+
+												<div class="select-wrap active">
+																	<select id="sfwd_cats-order-by" name="filter-categories">
+										<option value="all">All Categories</option><option value="ballet">Ballet</option><option value="beginners">Beginners</option><option value="latin-dance">Latin Dance</option><option value="level">Level</option><option value="salsa">Salsa</option>									</select>
+															</div>
+							
+					<div class="select-wrap active">
+						<select id="sfwd_instructors-order-by" name="filter-instructors">
+							<option value="all">All Instructors</option><option value="95"></option><option value="69">Dance Demy</option>						</select>
+					</div>
+				</div>
+
+				<div class="grid-filters active" data-view="ld-course">
+					<a href="#" class="layout-view layout-view-course layout-grid-view bp-tooltip active" data-view="grid" data-bp-tooltip-pos="up" data-bp-tooltip="Grid View">
+						<i class="dashicons dashicons-screenoptions" aria-hidden="true"></i>
+					</a>
+
+					<a href="#" class="layout-view layout-view-course layout-list-view bp-tooltip " data-view="list" data-bp-tooltip-pos="up" data-bp-tooltip="List View">
+						<i class="dashicons dashicons-menu" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-view bb-grid grid-box-">
+
+			<div id="course-dir-list" class="course-dir-list bs-dir-list columns-default course-dir-list--media course-dir-list--hidestatus">
+									<ul class="bb-card-list bb-course-items list-view bb-list hide " aria-live="assertive" aria-relevant="all">
+						
+<li class="bb-course-item-wrap">
+
+	<div class="bb-cover-list-item ">
+		<div class="bb-course-cover">
+			<a title="Ballet Dictionary" href="https://dancedemy.com/courses/ballet-dictionary/" class="bb-cover-wrap">
+				<div class="ld-status ld-status-progress ld-primary-background">Start Course</div>
+				<img decoding="async" width="300" height="200" src="https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-300x200.jpg" class="attachment-medium size-medium wp-post-image" alt="Ballet dancers dancing at studio" srcset="https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-300x200.jpg 300w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-1024x682.jpg 1024w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-768x512.jpg 768w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-1536x1024.jpg 1536w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-400x267.jpg 400w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-600x400.jpg 600w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio.jpg 2000w" sizes="(max-width: 300px) 100vw, 300px">			</a>
+		</div>
+
+		<div class="bb-card-course-details bb-card-course-details--noAccess">
+			<div class="course-lesson-count">20 Lessons</div>			<h2 class="bb-course-title ">
+				<a title="Ballet Dictionary" href="https://dancedemy.com/courses/ballet-dictionary/">Ballet Dictionary</a>
+			</h2>
+
+							<div class="bb-course-meta">
+		<a class="item-avatar" href="https://dancedemy.com/members/zonedance/">
+		<img alt="" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-blank-50.png" srcset="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-blank-50.png 2x" class="avatar avatar-80 photo" height="80" width="80">	</a>
+	<strong>
+		<a href="https://dancedemy.com/members/zonedance/">Dance Demy</a>
+	</strong>
+</div>
+				
+			
+			<div class="bb-course-excerpt">
+				Welcome to Dance Demy’s&nbsp;Ballet Terms Dictionary.&nbsp;&nbsp; Here you can find and browse our online definitions, descriptions, and video demonstrations for&nbsp;Ballet.&nbsp; Every ballet term will include…			</div>
+
+					</div>
+	</div>
+</li>
+
+<li class="bb-course-item-wrap">
+
+	<div class="bb-cover-list-item bb-course-paid">
+		<div class="bb-course-cover">
+			<a title="Cuban Salsa Beginners Course" href="https://dancedemy.com/courses/cuban-salsa-beginners-course/" class="bb-cover-wrap">
+				<div class="ld-status ld-status-incomplete ld-third-background">Not Enrolled</div>
+				<img loading="lazy" decoding="async" width="300" height="200" src="https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-300x200.jpg" class="attachment-medium size-medium wp-post-image" alt="Dancers in costumes on ballrom dance training" srcset="https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-300x200.jpg 300w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-1024x684.jpg 1024w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-768x513.jpg 768w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-1536x1025.jpg 1536w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-400x267.jpg 400w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-600x401.jpg 600w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training.jpg 2000w" sizes="(max-width: 300px) 100vw, 300px">			</a>
+		</div>
+
+		<div class="bb-card-course-details bb-card-course-details--noAccess">
+			<div class="course-lesson-count">30 Lessons</div>			<h2 class="bb-course-title ">
+				<a title="Cuban Salsa Beginners Course" href="https://dancedemy.com/courses/cuban-salsa-beginners-course/">Cuban Salsa Beginners Course</a>
+			</h2>
+
+							<div class="bb-course-meta">
+		<a class="item-avatar" href="">
+			</a>
+	<strong>
+		<a href=""></a>
+	</strong>
+</div>
+				
+			
+			<div class="bb-course-excerpt">
+				Learn now Cuban salsa, the most amazing social dance there is. In 6 lessons you will learn with us in the most professional way possible…			</div>
+
+							<div class="bb-course-footer bb-course-pay">
+				<span class="course-fee">
+						<span class="ld-currency">$</span> 100$					</span>
+				</div>
+						</div>
+	</div>
+</li>
+					</ul>
+
+					<ul class="bb-card-list bb-course-items grid-view bb-grid  " aria-live="assertive" aria-relevant="all">
+						
+<li class="bb-course-item-wrap">
+
+	<div class="bb-cover-list-item ">
+		<div class="bb-course-cover">
+			<a title="Ballet Dictionary" href="https://dancedemy.com/courses/ballet-dictionary/" class="bb-cover-wrap">
+				<div class="ld-status ld-status-progress ld-primary-background">Start Course</div>
+				<img decoding="async" width="300" height="200" src="https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-300x200.jpg" class="attachment-medium size-medium wp-post-image" alt="Ballet dancers dancing at studio" srcset="https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-300x200.jpg 300w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-1024x682.jpg 1024w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-768x512.jpg 768w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-1536x1024.jpg 1536w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-400x267.jpg 400w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio-600x400.jpg 600w, https://dancedemy.com/wp-content/uploads/2021/01/ballet-dancers-dancing-at-studio.jpg 2000w" sizes="(max-width: 300px) 100vw, 300px">			</a>
+		</div>
+
+		<div class="bb-card-course-details bb-card-course-details--noAccess">
+			<div class="course-lesson-count">20 Lessons</div>			<h2 class="bb-course-title ">
+				<a title="Ballet Dictionary" href="https://dancedemy.com/courses/ballet-dictionary/">Ballet Dictionary</a>
+			</h2>
+
+							<div class="bb-course-meta">
+		<a class="item-avatar" href="https://dancedemy.com/members/zonedance/">
+		<img alt="" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-blank-50.png" srcset="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-blank-50.png 2x" class="avatar avatar-80 photo" height="80" width="80">	</a>
+	<strong>
+		<a href="https://dancedemy.com/members/zonedance/">Dance Demy</a>
+	</strong>
+</div>
+				
+			
+			<div class="bb-course-excerpt">
+				Welcome to Dance Demy’s&nbsp;Ballet Terms Dictionary.&nbsp;&nbsp; Here you can find and browse our online definitions, descriptions, and video demonstrations for&nbsp;Ballet.&nbsp; Every ballet term will include…			</div>
+
+					</div>
+	</div>
+</li>
+
+<li class="bb-course-item-wrap">
+
+	<div class="bb-cover-list-item bb-course-paid">
+		<div class="bb-course-cover">
+			<a title="Cuban Salsa Beginners Course" href="https://dancedemy.com/courses/cuban-salsa-beginners-course/" class="bb-cover-wrap">
+				<div class="ld-status ld-status-incomplete ld-third-background">Not Enrolled</div>
+				<img loading="lazy" decoding="async" width="300" height="200" src="https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-300x200.jpg" class="attachment-medium size-medium wp-post-image" alt="Dancers in costumes on ballrom dance training" srcset="https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-300x200.jpg 300w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-1024x684.jpg 1024w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-768x513.jpg 768w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-1536x1025.jpg 1536w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-400x267.jpg 400w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training-600x401.jpg 600w, https://dancedemy.com/wp-content/uploads/2021/01/dancers-in-costumes-on-ballrom-dance-training.jpg 2000w" sizes="(max-width: 300px) 100vw, 300px">			</a>
+		</div>
+
+		<div class="bb-card-course-details bb-card-course-details--noAccess">
+			<div class="course-lesson-count">30 Lessons</div>			<h2 class="bb-course-title ">
+				<a title="Cuban Salsa Beginners Course" href="https://dancedemy.com/courses/cuban-salsa-beginners-course/">Cuban Salsa Beginners Course</a>
+			</h2>
+
+							<div class="bb-course-meta">
+		<a class="item-avatar" href="">
+			</a>
+	<strong>
+		<a href=""></a>
+	</strong>
+</div>
+				
+			
+			<div class="bb-course-excerpt">
+				Learn now Cuban salsa, the most amazing social dance there is. In 6 lessons you will learn with us in the most professional way possible…			</div>
+
+							<div class="bb-course-footer bb-course-pay">
+				<span class="course-fee">
+						<span class="ld-currency">$</span> 100$					</span>
+				</div>
+						</div>
+	</div>
+</li>
+					</ul>
+													</div>
+		</div>
+	</form>
+</div>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-b8c8c10 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b8c8c10" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-776f5d0" data-id="776f5d0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-75b5f5ac elementor-align-right elementor-widget__width-auto elementor-tablet-align-right elementor-mobile-align-right animated-fast elementor-invisible elementor-widget elementor-widget-button" data-id="75b5f5ac" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://zone.dancedemy.com/home/create-your-course/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-pencil-alt"></i>			</span>
+									<span class="elementor-button-text">Create a Course</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-a01820d elementor-align-right elementor-widget__width-auto elementor-tablet-align-right elementor-mobile-align-right animated-fast elementor-invisible elementor-widget elementor-widget-button" data-id="a01820d" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://zone.dancedemy.com/become-an-instructor/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-user-check"></i>			</span>
+									<span class="elementor-button-text">Become an Instructor</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+			</div><!-- .entry-content -->
+
+	
+</article>
+
+        </main><!-- #main -->
+    </div><!-- #primary -->
+
+
+
+
+</div><!-- .bb-grid -->
+</div><!-- .container -->
+</div><!-- #content -->
+
+
+
+
+	<footer class="footer-bottom bb-footer style-2">
+		<div class="container flex">
+			<div class="footer-bottom-left">				<div class="footer-logo-wrap">
+					<a class="footer-logo" href="https://dancedemy.com/" rel="home">
+						<img width="934" height="458" src="https://dancedemy.com/wp-content/uploads/2020/12/לוגו-דאנס-דמי_1.png" class="attachment-full size-full" alt="">					</a>
+									</div>
+								<div class="copyright">© 2026 - DanceDemy</div>
+				</div><div class="footer-bottom-right push-right"><ul class="footer-socials"><li><a href="mailto:omri@dancedemy.com" target="_top" data-balloon-pos="up" data-balloon="email"><i class="bb-icon-f bb-icon-envelope"></i></a></li><li><a href="https://www.facebook.com/DanceDemyOnline" target="_blank" data-balloon-pos="up" data-balloon="facebook"><i class="bb-icon-f bb-icon-brand-facebook"></i></a></li><li><a href="https://www.instagram.com/dancedemy/" target="_blank" data-balloon-pos="up" data-balloon="instagram"><i class="bb-icon-f bb-icon-brand-instagram"></i></a></li><li><a href="https://www.youtube.com/channel/UCO-m43rU3VdpYHVCzP7-IGA" target="_blank" data-balloon-pos="up" data-balloon="youtube"><i class="bb-icon-f bb-icon-brand-youtube"></i></a></li></ul><div class="footer-desc"><p><a href="https://dancedemy.com/privacy-policy/">Privacy Policy</a></p>
+</div></div>		</div>
+	</footer>
+
+</div><!-- #page -->
+
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/buddyboss-theme\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<div id="content-report" class="content-report-popup moderation-popup mfp-hide">
+	<div class="modal-mask bb-white bbm-model-wrap bbm-uploader-model-wrap">
+		<div class="modal-wrapper">
+			<div class="modal-container">
+				<header class="bb-model-header">
+					<h4>Report <span class="bp-reported-type"></span></h4>
+					<button title="Close (Esc)" type="button" class="mfp-close">
+						<span class="bb-icon-l bb-icon-times"></span>
+					</button>
+				</header>
+				<div class="bp-feedback bp-feedback-v2 error" id="notes-error" style="display: none;">
+					<span class="bp-icon" aria-hidden="true"></span>
+					<p>There was a problem reporting this post.</p>
+				</div>
+								<div class="bb-report-type-wrp">
+					<form id="bb-report-content" action="javascript:void(0);">
+
+														<div class="form-item form-item-category content">
+									<label for="report-category-94">
+										<input type="radio" id="report-category-94" name="report_category" value="94" checked="">
+										<span>Harassment</span>
+									</label>
+									<span>Harassment or bullying behavior</span>
+								</div>
+																<div class="form-item form-item-category content">
+									<label for="report-category-91">
+										<input type="radio" id="report-category-91" name="report_category" value="91">
+										<span>Inappropriate</span>
+									</label>
+									<span>Contains mature or sensitive content</span>
+								</div>
+																<div class="form-item form-item-category content">
+									<label for="report-category-92">
+										<input type="radio" id="report-category-92" name="report_category" value="92">
+										<span>Misinformation</span>
+									</label>
+									<span>Contains misleading or false information</span>
+								</div>
+																<div class="form-item form-item-category content">
+									<label for="report-category-90">
+										<input type="radio" id="report-category-90" name="report_category" value="90">
+										<span>Offensive</span>
+									</label>
+									<span>Contains abusive or derogatory content</span>
+								</div>
+																<div class="form-item form-item-category content">
+									<label for="report-category-93">
+										<input type="radio" id="report-category-93" name="report_category" value="93">
+										<span>Suspicious</span>
+									</label>
+									<span>Contains spam, fake content or potential malware</span>
+								</div>
+								
+						<div class="form-item">
+							<label for="report-category-other">
+								<input type="radio" id="report-category-other" name="report_category" value="other">
+								<span>Other</span>
+							</label>
+						</div>
+						<div class="form-item bp-hide">
+							<label for="report-note">
+								<span class="screen-reader-text">Report note</span>
+								<textarea id="report-note" placeholder="Enter your reason for reporting..." name="note" class="bp-other-report-cat"></textarea>
+							</label>
+						</div>
+						<footer class="bb-model-footer">
+							<input type="button" class="bb-cancel-report-content button" value="Cancel">
+							<button type="submit" class="report-submit button">Report</button>
+							<input type="hidden" name="content_id" class="bp-content-id">
+							<input type="hidden" name="content_type" class="bp-content-type">
+							<input type="hidden" name="_wpnonce" class="bp-nonce">
+						</footer>
+					</form>
+					<div class="bp-report-form-err"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div id="block-member" class="block-member-popup moderation-popup mfp-hide">
+	<div class="modal-mask bb-white bbm-model-wrap bbm-uploader-model-wrap">
+			<div class="modal-wrapper">
+				<div class="modal-container">
+					<header class="bb-model-header">
+						<h4>Block Member?</h4>
+						<button title="Close (Esc)" type="button" class="mfp-close">
+							<span class="bb-icon-l bb-icon-times"></span>
+						</button>
+					</header>
+
+					<div class="bb-report-type-wrp">
+						<p>
+							Please confirm you want to block this member.						</p>
+						<p>
+							You will no longer be able to:						</p>
+						<ul>
+														<li>
+								See blocked member's posts							</li>
+														<li>
+								Mention this member in posts							</li>
+														<li>
+								Invite this member to groups							</li>
+																					<li>
+								Message this member							</li>
+																					<li>
+								Add this member as a connection							</li>
+													</ul>
+
+						<p>
+															<strong>Please note: </strong>
+								This action will also remove this member from your connections and send a report to the site admin.							
+							Please allow a few minutes for this process to complete.						</p>
+						<form id="bb-block-member" action="javascript:void(0);">
+							<footer class="bb-model-footer">
+								<input type="button" class="bb-cancel-report-content button" value="Cancel">
+								<button type="submit" class="report-submit button">Confirm</button>
+								<input type="hidden" name="content_id" class="bp-content-id">
+								<input type="hidden" name="content_type" class="bp-content-type">
+								<input type="hidden" name="_wpnonce" class="bp-nonce">
+							</footer>
+						</form>
+												<div class="bp-report-form-err"></div>
+					</div>
+
+				</div>
+			</div>
+	</div>
+
+</div>
+
+<div id="reported-content" class="content-report-popup moderation-popup mfp-hide">
+	<div class="modal-mask bb-white bbm-model-wrap bbm-uploader-model-wrap">
+		<div class="modal-wrapper">
+			<div class="modal-container">
+				<header class="bb-model-header">
+					<h4>
+						Report <span class="bp-reported-type"></span>					</h4>
+					<button title="Close (Esc)" type="button" class="mfp-close">
+						<span class="bb-icon-l bb-icon-times"></span>
+					</button>
+				</header>
+
+				<div class="bb-report-type-wrp">
+					You have already reported this <span class="bp-reported-type"></span>.				</div>
+			</div>
+		</div>
+	</div>
+</div>
+					<script type="text/javascript">
+						jQuery(document).ready(function($){
+							const header_profile_ul = $('#header-aside > ul.sub-menu');
+							const toolbar_menu = $('#wp-admin-bar-my-account-buddypress > li.menupop').clone();
+
+							$(header_profile_ul).children('.menupop').remove();
+							$(header_profile_ul).children('li:first-child').append(toolbar_menu);
+						});
+					</script>
+							<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+				<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel="stylesheet" id="wc-blocks-style-css" href="https://dancedemy.com/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=wc-9.8.5" type="text/css" media="all">
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/hoverintent-js.min.js?ver=2.2.1" id="hoverintent-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/admin-bar.min.js?ver=6.8.5" id="admin-bar-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" id="presto-components-js-extra">
+/* <![CDATA[ */
+var prestoComponents = {"url":"https:\/\/dancedemy.com\/wp-content\/plugins\/presto-player\/dist\/components\/web-components\/web-components.esm.js?ver=1748333649"};
+var prestoPlayer = {"plugin_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/presto-player\/","logged_in":"","root":"https:\/\/dancedemy.com\/wp-json\/","nonce":"9ecac66174","ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","isAdmin":"","isSetup":{"bunny":false},"proVersion":"0.0.4","isPremium":"1","wpVersionString":"wp\/v2\/","prestoVersionString":"presto-player\/v1\/","debug":"","debug_navigator":"","i18n":{"skip":"Skip","rewatch":"Rewatch","emailPlaceholder":"Email address","emailDefaultHeadline":"Enter your email to play this episode.","chapters":"Chapters","show_chapters":"Show Chapters","hide_chapters":"Hide Chapters","restart":"Restart","rewind":"Rewind {seektime}s","play":"Play","pause":"Pause","fastForward":"Forward {seektime}s","seek":"Seek","seekLabel":"{currentTime} of {duration}","played":"Played","buffered":"Buffered","currentTime":"Current time","duration":"Duration","volume":"Volume","mute":"Mute","unmute":"Unmute","enableCaptions":"Enable captions","disableCaptions":"Disable captions","download":"Download","enterFullscreen":"Enter fullscreen","exitFullscreen":"Exit fullscreen","frameTitle":"Player for {title}","captions":"Captions","settings":"Settings","pip":"PIP","menuBack":"Go back to previous menu","speed":"Speed","normal":"Normal","quality":"Quality","loop":"Loop","start":"Start","end":"End","all":"All","reset":"Reset","disabled":"Disabled","enabled":"Enabled","advertisement":"Ad","qualityBadge":{"2160":"4K","1440":"HD","1080":"HD","720":"HD","576":"SD","480":"SD"},"auto":"AUTO","upNext":"Up Next","startOver":"Start Over"},"learndash":[]};
+var prestoComponents = {"url":"https:\/\/dancedemy.com\/wp-content\/plugins\/presto-player\/dist\/components\/web-components\/web-components.esm.js?ver=1748333649"};
+var prestoPlayer = {"plugin_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/presto-player\/","logged_in":"","root":"https:\/\/dancedemy.com\/wp-json\/","nonce":"9ecac66174","ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","isAdmin":"","isSetup":{"bunny":false},"proVersion":"0.0.4","isPremium":"1","wpVersionString":"wp\/v2\/","prestoVersionString":"presto-player\/v1\/","debug":"","debug_navigator":"","i18n":{"skip":"Skip","rewatch":"Rewatch","emailPlaceholder":"Email address","emailDefaultHeadline":"Enter your email to play this episode.","chapters":"Chapters","show_chapters":"Show Chapters","hide_chapters":"Hide Chapters","restart":"Restart","rewind":"Rewind {seektime}s","play":"Play","pause":"Pause","fastForward":"Forward {seektime}s","seek":"Seek","seekLabel":"{currentTime} of {duration}","played":"Played","buffered":"Buffered","currentTime":"Current time","duration":"Duration","volume":"Volume","mute":"Mute","unmute":"Unmute","enableCaptions":"Enable captions","disableCaptions":"Disable captions","download":"Download","enterFullscreen":"Enter fullscreen","exitFullscreen":"Exit fullscreen","frameTitle":"Player for {title}","captions":"Captions","settings":"Settings","pip":"PIP","menuBack":"Go back to previous menu","speed":"Speed","normal":"Normal","quality":"Quality","loop":"Loop","start":"Start","end":"End","all":"All","reset":"Reset","disabled":"Disabled","enabled":"Enabled","advertisement":"Ad","qualityBadge":{"2160":"4K","1440":"HD","1080":"HD","720":"HD","576":"SD","480":"SD"},"auto":"AUTO","upNext":"Up Next","startOver":"Start Over"},"learndash":[]};
+/* ]]> */
+</script>
+<script src="https://dancedemy.com/wp-content/plugins/presto-player/dist/components/web-components/web-components.esm.js?ver=1748333649" type="module" defer=""></script><script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/isInViewport.min.js?ver=2.8.61" id="isInViewport-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/dist/vendor/moment.min.js?ver=2.30.1" id="moment-js"></script>
+<script type="text/javascript" id="moment-js-after">
+/* <![CDATA[ */
+moment.updateLocale( 'en_US', {"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"week":{"dow":0},"longDateFormat":{"LT":"H:i","LTS":null,"L":null,"LL":"d\/m\/Y","LLL":"F j, Y g:i a","LLLL":null}} );
+moment.updateLocale( 'en_US', {"relativeTime":{"future":"in %s","past":"%s ago","s":"second","ss":"%d seconds","m":"a minute","mm":"%d minutes","h":"an hour","hh":"%d hours","d":"a day","dd":"%d days","w":"a week","ww":"%d weeks","M":"a month","MM":"%d months","y":"a year","yy":"%d years"}} );
+/* ]]> */
+</script>
+<script type="text/javascript" id="bp-livestamp-js-extra">
+/* <![CDATA[ */
+var bb_livestamp = {"year_in_seconds":"31536000","day_in_seconds":"86400","week_in_seconds":"604800","hour_in_seconds":"3600","minute_in_seconds":"60","chunks":[31536000,5256000,2592000,604800,86400,3600,60,1],"unknown_text":"sometime","right_now_text":"Just now","ago_text":"%s ago","second_text":"a second","seconds_text":"seconds","minute_text":"a minute","minutes_text":"minutes","hour_text":"an hour","hours_text":"hours","day_text":"a day","days_text":"days","week_text":"a week","weeks_text":"weeks","month_text":"a month","months_text":"months","year_text":"a year","years_text":"years"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/livestamp.min.js?ver=2.8.61" id="bp-livestamp-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/wp-util.min.js?ver=6.8.5" id="wp-util-js"></script>
+<script type="text/javascript" id="bp-nouveau-js-extra">
+/* <![CDATA[ */
+var BP_Nouveau = {"ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","only_admin_notice":"As you are the only organizer of this group, you cannot leave it. You can either delete the group or promote another member to be an organizer first and then leave the group.","is_friend_confirm":"Are you sure you want to remove your connection with this member?","confirm":"Are you sure?","confirm_delete_set":"Are you sure you want to delete this set? This cannot be undone.","show_x_comments":"View more comments","unsaved_changes":"Your profile has unsaved changes. If you leave the page, the changes will be lost.","object_nav_parent":"#buddypress","anchorPlaceholderText":"Paste or type a link","empty_field":"New Field","close":"Close","parent_group_leave_confirm":"By leaving this main group you will automatically be removed and unsubscribed to any subgroups relating to this group.","group_leave_confirm":"<p>Are you sure you want to leave <span class=\"bb-group-name\"><\/span>?<\/p>","wpTime":"2026-03-13 09:47:59","wpTimezone":"Asia\/Jerusalem","dir_labels":{"members":{"singular":"Member","plural":"Members"},"followers":{"singular":"Follower","plural":"Followers"},"connections":{"singular":"Connection","plural":"Connections"},"groups":{"singular":"Group","plural":"Groups"},"video":{"singular":"Video","plural":"Videos"},"album":{"singular":"Album","plural":"Albums"},"media":{"singular":"Photo","plural":"Photos"}},"rest_url":"https:\/\/dancedemy.com\/wp-json\/buddyboss\/v1","rest_nonce":"9ecac66174","member_label":"member","members_label":"members","objects":["activity","members","groups","xprofile","friends","media","document","video","messages","settings","notifications","search","moderation","group_members","group_requests","group_subgroups"],"nonces":{"activity":"04d8f6018c","members":"8b69e8cc31","groups":"2889ceaccd","xprofile":"0dfb0193d8","friends":"f8e747e9c5","media":"2b046e3a36","document":"eb7c6129a1","video":"72949f4d14","messages":"2eaa67ab8c","settings":"81ab61dc6a","notifications":"8eb2e87810","search":"ab2b529f88","moderation":"480b7a4f7d","group_members":"73f286ee17"},"is_send_ajax_request":"1","bb_enable_content_counts":"1","modbypass":null,"forums":{"params":{"bb_current_user_id":0,"link_preview":true},"nonces":{"post_topic_reply_draft":"77b005c105"},"strings":{"discardButton":"Discard Draft"},"draft":[]},"nonce":{"bp_moderation_content_nonce":"f38296b31a"},"current":{"message_user_id":0},"archived_threads":[],"activity":{"params":{"user_id":0,"object":"user","backcompat":false,"post_nonce":"d13fd80d58","post_draft_nonce":"490ff82817","excluded_hosts":[],"user_can_post":false,"is_activity_edit":false,"displayed_user_id":0,"errors":{"empty_post_update":"Sorry, Your update cannot be empty.","post_fail":"An error occurred while saving your post.","media_fail":"To change the media type, remove existing media from your post."},"avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/profile-avatar-blank-50.png","avatar_width":150,"avatar_height":150,"user_display_name":false,"user_domain":"","avatar_alt":"Profile photo of ","autoload":true,"objects":{"profile":{"text":"Post in: Profile","autocomplete_placeholder":"","priority":5},"group":{"text":"Post in: Group","autocomplete_placeholder":"Search groups","priority":10,"loading_group_placeholder":"Loading groups...","finding_group_placeholder":"Finding groups...","no_groups_found":"No groups found."},"group_list":[{"id":351,"name":"1 Pille Orungal bestellen, Orungal 200 mg cena","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":926,"name":"ACHAR! Compre Noten online, Purim lieder noten","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":1576,"name":"ACHAR! Encomende Ciloxan online, Buy ciloxan online","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":1928,"name":"acheter Alben samedi., Alben for cheap","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":1414,"name":"Acheter Aygestin sans ordonnance, Aygestin fda","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":1170,"name":"acheter Azelex en ligne sans script, Azelex where to buy","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":1232,"name":"Acheter Bactrim sans script, Bactrim interaction","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":1501,"name":"acheter Brand Contractubex en ligne sans l approbation du docteur, Buy brand","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":748,"name":"acheter Buspinol morue, Buy online buspinol in india cash","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false},{"id":61,"name":"Acheter Careprost, Careprost.ca reviews","avatar_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/group-avatar-buddyboss-50.png","object_type":"group","is_public":true,"group_media":false,"group_document":false,"group_video":false}],"group_count":2026,"group_total_page":203},"draft_activity":false,"access_control_settings":{"can_create_activity":true,"can_create_activity_media":true,"can_create_activity_document":true}},"strings":{"whatsnewPlaceholder":"Share what's on your mind, ...","whatsnewLabel":"Post what&#039;s new","whatsnewpostinLabel":"Post in","postUpdateButton":"Post","updatePostButton":"Update Post","cancelButton":"Cancel","commentLabel":"%d Comment","commentsLabel":"%d Comments","loadingMore":"Loading...","discardButton":"Discard Draft","pinPost":"Pin to Feed","unpinPost":"Unpin from Feed","pinGroupPost":"Pin to Group","unpinGroupPost":"Unpin from Group","pinPostError":"There was a problem marking this operation. Please try again.","reactionAjaxError":"There was a problem marking this operation. Please try again.","closeComments":"Turn off commenting","uncloseComments":"Turn on commenting","closeCommentsError":"There was a problem marking this operation. Please try again.","commentPostError":"There was a problem posting your comment.","muteNotification":"Turn off notifications","unmuteNotification":"Turn on notifications"}},"media":{"max_upload_size":250,"profile_media":false,"profile_album":true,"group_media":false,"group_album":true,"messages_media":true,"messages_media_active":true,"dropzone_media_message":"<strong>Add Photos<\/strong> Or drag and drop","media_select_error":"This file type is not supported for photo uploads.","empty_media_type":"Empty media file will not be uploaded.","invalid_media_type":"Unable to upload the file","media_size_error_header":"File too large ","media_size_error_description":"This file type is too large.","dictFileTooBig":"Sorry, file size is too big ({{filesize}} MB). Max file size limit: {{maxFilesize}} MB.","cover_photo_size_error_header":"Unable to reposition the image ","cover_photo_size_error_description":"To reposition your cover photo, please upload a larger image and then try again.","maxFiles":10,"is_media_directory":"no","create_album_error_title":"Please enter title of album","current_album":0,"current_type":"","move_to_id_popup":0,"media_dict_file_exceeded":"You are allowed to upload only 10 photos at a time.","can_manage_media":false,"create_album_title":"Create Album","dictCancelUploadConfirmation":"Are you sure you want to cancel this upload?","connection_lost_error":"Connection lost with the server.","emoji":{"profile":true,"groups":true,"messages":true,"forums":true,"document":false},"emoji_filter_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/images\/emojifilter\/","gif":{"profile":false,"groups":false,"messages":false,"forums":false,"document":false},"gif_api_key":"","i18n_strings":{"select":"Select","unselect":"Unselect","selectall":"Select All","unselectall":"Unselect All","no_photos_found":"Sorry, no photos were found","upload":"Upload","uploading":"Uploading","upload_status":"%1$d out of %2$d uploaded","album_delete_confirm":"Are you sure you want to delete this album? Photos in this album will also be deleted.","album_delete_error":"There was a problem deleting the album.","media_delete_confirm":"Are you sure you want to delete this media?","folder_delete_confirm":"Are you sure you want to delete this folder? Documents in this folder will also be deleted?","document_delete_confirm":"Are you sure you want to delete this document?","folder_delete_error":"There was a problem deleting the folder.","folder_move_error":"Please select destination folder."},"profile_document":false,"group_document":false,"messages_document":true,"messages_document_active":true,"document_type":"application\/x-abiword,text\/xml,application\/x-ace-compressed,application\/postscript,application\/pdf,application\/vnd.android.package-archive,application\/java-archive,text\/css,text\/plain,text\/csv,application\/msword,application\/vnd.ms-word.document.macroenabled.12,application\/vnd.openxmlformats-officedocument.wordprocessingml.document,application\/vnd.ms-word.template.macroenabled.12,image\/x-eps,image\/gif,application\/x-gzip,application\/gzip,text\/html,image\/x-icon,text\/calendar,application\/octet-stream,image\/jpeg,application\/javascript,audio\/mpeg,application\/vnd.oasis.opendocument.spreadsheet,application\/vnd.oasis.opendocument.text,image\/png,application\/vnd.ms-powerpoint.template.macroenabled.12,application\/vnd.openxmlformats-officedocument.presentationml.template,application\/vnd.openxmlformats-officedocument.presentationml.presentation,application\/vnd.ms-powerpoint,application\/vnd.openxmlformats-officedocument.presentationml.slideshow,application\/vnd.ms-powerpoint.presentation.macroenabled.12,image\/vnd.adobe.photoshop,application\/x-rar-compressed,application\/x-rar,application\/rss+xml,application\/rtf,application\/x-sqlite3,image\/svg+xml,application\/x-tar,image\/tiff,text\/x-vcard,text\/vcard,audio\/x-wav,application\/vnd.ms-excel.sheet.binary.macroenabled.12,application\/vnd.ms-excel,application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application\/vnd.ms-excel.sheet.macroenabled.12,application\/vnd.ms-excel.template.macroenabled.12,application\/vnd.openxmlformats-officedocument.spreadsheetml.template,text\/yaml,application\/zip,application\/x-7z-compressed,video\/mp4,video\/webm,video\/ogg,video\/quicktime,.abw,.ace,.ai,.apk,.css,.csv,.doc,.docm,.docx,.dotm,.dotx,.eps,.gif,.gz,.gzip,.htm,.html,.ico,.ics,.ipa,.jar,.jpeg,.jpg,.js,.mp3,.ods,.odt,.pdf,.png,.potm,.potx,.pps,.ppsx,.ppt,.pptm,.pptx,.psd,.rar,.rss,.rtf,.sketch,.svg,.tar,.tiff,.txt,.vcf,.wav,.xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.xml,.yaml,.zip,.7z,.mp4,.webm,.ogg,.mov","empty_document_type":"Empty documents will not be uploaded.","current_folder":0,"current_user_id":0,"current_group_id":0,"target_text":"Documents","create_folder_error_title":"Please enter title of folder","invalid_file_type":"Unable to upload the file","document_select_error":"Please upload only the following file types: <br \/><div class=\"bb-allowed-file-types\">.abw, .ace, .ai, .apk, .css, .csv, .doc, .docm, .docx, .dotm, .dotx, .eps, .gif, .gz, .gzip, .htm, .html, .ico, .ics, .ipa, .jar, .jpeg, .jpg, .js, .mp3, .ods, .odt, .pdf, .png, .potm, .potx, .pps, .ppsx, .ppt, .pptm, .pptx, .psd, .rar, .rss, .rtf, .sketch, .svg, .tar, .tiff, .txt, .vcf, .wav, .xlam, .xls, .xlsb, .xlsm, .xlsx, .xltm, .xltx, .xml, .yaml, .zip, .7z, .mp4, .webm, .ogg, .mov<\/div>","dropzone_document_message":"<strong>Add Files<\/strong> Or drag and drop","is_document_directory":"no","document_preview_error":"Sorry! something went wrong we are not able to preview.","move_to_folder":"Move folder to...","move_to_file":"Move document to...","copy_to_clip_board_text":"Copied to Clipboard","download_button":"Download","document_size_error_header":"File too large ","document_size_error_description":"This file type is too large.","sidebar_download_text":"Download","sidebar_view_text":"View","create_folder":"Create Folder","document_dict_file_exceeded":"You are allowed to upload only 10 documents at a time.","can_manage_document":false},"video":{"max_upload_size":1012,"video_type":"video\/mp4,video\/webm,video\/ogg,video\/quicktime,.mp4,.webm,.ogg,.mov","profile_video":false,"profile_album":true,"group_video":false,"group_album":true,"messages_video":false,"messages_video_active":false,"dropzone_video_message":"<strong>Add Videos<\/strong> Or drag and drop","dropzone_video_thumbnail_message":"Upload thumbnail","video_select_error":"This file type is not supported for video uploads.","empty_video_type":"Empty video file will not be uploaded.","invalid_video_type":"Unable to upload the file","video_size_error_header":"File too large ","video_size_error_description":"This file type is too large.","dictFileTooBig":"Sorry, file size is too big ({{filesize}} MB). Max file size limit: {{maxFilesize}} MB.","maxFiles":10,"is_video_directory":"no","create_album_error_title":"Please enter title of album","cover_video_size_error_header":"Unable to reposition the image ","cover_video_size_error_description":"To reposition your cover video, please upload a larger image and then try again.","current_album":0,"current_type":"","move_to_id_popup":0,"video_dict_file_exceeded":"You are allowed to upload only 10 videos at a time.","thumb_dict_file_exceeded":"You are allowed to upload only 1 thumb at a time.","dictInvalidFileType":"Please upload only the following file types: <br \/><div class=\"bb-allowed-file-types\">video\/mp4, video\/webm, video\/ogg, video\/quicktime, .mp4, .webm, .ogg, .mov<\/div>","is_ffpmeg_installed":false,"generating_thumb":"Generating thumbnail\u2026","dictCancelUploadConfirmation":"Are you sure you want to cancel this upload?","i18n_strings":{"select":"Select","unselect":"Unselect","selectall":"Select All","unselectall":"Unselect All","no_videos_found":"Sorry, no videos were found","upload":"Upload","upload_thumb":"Change Thumbnail","uploading":"Uploading","upload_status":"%1$d out of %2$d uploaded","album_delete_confirm":"Are you sure you want to delete this album? Videos in this album will also be deleted.","album_delete_error":"There was a problem deleting the album.","video_delete_confirm":"Are you sure you want to delete this video?","video_enlarge_text":"Enlarge","video_fullscreen_text":"Full screen","video_play_text":"Play","video_pause_text":"Pause","video_uploaded_text":"Uploaded","video_volume_text":"Volume","video_miniplayer_text":"Miniplayer","video_speed_text":"Speed","video_skip_back_text":"Step Back (5)","video_skip_forward_text":"Step Forward (5)","video_picture_in_text":"This video is playing in the miniplayer."}},"moderation":{"unblock_user_msg":"Are you sure you want to unblock this member?","no_user_msg":"No blocked members found."},"document":{"dictInvalidFileType":"Please upload only the following file types: <br \/><div class=\"bb-allowed-file-types\">.abw, .ace, .ai, .apk, .css, .csv, .doc, .docm, .docx, .dotm, .dotx, .eps, .gif, .gz, .gzip, .htm, .html, .ico, .ics, .ipa, .jar, .jpeg, .jpg, .js, .mp3, .ods, .odt, .pdf, .png, .potm, .potx, .pps, .ppsx, .ppt, .pptm, .pptx, .psd, .rar, .rss, .rtf, .sketch, .svg, .tar, .tiff, .txt, .vcf, .wav, .xlam, .xls, .xlsb, .xlsm, .xlsx, .xltm, .xltx, .xml, .yaml, .zip, .7z, .mp4, .webm, .ogg, .mov<\/div>","max_upload_size":250,"maxFiles":10,"mp3_preview_extension":"mp3,wav,ogg"}};
+var BB_Nouveau_Presence = {"heartbeat_enabled":"1","presence_interval":"60","presence_default_interval":"60","presence_time_span":"20","idle_inactive_span":"180","rest_nonce":"9ecac66174","native_presence":"1","native_presence_url":"https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform\/bp-core\/bb-core-native-presence.php","presence_rest_url":"https:\/\/dancedemy.com\/wp-json\/buddyboss\/v1\/members\/presence"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-nouveau.min.js?ver=2.8.61" id="bp-nouveau-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/jquery.guillotine.min.js?ver=2.8.61" id="guillotine-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/comment-reply.min.js?ver=6.8.5" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+<script type="text/javascript" id="heartbeat-js-extra">
+/* <![CDATA[ */
+var heartbeatSettings = {"ajaxurl":"\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/heartbeat.min.js?ver=6.8.5" id="heartbeat-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/jquery/ui/menu.min.js?ver=1.13.3" id="jquery-ui-menu-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/dist/a11y.min.js?ver=3156534cc54473497e14" id="wp-a11y-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.13.3" id="jquery-ui-autocomplete-js"></script>
+<script type="text/javascript" id="bp-nouveau-search-js-extra">
+/* <![CDATA[ */
+var BP_SEARCH = {"nonce":"1416fd9a3f","action":"bp_search_ajax","debug":"1","ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","loading_msg":"Loading suggestions...","enable_ajax_search":"1","per_page":"5","autocomplete_selector":".header-search-wrap .search-form","form_selector":".widget_search .search-form","forums_autocomplete":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-search.min.js?ver=2.8.61" id="bp-nouveau-search-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-moderation.min.js?ver=2.8.61" id="bp-nouveau-moderation-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/draggabilly.min.js?ver=2.7.40" id="draggabilly-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/plugins/bbp-scrubber.min.js?ver=2.7.40" id="buddyboss-theme-bbp-scrubber-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery.caret.min.js?ver=2.8.61" id="jquery-caret-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/jquery.atwho.min.js?ver=2.8.61" id="jquery-atwho-js"></script>
+<script type="text/javascript" id="bp-mentions-js-extra">
+/* <![CDATA[ */
+var BP_Mentions_Options = {"selectors":[".bp-suggestions","#comments form textarea",".wp-editor-area",".bbp-the-content"],"insert_tpl":"@${ID}","display_tpl":"<li data-value=\"@${ID}\"><img src=\"${image}\" \/><span class=\"username\">@${ID}<\/span><small>${name}<\/small><\/li>","extra_options":[]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform/bp-core/js/mentions.min.js?ver=2.8.61" id="bp-mentions-js"></script>
+<script type="text/javascript" src="//dancedemy.com/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_pager.min.js?ver=4.21.4" id="learndash_pager_js-js"></script>
+<script type="text/javascript" id="learndash_template_script_js-js-extra">
+/* <![CDATA[ */
+var sfwd_data = {"json":"{\"ajaxurl\":\"https:\\\/\\\/dancedemy.com\\\/wp-admin\\\/admin-ajax.php\"}"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="//dancedemy.com/wp-content/plugins/sfwd-lms/themes/legacy/templates/learndash_template_script.min.js?ver=4.21.4" id="learndash_template_script_js-js"></script>
+<script type="text/javascript" src="//dancedemy.com/wp-content/plugins/sfwd-lms/assets/js/jquery.dropdown.min.js?ver=4.21.4" id="jquery-dropdown-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/sfwd-lms/includes/course-grid/assets/js/elementor.js?ver=4.21.4" id="learndash-course-grid-elementor-compatibility-js"></script>
+<script type="text/javascript" id="learndash-front-js-extra">
+/* <![CDATA[ */
+var ldVars = {"postID":"17","videoReqMsg":"You must watch the video before accessing this content","ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="//dancedemy.com/wp-content/plugins/sfwd-lms/themes/ld30/assets/js/learndash.js?ver=4.21.4" id="learndash-front-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.29.0" id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.29.0" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+/* <![CDATA[ */
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.29.0","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"e_local_google_fonts":true,"theme_builder_v2":true,"editor_v2":true,"home_screen":true,"cloud-library":true,"e_opt_in_v4_page":true},"urls":{"assets":"https:\/\/dancedemy.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","uploadUrl":"http:\/\/dancedemy.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"73ffa3e751"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","woocommerce_notices_elements":[]},"post":{"id":17,"title":"DanceDemy%20%E2%80%93%20Innovative%20online%20dance%20learning%20app%20based%20on%20computer%20vision%20and%20AI%20technology%20which%20provides%20automatically%20immediate%20feedback%20and%20guidance%20for%20better%20performance%20%20without%20human%20intervention%21","excerpt":"","featuredImage":"https:\/\/dancedemy.com\/wp-content\/uploads\/2021\/02\/\u05e7\u05d0\u05d1\u05e8-\u05dc\u05d9\u05d5\u05d8\u05d9\u05d5\u05d1-\u05d3\u05d0\u05e0\u05e1-\u05d3\u05de\u05d9-100-1024x576.jpg"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.29.0" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.8.5" id="sourcebuster-js-js"></script>
+<script type="text/javascript" id="wc-order-attribution-js-extra">
+/* <![CDATA[ */
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.8.5" id="wc-order-attribution-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/assets/js/vendor/jquery.mask.js?ver=5.0.4" id="bp-zoom-mask-js-js"></script>
+<script type="text/javascript" id="bp-zoom-js-js-extra">
+/* <![CDATA[ */
+var bp_zoom_vars = {"ajax_url":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","home_url":"https:\/\/dancedemy.com","is_single_meeting":"","is_single_webinar":"","group_id":"","group_meetings_url":"","group_meetings_past_url":"","group_webinars_url":"","group_webinar_past_url":"","meeting_delete_nonce":"42870d7ef9","meeting_confirm_msg":"Are you sure you want to delete this meeting?","webinar_delete_nonce":"c80e8eb730","webinar_confirm_msg":"Are you sure you want to delete this webinar?","user":{"name":"Guest","email":"guest@domain.com"},"scripts":["https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/react.production.min.js","https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/react-dom.production.min.js","https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/redux.min.js","https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/redux-thunk.min.js","https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/lodash.min.js","https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/jquery.min.js"],"styles":["https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/bootstrap.css","https:\/\/dancedemy.com\/wp-content\/plugins\/buddyboss-platform-pro\/includes\/integrations\/zoom\/assets\/js\/zoom-web-sdk\/react-select.css"],"strings":{"day":"day","month":"month","week":"week"},"lang":"en-US","is_zoom_sdk":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/zoom/assets/js/bp-zoom.min.js?ver=2.7.21" id="bp-zoom-js-js"></script>
+<script type="text/javascript" id="bb-countdown-js-js-extra">
+/* <![CDATA[ */
+var bb_countdown_vars = {"daysStr":"Days","hoursStr":"Hours","minutesStr":"Minutes","secondsStr":"Seconds"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/buddyboss-platform-pro/assets/js/bb-countdown.min.js?ver=1.0.1" id="bb-countdown-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-includes/js/masonry.min.js?ver=4.2.2" id="masonry-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/menu.js?ver=2.7.40" id="boss-menu-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/fitvids.js?ver=2.7.40" id="boss-fitvids-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/slick.min.js?ver=2.7.40" id="boss-slick-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/panelslider.min.js?ver=2.7.40" id="boss-panelslider-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/sticky-kit.js?ver=2.7.40" id="boss-sticky-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/jssocials.min.js?ver=2.7.40" id="boss-jssocials-js-js"></script>
+<script type="text/javascript" id="buddyboss-theme-main-js-js-extra">
+/* <![CDATA[ */
+var bs_data = {"jm_ajax":"https:\/\/dancedemy.com\/jm-ajax\/","ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","show_notifications":"1","show_messages":"1","facebook_label":"Share on Facebook","twitter_label":"Post on X","more_menu_title":"Menu Items","translation":{"comment_posted":"Your comment has been posted.","comment_btn_loading":"Please Wait...","choose_a_file_label":"Choose a file","email_validation":"Please enter a valid email address."},"gamipress_badge_label":"Badge","nonce_list_grid":"ebb7ecedaa","learndash":{"nonce_get_courses":"005c24f0f3","course_archive_url":"https:\/\/dancedemy.com\/courses\/"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/main.min.js?ver=2.7.40" id="buddyboss-theme-main-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/validate.min.js?ver=2.7.40" id="boss-validate-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/select2.full.min.js?ver=2.7.40" id="select2-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/progressbar.min.js?ver=2.7.40" id="progressbar-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/vendors/mousewheel.min.js?ver=2.7.40" id="mousewheel-js-js"></script>
+<script type="text/javascript" id="buddyboss-theme-learndash-js-js-extra">
+/* <![CDATA[ */
+var BBTHEME_LEARNDASH_FRONT_VIDEO = {"hide_wrapper":"show","video_progression_enabled":"off","video_type":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/plugins/learndash.min.js?ver=2.7.40" id="buddyboss-theme-learndash-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/plugins/bb-woocommerce.min.js?ver=2.7.40" id="buddyboss-theme-woocommerce-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/themes/buddyboss-theme/assets/js/plugins/elementor.min.js?ver=2.7.40" id="buddyboss-theme-elementor-js-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.27.3" id="elementor-pro-webpack-runtime-js"></script>
+<script type="text/javascript" id="elementor-pro-frontend-js-before">
+/* <![CDATA[ */
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/dancedemy.com\/wp-admin\/admin-ajax.php","nonce":"972115ba7e","urls":{"assets":"https:\/\/dancedemy.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/dancedemy.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"woocommerce":{"menu_cart":{"cart_page_url":"https:\/\/dancedemy.com\/cart\/","checkout_page_url":"https:\/\/dancedemy.com\/checkout\/","fragments_nonce":"f8af5436e3"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/dancedemy.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.27.3" id="elementor-pro-frontend-js"></script>
+<script type="text/javascript" src="https://dancedemy.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.27.3" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
+
+
+
+<p id="a11y-speak-intro-text" class="a11y-speak-intro-text" style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;" hidden="hidden">Notifications</p><div id="a11y-speak-assertive" class="a11y-speak-region" style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;" aria-live="assertive" aria-relevant="additions text" aria-atomic="true"></div><div id="a11y-speak-polite" class="a11y-speak-region" style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;" aria-live="polite" aria-relevant="additions text" aria-atomic="true"></div><ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><ul id="ui-id-2" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" unselectable="on" style="display: none;"></ul><div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

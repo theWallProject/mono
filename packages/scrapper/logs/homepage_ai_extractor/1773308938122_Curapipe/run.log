@@ -1,0 +1,66 @@
+[2026-03-12T09:48:58.122Z] === Homepage AI Extractor: Curapipe ===
+[2026-03-12T09:48:58.122Z] Started at: 2026-03-12T09:48:58.122Z
+[2026-03-12T09:48:58.123Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773308938122_Curapipe
+[2026-03-12T09:48:58.123Z] Company: Curapipe
+[2026-03-12T09:48:58.123Z] Website: curapipe.com
+[2026-03-12T09:48:58.123Z] cbRank: 898021
+[2026-03-12T09:48:58.123Z] Reasons: h
+[2026-03-12T09:48:58.123Z] Fetching: https://curapipe.com
+[2026-03-12T09:49:09.059Z] Network idle timeout — continuing with current state
+[2026-03-12T09:49:09.118Z] Redirected: https://curapipe.com -> https://www.curapipe.com/
+[2026-03-12T09:49:09.140Z] Saved HTML (508566 bytes) to page.html
+[2026-03-12T09:49:09.145Z] Extracted 25 unique links from page
+[2026-03-12T09:49:09.146Z] Saved 25 links to links.json
+[2026-03-12T09:49:09.150Z] Extracted footer HTML (4079 chars)
+[2026-03-12T09:49:09.150Z] Extracted header HTML (13345 chars)
+[2026-03-12T09:49:09.157Z] Website (post-redirect): https://www.curapipe.com/ → origin: https://www.curapipe.com
+[2026-03-12T09:49:09.157Z] External links: 3 (of 25 total)
+[2026-03-12T09:49:09.157Z] ── All external links ──
+[2026-03-12T09:49:09.157Z]   EXT: http://www.facebook.com/curapipe
+[2026-03-12T09:49:09.157Z]   EXT: http://www.linkedin.com/company/curapipe-systems-ltd.
+[2026-03-12T09:49:09.157Z]   EXT: http://www.twitter.com/curapipe
+[2026-03-12T09:49:09.158Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T09:49:09.158Z]   REGEX: fb <- http://www.facebook.com/curapipe
+[2026-03-12T09:49:09.158Z]   REGEX: li <- http://www.linkedin.com/company/curapipe-systems-ltd.
+[2026-03-12T09:49:09.158Z]   REGEX: tw <- http://www.twitter.com/curapipe
+[2026-03-12T09:49:09.158Z] Programmatic result: ws:1, fb:1, li:1, tw:1 | 0 uncategorized
+[2026-03-12T09:49:09.158Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T09:49:09.159Z] Saved AI prompt (5118 chars) to ai_prompt.txt
+[2026-03-12T09:49:09.160Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T09:49:09.180Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T09:49:35.533Z]   AI: First token received, streaming...
+[2026-03-12T09:49:42.649Z] AI response complete: 118 chars in 33.5s
+[2026-03-12T09:49:42.650Z] Saved AI response to ai_response.json
+[2026-03-12T09:49:42.650Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T09:49:42.650Z]   AI LINK: http://www.twitter.com/curapipe
+[2026-03-12T09:49:42.650Z]   AI LINK: http://www.facebook.com/curapipe
+[2026-03-12T09:49:42.650Z]   AI LINK: http://www.linkedin.com/company/curapipe-systems-ltd.
+[2026-03-12T09:49:42.650Z] AI returned 3 valid links
+[2026-03-12T09:49:42.650Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T09:49:42.650Z]   AI→REGEX: tw <- http://www.twitter.com/curapipe (duplicate, skipped)
+[2026-03-12T09:49:42.651Z]   AI→REGEX: fb <- http://www.facebook.com/curapipe (duplicate, skipped)
+[2026-03-12T09:49:42.651Z]   AI→REGEX: li <- http://www.linkedin.com/company/curapipe-systems-ltd. (duplicate, skipped)
+[2026-03-12T09:49:42.651Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T09:49:42.651Z] Footer/header origins (4):
+[2026-03-12T09:49:42.651Z]   FOOTER/HEADER ORIGIN: http://www.twitter.com
+[2026-03-12T09:49:42.651Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-12T09:49:42.651Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-12T09:49:42.651Z]   FOOTER/HEADER ORIGIN: https://www.curapipe.com
+[2026-03-12T09:49:42.651Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T09:49:42.651Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T09:49:42.651Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T09:49:42.651Z] ── Step 3: Final dedup ──
+[2026-03-12T09:49:42.652Z] No urls to dedup
+[2026-03-12T09:49:42.652Z] ── FINAL RESULT ──
+[2026-03-12T09:49:42.652Z]   ws (1):
+[2026-03-12T09:49:42.652Z]     - https://www.curapipe.com
+[2026-03-12T09:49:42.652Z]   li (1):
+[2026-03-12T09:49:42.652Z]     - https://www.linkedin.com/company/curapipe-systems-ltd.
+[2026-03-12T09:49:42.652Z]   fb (1):
+[2026-03-12T09:49:42.652Z]     - https://www.facebook.com/curapipe
+[2026-03-12T09:49:42.652Z]   tw (1):
+[2026-03-12T09:49:42.652Z]     - https://x.com/curapipe
+[2026-03-12T09:49:42.652Z] Summary: ws:1, fb:1, li:1, tw:1
+[2026-03-12T09:49:42.653Z] Saved final result to result.json
+[2026-03-12T09:49:42.653Z] Override fields: ws, li, fb, tw
+[2026-03-12T09:49:42.653Z] Finished at: 2026-03-12T09:49:42.653Z

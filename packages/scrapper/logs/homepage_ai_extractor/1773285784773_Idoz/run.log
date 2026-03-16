@@ -1,0 +1,59 @@
+[2026-03-12T03:23:04.773Z] === Homepage AI Extractor: Idoz ===
+[2026-03-12T03:23:04.774Z] Started at: 2026-03-12T03:23:04.774Z
+[2026-03-12T03:23:04.774Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773285784773_Idoz
+[2026-03-12T03:23:04.774Z] Company: Idoz
+[2026-03-12T03:23:04.774Z] Website: idoz.net
+[2026-03-12T03:23:04.774Z] cbRank: 772496
+[2026-03-12T03:23:04.774Z] Reasons: h
+[2026-03-12T03:23:04.774Z] Fetching: https://idoz.net
+[2026-03-12T03:23:11.126Z] Redirected: https://idoz.net -> https://idoz.net/
+[2026-03-12T03:23:11.136Z] Saved HTML (229210 bytes) to page.html
+[2026-03-12T03:23:11.140Z] Extracted 10 unique links from page
+[2026-03-12T03:23:11.140Z] Saved 10 links to links.json
+[2026-03-12T03:23:11.146Z] Extracted footer HTML (16370 chars)
+[2026-03-12T03:23:11.146Z] Extracted header HTML (30382 chars)
+[2026-03-12T03:23:11.151Z] Website (post-redirect): https://idoz.net/ → origin: https://idoz.net
+[2026-03-12T03:23:11.151Z] External links: 2 (of 10 total)
+[2026-03-12T03:23:11.151Z] ── All external links ──
+[2026-03-12T03:23:11.151Z]   EXT: https://www.facebook.com/people/Idoz/100070270241788
+[2026-03-12T03:23:11.151Z]   EXT: https://www.linkedin.com/company/idoz-software-solutions/mycompany
+[2026-03-12T03:23:11.151Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T03:23:11.151Z]   REGEX: li <- https://www.linkedin.com/company/idoz-software-solutions/mycompany
+[2026-03-12T03:23:11.151Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-12T03:23:12.960Z]   RESOLVE: no redirect for https://www.facebook.com/people/Idoz/100070270241788
+[2026-03-12T03:23:12.975Z]   SKIP (regex domain, no match): https://www.facebook.com/people/Idoz/100070270241788
+[2026-03-12T03:23:12.975Z] Programmatic result: ws:1, li:1 | 0 uncategorized
+[2026-03-12T03:23:12.975Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T03:23:12.976Z] Saved AI prompt (6588 chars) to ai_prompt.txt
+[2026-03-12T03:23:12.977Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T03:23:12.990Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T03:23:39.253Z]   AI: First token received, streaming...
+[2026-03-12T03:23:48.097Z] AI response complete: 121 chars in 35.1s
+[2026-03-12T03:23:48.100Z] Saved AI response to ai_response.json
+[2026-03-12T03:23:48.100Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T03:23:48.100Z]   AI LINK: https://www.facebook.com/people/Idoz/100070270241788/
+[2026-03-12T03:23:48.100Z]   AI LINK: https://www.linkedin.com/company/idoz-software-solutions/mycompany/
+[2026-03-12T03:23:48.100Z] AI returned 2 valid links
+[2026-03-12T03:23:48.101Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T03:23:48.885Z]   RESOLVE: no redirect for https://www.facebook.com/people/Idoz/100070270241788/
+[2026-03-12T03:23:48.917Z]   AI→SKIP (regex domain, no match): https://www.facebook.com/people/Idoz/100070270241788/
+[2026-03-12T03:23:48.918Z]   AI→REGEX: li <- https://www.linkedin.com/company/idoz-software-solutions/mycompany/ (duplicate, skipped)
+[2026-03-12T03:23:48.918Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T03:23:48.918Z] Footer/header origins (3):
+[2026-03-12T03:23:48.918Z]   FOOTER/HEADER ORIGIN: https://idoz.net
+[2026-03-12T03:23:48.918Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T03:23:48.918Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T03:23:48.918Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T03:23:48.918Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T03:23:48.918Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T03:23:48.918Z] ── Step 3: Final dedup ──
+[2026-03-12T03:23:48.918Z] No urls to dedup
+[2026-03-12T03:23:48.919Z] ── FINAL RESULT ──
+[2026-03-12T03:23:48.919Z]   ws (1):
+[2026-03-12T03:23:48.919Z]     - https://idoz.net
+[2026-03-12T03:23:48.919Z]   li (1):
+[2026-03-12T03:23:48.919Z]     - https://www.linkedin.com/company/idoz-software-solutions
+[2026-03-12T03:23:48.919Z] Summary: ws:1, li:1
+[2026-03-12T03:23:48.919Z] Saved final result to result.json
+[2026-03-12T03:23:48.920Z] Override fields: ws, li
+[2026-03-12T03:23:48.920Z] Finished at: 2026-03-12T03:23:48.920Z

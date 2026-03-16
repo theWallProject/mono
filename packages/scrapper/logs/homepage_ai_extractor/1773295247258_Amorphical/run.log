@@ -1,0 +1,70 @@
+[2026-03-12T06:00:47.258Z] === Homepage AI Extractor: Amorphical ===
+[2026-03-12T06:00:47.259Z] Started at: 2026-03-12T06:00:47.259Z
+[2026-03-12T06:00:47.259Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773295247258_Amorphical
+[2026-03-12T06:00:47.259Z] Company: Amorphical
+[2026-03-12T06:00:47.259Z] Website: amorphical.com
+[2026-03-12T06:00:47.259Z] cbRank: 828011
+[2026-03-12T06:00:47.259Z] Reasons: h
+[2026-03-12T06:00:47.259Z] Fetching: https://amorphical.com
+[2026-03-12T06:01:33.778Z] Dismissed cookie consent popup via: button:has-text("Got it")
+[2026-03-12T06:01:36.748Z] Redirected: https://amorphical.com -> https://www.amorphical.com/
+[2026-03-12T06:01:36.764Z] Saved HTML (316345 bytes) to page.html
+[2026-03-12T06:01:36.769Z] Extracted 21 unique links from page
+[2026-03-12T06:01:36.770Z] Saved 21 links to links.json
+[2026-03-12T06:01:36.777Z] Extracted footer HTML (23353 chars)
+[2026-03-12T06:01:36.778Z] Extracted header HTML (18882 chars)
+[2026-03-12T06:01:36.782Z] Website (post-redirect): https://www.amorphical.com/ → origin: https://www.amorphical.com
+[2026-03-12T06:01:36.783Z] External links: 3 (of 21 total)
+[2026-03-12T06:01:36.783Z] ── All external links ──
+[2026-03-12T06:01:36.783Z]   EXT: https://www.instagram.com/amorphicure?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==
+[2026-03-12T06:01:36.783Z]   EXT: https://www.linkedin.com/company/amorphical
+[2026-03-12T06:01:36.783Z]   EXT: https://www.youtube.com/channel/UCPSTPSBS2Kvojy6kliNYwzw
+[2026-03-12T06:01:36.783Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T06:01:36.783Z]   REGEX: ig <- https://www.instagram.com/amorphicure?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==
+[2026-03-12T06:01:36.784Z]   REGEX: li <- https://www.linkedin.com/company/amorphical
+[2026-03-12T06:01:36.784Z]   REGEX: ytc <- https://www.youtube.com/channel/UCPSTPSBS2Kvojy6kliNYwzw
+[2026-03-12T06:01:36.784Z] Programmatic result: ws:1, ig:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-12T06:01:36.784Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T06:01:36.785Z] Saved AI prompt (9334 chars) to ai_prompt.txt
+[2026-03-12T06:01:36.785Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T06:01:36.862Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T06:02:22.156Z]   AI: First token received, streaming...
+[2026-03-12T06:02:36.805Z] AI response complete: 197 chars in 60.0s
+[2026-03-12T06:02:36.806Z] Saved AI response to ai_response.json
+[2026-03-12T06:02:36.806Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T06:02:36.806Z]   AI LINK: https://www.instagram.com/amorphicure?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==
+[2026-03-12T06:02:36.806Z]   AI LINK: https://www.linkedin.com/company/amorphical
+[2026-03-12T06:02:36.806Z]   AI LINK: https://www.youtube.com/channel/UCPSTPSBS2Kvojy6kliNYwzw
+[2026-03-12T06:02:36.806Z] AI returned 3 valid links
+[2026-03-12T06:02:36.806Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T06:02:36.806Z]   AI→REGEX: ig <- https://www.instagram.com/amorphicure?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== (duplicate, skipped)
+[2026-03-12T06:02:36.807Z]   AI→REGEX: li <- https://www.linkedin.com/company/amorphical (duplicate, skipped)
+[2026-03-12T06:02:36.807Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCPSTPSBS2Kvojy6kliNYwzw (duplicate, skipped)
+[2026-03-12T06:02:36.807Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T06:02:36.807Z] Footer/header origins (4):
+[2026-03-12T06:02:36.807Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T06:02:36.807Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T06:02:36.807Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T06:02:36.807Z]   FOOTER/HEADER ORIGIN: https://www.amorphical.com
+[2026-03-12T06:02:36.808Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T06:02:36.808Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T06:02:36.808Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T06:02:37.236Z]   YOUTUBE: resolved UCPSTPSBS2Kvojy6kliNYwzw → @amorphicure
+[2026-03-12T06:02:37.236Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T06:02:37.236Z] ── Step 3: Final dedup ──
+[2026-03-12T06:02:37.236Z] No urls to dedup
+[2026-03-12T06:02:37.237Z] ── FINAL RESULT ──
+[2026-03-12T06:02:37.237Z]   ws (1):
+[2026-03-12T06:02:37.237Z]     - https://www.amorphical.com
+[2026-03-12T06:02:37.237Z]   li (1):
+[2026-03-12T06:02:37.237Z]     - https://www.linkedin.com/company/amorphical
+[2026-03-12T06:02:37.237Z]   ig (1):
+[2026-03-12T06:02:37.237Z]     - https://www.instagram.com/amorphicure
+[2026-03-12T06:02:37.237Z]   ytp (1):
+[2026-03-12T06:02:37.238Z]     - https://www.youtube.com/@amorphicure
+[2026-03-12T06:02:37.238Z]   ytc (1):
+[2026-03-12T06:02:37.238Z]     - https://www.youtube.com/channel/UCPSTPSBS2Kvojy6kliNYwzw
+[2026-03-12T06:02:37.238Z] Summary: ws:1, ig:1, li:1, ytc:1, ytp:1
+[2026-03-12T06:02:37.238Z] Saved final result to result.json
+[2026-03-12T06:02:37.238Z] Override fields: ws, li, ig, ytp, ytc
+[2026-03-12T06:02:37.239Z] Finished at: 2026-03-12T06:02:37.239Z

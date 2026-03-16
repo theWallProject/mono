@@ -1,0 +1,72 @@
+[2026-03-11T01:39:32.468Z] === Homepage AI Extractor: Easy ===
+[2026-03-11T01:39:32.468Z] Started at: 2026-03-11T01:39:32.468Z
+[2026-03-11T01:39:32.468Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773193172467_Easy
+[2026-03-11T01:39:32.468Z] Company: Easy
+[2026-03-11T01:39:32.468Z] Website: easy.co.il
+[2026-03-11T01:39:32.468Z] cbRank: 538481
+[2026-03-11T01:39:32.468Z] Reasons: h
+[2026-03-11T01:39:32.468Z] Fetching: https://easy.co.il
+[2026-03-11T01:39:35.926Z] Redirected: https://easy.co.il -> https://easy.co.il/
+[2026-03-11T01:39:35.930Z] Saved HTML (74831 bytes) to page.html
+[2026-03-11T01:39:35.934Z] Extracted 147 unique links from page
+[2026-03-11T01:39:35.936Z] Saved 147 links to links.json
+[2026-03-11T01:39:35.939Z] Extracted footer HTML (5291 chars)
+[2026-03-11T01:39:35.939Z] Extracted header HTML (987 chars)
+[2026-03-11T01:39:35.944Z] Website (post-redirect): https://easy.co.il/ → origin: https://easy.co.il
+[2026-03-11T01:39:35.944Z]   SUBDOMAIN: careers.easy.co.il (added to ws)
+[2026-03-11T01:39:35.945Z]   SUBDOMAIN: experts.easy.co.il (added to ws)
+[2026-03-11T01:39:35.945Z]   SUBDOMAIN: media.easy.co.il (added to ws)
+[2026-03-11T01:39:35.945Z] Website subdomains found: 3
+[2026-03-11T01:39:35.945Z] External links: 3 (of 147 total)
+[2026-03-11T01:39:35.945Z] ── All external links ──
+[2026-03-11T01:39:35.945Z]   EXT: https://www.facebook.com/easy.co.il
+[2026-03-11T01:39:35.945Z]   EXT: https://www.instagram.com/easy.co.il
+[2026-03-11T01:39:35.945Z]   EXT: https://www.youtube.com/@-easy9214
+[2026-03-11T01:39:35.945Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T01:39:35.945Z]   REGEX: fb <- https://www.facebook.com/easy.co.il
+[2026-03-11T01:39:35.946Z]   REGEX: ig <- https://www.instagram.com/easy.co.il
+[2026-03-11T01:39:35.946Z]   REGEX: ytp <- https://www.youtube.com/@-easy9214
+[2026-03-11T01:39:35.946Z] Programmatic result: ws:4, fb:1, ig:1, ytp:1 | 0 uncategorized
+[2026-03-11T01:39:35.946Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T01:39:35.946Z] Saved AI prompt (5766 chars) to ai_prompt.txt
+[2026-03-11T01:39:35.946Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T01:39:36.268Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T01:40:00.932Z]   AI: First token received, streaming...
+[2026-03-11T01:40:07.694Z] AI response complete: 108 chars in 31.7s
+[2026-03-11T01:40:07.695Z] Saved AI response to ai_response.json
+[2026-03-11T01:40:07.695Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T01:40:07.695Z]   AI LINK: https://www.facebook.com/easy.co.il
+[2026-03-11T01:40:07.696Z]   AI LINK: https://www.instagram.com/easy.co.il/
+[2026-03-11T01:40:07.696Z]   AI LINK: https://www.youtube.com/@-easy9214
+[2026-03-11T01:40:07.696Z] AI returned 3 valid links
+[2026-03-11T01:40:07.696Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T01:40:07.696Z]   AI→REGEX: fb <- https://www.facebook.com/easy.co.il (duplicate, skipped)
+[2026-03-11T01:40:07.696Z]   AI→REGEX: ig <- https://www.instagram.com/easy.co.il/ (duplicate, skipped)
+[2026-03-11T01:40:07.696Z]   AI→REGEX: ytp <- https://www.youtube.com/@-easy9214 (duplicate, skipped)
+[2026-03-11T01:40:07.697Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T01:40:07.697Z] Footer/header origins (6):
+[2026-03-11T01:40:07.698Z]   FOOTER/HEADER ORIGIN: https://experts.easy.co.il
+[2026-03-11T01:40:07.698Z]   FOOTER/HEADER ORIGIN: https://careers.easy.co.il
+[2026-03-11T01:40:07.698Z]   FOOTER/HEADER ORIGIN: https://media.easy.co.il
+[2026-03-11T01:40:07.698Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T01:40:07.698Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-11T01:40:07.698Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T01:40:07.698Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T01:40:07.698Z] ── Step 3: Final dedup ──
+[2026-03-11T01:40:07.698Z] No urls to dedup
+[2026-03-11T01:40:07.698Z] ── FINAL RESULT ──
+[2026-03-11T01:40:07.698Z]   ws (4):
+[2026-03-11T01:40:07.698Z]     - https://careers.easy.co.il
+[2026-03-11T01:40:07.698Z]     - https://easy.co.il
+[2026-03-11T01:40:07.698Z]     - https://experts.easy.co.il
+[2026-03-11T01:40:07.698Z]     - https://media.easy.co.il
+[2026-03-11T01:40:07.699Z]   fb (1):
+[2026-03-11T01:40:07.699Z]     - https://www.facebook.com/easy.co.il
+[2026-03-11T01:40:07.699Z]   ig (1):
+[2026-03-11T01:40:07.699Z]     - https://www.instagram.com/easy.co.il
+[2026-03-11T01:40:07.699Z]   ytp (1):
+[2026-03-11T01:40:07.699Z]     - https://www.youtube.com/@-easy9214
+[2026-03-11T01:40:07.699Z] Summary: ws:4, fb:1, ig:1, ytp:1
+[2026-03-11T01:40:07.699Z] Saved final result to result.json
+[2026-03-11T01:40:07.699Z] Override fields: ws, fb, ig, ytp
+[2026-03-11T01:40:07.700Z] Finished at: 2026-03-11T01:40:07.699Z

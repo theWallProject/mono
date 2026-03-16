@@ -1,0 +1,64 @@
+[2026-03-12T08:52:35.016Z] === Homepage AI Extractor: Pushub ===
+[2026-03-12T08:52:35.016Z] Started at: 2026-03-12T08:52:35.016Z
+[2026-03-12T08:52:35.016Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773305555015_Pushub
+[2026-03-12T08:52:35.017Z] Company: Pushub
+[2026-03-12T08:52:35.017Z] Website: pushub.net
+[2026-03-12T08:52:35.017Z] cbRank: 880841
+[2026-03-12T08:52:35.017Z] Reasons: h
+[2026-03-12T08:52:35.017Z] Fetching: https://pushub.net
+[2026-03-12T08:52:36.557Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-12T08:52:39.511Z] Redirected: https://pushub.net -> https://pushub.net/
+[2026-03-12T08:52:39.519Z] Saved HTML (153419 bytes) to page.html
+[2026-03-12T08:52:39.525Z] Extracted 18 unique links from page
+[2026-03-12T08:52:39.526Z] Saved 18 links to links.json
+[2026-03-12T08:52:39.530Z] Extracted footer HTML (6735 chars)
+[2026-03-12T08:52:39.530Z] Extracted header HTML (6371 chars)
+[2026-03-12T08:52:39.535Z] Website (post-redirect): https://pushub.net/ → origin: https://pushub.net
+[2026-03-12T08:52:39.535Z]   SUBDOMAIN: dsp.pushub.net (added to ws)
+[2026-03-12T08:52:39.535Z]   SUBDOMAIN: login.pushub.net (added to ws)
+[2026-03-12T08:52:39.536Z] Website subdomains found: 2
+[2026-03-12T08:52:39.536Z] External links: 2 (of 18 total)
+[2026-03-12T08:52:39.536Z] ── All external links ──
+[2026-03-12T08:52:39.536Z]   EXT: https://www.instagram.com/pushub_me
+[2026-03-12T08:52:39.536Z]   EXT: https://www.linkedin.com/company/pushub
+[2026-03-12T08:52:39.536Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T08:52:39.536Z]   REGEX: ig <- https://www.instagram.com/pushub_me
+[2026-03-12T08:52:39.536Z]   REGEX: li <- https://www.linkedin.com/company/pushub
+[2026-03-12T08:52:39.536Z] Programmatic result: ws:3, ig:1, li:1 | 0 uncategorized
+[2026-03-12T08:52:39.536Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T08:52:39.538Z] Saved AI prompt (3608 chars) to ai_prompt.txt
+[2026-03-12T08:52:39.538Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T08:52:39.636Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T08:52:52.285Z]   AI: First token received, streaming...
+[2026-03-12T08:52:55.708Z] AI response complete: 75 chars in 16.2s
+[2026-03-12T08:52:55.709Z] Saved AI response to ai_response.json
+[2026-03-12T08:52:55.709Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T08:52:55.710Z]   AI LINK: https://www.linkedin.com/company/pushub
+[2026-03-12T08:52:55.710Z]   AI LINK: https://www.instagram.com/pushub_me
+[2026-03-12T08:52:55.710Z] AI returned 2 valid links
+[2026-03-12T08:52:55.710Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T08:52:55.710Z]   AI→REGEX: li <- https://www.linkedin.com/company/pushub (duplicate, skipped)
+[2026-03-12T08:52:55.710Z]   AI→REGEX: ig <- https://www.instagram.com/pushub_me (duplicate, skipped)
+[2026-03-12T08:52:55.711Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T08:52:55.711Z] Footer/header origins (3):
+[2026-03-12T08:52:55.711Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T08:52:55.711Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T08:52:55.711Z]   FOOTER/HEADER ORIGIN: https://dsp.pushub.net
+[2026-03-12T08:52:55.711Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T08:52:55.711Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T08:52:55.711Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T08:52:55.711Z] ── Step 3: Final dedup ──
+[2026-03-12T08:52:55.712Z] No urls to dedup
+[2026-03-12T08:52:55.712Z] ── FINAL RESULT ──
+[2026-03-12T08:52:55.712Z]   ws (3):
+[2026-03-12T08:52:55.712Z]     - https://dsp.pushub.net
+[2026-03-12T08:52:55.712Z]     - https://login.pushub.net
+[2026-03-12T08:52:55.712Z]     - https://pushub.net
+[2026-03-12T08:52:55.712Z]   li (1):
+[2026-03-12T08:52:55.712Z]     - https://www.linkedin.com/company/pushub
+[2026-03-12T08:52:55.712Z]   ig (1):
+[2026-03-12T08:52:55.712Z]     - https://www.instagram.com/pushub_me
+[2026-03-12T08:52:55.712Z] Summary: ws:3, ig:1, li:1
+[2026-03-12T08:52:55.713Z] Saved final result to result.json
+[2026-03-12T08:52:55.713Z] Override fields: ws, li, ig
+[2026-03-12T08:52:55.713Z] Finished at: 2026-03-12T08:52:55.713Z

@@ -1,0 +1,748 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>TraceSpan Communications</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="./TSImages/favicon.ico" type="image/x-icon">
+<!-- <link rel="stylesheet" href="./TSImages/w3.css"> -->
+<link rel="stylesheet" href="./TSData/w3-theme-black.css">
+<!-- <link rel="stylesheet" href="./TSData/font-awesome.min.css">-->
+<link rel="stylesheet" href="./TSData/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-5W4P4EDP6N&amp;cx=c&amp;_slc=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+ 
+
+    <script src="./TSProducts/products.js?rndstr=&lt;%= getRandomStr() %&gt;"></script>
+
+	<script>
+			var monthName= ["January","February","March","April","May","June","July",
+					"August","September","October","November","December"];
+	</script>
+
+    <script>
+        function checkEmail(x) {
+            var atpos = x.indexOf("@");
+            var dotpos = x.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+                return false;
+            }
+            return true;
+        }
+
+        function checkForm(form) {
+
+            var illegalChars = /[\(\)\<\>\'\?\!\@\#\$\%\^\&\*\+\=\|\{\}\.\,\;\:\\\"\[\]]/;
+
+            if (form.firstname.value.length < 2) {
+                alert("Invalid first name");
+                return false;
+            }
+
+            if (form.company.value.length < 2) {
+                alert("Invalid company name");
+                return false;
+            }
+
+            if (checkEmail(form.email.value) == false) {
+                alert("Invalid E-mail");
+                return false;
+            }
+
+            form.location.value = window.parent.location;
+
+            return true;
+        }
+
+
+    </script>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+body {
+	margin:0;
+    font-family: verdana, Arial, sans-serif;
+	line-height:21px;
+	color:#737885;
+	background-color:#fff;
+<!--	background-image: url("./TSImages/pattern_light-07.png"); -->
+}
+
+iframe {
+    display: block;       /* iframes are inline by default */
+    background: #000;
+    border: none;         /* Reset default border */
+    width: 80vw;
+    height: 700px;
+}
+
+.modal-dialog1{
+    width:81vw;
+    margin:30px auto
+
+}
+
+.center {
+  margin: auto;
+  border: 3px solid #73AD21;
+  padding: 4px;
+}
+
+.label-container{
+	position:fixed;
+	bottom:48px;
+	right:105px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-text{
+	color:#FFF;
+	background:rgba(51,51,51,0.5);
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+	border-radius:3px;
+}
+
+.label-arrow{
+	display:table-cell;
+	vertical-align:middle;
+	color:#333;
+	opacity:0.5;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#06C;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	font-size:24px;
+	margin-top:18px;
+}
+
+a.float + div.label-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.float:hover + div.label-container{
+  visibility: visible;
+  opacity: 1;
+}
+
+.w-display-left1{position:absolute;top:50%;left:15%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%)}
+
+.w-margin1{margin:10px!important}
+
+</style>
+
+</head>
+<body class="w3-margin" id="myPage">
+
+
+
+<div class="w3-top">
+ <div class="w3-bar w3-left-align" style="background-color: white; width:100%;">
+ 
+  <a href="http://www.tracespan.com/TS/"><img src="./TSImages/TraceSpanLogo.png?ver=2" class="w3-button w3-wide w3-hide-medium w3-hover-white"></a>
+
+    <div class="w3-padding-16 w3-display-middle1 w3-hide-small">
+
+    <div class="w3-dropdown-hover  w3-hide-small" style="background-color: white;">
+    <button class="w3-button w3-hover-red w3-text-black" style="background-color: white;" onclick="location.href='#description'">Solutions </button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="./deepnetwork.html" class="w3-bar-item w3-button">Deep Network Analysis</a>
+      <a href="./troubleshooting.html" class="w3-bar-item w3-button">Field Troubleshooting</a>
+      <a href="./emulator.html" class="w3-bar-item w3-button">PON Emulation</a>
+       <a href="./li.html" class="w3-bar-item w3-button">Lawful Interception</a>
+   </div>
+  </div>
+
+   <div class="w3-dropdown-hover  w3-hide-small" style="background-color: white;">
+    <button class="w3-button w3-hover-red w3-text-black" style="background-color: white;" onclick="location.href='#technology'">Technology </button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="./fiber.html" class="w3-bar-item w3-button">Fiber</a>
+      <a href="./copperg.html" class="w3-bar-item w3-button">G.FAST</a>
+      <a href="./copper.html" class="w3-bar-item w3-button">XDSL</a>
+      <a href="./lte.html" class="w3-bar-item w3-button">LTE</a>
+    </div>
+  </div>
+  <a href="#products" class="w3-bar-item w3-button w3-hide-small w3-hover-red w3-text-black">Products</a>
+
+   <div class="w3-dropdown-hover  w3-hide-small" style="background-color: white;">
+    <button class="w3-button w3-hover-red w3-text-black" style="background-color: white;" onclick="location.href='./contactus.html?name=main'">Support </button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="./contactus.html?name=main" class="w3-bar-item w3-button">Contact Us</a>
+      <a href="./customer.php" class="w3-bar-item w3-button">Customer Login</a>
+    </div>
+  </div>
+ 
+  <a href="#customers" class="w3-bar-item w3-button w3-hide-small w3-hover-red w3-text-black">Customers</a>
+    <div class="w3-dropdown-hover  w3-hide-small" style="background-color: white;">
+    <button class="w3-button w3-hover-red w3-text-black" style="background-color: white;" onclick="location.href='./about.html'">Company </button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="./about.html" class="w3-bar-item w3-button">About</a>
+      <a href="./management.html" class="w3-bar-item w3-button">Management Team</a>
+      <a href="./careers.html" class="w3-bar-item w3-button">Careers</a>
+    </div>
+  </div>
+    
+    <div class="w3-dropdown-hover w3-hide-small" style="background-color: white;">
+    <button class="w3-button w3-hover-red w3-text-black" style="background-color: white;" onclick="location.href='./allblogs.php'">News </button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+     <a href="./allpress.php" class="w3-bar-item w3-button">Press Releases</a>
+     <a href="./allblogs.php" class="w3-bar-item w3-button">Spanner Blog</a>
+     <a href="./allwebinars.php" class="w3-bar-item w3-button">Webinars</a>
+    </div>
+  </div>
+    
+</div>
+ 
+ </div>
+
+  <!-- Navbar on small screens -->
+  <div class="w3-bar w3-center w3-hide-large w3-hide-medium" style="background-color: white; border:thin; width:100%;">
+        <p>
+            <a href="#description">Solutions&nbsp;&nbsp;</a>
+            <a href="#technology">Technology&nbsp;&nbsp;</a>
+            <a href="#products">Products&nbsp;&nbsp;</a>
+            <a href="./contactus.html?name=main">Contact Us&nbsp;&nbsp;</a>
+        </p>
+        <p>
+            <a href="./customer.php">Login&nbsp;&nbsp;</a>
+            <a href="./management.html">Management&nbsp;&nbsp;</a>
+            <a href="./allwebinars.php">News&nbsp;&nbsp;</a>
+            <a href="./about.html">About&nbsp;&nbsp;</a>
+        </p>
+  </div>
+</div>
+
+<div class="w3-container w3-padding-32 w3-center" "="">
+
+</div>
+
+<!-- Sliders -->
+<div class="w3-content-container w3-display-container">
+  <div id="myCarousel" class="carousel slide  w3-hide-small" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+	  <li data-target="#myCarousel" data-slide-to="5"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+	
+	
+      <div class="item active">
+		<img src="./TSImages/Banner1N.png" alt="Maintain Market Leadership" style="width:100%;">
+		<div class="w3-container w-display-left1 w3-hide-small ">  
+			 <p style="text-align: left; width:400px; color:white;" class="w3-xlarge w3-text-white"><b>Maintain Market Leadership</b></p>
+        <p>&nbsp;</p> 
+			 <p style="text-align: left; width:400px;" class="w3-large w3-text-white ">Advanced Multi-layer Testing of 50G and 25G PON</p>
+        <button onclick="location.href='./product.php?id=19'" class="w3-button w3-medium w3-hover-teal " style="background-color:white; color:black;">Read More</button> 
+		</div>
+      </div>		
+	
+     <div class="item">
+		<img src="./TSImages/Banner2N.png" alt="Improve Your Access" style="width:100%;">
+		<div class="w3-container w-display-left1 w3-hide-small ">  
+			 <p style="text-align: left; width:400px; color:white;" class="w3-xlarge w3-text-white"><b>Improve Your Access</b></p>
+        <p>&nbsp;</p> 
+			 <p style="text-align: left; width:400px;" class="w3-large w3-text-white ">TraceSpan's non-intrusive solutions empower broadband access networking with deep protocol analysis across all communication layers</p>
+        <button onclick="location.href='#description'" class="w3-button w3-medium w3-hover-teal " style="background-color:white; color:black;">Read More</button> 
+		</div>
+      </div>
+			
+     <div class="item">
+        <img src="./TSImages/Banner3N.png" alt="Enhance your OLT Testing" style="width:100%;">
+		<div class="w3-container w-display-left1 w3-hide-small ">  
+ 			 <p style="text-align: left; width:400px; color:white;" class="w3-xlarge w3-text-white"><b>Enhance your OLT Testing</b></p>
+        <p>&nbsp;</p> 
+			 <p style="text-align: left; width:400px;" class="w3-large w3-text-white ">Revolutionary PON emulation tools for extensive testing of the OLT and the ONU</p>
+        <button onclick="location.href='./product.php?id=17'" class="w3-button w3-medium w3-hover-teal " style="background-color:white; color:black;">Read More</button>
+		</div>		
+      </div>		
+
+	  <div class="item">
+        <img src="./TSImages/Banner4N.png" alt="Multi-Layer 10G-EPON Analysis" style="width:100%;">
+		<div class="w3-container w-display-left1 w3-hide-small ">  
+			 <p style="text-align: left; width:400px; color:white;" class="w3-xlarge w3-text-white"><b>Multi-Layer 10G-EPON Analysis</b></p>
+        <p>&nbsp;</p> 
+			 <p style="text-align: left; width:400px;" class="w3-large w3-text-white ">Neutral, unbiased analysis of the 10G-EPON, OAM and Data protocols</p>
+        <button onclick="location.href='./product.php?id=18'" class="w3-button w3-medium w3-hover-teal " style="background-color:white; color:black;">Read More</button> 
+		</div>
+      </div>
+ 
+     <div class="item">
+        <img src="./TSImages/Banner5N.png" alt="Compact Network Diagnostics" style="width:100%;">
+		<div class="w3-container w-display-left1 w3-hide-small ">  
+
+        <p style="text-align: left; width:400px; color:white;" class="w3-xlarge w3-text-blue-grey"><b>Compact Network Diagnostics in Your Hand</b></p>
+        <p>&nbsp;</p> 
+        <p style="text-align: left; width:400px;" class="w3-large w3-text-white ">TraceSpan GPON Tracer makes field troubleshooting intuitive and quick</p>
+        <button onclick="location.href='./product.php?id=15'" class="w3-button w3-medium w3-hover-teal " style="background-color:white; color:black;">Read More</button> 
+		</div>
+      </div>
+     	  
+      <div class="item">
+        <img src="./TSImages/Banner6N.png" alt="Global Success" style="width:100%;">
+		<div class="w3-container w-display-left1 w3-hide-small ">  
+			 <p style="text-align: left; width:400px; color:white;" class="w3-xlarge w3-text-white"><b>Global Success</b></p>
+        <p>&nbsp;</p> 
+			 <p style="text-align: left; width:400px;" class="w3-large w3-text-white ">Our customers span across the globe, including prominent operators and equipment manufacturers</p>
+        <button onclick="location.href='#customers'" class="w3-button w3-medium w3-hover-teal " style="background-color:white; color:black;">View the List</button> 
+		</div>
+      </div>
+	  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+    
+ </div>
+
+
+
+<!-- End Sliders -->
+
+
+<!-- Description Container -->
+<div class="w3-container w3-padding " id="description">
+  <div class="w3-row w3-center">
+  </div>
+ <p>&nbsp;</p> 
+ <p>&nbsp;</p> 
+</div>
+
+      <div class="w3-row-padding w3-center w3-padding-24">
+        <h2><b>SOLUTIONS</b></h2>
+          </div>
+
+<div class="w3-row-padding w3-center">
+    <div class="w3-third w-margin-bottom">
+      <div class="w3-card w3-white">
+          <ul class="w3-ul w3-border w3-hover-shadow">
+              <li style="background-color:#F0F0F0; color:black;">
+			    <p class="w3-xlarge" style="background-color:#F0F0F0;">Deep Network Analysis</p>
+				</li>
+ 				<li class="w3-padding-16"><img src="./TSImages/deep-network.jpg" class="w3-hover-opacity" style="width:100%;"></li>
+ 				<li style="text-align:left; height:160px;" class="w3-padding-16">Gain complete visibility and deep understanding of your access network elements and the traffic running through them, powered by independent testing tools and multi-layer analysis.</li>
+				<li class="w3-theme-l5 w3-padding-24">
+				<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='./deepnetwork.html'" style="background-color:#F16430;">Learn More</button>
+				</li>
+                <li><p></p></li>
+            </ul>
+    </div>
+  </div>
+
+    <div class="w3-third w-margin-bottom">
+      <div class="w3-card w3-white">
+          <ul class="w3-ul w3-border w3-hover-shadow">
+              <li style="background-color:#F0F0F0; color:black;">
+			    <p class="w3-xlarge" style="background-color:#F0F0F0;">Field Troubleshooting</p>
+				</li>
+ 				<li class="w3-padding-16"><img src="./TSImages/toubleshooting.jpg" class="w3-hover-opacity" style="width:100%;"></li>
+ 				<li style="text-align:left; height:160px;" class="w3-padding-16">Speed up on-site troubleshooting and resolve service complaints with compact mobile tools that enable field support teams to quickly identify the sources of issues within and outside your access network.</li>
+				<li class="w3-theme-l5 w3-padding-24">
+				<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='./troubleshooting.html'" style="background-color:#F16430;">Learn More</button>
+				</li>
+                <li><p></p></li>
+            </ul>
+    </div>
+  </div>
+
+  
+   <div class="w3-third w-margin-bottom">
+      <div class="w3-card w3-white">
+          <ul class="w3-ul w3-border w3-hover-shadow">
+              <li style="background-color:#F0F0F0; color:black;">
+			    <p class="w3-xlarge" style="background-color:#F0F0F0;">PON Emulation</p>
+				</li>
+ 				<li class="w3-padding-16"><img src="./TSImages/PON-Emulation-solutions-page.jpg" class="w3-hover-opacity" style="width:100%;"></li>
+ 				<li style="text-align:left; height:160px;" class="w3-padding-16">Our revolutionary PON Emulation tools allow extensive testing of the OLT and the ONU as stand-alone units, providing enhanced testing coverage with simplified test setups.</li>
+				<li class="w3-theme-l5 w3-padding-24">
+				<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='./emulator.html'" style="background-color:#F16430;">Learn More</button>
+				</li>
+                <li><p></p></li>
+            </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- End Description -->
+
+
+<!-- Technology Row -->
+<div class="w3-container w3-padding " id="technology">
+  <div class="w3-row w3-center">
+  </div>
+</div>
+      <div class="w3-row-padding w3-center w3-padding-64">
+          <h2><b>TECHNOLOGY</b></h2></div>
+  
+<div class="w3-row-padding w3-center">
+   
+    <div class="w3-third w-margin-bottom">
+      <div class="w3-card w3-white">
+          <ul class="w3-ul w3-border w3-hover-shadow">
+              <li style="background-color:#F0F0F0; color:black;">
+			    <p class="w3-xlarge" style="background-color:#F0F0F0;">Fiber</p>
+				</li>
+ 				<li class="w3-padding-16"><img src="./TSImages/Optical-fibers-square.jpg" class="w3-hover-opacity" style="width:100%;"></li>
+				<li class="w3-theme-l5 w3-padding-24">
+				<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='./fiber.html'" style="background-color:#F16430;">Learn More</button>
+				</li>
+                <li><p></p></li>
+            </ul>
+    </div>
+  </div>
+
+   <div class="w3-third w-margin-bottom">
+      <div class="w3-card w3-white">
+          <ul class="w3-ul w3-border w3-hover-shadow">
+              <li style="background-color:#F0F0F0; color:black;">
+			    <p class="w3-xlarge" style="background-color:#F0F0F0;">xDSL and G.fast</p>
+				</li>
+ 				<li class="w3-padding-16"><img src="./TSImages/xDSL-square.jpg" class="w3-hover-opacity" style="width:100%;"></li>
+				<li class="w3-theme-l5 w3-padding-24">
+				<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='./copper.html'" style="background-color:#F16430;">Learn More</button>
+				</li>
+                <li><p></p></li>
+            </ul>
+    </div>
+  </div>
+
+
+   <div class="w3-third w-margin-bottom">
+      <div class="w3-card w3-white">
+          <ul class="w3-ul w3-border w3-hover-shadow">
+              <li style="background-color:#F0F0F0; color:black;">
+			    <p class="w3-xlarge" style="background-color:#F0F0F0;">LTE</p>
+				</li>
+ 				<li class="w3-padding-16"><img src="./TSImages/Technology_LTE_Square1.jpg" class="w3-hover-opacity" style="width:100%;"></li>
+				<li class="w3-theme-l5 w3-padding-24">
+				<button type="button" class="btn btn-info btn-lg" onclick="window.location.href='./lte.html'" style="background-color:#F16430;">Learn More</button>
+				</li>
+                 <li><p></p></li>
+           </ul>
+    </div>
+  </div>
+
+
+</div>
+
+
+ <!-- End Technology -->
+
+
+<!-- Products Row -->
+<div class="w3-container w3-padding " id="products">
+  <div class="w3-row w3-center">
+  </div>
+</div>
+
+	<div class="w3-row-padding w3-center w3-padding-64">
+		<h2><b>OUR PRODUCTS</b></h2>
+          <p>&nbsp;</p>
+
+	<div class="w3-row-padding w3-center" id="divProduct"><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=19&amp;ver=2"><img src="./TSImages/Featured-image-HS-PON-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">HS-PON Xpert™</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Multi-layer Analyzer for 50G and 25G PON – a unique, non-intrusive multi-layer protocol analyzer for 50G and 25G PON networks and products.</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=19&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=17&amp;ver=2"><img src="./TSImages/Featured-image-Multi-ONU-Emulator.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">Multi-ONU Emulator</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Revolutionary solution for testing of traditional and virtualized NG-PON OLTs – emulates a full PON with hundreds of ONUs, including…</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=17&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=16&amp;ver=2"><img src="./TSImages/Featured-image-NG-PON-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">NG-PON Xpert™</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Real-time protocol analyzer and emulator for Next Generation PONs, provides multi-layer view of TC, OMCI and upper layers for testing…</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=16&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=15&amp;ver=2"><img src="./TSImages/Featured-image-GPON_Tracer.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">GPON Tracer™</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Compact handheld diagnostics tool for GPON field engineering and support teams, featuring simple user interface with rich intuitive displays.</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=15&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=18&amp;ver=2"><img src="./TSImages/Featured-image-10G-EPON-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">10G-EPON Xpert™</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Unique Multi-Layer Analyzer for 10G-EPON Products and Networks.</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=18&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=13&amp;ver=2"><img src="./TSImages/Featured-image-GPON-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">GPON Xpert™</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Complete multi-layer analysis, performance testing and standard-compliance verification of GPON elements.</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=13&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=9&amp;ver=2"><img src="./TSImages/Featured-image-GPON-Phantom.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">GPON Phantom™</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Passive tapping solution for lawful interception of optical fiber lines using GPON technology in an FTTx topology...</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=9&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=14&amp;ver=2"><img src="./TSImages/Featured-image-Gfast-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">Gfast Xpert™ (Discontinued)</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Unique, non-intrusive multi-layer protocol analyzer for testing the functionality and interoperability of G.fast products and networks.</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=14&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=12&amp;ver=2"><img src="./TSImages/Featured-image-LTE-A-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">LTE-A Xpert™ (Discontinued)</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Real-time protocol analyzer for LTE-Advanced radio access networks, providing full visibility of traffic between UEs and base stations.</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=12&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=11&amp;ver=2"><img src="./TSImages/Featured-image-VDSL-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">VDSL Xpert™ (Discontinued)</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Multi-layer analyzer breaks new ground as the only non-intrusive performance analysis solution for VDSL2 products.</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=11&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=10&amp;ver=2"><img src="./TSImages/Featured-image-DSL-Xpert.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">DSL Xpert™ (Discontinued)</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">The unique non-intrusive analyzer for ADSL2+, ADSL2 and ADSL networks and products, in use by top service providers, equipment vendors…</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=10&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=8&amp;ver=2"><img src="./TSImages/Featured-image-VDSL-Phantom.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">VDSL Phantom™ (Discont.)</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Easy to install passive tapping device for Lawful Interception of VDSL2 lines, for Law Enforcement Authorities looking to capture data…</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=8&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div><div class="w3-third w-margin-bottom "><ul class="w3-ul w3-border w3-hover-shadow"><li class="w3-padding-16" style="background-color:#white; color:black; border:0 "><a href="product.php?id=7&amp;ver=2"><img src="./TSImages/Featured-image-ADSL-Phantom.png " class="w3-hover-opacity" style="width:100%; max-width:320px;"></a></li><li style="background-color:#white; color:black; border:0 "><p class="w3-xlarge" style="background-color:#white;">DSL Phantom™ (Discontinued)</p></li><li style="text-align:left; height:120px; background-color:#white;" class="w3-padding-16">Unique passive tapping device for Lawful Interception of ADSL lines, allowing capture of data between the target and the service…</li><li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-medium w3-hover-teal" onclick="window.location.href='./product.php?id=7&amp;ver=2'" style="background-color:#F16430; color:white;">Read More</button></li></ul><p style="height:20px;"></p></div></div>
+
+	</div>
+
+	<div id="divProductModal"><div class="modal fade" id="Prod19" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">HS-PON Xpert™</h2><p></p><h5>Comprehensive analysis of 50G and 25G PON protocols</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/hspon_xpert.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod17" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">Multi-ONU Emulator</h2><p></p><h5>Revolutionary Testing Solution for NG-PON OLTs</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/multi_onu.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod16" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">NG-PON Xpert™</h2><p></p><h5>Multi-layer Analysis for Next Generation PONs</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/ngpon_xpert.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod15" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">GPON Tracer™</h2><p></p><h5>Compact Network Diagnostics in Your Hand</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/gpon_tracer.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod18" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">10G-EPON Xpert™</h2><p></p><h5>Multi-Layer Analyzer for 10G-EPON Products and Networks</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/10gepon_xpert.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod13" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">GPON Xpert™</h2><p></p><h5>Passive Multi-Layer GPON Analyzer</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/gpon_xpert.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod9" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">GPON Phantom™</h2><p></p><h5>GPON Phantom™</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/gpon_phantom.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod14" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">Gfast Xpert™ (Discontinued)</h2><p></p><h5>Unique Multi-layer G.fast Analyzer</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/gfast.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod12" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">LTE-A Xpert™ (Discontinued)</h2><p></p><h5>What Would Uu Like to Know?</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/lte.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod11" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">VDSL Xpert™ (Discontinued)</h2><p></p><h5>Unique non-intrusive analyzer for VDSL2</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/vdsl_xpert.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod10" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">DSL Xpert™ (Discontinued)</h2><p></p><h5>Non-intrusive analyzer for ADSL2Plus and ADSL</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/adsl_xpert.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod8" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">VDSL Phantom™ (Discont.)</h2><p></p><h5>VDSL Phantom™</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/vdsl_phantom.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="Prod7" role="dialog"><div class="modal-dialog1"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2 class="modal-title">DSL Phantom™ (Discontinued)</h2><p></p><h5>DSL Phantom™</h5><p></p></div><div class="modal-body"><p style="text-align: justify;"> <iframe src="http://www.tracespan.com/TS/TSProducts/adsl_phantom.html?ver=2"></iframe> </p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div></div> 
+	
+	
+ <!-- End Products -->
+
+
+ <!-- Contact Container -->
+
+<div class="w3-container w3-padding " id="contact">
+  <div class="w3-row w3-center">
+     <div class="w3-padding "><span class="w3-xlarge w3-border-teal w3-bottombar" style="text-align: center;"></span></div>
+ <p>&nbsp;</p> 
+ <p>&nbsp;</p> 
+   
+	
+  </div>
+  </div>
+ 
+ 
+<div class="w3-container w3-padding " style="background-color:#F0F0F0; color:black;">
+  <div class="w3-row w3-center">
+     <div class="w3-padding "><span class="w3-xlarge w3-border w3-bottombar" style="text-align: center;">Contact Us</span></div>
+   
+
+  </div>
+  </div>
+	
+<div class="w3-container w3-padding " style="background-color: #E6E6E6;">
+  <div class="w3-row w3-center">
+  <div class=" w3-center">
+      <form style="max-width:600px; text-align: left; border-color:#F16430;" class="w3-container w3-card-4 w3-white center" method="post" action="./mail.php">
+	  
+	  
+	  
+      <div class="w3-section" style="text-align: left;">      
+        <input class="w3-input" type="hidden" name="curpage" id="curpage" value="main_page">
+      </div>
+      <div class="w3-section" style="text-align: left;">      
+        <label>Name</label>
+        <input class="w3-input" type="text" name="firstname" id="firstname" required="">
+      </div>
+      <div class="w3-section" style="text-align: left;">      
+        <label>Company</label>
+        <input class="w3-input" type="text" name="company" id="company" required="">
+      </div>
+      <div class="w3-section" style="text-align: left;">      
+        <label>Phone</label>
+        <input class="w3-input" type="text" name="phone" id="phone">
+      </div>
+      <div class="w3-section" style="text-align: left;">      
+        <label>Email</label>
+        <input class="w3-input" type="text" name="email" id="email" required="">
+      </div>
+      <div class="w3-section" style="text-align: left;">      
+        <label>Subject</label>
+        <input class="w3-input" type="text" name="subject" id="subject">
+      </div>  
+      <div class="w3-section" style="text-align: left;">      
+        <label>Note</label>
+        <input class="w3-input" type="textarea" name="note" id="note">
+<!--          <textarea rows="3" name="note" cols="47" id="note"></textarea> -->
+      </div>  
+	  
+      <div class="w3-section" style="text-align: left;">      
+		<select id="type" name="type">
+		  <option value="4" checked="">Ask for information</option>
+		  <option value="3">Speak with an expert</option>
+		  <option value="2">Request a quote</option>
+		  <option value="1">Schedule a live demo</option>
+		</select>	  
+      </div>  
+	  
+        <button type="submit" onclick="return checkForm(this.form);" class="w3-button w3-right" style="background-color:#F16430; color:white;">Send</button>
+      </form>
+   </div>
+   </div>
+ </div>
+
+ 
+<div class="w3-container w3-padding " id="customers">
+  <div class="w3-row w3-center">
+     <div class="w3-padding "><span class="w3-xlarge w3-border-teal w3-bottombar" style="text-align: center;"></span></div>
+ <p>&nbsp;</p> 
+ <p>&nbsp;</p> 
+   
+	
+  </div>
+  </div>
+
+<!-- Image of location/map -->
+<div class="row ">
+    <h2><p style="text-align: center;"><b>SOME OF OUR CUSTOMERS</b></p></h2>
+</div><!-- .row (end) -->
+
+<img src="./TSImages/Customers.png?id=1" class="w3-image" style="width:100%;">
+
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-16 w3-center" style="background-color:#F0F0F0;">
+    
+  <p style="background-color:#F0F0F0; color:black;">Copyright © 2002 - <script>document.write(new Date().getFullYear())</script>2026 TraceSpan™ Communications Ltd. All rights reserved.</p>
+
+</footer>
+
+<script>
+// Script for side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "300px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+
+// Close side navigation
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+
+<script>
+function myFunction(id, index) {
+
+	for(i = 1; i < 4; i++)
+	{
+		if(i == index)
+		  continue;
+		var x1 = document.getElementById("Demo1" + i);
+		if (x1.className.indexOf("w3-show") != -1)
+	    {
+		  x1.className = x1.className.replace(" w3-show", "");
+		  x1.previousElementSibling.className = 
+		  x1.previousElementSibling.className.replace("w3-red", "w3-black");
+	    }
+	}
+
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace("w3-black", "w3-red");
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace("w3-red", "w3-black");
+  }
+}
+</script>
+
+    <script>
+
+        //Read Blogs
+
+//	console.log(jsonData.length);
+		var sData = "";
+		var sDataModal = "";
+
+        //Read Products
+		var tsObj = JSON.stringify(products);
+		var jsonData = JSON.parse(tsObj);
+		
+		sData = "";
+		sDataModal = "";
+		for (var i = 0; i < jsonData.length; i++) 
+		{
+			var productData = jsonData[i];
+			
+			sData += "<div class=\"w3-third w-margin-bottom \">";
+			  sData += "<ul class=\"w3-ul w3-border w3-hover-shadow\" >";
+			  sData += "<li class=\"w3-padding-16\" style=\"background-color:#white; color:black; border:0 \"><a href=\"product.php?id=" + productData.id + "&ver=2\">" + "<img src=\"./TSImages/" + productData.image + " \" class=\"w3-hover-opacity\" style=\"width:100%; max-width:320px;\"></a></li>";
+				sData += "<li style=\"background-color:#white; color:black; border:0 \">";
+				sData += "<p class=\"w3-xlarge\" style=\"background-color:#white;\">" + productData.title + "</p>";
+				sData += "</li>";
+				sData += "<li  style=\"text-align:left; height:120px; background-color:#white;\" class=\"w3-padding-16\">" + productData.description + "</li>";
+				sData += "<li class=\"w3-theme-l5 w3-padding-24\">";
+				sData += "<button class=\"w3-button w3-medium w3-hover-teal\" onclick = \"window.location.href=\'./product.php?id=" + productData.id + "&ver=2" + "\'\" style=\"background-color:#F16430; color:white;\">Read More</button>";
+				sData += "</li>";
+			  sData += "</ul>";
+				sData += "<p style=\"height:20px;\"></p>";
+				sData += "</div>";
+			
+//			console.log(productData.id);
+		
+		
+		
+			
+			
+			sDataModal += "<div class=\"modal fade\" id=\"Prod" + productData.id + "\" role=\"dialog\">";
+				sDataModal += "<div class=\"modal-dialog1\">";
+				  sDataModal += "<div class=\"modal-content\">";
+					sDataModal += "<div class=\"modal-header\">";
+					  sDataModal += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>";
+					  sDataModal += "<h2 class=\"modal-title\">" + productData.title + "</h2>";
+					  sDataModal += "<p><h5 >" + productData.modalSubTitle + "</h5></p>";
+					sDataModal += "</div>";
+					sDataModal += "<div class=\"modal-body\">";
+					sDataModal += "<p style=\"text-align: justify;\"> <iframe src=\"" + productData.modalDescription + "?ver=2" + "\" ></iframe> </p>";
+					sDataModal += "</div>";
+					sDataModal += "<div class=\"modal-footer\">";
+					  sDataModal += "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+					sDataModal += "</div>";
+				  sDataModal += "</div>";
+			   sDataModal += "</div>";
+			sDataModal += "</div>";			
+
+	//		console.log(productData.id);
+			
+		}	
+		    document.getElementById("divProduct").innerHTML = sData;
+		    document.getElementById("divProductModal").innerHTML = sDataModal;
+			
+//			console.log(sDataModal);
+
+		
+	</script>
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-61132624-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+        <div id="divContactus"><a href="./contactus.html?name=TS" class="float"><i class="fa fa-envelope my-float"></i></a></div>
+
+<script>
+    var segments = window.location.pathname.split('/');
+    var toDelete = [];
+    for (var i = 0; i < segments.length; i++) {
+        if (segments[i].length < 1) {
+            toDelete.push(i);
+        }
+    }
+    for (var i = 0; i < toDelete.length; i++) {
+        segments.splice(i, 1);
+    }
+    var filename = segments[segments.length - 1];
+
+    var hostname = "<a href=\"./contactus.html?name=" + filename + "\"  class=\"float\"><i class=\"fa fa-envelope my-float\"></i></a>";
+    document.getElementById("divContactus").innerHTML = hostname;
+
+    //   console.log(sData);
+
+</script>
+    
+    <div class="label-container">
+<div class="label-text">Contact Us</div>
+<i class="fa fa-play label-arrow"></i>
+</div>
+
+</body></html>

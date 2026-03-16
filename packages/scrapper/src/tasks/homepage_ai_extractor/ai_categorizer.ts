@@ -30,6 +30,7 @@ import { extractUrlOrigin } from "../validate/url_utils"
 import { chatCompletion } from "./ai_client"
 import type { CompanyLogger } from "./company_logger"
 import { getOrCreateBrowser, type LinkExtractionResult } from "./link_extractor"
+import { resolveYouTubeChannelHandles } from "./youtube_resolver"
 
 /** Categorized output: links grouped by platform */
 export type CategorizedLinks = {
@@ -411,27 +412,64 @@ const stripClutterAttributes = (html: string): string => {
   )
 }
 
+/**
+ * Extracts just the href URLs from anchor tags in HTML.
+ * Used as a fallback for large footers/headers where full HTML would blow up the prompt.
+ */
+const extractHrefsFromHtml = (html: string): string[] => {
+  const hrefs: string[] = []
+  const regex = /<a\s[^>]*href\s*=\s*["']([^"']+)["']/gi
+  let match = regex.exec(html)
+  while (match) {
+    const href = match[1]
+    if (href && !href.startsWith("#") && !href.startsWith("javascript:")) {
+      hrefs.push(href)
+    }
+    match = regex.exec(html)
+  }
+  // Deduplicate while preserving order
+  return [...new Set(hrefs)]
+}
+
+/** Above this char count (after clutter stripping), send only extracted links instead of full HTML */
+const LARGE_HTML_THRESHOLD = 10_000
+
+/**
+ * Prepares an HTML section for the AI prompt. Small sections are sent as cleaned HTML
+ * so the AI has full context. Large sections are reduced to just a list of extracted
+ * hrefs — the AI only needs the links, not 50K of markup.
+ */
+const prepareHtmlForPrompt = (html: string, sectionName: string): string => {
+  const cleaned = stripClutterAttributes(html)
+  if (cleaned.length <= LARGE_HTML_THRESHOLD) {
+    return `${sectionName} HTML:\n${cleaned}`
+  }
+  // Large HTML — extract just the links
+  const hrefs = extractHrefsFromHtml(html)
+  if (hrefs.length === 0) {
+    return `${sectionName} LINKS: (no links found in ${sectionName.toLowerCase()})`
+  }
+  return `${sectionName} LINKS (extracted from large ${sectionName.toLowerCase()}, ${hrefs.length} links):\n${hrefs.map((h) => `  ${h}`).join("\n")}`
+}
+
 const buildAiPrompt = (
   companyName: string,
   uncategorizedLinks: string[],
   footerHtml: string | null,
   headerHtml: string | null
 ): string => {
-  // Strip clutter attributes first, then apply size limit
-  const cleanedFooter = footerHtml ? stripClutterAttributes(footerHtml) : null
-  const cleanedHeader = INCLUDE_HEADER_IN_PROMPT && headerHtml ? stripClutterAttributes(headerHtml) : null
-
-  // Size limit per section — must fit within the model's 32K context window
-  const maxHtmlChars = 50_000
-  const trimmedFooter = cleanedFooter ? cleanedFooter.slice(0, maxHtmlChars) : "(no footer found)"
-  const trimmedHeader = cleanedHeader ? cleanedHeader.slice(0, maxHtmlChars) : null
+  const footerSection = footerHtml
+    ? prepareHtmlForPrompt(footerHtml, "FOOTER")
+    : "FOOTER: (no footer found)"
+  const headerSection =
+    INCLUDE_HEADER_IN_PROMPT && headerHtml ? "\n\n" + prepareHtmlForPrompt(headerHtml, "HEADER") : ""
 
   // Only include up to 200 uncategorized links to avoid enormous prompts
   const linksToAnalyze = uncategorizedLinks.slice(0, 200)
 
   return `You are filtering links from the website of "${companyName}".
 
-Below are external links found on the page that I could not automatically categorize, plus the page's footer and header HTML which may contain additional links I missed.
+Below are external links found on the page that I could not automatically categorize, plus links from the page's footer and header which may contain additional links I missed.
 
 Your task: return ONLY the links that are official accounts, profiles, products, or properties of "${companyName}" itself.
 
@@ -455,13 +493,12 @@ EXCLUDE links like:
 - Generic platform links without a specific profile (e.g., just "facebook.com" or "twitter.com")
 - Design agency credits or "built by" links
 
-CRITICAL: Do NOT invent or guess any URLs. Every link you return MUST appear verbatim in the uncategorized links list or in the footer HTML below. If you are unsure, leave it out.
+CRITICAL: Do NOT invent or guess any URLs. Every link you return MUST appear verbatim in the uncategorized links list or in the footer/header links below. If you are unsure, leave it out.
 
 UNCATEGORIZED LINKS (${linksToAnalyze.length} of ${uncategorizedLinks.length}):
 ${linksToAnalyze.map((link) => `  ${link}`).join("\n")}
 
-FOOTER HTML:
-${trimmedFooter}${trimmedHeader ? `\n\nHEADER HTML:\n${trimmedHeader}` : ""}
+${footerSection}${headerSection}
 
 Respond with ONLY a plain list of URLs, one per line. No numbering, no bullets, no explanations, no markdown.
 If you find nothing, respond with an empty line.`
@@ -764,14 +801,32 @@ export const categorizeLinks = async (
     const prompt = buildAiPrompt(companyName, uncategorizedLinks, extraction.footerHtml, extraction.headerHtml)
     logger.saveAiPrompt(prompt)
 
-    const aiResponseText = await chatCompletion([
+    const startTime = Date.now()
+    let lastLoggedChars = 0
+
+    const aiResponseText = await chatCompletion(
+      [
+        {
+          role: "system",
+          content:
+            "You are a precise link filtering assistant. You examine website links and HTML to identify which links belong to the company's official online presence. You respond ONLY with a plain list of URLs, one per line."
+        },
+        { role: "user", content: prompt }
+      ],
       {
-        role: "system",
-        content:
-          "You are a precise link filtering assistant. You examine website links and HTML to identify which links belong to the company's official online presence. You respond ONLY with a plain list of URLs, one per line."
-      },
-      { role: "user", content: prompt }
-    ])
+        log: (msg) => logger.log(`  AI: ${msg}`),
+        onProgress: (charsSoFar) => {
+          if (charsSoFar - lastLoggedChars >= 200) {
+            const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+            logger.log(`  AI streaming: ${charsSoFar} chars received (${elapsed}s elapsed)`)
+            lastLoggedChars = charsSoFar
+          }
+        }
+      }
+    )
+
+    const totalElapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+    logger.log(`AI response complete: ${aiResponseText.length} chars in ${totalElapsed}s`)
 
     logger.saveAiResponse(aiResponseText)
 
@@ -899,6 +954,19 @@ export const categorizeLinks = async (
     }
   }
   logger.log(`Step 2b result: added ${addedUncategorizedCount} uncategorized domains from footer/header`)
+
+  // ── Step 2c: YouTube channel handle resolution ──
+  // For each ytc channel URL, resolve the channel ID to an @handle and add
+  // the corresponding ytp URL. Both ytc and ytp are kept in the result.
+  // Non-fatal: if resolution fails, the ytc entry stays and no ytp is added.
+
+  logger.log(`── Step 2c: YouTube channel handle resolution ──`)
+  const postYoutube = await resolveYouTubeChannelHandles(result, logger)
+
+  // Apply YouTube resolution results back to our mutable result object
+  if (postYoutube.ytp) {
+    result.ytp = postYoutube.ytp
+  }
 
   // ── Step 3: Final dedup — remove urls that were already captured in specialized fields ──
 

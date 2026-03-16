@@ -1,0 +1,66 @@
+[2026-03-12T00:34:25.357Z] === Homepage AI Extractor: Devlion ===
+[2026-03-12T00:34:25.357Z] Started at: 2026-03-12T00:34:25.357Z
+[2026-03-12T00:34:25.357Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773275665357_Devlion
+[2026-03-12T00:34:25.357Z] Company: Devlion
+[2026-03-12T00:34:25.357Z] Website: devlion.co.il
+[2026-03-12T00:34:25.357Z] cbRank: 723751
+[2026-03-12T00:34:25.358Z] Reasons: h
+[2026-03-12T00:34:25.358Z] Fetching: https://devlion.co.il
+[2026-03-12T00:34:47.955Z] Network idle timeout — continuing with current state
+[2026-03-12T00:34:48.000Z] Redirected: https://devlion.co.il -> https://devlion.co.il/
+[2026-03-12T00:34:48.007Z] Saved HTML (126761 bytes) to page.html
+[2026-03-12T00:34:48.011Z] Extracted 29 unique links from page
+[2026-03-12T00:34:48.012Z] Saved 29 links to links.json
+[2026-03-12T00:34:48.015Z] Extracted footer HTML (6110 chars)
+[2026-03-12T00:34:48.015Z] Extracted header HTML (5836 chars)
+[2026-03-12T00:34:48.020Z] Website (post-redirect): https://devlion.co.il/ → origin: https://devlion.co.il
+[2026-03-12T00:34:48.021Z] External links: 3 (of 29 total)
+[2026-03-12T00:34:48.021Z] ── All external links ──
+[2026-03-12T00:34:48.021Z]   EXT: https://creativethemes.com
+[2026-03-12T00:34:48.021Z]   EXT: https://www.linkedin.com/company/devlion
+[2026-03-12T00:34:48.021Z]   EXT: https://www.youtube.com/channel/UCcr-Ha6mlcNL8H_gsy9sgDQ
+[2026-03-12T00:34:48.021Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T00:34:48.021Z]   UNCATEGORIZED: https://creativethemes.com
+[2026-03-12T00:34:48.021Z]   REGEX: li <- https://www.linkedin.com/company/devlion
+[2026-03-12T00:34:48.021Z]   REGEX: ytc <- https://www.youtube.com/channel/UCcr-Ha6mlcNL8H_gsy9sgDQ
+[2026-03-12T00:34:48.021Z] Programmatic result: ws:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-12T00:34:48.022Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T00:34:48.022Z] Saved AI prompt (5129 chars) to ai_prompt.txt
+[2026-03-12T00:34:48.023Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T00:34:48.038Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T00:35:07.094Z]   AI: First token received, streaming...
+[2026-03-12T00:35:13.669Z] AI response complete: 97 chars in 25.6s
+[2026-03-12T00:35:13.670Z] Saved AI response to ai_response.json
+[2026-03-12T00:35:13.670Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T00:35:13.670Z]   AI LINK: https://www.linkedin.com/company/devlion
+[2026-03-12T00:35:13.670Z]   AI LINK: https://www.youtube.com/channel/UCcr-Ha6mlcNL8H_gsy9sgDQ
+[2026-03-12T00:35:13.670Z] AI returned 2 valid links
+[2026-03-12T00:35:13.670Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T00:35:13.670Z]   AI→REGEX: li <- https://www.linkedin.com/company/devlion (duplicate, skipped)
+[2026-03-12T00:35:13.670Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCcr-Ha6mlcNL8H_gsy9sgDQ (duplicate, skipped)
+[2026-03-12T00:35:13.671Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T00:35:13.671Z] Footer/header origins (3):
+[2026-03-12T00:35:13.671Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T00:35:13.671Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T00:35:13.671Z]   FOOTER/HEADER ORIGIN: https://devlion.co.il
+[2026-03-12T00:35:13.671Z]   SKIP (not in footer/header): https://creativethemes.com
+[2026-03-12T00:35:13.672Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T00:35:13.672Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T00:35:13.672Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T00:35:13.972Z]   YOUTUBE: resolved UCcr-Ha6mlcNL8H_gsy9sgDQ → @devlionweb5462
+[2026-03-12T00:35:13.973Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T00:35:13.973Z] ── Step 3: Final dedup ──
+[2026-03-12T00:35:13.973Z] No urls to dedup
+[2026-03-12T00:35:13.973Z] ── FINAL RESULT ──
+[2026-03-12T00:35:13.973Z]   ws (1):
+[2026-03-12T00:35:13.973Z]     - https://devlion.co.il
+[2026-03-12T00:35:13.973Z]   li (1):
+[2026-03-12T00:35:13.973Z]     - https://www.linkedin.com/company/devlion
+[2026-03-12T00:35:13.973Z]   ytp (1):
+[2026-03-12T00:35:13.973Z]     - https://www.youtube.com/@devlionweb5462
+[2026-03-12T00:35:13.974Z]   ytc (1):
+[2026-03-12T00:35:13.974Z]     - https://www.youtube.com/channel/UCcr-Ha6mlcNL8H_gsy9sgDQ
+[2026-03-12T00:35:13.974Z] Summary: ws:1, li:1, ytc:1, ytp:1
+[2026-03-12T00:35:13.974Z] Saved final result to result.json
+[2026-03-12T00:35:13.974Z] Override fields: ws, li, ytp, ytc
+[2026-03-12T00:35:13.975Z] Finished at: 2026-03-12T00:35:13.974Z

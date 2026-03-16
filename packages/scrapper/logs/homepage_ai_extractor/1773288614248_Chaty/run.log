@@ -1,0 +1,71 @@
+[2026-03-12T04:10:14.249Z] === Homepage AI Extractor: Chaty ===
+[2026-03-12T04:10:14.249Z] Started at: 2026-03-12T04:10:14.249Z
+[2026-03-12T04:10:14.249Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773288614248_Chaty
+[2026-03-12T04:10:14.249Z] Company: Chaty
+[2026-03-12T04:10:14.249Z] Website: chaty.app
+[2026-03-12T04:10:14.249Z] cbRank: 786553
+[2026-03-12T04:10:14.249Z] Reasons: h
+[2026-03-12T04:10:14.249Z] Fetching: https://chaty.app
+[2026-03-12T04:10:17.629Z] Redirected: https://chaty.app -> https://chaty.app/
+[2026-03-12T04:10:17.635Z] Saved HTML (133925 bytes) to page.html
+[2026-03-12T04:10:17.640Z] Extracted 57 unique links from page
+[2026-03-12T04:10:17.641Z] Saved 57 links to links.json
+[2026-03-12T04:10:17.644Z] Extracted footer HTML (6543 chars)
+[2026-03-12T04:10:17.644Z] Extracted header HTML (9117 chars)
+[2026-03-12T04:10:17.652Z] Website (post-redirect): https://chaty.app/ → origin: https://chaty.app
+[2026-03-12T04:10:17.652Z]   SUBDOMAIN: go.chaty.app (added to ws)
+[2026-03-12T04:10:17.652Z] Website subdomains found: 1
+[2026-03-12T04:10:17.653Z] External links: 4 (of 57 total)
+[2026-03-12T04:10:17.653Z] ── All external links ──
+[2026-03-12T04:10:17.653Z]   EXT: https://chatway.app/?utm_source=chatyappwebsite
+[2026-03-12T04:10:17.653Z]   EXT: https://chatway.app/?utm_source=chatyfooter
+[2026-03-12T04:10:17.653Z]   EXT: https://www.facebook.com/premio.io
+[2026-03-12T04:10:17.653Z]   EXT: https://www.linkedin.com/company/premioio
+[2026-03-12T04:10:17.653Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T04:10:17.653Z]   UNCATEGORIZED: https://chatway.app/?utm_source=chatyappwebsite
+[2026-03-12T04:10:17.654Z]   UNCATEGORIZED: https://chatway.app/?utm_source=chatyfooter
+[2026-03-12T04:10:17.654Z]   REGEX: fb <- https://www.facebook.com/premio.io
+[2026-03-12T04:10:17.654Z]   REGEX: li <- https://www.linkedin.com/company/premioio
+[2026-03-12T04:10:17.654Z] Programmatic result: ws:2, fb:1, li:1 | 2 uncategorized
+[2026-03-12T04:10:17.654Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T04:10:17.656Z] Saved AI prompt (4762 chars) to ai_prompt.txt
+[2026-03-12T04:10:17.657Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T04:10:17.673Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T04:10:34.407Z]   AI: First token received, streaming...
+[2026-03-12T04:10:38.295Z] AI response complete: 78 chars in 20.6s
+[2026-03-12T04:10:38.296Z] Saved AI response to ai_response.json
+[2026-03-12T04:10:38.296Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T04:10:38.296Z]   AI LINK: https://www.facebook.com/premio.io/
+[2026-03-12T04:10:38.296Z]   AI LINK: https://www.linkedin.com/company/premioio/
+[2026-03-12T04:10:38.296Z] AI returned 2 valid links
+[2026-03-12T04:10:38.297Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T04:10:38.297Z]   AI→REGEX: fb <- https://www.facebook.com/premio.io/ (duplicate, skipped)
+[2026-03-12T04:10:38.297Z]   AI→REGEX: li <- https://www.linkedin.com/company/premioio/ (duplicate, skipped)
+[2026-03-12T04:10:38.297Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T04:10:38.297Z] Footer/header origins (5):
+[2026-03-12T04:10:38.297Z]   FOOTER/HEADER ORIGIN: https://go.chaty.app
+[2026-03-12T04:10:38.297Z]   FOOTER/HEADER ORIGIN: https://chaty.app
+[2026-03-12T04:10:38.297Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T04:10:38.297Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T04:10:38.298Z]   FOOTER/HEADER ORIGIN: https://chatway.app
+[2026-03-12T04:10:38.298Z]   ADDED: urls <- https://chatway.app (cleaned from https://chatway.app/?utm_source=chatyappwebsite)
+[2026-03-12T04:10:38.298Z]   SKIP (duplicate): https://chatway.app
+[2026-03-12T04:10:38.298Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T04:10:38.298Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T04:10:38.298Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T04:10:38.298Z] ── Step 3: Final dedup ──
+[2026-03-12T04:10:38.298Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T04:10:38.298Z] ── FINAL RESULT ──
+[2026-03-12T04:10:38.298Z]   ws (2):
+[2026-03-12T04:10:38.298Z]     - https://chaty.app
+[2026-03-12T04:10:38.298Z]     - https://go.chaty.app
+[2026-03-12T04:10:38.298Z]   li (1):
+[2026-03-12T04:10:38.298Z]     - https://www.linkedin.com/company/premioio
+[2026-03-12T04:10:38.299Z]   fb (1):
+[2026-03-12T04:10:38.299Z]     - https://www.facebook.com/premio.io
+[2026-03-12T04:10:38.299Z]   urls (1):
+[2026-03-12T04:10:38.299Z]     - https://chatway.app
+[2026-03-12T04:10:38.299Z] Summary: ws:2, fb:1, li:1, urls:1
+[2026-03-12T04:10:38.299Z] Saved final result to result.json
+[2026-03-12T04:10:38.299Z] Override fields: ws, li, fb, urls
+[2026-03-12T04:10:38.300Z] Finished at: 2026-03-12T04:10:38.299Z

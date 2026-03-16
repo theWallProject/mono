@@ -2,7 +2,7 @@ import { log } from "../../helper"
 import { CrunchbaseScrappedItemType } from "../../types"
 import { getReasonPriority } from "./sorting"
 import type { ManualOverrideValue } from "./types"
-import { isBrowserVerified } from "./types"
+import { isBrowserVerified, isVerified } from "./types"
 
 /**
  * Draws a progress bar
@@ -16,7 +16,7 @@ export const drawProgressBar = (current: number, total: number, width: number = 
 }
 
 /**
- * Gets statistics about browser-verified/unverified items
+ * Gets statistics about verified/unverified items
  */
 export const getStatistics = (
   allItems: CrunchbaseScrappedItemType[],
@@ -24,6 +24,8 @@ export const getStatistics = (
 ) => {
   const total = allItems.length
   let processed = 0
+  let verified = 0
+  let browserVerified = 0
   let unprocessed = 0
   const byReason: Record<string, { total: number; processed: number }> = {
     h: { total: 0, processed: 0 },
@@ -33,10 +35,16 @@ export const getStatistics = (
 
   for (const item of allItems) {
     const processedItem = processedItems[item.name]
-    const isProcessedItem = processedItem !== undefined && isBrowserVerified(processedItem)
+    const isProcessedItem =
+      processedItem !== undefined && (isVerified(processedItem) || isBrowserVerified(processedItem))
 
     if (isProcessedItem) {
       processed++
+      if (processedItem !== undefined && isBrowserVerified(processedItem)) {
+        browserVerified++
+      } else {
+        verified++
+      }
     } else {
       unprocessed++
     }
@@ -67,6 +75,8 @@ export const getStatistics = (
   return {
     total,
     processed,
+    verified,
+    browserVerified,
     unprocessed,
     byReason
   }
@@ -105,6 +115,8 @@ export const displayStatistics = (
   log("\n📊 Summary:")
   log(`   Total companies:     ${stats.total}`)
   log(`   ✅ Processed:        ${stats.processed} (${((stats.processed / stats.total) * 100).toFixed(1)}%)`)
+  log(`      ├─ Quick:         ${stats.verified}`)
+  log(`      └─ Full:          ${stats.browserVerified}`)
   log(`   ⏳ Remaining:        ${stats.unprocessed} (${((stats.unprocessed / stats.total) * 100).toFixed(1)}%)`)
 
   log("\n📋 Remaining by Reason:")

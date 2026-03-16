@@ -1,0 +1,72 @@
+[2026-03-10T06:39:39.306Z] === Homepage AI Extractor: Animo ===
+[2026-03-10T06:39:39.306Z] Started at: 2026-03-10T06:39:39.306Z
+[2026-03-10T06:39:39.306Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773124779305_Animo
+[2026-03-10T06:39:39.306Z] Company: Animo
+[2026-03-10T06:39:39.306Z] Website: animo-tech.com
+[2026-03-10T06:39:39.306Z] cbRank: 414870
+[2026-03-10T06:39:39.306Z] Reasons: h
+[2026-03-10T06:39:39.306Z] Fetching: https://animo-tech.com
+[2026-03-10T06:39:50.496Z] Network idle timeout — continuing with current state
+[2026-03-10T06:39:50.593Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-10T06:39:58.567Z] Redirected: https://animo-tech.com -> https://www.animo-tech.com/
+[2026-03-10T06:39:58.594Z] Saved HTML (844752 bytes) to page.html
+[2026-03-10T06:39:58.597Z] Extracted 12 unique links from page
+[2026-03-10T06:39:58.597Z] Saved 12 links to links.json
+[2026-03-10T06:39:58.600Z] Extracted footer HTML (9061 chars)
+[2026-03-10T06:39:58.600Z] Extracted header HTML (6484 chars)
+[2026-03-10T06:39:58.603Z] Website (post-redirect): https://www.animo-tech.com/ → origin: https://www.animo-tech.com
+[2026-03-10T06:39:58.603Z] External links: 5 (of 12 total)
+[2026-03-10T06:39:58.603Z] ── All external links ──
+[2026-03-10T06:39:58.603Z]   EXT: https://animo.azurewebsites.net
+[2026-03-10T06:39:58.603Z]   EXT: https://www.facebook.com/editorx
+[2026-03-10T06:39:58.604Z]   EXT: https://www.facebook.com/profile.php?id=100063486162712
+[2026-03-10T06:39:58.604Z]   EXT: https://www.linkedin.com
+[2026-03-10T06:39:58.604Z]   EXT: https://www.linkedin.com/company/animo-tech
+[2026-03-10T06:39:58.604Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:39:58.604Z]   UNCATEGORIZED: https://animo.azurewebsites.net
+[2026-03-10T06:39:58.604Z]   REGEX: fb <- https://www.facebook.com/editorx
+[2026-03-10T06:39:58.604Z]   REGEX: li <- https://www.linkedin.com/company/animo-tech
+[2026-03-10T06:39:58.604Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-10T06:40:00.348Z]   RESOLVE: https://www.facebook.com/profile.php?id=100063486162712 → https://www.facebook.com/people/Animo/100063486162712
+[2026-03-10T06:40:00.354Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Animo/100063486162712 (from https://www.facebook.com/profile.php?id=100063486162712)
+[2026-03-10T06:40:00.355Z]   SKIP (regex domain, no match): https://www.linkedin.com
+[2026-03-10T06:40:00.355Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-10T06:40:00.355Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:40:00.356Z] Saved AI prompt (7609 chars) to ai_prompt.txt
+[2026-03-10T06:40:00.356Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:40:00.375Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:40:33.221Z]   AI: First token received, streaming...
+[2026-03-10T06:40:42.899Z] AI response complete: 132 chars in 42.5s
+[2026-03-10T06:40:42.900Z] Saved AI response to ai_response.json
+[2026-03-10T06:40:42.900Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T06:40:42.900Z]   AI LINK: https://animo.azurewebsites.net
+[2026-03-10T06:40:42.900Z]   AI LINK: https://www.linkedin.com/company/animo-tech/
+[2026-03-10T06:40:42.901Z]   AI LINK: https://www.facebook.com/profile.php?id=100063486162712
+[2026-03-10T06:40:42.901Z] AI returned 3 valid links
+[2026-03-10T06:40:42.901Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T06:40:42.901Z]   AI→URLS: https://animo.azurewebsites.net
+[2026-03-10T06:40:42.901Z]   AI→REGEX: li <- https://www.linkedin.com/company/animo-tech/ (duplicate, skipped)
+[2026-03-10T06:40:43.880Z]   RESOLVE: https://www.facebook.com/profile.php?id=100063486162712 → https://www.facebook.com/people/Animo/100063486162712
+[2026-03-10T06:40:43.887Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/Animo/100063486162712 (from https://www.facebook.com/profile.php?id=100063486162712)
+[2026-03-10T06:40:43.887Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:40:43.887Z] Footer/header origins (3):
+[2026-03-10T06:40:43.887Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T06:40:43.887Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T06:40:43.887Z]   FOOTER/HEADER ORIGIN: https://www.animo-tech.com
+[2026-03-10T06:40:43.887Z]   SKIP (AI claimed): https://animo.azurewebsites.net
+[2026-03-10T06:40:43.887Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T06:40:43.887Z] ── Step 3: Final dedup ──
+[2026-03-10T06:40:43.887Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T06:40:43.887Z] ── FINAL RESULT ──
+[2026-03-10T06:40:43.888Z]   ws (1):
+[2026-03-10T06:40:43.888Z]     - https://www.animo-tech.com
+[2026-03-10T06:40:43.888Z]   li (1):
+[2026-03-10T06:40:43.888Z]     - https://www.linkedin.com/company/animo-tech
+[2026-03-10T06:40:43.888Z]   fb (1):
+[2026-03-10T06:40:43.888Z]     - https://www.facebook.com/editorx
+[2026-03-10T06:40:43.888Z]   urls (1):
+[2026-03-10T06:40:43.888Z]     - https://animo.azurewebsites.net
+[2026-03-10T06:40:43.888Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-10T06:40:43.889Z] Saved final result to result.json
+[2026-03-10T06:40:43.889Z] Override fields: ws, li, fb
+[2026-03-10T06:40:43.889Z] Finished at: 2026-03-10T06:40:43.889Z

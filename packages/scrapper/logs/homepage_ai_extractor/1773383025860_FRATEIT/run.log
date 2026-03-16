@@ -1,0 +1,74 @@
+[2026-03-13T06:23:45.861Z] === Homepage AI Extractor: FRATEIT ===
+[2026-03-13T06:23:45.861Z] Started at: 2026-03-13T06:23:45.861Z
+[2026-03-13T06:23:45.861Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773383025860_FRATEIT
+[2026-03-13T06:23:45.861Z] Company: FRATEIT
+[2026-03-13T06:23:45.861Z] Website: frateit.com
+[2026-03-13T06:23:45.861Z] cbRank: 1019681
+[2026-03-13T06:23:45.861Z] Reasons: h
+[2026-03-13T06:23:45.861Z] Fetching: https://frateit.com
+[2026-03-13T06:23:58.500Z] Network idle timeout — continuing with current state
+[2026-03-13T06:23:58.544Z] Redirected: https://frateit.com -> https://www.frateit.com/
+[2026-03-13T06:23:58.570Z] Saved HTML (542902 bytes) to page.html
+[2026-03-13T06:23:58.573Z] Extracted 11 unique links from page
+[2026-03-13T06:23:58.574Z] Saved 11 links to links.json
+[2026-03-13T06:23:58.577Z] Extracted footer HTML (3663 chars)
+[2026-03-13T06:23:58.577Z] Extracted header HTML (516 chars)
+[2026-03-13T06:23:58.582Z] Website (post-redirect): https://www.frateit.com/ → origin: https://www.frateit.com
+[2026-03-13T06:23:58.582Z]   SUBDOMAIN: app.frateit.com (added to ws)
+[2026-03-13T06:23:58.582Z] Website subdomains found: 1
+[2026-03-13T06:23:58.582Z] External links: 4 (of 11 total)
+[2026-03-13T06:23:58.582Z] ── All external links ──
+[2026-03-13T06:23:58.583Z]   EXT: http://wix.com/?utm_campaign=vir_created_with
+[2026-03-13T06:23:58.583Z]   EXT: https://www.facebook.com/FRATEIT
+[2026-03-13T06:23:58.583Z]   EXT: https://www.instagram.com/thefraters/?hl=en
+[2026-03-13T06:23:58.583Z]   EXT: https://www.linkedin.com/company/frateit/about
+[2026-03-13T06:23:58.583Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T06:23:58.583Z]   UNCATEGORIZED: http://wix.com/?utm_campaign=vir_created_with
+[2026-03-13T06:23:58.583Z]   REGEX: fb <- https://www.facebook.com/FRATEIT
+[2026-03-13T06:23:58.584Z]   REGEX: ig <- https://www.instagram.com/thefraters/?hl=en
+[2026-03-13T06:23:58.584Z]   REGEX: li <- https://www.linkedin.com/company/frateit/about
+[2026-03-13T06:23:58.584Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-13T06:23:58.584Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T06:23:58.587Z] Saved AI prompt (4963 chars) to ai_prompt.txt
+[2026-03-13T06:23:58.587Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T06:23:58.608Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T06:24:23.902Z]   AI: First token received, streaming...
+[2026-03-13T06:24:30.911Z] AI response complete: 125 chars in 32.3s
+[2026-03-13T06:24:30.912Z] Saved AI response to ai_response.json
+[2026-03-13T06:24:30.912Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T06:24:30.912Z]   AI LINK: https://www.facebook.com/FRATEIT/
+[2026-03-13T06:24:30.912Z]   AI LINK: https://www.instagram.com/thefraters/?hl=en
+[2026-03-13T06:24:30.912Z]   AI LINK: https://www.linkedin.com/company/frateit/about/
+[2026-03-13T06:24:30.912Z] AI returned 3 valid links
+[2026-03-13T06:24:30.912Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T06:24:30.913Z]   AI→REGEX: fb <- https://www.facebook.com/FRATEIT/ (duplicate, skipped)
+[2026-03-13T06:24:30.913Z]   AI→REGEX: ig <- https://www.instagram.com/thefraters/?hl=en (duplicate, skipped)
+[2026-03-13T06:24:30.913Z]   AI→REGEX: li <- https://www.linkedin.com/company/frateit/about/ (duplicate, skipped)
+[2026-03-13T06:24:30.913Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T06:24:30.913Z] Footer/header origins (4):
+[2026-03-13T06:24:30.913Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T06:24:30.913Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-13T06:24:30.913Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T06:24:30.913Z]   FOOTER/HEADER ORIGIN: http://wix.com
+[2026-03-13T06:24:30.913Z]   ADDED: urls <- http://wix.com (cleaned from http://wix.com/?utm_campaign=vir_created_with)
+[2026-03-13T06:24:30.914Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T06:24:30.914Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T06:24:30.914Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T06:24:30.914Z] ── Step 3: Final dedup ──
+[2026-03-13T06:24:30.914Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T06:24:30.914Z] ── FINAL RESULT ──
+[2026-03-13T06:24:30.914Z]   ws (2):
+[2026-03-13T06:24:30.914Z]     - https://app.frateit.com
+[2026-03-13T06:24:30.914Z]     - https://www.frateit.com
+[2026-03-13T06:24:30.914Z]   li (1):
+[2026-03-13T06:24:30.914Z]     - https://www.linkedin.com/company/frateit
+[2026-03-13T06:24:30.914Z]   fb (1):
+[2026-03-13T06:24:30.915Z]     - https://www.facebook.com/frateit
+[2026-03-13T06:24:30.915Z]   ig (1):
+[2026-03-13T06:24:30.915Z]     - https://www.instagram.com/thefraters
+[2026-03-13T06:24:30.915Z]   urls (1):
+[2026-03-13T06:24:30.915Z]     - http://wix.com
+[2026-03-13T06:24:30.915Z] Summary: ws:2, fb:1, ig:1, li:1, urls:1
+[2026-03-13T06:24:30.915Z] Saved final result to result.json
+[2026-03-13T06:24:30.916Z] Override fields: ws, li, fb, ig, urls
+[2026-03-13T06:24:30.916Z] Finished at: 2026-03-13T06:24:30.916Z

@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache">
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   <title>Log in to CompuHedge</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!--<link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">-->
+	
+    <!-- MetisMenu CSS -->
+    <!--<link href="../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">-->
+
+	<!-- datepicker CSS -->
+	<link href="../../vendor/jquery/jquery-ui.min.css" rel="stylesheet">
+	 
+    <!-- Custom CSS -->
+    <link href="../../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <link href="../../dist/css/style.css" rel="stylesheet">
+    <link href="../../dist/css/svg_icons.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="../../vendor/morrisjs/morris.css" rel="stylesheet">
+  
+
+    <!-- Custom Fonts -->
+    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../dist/css/compuhedge.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+	<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-obDEicORg1BccYuEfFig6FFh0s3Ho2B7lr6lAHLJGwZTVRSgTgfEKmrfdJ2g/NkT"></script><script language="javascript"> 
+	var v_csrfToken="null";  //CSRF Protection
+	var v_language='';
+	var v_unit='1'; //BF 20221486 Unit Switching Code.xlsm
+	const languageArray =[{'NA':'NA'}]
+	</script>
+
+<!-- 
+	<script LANGUAGE="javascript" src="/charm/JavaScriptServlet"></script>
+-->
+</head>
+
+<body>
+
+	<!-- Variables for specific user -->
+	<script language="javascript">
+var allowedChars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!#$%*()-_=+[]{}@';
+var maxChars='20';
+var specialChars='!#$%*()-_=+[]{}@';
+var recaptchasitekeyv2='6LeH9H4aAAAAAAOJm4f14vq-xApydKnRwBidLwdC';
+var common = "HELLO,PASSWORD,123,QWERTY,IDAN,1010,HEDGING,XXX,HEDGE,RISK,DRAGON,BASEBALL,LETMEIN,MONKEY,TESTING,ASDFG,ABC,PQR,XYZ,ZXCVB,789,890,234,345,456,567,678,BIRTHDAY".split(",");
+var userNameViaRequest='';
+var passwordViaRequest='';
+
+
+</script>
+	
+	<!--popper-->
+	<script src="../../vendor/popper/popper.min.js"></script>
+	
+	
+	<!-- jQuery -->
+	<script src="../../vendor/jquery/jquery.min.js"></script>
+	<script src="../../vendor/jquery/jquery-ui.min.js"></script>
+	
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+
+	
+	
+
+
+
+	<!-- Main html for screen -->
+	<div class="container text-center hidden_nomove" id="msgBarContainer">
+	<div class="sys-alerts sys-info" id="msgBar">
+		<span id="msgText"></span>
+		<div class="btn btn-icon pull-right">
+			<i class="icon icon-close" data-bs-toggle="collapse" id="msgButton"></i>
+		</div>
+	</div>
+</div><!-- /.sys-alerts -->
+
+<div id="login">
+	<!-- next two lines only needed for automatic login routine  -->
+	<input type="hidden"> 
+	<input type="hidden"> <!-- \Modal -->
+	<div class="overlayLoggingIn" style="display:none">
+	<!-- <div class="overlayLoggingIn">  -->
+		<div class="loadingWrapper">
+			<div class="logo" style="width:250px; height:80px;"></div>
+			<!-- <div class="">Logging in...</div> -->
+			<div class="loadingAnimation">
+				<span class="dot dot-1"></span>
+				<span class="dot dot-2"></span>
+				<span class="dot dot-3"></span>
+				<span class="dot dot-4"></span>
+				<span class="dot dot-5"></span>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="container" id="loginform">
+	  <form>
+	<!-- <div class="container" id="loginform" style="display:none"> -->
+		<div class="row justify-content-center align-items-center" id="login-row">
+			<div id="login-column" class="width420">
+				<div id="login-box">
+					<div class="form" id="login-form">
+						<a href="/" style="text-decoration: none;">
+  							<h5 class="logo"></h5>
+						</a>
+						
+						
+						
+						
+						<div class="form-floating">
+							
+							<input class="form-control" autocomplete="username" id="username" placeholder="Username" type="text">
+							<label for="username">Username</label>
+							
+						</div>
+						<div class="form-floating">
+							
+												
+							<input class="form-control" autocomplete="current-password" id="password" placeholder="Password" type="password" maxlength="20">
+							<label for="password">Password</label>
+							
+						</div>
+						<div class="comment mt-3">
+							Please note that for security reasons, you will be automatically logged out after 20 minutes of in-activity
+						</div>
+						
+						<div class="form-group form-row mt-4">
+							<div class="btn btn-primary w-100" id="LOGINBUTTON">
+								Login
+							</div>
+						</div>
+						<div class="form-group form-row">
+							<a href="#" id="lg_resetPassword">Reset Password</a>
+						</div>
+						
+						<div class="mt-2" id="copyright"> <label for="remember-me" class="text-info"><small>(c) 2005-2025 CompuHedge. All rights reserved.</small></label></div>
+						<div class="form-group form-row">
+							<input id="recaptchav2_token" type="hidden">
+							<div id="recaptchav2_element"></div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+	<div aria-hidden="true" aria-labelledby="twoFactorModal" class="modal fade" data-backdrop="static" id="twoFactorModal" role="dialog" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Two Factor Authentication</h3><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group form-row">
+							<label>Two factor authorization has been enabled for your account. A security code has been sent to your email. Please enter it below.</label>
+						</div>
+						<div class="form-group form-row">
+							<label class="col-10"><span id="confirmMsg"></span> <input id="securitycode"></label> 
+						</div>
+						<div class="form-group form-row">
+							<label><small>Entering an incorrect code will cause a new security code to be sent. Too many failed logins will block your account.</small></label>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-bs-dismiss="modal" id="cm_cancel" type="button">Cancel</button> <button class="btn btn-primary" data-bs-dismiss="modal" id="cm_ok" type="button">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div aria-hidden="true" aria-labelledby="resetPasswordModal" class="modal fade" data-backdrop="static" id="resetPasswordModal" role="dialog" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Reset Password</h3><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+					<div class="form-horizontal">
+						<div class="form-group form-row">
+							<label>You have requested to reset your password. Please enter your information below.</label>
+						</div>
+						<div class="form-floating">
+							 <input class="form-control col-md-6" autocomplete="username" id="lg_resetUserName" name="username" placeholder="Username" type="text"> 
+							 <label for="lg_resetUserName">Username:</label>
+							 <div class="form-control-feedback" id="username2" style="min-height:20px;color:red;">&nbsp;</div>
+						</div>
+						<div class="form-floating">
+							 <input class="form-control col-md-6" id="lg_email" autocomplete="email" placeholder="Email" type="text"> 
+							 <label for="lg_email">Email:</label><input id="recaptchav2_token_rp" type="hidden">
+							 
+						</div>
+						
+						<div id="recaptchav2_element_rp"></div>
+						<div class="modal-footer">
+							<button class="btn btn-default" data-bs-dismiss="modal" id="cm_cancel" type="button">Cancel</button> <button class="btn btn-primary" data-bs-dismiss="modal" id="lg_rp_ok" type="button">OK</button>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div aria-hidden="true" aria-labelledby="changePasswordModal" class="modal fade" data-backdrop="static" id="changePasswordModal" role="dialog" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Change Password</h3><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+					<div class="form-horizontal">
+						<div class="form-group form-row">
+							<label>Please change your password as it has expired.</label>
+						</div>
+						<div class="form-group form-row">
+							<small>Passwords must be between 8 and <span id="lg_maxChars"></span> characters. They must contain either alpha-numeric characters or the following special characters <span id="lg_passSymbols"></span></small>
+						</div>
+						<input id="userID" type="hidden">
+						<input id="userNameForChangePassword" style="display:none" autocomplete="username" type="text">
+						
+						<div class="form-floating">
+							 <input class="form-control col-md-6" id="password1" autocomplete="new-password" name="password1" placeholder="New Password" type="password">
+							 <label for="password1">New Password:</label> 
+							 <div class="form-control-feedback" id="strength1" style="min-height:20px;color:red;">&nbsp;</div>
+						</div>
+						
+						
+						
+						<div class="form-floating">
+							 <input class="form-control col-md-6" id="password2" autocomplete="new-password" name="password2" placeholder="Confirm New Password" type="password"> 
+							 <label for="password2">Confirm New Password:</label>
+							 <div class="form-control-feedback" id="strength2" style="min-height:20px;color:red;">&nbsp;</div>
+						</div>
+					</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-bs-dismiss="modal" id="cm_cancel" type="button">Cancel</button> <button class="btn btn-primary" id="cm_changePassword" type="button">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+	<!-- recaptcha -->
+	<script src="https://www.google.com/recaptcha/api.js?render=explicit" async="" defer="" <="" script="">
+	
+    </script>
+    
+     
+    
+	<!-- scripts for this screen -->
+	<script src="js/lg_init.js" type="text/javascript"></script>
+	
+	
+
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="../../vendor/metisMenu/metisMenu.min.js"></script>
+		
+	<!-- Custom Theme JavaScript -->
+	<script src="../../dist/js/sb-admin-2.js"></script>
+	
+	
+	
+
+
+
+</body></html>

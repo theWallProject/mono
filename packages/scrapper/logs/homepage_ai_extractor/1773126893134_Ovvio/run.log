@@ -1,0 +1,63 @@
+[2026-03-10T07:14:53.134Z] === Homepage AI Extractor: Ovvio ===
+[2026-03-10T07:14:53.134Z] Started at: 2026-03-10T07:14:53.134Z
+[2026-03-10T07:14:53.134Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773126893134_Ovvio
+[2026-03-10T07:14:53.134Z] Company: Ovvio
+[2026-03-10T07:14:53.134Z] Website: ovvio.io
+[2026-03-10T07:14:53.134Z] cbRank: 423936
+[2026-03-10T07:14:53.134Z] Reasons: h
+[2026-03-10T07:14:53.134Z] Fetching: https://ovvio.io
+[2026-03-10T07:15:06.390Z] Network idle timeout — continuing with current state
+[2026-03-10T07:15:06.432Z] Redirected: https://ovvio.io -> https://www.ovvio.io/
+[2026-03-10T07:15:06.463Z] Saved HTML (1024530 bytes) to page.html
+[2026-03-10T07:15:06.466Z] Extracted 22 unique links from page
+[2026-03-10T07:15:06.468Z] Saved 22 links to links.json
+[2026-03-10T07:15:06.476Z] Extracted footer HTML (14070 chars)
+[2026-03-10T07:15:06.476Z] Extracted header HTML (9980 chars)
+[2026-03-10T07:15:06.480Z] Website (post-redirect): https://www.ovvio.io/ → origin: https://www.ovvio.io
+[2026-03-10T07:15:06.480Z] External links: 3 (of 22 total)
+[2026-03-10T07:15:06.480Z] ── All external links ──
+[2026-03-10T07:15:06.480Z]   EXT: https://www.facebook.com/ovvio.io
+[2026-03-10T07:15:06.480Z]   EXT: https://www.instagram.com/ovvio_io
+[2026-03-10T07:15:06.480Z]   EXT: https://www.linkedin.com/company/ovvio-io
+[2026-03-10T07:15:06.481Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T07:15:06.481Z]   REGEX: fb <- https://www.facebook.com/ovvio.io
+[2026-03-10T07:15:06.481Z]   REGEX: ig <- https://www.instagram.com/ovvio_io
+[2026-03-10T07:15:06.481Z]   REGEX: li <- https://www.linkedin.com/company/ovvio-io
+[2026-03-10T07:15:06.481Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-10T07:15:06.481Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T07:15:06.482Z] Saved AI prompt (10253 chars) to ai_prompt.txt
+[2026-03-10T07:15:06.482Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T07:15:06.503Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T07:15:48.927Z]   AI: First token received, streaming...
+[2026-03-10T07:15:55.908Z] AI response complete: 112 chars in 49.4s
+[2026-03-10T07:15:55.908Z] Saved AI response to ai_response.json
+[2026-03-10T07:15:55.908Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T07:15:55.908Z]   AI LINK: https://www.linkedin.com/company/ovvio-io/
+[2026-03-10T07:15:55.909Z]   AI LINK: https://www.facebook.com/ovvio.io
+[2026-03-10T07:15:55.909Z]   AI LINK: https://www.instagram.com/ovvio_io/
+[2026-03-10T07:15:55.909Z] AI returned 3 valid links
+[2026-03-10T07:15:55.909Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T07:15:55.909Z]   AI→REGEX: li <- https://www.linkedin.com/company/ovvio-io/ (duplicate, skipped)
+[2026-03-10T07:15:55.909Z]   AI→REGEX: fb <- https://www.facebook.com/ovvio.io (duplicate, skipped)
+[2026-03-10T07:15:55.909Z]   AI→REGEX: ig <- https://www.instagram.com/ovvio_io/ (duplicate, skipped)
+[2026-03-10T07:15:55.910Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T07:15:55.910Z] Footer/header origins (3):
+[2026-03-10T07:15:55.910Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T07:15:55.910Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T07:15:55.910Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T07:15:55.910Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T07:15:55.910Z] ── Step 3: Final dedup ──
+[2026-03-10T07:15:55.910Z] No urls to dedup
+[2026-03-10T07:15:55.910Z] ── FINAL RESULT ──
+[2026-03-10T07:15:55.910Z]   ws (1):
+[2026-03-10T07:15:55.910Z]     - https://www.ovvio.io
+[2026-03-10T07:15:55.910Z]   li (1):
+[2026-03-10T07:15:55.910Z]     - https://www.linkedin.com/company/ovvio-io
+[2026-03-10T07:15:55.910Z]   fb (1):
+[2026-03-10T07:15:55.911Z]     - https://www.facebook.com/ovvio.io
+[2026-03-10T07:15:55.911Z]   ig (1):
+[2026-03-10T07:15:55.911Z]     - https://www.instagram.com/ovvio_io
+[2026-03-10T07:15:55.911Z] Summary: ws:1, fb:1, ig:1, li:1
+[2026-03-10T07:15:55.911Z] Saved final result to result.json
+[2026-03-10T07:15:55.911Z] Override fields: ws, li, fb, ig
+[2026-03-10T07:15:55.911Z] Finished at: 2026-03-10T07:15:55.911Z

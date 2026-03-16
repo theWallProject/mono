@@ -1,0 +1,63 @@
+[2026-03-13T09:35:36.330Z] === Homepage AI Extractor: MONOLITH ===
+[2026-03-13T09:35:36.330Z] Started at: 2026-03-13T09:35:36.330Z
+[2026-03-13T09:35:36.330Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773394536330_MONOLITH
+[2026-03-13T09:35:36.330Z] Company: MONOLITH
+[2026-03-13T09:35:36.330Z] Website: monolith.co.il
+[2026-03-13T09:35:36.331Z] cbRank: 1083063
+[2026-03-13T09:35:36.331Z] Reasons: h
+[2026-03-13T09:35:36.331Z] Fetching: https://monolith.co.il
+[2026-03-13T09:35:39.992Z] Redirected: https://monolith.co.il -> https://www.monolith.co.il/
+[2026-03-13T09:35:40.006Z] Saved HTML (405614 bytes) to page.html
+[2026-03-13T09:35:40.009Z] Extracted 5 unique links from page
+[2026-03-13T09:35:40.010Z] Saved 5 links to links.json
+[2026-03-13T09:35:40.014Z] Extracted footer HTML (5390 chars)
+[2026-03-13T09:35:40.014Z] Extracted header HTML (10614 chars)
+[2026-03-13T09:35:40.018Z] Website (post-redirect): https://www.monolith.co.il/ → origin: https://www.monolith.co.il
+[2026-03-13T09:35:40.018Z] External links: 3 (of 5 total)
+[2026-03-13T09:35:40.018Z] ── All external links ──
+[2026-03-13T09:35:40.018Z]   EXT: http://www.crafta.co.il/EN
+[2026-03-13T09:35:40.019Z]   EXT: https://www.facebook.com/MonolithWeb
+[2026-03-13T09:35:40.019Z]   EXT: https://www.linkedin.com/company/monolith-web-solutions
+[2026-03-13T09:35:40.019Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T09:35:40.019Z]   UNCATEGORIZED: http://www.crafta.co.il/EN
+[2026-03-13T09:35:40.019Z]   REGEX: fb <- https://www.facebook.com/MonolithWeb
+[2026-03-13T09:35:40.019Z]   REGEX: li <- https://www.linkedin.com/company/monolith-web-solutions
+[2026-03-13T09:35:40.019Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-13T09:35:40.019Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T09:35:40.020Z] Saved AI prompt (3902 chars) to ai_prompt.txt
+[2026-03-13T09:35:40.020Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T09:35:40.045Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T09:35:56.646Z]   AI: First token received, streaming...
+[2026-03-13T09:36:01.304Z] AI response complete: 94 chars in 21.3s
+[2026-03-13T09:36:01.305Z] Saved AI response to ai_response.json
+[2026-03-13T09:36:01.305Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T09:36:01.305Z]   AI LINK: https://www.facebook.com/MonolithWeb/
+[2026-03-13T09:36:01.305Z]   AI LINK: https://www.linkedin.com/company/monolith-web-solutions/
+[2026-03-13T09:36:01.305Z] AI returned 2 valid links
+[2026-03-13T09:36:01.305Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T09:36:01.306Z]   AI→REGEX: fb <- https://www.facebook.com/MonolithWeb/ (duplicate, skipped)
+[2026-03-13T09:36:01.306Z]   AI→REGEX: li <- https://www.linkedin.com/company/monolith-web-solutions/ (duplicate, skipped)
+[2026-03-13T09:36:01.306Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T09:36:01.306Z] Footer/header origins (3):
+[2026-03-13T09:36:01.306Z]   FOOTER/HEADER ORIGIN: http://www.crafta.co.il
+[2026-03-13T09:36:01.306Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T09:36:01.306Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T09:36:01.306Z]   ADDED: urls <- http://www.crafta.co.il/EN
+[2026-03-13T09:36:01.306Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T09:36:01.307Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T09:36:01.307Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T09:36:01.307Z] ── Step 3: Final dedup ──
+[2026-03-13T09:36:01.307Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T09:36:01.307Z] ── FINAL RESULT ──
+[2026-03-13T09:36:01.307Z]   ws (1):
+[2026-03-13T09:36:01.307Z]     - https://www.monolith.co.il
+[2026-03-13T09:36:01.307Z]   li (1):
+[2026-03-13T09:36:01.307Z]     - https://www.linkedin.com/company/monolith-web-solutions
+[2026-03-13T09:36:01.307Z]   fb (1):
+[2026-03-13T09:36:01.307Z]     - https://www.facebook.com/monolithweb
+[2026-03-13T09:36:01.307Z]   urls (1):
+[2026-03-13T09:36:01.307Z]     - http://www.crafta.co.il/EN
+[2026-03-13T09:36:01.308Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-13T09:36:01.308Z] Saved final result to result.json
+[2026-03-13T09:36:01.308Z] Override fields: ws, li, fb, urls
+[2026-03-13T09:36:01.308Z] Finished at: 2026-03-13T09:36:01.308Z

@@ -1,0 +1,58 @@
+[2026-03-10T02:48:08.430Z] === Homepage AI Extractor: directeam ===
+[2026-03-10T02:48:08.430Z] Started at: 2026-03-10T02:48:08.430Z
+[2026-03-10T02:48:08.430Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773110888429_directeam
+[2026-03-10T02:48:08.430Z] Company: directeam
+[2026-03-10T02:48:08.430Z] Website: directeam.io
+[2026-03-10T02:48:08.430Z] cbRank: 353418
+[2026-03-10T02:48:08.430Z] Reasons: h
+[2026-03-10T02:48:08.431Z] Fetching: https://directeam.io
+[2026-03-10T02:48:12.091Z] Redirected: https://directeam.io -> https://directeam.io/
+[2026-03-10T02:48:12.099Z] Saved HTML (112934 bytes) to page.html
+[2026-03-10T02:48:12.103Z] Extracted 21 unique links from page
+[2026-03-10T02:48:12.104Z] Saved 21 links to links.json
+[2026-03-10T02:48:12.110Z] Extracted footer HTML (103 chars)
+[2026-03-10T02:48:12.110Z] Extracted header HTML (7212 chars)
+[2026-03-10T02:48:12.116Z] Website (post-redirect): https://directeam.io/ → origin: https://directeam.io
+[2026-03-10T02:48:12.117Z] External links: 3 (of 21 total)
+[2026-03-10T02:48:12.117Z] ── All external links ──
+[2026-03-10T02:48:12.117Z]   EXT: https://www.comeet.com/jobs/directeam/29.008
+[2026-03-10T02:48:12.117Z]   EXT: https://www.facebook.com/Directeam-123592585003368
+[2026-03-10T02:48:12.117Z]   EXT: https://www.linkedin.com/company/directeam-cloud
+[2026-03-10T02:48:12.117Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T02:48:12.117Z]   UNCATEGORIZED: https://www.comeet.com/jobs/directeam/29.008
+[2026-03-10T02:48:12.118Z]   REGEX: fb <- https://www.facebook.com/Directeam-123592585003368
+[2026-03-10T02:48:12.118Z]   REGEX: li <- https://www.linkedin.com/company/directeam-cloud
+[2026-03-10T02:48:12.118Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-10T02:48:12.118Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T02:48:12.119Z] Saved AI prompt (2037 chars) to ai_prompt.txt
+[2026-03-10T02:48:12.119Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T02:48:12.136Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T02:48:18.952Z]   AI: First token received, streaming...
+[2026-03-10T02:48:21.941Z] AI response complete: 44 chars in 9.8s
+[2026-03-10T02:48:21.941Z] Saved AI response to ai_response.json
+[2026-03-10T02:48:21.941Z] ── Parsing AI response (1 lines) ──
+[2026-03-10T02:48:21.942Z]   AI LINK: https://www.comeet.com/jobs/directeam/29.008
+[2026-03-10T02:48:21.942Z] AI returned 1 valid links
+[2026-03-10T02:48:21.942Z] ── Categorizing 1 AI-returned links ──
+[2026-03-10T02:48:21.942Z]   AI→URLS: https://www.comeet.com/jobs/directeam/29.008
+[2026-03-10T02:48:21.942Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T02:48:21.942Z] Footer/header origins (2):
+[2026-03-10T02:48:21.942Z]   FOOTER/HEADER ORIGIN: https://directeam.io
+[2026-03-10T02:48:21.943Z]   FOOTER/HEADER ORIGIN: https://www.comeet.com
+[2026-03-10T02:48:21.943Z]   SKIP (AI claimed): https://www.comeet.com/jobs/directeam/29.008
+[2026-03-10T02:48:21.943Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T02:48:21.943Z] ── Step 3: Final dedup ──
+[2026-03-10T02:48:21.943Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T02:48:21.943Z] ── FINAL RESULT ──
+[2026-03-10T02:48:21.943Z]   ws (1):
+[2026-03-10T02:48:21.943Z]     - https://directeam.io
+[2026-03-10T02:48:21.943Z]   li (1):
+[2026-03-10T02:48:21.943Z]     - https://www.linkedin.com/company/directeam-cloud
+[2026-03-10T02:48:21.943Z]   fb (1):
+[2026-03-10T02:48:21.943Z]     - https://www.facebook.com/directeam-123592585003368
+[2026-03-10T02:48:21.943Z]   urls (1):
+[2026-03-10T02:48:21.944Z]     - https://www.comeet.com/jobs/directeam/29.008
+[2026-03-10T02:48:21.944Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-10T02:48:21.945Z] Saved final result to result.json
+[2026-03-10T02:48:21.945Z] Override fields: ws, li, fb, urls
+[2026-03-10T02:48:21.945Z] Finished at: 2026-03-10T02:48:21.945Z

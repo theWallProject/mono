@@ -1,0 +1,193 @@
+<!DOCTYPE html><html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Safe-Zone | Login</title>
+
+    <link rel="stylesheet" href="/assets/mdb5/css/mdb.min.css">
+    <link href="/assets/fontawesome/css/all.min.css" rel="stylesheet">
+	<style>
+	.preloader {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  height: 100vh;
+		  width: 100%;
+		  background: rgb(23, 22, 22, 0.2);
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  z-index: 9999;
+		  transition: opacity 0.3s linear;
+		}
+	</style>
+		<script>
+	
+		if (location.protocol != 'https:')
+		{
+		 location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+		}
+	
+
+	</script>
+			
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMMRS8DSQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LMMRS8DSQG');
+</script>
+    <script type="text/javascript">
+       /*(function (global) {
+
+			if(typeof (global) === "undefined") {
+				throw new Error("window is undefined");
+			}
+
+			var _hash = "!";
+			var noBackPlease = function () {
+				global.location.href += "#";
+
+				// Making sure we have the fruit available for juice (^__^)
+				global.setTimeout(function () {
+					global.location.href += "!";
+				}, 50);
+			};
+
+			global.onhashchange = function () {
+				if (global.location.hash !== _hash) {
+					global.location.hash = _hash;
+				}
+			};
+
+			global.onload = function () {
+				noBackPlease();
+
+				// Disables backspace on page except on input fields and textarea..
+				document.body.onkeydown = function (e) {
+					var elm = e.target.nodeName.toLowerCase();
+					if (e.which === 8 && (elm !== 'input' && elm  !== 'textarea')) {
+						e.preventDefault();
+					}
+					// Stopping the event bubbling up the DOM tree...
+					e.stopPropagation();
+				};
+			}
+		})(window);*/
+		
+    </script>	
+	
+</head>
+
+<body>
+<div class="preloader" style="display:none;">
+    <svg width="33%" height="33%" viewBox="-70 -70 140 140" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" gradientUnits="userSpaceOnUse" x2="1" y2="-.5">
+      <stop stop-color="#273790"></stop>
+      <stop stop-color="#3AB54A"></stop>
+      <animateTransform attributeName="gradientTransform" dur="2s" type="rotate" values="0; 360" repeatCount="indefinite" calcMode="spline" keySplines="0.64 0.25 0.36 0.75"></animateTransform>
+    </linearGradient>
+  </defs>
+  <path stroke="url(#gradient)" stroke-dasharray="90" stroke-width="16" stroke-linecap="round" fill="none" stroke-opacity="0.35" d="M-5 -61a10 10 0 0110 0l45 26a10 10 0 015 9v52a10 10 0 01-5 9L15 61a10 10 0 01-10 0l-45-26a10 10 0 01-5-9v-52a10 10 0 015-9z">
+    <animate attributeName="stroke-dashoffset" dur="2s" repeatCount="indefinite" calcMode="spline" values="360; 0" keySplines="0.64 0.25 0.36 0.75"></animate>
+  <path>
+</path></path></svg> 
+</div>
+   <section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="/images/logo-lg.png" alt="logo" width="100">
+					</div>
+					  
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
+																																			<form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="email">E-Mail Address</label>
+									<input id="username" type="email" class="form-control" name="username" value="" required="" autofocus="">
+									<div class="invalid-feedback">
+										Email is invalid
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted" for="password">Password</label>
+										
+									</div>
+									<input id="password" type="password" class="form-control" name="password" required="">
+								    <div class="invalid-feedback">
+								    	Password is required
+							    	</div>
+								</div>
+
+								<div class="d-flex align-items-center">
+								
+									<div class="form-check">
+										<input type="checkbox" name="remember" id="remember" class="form-check-input" checked="">
+										<label for="remember" class="form-check-label">Remember Me</label>
+									</div>
+									 <input type="hidden" name="token" value="810fcd05aa8d079c39d8bbdd3ed41fe7">
+									<button type="submit" class="btn btn-primary ms-auto" onclick="$('.preloader').show();">
+										Login
+									</button>
+									
+								</div>
+																<div class="mt-3">
+								<a href="reset_pass.html" class="float-middle">
+											Forgot Password?
+										</a>
+										</div>
+								
+										<div class="mt-5 text-center">
+										
+								<a href="app.html" class="text-center btn btn-success ms-auto">
+											TRY FREE NOW
+										</a>
+										</div>
+															</form>
+						</div>
+												<div class="card-footer py-3 border-0">
+							<div class="text-center">
+								Don't have an account? <a href="signup.html" class="text-primary">Create One</a>
+							</div>
+						</div>
+											</div>
+					<!--<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2026  &mdash; Safe-Zone Ltd. &copy; 
+					</div>-->
+				</div>
+			</div>
+		</div>
+	</section>
+
+    <!-- Mainly scripts -->
+   <script type="text/javascript" src="/assets/bootstrap5/js/bootstrap.min.js"></script>
+   
+    
+	
+		<script>
+      
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+        // Creates an array of toasts (it only initializes them)
+          return new bootstrap.Toast(toastEl) // No need for options; use the default options
+        });
+       toastList.forEach(toast => toast.show()); // This show them
+   
+        console.log(toastList); // Testing to see if it works
+      
+
+    </script>
+
+
+
+</body></html>

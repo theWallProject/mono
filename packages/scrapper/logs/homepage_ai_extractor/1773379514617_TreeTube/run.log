@@ -1,0 +1,64 @@
+[2026-03-13T05:25:14.618Z] === Homepage AI Extractor: TreeTube ===
+[2026-03-13T05:25:14.618Z] Started at: 2026-03-13T05:25:14.618Z
+[2026-03-13T05:25:14.618Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773379514617_TreeTube
+[2026-03-13T05:25:14.618Z] Company: TreeTube
+[2026-03-13T05:25:14.618Z] Website: tree-tube.com
+[2026-03-13T05:25:14.618Z] cbRank: 1005042
+[2026-03-13T05:25:14.619Z] Reasons: h
+[2026-03-13T05:25:14.619Z] Fetching: https://tree-tube.com
+[2026-03-13T05:25:24.024Z] Redirected: https://tree-tube.com -> https://tree-tube.com/
+[2026-03-13T05:25:24.029Z] Saved HTML (92137 bytes) to page.html
+[2026-03-13T05:25:24.032Z] Extracted 19 unique links from page
+[2026-03-13T05:25:24.033Z] Saved 19 links to links.json
+[2026-03-13T05:25:24.037Z] Extracted footer HTML (9944 chars)
+[2026-03-13T05:25:24.037Z] Extracted header HTML (19167 chars)
+[2026-03-13T05:25:24.041Z] Website (post-redirect): https://tree-tube.com/ → origin: https://tree-tube.com
+[2026-03-13T05:25:24.041Z] External links: 3 (of 19 total)
+[2026-03-13T05:25:24.041Z] ── All external links ──
+[2026-03-13T05:25:24.041Z]   EXT: https://www.instagram.com/tree_tube
+[2026-03-13T05:25:24.041Z]   EXT: https://www.linkedin.com/company/tree-tube
+[2026-03-13T05:25:24.041Z]   EXT: https://www.saritarieli.co.il
+[2026-03-13T05:25:24.042Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T05:25:24.042Z]   REGEX: ig <- https://www.instagram.com/tree_tube
+[2026-03-13T05:25:24.042Z]   REGEX: li <- https://www.linkedin.com/company/tree-tube
+[2026-03-13T05:25:24.042Z]   UNCATEGORIZED: https://www.saritarieli.co.il
+[2026-03-13T05:25:24.042Z] Programmatic result: ws:1, ig:1, li:1 | 1 uncategorized
+[2026-03-13T05:25:24.042Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T05:25:24.043Z] Saved AI prompt (6550 chars) to ai_prompt.txt
+[2026-03-13T05:25:24.043Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T05:25:24.060Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T05:25:50.265Z]   AI: First token received, streaming...
+[2026-03-13T05:25:53.750Z] AI response complete: 80 chars in 29.7s
+[2026-03-13T05:25:53.751Z] Saved AI response to ai_response.json
+[2026-03-13T05:25:53.751Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T05:25:53.751Z]   AI LINK: https://www.instagram.com/tree_tube/
+[2026-03-13T05:25:53.751Z]   AI LINK: https://www.linkedin.com/company/tree-tube/
+[2026-03-13T05:25:53.751Z] AI returned 2 valid links
+[2026-03-13T05:25:53.751Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T05:25:53.752Z]   AI→REGEX: ig <- https://www.instagram.com/tree_tube/ (duplicate, skipped)
+[2026-03-13T05:25:53.752Z]   AI→REGEX: li <- https://www.linkedin.com/company/tree-tube/ (duplicate, skipped)
+[2026-03-13T05:25:53.752Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T05:25:53.752Z] Footer/header origins (4):
+[2026-03-13T05:25:53.752Z]   FOOTER/HEADER ORIGIN: https://tree-tube.com
+[2026-03-13T05:25:53.752Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-13T05:25:53.752Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T05:25:53.752Z]   FOOTER/HEADER ORIGIN: https://www.saritarieli.co.il
+[2026-03-13T05:25:53.753Z]   ADDED: urls <- https://www.saritarieli.co.il
+[2026-03-13T05:25:53.753Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T05:25:53.753Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T05:25:53.753Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T05:25:53.753Z] ── Step 3: Final dedup ──
+[2026-03-13T05:25:53.753Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T05:25:53.753Z] ── FINAL RESULT ──
+[2026-03-13T05:25:53.753Z]   ws (1):
+[2026-03-13T05:25:53.753Z]     - https://tree-tube.com
+[2026-03-13T05:25:53.753Z]   li (1):
+[2026-03-13T05:25:53.753Z]     - https://www.linkedin.com/company/tree-tube
+[2026-03-13T05:25:53.753Z]   ig (1):
+[2026-03-13T05:25:53.753Z]     - https://www.instagram.com/tree_tube
+[2026-03-13T05:25:53.753Z]   urls (1):
+[2026-03-13T05:25:53.754Z]     - https://www.saritarieli.co.il
+[2026-03-13T05:25:53.754Z] Summary: ws:1, ig:1, li:1, urls:1
+[2026-03-13T05:25:53.756Z] Saved final result to result.json
+[2026-03-13T05:25:53.756Z] Override fields: ws, li, ig, urls
+[2026-03-13T05:25:53.757Z] Finished at: 2026-03-13T05:25:53.757Z

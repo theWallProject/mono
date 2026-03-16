@@ -1,0 +1,66 @@
+[2026-03-11T02:51:56.996Z] === Homepage AI Extractor: Ofek ===
+[2026-03-11T02:51:56.996Z] Started at: 2026-03-11T02:51:56.996Z
+[2026-03-11T02:51:56.996Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773197516996_Ofek
+[2026-03-11T02:51:56.997Z] Company: Ofek
+[2026-03-11T02:51:56.997Z] Website: ofek.coop
+[2026-03-11T02:51:56.997Z] cbRank: 558632
+[2026-03-11T02:51:56.997Z] Reasons: h
+[2026-03-11T02:51:56.997Z] Fetching: https://ofek.coop
+[2026-03-11T02:52:02.216Z] Redirected: https://ofek.coop -> https://www.ofek.coop/
+[2026-03-11T02:52:02.229Z] Saved HTML (372395 bytes) to page.html
+[2026-03-11T02:52:02.233Z] Extracted 18 unique links from page
+[2026-03-11T02:52:02.234Z] Saved 18 links to links.json
+[2026-03-11T02:52:02.237Z] No footer section found in DOM
+[2026-03-11T02:52:02.237Z] Extracted header HTML (7982 chars)
+[2026-03-11T02:52:02.241Z] Website (post-redirect): https://www.ofek.coop/ → origin: https://www.ofek.coop
+[2026-03-11T02:52:02.241Z] External links: 5 (of 18 total)
+[2026-03-11T02:52:02.241Z] ── All external links ──
+[2026-03-11T02:52:02.241Z]   EXT: https://api.whatsapp.com/send/?phone=972732793111&text&type=phone_number&app_absent=0
+[2026-03-11T02:52:02.241Z]   EXT: https://tabuzzco.com
+[2026-03-11T02:52:02.242Z]   EXT: https://twitter.com/ofek_coop?s=11
+[2026-03-11T02:52:02.242Z]   EXT: https://wa.me/972732793111/?text=
+[2026-03-11T02:52:02.242Z]   EXT: https://www.facebook.com/ofek.coop
+[2026-03-11T02:52:02.242Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T02:52:02.242Z]   UNCATEGORIZED: https://api.whatsapp.com/send/?phone=972732793111&text&type=phone_number&app_absent=0
+[2026-03-11T02:52:02.242Z]   UNCATEGORIZED: https://tabuzzco.com
+[2026-03-11T02:52:02.242Z]   REGEX: tw <- https://twitter.com/ofek_coop?s=11
+[2026-03-11T02:52:02.242Z]   UNCATEGORIZED: https://wa.me/972732793111/?text=
+[2026-03-11T02:52:02.242Z]   REGEX: fb <- https://www.facebook.com/ofek.coop
+[2026-03-11T02:52:02.242Z] Programmatic result: ws:1, tw:1, fb:1 | 3 uncategorized
+[2026-03-11T02:52:02.242Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T02:52:02.243Z] Saved AI prompt (2065 chars) to ai_prompt.txt
+[2026-03-11T02:52:02.243Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T02:52:02.260Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T02:52:09.436Z]   AI: First token received, streaming...
+[2026-03-11T02:52:21.200Z] AI response complete: 119 chars in 19.0s
+[2026-03-11T02:52:21.201Z] Saved AI response to ai_response.json
+[2026-03-11T02:52:21.201Z] ── Parsing AI response (2 lines) ──
+[2026-03-11T02:52:21.201Z]   AI LINK: https://api.whatsapp.com/send/?phone=972732793111&text&type=phone_number&app_absent=0
+[2026-03-11T02:52:21.201Z]   AI LINK: https://wa.me/972732793111/?text=
+[2026-03-11T02:52:21.201Z] AI returned 2 valid links
+[2026-03-11T02:52:21.201Z] ── Categorizing 2 AI-returned links ──
+[2026-03-11T02:52:21.201Z]   AI→URLS: https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send/?phone=972732793111&text&type=phone_number&app_absent=0)
+[2026-03-11T02:52:21.202Z]   AI→URLS: https://wa.me/972732793111 (cleaned from https://wa.me/972732793111/?text=)
+[2026-03-11T02:52:21.202Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T02:52:21.202Z] Footer/header origins (1):
+[2026-03-11T02:52:21.202Z]   FOOTER/HEADER ORIGIN: https://www.ofek.coop
+[2026-03-11T02:52:21.202Z]   SKIP (AI claimed): https://api.whatsapp.com/send/?phone=972732793111&text&type=phone_number&app_absent=0
+[2026-03-11T02:52:21.202Z]   SKIP (not in footer/header): https://tabuzzco.com
+[2026-03-11T02:52:21.202Z]   SKIP (AI claimed): https://wa.me/972732793111/?text=
+[2026-03-11T02:52:21.202Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T02:52:21.202Z] ── Step 3: Final dedup ──
+[2026-03-11T02:52:21.202Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-11T02:52:21.203Z] ── FINAL RESULT ──
+[2026-03-11T02:52:21.203Z]   ws (1):
+[2026-03-11T02:52:21.203Z]     - https://www.ofek.coop
+[2026-03-11T02:52:21.203Z]   fb (1):
+[2026-03-11T02:52:21.203Z]     - https://www.facebook.com/ofek.coop
+[2026-03-11T02:52:21.203Z]   tw (1):
+[2026-03-11T02:52:21.203Z]     - https://x.com/ofek_coop
+[2026-03-11T02:52:21.203Z]   urls (2):
+[2026-03-11T02:52:21.203Z]     - https://api.whatsapp.com/send
+[2026-03-11T02:52:21.203Z]     - https://wa.me/972732793111
+[2026-03-11T02:52:21.203Z] Summary: ws:1, tw:1, fb:1, urls:2
+[2026-03-11T02:52:21.204Z] Saved final result to result.json
+[2026-03-11T02:52:21.204Z] Override fields: ws, fb, tw, urls
+[2026-03-11T02:52:21.204Z] Finished at: 2026-03-11T02:52:21.204Z

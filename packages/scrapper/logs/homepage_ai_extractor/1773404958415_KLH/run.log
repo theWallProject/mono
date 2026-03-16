@@ -1,0 +1,61 @@
+[2026-03-13T12:29:18.415Z] === Homepage AI Extractor: KLH ===
+[2026-03-13T12:29:18.416Z] Started at: 2026-03-13T12:29:18.416Z
+[2026-03-13T12:29:18.416Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773404958415_KLH
+[2026-03-13T12:29:18.416Z] Company: KLH
+[2026-03-13T12:29:18.416Z] Website: klh-tv.com
+[2026-03-13T12:29:18.416Z] cbRank: 1144787
+[2026-03-13T12:29:18.416Z] Reasons: h
+[2026-03-13T12:29:18.416Z] Fetching: https://klh-tv.com
+[2026-03-13T12:29:22.334Z] Redirected: https://klh-tv.com -> https://www.klh-tv.com/
+[2026-03-13T12:29:22.352Z] Saved HTML (563231 bytes) to page.html
+[2026-03-13T12:29:22.356Z] Extracted 6 unique links from page
+[2026-03-13T12:29:22.357Z] Saved 6 links to links.json
+[2026-03-13T12:29:22.360Z] Extracted footer HTML (3102 chars)
+[2026-03-13T12:29:22.360Z] Extracted header HTML (19196 chars)
+[2026-03-13T12:29:22.365Z] Website (post-redirect): https://www.klh-tv.com/ → origin: https://www.klh-tv.com
+[2026-03-13T12:29:22.365Z] External links: 2 (of 6 total)
+[2026-03-13T12:29:22.366Z] ── All external links ──
+[2026-03-13T12:29:22.366Z]   EXT: http://www.inbaros.com
+[2026-03-13T12:29:22.366Z]   EXT: https://www.linkedin.com/company/7000668/admin
+[2026-03-13T12:29:22.366Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T12:29:22.366Z]   UNCATEGORIZED: http://www.inbaros.com
+[2026-03-13T12:29:22.366Z]   REGEX: li <- https://www.linkedin.com/company/7000668/admin
+[2026-03-13T12:29:22.366Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-13T12:29:22.366Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T12:29:22.367Z] Saved AI prompt (3981 chars) to ai_prompt.txt
+[2026-03-13T12:29:22.367Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T12:29:22.383Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T12:29:38.971Z]   AI: First token received, streaming...
+[2026-03-13T12:29:43.996Z] AI response complete: 73 chars in 21.6s
+[2026-03-13T12:29:43.997Z] Saved AI response to ai_response.json
+[2026-03-13T12:29:43.997Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T12:29:43.997Z]   AI LINK: https://twitter.com/KL%20
+[2026-03-13T12:29:43.997Z]   AI LINK: https://www.linkedin.com/company/7000668/admin/
+[2026-03-13T12:29:43.997Z] AI returned 2 valid links
+[2026-03-13T12:29:43.997Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T12:29:43.997Z]   AI→REGEX: tw <- https://twitter.com/KL%20
+[2026-03-13T12:29:43.997Z]   AI→REGEX: li <- https://www.linkedin.com/company/7000668/admin/ (duplicate, skipped)
+[2026-03-13T12:29:43.997Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T12:29:43.997Z] Footer/header origins (3):
+[2026-03-13T12:29:43.998Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T12:29:43.998Z]   FOOTER/HEADER ORIGIN: http://www.inbaros.com
+[2026-03-13T12:29:43.998Z]   FOOTER/HEADER ORIGIN: https://www.klh-tv.com
+[2026-03-13T12:29:43.998Z]   ADDED: urls <- http://www.inbaros.com
+[2026-03-13T12:29:43.998Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T12:29:43.998Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T12:29:43.998Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T12:29:43.998Z] ── Step 3: Final dedup ──
+[2026-03-13T12:29:43.998Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T12:29:43.998Z] ── FINAL RESULT ──
+[2026-03-13T12:29:43.998Z]   ws (1):
+[2026-03-13T12:29:43.998Z]     - https://www.klh-tv.com
+[2026-03-13T12:29:43.999Z]   li (1):
+[2026-03-13T12:29:43.999Z]     - https://www.linkedin.com/company/7000668
+[2026-03-13T12:29:43.999Z]   tw (1):
+[2026-03-13T12:29:43.999Z]     - https://x.com/kl%20
+[2026-03-13T12:29:43.999Z]   urls (1):
+[2026-03-13T12:29:43.999Z]     - http://www.inbaros.com
+[2026-03-13T12:29:43.999Z] Summary: ws:1, li:1, tw:1, urls:1
+[2026-03-13T12:29:43.999Z] Saved final result to result.json
+[2026-03-13T12:29:44.000Z] Override fields: ws, li, tw, urls
+[2026-03-13T12:29:44.000Z] Finished at: 2026-03-13T12:29:44.000Z

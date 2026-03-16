@@ -1,0 +1,77 @@
+[2026-03-12T08:33:10.995Z] === Homepage AI Extractor: AdRabbit ===
+[2026-03-12T08:33:10.995Z] Started at: 2026-03-12T08:33:10.995Z
+[2026-03-12T08:33:10.996Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773304390995_AdRabbit
+[2026-03-12T08:33:10.996Z] Company: AdRabbit
+[2026-03-12T08:33:10.996Z] Website: ad-rabbit.com
+[2026-03-12T08:33:10.996Z] cbRank: 867851
+[2026-03-12T08:33:10.996Z] Reasons: h
+[2026-03-12T08:33:10.996Z] Fetching: https://ad-rabbit.com
+[2026-03-12T08:33:14.404Z] Redirected: https://ad-rabbit.com -> https://ad-rabbit.com/
+[2026-03-12T08:33:14.418Z] Saved HTML (454783 bytes) to page.html
+[2026-03-12T08:33:14.422Z] Extracted 11 unique links from page
+[2026-03-12T08:33:14.423Z] Saved 11 links to links.json
+[2026-03-12T08:33:14.427Z] No footer section found in DOM
+[2026-03-12T08:33:14.427Z] No header section found in DOM
+[2026-03-12T08:33:14.434Z] Website (post-redirect): https://ad-rabbit.com/ → origin: https://ad-rabbit.com
+[2026-03-12T08:33:14.435Z] External links: 7 (of 11 total)
+[2026-03-12T08:33:14.435Z] ── All external links ──
+[2026-03-12T08:33:14.435Z]   EXT: https://adrabbit.zendesk.com/hc
+[2026-03-12T08:33:14.435Z]   EXT: https://itunes.apple.com/app/id1550758558?ios=true&
+[2026-03-12T08:33:14.435Z]   EXT: https://play.google.com/store/apps/details?id=com.appsvillage.adrabbit&android=true&
+[2026-03-12T08:33:14.435Z]   EXT: https://twitter.com/applicsvillage
+[2026-03-12T08:33:14.435Z]   EXT: https://www.facebook.com/AdRabbit-103952144958712
+[2026-03-12T08:33:14.435Z]   EXT: https://www.instagram.com/appsvillageltd
+[2026-03-12T08:33:14.435Z]   EXT: https://www.youtube.com/channel/UCGRHjNLkcdV_PxuSOh5gygg
+[2026-03-12T08:33:14.435Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T08:33:14.436Z]   UNCATEGORIZED: https://adrabbit.zendesk.com/hc
+[2026-03-12T08:33:14.436Z]   UNCATEGORIZED: https://itunes.apple.com/app/id1550758558?ios=true&
+[2026-03-12T08:33:14.436Z]   REGEX: android_app_ids <- com.appsvillage.adrabbit (from https://play.google.com/store/apps/details?id=com.appsvillage.adrabbit&android=true&)
+[2026-03-12T08:33:14.436Z]   REGEX: tw <- https://twitter.com/applicsvillage
+[2026-03-12T08:33:14.436Z]   REGEX: fb <- https://www.facebook.com/AdRabbit-103952144958712
+[2026-03-12T08:33:14.436Z]   REGEX: ig <- https://www.instagram.com/appsvillageltd
+[2026-03-12T08:33:14.436Z]   REGEX: ytc <- https://www.youtube.com/channel/UCGRHjNLkcdV_PxuSOh5gygg
+[2026-03-12T08:33:14.436Z] Programmatic result: ws:1, android_app_ids:1, tw:1, fb:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-12T08:33:14.436Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T08:33:14.439Z] Saved AI prompt (2018 chars) to ai_prompt.txt
+[2026-03-12T08:33:14.439Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T08:33:14.461Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T08:33:20.781Z]   AI: First token received, streaming...
+[2026-03-12T08:33:24.572Z] AI response complete: 51 chars in 10.1s
+[2026-03-12T08:33:24.572Z] Saved AI response to ai_response.json
+[2026-03-12T08:33:24.572Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T08:33:24.573Z]   AI LINK: https://itunes.apple.com/app/id1550758558?ios=true&
+[2026-03-12T08:33:24.573Z] AI returned 1 valid links
+[2026-03-12T08:33:24.573Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T08:33:24.573Z]   AI→URLS: https://itunes.apple.com/app/id1550758558 (cleaned from https://itunes.apple.com/app/id1550758558?ios=true&)
+[2026-03-12T08:33:24.573Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T08:33:24.573Z] Footer/header origins (0):
+[2026-03-12T08:33:24.573Z]   SKIP (not in footer/header): https://adrabbit.zendesk.com/hc
+[2026-03-12T08:33:24.574Z]   SKIP (AI claimed): https://itunes.apple.com/app/id1550758558?ios=true&
+[2026-03-12T08:33:24.574Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T08:33:24.574Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T08:33:24.574Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T08:33:25.057Z]   YOUTUBE: resolved UCGRHjNLkcdV_PxuSOh5gygg → @appsvillage5084
+[2026-03-12T08:33:25.057Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T08:33:25.058Z] ── Step 3: Final dedup ──
+[2026-03-12T08:33:25.058Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T08:33:25.058Z] ── FINAL RESULT ──
+[2026-03-12T08:33:25.058Z]   ws (1):
+[2026-03-12T08:33:25.058Z]     - https://ad-rabbit.com
+[2026-03-12T08:33:25.058Z]   fb (1):
+[2026-03-12T08:33:25.058Z]     - https://www.facebook.com/adrabbit-103952144958712
+[2026-03-12T08:33:25.058Z]   tw (1):
+[2026-03-12T08:33:25.058Z]     - https://x.com/applicsvillage
+[2026-03-12T08:33:25.058Z]   ig (1):
+[2026-03-12T08:33:25.058Z]     - https://www.instagram.com/appsvillageltd
+[2026-03-12T08:33:25.059Z]   ytp (1):
+[2026-03-12T08:33:25.059Z]     - https://www.youtube.com/@appsvillage5084
+[2026-03-12T08:33:25.059Z]   ytc (1):
+[2026-03-12T08:33:25.059Z]     - https://www.youtube.com/channel/UCGRHjNLkcdV_PxuSOh5gygg
+[2026-03-12T08:33:25.059Z]   urls (1):
+[2026-03-12T08:33:25.059Z]     - https://itunes.apple.com/app/id1550758558
+[2026-03-12T08:33:25.059Z]   android_app_ids (1):
+[2026-03-12T08:33:25.059Z]     - com.appsvillage.adrabbit
+[2026-03-12T08:33:25.059Z] Summary: ws:1, android_app_ids:1, tw:1, fb:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-12T08:33:25.060Z] Saved final result to result.json
+[2026-03-12T08:33:25.060Z] Override fields: ws, fb, tw, ig, ytp, ytc, urls, android_app_ids
+[2026-03-12T08:33:25.060Z] Finished at: 2026-03-12T08:33:25.060Z

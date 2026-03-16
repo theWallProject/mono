@@ -1,0 +1,614 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.3",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseenter","mouseout","mouseleave","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input","visibilitychange"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),this.F("domReady"),await this.T(),await this.j(),await this.I(),this.F("windowLoad"),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise((t=>setTimeout(t,500-Date.now()+this.lastTouchEnd))),this.H(),this.F("all"),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))}),{isRocket:!0})}o(){window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0}),{isRocket:!0}),window.addEventListener("pagehide",(()=>{this.onFirstUserAction=null}),{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",(function i(o){Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1})),event.preventDefault(),window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}))}),{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),this.savedUserEvents.length>0&&(t.stopPropagation(),t.stopImmediatePropagation()),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach((t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})))}U(){this.userEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0}))),this.savedUserEvents.forEach((t=>{t.target.dispatchEvent(new window[t.constructor.name](t.type,t))}))}m(){this.eventsMutationObserver=new MutationObserver((t=>{const e="return false";for(const i of t){if("attributes"===i.type){const t=i.target.getAttribute(i.attributeName);t&&t!==e&&(i.target.setAttribute("data-rocket-"+i.attributeName,t),i.target["rocket"+i.attributeName]=new Function("event",t),i.target.setAttribute(i.attributeName,e))}"childList"===i.type&&i.addedNodes.forEach((t=>{if(t.nodeType===Node.ELEMENT_NODE)for(const i of t.attributes)this.attributeEvents.includes(i.name)&&i.value&&""!==i.value&&(t.setAttribute("data-rocket-"+i.name,i.value),t["rocket"+i.name]=new Function("event",i.value),t.setAttribute(i.name,e))}))}})),this.eventsMutationObserver.observe(document,{subtree:!0,childList:!0,attributeFilter:this.attributeEvents})}H(){this.eventsMutationObserver.disconnect(),this.attributeEvents.forEach((t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach((e=>{e.setAttribute(t,e.getAttribute("data-rocket-"+t)),e.removeAttribute("data-rocket-"+t)}))}))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o})},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}F(t){"all"===t&&(EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener),this.savedEventListeners=this.savedEventListeners.filter((e=>{let i=e.type,o=e.target||window;return"domReady"===t&&"DOMContentLoaded"!==i&&"readystatechange"!==i||("windowLoad"===t&&"load"!==i&&"readystatechange"!==i&&"pageshow"!==i||(this.B(i,o)&&(i="rocket-"+i),e.remove?o.removeEventListener(i,e.func,e.options):o.addEventListener(i,e.func,e.options),!1))}))}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,(()=>{e[t].forEach((t=>t()))}),{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout((()=>i.bind(document)(o))):i.bind(document)(o)}return t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise((t=>{this.userActionTriggered?t():this.onFirstUserAction=t}))}async L(){return new Promise((t=>{document.addEventListener("DOMContentLoaded",(()=>{this.realDomReadyFired=!0,t()}),{isRocket:!0})}))}async I(){return this.realWindowLoadedFired?Promise.resolve():new Promise((t=>{window.addEventListener("load",t,{isRocket:!0})}))}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver((t=>{for(const e of t)e.addedNodes.forEach((t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise((e=>{const i=()=>{const i=this.pendingScripts.findIndex((e=>e.script===t));i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)}))})}))})),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async j(){await this.J(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.j()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.N(t,"preconnect")}async $(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",(()=>{i.setAttribute("data-rocket-status","failed-network"),e()}),{isRocket:!0}),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.$(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())}),{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.$(e),this.C(t)):Promise.resolve()}O(){this.N([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}N(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach((t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}})),document.head.appendChild(o)}W(){this.trash.forEach((t=>t.remove()))}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async G(){Date.now()-this.lastBreath>45&&(await this.J(),this.lastBreath=Date.now())}async J(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.1.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Naveh Pharma Ltd. – Distributor of Healthcare Products</title><link rel="preload" data-rocket-preload="" as="image" href="https://www.navehpharma.com/wp-content/uploads/2024/02/NTLC-slider.jpg" fetchpriority="high">
+	<meta name="description" content="Naveh Pharma is a manufacturer and distributor of healthcare products">
+	<link rel="canonical" href="https://www.navehpharma.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Naveh Pharma Ltd. – Distributor of Healthcare Products">
+	<meta property="og:description" content="Naveh Pharma is a manufacturer and distributor of healthcare products">
+	<meta property="og:url" content="https://www.navehpharma.com/">
+	<meta property="og:site_name" content="Naveh Pharma">
+	<meta property="article:modified_time" content="2025-08-26T11:01:34+00:00">
+	<meta property="og:image" content="https://www.navehpharma.com/wp-content/uploads/2024/02/toplogo.jpg">
+	<meta property="og:image:width" content="177">
+	<meta property="og:image:height" content="58">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.navehpharma.com/","url":"https://www.navehpharma.com/","name":"Naveh Pharma Ltd. – Distributor of Healthcare Products","isPartOf":{"@id":"https://www.navehpharma.com/#website"},"about":{"@id":"https://www.navehpharma.com/#organization"},"datePublished":"2024-02-03T09:33:04+00:00","dateModified":"2025-08-26T11:01:34+00:00","description":"Naveh Pharma is a manufacturer and distributor of healthcare products","breadcrumb":{"@id":"https://www.navehpharma.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.navehpharma.com/"]}]},{"@type":"BreadcrumbList","@id":"https://www.navehpharma.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.navehpharma.com/#website","url":"https://www.navehpharma.com/","name":"Naveh Pharma","description":"","publisher":{"@id":"https://www.navehpharma.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.navehpharma.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.navehpharma.com/#organization","name":"Naveh Pharma LTD","url":"https://www.navehpharma.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.navehpharma.com/#/schema/logo/image/","url":"https://www.navehpharma.com/wp-content/uploads/2024/02/logo-cupsola.jpg","contentUrl":"https://www.navehpharma.com/wp-content/uploads/2024/02/logo-cupsola.jpg","width":924,"height":386,"caption":"Naveh Pharma LTD"},"image":{"@id":"https://www.navehpharma.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Naveh Pharma » Feed" href="https://www.navehpharma.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Naveh Pharma » Comments Feed" href="https://www.navehpharma.com/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.navehpharma.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.navehpharma.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.navehpharma.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.navehpharma.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="hello-elementor-css" href="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/reset.css?ver=1773264983" media="all">
+<link data-minify="1" rel="stylesheet" id="chld_thm_cfg_separate-css" href="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/themes/nave/ctc-style.css?ver=1773264983" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-theme-style-css" href="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/theme.css?ver=1773264983" media="all">
+<link data-minify="1" rel="stylesheet" id="hello-elementor-header-footer-css" href="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=1773264983" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="elementor-post-134-css" href="https://www.navehpharma.com/wp-content/uploads/elementor/css/post-134.css?ver=1773264981" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-nav-menu-css" href="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.35.1" media="all">
+<link rel="stylesheet" id="widget-search-form-css" href="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/css/widget-search-form.min.css?ver=3.35.1" media="all">
+<link rel="stylesheet" id="widget-social-icons-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="e-apple-webkit-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="e-sticky-css" href="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.35.1" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-icon-list-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="e-animation-fadeInUp-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=3.35.7" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-css" href="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1773264983" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-slides-css" href="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/css/widget-slides.min.css?ver=3.35.1" media="all">
+<link rel="stylesheet" id="widget-video-css" href="https://www.navehpharma.com/wp-content/plugins/elementor/assets/css/widget-video.min.css?ver=3.35.7" media="all">
+<link rel="stylesheet" id="widget-loop-common-css" href="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/css/widget-loop-common.min.css?ver=3.35.1" media="all">
+<link rel="stylesheet" id="widget-loop-grid-css" href="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/css/widget-loop-grid.min.css?ver=3.35.1" media="all">
+<link rel="stylesheet" id="elementor-post-2-css" href="https://www.navehpharma.com/wp-content/uploads/elementor/css/post-2.css?ver=1773264982" media="all">
+<link rel="stylesheet" id="elementor-post-156-css" href="https://www.navehpharma.com/wp-content/uploads/elementor/css/post-156.css?ver=1773264982" media="all">
+<link rel="stylesheet" id="elementor-post-165-css" href="https://www.navehpharma.com/wp-content/uploads/elementor/css/post-165.css?ver=1773264982" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-gf-local-opensans-css" href="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/opensans.css?ver=1773264983" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-gf-local-poppins-css" href="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/poppins.css?ver=1773264983" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<script id="3d-flip-book-client-locale-loader-js-extra">
+var FB3D_CLIENT_LOCALE = {"ajaxurl":"https://www.navehpharma.com/wp-admin/admin-ajax.php","dictionary":{"Table of contents":"Table of contents","Close":"Close","Bookmarks":"Bookmarks","Thumbnails":"Thumbnails","Search":"Search","Share":"Share","Facebook":"Facebook","Twitter":"Twitter","Email":"Email","Play":"Play","Previous page":"Previous page","Next page":"Next page","Zoom in":"Zoom in","Zoom out":"Zoom out","Fit view":"Fit view","Auto play":"Auto play","Full screen":"Full screen","More":"More","Smart pan":"Smart pan","Single page":"Single page","Sounds":"Sounds","Stats":"Stats","Print":"Print","Download":"Download","Goto first page":"Goto first page","Goto last page":"Goto last page"},"images":"https://www.navehpharma.com/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/images/","jsData":{"urls":[],"posts":{"ids_mis":[],"ids":[]},"pages":[],"firstPages":[],"bookCtrlProps":[],"bookTemplates":[]},"key":"3d-flip-book","pdfJS":{"pdfJsLib":"https://www.navehpharma.com/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/pdf.min.js?ver=4.3.136","pdfJsWorker":"https://www.navehpharma.com/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/pdf.worker.js?ver=4.3.136","stablePdfJsLib":"https://www.navehpharma.com/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/stable/pdf.min.js?ver=2.5.207","stablePdfJsWorker":"https://www.navehpharma.com/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/stable/pdf.worker.js?ver=2.5.207","pdfJsCMapUrl":"https://www.navehpharma.com/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/cmaps/"},"cacheurl":"https://www.navehpharma.com/wp-content/uploads/3d-flip-book/cache/","pluginsurl":"https://www.navehpharma.com/wp-content/plugins/","pluginurl":"https://www.navehpharma.com/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/","thumbnailSize":{"width":"150","height":"150"},"version":"1.16.19"};
+//# sourceURL=3d-flip-book-client-locale-loader-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/client-locale-loader.js?ver=1749125427" id="3d-flip-book-client-locale-loader-js" async="" data-wp-strategy="async"></script>
+<link rel="https://api.w.org/" href="https://www.navehpharma.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.navehpharma.com/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.navehpharma.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="shortlink" href="https://www.navehpharma.com/">
+<meta name="generator" content="Elementor 3.35.7; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async="" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=UA-85012573-1"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-85012573-1');
+</script>
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://www.navehpharma.com/wp-content/uploads/2024/02/favicon.png" sizes="32x32">
+<link rel="icon" href="https://www.navehpharma.com/wp-content/uploads/2024/02/favicon.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.navehpharma.com/wp-content/uploads/2024/02/favicon.png">
+<meta name="msapplication-TileImage" content="https://www.navehpharma.com/wp-content/uploads/2024/02/favicon.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><meta name="generator" content="WP Rocket 3.18.3" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_oci wpr_image_dimensions wpr_minify_css wpr_preload_links wpr_desktop"><link href="https://www.googletagmanager.com" rel="preconnect"></head>
+<body class="home wp-singular page-template-default page page-id-2 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-nave hello-elementor-default elementor-default elementor-kit-134 elementor-page elementor-page-2">
+
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MDBZ4N');</script>
+<!-- End Google Tag Manager -->
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-elementor-type="header" data-elementor-id="156" class="elementor elementor-156 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-161c3f42 topmenu e-flex e-con-boxed e-con e-parent" data-id="161c3f42" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_effects_offset&quot;:40,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-738396c0 e-con-full logo e-flex e-con e-child" data-id="738396c0" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-4dd44481 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="4dd44481" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://www.navehpharma.com">
+			<img fetchpriority="high" width="924" height="386" src="https://www.navehpharma.com/wp-content/uploads/2024/02/logo-cupsola.jpg" class="attachment-full size-full wp-image-893" alt="" srcset="https://www.navehpharma.com/wp-content/uploads/2024/02/logo-cupsola.jpg 924w, https://www.navehpharma.com/wp-content/uploads/2024/02/logo-cupsola-300x125.jpg 300w, https://www.navehpharma.com/wp-content/uploads/2024/02/logo-cupsola-768x321.jpg 768w" sizes="(max-width: 924px) 100vw, 924px">				</a>
+											</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-62f10f96 e-con-full e-flex e-con e-child" data-id="62f10f96" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-9bc549f elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="9bc549f" data-element_type="widget" data-e-type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-background e--animation-fade">
+				<ul id="menu-1-9bc549f" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-825"><a href="#" class="elementor-item elementor-item-anchor">About Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-179"><a href="https://www.navehpharma.com/about-company/company-overview/" class="elementor-sub-item">Company Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198"><a href="https://www.navehpharma.com/about-company/product-of-the-year-award/" class="elementor-sub-item">Product of the Year Award</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-505"><a href="https://www.navehpharma.com/events-and-updates/" class="elementor-sub-item">Events and Updates</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-506"><a href="https://www.navehpharma.com/articles/" class="elementor-sub-item">Articles</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-199"><a href="https://www.navehpharma.com/about-company/certification/" class="elementor-sub-item">Certification</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-178"><a href="https://www.navehpharma.com/about-company/mdr-devices/" class="elementor-sub-item">MDR Devices</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-3d-flip-book menu-item-792"><a href="https://www.navehpharma.com/3d-flip-book/catalog/" class="elementor-sub-item">Catalogue</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-177"><a href="https://www.navehpharma.com/products/" class="elementor-item">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-190"><a href="https://www.navehpharma.com/products/magnesium-based-line/" class="elementor-sub-item">Most Bioavailable Magnesium</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-183"><a href="https://www.navehpharma.com/products/advanced-ent-line/" class="elementor-sub-item">Advanced ENT Line</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-184"><a href="https://www.navehpharma.com/products/baby-care/" class="elementor-sub-item">Baby Care</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-191"><a href="https://www.navehpharma.com/products/muscle-aches/" class="elementor-sub-item">Muscle Aches</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-748"><a href="https://www.navehpharma.com/products/probiotic/" class="elementor-sub-item">Postbiotics</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-185"><a href="https://www.navehpharma.com/products/cold-flue/" class="elementor-sub-item">Cold &amp; Flu</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-193"><a href="https://www.navehpharma.com/products/skin-care/" class="elementor-sub-item">Skin Care</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-189"><a href="https://www.navehpharma.com/products/mental-health/" class="elementor-sub-item">Mental Health</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-187"><a href="https://www.navehpharma.com/products/life-improvment/" class="elementor-sub-item">Life Improvement</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-192"><a href="https://www.navehpharma.com/products/s-o-s/" class="elementor-sub-item">S.O.S.</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-180"><a href="https://www.navehpharma.com/distributors/" class="elementor-item">Distributors</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-203"><a href="https://www.navehpharma.com/distributors/distributor-inquiry-form/" class="elementor-sub-item">Distributor Inquiry Form</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://www.navehpharma.com/contact/" class="elementor-item">Contact</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-9bc549f" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-825"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">About Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-179"><a href="https://www.navehpharma.com/about-company/company-overview/" class="elementor-sub-item" tabindex="-1">Company Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198"><a href="https://www.navehpharma.com/about-company/product-of-the-year-award/" class="elementor-sub-item" tabindex="-1">Product of the Year Award</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-505"><a href="https://www.navehpharma.com/events-and-updates/" class="elementor-sub-item" tabindex="-1">Events and Updates</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-506"><a href="https://www.navehpharma.com/articles/" class="elementor-sub-item" tabindex="-1">Articles</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-199"><a href="https://www.navehpharma.com/about-company/certification/" class="elementor-sub-item" tabindex="-1">Certification</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-178"><a href="https://www.navehpharma.com/about-company/mdr-devices/" class="elementor-sub-item" tabindex="-1">MDR Devices</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-3d-flip-book menu-item-792"><a href="https://www.navehpharma.com/3d-flip-book/catalog/" class="elementor-sub-item" tabindex="-1">Catalogue</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-177"><a href="https://www.navehpharma.com/products/" class="elementor-item" tabindex="-1">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-190"><a href="https://www.navehpharma.com/products/magnesium-based-line/" class="elementor-sub-item" tabindex="-1">Most Bioavailable Magnesium</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-183"><a href="https://www.navehpharma.com/products/advanced-ent-line/" class="elementor-sub-item" tabindex="-1">Advanced ENT Line</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-184"><a href="https://www.navehpharma.com/products/baby-care/" class="elementor-sub-item" tabindex="-1">Baby Care</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-191"><a href="https://www.navehpharma.com/products/muscle-aches/" class="elementor-sub-item" tabindex="-1">Muscle Aches</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-748"><a href="https://www.navehpharma.com/products/probiotic/" class="elementor-sub-item" tabindex="-1">Postbiotics</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-185"><a href="https://www.navehpharma.com/products/cold-flue/" class="elementor-sub-item" tabindex="-1">Cold &amp; Flu</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-193"><a href="https://www.navehpharma.com/products/skin-care/" class="elementor-sub-item" tabindex="-1">Skin Care</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-189"><a href="https://www.navehpharma.com/products/mental-health/" class="elementor-sub-item" tabindex="-1">Mental Health</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-187"><a href="https://www.navehpharma.com/products/life-improvment/" class="elementor-sub-item" tabindex="-1">Life Improvement</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-192"><a href="https://www.navehpharma.com/products/s-o-s/" class="elementor-sub-item" tabindex="-1">S.O.S.</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-180"><a href="https://www.navehpharma.com/distributors/" class="elementor-item" tabindex="-1">Distributors</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-203"><a href="https://www.navehpharma.com/distributors/distributor-inquiry-form/" class="elementor-sub-item" tabindex="-1">Distributor Inquiry Form</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://www.navehpharma.com/contact/" class="elementor-item" tabindex="-1">Contact</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-5848681f e-con-full e-flex e-con e-child" data-id="5848681f" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-4f9f8965 elementor-search-form--skin-full_screen elementor-widget elementor-widget-search-form" data-id="4f9f8965" data-element_type="widget" data-e-type="widget" data-settings="{&quot;skin&quot;:&quot;full_screen&quot;}" data-widget_type="search-form.default">
+				<div class="elementor-widget-container">
+							<search role="search">
+			<form class="elementor-search-form" action="https://www.navehpharma.com" method="get">
+												<div class="elementor-search-form__toggle" role="button" tabindex="0" aria-label="Search">
+					<div class="e-font-icon-svg-container"><svg aria-hidden="true" class="e-font-icon-svg e-fas-search" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></div>				</div>
+								<div class="elementor-search-form__container">
+					<label class="elementor-screen-only" for="elementor-search-form-4f9f8965">Search</label>
+
+					
+					<input id="elementor-search-form-4f9f8965" placeholder="Search.." class="elementor-search-form__input" type="search" name="s" value="">
+					
+					
+										<div class="dialog-lightbox-close-button dialog-close-button" role="button" tabindex="0" aria-label="Close this search box.">
+						<svg aria-hidden="true" class="e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>					</div>
+									</div>
+			</form>
+		</search>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-37df6102 elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="37df6102" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-2b47990" href="http://www.facebook.com/NavehPharma" target="_blank" rel="nofollow">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook-f" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-86f2bb0" href="http://www.youtube.com/user/NavehPharmaLtd" target="_blank" rel="nofollow">
+						<span class="elementor-screen-only">Youtube</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-204ba56" href="https://www.linkedin.com/company/naveh-pharma-ltd-" target="_blank" rel="nofollow">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</header>
+		
+<main id="content" class="site-main post-2 page type-page status-publish hentry">
+
+	
+	<div class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="2" class="elementor elementor-2" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-64f2a1c8 e-con-full e-flex e-con e-parent" data-id="64f2a1c8" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-347e4483 elementor--h-position-center elementor--v-position-middle elementor-arrows-position-inside elementor-widget elementor-widget-slides" data-id="347e4483" data-element_type="widget" data-e-type="widget" id="homeslider" data-settings="{&quot;navigation&quot;:&quot;arrows&quot;,&quot;autoplay_speed&quot;:4000,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition&quot;:&quot;slide&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-swiper">
+					<div class="elementor-slides-wrapper elementor-main-swiper swiper" role="region" aria-roledescription="carousel" aria-label="Slides" dir="ltr" data-animation="fadeInUp">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-1c01ada swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img" aria-label="magnox-slider.jpg"></div><a class="swiper-slide-inner" href="https://navehpharma.com/new/products/magnesium-based-line/magnox-520/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">MAGNOX 520</div><div class="elementor-slide-description">Clinically proven to be superior in intracellular absorption to most commonly available magnesium preparations
+
+ </div><div class="elementor-button elementor-slide-button elementor-size-sm">Read more</div></div></a></div><div class="elementor-repeater-item-bc9a752 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img" aria-label="6b-slider.jpg"></div><a class="swiper-slide-inner" href="https://navehpharma.com/new/products/magnesium-based-line/magnoxb6/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">MAGNOX B6</div><div class="elementor-slide-description">High concentration of Patented magnesium and vitamin B6 enabling prevention of stress
+
+</div><div class="elementor-button elementor-slide-button elementor-size-sm">Read more</div></div></a></div><div class="elementor-repeater-item-7c7fe9f swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img" aria-label="NTLC-slider.jpg"></div><a class="swiper-slide-inner" href="https://navehpharma.com/new/products/magnesium-based-line/anti-leg-cramps/"><div class="swiper-slide-contents"><div class="elementor-slide-heading">NTLC</div><div class="elementor-slide-description">A Complex of Magnesium &amp; Vitamins 
+Immediate Relief of Nocturnal Leg Cramps</div><div class="elementor-button elementor-slide-button elementor-size-sm">Read more</div></div></a></div>				</div>
+															<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0" aria-label="Previous slide">
+							<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-left" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"></path></svg>						</div>
+						<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0" aria-label="Next slide">
+							<svg aria-hidden="true" class="e-font-icon-svg e-eicon-chevron-right" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"></path></svg>						</div>
+																	</div>
+				</div>
+								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3313b1e e-flex e-con-boxed e-con e-parent" data-id="3313b1e" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-91a4e78 elementor-widget elementor-widget-heading" data-id="91a4e78" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">Naveh Pharma</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-21de05d elementor-widget elementor-widget-heading" data-id="21de05d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Manufacturing  pharmaceutical and healthcare products</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-880c400 elementor-widget elementor-widget-shortcode" data-id="880c400" data-element_type="widget" data-e-type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode"><div class="category-grid"><div class="category-icon"><a href="https://www.navehpharma.com/products/magnesium-based-line/"><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/mg.jpg" alt="Magnesium"><span>Most Bioavailable Magnesium</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/advanced-ent-line/"><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb3.jpg" alt="Advanced ENT Line"><span>Advanced ENT Line</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/probiotic/"><img width="128" height="128" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/intestine2-1.png" alt="Probiotic"><span>Postbiotics</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/cold-flue/"><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/cc.jpg" alt="Cold &amp; Flue"><span>Cold &amp; Flu</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/baby-care/"><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb8-1.jpg" alt="Baby care"><span>Baby Care</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/mental-health/"><img width="114" height="114" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb9.jpg" alt="Mental Health" data-lazy-src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb9.jpg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="114" height="114" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb9.jpg" alt="Mental Health" /></noscript><span>Mental Health</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/muscle-aches/"><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/mc.jpg" alt="Muscle Aches" data-lazy-src="https://www.navehpharma.com/wp-content/uploads/2024/02/mc.jpg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/mc.jpg" alt="Muscle Aches" /></noscript><span>Muscle Aches</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/life-improvment/"><img width="110" height="110" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb10.jpg" alt="Life Improvment" data-lazy-src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb10.jpg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="110" height="110" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb10.jpg" alt="Life Improvment" /></noscript><span>Life Improvement</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/s-o-s/"><img width="128" height="128" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/first-aid-kit.png" alt="sos" data-lazy-src="https://www.navehpharma.com/wp-content/uploads/2024/02/first-aid-kit.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="128" height="128" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/first-aid-kit.png" alt="sos" /></noscript><span>S.O.S.</span></a></div><div class="category-icon"><a href="https://www.navehpharma.com/products/skin-care/"><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb5.jpg" alt="Skin Care" data-lazy-src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb5.jpg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="113" height="113" decoding="async" src="https://www.navehpharma.com/wp-content/uploads/2024/02/hb5.jpg" alt="Skin Care" /></noscript><span>Skin Care</span></a></div></div></div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-e7706c9 e-flex e-con-boxed e-con e-parent" data-id="e7706c9" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-66e2090 elementor-widget elementor-widget-video" data-id="66e2090" data-element_type="widget" data-e-type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/www.youtube.com\/watch?v=mQRm-gbX5nk&quot;,&quot;lazy_load&quot;:&quot;yes&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;}" data-widget_type="video.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-wrapper elementor-open-inline">
+			<div class="elementor-video"></div>		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-491d7be e-flex e-con-boxed e-con e-parent" data-id="491d7be" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2b570dc elementor-widget elementor-widget-heading" data-id="2b570dc" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Updates</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5963a51 elementor-grid-2 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-widget elementor-widget-loop-grid" data-id="5963a51" data-element_type="widget" data-e-type="widget" data-settings="{&quot;template_id&quot;:&quot;551&quot;,&quot;columns&quot;:2,&quot;_skin&quot;:&quot;post&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_mobile&quot;:&quot;1&quot;,&quot;edit_handle_selector&quot;:&quot;[data-elementor-type=\&quot;loop-item\&quot;]&quot;,&quot;row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="loop-grid.post">
+				<div class="elementor-widget-container">
+							<div class="elementor-loop-container elementor-grid" role="list">
+		<style id="loop-551">.elementor-551 .elementor-element.elementor-element-46852a3{--display:flex;--flex-direction:row;--container-widget-width:initial;--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--gap:0px 0px;--row-gap:0px;--column-gap:0px;--border-radius:6px 6px 6px 6px;box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.32);}.elementor-551 .elementor-element.elementor-element-bc6b40a{--display:flex;--flex-direction:column;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--justify-content:center;--align-items:flex-start;}.elementor-widget-theme-post-featured-image .widget-image-caption{color:var( --e-global-color-text );font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );}.elementor-551 .elementor-element.elementor-element-d890064{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--justify-content:center;--gap:10px 10px;--row-gap:10px;--column-gap:10px;}.elementor-widget-theme-post-title .elementor-heading-title{font-family:var( --e-global-typography-primary-font-family ), Sans-serif;font-weight:var( --e-global-typography-primary-font-weight );color:var( --e-global-color-primary );}.elementor-551 .elementor-element.elementor-element-cafbb1a .elementor-heading-title{color:var( --e-global-color-secondary );}.elementor-widget-heading .elementor-heading-title{font-family:var( --e-global-typography-primary-font-family ), Sans-serif;font-weight:var( --e-global-typography-primary-font-weight );color:var( --e-global-color-primary );}.elementor-551 .elementor-element.elementor-element-2a7b679 .elementor-heading-title{color:var( --e-global-color-5040661 );}.elementor-551 .elementor-element.elementor-element-ccc94cc .elementor-heading-title{color:var( --e-global-color-primary );}.elementor-widget-theme-post-excerpt .elementor-widget-container{font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-weight:var( --e-global-typography-text-font-weight );color:var( --e-global-color-text );}.elementor-widget-button .elementor-button{background-color:var( --e-global-color-accent );font-family:var( --e-global-typography-accent-font-family ), Sans-serif;font-weight:var( --e-global-typography-accent-font-weight );}.elementor-551 .elementor-element.elementor-element-a692a3d .elementor-button{background-color:#37A6DD00;font-family:"Open Sans", Sans-serif;font-weight:500;text-transform:uppercase;fill:var( --e-global-color-primary );color:var( --e-global-color-primary );padding:0px 0px 0px 0px;}.elementor-551 .elementor-element.elementor-element-a692a3d > .elementor-widget-container{margin:-10px 0px 0px 0px;}.elementor-551 .elementor-element.elementor-element-a692a3d .elementor-button-content-wrapper{flex-direction:row-reverse;}@media(min-width:768px){.elementor-551 .elementor-element.elementor-element-bc6b40a{--width:33.3333%;}.elementor-551 .elementor-element.elementor-element-d890064{--width:66.6666%;}}</style>		<div data-elementor-type="loop-item" data-elementor-id="551" class="elementor elementor-551 e-loop-item e-loop-item-94 post-94 post type-post status-publish format-standard has-post-thumbnail hentry category-events-and-updates" data-elementor-post-type="elementor_library" data-custom-edit-handle="1">
+			<div class="elementor-element elementor-element-46852a3 e-flex e-con-boxed e-con e-parent" data-id="46852a3" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-bc6b40a e-con-full e-flex e-con e-child" data-id="bc6b40a" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-6763289 elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="6763289" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-featured-image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="350" height="144" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20350%20144'%3E%3C/svg%3E" class="attachment-medium_large size-medium_large wp-image-93" alt="הורדה 1" data-lazy-srcset="https://www.navehpharma.com/wp-content/uploads/2016/08/הורדה_1.png 350w, https://www.navehpharma.com/wp-content/uploads/2016/08/הורדה_1-300x123.png 300w" data-lazy-sizes="(max-width: 350px) 100vw, 350px" data-lazy-src="https://www.navehpharma.com/wp-content/uploads/2016/08/הורדה_1.png"><noscript><img decoding="async" width="350" height="144" src="https://www.navehpharma.com/wp-content/uploads/2016/08/הורדה_1.png" class="attachment-medium_large size-medium_large wp-image-93" alt="הורדה 1" srcset="https://www.navehpharma.com/wp-content/uploads/2016/08/הורדה_1.png 350w, https://www.navehpharma.com/wp-content/uploads/2016/08/הורדה_1-300x123.png 300w" sizes="(max-width: 350px) 100vw, 350px" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-d890064 e-con-full e-flex e-con e-child" data-id="d890064" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-cafbb1a elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="cafbb1a" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default"><a href="https://www.navehpharma.com/events-and-updates/naveh-pharma-catalog-edition-2020/">VITA FOOD EUROPE 2026</a></h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-2a7b679 elementor-widget elementor-widget-heading" data-id="2a7b679" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<span class="elementor-heading-title elementor-size-default">5-7 MAY 2026</span>				</div>
+				</div>
+				<div class="elementor-element elementor-element-ccc94cc elementor-widget elementor-widget-heading" data-id="ccc94cc" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<span class="elementor-heading-title elementor-size-default">BARCELONA, SPAIN</span>				</div>
+				</div>
+				<div class="elementor-element elementor-element-f773c04 elementor-widget elementor-widget-theme-post-excerpt" data-id="f773c04" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-excerpt.default">
+				<div class="elementor-widget-container">
+					<p>Visit us at STAND #4G128 Fira Barcelona Gran Via, Av. Joan Carles I, 64, 08908				</p></div>
+				</div>
+				<div class="elementor-element elementor-element-a692a3d elementor-widget elementor-widget-button" data-id="a692a3d" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.navehpharma.com/events-and-updates/naveh-pharma-catalog-edition-2020/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-double-right" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path></svg>			</span>
+									<span class="elementor-button-text">Read more</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				</div>
+		
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+		
+			</div>
+
+	
+</main>
+
+			<footer data-elementor-type="footer" data-elementor-id="165" class="elementor elementor-165 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-c41a021 e-flex e-con-boxed e-con e-parent" data-id="c41a021" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-27b851a6 e-con-full e-flex e-con e-child" data-id="27b851a6" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-67bdefb3 elementor-widget elementor-widget-image" data-id="67bdefb3" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="924" height="386" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20386'%3E%3C/svg%3E" class="attachment-full size-full wp-image-897" alt="" data-lazy-srcset="https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948.png 924w, https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948-300x125.png 300w, https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948-768x321.png 768w" data-lazy-sizes="(max-width: 924px) 100vw, 924px" data-lazy-src="https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948.png"><noscript><img width="924" height="386" src="https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948.png" class="attachment-full size-full wp-image-897" alt="" srcset="https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948.png 924w, https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948-300x125.png 300w, https://www.navehpharma.com/wp-content/uploads/2024/02/Untitled-design-2026-02-23T161305.948-768x321.png 768w" sizes="(max-width: 924px) 100vw, 924px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-5e04bbf8 elementor-widget elementor-widget-heading" data-id="5e04bbf8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">1996 - 2026 © All rights reserved.</p>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-6a21e8e6 e-con-full e-flex e-con e-child" data-id="6a21e8e6" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-54d520c8 elementor-icon-list--layout-inline elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="54d520c8" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.navehpharma.com">
+
+											<span class="elementor-icon-list-text">Home</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="/sitemap/">
+
+											<span class="elementor-icon-list-text">Sitemap</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://navehpharma.com/new/about-company/mdr-devices/">
+
+											<span class="elementor-icon-list-text">MDR Devices</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.navehpharma.com/accessibility-statement/">
+
+											<span class="elementor-icon-list-text">Accessibility Statement</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-22bc861f elementor-widget elementor-widget-heading" data-id="22bc861f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<span class="elementor-heading-title elementor-size-default"><a href="https://www.icdigit.com/" target="_blank">Powered by ICDigit</a></span>				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-640d9757 e-con-full elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-parent" data-id="640d9757" data-element_type="container" data-e-type="container" data-settings="{&quot;sticky&quot;:&quot;bottom&quot;,&quot;sticky_on&quot;:[&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+		<div class="elementor-element elementor-element-5109e631 e-con-full e-flex e-con e-child" data-id="5109e631" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-32b1dca8 elementor-view-default elementor-widget elementor-widget-icon" data-id="32b1dca8" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fab-waze" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.17 201.67C516.69 287.53 471.23 369.59 389 409.8c13 34.1-12.4 70.2-48.32 70.2a51.68 51.68 0 0 1-51.57-49c-6.44.19-64.2 0-76.33-.64A51.69 51.69 0 0 1 159 479.92c-33.86-1.36-57.95-34.84-47-67.92-37.21-13.11-72.54-34.87-99.62-70.8-13-17.28-.48-41.8 20.84-41.8 46.31 0 32.22-54.17 43.15-110.26C94.8 95.2 193.12 32 288.09 32c102.48 0 197.15 70.67 214.08 169.67zM373.51 388.28c42-19.18 81.33-56.71 96.29-102.14 40.48-123.09-64.15-228-181.71-228-83.45 0-170.32 55.42-186.07 136-9.53 48.91 5 131.35-68.75 131.35C58.21 358.6 91.6 378.11 127 389.54c24.66-21.8 63.87-15.47 79.83 14.34 14.22 1 79.19 1.18 87.9.82a51.69 51.69 0 0 1 78.78-16.42zM205.12 187.13c0-34.74 50.84-34.75 50.84 0s-50.84 34.74-50.84 0zm116.57 0c0-34.74 50.86-34.75 50.86 0s-50.86 34.75-50.86 0zm-122.61 70.69c-3.44-16.94 22.18-22.18 25.62-5.21l.06.28c4.14 21.42 29.85 44 64.12 43.07 35.68-.94 59.25-22.21 64.11-42.77 4.46-16.05 28.6-10.36 25.47 6-5.23 22.18-31.21 62-91.46 62.9-42.55 0-80.88-27.84-87.9-64.25z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-29140c50 e-con-full e-flex e-con e-child" data-id="29140c50" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-5b7bd914 elementor-view-default elementor-widget elementor-widget-icon" data-id="5b7bd914" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-75fe7bde e-con-full e-flex e-con e-child" data-id="75fe7bde" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-7fd0bef elementor-view-default elementor-widget elementor-widget-icon" data-id="7fd0bef" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3e329831 e-con-full e-flex e-con e-child" data-id="3e329831" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-2ccf7ec5 elementor-view-default elementor-widget elementor-widget-icon" data-id="2ccf7ec5" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+				</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/nave/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- Accessibility Code for "www.navehpharma.com" -->
+<script type="rocketlazyloadscript">
+/*
+Want to customize your button? visit our documentation page:
+https://login.equalweb.com/custom-button
+*/
+window.interdeal = {
+    get sitekey (){ return "4b5f5125393ac22ddde188a5cde90857"} ,
+    get domains(){
+        return {
+            "js": "https://cdn.nagich.co.il/",
+            "acc": "https://access.nagich.co.il/"
+        }
+    },
+    "Position": "right",
+    "Menulang": "EN",
+    "draggable": true,
+    "btnStyle": {
+        "vPosition": [
+            "80%",
+            "80%"
+        ],
+        "margin": [
+            "0",
+            "0"
+        ],
+        "scale": [
+            "0.6",
+            "0.5"
+        ],
+        "color": {
+            "main": "#1c5c86",
+            "second": "#ffffff"
+        },
+        "icon": {
+            "outline": false,
+            "outlineColor": "#ffffff",
+            "type":  11 ,
+            "shape": "circle"
+        }
+    },
+                              
+};
+
+(function(doc, head, body){
+    var coreCall             = doc.createElement('script');
+    coreCall.src             = interdeal.domains.js + 'core/5.1.16/accessibility.js';
+    coreCall.defer           = true;
+    coreCall.integrity       = 'sha512-VO6taeNzVSM5l7eUCH78sdXwiorY7vLl2t8tJMD1KHA2FiHaW7SpZqvkF4lFZ0SgWj7AaAkSPJwQ5LEM1MccaA==';
+    coreCall.crossOrigin     = 'anonymous';
+    coreCall.setAttribute('data-cfasync', true );
+    body? body.appendChild(coreCall) : head.appendChild(coreCall);
+})(document, document.head, document.body);
+</script>
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.navehpharma.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.navehpharma.com/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=1749426938" id="hello-theme-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.35.7" id="elementor-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.35.7" id="elementor-frontend-modules-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.35.7","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_editor_one":true,"import-export-customization":true,"e_pro_variables":true},"urls":{"assets":"https:\/\/www.navehpharma.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.navehpharma.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.navehpharma.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"a946cdc303"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":2,"title":"Naveh%20Pharma%20Ltd.%20%E2%80%93%20Distributor%20of%20Healthcare%20Products","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.35.7" id="elementor-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.35.1" id="e-sticky-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.35.1" id="elementor-pro-webpack-runtime-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.navehpharma.com\/wp-admin\/admin-ajax.php","nonce":"413132afdd","urls":{"assets":"https:\/\/www.navehpharma.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.navehpharma.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.navehpharma.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.35.1" id="elementor-pro-frontend-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.navehpharma.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.35.1" id="pro-elements-handlers-js" data-rocket-defer="" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://www.navehpharma.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach((t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}}))}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find((t=>e[t]))];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout((()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)}),i);window.addEventListener("rocket-startLoading",(function(){clearTimeout(o)}))}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach((t=>{e.forEach((e=>{i.push(t+e)}))})),i}l(t,e){this.i().forEach((t=>delete e[t])),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

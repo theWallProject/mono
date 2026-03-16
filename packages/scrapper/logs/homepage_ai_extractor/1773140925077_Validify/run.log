@@ -1,0 +1,81 @@
+[2026-03-10T11:08:45.077Z] === Homepage AI Extractor: Validify ===
+[2026-03-10T11:08:45.077Z] Started at: 2026-03-10T11:08:45.077Z
+[2026-03-10T11:08:45.077Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773140925077_Validify
+[2026-03-10T11:08:45.077Z] Company: Validify
+[2026-03-10T11:08:45.077Z] Website: validify.app
+[2026-03-10T11:08:45.077Z] cbRank: 485526
+[2026-03-10T11:08:45.077Z] Reasons: h
+[2026-03-10T11:08:45.077Z] Fetching: https://validify.app
+[2026-03-10T11:08:48.391Z] Redirected: https://validify.app -> https://www.validify.app/
+[2026-03-10T11:08:48.396Z] Saved HTML (126239 bytes) to page.html
+[2026-03-10T11:08:48.400Z] Extracted 24 unique links from page
+[2026-03-10T11:08:48.400Z] Saved 24 links to links.json
+[2026-03-10T11:08:48.405Z] Extracted footer HTML (9314 chars)
+[2026-03-10T11:08:48.405Z] Extracted header HTML (10772 chars)
+[2026-03-10T11:08:48.410Z] Website (post-redirect): https://www.validify.app/ → origin: https://www.validify.app
+[2026-03-10T11:08:48.410Z] External links: 6 (of 24 total)
+[2026-03-10T11:08:48.410Z] ── All external links ──
+[2026-03-10T11:08:48.411Z]   EXT: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FR5sVUAT
+[2026-03-10T11:08:48.411Z]   EXT: https://sforce.co/2XIoTnz
+[2026-03-10T11:08:48.411Z]   EXT: https://www.capterra.com/p/214288/Validify
+[2026-03-10T11:08:48.411Z]   EXT: https://www.linkedin.com/company/validifyapp
+[2026-03-10T11:08:48.411Z]   EXT: https://www.youtube.com/channel/UCSAqAIZwb13CAsi1IVetz5w
+[2026-03-10T11:08:48.411Z]   EXT: https://www.zenverse.studio
+[2026-03-10T11:08:48.411Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T11:08:48.411Z]   UNCATEGORIZED: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FR5sVUAT
+[2026-03-10T11:08:48.411Z]   UNCATEGORIZED: https://sforce.co/2XIoTnz
+[2026-03-10T11:08:48.411Z]   UNCATEGORIZED: https://www.capterra.com/p/214288/Validify
+[2026-03-10T11:08:48.411Z]   REGEX: li <- https://www.linkedin.com/company/validifyapp
+[2026-03-10T11:08:48.411Z]   REGEX: ytc <- https://www.youtube.com/channel/UCSAqAIZwb13CAsi1IVetz5w
+[2026-03-10T11:08:48.412Z]   UNCATEGORIZED: https://www.zenverse.studio
+[2026-03-10T11:08:48.412Z] Programmatic result: ws:1, li:1, ytc:1 | 4 uncategorized
+[2026-03-10T11:08:48.412Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T11:08:48.412Z] Saved AI prompt (7285 chars) to ai_prompt.txt
+[2026-03-10T11:08:48.412Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T11:08:48.424Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T11:09:23.337Z]   AI: First token received, streaming...
+[2026-03-10T11:09:41.727Z]   AI streaming: 206 chars received (53.3s elapsed)
+[2026-03-10T11:09:43.503Z] AI response complete: 227 chars in 55.1s
+[2026-03-10T11:09:43.504Z] Saved AI response to ai_response.json
+[2026-03-10T11:09:43.504Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T11:09:43.505Z]   AI LINK: https://www.youtube.com/channel/UCSAqAIZwb13CAsi1IVetz5w
+[2026-03-10T11:09:43.505Z]   AI LINK: https://www.linkedin.com/company/validifyapp/
+[2026-03-10T11:09:43.505Z]   AI LINK: https://www.capterra.com/p/214288/Validify
+[2026-03-10T11:09:43.505Z]   AI LINK: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FR5sVUAT
+[2026-03-10T11:09:43.505Z] AI returned 4 valid links
+[2026-03-10T11:09:43.505Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T11:09:43.505Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCSAqAIZwb13CAsi1IVetz5w (duplicate, skipped)
+[2026-03-10T11:09:43.505Z]   AI→REGEX: li <- https://www.linkedin.com/company/validifyapp/ (duplicate, skipped)
+[2026-03-10T11:09:43.505Z]   AI→URLS: https://www.capterra.com/p/214288/Validify
+[2026-03-10T11:09:43.505Z]   AI→URLS: https://appexchange.salesforce.com/appxListingDetail (cleaned from https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FR5sVUAT)
+[2026-03-10T11:09:43.506Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T11:09:43.506Z] Footer/header origins (6):
+[2026-03-10T11:09:43.506Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T11:09:43.506Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T11:09:43.506Z]   FOOTER/HEADER ORIGIN: https://www.capterra.com
+[2026-03-10T11:09:43.506Z]   FOOTER/HEADER ORIGIN: https://www.zenverse.studio
+[2026-03-10T11:09:43.506Z]   FOOTER/HEADER ORIGIN: https://sforce.co
+[2026-03-10T11:09:43.506Z]   FOOTER/HEADER ORIGIN: https://appexchange.salesforce.com
+[2026-03-10T11:09:43.507Z]   SKIP (AI claimed): https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000FR5sVUAT
+[2026-03-10T11:09:43.507Z]   ADDED: urls <- https://sforce.co/2XIoTnz
+[2026-03-10T11:09:43.507Z]   SKIP (AI claimed): https://www.capterra.com/p/214288/Validify
+[2026-03-10T11:09:43.507Z]   ADDED: urls <- https://www.zenverse.studio
+[2026-03-10T11:09:43.507Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-10T11:09:43.507Z] ── Step 3: Final dedup ──
+[2026-03-10T11:09:43.507Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-10T11:09:43.507Z] ── FINAL RESULT ──
+[2026-03-10T11:09:43.507Z]   ws (1):
+[2026-03-10T11:09:43.507Z]     - https://www.validify.app
+[2026-03-10T11:09:43.507Z]   li (1):
+[2026-03-10T11:09:43.507Z]     - https://www.linkedin.com/company/validifyapp
+[2026-03-10T11:09:43.507Z]   ytc (1):
+[2026-03-10T11:09:43.507Z]     - https://www.youtube.com/channel/UCSAqAIZwb13CAsi1IVetz5w
+[2026-03-10T11:09:43.507Z]   urls (4):
+[2026-03-10T11:09:43.507Z]     - https://appexchange.salesforce.com/appxListingDetail
+[2026-03-10T11:09:43.507Z]     - https://sforce.co/2XIoTnz
+[2026-03-10T11:09:43.507Z]     - https://www.capterra.com/p/214288/Validify
+[2026-03-10T11:09:43.508Z]     - https://www.zenverse.studio
+[2026-03-10T11:09:43.508Z] Summary: ws:1, li:1, ytc:1, urls:4
+[2026-03-10T11:09:43.508Z] Saved final result to result.json
+[2026-03-10T11:09:43.508Z] Override fields: ws, li, ytc, urls
+[2026-03-10T11:09:43.508Z] Finished at: 2026-03-10T11:09:43.508Z

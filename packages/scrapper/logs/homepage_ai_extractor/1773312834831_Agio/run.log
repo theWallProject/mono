@@ -1,0 +1,67 @@
+[2026-03-12T10:53:54.831Z] === Homepage AI Extractor: Agio ===
+[2026-03-12T10:53:54.831Z] Started at: 2026-03-12T10:53:54.831Z
+[2026-03-12T10:53:54.831Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773312834831_Agio
+[2026-03-12T10:53:54.831Z] Company: Agio
+[2026-03-12T10:53:54.831Z] Website: agio.co.il
+[2026-03-12T10:53:54.831Z] cbRank: 918516
+[2026-03-12T10:53:54.832Z] Reasons: h
+[2026-03-12T10:53:54.832Z] Fetching: https://agio.co.il
+[2026-03-12T10:53:59.335Z] Redirected: https://agio.co.il -> https://agio.co.il/
+[2026-03-12T10:53:59.350Z] Saved HTML (323597 bytes) to page.html
+[2026-03-12T10:53:59.355Z] Extracted 32 unique links from page
+[2026-03-12T10:53:59.356Z] Saved 32 links to links.json
+[2026-03-12T10:53:59.362Z] Extracted footer HTML (14489 chars)
+[2026-03-12T10:53:59.362Z] Extracted header HTML (29178 chars)
+[2026-03-12T10:53:59.367Z] Website (post-redirect): https://agio.co.il/ → origin: https://agio.co.il
+[2026-03-12T10:53:59.367Z]   SUBDOMAIN: client.agio.co.il (added to ws)
+[2026-03-12T10:53:59.368Z] Website subdomains found: 1
+[2026-03-12T10:53:59.368Z] External links: 4 (of 32 total)
+[2026-03-12T10:53:59.368Z] ── All external links ──
+[2026-03-12T10:53:59.368Z]   EXT: http://www.danielrstudio.co.il
+[2026-03-12T10:53:59.368Z]   EXT: https://vee.co.il
+[2026-03-12T10:53:59.368Z]   EXT: https://vee.co.il/pricing
+[2026-03-12T10:53:59.368Z]   EXT: https://www.new.isa.gov.il
+[2026-03-12T10:53:59.368Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T10:53:59.368Z]   UNCATEGORIZED: http://www.danielrstudio.co.il
+[2026-03-12T10:53:59.368Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-12T10:53:59.369Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-12T10:53:59.369Z]   UNCATEGORIZED: https://www.new.isa.gov.il
+[2026-03-12T10:53:59.369Z] Programmatic result: ws:2 | 4 uncategorized
+[2026-03-12T10:53:59.369Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T10:53:59.369Z] Saved AI prompt (9284 chars) to ai_prompt.txt
+[2026-03-12T10:53:59.370Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T10:53:59.386Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T10:54:42.502Z]   AI: First token received, streaming...
+[2026-03-12T10:54:43.437Z] AI response complete: 27 chars in 44.1s
+[2026-03-12T10:54:43.438Z] Saved AI response to ai_response.json
+[2026-03-12T10:54:43.438Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T10:54:43.438Z]   AI LINK: https://www.new.isa.gov.il/
+[2026-03-12T10:54:43.438Z] AI returned 1 valid links
+[2026-03-12T10:54:43.438Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T10:54:43.439Z]   AI→URLS: https://www.new.isa.gov.il (cleaned from https://www.new.isa.gov.il/)
+[2026-03-12T10:54:43.439Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T10:54:43.439Z] Footer/header origins (4):
+[2026-03-12T10:54:43.439Z]   FOOTER/HEADER ORIGIN: https://www.new.isa.gov.il
+[2026-03-12T10:54:43.439Z]   FOOTER/HEADER ORIGIN: https://agio.co.il
+[2026-03-12T10:54:43.439Z]   FOOTER/HEADER ORIGIN: http://www.danielrstudio.co.il
+[2026-03-12T10:54:43.439Z]   FOOTER/HEADER ORIGIN: https://client.agio.co.il
+[2026-03-12T10:54:43.440Z]   ADDED: urls <- http://www.danielrstudio.co.il
+[2026-03-12T10:54:43.440Z]   SKIP (not in footer/header): https://vee.co.il
+[2026-03-12T10:54:43.440Z]   SKIP (not in footer/header): https://vee.co.il/pricing
+[2026-03-12T10:54:43.440Z]   SKIP (AI claimed): https://www.new.isa.gov.il
+[2026-03-12T10:54:43.440Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T10:54:43.440Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T10:54:43.440Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T10:54:43.440Z] ── Step 3: Final dedup ──
+[2026-03-12T10:54:43.440Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T10:54:43.440Z] ── FINAL RESULT ──
+[2026-03-12T10:54:43.440Z]   ws (2):
+[2026-03-12T10:54:43.440Z]     - https://agio.co.il
+[2026-03-12T10:54:43.440Z]     - https://client.agio.co.il
+[2026-03-12T10:54:43.441Z]   urls (2):
+[2026-03-12T10:54:43.441Z]     - http://www.danielrstudio.co.il
+[2026-03-12T10:54:43.441Z]     - https://www.new.isa.gov.il
+[2026-03-12T10:54:43.441Z] Summary: ws:2, urls:2
+[2026-03-12T10:54:43.441Z] Saved final result to result.json
+[2026-03-12T10:54:43.442Z] Override fields: ws, urls
+[2026-03-12T10:54:43.442Z] Finished at: 2026-03-12T10:54:43.442Z

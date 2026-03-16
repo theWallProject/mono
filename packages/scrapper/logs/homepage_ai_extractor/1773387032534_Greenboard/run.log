@@ -1,0 +1,70 @@
+[2026-03-13T07:30:32.534Z] === Homepage AI Extractor: Greenboard ===
+[2026-03-13T07:30:32.534Z] Started at: 2026-03-13T07:30:32.534Z
+[2026-03-13T07:30:32.534Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773387032534_Greenboard
+[2026-03-13T07:30:32.534Z] Company: Greenboard
+[2026-03-13T07:30:32.535Z] Website: greenboard.co.il
+[2026-03-13T07:30:32.535Z] cbRank: 1041774
+[2026-03-13T07:30:32.535Z] Reasons: h
+[2026-03-13T07:30:32.535Z] Fetching: https://greenboard.co.il
+[2026-03-13T07:30:43.077Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-13T07:30:46.076Z] Redirected: https://greenboard.co.il -> https://greenboard.co.il/
+[2026-03-13T07:30:46.083Z] Saved HTML (115056 bytes) to page.html
+[2026-03-13T07:30:46.086Z] Extracted 14 unique links from page
+[2026-03-13T07:30:46.087Z] Saved 14 links to links.json
+[2026-03-13T07:30:46.090Z] Extracted footer HTML (640 chars)
+[2026-03-13T07:30:46.091Z] Extracted header HTML (6486 chars)
+[2026-03-13T07:30:46.095Z] Website (post-redirect): https://greenboard.co.il/ → origin: https://greenboard.co.il
+[2026-03-13T07:30:46.096Z]   SUBDOMAIN: pro.greenboard.co.il (added to ws)
+[2026-03-13T07:30:46.096Z] Website subdomains found: 1
+[2026-03-13T07:30:46.096Z] External links: 5 (of 14 total)
+[2026-03-13T07:30:46.096Z] ── All external links ──
+[2026-03-13T07:30:46.096Z]   EXT: https://twitter.com/greenboardil
+[2026-03-13T07:30:46.096Z]   EXT: https://wa.me/message/TSJMO6H2UV3KB1
+[2026-03-13T07:30:46.096Z]   EXT: https://www.facebook.com/GreenboardOFFICIAL
+[2026-03-13T07:30:46.096Z]   EXT: https://www.instagram.com/greenboardisrael
+[2026-03-13T07:30:46.096Z]   EXT: https://www.youtube.com/playlist?list=PLJ5jyOrW9s1Uv20L6aM0O9MISoVqbxrzw
+[2026-03-13T07:30:46.096Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T07:30:46.096Z]   REGEX: tw <- https://twitter.com/greenboardil
+[2026-03-13T07:30:46.096Z]   UNCATEGORIZED: https://wa.me/message/TSJMO6H2UV3KB1
+[2026-03-13T07:30:46.097Z]   REGEX: fb <- https://www.facebook.com/GreenboardOFFICIAL
+[2026-03-13T07:30:46.097Z]   REGEX: ig <- https://www.instagram.com/greenboardisrael
+[2026-03-13T07:30:46.097Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-13T07:30:46.097Z]   SKIP (regex domain, no match): https://www.youtube.com/playlist?list=PLJ5jyOrW9s1Uv20L6aM0O9MISoVqbxrzw
+[2026-03-13T07:30:46.097Z] Programmatic result: ws:2, tw:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-13T07:30:46.097Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T07:30:46.098Z] Saved AI prompt (2465 chars) to ai_prompt.txt
+[2026-03-13T07:30:46.098Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T07:30:46.122Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T07:30:54.336Z]   AI: First token received, streaming...
+[2026-03-13T07:30:56.830Z] AI response complete: 36 chars in 10.7s
+[2026-03-13T07:30:56.831Z] Saved AI response to ai_response.json
+[2026-03-13T07:30:56.831Z] ── Parsing AI response (1 lines) ──
+[2026-03-13T07:30:56.831Z]   AI LINK: https://wa.me/message/TSJMO6H2UV3KB1
+[2026-03-13T07:30:56.831Z] AI returned 1 valid links
+[2026-03-13T07:30:56.831Z] ── Categorizing 1 AI-returned links ──
+[2026-03-13T07:30:56.831Z]   AI→URLS: https://wa.me/message/TSJMO6H2UV3KB1
+[2026-03-13T07:30:56.832Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T07:30:56.832Z] Footer/header origins (1):
+[2026-03-13T07:30:56.832Z]   FOOTER/HEADER ORIGIN: https://greenboard.co.il
+[2026-03-13T07:30:56.832Z]   SKIP (AI claimed): https://wa.me/message/TSJMO6H2UV3KB1
+[2026-03-13T07:30:56.832Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T07:30:56.832Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T07:30:56.832Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T07:30:56.832Z] ── Step 3: Final dedup ──
+[2026-03-13T07:30:56.832Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T07:30:56.832Z] ── FINAL RESULT ──
+[2026-03-13T07:30:56.832Z]   ws (2):
+[2026-03-13T07:30:56.833Z]     - https://greenboard.co.il
+[2026-03-13T07:30:56.833Z]     - https://pro.greenboard.co.il
+[2026-03-13T07:30:56.833Z]   fb (1):
+[2026-03-13T07:30:56.833Z]     - https://www.facebook.com/greenboardofficial
+[2026-03-13T07:30:56.833Z]   tw (1):
+[2026-03-13T07:30:56.833Z]     - https://x.com/greenboardil
+[2026-03-13T07:30:56.833Z]   ig (1):
+[2026-03-13T07:30:56.833Z]     - https://www.instagram.com/greenboardisrael
+[2026-03-13T07:30:56.833Z]   urls (1):
+[2026-03-13T07:30:56.833Z]     - https://wa.me/message/TSJMO6H2UV3KB1
+[2026-03-13T07:30:56.833Z] Summary: ws:2, tw:1, fb:1, ig:1, urls:1
+[2026-03-13T07:30:56.834Z] Saved final result to result.json
+[2026-03-13T07:30:56.834Z] Override fields: ws, fb, tw, ig, urls
+[2026-03-13T07:30:56.834Z] Finished at: 2026-03-13T07:30:56.834Z

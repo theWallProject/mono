@@ -1,0 +1,53 @@
+[2026-03-10T05:42:56.412Z] === Homepage AI Extractor: Compedia ===
+[2026-03-10T05:42:56.412Z] Started at: 2026-03-10T05:42:56.412Z
+[2026-03-10T05:42:56.412Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773121376411_Compedia
+[2026-03-10T05:42:56.412Z] Company: Compedia
+[2026-03-10T05:42:56.412Z] Website: compedia.net
+[2026-03-10T05:42:56.412Z] cbRank: 396093
+[2026-03-10T05:42:56.412Z] Reasons: h
+[2026-03-10T05:42:56.412Z] Fetching: https://compedia.net
+[2026-03-10T05:43:07.086Z] Network idle timeout — continuing with current state
+[2026-03-10T05:43:07.139Z] Redirected: https://compedia.net -> https://www.compedia.net/
+[2026-03-10T05:43:07.159Z] Saved HTML (608498 bytes) to page.html
+[2026-03-10T05:43:07.163Z] Extracted 16 unique links from page
+[2026-03-10T05:43:07.163Z] Saved 16 links to links.json
+[2026-03-10T05:43:07.167Z] Extracted footer HTML (2729 chars)
+[2026-03-10T05:43:07.167Z] Extracted header HTML (10979 chars)
+[2026-03-10T05:43:07.172Z] Website (post-redirect): https://www.compedia.net/ → origin: https://www.compedia.net
+[2026-03-10T05:43:07.172Z] External links: 2 (of 16 total)
+[2026-03-10T05:43:07.173Z] ── All external links ──
+[2026-03-10T05:43:07.173Z]   EXT: https://www.linkedin.com/company/compedia
+[2026-03-10T05:43:07.173Z]   EXT: https://www.skillreal.com/portfolio_page/vr-safety-training
+[2026-03-10T05:43:07.173Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T05:43:07.173Z]   REGEX: li <- https://www.linkedin.com/company/compedia
+[2026-03-10T05:43:07.174Z]   UNCATEGORIZED: https://www.skillreal.com/portfolio_page/vr-safety-training
+[2026-03-10T05:43:07.174Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-10T05:43:07.174Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T05:43:07.175Z] Saved AI prompt (3711 chars) to ai_prompt.txt
+[2026-03-10T05:43:07.175Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T05:43:07.196Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T05:43:22.394Z]   AI: First token received, streaming...
+[2026-03-10T05:43:23.833Z] AI response complete: 42 chars in 16.7s
+[2026-03-10T05:43:23.833Z] Saved AI response to ai_response.json
+[2026-03-10T05:43:23.833Z] ── Parsing AI response (1 lines) ──
+[2026-03-10T05:43:23.834Z]   AI LINK: https://www.linkedin.com/company/compedia/
+[2026-03-10T05:43:23.834Z] AI returned 1 valid links
+[2026-03-10T05:43:23.834Z] ── Categorizing 1 AI-returned links ──
+[2026-03-10T05:43:23.834Z]   AI→REGEX: li <- https://www.linkedin.com/company/compedia/ (duplicate, skipped)
+[2026-03-10T05:43:23.834Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T05:43:23.834Z] Footer/header origins (2):
+[2026-03-10T05:43:23.834Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T05:43:23.834Z]   FOOTER/HEADER ORIGIN: https://www.compedia.net
+[2026-03-10T05:43:23.834Z]   SKIP (not in footer/header): https://www.skillreal.com/portfolio_page/vr-safety-training
+[2026-03-10T05:43:23.834Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T05:43:23.834Z] ── Step 3: Final dedup ──
+[2026-03-10T05:43:23.834Z] No urls to dedup
+[2026-03-10T05:43:23.834Z] ── FINAL RESULT ──
+[2026-03-10T05:43:23.834Z]   ws (1):
+[2026-03-10T05:43:23.835Z]     - https://www.compedia.net
+[2026-03-10T05:43:23.835Z]   li (1):
+[2026-03-10T05:43:23.835Z]     - https://www.linkedin.com/company/compedia
+[2026-03-10T05:43:23.835Z] Summary: ws:1, li:1
+[2026-03-10T05:43:23.835Z] Saved final result to result.json
+[2026-03-10T05:43:23.835Z] Override fields: ws, li
+[2026-03-10T05:43:23.835Z] Finished at: 2026-03-10T05:43:23.835Z

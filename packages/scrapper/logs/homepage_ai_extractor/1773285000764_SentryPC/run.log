@@ -1,0 +1,73 @@
+[2026-03-12T03:10:00.764Z] === Homepage AI Extractor: SentryPC ===
+[2026-03-12T03:10:00.765Z] Started at: 2026-03-12T03:10:00.765Z
+[2026-03-12T03:10:00.765Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773285000764_SentryPC
+[2026-03-12T03:10:00.765Z] Company: SentryPC
+[2026-03-12T03:10:00.765Z] Website: sentrypc.com
+[2026-03-12T03:10:00.765Z] cbRank: 768938
+[2026-03-12T03:10:00.765Z] Reasons: h
+[2026-03-12T03:10:00.765Z] Fetching: https://sentrypc.com
+[2026-03-12T03:10:03.572Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-12T03:10:06.558Z] Redirected: https://sentrypc.com -> https://www.sentrypc.com/
+[2026-03-12T03:10:06.563Z] Saved HTML (87326 bytes) to page.html
+[2026-03-12T03:10:06.566Z] Extracted 35 unique links from page
+[2026-03-12T03:10:06.567Z] Saved 35 links to links.json
+[2026-03-12T03:10:06.571Z] Extracted footer HTML (74 chars)
+[2026-03-12T03:10:06.571Z] Extracted header HTML (4215 chars)
+[2026-03-12T03:10:06.576Z] Website (post-redirect): https://www.sentrypc.com/ → origin: https://www.sentrypc.com
+[2026-03-12T03:10:06.576Z]   SUBDOMAIN: blog.sentrypc.com (added to ws)
+[2026-03-12T03:10:06.576Z] Website subdomains found: 1
+[2026-03-12T03:10:06.576Z] External links: 6 (of 35 total)
+[2026-03-12T03:10:06.576Z] ── All external links ──
+[2026-03-12T03:10:06.577Z]   EXT: https://business.safety.google/privacy
+[2026-03-12T03:10:06.577Z]   EXT: https://twitter.com/SentryPC
+[2026-03-12T03:10:06.577Z]   EXT: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-12T03:10:06.577Z]   EXT: https://www.facebook.com/SentryPC
+[2026-03-12T03:10:06.577Z]   EXT: https://youtu.be/fbhvz6oniEM
+[2026-03-12T03:10:06.577Z]   EXT: https://youtube.com/@SentryPC
+[2026-03-12T03:10:06.577Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T03:10:06.577Z]   UNCATEGORIZED: https://business.safety.google/privacy
+[2026-03-12T03:10:06.577Z]   REGEX: tw <- https://twitter.com/SentryPC
+[2026-03-12T03:10:06.577Z]   UNCATEGORIZED: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-12T03:10:06.577Z]   REGEX: fb <- https://www.facebook.com/SentryPC
+[2026-03-12T03:10:06.578Z]   UNCATEGORIZED: https://youtu.be/fbhvz6oniEM
+[2026-03-12T03:10:06.578Z]   REGEX: ytp <- https://youtube.com/@SentryPC
+[2026-03-12T03:10:06.578Z] Programmatic result: ws:2, tw:1, fb:1, ytp:1 | 3 uncategorized
+[2026-03-12T03:10:06.578Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T03:10:06.579Z] Saved AI prompt (2159 chars) to ai_prompt.txt
+[2026-03-12T03:10:06.579Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T03:10:06.602Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T03:10:13.561Z]   AI: First token received, streaming...
+[2026-03-12T03:10:14.903Z] AI response complete: 28 chars in 8.3s
+[2026-03-12T03:10:14.904Z] Saved AI response to ai_response.json
+[2026-03-12T03:10:14.904Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T03:10:14.905Z]   AI LINK: https://youtu.be/fbhvz6oniEM
+[2026-03-12T03:10:14.905Z] AI returned 1 valid links
+[2026-03-12T03:10:14.905Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T03:10:14.905Z]   AI→URLS: https://youtu.be/fbhvz6oniEM
+[2026-03-12T03:10:14.905Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T03:10:14.906Z] Footer/header origins (1):
+[2026-03-12T03:10:14.906Z]   FOOTER/HEADER ORIGIN: https://blog.sentrypc.com
+[2026-03-12T03:10:14.906Z]   SKIP (not in footer/header): https://business.safety.google/privacy
+[2026-03-12T03:10:14.906Z]   SKIP (not in footer/header): https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=powered-by-cookieyes
+[2026-03-12T03:10:14.906Z]   SKIP (AI claimed): https://youtu.be/fbhvz6oniEM
+[2026-03-12T03:10:14.906Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T03:10:14.906Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T03:10:14.906Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T03:10:14.906Z] ── Step 3: Final dedup ──
+[2026-03-12T03:10:14.906Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T03:10:14.907Z] ── FINAL RESULT ──
+[2026-03-12T03:10:14.907Z]   ws (2):
+[2026-03-12T03:10:14.907Z]     - https://blog.sentrypc.com
+[2026-03-12T03:10:14.907Z]     - https://www.sentrypc.com
+[2026-03-12T03:10:14.907Z]   fb (1):
+[2026-03-12T03:10:14.907Z]     - https://www.facebook.com/sentrypc
+[2026-03-12T03:10:14.907Z]   tw (1):
+[2026-03-12T03:10:14.907Z]     - https://x.com/sentrypc
+[2026-03-12T03:10:14.907Z]   ytp (1):
+[2026-03-12T03:10:14.907Z]     - https://www.youtube.com/@sentrypc
+[2026-03-12T03:10:14.907Z]   urls (1):
+[2026-03-12T03:10:14.907Z]     - https://youtu.be/fbhvz6oniEM
+[2026-03-12T03:10:14.908Z] Summary: ws:2, tw:1, fb:1, ytp:1, urls:1
+[2026-03-12T03:10:14.909Z] Saved final result to result.json
+[2026-03-12T03:10:14.909Z] Override fields: ws, fb, tw, ytp, urls
+[2026-03-12T03:10:14.909Z] Finished at: 2026-03-12T03:10:14.909Z

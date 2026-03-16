@@ -1,0 +1,1223 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="pointer skrollr skrollr-desktop"><head>
+    <style id="customRules"></style><meta charset="utf-8">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script async="" src="//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js"></script><script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'https://www.ar-challenges.com/',
+
+        AccountUUID: 'e1537fec8d5f4578b0866256e71b948a',
+
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: '0adb8134',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Wed Mar 26 10:31:00 UTC 2025',
+        ExternalUid: null,
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: 'bd189f424c6a45c89b35c3603845256e',
+        InitialPageId: '1174617320',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: 'b7340e069fc94dcab8c079390de66c63',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '53320',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'en',
+        currentLocale: 'en',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 4,
+            NavbarLiveHomePage: 'https://www.ar-challenges.com/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: false,
+        planID: '7',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'en',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 6;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Injecting site-wide to the head -->
+
+
+
+
+<!-- End Injecting site-wide to the head -->
+
+<!-- Inject secured cdn script -->
+
+
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<!-- Add manifest -->
+<!-- End PWA settings -->
+
+
+
+<link rel="canonical" href="https://www.ar-challenges.com/">
+
+<meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<!--Add favorites icons-->
+
+<link rel="apple-touch-icon" href="https://irp-cdn.multiscreensite.com/0adb8134/dms3rep/multi/LOGO.png">
+
+<link rel="icon" type="image/x-icon" href="https://irp-cdn.multiscreensite.com/0adb8134/site_favicon_16_1588778347346.ico">
+
+<!-- End favorite icons -->
+<link rel="preconnect" href="https://lirp.cdn-website.com/">
+
+
+
+<!-- render the required CSS and JS in the head section -->
+<script id="d-js-dmapi">
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+
+<!-- loadCSS function header.jsp-->
+
+
+
+
+
+
+<script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+
+
+<script data-role="deferred-init" type="text/javascript">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    
+
+</style>
+<style id="cssVariables" type="text/css">
+    
+</style>
+
+
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended][data-background-image] {
+    visibility: hidden;
+  }
+
+</style>
+
+
+
+<style id="criticalCss">
+    @charset "UTF-8";*,.dmPopup,:after,:before{box-sizing:border-box}#dm .dmInner .dmWidget,.clearfix:after,.dmRespRow:after,.dmSocialHub,DIV.dmBody{clear:both}@font-face{font-family:Roboto;font-style:normal;font-weight:100;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:italic;font-weight:100;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:normal;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:FontAwesome;font-display:block;src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?v=6);src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?#iefix&v=6) format("embedded-opentype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.woff?v=6) format("woff"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.ttf?v=6) format("truetype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.svg#fontawesomeregular?v=6) format("svg");font-weight:400;font-style:normal}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:italic;font-weight:400;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Playball;font-style:normal;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/playball/v20/TK3gWksYAxQ7jbsKcg8Eneo.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:normal;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:italic;font-weight:500;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:italic;font-weight:700;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:normal;font-weight:900;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:italic;font-weight:900;font-stretch:100%;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/roboto/v47/KFO5CnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmkBnka.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}.dmInner{min-height:100vh!important;position:relative}.dmPopup,.dmPopupMask{position:fixed;left:0}.display_None{display:none}.dmDisplay_None{display:none!important}.clearfix:after{visibility:hidden;line-height:0;height:0}.clearfix:after,.clearfix:before{content:' ';display:table}.clearfix{display:inline-block}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}.dmRoot .hasFontIcon,a span.socialHubIcon{background-image:none!important}#dm .dmn .dmHideFromNav{display:none!important}.dmPopupMask{margin:0;display:none;width:10px;z-index:1000000999;top:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{text-align:left;top:10px;width:93%;z-index:1000009999!important;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}.lh-1,button{line-height:normal}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow .dmRespColsWrapper{display:flex}#dm .hasBackgroundOverlay:not(.dmPopupPage):not(.layout-drawer){position:relative!important}#dm .hasBackgroundOverlay:not(.hasExtraLayerOverlay):before{display:block!important;position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;content:' '!important;border-radius:inherit}#dm .dmInner .dmWidget.align-center,.align-center{margin-left:auto;margin-right:auto}.text-align-center{text-align:center}body.fix-mobile-scrolling{overflow:initial}#dmRoot{text-decoration-skip-ink:none}body{-webkit-overflow-scrolling:touch}@media (min-width:1025px){:root{--btn-text-font-size:15px}}@media (min-width:768px) and (max-width:1024px){:root{--btn-text-font-size:15px}}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}b{font-weight:700}hr{box-sizing:content-box;height:0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}button{font-family:inherit;font-size:100%;margin:0;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}.dmRespRow.dmRespRowNoPadding{padding:0}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:' ';display:table}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmDesktopBody .dmRespRow .large-1{position:relative;width:8.33333%}.dmDesktopBody .dmRespRow .large-2{position:relative;width:16.66667%}.dmDesktopBody .dmRespRow .large-8{position:relative;width:66.66667%}.dmDesktopBody .dmRespRow .large-10{position:relative;width:83.33333%}.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}.socialHubIcon,[class*=' dm-common-icons-'],[class*=' dm-social-icons-']{font-family:dm-social-icons!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.dm-social-icons-email:before{content:'\eace'}[class*=' dm-common-icons-']{font-family:dm-common-icons!important}.dm-common-icons-close:before{content:'\e901'}#dm div.dmContent [class*=' icon-'],[class*=' icon-']{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=' icon-']:before{text-decoration:none;display:inline-block;speak:none}a [class*=' icon-']{display:inline}[class*=' icon-']{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:'\f005'}.icon-angle-right:before{content:'\f105'}.icon-angle-down:before{content:'\f107'}#dm .dmRespRow .dmRespCol>.dmWidget{overflow:initial}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:280px;max-width:100%}}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.flexButton):not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;position:relative;text-align:center;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmWidget .text,#dm div.dmRespCol>*,.flexslider .slides>li .slide-inner *{line-height:normal}#dm .dmInner .dmWidget.slide-button{margin-bottom:0}#dm .dmInner .dmWidget:after{content:'';display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;white-space:normal;padding:10px 7px;max-width:98%}#dm .dmWidget.slide-button:after{display:none}.dmInner{min-width:768px!important;font-size:16px;background:#fff;color:#666}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}#innerBar,#iscrollBody,#site_content,.desktopNavWrapper ul li,.dmHeader,.imageWidget{position:relative}.socialHubIcon{display:flex!important;align-items:center;justify-content:center}.flexslider .slides img{width:100%;display:block;margin:auto}.flexslider .slides>li .slide-inner .slide-title{margin:0}#dm .dmInner .flexslider .slides>li .slide-inner .slide-button{margin-top:20px;margin-left:auto;margin-right:auto}#dm .flexslider .slides .dmWidget .text{max-width:100%;width:100%;padding:10px 20px!important}#dm .dmRespRow.dmRespRowNoPadding,.dmContent,.dmInner ul:not(.defaultList),DIV.dmBody{padding:0}#dm .dmInner .flexslider.ed-version .slide-button{-js-display:inline-flex;display:inline-flex;justify-content:center;align-items:center}.flexslider.ed-version .slides img{display:none}.flexslider.ed-version:not([layout]) .slides>li[layout=center] .slide-inner .slide-button.slide-button-invisible{display:none!important}.flexslider.ed-version:not([layout]) .slide-inner .slide-title{display:block!important;text-align:center!important}.imageWidget a{font-style:italic;text-align:center}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h1,h2,h3,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}span.oneIcon:before{display:inline-block}.clearfix,a,img,li,ul{vertical-align:top}.dmOuter{word-wrap:break-word}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#463939}.dmHeader{background:#68ccd1;color:#666;text-align:center;width:100%;max-width:100%}.dmContent{margin:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}#innerBar{height:36px;width:100%;font-size:20px;margin:0;z-index:80}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmLargeBody .imageWidget:not(.displayNone){display:inline-block;max-width:100%}.imageWidget:not(.displayNone) img{width:100%}h3{font-weight:400;font-size:23px}#dm .dmRespColsWrapper{display:block}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol,.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:first-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:last-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:only-child{padding-left:0;padding-right:0}#innerBar.lineInnerBar{display:table;width:100%;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;font-size:20px;margin-top:30px;margin-bottom:30px;background-color:transparent;color:#666}#innerBar .titleLine{display:table-cell;vertical-align:middle;width:50%}.dmPageTitleRow:not(#innerBar){display:none}.titleLine hr{min-height:1px;background-color:rgba(102,102,102,.2)}.dmLinksMenu.desktopNavWrapper{text-align:center}.dmLinksMenu:not([navigation-id]){float:none!important;display:block}.dmStandardDesktop{display:block}.desktopTopNav{display:inline-block;margin-left:20px;margin-right:20px;vertical-align:top}.desktopTopNav:last-child{margin-right:0}.desktopTopNav>a{font-weight:700;text-decoration:none;font-size:18px;color:#666;display:inline-block;text-align:left}.desktopNavWrapper ul li{list-style:none;vertical-align:middle}.standardHeaderLayout .desktopNavWrapper{padding:0}#dmFirstContainer .dmRespRowsWrapper:after,#dmFirstContainer .dmRespRowsWrapper:before{content:"";display:table}.dmInner a{outline:0;vertical-align:inherit}.desktopTopNav:first-child,.desktopTopNavBtnHidden+.desktopTopNav{margin-left:0}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.dmStandardDesktop{margin:0 auto}#dm .dmSocialHub a{display:inline-block;text-decoration:none;margin:0;vertical-align:bottom}.dmSocialHub>div{text-align:inherit}a span.socialHubIcon{width:36px;height:36px;font-size:31px;display:inline-block;text-align:center;margin-right:0;margin-bottom:5px;line-height:36px;box-sizing:content-box}.socialHubIcon.style8{font-size:24px;padding:4px;border-radius:50%;color:#fff;background:#000}#dm .dmSocialHub .socialHubWrapper{display:inline-block;max-width:100%}body{background-color:#eee}.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}#dm .fHeader .dmHeaderContent.freeHeaderRow1{padding:30px 0}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmStandardDesktop .dmHeader{background-color:#68ccd1;max-width:100%}.standardHeaderLayout .dmHeader{float:none;display:block;height:auto}#dm div.dmContent h1{color:#666}.dmDesktopBody #dm ul.dmNavWrapper>li>a .navItemText{color:#111;font-weight:400}#dm div.dmContent h3{color:#666}#dm div.dmContent h1{color:rgba(33,34,38,1);font-weight:400;font-size:160px}#dm div.dmContent h2{color:rgba(26,26,26,1);font-family:Playball,"Playball Fallback";font-size:45px}#dm div.dmContent h3{font-family:Roboto,"Roboto Fallback";color:rgba(0,0,0,1);font-weight:700;font-size:35px}.dmLargeBody .dmBody .dmRespRowsWrapper{background-color:transparent}#dm div.dmInner,#dm div.dmInner .dmRespCol{color:rgba(0,0,0,1);font-weight:300;font-size:20px}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{font-family:Roboto,"Roboto Fallback";font-size:18px}#dm .dmNewParagraph,#dm h1,#dm h2,#dm h3{direction:ltr;text-align:left}#dm div.dmContent h1{font-family:Playball,"Playball Fallback";direction:ltr}#dm DIV.dmOuter DIV.dmInner{background-color:rgba(255,255,255,1)}@media all{:root{--btn-text-direction:ltr;--btn-border-r-color:var(--btn-border-color);--btn-border-l-color:var(--btn-border-color);--btn-border-b-width:var(--btn-border-width);--btn-border-width:2px;--btn-border-radius:0px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-bg-color:rgb(1, 102, 165);--btn-border-color:rgba(0, 0, 0, 0);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-bg-image:none;--btn-border-b-color:var(--btn-border-color);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:var(--btn-border-color);--btn-text-align:center;--btn-text-color:rgb(255, 255, 255);--btn-text-decoration:none;--btn-text-font-weight:400;--btn-icon-color:rgb(247, 247, 247);--btn-icon-fill:rgb(247, 247, 247);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:rgb(255, 255, 255);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:rgb(1, 102, 165);--btn-hover-text-color:rgb(225, 23, 16);--btn-hover-text-font-weight:var(--btn-text-font-weight);--btn-hover-text-decoration:var(--btn-text-decoration);--btn-hover-text-font-style:var(--btn-text-font-style)}}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:15px}}#dm .dmWidget:not([data-buttonstyle]){background-clip:border-box;border-radius:6px}#dm .dmWidget:not([data-buttonstyle]) .text{padding:10px 7px}#dm .dmWidget:not([data-buttonstyle]) .iconBg{display:none}#dm div.dmInner #site_content .dmWidget{background-color:var(--btn-bg-color);background-image:var(--btn-bg-image);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm .dmBody div.u_1454083402,#dm .dmBody div.u_1814579910 .slides .slide-button,#dm .p_hfcontainer div.u_1571063569{background-color:rgba(0,0,0,0)!important}#dm div.dmInner #site_content .dmWidget span.text{color:var(--btn-text-color);font-size:var(--btn-text-font-size);font-weight:var(--btn-text-font-weight);text-decoration:var(--btn-text-decoration)}#dm div.dmInner #site_content .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm div.dmInner #site_content .dmWidget:not([data-buttonstyle]) .iconBg{display:var(--btn-icon-wrpr-display)}#dm .dmInner div.dmHeader{background-color:rgba(255,255,255,.71)!important}#dm .p_hfcontainer div.u_1800247147 ul.dmNavWrapper>li>a .navItemText{color:rgba(0,0,0,1)!important;font-weight:400!important;font-size:14px!important}#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{background-color:rgba(255,255,255,1)!important}#dm .p_hfcontainer div.u_1270803871 .socialHubIcon{background-color:rgba(226,226,226,1)!important}#dm .p_hfcontainer .u_1800247147 ul.dmNavWrapper>li{padding-right:4px!important;padding-left:4px!important;margin-right:0!important}#dm .dmInner div.dmHeader.u_hcontainer{padding-top:10px!important;padding-bottom:10px!important}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding:0!important}#dm .p_hfcontainer .u_1270803871 .socialHubInnerDiv a{margin-right:9px!important}#dm .p_hfcontainer div.u_1571063569{float:none!important;top:0!important;max-width:none!important;left:0!important;width:100%!important;position:relative!important;min-width:0!important;text-align:center!important;height:auto!important;margin:0 auto!important;padding:10px 20px!important}#dm .p_hfcontainer div.u_1270803871,#dm .p_hfcontainer div.u_1680518714,#dm .p_hfcontainer div.u_1800247147{float:none!important;top:0!important;left:0!important;padding:0!important}#dm .p_hfcontainer div.u_1270803871{width:153px!important;position:relative!important;height:auto!important;max-width:100%!important;min-width:0!important;text-align:right!important;display:block!important;margin-right:auto!important;margin-left:calc(100% - 153px)!important;margin-top:6px!important;margin-bottom:0!important}#dm .dmBody h1.u_1277865775,#dm .p_hfcontainer div.u_1800247147{position:relative!important;max-width:calc(100% - 0px)!important}#dm .p_hfcontainer div.u_1419566773{padding-left:0!important}#dm .p_hfcontainer div.u_1800247147{width:100%!important;height:auto!important;min-width:25px!important;text-align:center!important;display:block!important;margin:6px auto 0!important}#dm .dmBody h3.u_1870166286,#dm .p_hfcontainer div.u_1680518714{max-width:100%!important;min-width:0!important;display:block!important;text-align:center!important}#dm .p_hfcontainer div.u_1680518714{width:103px!important;position:relative!important;margin:0 auto 0 0!important}#dm .dmBody .u_1615078197,#dm .dmBody .u_1625115552,#dm .dmBody .u_1996934358,#dm .dmBody a.u_1115474550 .iconBg{display:none!important}.stickyHeaderSpacer{height:69px!important}#dm .p_hfcontainer .u_1270803871 .socialHubIcon{width:30px!important;height:30px!important;font-size:20px!important;line-height:30px!important}#dm .dmBody div.u_1290712420 ul.dmNavWrapper>li>a .navItemText,#dm .dmBody div.u_1814579910 .slides .slide-title{color:rgba(255,255,255,1)!important;font-weight:400!important;font-size:16px!important}#dm .p_hfcontainer .u_1270803871 .socialHubIcon:after{width:38px!important;height:30px!important}#dm .dmBody div.u_1659315345,#dm .dmBody h1.u_1277865775,#dm .dmBody h3.u_1870166286{height:auto!important;float:none!important;left:0!important;top:0!important}#dm .dmBody div.u_1814579910 .slides .slide-title{font-family:Roboto!important}#dm .dmBody .u_1265393572:before{opacity:.5!important;background-color:#fff!important}#dm .dmBody div.u_1320374544 .socialHubIcon{background-color:rgba(245,245,245,.28)!important}#dm .dmBody .u_1290712420 ul.dmNavWrapper>li{padding-right:4px!important;padding-left:4px!important;margin-right:0!important}#dm .dmBody a.u_1115474550{background-color:rgba(255,255,255,.45)!important;border-style:solid!important;border-width:0!important}#dm .dmBody div.u_1265393572:before{background-color:rgba(0,0,0,1)!important;opacity:.33!important}#dm .dmBody div.u_1080347227{background-color:rgba(255,255,255,1)!important;background-image:url(https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/Topographic_map_grey-1920x800-1920w.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody .u_1080347227:before{opacity:.5!important;background-color:rgba(0,0,0,0)!important}#dm .dmBody div.u_1080347227:before{opacity:.63!important;background-color:rgba(246,245,245,1)!important}#dm .dmBody div.u_1265393572{background-repeat:no-repeat!important;background-image:url(https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/12730-1920w.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody h3.u_1870166286{width:687px!important;position:relative!important;padding:2px 0!important;margin:0 auto 8px!important}#dm .d-page-1716942098 DIV.dmInner{background-repeat:no-repeat!important;background-image:none!important;background-size:cover!important;background-attachment:fixed!important;background-position:50% 0!important}body.dmDesktopBody .d-header-wrapper{display:none!important}#dm .dmBody div.u_1454083402{margin-top:0!important;padding:90px 50px!important}#dm .dmBody div.u_1659315345{width:725px!important;position:relative!important;max-width:calc(100% - 67px)!important;min-width:25px!important;text-align:left!important;padding:2px 0!important;margin:8px auto!important}#dm .dmBody h1.u_1277865775{display:block!important;width:100%!important;min-width:25px!important;text-align:center!important;padding:0!important;margin:0 auto!important}#dm .dmBody a.u_1115474550,#dm .dmBody div.u_1320374544{position:relative!important;max-width:100%!important;padding:0!important;display:block!important}#dm .dmBody a.u_1115474550{float:none!important;top:0!important;left:0!important;width:224px!important;height:53px!important;min-width:0!important;text-align:center!important;margin:39px auto 0!important}#dm .dmBody div.u_1320374544,#dm .dmBody h2.u_1925458610{float:none!important;left:0!important;height:auto!important}#dm .dmBody div.u_1080347227{background-attachment:initial!important;background-size:cover!important;background-repeat:no-repeat!important;background-position:50% 50%!important;padding:0!important}#dm .dmBody h2.u_1925458610{top:0!important;width:100%!important;position:relative!important;max-width:calc(100% - 0px)!important;min-width:25px!important;text-align:left!important;padding:2px 0!important;margin:199px auto 0!important}#dm .dmBody .u_1320374544 .socialHubInnerDiv a{margin-right:8px!important}#dm .dmBody div.u_1320374544{top:0!important;width:143px!important;min-width:0!important;text-align:right!important;margin-right:auto!important;margin-left:calc(100% - 143px)!important;margin-top:0!important;margin-bottom:0!important}#dm .dmBody div.u_1265393572,#dm .dmBody div.u_1290712420{height:auto!important;float:none!important;top:0!important;left:0!important;position:relative!important;text-align:center!important;max-width:100%!important}#dm .dmBody div.u_1290712420{width:calc(100% - 0px)!important;min-width:25px!important;display:block!important;padding:0!important;margin:6px auto 0!important}#dm .dmBody div.u_1265393572{background-attachment:fixed!important;background-size:cover!important;background-position:50% 100%!important;width:auto!important;min-width:0!important;padding:42px 25px 188px!important;margin:0!important}#dm .dmBody .u_1320374544 .socialHubIcon{width:30px!important;height:30px!important;font-size:20px!important;line-height:30px!important}#dm .dmBody .u_1320374544 .socialHubIcon:after{width:38px!important;height:30px!important}#dm .dmBody div.u_1628801418,#dm .dmBody div.u_1901867968{width:calc(100% - 0px)!important;float:none!important;top:0!important;left:0!important;position:relative!important;min-width:25px!important}#dm .dmBody div.u_1628801418{height:auto!important;max-width:100%!important;text-align:left!important;padding:2px 0!important;margin:0 auto 8px!important}#dm .dmBody div.u_1901867968{display:block!important;max-width:191.25px!important;text-align:center!important;padding:0!important;margin:0 194px 0 0!important}#dm .dmBody div.u_1882239795{padding-left:0!important}#dm .dmBody div.u_1649284935{padding:0!important}#dm .dmBody div.u_1185912498{padding-bottom:0!important;padding-top:0!important}.font-size-24{font-size:24px!important}.font-size-30{font-size:30px!important}#\31 053207236,#\31 113861654,#\31 325281975,#\31 358086068,#\31 498516643,#\31 603486212,#\31 618005341,#\31 675422049,#\31 686278145,#\31 931939562{order:0;flex-direction:row} #dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder:not(.photo-gallery-done) {display: none;} @media (max-width:767px){ [data-hidden-on-mobile] {display:none!important}}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+
+    
+    .stickyHeaderSpacer {
+      display: none;
+    }
+
+    
+</style>
+
+
+
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Roboto Fallback";
+  src: local('Arial');
+  ascent-override: 92.6709%;
+  descent-override: 24.3871%;
+  size-adjust: 100.1106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Playball Fallback";
+  src: local('Arial');
+  ascent-override: 112.7247%;
+  descent-override: 35.5973%;
+  size-adjust: 84.2761%;
+  line-gap-override: 0%;
+ }
+</style>
+
+
+<!-- End render the required css and JS in the head section -->
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ar-challenges.com/">
+
+  <title>
+    AR ECO Systems | About
+  </title>
+  <meta name="keywords" content="green energy,ZERO WASTE,W2E systems.">
+  <meta name="description" content="ABOUT
+The company was formed exclusively to deal with advanced W2E systems. AR Challenges Ltd owns various proprietary designs, Patents and IS (Industry Secrets) that have been exclusively licensed to the company by its suppliers.">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AR ECO Systems | About">
+  <meta name="twitter:description" content="ABOUT
+The company was formed exclusively to deal with advanced W2E systems. AR Challenges Ltd owns various proprietary designs, Patents and IS (Industry Secrets) that have been exclusively licensed to the company by its suppliers.">
+  <meta name="twitter:image" content="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/%D7%9D%D7%9E200-1920w.jpg">
+  <meta property="og:description" content="ABOUT
+The company was formed exclusively to deal with advanced W2E systems. AR Challenges Ltd owns various proprietary designs, Patents and IS (Industry Secrets) that have been exclusively licensed to the company by its suppliers.">
+  <meta property="og:title" content="AR ECO Systems | About">
+  <meta property="og:image" content="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/%D7%9D%D7%9E200-1920w.jpg">
+
+
+
+
+<!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+<script src="https://static.cdn-website.com/libs/bower-skrollr/skrollr.min.js"></script></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home" class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody pcCustomScrollbar d1SiteBody dmBodyNoIscroll" style="padding:0;margin:0;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class="dmwr">
+    
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+         <div dmwrapped="true" id="1901957768" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="StandardLayoutMultiD" class="standardHeaderLayout dm-bfs dm-layout-home hasAnimations hasStickyHeader dmPageBody d-page-1716942098 inputs-css-clean dmFreeHeader runtime-module-container" id="dm-outer-wrapper" data-page-class="1716942098" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div> <div id="iscrollBody"> <div id="site_content"> <div class="dmHeaderContainer fHeader d-header-wrapper"> <div id="hcontainer" class="dmHeader p_hfcontainer u_hcontainer" freeheader="true"> <div dm:templateorder="85" class="dmHeaderResp dmHeaderStack noSwitch" id="1709005236"> <div class="u_1571063569 dmRespRow dmHeaderContent freeHeaderRow1 fullBleedChanged fullBleedMode" id="1571063569"> <div class="dmRespColsWrapper clearfix" id="1618005341"> <div class="u_1188728890 dmRespCol small-12 large-2 medium-2" id="1188728890"> <div class="u_1680518714 imageWidget align-center" data-widget-type="image" id="1680518714" data-element-type="image" editablewidget="true"> <a href="/" id="1024222293" file="false"><img src="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/LOGO-1920w.jpg" id="1792132094" class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/0adb8134/dms3rep/multi/LOGO.jpg" onerror="handleImageLoadError(this)" height="0.0" width="0.0"></a> 
+</div> 
+</div> 
+ <div class="u_1780181932 dmRespCol small-12 large-8 medium-8" id="1780181932"> <div class="u_1800247147 default dmLinksMenu desktopNavWrapper" id="1800247147" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" navigation_id="" wr="true" icon="true" surround="true" adwords=""> <ul class="dmNavWrapper dmn menuContainer"> <li class="desktopTopNav navListLi navButtonLi dmNavItemSelected"> <a href="/" class="dmUDNavigationItem_00 currentPage" target="" data-target-page-alias="" aria-current="page"> <span class="navItemText ">About</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/Company_Profile" class="dmUDNavigationItem_010101661768" target="" data-target-page-alias=""> <span class="navItemText ">Company Profile</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/W2E_Hybrid_Systems" class="dmUDNavigationItem_010101351027" target="" data-target-page-alias=""> <span class="navItemText ">W2E Hybrid Systems</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/Solar_Thermal_Solutions" class="dmUDNavigationItem_010101723297" target="" data-target-page-alias=""> <span class="navItemText ">Solar Thermal Solutions</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/Contact" class="dmUDNavigationItem_010101567797" target="" data-target-page-alias=""> <span class="navItemText ">Contact</span> 
+</a> 
+</li> 
+</ul> 
+</div> 
+</div> 
+ <div class="u_1419566773 dmRespCol small-12 large-2 medium-2" id="1419566773"> <div class="u_1270803871 align-center text-align-center dmSocialHub gapSpacing" id="1270803871" dmle_extension="social_hub" data-element-type="social_hub" wr="true" networks="" icon="true" surround="true" adwords=""> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="mailto:info@ar-challenges.com" dm_dont_rewrite_url="true" aria-label="email" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Email')" target="_blank"> <span class="dmSocialEmail dm-social-icons-email oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+  
+ <div class="dmRespRow dmRespRowStable dmRespRowNoPadding dmPageTitleRow "> <div class="dmRespColsWrapper"> <div class="large-12 dmRespCol"> <div id="innerBar" class="innerBar lineInnerBar dmDisplay_None"> <div class="titleLine display_None"><hr></div> 
+<!-- Page title is hidden in css for new responsive sites. It is left here only so we don't break old sites. Don't copy it to new layouts --> <div id="pageTitleText"></div> 
+ <div class="titleLine display_None"><hr></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent" role="main"> <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl dmRespRowsWrapperSize1" id="1716942098"> <div class="u_1265393572 dmRespRow hasBackgroundOverlay fullBleedChanged fullBleedMode dmSectionNoParallax hasExtraLayerOverlay slider-container-no-bg" style="text-align: center;" id="1265393572" data-gallery-bg="eyJzbGlkZXMiOlsiaHR0cHM6Ly9saXJwLmNkbi13ZWJzaXRlLmNvbS8wYWRiODEzNC9kbXMzcmVwL211bHRpL29wdC8xMjczMC0xOTIwdy5qcGciLCJodHRwczovL2xpcnAuY2RuLXdlYnNpdGUuY29tLzBhZGI4MTM0L2RtczNyZXAvbXVsdGkvb3B0LzQzNS0xOTIwdy5qcGciLCJodHRwczovL2xpcnAuY2RuLXdlYnNpdGUuY29tLzBhZGI4MTM0L2RtczNyZXAvbXVsdGkvb3B0LzExMTEtMTkyMHcuanBnIiwiaHR0cHM6Ly9saXJwLmNkbi13ZWJzaXRlLmNvbS8wYWRiODEzNC9kbXMzcmVwL211bHRpL29wdC90b3BfcGFya19TLTEwMDB4NzQ5LTE5MjB3LmpwZyIsImh0dHBzOi8vbGlycC5jZG4td2Vic2l0ZS5jb20vMGFkYjgxMzQvZG1zM3JlcC9tdWx0aS9vcHQvMTcyNi0xOTIwdy5qcGciXX0=" data-background-image="url(&quot;https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/12730-1920w.jpg&quot;), url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=&quot;)"><div class="bgGallerySlideHolder"><div class="bgGallerySlide" data-transition="fade" data-speed="3000" data-index="0" "="" style="background-size: cover, cover; background-position: 50% 100%, 50% 100%; background-repeat: no-repeat, no-repeat; background-attachment: fixed, fixed; animation: 0s ease 0s 1 normal none running none; border-radius: 0px; background-image: url(&quot;https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/12730-1920w.jpg&quot;), url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=&quot;);"></div></div><div class="bgExtraLayerOverlay" style="background-color:rgb(0, 0, 0);opacity:0.33"></div> <div class="dmRespColsWrapper" id="1675422049"> <div class="u_1649284935 dmRespCol small-12 large-1 medium-1" id="1649284935"> <div class="u_1901867968 imageWidget align-center hide-for-small hide-for-medium" data-widget-type="image" id="1901867968" data-element-type="image" editablewidget="true"> <a href="/" id="1730610204"><img src="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/LOGO-930f85ab-186w.png" id="1390392012" class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/0adb8134/dms3rep/multi/LOGO-930f85ab.png" alt="AR ECO Systems" title="AR ECO Systems | About" onerror="handleImageLoadError(this)" height="73.0" width="155.828125"></a> 
+</div> 
+</div> 
+ <div class="u_1185912498 dmRespCol small-12 large-10 medium-10" id="1185912498"> <div class="u_1290712420 default hide-for-small hide-for-medium dmLinksMenu desktopNavWrapper" id="1290712420" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" navigation_id="" wr="true" icon="true" surround="true" adwords=""> <ul class="dmNavWrapper dmn menuContainer "> <li class="desktopTopNav navListLi navButtonLi dmNavItemSelected"> <a href="/" class="dmUDNavigationItem_00 currentPage" target="" data-target-page-alias="" aria-current="page"> <span class="navItemText ">About</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/Company_Profile" class="dmUDNavigationItem_010101661768" target="" data-target-page-alias=""> <span class="navItemText ">Company Profile</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/W2E_Hybrid_Systems" class="dmUDNavigationItem_010101351027" target="" data-target-page-alias=""> <span class="navItemText ">W2E Hybrid Systems</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/Solar_Thermal_Solutions" class="dmUDNavigationItem_010101723297" target="" data-target-page-alias=""> <span class="navItemText ">Solar Thermal Solutions</span> 
+</a> 
+</li> 
+ <li class="desktopTopNav navListLi navButtonLi"> <a href="/Contact" class="dmUDNavigationItem_010101567797" target="" data-target-page-alias=""> <span class="navItemText ">Contact</span> 
+</a> 
+</li> 
+</ul> 
+</div> 
+ <h2 class="u_1925458610 dmNewParagraph" id="1925458610" data-element-type="paragraph"><div style="text-align: center;"><span style="color: rgb(255, 255, 255);">The true choice for green energy</span></div></h2> <h1 class="u_1277865775 dmNewParagraph" id="1277865775" style="transition: opacity 1s ease-in-out; display: block;" data-element-type="paragraph"><div style="text-align: center;"><span style="color: rgb(255, 255, 255);" class="m-font-size-36 lh-1 font-size-160">AR ECO Systems</span></div></h1> <div class="u_1628801418 dmNewParagraph" id="1628801418" style="transition: none 0s ease 0s; display: block;"><div style="text-align: center;"><font color="#ffffff" style="" class="font-size-24 lh-1"><span style="" class="font-size-30 lh-1"><span style="font-weight: 300;">W2E through CIRCULAR ECONOMY, ZERO WASTE &amp; Distributed Green Energy</span></span></font></div></div> <a data-display-type="block" class="u_1115474550 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="/Company_Profile" id="1115474550" icon-name="icon-angle-right" data-element-type="dButtonLinkId"> <span class="iconBg" id="1366003686"> <span class="icon hasFontIconstar hasFontIcon icon-angle-right" id="1526040216"></span> 
+</span> 
+ <span class="text" id="1760856832">EXPLORE NOW</span> 
+</a> 
+</div> 
+ <div class="u_1882239795 dmRespCol small-12 large-1 medium-1" id="1882239795"> <div class="u_1320374544 align-center text-align-center hide-for-small hide-for-medium dmSocialHub gapSpacing" id="1320374544" dmle_extension="social_hub" data-element-type="social_hub" wr="true" networks="" icon="true" surround="true" adwords=""> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="mailto:info@ar-challenges.com" dm_dont_rewrite_url="true" aria-label="email" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Email')" target="_blank"> <span class="dmSocialEmail dm-social-icons-email oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1080347227 dmRespRow dmSectionNoParallax hasBackgroundOverlay" style="text-align: center;" id="1080347227"> <div class="dmRespColsWrapper" id="1325281975"> <div class="u_1454083402 dmRespCol small-12 medium-12 large-12" id="1454083402"> <h3 class="u_1870166286 dmNewParagraph" id="1870166286" style="transition: opacity 1s ease-in-out;" data-element-type="paragraph"><div style="text-align: center;"><font color="#000000"><b>ABOUT</b></font></div></h3> <div class="u_1659315345 dmNewParagraph" id="1659315345" style="transition: opacity 1s ease-in-out 0s; direction: ltr; text-align: left;"><div style="text-align: center;">The company was formed exclusively to deal with advanced W2E systems. AR Challenges Ltd owns various proprietary designs, Patents and IS (Industry Secrets) that have been exclusively licensed to the company by its suppliers.</div></div></div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1986959120 fullBleedChanged fullBleedMode" style="text-align: center;" id="1986959120"> <div class="dmRespColsWrapper" id="1603486212"> <div class="dmRespCol small-12 medium-12 large-12" id="1826063682"> <div class="u_1814758843 graphicWidget" data-widget-type="graphic" id="1814758843" data-element-type="graphic"> <svg viewBox="0 0 70 70" id="1670713206" class="svg u_1670713206" data-icon-name="wp-compass"> <g id="1214042364"> <path d="M39,14c0-2.2-1.8-4-4-4c-2.2,0-4,1.8-4,4s1.8,4,4,4C37.2,18,39,16.2,39,14z M35,16c-1.1,0-2-0.9-2-2s0.9-2,2-2
+		c1.1,0,2,0.9,2,2S36.1,16,35,16z" id="1500205186"></path> 
+ <polygon points="27,47 36.1,41.5 32.5,37.9 	" id="1946478320"></polygon> 
+ <path d="M35,18c-11.6,0-21,9.4-21,21s9.4,21,21,21c11.6,0,21-9.4,21-21S46.6,18,35,18z M19,40h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2
+		c0.6,0,1,0.4,1,1S19.6,40,19,40z M34,21c0-0.6,0.4-1,1-1c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1c-0.6,0-1-0.4-1-1V21z M36,57
+		c0,0.6-0.4,1-1,1c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1c0.6,0,1,0.4,1,1V57z M46.9,28.5l-8.3,13.7c-0.1,0.1-0.2,0.3-0.3,0.3
+		l-13.7,8.3C24.4,51,24.2,51,24,51c-0.3,0-0.5-0.1-0.7-0.3c-0.3-0.3-0.4-0.8-0.1-1.2l8.3-13.7c0.1-0.1,0.2-0.3,0.3-0.3l13.7-8.3
+		c0.4-0.2,0.9-0.2,1.2,0.1C47,27.6,47.1,28.1,46.9,28.5z M53,40h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S53.6,40,53,40z" id="1573876101"></path> 
+</g> 
+</svg> 
+</div> 
+ <h3 class="u_1375485264 dmNewParagraph" id="1375485264" style="transition: opacity 1s ease-in-out; display: block;" data-element-type="paragraph"><div style="text-align: center;"><font color="#000000"><b>THINGS TO DO</b></font></div></h3> <div class="u_1394343001 dmNewParagraph" id="1394343001" style="transition: opacity 1s ease-in-out;"><div style="text-align: center;">We provide end-to-end, complete solutions to ALL waste problems (Except Hazardous and C&amp;D). Our systems are based on the Circular Economy principals together with Zero Waste to landfills.</div><div style="text-align: center;">We also provide distributed energy so that the power and energy generation can be detached from the waste sorting facility, eliminating the need for expensive electrical grid infrastructure. We completely support Micro-Grid technologies.</div><div style="text-align: center;">We provide entire energy solutions to: Hospitals, Hotels, Industrial complexes and campuses.</div></div></div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1624816370 dmSectionParallaxNew hasBackgroundOverlay skrollable skrollable-before" style="text-align: center; background-position: 50% 100px;" id="1624816370" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -100px;" data-bottom-top="background-position: 50% 100px;"> <div class="dmRespColsWrapper" id="1686278145"> <div class="u_1012392780 dmRespCol small-12 medium-12 large-12" id="1012392780"> <div class="u_1053428613 graphicWidget" data-widget-type="graphic" id="1053428613" data-element-type="graphic"> <svg version="1.1" id="1354265438" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 70 70" style="enable-background:new 0 0 70 70;" xml:space="preserve" class="svg u_1354265438" data-icon-custom="true" data-icon-name="QUOTE-01.svg"> <path d="M45.4,49.5c3.5,0,6.5-2.9,6.5-6.6c0-3.7-2.9-6.6-6.5-6.6c-6.5,0-2.2-12.8,6.5-12.8v-3.1C36.5,20.5,30.5,49.5,45.4,49.5
+	L45.4,49.5z M26.8,49.5c3.5,0,6.5-2.9,6.5-6.6c0-3.7-2.9-6.6-6.5-6.6c-6.5,0-2.2-12.8,6.5-12.8v-3.1C17.9,20.5,11.9,49.5,26.8,49.5
+	L26.8,49.5z" id="1089823346"></path> 
+</svg> 
+</div> 
+ <div class="u_1814579910 flex-container dmImageSlider dmNoMargin dmNoMark" data-widget-type="imageSlider" dmle_volatile_widget="true" id="1814579910" data-element-type="dSliderId" editablewidget="true"> <div class="flexslider ed-version nav-layout-2" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':true,'controlNav':false,'slideshowSpeed':7000,'animationDuration':600,'pausePlay':true,'prevText':'','nextText':''}" id="1516447216"> <ul class="slides" id="1708405868"> <li layout="center" position="center" animation="fadeIn" show-content="true" color-overlay="true" text-background="true" id="1113861654" class="" show-caption="true"><img dm="true" src="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/clear_bakground-525x213-1075w.png" id="1427333633" onerror="handleImageLoadError(this)" height="142.0" width="896.0"> <div class="color-overlay" id="1790743002"></div> 
+ <div class="slide-inner" id="1815645631"> <div class="text-wrapper" id="1057416599"> <h3 class="slide-title u_1625115552" id="1625115552"></h3> 
+ <div class="slide-text u_1013983999" id="1013983999"><p class="rteBlock">Nature is the Art of God</p></div></div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1092957607"> <span class="iconBg" id="1201672179"> <span class="icon hasFontIcon icon-star" id="1518063173"></span> 
+</span> 
+ <span class="text" id="1301355342">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeIn" show-content="true" color-overlay="true" text-background="true" id="1053207236" class="" show-caption="true"><img dm="true" src="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/clear_bakground-525x213-1075w.png" id="1945144741" onerror="handleImageLoadError(this)" height="142.0" width="896.0"> <div class="color-overlay" id="1213114517"></div> 
+ <div class="slide-inner" id="1517754039"> <div class="text-wrapper" id="1360181921"> <h3 class="slide-title u_1996934358" id="1996934358"></h3> 
+ <div class="slide-text u_1015652128" id="1015652128"><p class="rteBlock">The EARTH has MUSIC for those who LISTEN</p></div></div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1357964133"> <span class="iconBg" id="1825225632"> <span class="icon hasFontIcon icon-star" id="1875859210"></span> 
+</span> 
+ <span class="text" id="1171112711">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1498516643" class="" show-caption="true"><img dm="true" src="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/clear_bakground-525x213-1075w.png" id="1906038735" onerror="handleImageLoadError(this)" height="142.0" width="896.0"> <div class="color-overlay" id="1639259069"></div> 
+ <div class="slide-inner" id="1700224418"> <div class="text-wrapper" id="1806627897"> <h3 class="slide-title u_1615078197" id="1615078197"></h3> 
+ <div class="slide-text u_1853191260" id="1853191260"><p class="rteBlock">If you truly love nature, you will find beauty everywhere</p></div></div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1621641883"> <span class="iconBg" id="1983492907"> <span class="icon hasFontIcon icon-star" id="1641306993"></span> 
+</span> 
+ <span class="text" id="1175788792">Button</span> 
+</div> 
+</div> 
+</li> 
+</ul> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="u_fcontainer f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1943048428"> <div class="u_1725049324 dmRespRow" style="text-align: center;" id="1725049324"> <div class="dmRespColsWrapper" id="1358086068"> <div class="u_1848182343 dmRespCol small-12 medium-4 large-4" id="1848182343"> <div class="u_1987094319 imageWidget align-center" data-widget-type="image" id="1987094319" data-element-type="image" editablewidget="true"> <a href="/" id="1982401850" file="false"><img src="https://lirp.cdn-website.com/0adb8134/dms3rep/multi/opt/LOGO-160w.jpg" id="1046860240" class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/0adb8134/dms3rep/multi/LOGO.jpg" alt="AR ECO Systems" title="AR ECO Systems" onerror="handleImageLoadError(this)" height="62.546875" width="133.515625"></a> 
+</div> 
+ <div class="u_1330515588 dmNewParagraph" id="1330515588" style="transition: opacity 1s ease-in-out; display: block;"><div style="text-align: left;"><span style="background-color: rgba(0, 0, 0, 0);">23 Hillel Yafe St. Hadera Israel&nbsp;</span></div><div style="text-align: left;"><a href="mailto:info@ar-challenges.com" runtime_url="mailto:info@ar-challenges.com" target="_blank">info@ar-challenges.com</a></div><div style="text-align: left;"><br></div><div style="text-align: left;">Ph: <a href="tel:+1-914-294-3138" runtime_url="tel:+1-914-294-3138" target="_blank">+972-50-7438934</a></div></div> <div class="u_1689717092 align-center text-align-center dmSocialHub gapSpacing" id="1689717092" dmle_extension="social_hub" data-element-type="social_hub" wr="true" networks="" icon="true" surround="true" adwords=""> <div class="socialHubWrapper"> <div class="socialHubInnerDiv "> <a href="mailto:info@ar-challenges.com" dm_dont_rewrite_url="true" aria-label="email" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event('socialLink', 'click', 'Email')" target="_blank"> <span class="dmSocialEmail dm-social-icons-email oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1233943780 dmRespCol small-12 large-4 medium-4" id="1233943780"> <nav class="u_1931939562 effect-bottom2 hide-for-small main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_1" layout-sub="submenu_horizontal_1" data-show-vertical-sub-items="HOVER" id="1931939562" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-logo-src="" alt="" data-nav-structure="HORIZONTAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item dmUDNavigationItem_00 currentPage dmNavItemSelected" target="" data-target-page-alias="" aria-current="page" data-auto="selected-page"> <span class="nav-item-text " data-link-text="
+         About
+        " data-auto="page-text-style">About<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/Company_Profile" class="unifiednav__item dmUDNavigationItem_010101661768" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Company Profile
+        " data-auto="page-text-style">Company Profile<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/W2E_Hybrid_Systems" class="unifiednav__item dmUDNavigationItem_010101351027" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         W2E Hybrid Systems
+        " data-auto="page-text-style">W2E Hybrid Systems<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/Solar_Thermal_Solutions" class="unifiednav__item dmUDNavigationItem_010101723297" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Solar Thermal Solutions
+        " data-auto="page-text-style">Solar Thermal Solutions<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/Contact" class="unifiednav__item dmUDNavigationItem_010101567797" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Contact
+        " data-auto="page-text-style">Contact<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+ <div class="u_1266366206 dmRespCol small-12 large-4 medium-4" id="1266366206"> <div class="u_1516970603 dmNewParagraph" id="1516970603" style="transition: opacity 1s ease-in-out; display: block;"><div style="text-align: left;">Powered by <a href="https://www.kidumplus.co.il/" runtime_url="https://www.kidumplus.co.il/" target="_blank"><b style="text-decoration-line: underline;">Kidumplus​</b></a></div></div></div> 
+</div> 
+</div> 
+</div> 
+ <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- loadCSS function fonts.jsp-->
+
+
+
+<link rel="stylesheet" href="https://irp.cdn-website.com/fonts/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;family=Playball:ital,wght@0,400&amp;subset=latin-ext&amp;display=swap" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link rel="stylesheet" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static.cdn-website.com/mnlt/production/6248/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" type="text/css">
+
+<!-- End of RT CSS Include -->
+
+<link rel="stylesheet" href="https://irp.cdn-website.com/WIDGET_CSS/74cd8f35f5b8886a4aedc5cdc46606dc.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="https://irp.cdn-website.com/0adb8134/files/0adb8134_withFlex_1.min.css?v=19" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style id="additionalGlobalCss" type="text/css">
+</style>
+
+<!-- Page CSS -->
+<link rel="stylesheet" href="https://irp.cdn-website.com/0adb8134/files/0adb8134_home_withFlex_1.min.css?v=19" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    [data-version] .size-160, [data-version] .font-size-160 {font-size: 160px !important;}.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-30, .size-30, .size-30 > font { font-size: 30px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_6248";
+    var build = "2026-03-04T07_48_29";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2026-03-04T07_48_29";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+<!-- Load jQuery -->
+<script type="text/javascript" id="d-js-jquery" src="https://static.cdn-website.com/libs/jquery/jquery-3.7.0.min.js"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+
+<!-- HEAD RT JS Include -->
+<script id="d-js-params">
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/6248';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/6248';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+    rtCommonProps["booking.cal.api.domain"] = 'api.cal.com';
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["flex.animation.design.panel.layout"] =true;
+    rtFlags["runtime.cwv.report.cls.enabled"] =false;
+    rtFlags["runtime.cwv.report.lcp.enabled"] =false;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["contact.form.custom.errors.enabled"] =false;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+    rtFlags["runtime.ssr.runtime.filter-sort.newFilterSortWidgetWithOptions.enabled"] =false;
+    rtFlags["runtime.ssr.ssrSlider.jumpThreshold.enabled"] =true;
+</script>
+<script src="https://static.cdn-website.com/mnlt/production/6248/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js" id="d-js-core"></script>
+<!-- End of HEAD RT JS Include -->
+<script src="https://static.cdn-website.com/mnlt/production/6248/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js"></script>
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript">
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: '0adb8134'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+   <div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root" data-locale="en"></div>
+<!-- Alias: 0adb8134 -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+
+
+</body></html>

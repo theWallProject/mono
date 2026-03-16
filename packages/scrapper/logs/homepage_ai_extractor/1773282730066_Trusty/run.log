@@ -1,0 +1,68 @@
+[2026-03-12T02:32:10.067Z] === Homepage AI Extractor: Trusty ===
+[2026-03-12T02:32:10.067Z] Started at: 2026-03-12T02:32:10.067Z
+[2026-03-12T02:32:10.067Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773282730066_Trusty
+[2026-03-12T02:32:10.067Z] Company: Trusty
+[2026-03-12T02:32:10.067Z] Website: trusty.co.il
+[2026-03-12T02:32:10.067Z] cbRank: 757379
+[2026-03-12T02:32:10.067Z] Reasons: h
+[2026-03-12T02:32:10.067Z] Fetching: https://trusty.co.il
+[2026-03-12T02:32:12.907Z] Redirected: https://trusty.co.il -> https://trusty.co.il/
+[2026-03-12T02:32:12.914Z] Saved HTML (153884 bytes) to page.html
+[2026-03-12T02:32:12.918Z] Extracted 38 unique links from page
+[2026-03-12T02:32:12.919Z] Saved 38 links to links.json
+[2026-03-12T02:32:12.922Z] Extracted footer HTML (7862 chars)
+[2026-03-12T02:32:12.922Z] Extracted header HTML (1388 chars)
+[2026-03-12T02:32:12.926Z] Website (post-redirect): https://trusty.co.il/ → origin: https://trusty.co.il
+[2026-03-12T02:32:12.927Z] External links: 5 (of 38 total)
+[2026-03-12T02:32:12.927Z] ── All external links ──
+[2026-03-12T02:32:12.927Z]   EXT: http://moxie.co.il
+[2026-03-12T02:32:12.927Z]   EXT: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-12T02:32:12.927Z]   EXT: https://wa.me/+972548943544
+[2026-03-12T02:32:12.927Z]   EXT: https://www.facebook.com/trusty.co.il
+[2026-03-12T02:32:12.927Z]   EXT: https://www.instagram.com/trusty.co.il
+[2026-03-12T02:32:12.927Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T02:32:12.927Z]   UNCATEGORIZED: http://moxie.co.il
+[2026-03-12T02:32:12.927Z]   UNCATEGORIZED: https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-12T02:32:12.927Z]   UNCATEGORIZED: https://wa.me/+972548943544
+[2026-03-12T02:32:12.927Z]   REGEX: fb <- https://www.facebook.com/trusty.co.il
+[2026-03-12T02:32:12.928Z]   REGEX: ig <- https://www.instagram.com/trusty.co.il
+[2026-03-12T02:32:12.928Z] Programmatic result: ws:1, fb:1, ig:1 | 3 uncategorized
+[2026-03-12T02:32:12.928Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T02:32:12.929Z] Saved AI prompt (4285 chars) to ai_prompt.txt
+[2026-03-12T02:32:12.929Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T02:32:12.949Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T02:32:29.006Z]   AI: First token received, streaming...
+[2026-03-12T02:32:30.375Z] AI response complete: 38 chars in 17.4s
+[2026-03-12T02:32:30.376Z] Saved AI response to ai_response.json
+[2026-03-12T02:32:30.376Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T02:32:30.376Z]   AI LINK: https://www.facebook.com/trusty.co.il/
+[2026-03-12T02:32:30.377Z] AI returned 1 valid links
+[2026-03-12T02:32:30.377Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T02:32:30.377Z]   AI→REGEX: fb <- https://www.facebook.com/trusty.co.il/ (duplicate, skipped)
+[2026-03-12T02:32:30.377Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T02:32:30.377Z] Footer/header origins (3):
+[2026-03-12T02:32:30.377Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-12T02:32:30.378Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T02:32:30.378Z]   FOOTER/HEADER ORIGIN: http://moxie.co.il
+[2026-03-12T02:32:30.378Z]   ADDED: urls <- http://moxie.co.il
+[2026-03-12T02:32:30.378Z]   SKIP (not in footer/header): https://accessibe.com/blog/knowledgebase/screen-reader-guide
+[2026-03-12T02:32:30.378Z]   ADDED: urls <- https://wa.me/+972548943544
+[2026-03-12T02:32:30.378Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T02:32:30.378Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T02:32:30.378Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T02:32:30.378Z] ── Step 3: Final dedup ──
+[2026-03-12T02:32:30.378Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T02:32:30.379Z] ── FINAL RESULT ──
+[2026-03-12T02:32:30.379Z]   ws (1):
+[2026-03-12T02:32:30.379Z]     - https://trusty.co.il
+[2026-03-12T02:32:30.379Z]   fb (1):
+[2026-03-12T02:32:30.379Z]     - https://www.facebook.com/trusty.co.il
+[2026-03-12T02:32:30.379Z]   ig (1):
+[2026-03-12T02:32:30.379Z]     - https://www.instagram.com/trusty.co.il
+[2026-03-12T02:32:30.379Z]   urls (2):
+[2026-03-12T02:32:30.379Z]     - http://moxie.co.il
+[2026-03-12T02:32:30.379Z]     - https://wa.me/+972548943544
+[2026-03-12T02:32:30.379Z] Summary: ws:1, fb:1, ig:1, urls:2
+[2026-03-12T02:32:30.382Z] Saved final result to result.json
+[2026-03-12T02:32:30.382Z] Override fields: ws, fb, ig, urls
+[2026-03-12T02:32:30.382Z] Finished at: 2026-03-12T02:32:30.382Z

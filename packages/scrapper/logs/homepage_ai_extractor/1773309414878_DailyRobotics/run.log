@@ -1,0 +1,64 @@
+[2026-03-12T09:56:54.879Z] === Homepage AI Extractor: DailyRobotics ===
+[2026-03-12T09:56:54.879Z] Started at: 2026-03-12T09:56:54.879Z
+[2026-03-12T09:56:54.879Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773309414878_DailyRobotics
+[2026-03-12T09:56:54.879Z] Company: DailyRobotics
+[2026-03-12T09:56:54.879Z] Website: dailyrobotics.com
+[2026-03-12T09:56:54.879Z] cbRank: 900455
+[2026-03-12T09:56:54.879Z] Reasons: h
+[2026-03-12T09:56:54.879Z] Fetching: https://dailyrobotics.com
+[2026-03-12T09:56:56.837Z] Redirected: https://dailyrobotics.com -> https://www.dailyrobotics.com/
+[2026-03-12T09:56:56.876Z] Saved HTML (15240 bytes) to page.html
+[2026-03-12T09:56:56.926Z] Extracted 10 unique links from page
+[2026-03-12T09:56:56.932Z] Saved 10 links to links.json
+[2026-03-12T09:56:56.997Z] Extracted footer HTML (1296 chars)
+[2026-03-12T09:56:56.998Z] Extracted header HTML (2149 chars)
+[2026-03-12T09:56:57.011Z] Website (post-redirect): https://www.dailyrobotics.com/ → origin: https://www.dailyrobotics.com
+[2026-03-12T09:56:57.011Z] External links: 3 (of 10 total)
+[2026-03-12T09:56:57.011Z] ── All external links ──
+[2026-03-12T09:56:57.011Z]   EXT: https://twitter.com/goodrobots
+[2026-03-12T09:56:57.012Z]   EXT: https://www.facebook.com/dailyrobotics
+[2026-03-12T09:56:57.012Z]   EXT: https://www.linkedin.com/company/dailyrobotics
+[2026-03-12T09:56:57.012Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T09:56:57.012Z]   REGEX: tw <- https://twitter.com/goodrobots
+[2026-03-12T09:56:57.012Z]   REGEX: fb <- https://www.facebook.com/dailyrobotics
+[2026-03-12T09:56:57.012Z]   REGEX: li <- https://www.linkedin.com/company/dailyrobotics
+[2026-03-12T09:56:57.012Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-12T09:56:57.013Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T09:56:57.015Z] Saved AI prompt (2623 chars) to ai_prompt.txt
+[2026-03-12T09:56:57.015Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T09:56:57.033Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T09:57:06.579Z]   AI: First token received, streaming...
+[2026-03-12T09:57:12.194Z] AI response complete: 117 chars in 15.2s
+[2026-03-12T09:57:12.195Z] Saved AI response to ai_response.json
+[2026-03-12T09:57:12.195Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T09:57:12.195Z]   AI LINK: https://www.facebook.com/dailyrobotics
+[2026-03-12T09:57:12.195Z]   AI LINK: https://twitter.com/goodrobots
+[2026-03-12T09:57:12.195Z]   AI LINK: https://www.linkedin.com/company/dailyrobotics/
+[2026-03-12T09:57:12.195Z] AI returned 3 valid links
+[2026-03-12T09:57:12.195Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T09:57:12.196Z]   AI→REGEX: fb <- https://www.facebook.com/dailyrobotics (duplicate, skipped)
+[2026-03-12T09:57:12.196Z]   AI→REGEX: tw <- https://twitter.com/goodrobots (duplicate, skipped)
+[2026-03-12T09:57:12.196Z]   AI→REGEX: li <- https://www.linkedin.com/company/dailyrobotics/ (duplicate, skipped)
+[2026-03-12T09:57:12.196Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T09:57:12.196Z] Footer/header origins (3):
+[2026-03-12T09:57:12.196Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T09:57:12.197Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T09:57:12.197Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T09:57:12.197Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T09:57:12.197Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T09:57:12.197Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T09:57:12.197Z] ── Step 3: Final dedup ──
+[2026-03-12T09:57:12.197Z] No urls to dedup
+[2026-03-12T09:57:12.197Z] ── FINAL RESULT ──
+[2026-03-12T09:57:12.197Z]   ws (1):
+[2026-03-12T09:57:12.197Z]     - https://www.dailyrobotics.com
+[2026-03-12T09:57:12.198Z]   li (1):
+[2026-03-12T09:57:12.198Z]     - https://www.linkedin.com/company/dailyrobotics
+[2026-03-12T09:57:12.198Z]   fb (1):
+[2026-03-12T09:57:12.198Z]     - https://www.facebook.com/dailyrobotics
+[2026-03-12T09:57:12.198Z]   tw (1):
+[2026-03-12T09:57:12.198Z]     - https://x.com/goodrobots
+[2026-03-12T09:57:12.198Z] Summary: ws:1, tw:1, fb:1, li:1
+[2026-03-12T09:57:12.198Z] Saved final result to result.json
+[2026-03-12T09:57:12.199Z] Override fields: ws, li, fb, tw
+[2026-03-12T09:57:12.199Z] Finished at: 2026-03-12T09:57:12.199Z

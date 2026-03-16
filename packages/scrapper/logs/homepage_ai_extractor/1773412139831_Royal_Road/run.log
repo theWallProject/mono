@@ -1,0 +1,76 @@
+[2026-03-13T14:28:59.832Z] === Homepage AI Extractor: Royal Road ===
+[2026-03-13T14:28:59.832Z] Started at: 2026-03-13T14:28:59.832Z
+[2026-03-13T14:28:59.832Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773412139831_Royal_Road
+[2026-03-13T14:28:59.832Z] Company: Royal Road
+[2026-03-13T14:28:59.832Z] Website: royalroad.com
+[2026-03-13T14:28:59.832Z] cbRank: 1170228
+[2026-03-13T14:28:59.832Z] Reasons: h
+[2026-03-13T14:28:59.832Z] Fetching: https://royalroad.com
+[2026-03-13T14:29:12.976Z] Network idle timeout — continuing with current state
+[2026-03-13T14:29:13.039Z] Redirected: https://royalroad.com -> https://www.royalroad.com/home
+[2026-03-13T14:29:13.052Z] Saved HTML (305345 bytes) to page.html
+[2026-03-13T14:29:13.058Z] Extracted 125 unique links from page
+[2026-03-13T14:29:13.059Z] Saved 125 links to links.json
+[2026-03-13T14:29:13.062Z] Extracted footer HTML (592 chars)
+[2026-03-13T14:29:13.062Z] No header section found in DOM
+[2026-03-13T14:29:13.067Z] Website (post-redirect): https://www.royalroad.com/home → origin: https://www.royalroad.com
+[2026-03-13T14:29:13.067Z]   SUBDOMAIN: links.royalroad.com (added to ws)
+[2026-03-13T14:29:13.067Z]   SUBDOMAIN: status.royalroad.com (added to ws)
+[2026-03-13T14:29:13.067Z] Website subdomains found: 2
+[2026-03-13T14:29:13.068Z] External links: 6 (of 125 total)
+[2026-03-13T14:29:13.068Z] ── All external links ──
+[2026-03-13T14:29:13.068Z]   EXT: https://facebook.com/royalroadl
+[2026-03-13T14:29:13.068Z]   EXT: https://nitropay.com
+[2026-03-13T14:29:13.068Z]   EXT: https://twitter.com/royalroadl
+[2026-03-13T14:29:13.068Z]   EXT: https://www.instagram.com/royalroad.official
+[2026-03-13T14:29:13.068Z]   EXT: https://www.pinterest.co.uk/royalroadofficial
+[2026-03-13T14:29:13.068Z]   EXT: https://www.tiktok.com/@royalroadofficial
+[2026-03-13T14:29:13.068Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T14:29:13.069Z]   REGEX: fb <- https://facebook.com/royalroadl
+[2026-03-13T14:29:13.069Z]   UNCATEGORIZED: https://nitropay.com
+[2026-03-13T14:29:13.069Z]   REGEX: tw <- https://twitter.com/royalroadl
+[2026-03-13T14:29:13.069Z]   REGEX: ig <- https://www.instagram.com/royalroad.official
+[2026-03-13T14:29:13.069Z]   UNCATEGORIZED: https://www.pinterest.co.uk/royalroadofficial
+[2026-03-13T14:29:13.069Z]   REGEX: tt <- https://www.tiktok.com/@royalroadofficial
+[2026-03-13T14:29:13.069Z] Programmatic result: ws:3, fb:1, tw:1, ig:1, tt:1 | 2 uncategorized
+[2026-03-13T14:29:13.069Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T14:29:13.070Z] Saved AI prompt (2381 chars) to ai_prompt.txt
+[2026-03-13T14:29:13.070Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T14:29:13.092Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T14:29:21.178Z]   AI: First token received, streaming...
+[2026-03-13T14:29:22.752Z] AI response complete: 45 chars in 9.7s
+[2026-03-13T14:29:22.753Z] Saved AI response to ai_response.json
+[2026-03-13T14:29:22.753Z] ── Parsing AI response (1 lines) ──
+[2026-03-13T14:29:22.753Z]   AI LINK: https://www.pinterest.co.uk/royalroadofficial
+[2026-03-13T14:29:22.753Z] AI returned 1 valid links
+[2026-03-13T14:29:22.753Z] ── Categorizing 1 AI-returned links ──
+[2026-03-13T14:29:22.753Z]   AI→URLS: https://www.pinterest.co.uk/royalroadofficial
+[2026-03-13T14:29:22.754Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T14:29:22.754Z] Footer/header origins (1):
+[2026-03-13T14:29:22.754Z]   FOOTER/HEADER ORIGIN: https://status.royalroad.com
+[2026-03-13T14:29:22.754Z]   SKIP (not in footer/header): https://nitropay.com
+[2026-03-13T14:29:22.754Z]   SKIP (AI claimed): https://www.pinterest.co.uk/royalroadofficial
+[2026-03-13T14:29:22.754Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T14:29:22.754Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T14:29:22.754Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T14:29:22.754Z] ── Step 3: Final dedup ──
+[2026-03-13T14:29:22.755Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T14:29:22.755Z] ── FINAL RESULT ──
+[2026-03-13T14:29:22.755Z]   ws (3):
+[2026-03-13T14:29:22.755Z]     - https://links.royalroad.com
+[2026-03-13T14:29:22.755Z]     - https://status.royalroad.com
+[2026-03-13T14:29:22.755Z]     - https://www.royalroad.com
+[2026-03-13T14:29:22.755Z]   fb (1):
+[2026-03-13T14:29:22.755Z]     - https://www.facebook.com/royalroadl
+[2026-03-13T14:29:22.755Z]   tw (1):
+[2026-03-13T14:29:22.755Z]     - https://x.com/royalroadl
+[2026-03-13T14:29:22.755Z]   ig (1):
+[2026-03-13T14:29:22.755Z]     - https://www.instagram.com/royalroad.official
+[2026-03-13T14:29:22.755Z]   tt (1):
+[2026-03-13T14:29:22.755Z]     - https://www.tiktok.com/@royalroadofficial
+[2026-03-13T14:29:22.756Z]   urls (1):
+[2026-03-13T14:29:22.756Z]     - https://www.pinterest.co.uk/royalroadofficial
+[2026-03-13T14:29:22.756Z] Summary: ws:3, fb:1, tw:1, ig:1, tt:1, urls:1
+[2026-03-13T14:29:22.757Z] Saved final result to result.json
+[2026-03-13T14:29:22.757Z] Override fields: ws, fb, tw, ig, tt, urls
+[2026-03-13T14:29:22.757Z] Finished at: 2026-03-13T14:29:22.757Z

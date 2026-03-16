@@ -1,0 +1,58 @@
+[2026-03-10T17:30:58.649Z] === Homepage AI Extractor: Apptimus ===
+[2026-03-10T17:30:58.660Z] Started at: 2026-03-10T17:30:58.660Z
+[2026-03-10T17:30:58.660Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773163858648_Apptimus
+[2026-03-10T17:30:58.660Z] Company: Apptimus
+[2026-03-10T17:30:58.661Z] Website: apptimus.media
+[2026-03-10T17:30:58.661Z] cbRank: 496785
+[2026-03-10T17:30:58.661Z] Reasons: h
+[2026-03-10T17:30:58.661Z] Fetching: https://apptimus.media
+[2026-03-10T17:31:05.526Z] Redirected: https://apptimus.media -> https://apptimus.media/
+[2026-03-10T17:31:05.535Z] Saved HTML (23729 bytes) to page.html
+[2026-03-10T17:31:05.541Z] Extracted 9 unique links from page
+[2026-03-10T17:31:05.541Z] Saved 9 links to links.json
+[2026-03-10T17:31:05.545Z] Extracted footer HTML (1407 chars)
+[2026-03-10T17:31:05.546Z] Extracted header HTML (6111 chars)
+[2026-03-10T17:31:05.562Z] Website (post-redirect): https://apptimus.media/ → origin: https://apptimus.media
+[2026-03-10T17:31:05.562Z]   SUBDOMAIN: dsp.apptimus.media (added to ws)
+[2026-03-10T17:31:05.563Z] Website subdomains found: 1
+[2026-03-10T17:31:05.563Z] External links: 2 (of 9 total)
+[2026-03-10T17:31:05.563Z] ── All external links ──
+[2026-03-10T17:31:05.563Z]   EXT: https://www.facebook.com/apptimus.media
+[2026-03-10T17:31:05.563Z]   EXT: https://www.linkedin.com/company/apptimusmobile
+[2026-03-10T17:31:05.564Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T17:31:05.565Z]   REGEX: fb <- https://www.facebook.com/apptimus.media
+[2026-03-10T17:31:05.565Z]   REGEX: li <- https://www.linkedin.com/company/apptimusmobile
+[2026-03-10T17:31:05.565Z] Programmatic result: ws:2, fb:1, li:1 | 0 uncategorized
+[2026-03-10T17:31:05.565Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T17:31:05.568Z] Saved AI prompt (2495 chars) to ai_prompt.txt
+[2026-03-10T17:31:05.568Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T17:31:05.607Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T17:31:14.200Z]   AI: First token received, streaming...
+[2026-03-10T17:31:18.225Z] AI response complete: 89 chars in 12.7s
+[2026-03-10T17:31:18.226Z] Saved AI response to ai_response.json
+[2026-03-10T17:31:18.227Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T17:31:18.227Z]   AI LINK: https://www.linkedin.com/company/apptimusmobile/
+[2026-03-10T17:31:18.227Z]   AI LINK: https://www.facebook.com/apptimus.media/
+[2026-03-10T17:31:18.227Z] AI returned 2 valid links
+[2026-03-10T17:31:18.227Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T17:31:18.227Z]   AI→REGEX: li <- https://www.linkedin.com/company/apptimusmobile/ (duplicate, skipped)
+[2026-03-10T17:31:18.227Z]   AI→REGEX: fb <- https://www.facebook.com/apptimus.media/ (duplicate, skipped)
+[2026-03-10T17:31:18.228Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T17:31:18.228Z] Footer/header origins (2):
+[2026-03-10T17:31:18.228Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T17:31:18.228Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T17:31:18.228Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T17:31:18.228Z] ── Step 3: Final dedup ──
+[2026-03-10T17:31:18.228Z] No urls to dedup
+[2026-03-10T17:31:18.228Z] ── FINAL RESULT ──
+[2026-03-10T17:31:18.228Z]   ws (2):
+[2026-03-10T17:31:18.229Z]     - https://apptimus.media
+[2026-03-10T17:31:18.229Z]     - https://dsp.apptimus.media
+[2026-03-10T17:31:18.229Z]   li (1):
+[2026-03-10T17:31:18.229Z]     - https://www.linkedin.com/company/apptimusmobile
+[2026-03-10T17:31:18.229Z]   fb (1):
+[2026-03-10T17:31:18.229Z]     - https://www.facebook.com/apptimus.media
+[2026-03-10T17:31:18.229Z] Summary: ws:2, fb:1, li:1
+[2026-03-10T17:31:18.231Z] Saved final result to result.json
+[2026-03-10T17:31:18.232Z] Override fields: ws, li, fb
+[2026-03-10T17:31:18.232Z] Finished at: 2026-03-10T17:31:18.232Z

@@ -1,0 +1,70 @@
+[2026-03-11T02:22:26.435Z] === Homepage AI Extractor: VAYOMAR ===
+[2026-03-11T02:22:26.435Z] Started at: 2026-03-11T02:22:26.435Z
+[2026-03-11T02:22:26.435Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773195746434_VAYOMAR
+[2026-03-11T02:22:26.435Z] Company: VAYOMAR
+[2026-03-11T02:22:26.435Z] Website: vayomar.com
+[2026-03-11T02:22:26.435Z] cbRank: 550476
+[2026-03-11T02:22:26.435Z] Reasons: h
+[2026-03-11T02:22:26.435Z] Fetching: https://vayomar.com
+[2026-03-11T02:22:28.524Z] Redirected: https://vayomar.com -> https://vayomar.com/
+[2026-03-11T02:22:28.533Z] Saved HTML (212289 bytes) to page.html
+[2026-03-11T02:22:28.536Z] Extracted 33 unique links from page
+[2026-03-11T02:22:28.537Z] Saved 33 links to links.json
+[2026-03-11T02:22:28.541Z] Extracted footer HTML (24886 chars)
+[2026-03-11T02:22:28.541Z] Extracted header HTML (29798 chars)
+[2026-03-11T02:22:28.545Z] Website (post-redirect): https://vayomar.com/ → origin: https://vayomar.com
+[2026-03-11T02:22:28.546Z]   SUBDOMAIN: grace.vayomar.com (added to ws)
+[2026-03-11T02:22:28.546Z] Website subdomains found: 1
+[2026-03-11T02:22:28.546Z] External links: 4 (of 33 total)
+[2026-03-11T02:22:28.546Z] ── All external links ──
+[2026-03-11T02:22:28.546Z]   EXT: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-11T02:22:28.546Z]   EXT: https://www.facebook.com/vayomar
+[2026-03-11T02:22:28.546Z]   EXT: https://www.linkedin.com/company/5394693
+[2026-03-11T02:22:28.546Z]   EXT: https://www.youtube.com/channel/UC-9OJrkZJCj9Tn5sffJTclQ
+[2026-03-11T02:22:28.546Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T02:22:28.547Z]   UNCATEGORIZED: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-11T02:22:28.547Z]   REGEX: fb <- https://www.facebook.com/vayomar
+[2026-03-11T02:22:28.547Z]   REGEX: li <- https://www.linkedin.com/company/5394693
+[2026-03-11T02:22:28.547Z]   REGEX: ytc <- https://www.youtube.com/channel/UC-9OJrkZJCj9Tn5sffJTclQ
+[2026-03-11T02:22:28.547Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-11T02:22:28.547Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T02:22:28.548Z] Saved AI prompt (3035 chars) to ai_prompt.txt
+[2026-03-11T02:22:28.549Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T02:22:28.562Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T02:22:39.714Z]   AI: First token received, streaming...
+[2026-03-11T02:22:50.795Z] AI response complete: 130 chars in 22.2s
+[2026-03-11T02:22:50.795Z] Saved AI response to ai_response.json
+[2026-03-11T02:22:50.795Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T02:22:50.796Z]   AI LINK: https://www.facebook.com/vayomar
+[2026-03-11T02:22:50.796Z]   AI LINK: https://www.linkedin.com/company/5394693
+[2026-03-11T02:22:50.796Z]   AI LINK: https://www.youtube.com/channel/UC-9OJrkZJCj9Tn5sffJTclQ
+[2026-03-11T02:22:50.796Z] AI returned 3 valid links
+[2026-03-11T02:22:50.796Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T02:22:50.796Z]   AI→REGEX: fb <- https://www.facebook.com/vayomar (duplicate, skipped)
+[2026-03-11T02:22:50.796Z]   AI→REGEX: li <- https://www.linkedin.com/company/5394693 (duplicate, skipped)
+[2026-03-11T02:22:50.796Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC-9OJrkZJCj9Tn5sffJTclQ (duplicate, skipped)
+[2026-03-11T02:22:50.797Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T02:22:50.797Z] Footer/header origins (5):
+[2026-03-11T02:22:50.797Z]   FOOTER/HEADER ORIGIN: https://vayomar.com
+[2026-03-11T02:22:50.797Z]   FOOTER/HEADER ORIGIN: https://grace.vayomar.com
+[2026-03-11T02:22:50.797Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T02:22:50.797Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T02:22:50.797Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T02:22:50.797Z]   SKIP (not in footer/header): https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-11T02:22:50.797Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T02:22:50.798Z] ── Step 3: Final dedup ──
+[2026-03-11T02:22:50.798Z] No urls to dedup
+[2026-03-11T02:22:50.798Z] ── FINAL RESULT ──
+[2026-03-11T02:22:50.798Z]   ws (2):
+[2026-03-11T02:22:50.798Z]     - https://grace.vayomar.com
+[2026-03-11T02:22:50.798Z]     - https://vayomar.com
+[2026-03-11T02:22:50.798Z]   li (1):
+[2026-03-11T02:22:50.798Z]     - https://www.linkedin.com/company/5394693
+[2026-03-11T02:22:50.798Z]   fb (1):
+[2026-03-11T02:22:50.798Z]     - https://www.facebook.com/vayomar
+[2026-03-11T02:22:50.798Z]   ytc (1):
+[2026-03-11T02:22:50.798Z]     - https://www.youtube.com/channel/UC-9OJrkZJCj9Tn5sffJTclQ
+[2026-03-11T02:22:50.798Z] Summary: ws:2, fb:1, li:1, ytc:1
+[2026-03-11T02:22:50.799Z] Saved final result to result.json
+[2026-03-11T02:22:50.799Z] Override fields: ws, li, fb, ytc
+[2026-03-11T02:22:50.799Z] Finished at: 2026-03-11T02:22:50.799Z

@@ -1,0 +1,64 @@
+[2026-03-10T08:34:52.377Z] === Homepage AI Extractor: Oversee ===
+[2026-03-10T08:34:52.377Z] Started at: 2026-03-10T08:34:52.377Z
+[2026-03-10T08:34:52.377Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773131692377_Oversee
+[2026-03-10T08:34:52.377Z] Company: Oversee
+[2026-03-10T08:34:52.377Z] Website: oversee.biz
+[2026-03-10T08:34:52.378Z] cbRank: 443653
+[2026-03-10T08:34:52.378Z] Reasons: h
+[2026-03-10T08:34:52.378Z] Fetching: https://oversee.biz
+[2026-03-10T08:34:54.897Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-10T08:34:57.855Z] Redirected: https://oversee.biz -> https://oversee.biz/
+[2026-03-10T08:34:57.866Z] Saved HTML (281417 bytes) to page.html
+[2026-03-10T08:34:57.870Z] Extracted 53 unique links from page
+[2026-03-10T08:34:57.871Z] Saved 53 links to links.json
+[2026-03-10T08:34:57.875Z] Extracted footer HTML (8156 chars)
+[2026-03-10T08:34:57.875Z] Extracted header HTML (10419 chars)
+[2026-03-10T08:34:57.881Z] Website (post-redirect): https://oversee.biz/ → origin: https://oversee.biz
+[2026-03-10T08:34:57.881Z]   SUBDOMAIN: platform.oversee.biz (added to ws)
+[2026-03-10T08:34:57.881Z] Website subdomains found: 1
+[2026-03-10T08:34:57.881Z] External links: 3 (of 53 total)
+[2026-03-10T08:34:57.882Z] ── All external links ──
+[2026-03-10T08:34:57.882Z]   EXT: https://pluro.ai
+[2026-03-10T08:34:57.882Z]   EXT: https://www.linkedin.com/company/oversee-biz
+[2026-03-10T08:34:57.882Z]   EXT: https://www.youtube.com/@Oversee_travel_ltd
+[2026-03-10T08:34:57.882Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T08:34:57.882Z]   UNCATEGORIZED: https://pluro.ai
+[2026-03-10T08:34:57.882Z]   REGEX: li <- https://www.linkedin.com/company/oversee-biz
+[2026-03-10T08:34:57.882Z]   REGEX: ytp <- https://www.youtube.com/@Oversee_travel_ltd
+[2026-03-10T08:34:57.882Z] Programmatic result: ws:2, li:1, ytp:1 | 1 uncategorized
+[2026-03-10T08:34:57.882Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T08:34:57.883Z] Saved AI prompt (7260 chars) to ai_prompt.txt
+[2026-03-10T08:34:57.883Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T08:34:57.898Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T08:35:28.494Z]   AI: First token received, streaming...
+[2026-03-10T08:35:33.286Z] AI response complete: 89 chars in 35.4s
+[2026-03-10T08:35:33.287Z] Saved AI response to ai_response.json
+[2026-03-10T08:35:33.287Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T08:35:33.287Z]   AI LINK: https://www.linkedin.com/company/oversee-biz/
+[2026-03-10T08:35:33.287Z]   AI LINK: https://www.youtube.com/@Oversee_travel_ltd
+[2026-03-10T08:35:33.287Z] AI returned 2 valid links
+[2026-03-10T08:35:33.287Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T08:35:33.287Z]   AI→REGEX: li <- https://www.linkedin.com/company/oversee-biz/ (duplicate, skipped)
+[2026-03-10T08:35:33.287Z]   AI→REGEX: ytp <- https://www.youtube.com/@Oversee_travel_ltd (duplicate, skipped)
+[2026-03-10T08:35:33.287Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T08:35:33.288Z] Footer/header origins (4):
+[2026-03-10T08:35:33.288Z]   FOOTER/HEADER ORIGIN: https://oversee.biz
+[2026-03-10T08:35:33.288Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T08:35:33.288Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T08:35:33.288Z]   FOOTER/HEADER ORIGIN: https://platform.oversee.biz
+[2026-03-10T08:35:33.288Z]   SKIP (not in footer/header): https://pluro.ai
+[2026-03-10T08:35:33.288Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T08:35:33.288Z] ── Step 3: Final dedup ──
+[2026-03-10T08:35:33.288Z] No urls to dedup
+[2026-03-10T08:35:33.288Z] ── FINAL RESULT ──
+[2026-03-10T08:35:33.288Z]   ws (2):
+[2026-03-10T08:35:33.288Z]     - https://oversee.biz
+[2026-03-10T08:35:33.288Z]     - https://platform.oversee.biz
+[2026-03-10T08:35:33.288Z]   li (1):
+[2026-03-10T08:35:33.288Z]     - https://www.linkedin.com/company/oversee-biz
+[2026-03-10T08:35:33.288Z]   ytp (1):
+[2026-03-10T08:35:33.288Z]     - https://www.youtube.com/@oversee_travel_ltd
+[2026-03-10T08:35:33.288Z] Summary: ws:2, li:1, ytp:1
+[2026-03-10T08:35:33.290Z] Saved final result to result.json
+[2026-03-10T08:35:33.290Z] Override fields: ws, li, ytp
+[2026-03-10T08:35:33.291Z] Finished at: 2026-03-10T08:35:33.291Z

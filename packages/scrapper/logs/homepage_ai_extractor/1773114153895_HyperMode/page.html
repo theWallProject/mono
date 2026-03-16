@@ -1,0 +1,656 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>Hypermode</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/mainv2.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nobile&amp;display=swap" rel="stylesheet">
+  </head>
+  <body>
+    
+
+<script src="build/three.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/threex.domevents@master/threex.domevents.js"></script>
+
+<script src="js/loaders/GLTFLoader.js"></script>
+
+
+<div class="title">
+  <p>We Create Experiences</p>
+<p class="subheader">Next level mobile games</p>
+<p class="remark">Contact us at Support@hypermode.gg</p>		
+
+
+
+
+
+
+<script id="fragmentShader1" type="x-shader/x-fragment">
+
+varying vec3 vPosition;
+void main() {
+  vec3 color = vec3(1.000,0.233,0.224);
+  gl_FragColor = vec4( color, 1.0 );
+}
+
+
+</script>
+
+<script id="vertexShader" type="x-shader/x-vertex">
+
+uniform float time;
+varying vec3 vPosition;
+void main() {
+  vPosition = position;
+  vPosition.x += sin( time + vPosition.z * 4.0 ) / 4.0;
+  vPosition.y += cos( time + vPosition.z * 4.0 ) / 4.0;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4( vPosition, 1.0 );
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="module">
+ const canvas = document.querySelector('#c');
+  const renderer  = new THREE.WebGLRenderer({canvas,
+  antialias : true
+  });
+  renderer.autoClear = false;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
+
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  document.body.appendChild( renderer.domElement );
+  
+  var fxaaPass;
+  var camera; 
+  var clock;
+  var onRenderFcts= [];
+  var scene = new THREE.Scene();
+var bgcolor = 0xDFEAF8; //0xE3E9F6
+
+
+  scene.background = new THREE.Color( bgcolor );
+
+  
+  clock = new THREE.Clock();
+
+  camera = new THREE.PerspectiveCamera (63.3,  window.innerWidth / window.innerHeight, 0.01, 3000);
+
+  camera.position.x = 0.209;
+  camera.position.y = 4.343;
+  camera.position.z = -12.747;
+
+  camera.rotation.x = 178.42;
+  camera.rotation.y = 0.24;
+  camera.rotation.z = -180;
+
+
+  scene.fog = new THREE.Fog(bgcolor, 7.46, 35);
+
+
+  var ambientl = new THREE.AmbientLight(0x140A22, 0.9);
+  var ambient2 = new THREE.AmbientLight(0x140A22, 0.9);
+
+  var directl1 = new THREE.DirectionalLight(0x010F41, 1.00);
+  directl1.position.set(1.798, 11.367, 5.494)
+  directl1.castShadow = true;
+
+  var directl2 = new THREE.DirectionalLight(0x0023FF, 1.00);
+  directl2.position.set(-0.670, 10, 4.607)
+  directl2.castShadow = true;
+
+  var spotl = new THREE.SpotLight(0x3F3893, 1.0);
+  spotl.position.set(5.0, 10.0, -1.995)
+  spotl.angle = 0.027419123;
+  spotl.castShadow = true;
+
+
+
+  scene.add( ambientl,ambient2 )
+  scene.add( directl1 )
+  scene.add( directl2 )
+  scene.add( spotl )
+
+
+directl1.shadow.mapSize.width = 512;  // default
+directl1.shadow.mapSize.height = 512; // default
+directl1.shadow.camera.near = 0.5;    // default
+directl1.shadow.camera.far = 500;     // default
+
+
+
+////// particles ////
+var group2 = new THREE.Group();
+
+
+  var  geometry1, particleCount, g, 
+        h, color, size,
+        materials = [],
+        parameters = {},
+        parameterCount, particles;
+
+geometry1 = new THREE.Geometry(); 
+
+        particleCount = 20; 
+
+
+        for ( g = 0; g < particleCount; g++) {
+
+            var vertex = new THREE.Vector3();
+            vertex.x = Math.random() * (20 - 1)+1;
+            vertex.y = Math.random() * (20 - 1)+1;
+            vertex.z = Math.random() * (20 - 1)+1;
+
+            geometry1.vertices.push(vertex);
+        }
+
+        parameters = [
+            [
+                [0.1, 0.1, 0.5], 0.1
+            ],
+            [
+                [0.25, 0.1, 0.5], 0.1
+            ],
+            [
+                [0.10, 0.1, 0.5], 0.1
+            ],
+            [
+                [0.25, 0.1, 0.5], 0.1
+            ],
+            [
+                [0.10, 0.1, 0.5], 0.1
+            ]
+        ];
+        parameterCount = parameters.length;
+
+
+        for (g = 0; g < parameterCount; g++) {
+
+            color = parameters[g][0];
+            size = parameters[g][1];
+
+            materials[g] = new THREE.PointsMaterial({
+                size: size 
+            });
+
+            particles = new THREE.Points(geometry1, materials[g]);
+
+            particles.rotation.x = Math.random() * 6;
+            particles.rotation.y = Math.random() * 6;
+            particles.rotation.z = Math.random() * 6;
+
+            group2.add(particles);
+        }
+
+
+scene.add( group2 );
+
+
+
+
+//plane //////
+  
+var boxgeo = new THREE.CubeGeometry( 2.0, 1.0, 2.0 );
+var boxmat = new THREE.MeshPhongMaterial( {color: 0xE2E2E2,
+emissive: 0xE2E2E2, specular: 0x04434E, shininess: 44.80 } );
+var box = new THREE.Mesh(boxgeo,boxmat);
+box.scale.set(0.680, 0.680, 0.680)
+box.position.set(0.514, -0.237, 0)
+box.castShadow = true;
+box.receiveShadow = true;
+
+
+var group = new THREE.Group();
+group.position.x = - 20.5;
+group.position.z = - 20.5;
+group.position.y = -0.5
+scene.add( group );
+
+box.geometry.translate( 0, 0.5, 0 );
+
+for ( var x = 0; x < 60; x ++ ) {
+
+  for ( var z = 0; z < 40; z ++ ) {
+    
+    var clone = box.clone();
+    clone.position.x = x;
+    clone.position.z = z;
+    group.add( clone );
+    
+  }
+
+}
+
+
+/////////
+
+var debris, debris1, debris2, boxright, boxleft,
+boxclose, boxback, boxup, pyramid, sphere;
+
+//debris
+var debrisgeo = new THREE.IcosahedronGeometry(0.42,0);
+var debrisgeo1 = new THREE.IcosahedronGeometry(0.10,0);
+
+var debrimat = new THREE.MeshLambertMaterial( {color: 0xB7BBF1, roughness: 0.40, metalness: 0.24, emissive: 0x5F4F01 });
+debris = new THREE.Mesh(debrisgeo,debrimat);
+debris1 = new THREE.Mesh(debrisgeo1,debrimat);
+debris2 = new THREE.Mesh(debrisgeo1,debrimat);
+debris.position.set(-5.715, 3.276, 0.944)
+debris.rotation.set(7.37, 4.35, 13.81)
+
+debris1.position.set(2.360, 3.054, -6.616)
+debris1.rotation.set(7.37, 4.35, 13.81)
+
+debris2.position.set(6.541, 3.054, 3.834)
+debris2.rotation.set(7.37, 4.35, 13.81)
+
+scene.add(debris,debris2,debris1);
+
+
+/////boxes
+
+var boxgeom = new THREE.CubeGeometry(1,1,1);
+var boxmatright = new THREE.MeshPhongMaterial( { color: 0xFFFFFF, emissive: 0x958C64, shininess: 30.0, specular: 0x111111});
+
+var boxmatclose = new THREE.MeshPhongMaterial( { color: 0xFFFFFF, emissive: 0xCBCAE4, shininess: 30.0, specular: 0x111111});
+
+var boxmatleft = new THREE.MeshPhongMaterial( { color: 0xE2E2E2, emissive: 0xDCDCDC, shininess: 44.0, specular: 0x00434F});
+var boxupmat = new THREE.MeshPhongMaterial( { color: 0x1E1F40, emissive: 0x332638, specular: 0x111111, shininess: 30.0});
+
+var boxbackm = new THREE.MeshLambertMaterial({ color: 0xFFFFFF});
+
+boxback = new THREE.Mesh(boxgeom,boxbackm);
+boxup = new THREE.Mesh(boxgeom,boxupmat);
+boxright = new THREE.Mesh(boxgeom,boxmatright);
+boxclose = new THREE.Mesh(boxgeom,boxmatclose);
+boxleft = new THREE.Mesh(boxgeom,boxmatleft);
+
+boxright.position.set(-7.130, 5.360, -2.298)
+boxright.rotation.set(-30, 32.48, 17.22)
+
+boxleft.position.set(5.909, 4.913, -0.456)
+boxleft.rotation.set(-42.43, 0, 0)
+
+boxclose.position.set(1.655, 2.703, -9.804)
+boxclose.rotation.set(0, 0, 49.04)
+
+boxback.position.set(-13.733, 8.448, 16.744);
+boxback.rotation.set(-0.837758, 0, 0);
+boxback.scale.set(5.1, 5.1, 5.1);
+
+boxup.position.set(16.824,13.699,11.995);
+boxup.rotation.set(0,0, 0.94527032);
+boxup.scale.set(2.481,2.481,2.481);
+
+scene.add(boxright,boxclose,boxleft,boxback,boxup);
+ 
+
+
+  //////////////////// sphere ///////
+
+  const fragmentShader = `
+  #include <common>
+
+  uniform vec3 iResolution;
+  uniform float iTime;
+
+ 
+  
+
+
+float hash(vec2 p) { return fract(1e4 * sin(17.0 * p.x + p.y * 0.1) * (0.1 + abs(sin(p.y * 13.0 + p.x)))); }
+float noise(vec2 x) {
+    vec2 i = floor(x);
+    vec2 f = fract(x);
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+}
+
+#define octaves 14
+float fbm (in vec2 p) {
+
+    float value = 0.0;
+    float freq = 1.0;
+    float amp = 0.5;    
+
+    for (int i = 0; i < octaves; i++) {
+        value += amp * (noise((p - vec2(1.0)) * freq));
+        freq *= 1.8;
+        amp *= 0.6;
+    }
+    return value;
+}
+
+float pattern(in vec2 p) {
+    vec2 offset = vec2(-0.5);
+
+    vec2 aPos = vec2(sin(iTime * 0.06), sin(iTime * 0.001)) * 5.;
+    vec2 aScale = vec2(3.0);
+    float a = fbm(p * aScale + aPos);
+
+    vec2 bPos = vec2(sin(iTime * 0.01), sin(iTime * 0.01)) * 1.;
+    vec2 bScale = vec2(0.6);
+    float b = fbm((p + a) * bScale + bPos);
+
+    vec2 cPos = vec2(-0.6, -0.5) + vec2(sin(-iTime * 0.001), sin(iTime * 0.01)) * 2.;
+    vec2 cScale = vec2(2.6);
+    float c = fbm((p + b) * cScale + cPos);
+    return c;
+}
+
+vec3 palette(in float t) {
+    vec3 a = vec3(0.564, 0.839, 0.913); //orange
+    vec3 b = vec3(0.603, 0.713, 0.564);
+    vec3 c = vec3(0.364, 0.913, 0.980);
+    return a + b * sin(3.68318 * (c * t + a));
+}
+
+void mainImage (out vec4 fragColor, in vec2 fragCoord) {
+    vec2 p = fragCoord.xy / iResolution.xy;
+    p.x *= iResolution.x / iResolution.y;
+    float value = pow(pattern(p), 1.8); // more "islands"
+    vec3 color = palette(value);
+    fragColor = vec4(color, 1.0);
+}
+  void main() {
+    mainImage(gl_FragColor, gl_FragCoord.xy);
+  }
+  
+
+`;
+ 
+  const uniforms = {
+    iTime: { value: 0 },
+    iResolution:  { value: new THREE.Vector3() },
+    time: { value: 0.0 },
+  };
+
+
+  var materials1 = new THREE.ShaderMaterial({
+     vertexShader: document.getElementById( 'vertexShader' ).textContent,
+    fragmentShader,
+    uniforms,
+  });
+
+var spheregeo = new THREE.SphereBufferGeometry(5.46, 45, 45);
+/*
+var spheremat = new THREE.ShaderMaterial({
+
+  uniforms: {
+
+    time: { value: 0.0 },
+    //resolution: { value: new THREE.Vector2() }
+
+  },
+
+  vertexShader: document.getElementById( 'vertexShader' ).textContent,
+
+  fragmentShader: document.getElementById( 'fragmentShader' ).textContent
+
+});
+*/
+
+sphere = new THREE.Mesh(spheregeo,materials1);
+sphere.position.set(0, 8.581, 4.314)
+sphere.castShadow = true;
+scene.add(sphere);
+
+
+
+///////////////// / sphere /////////////////////
+
+
+
+
+var pyramidmat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF});
+var pyramidgeo = new THREE.OctahedronBufferGeometry(1,0);
+
+pyramid = new THREE.Mesh(pyramidgeo,pyramidmat);
+pyramid.position.set(13.108,-0.504,17.648);
+pyramid.scale.set(11.964,11.487,7.621);
+scene.add(pyramid);
+
+var human;
+ 
+var bodymat = new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF, roughness: 0.47, metalness: 0.20, emissive: 0x000000, clearcoat: 0.06, clearcoatroughness: 0.0 });
+
+var loader = new THREE.GLTFLoader().setPath( 'models/' );
+loader.load( 'bodypose.gltf', function ( gltf ) {
+  gltf.scene.traverse( function ( child ) {
+                if ( child.isMesh ) {
+                  child.position.set(-0.004, 3.660, -6.052);
+                  child.rotation.set(1.98496296, -0.0279253, 0.27419123);
+                  child.material = bodymat;
+                  child.castShadow = true;
+                  child.receiveShadow = true;
+                  //child.material.envMap = envMap;
+                }
+              } );
+             // scene.add( gltf.scene );
+              human = gltf.scene;
+});
+
+  /*
+
+  light2.castShadow = true;
+  light2.shadow.camera.left = - d;
+  light2.shadow.camera.right = d;
+  light2.shadow.camera.top = d;
+  light2.shadow.camera.bottom = - d;
+
+
+//Set up shadow properties for the light
+  light2.shadow.mapSize.width = 512;  // default
+  light2.shadow.mapSize.height = 512; // default
+  light2.shadow.camera.near = 0.01;       // default
+  light2.shadow.camera.far = 1000      // default
+
+  scene.add( light2 );
+  */
+
+
+
+  
+
+  scene.add( camera );
+  if (typeof THREEx !== 'undefined' && THREEx.DomEvents) {
+    var domEvents = new THREEx.DomEvents(camera, renderer.domElement);
+  }
+
+
+  //////////////////////////////////////////////////////////////////////////////////
+  //    rendering              //
+  //////////////////////////////////////////////////////////////////////////////////
+
+var mouse = {
+  x: 0,
+  y: 0
+}
+        document.addEventListener('touchstart', onDocumentTouchStart, false);
+        document.addEventListener('touchmove', onDocumentTouchMove, false);
+
+document.addEventListener('mousemove', function(event) {
+  mouse.x = (event.clientX / window.innerWidth) - 0.5
+  mouse.y = (event.clientY / window.innerHeight) - 0.5
+}, false)
+onRenderFcts.push(function(delta, now) {
+  camera.position.x +=  ((mouse.x * 4 - camera.position.x) * (delta * 1))*0.5
+  camera.position.y += ((mouse.y * 2 - camera.position.y + 5.5) * (delta * 1))*0.2
+ 
+  //camera.position.y = 5.343;
+  camera.position.z = -13.747;
+  camera.lookAt(scene.position)
+
+
+
+
+})
+
+
+
+  var cubeSPEED = 0.0008;
+  var delta = clock.getDelta();
+  var time = delta;
+  time = time + 5; 
+
+
+  onRenderFcts.push(function(delta, now){
+
+
+
+
+  time = time + 0.01;
+materials1.uniforms.time.value = clock.getElapsedTime()*3;
+  //spheremat.uniforms.time.value = clock.getElapsedTime();
+  var children = group.children;
+  camera.rotation.x = -3.14159;
+boxup.rotation.y = time * 0.09;
+boxup.rotation.x = time * 0.09;
+boxback.rotation.x = time * 0.09;
+    debris.position.y = (Math.sin( time * 0.8 + debris.position.y * 0.03 ))*0.4;
+    debris.position.y = debris.position.y +3;
+    debris.rotation.y = time * 0.6;
+    
+    debris1.position.y = (Math.sin( time * 0.8 + debris1.position.y * 0.03 ))*0.4;
+    debris1.position.y = debris1.position.y +3;
+    debris1.rotation.x = time * 0.4;
+    
+    debris2.position.y = (Math.sin( time * 0.8 + debris2.position.y * 0.03 ))*0.4;
+    debris2.position.y = debris2.position.y +3;
+    debris2.rotation.z = time * 0.3;
+
+    boxright.position.y = (Math.sin( time * 0.8 + boxright.position.y * 0.03 ))*0.4;
+    boxright.position.y = boxright.position.y +5;
+    boxright.rotation.z = time * 0.3;
+    
+    boxleft.position.y = (Math.sin( time * 0.8 + boxleft.position.y * 0.03 ))*0.4;
+    boxleft.position.y = boxleft.position.y +3;
+    boxleft.rotation.z = time * 0.3;
+  
+    boxclose.position.y = (Math.sin( time * 0.8 + boxclose.position.y * 0.03 ))*0.6;
+    boxclose.position.y = boxclose.position.y +3;
+    boxclose.rotation.z = time * 0.3;
+
+
+    if (human) {
+      human.position.y = (Math.sin( time * 0.5 + human.position.y * 0.003 ))*0.5;
+      human.position.y = human.position.y + 1;
+      human.scale.z = (Math.sin( time * 0.5 + human.scale.z * 2 ))*0.05;
+      human.scale.z = human.scale.z + 1;
+    }
+       
+
+
+        for (g = 0; g < group2.children.length; g++) {
+
+            var object = group2.children[g];
+            //object.position.x = time * 3;
+            object.rotation.y = time * (g < 4 ? g + 1 : -(g + 1));
+       
+        }
+
+        for (g = 0; g < materials.length; g++) {
+
+            color = 0.2;
+            h = (360 * (color + time) % 360) / 360;
+            materials[g].color.setHSL(h, 0.5, 0.5);
+        }
+  
+  for ( var i = 0; i < children.length; i ++ ) {
+
+    var child = children[ i ];
+    var x = child.position.x;
+    var z = child.position.z;
+    var cycle = Math.sin( time * 0.05 ) * 0.3;
+    child.scale.y = Math.sin( time + x * cycle ) * Math.cos( time * 0.5 + z * cycle ) + 2;
+
+ }
+  
+
+  onWindowResize();
+
+  })
+
+
+  onRenderFcts.push(function(){
+const canvas = renderer.domElement;
+    uniforms.iResolution.value.set(canvas.width, canvas.height, 1);
+    uniforms.iTime.value = time;
+    renderer.render(scene,camera)
+    //composer.render(delta);
+  })
+
+
+  var lastTimeMsec= null
+  requestAnimationFrame(function animate(nowMsec){
+
+    requestAnimationFrame( animate );
+    lastTimeMsec  = lastTimeMsec || nowMsec-1000/60
+    var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+    lastTimeMsec  = nowMsec
+    onRenderFcts.forEach(function(onRenderFct){
+    onRenderFct(deltaMsec/1000, nowMsec/1000)
+
+
+
+  })
+    //updateCamera();
+
+  })
+  
+      function onDocumentTouchStart(e) {
+
+        if (e.touches.length === 1) {
+
+            e.preventDefault();
+            mouse.x = (e.touches[0].pageX / window.innerWidth)-0.5;
+            mouse.y= (e.touches[0].pageY / window.innerHeight)-0.5;
+        }
+    }
+
+    function onDocumentTouchMove(e) {
+
+        if (e.touches.length === 1) {
+
+            e.preventDefault();
+           
+            mouse.x = (e.touches[0].pageX / window.innerWidth)-0.5;
+            mouse.y= (e.touches[0].pageY / window.innerHeight)-0.5;
+        }
+    }
+
+  function onWindowResize ()
+  {
+     
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize (window.innerWidth, window.innerHeight);
+    //composer.setSize (window.innerWidth, window.innerHeight);
+
+
+  }
+
+
+
+  
+
+    </script>
+  
+
+</div><canvas id="c" width="1280" height="720" style="width: 1280px; height: 720px;"></canvas></body></html>

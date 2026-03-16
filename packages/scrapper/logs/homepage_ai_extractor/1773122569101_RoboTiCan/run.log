@@ -1,0 +1,66 @@
+[2026-03-10T06:02:49.101Z] === Homepage AI Extractor: RoboTiCan ===
+[2026-03-10T06:02:49.101Z] Started at: 2026-03-10T06:02:49.101Z
+[2026-03-10T06:02:49.101Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773122569101_RoboTiCan
+[2026-03-10T06:02:49.101Z] Company: RoboTiCan
+[2026-03-10T06:02:49.101Z] Website: robotican.net
+[2026-03-10T06:02:49.101Z] cbRank: 403841
+[2026-03-10T06:02:49.101Z] Reasons: h
+[2026-03-10T06:02:49.101Z] Fetching: https://robotican.net
+[2026-03-10T06:02:57.126Z] Redirected: https://robotican.net -> https://robotican.net/
+[2026-03-10T06:02:57.136Z] Saved HTML (279125 bytes) to page.html
+[2026-03-10T06:02:57.140Z] Extracted 18 unique links from page
+[2026-03-10T06:02:57.140Z] Saved 18 links to links.json
+[2026-03-10T06:02:57.148Z] Extracted footer HTML (33655 chars)
+[2026-03-10T06:02:57.148Z] Extracted header HTML (23398 chars)
+[2026-03-10T06:02:57.152Z] Website (post-redirect): https://robotican.net/ → origin: https://robotican.net
+[2026-03-10T06:02:57.152Z] External links: 4 (of 18 total)
+[2026-03-10T06:02:57.153Z] ── All external links ──
+[2026-03-10T06:02:57.153Z]   EXT: https://il.linkedin.com/company/robotican
+[2026-03-10T06:02:57.153Z]   EXT: https://www.facebook.com/roboticanltd
+[2026-03-10T06:02:57.153Z]   EXT: https://www.monsterinsights.com/?utm_source=verifiedBadge&utm_medium=verifiedBadge&utm_campaign=verifiedbyMonsterInsights
+[2026-03-10T06:02:57.153Z]   EXT: https://www.youtube.com/channel/UC6o-5Jx2A8qHBoJ9AIZMpPA
+[2026-03-10T06:02:57.153Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:02:57.153Z]   REGEX: li <- https://il.linkedin.com/company/robotican
+[2026-03-10T06:02:57.153Z]   REGEX: fb <- https://www.facebook.com/roboticanltd
+[2026-03-10T06:02:57.153Z]   UNCATEGORIZED: https://www.monsterinsights.com/?utm_source=verifiedBadge&utm_medium=verifiedBadge&utm_campaign=verifiedbyMonsterInsights
+[2026-03-10T06:02:57.153Z]   REGEX: ytc <- https://www.youtube.com/channel/UC6o-5Jx2A8qHBoJ9AIZMpPA
+[2026-03-10T06:02:57.153Z] Programmatic result: ws:1, li:1, fb:1, ytc:1 | 1 uncategorized
+[2026-03-10T06:02:57.153Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:02:57.154Z] Saved AI prompt (2702 chars) to ai_prompt.txt
+[2026-03-10T06:02:57.154Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:02:57.187Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:03:05.954Z]   AI: First token received, streaming...
+[2026-03-10T06:03:16.288Z] AI response complete: 137 chars in 19.1s
+[2026-03-10T06:03:16.289Z] Saved AI response to ai_response.json
+[2026-03-10T06:03:16.289Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T06:03:16.289Z]   AI LINK: https://www.youtube.com/channel/UC6o-5Jx2A8qHBoJ9AIZMpPA
+[2026-03-10T06:03:16.289Z]   AI LINK: https://il.linkedin.com/company/robotican
+[2026-03-10T06:03:16.290Z]   AI LINK: https://www.facebook.com/roboticanltd/
+[2026-03-10T06:03:16.290Z] AI returned 3 valid links
+[2026-03-10T06:03:16.290Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T06:03:16.290Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC6o-5Jx2A8qHBoJ9AIZMpPA (duplicate, skipped)
+[2026-03-10T06:03:16.290Z]   AI→REGEX: li <- https://il.linkedin.com/company/robotican (duplicate, skipped)
+[2026-03-10T06:03:16.290Z]   AI→REGEX: fb <- https://www.facebook.com/roboticanltd/ (duplicate, skipped)
+[2026-03-10T06:03:16.291Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:03:16.291Z] Footer/header origins (4):
+[2026-03-10T06:03:16.291Z]   FOOTER/HEADER ORIGIN: https://robotican.net
+[2026-03-10T06:03:16.291Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T06:03:16.291Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-10T06:03:16.291Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T06:03:16.291Z]   SKIP (not in footer/header): https://www.monsterinsights.com/?utm_source=verifiedBadge&utm_medium=verifiedBadge&utm_campaign=verifiedbyMonsterInsights
+[2026-03-10T06:03:16.291Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T06:03:16.291Z] ── Step 3: Final dedup ──
+[2026-03-10T06:03:16.291Z] No urls to dedup
+[2026-03-10T06:03:16.291Z] ── FINAL RESULT ──
+[2026-03-10T06:03:16.291Z]   ws (1):
+[2026-03-10T06:03:16.292Z]     - https://robotican.net
+[2026-03-10T06:03:16.292Z]   li (1):
+[2026-03-10T06:03:16.292Z]     - https://www.linkedin.com/company/robotican
+[2026-03-10T06:03:16.292Z]   fb (1):
+[2026-03-10T06:03:16.292Z]     - https://www.facebook.com/roboticanltd
+[2026-03-10T06:03:16.292Z]   ytc (1):
+[2026-03-10T06:03:16.292Z]     - https://www.youtube.com/channel/UC6o-5Jx2A8qHBoJ9AIZMpPA
+[2026-03-10T06:03:16.292Z] Summary: ws:1, li:1, fb:1, ytc:1
+[2026-03-10T06:03:16.292Z] Saved final result to result.json
+[2026-03-10T06:03:16.292Z] Override fields: ws, li, fb, ytc
+[2026-03-10T06:03:16.292Z] Finished at: 2026-03-10T06:03:16.292Z

@@ -8,8 +8,8 @@ import {
   isBannerDisplayed,
   isHintsToastShown,
   navigateToUrl,
-  waitForExtensionProcessing,
-  waitUntilHintShown
+  waitForBanner,
+  waitForExtensionProcessing
 } from "../utils/extension"
 
 describe("Rule Types", (): void => {
@@ -26,7 +26,7 @@ describe("Rule Types", (): void => {
 
   it("should handle urlOnly rules correctly", async () => {
     // urlOnly rules should ALWAYS show banners, never hints
-    const testUrl = await getTestUrlWithConditions({
+    const testUrl = getTestUrlWithConditions({
       ruleType: "urlOnly",
       expectBanner: true
     })
@@ -64,7 +64,7 @@ describe("Rule Types", (): void => {
     // urlDomFull rules extract URL from DOM and test it
     // Test with URLs that should show banners
     try {
-      const testUrl = await getTestUrlWithConditions({
+      const testUrl = getTestUrlWithConditions({
         ruleType: "urlDomFull",
         expectBanner: true
       })
@@ -96,50 +96,12 @@ describe("Rule Types", (): void => {
     }
   })
 
-  it("should handle urlDomInline rules correctly", async () => {
-    // urlDomInline rules trigger DOM scanning - test with URLs that should show banners
-    try {
-      const testUrl = await getTestUrlWithConditions({
-        ruleType: "urlDomInline",
-        expectBanner: true
-      })
-
-      const page = await context.newPage()
-      try {
-        const loaded = await navigateToUrl(page, testUrl.url)
-        if (!loaded) {
-          console.log(`[TEST] Navigation failed for ${testUrl.url}, skipping test`)
-          return
-        }
-        await waitForExtensionProcessing(page)
-
-        // urlDomInline rules trigger DOM scanning
-        // Wait for scanner to initialize (1.5s delay)
-        await page.waitForTimeout(2000)
-
-        // urlDomInline rules should show banner when scanned URLs are flagged
-        const bannerVisible = await isBannerDisplayed(page)
-        expect(bannerVisible).toBe(true)
-
-        markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
-      } finally {
-        await page.close()
-      }
-    } catch (error) {
-      if (error instanceof Error && error.message.includes("No URLs found")) {
-        console.log("[TEST] No urlDomInline URLs found in database, skipping test")
-        // Test passes - no urlDomInline URLs to test
-      } else {
-        throw error
-      }
-    }
-  })
-
   it("should handle special .il domains correctly", async () => {
-    // Try to get URLs with reason "u" (Israeli domains)
-    // If none exist, skip this test
+    // .il domains in the database get full results (banners), not hints.
+    // The .il hint fallback only fires for .il domains NOT in the database.
+    // Since getRandomUrls pulls from the database, these are known companies — expect banners.
     try {
-      const testUrls = await getRandomUrls({ count: 1, reason: "u", excludeLoginRequired: true })
+      const testUrls = getRandomUrls({ count: 1, reason: "u", excludeLoginRequired: true })
 
       for (const testUrl of testUrls) {
         const page = await context.newPage()
@@ -151,10 +113,8 @@ describe("Rule Types", (): void => {
           }
           await waitForExtensionProcessing(page)
 
-          // .il domains should show hints
-          await page.waitForTimeout(3000)
-          const toastVisible = await waitUntilHintShown(page)
-          expect(toastVisible).toBe(true)
+          // .il domains from the database should show banners (full results)
+          await waitForBanner(page)
 
           markUrlAsTested(testUrl.url, testUrl.ruleType, testUrl.reasons)
         } finally {
@@ -173,7 +133,7 @@ describe("Rule Types", (): void => {
 
   it("should handle social media rules correctly", async () => {
     // Social media URLs should show banners (not hints)
-    const testUrls = await getRandomUrls({
+    const testUrls = getRandomUrls({
       count: 1,
       hasSocialMedia: true,
       isHint: false,
@@ -205,12 +165,12 @@ describe("Rule Types", (): void => {
   })
 
   it("should ensure coverage of all rule types over multiple runs", async () => {
-    const ruleTypes: Array<"urlOnly" | "urlDomFull" | "urlDomInline"> = ["urlOnly", "urlDomFull", "urlDomInline"]
+    const ruleTypes: Array<"urlOnly" | "urlDomFull"> = ["urlOnly", "urlDomFull"]
 
     for (const ruleType of ruleTypes) {
       try {
         // All rule types should show banners when configured correctly
-        const testUrl = await getTestUrlWithConditions({
+        const testUrl = getTestUrlWithConditions({
           ruleType,
           expectBanner: true
         })

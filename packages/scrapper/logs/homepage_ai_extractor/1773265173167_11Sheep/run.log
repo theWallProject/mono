@@ -1,0 +1,73 @@
+[2026-03-11T21:39:33.167Z] === Homepage AI Extractor: 11Sheep ===
+[2026-03-11T21:39:33.168Z] Started at: 2026-03-11T21:39:33.168Z
+[2026-03-11T21:39:33.168Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773265173167_11Sheep
+[2026-03-11T21:39:33.168Z] Company: 11Sheep
+[2026-03-11T21:39:33.168Z] Website: 11sheep.com
+[2026-03-11T21:39:33.168Z] cbRank: 670854
+[2026-03-11T21:39:33.168Z] Reasons: h
+[2026-03-11T21:39:33.168Z] Fetching: https://11sheep.com
+[2026-03-11T21:40:01.893Z] Redirected: https://11sheep.com -> https://www.11sheep.com/
+[2026-03-11T21:40:01.897Z] Saved HTML (57701 bytes) to page.html
+[2026-03-11T21:40:01.900Z] Extracted 10 unique links from page
+[2026-03-11T21:40:01.900Z] Saved 10 links to links.json
+[2026-03-11T21:40:01.904Z] No footer section found in DOM
+[2026-03-11T21:40:01.904Z] Extracted header HTML (5332 chars)
+[2026-03-11T21:40:01.908Z] Website (post-redirect): https://www.11sheep.com/ → origin: https://www.11sheep.com
+[2026-03-11T21:40:01.908Z] External links: 5 (of 10 total)
+[2026-03-11T21:40:01.909Z] ── All external links ──
+[2026-03-11T21:40:01.909Z]   EXT: https://twitter.com/11Shepherd
+[2026-03-11T21:40:01.909Z]   EXT: https://www.facebook.com/11Sheep
+[2026-03-11T21:40:01.909Z]   EXT: https://www.sheep-service.info/general/license
+[2026-03-11T21:40:01.909Z]   EXT: https://www.sheep-service.info/general/privacy
+[2026-03-11T21:40:01.909Z]   EXT: https://www.youtube.com/channel/UCMJ15A_lOlLkzuS4go4Hq_Q?view_as=subscriber
+[2026-03-11T21:40:01.909Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T21:40:01.909Z]   REGEX: tw <- https://twitter.com/11Shepherd
+[2026-03-11T21:40:01.909Z]   REGEX: fb <- https://www.facebook.com/11Sheep
+[2026-03-11T21:40:01.909Z]   UNCATEGORIZED: https://www.sheep-service.info/general/license
+[2026-03-11T21:40:01.909Z]   UNCATEGORIZED: https://www.sheep-service.info/general/privacy
+[2026-03-11T21:40:01.909Z]   REGEX: ytc <- https://www.youtube.com/channel/UCMJ15A_lOlLkzuS4go4Hq_Q?view_as=subscriber
+[2026-03-11T21:40:01.910Z] Programmatic result: ws:1, tw:1, fb:1, ytc:1 | 2 uncategorized
+[2026-03-11T21:40:01.910Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T21:40:01.910Z] Saved AI prompt (2025 chars) to ai_prompt.txt
+[2026-03-11T21:40:01.911Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T21:40:01.925Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T21:40:08.643Z]   AI: First token received, streaming...
+[2026-03-11T21:40:12.247Z] AI response complete: 93 chars in 10.3s
+[2026-03-11T21:40:12.248Z] Saved AI response to ai_response.json
+[2026-03-11T21:40:12.248Z] ── Parsing AI response (2 lines) ──
+[2026-03-11T21:40:12.248Z]   AI LINK: https://www.sheep-service.info/general/license
+[2026-03-11T21:40:12.248Z]   AI LINK: https://www.sheep-service.info/general/privacy
+[2026-03-11T21:40:12.248Z] AI returned 2 valid links
+[2026-03-11T21:40:12.248Z] ── Categorizing 2 AI-returned links ──
+[2026-03-11T21:40:12.249Z]   AI→URLS: https://www.sheep-service.info/general/license
+[2026-03-11T21:40:12.249Z]   AI→URLS: https://www.sheep-service.info/general/privacy
+[2026-03-11T21:40:12.249Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T21:40:12.249Z] Footer/header origins (1):
+[2026-03-11T21:40:12.249Z]   FOOTER/HEADER ORIGIN: https://www.11sheep.com
+[2026-03-11T21:40:12.249Z]   SKIP (AI claimed): https://www.sheep-service.info/general/license
+[2026-03-11T21:40:12.249Z]   SKIP (AI claimed): https://www.sheep-service.info/general/privacy
+[2026-03-11T21:40:12.249Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T21:40:12.249Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T21:40:12.250Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-11T21:40:12.591Z]   YOUTUBE: resolved UCMJ15A_lOlLkzuS4go4Hq_Q → @11sheep
+[2026-03-11T21:40:12.592Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-11T21:40:12.592Z] ── Step 3: Final dedup ──
+[2026-03-11T21:40:12.592Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-11T21:40:12.592Z] ── FINAL RESULT ──
+[2026-03-11T21:40:12.592Z]   ws (1):
+[2026-03-11T21:40:12.592Z]     - https://www.11sheep.com
+[2026-03-11T21:40:12.592Z]   fb (1):
+[2026-03-11T21:40:12.592Z]     - https://www.facebook.com/11sheep
+[2026-03-11T21:40:12.592Z]   tw (1):
+[2026-03-11T21:40:12.592Z]     - https://x.com/11shepherd
+[2026-03-11T21:40:12.592Z]   ytp (1):
+[2026-03-11T21:40:12.592Z]     - https://www.youtube.com/@11sheep
+[2026-03-11T21:40:12.592Z]   ytc (1):
+[2026-03-11T21:40:12.593Z]     - https://www.youtube.com/channel/UCMJ15A_lOlLkzuS4go4Hq_Q
+[2026-03-11T21:40:12.593Z]   urls (2):
+[2026-03-11T21:40:12.593Z]     - https://www.sheep-service.info/general/license
+[2026-03-11T21:40:12.593Z]     - https://www.sheep-service.info/general/privacy
+[2026-03-11T21:40:12.593Z] Summary: ws:1, tw:1, fb:1, ytc:1, urls:2, ytp:1
+[2026-03-11T21:40:12.593Z] Saved final result to result.json
+[2026-03-11T21:40:12.594Z] Override fields: ws, fb, tw, ytp, ytc, urls
+[2026-03-11T21:40:12.594Z] Finished at: 2026-03-11T21:40:12.594Z

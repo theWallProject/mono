@@ -1,0 +1,69 @@
+[2026-03-10T09:33:23.438Z] === Homepage AI Extractor: A.L. GROUP ===
+[2026-03-10T09:33:23.438Z] Started at: 2026-03-10T09:33:23.438Z
+[2026-03-10T09:33:23.438Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773135203437_A.L._GROUP
+[2026-03-10T09:33:23.438Z] Company: A.L. GROUP
+[2026-03-10T09:33:23.438Z] Website: algroup.com
+[2026-03-10T09:33:23.438Z] cbRank: 454206
+[2026-03-10T09:33:23.438Z] Reasons: h
+[2026-03-10T09:33:23.438Z] Fetching: https://algroup.com
+[2026-03-10T09:33:26.172Z] Redirected: https://algroup.com -> https://algroup.com/
+[2026-03-10T09:33:26.183Z] Saved HTML (251672 bytes) to page.html
+[2026-03-10T09:33:26.189Z] Extracted 53 unique links from page
+[2026-03-10T09:33:26.190Z] Saved 53 links to links.json
+[2026-03-10T09:33:26.199Z] Extracted footer HTML (14595 chars)
+[2026-03-10T09:33:26.199Z] Extracted header HTML (113022 chars)
+[2026-03-10T09:33:26.223Z] Website (post-redirect): https://algroup.com/ → origin: https://algroup.com
+[2026-03-10T09:33:26.224Z] External links: 4 (of 53 total)
+[2026-03-10T09:33:26.224Z] ── All external links ──
+[2026-03-10T09:33:26.224Z]   EXT: https://twitter.com/ALGROUP1965
+[2026-03-10T09:33:26.224Z]   EXT: https://www.facebook.com/ALGROUP1965
+[2026-03-10T09:33:26.225Z]   EXT: https://www.linkedin.com/company/a-l-group
+[2026-03-10T09:33:26.225Z]   EXT: https://zencemyday.com
+[2026-03-10T09:33:26.225Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T09:33:26.225Z]   REGEX: tw <- https://twitter.com/ALGROUP1965
+[2026-03-10T09:33:26.225Z]   REGEX: fb <- https://www.facebook.com/ALGROUP1965
+[2026-03-10T09:33:26.225Z]   REGEX: li <- https://www.linkedin.com/company/a-l-group
+[2026-03-10T09:33:26.225Z]   UNCATEGORIZED: https://zencemyday.com
+[2026-03-10T09:33:26.226Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-10T09:33:26.226Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T09:33:26.229Z] Saved AI prompt (10119 chars) to ai_prompt.txt
+[2026-03-10T09:33:26.229Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T09:33:26.255Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T09:34:09.886Z]   AI: First token received, streaming...
+[2026-03-10T09:34:18.237Z] AI response complete: 113 chars in 52.0s
+[2026-03-10T09:34:18.237Z] Saved AI response to ai_response.json
+[2026-03-10T09:34:18.237Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T09:34:18.238Z]   AI LINK: https://www.facebook.com/ALGROUP1965/
+[2026-03-10T09:34:18.238Z]   AI LINK: https://twitter.com/ALGROUP1965
+[2026-03-10T09:34:18.238Z]   AI LINK: https://www.linkedin.com/company/a-l-group/
+[2026-03-10T09:34:18.238Z] AI returned 3 valid links
+[2026-03-10T09:34:18.238Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T09:34:18.238Z]   AI→REGEX: fb <- https://www.facebook.com/ALGROUP1965/ (duplicate, skipped)
+[2026-03-10T09:34:18.238Z]   AI→REGEX: tw <- https://twitter.com/ALGROUP1965 (duplicate, skipped)
+[2026-03-10T09:34:18.238Z]   AI→REGEX: li <- https://www.linkedin.com/company/a-l-group/ (duplicate, skipped)
+[2026-03-10T09:34:18.239Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T09:34:18.239Z] Footer/header origins (5):
+[2026-03-10T09:34:18.239Z]   FOOTER/HEADER ORIGIN: https://algroup.com
+[2026-03-10T09:34:18.239Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T09:34:18.239Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-10T09:34:18.239Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T09:34:18.239Z]   FOOTER/HEADER ORIGIN: https://zencemyday.com
+[2026-03-10T09:34:18.239Z]   ADDED: urls <- https://zencemyday.com
+[2026-03-10T09:34:18.239Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T09:34:18.239Z] ── Step 3: Final dedup ──
+[2026-03-10T09:34:18.239Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T09:34:18.240Z] ── FINAL RESULT ──
+[2026-03-10T09:34:18.240Z]   ws (1):
+[2026-03-10T09:34:18.240Z]     - https://algroup.com
+[2026-03-10T09:34:18.240Z]   li (1):
+[2026-03-10T09:34:18.240Z]     - https://www.linkedin.com/company/a-l-group
+[2026-03-10T09:34:18.240Z]   fb (1):
+[2026-03-10T09:34:18.240Z]     - https://www.facebook.com/algroup1965
+[2026-03-10T09:34:18.240Z]   tw (1):
+[2026-03-10T09:34:18.240Z]     - https://x.com/algroup1965
+[2026-03-10T09:34:18.240Z]   urls (1):
+[2026-03-10T09:34:18.240Z]     - https://zencemyday.com
+[2026-03-10T09:34:18.240Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-10T09:34:18.241Z] Saved final result to result.json
+[2026-03-10T09:34:18.241Z] Override fields: ws, li, fb, tw, urls
+[2026-03-10T09:34:18.241Z] Finished at: 2026-03-10T09:34:18.241Z

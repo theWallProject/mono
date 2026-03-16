@@ -1,0 +1,72 @@
+[2026-03-10T04:48:25.806Z] === Homepage AI Extractor: Next Plus ===
+[2026-03-10T04:48:25.806Z] Started at: 2026-03-10T04:48:25.806Z
+[2026-03-10T04:48:25.806Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773118105806_Next_Plus
+[2026-03-10T04:48:25.806Z] Company: Next Plus
+[2026-03-10T04:48:25.807Z] Website: nextplus.io
+[2026-03-10T04:48:25.807Z] cbRank: 381791
+[2026-03-10T04:48:25.807Z] Reasons: h
+[2026-03-10T04:48:25.807Z] Fetching: https://nextplus.io
+[2026-03-10T04:48:28.173Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-10T04:48:31.109Z] Redirected: https://nextplus.io -> https://www.nextplus.io/
+[2026-03-10T04:48:31.124Z] Saved HTML (426013 bytes) to page.html
+[2026-03-10T04:48:31.128Z] Extracted 28 unique links from page
+[2026-03-10T04:48:31.128Z] Saved 28 links to links.json
+[2026-03-10T04:48:31.132Z] Extracted footer HTML (12137 chars)
+[2026-03-10T04:48:31.132Z] Extracted header HTML (4351 chars)
+[2026-03-10T04:48:31.136Z] Website (post-redirect): https://www.nextplus.io/ → origin: https://www.nextplus.io
+[2026-03-10T04:48:31.136Z]   SUBDOMAIN: success.nextplus.io (added to ws)
+[2026-03-10T04:48:31.136Z] Website subdomains found: 1
+[2026-03-10T04:48:31.136Z] External links: 3 (of 28 total)
+[2026-03-10T04:48:31.136Z] ── All external links ──
+[2026-03-10T04:48:31.137Z]   EXT: https://maps.google.com/?q=8+Nakhalat+Yitskhak+St+Tel+Aviv+Israel
+[2026-03-10T04:48:31.137Z]   EXT: https://www.linkedin.com/company/nextplus4
+[2026-03-10T04:48:31.137Z]   EXT: https://youtube.com/@nextplus-simplymakingyourf3424?si=C5pNYowHU3qEz6-p
+[2026-03-10T04:48:31.137Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T04:48:31.137Z]   UNCATEGORIZED: https://maps.google.com/?q=8+Nakhalat+Yitskhak+St+Tel+Aviv+Israel
+[2026-03-10T04:48:31.137Z]   REGEX: li <- https://www.linkedin.com/company/nextplus4
+[2026-03-10T04:48:31.137Z]   REGEX: ytp <- https://youtube.com/@nextplus-simplymakingyourf3424?si=C5pNYowHU3qEz6-p
+[2026-03-10T04:48:31.137Z] Programmatic result: ws:2, li:1, ytp:1 | 1 uncategorized
+[2026-03-10T04:48:31.137Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T04:48:31.140Z] Saved AI prompt (6388 chars) to ai_prompt.txt
+[2026-03-10T04:48:31.140Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T04:48:31.158Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T04:49:00.747Z]   AI: First token received, streaming...
+[2026-03-10T04:49:19.446Z]   AI streaming: 201 chars received (48.3s elapsed)
+[2026-03-10T04:49:19.451Z] AI response complete: 208 chars in 48.3s
+[2026-03-10T04:49:19.452Z] Saved AI response to ai_response.json
+[2026-03-10T04:49:19.452Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T04:49:19.452Z]   AI LINK: https://www.linkedin.com/company/nextplus4
+[2026-03-10T04:49:19.452Z]   AI LINK: https://success.nextplus.io
+[2026-03-10T04:49:19.452Z]   AI LINK: https://youtube.com/@nextplus-simplymakingyourf3424?si=C5pNYowHU3qEz6-p
+[2026-03-10T04:49:19.452Z]   AI LINK: https://maps.google.com/?q=8+Nakhalat+Yitskhak+St+Tel+Aviv+Israel
+[2026-03-10T04:49:19.452Z] AI returned 4 valid links
+[2026-03-10T04:49:19.452Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T04:49:19.452Z]   AI→REGEX: li <- https://www.linkedin.com/company/nextplus4 (duplicate, skipped)
+[2026-03-10T04:49:19.452Z]   AI→URLS: https://success.nextplus.io
+[2026-03-10T04:49:19.452Z]   AI→REGEX: ytp <- https://youtube.com/@nextplus-simplymakingyourf3424?si=C5pNYowHU3qEz6-p (duplicate, skipped)
+[2026-03-10T04:49:19.453Z]   AI→URLS: https://maps.google.com (cleaned from https://maps.google.com/?q=8+Nakhalat+Yitskhak+St+Tel+Aviv+Israel)
+[2026-03-10T04:49:19.453Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T04:49:19.453Z] Footer/header origins (4):
+[2026-03-10T04:49:19.453Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T04:49:19.453Z]   FOOTER/HEADER ORIGIN: https://maps.google.com
+[2026-03-10T04:49:19.453Z]   FOOTER/HEADER ORIGIN: https://success.nextplus.io
+[2026-03-10T04:49:19.453Z]   FOOTER/HEADER ORIGIN: https://youtube.com
+[2026-03-10T04:49:19.453Z]   SKIP (AI claimed): https://maps.google.com/?q=8+Nakhalat+Yitskhak+St+Tel+Aviv+Israel
+[2026-03-10T04:49:19.453Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T04:49:19.454Z] ── Step 3: Final dedup ──
+[2026-03-10T04:49:19.454Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T04:49:19.454Z] ── FINAL RESULT ──
+[2026-03-10T04:49:19.454Z]   ws (2):
+[2026-03-10T04:49:19.454Z]     - https://success.nextplus.io
+[2026-03-10T04:49:19.454Z]     - https://www.nextplus.io
+[2026-03-10T04:49:19.454Z]   li (1):
+[2026-03-10T04:49:19.454Z]     - https://www.linkedin.com/company/nextplus4
+[2026-03-10T04:49:19.454Z]   ytp (1):
+[2026-03-10T04:49:19.454Z]     - https://www.youtube.com/@nextplus-simplymakingyourf3424
+[2026-03-10T04:49:19.454Z]   urls (2):
+[2026-03-10T04:49:19.454Z]     - https://maps.google.com
+[2026-03-10T04:49:19.454Z]     - https://success.nextplus.io
+[2026-03-10T04:49:19.454Z] Summary: ws:2, li:1, ytp:1, urls:2
+[2026-03-10T04:49:19.455Z] Saved final result to result.json
+[2026-03-10T04:49:19.456Z] Override fields: ws, li, ytp, urls
+[2026-03-10T04:49:19.456Z] Finished at: 2026-03-10T04:49:19.456Z

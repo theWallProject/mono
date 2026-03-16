@@ -1,0 +1,62 @@
+[2026-03-10T08:41:35.912Z] === Homepage AI Extractor: Gynica ===
+[2026-03-10T08:41:35.912Z] Started at: 2026-03-10T08:41:35.912Z
+[2026-03-10T08:41:35.912Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773132095912_Gynica
+[2026-03-10T08:41:35.912Z] Company: Gynica
+[2026-03-10T08:41:35.912Z] Website: gynica.com
+[2026-03-10T08:41:35.913Z] cbRank: 445207
+[2026-03-10T08:41:35.913Z] Reasons: h
+[2026-03-10T08:41:35.913Z] Fetching: https://gynica.com
+[2026-03-10T08:41:40.841Z] Redirected: https://gynica.com -> https://gynica.com/
+[2026-03-10T08:41:40.844Z] Saved HTML (37109 bytes) to page.html
+[2026-03-10T08:41:40.847Z] Extracted 15 unique links from page
+[2026-03-10T08:41:40.848Z] Saved 15 links to links.json
+[2026-03-10T08:41:40.851Z] Extracted footer HTML (1784 chars)
+[2026-03-10T08:41:40.851Z] Extracted header HTML (1856 chars)
+[2026-03-10T08:41:40.857Z] Website (post-redirect): https://gynica.com/ → origin: https://gynica.com
+[2026-03-10T08:41:40.857Z] External links: 3 (of 15 total)
+[2026-03-10T08:41:40.857Z] ── All external links ──
+[2026-03-10T08:41:40.857Z]   EXT: https://stylenstigma.com
+[2026-03-10T08:41:40.858Z]   EXT: https://www.facebook.com/Gynica
+[2026-03-10T08:41:40.858Z]   EXT: https://www.instagram.com/gynica_
+[2026-03-10T08:41:40.858Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T08:41:40.858Z]   UNCATEGORIZED: https://stylenstigma.com
+[2026-03-10T08:41:40.858Z]   REGEX: fb <- https://www.facebook.com/Gynica
+[2026-03-10T08:41:40.858Z]   REGEX: ig <- https://www.instagram.com/gynica_
+[2026-03-10T08:41:40.858Z] Programmatic result: ws:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-10T08:41:40.858Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T08:41:40.859Z] Saved AI prompt (3065 chars) to ai_prompt.txt
+[2026-03-10T08:41:40.859Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T08:41:40.885Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T08:41:51.472Z]   AI: First token received, streaming...
+[2026-03-10T08:41:55.104Z] AI response complete: 67 chars in 14.2s
+[2026-03-10T08:41:55.106Z] Saved AI response to ai_response.json
+[2026-03-10T08:41:55.106Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T08:41:55.106Z]   AI LINK: https://www.instagram.com/gynica_/
+[2026-03-10T08:41:55.106Z]   AI LINK: https://www.facebook.com/Gynica/
+[2026-03-10T08:41:55.106Z] AI returned 2 valid links
+[2026-03-10T08:41:55.106Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T08:41:55.106Z]   AI→REGEX: ig <- https://www.instagram.com/gynica_/ (duplicate, skipped)
+[2026-03-10T08:41:55.107Z]   AI→REGEX: fb <- https://www.facebook.com/Gynica/ (duplicate, skipped)
+[2026-03-10T08:41:55.107Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T08:41:55.107Z] Footer/header origins (4):
+[2026-03-10T08:41:55.107Z]   FOOTER/HEADER ORIGIN: https://stylenstigma.com
+[2026-03-10T08:41:55.107Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T08:41:55.107Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T08:41:55.107Z]   FOOTER/HEADER ORIGIN: https://gynica.com
+[2026-03-10T08:41:55.107Z]   ADDED: urls <- https://stylenstigma.com
+[2026-03-10T08:41:55.107Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T08:41:55.107Z] ── Step 3: Final dedup ──
+[2026-03-10T08:41:55.107Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T08:41:55.107Z] ── FINAL RESULT ──
+[2026-03-10T08:41:55.108Z]   ws (1):
+[2026-03-10T08:41:55.108Z]     - https://gynica.com
+[2026-03-10T08:41:55.108Z]   fb (1):
+[2026-03-10T08:41:55.108Z]     - https://www.facebook.com/gynica
+[2026-03-10T08:41:55.108Z]   ig (1):
+[2026-03-10T08:41:55.108Z]     - https://www.instagram.com/gynica_
+[2026-03-10T08:41:55.108Z]   urls (1):
+[2026-03-10T08:41:55.108Z]     - https://stylenstigma.com
+[2026-03-10T08:41:55.108Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-10T08:41:55.108Z] Saved final result to result.json
+[2026-03-10T08:41:55.109Z] Override fields: ws, fb, ig, urls
+[2026-03-10T08:41:55.109Z] Finished at: 2026-03-10T08:41:55.109Z

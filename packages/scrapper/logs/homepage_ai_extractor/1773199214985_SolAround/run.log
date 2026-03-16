@@ -1,0 +1,56 @@
+[2026-03-11T03:20:14.986Z] === Homepage AI Extractor: SolAround ===
+[2026-03-11T03:20:14.986Z] Started at: 2026-03-11T03:20:14.986Z
+[2026-03-11T03:20:14.986Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773199214985_SolAround
+[2026-03-11T03:20:14.986Z] Company: SolAround
+[2026-03-11T03:20:14.986Z] Website: sol-around.com
+[2026-03-11T03:20:14.986Z] cbRank: 564256
+[2026-03-11T03:20:14.986Z] Reasons: h
+[2026-03-11T03:20:14.986Z] Fetching: https://sol-around.com
+[2026-03-11T03:20:25.858Z] Network idle timeout — continuing with current state
+[2026-03-11T03:20:25.900Z] Redirected: https://sol-around.com -> https://www.sol-around.com/
+[2026-03-11T03:20:25.912Z] Saved HTML (403899 bytes) to page.html
+[2026-03-11T03:20:25.916Z] Extracted 14 unique links from page
+[2026-03-11T03:20:25.917Z] Saved 14 links to links.json
+[2026-03-11T03:20:25.920Z] Extracted footer HTML (1898 chars)
+[2026-03-11T03:20:25.920Z] Extracted header HTML (11001 chars)
+[2026-03-11T03:20:25.924Z] Website (post-redirect): https://www.sol-around.com/ → origin: https://www.sol-around.com
+[2026-03-11T03:20:25.924Z] External links: 2 (of 14 total)
+[2026-03-11T03:20:25.924Z] ── All external links ──
+[2026-03-11T03:20:25.925Z]   EXT: http://www.oktopus.co.il
+[2026-03-11T03:20:25.925Z]   EXT: https://www.linkedin.com/company/17885026
+[2026-03-11T03:20:25.925Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:20:25.925Z]   UNCATEGORIZED: http://www.oktopus.co.il
+[2026-03-11T03:20:25.925Z]   REGEX: li <- https://www.linkedin.com/company/17885026
+[2026-03-11T03:20:25.925Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-11T03:20:25.925Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:20:25.926Z] Saved AI prompt (3313 chars) to ai_prompt.txt
+[2026-03-11T03:20:25.926Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:20:25.942Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:20:40.608Z]   AI: First token received, streaming...
+[2026-03-11T03:20:43.476Z] AI response complete: 42 chars in 17.6s
+[2026-03-11T03:20:43.477Z] Saved AI response to ai_response.json
+[2026-03-11T03:20:43.478Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T03:20:43.478Z]   AI LINK: https://www.linkedin.com/company/17885026/
+[2026-03-11T03:20:43.478Z] AI returned 1 valid links
+[2026-03-11T03:20:43.478Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T03:20:43.478Z]   AI→REGEX: li <- https://www.linkedin.com/company/17885026/ (duplicate, skipped)
+[2026-03-11T03:20:43.478Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:20:43.478Z] Footer/header origins (3):
+[2026-03-11T03:20:43.478Z]   FOOTER/HEADER ORIGIN: http://www.oktopus.co.il
+[2026-03-11T03:20:43.478Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T03:20:43.478Z]   FOOTER/HEADER ORIGIN: https://www.sol-around.com
+[2026-03-11T03:20:43.479Z]   ADDED: urls <- http://www.oktopus.co.il
+[2026-03-11T03:20:43.479Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T03:20:43.479Z] ── Step 3: Final dedup ──
+[2026-03-11T03:20:43.479Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T03:20:43.479Z] ── FINAL RESULT ──
+[2026-03-11T03:20:43.479Z]   ws (1):
+[2026-03-11T03:20:43.479Z]     - https://www.sol-around.com
+[2026-03-11T03:20:43.479Z]   li (1):
+[2026-03-11T03:20:43.479Z]     - https://www.linkedin.com/company/17885026
+[2026-03-11T03:20:43.479Z]   urls (1):
+[2026-03-11T03:20:43.479Z]     - http://www.oktopus.co.il
+[2026-03-11T03:20:43.479Z] Summary: ws:1, li:1, urls:1
+[2026-03-11T03:20:43.480Z] Saved final result to result.json
+[2026-03-11T03:20:43.480Z] Override fields: ws, li, urls
+[2026-03-11T03:20:43.480Z] Finished at: 2026-03-11T03:20:43.480Z

@@ -1,0 +1,77 @@
+[2026-03-10T11:15:19.725Z] === Homepage AI Extractor: Annatel ===
+[2026-03-10T11:15:19.725Z] Started at: 2026-03-10T11:15:19.725Z
+[2026-03-10T11:15:19.725Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773141319724_Annatel
+[2026-03-10T11:15:19.725Z] Company: Annatel
+[2026-03-10T11:15:19.725Z] Website: annatel.net
+[2026-03-10T11:15:19.726Z] cbRank: 486050
+[2026-03-10T11:15:19.726Z] Reasons: h
+[2026-03-10T11:15:19.726Z] Fetching: https://annatel.net
+[2026-03-10T11:15:24.224Z] Redirected: https://annatel.net -> https://www.annatel.net/fr_FR/
+[2026-03-10T11:15:24.227Z] Saved HTML (16653 bytes) to page.html
+[2026-03-10T11:15:24.231Z] Extracted 8 unique links from page
+[2026-03-10T11:15:24.232Z] Saved 8 links to links.json
+[2026-03-10T11:15:24.236Z] Extracted footer HTML (2285 chars)
+[2026-03-10T11:15:24.236Z] Extracted header HTML (1017 chars)
+[2026-03-10T11:15:24.242Z] Website (post-redirect): https://www.annatel.net/fr_FR/ → origin: https://www.annatel.net
+[2026-03-10T11:15:24.242Z]   SUBDOMAIN: client.annatel.net (added to ws)
+[2026-03-10T11:15:24.242Z] Website subdomains found: 1
+[2026-03-10T11:15:24.243Z] External links: 5 (of 8 total)
+[2026-03-10T11:15:24.243Z] ── All external links ──
+[2026-03-10T11:15:24.243Z]   EXT: http://anna.tl/wa
+[2026-03-10T11:15:24.243Z]   EXT: https://accessibility-widget.pages.dev
+[2026-03-10T11:15:24.243Z]   EXT: https://www.annatel.co.il/fr_FR
+[2026-03-10T11:15:24.243Z]   EXT: https://www.facebook.com/levannatel
+[2026-03-10T11:15:24.243Z]   EXT: https://www.instagram.com/annatelofficiel
+[2026-03-10T11:15:24.243Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T11:15:24.243Z]   UNCATEGORIZED: http://anna.tl/wa
+[2026-03-10T11:15:24.244Z]   UNCATEGORIZED: https://accessibility-widget.pages.dev
+[2026-03-10T11:15:24.244Z]   UNCATEGORIZED: https://www.annatel.co.il/fr_FR
+[2026-03-10T11:15:24.244Z]   REGEX: fb <- https://www.facebook.com/levannatel
+[2026-03-10T11:15:24.244Z]   REGEX: ig <- https://www.instagram.com/annatelofficiel
+[2026-03-10T11:15:24.244Z] Programmatic result: ws:2, fb:1, ig:1 | 3 uncategorized
+[2026-03-10T11:15:24.244Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T11:15:24.245Z] Saved AI prompt (3376 chars) to ai_prompt.txt
+[2026-03-10T11:15:24.245Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T11:15:24.265Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T11:15:36.986Z]   AI: First token received, streaming...
+[2026-03-10T11:15:44.942Z] AI response complete: 128 chars in 20.7s
+[2026-03-10T11:15:44.943Z] Saved AI response to ai_response.json
+[2026-03-10T11:15:44.943Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T11:15:44.943Z]   AI LINK: http://anna.tl/wa
+[2026-03-10T11:15:44.943Z]   AI LINK: https://www.facebook.com/levannatel
+[2026-03-10T11:15:44.943Z]   AI LINK: https://www.instagram.com/annatelofficiel/
+[2026-03-10T11:15:44.943Z]   AI LINK: https://www.annatel.co.il/fr_FR
+[2026-03-10T11:15:44.943Z] AI returned 4 valid links
+[2026-03-10T11:15:44.943Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T11:15:44.943Z]   AI→URLS: http://anna.tl/wa
+[2026-03-10T11:15:44.943Z]   AI→REGEX: fb <- https://www.facebook.com/levannatel (duplicate, skipped)
+[2026-03-10T11:15:44.943Z]   AI→REGEX: ig <- https://www.instagram.com/annatelofficiel/ (duplicate, skipped)
+[2026-03-10T11:15:44.944Z]   AI→URLS: https://www.annatel.co.il/fr_FR
+[2026-03-10T11:15:44.944Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T11:15:44.944Z] Footer/header origins (5):
+[2026-03-10T11:15:44.944Z]   FOOTER/HEADER ORIGIN: http://anna.tl
+[2026-03-10T11:15:44.944Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T11:15:44.944Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T11:15:44.944Z]   FOOTER/HEADER ORIGIN: https://client.annatel.net
+[2026-03-10T11:15:44.944Z]   FOOTER/HEADER ORIGIN: https://www.annatel.co.il
+[2026-03-10T11:15:44.944Z]   SKIP (AI claimed): http://anna.tl/wa
+[2026-03-10T11:15:44.944Z]   SKIP (not in footer/header): https://accessibility-widget.pages.dev
+[2026-03-10T11:15:44.944Z]   SKIP (AI claimed): https://www.annatel.co.il/fr_FR
+[2026-03-10T11:15:44.944Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T11:15:44.945Z] ── Step 3: Final dedup ──
+[2026-03-10T11:15:44.945Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T11:15:44.945Z] ── FINAL RESULT ──
+[2026-03-10T11:15:44.945Z]   ws (2):
+[2026-03-10T11:15:44.945Z]     - https://client.annatel.net
+[2026-03-10T11:15:44.945Z]     - https://www.annatel.net
+[2026-03-10T11:15:44.945Z]   fb (1):
+[2026-03-10T11:15:44.945Z]     - https://www.facebook.com/levannatel
+[2026-03-10T11:15:44.945Z]   ig (1):
+[2026-03-10T11:15:44.945Z]     - https://www.instagram.com/annatelofficiel
+[2026-03-10T11:15:44.945Z]   urls (2):
+[2026-03-10T11:15:44.945Z]     - http://anna.tl/wa
+[2026-03-10T11:15:44.945Z]     - https://www.annatel.co.il/fr_FR
+[2026-03-10T11:15:44.945Z] Summary: ws:2, fb:1, ig:1, urls:2
+[2026-03-10T11:15:44.946Z] Saved final result to result.json
+[2026-03-10T11:15:44.946Z] Override fields: ws, fb, ig, urls
+[2026-03-10T11:15:44.946Z] Finished at: 2026-03-10T11:15:44.946Z

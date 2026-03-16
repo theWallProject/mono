@@ -1,0 +1,2191 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vioops - Your AI Travel Agent</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-obDEicORg1BccYuEfFig6FFh0s3Ho2B7lr6lAHLJGwZTVRSgTgfEKmrfdJ2g/NkT"></script><script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+  
+  <!-- Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CJ6NZKPK0P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CJ6NZKPK0P');
+  </script>
+
+  <style>
+    :root {
+      --primary-color: #FF7F00; /* Exact hex from North_Italy_Road_Trip.html */
+      --primary-dark: #e66e00; /* Exact hex from North_Italy_Road_Trip.html */
+      --mocha-mousse: #8D6E63;
+      --terracotta-red: var(--primary-color);
+      --sunny-yellow: #FFD54F;
+      --navy-blue: #1A237E;
+      --neutral-light: #FBF7F4;
+      --text-dark: #263238;
+      --text-light: #FFFFFF;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --radius: 8px;
+      --transition-speed: 0.3s;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      color: var(--text-dark);
+      background-color: #FFF8F5; /* Light orange tint */
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #FF7F00, #e66e00); /* Using exact hex values instead of variables to ensure consistency */
+      color: var(--text-light);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      transition: all var(--transition-speed) ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      color: var(--text-light);
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .logo img {
+      margin-right: 10px;
+      height: 40px;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav ul li {
+      margin-left: 25px;
+      position: relative;
+    }
+    
+    nav ul li a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+      color: var(--sunny-yellow);
+      transform: translateY(-2px);
+    }
+    
+    .user-controls {
+      display: flex;
+      align-items: center;
+    }
+    
+    .user-controls a {
+      color: var(--text-light);
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    .language-selector {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .language-selector img {
+      width: 24px;
+      height: 16px;
+      border: 1px solid var(--text-light);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(255, 112, 67, 0.85)), url('/api/placeholder/1200/600') center/cover no-repeat;
+      padding: 10px 0;
+      color: var(--text-light);
+      text-align: center;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero h1 {
+      font-size: 24px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 14px;
+      max-width: 700px;
+      margin: 0 auto 5px;
+      opacity: 0.9;
+    }
+    
+    /* Search Form */
+    .search-form {
+      background-color: var(--text-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 15px;
+      margin: 30px auto 50px; /* Added top margin to separate from hero */
+      position: relative;
+      max-width: 600px;
+      border: 2px solid var(--primary-color);
+    }
+    
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 3px;
+      font-weight: 500;
+      color: var(--mocha-mousse);
+      font-size: 13px;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid var(--primary-color);
+      border-radius: var(--radius);
+      font-size: 13px;
+      transition: all 0.3s ease;
+      background-color: #FFFAF7;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(255, 112, 67, 0.2);
+    }
+    
+    .date-picker {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .date-picker .form-group {
+      flex: 1;
+    }
+    
+    .guests-rooms {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .guests-rooms .form-group {
+      flex: 1;
+    }
+    
+    /* Trip Types */
+    .trip-cards {
+      margin: 15px 0;
+      padding: 0;
+    }
+    
+    .trip-card {
+      display: none; /* Hide the original cards */
+    }
+    
+    .trip-selector {
+      display: block;
+      width: 100%;
+    }
+    
+    .trip-select {
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid var(--primary-color);
+      border-radius: var(--radius);
+      font-size: 13px;
+      margin-bottom: 8px;
+      background-color: var(--text-light);
+      color: var(--text-dark);
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF7043' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 20px;
+    }
+    
+    .trip-select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(255, 112, 67, 0.2);
+    }
+    
+    .find-trip-btn {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: none;
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0.7;
+      pointer-events: none;
+      width: 100%;
+    }
+    
+    .find-trip-btn.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .find-trip-btn.active:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Trending Destinations */
+    .trending {
+      padding: 30px 0;
+      background-color: var(--neutral-light);
+    }
+    
+    .section-title {
+      color: var(--primary-color);
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+    
+    .destination-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .destination-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .destination-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .destination-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: var(--text-light);
+    }
+    
+    .destination-info h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    
+    .destination-info p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    
+    .view-more {
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .view-more-btn {
+      background-color: var(--navy-blue);
+      color: var(--text-light);
+      border: none;
+      border-radius: var(--radius);
+      padding: 12px 25px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .view-more-btn:hover {
+      background-color: #303F9F;
+      transform: translateY(-2px);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 80px 0;
+      text-align: center;
+      background-color: #FFF8F5; /* Light orange tint */
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .feature-item {
+      padding: 20px;
+      background-color: var(--text-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 50px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    
+    .feature-item h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    
+    .feature-item p {
+      color: var(--mocha-mousse);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--text-light);
+      display: inline-block;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column ul li a {
+      color: #B0BEC5;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-column ul li a:hover {
+      color: var(--primary-color);
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    
+    .newsletter-container {
+      margin-top: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      padding: 15px;
+    }
+
+    .newsletter-form-group {
+      margin-bottom: 15px;
+    }
+
+    #newsletterForm {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #newsletterForm input {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      background-color: var(--text-light);
+      color: var(--text-dark);
+    }
+
+    #newsletterForm input:focus {
+      outline: 2px solid var(--sunny-yellow);
+    }
+
+    .newsletter-recaptcha {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .newsletter-submit {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .newsletter-submit button {
+      background-color: var(--text-light);
+      color: var(--primary-color);
+      border: none;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+    }
+
+    .newsletter-submit button:hover {
+      background-color: #f5f5f5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .newsletter-submit button:disabled {
+      background-color: #e0e0e0;
+      color: #9e9e9e;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .newsletter-submit button svg {
+      stroke: var(--primary-color);
+      stroke-width: 2.5;
+    }
+
+    .newsletter-message {
+      margin-top: 15px;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: var(--radius);
+      text-align: center;
+      font-weight: 500;
+      display: none;
+      background-color: var(--text-light);
+      box-shadow: var(--shadow);
+    }
+
+    .newsletter-message.success {
+      color: #2E7D32;
+      border-left: 4px solid #2E7D32;
+      display: block;
+    }
+
+    .newsletter-message.error {
+      color: #D32F2F;
+      border-left: 4px solid #D32F2F;
+      display: block;
+    }
+
+    /* Media query for responsive design */
+    @media (max-width: 768px) {
+      .newsletter-container {
+        padding: 12px;
+      }
+      
+      #newsletterForm input {
+        padding: 10px 12px;
+      }
+      
+      .newsletter-recaptcha {
+        transform: scale(0.85);
+        transform-origin: left center;
+      }
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #B0BEC5;
+    }
+    
+    .payment-methods {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .payment-methods img {
+      height: 30px;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .payment-methods img:hover {
+      opacity: 1;
+    }
+
+    /* Submit button only appears after selecting a trip type */
+    .search-btn {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: none;
+      border-radius: var(--radius);
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    
+    .search-btn.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .search-btn.active:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Enhanced Responsive Design */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .destination-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .trip-cards {
+        gap: 20px;
+      }
+
+      .trip-card {
+        min-height: 180px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 0;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .logo img {
+        height: 32px;
+      }
+
+      nav {
+        display: none;
+      }
+      
+      .user-controls {
+        margin-left: auto;
+      }
+      
+      .hero {
+        min-height: 80px;
+        padding: 5px 0;
+      }
+      
+      .hero h1 {
+        font-size: 18px;
+        margin-bottom: 2px;
+      }
+      
+      .hero p {
+        font-size: 11px;
+        margin: 0 auto 2px;
+      }
+      
+      .search-form {
+        margin: 20px auto;
+        padding: 15px;
+      }
+
+      .form-group {
+        margin-bottom: 12px;
+      }
+
+      .form-group label {
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      .form-control {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+
+      .date-picker, .guests-rooms {
+        gap: 8px;
+      }
+
+      .trip-cards {
+        margin: 15px 0;
+        padding: 0;
+      }
+
+      .trip-select {
+        padding: 8px 10px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .find-trip-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+
+      .trip-card {
+        display: none; /* Hide the original cards */
+      }
+      
+      .mobile-trip-selector {
+        display: block;
+        width: 100%;
+      }
+      
+      .trip-select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--primary-color);
+        border-radius: var(--radius);
+        font-size: 16px;
+        background-color: var(--text-light);
+        color: var(--text-dark);
+        margin-bottom: 15px;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF7043' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 20px;
+      }
+      
+      .trip-select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(255, 112, 67, 0.2);
+      }
+      
+      .find-trip-btn {
+        width: 100%;
+        padding: 14px 20px;
+        background-color: var(--primary-color);
+        color: var(--text-light);
+        border: none;
+        border-radius: var(--radius);
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        pointer-events: none;
+      }
+      
+      .find-trip-btn.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+      
+      .find-trip-btn.active:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .destination-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+
+      nav ul li a {
+        font-size: 16px;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .mobile-trip-selector {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 8px;
+      }
+
+      .search-form {
+        padding: 12px;
+        margin: 15px auto;
+      }
+
+      .form-group {
+        margin-bottom: 8px;
+      }
+
+      .form-group label {
+        font-size: 11px;
+        margin-bottom: 3px;
+      }
+
+      .form-control {
+        padding: 6px 8px;
+        font-size: 13px;
+      }
+
+      .date-picker, .guests-rooms {
+        gap: 6px;
+      }
+
+      .trip-cards {
+        margin: 12px 0;
+        padding: 0;
+      }
+
+      .trip-select {
+        padding: 6px 8px;
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .find-trip-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 70px;
+        padding: 4px 0;
+      }
+
+      .hero h1 {
+        font-size: 16px;
+        margin-bottom: 2px;
+      }
+
+      .hero p {
+        font-size: 10px;
+        margin: 0 auto 2px;
+      }
+
+      .trip-card {
+        padding: 12px;
+      }
+
+      .trip-icon {
+        width: 45px;
+        height: 45px;
+        margin: 0 auto 8px;
+      }
+      
+      .trip-icon span {
+        font-size: 22px;
+      }
+
+      .trip-card h3 {
+        font-size: 15px;
+        margin: 0 0 4px;
+      }
+      
+      .trip-card p {
+        font-size: 11px;
+      }
+
+      .feature-item {
+        padding: 15px;
+      }
+
+      .feature-icon {
+        font-size: 40px;
+      }
+
+      .feature-item h3 {
+        font-size: 18px;
+      }
+
+      .feature-item p {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+      }
+
+      nav ul li a {
+        font-size: 14px;
+      }
+    }
+
+    /* Add touch-friendly styles */
+    @media (hover: none) {
+      .trip-card:hover {
+        transform: none;
+      }
+
+      .trip-card:active {
+        transform: scale(0.98);
+      }
+
+      .view-more-btn:hover {
+        transform: none;
+      }
+
+      .view-more-btn:active {
+        transform: scale(0.98);
+      }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: var(--text-light);
+      padding: 30px;
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--mocha-mousse);
+    }
+
+    .confirmation-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .confirmation-content {
+      background-color: var(--text-light);
+      padding: 40px;
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      text-align: center;
+    }
+
+    .confirmation-content h2 {
+      color: #2E7D32;
+      margin-bottom: 20px;
+    }
+
+    .confirmation-content p {
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .confirmation-close {
+      background-color: #2E7D32;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 16px;
+    }
+
+    .confirmation-close:hover {
+      background-color: #1B5E20;
+      transform: translateY(-2px);
+    }
+
+    .budget-input {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .budget-input select {
+      padding: 8px;
+      border-radius: var(--radius);
+      border: 1px solid var(--primary-color);
+    }
+
+    .error-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1002;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .error-content {
+      background-color: var(--text-light);
+      padding: 30px;
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .error-content h2 {
+      color: var(--mocha-mousse);
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .error-content ul {
+      list-style: none;
+      margin-bottom: 25px;
+      padding-left: 0;
+    }
+
+    .error-content li {
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .error-content li:before {
+      content: "•";
+      color: var(--mocha-mousse);
+      position: absolute;
+      left: 0;
+    }
+
+    .error-close {
+      background-color: var(--mocha-mousse);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .error-close:hover {
+      background-color: #6D4C41;
+      transform: translateY(-2px);
+    }
+
+    /* Destination Card Link Styles */
+    .destination-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .destination-link:hover {
+      transform: translateY(-5px);
+    }
+
+    .destination-link:hover .destination-image {
+      transform: scale(1.05);
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--text-light);
+      min-width: 200px;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f5f5f5;
+      color: var(--primary-color);
+    }
+
+    .dropdown-menu a.disabled {
+      color: #ccc;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+      }
+
+      .dropdown-menu a {
+        padding: 8px 20px;
+        color: var(--text-light);
+      }
+
+      .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .dropdown-menu a.disabled {
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    /* Newsletter Message Styles */
+    .newsletter-message {
+      margin-top: 10px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .newsletter-message.success {
+      color: #2E7D32;
+      display: block;
+    }
+
+    .newsletter-message.error {
+      color: #D32F2F;
+      display: block;
+    }
+
+    /* Newsletter Responsive Styles */
+    @media (max-width: 1024px) {
+      .newsletter-container {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .newsletter-container {
+        padding: 12px;
+      }
+      
+      #newsletterForm input {
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+      
+      .newsletter-recaptcha {
+        transform: scale(0.85);
+        transform-origin: center;
+        margin-bottom: 12px;
+      }
+      
+      .newsletter-submit button {
+        padding: 10px 14px;
+      }
+      
+      .newsletter-submit button svg {
+        width: 20px;
+        height: 20px;
+      }
+      
+      .newsletter-message {
+        font-size: 13px;
+        padding: 8px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .newsletter-container {
+        padding: 10px;
+      }
+      
+      #newsletterForm input {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      
+      .newsletter-recaptcha {
+        transform: scale(0.75);
+        transform-origin: center;
+        margin-bottom: 10px;
+      }
+      
+      .newsletter-submit button {
+        padding: 8px 12px;
+      }
+      
+      .newsletter-submit button svg {
+        width: 18px;
+        height: 18px;
+      }
+      
+      .newsletter-message {
+        font-size: 12px;
+        padding: 6px;
+        margin-top: 10px;
+      }
+      
+      .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      
+      .footer-column p[data-i18n="subscribe-desc"] {
+        font-size: 14px;
+      }
+    }
+
+    /* For very small screens */
+    @media (max-width: 375px) {
+      .newsletter-recaptcha {
+        transform: scale(0.7);
+        margin: 0 -15px 10px;
+      }
+      
+      #newsletterForm input {
+        font-size: 12px;
+      }
+    }
+
+    /* Budget Modal reCAPTCHA and Submit Button Responsive Styles */
+    .budget-recaptcha {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      transform-origin: center;
+      transition: all 0.3s ease;
+    }
+
+    .search-btn {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transition: all 0.3s ease;
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    .search-btn.active {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .budget-recaptcha {
+        transform: scale(0.9);
+        margin: 12px 0;
+      }
+      
+      .search-btn {
+        padding: 10px 16px;
+        font-size: 15px;
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .budget-recaptcha {
+        transform: scale(0.85);
+        margin: 10px 0;
+      }
+      
+      .search-btn {
+        padding: 9px 14px;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .budget-recaptcha {
+        transform: scale(0.75);
+        margin: 8px -15px;
+      }
+      
+      .search-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <a href="index.html">
+          <img src="vioops-logo--white.svg" alt="Vioops Logo">
+        </a>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Destinations</a>
+            <ul class="dropdown-menu">
+              <li><a href="./trips/North_Italy_Road_Trip.html" target="_blank">Dolomites, Italy</a></li>
+              <li><a href="#" class="disabled">Paris, France</a></li>
+              <li><a href="#" class="disabled">Bali, Indonesia</a></li>
+              <li><a href="#" class="disabled">Tokyo, Japan</a></li>
+              <li><a href="#" class="disabled">New York, USA</a></li>
+              <li><a href="#" class="disabled">London, UK</a></li>
+              <li><a href="#" class="disabled">Barcelona, Spain</a></li>
+              <li><a href="#" class="disabled">Sydney, Australia</a></li>
+              <li><a href="#" class="disabled">Dubai, UAE</a></li>
+              <li><a href="#" class="disabled">Singapore</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Deals</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="user-controls">
+        <a href="#">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <div class="language-selector">
+          <img src="./pictures/UKFlag.png" alt="UK Flag">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Your FREE AI Travel Agent: Tailored Trips, Effortless Travel !</h1>
+      <p>Personalized travel recommendations powered by AI to match your preferences, budget, and style. Say goodbye to endless searching !</p>
+    </div>
+  </section>
+
+  <!-- Search Form -->
+  <div class="container">
+    <div class="search-form">
+      <div class="form-group">
+        <label for="destination" data-i18n="destination">Where?</label>
+        <input type="text" id="destination" class="form-control" placeholder="City, region, or country">
+      </div>
+      
+      <div class="date-picker">
+        <div class="form-group">
+          <label for="check-in" data-i18n="from">From</label>
+          <input type="date" id="check-in" class="form-control" min="2026-03-13">
+        </div>
+        
+        <div class="form-group">
+          <label for="check-out" data-i18n="to">To</label>
+          <input type="date" id="check-out" class="form-control" min="2026-03-14">
+        </div>
+      </div>
+      
+      <div class="guests-rooms">
+        <div class="form-group">
+          <label for="adults" data-i18n="adults">Adults</label>
+          <input type="number" id="adults" class="form-control" value="2" min="1">
+        </div>
+        
+        <div class="form-group">
+          <label for="kids" data-i18n="kids">Kids</label>
+          <input type="number" id="kids" class="form-control" value="0" min="0">
+        </div>
+        
+        <div class="form-group">
+          <label for="rooms" data-i18n="rooms">Rooms</label>
+          <input type="number" id="rooms" class="form-control" value="1" min="1">
+        </div>
+      </div>
+      
+      <!-- Trip Types -->
+      <div class="trip-cards">
+        <div class="trip-selector">
+          <select class="trip-select" id="tripSelect" onchange="handleTripSelectChange()">
+            <option value="">Select your trip type</option>
+            <option value="honeymoon">❤️ Honeymoon - Romantic getaways</option>
+            <option value="roadtrip">🚗 Road Trip - Discover amazing routes</option>
+            <option value="resort">🏖️ Resort - All-inclusive luxury</option>
+          </select>
+          <button class="find-trip-btn" onclick="handleTripSelection()">Find my trip</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Budget Modal -->
+  <div id="budgetModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <h2>Almost there!</h2>
+      <p>Please provide your budget and email to receive your personalized trip details.</p>
+      
+      <div class="form-group">
+        <label for="budget">Budget per night</label>
+        <div class="budget-input">
+          <input type="number" id="budget" class="form-control" placeholder="Enter amount" min="0">
+          <select id="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" placeholder="youremail@example.com">
+      </div>
+
+      <div class="form-group">
+        <div class="budget-recaptcha">
+          <div class="g-recaptcha" data-sitekey="6LcVgAArAAAAADjLLpw8Ek6ytNda_NR4EEcSiSQ5" data-callback="recaptchaCallback"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-t9kb5pacaytz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcVgAArAAAAADjLLpw8Ek6ytNda_NR4EEcSiSQ5&amp;co=aHR0cHM6Ly92aW9vcHMuY29tOjQ0Mw..&amp;hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=lhit68rwlmeh"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button onclick="submitTripRequest()" class="search-btn">Submit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="confirmation-modal">
+    <div class="confirmation-content">
+      <h2>Thank You!</h2>
+      <p>Vioops is searching for you the best trip and will send it very soon to you!</p>
+      <button onclick="closeConfirmationModal()" class="confirmation-close">Close</button>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div id="errorModal" class="error-modal">
+    <div class="error-content">
+      <h2>Please fill:</h2>
+      <ul id="errorList"></ul>
+      <button onclick="closeErrorModal()" class="error-close">Close</button>
+    </div>
+  </div>
+
+  <script>
+    let selectedTripType = '';
+
+    function showBudgetModal(tripType) {
+      selectedTripType = tripType;
+      // Validate main form again before showing modal
+      const validation = validateMainForm();
+      if (validation.isValid) {
+        document.getElementById('budgetModal').style.display = 'flex';
+        // Reset reCAPTCHA when modal is shown
+        if (typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset();
+        }
+        // Reset submit button state
+        document.querySelector('.modal-content .search-btn').classList.remove('active');
+        // Adjust reCAPTCHA size
+        adjustRecaptchaSize();
+      } else {
+        showErrorModal(validation.missingFields);
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('budgetModal').style.display = 'none';
+    }
+
+    // Function to validate email format
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Function to validate dates
+    function validateDates() {
+      const checkIn = new Date(document.getElementById('check-in').value);
+      const checkOut = new Date(document.getElementById('check-out').value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (checkIn < today) {
+        alert('Check-in date cannot be in the past');
+        return false;
+      }
+      if (checkOut <= checkIn) {
+        alert('Check-out date must be after check-in date');
+        return false;
+      }
+      return true;
+    }
+
+    // Function to check if all main form fields are filled
+    function validateMainForm() {
+      const destination = document.getElementById('destination').value.trim();
+      const checkIn = document.getElementById('check-in').value;
+      const checkOut = document.getElementById('check-out').value;
+      const adults = parseInt(document.getElementById('adults').value);
+      const kids = parseInt(document.getElementById('kids').value);
+      const rooms = parseInt(document.getElementById('rooms').value);
+
+      let missingFields = [];
+
+      // Check for minimum values
+      if (adults < 1) {
+        missingFields.push('At least one adult is required');
+      }
+      if (rooms < 1) {
+        missingFields.push('At least one room is required');
+      }
+      if (kids < 0) {
+        missingFields.push('Number of kids cannot be negative');
+      }
+
+      // Check if all fields are filled
+      if (!destination) {
+        missingFields.push('Destination');
+      }
+      if (!checkIn) {
+        missingFields.push('Check-in date');
+      }
+      if (!checkOut) {
+        missingFields.push('Check-out date');
+      }
+
+      // Return validation result without showing alert
+      return {
+        isValid: missingFields.length === 0,
+        missingFields: missingFields
+      };
+    }
+
+    // Function to check if all modal fields are filled
+    function validateModalForm() {
+      const budget = document.getElementById('budget').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const submitBtn = document.querySelector('.modal-content .search-btn');
+
+      let missingFields = [];
+
+      // Validate budget
+      const budgetNum = parseFloat(budget);
+      if (isNaN(budgetNum) || budgetNum <= 0) {
+        missingFields.push('Valid budget amount');
+        submitBtn.classList.remove('active');
+      }
+
+      // Validate email format
+      if (!email) {
+        missingFields.push('Email address');
+        submitBtn.classList.remove('active');
+      } else if (!isValidEmail(email)) {
+        missingFields.push('Valid email address');
+        submitBtn.classList.remove('active');
+      }
+
+      // Enable submit button only if both fields are valid
+      if (budgetNum > 0 && isValidEmail(email)) {
+        submitBtn.classList.add('active');
+      }
+
+      return {
+        isValid: missingFields.length === 0,
+        missingFields: missingFields
+      };
+    }
+
+    // Function to show error modal with user-friendly messages
+    function showErrorModal(messages) {
+      const errorList = document.getElementById('errorList');
+      errorList.innerHTML = '';
+      
+      // Add each error message
+      messages.forEach(message => {
+        const li = document.createElement('li');
+        li.textContent = message;
+        errorList.appendChild(li);
+      });
+      
+      document.getElementById('errorModal').style.display = 'flex';
+    }
+
+    function closeErrorModal() {
+      document.getElementById('errorModal').style.display = 'none';
+    }
+
+    // Add Google Analytics event tracking
+    function trackEvent(category, action, label) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label
+        });
+      }
+    }
+
+    // Track form submissions with simplified error messages for production
+    function submitTripRequest() {
+      const validation = validateModalForm();
+      if (!validation.isValid) {
+        showErrorModal(validation.missingFields);
+        return;
+      }
+
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+        showErrorModal(['Please complete the reCAPTCHA verification']);
+        return;
+      }
+
+      const destination = document.getElementById('destination').value;
+      const checkIn = document.getElementById('check-in').value;
+      const checkOut = document.getElementById('check-out').value;
+      const guests = document.getElementById('adults').value + ' adults and ' + document.getElementById('kids').value + ' kids';
+      const rooms = document.getElementById('rooms').value;
+      const budget = document.getElementById('budget').value;
+      const currency = document.getElementById('currency').value;
+      const email = document.getElementById('email').value;
+
+      // Prepare data for email
+      const formData = {
+        destination,
+        checkIn,
+        checkOut,
+        guests,
+        rooms,
+        tripType: selectedTripType,
+        budget: `${budget} ${currency}`,
+        email,
+        'g-recaptcha-response': recaptchaResponse
+      };
+
+      // Disable submit button while sending
+      const submitBtn = document.querySelector('.modal-content .search-btn');
+      submitBtn.classList.remove('active');
+      submitBtn.textContent = 'Sending...';
+
+      // Send data to PHP script
+      fetch('send_email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Server error');
+        }
+        return response.text().then(text => {
+          try {
+            return text ? JSON.parse(text) : {};
+          } catch (e) {
+            throw new Error('Invalid response');
+          }
+        });
+      })
+      .then(data => {
+        if (data && data.success) {
+          // Hide budget modal and show confirmation modal
+          document.getElementById('budgetModal').style.display = 'none';
+          document.getElementById('confirmationModal').style.display = 'flex';
+          
+          // Track successful submission
+          trackEvent('Form', 'Submit Success', selectedTripType);
+        } else {
+          // Show error message with server response
+          showErrorModal([data.message || 'Unable to process your request']);
+          submitBtn.classList.add('active');
+          submitBtn.textContent = 'Submit Request';
+          
+          // Track submission error
+          trackEvent('Form', 'Submit Error', data.message || 'Server error');
+        }
+      })
+      .catch(error => {
+        // Show user-friendly error message
+        showErrorModal(['Unable to process your request. Please try again later.']);
+        
+        // Re-enable submit button
+        submitBtn.classList.add('active');
+        submitBtn.textContent = 'Submit Request';
+        
+        // Track fetch error
+        trackEvent('Form', 'Submit Error', error.message);
+      });
+    }
+
+    function closeConfirmationModal() {
+      // Hide confirmation modal
+      document.getElementById('confirmationModal').style.display = 'none';
+      
+      // Reset all form fields
+      document.getElementById('budget').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('destination').value = '';
+      document.getElementById('check-in').value = new Date().toISOString().split('T')[0];
+      document.getElementById('check-out').value = '';
+      document.getElementById('adults').value = '2';
+      document.getElementById('kids').value = '0';
+      document.getElementById('rooms').value = '1';
+      document.getElementById('tripSelect').value = '';
+      
+      // Reset button states
+      const submitBtn = document.querySelector('.modal-content .search-btn');
+      submitBtn.classList.remove('active');
+      submitBtn.textContent = 'Submit Request';
+      
+      const findTripBtn = document.querySelector('.find-trip-btn');
+      findTripBtn.classList.remove('active');
+    }
+
+    // Add real-time validation to main form fields
+    document.querySelectorAll('.search-form input').forEach(input => {
+      input.addEventListener('input', function() {
+        const tripCards = document.querySelectorAll('.trip-card');
+        const validation = validateMainForm();
+        
+        tripCards.forEach(card => {
+          if (validation.isValid) {
+            card.style.opacity = '1';
+            card.style.cursor = 'pointer';
+            card.style.transform = 'translateY(0)';
+          } else {
+            card.style.opacity = '0.7';
+            card.style.cursor = 'not-allowed';
+            card.style.transform = 'translateY(0)';
+          }
+        });
+      });
+    });
+
+    // Add real-time validation to modal fields
+    document.querySelectorAll('.modal-content input').forEach(input => {
+      input.addEventListener('input', function() {
+        validateModalForm();
+      });
+    });
+
+    // Set minimum date for check-in to today and set default value
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('check-in').min = today;
+    document.getElementById('check-in').value = today;
+    
+    // Set minimum date for check-out to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    document.getElementById('check-out').min = tomorrow.toISOString().split('T')[0];
+    
+    // Add event listener for check-in date changes
+    document.getElementById('check-in').addEventListener('change', function() {
+      const checkInDate = new Date(this.value);
+      const checkOutDate = new Date(checkInDate);
+      checkOutDate.setDate(checkInDate.getDate() + 7);
+      
+      // Update check-out min date and value
+      document.getElementById('check-out').min = this.value;
+      document.getElementById('check-out').value = checkOutDate.toISOString().split('T')[0];
+    });
+
+    // Track trip card clicks
+    document.querySelectorAll('.trip-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const tripType = this.id.replace('-card', '');
+        trackEvent('Trip Selection', 'Click', tripType);
+        
+        // Validate main form first
+        const validation = validateMainForm();
+        if (!validation.isValid) {
+          showErrorModal(validation.missingFields);
+          return; // Stop here if validation fails
+        }
+        
+        // Only show budget modal if validation passes
+        showBudgetModal(tripType);
+      });
+    });
+
+    // Track destination card clicks
+    document.querySelectorAll('.destination-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const destination = this.querySelector('h3').textContent;
+        trackEvent('Destination', 'Click', destination);
+      });
+    });
+
+    // Track view more button clicks
+    document.querySelector('.view-more-btn').addEventListener('click', function() {
+      trackEvent('Navigation', 'Click', 'View More Destinations');
+    });
+
+    // Add new function to handle trip select changes
+    function handleTripSelectChange() {
+      const tripSelect = document.getElementById('tripSelect');
+      const findTripBtn = document.querySelector('.find-trip-btn');
+      
+      if (tripSelect.value) {
+        findTripBtn.classList.add('active');
+      } else {
+        findTripBtn.classList.remove('active');
+      }
+    }
+
+    // Update trip selection handler
+    function handleTripSelection() {
+      const tripSelect = document.getElementById('tripSelect');
+      const selectedValue = tripSelect.value;
+      
+      if (selectedValue) {
+        // Validate main form first
+        const validation = validateMainForm();
+        if (!validation.isValid) {
+          showErrorModal(validation.missingFields);
+          return; // Stop here if validation fails
+        }
+        
+        // Only show budget modal if validation passes
+        showBudgetModal(selectedValue);
+      }
+    }
+
+    // Newsletter Form Handler
+    function handleNewsletterSubmit(event) {
+      event.preventDefault();
+      
+      const emailInput = document.getElementById('newsletterEmail');
+      const messageDiv = document.getElementById('newsletterMessage');
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      
+      // Validate email format
+      if (!isValidEmail(emailInput.value)) {
+        messageDiv.textContent = 'Please enter a valid email address';
+        messageDiv.className = 'newsletter-message error';
+        return;
+      }
+
+      // Get reCAPTCHA response
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+        messageDiv.textContent = 'Please complete the reCAPTCHA verification';
+        messageDiv.className = 'newsletter-message error';
+        return;
+      }
+
+      // Disable submit button and show loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" class="animate-spin"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/></svg>';
+
+      // Prepare data for email
+      const formData = {
+        email: emailInput.value,
+        type: 'newsletter',
+        'g-recaptcha-response': recaptchaResponse
+      };
+
+      // Send data to PHP script
+      fetch('send_questions.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.success) {
+          messageDiv.textContent = 'Thank you for subscribing!';
+          messageDiv.className = 'newsletter-message success';
+          emailInput.value = ''; // Clear the input
+        } else {
+          throw new Error(data.message || 'Failed to subscribe');
+        }
+      })
+      .catch(error => {
+        messageDiv.textContent = 'An error occurred. Please try again.';
+        messageDiv.className = 'newsletter-message error';
+      })
+      .finally(() => {
+        // Re-enable submit button and restore original icon
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+        
+        // Reset reCAPTCHA
+        grecaptcha.reset();
+      });
+    }
+
+    // Add animation for loading spinner
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Function to adjust reCAPTCHA size based on screen width
+    function adjustRecaptchaSize() {
+      const width = window.innerWidth;
+      const recaptchaContainer = document.querySelector('.budget-recaptcha');
+      
+      if (!recaptchaContainer) return;
+      
+      if (width <= 375) {
+        recaptchaContainer.style.transform = 'scale(0.75)';
+        recaptchaContainer.style.margin = '8px -15px';
+      } else if (width <= 576) {
+        recaptchaContainer.style.transform = 'scale(0.85)';
+        recaptchaContainer.style.margin = '10px 0';
+      } else if (width <= 768) {
+        recaptchaContainer.style.transform = 'scale(0.9)';
+        recaptchaContainer.style.margin = '12px 0';
+      } else {
+        recaptchaContainer.style.transform = 'scale(1)';
+        recaptchaContainer.style.margin = '15px 0';
+      }
+    }
+
+    // Call on page load and window resize
+    window.addEventListener('load', adjustRecaptchaSize);
+    window.addEventListener('resize', adjustRecaptchaSize);
+  </script>
+
+  <!-- Trending Destinations -->
+  <section class="trending">
+    <div class="container">
+      <h2 class="section-title" data-i18n="trending">Trending This Week</h2>
+
+      <div class="destination-grid">
+        <div class="destination-card">
+          <a href="./trips/North_Italy_Road_Trip.html" target="_blank" class="destination-link">
+            <img src="./pictures/rivadelgarda.jpg" alt="Riva Del Garda" class="destination-img">
+            <div class="destination-info">
+              <h3>Riva Del Garda</h3>
+              <p>Road Trip in North Italy</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./pictures/protaras.jpg" alt="Protaras, Cyprus" class="destination-img">
+          <div class="destination-info">
+            <h3>Protaras, Cyprus</h3>
+            <p>Discover crystal clear waters and stunning beaches</p>
+          </div>
+        </div>
+        
+        <div class="destination-card">
+          <img src="./pictures/Alcudia.jpg" alt="Alcudia, Mallorca" class="destination-img">
+          <div class="destination-info">
+            <h3>Alcudia, Mallorca</h3>
+            <p>Discover the beautiful beaches and historic old town</p>
+          </div>
+        </div>
+        
+        <div class="destination-card">
+          <img src="./pictures/Amsterdam.jpg" alt="Amsterdam, Netherlands" class="destination-img">
+          <div class="destination-info">
+            <h3>Amsterdam, Netherlands</h3>
+            <p>Explore the charming canals and historic architecture</p>
+          </div>
+        </div>
+        
+        <div class="destination-card">
+          <img src="./pictures/alps.jpg" alt="French Alps" class="destination-img">
+          <div class="destination-info">
+            <h3>French Alps</h3>
+            <p>Road Trip in France</p>
+          </div>
+        </div>
+
+        <div class="destination-card">
+          <img src="./pictures/Roma.jpg" alt="Rome, Italy" class="destination-img">
+          <div class="destination-info">
+            <h3>Rome, Italy</h3>
+            <p>Experience the eternal city's rich history and culture</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="view-more">
+        <button class="view-more-btn" onclick="window.scrollTo(0, 0); window.location.reload()" data-i18n="view-more">View More Destinations</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title" data-i18n="why-choose">Why Choose Vioops?</h2>
+      
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🤖</div>
+          <h3 data-i18n="ai-recom">AI-Powered Recommendations</h3>
+          <p data-i18n="ai-recom-desc">Our advanced AI analyzes thousands of options to find perfect matches for your travel style.</p>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">💰</div>
+          <h3 data-i18n="best-price">Best Price Guarantee</h3>
+          <p data-i18n="best-price-desc">Our AI Agents will find the best prices just for you.</p>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <h3 data-i18n="secure">Secure</h3>
+          <p data-i18n="secure-desc">Your personal information are protected with bank-level security.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Vioops</h3>
+          <p data-i18n="footer-desc">Your AI travel companion, creating personalized experiences for every journey.</p>
+          <div class="social-links">
+            <a href="#">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3 data-i18n="useful-links">Useful Links</h3>
+          <ul>
+            <li><a href="#" data-i18n="about">About Us</a></li>
+            <li><a href="#" data-i18n="how-works">How It Works</a></li>
+            <li><a href="#" data-i18n="faq">FAQ</a></li>
+            <li><a href="#" data-i18n="blog">Blog</a></li>
+            <li><a href="#" data-i18n="contact">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 data-i18n="popular">Popular Destinations</h3>
+          <ul>
+            <li><a href="#">Paris, France</a></li>
+            <li><a href="#">Bali, Indonesia</a></li>
+            <li><a href="#">Tokyo, Japan</a></li>
+            <li><a href="#">New York, USA</a></li>
+            <li><a href="#">London, UK</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 data-i18n="subscribe">Subscribe</h3>
+          <p data-i18n="subscribe-desc">Get exclusive deals and travel inspiration</p>
+          <div class="newsletter-container">
+            <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+              <div class="newsletter-form-group">
+                <input type="email" id="newsletterEmail" name="email" placeholder="Your email address" required="">
+              </div>
+              <div class="newsletter-recaptcha">
+                <div class="g-recaptcha" data-sitekey="6LcVgAArAAAAADjLLpw8Ek6ytNda_NR4EEcSiSQ5"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-vn0n7zsmbeuq" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcVgAArAAAAADjLLpw8Ek6ytNda_NR4EEcSiSQ5&amp;co=aHR0cHM6Ly92aW9vcHMuY29tOjQ0Mw..&amp;hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=m28r5zx64q3a"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+              </div>
+              <div class="newsletter-submit">
+                <button type="submit">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </div>
+            </form>
+            <div id="newsletterMessage" class="newsletter-message"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2025 Vioops. All rights reserved.</p>
+        
+      </div>
+    </div>
+  </footer>
+
+
+        
+<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" name="c-t9kb5pacaytz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;k=6LcVgAArAAAAADjLLpw8Ek6ytNda_NR4EEcSiSQ5&amp;bft=0dAFcWeA4MflBi4LaVfIhjNKy6PN3QyHkDX6w0dlEf0jR_5dzTV-NBYCzg9FJM6c_6SF9N87ols_0_4JXqMgPDU0JUCBWXWesobg" style="width: 100%; height: 100%;"></iframe></div></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" name="c-vn0n7zsmbeuq" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;k=6LcVgAArAAAAADjLLpw8Ek6ytNda_NR4EEcSiSQ5&amp;bft=0dAFcWeA5oUoFMy4Ix52ik8hcIcpLSKkwPUDtuYMCA-1hv3pLNnBI5JttUiXNb_vQJoagvv9quqgrMhuhDegZ6ELuRGUclP9x1gA" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

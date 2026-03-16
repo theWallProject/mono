@@ -1,0 +1,1569 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strauss Communications — Boutique PR &amp; Storytelling Agency</title>
+<meta name="description" content="Boutique agency guiding technology companies in all aspects of storytelling. Media relations, content development, social media strategy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@300;400&amp;family=Instrument+Serif:ital@0;1&amp;family=Libre+Franklin:wght@300;400;700;800&amp;display=swap" rel="stylesheet">
+<style>
+/* ==================== RESET & VARIABLES ==================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --deep-ink: #1B4D6E;
+  --light-blue: #4A90B8;
+  --coral: #E05C4D;
+  --coral-glow: #E8706A;
+  --ink: #111110;
+  --paper: #F5F1EB;
+  --charcoal: #2E2E2C;
+  --smoke: #8A8A85;
+  --cream: #EDE8DF;
+  --cream-dark: #E4DED5;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: var(--coral); color: #fff; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--coral);
+}
+
+/* ==================== CUSTOM CURSOR ==================== */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--coral);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, transform 0.05s linear;
+  transform: translate(-50%, -50%);
+}
+.cursor-dot.expanded {
+  width: 32px; height: 32px;
+  background: transparent;
+  border: 2px solid var(--coral);
+  mix-blend-mode: normal;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot { display: none; }
+  * { cursor: auto !important; }
+}
+@media (hover: hover) {
+  * { cursor: none !important; }
+}
+
+/* ==================== NAVIGATION ==================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, var(--paper) 0%, rgba(245,241,235,0) 100%);
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(245,241,235,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nav-left .logo-icon { width: 40px; height: 40px; }
+.logo-text {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 1.1rem;
+  color: var(--deep-ink);
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.nav-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
+  background: var(--coral);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Hamburger button */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--deep-ink);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile menu */
+.nav-mobile {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: rgba(245,241,235,0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cream-dark);
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.5rem;
+  transition: max-height 0.35s ease, padding 0.2s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.nav-mobile.open {
+  max-height: 400px;
+  padding: 1.5rem;
+}
+.nav-mobile a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.nav-mobile a:last-child { border-bottom: none; }
+
+/* ==================== HERO — ASYMMETRIC ==================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--paper);
+  padding: 0 3rem;
+}
+.hero-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 5rem;
+}
+.hero-content {}
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--coral);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.7s ease 0.1s forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--coral);
+  flex-shrink: 0;
+}
+.hero h1 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+  line-height: 1.08;
+  color: var(--deep-ink);
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 .line {
+  display: block;
+  overflow: hidden;
+}
+.hero h1 .line-inner {
+  display: block;
+  transform: translateY(110%);
+  animation: lineReveal 0.85s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+.hero h1 .line:nth-child(2) .line-inner { animation-delay: 0.1s; }
+.hero h1 .line:nth-child(3) .line-inner { animation-delay: 0.2s; }
+
+@keyframes lineReveal {
+  to { transform: translateY(0); }
+}
+
+.hero h1 .accent {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--coral);
+}
+.hero-sub {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--smoke);
+  font-weight: 300;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.7s ease 0.5s forwards;
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.7s ease 0.65s forwards;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 1rem 2.25rem;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--ink);
+}
+.btn-primary:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(224,92,77,0.2);
+}
+.btn-ghost {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--smoke);
+  padding: 0;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--cream-dark);
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  color: var(--coral);
+  border-color: var(--coral);
+}
+.btn-coral {
+  background: var(--coral);
+  color: #fff;
+  border: 2px solid var(--coral);
+}
+.btn-coral:hover {
+  background: var(--coral-glow);
+  border-color: var(--coral-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(224,92,77,0.2);
+}
+
+/* Hero right — visual composition */
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 440px;
+  opacity: 0;
+  animation: fadeSlideUp 0.9s ease 0.35s forwards;
+}
+.hero-logo-large {
+  width: 260px; height: 260px;
+  opacity: 0.08;
+  animation: slowPulse 8s ease-in-out infinite;
+}
+@keyframes slowPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.08; }
+  50% { transform: scale(1.04) rotate(3deg); opacity: 0.12; }
+}
+
+/* Floating stat cards */
+.hero-stat {
+  position: absolute;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+  animation: floatCard 5s ease-in-out infinite;
+}
+.hero-stat .stat-val {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--deep-ink);
+  line-height: 1;
+}
+.hero-stat .stat-val .coral { color: var(--coral); }
+.hero-stat .stat-lbl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--smoke);
+  margin-top: 0.2rem;
+}
+.hero-stat:nth-child(2) {
+  top: 8%; right: 0;
+  animation-delay: 0s;
+}
+.hero-stat:nth-child(3) {
+  bottom: 25%; left: -5%;
+  animation-delay: 1.8s;
+}
+.hero-stat:nth-child(4) {
+  bottom: 2%; right: 12%;
+  animation-delay: 3.5s;
+}
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.6s ease 1.2s forwards;
+}
+.scroll-cue span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.scroll-cue-line {
+  width: 1px; height: 36px;
+  background: var(--cream-dark);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-cue-line::after {
+  content: '';
+  position: absolute;
+  top: -100%; left: 0;
+  width: 100%; height: 100%;
+  background: var(--coral);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0% { top: -100%; }
+  50% { top: 100%; }
+  100% { top: 100%; }
+}
+
+/* ==================== SERVICES MARQUEE ==================== */
+.services-marquee {
+  background: var(--ink);
+  padding: 0.9rem 0;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+}
+.services-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-item {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: color 0.3s;
+}
+.marquee-item:hover { color: rgba(255,255,255,0.9); }
+.marquee-item::after {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--coral);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ==================== WAVE / APPROACH ==================== */
+.wave-section {
+  background: var(--ink);
+  padding: 6rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.wave-left h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.wave-left h2 .serif-accent {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--coral);
+}
+.wave-left .tag { margin-bottom: 1rem; display: block; }
+.wave-left p {
+  color: var(--smoke);
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+.wave-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 220px;
+}
+.wave-bar {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, var(--coral) 0%, rgba(224,92,77,0.3) 100%);
+  opacity: 0.6;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  min-height: 8px;
+}
+.wave-bar:hover {
+  opacity: 1;
+  background: linear-gradient(180deg, #E8807A 0%, var(--coral) 100%);
+}
+
+/* ==================== LOGO TICKER ==================== */
+.ticker-section {
+  background: var(--charcoal);
+  overflow: hidden;
+  padding: 3rem 0;
+}
+.ticker-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: ticker 60s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-logo {
+  height: 56px;
+  margin: 0 3.5rem;
+  opacity: 0.7;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+.ticker-logo:hover { opacity: 1; }
+
+/* ==================== WHY STRAUSS ==================== */
+.why-section {
+  background: var(--paper);
+  padding: 7rem 3rem 5rem;
+  overflow: hidden;
+}
+.why-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto 3.5rem;
+}
+.why-header .tag { display: block; margin-bottom: 0.75rem; }
+.why-header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: var(--deep-ink);
+  line-height: 1.15;
+}
+.why-header-right {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--smoke);
+  max-width: 260px;
+  text-align: right;
+  line-height: 1.5;
+}
+
+.why-strip {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.why-strip:first-of-type { border-top: 1px solid rgba(0,0,0,0.06); }
+.why-strip.from-left { transform: translateX(-60px); }
+.why-strip.from-right { transform: translateX(60px); }
+.why-strip.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.why-num {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: var(--coral);
+  opacity: 0.12;
+  line-height: 1;
+  min-width: 80px;
+  transition: opacity 0.4s ease;
+}
+.why-strip:hover .why-num { opacity: 0.35; }
+.why-text { flex: 1; }
+.why-text h3 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: var(--deep-ink);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+.why-strip:hover .why-text h3 { color: var(--coral); }
+.why-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--smoke);
+  font-weight: 300;
+  max-width: 600px;
+}
+.why-accent {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+.why-strip:hover .why-accent {
+  transform: rotate(90deg) scale(1.1);
+  background: var(--coral);
+}
+.why-accent svg {
+  width: 22px; height: 22px;
+  transition: stroke 0.4s ease;
+}
+.why-strip:hover .why-accent svg { stroke: #fff; }
+
+/* ==================== SERVICES ==================== */
+.services {
+  padding: 7rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.services-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+.services-header-left .tag { display: block; margin-bottom: 0.5rem; }
+.services-header h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--deep-ink);
+}
+.services-header-right {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--smoke);
+  line-height: 1.5;
+}
+
+/* Service rows — editorial list */
+.service-row {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: 60px 1fr 1.3fr;
+  gap: 2rem;
+  align-items: start;
+  transition: all 0.35s ease;
+  position: relative;
+}
+.service-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+.service-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 0; height: 100%;
+  background: var(--coral);
+  transition: width 0.35s ease;
+  border-radius: 2px;
+}
+.service-row:hover::before { width: 3px; }
+.service-row:hover { padding-left: 1.25rem; }
+.service-row .num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--smoke);
+  padding-top: 0.15rem;
+  transition: color 0.3s;
+}
+.service-row:hover .num { color: var(--coral); }
+.service-row h3 {
+  font-size: 1.35rem;
+  color: var(--deep-ink);
+  line-height: 1.35;
+  transition: color 0.3s;
+}
+.service-row:hover h3 { color: var(--coral); }
+.service-row p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--smoke);
+  font-weight: 300;
+}
+
+/* ==================== FEATURED TESTIMONIAL ==================== */
+.testimonial-band {
+  background: var(--cream);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 6rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-band .big-quote {
+  font-family: 'Instrument Serif', serif;
+  font-size: 7rem;
+  color: var(--coral);
+  opacity: 0.12;
+  line-height: 1;
+  margin-bottom: -2.5rem;
+  display: block;
+}
+.testimonial-band blockquote {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--deep-ink);
+  line-height: 1.5;
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+.testimonial-attribution {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--smoke);
+}
+.testimonial-attribution .name {
+  color: var(--coral);
+  font-weight: 400;
+}
+.testimonial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--smoke);
+  margin-top: 2rem;
+  transition: color 0.3s;
+}
+.testimonial-link:hover { color: var(--coral); }
+.testimonial-link .arrow {
+  transition: transform 0.3s;
+}
+.testimonial-link:hover .arrow { transform: translateX(4px); }
+
+/* ==================== CTA SECTION ==================== */
+.cta-section {
+  background: var(--ink);
+  padding: 7rem 3rem;
+  text-align: center;
+}
+.cta-section h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+.cta-section h2 .serif-accent {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--coral);
+}
+.cta-section .cta-sub {
+  color: var(--smoke);
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.form-row .form-group { flex: 1; }
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--smoke);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(224,92,77,0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.form-submit { margin-top: 0.5rem; text-align: center; }
+.form-success {
+  display: none;
+  text-align: center;
+  color: #fff;
+}
+.form-success h3 {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.form-success p {
+  color: var(--smoke);
+  font-size: 0.95rem;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background: var(--charcoal);
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.footer-left .logo-icon { width: 48px; height: 48px; }
+.footer-brand {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+.footer-center {
+  display: flex;
+  gap: 2rem;
+}
+.footer-link {
+  font-size: 0.85rem;
+  color: var(--smoke);
+  transition: color 0.3s;
+}
+.footer-link:hover { color: var(--coral); }
+.footer-right {
+  font-size: 0.8rem;
+  color: var(--smoke);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ==================== SCROLL REVEAL ==================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { display: none; }
+  .hero h1 { text-align: left; }
+  .why-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .why-header-right { text-align: left; }
+  .services-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+@media (max-width: 900px) {
+  .nav { padding: 1rem 1.5rem; }
+  .nav-right { display: none; }
+  .nav-hamburger { display: flex !important; }
+  .hero { padding: 0 1.5rem; }
+  .wave-section {
+    grid-template-columns: 1fr;
+    padding: 4rem 1.5rem;
+    gap: 2.5rem;
+  }
+  .wave-bars { height: 160px; }
+  .why-section { padding: 5rem 1.5rem 3rem; }
+  .why-strip { gap: 1.25rem; padding: 2rem 0; }
+  .why-num { font-size: 2.5rem; min-width: 50px; }
+  .why-accent { display: none; }
+  .services { padding: 5rem 1.5rem; }
+  .service-row {
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+  }
+  .service-row p {
+    grid-column: 1 / -1;
+    padding-left: calc(50px + 1rem);
+  }
+  .testimonial-band { padding: 4rem 1.5rem; }
+  .cta-section { padding: 5rem 1.5rem; }
+  .footer {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .footer-center { gap: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .why-strip { flex-wrap: wrap; gap: 0.5rem; }
+  .why-num { min-width: auto; }
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .service-row p { padding-left: 0; }
+  .form-row { flex-direction: column; gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot" style="left: -100px; top: -100px;"></div>
+
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="nav" id="mainNav">
+  <a href="#" class="nav-left">
+    <svg viewBox="-20 -20 440 440" class="logo-icon">
+      <defs>
+        <clipPath id="gc-nav">
+          <rect x="50" y="50" width="143" height="143" rx="18"></rect>
+          <rect x="207" y="50" width="143" height="143" rx="18"></rect>
+          <rect x="50" y="207" width="143" height="143" rx="18"></rect>
+          <rect x="207" y="207" width="143" height="143" rx="18"></rect>
+        </clipPath>
+      </defs>
+      <g transform="rotate(-18, 200, 200)">
+        <rect x="50" y="50" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+        <rect x="207" y="50" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+        <rect x="50" y="207" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+        <rect x="207" y="207" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+        <path d="M -20,100 C 150,-40 50,200 200,200 C 350,200 250,440 420,300" stroke="#4A90B8" stroke-width="110" fill="none" clip-path="url(#gc-nav)"></path>
+        <g transform="rotate(-45, 358, 352)">
+          <path d="M 365,346 Q 369,352 365,358" stroke="#4A90B8" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M 373,342 Q 380,352 373,362" stroke="#4A90B8" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M 381,338 Q 392,352 381,366" stroke="#4A90B8" stroke-width="4" fill="none" stroke-linecap="round"></path>
+        </g>
+      </g>
+    </svg>
+    <span class="logo-text">STRAUSS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#services" class="nav-link">Services</a>
+    <a class="nav-link" href="/results">Results</a>
+    <a class="nav-link" href="/testimonials">Testimonials</a>
+    <a class="nav-link" href="/blog">Blog</a>
+    <a href="#contact" class="nav-link">Get in Touch</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#services">Services</a>
+    <a href="/results">Results</a>
+    <a href="/testimonials">Testimonials</a>
+    <a href="/blog">Blog</a>
+    <a href="#contact">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" id="heroCanvas" width="1280" height="720"></canvas>
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Unconventional storytelling. Extraordinary results.</div>
+      <h1>
+        <span class="line"><span class="line-inner">Strategic communications</span></span>
+        <span class="line"><span class="line-inner">for <span class="accent">tech</span></span></span>
+        <span class="line"><span class="line-inner"><span class="accent">innovators.</span></span></span>
+      </h1>
+      <p class="hero-sub">Strauss is a boutique agency guiding technology companies in all aspects of storytelling. As media industry veterans, we know exactly how to tell your story for maximum impact.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in Touch →</a>
+        <a href="#services" class="btn-ghost">View Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="-20 -20 440 440" class="hero-logo-large">
+        <defs>
+          <clipPath id="gc-hero">
+            <rect x="50" y="50" width="143" height="143" rx="18"></rect>
+            <rect x="207" y="50" width="143" height="143" rx="18"></rect>
+            <rect x="50" y="207" width="143" height="143" rx="18"></rect>
+            <rect x="207" y="207" width="143" height="143" rx="18"></rect>
+          </clipPath>
+        </defs>
+        <g transform="rotate(-18, 200, 200)">
+          <rect x="50" y="50" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+          <rect x="207" y="50" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+          <rect x="50" y="207" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+          <rect x="207" y="207" width="143" height="143" rx="18" fill="#1B4D6E"></rect>
+          <path d="M -20,100 C 150,-40 50,200 200,200 C 350,200 250,440 420,300" stroke="#4A90B8" stroke-width="110" fill="none" clip-path="url(#gc-hero)"></path>
+          <g transform="rotate(-45, 358, 352)">
+            <path d="M 365,346 Q 369,352 365,358" stroke="#4A90B8" stroke-width="4" fill="none" stroke-linecap="round"></path>
+            <path d="M 373,342 Q 380,352 373,362" stroke="#4A90B8" stroke-width="4" fill="none" stroke-linecap="round"></path>
+            <path d="M 381,338 Q 392,352 381,366" stroke="#4A90B8" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+
+<!-- ==================== WAVE / APPROACH ==================== -->
+<section class="wave-section" id="about">
+  <div class="wave-left reveal">
+    <span class="tag">[ OUR APPROACH ]</span>
+    <h2>Craft strategies to <span class="serif-accent">elevate visibility,</span> build trust</h2>
+    <p>We help you grab attention, gain consistent visibility, create deeper impact and adapt to today's ever-changing world. We connect brands with the right global audience through media visibility, flagship content, social engagement, and more.</p>
+  </div>
+  <div class="wave-bars" id="waveBars"><div class="wave-bar" style="height: 42.5055px;"></div><div class="wave-bar" style="height: 27.2904px;"></div><div class="wave-bar" style="height: 108.015px;"></div><div class="wave-bar" style="height: 70.865px;"></div><div class="wave-bar" style="height: 185.336px;"></div><div class="wave-bar" style="height: 97.5028px;"></div><div class="wave-bar" style="height: 73.9863px;"></div><div class="wave-bar" style="height: 135.343px;"></div><div class="wave-bar" style="height: 53.5171px;"></div><div class="wave-bar" style="height: 178.894px;"></div><div class="wave-bar" style="height: 27.6374px;"></div><div class="wave-bar" style="height: 99.4064px;"></div><div class="wave-bar" style="height: 69.7597px;"></div><div class="wave-bar" style="height: 48.5282px;"></div><div class="wave-bar" style="height: 186.461px;"></div><div class="wave-bar" style="height: 124.713px;"></div><div class="wave-bar" style="height: 37.1174px;"></div><div class="wave-bar" style="height: 34.0207px;"></div><div class="wave-bar" style="height: 175.833px;"></div><div class="wave-bar" style="height: 93.4837px;"></div><div class="wave-bar" style="height: 134.882px;"></div><div class="wave-bar" style="height: 50.9513px;"></div><div class="wave-bar" style="height: 111.372px;"></div><div class="wave-bar" style="height: 167.158px;"></div><div class="wave-bar" style="height: 162.213px;"></div><div class="wave-bar" style="height: 183.348px;"></div><div class="wave-bar" style="height: 98.3821px;"></div><div class="wave-bar" style="height: 97.2993px;"></div><div class="wave-bar" style="height: 19.4516px;"></div><div class="wave-bar" style="height: 29.3023px;"></div><div class="wave-bar" style="height: 175.348px;"></div><div class="wave-bar" style="height: 107.835px;"></div><div class="wave-bar" style="height: 103.229px;"></div><div class="wave-bar" style="height: 140.985px;"></div><div class="wave-bar" style="height: 75.5841px;"></div><div class="wave-bar" style="height: 180.347px;"></div><div class="wave-bar" style="height: 158.281px;"></div><div class="wave-bar" style="height: 86.4671px;"></div><div class="wave-bar" style="height: 130.203px;"></div><div class="wave-bar" style="height: 49.7898px;"></div></div>
+</section>
+
+<!-- ==================== LOGO TICKER ==================== -->
+<section class="ticker-section">
+  <div class="ticker-label">Trusted by 120+ tech companies worldwide</div>
+  <div class="ticker-track" id="tickerTrack">
+    <img src="assets/logos/1.png" alt="" class="ticker-logo">
+    <img src="assets/logos/2.png" alt="" class="ticker-logo">
+    <img src="assets/logos/3.png" alt="" class="ticker-logo">
+    <img src="assets/logos/4.png" alt="" class="ticker-logo">
+    <img src="assets/logos/5.png" alt="" class="ticker-logo">
+    <img src="assets/logos/6.png" alt="" class="ticker-logo">
+    <img src="assets/logos/7.png" alt="" class="ticker-logo">
+    <img src="assets/logos/8.png" alt="" class="ticker-logo">
+    <img src="assets/logos/9.png" alt="" class="ticker-logo">
+    <img src="assets/logos/10.png" alt="" class="ticker-logo">
+    <img src="assets/logos/11.png" alt="" class="ticker-logo">
+    <img src="assets/logos/12.png" alt="" class="ticker-logo">
+    <img src="assets/logos/13.png" alt="" class="ticker-logo">
+    <img src="assets/logos/14.png" alt="" class="ticker-logo">
+    <img src="assets/logos/15.png" alt="" class="ticker-logo">
+    <img src="assets/logos/16.png" alt="" class="ticker-logo">
+    <img src="assets/logos/17.png" alt="" class="ticker-logo">
+    <img src="assets/logos/18.png" alt="" class="ticker-logo">
+    <img src="assets/logos/19.png" alt="" class="ticker-logo">
+    <img src="assets/logos/20.png" alt="" class="ticker-logo">
+    <img src="assets/logos/21.png" alt="" class="ticker-logo">
+    <img src="assets/logos/22.png" alt="" class="ticker-logo">
+    <img src="assets/logos/23.png" alt="" class="ticker-logo">
+    <img src="assets/logos/24.png" alt="" class="ticker-logo">
+    <img src="assets/logos/25.png" alt="" class="ticker-logo">
+    <img src="assets/logos/26.png" alt="" class="ticker-logo">
+    <img src="assets/logos/27.png" alt="" class="ticker-logo">
+    <img src="assets/logos/28.png" alt="" class="ticker-logo">
+    <img src="assets/logos/29.png" alt="" class="ticker-logo">
+    <img src="assets/logos/30.png" alt="" class="ticker-logo">
+    <img src="assets/logos/31.png" alt="" class="ticker-logo">
+    <img src="assets/logos/32.png" alt="" class="ticker-logo">
+    <img src="assets/logos/33.png" alt="" class="ticker-logo">
+    <img src="assets/logos/34.png" alt="" class="ticker-logo">
+    <img src="assets/logos/35.png" alt="" class="ticker-logo">
+    <img src="assets/logos/36.png" alt="" class="ticker-logo">
+    <img src="assets/logos/37.png" alt="" class="ticker-logo">
+    <img src="assets/logos/38.png" alt="" class="ticker-logo">
+    <img src="assets/logos/39.png" alt="" class="ticker-logo">
+    <img src="assets/logos/40.png" alt="" class="ticker-logo">
+    <img src="assets/logos/41.png" alt="" class="ticker-logo">
+    <img src="assets/logos/42.png" alt="" class="ticker-logo">
+    <img src="assets/logos/43.png" alt="" class="ticker-logo">
+    <img src="assets/logos/44.png" alt="" class="ticker-logo">
+    <img src="assets/logos/45.png" alt="" class="ticker-logo">
+    <!-- Duplicate for seamless loop -->
+    <img src="assets/logos/1.png" alt="" class="ticker-logo">
+    <img src="assets/logos/2.png" alt="" class="ticker-logo">
+    <img src="assets/logos/3.png" alt="" class="ticker-logo">
+    <img src="assets/logos/4.png" alt="" class="ticker-logo">
+    <img src="assets/logos/5.png" alt="" class="ticker-logo">
+    <img src="assets/logos/6.png" alt="" class="ticker-logo">
+    <img src="assets/logos/7.png" alt="" class="ticker-logo">
+    <img src="assets/logos/8.png" alt="" class="ticker-logo">
+    <img src="assets/logos/9.png" alt="" class="ticker-logo">
+    <img src="assets/logos/10.png" alt="" class="ticker-logo">
+    <img src="assets/logos/11.png" alt="" class="ticker-logo">
+    <img src="assets/logos/12.png" alt="" class="ticker-logo">
+    <img src="assets/logos/13.png" alt="" class="ticker-logo">
+    <img src="assets/logos/14.png" alt="" class="ticker-logo">
+    <img src="assets/logos/15.png" alt="" class="ticker-logo">
+    <img src="assets/logos/16.png" alt="" class="ticker-logo">
+    <img src="assets/logos/17.png" alt="" class="ticker-logo">
+    <img src="assets/logos/18.png" alt="" class="ticker-logo">
+    <img src="assets/logos/19.png" alt="" class="ticker-logo">
+    <img src="assets/logos/20.png" alt="" class="ticker-logo">
+    <img src="assets/logos/21.png" alt="" class="ticker-logo">
+    <img src="assets/logos/22.png" alt="" class="ticker-logo">
+    <img src="assets/logos/23.png" alt="" class="ticker-logo">
+    <img src="assets/logos/24.png" alt="" class="ticker-logo">
+    <img src="assets/logos/25.png" alt="" class="ticker-logo">
+    <img src="assets/logos/26.png" alt="" class="ticker-logo">
+    <img src="assets/logos/27.png" alt="" class="ticker-logo">
+    <img src="assets/logos/28.png" alt="" class="ticker-logo">
+    <img src="assets/logos/29.png" alt="" class="ticker-logo">
+    <img src="assets/logos/30.png" alt="" class="ticker-logo">
+    <img src="assets/logos/31.png" alt="" class="ticker-logo">
+    <img src="assets/logos/32.png" alt="" class="ticker-logo">
+    <img src="assets/logos/33.png" alt="" class="ticker-logo">
+    <img src="assets/logos/34.png" alt="" class="ticker-logo">
+    <img src="assets/logos/35.png" alt="" class="ticker-logo">
+    <img src="assets/logos/36.png" alt="" class="ticker-logo">
+    <img src="assets/logos/37.png" alt="" class="ticker-logo">
+    <img src="assets/logos/38.png" alt="" class="ticker-logo">
+    <img src="assets/logos/39.png" alt="" class="ticker-logo">
+    <img src="assets/logos/40.png" alt="" class="ticker-logo">
+    <img src="assets/logos/41.png" alt="" class="ticker-logo">
+    <img src="assets/logos/42.png" alt="" class="ticker-logo">
+    <img src="assets/logos/43.png" alt="" class="ticker-logo">
+    <img src="assets/logos/44.png" alt="" class="ticker-logo">
+    <img src="assets/logos/45.png" alt="" class="ticker-logo">
+  </div>
+</section>
+
+<!-- ==================== WHY STRAUSS ==================== -->
+<section class="why-section">
+  <div class="why-header reveal">
+    <div>
+      <span class="tag">[ WHY STRAUSS ]</span>
+      <h2>Built different,<br>by design</h2>
+    </div>
+  </div>
+
+  <div class="why-strip from-left">
+    <span class="why-num">01</span>
+    <div class="why-text">
+      <h3>Boutique by design</h3>
+      <p>Personalized service that helps companies grab attention, gain consistent visibility, create deeper impact and adapt to today's ever-changing world.</p>
+    </div>
+    <div class="why-accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+    </div>
+  </div>
+
+  <div class="why-strip from-right">
+    <span class="why-num">02</span>
+    <div class="why-text">
+      <h3>Media industry veterans</h3>
+      <p>Decades of combined experience across top agencies in New York, DC, and LA. We know exactly how to tell your story for maximum impact.</p>
+    </div>
+    <div class="why-accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+    </div>
+  </div>
+
+  <div class="why-strip from-left">
+    <span class="why-num">03</span>
+    <div class="why-text">
+      <h3>Tech-native focus</h3>
+      <p>We specialize in High Tech, Venture Capital, B2B, Mobility, Fintech, and Biotech — we don't need to be brought up to speed on your category.</p>
+    </div>
+    <div class="why-accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+    </div>
+  </div>
+
+  <div class="why-strip from-right">
+    <span class="why-num">04</span>
+    <div class="why-text">
+      <h3>Global reach</h3>
+      <p>With presence in New York, Madrid, and Tel Aviv, we connect brands with the right global media and craft strategies that resonate across markets.</p>
+    </div>
+    <div class="why-accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="services-header-left">
+        <span class="tag">[ WHAT WE DO ]</span>
+        <h2>Services</h2>
+      </div>
+    </div>
+
+    <div class="service-row reveal">
+      <div class="num">01</div>
+      <h3>Media Relations</h3>
+      <p>We help your brand generate ongoing media interest and become an opinion leader. We create storylines that reach targeted audiences through key news, identifying relevant journalists and leveraging storytelling skills to gain coverage.</p>
+    </div>
+    <div class="service-row reveal">
+      <div class="num">02</div>
+      <h3>Content Development</h3>
+      <p>Whether it's a guest editorial in a top publication, a video series, a technical white paper, or a long-form social media post, we create content that positions your business as the voice worth listening to.</p>
+    </div>
+    <div class="service-row reveal">
+      <div class="num">03</div>
+      <h3>Social Media</h3>
+      <p>We identify the relevant platforms, manage your accounts, grow your following and create tailored content that turns social into a potent tool of direct communication with clients, investors, partners and peers.</p>
+    </div>
+    <div class="service-row reveal">
+      <div class="num">04</div>
+      <h3>Media Training</h3>
+      <p>We help your team make the most out of every interview opportunity with media training and briefing documents — giving them the tools to ace interviews and speak in powerful soundbites.</p>
+    </div>
+    <div class="service-row reveal">
+      <div class="num">05</div>
+      <h3>Funding Announcements</h3>
+      <p>We craft funding announcements for maximum impact, pitching stories to the journalists most likely to cover them and turning milestones into visibility across top-tier and trade publications.</p>
+    </div>
+    <div class="service-row reveal">
+      <div class="num">06</div>
+      <h3>Communication Strategy</h3>
+      <p>We work with your leadership team to define messaging, positioning and narrative frameworks that align your communications with business goals and resonate across every audience and channel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FEATURED TESTIMONIAL ==================== -->
+<section class="testimonial-band">
+  <div class="reveal">
+    <span class="big-quote">“</span>
+    <blockquote>
+      In just one quarter working with Strauss, our share of voice more than tripled. We're now ranked fourth alongside the largest players in our industry, an outcome that exceeded our expectations.
+    </blockquote>
+    <div class="testimonial-attribution">
+      — <span class="name">Brian Gilman</span>, Chief Marketing Officer, ThetaRay
+    </div>
+    <a class="testimonial-link" href="/testimonials">
+      Read all testimonials <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="cta-section" id="contact">
+  <h2 class="reveal">Ready to make <span class="serif-accent">headlines?</span></h2>
+  <p class="cta-sub reveal">Let's talk about how Strauss can amplify your story.</p>
+
+  <form class="contact-form reveal" id="contactForm" method="POST" name="contact">
+    <input type="hidden" name="form-name" value="contact">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required="">
+      </div>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" placeholder="Your company">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@company.com" required="">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Tell us about your project..." required=""></textarea>
+    </div>
+    <div class="form-submit">
+      <button type="submit" class="btn btn-coral">Send Message →</button>
+    </div>
+  </form>
+  <div class="form-success" id="formSuccess">
+    <h3>Message sent!</h3>
+    <p>We'll be in touch shortly.</p>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-left">
+    <svg viewBox="-20 -20 440 440" class="logo-icon">
+      <defs>
+        <clipPath id="gc-footer">
+          <rect x="50" y="50" width="143" height="143" rx="18"></rect>
+          <rect x="207" y="50" width="143" height="143" rx="18"></rect>
+          <rect x="50" y="207" width="143" height="143" rx="18"></rect>
+          <rect x="207" y="207" width="143" height="143" rx="18"></rect>
+        </clipPath>
+      </defs>
+      <g transform="rotate(-18, 200, 200)">
+        <rect x="50" y="50" width="143" height="143" rx="18" fill="#2A6A8E"></rect>
+        <rect x="207" y="50" width="143" height="143" rx="18" fill="#2A6A8E"></rect>
+        <rect x="50" y="207" width="143" height="143" rx="18" fill="#2A6A8E"></rect>
+        <rect x="207" y="207" width="143" height="143" rx="18" fill="#2A6A8E"></rect>
+        <path d="M -20,100 C 150,-40 50,200 200,200 C 350,200 250,440 420,300" stroke="#89C5DE" stroke-width="110" fill="none" clip-path="url(#gc-footer)"></path>
+        <g transform="rotate(-45, 358, 352)">
+          <path d="M 365,346 Q 369,352 365,358" stroke="#89C5DE" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M 373,342 Q 380,352 373,362" stroke="#89C5DE" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          <path d="M 381,338 Q 392,352 381,366" stroke="#89C5DE" stroke-width="4" fill="none" stroke-linecap="round"></path>
+        </g>
+      </g>
+    </svg>
+    <span class="footer-brand">STRAUSS COMMUNICATIONS</span>
+  </div>
+  <div class="footer-center">
+    <a href="#services" class="footer-link">Services</a>
+    <a class="footer-link" href="/results">Results</a>
+    <a class="footer-link" href="/testimonials">Testimonials</a>
+    <a class="footer-link" href="/blog">Blog</a>
+    <a href="#contact" class="footer-link">Contact</a>
+  </div>
+  <div class="footer-right">
+    <span>© 2026 Strauss Communications</span>
+    <a href="https://www.linkedin.com/company/strausscomms" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#8A8A85" style="transition:fill 0.3s;" onmouseover="this.style.fill='#E05C4D'" onmouseout="this.style.fill='#8A8A85'"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+    </a>
+  </div>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+(function() {
+  'use strict';
+
+  /* ---- CUSTOM CURSOR ---- */
+  var cursorDot = document.getElementById('cursorDot');
+  var cursorX = -100, cursorY = -100;
+  var dotX = -100, dotY = -100;
+
+  document.addEventListener('mousemove', function(e) {
+    cursorX = e.clientX;
+    cursorY = e.clientY;
+  });
+
+  function animateCursor() {
+    dotX += (cursorX - dotX) * 0.15;
+    dotY += (cursorY - dotY) * 0.15;
+    cursorDot.style.left = dotX + 'px';
+    cursorDot.style.top = dotY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  var interactiveSelectors = 'a, button, .btn, .service-row, .why-strip, .wave-bar, .nav-link, .footer-link, .testimonial-link';
+  document.addEventListener('mouseover', function(e) {
+    if (e.target.closest(interactiveSelectors)) cursorDot.classList.add('expanded');
+  });
+  document.addEventListener('mouseout', function(e) {
+    if (e.target.closest(interactiveSelectors)) cursorDot.classList.remove('expanded');
+  });
+
+  /* ---- NAV SCROLL STATE ---- */
+  var nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ---- MOBILE MENU ---- */
+  var navHamburger = document.getElementById('navHamburger');
+  var navMobile = document.getElementById('navMobile');
+  function openMobileMenu() {
+    navHamburger.classList.add('active');
+    navMobile.classList.add('open');
+    navMobile.style.maxHeight = '400px';
+    navMobile.style.padding = '1.5rem';
+  }
+  function closeMobileMenu() {
+    navHamburger.classList.remove('active');
+    navMobile.classList.remove('open');
+    navMobile.style.maxHeight = '0';
+    navMobile.style.padding = '0 1.5rem';
+  }
+  navHamburger.addEventListener('click', function() {
+    navMobile.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+  });
+  navMobile.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  /* ---- HERO WAVE CANVAS ---- */
+  var heroCanvas = document.getElementById('heroCanvas');
+  var hCtx = heroCanvas.getContext('2d');
+
+  function resizeHeroCanvas() {
+    heroCanvas.width = heroCanvas.offsetWidth * window.devicePixelRatio;
+    heroCanvas.height = heroCanvas.offsetHeight * window.devicePixelRatio;
+    hCtx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
+  resizeHeroCanvas();
+
+  var heroTime = 0;
+  function drawHeroWaves() {
+    var w = heroCanvas.offsetWidth;
+    var h = heroCanvas.offsetHeight;
+    hCtx.clearRect(0, 0, w, h);
+
+    var curves = [
+      { opacity: 0.12, yOffset: 0.35, speed: 0.0006, amp: 80, lineWidth: 1.5 },
+      { opacity: 0.08, yOffset: 0.50, speed: 0.0004, amp: 100, lineWidth: 1 },
+      { opacity: 0.04, yOffset: 0.65, speed: 0.0008, amp: 60, lineWidth: 0.75 }
+    ];
+
+    curves.forEach(function(c) {
+      hCtx.beginPath();
+      hCtx.strokeStyle = 'rgba(27, 77, 110, ' + c.opacity + ')';
+      hCtx.lineWidth = c.lineWidth;
+      var baseY = h * c.yOffset;
+      var t = heroTime * c.speed;
+      var shift = Math.sin(t) * c.amp;
+      hCtx.moveTo(-50, baseY + shift);
+      hCtx.bezierCurveTo(
+        w * 0.25, baseY - c.amp * 1.5 + shift * 0.5,
+        w * 0.35, baseY + c.amp * 1.8 + shift * 0.3,
+        w * 0.5, baseY + shift * 0.7
+      );
+      hCtx.bezierCurveTo(
+        w * 0.65, baseY - c.amp * 1.8 - shift * 0.3,
+        w * 0.75, baseY + c.amp * 1.5 - shift * 0.5,
+        w + 50, baseY - shift
+      );
+      hCtx.stroke();
+    });
+
+    heroTime++;
+    requestAnimationFrame(drawHeroWaves);
+  }
+  drawHeroWaves();
+
+  /* ---- WAVE BARS ---- */
+  var waveBarsContainer = document.getElementById('waveBars');
+  var barCount = 40;
+  var bars = [];
+  for (var i = 0; i < barCount; i++) {
+    var bar = document.createElement('div');
+    bar.className = 'wave-bar';
+    bar.style.height = (Math.random() * 160 + 20) + 'px';
+    waveBarsContainer.appendChild(bar);
+    bars.push(bar);
+  }
+  function animateBars() {
+    bars.forEach(function(bar) {
+      bar.style.height = (Math.random() * 180 + 15) + 'px';
+    });
+    setTimeout(animateBars, 800 + Math.random() * 400);
+  }
+  animateBars();
+
+  /* ---- SCROLL REVEAL ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(function(el) { observer.observe(el); });
+
+  /* ---- WHY STRIPS ---- */
+  var strips = document.querySelectorAll('.why-strip');
+  var stripObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(strips, entry.target);
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, idx * 180);
+        stripObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  strips.forEach(function(el) { stripObserver.observe(el); });
+
+  /* ---- CONTACT FORM ---- */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new URLSearchParams(new FormData(form));
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
+        .then(function() {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        })
+        .catch(function() { form.submit(); });
+    });
+  }
+
+  /* ---- RESIZE ---- */
+  var resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+      hCtx.setTransform(1, 0, 0, 1, 0, 0);
+      resizeHeroCanvas();
+    }, 150);
+  });
+
+})();
+</script>
+
+
+</body></html>

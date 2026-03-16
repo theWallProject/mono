@@ -1,0 +1,79 @@
+[2026-03-12T00:51:03.371Z] === Homepage AI Extractor: Tigloo ===
+[2026-03-12T00:51:03.371Z] Started at: 2026-03-12T00:51:03.371Z
+[2026-03-12T00:51:03.371Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773276663370_Tigloo
+[2026-03-12T00:51:03.371Z] Company: Tigloo
+[2026-03-12T00:51:03.371Z] Website: tigloo.io
+[2026-03-12T00:51:03.371Z] cbRank: 732692
+[2026-03-12T00:51:03.371Z] Reasons: h
+[2026-03-12T00:51:03.371Z] Fetching: https://tigloo.io
+[2026-03-12T00:51:14.524Z] Network idle timeout — continuing with current state
+[2026-03-12T00:51:14.575Z] Redirected: https://tigloo.io -> https://www.tigloo.io/
+[2026-03-12T00:51:14.601Z] Saved HTML (724669 bytes) to page.html
+[2026-03-12T00:51:14.605Z] Extracted 7 unique links from page
+[2026-03-12T00:51:14.606Z] Saved 7 links to links.json
+[2026-03-12T00:51:14.609Z] Extracted footer HTML (4129 chars)
+[2026-03-12T00:51:14.610Z] Extracted header HTML (7388 chars)
+[2026-03-12T00:51:14.613Z] Website (post-redirect): https://www.tigloo.io/ → origin: https://www.tigloo.io
+[2026-03-12T00:51:14.614Z] External links: 6 (of 7 total)
+[2026-03-12T00:51:14.614Z] ── All external links ──
+[2026-03-12T00:51:14.614Z]   EXT: http://www.trackbox.ai
+[2026-03-12T00:51:14.614Z]   EXT: https://api.whatsapp.com/send?phone=972534777874
+[2026-03-12T00:51:14.614Z]   EXT: https://t.me/LivDariaTB
+[2026-03-12T00:51:14.614Z]   EXT: https://www.facebook.com/TiglooTech
+[2026-03-12T00:51:14.614Z]   EXT: https://www.linkedin.com/company/trackbox-ai
+[2026-03-12T00:51:14.614Z]   EXT: https://www.trackbox.ai
+[2026-03-12T00:51:14.614Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T00:51:14.615Z]   UNCATEGORIZED: http://www.trackbox.ai
+[2026-03-12T00:51:14.615Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972534777874
+[2026-03-12T00:51:14.615Z]   UNCATEGORIZED: https://t.me/LivDariaTB
+[2026-03-12T00:51:14.615Z]   REGEX: fb <- https://www.facebook.com/TiglooTech
+[2026-03-12T00:51:14.615Z]   REGEX: li <- https://www.linkedin.com/company/trackbox-ai
+[2026-03-12T00:51:14.615Z]   UNCATEGORIZED: https://www.trackbox.ai
+[2026-03-12T00:51:14.615Z] Programmatic result: ws:1, fb:1, li:1 | 4 uncategorized
+[2026-03-12T00:51:14.615Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T00:51:14.616Z] Saved AI prompt (5410 chars) to ai_prompt.txt
+[2026-03-12T00:51:14.616Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T00:51:14.651Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T00:51:38.479Z]   AI: First token received, streaming...
+[2026-03-12T00:51:43.754Z] AI response complete: 102 chars in 29.1s
+[2026-03-12T00:51:43.755Z] Saved AI response to ai_response.json
+[2026-03-12T00:51:43.755Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T00:51:43.756Z]   AI LINK: https://www.tigloo.io
+[2026-03-12T00:51:43.756Z]   AI LINK: https://www.linkedin.com/company/trackbox-ai
+[2026-03-12T00:51:43.756Z]   AI LINK: https://www.facebook.com/TiglooTech
+[2026-03-12T00:51:43.756Z] AI returned 3 valid links
+[2026-03-12T00:51:43.756Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T00:51:43.756Z]   AI→URLS: https://www.tigloo.io
+[2026-03-12T00:51:43.756Z]   AI→REGEX: li <- https://www.linkedin.com/company/trackbox-ai (duplicate, skipped)
+[2026-03-12T00:51:43.756Z]   AI→REGEX: fb <- https://www.facebook.com/TiglooTech (duplicate, skipped)
+[2026-03-12T00:51:43.757Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T00:51:43.757Z] Footer/header origins (5):
+[2026-03-12T00:51:43.757Z]   FOOTER/HEADER ORIGIN: https://www.tigloo.io
+[2026-03-12T00:51:43.757Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T00:51:43.757Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T00:51:43.757Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-12T00:51:43.757Z]   FOOTER/HEADER ORIGIN: https://t.me
+[2026-03-12T00:51:43.757Z]   SKIP (not in footer/header): http://www.trackbox.ai
+[2026-03-12T00:51:43.757Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972534777874)
+[2026-03-12T00:51:43.757Z]   ADDED: urls <- https://t.me/LivDariaTB
+[2026-03-12T00:51:43.757Z]   SKIP (not in footer/header): https://www.trackbox.ai
+[2026-03-12T00:51:43.758Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T00:51:43.758Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T00:51:43.758Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T00:51:43.758Z] ── Step 3: Final dedup ──
+[2026-03-12T00:51:43.758Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-12T00:51:43.758Z] ── FINAL RESULT ──
+[2026-03-12T00:51:43.758Z]   ws (1):
+[2026-03-12T00:51:43.758Z]     - https://www.tigloo.io
+[2026-03-12T00:51:43.758Z]   li (1):
+[2026-03-12T00:51:43.758Z]     - https://www.linkedin.com/company/trackbox-ai
+[2026-03-12T00:51:43.758Z]   fb (1):
+[2026-03-12T00:51:43.758Z]     - https://www.facebook.com/tiglootech
+[2026-03-12T00:51:43.759Z]   urls (3):
+[2026-03-12T00:51:43.759Z]     - https://api.whatsapp.com/send
+[2026-03-12T00:51:43.759Z]     - https://t.me/LivDariaTB
+[2026-03-12T00:51:43.759Z]     - https://www.tigloo.io
+[2026-03-12T00:51:43.759Z] Summary: ws:1, fb:1, li:1, urls:3
+[2026-03-12T00:51:43.759Z] Saved final result to result.json
+[2026-03-12T00:51:43.760Z] Override fields: ws, li, fb, urls
+[2026-03-12T00:51:43.760Z] Finished at: 2026-03-12T00:51:43.760Z

@@ -1,0 +1,64 @@
+[2026-03-13T04:43:26.590Z] === Homepage AI Extractor: AYEKA ===
+[2026-03-13T04:43:26.591Z] Started at: 2026-03-13T04:43:26.591Z
+[2026-03-13T04:43:26.591Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773377006590_AYEKA
+[2026-03-13T04:43:26.591Z] Company: AYEKA
+[2026-03-13T04:43:26.591Z] Website: ayeka.co
+[2026-03-13T04:43:26.591Z] cbRank: 988703
+[2026-03-13T04:43:26.591Z] Reasons: h
+[2026-03-13T04:43:26.591Z] Fetching: https://ayeka.co
+[2026-03-13T04:43:29.045Z] Redirected: https://ayeka.co -> https://ayeka.co/
+[2026-03-13T04:43:29.055Z] Saved HTML (151892 bytes) to page.html
+[2026-03-13T04:43:29.058Z] Extracted 5 unique links from page
+[2026-03-13T04:43:29.059Z] Saved 5 links to links.json
+[2026-03-13T04:43:29.061Z] Extracted footer HTML (2480 chars)
+[2026-03-13T04:43:29.061Z] No header section found in DOM
+[2026-03-13T04:43:29.065Z] Website (post-redirect): https://ayeka.co/ → origin: https://ayeka.co
+[2026-03-13T04:43:29.065Z] External links: 3 (of 5 total)
+[2026-03-13T04:43:29.065Z] ── All external links ──
+[2026-03-13T04:43:29.065Z]   EXT: https://www.facebook.com/AYEKAisrael
+[2026-03-13T04:43:29.065Z]   EXT: https://www.instagram.com/ayeka_house
+[2026-03-13T04:43:29.065Z]   EXT: https://www.linkedin.com/company/ayeka
+[2026-03-13T04:43:29.065Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T04:43:29.066Z]   REGEX: fb <- https://www.facebook.com/AYEKAisrael
+[2026-03-13T04:43:29.066Z]   REGEX: ig <- https://www.instagram.com/ayeka_house
+[2026-03-13T04:43:29.066Z]   REGEX: li <- https://www.linkedin.com/company/ayeka
+[2026-03-13T04:43:29.066Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-13T04:43:29.066Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T04:43:29.067Z] Saved AI prompt (2792 chars) to ai_prompt.txt
+[2026-03-13T04:43:29.067Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T04:43:29.085Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T04:43:38.611Z]   AI: First token received, streaming...
+[2026-03-13T04:43:44.191Z] AI response complete: 114 chars in 15.1s
+[2026-03-13T04:43:44.192Z] Saved AI response to ai_response.json
+[2026-03-13T04:43:44.192Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T04:43:44.192Z]   AI LINK: https://www.facebook.com/AYEKAisrael
+[2026-03-13T04:43:44.192Z]   AI LINK: https://www.instagram.com/ayeka_house/
+[2026-03-13T04:43:44.193Z]   AI LINK: https://www.linkedin.com/company/ayeka
+[2026-03-13T04:43:44.193Z] AI returned 3 valid links
+[2026-03-13T04:43:44.193Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T04:43:44.193Z]   AI→REGEX: fb <- https://www.facebook.com/AYEKAisrael (duplicate, skipped)
+[2026-03-13T04:43:44.193Z]   AI→REGEX: ig <- https://www.instagram.com/ayeka_house/ (duplicate, skipped)
+[2026-03-13T04:43:44.193Z]   AI→REGEX: li <- https://www.linkedin.com/company/ayeka (duplicate, skipped)
+[2026-03-13T04:43:44.193Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T04:43:44.193Z] Footer/header origins (3):
+[2026-03-13T04:43:44.193Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T04:43:44.193Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-13T04:43:44.194Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T04:43:44.194Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T04:43:44.194Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T04:43:44.194Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T04:43:44.194Z] ── Step 3: Final dedup ──
+[2026-03-13T04:43:44.194Z] No urls to dedup
+[2026-03-13T04:43:44.194Z] ── FINAL RESULT ──
+[2026-03-13T04:43:44.194Z]   ws (1):
+[2026-03-13T04:43:44.194Z]     - https://ayeka.co
+[2026-03-13T04:43:44.194Z]   li (1):
+[2026-03-13T04:43:44.194Z]     - https://www.linkedin.com/company/ayeka
+[2026-03-13T04:43:44.194Z]   fb (1):
+[2026-03-13T04:43:44.195Z]     - https://www.facebook.com/ayekaisrael
+[2026-03-13T04:43:44.195Z]   ig (1):
+[2026-03-13T04:43:44.195Z]     - https://www.instagram.com/ayeka_house
+[2026-03-13T04:43:44.195Z] Summary: ws:1, fb:1, ig:1, li:1
+[2026-03-13T04:43:44.196Z] Saved final result to result.json
+[2026-03-13T04:43:44.196Z] Override fields: ws, li, fb, ig
+[2026-03-13T04:43:44.196Z] Finished at: 2026-03-13T04:43:44.196Z

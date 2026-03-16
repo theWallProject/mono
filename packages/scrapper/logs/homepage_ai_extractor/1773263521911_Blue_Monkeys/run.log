@@ -1,0 +1,66 @@
+[2026-03-11T21:12:01.911Z] === Homepage AI Extractor: Blue Monkeys ===
+[2026-03-11T21:12:01.911Z] Started at: 2026-03-11T21:12:01.911Z
+[2026-03-11T21:12:01.911Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773263521911_Blue_Monkeys
+[2026-03-11T21:12:01.911Z] Company: Blue Monkeys
+[2026-03-11T21:12:01.911Z] Website: blue-monkeys.com
+[2026-03-11T21:12:01.912Z] cbRank: 662344
+[2026-03-11T21:12:01.912Z] Reasons: h
+[2026-03-11T21:12:01.912Z] Fetching: https://blue-monkeys.com
+[2026-03-11T21:12:13.512Z] Network idle timeout — continuing with current state
+[2026-03-11T21:12:13.555Z] Redirected: https://blue-monkeys.com -> https://www.blue-monkeys.com/
+[2026-03-11T21:12:13.562Z] Saved HTML (179410 bytes) to page.html
+[2026-03-11T21:12:13.565Z] Extracted 9 unique links from page
+[2026-03-11T21:12:13.566Z] Saved 9 links to links.json
+[2026-03-11T21:12:13.568Z] Extracted footer HTML (695 chars)
+[2026-03-11T21:12:13.568Z] Extracted header HTML (2040 chars)
+[2026-03-11T21:12:13.572Z] Website (post-redirect): https://www.blue-monkeys.com/ → origin: https://www.blue-monkeys.com
+[2026-03-11T21:12:13.572Z] External links: 4 (of 9 total)
+[2026-03-11T21:12:13.572Z] ── All external links ──
+[2026-03-11T21:12:13.572Z]   EXT: https://www.amirpolak.com
+[2026-03-11T21:12:13.573Z]   EXT: https://www.facebook.com/BlueMonkeysProductions
+[2026-03-11T21:12:13.573Z]   EXT: https://www.instagram.com/bluemonkeys_productions
+[2026-03-11T21:12:13.573Z]   EXT: https://www.linkedin.com/company/blue-monkeys-productions/?viewAsMember=true
+[2026-03-11T21:12:13.573Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T21:12:13.573Z]   UNCATEGORIZED: https://www.amirpolak.com
+[2026-03-11T21:12:13.573Z]   REGEX: fb <- https://www.facebook.com/BlueMonkeysProductions
+[2026-03-11T21:12:13.573Z]   REGEX: ig <- https://www.instagram.com/bluemonkeys_productions
+[2026-03-11T21:12:13.573Z]   REGEX: li <- https://www.linkedin.com/company/blue-monkeys-productions/?viewAsMember=true
+[2026-03-11T21:12:13.573Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-11T21:12:13.573Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T21:12:13.574Z] Saved AI prompt (2354 chars) to ai_prompt.txt
+[2026-03-11T21:12:13.574Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T21:12:13.588Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T21:12:21.679Z]   AI: First token received, streaming...
+[2026-03-11T21:12:22.360Z] AI response complete: 29 chars in 8.8s
+[2026-03-11T21:12:22.361Z] Saved AI response to ai_response.json
+[2026-03-11T21:12:22.361Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T21:12:22.361Z]   AI LINK: https://www.blue-monkeys.com/
+[2026-03-11T21:12:22.361Z] AI returned 1 valid links
+[2026-03-11T21:12:22.361Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T21:12:22.361Z]   AI→URLS: https://www.blue-monkeys.com (cleaned from https://www.blue-monkeys.com/)
+[2026-03-11T21:12:22.361Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T21:12:22.361Z] Footer/header origins (2):
+[2026-03-11T21:12:22.361Z]   FOOTER/HEADER ORIGIN: https://www.blue-monkeys.com
+[2026-03-11T21:12:22.361Z]   FOOTER/HEADER ORIGIN: https://www.amirpolak.com
+[2026-03-11T21:12:22.362Z]   ADDED: urls <- https://www.amirpolak.com
+[2026-03-11T21:12:22.362Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T21:12:22.362Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T21:12:22.362Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T21:12:22.362Z] ── Step 3: Final dedup ──
+[2026-03-11T21:12:22.362Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-11T21:12:22.362Z] ── FINAL RESULT ──
+[2026-03-11T21:12:22.362Z]   ws (1):
+[2026-03-11T21:12:22.362Z]     - https://www.blue-monkeys.com
+[2026-03-11T21:12:22.362Z]   li (1):
+[2026-03-11T21:12:22.362Z]     - https://www.linkedin.com/company/blue-monkeys-productions
+[2026-03-11T21:12:22.362Z]   fb (1):
+[2026-03-11T21:12:22.362Z]     - https://www.facebook.com/bluemonkeysproductions
+[2026-03-11T21:12:22.362Z]   ig (1):
+[2026-03-11T21:12:22.362Z]     - https://www.instagram.com/bluemonkeys_productions
+[2026-03-11T21:12:22.362Z]   urls (2):
+[2026-03-11T21:12:22.362Z]     - https://www.amirpolak.com
+[2026-03-11T21:12:22.362Z]     - https://www.blue-monkeys.com
+[2026-03-11T21:12:22.362Z] Summary: ws:1, fb:1, ig:1, li:1, urls:2
+[2026-03-11T21:12:22.363Z] Saved final result to result.json
+[2026-03-11T21:12:22.363Z] Override fields: ws, li, fb, ig, urls
+[2026-03-11T21:12:22.363Z] Finished at: 2026-03-11T21:12:22.363Z

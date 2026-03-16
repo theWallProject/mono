@@ -124,7 +124,7 @@ const REGEX_DOMAINS = new Set([
  */
 export const isFromRegexDomain = (url: string): boolean => {
   try {
-    const hostname = new URL(url).hostname.replace(/^(www|m|mobile|business|l|lm)\./i, "")
+    const hostname = new URL(url).hostname.replace(/^(www|m|mobile|business|l|lm|platform)\./i, "")
     return REGEX_DOMAINS.has(hostname)
   } catch {
     return false

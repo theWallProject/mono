@@ -1,0 +1,72 @@
+[2026-03-13T10:55:21.889Z] === Homepage AI Extractor: Catom ===
+[2026-03-13T10:55:21.889Z] Started at: 2026-03-13T10:55:21.889Z
+[2026-03-13T10:55:21.889Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773399321888_Catom
+[2026-03-13T10:55:21.889Z] Company: Catom
+[2026-03-13T10:55:21.889Z] Website: catom.com
+[2026-03-13T10:55:21.889Z] cbRank: 1109711
+[2026-03-13T10:55:21.889Z] Reasons: h
+[2026-03-13T10:55:21.889Z] Fetching: https://catom.com
+[2026-03-13T10:55:36.131Z] Network idle timeout — continuing with current state
+[2026-03-13T10:55:36.175Z] Redirected: https://catom.com -> https://www.catom.com/Home
+[2026-03-13T10:55:36.182Z] Saved HTML (178453 bytes) to page.html
+[2026-03-13T10:55:36.186Z] Extracted 78 unique links from page
+[2026-03-13T10:55:36.187Z] Saved 78 links to links.json
+[2026-03-13T10:55:36.191Z] Extracted footer HTML (6306 chars)
+[2026-03-13T10:55:36.191Z] Extracted header HTML (13992 chars)
+[2026-03-13T10:55:36.196Z] Website (post-redirect): https://www.catom.com/Home → origin: https://www.catom.com
+[2026-03-13T10:55:36.197Z] External links: 6 (of 78 total)
+[2026-03-13T10:55:36.197Z] ── All external links ──
+[2026-03-13T10:55:36.197Z]   EXT: http://www.catom.co.il
+[2026-03-13T10:55:36.197Z]   EXT: https://bme.technion.ac.il
+[2026-03-13T10:55:36.197Z]   EXT: https://store.vargus.dk/Home
+[2026-03-13T10:55:36.197Z]   EXT: https://wa.me/972523220838
+[2026-03-13T10:55:36.198Z]   EXT: https://www.facebook.com/CatomWeb
+[2026-03-13T10:55:36.198Z]   EXT: https://www.netfish.co.il/Home
+[2026-03-13T10:55:36.198Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T10:55:36.198Z]   UNCATEGORIZED: http://www.catom.co.il
+[2026-03-13T10:55:36.198Z]   UNCATEGORIZED: https://bme.technion.ac.il
+[2026-03-13T10:55:36.198Z]   UNCATEGORIZED: https://store.vargus.dk/Home
+[2026-03-13T10:55:36.198Z]   UNCATEGORIZED: https://wa.me/972523220838
+[2026-03-13T10:55:36.198Z]   REGEX: fb <- https://www.facebook.com/CatomWeb
+[2026-03-13T10:55:36.198Z]   UNCATEGORIZED: https://www.netfish.co.il/Home
+[2026-03-13T10:55:36.199Z] Programmatic result: ws:1, fb:1 | 5 uncategorized
+[2026-03-13T10:55:36.199Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T10:55:36.199Z] Saved AI prompt (3779 chars) to ai_prompt.txt
+[2026-03-13T10:55:36.200Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T10:55:36.218Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T10:55:50.943Z]   AI: First token received, streaming...
+[2026-03-13T10:55:53.642Z] AI response complete: 57 chars in 17.4s
+[2026-03-13T10:55:53.643Z] Saved AI response to ai_response.json
+[2026-03-13T10:55:53.643Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T10:55:53.643Z]   AI LINK: http://www.catom.co.il
+[2026-03-13T10:55:53.643Z]   AI LINK: https://www.facebook.com/CatomWeb/
+[2026-03-13T10:55:53.643Z] AI returned 2 valid links
+[2026-03-13T10:55:53.644Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T10:55:53.644Z]   AI→URLS: http://www.catom.co.il
+[2026-03-13T10:55:53.644Z]   AI→REGEX: fb <- https://www.facebook.com/CatomWeb/ (duplicate, skipped)
+[2026-03-13T10:55:53.645Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T10:55:53.645Z] Footer/header origins (3):
+[2026-03-13T10:55:53.645Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T10:55:53.645Z]   FOOTER/HEADER ORIGIN: http://www.catom.com
+[2026-03-13T10:55:53.645Z]   FOOTER/HEADER ORIGIN: http://www.catom.co.il
+[2026-03-13T10:55:53.645Z]   SKIP (AI claimed): http://www.catom.co.il
+[2026-03-13T10:55:53.645Z]   SKIP (not in footer/header): https://bme.technion.ac.il
+[2026-03-13T10:55:53.645Z]   SKIP (not in footer/header): https://store.vargus.dk/Home
+[2026-03-13T10:55:53.645Z]   SKIP (not in footer/header): https://wa.me/972523220838
+[2026-03-13T10:55:53.645Z]   SKIP (not in footer/header): https://www.netfish.co.il/Home
+[2026-03-13T10:55:53.645Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T10:55:53.646Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T10:55:53.646Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T10:55:53.646Z] ── Step 3: Final dedup ──
+[2026-03-13T10:55:53.646Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T10:55:53.646Z] ── FINAL RESULT ──
+[2026-03-13T10:55:53.646Z]   ws (1):
+[2026-03-13T10:55:53.646Z]     - https://www.catom.com
+[2026-03-13T10:55:53.646Z]   fb (1):
+[2026-03-13T10:55:53.646Z]     - https://www.facebook.com/catomweb
+[2026-03-13T10:55:53.646Z]   urls (1):
+[2026-03-13T10:55:53.646Z]     - http://www.catom.co.il
+[2026-03-13T10:55:53.646Z] Summary: ws:1, fb:1, urls:1
+[2026-03-13T10:55:53.647Z] Saved final result to result.json
+[2026-03-13T10:55:53.647Z] Override fields: ws, fb
+[2026-03-13T10:55:53.647Z] Finished at: 2026-03-13T10:55:53.647Z

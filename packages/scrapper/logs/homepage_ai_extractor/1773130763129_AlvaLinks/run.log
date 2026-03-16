@@ -1,0 +1,57 @@
+[2026-03-10T08:19:23.129Z] === Homepage AI Extractor: AlvaLinks ===
+[2026-03-10T08:19:23.130Z] Started at: 2026-03-10T08:19:23.130Z
+[2026-03-10T08:19:23.130Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773130763129_AlvaLinks
+[2026-03-10T08:19:23.130Z] Company: AlvaLinks
+[2026-03-10T08:19:23.130Z] Website: alvalinks.com
+[2026-03-10T08:19:23.130Z] cbRank: 440323
+[2026-03-10T08:19:23.130Z] Reasons: h
+[2026-03-10T08:19:23.130Z] Fetching: https://alvalinks.com
+[2026-03-10T08:19:34.165Z] Network idle timeout — continuing with current state
+[2026-03-10T08:19:34.211Z] Redirected: https://alvalinks.com -> https://alvalinks.com/
+[2026-03-10T08:19:34.219Z] Saved HTML (192559 bytes) to page.html
+[2026-03-10T08:19:34.223Z] Extracted 23 unique links from page
+[2026-03-10T08:19:34.224Z] Saved 23 links to links.json
+[2026-03-10T08:19:34.229Z] Extracted footer HTML (6800 chars)
+[2026-03-10T08:19:34.229Z] Extracted header HTML (82909 chars)
+[2026-03-10T08:19:34.233Z] Website (post-redirect): https://alvalinks.com/ → origin: https://alvalinks.com
+[2026-03-10T08:19:34.233Z] External links: 2 (of 23 total)
+[2026-03-10T08:19:34.233Z] ── All external links ──
+[2026-03-10T08:19:34.233Z]   EXT: https://www.linkedin.com/company/alvalinks
+[2026-03-10T08:19:34.234Z]   EXT: https://www.youtube.com/channel/UC9Uxd-WU25wz9TdzsU8OPuQ
+[2026-03-10T08:19:34.234Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T08:19:34.234Z]   REGEX: li <- https://www.linkedin.com/company/alvalinks
+[2026-03-10T08:19:34.234Z]   REGEX: ytc <- https://www.youtube.com/channel/UC9Uxd-WU25wz9TdzsU8OPuQ
+[2026-03-10T08:19:34.234Z] Programmatic result: ws:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-10T08:19:34.234Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T08:19:34.235Z] Saved AI prompt (4989 chars) to ai_prompt.txt
+[2026-03-10T08:19:34.236Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T08:19:34.255Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T08:19:52.955Z]   AI: First token received, streaming...
+[2026-03-10T08:20:00.796Z] AI response complete: 99 chars in 26.6s
+[2026-03-10T08:20:00.797Z] Saved AI response to ai_response.json
+[2026-03-10T08:20:00.797Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T08:20:00.797Z]   AI LINK: https://www.linkedin.com/company/alvalinks
+[2026-03-10T08:20:00.797Z]   AI LINK: https://www.youtube.com/channel/UC9Uxd-WU25wz9TdzsU8OPuQ
+[2026-03-10T08:20:00.798Z] AI returned 2 valid links
+[2026-03-10T08:20:00.798Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T08:20:00.798Z]   AI→REGEX: li <- https://www.linkedin.com/company/alvalinks (duplicate, skipped)
+[2026-03-10T08:20:00.798Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC9Uxd-WU25wz9TdzsU8OPuQ (duplicate, skipped)
+[2026-03-10T08:20:00.799Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T08:20:00.799Z] Footer/header origins (3):
+[2026-03-10T08:20:00.799Z]   FOOTER/HEADER ORIGIN: https://alvalinks.com
+[2026-03-10T08:20:00.799Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T08:20:00.799Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T08:20:00.799Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T08:20:00.799Z] ── Step 3: Final dedup ──
+[2026-03-10T08:20:00.799Z] No urls to dedup
+[2026-03-10T08:20:00.799Z] ── FINAL RESULT ──
+[2026-03-10T08:20:00.799Z]   ws (1):
+[2026-03-10T08:20:00.799Z]     - https://alvalinks.com
+[2026-03-10T08:20:00.799Z]   li (1):
+[2026-03-10T08:20:00.800Z]     - https://www.linkedin.com/company/alvalinks
+[2026-03-10T08:20:00.800Z]   ytc (1):
+[2026-03-10T08:20:00.800Z]     - https://www.youtube.com/channel/UC9Uxd-WU25wz9TdzsU8OPuQ
+[2026-03-10T08:20:00.800Z] Summary: ws:1, li:1, ytc:1
+[2026-03-10T08:20:00.800Z] Saved final result to result.json
+[2026-03-10T08:20:00.800Z] Override fields: ws, li, ytc
+[2026-03-10T08:20:00.800Z] Finished at: 2026-03-10T08:20:00.800Z

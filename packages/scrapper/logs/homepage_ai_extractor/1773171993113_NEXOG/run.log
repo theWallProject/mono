@@ -1,0 +1,76 @@
+[2026-03-10T19:46:33.114Z] === Homepage AI Extractor: NEXOG ===
+[2026-03-10T19:46:33.114Z] Started at: 2026-03-10T19:46:33.114Z
+[2026-03-10T19:46:33.114Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773171993113_NEXOG
+[2026-03-10T19:46:33.114Z] Company: NEXOG
+[2026-03-10T19:46:33.114Z] Website: nexog.com
+[2026-03-10T19:46:33.114Z] cbRank: 512032
+[2026-03-10T19:46:33.114Z] Reasons: h
+[2026-03-10T19:46:33.114Z] Fetching: https://nexog.com
+[2026-03-10T19:46:41.890Z] Redirected: https://nexog.com -> https://nexog.com/
+[2026-03-10T19:46:41.895Z] Saved HTML (87669 bytes) to page.html
+[2026-03-10T19:46:41.898Z] Extracted 15 unique links from page
+[2026-03-10T19:46:41.901Z] Saved 15 links to links.json
+[2026-03-10T19:46:41.904Z] Extracted footer HTML (4302 chars)
+[2026-03-10T19:46:41.904Z] Extracted header HTML (992 chars)
+[2026-03-10T19:46:41.908Z] Website (post-redirect): https://nexog.com/ → origin: https://nexog.com
+[2026-03-10T19:46:41.908Z] External links: 6 (of 15 total)
+[2026-03-10T19:46:41.908Z] ── All external links ──
+[2026-03-10T19:46:41.908Z]   EXT: https://goo.gl/maps/FDJWDpuJjdyokkj47
+[2026-03-10T19:46:41.908Z]   EXT: https://maps.app.goo.gl/q8NWNBuyEXyoSKMeA
+[2026-03-10T19:46:41.909Z]   EXT: https://www.linkedin.com/company/nexog
+[2026-03-10T19:46:41.909Z]   EXT: https://www.srtalliance.org/members
+[2026-03-10T19:46:41.909Z]   EXT: https://www.thedpp.com/membership
+[2026-03-10T19:46:41.909Z]   EXT: https://www.youtube.com/channel/UCNmxyP3pZKejurDavFUyxXA
+[2026-03-10T19:46:41.909Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T19:46:41.909Z]   UNCATEGORIZED: https://goo.gl/maps/FDJWDpuJjdyokkj47
+[2026-03-10T19:46:41.909Z]   UNCATEGORIZED: https://maps.app.goo.gl/q8NWNBuyEXyoSKMeA
+[2026-03-10T19:46:41.909Z]   REGEX: li <- https://www.linkedin.com/company/nexog
+[2026-03-10T19:46:41.909Z]   UNCATEGORIZED: https://www.srtalliance.org/members
+[2026-03-10T19:46:41.909Z]   UNCATEGORIZED: https://www.thedpp.com/membership
+[2026-03-10T19:46:41.909Z]   REGEX: ytc <- https://www.youtube.com/channel/UCNmxyP3pZKejurDavFUyxXA
+[2026-03-10T19:46:41.910Z] Programmatic result: ws:1, li:1, ytc:1 | 4 uncategorized
+[2026-03-10T19:46:41.910Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T19:46:41.911Z] Saved AI prompt (4403 chars) to ai_prompt.txt
+[2026-03-10T19:46:41.911Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T19:46:41.930Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T19:46:58.595Z]   AI: First token received, streaming...
+[2026-03-10T19:47:04.987Z] AI response complete: 95 chars in 23.1s
+[2026-03-10T19:47:04.988Z] Saved AI response to ai_response.json
+[2026-03-10T19:47:04.988Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T19:47:04.988Z]   AI LINK: https://www.youtube.com/channel/UCNmxyP3pZKejurDavFUyxXA
+[2026-03-10T19:47:04.988Z]   AI LINK: https://www.linkedin.com/company/nexog
+[2026-03-10T19:47:04.989Z] AI returned 2 valid links
+[2026-03-10T19:47:04.989Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T19:47:04.989Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCNmxyP3pZKejurDavFUyxXA (duplicate, skipped)
+[2026-03-10T19:47:04.989Z]   AI→REGEX: li <- https://www.linkedin.com/company/nexog (duplicate, skipped)
+[2026-03-10T19:47:04.989Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T19:47:04.990Z] Footer/header origins (6):
+[2026-03-10T19:47:04.990Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-10T19:47:04.990Z]   FOOTER/HEADER ORIGIN: https://maps.app.goo.gl
+[2026-03-10T19:47:04.990Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T19:47:04.990Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T19:47:04.990Z]   FOOTER/HEADER ORIGIN: https://www.srtalliance.org
+[2026-03-10T19:47:04.990Z]   FOOTER/HEADER ORIGIN: https://www.thedpp.com
+[2026-03-10T19:47:04.990Z]   ADDED: urls <- https://goo.gl/maps/FDJWDpuJjdyokkj47
+[2026-03-10T19:47:04.990Z]   ADDED: urls <- https://maps.app.goo.gl/q8NWNBuyEXyoSKMeA
+[2026-03-10T19:47:04.990Z]   ADDED: urls <- https://www.srtalliance.org/members
+[2026-03-10T19:47:04.990Z]   ADDED: urls <- https://www.thedpp.com/membership
+[2026-03-10T19:47:04.990Z] Step 2b result: added 4 uncategorized domains from footer/header
+[2026-03-10T19:47:04.991Z] ── Step 3: Final dedup ──
+[2026-03-10T19:47:04.991Z] Dedup: removed 0 of 4 URLs already in specialized fields
+[2026-03-10T19:47:04.991Z] ── FINAL RESULT ──
+[2026-03-10T19:47:04.991Z]   ws (1):
+[2026-03-10T19:47:04.991Z]     - https://nexog.com
+[2026-03-10T19:47:04.991Z]   li (1):
+[2026-03-10T19:47:04.991Z]     - https://www.linkedin.com/company/nexog
+[2026-03-10T19:47:04.991Z]   ytc (1):
+[2026-03-10T19:47:04.991Z]     - https://www.youtube.com/channel/UCNmxyP3pZKejurDavFUyxXA
+[2026-03-10T19:47:04.991Z]   urls (4):
+[2026-03-10T19:47:04.991Z]     - https://goo.gl/maps/FDJWDpuJjdyokkj47
+[2026-03-10T19:47:04.991Z]     - https://maps.app.goo.gl/q8NWNBuyEXyoSKMeA
+[2026-03-10T19:47:04.991Z]     - https://www.srtalliance.org/members
+[2026-03-10T19:47:04.992Z]     - https://www.thedpp.com/membership
+[2026-03-10T19:47:04.992Z] Summary: ws:1, li:1, ytc:1, urls:4
+[2026-03-10T19:47:04.992Z] Saved final result to result.json
+[2026-03-10T19:47:04.992Z] Override fields: ws, li, ytc, urls
+[2026-03-10T19:47:04.992Z] Finished at: 2026-03-10T19:47:04.992Z

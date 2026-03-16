@@ -1,0 +1,71 @@
+[2026-03-10T05:41:40.702Z] === Homepage AI Extractor: Valinor LTD ===
+[2026-03-10T05:41:40.702Z] Started at: 2026-03-10T05:41:40.702Z
+[2026-03-10T05:41:40.702Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773121300702_Valinor_LTD
+[2026-03-10T05:41:40.702Z] Company: Valinor LTD
+[2026-03-10T05:41:40.703Z] Website: valinor.co.il
+[2026-03-10T05:41:40.703Z] cbRank: 396089
+[2026-03-10T05:41:40.703Z] Reasons: h
+[2026-03-10T05:41:40.703Z] Fetching: https://valinor.co.il
+[2026-03-10T05:41:51.579Z] Network idle timeout — continuing with current state
+[2026-03-10T05:41:51.621Z] Redirected: https://valinor.co.il -> https://www.valinor.co.il/
+[2026-03-10T05:41:51.642Z] Saved HTML (674688 bytes) to page.html
+[2026-03-10T05:41:51.645Z] Extracted 7 unique links from page
+[2026-03-10T05:41:51.646Z] Saved 7 links to links.json
+[2026-03-10T05:41:51.648Z] Extracted footer HTML (7884 chars)
+[2026-03-10T05:41:51.648Z] Extracted header HTML (6297 chars)
+[2026-03-10T05:41:51.652Z] Website (post-redirect): https://www.valinor.co.il/ → origin: https://www.valinor.co.il
+[2026-03-10T05:41:51.652Z] External links: 6 (of 7 total)
+[2026-03-10T05:41:51.652Z] ── All external links ──
+[2026-03-10T05:41:51.652Z]   EXT: https://www.apexsql.com
+[2026-03-10T05:41:51.652Z]   EXT: https://www.comm-it.com
+[2026-03-10T05:41:51.652Z]   EXT: https://www.commit.us
+[2026-03-10T05:41:51.652Z]   EXT: https://www.erwin.com
+[2026-03-10T05:41:51.652Z]   EXT: https://www.linkedin.com/company/valinor-ltd
+[2026-03-10T05:41:51.652Z]   EXT: https://www.quest.com/foglight
+[2026-03-10T05:41:51.652Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T05:41:51.652Z]   UNCATEGORIZED: https://www.apexsql.com
+[2026-03-10T05:41:51.652Z]   UNCATEGORIZED: https://www.comm-it.com
+[2026-03-10T05:41:51.652Z]   UNCATEGORIZED: https://www.commit.us
+[2026-03-10T05:41:51.653Z]   UNCATEGORIZED: https://www.erwin.com
+[2026-03-10T05:41:51.653Z]   REGEX: li <- https://www.linkedin.com/company/valinor-ltd
+[2026-03-10T05:41:51.653Z]   UNCATEGORIZED: https://www.quest.com/foglight
+[2026-03-10T05:41:51.653Z] Programmatic result: ws:1, li:1 | 5 uncategorized
+[2026-03-10T05:41:51.653Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T05:41:51.654Z] Saved AI prompt (7414 chars) to ai_prompt.txt
+[2026-03-10T05:41:51.654Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T05:41:51.670Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T05:42:25.320Z]   AI: First token received, streaming...
+[2026-03-10T05:42:29.326Z] AI response complete: 70 chars in 37.7s
+[2026-03-10T05:42:29.327Z] Saved AI response to ai_response.json
+[2026-03-10T05:42:29.327Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T05:42:29.327Z]   AI LINK: https://www.valinor.co.il
+[2026-03-10T05:42:29.328Z]   AI LINK: https://www.linkedin.com/company/valinor-ltd
+[2026-03-10T05:42:29.328Z] AI returned 2 valid links
+[2026-03-10T05:42:29.328Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T05:42:29.328Z]   AI→URLS: https://www.valinor.co.il
+[2026-03-10T05:42:29.328Z]   AI→REGEX: li <- https://www.linkedin.com/company/valinor-ltd (duplicate, skipped)
+[2026-03-10T05:42:29.328Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T05:42:29.328Z] Footer/header origins (3):
+[2026-03-10T05:42:29.328Z]   FOOTER/HEADER ORIGIN: https://www.valinor.co.il
+[2026-03-10T05:42:29.328Z]   FOOTER/HEADER ORIGIN: https://www.commit.us
+[2026-03-10T05:42:29.328Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T05:42:29.329Z]   SKIP (not in footer/header): https://www.apexsql.com
+[2026-03-10T05:42:29.329Z]   SKIP (not in footer/header): https://www.comm-it.com
+[2026-03-10T05:42:29.329Z]   ADDED: urls <- https://www.commit.us
+[2026-03-10T05:42:29.329Z]   SKIP (not in footer/header): https://www.erwin.com
+[2026-03-10T05:42:29.329Z]   SKIP (not in footer/header): https://www.quest.com/foglight
+[2026-03-10T05:42:29.329Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T05:42:29.329Z] ── Step 3: Final dedup ──
+[2026-03-10T05:42:29.329Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T05:42:29.329Z] ── FINAL RESULT ──
+[2026-03-10T05:42:29.329Z]   ws (1):
+[2026-03-10T05:42:29.329Z]     - https://www.valinor.co.il
+[2026-03-10T05:42:29.329Z]   li (1):
+[2026-03-10T05:42:29.329Z]     - https://www.linkedin.com/company/valinor-ltd
+[2026-03-10T05:42:29.329Z]   urls (2):
+[2026-03-10T05:42:29.329Z]     - https://www.commit.us
+[2026-03-10T05:42:29.330Z]     - https://www.valinor.co.il
+[2026-03-10T05:42:29.330Z] Summary: ws:1, li:1, urls:2
+[2026-03-10T05:42:29.330Z] Saved final result to result.json
+[2026-03-10T05:42:29.330Z] Override fields: ws, li, urls
+[2026-03-10T05:42:29.330Z] Finished at: 2026-03-10T05:42:29.330Z

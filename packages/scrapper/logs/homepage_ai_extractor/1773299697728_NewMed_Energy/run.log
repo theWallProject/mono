@@ -1,0 +1,68 @@
+[2026-03-12T07:14:57.729Z] === Homepage AI Extractor: NewMed Energy ===
+[2026-03-12T07:14:57.729Z] Started at: 2026-03-12T07:14:57.729Z
+[2026-03-12T07:14:57.729Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773299697728_NewMed_Energy
+[2026-03-12T07:14:57.729Z] Company: NewMed Energy
+[2026-03-12T07:14:57.729Z] Website: newmedenergy.com
+[2026-03-12T07:14:57.729Z] cbRank: 845398
+[2026-03-12T07:14:57.729Z] Reasons: h
+[2026-03-12T07:14:57.729Z] Fetching: https://newmedenergy.com
+[2026-03-12T07:15:08.651Z] Network idle timeout — continuing with current state
+[2026-03-12T07:15:08.701Z] Redirected: https://newmedenergy.com -> https://newmedenergy.com/
+[2026-03-12T07:15:08.710Z] Saved HTML (167761 bytes) to page.html
+[2026-03-12T07:15:08.714Z] Extracted 36 unique links from page
+[2026-03-12T07:15:08.715Z] Saved 36 links to links.json
+[2026-03-12T07:15:08.719Z] Extracted footer HTML (346 chars)
+[2026-03-12T07:15:08.719Z] Extracted header HTML (10206 chars)
+[2026-03-12T07:15:08.726Z] Website (post-redirect): https://newmedenergy.com/ → origin: https://newmedenergy.com
+[2026-03-12T07:15:08.727Z] External links: 4 (of 36 total)
+[2026-03-12T07:15:08.727Z] ── All external links ──
+[2026-03-12T07:15:08.727Z]   EXT: http://www.user-a.co.il
+[2026-03-12T07:15:08.727Z]   EXT: https://twitter.com/NewMedEnergy
+[2026-03-12T07:15:08.727Z]   EXT: https://www.linkedin.com/company/delek-drilling
+[2026-03-12T07:15:08.727Z]   EXT: https://www.youtube.com/channel/UCIKeqg-272tgskj_HWlxZ0g
+[2026-03-12T07:15:08.727Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T07:15:08.727Z]   UNCATEGORIZED: http://www.user-a.co.il
+[2026-03-12T07:15:08.727Z]   REGEX: tw <- https://twitter.com/NewMedEnergy
+[2026-03-12T07:15:08.727Z]   REGEX: li <- https://www.linkedin.com/company/delek-drilling
+[2026-03-12T07:15:08.728Z]   REGEX: ytc <- https://www.youtube.com/channel/UCIKeqg-272tgskj_HWlxZ0g
+[2026-03-12T07:15:08.728Z] Programmatic result: ws:1, tw:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-12T07:15:08.728Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T07:15:08.729Z] Saved AI prompt (2281 chars) to ai_prompt.txt
+[2026-03-12T07:15:08.729Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T07:15:08.745Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T07:15:16.442Z]   AI: First token received, streaming...
+[2026-03-12T07:15:17.126Z] AI response complete: 24 chars in 8.4s
+[2026-03-12T07:15:17.127Z] Saved AI response to ai_response.json
+[2026-03-12T07:15:17.127Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T07:15:17.127Z]   AI LINK: http://www.user-a.co.il/
+[2026-03-12T07:15:17.127Z] AI returned 1 valid links
+[2026-03-12T07:15:17.127Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T07:15:17.128Z]   AI→URLS: http://www.user-a.co.il (cleaned from http://www.user-a.co.il/)
+[2026-03-12T07:15:17.128Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T07:15:17.128Z] Footer/header origins (1):
+[2026-03-12T07:15:17.128Z]   FOOTER/HEADER ORIGIN: http://www.user-a.co.il
+[2026-03-12T07:15:17.128Z]   SKIP (AI claimed): http://www.user-a.co.il
+[2026-03-12T07:15:17.128Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T07:15:17.128Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T07:15:17.128Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T07:15:17.521Z]   YOUTUBE: resolved UCIKeqg-272tgskj_HWlxZ0g → @newmedenergy1002
+[2026-03-12T07:15:17.522Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T07:15:17.522Z] ── Step 3: Final dedup ──
+[2026-03-12T07:15:17.522Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T07:15:17.522Z] ── FINAL RESULT ──
+[2026-03-12T07:15:17.522Z]   ws (1):
+[2026-03-12T07:15:17.522Z]     - https://newmedenergy.com
+[2026-03-12T07:15:17.522Z]   li (1):
+[2026-03-12T07:15:17.522Z]     - https://www.linkedin.com/company/delek-drilling
+[2026-03-12T07:15:17.522Z]   tw (1):
+[2026-03-12T07:15:17.522Z]     - https://x.com/newmedenergy
+[2026-03-12T07:15:17.523Z]   ytp (1):
+[2026-03-12T07:15:17.523Z]     - https://www.youtube.com/@newmedenergy1002
+[2026-03-12T07:15:17.523Z]   ytc (1):
+[2026-03-12T07:15:17.523Z]     - https://www.youtube.com/channel/UCIKeqg-272tgskj_HWlxZ0g
+[2026-03-12T07:15:17.523Z]   urls (1):
+[2026-03-12T07:15:17.523Z]     - http://www.user-a.co.il
+[2026-03-12T07:15:17.523Z] Summary: ws:1, tw:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-12T07:15:17.524Z] Saved final result to result.json
+[2026-03-12T07:15:17.524Z] Override fields: ws, li, tw, ytp, ytc, urls
+[2026-03-12T07:15:17.524Z] Finished at: 2026-03-12T07:15:17.524Z

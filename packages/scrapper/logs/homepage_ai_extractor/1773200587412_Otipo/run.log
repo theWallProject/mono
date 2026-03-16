@@ -1,0 +1,80 @@
+[2026-03-11T03:43:07.413Z] === Homepage AI Extractor: Otipo ===
+[2026-03-11T03:43:07.413Z] Started at: 2026-03-11T03:43:07.413Z
+[2026-03-11T03:43:07.413Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773200587412_Otipo
+[2026-03-11T03:43:07.413Z] Company: Otipo
+[2026-03-11T03:43:07.413Z] Website: otipo.com
+[2026-03-11T03:43:07.413Z] cbRank: 571750
+[2026-03-11T03:43:07.413Z] Reasons: h
+[2026-03-11T03:43:07.414Z] Fetching: https://otipo.com
+[2026-03-11T03:43:09.903Z] Redirected: https://otipo.com -> https://otipo.com/d/otiposchedule/
+[2026-03-11T03:43:09.906Z] Saved HTML (33350 bytes) to page.html
+[2026-03-11T03:43:09.909Z] Extracted 16 unique links from page
+[2026-03-11T03:43:09.909Z] Saved 16 links to links.json
+[2026-03-11T03:43:09.912Z] Extracted footer HTML (1655 chars)
+[2026-03-11T03:43:09.912Z] Extracted header HTML (5870 chars)
+[2026-03-11T03:43:09.918Z] Website (post-redirect): https://otipo.com/d/otiposchedule/ → origin: https://otipo.com
+[2026-03-11T03:43:09.918Z]   SUBDOMAIN: blog.otipo.com (added to ws)
+[2026-03-11T03:43:09.918Z] Website subdomains found: 1
+[2026-03-11T03:43:09.919Z] External links: 5 (of 16 total)
+[2026-03-11T03:43:09.919Z] ── All external links ──
+[2026-03-11T03:43:09.919Z]   EXT: http://www.bubulu.net/design
+[2026-03-11T03:43:09.919Z]   EXT: https://web.whatsapp.com/send?phone=972545390478
+[2026-03-11T03:43:09.919Z]   EXT: https://www.facebook.com/Otipo
+[2026-03-11T03:43:09.919Z]   EXT: https://www.linkedin.com/company/1945072/admin
+[2026-03-11T03:43:09.919Z]   EXT: https://www.youtube.com/user/OtipoCom
+[2026-03-11T03:43:09.919Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:43:09.919Z]   UNCATEGORIZED: http://www.bubulu.net/design
+[2026-03-11T03:43:09.919Z]   UNCATEGORIZED: https://web.whatsapp.com/send?phone=972545390478
+[2026-03-11T03:43:09.919Z]   REGEX: fb <- https://www.facebook.com/Otipo
+[2026-03-11T03:43:09.919Z]   REGEX: li <- https://www.linkedin.com/company/1945072/admin
+[2026-03-11T03:43:09.920Z]   REGEX: ytp <- https://www.youtube.com/user/OtipoCom
+[2026-03-11T03:43:09.920Z] Programmatic result: ws:2, fb:1, li:1, ytp:1 | 2 uncategorized
+[2026-03-11T03:43:09.920Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:43:09.920Z] Saved AI prompt (2944 chars) to ai_prompt.txt
+[2026-03-11T03:43:09.920Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:43:09.941Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:43:20.531Z]   AI: First token received, streaming...
+[2026-03-11T03:43:29.116Z] AI response complete: 139 chars in 19.2s
+[2026-03-11T03:43:29.117Z] Saved AI response to ai_response.json
+[2026-03-11T03:43:29.117Z] ── Parsing AI response (4 lines) ──
+[2026-03-11T03:43:29.117Z]   AI LINK: http://blog.otipo.com
+[2026-03-11T03:43:29.117Z]   AI LINK: https://www.facebook.com/Otipo/
+[2026-03-11T03:43:29.117Z]   AI LINK: https://www.youtube.com/user/OtipoCom
+[2026-03-11T03:43:29.117Z]   AI LINK: https://www.linkedin.com/company/1945072/admin/
+[2026-03-11T03:43:29.117Z] AI returned 4 valid links
+[2026-03-11T03:43:29.117Z] ── Categorizing 4 AI-returned links ──
+[2026-03-11T03:43:29.118Z]   AI→URLS: http://blog.otipo.com
+[2026-03-11T03:43:29.118Z]   AI→REGEX: fb <- https://www.facebook.com/Otipo/ (duplicate, skipped)
+[2026-03-11T03:43:29.118Z]   AI→REGEX: ytp <- https://www.youtube.com/user/OtipoCom (duplicate, skipped)
+[2026-03-11T03:43:29.118Z]   AI→REGEX: li <- https://www.linkedin.com/company/1945072/admin/ (duplicate, skipped)
+[2026-03-11T03:43:29.118Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:43:29.118Z] Footer/header origins (6):
+[2026-03-11T03:43:29.118Z]   FOOTER/HEADER ORIGIN: http://blog.otipo.com
+[2026-03-11T03:43:29.119Z]   FOOTER/HEADER ORIGIN: http://www.bubulu.net
+[2026-03-11T03:43:29.119Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T03:43:29.119Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T03:43:29.119Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T03:43:29.119Z]   FOOTER/HEADER ORIGIN: https://web.whatsapp.com
+[2026-03-11T03:43:29.119Z]   ADDED: urls <- http://www.bubulu.net/design
+[2026-03-11T03:43:29.119Z]   ADDED: urls <- https://web.whatsapp.com/send (cleaned from https://web.whatsapp.com/send?phone=972545390478)
+[2026-03-11T03:43:29.119Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-11T03:43:29.119Z] ── Step 3: Final dedup ──
+[2026-03-11T03:43:29.119Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-11T03:43:29.119Z] ── FINAL RESULT ──
+[2026-03-11T03:43:29.120Z]   ws (2):
+[2026-03-11T03:43:29.120Z]     - https://blog.otipo.com
+[2026-03-11T03:43:29.120Z]     - https://otipo.com
+[2026-03-11T03:43:29.120Z]   li (1):
+[2026-03-11T03:43:29.120Z]     - https://www.linkedin.com/company/1945072
+[2026-03-11T03:43:29.120Z]   fb (1):
+[2026-03-11T03:43:29.120Z]     - https://www.facebook.com/otipo
+[2026-03-11T03:43:29.120Z]   ytp (1):
+[2026-03-11T03:43:29.120Z]     - https://www.youtube.com/@otipocom
+[2026-03-11T03:43:29.120Z]   urls (3):
+[2026-03-11T03:43:29.120Z]     - http://blog.otipo.com
+[2026-03-11T03:43:29.120Z]     - http://www.bubulu.net/design
+[2026-03-11T03:43:29.120Z]     - https://web.whatsapp.com/send
+[2026-03-11T03:43:29.120Z] Summary: ws:2, fb:1, li:1, ytp:1, urls:3
+[2026-03-11T03:43:29.121Z] Saved final result to result.json
+[2026-03-11T03:43:29.121Z] Override fields: ws, li, fb, ytp, urls
+[2026-03-11T03:43:29.121Z] Finished at: 2026-03-11T03:43:29.121Z

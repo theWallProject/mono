@@ -1,0 +1,1309 @@
+<!DOCTYPE html><html lang="en-US" class=" js_active  vc_desktop  vc_transform  vc_transform "><head>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JQ2QF7J686"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JQ2QF7J686');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+
+    <title>Unicorns Exchange – Connecting the last stage secondary market</title>
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/unicorns.exchange\/wp-includes\/js\/wp-emoji.js?ver=5.6.5","twemoji":"https:\/\/unicorns.exchange\/wp-includes\/js\/twemoji.js?ver=5.6.5"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * So easy, even a baby could do it!
+				 *
+				 *  To test for Emoji 13 support, try to render a new emoji: Man Feeding Baby.
+				 *
+				 * The Man Feeding Baby emoji is a ZWJ sequence combining 👨 Man, a Zero Width Joiner and 🍼 Baby Bottle.
+				 *
+				 * 0xD83D, 0xDC68 == Man emoji.
+				 * 0x200D == Zero-Width Joiner (ZWJ) that links the two code points for the new emoji or
+				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
+				 * 0xD83C, 0xDF7C == Baby Bottle.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0x200D, 0xD83C, 0xDF7C],
+					[0xD83D, 0xDC68, 0x200B, 0xD83C, 0xDF7C]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script><script src="https://unicorns.exchange/wp-includes/js/twemoji.js?ver=5.6.5" type="text/javascript" defer=""></script><script src="https://unicorns.exchange/wp-includes/js/wp-emoji.js?ver=5.6.5" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="contact-form-7-css" href="https://unicorns.exchange/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2" type="text/css" media="all">
+<link rel="stylesheet" id="rs-plugin-settings-css" href="https://unicorns.exchange/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.4.8.3" type="text/css" media="all">
+<style id="rs-plugin-settings-inline-css" type="text/css">
+#rs-demo-id {}
+.tp-caption.small_text,.small_text{color:#fff;font-weight:700;font-size:14px;line-height:20px;font-family:Arial;border-width:0px;border-style:none;position:absolute;text-shadow:0px 2px 5px rgba(0,0,0,0.5);white-space:nowrap}.tp-caption.Advice-H1,.Advice-H1{color:rgba(255,255,255,1);font-size:60px;line-height:74px;font-weight:700;font-style:normal;font-family:;text-decoration:none;background-color:transparent;border-color:transparent;border-style:none;border-width:0 0 0 0px;border-radius:0 0 0 0px}.tp-caption.Advice-Button,.Advice-Button{color:rgba(255,255,255,1);font-size:14px;line-height:50px;font-weight:500;font-style:normal;font-family:;text-decoration:none;background-color:transparent;border-color:transparent;border-style:none;border-width:0 0 0 0px;border-radius:0 0 0 0px}.tp-caption.Advice-H2,.Advice-H2{color:#ffffff;font-size:48px;line-height:60px;font-weight:700;font-style:normal;font-family:Arial,Helvetica,sans-serif;text-decoration:none;background-color:transparent;border-color:transparent;border-style:none;border-width:0 0 0 0px;border-radius:0 0 0 0px}</style>
+<link rel="stylesheet" id="material-design-icons-css" href="https://unicorns.exchange/wp-content/plugins/advice-core/assets/icons/material-design/css/materialdesignicons.min.css?ver=2.8" type="text/css" media="all">
+<link rel="stylesheet" id="advice-icons-css" href="https://unicorns.exchange/wp-content/plugins/advice-core/assets/icons/advice-icons/style.css?ver=2.8" type="text/css" media="all">
+<link rel="stylesheet" id="advice-style-css" href="https://unicorns.exchange/wp-content/themes/advice/style.css?ver=5.6.5" type="text/css" media="all">
+<link rel="stylesheet" id="advice-global-css" href="https://unicorns.exchange/wp-content/themes/advice/assets/css/global.css?ver=1773197573" type="text/css" media="all">
+<link rel="stylesheet" id="advice-child-style-css" href="https://unicorns.exchange/wp-content/themes/advice-child/style.css?ver=5.6.5" type="text/css" media="all">
+<link rel="stylesheet" id="uni_custom_css-css" href="https://unicorns.exchange/wp-content/themes/advice-child//assets/css/custom.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="https://unicorns.exchange/wp-content/themes/advice/assets/css/bootstrap.css?ver=1773197573" type="text/css" media="all">
+<link rel="stylesheet" id="advice-fonts-css" href="https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CPlayfair+Display%3A400%2C700%2C900&amp;subset=latin-ext%2Clatin&amp;ver=1773197573" type="text/css" media="all">
+<link rel="stylesheet" id="select2-css" href="https://unicorns.exchange/wp-content/themes/advice/assets/js/vendor/select2/select2.min.css?ver=1773197573" type="text/css" media="all">
+<link rel="stylesheet" id="m-custom-scrollbar-css" href="https://unicorns.exchange/wp-content/plugins/advice-core/assets/vendor/mCustomScrollbar/jquery.mCustomScrollbar.min.css?ver=2.8" type="text/css" media="all">
+<link rel="stylesheet" id="js_composer_front-css" href="https://unicorns.exchange/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=5.7" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://unicorns.exchange/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min.css?ver=5.7" type="text/css" media="all">
+<link rel="stylesheet" id="bsf-Defaults-css" href="https://unicorns.exchange/wp-content/uploads/smile_fonts/Defaults/Defaults.css?ver=5.6.5" type="text/css" media="all">
+<script type="text/javascript" src="https://unicorns.exchange/wp-includes/js/jquery/jquery.js?ver=3.5.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-includes/js/jquery/jquery-migrate.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.8.3" id="tp-tools-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.8.3" id="revmin-js"></script>
+<meta name="generator" content="WordPress 5.6.5">
+<link rel="canonical" href="https://unicorns.exchange/">
+<link rel="shortlink" href="https://unicorns.exchange/">
+<link rel="alternate" type="application/json+oembed" href="https://unicorns.exchange/wp-json/oembed/1.0/embed?url=https%3A%2F%2Funicorns.exchange%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://unicorns.exchange/wp-json/oembed/1.0/embed?url=https%3A%2F%2Funicorns.exchange%2F&amp;format=xml">
+<style type="text/css">/* Mailchimp for WP - Checkbox Styles */
+.mc4wp-checkbox-contact-form-7 {
+  clear: both;
+  display: block;
+  position: static;
+  width: auto; }
+  .mc4wp-checkbox-contact-form-7 input {
+    float: none;
+    width: auto;
+    position: static;
+    margin: 0 6px 0 0;
+    padding: 0;
+    vertical-align: middle;
+    display: inline-block !important;
+    max-width: 21px;
+    -webkit-appearance: checkbox; }
+  .mc4wp-checkbox-contact-form-7 label {
+    float: none;
+    display: block;
+    cursor: pointer;
+    width: auto;
+    position: static;
+    margin: 0 0 16px 0; }
+</style><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://unicorns.exchange/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.8.3 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<link rel="icon" href="https://unicorns.exchange/wp-content/uploads/2019/06/unicorns-fav-icon.png" sizes="32x32">
+<link rel="icon" href="https://unicorns.exchange/wp-content/uploads/2019/06/unicorns-fav-icon.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://unicorns.exchange/wp-content/uploads/2019/06/unicorns-fav-icon.png">
+<meta name="msapplication-TileImage" content="https://unicorns.exchange/wp-content/uploads/2019/06/unicorns-fav-icon.png">
+<script type="text/javascript">function setREVStartSize(e){									
+						try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+							if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
+						}catch(d){console.log("Failure at Presize of Slider:"+d)}						
+					};</script>
+		<style type="text/css" id="wp-custom-css">
+			.section-grey {
+
+	border-top: 1px solid #EBECED;
+  border-bottom: 1px solid #EBECED;
+}
+
+
+.nav-menu--header-style-3 > .menu-item > a:hover{
+    color: #fff;
+}
+
+p {
+    font-size: 16px !important;
+}
+.revslider--style-1.revslider--arrow-visible{
+	cursor:default!important;
+}
+
+footer .logo__img{
+	max-width: 188px;
+}
+
+body.home .tp-bullets.advice-style-1 .tp-bullet{
+	display:none!important;
+}
+
+
+.a-icon-box--style-1 .a-icon-box__text {
+    color: white;
+}
+
+.hide {
+	display:none !important;
+}
+
+.multiply {
+	mix-blend-mode: multiply;
+}
+
+/*OFEK*/
+.issuers_logos_text_block .item{padding:20px;}
+
+.issuers_logos_text_block .item img{width:200px;}
+
+.contact-details__item:first-child{display: none;}
+
+.our_partners_slider .vc_inner a img{width:200px; height:200px;}
+
+.benefits-item img{width: 50px; height: 75px;}
+
+.benefits_second_row{margin-top: 30px;}
+.vc_carousel-slideline-inner{text-align: center;}
+
+.market_area_bottom_left_column .vc_column-inner{padding-top:0px !important}
+
+@media (max-width: 992px) {
+    .orders_container + div + div {overflow: scroll;}
+}
+.change_type_button{float: right;}
+@media (max-width: 500px) {
+	.change_type_button{float:none !important; text-align:left !important;}
+}
+		</style>
+		<style type="text/css" data-type="vc_custom-css">ul.list{
+    padding: 18px 0 0 30px!important;
+}
+ul.list li {
+    position: relative;
+    list-style: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 1em;
+    color: #363640;
+}
+ul.list li:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: -30px;
+    background-image: url(https://unicorns.exchange/wp-content/uploads/2019/06/check.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.a-map__map {
+    visibility: hidden;
+}
+
+@media(min-width: 992px) {
+    #join_us .form-wrapper--contact-form-style-1 {
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+  }
+}
+</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1589878588030{padding-top: 50px !important;padding-bottom: 50px !important;}.vc_custom_1646554306735{margin-bottom: 22px !important;}.vc_custom_1559039314982{margin-bottom: 22px !important;}.vc_custom_1558353473378{margin-bottom: 22px !important;}.vc_custom_1559829231585{padding-bottom: 20px !important;}.vc_custom_1559829244667{padding-top: 30px !important;}.vc_custom_1656924087523{padding-top: 30px !important;}.vc_custom_1656493417798{margin-bottom: 22px !important;}.vc_custom_1559829253948{padding-bottom: 20px !important;}.vc_custom_1559829262610{padding-top: 30px !important;}.vc_custom_1558355118513{margin-bottom: 22px !important;}.vc_custom_1558442793271{margin-bottom: 22px !important;}.vc_custom_1564039810482{padding-bottom: 40px !important;}.vc_custom_1558357697632{margin-bottom: 22px !important;}.vc_custom_1559321800924{padding-bottom: 50px !important;background-image: url(https://unicorns.exchange/wp-content/uploads/2017/01/map.png?id=856) !important;}.vc_custom_1656488328026{padding-top: 0px !important;background-image: url(https://unicorns.exchange/wp-content/uploads/2019/07/mapp.jpg?id=2204) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/3a/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/3a/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/3a/map.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/3a/overlay.js"></script></head>
+<body class="home page-template-default page page-id-2214 wp-embed-responsive a-header-style-3 a-header-sticky wpb-js-composer js-comp-ver-5.7 vc_responsive">
+<div class="main-wrapper">
+    <div class="header-container header-container--style-3"><header id="masthead" class="header header--style-3 header--sticky header-unicorns">
+    <div class="header__container container">
+        <div class="header__wrap">
+            <div class="header__left">
+                                
+                <div class="header__logo-holder">
+                    <a class="header__logo logo logo--type-img logo--dark logo--header logo--header-style-3" href="https://unicorns.exchange/" rel="home"><img width="977" height="228" src="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png" class="logo__img a-progressive-image a-progressive-image--loaded" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png 977w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-300x70.png 300w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-768x179.png 768w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-20x5.png 20w" data-progressive-image-sizes="(max-width: 977px) 100vw, 977px" srcset="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png 977w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-300x70.png 300w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-768x179.png 768w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-20x5.png 20w" sizes="(max-width: 977px) 100vw, 977px"></a>
+                </div>
+        
+                <ul id="header-nav-menu" class="header__nav-menu nav-menu nav-menu--horizontal nav-menu--header-style-3"><li id="menu-item-1582" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1582"><a href="/#about_us">About Us</a></li>
+<li id="menu-item-1583" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1583"><a href="/#platform">Platform</a></li>
+<li id="menu-item-1585" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1585"><a href="/#team">Team</a></li>
+<li id="menu-item-1589" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1589"><a href="/#join_us">Contact us</a></li>
+</ul>
+              <a href="/marketplace/public/registration" class="header__button button button--primary button--header-cta">JOIN OUR NETWORK</a>
+            </div>
+      
+            <div class="header__right">
+                                             
+                    
+                             
+                             
+                             
+                                    <div class="header__progress-bar progress-bar progress-bar--header js-header-page-scroll-progress-bar" style="width: calc(100% - 233.016px);">
+                        <div class="progress-bar__line" style="width: 0%;"></div>
+                    </div>
+                
+            </div>
+      
+                    </div>
+    </div>
+  
+    </header></div><div class="mobile-header mobile-header--style-1">
+	<div class="mobile-header__container">
+		<a href="#" class="mobile-header__action mobile-header__action--open-side-nav js-side-nav-open-action" data-target="#side-nav"><i class="ai ai-burger-menu"></i></a>
+		<div class="mobile-header__logo-holder">
+			<a class="mobile-header__logo logo logo--type-img logo--dark logo--mobile-header logo--mobile-header-style-1" href="https://unicorns.exchange/" rel="home"><img width="977" height="228" src="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-20x5.png" class="logo__img a-progressive-image a-js-progressive-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png 977w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-300x70.png 300w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-768x179.png 768w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-20x5.png 20w" data-progressive-image-sizes="(max-width: 977px) 100vw, 977px"></a>
+		</div>
+                    <div class="mobile-header__search-holder"></div>
+        	</div>
+</div><div id="side-nav" class="side-nav">
+    <div class="side-nav__header">
+        <div class="side-nav__header-wrap">
+            <a class="side-nav__logo logo logo--type-img logo--dark logo--side-nav" href="https://unicorns.exchange/" rel="home"><img width="977" height="228" src="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png" class="logo__img a-progressive-image a-progressive-image--loaded" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png 977w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-300x70.png 300w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-768x179.png 768w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-20x5.png 20w" data-progressive-image-sizes="(max-width: 977px) 100vw, 977px" srcset="https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white.png 977w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-300x70.png 300w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-768x179.png 768w, https://unicorns.exchange/wp-content/uploads/2019/05/unicorns_logo_white-20x5.png 20w" sizes="(max-width: 977px) 100vw, 977px"></a>
+            <div class="side-nav__title">
+                <a href="#" class="side-nav__sub-menu-hide js-side-nav-hide-sub-menu"><i class="mdi mdi-chevron-left"></i></a>
+                <div class="side-nav__title-text"></div>
+            </div>
+        </div>
+    </div>
+	<a href="#" class="side-nav__hide js-side-nav-hide-action"><i class="ai ai-close"></i></a>
+    <div class="side-nav__nav-menu-container">
+        <div class="side-nav__nav-menu-holder side-nav__nav-menu-holder--desktop"><ul id="side-nav-menu" class="side-nav__nav-menu nav-menu nav-menu--side"><li id="menu-item-1676" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1676"><a href="/#about_us" data-depth="1">About Us<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1677" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1677"><a href="/#platform" data-depth="1">Platform<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1678" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1678"><a href="/#benefits" data-depth="1">Benefits<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1679" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1679"><a href="/#team" data-depth="1">Team<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1683" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1683"><a href="/#join_us" data-depth="1">Contact Us<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+</ul></div><div class="side-nav__nav-menu-holder side-nav__nav-menu-holder--mobile"><ul id="mobile-side-nav-menu" class="side-nav__nav-menu nav-menu nav-menu--side"><li id="menu-item-1590" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1590"><a href="/#about_us" data-depth="1">About Us<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1591" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1591"><a href="https://unicorns.exchange/solution/" data-depth="1">Platform<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1592" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1592"><a href="/#benefits" data-depth="1">Benefits<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1593" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1593"><a href="/#team" data-depth="1">Team<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+<li id="menu-item-1597" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1597"><a href="/marketplace/public/registration" data-depth="1">Join Us<span class="menu-item-action js-side-nav-open-sub-menu mdi mdi-chevron-right"></span></a></li>
+</ul></div>    </div>
+</div>
+
+
+
+<div class="content content--main content--padd-bot-reset">
+<div id="top-slider" class="vc_row wpb_row vc_row-fluid"><div class="a-vc-container container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="wpb_revslider_element wpb_content_element">
+<div class="forcefullwidth_wrapper_tp_banner" id="rev_slider_1_1_forcefullwidth" style="position:relative;width:100%;height:auto;margin-top:0px;margin-bottom:0px"><div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-source="gallery" style="margin: 0px auto; background: transparent; padding: 0px; height: 700px; position: absolute; overflow: visible; width: 1280px; left: -70px;">
+<!-- START REVOLUTION SLIDER 5.4.8.3 fullwidth mode -->
+	<div id="rev_slider_1_1" class="rev_slider fullwidthabanner revslider-initialised tp-simpleresponsive rev_redraw_on_blurfocus" style="max-height: 700px; margin-top: 0px; margin-bottom: 0px; height: 700px;" data-version="5.4.8.3" data-slideactive="rs-1">
+<ul class="tp-revslider-mainul" style="visibility: visible; display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">	<!-- SLIDE  -->
+	<li data-index="rs-1" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="https://unicorns.exchange/wp-content/uploads/2019/07/Header-home-1-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli active-revslide" style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1; background-color: rgba(255, 255, 255, 0);">
+		<!-- MAIN IMAGE -->
+		<div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"><!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://unicorns.exchange/wp-content/uploads/2019/07/Header-home-1.jpg" alt="" title="Header-home (1)" width="2500" height="1400" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg defaultimg" data-no-retina="">--><div class="tp-bgimg defaultimg " data-bgcolor="undefined" style="background-repeat: no-repeat; background-image: url(&quot;https://unicorns.exchange/wp-content/uploads/2019/07/Header-home-1.jpg&quot;); background-size: cover; background-position: center bottom; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 20;" src="https://unicorns.exchange/wp-content/uploads/2019/07/Header-home-1.jpg"></div></div>
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 1 -->
+		<div class="tp-parallax-wrap" style="position: absolute; display: block; visibility: visible; left: 281px; top: 145px; z-index: 5;"><div class="tp-loop-wrap" style="position:absolute;display:block;;"><div class="tp-mask-wrap" style="position: absolute; display: block; overflow: visible;"><div class="tp-caption Advice-H1   tp-resizeme" id="slide-1-layer-5" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['-167','144','69','7']" data-fontsize="['60','60','40','46']" data-lineheight="['74','72','72','72']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:400,&quot;speed&quot;:500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 5; white-space: nowrap; font-family: Arial; visibility: inherit; transition: none; text-align: inherit; line-height: 74px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 700; font-size: 60px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 0.999696; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.0151797, 0, 1); transform-origin: 50% 50% 0px;">Connecting the Late Stage </div></div></div></div>
+
+		<!-- LAYER NR. 2 -->
+		<div class="tp-parallax-wrap" style="position: absolute; display: block; visibility: visible; left: 386px; top: 476px; z-index: 6;"><div class="tp-loop-wrap" style="position:absolute;display:block;;"><div class="tp-mask-wrap" style="position: absolute; display: block; overflow: visible;"><div class="tp-caption Advice-Button rs-hover-ready" id="slide-1-layer-3" data-x="['center','center','center','center']" data-hoffset="['-140','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['151','422','389','322']" data-fontsize="['14','20','20','20']" data-lineheight="['50','22','22','22']" data-fontweight="['500','400','400','400']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-responsive="off" data-frames="[{&quot;delay&quot;:390,&quot;speed&quot;:500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;frame&quot;:&quot;hover&quot;,&quot;speed&quot;:&quot;0&quot;,&quot;ease&quot;:&quot;Linear.easeNone&quot;,&quot;to&quot;:&quot;o:1;rX:0;rY:0;rZ:0;z:0;&quot;,&quot;style&quot;:&quot;c:rgba(0,0,0,1);br:0px 0px 0px 0px;&quot;}]" data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 6; white-space: nowrap; font-family: Arial; cursor: pointer; visibility: inherit; transition: none; text-align: inherit; line-height: 50px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 500; font-size: 14px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 0.999843; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.0078675, 0, 1); transform-origin: 50% 50% 0px;"><a href="deals" class="button button--outline-light button--icon-right btn-blue">SELL</a> </div></div></div></div>
+
+		<!-- LAYER NR. 3 -->
+		<div class="tp-parallax-wrap" style="position: absolute; display: block; visibility: visible; left: 667px; top: 475px; z-index: 7;"><div class="tp-loop-wrap" style="position:absolute;display:block;;"><div class="tp-mask-wrap" style="position: absolute; display: block; overflow: visible;"><div class="tp-caption Advice-Button rs-hover-ready" id="slide-1-layer-16" data-x="['center','center','center','center']" data-hoffset="['141','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['150','483','454','387']" data-fontsize="['14','20','20','20']" data-lineheight="['50','22','22','22']" data-fontweight="['500','400','400','400']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-responsive="off" data-frames="[{&quot;delay&quot;:390,&quot;speed&quot;:500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;frame&quot;:&quot;hover&quot;,&quot;speed&quot;:&quot;0&quot;,&quot;ease&quot;:&quot;Linear.easeNone&quot;,&quot;to&quot;:&quot;o:1;rX:0;rY:0;rZ:0;z:0;&quot;,&quot;style&quot;:&quot;c:rgba(0,0,0,1);br:0px 0px 0px 0px;&quot;}]" data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; white-space: nowrap; font-family: Arial; cursor: pointer; visibility: inherit; transition: none; text-align: inherit; line-height: 50px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 500; font-size: 14px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 0.999843; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.0078675, 0, 1); transform-origin: 50% 50% 0px;"><a href="deals/" class="button button--outline-light button--icon-right btn-blue">BUY</a> </div></div></div></div>
+
+		<!-- LAYER NR. 4 -->
+		<div class="tp-parallax-wrap" style="position: absolute; display: block; visibility: visible; left: 0px; top: 253px; z-index: 8;"><div class="tp-loop-wrap" style="position:absolute;display:block;;"><div class="tp-mask-wrap" style="position: absolute; display: block; overflow: visible;"><div class="tp-caption Advice-H2   tp-resizeme" id="slide-1-layer-9" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['253','253','173','83']" data-fontsize="['34','34','28','38']" data-width="['none','none','none','429']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','normal']" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 8; white-space: nowrap; font-size: 34px; letter-spacing: 0px; visibility: inherit; transition: none; text-align: inherit; line-height: 42px; border-width: 0px; margin: 0px; padding: 0px; font-weight: 700; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">  </div></div></div></div>
+
+		<!-- LAYER NR. 5 -->
+		<div class="tp-parallax-wrap" style="position: absolute; display: block; visibility: visible; left: 260px; top: 339px; z-index: 9;"><div class="tp-loop-wrap" style="position:absolute;display:block;;"><div class="tp-mask-wrap" style="position: absolute; display: block; overflow: visible;"><p class="tp-caption small_text   tp-resizeme" id="slide-1-layer-10" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['339','339','278','217']" data-fontsize="['24','24','18','16']" data-lineheight="['20','20','20','32']" data-width="['760','760','547','406']" data-height="['42','42','44','45']" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9; min-width: 760px; max-width: 760px; white-space: normal; font-size: 24px; letter-spacing: 0px; visibility: inherit; transition: none; text-align: inherit; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; font-weight: 700; min-height: 42px; max-height: 42px; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">Unicorns Exchange is the world’s fastest growing secondary marketplace for late-stage private companies </p></div></div></div>
+
+		<!-- LAYER NR. 6 -->
+		<div class="tp-parallax-wrap" style="position: absolute; display: block; visibility: visible; left: 387px; top: 218px; z-index: 10;"><div class="tp-loop-wrap" style="position:absolute;display:block;;"><div class="tp-mask-wrap" style="position: absolute; display: block; overflow: visible;"><div class="tp-caption Advice-H1   tp-resizeme" id="slide-1-layer-11" data-x="['center','center','center','center']" data-hoffset="['-1','0','0','0']" data-y="['middle','top','top','top']" data-voffset="['-94','218','143','83']" data-fontsize="['60','60','40','46']" data-lineheight="['74','72','72','72']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:400,&quot;speed&quot;:500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 10; white-space: nowrap; font-family: Arial; visibility: inherit; transition: none; text-align: inherit; line-height: 74px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 700; font-size: 60px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 0.999696; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.0151797, 0, 1); transform-origin: 50% 50% 0px;">Secondary Market </div></div></div></div>
+	</li>
+</ul>
+<script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss="";
+						if(htmlDiv) {
+							htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+						}else{
+							var htmlDiv = document.createElement("div");
+							htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+							document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+						}
+					</script>
+<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important; width: 0%;"></div>	<div class="tp-loader spinner0" style="display: none;"><div class="dot1"></div><div class="dot2"></div><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div><div class="tp-bullets advice-style-1 horizontal nav-pos-hor-center nav-pos-ver-bottom nav-dir-horizontal" style="width: 14px; height: 14px; top: 100%; transform: matrix(1, 0, 0, 1, -7, -74); left: 50%;"><div class="tp-bullet selected" style="left: 0px; top: 0px;"></div></div></div>
+<script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss=".tp-caption.small_text,.small_text{color:#fff;font-weight:700;font-size:14px;line-height:20px;font-family:Arial;border-width:0px;border-style:none;position:absolute;text-shadow:0px 2px 5px rgba(0,0,0,0.5);white-space:nowrap}.tp-caption.Advice-H1,.Advice-H1{color:rgba(255,255,255,1);font-size:60px;line-height:74px;font-weight:700;font-style:normal;font-family:;text-decoration:none;background-color:transparent;border-color:transparent;border-style:none;border-width:0 0 0 0px;border-radius:0 0 0 0px}.tp-caption.Advice-Button,.Advice-Button{color:rgba(255,255,255,1);font-size:14px;line-height:50px;font-weight:500;font-style:normal;font-family:;text-decoration:none;background-color:transparent;border-color:transparent;border-style:none;border-width:0 0 0 0px;border-radius:0 0 0 0px}.tp-caption.Advice-H2,.Advice-H2{color:#ffffff;font-size:48px;line-height:60px;font-weight:700;font-style:normal;font-family:Arial,Helvetica,sans-serif;text-decoration:none;background-color:transparent;border-color:transparent;border-style:none;border-width:0 0 0 0px;border-radius:0 0 0 0px}";
+				if(htmlDiv) {
+					htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+				}else{
+					var htmlDiv = document.createElement("div");
+					htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+					document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+				}
+			</script>
+		<script type="text/javascript">
+if (setREVStartSize!==undefined) setREVStartSize(
+	{c: '#rev_slider_1_1', responsiveLevels: [1201,1200,992,768], gridwidth: [1200,960,720,540], gridheight: [700,700,560,460], sliderLayout: 'fullwidth', minHeight:'400px'});
+			
+var revapi1,
+	tpj;	
+(function() {			
+	if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad); else onLoad();	
+	function onLoad() {				
+		if (tpj===undefined) { tpj = jQuery; if("off" == "on") tpj.noConflict();}
+	if(tpj("#rev_slider_1_1").revolution == undefined){
+		revslider_showDoubleJqueryError("#rev_slider_1_1");
+	}else{
+		revapi1 = tpj("#rev_slider_1_1").show().revolution({
+			sliderType:"standard",
+			jsFileLocation:"//unicorns.exchange/wp-content/plugins/revslider/public/assets/js/",
+			sliderLayout:"fullwidth",
+			dottedOverlay:"none",
+			delay:9000,
+			navigation: {
+				keyboardNavigation:"off",
+				keyboard_direction: "horizontal",
+				mouseScrollNavigation:"off",
+ 							mouseScrollReverse:"default",
+				onHoverStop:"off",
+				touch:{
+					touchenabled:"on",
+					touchOnDesktop:"off",
+					swipe_threshold: 75,
+					swipe_min_touches: 1,
+					swipe_direction: "horizontal",
+					drag_block_vertical: false
+				}
+				,
+				bullets: {
+					enable:true,
+					hide_onmobile:false,
+					style:"advice-style-1",
+					hide_onleave:false,
+					direction:"horizontal",
+					h_align:"center",
+					v_align:"bottom",
+					h_offset:0,
+					v_offset:60,
+					space:14,
+					tmp:''
+				}
+			},
+			responsiveLevels:[1201,1200,992,768],
+			visibilityLevels:[1201,1200,992,768],
+			gridwidth:[1200,960,720,540],
+			gridheight:[700,700,560,460],
+			lazyType:"none",
+			minHeight:"400px",
+			shadow:0,
+			spinner:"spinner0",
+			stopLoop:"off",
+			stopAfterLoops:-1,
+			stopAtSlide:-1,
+			shuffle:"off",
+			autoHeight:"off",
+			disableProgressBar:"on",
+			hideThumbsOnMobile:"off",
+			hideSliderAtLimit:0,
+			hideCaptionAtLimit:0,
+			hideAllCaptionAtLilmit:0,
+			debugMode:false,
+			fallbacks: {
+				simplifyAll:"off",
+				nextSlideOnWindowFocus:"off",
+				disableFocusListener:false,
+			}
+		});
+	}; /* END OF revapi call */
+	
+ }; /* END OF ON LOAD FUNCTION */
+}()); /* END OF WRAPPING FUNCTION */
+</script>
+		</div><div class="tp-fullwidth-forcer" style="width: 100%; height: 700px;"></div></div><!-- END REVOLUTION SLIDER --></div></div></div></div></div></div><div id="about_us" data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid section section-grey" style="position: relative; left: 15px; box-sizing: border-box; width: 1280px; padding-left: 0px; padding-right: 0px;"><div class="a-vc-container container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid section-title"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading vc_custom_1646554306735 a-heading--align-center">
+            <h2 class="a-heading__title">About Us</h2>
+    </div>
+<div class="a-text-block a-text-block--simple" style="color:#7e7f80">
+                </div>
+</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading a-heading--align-left">
+    </div>
+
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<p>Providing effective and transparent access to private markets.</p>
+<p>Unicorns Exchange is a Pre-IPO secondary marketplace that matches buy and sell orders of private, venture backs tech companies in their unicorns’ stage.</p>
+<p>Using proprietary technology, we have managed to build a scaled business (~$600M trades in less than 3 years). By uniquely applying compensation methods for multi -layer mediation, Unicorns Exchange is expanding its network faster than any other secondary marketplace.</p>
+<p>Unicorns Exchange clients includes VCs, Secondary Funds, Growth funds, Crossover funds, Hedge Funds, Family offices, HNW individuals, founders, Seed Investors, Private Equity Groups and Key Employees.</p>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_right">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="1024" height="683" src="https://unicorns.exchange/wp-content/uploads/2019/06/20-fenchurch-street-architecture-buildings-34092_1-20x13.jpg" class="vc_single_image-img attachment-large a-progressive-image a-js-progressive-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2019/06/20-fenchurch-street-architecture-buildings-34092_1-1024x683.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2019/06/20-fenchurch-street-architecture-buildings-34092_1-1024x683.jpg 1024w, https://unicorns.exchange/wp-content/uploads/2019/06/20-fenchurch-street-architecture-buildings-34092_1-300x200.jpg 300w, https://unicorns.exchange/wp-content/uploads/2019/06/20-fenchurch-street-architecture-buildings-34092_1-768x512.jpg 768w, https://unicorns.exchange/wp-content/uploads/2019/06/20-fenchurch-street-architecture-buildings-34092_1-20x13.jpg 20w, https://unicorns.exchange/wp-content/uploads/2019/06/20-fenchurch-street-architecture-buildings-34092_1-e1561623659635.jpg 600w" data-progressive-image-sizes="(max-width: 1024px) 100vw, 1024px"></div>
+		</figure>
+	</div>
+</div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div id="platform" class="vc_row wpb_row vc_row-fluid section"><div class="a-vc-container container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid section-title"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading vc_custom_1559039314982 a-heading--align-center">
+            <h2 class="a-heading__title">Unicorn Exchange Platform</h2>
+    </div>
+<div class="a-text-block a-text-block--simple" style="color:#7e7f80">
+                </div>
+</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_fadeInLeft fadeInLeft">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="1024" height="576" src="https://unicorns.exchange/wp-content/uploads/2022/07/platform-20x11.jpg" class="vc_single_image-img attachment-large a-progressive-image a-js-progressive-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/platform-1024x576.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/platform-1024x576.jpg 1024w, https://unicorns.exchange/wp-content/uploads/2022/07/platform-300x169.jpg 300w, https://unicorns.exchange/wp-content/uploads/2022/07/platform-768x432.jpg 768w, https://unicorns.exchange/wp-content/uploads/2022/07/platform-1536x864.jpg 1536w, https://unicorns.exchange/wp-content/uploads/2022/07/platform-20x11.jpg 20w, https://unicorns.exchange/wp-content/uploads/2022/07/platform.jpg 1920w" data-progressive-image-sizes="(max-width: 1024px) 100vw, 1024px"></div>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<p>Unicorns Exchange platform enables its network partners to publish their Buy / Sell offers and find the right match. Unicorns Exchange Dynamic Profiling Algorithms dramatically improve the matchmaking process and the chances of closing deals, making the pre-IPO secondary space more efficient and transparent and turning the matchmaking between buyers and sellers into a simple and easy task.</p>
+<div class="unicorn-exchange-platform">
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/18.png" alt=""><br>
+Branded white label solution</div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/19.png" alt=""><br>
+Secure Smart Permissions System</div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/20.png" alt=""><br>
+Dynamic Profiling&nbsp; Algorithms</div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/21.png" alt=""><br>
+Data protection</div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/23.png" alt=""><br>
+Market insights</div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/24.png" alt=""><br>
+Reports and analytics</div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/Compliance.png" alt=""><br>
+Compliance</div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image" src="" data-progressive-image-src="/wp-content/uploads/2019/06/Blockchain.png" alt=""><br>
+Blockchain &amp; Digital securities</div>
+</div>
+<p><!--<a class="section-link" href="/solution">Read More</a>--></p>
+
+		</div>
+	</div>
+</div></div></div></div></div></div></div></div></div><div id="benefits" class="vc_row wpb_row vc_row-fluid section section-grey"><div class="a-vc-container container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid section-title"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading vc_custom_1558353473378 a-heading--align-center">
+            <h2 class="a-heading__title">Benefits</h2>
+    </div>
+<div class="a-text-block a-text-block--simple" style="color:#7e7f80">
+                </div>
+</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="benefits-item wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="512" height="512" src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_transparency-20x20.png" class="vc_single_image-img attachment-full a-progressive-image a-js-progressive-image" alt="https://www.flaticon.com/free-icons/transparency" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_transparency.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/icon_transparency.png 512w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_transparency-300x300.png 300w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_transparency-150x150.png 150w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_transparency-20x20.png 20w" data-progressive-image-sizes="(max-width: 512px) 100vw, 512px"></div>
+		</figure>
+	</div>
+
+<div class="a-icon-box a-icon-box--style-1">
+    <div class="a-icon-box__wrap">
+	          
+        <div class="a-icon-box__body">
+                            <div class="a-icon-box__title"><b>Transparency </b></div>
+                      
+                            <div class="a-icon-box__text" style="font-size:16px">Unicorns Exchange platform is fully transparent. All our Buy and Sell offers are exposed on the platform, providing you full transparent exclusive opportunities in private market.</div>
+                    </div>
+    </div>
+</div>
+</div></div></div><div class="benefits-item wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="512" height="512" src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_networking-20x20.png" class="vc_single_image-img attachment-full a-progressive-image a-js-progressive-image" alt="https://www.flaticon.com/free-icons/teamwork" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_networking.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/icon_networking.png 512w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_networking-300x300.png 300w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_networking-150x150.png 150w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_networking-20x20.png 20w" data-progressive-image-sizes="(max-width: 512px) 100vw, 512px"></div>
+		</figure>
+	</div>
+
+<div class="a-icon-box a-icon-box--style-1">
+    <div class="a-icon-box__wrap">
+	          
+        <div class="a-icon-box__body">
+                            <div class="a-icon-box__title"><b> Growing Network </b></div>
+                      
+                            <div class="a-icon-box__text" style="font-size:16px">Our network of investors continues to grow. More than 5000 Buyers and sellers accounts. Managing an average of 350 opportunities each month.</div>
+                    </div>
+    </div>
+</div>
+</div></div></div><div class="benefits-item wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="512" height="512" src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_secure_shield-20x20.png" class="vc_single_image-img attachment-full a-progressive-image a-js-progressive-image" alt="https://www.flaticon.com/free-icons/shield" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_secure_shield.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/icon_secure_shield.png 512w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_secure_shield-300x300.png 300w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_secure_shield-150x150.png 150w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_secure_shield-20x20.png 20w" data-progressive-image-sizes="(max-width: 512px) 100vw, 512px"></div>
+		</figure>
+	</div>
+
+<div class="a-icon-box a-icon-box--style-1">
+    <div class="a-icon-box__wrap">
+	          
+        <div class="a-icon-box__body">
+                            <div class="a-icon-box__title"><b> Protected </b></div>
+                      
+                            <div class="a-icon-box__text" style="font-size:16px">Your information is protected. The buyer and selling information are hidden from the counter party.</div>
+                    </div>
+    </div>
+</div>
+</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid benefits_second_row"><div class="benefits-item wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="512" height="512" src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_inventory-20x20.png" class="vc_single_image-img attachment-full a-progressive-image a-js-progressive-image" alt="https://www.flaticon.com/free-icons/inventory" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_inventory.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/icon_inventory.png 512w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_inventory-300x300.png 300w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_inventory-150x150.png 150w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_inventory-20x20.png 20w" data-progressive-image-sizes="(max-width: 512px) 100vw, 512px"></div>
+		</figure>
+	</div>
+
+<div class="a-icon-box a-icon-box--style-1">
+    <div class="a-icon-box__wrap">
+	          
+        <div class="a-icon-box__body">
+                            <div class="a-icon-box__title"><b> Endless Inventory </b></div>
+                      
+                            <div class="a-icon-box__text" style="font-size:16px">Our inventory continues to grow with the market. We keep adding buy and sell orders, so you can find the right opportunity that suits your needs.</div>
+                    </div>
+    </div>
+</div>
+</div></div></div><div class="benefits-item wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="512" height="512" src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_access-20x20.png" class="vc_single_image-img attachment-full a-progressive-image a-js-progressive-image" alt="https://www.flaticon.com/free-icons/access" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_access.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/icon_access.png 512w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_access-300x300.png 300w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_access-150x150.png 150w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_access-20x20.png 20w" data-progressive-image-sizes="(max-width: 512px) 100vw, 512px"></div>
+		</figure>
+	</div>
+
+<div class="a-icon-box a-icon-box--style-1">
+    <div class="a-icon-box__wrap">
+	          
+        <div class="a-icon-box__body">
+                            <div class="a-icon-box__title"><b> Free Access </b></div>
+                      
+                            <div class="a-icon-box__text" style="font-size:16px">Unicorns Exchange marketplace is 100% free. Once subscribing you get access to our full Buy and Sell inventory and pricing information.</div>
+                    </div>
+    </div>
+</div>
+</div></div></div><div class="benefits-item wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="512" height="512" src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_quick_and_efficient-20x20.png" class="vc_single_image-img attachment-full a-progressive-image a-js-progressive-image" alt="https://www.flaticon.com/free-icons/efficiency" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/icon_quick_and_efficient.png" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/icon_quick_and_efficient.png 512w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_quick_and_efficient-300x300.png 300w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_quick_and_efficient-150x150.png 150w, https://unicorns.exchange/wp-content/uploads/2022/07/icon_quick_and_efficient-20x20.png 20w" data-progressive-image-sizes="(max-width: 512px) 100vw, 512px"></div>
+		</figure>
+	</div>
+
+<div class="a-icon-box a-icon-box--style-1">
+    <div class="a-icon-box__wrap">
+	          
+        <div class="a-icon-box__body">
+                            <div class="a-icon-box__title"><b> Quick and efficient </b></div>
+                      
+                            <div class="a-icon-box__text" style="font-size:16px">We offer the best way to close secondary trades. Simply log in, add your order, find the right match, and let us help you close the trade.</div>
+                    </div>
+    </div>
+</div>
+</div></div></div></div></div></div></div></div></div><section class="vc_section section"><div class="vc_row wpb_row vc_row-fluid market_area"><div class="a-vc-container container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading vc_custom_1559829231585 a-heading--align-center">
+            <h2 class="a-heading__title">Market</h2>
+    </div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner vc_custom_1559829244667"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<p>Unicorns Exchange enables its network partners to manage each asset in their own deal flow in a private or public mode. When putting a buy/sell asset request in a public mode, Unicorns Exchange shares your asset request with all its network partners and thus increases your probability to find a buyer or seller for your asset.</p>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_left">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="1024" height="576" src="https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new1-20x11.jpg" class="vc_single_image-img attachment-large a-progressive-image a-js-progressive-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new1-1024x576.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new1-1024x576.jpg 1024w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new1-300x169.jpg 300w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new1-768x432.jpg 768w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new1-20x11.jpg 20w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new1.jpg 1280w" data-progressive-image-sizes="(max-width: 1024px) 100vw, 1024px"></div>
+		</figure>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="market_area_bottom_left_column wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner vc_custom_1656924087523"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_left">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="1024" height="576" src="https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new2-20x11.jpg" class="vc_single_image-img attachment-large a-progressive-image a-js-progressive-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new2-1024x576.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new2-1024x576.jpg 1024w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new2-300x169.jpg 300w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new2-768x432.jpg 768w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new2-20x11.jpg 20w, https://unicorns.exchange/wp-content/uploads/2022/07/Slide_new2.jpg 1280w" data-progressive-image-sizes="(max-width: 1024px) 100vw, 1024px"></div>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<ul class="list">
+<li>More companies stay private for a longer period</li>
+<li>The average road to IPO is 12 years (15 years ago it was 6 years)</li>
+<li>Locked value created by private companies increased significantly</li>
+<li>Secondary market reached a record of $79BN in 2018 (setter, Q1 2019)</li>
+<li>During the last decade, secondary transactions showed the highest IRR in all private equity strategies</li>
+</ul>
+
+		</div>
+	</div>
+</div></div></div></div></div></div></div></div></div></section><section class="vc_section section section-grey"><div class="vc_row wpb_row vc_row-fluid"><div class="a-vc-container container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading vc_custom_1559829253948 a-heading--align-center">
+            <h2 class="a-heading__title">Asset Class</h2>
+    </div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner vc_custom_1559829262610"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<p>Unicorns Exchange will focus on these asset classes:</p>
+<ul class="list">
+<li>Venture-backed technology companies</li>
+<li>Late-stage companies: Typically Series E or later, $1+ billion valuation</li>
+<li>Mid-stage companies: Typically Series B through Series D, $200 million – $1 billion valuation</li>
+<li>Rapidly growing companies with high press presence</li>
+</ul>
+
+		</div>
+	</div>
+</div></div></div><div class="multiply wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInRight fadeInRight">
+		<div class="wpb_wrapper">
+			<div class="unicorn-exchange-platform issuers_logos_text_block">
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2753" src="" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/Toss.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2750" src="https://unicorns.exchange/wp-content/uploads/2022/06/Stripe-20x7.png" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/SpaceX.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2749" src="https://unicorns.exchange/wp-content/uploads/2022/06/SpaceX-20x7.png" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/Relativity-space.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2748" src="https://unicorns.exchange/wp-content/uploads/2022/06/Relativity-space-20x7.png" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/Redwood-Materials.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2745" src="https://unicorns.exchange/wp-content/uploads/2022/06/FTX-20x7.png" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/EpicGames_Logo.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2744" src="https://unicorns.exchange/wp-content/uploads/2022/06/EpicGames_Logo-20x7.png" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/Cyberreason.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2751" src="https://unicorns.exchange/wp-content/uploads/2022/06/The-Boring-Company-20x7.png" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/Stripe.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2743" src="https://unicorns.exchange/wp-content/uploads/2022/06/Cyberreason-20x7.png" data-progressive-image-src="http://unicorns.exchange/staging/wp-content/uploads/2022/06/Brex.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2743" src="https://unicorns.exchange/wp-content/uploads/2022/06/Cyberreason-20x7.png" data-progressive-image-src="http://unicorns.exchange/wp-content/uploads/2024/04/discord-300x228.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2743" src="https://unicorns.exchange/wp-content/uploads/2022/06/Cyberreason-20x7.png" data-progressive-image-src="http://unicorns.exchange/wp-content/uploads/2024/04/buytedance.jpeg" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2743" src="https://unicorns.exchange/wp-content/uploads/2022/06/Cyberreason-20x7.png" data-progressive-image-src="http://unicorns.exchange/wp-content/uploads/2024/04/animoca_brands.png" alt=""></div>
+<div class="item"><img class="a-progressive-image a-js-progressive-image alignnone size-medium wp-image-2743" src="https://unicorns.exchange/wp-content/uploads/2022/06/Cyberreason-20x7.png" data-progressive-image-src="http://unicorns.exchange/wp-content/uploads/2024/04/databricks-1.png" alt=""></div>
+</div>
+
+		</div>
+	</div>
+</div></div></div></div></div></div></div></div></div></section><div id="team" class="vc_row wpb_row vc_row-fluid section"><div class="a-vc-container container"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid section-title"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading vc_custom_1558355118513 a-heading--align-center">
+            <h2 class="a-heading__title">Our Team</h2>
+    </div>
+<div class="a-text-block a-text-block--simple" style="color:#7e7f80">
+                </div>
+</div></div></div></div>
+    
+    <div class="team-row a-staff a-staff--grid a-staff--grid-cols-3" data-params="{&quot;items_style&quot;:&quot;card-outline&quot;,&quot;posts_per_page&quot;:4}">
+        
+        <div class="a-staff__grid">
+                            
+                
+                <div class="a-staff__item a-employee a-employee--card-outline">
+                    <div class="a-employee__wrap">
+                        <div class="a-employee__image-container a-object-fit-container">
+                            <a href="https://unicorns.exchange/staff/idan-miller/" class="a-employee__link" title="Idan Miller">
+                                <img width="540" height="360" src="https://unicorns.exchange/wp-content/uploads/2019/05/Idan-Miller-Unicrins-Exhcnage-Portrait-photo-20x13.jpg" class="a-employee__image a-js-has-object-fit a-progressive-image a-js-progressive-image wp-post-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2019/05/Idan-Miller-Unicrins-Exhcnage-Portrait-photo.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2019/05/Idan-Miller-Unicrins-Exhcnage-Portrait-photo.jpg 1280w, https://unicorns.exchange/wp-content/uploads/2019/05/Idan-Miller-Unicrins-Exhcnage-Portrait-photo-300x200.jpg 300w, https://unicorns.exchange/wp-content/uploads/2019/05/Idan-Miller-Unicrins-Exhcnage-Portrait-photo-768x512.jpg 768w, https://unicorns.exchange/wp-content/uploads/2019/05/Idan-Miller-Unicrins-Exhcnage-Portrait-photo-1024x682.jpg 1024w, https://unicorns.exchange/wp-content/uploads/2019/05/Idan-Miller-Unicrins-Exhcnage-Portrait-photo-20x13.jpg 20w" data-progressive-image-sizes="(max-width: 540px) 100vw, 540px">                            </a>
+
+                            
+                                                            <ul class="a-employee__socials a-socials a-socials--circle-flat a-socials--card-employee">
+                                                                            <li class="a-socials__item">
+                                            <a href="" class="a-socials__link a-socials__link--" target="_blank"><span class=""></span></a>
+                                        </li>
+                                                                    </ul>
+                                                    </div>
+                        <div class="a-employee__details">
+                            <div class="a-employee__header">
+                                <h4 class="a-employee__title">
+                                    <a href="https://unicorns.exchange/staff/idan-miller/" class="a-employee__title-link" title="Idan Miller">Idan Miller</a>
+                                </h4>
+                                                                                                    <div class="a-employee__position">Managing partner</div>
+                                                            </div>
+
+                            
+                            
+                            
+                                                    </div>
+                    </div>
+                </div>
+                            
+                
+                <div class="a-staff__item a-employee a-employee--card-outline">
+                    <div class="a-employee__wrap">
+                        <div class="a-employee__image-container a-object-fit-container">
+                            <a href="https://unicorns.exchange/staff/ofek-cohany/" class="a-employee__link" title="Ofek Cohany">
+                                <img width="400" height="400" src="https://unicorns.exchange/wp-content/uploads/2021/04/AAA_BEST_400x400-20x20.jpg" class="a-employee__image a-js-has-object-fit a-progressive-image a-js-progressive-image wp-post-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2021/04/AAA_BEST_400x400.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2021/04/AAA_BEST_400x400.jpg 400w, https://unicorns.exchange/wp-content/uploads/2021/04/AAA_BEST_400x400-300x300.jpg 300w, https://unicorns.exchange/wp-content/uploads/2021/04/AAA_BEST_400x400-150x150.jpg 150w, https://unicorns.exchange/wp-content/uploads/2021/04/AAA_BEST_400x400-20x20.jpg 20w" data-progressive-image-sizes="(max-width: 400px) 100vw, 400px">                            </a>
+
+                            
+                                                            <ul class="a-employee__socials a-socials a-socials--circle-flat a-socials--card-employee">
+                                                                            <li class="a-socials__item">
+                                            <a href="" class="a-socials__link a-socials__link--" target="_blank"><span class=""></span></a>
+                                        </li>
+                                                                    </ul>
+                                                    </div>
+                        <div class="a-employee__details">
+                            <div class="a-employee__header">
+                                <h4 class="a-employee__title">
+                                    <a href="https://unicorns.exchange/staff/ofek-cohany/" class="a-employee__title-link" title="Ofek Cohany">Ofek Cohany</a>
+                                </h4>
+                                                                                                    <div class="a-employee__position">VP R&amp;D</div>
+                                                            </div>
+
+                            
+                            
+                            
+                                                    </div>
+                    </div>
+                </div>
+                            
+                
+                <div class="a-staff__item a-employee a-employee--card-outline">
+                    <div class="a-employee__wrap">
+                        <div class="a-employee__image-container a-object-fit-container">
+                            <a href="https://unicorns.exchange/staff/daniela-reisin/" class="a-employee__link" title="Daniela Reisin">
+                                <img width="540" height="540" src="https://unicorns.exchange/wp-content/uploads/2023/10/Daniela-Reisin-square-20x20.jpg" class="a-employee__image a-js-has-object-fit a-progressive-image a-js-progressive-image wp-post-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2023/10/Daniela-Reisin-square.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2023/10/Daniela-Reisin-square.jpg 749w, https://unicorns.exchange/wp-content/uploads/2023/10/Daniela-Reisin-square-300x300.jpg 300w, https://unicorns.exchange/wp-content/uploads/2023/10/Daniela-Reisin-square-150x150.jpg 150w, https://unicorns.exchange/wp-content/uploads/2023/10/Daniela-Reisin-square-20x20.jpg 20w" data-progressive-image-sizes="(max-width: 540px) 100vw, 540px">                            </a>
+
+                            
+                                                            <ul class="a-employee__socials a-socials a-socials--circle-flat a-socials--card-employee">
+                                                                            <li class="a-socials__item">
+                                            <a href="" class="a-socials__link a-socials__link--" target="_blank"><span class=""></span></a>
+                                        </li>
+                                                                    </ul>
+                                                    </div>
+                        <div class="a-employee__details">
+                            <div class="a-employee__header">
+                                <h4 class="a-employee__title">
+                                    <a href="https://unicorns.exchange/staff/daniela-reisin/" class="a-employee__title-link" title="Daniela Reisin">Daniela Reisin</a>
+                                </h4>
+                                                                                                    <div class="a-employee__position">Strategic Account Director</div>
+                                                            </div>
+
+                            
+                            
+                            
+                                                    </div>
+                    </div>
+                </div>
+                            
+                
+                <div class="a-staff__item a-employee a-employee--card-outline">
+                    <div class="a-employee__wrap">
+                        <div class="a-employee__image-container a-object-fit-container">
+                            <a href="https://unicorns.exchange/staff/nimrod-may/" class="a-employee__link" title="Nimrod May">
+                                <img width="540" height="540" src="https://unicorns.exchange/wp-content/uploads/2022/06/Nimrod-May-20x20.jpg" class="a-employee__image a-js-has-object-fit a-progressive-image a-js-progressive-image wp-post-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2022/06/Nimrod-May.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2022/06/Nimrod-May.jpg 641w, https://unicorns.exchange/wp-content/uploads/2022/06/Nimrod-May-300x300.jpg 300w, https://unicorns.exchange/wp-content/uploads/2022/06/Nimrod-May-150x150.jpg 150w, https://unicorns.exchange/wp-content/uploads/2022/06/Nimrod-May-20x20.jpg 20w" data-progressive-image-sizes="(max-width: 540px) 100vw, 540px">                            </a>
+
+                            
+                                                            <ul class="a-employee__socials a-socials a-socials--circle-flat a-socials--card-employee">
+                                                                            <li class="a-socials__item">
+                                            <a href="" class="a-socials__link a-socials__link--" target="_blank"><span class=""></span></a>
+                                        </li>
+                                                                    </ul>
+                                                    </div>
+                        <div class="a-employee__details">
+                            <div class="a-employee__header">
+                                <h4 class="a-employee__title">
+                                    <a href="https://unicorns.exchange/staff/nimrod-may/" class="a-employee__title-link" title="Nimrod May">Nimrod May</a>
+                                </h4>
+                                                                                                    <div class="a-employee__position">Advisory Board</div>
+                                                            </div>
+
+                            
+                            
+                            
+                                                    </div>
+                    </div>
+                </div>
+                            
+                
+                <div class="a-staff__item a-employee a-employee--card-outline">
+                    <div class="a-employee__wrap">
+                        <div class="a-employee__image-container a-object-fit-container">
+                            <a href="https://unicorns.exchange/staff/asael-karfiol/" class="a-employee__link" title="Asael Karfiol">
+                                <img width="481" height="476" src="https://unicorns.exchange/wp-content/uploads/2020/09/rsz_asi-20x20.jpg" class="a-employee__image a-js-has-object-fit a-progressive-image a-js-progressive-image wp-post-image" alt="Asi" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2020/09/rsz_asi.jpg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2020/09/rsz_asi.jpg 481w, https://unicorns.exchange/wp-content/uploads/2020/09/rsz_asi-300x297.jpg 300w, https://unicorns.exchange/wp-content/uploads/2020/09/rsz_asi-20x20.jpg 20w" data-progressive-image-sizes="(max-width: 481px) 100vw, 481px">                            </a>
+
+                            
+                                                            <ul class="a-employee__socials a-socials a-socials--circle-flat a-socials--card-employee">
+                                                                            <li class="a-socials__item">
+                                            <a href="" class="a-socials__link a-socials__link--" target="_blank"><span class=""></span></a>
+                                        </li>
+                                                                    </ul>
+                                                    </div>
+                        <div class="a-employee__details">
+                            <div class="a-employee__header">
+                                <h4 class="a-employee__title">
+                                    <a href="https://unicorns.exchange/staff/asael-karfiol/" class="a-employee__title-link" title="Asael Karfiol">Asael Karfiol</a>
+                                </h4>
+                                                                                                    <div class="a-employee__position">General Partner at Citrine Partners</div>
+                                                            </div>
+
+                            
+                            
+                            
+                                                    </div>
+                    </div>
+                </div>
+                            
+                
+                <div class="a-staff__item a-employee a-employee--card-outline">
+                    <div class="a-employee__wrap">
+                        <div class="a-employee__image-container a-object-fit-container">
+                            <a href="https://unicorns.exchange/staff/bradley-fishman/" class="a-employee__link" title="Bradley Fishman">
+                                <img width="300" height="318" src="https://unicorns.exchange/wp-content/uploads/2019/07/bradley2-20x20.jpeg" class="a-employee__image a-js-has-object-fit a-progressive-image a-js-progressive-image wp-post-image" alt="" loading="lazy" data-progressive-image-src="https://unicorns.exchange/wp-content/uploads/2019/07/bradley2.jpeg" data-progressive-image-srcset="https://unicorns.exchange/wp-content/uploads/2019/07/bradley2.jpeg 300w, https://unicorns.exchange/wp-content/uploads/2019/07/bradley2-283x300.jpeg 283w, https://unicorns.exchange/wp-content/uploads/2019/07/bradley2-20x20.jpeg 20w" data-progressive-image-sizes="(max-width: 300px) 100vw, 300px">                            </a>
+
+                            
+                                                    </div>
+                        <div class="a-employee__details">
+                            <div class="a-employee__header">
+                                <h4 class="a-employee__title">
+                                    <a href="https://unicorns.exchange/staff/bradley-fishman/" class="a-employee__title-link" title="Bradley Fishman">Bradley Fishman</a>
+                                </h4>
+                                                                                                    <div class="a-employee__position">Managing partner at Manhattan Venture Partners</div>
+                                                            </div>
+
+                            
+                            
+                            
+                                                    </div>
+                    </div>
+                </div>
+            
+                    </div>
+
+        
+        <input type="hidden" name="advice_load_more_post_type" value="36eb321917">
+        <input type="hidden" name="advice_filter_post_type" value="f0f2cfccab">
+    </div>
+</div></div></div></div></div><section id="join_us" data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_section section section-grey" style="position: relative; left: 15px; box-sizing: border-box; width: 1280px;"><div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding" style="position: relative; left: 0px; box-sizing: border-box; width: 1280px;"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="a-heading vc_custom_1559321800924 a-heading--align-center">
+            <h2 class="a-heading__title">Contact Us</h2>
+    </div>
+
+<div class="a-contact-form a-contact-form--style-1 vc_custom_1656488328026">
+            <div class="a-contact-form__form-wrapper form-wrapper form-wrapper--contact-form-style-1">
+        
+                    <div class="container">
+                        
+                <div class="form-wrapper__inner">
+                                            <div class="a-contact-form__form-container form-container form-container--contact-form-style-1">
+                                                      
+                            <div class="form-container__form">
+                                <div role="form" class="wpcf7" id="wpcf7-f1836-p2214-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f1836-p2214-o1" method="post" class="wpcf7-form init" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="1836">
+<input type="hidden" name="_wpcf7_version" value="5.3.2">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1836-p2214-o1">
+<input type="hidden" name="_wpcf7_container_post" value="2214">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+</div>
+<div class="form-col-wrap">
+<div class="form-col-item">
+<span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name*"></span><p></p>
+<p><span class="wpcf7-form-control-wrap your-email"><input type="text" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email*"></span></p>
+<p><span class="wpcf7-form-control-wrap your-tel"><input type="text" name="your-tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Phone*"></span>
+</p></div>
+<div style="display:none;">
+<span class="wpcf7-form-control-wrap mc4wp-AFFILIATE"><input type="text" name="mc4wp-AFFILIATE" value="-1" class="wpcf7-form-control wpcf7-number wpcf7-validates-as-number" min="-1" aria-invalid="false"></span>
+</div>
+<div class="form-col-item">
+<span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Message*"></textarea></span><p></p>
+<div class="submit-wrap">
+<input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span>
+</div>
+</div>
+</div>
+<div class="wpcf7-response-output" aria-hidden="true"></div><input type="hidden" name="x_kIZTFV" value="yaBj*1"><input type="hidden" name="iHPVQRwfra-c" value="xesEO4BUK"><input type="hidden" name="uhzpBSKVYjai" value="WbEZQ89ToHDFNsq"></form></div>                            </div>
+                        </div>
+                                      
+                                                                    
+                        <div class="a-contact-form__contact-details-container contact-details-container contact-details-container--contact-form-style-1" style="background-image:url(https://unicorns.exchange/wp-content/uploads/2017/02/square_bg.png)">
+                                                                                        <div class="contact-details-container__header">
+                                                                            <h3 class="contact-details-container__title">Contacts</h3>
+                                                                      
+                                                                            <div class="contact-details-container__subtitle">Feel free to contacts with us</div>
+                                                                    </div>
+                                                      
+                            <ul class="a-contact-form__contact-details contact-details contact-details--vertical contact-details--circle contact-details--light contact-details--contact-form-style-1">
+                                                                                                            <li class="contact-details__item">
+                                            <span class="contact-details__item-icon mdi mdi-phone"></span>
+                                            <div class="contact-details__item-content">
+                                                                                                    <a class="contact-details__item-link" href="tel:"></a>                                                                                            </div>
+                                        </li>
+                                                                                                                                                <li class="contact-details__item">
+                                            <span class="contact-details__item-icon mdi mdi-email-variant"></span>
+                                            <div class="contact-details__item-content">
+                                                                                                    <a class="contact-details__item-link" href="mailto:info@unicorns.exchange">info@unicorns.exchange</a>                                                                                            </div>
+                                        </li>
+                                                                                                                                                <li class="contact-details__item">
+                                            <span class="contact-details__item-icon mdi mdi-map-marker"></span>
+                                            <div class="contact-details__item-content">
+                                                                                                    <span class="contact-details__item-text">Hanechoshet 3, Tel Aviv, Israel</span>
+                                                                                            </div>
+                                        </li>
+                                                                                                </ul>
+                        </div>
+                                    </div>
+                
+                    </div>
+                
+        </div>
+    
+                    <div class="a-contact-form__map a-map a-map--contact-form-style-1">
+                <div class="a-map__map a-js-contact-form-map" data-settings="{&quot;lat&quot;:32.069264,&quot;lng&quot;:34.782848,&quot;style&quot;:&quot;[{\&quot;featureType\&quot;:\&quot;all\&quot;,\&quot;elementType\&quot;:\&quot;all\&quot;,\&quot;stylers\&quot;:[{\&quot;hue\&quot;:\&quot;#e7ecf0\&quot;}]},{\&quot;featureType\&quot;:\&quot;administrative\&quot;,\&quot;elementType\&quot;:\&quot;labels.text.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#636c81\&quot;}]},{\&quot;featureType\&quot;:\&quot;administrative.neighborhood\&quot;,\&quot;elementType\&quot;:\&quot;labels.text.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#636c81\&quot;}]},{\&quot;featureType\&quot;:\&quot;administrative.land_parcel\&quot;,\&quot;elementType\&quot;:\&quot;labels.text.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#ff0000\&quot;}]},{\&quot;featureType\&quot;:\&quot;landscape\&quot;,\&quot;elementType\&quot;:\&quot;geometry.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#f1f4f6\&quot;}]},{\&quot;featureType\&quot;:\&quot;landscape\&quot;,\&quot;elementType\&quot;:\&quot;labels.text.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#496271\&quot;}]},{\&quot;featureType\&quot;:\&quot;poi\&quot;,\&quot;elementType\&quot;:\&quot;all\&quot;,\&quot;stylers\&quot;:[{\&quot;visibility\&quot;:\&quot;off\&quot;}]},{\&quot;featureType\&quot;:\&quot;road\&quot;,\&quot;elementType\&quot;:\&quot;all\&quot;,\&quot;stylers\&quot;:[{\&quot;saturation\&quot;:-70}]},{\&quot;featureType\&quot;:\&quot;road\&quot;,\&quot;elementType\&quot;:\&quot;geometry.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#ffffff\&quot;}]},{\&quot;featureType\&quot;:\&quot;road\&quot;,\&quot;elementType\&quot;:\&quot;geometry.stroke\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#c6d3dc\&quot;}]},{\&quot;featureType\&quot;:\&quot;road\&quot;,\&quot;elementType\&quot;:\&quot;labels.text.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#898e9b\&quot;}]},{\&quot;featureType\&quot;:\&quot;transit\&quot;,\&quot;elementType\&quot;:\&quot;all\&quot;,\&quot;stylers\&quot;:[{\&quot;visibility\&quot;:\&quot;off\&quot;}]},{\&quot;featureType\&quot;:\&quot;water\&quot;,\&quot;elementType\&quot;:\&quot;all\&quot;,\&quot;stylers\&quot;:[{\&quot;visibility\&quot;:\&quot;simplified\&quot;},{\&quot;saturation\&quot;:-60}]},{\&quot;featureType\&quot;:\&quot;water\&quot;,\&quot;elementType\&quot;:\&quot;geometry.fill\&quot;,\&quot;stylers\&quot;:[{\&quot;color\&quot;:\&quot;#d3eaf8\&quot;}]}]&quot;,&quot;zoom&quot;:13}"><div style="height: 100%; width: 100%;"></div></div>
+            </div>
+            </div>
+</div></div></div></div><div class="vc_row-full-width vc_clearfix"></div></section><div class="vc_row-full-width vc_clearfix"></div>
+
+</div>
+<footer id="colophon" class="footer footer--style-1">
+<div class="container">
+	
+	
+        <div class="footer__widget-areas widget-areas">
+            <div class="row">
+				
+				
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="widget-areas__area">
+							
+							<div id="advice_custom_pages_menu-1" class="widget widget--footer widget--custom-pages-menu"><ul id="menu-footer-navigation" class="widget__list"><li id="menu-item-1574" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1574"><a href="/" aria-current="page">Home</a></li>
+<li id="menu-item-1575" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1575"><a href="/#platform" aria-current="page">Platform</a></li>
+<li id="menu-item-1581" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-1581"><a href="/#join_us" aria-current="page">Contact</a></li>
+<li id="menu-item-2660" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2660"><a href="https://unicorns.exchange/privacy-policy/">Privacy policy</a></li>
+<li id="menu-item-2661" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2661"><a href="https://unicorns.exchange/terms-of-use/">Terms of use</a></li>
+</ul></div>
+                        </div>
+                    </div>
+				
+				
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="widget-areas__area">
+							
+							<div id="advice_social_links_menu-1" class="widget widget--footer widget--social-links-menu"><div class="widget__title">SOCIAL</div><ul id="menu-social-networks" class="a-socials a-socials--circle-outline a-socials--light"><li class="a-socials__item"><a href="https://www.linkedin.com/company/36803882" class="a-socials__link a-socials__link--linkedin"><span class="mdi mdi-linkedin"></span></a></li>
+</ul></div>
+                        </div>
+                    </div>
+				
+				
+            </div>
+        </div>
+	
+		
+	
+        <div class="footer__copyright copyright">
+			
+			2019 Unicorn Exchange. All rights reserved
+        </div>
+	
+	
+</div></footer></div>
+<!-- .main-wrapper -->
+
+<!-- HFCM by 99 Robots - Snippet # 1: Set Affiliate to forms -->
+<script>
+    (function ($) {
+        console.info('Started');
+        function getCookie(name) {
+            var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return v ? v[2] : null;
+        }
+
+        var affiliate = getCookie('wp_affiliates');
+        if (affiliate) {
+            console.log('For affiliate',affiliate);
+            $('form').find('input[name="mc4wp-AFFILIATE"]').val(affiliate);
+            console.log("value after set",$('input[name="mc4wp-AFFILIATE"]').val());
+        }
+        console.log("value after all",$('input[name="mc4wp-AFFILIATE"]').val());
+    })(window.jQuery);
+</script>
+<!-- /end HFCM by 99 Robots -->
+			<script type="text/javascript">
+				function revslider_showDoubleJqueryError(sliderID) {
+					var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";
+					errorMessage += "<br> This includes make eliminates the revolution slider libraries, and make it not work.";
+					errorMessage += "<br><br> To fix it you can:<br>&nbsp;&nbsp;&nbsp; 1. In the Slider Settings -> Troubleshooting set option:  <strong><b>Put JS Includes To Body</b></strong> option to true.";
+					errorMessage += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
+					errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
+						jQuery(sliderID).show().html(errorMessage);
+				}
+			</script>
+			<link rel="stylesheet" id="animate-css-css" href="https://unicorns.exchange/wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.min.css?ver=5.7" type="text/css" media="all">
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/unicorns.exchange\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.3.2" id="contact-form-7-js"></script>
+<script type="text/javascript" id="advice-core-main-js-js-extra">
+/* <![CDATA[ */
+var advice_core_js_variables = {"ajax_url":"https:\/\/unicorns.exchange\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/advice-core/assets/js/main.js?ver=2.8" id="advice-core-main-js-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/themes/advice-child/assets/js/custom.js" id="uni_custom_js-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/themes/advice/assets/js/vendor/select2/select2.full.min.js?ver=1773197573" id="select2-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/advice-core/assets/vendor/mCustomScrollbar/jquery.mCustomScrollbar.min.js?ver=2.8" id="m-custom-scrollbar-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/themes/advice/assets/js/vendor/mailchimp-validate.js?ver=1773197573" id="mailchimp-validate-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-includes/js/jquery/jquery.form.js?ver=4.2.1" id="jquery-form-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/themes/advice/assets/js/progressive-image.js?ver=1773197573" id="advice-progressive-image-js"></script>
+<script type="text/javascript" id="advice-global-js-extra">
+/* <![CDATA[ */
+var advice_js_variables = {"ajax_url":"https:\/\/unicorns.exchange\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/themes/advice/assets/js/global.js?ver=1773197573" id="advice-global-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/themeschannel-core/assets/js/social-share.js?ver=1.9" id="tc-social-share-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/themeschannel-core/assets/js/custom.js?ver=1.9" id="tc-custom-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-includes/js/wp-embed.js?ver=5.6.5" id="wp-embed-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.7" id="wpb_composer_front_js-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.min.js?ver=5.7" id="waypoints-js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwfXXpLdswf8HWNbVCkZESlrmS9w6Y8gA&amp;ver=5.6.5" id="google-maps-api-js"></script>
+<script type="text/javascript" src="https://unicorns.exchange/wp-content/plugins/advice-core/assets/js/vc/contact-form.js?ver=2.8" id="advice-core-vc-contact-form-js"></script>
+	<script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            //$( document ).ajaxStart(function() {
+            //});
+
+			
+            for (var i = 0; i < document.forms.length; ++i) {
+                var form = document.forms[i];
+				if ($(form).attr("method") != "get") { $(form).append('<input type="hidden" name="x_kIZTFV" value="yaBj*1" />'); }
+if ($(form).attr("method") != "get") { $(form).append('<input type="hidden" name="iHPVQRwfra-c" value="xesEO4BUK" />'); }
+if ($(form).attr("method") != "get") { $(form).append('<input type="hidden" name="uhzpBSKVYjai" value="WbEZQ89ToHDFNsq" />'); }
+            }
+
+			
+            $(document).on('submit', 'form', function () {
+				if ($(this).attr("method") != "get") { $(this).append('<input type="hidden" name="x_kIZTFV" value="yaBj*1" />'); }
+if ($(this).attr("method") != "get") { $(this).append('<input type="hidden" name="iHPVQRwfra-c" value="xesEO4BUK" />'); }
+if ($(this).attr("method") != "get") { $(this).append('<input type="hidden" name="uhzpBSKVYjai" value="WbEZQ89ToHDFNsq" />'); }
+                return true;
+            });
+
+			
+            jQuery.ajaxSetup({
+                beforeSend: function (e, data) {
+
+                    //console.log(Object.getOwnPropertyNames(data).sort());
+                    //console.log(data.type);
+
+                    if (data.type !== 'POST') return;
+
+                    if (typeof data.data === 'object' && data.data !== null) {
+						data.data.append("x_kIZTFV", "yaBj*1");
+data.data.append("iHPVQRwfra-c", "xesEO4BUK");
+data.data.append("uhzpBSKVYjai", "WbEZQ89ToHDFNsq");
+                    }
+                    else {
+                        data.data =  data.data + '&x_kIZTFV=yaBj*1&iHPVQRwfra-c=xesEO4BUK&uhzpBSKVYjai=WbEZQ89ToHDFNsq';
+                    }
+                }
+            });
+
+        });
+	</script>
+	
+<!--LINKED IN TAG-->
+<script type="text/javascript">
+    _linkedin_partner_id = "4390721";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+    (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+            window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=4390721&fmt=gif" />
+</noscript>
+<!--END LINKED IN TAG-->
+
+
+
+</body></html>

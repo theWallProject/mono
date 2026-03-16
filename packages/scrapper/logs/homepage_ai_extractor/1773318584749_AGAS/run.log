@@ -1,0 +1,69 @@
+[2026-03-12T12:29:44.750Z] === Homepage AI Extractor: AGAS ===
+[2026-03-12T12:29:44.750Z] Started at: 2026-03-12T12:29:44.750Z
+[2026-03-12T12:29:44.750Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773318584749_AGAS
+[2026-03-12T12:29:44.750Z] Company: AGAS
+[2026-03-12T12:29:44.750Z] Website: agas.co.il
+[2026-03-12T12:29:44.750Z] cbRank: 951651
+[2026-03-12T12:29:44.750Z] Reasons: h
+[2026-03-12T12:29:44.750Z] Fetching: https://agas.co.il
+[2026-03-12T12:29:52.358Z] Redirected: https://agas.co.il -> https://www.agas.co.il/
+[2026-03-12T12:29:52.366Z] Saved HTML (127894 bytes) to page.html
+[2026-03-12T12:29:52.373Z] Extracted 116 unique links from page
+[2026-03-12T12:29:52.374Z] Saved 116 links to links.json
+[2026-03-12T12:29:52.403Z] Extracted footer HTML (19252 chars)
+[2026-03-12T12:29:52.403Z] Extracted header HTML (2377 chars)
+[2026-03-12T12:29:52.412Z] Website (post-redirect): https://www.agas.co.il/ → origin: https://www.agas.co.il
+[2026-03-12T12:29:52.413Z]   SUBDOMAIN: portal.agas.co.il (added to ws)
+[2026-03-12T12:29:52.413Z]   SUBDOMAIN: ticket.agas.co.il (added to ws)
+[2026-03-12T12:29:52.418Z] Website subdomains found: 2
+[2026-03-12T12:29:52.430Z] External links: 3 (of 116 total)
+[2026-03-12T12:29:52.430Z] ── All external links ──
+[2026-03-12T12:29:52.430Z]   EXT: http://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:29:52.430Z]   EXT: https://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:29:52.430Z]   EXT: https://www.linkedin.com/company/5015477?trk=prof-exp-company-name
+[2026-03-12T12:29:52.430Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T12:29:52.431Z]   UNCATEGORIZED: http://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:29:52.431Z]   UNCATEGORIZED: https://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:29:52.431Z]   REGEX: li <- https://www.linkedin.com/company/5015477?trk=prof-exp-company-name
+[2026-03-12T12:29:52.437Z] Programmatic result: ws:3, li:1 | 2 uncategorized
+[2026-03-12T12:29:52.437Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T12:29:52.443Z] Saved AI prompt (7985 chars) to ai_prompt.txt
+[2026-03-12T12:29:52.449Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T12:29:52.466Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T12:30:49.118Z]   AI: First token received, streaming...
+[2026-03-12T12:30:53.274Z] AI response complete: 66 chars in 60.8s
+[2026-03-12T12:30:53.275Z] Saved AI response to ai_response.json
+[2026-03-12T12:30:53.275Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T12:30:53.275Z]   AI LINK: https://www.linkedin.com/company/5015477?trk=prof-exp-company-name
+[2026-03-12T12:30:53.275Z] AI returned 1 valid links
+[2026-03-12T12:30:53.275Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T12:30:53.275Z]   AI→REGEX: li <- https://www.linkedin.com/company/5015477?trk=prof-exp-company-name (duplicate, skipped)
+[2026-03-12T12:30:53.276Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T12:30:53.276Z] Footer/header origins (6):
+[2026-03-12T12:30:53.276Z]   FOOTER/HEADER ORIGIN: https://www.agas.co.il
+[2026-03-12T12:30:53.276Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T12:30:53.276Z]   FOOTER/HEADER ORIGIN: http://get.teamviewer.com
+[2026-03-12T12:30:53.276Z]   FOOTER/HEADER ORIGIN: http://ticket.agas.co.il
+[2026-03-12T12:30:53.276Z]   FOOTER/HEADER ORIGIN: http://portal.agas.co.il
+[2026-03-12T12:30:53.276Z]   FOOTER/HEADER ORIGIN: https://get.teamviewer.com
+[2026-03-12T12:30:53.276Z]   ADDED: urls <- http://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:30:53.277Z]   ADDED: urls <- https://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:30:53.277Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T12:30:53.277Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T12:30:53.277Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T12:30:53.277Z] ── Step 3: Final dedup ──
+[2026-03-12T12:30:53.277Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T12:30:53.277Z] ── FINAL RESULT ──
+[2026-03-12T12:30:53.277Z]   ws (3):
+[2026-03-12T12:30:53.277Z]     - https://portal.agas.co.il
+[2026-03-12T12:30:53.277Z]     - https://ticket.agas.co.il
+[2026-03-12T12:30:53.277Z]     - https://www.agas.co.il
+[2026-03-12T12:30:53.277Z]   li (1):
+[2026-03-12T12:30:53.277Z]     - https://www.linkedin.com/company/5015477
+[2026-03-12T12:30:53.278Z]   urls (2):
+[2026-03-12T12:30:53.278Z]     - http://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:30:53.278Z]     - https://get.teamviewer.com/rgy4nmw
+[2026-03-12T12:30:53.278Z] Summary: ws:3, li:1, urls:2
+[2026-03-12T12:30:53.278Z] Saved final result to result.json
+[2026-03-12T12:30:53.279Z] Override fields: ws, li, urls
+[2026-03-12T12:30:53.279Z] Finished at: 2026-03-12T12:30:53.279Z

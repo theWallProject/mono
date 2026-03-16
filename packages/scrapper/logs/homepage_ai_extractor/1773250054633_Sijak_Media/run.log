@@ -1,0 +1,67 @@
+[2026-03-11T17:27:34.633Z] === Homepage AI Extractor: Sijak Media ===
+[2026-03-11T17:27:34.633Z] Started at: 2026-03-11T17:27:34.633Z
+[2026-03-11T17:27:34.633Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773250054633_Sijak_Media
+[2026-03-11T17:27:34.633Z] Company: Sijak Media
+[2026-03-11T17:27:34.633Z] Website: sijakmedia.com
+[2026-03-11T17:27:34.633Z] cbRank: 607679
+[2026-03-11T17:27:34.633Z] Reasons: h
+[2026-03-11T17:27:34.634Z] Fetching: https://sijakmedia.com
+[2026-03-11T17:27:42.664Z] Redirected: https://sijakmedia.com -> https://sijakmedia.com/
+[2026-03-11T17:27:42.671Z] Saved HTML (126184 bytes) to page.html
+[2026-03-11T17:27:42.676Z] Extracted 11 unique links from page
+[2026-03-11T17:27:42.677Z] Saved 11 links to links.json
+[2026-03-11T17:27:42.681Z] Extracted footer HTML (2292 chars)
+[2026-03-11T17:27:42.681Z] Extracted header HTML (3538 chars)
+[2026-03-11T17:27:42.687Z] Website (post-redirect): https://sijakmedia.com/ → origin: https://sijakmedia.com
+[2026-03-11T17:27:42.687Z] External links: 4 (of 11 total)
+[2026-03-11T17:27:42.687Z] ── All external links ──
+[2026-03-11T17:27:42.687Z]   EXT: https://adscope.me
+[2026-03-11T17:27:42.687Z]   EXT: https://instagram.com/sijakmedia
+[2026-03-11T17:27:42.687Z]   EXT: https://www.facebook.com/profile.php?id=61566058093364
+[2026-03-11T17:27:42.687Z]   EXT: https://www.linkedin.com/company/82587877
+[2026-03-11T17:27:42.687Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T17:27:42.688Z]   UNCATEGORIZED: https://adscope.me
+[2026-03-11T17:27:42.688Z]   REGEX: ig <- https://instagram.com/sijakmedia
+[2026-03-11T17:27:42.688Z]   REGEX: li <- https://www.linkedin.com/company/82587877
+[2026-03-11T17:27:42.688Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-11T17:27:44.100Z]   RESOLVE: https://www.facebook.com/profile.php?id=61566058093364 → https://www.facebook.com/people/SijakMedia/61566058093364
+[2026-03-11T17:27:44.134Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/SijakMedia/61566058093364 (from https://www.facebook.com/profile.php?id=61566058093364)
+[2026-03-11T17:27:44.134Z] Programmatic result: ws:1, ig:1, li:1 | 1 uncategorized
+[2026-03-11T17:27:44.134Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T17:27:44.135Z] Saved AI prompt (3232 chars) to ai_prompt.txt
+[2026-03-11T17:27:44.135Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T17:27:44.153Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T17:27:55.352Z]   AI: First token received, streaming...
+[2026-03-11T17:28:05.571Z] AI response complete: 129 chars in 21.4s
+[2026-03-11T17:28:05.572Z] Saved AI response to ai_response.json
+[2026-03-11T17:28:05.572Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T17:28:05.572Z]   AI LINK: https://www.facebook.com/profile.php?id=61566058093364
+[2026-03-11T17:28:05.572Z]   AI LINK: https://www.linkedin.com/company/82587877
+[2026-03-11T17:28:05.572Z]   AI LINK: https://instagram.com/sijakmedia
+[2026-03-11T17:28:05.572Z] AI returned 3 valid links
+[2026-03-11T17:28:05.573Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T17:28:06.581Z]   RESOLVE: https://www.facebook.com/profile.php?id=61566058093364 → https://www.facebook.com/people/SijakMedia/61566058093364
+[2026-03-11T17:28:06.587Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/SijakMedia/61566058093364 (from https://www.facebook.com/profile.php?id=61566058093364)
+[2026-03-11T17:28:06.587Z]   AI→REGEX: li <- https://www.linkedin.com/company/82587877 (duplicate, skipped)
+[2026-03-11T17:28:06.587Z]   AI→REGEX: ig <- https://instagram.com/sijakmedia (duplicate, skipped)
+[2026-03-11T17:28:06.587Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T17:28:06.587Z] Footer/header origins (4):
+[2026-03-11T17:28:06.588Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T17:28:06.588Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T17:28:06.588Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-11T17:28:06.588Z]   FOOTER/HEADER ORIGIN: https://sijakmedia.com
+[2026-03-11T17:28:06.588Z]   SKIP (not in footer/header): https://adscope.me
+[2026-03-11T17:28:06.588Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T17:28:06.588Z] ── Step 3: Final dedup ──
+[2026-03-11T17:28:06.588Z] No urls to dedup
+[2026-03-11T17:28:06.588Z] ── FINAL RESULT ──
+[2026-03-11T17:28:06.588Z]   ws (1):
+[2026-03-11T17:28:06.588Z]     - https://sijakmedia.com
+[2026-03-11T17:28:06.589Z]   li (1):
+[2026-03-11T17:28:06.589Z]     - https://www.linkedin.com/company/82587877
+[2026-03-11T17:28:06.589Z]   ig (1):
+[2026-03-11T17:28:06.589Z]     - https://www.instagram.com/sijakmedia
+[2026-03-11T17:28:06.589Z] Summary: ws:1, ig:1, li:1
+[2026-03-11T17:28:06.590Z] Saved final result to result.json
+[2026-03-11T17:28:06.590Z] Override fields: ws, li, ig
+[2026-03-11T17:28:06.590Z] Finished at: 2026-03-11T17:28:06.590Z

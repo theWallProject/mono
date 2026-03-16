@@ -1,0 +1,68 @@
+[2026-03-12T00:23:14.650Z] === Homepage AI Extractor: InsFocus ===
+[2026-03-12T00:23:14.650Z] Started at: 2026-03-12T00:23:14.650Z
+[2026-03-12T00:23:14.650Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773274994649_InsFocus
+[2026-03-12T00:23:14.650Z] Company: InsFocus
+[2026-03-12T00:23:14.650Z] Website: insfocus.com
+[2026-03-12T00:23:14.650Z] cbRank: 721811
+[2026-03-12T00:23:14.650Z] Reasons: h
+[2026-03-12T00:23:14.650Z] Fetching: https://insfocus.com
+[2026-03-12T00:23:16.674Z] Redirected: https://insfocus.com -> https://www.insfocus.com/
+[2026-03-12T00:23:16.680Z] Saved HTML (72176 bytes) to page.html
+[2026-03-12T00:23:16.683Z] Extracted 18 unique links from page
+[2026-03-12T00:23:16.684Z] Saved 18 links to links.json
+[2026-03-12T00:23:16.687Z] Extracted footer HTML (10533 chars)
+[2026-03-12T00:23:16.687Z] Extracted header HTML (7427 chars)
+[2026-03-12T00:23:16.690Z] Website (post-redirect): https://www.insfocus.com/ → origin: https://www.insfocus.com
+[2026-03-12T00:23:16.691Z] External links: 4 (of 18 total)
+[2026-03-12T00:23:16.691Z] ── All external links ──
+[2026-03-12T00:23:16.691Z]   EXT: http://www.linkedin.com/company/insfocus
+[2026-03-12T00:23:16.691Z]   EXT: https://codepen.io/ezra_siton
+[2026-03-12T00:23:16.691Z]   EXT: https://www.facebook.com/insfocus
+[2026-03-12T00:23:16.691Z]   EXT: https://www.thespark.ai
+[2026-03-12T00:23:16.691Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T00:23:16.691Z]   REGEX: li <- http://www.linkedin.com/company/insfocus
+[2026-03-12T00:23:16.691Z]   UNCATEGORIZED: https://codepen.io/ezra_siton
+[2026-03-12T00:23:16.691Z]   REGEX: fb <- https://www.facebook.com/insfocus
+[2026-03-12T00:23:16.691Z]   UNCATEGORIZED: https://www.thespark.ai
+[2026-03-12T00:23:16.692Z] Programmatic result: ws:1, li:1, fb:1 | 2 uncategorized
+[2026-03-12T00:23:16.692Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T00:23:16.693Z] Saved AI prompt (8073 chars) to ai_prompt.txt
+[2026-03-12T00:23:16.693Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T00:23:16.709Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T00:23:47.878Z]   AI: First token received, streaming...
+[2026-03-12T00:23:51.086Z] AI response complete: 74 chars in 34.4s
+[2026-03-12T00:23:51.086Z] Saved AI response to ai_response.json
+[2026-03-12T00:23:51.087Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T00:23:51.087Z]   AI LINK: https://www.facebook.com/insfocus
+[2026-03-12T00:23:51.087Z]   AI LINK: http://www.linkedin.com/company/insfocus
+[2026-03-12T00:23:51.087Z] AI returned 2 valid links
+[2026-03-12T00:23:51.087Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T00:23:51.087Z]   AI→REGEX: fb <- https://www.facebook.com/insfocus (duplicate, skipped)
+[2026-03-12T00:23:51.087Z]   AI→REGEX: li <- http://www.linkedin.com/company/insfocus (duplicate, skipped)
+[2026-03-12T00:23:51.088Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T00:23:51.088Z] Footer/header origins (4):
+[2026-03-12T00:23:51.088Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T00:23:51.088Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-12T00:23:51.088Z]   FOOTER/HEADER ORIGIN: https://www.thespark.ai
+[2026-03-12T00:23:51.088Z]   FOOTER/HEADER ORIGIN: https://codepen.io
+[2026-03-12T00:23:51.088Z]   ADDED: urls <- https://codepen.io/ezra_siton
+[2026-03-12T00:23:51.088Z]   ADDED: urls <- https://www.thespark.ai
+[2026-03-12T00:23:51.088Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T00:23:51.088Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T00:23:51.089Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T00:23:51.089Z] ── Step 3: Final dedup ──
+[2026-03-12T00:23:51.089Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T00:23:51.089Z] ── FINAL RESULT ──
+[2026-03-12T00:23:51.089Z]   ws (1):
+[2026-03-12T00:23:51.089Z]     - https://www.insfocus.com
+[2026-03-12T00:23:51.089Z]   li (1):
+[2026-03-12T00:23:51.089Z]     - https://www.linkedin.com/company/insfocus
+[2026-03-12T00:23:51.089Z]   fb (1):
+[2026-03-12T00:23:51.089Z]     - https://www.facebook.com/insfocus
+[2026-03-12T00:23:51.089Z]   urls (2):
+[2026-03-12T00:23:51.089Z]     - https://codepen.io/ezra_siton
+[2026-03-12T00:23:51.089Z]     - https://www.thespark.ai
+[2026-03-12T00:23:51.090Z] Summary: ws:1, li:1, fb:1, urls:2
+[2026-03-12T00:23:51.090Z] Saved final result to result.json
+[2026-03-12T00:23:51.090Z] Override fields: ws, li, fb, urls
+[2026-03-12T00:23:51.090Z] Finished at: 2026-03-12T00:23:51.090Z

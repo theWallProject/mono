@@ -1,0 +1,63 @@
+[2026-03-10T04:58:34.263Z] === Homepage AI Extractor: HyperVision ===
+[2026-03-10T04:58:34.263Z] Started at: 2026-03-10T04:58:34.263Z
+[2026-03-10T04:58:34.263Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773118714262_HyperVision
+[2026-03-10T04:58:34.263Z] Company: HyperVision
+[2026-03-10T04:58:34.263Z] Website: hypervision.ai
+[2026-03-10T04:58:34.263Z] cbRank: 383297
+[2026-03-10T04:58:34.263Z] Reasons: h
+[2026-03-10T04:58:34.263Z] Fetching: https://hypervision.ai
+[2026-03-10T04:58:45.094Z] Network idle timeout — continuing with current state
+[2026-03-10T04:58:45.144Z] Redirected: https://hypervision.ai -> https://www.hypervision.ai/
+[2026-03-10T04:58:45.162Z] Saved HTML (570330 bytes) to page.html
+[2026-03-10T04:58:45.165Z] Extracted 30 unique links from page
+[2026-03-10T04:58:45.166Z] Saved 30 links to links.json
+[2026-03-10T04:58:45.169Z] Extracted footer HTML (10018 chars)
+[2026-03-10T04:58:45.169Z] Extracted header HTML (12216 chars)
+[2026-03-10T04:58:45.173Z] Website (post-redirect): https://www.hypervision.ai/ → origin: https://www.hypervision.ai
+[2026-03-10T04:58:45.174Z] External links: 4 (of 30 total)
+[2026-03-10T04:58:45.174Z] ── All external links ──
+[2026-03-10T04:58:45.174Z]   EXT: https://patents.google.com/patent/US20230106173A1/en
+[2026-03-10T04:58:45.174Z]   EXT: https://www.facebook.com/hypervision.xr
+[2026-03-10T04:58:45.174Z]   EXT: https://www.linkedin.com/company/hypervisionxr/?originalSubdomain=il
+[2026-03-10T04:58:45.174Z]   EXT: https://www.youtube.com/watch?v=yjys9oMuhIg&list=PLOFzWu39Z9uXCtLEaBA32cLmga9mjh5km&index=7
+[2026-03-10T04:58:45.174Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T04:58:45.174Z]   UNCATEGORIZED: https://patents.google.com/patent/US20230106173A1/en
+[2026-03-10T04:58:45.174Z]   REGEX: fb <- https://www.facebook.com/hypervision.xr
+[2026-03-10T04:58:45.174Z]   REGEX: li <- https://www.linkedin.com/company/hypervisionxr/?originalSubdomain=il
+[2026-03-10T04:58:45.174Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-10T04:58:45.175Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=yjys9oMuhIg&list=PLOFzWu39Z9uXCtLEaBA32cLmga9mjh5km&index=7
+[2026-03-10T04:58:45.175Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-10T04:58:45.175Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T04:58:45.176Z] Saved AI prompt (4606 chars) to ai_prompt.txt
+[2026-03-10T04:58:45.176Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T04:58:45.199Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T04:59:01.954Z]   AI: First token received, streaming...
+[2026-03-10T04:59:07.704Z] AI response complete: 108 chars in 22.5s
+[2026-03-10T04:59:07.704Z] Saved AI response to ai_response.json
+[2026-03-10T04:59:07.704Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T04:59:07.704Z]   AI LINK: https://www.linkedin.com/company/hypervisionxr/?originalSubdomain=il
+[2026-03-10T04:59:07.704Z]   AI LINK: https://www.facebook.com/hypervision.xr
+[2026-03-10T04:59:07.705Z] AI returned 2 valid links
+[2026-03-10T04:59:07.705Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T04:59:07.705Z]   AI→REGEX: li <- https://www.linkedin.com/company/hypervisionxr/?originalSubdomain=il (duplicate, skipped)
+[2026-03-10T04:59:07.705Z]   AI→REGEX: fb <- https://www.facebook.com/hypervision.xr (duplicate, skipped)
+[2026-03-10T04:59:07.705Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T04:59:07.705Z] Footer/header origins (3):
+[2026-03-10T04:59:07.705Z]   FOOTER/HEADER ORIGIN: https://www.hypervision.ai
+[2026-03-10T04:59:07.705Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T04:59:07.705Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T04:59:07.705Z]   SKIP (not in footer/header): https://patents.google.com/patent/US20230106173A1/en
+[2026-03-10T04:59:07.705Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T04:59:07.705Z] ── Step 3: Final dedup ──
+[2026-03-10T04:59:07.705Z] No urls to dedup
+[2026-03-10T04:59:07.705Z] ── FINAL RESULT ──
+[2026-03-10T04:59:07.705Z]   ws (1):
+[2026-03-10T04:59:07.706Z]     - https://www.hypervision.ai
+[2026-03-10T04:59:07.706Z]   li (1):
+[2026-03-10T04:59:07.706Z]     - https://www.linkedin.com/company/hypervisionxr
+[2026-03-10T04:59:07.706Z]   fb (1):
+[2026-03-10T04:59:07.706Z]     - https://www.facebook.com/hypervision.xr
+[2026-03-10T04:59:07.706Z] Summary: ws:1, fb:1, li:1
+[2026-03-10T04:59:07.708Z] Saved final result to result.json
+[2026-03-10T04:59:07.708Z] Override fields: ws, li, fb
+[2026-03-10T04:59:07.708Z] Finished at: 2026-03-10T04:59:07.708Z

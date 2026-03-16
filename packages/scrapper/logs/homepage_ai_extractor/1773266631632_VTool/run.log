@@ -1,0 +1,65 @@
+[2026-03-11T22:03:51.633Z] === Homepage AI Extractor: VTool ===
+[2026-03-11T22:03:51.633Z] Started at: 2026-03-11T22:03:51.633Z
+[2026-03-11T22:03:51.633Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773266631632_VTool
+[2026-03-11T22:03:51.633Z] Company: VTool
+[2026-03-11T22:03:51.633Z] Website: thevtool.com
+[2026-03-11T22:03:51.633Z] cbRank: 678517
+[2026-03-11T22:03:51.634Z] Reasons: h
+[2026-03-11T22:03:51.634Z] Fetching: https://thevtool.com
+[2026-03-11T22:03:53.809Z] Redirected: https://thevtool.com -> https://thevtool.com/
+[2026-03-11T22:03:53.813Z] Saved HTML (36580 bytes) to page.html
+[2026-03-11T22:03:53.816Z] Extracted 17 unique links from page
+[2026-03-11T22:03:53.816Z] Saved 17 links to links.json
+[2026-03-11T22:03:53.819Z] Extracted footer HTML (12268 chars)
+[2026-03-11T22:03:53.819Z] Extracted header HTML (6578 chars)
+[2026-03-11T22:03:53.824Z] Website (post-redirect): https://thevtool.com/ → origin: https://thevtool.com
+[2026-03-11T22:03:53.824Z] External links: 3 (of 17 total)
+[2026-03-11T22:03:53.824Z] ── All external links ──
+[2026-03-11T22:03:53.824Z]   EXT: https://vtool.atlassian.net/servicedesk/customer/portals
+[2026-03-11T22:03:53.824Z]   EXT: https://www.instagram.com/vtool_
+[2026-03-11T22:03:53.825Z]   EXT: https://www.linkedin.com/company/9350366
+[2026-03-11T22:03:53.825Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T22:03:53.825Z]   UNCATEGORIZED: https://vtool.atlassian.net/servicedesk/customer/portals
+[2026-03-11T22:03:53.825Z]   REGEX: ig <- https://www.instagram.com/vtool_
+[2026-03-11T22:03:53.825Z]   REGEX: li <- https://www.linkedin.com/company/9350366
+[2026-03-11T22:03:53.825Z] Programmatic result: ws:1, ig:1, li:1 | 1 uncategorized
+[2026-03-11T22:03:53.825Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T22:03:53.826Z] Saved AI prompt (6766 chars) to ai_prompt.txt
+[2026-03-11T22:03:53.826Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T22:03:53.842Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T22:04:30.185Z]   AI: First token received, streaming...
+[2026-03-11T22:04:37.572Z] AI response complete: 132 chars in 43.7s
+[2026-03-11T22:04:37.573Z] Saved AI response to ai_response.json
+[2026-03-11T22:04:37.573Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T22:04:37.573Z]   AI LINK: https://vtool.atlassian.net/servicedesk/customer/portals
+[2026-03-11T22:04:37.573Z]   AI LINK: https://www.linkedin.com/company/9350366/
+[2026-03-11T22:04:37.573Z]   AI LINK: https://www.instagram.com/vtool_/
+[2026-03-11T22:04:37.573Z] AI returned 3 valid links
+[2026-03-11T22:04:37.574Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T22:04:37.574Z]   AI→URLS: https://vtool.atlassian.net/servicedesk/customer/portals
+[2026-03-11T22:04:37.574Z]   AI→REGEX: li <- https://www.linkedin.com/company/9350366/ (duplicate, skipped)
+[2026-03-11T22:04:37.574Z]   AI→REGEX: ig <- https://www.instagram.com/vtool_/ (duplicate, skipped)
+[2026-03-11T22:04:37.575Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T22:04:37.575Z] Footer/header origins (3):
+[2026-03-11T22:04:37.575Z]   FOOTER/HEADER ORIGIN: https://vtool.atlassian.net
+[2026-03-11T22:04:37.575Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T22:04:37.575Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-11T22:04:37.575Z]   SKIP (AI claimed): https://vtool.atlassian.net/servicedesk/customer/portals
+[2026-03-11T22:04:37.575Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T22:04:37.575Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T22:04:37.575Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T22:04:37.575Z] ── Step 3: Final dedup ──
+[2026-03-11T22:04:37.575Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T22:04:37.575Z] ── FINAL RESULT ──
+[2026-03-11T22:04:37.575Z]   ws (1):
+[2026-03-11T22:04:37.575Z]     - https://thevtool.com
+[2026-03-11T22:04:37.575Z]   li (1):
+[2026-03-11T22:04:37.575Z]     - https://www.linkedin.com/company/9350366
+[2026-03-11T22:04:37.575Z]   ig (1):
+[2026-03-11T22:04:37.576Z]     - https://www.instagram.com/vtool_
+[2026-03-11T22:04:37.576Z]   urls (1):
+[2026-03-11T22:04:37.576Z]     - https://vtool.atlassian.net/servicedesk/customer/portals
+[2026-03-11T22:04:37.576Z] Summary: ws:1, ig:1, li:1, urls:1
+[2026-03-11T22:04:37.576Z] Saved final result to result.json
+[2026-03-11T22:04:37.576Z] Override fields: ws, li, ig, urls
+[2026-03-11T22:04:37.576Z] Finished at: 2026-03-11T22:04:37.576Z

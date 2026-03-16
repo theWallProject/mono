@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>SSL Unavailable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+           const urlParams = new URLSearchParams(window.location.search);
+           const redirect_to = urlParams.get('return') || '';
+           const link_href = 'http://' + window.location.hostname + redirect_to;
+           function set_link() {
+              document.getElementById("link").href = link_href;
+           }
+           let count = 5;
+           const timer = setInterval(function() {
+              count--;
+              document.querySelector('#timer').textContent = count;
+              if (count <= 0) {
+                 clearInterval(timer);
+                 window.location = 'http://' + window.location.hostname + redirect_to;
+              }
+           }, 1000)
+        </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px 24px;
+      max-width: 460px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    p {
+      margin: 6px 0;
+    }
+    .small {
+      font-size: 12px;
+      color: #777;
+      margin-top: 14px;
+    }
+  </style>
+</head>
+<body onload="set_link()">
+  <div class="box">
+    <h1>Secure connection is not available</h1>
+    <p>This site was opened via HTTPS but SSL/TLS is not configured for this hostname.</p>
+    <p>You will be redirected to the HTTP version in <span id="timer">5</span> seconds.</p>
+    <p class="small">If redirection does not happen automatically, <a id="link" href="http://mplicity.com/">click here</a>.</p>
+  </div>
+
+
+</body></html>

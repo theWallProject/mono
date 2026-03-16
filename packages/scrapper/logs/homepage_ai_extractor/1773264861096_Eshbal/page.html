@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+    <title>Welcome to Eshbal</title>
+    <style>
+        :root {
+            --eshbal-navy: #1a2b4a;
+            --eshbal-yellow: #f1b418;
+            --eshbal-bg: #ffffff;
+            --eshbal-light-gray: #f2f2f2;
+            --text-color: #333333;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Assistant', sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            background-color: var(--eshbal-bg);
+            color: var(--eshbal-navy);
+            padding: 20px;
+            background-image: radial-gradient(#d1d1d1 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 { 
+            margin: 0;
+            font-size: 48px; 
+            font-weight: 800;
+            color: var(--eshbal-navy);
+            position: relative;
+            padding-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 5px;
+            background-color: var(--eshbal-yellow);
+        }
+
+        .sub-title {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+        }
+
+        .options { 
+            display: flex; 
+            gap: 30px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            width: 100%; 
+            max-width: 1200px; 
+        }
+
+        .option { 
+            width: 320px; 
+            height: 240px; 
+            background: #ffffff; 
+            border: 1px solid #eeeeee;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            text-decoration: none; 
+            color: var(--eshbal-navy); 
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .option::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: var(--eshbal-yellow);
+            transition: height 0.3s ease;
+        }
+
+        .option:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--eshbal-yellow);
+        }
+
+        .option:hover::before {
+            height: 6px;
+        }
+
+        /* עיצוב התמונה שהחליפה את האימוג'י */
+        .option-img { 
+            width: 120px; 
+            height: 120px; 
+            margin-bottom: 20px;
+            object-fit: contain;
+            transition: all 0.4s ease;
+            /* הסרת הפילטר האפור אם תרצה צבע מלא, או השארתו לעיצוב נקי */
+            /* filter: grayscale(1); */
+        }
+
+        .option:hover .option-img {
+            transform: scale(1.1);
+            filter: grayscale(0);
+        }
+
+        .option .label { 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: var(--eshbal-navy);
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 34px; }
+            .sub-title { font-size: 18px; }
+            .option {
+                width: 100%;
+                max-width: 320px;
+                height: 200px;
+            }
+            .option-img { width: 60px; height: 60px; }
+            .option .label { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <h1>Welcome to Eshbal</h1>
+                    <p class="sub-title">Where do you want to go?</p>
+            </div>
+
+    <div class="options">
+                                    <a class="option" href="http://eshbal.com/en/?nocache=1773268465" onclick="document.cookie='eshbal_geo_choice=1; path=/';">
+                    
+                                            <img src="https://eshbal.com/wp-content/uploads/2026/01/אשבל-1.png" alt="Eshbal" class="option-img">
+                    
+                    <span class="label">Eshbal</span>
+                </a>
+                            <a class="option" href="https://eshbalfoods.com/?nocache=1773268465" onclick="document.cookie='eshbal_geo_choice=1; path=/';">
+                    
+                                            <img src="https://eshbal.com/wp-content/uploads/2026/01/אשבל123.png" alt="Eshbal - Functional Food" class="option-img">
+                    
+                    <span class="label">Eshbal - Functional Food</span>
+                </a>
+                        </div>
+
+
+</body></html>

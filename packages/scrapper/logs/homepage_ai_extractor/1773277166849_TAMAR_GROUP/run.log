@@ -1,0 +1,68 @@
+[2026-03-12T00:59:26.849Z] === Homepage AI Extractor: TAMAR GROUP ===
+[2026-03-12T00:59:26.849Z] Started at: 2026-03-12T00:59:26.849Z
+[2026-03-12T00:59:26.849Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773277166849_TAMAR_GROUP
+[2026-03-12T00:59:26.849Z] Company: TAMAR GROUP
+[2026-03-12T00:59:26.849Z] Website: tamar-group.com
+[2026-03-12T00:59:26.849Z] cbRank: 734461
+[2026-03-12T00:59:26.849Z] Reasons: h
+[2026-03-12T00:59:26.850Z] Fetching: https://tamar-group.com
+[2026-03-12T00:59:37.686Z] Network idle timeout — continuing with current state
+[2026-03-12T00:59:37.731Z] Redirected: https://tamar-group.com -> https://www.tamar-group.com/
+[2026-03-12T00:59:37.767Z] Saved HTML (1104320 bytes) to page.html
+[2026-03-12T00:59:37.771Z] Extracted 14 unique links from page
+[2026-03-12T00:59:37.771Z] Saved 14 links to links.json
+[2026-03-12T00:59:37.774Z] Extracted footer HTML (16620 chars)
+[2026-03-12T00:59:37.774Z] Extracted header HTML (11198 chars)
+[2026-03-12T00:59:37.780Z] Website (post-redirect): https://www.tamar-group.com/ → origin: https://www.tamar-group.com
+[2026-03-12T00:59:37.780Z] External links: 3 (of 14 total)
+[2026-03-12T00:59:37.781Z] ── All external links ──
+[2026-03-12T00:59:37.781Z]   EXT: https://www.linkedin.com/company/tamar-group
+[2026-03-12T00:59:37.781Z]   EXT: https://www.x-test.com
+[2026-03-12T00:59:37.781Z]   EXT: https://www.youtube.com/user/1XTest
+[2026-03-12T00:59:37.781Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T00:59:37.781Z]   REGEX: li <- https://www.linkedin.com/company/tamar-group
+[2026-03-12T00:59:37.782Z]   UNCATEGORIZED: https://www.x-test.com
+[2026-03-12T00:59:37.782Z]   REGEX: ytp <- https://www.youtube.com/user/1XTest
+[2026-03-12T00:59:37.782Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-12T00:59:37.782Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T00:59:37.783Z] Saved AI prompt (2212 chars) to ai_prompt.txt
+[2026-03-12T00:59:37.784Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T00:59:37.803Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T00:59:45.054Z]   AI: First token received, streaming...
+[2026-03-12T00:59:50.224Z] AI response complete: 109 chars in 12.4s
+[2026-03-12T00:59:50.225Z] Saved AI response to ai_response.json
+[2026-03-12T00:59:50.225Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T00:59:50.225Z]   AI LINK: https://www.tamar-group.com
+[2026-03-12T00:59:50.225Z]   AI LINK: https://www.linkedin.com/company/tamar-group/
+[2026-03-12T00:59:50.225Z]   AI LINK: https://www.youtube.com/user/1XTest
+[2026-03-12T00:59:50.225Z] AI returned 3 valid links
+[2026-03-12T00:59:50.225Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T00:59:50.226Z]   AI→URLS: https://www.tamar-group.com
+[2026-03-12T00:59:50.226Z]   AI→REGEX: li <- https://www.linkedin.com/company/tamar-group/ (duplicate, skipped)
+[2026-03-12T00:59:50.226Z]   AI→REGEX: ytp <- https://www.youtube.com/user/1XTest (duplicate, skipped)
+[2026-03-12T00:59:50.226Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T00:59:50.226Z] Footer/header origins (4):
+[2026-03-12T00:59:50.226Z]   FOOTER/HEADER ORIGIN: https://www.x-test.com
+[2026-03-12T00:59:50.226Z]   FOOTER/HEADER ORIGIN: https://www.tamar-group.com
+[2026-03-12T00:59:50.226Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T00:59:50.226Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T00:59:50.226Z]   ADDED: urls <- https://www.x-test.com
+[2026-03-12T00:59:50.226Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T00:59:50.227Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T00:59:50.227Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T00:59:50.227Z] ── Step 3: Final dedup ──
+[2026-03-12T00:59:50.227Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T00:59:50.227Z] ── FINAL RESULT ──
+[2026-03-12T00:59:50.227Z]   ws (1):
+[2026-03-12T00:59:50.227Z]     - https://www.tamar-group.com
+[2026-03-12T00:59:50.227Z]   li (1):
+[2026-03-12T00:59:50.227Z]     - https://www.linkedin.com/company/tamar-group
+[2026-03-12T00:59:50.227Z]   ytp (1):
+[2026-03-12T00:59:50.227Z]     - https://www.youtube.com/@1xtest
+[2026-03-12T00:59:50.227Z]   urls (2):
+[2026-03-12T00:59:50.228Z]     - https://www.tamar-group.com
+[2026-03-12T00:59:50.228Z]     - https://www.x-test.com
+[2026-03-12T00:59:50.228Z] Summary: ws:1, li:1, ytp:1, urls:2
+[2026-03-12T00:59:50.228Z] Saved final result to result.json
+[2026-03-12T00:59:50.228Z] Override fields: ws, li, ytp, urls
+[2026-03-12T00:59:50.228Z] Finished at: 2026-03-12T00:59:50.228Z

@@ -1,0 +1,69 @@
+[2026-03-11T20:45:59.509Z] === Homepage AI Extractor: Tuki ===
+[2026-03-11T20:45:59.509Z] Started at: 2026-03-11T20:45:59.509Z
+[2026-03-11T20:45:59.509Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773261959509_Tuki
+[2026-03-11T20:45:59.509Z] Company: Tuki
+[2026-03-11T20:45:59.509Z] Website: tuki.io
+[2026-03-11T20:45:59.509Z] cbRank: 654151
+[2026-03-11T20:45:59.509Z] Reasons: h
+[2026-03-11T20:45:59.509Z] Fetching: https://tuki.io
+[2026-03-11T20:46:01.234Z] Redirected: https://tuki.io -> https://tuki.io/
+[2026-03-11T20:46:01.243Z] Saved HTML (203346 bytes) to page.html
+[2026-03-11T20:46:01.246Z] Extracted 29 unique links from page
+[2026-03-11T20:46:01.246Z] Saved 29 links to links.json
+[2026-03-11T20:46:01.250Z] Extracted footer HTML (17159 chars)
+[2026-03-11T20:46:01.250Z] Extracted header HTML (15347 chars)
+[2026-03-11T20:46:01.253Z] Website (post-redirect): https://tuki.io/ → origin: https://tuki.io
+[2026-03-11T20:46:01.254Z]   SUBDOMAIN: my.tuki.io (added to ws)
+[2026-03-11T20:46:01.254Z] Website subdomains found: 1
+[2026-03-11T20:46:01.254Z] External links: 3 (of 29 total)
+[2026-03-11T20:46:01.254Z] ── All external links ──
+[2026-03-11T20:46:01.254Z]   EXT: https://twitter.com/UCTuki
+[2026-03-11T20:46:01.254Z]   EXT: https://www.linkedin.com/company/tuki-uc
+[2026-03-11T20:46:01.254Z]   EXT: https://www.youtube.com/@tuki-uc-platform/featured
+[2026-03-11T20:46:01.254Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T20:46:01.254Z]   REGEX: tw <- https://twitter.com/UCTuki
+[2026-03-11T20:46:01.254Z]   REGEX: li <- https://www.linkedin.com/company/tuki-uc
+[2026-03-11T20:46:01.255Z]   REGEX: ytp <- https://www.youtube.com/@tuki-uc-platform/featured
+[2026-03-11T20:46:01.255Z] Programmatic result: ws:2, tw:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-11T20:46:01.255Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T20:46:01.255Z] Saved AI prompt (11704 chars) to ai_prompt.txt
+[2026-03-11T20:46:01.256Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T20:46:01.279Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T20:46:50.595Z]   AI: First token received, streaming...
+[2026-03-11T20:46:57.127Z] AI response complete: 118 chars in 55.9s
+[2026-03-11T20:46:57.127Z] Saved AI response to ai_response.json
+[2026-03-11T20:46:57.128Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T20:46:57.128Z]   AI LINK: https://www.linkedin.com/company/tuki-uc
+[2026-03-11T20:46:57.128Z]   AI LINK: https://twitter.com/UCTuki
+[2026-03-11T20:46:57.128Z]   AI LINK: https://www.youtube.com/@tuki-uc-platform/featured
+[2026-03-11T20:46:57.128Z] AI returned 3 valid links
+[2026-03-11T20:46:57.128Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T20:46:57.128Z]   AI→REGEX: li <- https://www.linkedin.com/company/tuki-uc (duplicate, skipped)
+[2026-03-11T20:46:57.128Z]   AI→REGEX: tw <- https://twitter.com/UCTuki (duplicate, skipped)
+[2026-03-11T20:46:57.129Z]   AI→REGEX: ytp <- https://www.youtube.com/@tuki-uc-platform/featured (duplicate, skipped)
+[2026-03-11T20:46:57.129Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T20:46:57.129Z] Footer/header origins (5):
+[2026-03-11T20:46:57.129Z]   FOOTER/HEADER ORIGIN: https://tuki.io
+[2026-03-11T20:46:57.129Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T20:46:57.129Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-11T20:46:57.129Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T20:46:57.129Z]   FOOTER/HEADER ORIGIN: https://my.tuki.io
+[2026-03-11T20:46:57.129Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T20:46:57.129Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T20:46:57.129Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T20:46:57.129Z] ── Step 3: Final dedup ──
+[2026-03-11T20:46:57.129Z] No urls to dedup
+[2026-03-11T20:46:57.129Z] ── FINAL RESULT ──
+[2026-03-11T20:46:57.129Z]   ws (2):
+[2026-03-11T20:46:57.129Z]     - https://my.tuki.io
+[2026-03-11T20:46:57.130Z]     - https://tuki.io
+[2026-03-11T20:46:57.130Z]   li (1):
+[2026-03-11T20:46:57.130Z]     - https://www.linkedin.com/company/tuki-uc
+[2026-03-11T20:46:57.130Z]   tw (1):
+[2026-03-11T20:46:57.130Z]     - https://x.com/uctuki
+[2026-03-11T20:46:57.130Z]   ytp (1):
+[2026-03-11T20:46:57.130Z]     - https://www.youtube.com/@tuki-uc-platform
+[2026-03-11T20:46:57.130Z] Summary: ws:2, tw:1, li:1, ytp:1
+[2026-03-11T20:46:57.131Z] Saved final result to result.json
+[2026-03-11T20:46:57.131Z] Override fields: ws, li, tw, ytp
+[2026-03-11T20:46:57.131Z] Finished at: 2026-03-11T20:46:57.131Z

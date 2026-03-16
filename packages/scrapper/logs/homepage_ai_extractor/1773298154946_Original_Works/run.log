@@ -1,0 +1,80 @@
+[2026-03-12T06:49:14.946Z] === Homepage AI Extractor: Original Works ===
+[2026-03-12T06:49:14.946Z] Started at: 2026-03-12T06:49:14.946Z
+[2026-03-12T06:49:14.946Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773298154946_Original_Works
+[2026-03-12T06:49:14.947Z] Company: Original Works
+[2026-03-12T06:49:14.947Z] Website: original.works
+[2026-03-12T06:49:14.947Z] cbRank: 842276
+[2026-03-12T06:49:14.947Z] Reasons: h
+[2026-03-12T06:49:14.947Z] Fetching: https://original.works
+[2026-03-12T06:49:55.337Z] Network idle timeout — continuing with current state
+[2026-03-12T06:49:55.379Z] Redirected: https://original.works -> https://www.original.works/
+[2026-03-12T06:49:55.385Z] Saved HTML (28864 bytes) to page.html
+[2026-03-12T06:49:55.388Z] Extracted 10 unique links from page
+[2026-03-12T06:49:55.389Z] Saved 10 links to links.json
+[2026-03-12T06:49:55.391Z] Extracted footer HTML (6920 chars)
+[2026-03-12T06:49:55.391Z] Extracted header HTML (2206 chars)
+[2026-03-12T06:49:55.395Z] Website (post-redirect): https://www.original.works/ → origin: https://www.original.works
+[2026-03-12T06:49:55.395Z]   SUBDOMAIN: hub.original.works (added to ws)
+[2026-03-12T06:49:55.395Z] Website subdomains found: 1
+[2026-03-12T06:49:55.396Z] External links: 4 (of 10 total)
+[2026-03-12T06:49:55.396Z] ── All external links ──
+[2026-03-12T06:49:55.396Z]   EXT: https://github.com/originalworks
+[2026-03-12T06:49:55.396Z]   EXT: https://paragraph.xyz/@originalworks
+[2026-03-12T06:49:55.396Z]   EXT: https://www.linkedin.com/company/originalworks
+[2026-03-12T06:49:55.396Z]   EXT: https://x.com/originalworks_
+[2026-03-12T06:49:55.396Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T06:49:55.396Z]   REGEX: gh <- https://github.com/originalworks
+[2026-03-12T06:49:55.396Z]   UNCATEGORIZED: https://paragraph.xyz/@originalworks
+[2026-03-12T06:49:55.397Z]   REGEX: li <- https://www.linkedin.com/company/originalworks
+[2026-03-12T06:49:55.397Z]   REGEX: tw <- https://x.com/originalworks_
+[2026-03-12T06:49:55.397Z] Programmatic result: ws:2, gh:1, li:1, tw:1 | 1 uncategorized
+[2026-03-12T06:49:55.397Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T06:49:55.398Z] Saved AI prompt (2722 chars) to ai_prompt.txt
+[2026-03-12T06:49:55.398Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T06:49:55.857Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T06:50:04.578Z]   AI: First token received, streaming...
+[2026-03-12T06:50:11.964Z] AI response complete: 173 chars in 16.6s
+[2026-03-12T06:50:11.965Z] Saved AI response to ai_response.json
+[2026-03-12T06:50:11.965Z] ── Parsing AI response (5 lines) ──
+[2026-03-12T06:50:11.965Z]   AI LINK: https://x.com/originalworks_
+[2026-03-12T06:50:11.965Z]   AI LINK: https://www.linkedin.com/company/originalworks
+[2026-03-12T06:50:11.965Z]   AI LINK: https://github.com/originalworks
+[2026-03-12T06:50:11.965Z]   AI LINK: https://paragraph.xyz/@originalworks
+[2026-03-12T06:50:11.965Z]   AI LINK: https://hub.original.works/
+[2026-03-12T06:50:11.965Z] AI returned 5 valid links
+[2026-03-12T06:50:11.965Z] ── Categorizing 5 AI-returned links ──
+[2026-03-12T06:50:11.966Z]   AI→REGEX: tw <- https://x.com/originalworks_ (duplicate, skipped)
+[2026-03-12T06:50:11.966Z]   AI→REGEX: li <- https://www.linkedin.com/company/originalworks (duplicate, skipped)
+[2026-03-12T06:50:11.966Z]   AI→REGEX: gh <- https://github.com/originalworks (duplicate, skipped)
+[2026-03-12T06:50:11.966Z]   AI→URLS: https://paragraph.xyz/@originalworks
+[2026-03-12T06:50:11.966Z]   AI→URLS: https://hub.original.works (cleaned from https://hub.original.works/)
+[2026-03-12T06:50:11.966Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T06:50:11.966Z] Footer/header origins (5):
+[2026-03-12T06:50:11.967Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-12T06:50:11.967Z]   FOOTER/HEADER ORIGIN: https://hub.original.works
+[2026-03-12T06:50:11.967Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T06:50:11.967Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-12T06:50:11.967Z]   FOOTER/HEADER ORIGIN: https://paragraph.xyz
+[2026-03-12T06:50:11.967Z]   SKIP (AI claimed): https://paragraph.xyz/@originalworks
+[2026-03-12T06:50:11.967Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T06:50:11.967Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T06:50:11.967Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T06:50:11.967Z] ── Step 3: Final dedup ──
+[2026-03-12T06:50:11.967Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T06:50:11.967Z] ── FINAL RESULT ──
+[2026-03-12T06:50:11.967Z]   ws (2):
+[2026-03-12T06:50:11.968Z]     - https://hub.original.works
+[2026-03-12T06:50:11.968Z]     - https://www.original.works
+[2026-03-12T06:50:11.968Z]   li (1):
+[2026-03-12T06:50:11.968Z]     - https://www.linkedin.com/company/originalworks
+[2026-03-12T06:50:11.968Z]   tw (1):
+[2026-03-12T06:50:11.968Z]     - https://x.com/originalworks_
+[2026-03-12T06:50:11.968Z]   gh (1):
+[2026-03-12T06:50:11.968Z]     - https://github.com/originalworks
+[2026-03-12T06:50:11.968Z]   urls (2):
+[2026-03-12T06:50:11.968Z]     - https://hub.original.works
+[2026-03-12T06:50:11.968Z]     - https://paragraph.xyz/@originalworks
+[2026-03-12T06:50:11.968Z] Summary: ws:2, gh:1, li:1, tw:1, urls:2
+[2026-03-12T06:50:11.969Z] Saved final result to result.json
+[2026-03-12T06:50:11.969Z] Override fields: ws, li, tw, gh, urls
+[2026-03-12T06:50:11.969Z] Finished at: 2026-03-12T06:50:11.969Z

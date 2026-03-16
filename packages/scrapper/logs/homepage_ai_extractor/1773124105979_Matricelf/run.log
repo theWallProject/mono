@@ -1,0 +1,62 @@
+[2026-03-10T06:28:25.980Z] === Homepage AI Extractor: Matricelf ===
+[2026-03-10T06:28:25.980Z] Started at: 2026-03-10T06:28:25.980Z
+[2026-03-10T06:28:25.980Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773124105979_Matricelf
+[2026-03-10T06:28:25.980Z] Company: Matricelf
+[2026-03-10T06:28:25.980Z] Website: matricelf.com
+[2026-03-10T06:28:25.981Z] cbRank: 410373
+[2026-03-10T06:28:25.981Z] Reasons: h
+[2026-03-10T06:28:25.981Z] Fetching: https://matricelf.com
+[2026-03-10T06:28:33.426Z] Redirected: https://matricelf.com -> https://matricelf.com/
+[2026-03-10T06:28:33.430Z] Saved HTML (74015 bytes) to page.html
+[2026-03-10T06:28:33.433Z] Extracted 12 unique links from page
+[2026-03-10T06:28:33.433Z] Saved 12 links to links.json
+[2026-03-10T06:28:33.436Z] Extracted footer HTML (3284 chars)
+[2026-03-10T06:28:33.437Z] Extracted header HTML (886 chars)
+[2026-03-10T06:28:33.441Z] Website (post-redirect): https://matricelf.com/ → origin: https://matricelf.com
+[2026-03-10T06:28:33.441Z] External links: 3 (of 12 total)
+[2026-03-10T06:28:33.441Z] ── All external links ──
+[2026-03-10T06:28:33.441Z]   EXT: https://attractive.co.il
+[2026-03-10T06:28:33.441Z]   EXT: https://www.facebook.com/Matricelf-108388534018680
+[2026-03-10T06:28:33.441Z]   EXT: https://www.linkedin.com/company/matricelf
+[2026-03-10T06:28:33.441Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:28:33.442Z]   UNCATEGORIZED: https://attractive.co.il
+[2026-03-10T06:28:33.442Z]   REGEX: fb <- https://www.facebook.com/Matricelf-108388534018680
+[2026-03-10T06:28:33.442Z]   REGEX: li <- https://www.linkedin.com/company/matricelf
+[2026-03-10T06:28:33.442Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-10T06:28:33.442Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:28:33.442Z] Saved AI prompt (3924 chars) to ai_prompt.txt
+[2026-03-10T06:28:33.443Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:28:33.458Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:28:48.654Z]   AI: First token received, streaming...
+[2026-03-10T06:28:56.548Z] AI response complete: 95 chars in 23.1s
+[2026-03-10T06:28:56.548Z] Saved AI response to ai_response.json
+[2026-03-10T06:28:56.548Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T06:28:56.548Z]   AI LINK: https://www.linkedin.com/company/matricelf/
+[2026-03-10T06:28:56.549Z]   AI LINK: https://www.facebook.com/Matricelf-108388534018680/
+[2026-03-10T06:28:56.549Z] AI returned 2 valid links
+[2026-03-10T06:28:56.549Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T06:28:56.549Z]   AI→REGEX: li <- https://www.linkedin.com/company/matricelf/ (duplicate, skipped)
+[2026-03-10T06:28:56.549Z]   AI→REGEX: fb <- https://www.facebook.com/Matricelf-108388534018680/ (duplicate, skipped)
+[2026-03-10T06:28:56.549Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:28:56.549Z] Footer/header origins (4):
+[2026-03-10T06:28:56.549Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T06:28:56.549Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T06:28:56.549Z]   FOOTER/HEADER ORIGIN: https://matricelf.com
+[2026-03-10T06:28:56.549Z]   FOOTER/HEADER ORIGIN: https://attractive.co.il
+[2026-03-10T06:28:56.549Z]   ADDED: urls <- https://attractive.co.il
+[2026-03-10T06:28:56.549Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T06:28:56.549Z] ── Step 3: Final dedup ──
+[2026-03-10T06:28:56.549Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T06:28:56.550Z] ── FINAL RESULT ──
+[2026-03-10T06:28:56.550Z]   ws (1):
+[2026-03-10T06:28:56.550Z]     - https://matricelf.com
+[2026-03-10T06:28:56.550Z]   li (1):
+[2026-03-10T06:28:56.550Z]     - https://www.linkedin.com/company/matricelf
+[2026-03-10T06:28:56.550Z]   fb (1):
+[2026-03-10T06:28:56.550Z]     - https://www.facebook.com/matricelf-108388534018680
+[2026-03-10T06:28:56.550Z]   urls (1):
+[2026-03-10T06:28:56.550Z]     - https://attractive.co.il
+[2026-03-10T06:28:56.550Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-10T06:28:56.550Z] Saved final result to result.json
+[2026-03-10T06:28:56.550Z] Override fields: ws, li, fb, urls
+[2026-03-10T06:28:56.551Z] Finished at: 2026-03-10T06:28:56.551Z

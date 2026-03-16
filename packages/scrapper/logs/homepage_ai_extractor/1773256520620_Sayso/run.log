@@ -1,0 +1,70 @@
+[2026-03-11T19:15:20.620Z] === Homepage AI Extractor: Sayso ===
+[2026-03-11T19:15:20.620Z] Started at: 2026-03-11T19:15:20.620Z
+[2026-03-11T19:15:20.620Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773256520620_Sayso
+[2026-03-11T19:15:20.620Z] Company: Sayso
+[2026-03-11T19:15:20.620Z] Website: sayso.video
+[2026-03-11T19:15:20.621Z] cbRank: 625617
+[2026-03-11T19:15:20.621Z] Reasons: h
+[2026-03-11T19:15:20.621Z] Fetching: https://sayso.video
+[2026-03-11T19:15:27.947Z] Redirected: https://sayso.video -> https://www.sayso.video/
+[2026-03-11T19:15:27.960Z] Saved HTML (356987 bytes) to page.html
+[2026-03-11T19:15:27.964Z] Extracted 20 unique links from page
+[2026-03-11T19:15:27.965Z] Saved 20 links to links.json
+[2026-03-11T19:15:27.969Z] No footer section found in DOM
+[2026-03-11T19:15:27.969Z] Extracted header HTML (9423 chars)
+[2026-03-11T19:15:27.976Z] Website (post-redirect): https://www.sayso.video/ → origin: https://www.sayso.video
+[2026-03-11T19:15:27.977Z]   SUBDOMAIN: app.sayso.video (added to ws)
+[2026-03-11T19:15:27.977Z] Website subdomains found: 1
+[2026-03-11T19:15:27.977Z] External links: 4 (of 20 total)
+[2026-03-11T19:15:27.977Z] ── All external links ──
+[2026-03-11T19:15:27.977Z]   EXT: https://vimeo.com/saysovideos
+[2026-03-11T19:15:27.977Z]   EXT: https://www.facebook.com/sayso.videos
+[2026-03-11T19:15:27.977Z]   EXT: https://www.linkedin.com/company/sayso-video
+[2026-03-11T19:15:27.977Z]   EXT: https://www.youtube.com/channel/UC7meVWhFPgfAS5T7u-sZlXQ
+[2026-03-11T19:15:27.977Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T19:15:27.977Z]   UNCATEGORIZED: https://vimeo.com/saysovideos
+[2026-03-11T19:15:27.977Z]   REGEX: fb <- https://www.facebook.com/sayso.videos
+[2026-03-11T19:15:27.977Z]   REGEX: li <- https://www.linkedin.com/company/sayso-video
+[2026-03-11T19:15:27.978Z]   REGEX: ytc <- https://www.youtube.com/channel/UC7meVWhFPgfAS5T7u-sZlXQ
+[2026-03-11T19:15:27.978Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-11T19:15:27.978Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T19:15:27.978Z] Saved AI prompt (1953 chars) to ai_prompt.txt
+[2026-03-11T19:15:27.978Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T19:15:27.996Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T19:15:34.401Z]   AI: First token received, streaming...
+[2026-03-11T19:15:35.302Z] AI response complete: 29 chars in 7.3s
+[2026-03-11T19:15:35.302Z] Saved AI response to ai_response.json
+[2026-03-11T19:15:35.303Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T19:15:35.303Z]   AI LINK: https://vimeo.com/saysovideos
+[2026-03-11T19:15:35.303Z] AI returned 1 valid links
+[2026-03-11T19:15:35.303Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T19:15:35.303Z]   AI→URLS: https://vimeo.com/saysovideos
+[2026-03-11T19:15:35.304Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T19:15:35.304Z] Footer/header origins (1):
+[2026-03-11T19:15:35.304Z]   FOOTER/HEADER ORIGIN: https://app.sayso.video
+[2026-03-11T19:15:35.304Z]   SKIP (AI claimed): https://vimeo.com/saysovideos
+[2026-03-11T19:15:35.304Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T19:15:35.304Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T19:15:35.304Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-11T19:15:37.564Z]   YOUTUBE: resolved UC7meVWhFPgfAS5T7u-sZlXQ → @SaysoVideos
+[2026-03-11T19:15:37.564Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-11T19:15:37.564Z] ── Step 3: Final dedup ──
+[2026-03-11T19:15:37.564Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T19:15:37.564Z] ── FINAL RESULT ──
+[2026-03-11T19:15:37.564Z]   ws (2):
+[2026-03-11T19:15:37.564Z]     - https://app.sayso.video
+[2026-03-11T19:15:37.564Z]     - https://www.sayso.video
+[2026-03-11T19:15:37.564Z]   li (1):
+[2026-03-11T19:15:37.565Z]     - https://www.linkedin.com/company/sayso-video
+[2026-03-11T19:15:37.565Z]   fb (1):
+[2026-03-11T19:15:37.565Z]     - https://www.facebook.com/sayso.videos
+[2026-03-11T19:15:37.565Z]   ytp (1):
+[2026-03-11T19:15:37.565Z]     - https://www.youtube.com/@SaysoVideos
+[2026-03-11T19:15:37.565Z]   ytc (1):
+[2026-03-11T19:15:37.565Z]     - https://www.youtube.com/channel/UC7meVWhFPgfAS5T7u-sZlXQ
+[2026-03-11T19:15:37.565Z]   urls (1):
+[2026-03-11T19:15:37.565Z]     - https://vimeo.com/saysovideos
+[2026-03-11T19:15:37.565Z] Summary: ws:2, fb:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-11T19:15:37.568Z] Saved final result to result.json
+[2026-03-11T19:15:37.569Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-11T19:15:37.569Z] Finished at: 2026-03-11T19:15:37.569Z

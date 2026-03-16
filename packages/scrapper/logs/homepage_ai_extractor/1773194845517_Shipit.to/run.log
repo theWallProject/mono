@@ -1,0 +1,67 @@
+[2026-03-11T02:07:25.517Z] === Homepage AI Extractor: Shipit.to ===
+[2026-03-11T02:07:25.517Z] Started at: 2026-03-11T02:07:25.517Z
+[2026-03-11T02:07:25.517Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773194845517_Shipit.to
+[2026-03-11T02:07:25.517Z] Company: Shipit.to
+[2026-03-11T02:07:25.517Z] Website: shipit.to
+[2026-03-11T02:07:25.518Z] cbRank: 547255
+[2026-03-11T02:07:25.518Z] Reasons: h
+[2026-03-11T02:07:25.518Z] Fetching: https://shipit.to
+[2026-03-11T02:07:29.378Z] Redirected: https://shipit.to -> https://shipit.to/
+[2026-03-11T02:07:29.387Z] Saved HTML (241589 bytes) to page.html
+[2026-03-11T02:07:29.391Z] Extracted 43 unique links from page
+[2026-03-11T02:07:29.392Z] Saved 43 links to links.json
+[2026-03-11T02:07:29.395Z] Extracted footer HTML (4711 chars)
+[2026-03-11T02:07:29.395Z] Extracted header HTML (9445 chars)
+[2026-03-11T02:07:29.399Z] Website (post-redirect): https://shipit.to/ → origin: https://shipit.to
+[2026-03-11T02:07:29.400Z] External links: 4 (of 43 total)
+[2026-03-11T02:07:29.400Z] ── All external links ──
+[2026-03-11T02:07:29.400Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-11T02:07:29.400Z]   EXT: https://twitter.com/shipitto
+[2026-03-11T02:07:29.400Z]   EXT: https://www.facebook.com/shipit.to
+[2026-03-11T02:07:29.400Z]   EXT: https://www.linkedin.com/company/shipit-to
+[2026-03-11T02:07:29.400Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T02:07:29.400Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-11T02:07:29.401Z]   REGEX: tw <- https://twitter.com/shipitto
+[2026-03-11T02:07:29.401Z]   REGEX: fb <- https://www.facebook.com/shipit.to
+[2026-03-11T02:07:29.401Z]   REGEX: li <- https://www.linkedin.com/company/shipit-to
+[2026-03-11T02:07:29.401Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-11T02:07:29.401Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T02:07:29.402Z] Saved AI prompt (4126 chars) to ai_prompt.txt
+[2026-03-11T02:07:29.402Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T02:07:29.421Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T02:07:45.684Z]   AI: First token received, streaming...
+[2026-03-11T02:07:51.358Z] AI response complete: 107 chars in 22.0s
+[2026-03-11T02:07:51.360Z] Saved AI response to ai_response.json
+[2026-03-11T02:07:51.360Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T02:07:51.360Z]   AI LINK: https://www.linkedin.com/company/shipit-to/
+[2026-03-11T02:07:51.360Z]   AI LINK: https://www.facebook.com/shipit.to
+[2026-03-11T02:07:51.360Z]   AI LINK: https://twitter.com/shipitto
+[2026-03-11T02:07:51.360Z] AI returned 3 valid links
+[2026-03-11T02:07:51.360Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T02:07:51.360Z]   AI→REGEX: li <- https://www.linkedin.com/company/shipit-to/ (duplicate, skipped)
+[2026-03-11T02:07:51.360Z]   AI→REGEX: fb <- https://www.facebook.com/shipit.to (duplicate, skipped)
+[2026-03-11T02:07:51.360Z]   AI→REGEX: tw <- https://twitter.com/shipitto (duplicate, skipped)
+[2026-03-11T02:07:51.361Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T02:07:51.361Z] Footer/header origins (5):
+[2026-03-11T02:07:51.361Z]   FOOTER/HEADER ORIGIN: https://www.shipit.to
+[2026-03-11T02:07:51.361Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T02:07:51.361Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T02:07:51.361Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-11T02:07:51.361Z]   FOOTER/HEADER ORIGIN: https://shipit.to
+[2026-03-11T02:07:51.361Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-11T02:07:51.361Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T02:07:51.361Z] ── Step 3: Final dedup ──
+[2026-03-11T02:07:51.361Z] No urls to dedup
+[2026-03-11T02:07:51.361Z] ── FINAL RESULT ──
+[2026-03-11T02:07:51.361Z]   ws (1):
+[2026-03-11T02:07:51.362Z]     - https://shipit.to
+[2026-03-11T02:07:51.362Z]   li (1):
+[2026-03-11T02:07:51.362Z]     - https://www.linkedin.com/company/shipit-to
+[2026-03-11T02:07:51.362Z]   fb (1):
+[2026-03-11T02:07:51.362Z]     - https://www.facebook.com/shipit.to
+[2026-03-11T02:07:51.362Z]   tw (1):
+[2026-03-11T02:07:51.362Z]     - https://x.com/shipitto
+[2026-03-11T02:07:51.362Z] Summary: ws:1, tw:1, fb:1, li:1
+[2026-03-11T02:07:51.362Z] Saved final result to result.json
+[2026-03-11T02:07:51.362Z] Override fields: ws, li, fb, tw
+[2026-03-11T02:07:51.363Z] Finished at: 2026-03-11T02:07:51.363Z

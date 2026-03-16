@@ -1,0 +1,76 @@
+[2026-03-10T06:41:37.041Z] === Homepage AI Extractor: DRIVE TLV ===
+[2026-03-10T06:41:37.041Z] Started at: 2026-03-10T06:41:37.041Z
+[2026-03-10T06:41:37.042Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773124897041_DRIVE_TLV
+[2026-03-10T06:41:37.042Z] Company: DRIVE TLV
+[2026-03-10T06:41:37.042Z] Website: drivetlv.com
+[2026-03-10T06:41:37.042Z] cbRank: 415003
+[2026-03-10T06:41:37.042Z] Reasons: h
+[2026-03-10T06:41:37.042Z] Fetching: https://drivetlv.com
+[2026-03-10T06:41:47.788Z] Network idle timeout — continuing with current state
+[2026-03-10T06:41:47.832Z] Redirected: https://drivetlv.com -> https://drivetlv.com/
+[2026-03-10T06:41:47.840Z] Saved HTML (137021 bytes) to page.html
+[2026-03-10T06:41:47.844Z] Extracted 21 unique links from page
+[2026-03-10T06:41:47.844Z] Saved 21 links to links.json
+[2026-03-10T06:41:47.848Z] Extracted footer HTML (13435 chars)
+[2026-03-10T06:41:47.848Z] Extracted header HTML (20167 chars)
+[2026-03-10T06:41:47.852Z] Website (post-redirect): https://drivetlv.com/ → origin: https://drivetlv.com
+[2026-03-10T06:41:47.853Z]   SUBDOMAIN: jobs.drivetlv.com (added to ws)
+[2026-03-10T06:41:47.853Z] Website subdomains found: 1
+[2026-03-10T06:41:47.853Z] External links: 4 (of 21 total)
+[2026-03-10T06:41:47.853Z] ── All external links ──
+[2026-03-10T06:41:47.853Z]   EXT: https://g.page/DriveTLV?share
+[2026-03-10T06:41:47.853Z]   EXT: https://www.instagram.com/drive_tlv
+[2026-03-10T06:41:47.853Z]   EXT: https://www.linkedin.com/company/drivetlv
+[2026-03-10T06:41:47.853Z]   EXT: https://www.verticalloop.com
+[2026-03-10T06:41:47.853Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:41:47.853Z]   UNCATEGORIZED: https://g.page/DriveTLV?share
+[2026-03-10T06:41:47.853Z]   REGEX: ig <- https://www.instagram.com/drive_tlv
+[2026-03-10T06:41:47.854Z]   REGEX: li <- https://www.linkedin.com/company/drivetlv
+[2026-03-10T06:41:47.854Z]   UNCATEGORIZED: https://www.verticalloop.com
+[2026-03-10T06:41:47.854Z] Programmatic result: ws:2, ig:1, li:1 | 2 uncategorized
+[2026-03-10T06:41:47.854Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:41:47.855Z] Saved AI prompt (5289 chars) to ai_prompt.txt
+[2026-03-10T06:41:47.855Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:41:47.875Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:42:09.086Z]   AI: First token received, streaming...
+[2026-03-10T06:42:17.595Z] AI response complete: 140 chars in 29.7s
+[2026-03-10T06:42:17.596Z] Saved AI response to ai_response.json
+[2026-03-10T06:42:17.596Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T06:42:17.596Z]   AI LINK: https://www.instagram.com/drive_tlv/
+[2026-03-10T06:42:17.596Z]   AI LINK: https://www.linkedin.com/company/drivetlv/
+[2026-03-10T06:42:17.596Z]   AI LINK: https://g.page/DriveTLV?share
+[2026-03-10T06:42:17.597Z]   AI LINK: https://jobs.drivetlv.com/jobs
+[2026-03-10T06:42:17.597Z] AI returned 4 valid links
+[2026-03-10T06:42:17.597Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T06:42:17.597Z]   AI→REGEX: ig <- https://www.instagram.com/drive_tlv/ (duplicate, skipped)
+[2026-03-10T06:42:17.597Z]   AI→REGEX: li <- https://www.linkedin.com/company/drivetlv/ (duplicate, skipped)
+[2026-03-10T06:42:17.597Z]   AI→URLS: https://g.page/DriveTLV (cleaned from https://g.page/DriveTLV?share)
+[2026-03-10T06:42:17.597Z]   AI→URLS: https://jobs.drivetlv.com/jobs
+[2026-03-10T06:42:17.598Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:42:17.598Z] Footer/header origins (5):
+[2026-03-10T06:42:17.598Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T06:42:17.598Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T06:42:17.598Z]   FOOTER/HEADER ORIGIN: https://jobs.drivetlv.com
+[2026-03-10T06:42:17.598Z]   FOOTER/HEADER ORIGIN: https://g.page
+[2026-03-10T06:42:17.598Z]   FOOTER/HEADER ORIGIN: https://www.verticalloop.com
+[2026-03-10T06:42:17.598Z]   SKIP (AI claimed): https://g.page/DriveTLV?share
+[2026-03-10T06:42:17.598Z]   ADDED: urls <- https://www.verticalloop.com
+[2026-03-10T06:42:17.598Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T06:42:17.598Z] ── Step 3: Final dedup ──
+[2026-03-10T06:42:17.598Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-10T06:42:17.598Z] ── FINAL RESULT ──
+[2026-03-10T06:42:17.598Z]   ws (2):
+[2026-03-10T06:42:17.598Z]     - https://drivetlv.com
+[2026-03-10T06:42:17.599Z]     - https://jobs.drivetlv.com
+[2026-03-10T06:42:17.599Z]   li (1):
+[2026-03-10T06:42:17.599Z]     - https://www.linkedin.com/company/drivetlv
+[2026-03-10T06:42:17.599Z]   ig (1):
+[2026-03-10T06:42:17.599Z]     - https://www.instagram.com/drive_tlv
+[2026-03-10T06:42:17.599Z]   urls (3):
+[2026-03-10T06:42:17.599Z]     - https://g.page/DriveTLV
+[2026-03-10T06:42:17.599Z]     - https://jobs.drivetlv.com/jobs
+[2026-03-10T06:42:17.599Z]     - https://www.verticalloop.com
+[2026-03-10T06:42:17.599Z] Summary: ws:2, ig:1, li:1, urls:3
+[2026-03-10T06:42:17.599Z] Saved final result to result.json
+[2026-03-10T06:42:17.600Z] Override fields: ws, li, ig, urls
+[2026-03-10T06:42:17.600Z] Finished at: 2026-03-10T06:42:17.600Z

@@ -1,0 +1,56 @@
+[2026-03-10T02:58:12.562Z] === Homepage AI Extractor: Copprint ===
+[2026-03-10T02:58:12.563Z] Started at: 2026-03-10T02:58:12.562Z
+[2026-03-10T02:58:12.563Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773111492562_Copprint
+[2026-03-10T02:58:12.563Z] Company: Copprint
+[2026-03-10T02:58:12.563Z] Website: copprint.com
+[2026-03-10T02:58:12.563Z] cbRank: 356200
+[2026-03-10T02:58:12.563Z] Reasons: h
+[2026-03-10T02:58:12.563Z] Fetching: https://copprint.com
+[2026-03-10T02:58:21.032Z] Redirected: https://copprint.com -> https://www.copprint.com/
+[2026-03-10T02:58:21.040Z] Saved HTML (74438 bytes) to page.html
+[2026-03-10T02:58:21.048Z] Extracted 34 unique links from page
+[2026-03-10T02:58:21.049Z] Saved 34 links to links.json
+[2026-03-10T02:58:21.058Z] Extracted footer HTML (5889 chars)
+[2026-03-10T02:58:21.058Z] Extracted header HTML (6214 chars)
+[2026-03-10T02:58:21.066Z] Website (post-redirect): https://www.copprint.com/ → origin: https://www.copprint.com
+[2026-03-10T02:58:21.067Z] External links: 2 (of 34 total)
+[2026-03-10T02:58:21.069Z] ── All external links ──
+[2026-03-10T02:58:21.070Z]   EXT: https://www.linkedin.com/company/copprint
+[2026-03-10T02:58:21.070Z]   EXT: https://www.youtube.com/@copprint
+[2026-03-10T02:58:21.070Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T02:58:21.070Z]   REGEX: li <- https://www.linkedin.com/company/copprint
+[2026-03-10T02:58:21.071Z]   REGEX: ytp <- https://www.youtube.com/@copprint
+[2026-03-10T02:58:21.071Z] Programmatic result: ws:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-10T02:58:21.072Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T02:58:21.073Z] Saved AI prompt (4904 chars) to ai_prompt.txt
+[2026-03-10T02:58:21.073Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T02:58:21.114Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T02:58:39.618Z]   AI: First token received, streaming...
+[2026-03-10T02:58:42.723Z] AI response complete: 75 chars in 21.6s
+[2026-03-10T02:58:42.723Z] Saved AI response to ai_response.json
+[2026-03-10T02:58:42.724Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T02:58:42.724Z]   AI LINK: https://www.linkedin.com/company/copprint
+[2026-03-10T02:58:42.724Z]   AI LINK: https://www.youtube.com/@copprint
+[2026-03-10T02:58:42.724Z] AI returned 2 valid links
+[2026-03-10T02:58:42.724Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T02:58:42.724Z]   AI→REGEX: li <- https://www.linkedin.com/company/copprint (duplicate, skipped)
+[2026-03-10T02:58:42.724Z]   AI→REGEX: ytp <- https://www.youtube.com/@copprint (duplicate, skipped)
+[2026-03-10T02:58:42.725Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T02:58:42.725Z] Footer/header origins (3):
+[2026-03-10T02:58:42.725Z]   FOOTER/HEADER ORIGIN: https://www.copprint.com
+[2026-03-10T02:58:42.725Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T02:58:42.725Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T02:58:42.725Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T02:58:42.725Z] ── Step 3: Final dedup ──
+[2026-03-10T02:58:42.725Z] No urls to dedup
+[2026-03-10T02:58:42.725Z] ── FINAL RESULT ──
+[2026-03-10T02:58:42.725Z]   ws (1):
+[2026-03-10T02:58:42.725Z]     - https://www.copprint.com
+[2026-03-10T02:58:42.725Z]   li (1):
+[2026-03-10T02:58:42.725Z]     - https://www.linkedin.com/company/copprint
+[2026-03-10T02:58:42.725Z]   ytp (1):
+[2026-03-10T02:58:42.725Z]     - https://www.youtube.com/@copprint
+[2026-03-10T02:58:42.726Z] Summary: ws:1, li:1, ytp:1
+[2026-03-10T02:58:42.726Z] Saved final result to result.json
+[2026-03-10T02:58:42.727Z] Override fields: ws, li, ytp
+[2026-03-10T02:58:42.727Z] Finished at: 2026-03-10T02:58:42.727Z

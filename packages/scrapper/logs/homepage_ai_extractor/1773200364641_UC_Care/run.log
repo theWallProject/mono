@@ -1,0 +1,72 @@
+[2026-03-11T03:39:24.641Z] === Homepage AI Extractor: UC Care ===
+[2026-03-11T03:39:24.641Z] Started at: 2026-03-11T03:39:24.641Z
+[2026-03-11T03:39:24.641Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773200364641_UC_Care
+[2026-03-11T03:39:24.641Z] Company: UC Care
+[2026-03-11T03:39:24.642Z] Website: uc-care.com
+[2026-03-11T03:39:24.642Z] cbRank: 570169
+[2026-03-11T03:39:24.642Z] Reasons: h
+[2026-03-11T03:39:24.642Z] Fetching: https://uc-care.com
+[2026-03-11T03:39:35.418Z] Network idle timeout — continuing with current state
+[2026-03-11T03:39:35.461Z] Redirected: https://uc-care.com -> https://www.uc-care.com/
+[2026-03-11T03:39:35.481Z] Saved HTML (624898 bytes) to page.html
+[2026-03-11T03:39:35.485Z] Extracted 15 unique links from page
+[2026-03-11T03:39:35.485Z] Saved 15 links to links.json
+[2026-03-11T03:39:35.489Z] Extracted footer HTML (7489 chars)
+[2026-03-11T03:39:35.489Z] Extracted header HTML (7065 chars)
+[2026-03-11T03:39:35.494Z] Website (post-redirect): https://www.uc-care.com/ → origin: https://www.uc-care.com
+[2026-03-11T03:39:35.494Z] External links: 4 (of 15 total)
+[2026-03-11T03:39:35.494Z] ── All external links ──
+[2026-03-11T03:39:35.494Z]   EXT: https://www.facebook.com/profile.php?id=61557472896015
+[2026-03-11T03:39:35.494Z]   EXT: https://www.linkedin.com/company/uc-care
+[2026-03-11T03:39:35.494Z]   EXT: https://www.youtube.com/channel/UCU1FYBzrJL0lwggm2RJv-mQ
+[2026-03-11T03:39:35.494Z]   EXT: https://x.com/UC_CARE
+[2026-03-11T03:39:35.495Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:39:35.495Z]   REGEX: li <- https://www.linkedin.com/company/uc-care
+[2026-03-11T03:39:35.495Z]   REGEX: ytc <- https://www.youtube.com/channel/UCU1FYBzrJL0lwggm2RJv-mQ
+[2026-03-11T03:39:35.495Z]   REGEX: tw <- https://x.com/UC_CARE
+[2026-03-11T03:39:35.495Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-11T03:39:36.939Z]   RESOLVE: https://www.facebook.com/profile.php?id=61557472896015 → https://www.facebook.com/people/UC-Care/61557472896015
+[2026-03-11T03:39:36.971Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/UC-Care/61557472896015 (from https://www.facebook.com/profile.php?id=61557472896015)
+[2026-03-11T03:39:36.971Z] Programmatic result: ws:1, li:1, ytc:1, tw:1 | 0 uncategorized
+[2026-03-11T03:39:36.971Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:39:36.971Z] Saved AI prompt (7518 chars) to ai_prompt.txt
+[2026-03-11T03:39:36.972Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:39:36.989Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:40:18.618Z]   AI: First token received, streaming...
+[2026-03-11T03:40:35.049Z] AI response complete: 174 chars in 58.1s
+[2026-03-11T03:40:35.049Z] Saved AI response to ai_response.json
+[2026-03-11T03:40:35.050Z] ── Parsing AI response (4 lines) ──
+[2026-03-11T03:40:35.050Z]   AI LINK: https://www.facebook.com/profile.php?id=61557472896015
+[2026-03-11T03:40:35.050Z]   AI LINK: https://x.com/UC_CARE
+[2026-03-11T03:40:35.050Z]   AI LINK: https://www.linkedin.com/company/uc-care
+[2026-03-11T03:40:35.050Z]   AI LINK: https://www.youtube.com/channel/UCU1FYBzrJL0lwggm2RJv-mQ
+[2026-03-11T03:40:35.050Z] AI returned 4 valid links
+[2026-03-11T03:40:35.050Z] ── Categorizing 4 AI-returned links ──
+[2026-03-11T03:40:35.962Z]   RESOLVE: https://www.facebook.com/profile.php?id=61557472896015 → https://www.facebook.com/people/UC-Care/61557472896015
+[2026-03-11T03:40:35.993Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/UC-Care/61557472896015 (from https://www.facebook.com/profile.php?id=61557472896015)
+[2026-03-11T03:40:35.993Z]   AI→REGEX: tw <- https://x.com/UC_CARE (duplicate, skipped)
+[2026-03-11T03:40:35.993Z]   AI→REGEX: li <- https://www.linkedin.com/company/uc-care (duplicate, skipped)
+[2026-03-11T03:40:35.993Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCU1FYBzrJL0lwggm2RJv-mQ (duplicate, skipped)
+[2026-03-11T03:40:35.993Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:40:35.993Z] Footer/header origins (5):
+[2026-03-11T03:40:35.993Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T03:40:35.993Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-11T03:40:35.993Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T03:40:35.994Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T03:40:35.994Z]   FOOTER/HEADER ORIGIN: https://www.uc-care.com
+[2026-03-11T03:40:35.994Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T03:40:35.994Z] ── Step 3: Final dedup ──
+[2026-03-11T03:40:35.994Z] No urls to dedup
+[2026-03-11T03:40:35.994Z] ── FINAL RESULT ──
+[2026-03-11T03:40:35.994Z]   ws (1):
+[2026-03-11T03:40:35.994Z]     - https://www.uc-care.com
+[2026-03-11T03:40:35.994Z]   li (1):
+[2026-03-11T03:40:35.994Z]     - https://www.linkedin.com/company/uc-care
+[2026-03-11T03:40:35.994Z]   tw (1):
+[2026-03-11T03:40:35.994Z]     - https://x.com/uc_care
+[2026-03-11T03:40:35.994Z]   ytc (1):
+[2026-03-11T03:40:35.994Z]     - https://www.youtube.com/channel/UCU1FYBzrJL0lwggm2RJv-mQ
+[2026-03-11T03:40:35.994Z] Summary: ws:1, li:1, ytc:1, tw:1
+[2026-03-11T03:40:35.995Z] Saved final result to result.json
+[2026-03-11T03:40:35.995Z] Override fields: ws, li, tw, ytc
+[2026-03-11T03:40:35.995Z] Finished at: 2026-03-11T03:40:35.995Z

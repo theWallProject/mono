@@ -1,0 +1,308 @@
+<!DOCTYPE html><html><head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://static.cdn-website.com/mnlt/production/6267/_dm/s/rt/dist/css/css-font-package.min.css">
+<script type="text/javascript" src="https://static.cdn-website.com/libs/jquery/jquery-3.7.0.min.js"></script>
+<script src="https://static.cdn-website.com/mnlt/production/6267/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js"></script>
+<script>
+    jQuery.migrateMute = true;
+</script>
+<script type="text/javascript" src="https://static.cdn-website.com/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://static.cdn-website.com/libs/jqueryui/1.13.2/smoothness/jquery-ui.min.css">
+<script type="text/javascript">
+
+	window.Parameters = window.Parameters || {
+		SiteAlias: '60c07c33',
+		isRuntimeServer: true,
+	};
+
+	$(document).ready(
+		function() {
+			var path = 'https://www.intellicon.co.il/';
+			var wrongPassword = 'The password you entered was incorrect, please try again.';
+			var missingPassword = 'Password must contain at least 1 characters';
+			var $passwordWarningMessageMissing = $(".passwordWarningMessage[data-type='missing']");
+			var $passwordWarningMessageWrong = $(".passwordWarningMessage[data-type='wrong']");
+			$("#cancel, .dmPopupCloseWrapper").hide();
+			$("#pwd").focus();
+
+			$('#cancel, .dmPopupCloseWrapper').off('click.closePopup').on('click.closePopup', function(){
+				history.back();
+			})
+
+			 $(document).off("keypress.password").on("keypress.password", '#pwd', function (e) {
+                        if (e.keyCode === 13) {
+                        	$("input#ok").click();
+                        }
+            });
+
+			$('#ok').click(function() {
+				if($('#pwd').val().length == 0) {
+					$passwordWarningMessageMissing.removeClass("hidden");
+				}
+				else {
+					$.ajax({
+						url: '/_dm/s/rt/api/public/rt/site/60c07c33/page/aG9tZQ==/auth',
+						type: 'POST',
+						contentType: 'application/json',
+						data: JSON.stringify({
+							value: $('#pwd').val()
+						}),
+						success: function (data) {
+							document.cookie = data.name+"="+data.value + ";path=/";
+							location.reload();
+						},
+						error: function (data) {
+							if (data && data.responseText) {
+								try {
+									var err = JSON.parse(data.responseText);
+									if (err.error_code == 'Unauthorized') {
+
+										$passwordWarningMessageWrong.removeClass(
+												"hidden");
+										return;
+									}
+								} catch (e) {
+								}
+							}
+
+							$passwordWarningMessageWrong.removeClass("hidden");
+						}
+					});
+				}
+			});
+		})
+</script>
+</head>
+<body style="padding: 0px; margin: 0px; background-color: gray;">
+
+	<div id="passwordProtectedPopupNonAjax" class="popup-wrapper">
+	<div class="dmPopupCloseWrapper" style="display: none;">
+		<div class="dmPopupClose dm-icon-x2 oneIcon">
+		</div>
+	</div>
+		<span class="popup-inner">
+			<h1>
+				This page is <span class="no-wrap">password-protected</span></h1>
+			<div id="pdw-wrapper" style="cursor: default" class="popupData">
+
+    <style>
+
+        /* Inpage popup */
+        #dmPopup.password-popup {
+            padding: 50px 70px;
+            box-sizing: border-box;
+            margin-top: 10px;
+            width: 500px;
+            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.56);
+        }
+
+        #passwordProtectedPopupNonAjax .dmPopupCloseWrapper {
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            right: 0;
+
+        }
+
+        .hiddenField {
+            display: none;
+        }
+
+        #pdw-wrapper {
+            position: relative;
+
+        }
+
+        #passwordProtectedPopupNonAjax .dmPopupClose {
+            position: absolute;
+            cursor: pointer;
+            visibility: visible;
+            width: 33px;
+            height: 33px;
+            top: 0;
+            right: 0;
+        }
+
+        #passwordProtectedPopupNonAjax .dmPopupClose:before {
+
+            display: block;
+            position: absolute;
+            visibility: visible;
+            font-size: 13px;
+            color: #5f5f5f;
+            top: 12px;
+            right: 12px;
+            cursor: pointer;
+        }
+
+        #dmPopup.password-popup .dmPopupTitle {
+            margin-left: 0;
+            margin-right: 0;
+            font: 22px Helvetica, Arial;
+            color: #424242;
+            margin-bottom: 5px;
+        }
+
+        /* stand alone popup */
+        #passwordProtectedPopupNonAjax {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #fff;
+            padding: 50px 70px;
+            height: 280px;
+            max-height: 100%;
+            width: 500px;
+            max-width: 100%;
+            margin: -140px 0 0 -250px;
+            text-align: center;
+            font-family: sans-serif;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.56);
+        }
+
+        #passwordProtectedPopupNonAjax .popup-inner {
+            text-align: left;
+            display: inline-block;
+        }
+
+        #passwordProtectedPopupNonAjax h1 {
+            font: 22px Helvetica, Arial;
+            color: #424242;
+            margin-bottom: 5px;
+        }
+
+        #pdw-wrapper input[type="password"] {
+            background: none;
+            border: 1px solid;
+            color: #333;
+            padding: 10px 30px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+
+        #pdw-wrapper input[type="button"] {
+            background: #464646;
+            color: #fff;
+            cursor: pointer;
+            -webkit-appearance: none;
+            border: none;
+            padding: 10px 30px;
+            float: right;
+            margin-left: 10px;
+            box-shadow: 0px 4px 10px -3px gray;
+        }
+
+        #pdw-wrapper h3 {
+            font: 16px Helvetica, Arial;
+            color: #424242;
+            margin-top: 7px
+        }
+
+        .passwordWarningMessage {
+            position: absolute;
+            color: red;
+            font: 12px Helvetica, Arial;
+            top: 50%;
+            display: block;
+
+            text-align: left;
+        }
+
+        .no-wrap {
+            white-space: nowrap;
+        }
+
+        .passwordWarningMessage.hidden {
+            display: none;
+        }
+
+
+        .buttons-container {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 420px) {
+
+            .passwordWarningMessage {
+                left: 2%;
+            }
+
+            .buttons-container {
+                display: inline-block;
+            }
+
+            #pdw-wrapper, #pdw-wrapper h3 {
+                text-align: center;
+            }
+
+            #pdw-wrapper input[type="password"] {
+                display: block;
+                margin: 0px auto 30px auto;
+                width: 95%;
+                font-size: 16px;
+            }
+
+
+            #dmPopup.password-popup .dmPopupTitle, #passwordProtectedPopupNonAjax h1 {
+                text-align: center;
+            }
+
+            #dmPopup.password-popup {
+                padding: 10px;
+            }
+
+            #passwordProtectedPopupNonAjax {
+                left: 0;
+                width: 90%;
+                max-width: 100%;
+                margin: 20px;
+                height: auto;
+                top: auto;
+                padding: 10px
+            }
+        }
+
+    </style>
+
+    <h1 class="hiddenField">This page is <span class="no-wrap">password-protected</span></h1>
+    <h3>Enter the password to view this page</h3>
+
+    <div>
+        <input type="password" id="pwd" maxlength="30">
+        <span class="passwordWarningMessage hidden" data-type="missing">Password must contain at least 1 characters</span>
+        <span class="passwordWarningMessage hidden" data-type="wrong"> Password is incorrect. Please try again.</span>
+        <div class="buttons-container">
+            <input type="button" id="cancel" value="Cancel" style="display: none;">
+            <input type="button" id="ok" value="OK">
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <script>
+
+
+      var $passwordWarningMessageMissing = $(".passwordWarningMessage[data-type='missing']");
+      var $passwordWarningMessageWrong = $(".passwordWarningMessage[data-type='wrong']");
+
+      $('#pwd').on('keydown', function () {
+        if (!$passwordWarningMessageMissing.hasClass("hidden")) {
+          $passwordWarningMessageMissing.addClass("hidden");
+        }
+        if (!$passwordWarningMessageWrong.hasClass("hidden")) {
+          $passwordWarningMessageWrong.addClass("hidden");
+        }
+
+      });
+
+
+    </script>
+
+</div>
+
+</span>
+	</div>
+
+
+
+</body></html>

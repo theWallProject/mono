@@ -1,0 +1,80 @@
+[2026-03-11T02:20:05.671Z] === Homepage AI Extractor: KEDEM ===
+[2026-03-11T02:20:05.671Z] Started at: 2026-03-11T02:20:05.671Z
+[2026-03-11T02:20:05.671Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773195605670_KEDEM
+[2026-03-11T02:20:05.671Z] Company: KEDEM
+[2026-03-11T02:20:05.671Z] Website: kedem.bio
+[2026-03-11T02:20:05.672Z] cbRank: 549325
+[2026-03-11T02:20:05.672Z] Reasons: h
+[2026-03-11T02:20:05.672Z] Fetching: https://kedem.bio
+[2026-03-11T02:20:21.581Z] Network idle timeout — continuing with current state
+[2026-03-11T02:20:21.629Z] Redirected: https://kedem.bio -> https://kedem.bio/
+[2026-03-11T02:20:21.746Z] Saved HTML (3866397 bytes) to page.html
+[2026-03-11T02:20:21.753Z] Extracted 40 unique links from page
+[2026-03-11T02:20:21.754Z] Saved 40 links to links.json
+[2026-03-11T02:20:21.787Z] Extracted footer HTML (13915 chars)
+[2026-03-11T02:20:21.787Z] Extracted header HTML (1103755 chars)
+[2026-03-11T02:20:21.792Z] Website (post-redirect): https://kedem.bio/ → origin: https://kedem.bio
+[2026-03-11T02:20:21.792Z]   SUBDOMAIN: global.kedem.bio (added to ws)
+[2026-03-11T02:20:21.792Z] Website subdomains found: 1
+[2026-03-11T02:20:21.792Z] External links: 5 (of 40 total)
+[2026-03-11T02:20:21.792Z] ── All external links ──
+[2026-03-11T02:20:21.792Z]   EXT: https://api.whatsapp.com/send?phone=972523003819
+[2026-03-11T02:20:21.792Z]   EXT: https://www.bviral.co.il
+[2026-03-11T02:20:21.792Z]   EXT: https://www.facebook.com/hokedem
+[2026-03-11T02:20:21.793Z]   EXT: https://www.instagram.com/herbs.of.kedem
+[2026-03-11T02:20:21.793Z]   EXT: https://www.youtube.com/channel/UCotM1ZGOGrzcluXMVDUYd7A
+[2026-03-11T02:20:21.793Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T02:20:21.793Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972523003819
+[2026-03-11T02:20:21.793Z]   UNCATEGORIZED: https://www.bviral.co.il
+[2026-03-11T02:20:21.793Z]   REGEX: fb <- https://www.facebook.com/hokedem
+[2026-03-11T02:20:21.793Z]   REGEX: ig <- https://www.instagram.com/herbs.of.kedem
+[2026-03-11T02:20:21.793Z]   REGEX: ytc <- https://www.youtube.com/channel/UCotM1ZGOGrzcluXMVDUYd7A
+[2026-03-11T02:20:21.793Z] Programmatic result: ws:2, fb:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-11T02:20:21.794Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T02:20:21.794Z] Saved AI prompt (8632 chars) to ai_prompt.txt
+[2026-03-11T02:20:21.795Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T02:20:21.815Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T02:21:06.781Z]   AI: First token received, streaming...
+[2026-03-11T02:21:17.126Z] AI response complete: 132 chars in 55.3s
+[2026-03-11T02:21:17.127Z] Saved AI response to ai_response.json
+[2026-03-11T02:21:17.128Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T02:21:17.128Z]   AI LINK: https://www.facebook.com/hokedem/
+[2026-03-11T02:21:17.128Z]   AI LINK: https://www.instagram.com/herbs.of.kedem/
+[2026-03-11T02:21:17.128Z]   AI LINK: https://www.youtube.com/channel/UCotM1ZGOGrzcluXMVDUYd7A
+[2026-03-11T02:21:17.128Z] AI returned 3 valid links
+[2026-03-11T02:21:17.128Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T02:21:17.128Z]   AI→REGEX: fb <- https://www.facebook.com/hokedem/ (duplicate, skipped)
+[2026-03-11T02:21:17.128Z]   AI→REGEX: ig <- https://www.instagram.com/herbs.of.kedem/ (duplicate, skipped)
+[2026-03-11T02:21:17.128Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCotM1ZGOGrzcluXMVDUYd7A (duplicate, skipped)
+[2026-03-11T02:21:17.134Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T02:21:17.134Z] Footer/header origins (8):
+[2026-03-11T02:21:17.134Z]   FOOTER/HEADER ORIGIN: https://kedem.bio
+[2026-03-11T02:21:17.134Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T02:21:17.134Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-11T02:21:17.134Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T02:21:17.135Z]   FOOTER/HEADER ORIGIN: https://www.bviral.co.il
+[2026-03-11T02:21:17.135Z]   FOOTER/HEADER ORIGIN: https://global.kedem.bio
+[2026-03-11T02:21:17.135Z]   FOOTER/HEADER ORIGIN: https://waze.com
+[2026-03-11T02:21:17.135Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-11T02:21:17.135Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972523003819)
+[2026-03-11T02:21:17.135Z]   ADDED: urls <- https://www.bviral.co.il
+[2026-03-11T02:21:17.135Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-11T02:21:17.135Z] ── Step 3: Final dedup ──
+[2026-03-11T02:21:17.135Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-11T02:21:17.135Z] ── FINAL RESULT ──
+[2026-03-11T02:21:17.136Z]   ws (2):
+[2026-03-11T02:21:17.136Z]     - https://global.kedem.bio
+[2026-03-11T02:21:17.136Z]     - https://kedem.bio
+[2026-03-11T02:21:17.136Z]   fb (1):
+[2026-03-11T02:21:17.136Z]     - https://www.facebook.com/hokedem
+[2026-03-11T02:21:17.136Z]   ig (1):
+[2026-03-11T02:21:17.136Z]     - https://www.instagram.com/herbs.of.kedem
+[2026-03-11T02:21:17.136Z]   ytc (1):
+[2026-03-11T02:21:17.136Z]     - https://www.youtube.com/channel/UCotM1ZGOGrzcluXMVDUYd7A
+[2026-03-11T02:21:17.136Z]   urls (2):
+[2026-03-11T02:21:17.136Z]     - https://api.whatsapp.com/send
+[2026-03-11T02:21:17.136Z]     - https://www.bviral.co.il
+[2026-03-11T02:21:17.137Z] Summary: ws:2, fb:1, ig:1, ytc:1, urls:2
+[2026-03-11T02:21:17.137Z] Saved final result to result.json
+[2026-03-11T02:21:17.137Z] Override fields: ws, fb, ig, ytc, urls
+[2026-03-11T02:21:17.137Z] Finished at: 2026-03-11T02:21:17.137Z

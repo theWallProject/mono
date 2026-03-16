@@ -1,0 +1,61 @@
+[2026-03-13T05:49:30.512Z] === Homepage AI Extractor: Epolac ===
+[2026-03-13T05:49:30.512Z] Started at: 2026-03-13T05:49:30.512Z
+[2026-03-13T05:49:30.512Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773380970511_Epolac
+[2026-03-13T05:49:30.512Z] Company: Epolac
+[2026-03-13T05:49:30.512Z] Website: epolac.com
+[2026-03-13T05:49:30.512Z] cbRank: 1012248
+[2026-03-13T05:49:30.512Z] Reasons: h
+[2026-03-13T05:49:30.512Z] Fetching: https://epolac.com
+[2026-03-13T05:49:43.282Z] Network idle timeout — continuing with current state
+[2026-03-13T05:49:43.330Z] Redirected: https://epolac.com -> https://www.epolac.com/
+[2026-03-13T05:49:43.338Z] Saved HTML (170016 bytes) to page.html
+[2026-03-13T05:49:43.342Z] Extracted 21 unique links from page
+[2026-03-13T05:49:43.343Z] Saved 21 links to links.json
+[2026-03-13T05:49:43.346Z] No footer section found in DOM
+[2026-03-13T05:49:43.346Z] Extracted header HTML (341 chars)
+[2026-03-13T05:49:43.352Z] Website (post-redirect): https://www.epolac.com/ → origin: https://www.epolac.com
+[2026-03-13T05:49:43.353Z] External links: 3 (of 21 total)
+[2026-03-13T05:49:43.353Z] ── All external links ──
+[2026-03-13T05:49:43.353Z]   EXT: https://vee.co.il
+[2026-03-13T05:49:43.353Z]   EXT: https://vee.co.il/pricing
+[2026-03-13T05:49:43.353Z]   EXT: https://www.facebook.com/Epolacinc
+[2026-03-13T05:49:43.353Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T05:49:43.353Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-13T05:49:43.353Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-13T05:49:43.353Z]   REGEX: fb <- https://www.facebook.com/Epolacinc
+[2026-03-13T05:49:43.354Z] Programmatic result: ws:1, fb:1 | 2 uncategorized
+[2026-03-13T05:49:43.354Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T05:49:43.354Z] Saved AI prompt (1972 chars) to ai_prompt.txt
+[2026-03-13T05:49:43.355Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T05:49:43.378Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T05:49:50.142Z]   AI: First token received, streaming...
+[2026-03-13T05:49:52.167Z] AI response complete: 43 chars in 8.8s
+[2026-03-13T05:49:52.168Z] Saved AI response to ai_response.json
+[2026-03-13T05:49:52.168Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T05:49:52.168Z]   AI LINK: https://vee.co.il
+[2026-03-13T05:49:52.168Z]   AI LINK: https://vee.co.il/pricing
+[2026-03-13T05:49:52.168Z] AI returned 2 valid links
+[2026-03-13T05:49:52.168Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T05:49:52.169Z]   AI→URLS: https://vee.co.il
+[2026-03-13T05:49:52.169Z]   AI→URLS: https://vee.co.il/pricing
+[2026-03-13T05:49:52.169Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T05:49:52.169Z] Footer/header origins (0):
+[2026-03-13T05:49:52.169Z]   SKIP (AI claimed): https://vee.co.il
+[2026-03-13T05:49:52.169Z]   SKIP (AI claimed): https://vee.co.il/pricing
+[2026-03-13T05:49:52.169Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T05:49:52.170Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T05:49:52.170Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T05:49:52.170Z] ── Step 3: Final dedup ──
+[2026-03-13T05:49:52.170Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T05:49:52.170Z] ── FINAL RESULT ──
+[2026-03-13T05:49:52.170Z]   ws (1):
+[2026-03-13T05:49:52.170Z]     - https://www.epolac.com
+[2026-03-13T05:49:52.170Z]   fb (1):
+[2026-03-13T05:49:52.170Z]     - https://www.facebook.com/epolacinc
+[2026-03-13T05:49:52.170Z]   urls (2):
+[2026-03-13T05:49:52.170Z]     - https://vee.co.il
+[2026-03-13T05:49:52.170Z]     - https://vee.co.il/pricing
+[2026-03-13T05:49:52.171Z] Summary: ws:1, fb:1, urls:2
+[2026-03-13T05:49:52.171Z] Saved final result to result.json
+[2026-03-13T05:49:52.171Z] Override fields: ws, fb, urls
+[2026-03-13T05:49:52.171Z] Finished at: 2026-03-13T05:49:52.171Z

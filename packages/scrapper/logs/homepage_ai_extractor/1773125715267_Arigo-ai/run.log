@@ -1,0 +1,70 @@
+[2026-03-10T06:55:15.268Z] === Homepage AI Extractor: Arigo-ai ===
+[2026-03-10T06:55:15.268Z] Started at: 2026-03-10T06:55:15.268Z
+[2026-03-10T06:55:15.268Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773125715267_Arigo-ai
+[2026-03-10T06:55:15.268Z] Company: Arigo-ai
+[2026-03-10T06:55:15.268Z] Website: arigo-ai.com
+[2026-03-10T06:55:15.269Z] cbRank: 418953
+[2026-03-10T06:55:15.269Z] Reasons: h
+[2026-03-10T06:55:15.269Z] Fetching: https://arigo-ai.com
+[2026-03-10T06:55:26.420Z] Network idle timeout — continuing with current state
+[2026-03-10T06:55:26.464Z] Redirected: https://arigo-ai.com -> https://www.arigo-ai.com/
+[2026-03-10T06:55:26.502Z] Saved HTML (1430999 bytes) to page.html
+[2026-03-10T06:55:26.505Z] Extracted 19 unique links from page
+[2026-03-10T06:55:26.506Z] Saved 19 links to links.json
+[2026-03-10T06:55:26.510Z] Extracted footer HTML (9185 chars)
+[2026-03-10T06:55:26.510Z] Extracted header HTML (102160 chars)
+[2026-03-10T06:55:26.513Z] Website (post-redirect): https://www.arigo-ai.com/ → origin: https://www.arigo-ai.com
+[2026-03-10T06:55:26.514Z] External links: 6 (of 19 total)
+[2026-03-10T06:55:26.514Z] ── All external links ──
+[2026-03-10T06:55:26.514Z]   EXT: https://arigo-ai.app/signin
+[2026-03-10T06:55:26.514Z]   EXT: https://comaxerp.com
+[2026-03-10T06:55:26.514Z]   EXT: https://www.linkedin.com/company/arigo-ai
+[2026-03-10T06:55:26.514Z]   EXT: https://www.one1.co.il
+[2026-03-10T06:55:26.514Z]   EXT: https://www.priority-software.com
+[2026-03-10T06:55:26.514Z]   EXT: https://www.sap.com
+[2026-03-10T06:55:26.514Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:55:26.514Z]   UNCATEGORIZED: https://arigo-ai.app/signin
+[2026-03-10T06:55:26.514Z]   UNCATEGORIZED: https://comaxerp.com
+[2026-03-10T06:55:26.514Z]   REGEX: li <- https://www.linkedin.com/company/arigo-ai
+[2026-03-10T06:55:26.514Z]   UNCATEGORIZED: https://www.one1.co.il
+[2026-03-10T06:55:26.515Z]   UNCATEGORIZED: https://www.priority-software.com
+[2026-03-10T06:55:26.515Z]   UNCATEGORIZED: https://www.sap.com
+[2026-03-10T06:55:26.515Z] Programmatic result: ws:1, li:1 | 5 uncategorized
+[2026-03-10T06:55:26.515Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:55:26.515Z] Saved AI prompt (7007 chars) to ai_prompt.txt
+[2026-03-10T06:55:26.515Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:55:26.533Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:55:57.039Z]   AI: First token received, streaming...
+[2026-03-10T06:56:00.666Z] AI response complete: 70 chars in 34.2s
+[2026-03-10T06:56:00.667Z] Saved AI response to ai_response.json
+[2026-03-10T06:56:00.667Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T06:56:00.667Z]   AI LINK: https://arigo-ai.app/signin
+[2026-03-10T06:56:00.667Z]   AI LINK: https://www.linkedin.com/company/arigo-ai/
+[2026-03-10T06:56:00.667Z] AI returned 2 valid links
+[2026-03-10T06:56:00.667Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T06:56:00.667Z]   AI→URLS: https://arigo-ai.app/signin
+[2026-03-10T06:56:00.667Z]   AI→REGEX: li <- https://www.linkedin.com/company/arigo-ai/ (duplicate, skipped)
+[2026-03-10T06:56:00.669Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:56:00.669Z] Footer/header origins (3):
+[2026-03-10T06:56:00.669Z]   FOOTER/HEADER ORIGIN: https://www.arigo-ai.com
+[2026-03-10T06:56:00.669Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T06:56:00.669Z]   FOOTER/HEADER ORIGIN: https://arigo-ai.app
+[2026-03-10T06:56:00.669Z]   SKIP (AI claimed): https://arigo-ai.app/signin
+[2026-03-10T06:56:00.669Z]   SKIP (not in footer/header): https://comaxerp.com
+[2026-03-10T06:56:00.669Z]   SKIP (not in footer/header): https://www.one1.co.il
+[2026-03-10T06:56:00.669Z]   SKIP (not in footer/header): https://www.priority-software.com
+[2026-03-10T06:56:00.669Z]   SKIP (not in footer/header): https://www.sap.com
+[2026-03-10T06:56:00.669Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T06:56:00.669Z] ── Step 3: Final dedup ──
+[2026-03-10T06:56:00.669Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T06:56:00.670Z] ── FINAL RESULT ──
+[2026-03-10T06:56:00.670Z]   ws (1):
+[2026-03-10T06:56:00.670Z]     - https://www.arigo-ai.com
+[2026-03-10T06:56:00.670Z]   li (1):
+[2026-03-10T06:56:00.670Z]     - https://www.linkedin.com/company/arigo-ai
+[2026-03-10T06:56:00.670Z]   urls (1):
+[2026-03-10T06:56:00.670Z]     - https://arigo-ai.app/signin
+[2026-03-10T06:56:00.670Z] Summary: ws:1, li:1, urls:1
+[2026-03-10T06:56:00.671Z] Saved final result to result.json
+[2026-03-10T06:56:00.671Z] Override fields: ws, li, urls
+[2026-03-10T06:56:00.671Z] Finished at: 2026-03-10T06:56:00.671Z

@@ -1,0 +1,75 @@
+[2026-03-10T04:38:55.348Z] === Homepage AI Extractor: DelivApp ===
+[2026-03-10T04:38:55.348Z] Started at: 2026-03-10T04:38:55.348Z
+[2026-03-10T04:38:55.348Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773117535347_DelivApp
+[2026-03-10T04:38:55.348Z] Company: DelivApp
+[2026-03-10T04:38:55.348Z] Website: delivapp.com
+[2026-03-10T04:38:55.348Z] cbRank: 379016
+[2026-03-10T04:38:55.348Z] Reasons: h
+[2026-03-10T04:38:55.348Z] Fetching: https://delivapp.com
+[2026-03-10T04:38:58.592Z] Redirected: https://delivapp.com -> https://www.delivapp.com/
+[2026-03-10T04:38:58.650Z] Saved HTML (1999785 bytes) to page.html
+[2026-03-10T04:38:58.654Z] Extracted 29 unique links from page
+[2026-03-10T04:38:58.655Z] Saved 29 links to links.json
+[2026-03-10T04:38:58.660Z] Extracted footer HTML (16830 chars)
+[2026-03-10T04:38:58.660Z] Extracted header HTML (28735 chars)
+[2026-03-10T04:38:58.666Z] Website (post-redirect): https://www.delivapp.com/ → origin: https://www.delivapp.com
+[2026-03-10T04:38:58.666Z]   SUBDOMAIN: help.delivapp.com (added to ws)
+[2026-03-10T04:38:58.666Z]   SUBDOMAIN: new.delivapp.com (added to ws)
+[2026-03-10T04:38:58.666Z] Website subdomains found: 2
+[2026-03-10T04:38:58.666Z] External links: 6 (of 29 total)
+[2026-03-10T04:38:58.666Z] ── All external links ──
+[2026-03-10T04:38:58.666Z]   EXT: http://goldaglida.co.il
+[2026-03-10T04:38:58.667Z]   EXT: https://full-gaz.co.il
+[2026-03-10T04:38:58.667Z]   EXT: https://onelink.to/gqa379
+[2026-03-10T04:38:58.667Z]   EXT: https://www.goldaglida.co.il
+[2026-03-10T04:38:58.667Z]   EXT: https://www.linkedin.com/company/delivapp
+[2026-03-10T04:38:58.667Z]   EXT: https://www.youtube.com/@delivapp9736
+[2026-03-10T04:38:58.667Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T04:38:58.667Z]   UNCATEGORIZED: http://goldaglida.co.il
+[2026-03-10T04:38:58.668Z]   UNCATEGORIZED: https://full-gaz.co.il
+[2026-03-10T04:38:58.668Z]   UNCATEGORIZED: https://onelink.to/gqa379
+[2026-03-10T04:38:58.668Z]   UNCATEGORIZED: https://www.goldaglida.co.il
+[2026-03-10T04:38:58.668Z]   REGEX: li <- https://www.linkedin.com/company/delivapp
+[2026-03-10T04:38:58.668Z]   REGEX: ytp <- https://www.youtube.com/@delivapp9736
+[2026-03-10T04:38:58.668Z] Programmatic result: ws:3, li:1, ytp:1 | 4 uncategorized
+[2026-03-10T04:38:58.668Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T04:38:58.671Z] Saved AI prompt (9525 chars) to ai_prompt.txt
+[2026-03-10T04:38:58.671Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T04:38:58.692Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T04:39:39.619Z]   AI: First token received, streaming...
+[2026-03-10T04:39:44.859Z] AI response complete: 80 chars in 46.2s
+[2026-03-10T04:39:44.860Z] Saved AI response to ai_response.json
+[2026-03-10T04:39:44.860Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T04:39:44.860Z]   AI LINK: https://www.linkedin.com/company/delivapp/
+[2026-03-10T04:39:44.860Z]   AI LINK: https://www.youtube.com/@delivapp9736
+[2026-03-10T04:39:44.860Z] AI returned 2 valid links
+[2026-03-10T04:39:44.860Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T04:39:44.860Z]   AI→REGEX: li <- https://www.linkedin.com/company/delivapp/ (duplicate, skipped)
+[2026-03-10T04:39:44.860Z]   AI→REGEX: ytp <- https://www.youtube.com/@delivapp9736 (duplicate, skipped)
+[2026-03-10T04:39:44.860Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T04:39:44.860Z] Footer/header origins (5):
+[2026-03-10T04:39:44.860Z]   FOOTER/HEADER ORIGIN: https://www.delivapp.com
+[2026-03-10T04:39:44.861Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T04:39:44.861Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T04:39:44.861Z]   FOOTER/HEADER ORIGIN: https://help.delivapp.com
+[2026-03-10T04:39:44.861Z]   FOOTER/HEADER ORIGIN: https://new.delivapp.com
+[2026-03-10T04:39:44.861Z]   SKIP (not in footer/header): http://goldaglida.co.il
+[2026-03-10T04:39:44.861Z]   SKIP (not in footer/header): https://full-gaz.co.il
+[2026-03-10T04:39:44.861Z]   SKIP (not in footer/header): https://onelink.to/gqa379
+[2026-03-10T04:39:44.861Z]   SKIP (not in footer/header): https://www.goldaglida.co.il
+[2026-03-10T04:39:44.861Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T04:39:44.861Z] ── Step 3: Final dedup ──
+[2026-03-10T04:39:44.861Z] No urls to dedup
+[2026-03-10T04:39:44.861Z] ── FINAL RESULT ──
+[2026-03-10T04:39:44.861Z]   ws (3):
+[2026-03-10T04:39:44.861Z]     - https://help.delivapp.com
+[2026-03-10T04:39:44.861Z]     - https://new.delivapp.com
+[2026-03-10T04:39:44.861Z]     - https://www.delivapp.com
+[2026-03-10T04:39:44.861Z]   li (1):
+[2026-03-10T04:39:44.861Z]     - https://www.linkedin.com/company/delivapp
+[2026-03-10T04:39:44.861Z]   ytp (1):
+[2026-03-10T04:39:44.861Z]     - https://www.youtube.com/@delivapp9736
+[2026-03-10T04:39:44.862Z] Summary: ws:3, li:1, ytp:1
+[2026-03-10T04:39:44.862Z] Saved final result to result.json
+[2026-03-10T04:39:44.862Z] Override fields: ws, li, ytp
+[2026-03-10T04:39:44.862Z] Finished at: 2026-03-10T04:39:44.862Z

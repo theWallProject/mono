@@ -1,0 +1,58 @@
+[2026-03-11T23:26:09.126Z] === Homepage AI Extractor: P2W ===
+[2026-03-11T23:26:09.126Z] Started at: 2026-03-11T23:26:09.126Z
+[2026-03-11T23:26:09.126Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773271569125_P2W
+[2026-03-11T23:26:09.126Z] Company: P2W
+[2026-03-11T23:26:09.126Z] Website: p2w.co
+[2026-03-11T23:26:09.126Z] cbRank: 708842
+[2026-03-11T23:26:09.126Z] Reasons: h
+[2026-03-11T23:26:09.126Z] Fetching: https://p2w.co
+[2026-03-11T23:26:16.318Z] Redirected: https://p2w.co -> https://p2w.co/
+[2026-03-11T23:26:16.324Z] Saved HTML (118879 bytes) to page.html
+[2026-03-11T23:26:16.327Z] Extracted 25 unique links from page
+[2026-03-11T23:26:16.328Z] Saved 25 links to links.json
+[2026-03-11T23:26:16.331Z] Extracted footer HTML (38 chars)
+[2026-03-11T23:26:16.331Z] Extracted header HTML (11072 chars)
+[2026-03-11T23:26:16.338Z] Website (post-redirect): https://p2w.co/ → origin: https://p2w.co
+[2026-03-11T23:26:16.338Z] External links: 2 (of 25 total)
+[2026-03-11T23:26:16.339Z] ── All external links ──
+[2026-03-11T23:26:16.339Z]   EXT: https://il.linkedin.com/company/p2w
+[2026-03-11T23:26:16.339Z]   EXT: https://www.youtube.com/channel/UCA6DWJA0BXWvxJsPQsUiJtw
+[2026-03-11T23:26:16.339Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T23:26:16.339Z]   REGEX: li <- https://il.linkedin.com/company/p2w
+[2026-03-11T23:26:16.339Z]   REGEX: ytc <- https://www.youtube.com/channel/UCA6DWJA0BXWvxJsPQsUiJtw
+[2026-03-11T23:26:16.339Z] Programmatic result: ws:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-11T23:26:16.339Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T23:26:16.340Z] Saved AI prompt (1921 chars) to ai_prompt.txt
+[2026-03-11T23:26:16.340Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T23:26:16.359Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T23:26:21.608Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-11T23:26:21.609Z] AI response complete: 0 chars in 5.3s
+[2026-03-11T23:26:21.609Z] Saved AI response to ai_response.json
+[2026-03-11T23:26:21.610Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T23:26:21.610Z] AI returned 0 valid links
+[2026-03-11T23:26:21.610Z] ── Categorizing 0 AI-returned links ──
+[2026-03-11T23:26:21.610Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T23:26:21.610Z] Footer/header origins (3):
+[2026-03-11T23:26:21.610Z]   FOOTER/HEADER ORIGIN: https://p2w.co
+[2026-03-11T23:26:21.610Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-11T23:26:21.610Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T23:26:21.611Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T23:26:21.611Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T23:26:21.611Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-11T23:26:22.041Z]   YOUTUBE: resolved UCA6DWJA0BXWvxJsPQsUiJtw → @p2wisrael551
+[2026-03-11T23:26:22.041Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-11T23:26:22.041Z] ── Step 3: Final dedup ──
+[2026-03-11T23:26:22.041Z] No urls to dedup
+[2026-03-11T23:26:22.041Z] ── FINAL RESULT ──
+[2026-03-11T23:26:22.041Z]   ws (1):
+[2026-03-11T23:26:22.041Z]     - https://p2w.co
+[2026-03-11T23:26:22.042Z]   li (1):
+[2026-03-11T23:26:22.042Z]     - https://www.linkedin.com/company/p2w
+[2026-03-11T23:26:22.042Z]   ytp (1):
+[2026-03-11T23:26:22.042Z]     - https://www.youtube.com/@p2wisrael551
+[2026-03-11T23:26:22.042Z]   ytc (1):
+[2026-03-11T23:26:22.042Z]     - https://www.youtube.com/channel/UCA6DWJA0BXWvxJsPQsUiJtw
+[2026-03-11T23:26:22.042Z] Summary: ws:1, li:1, ytc:1, ytp:1
+[2026-03-11T23:26:22.043Z] Saved final result to result.json
+[2026-03-11T23:26:22.043Z] Override fields: ws, li, ytp, ytc
+[2026-03-11T23:26:22.043Z] Finished at: 2026-03-11T23:26:22.043Z

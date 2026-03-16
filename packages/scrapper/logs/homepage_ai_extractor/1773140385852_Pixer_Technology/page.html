@@ -1,0 +1,1091 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rémi Thomas - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .cv-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* very light decorative page background inside the card */
+        .cv-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: linear-gradient(90deg, rgba(44,90,160,0.02) 0%, rgba(44,90,160,0.00) 30%), repeating-linear-gradient(135deg, rgba(44,90,160,0.02) 0 1px, transparent 1px 40px);
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
+        }
+
+        /* ensure content sits above decorative background */
+        .cv-container > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            background: white;
+            padding: 24px 32px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 3px solid #f0f0f0;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #ff6b35;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 16px;
+        }
+
+        .contact-info div {
+            margin-bottom: 0;
+        }
+
+        .content {
+            padding: 24px 32px;
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .experience-item::before {
+            content: "●";
+            color: #2c5aa0;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .period-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .period {
+            font-weight: bold;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .status {
+            background: #2c5aa0;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .company {
+            color: #ff6b35;
+            font-weight: 500;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .job-description {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .job-description ul {
+            margin-left: 15px;
+            margin-top: 4px;
+        }
+
+        .job-description li {
+            margin-bottom: 2px;
+        }
+
+        .technologies {
+            color: #555;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .languages-section {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .language-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        .language-level {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .star.filled {
+            background-color: #ff6b35;
+        }
+
+        .star.empty {
+            background-color: #ddd;
+        }
+
+        .skills-section {
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .skill-tag {
+            background: #2c5aa0;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .plus-section {
+            border-top: 2px solid #2c5aa0;
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .plus-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .plus-content {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .plus-content a {
+            color: #2c5aa0;
+            text-decoration: none;
+        }
+
+        .plus-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Language switcher */
+        .lang-switch {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            display: inline-flex;
+            gap: 6px;
+            z-index: 9999;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #e0e0e0;
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            backdrop-filter: blur(4px);
+        }
+
+        .lang-switch button {
+            border: none;
+            background: transparent;
+            color: #2c5aa0;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .lang-switch button.active, .lang-switch button:hover {
+            background: #2c5aa0;
+            color: #fff;
+        }
+
+        /* Language containers */
+        .lang { display: none; }
+        .lang.is-active { display: block; }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .header-content {
+                display: flex;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+                border: 2px solid #f0f0f0;
+                flex-shrink: 0;
+            }
+
+            .header-text {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .name {
+                font-size: 1.6rem;
+                margin-bottom: 3px;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .languages-section {
+                gap: 30px;
+                align-items: center;
+                justify-content: flex-start;
+            }
+            
+            .contact-info {
+                gap: 8px;
+                font-size: 0.75rem;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: nowrap;
+            }
+            
+            .skills-grid {
+                gap: 10px;
+            }
+            
+            .skill-tag {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            /* Make language switcher more responsive on mobile */
+            .lang-switch {
+                top: 5px;
+                left: 5px;
+                padding: 3px;
+                gap: 4px;
+                font-size: 0.9rem;
+                box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+            }
+            
+            .lang-switch button {
+                padding: 4px 8px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                min-width: 32px;
+            }
+        }
+
+        /* Extra small screens (phones in portrait) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .lang-switch {
+                top: 3px;
+                left: 3px;
+                padding: 2px;
+                gap: 2px;
+                border-radius: 16px;
+            }
+            
+            .lang-switch button {
+                padding: 3px 6px;
+                font-size: 0.75rem;
+                min-width: 28px;
+                border-radius: 14px;
+            }
+        }
+
+        /* Very small screens (small phones) */
+        @media (max-width: 360px) {
+            .lang-switch {
+                top: 2px;
+                left: 2px;
+                padding: 1px;
+                gap: 1px;
+                border-radius: 12px;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+            }
+            
+            .lang-switch button {
+                padding: 2px 4px;
+                font-size: 0.7rem;
+                min-width: 24px;
+                border-radius: 10px;
+                font-weight: 500;
+            }
+        }
+
+        /* Styles pour l'impression - optimisé pour une page A4 */
+        @media print {
+            /* Ensure colors/backgrounds are preserved when printing */
+            :root, .cv-container, .cv-container * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                font-size: 9px;
+                line-height: 1.05;
+            }
+
+            /* Page setup */
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+
+            /* Container sized to printable A4 width minus page margins */
+            .cv-container {
+                max-width: none;
+                width: calc(210mm - 20mm); /* A4 width (210mm) minus left+right margins (10mm each) */
+                box-shadow: none;
+                border-radius: 0;
+                margin: 0 auto;
+                padding: 0;
+                overflow: visible;
+            }
+
+            .header {
+                padding: 8px 12px;
+                border-bottom: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+
+            .header-content {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .header-text { flex: 1; min-width: 0; }
+
+            .profile-photo { width: 60px; height: 60px; border: 1px solid #f0f0f0; flex-shrink: 0; }
+
+            .name { font-size: 1.3rem; margin-bottom: 1px; }
+            .subtitle { font-size: 0.75rem; margin-bottom: 4px; }
+
+            .contact-info { font-size: 0.6rem; gap: 8px; }
+
+            .content { padding: 6px 12px; }
+
+            .section { margin-bottom: 10px; page-break-inside: avoid; }
+            .section-title { font-size: 0.75rem; margin-bottom: 6px; }
+
+            .experience-item { margin-bottom: 6px; padding-left: 8px; page-break-inside: avoid; }
+            .experience-item::before { font-size: 0.8rem; }
+
+            .period-status { gap: 6px; margin-bottom: 2px; }
+            .period { font-size: 0.65rem; }
+            .status { padding: 0px 4px; font-size: 0.55rem; }
+            .job-title { font-size: 0.7rem; margin-bottom: 1px; }
+            .company { font-size: 0.65rem; margin-bottom: 2px; }
+            .job-description { font-size: 0.6rem; line-height: 1.15; margin-bottom: 2px; }
+            .job-description ul { margin-left: 8px; margin-top: 1px; }
+            .job-description li { margin-bottom: 0px; }
+            .technologies { font-size: 0.55rem; }
+
+            .languages-section { gap: 18px; justify-content: flex-start; }
+            .language-item { gap: 6px; }
+            .language-name { font-size: 0.65rem; }
+            .language-level { font-size: 0.6rem; }
+            .star { width: 8px; height: 8px; }
+
+            .skills-section { margin-top: 2px; }
+            .skills-grid { gap: 4px; margin-top: 4px; justify-content: flex-start; }
+
+            /* Force skill tags to keep background color when printing */
+            .skill-tag {
+                background: #2c5aa0 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                display: inline-block;
+                padding: 2px 6px;
+                font-size: 0.55rem;
+                border-radius: 12px;
+                white-space: nowrap;
+            }
+
+            .plus-section { padding-top: 6px; margin-top: 8px; }
+            .plus-title { font-size: 1rem; margin-bottom: 4px; }
+            .plus-content { font-size: 0.55rem; line-height: 1.3; }
+
+            /* Prevent page headers/footers from pushing content (browser settings needed to remove them) */
+            html, body { height: auto; }
+
+            /* Hide decorative background for print to save ink and avoid artifacts */
+            .cv-container::before { display: none !important; }
+
+            /* Keep key blocks together */
+            .header, .section-title, .experience-item, .language-item { page-break-inside: avoid; }
+
+            /* Print only the active language; hide language switcher */
+            .lang-switch { display: none !important; }
+            .lang:not(.is-active) { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="fr" class="active">FR</button>
+        <button type="button" data-lang="en">EN</button>
+    </div>
+
+    <div id="cv-fr" class="lang is-active">
+    <div class="cv-container">
+        <div class="header">
+            <div class="header-content">
+                <img src="profile-linkedin.png" alt="Rémi Thomas" class="profile-photo">
+                <div class="header-text">
+                    <h1 class="name">RÉMI THOMAS</h1>
+                    <div class="subtitle">Freelance - Architecte principal et développeur augmenté par l’IA</div>
+                    <div class="contact-info">
+                        <div>📞 <a href="tel:+33623838798">+33623838798</a></div>
+                        <div>✉️ <a href="mailto:remi@xtware.com">remi@xtware.com</a></div>
+                        <div>📍 Villeneuve d'Ascq (Lille)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">EXPÉRIENCE</h2>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2010 - 2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Architecte et développeur principal</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Geideon - Gestion Électronique des Documents de l'entreprise avec classement automatique</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>J'ai bâti cette solution de GED de A à Z après plusieurs pivots.</li>
+                            <li>Lecture complète des factures (toutes les lignes détail), personnalisable par mécanisme de plugins.</li>
+                            <li>Version desktop puis version web Blazor hybride (on prem ou cloud)</li>
+                            <li>Simple d'utilisation, cette solution est utilisée par des centaines d'entreprises.</li>
+                        </ul>
+                    </div>
+                    <div class="technologies">Technologies utilisées : C#, MongoDB, OCR, PDF, Signature électronique, batch, facture électronique, expose des API</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2012 - 2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Architecte et développeur</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Tribun Health - Logiciel de pathologie numérique (remplace microscope)</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>En renfort sur la partie back qui nécessitait une double expertise C++ et plate-forme Windows</li>
+                            <li>Besoin de très hautes performances, de montée en charge et de fiabilisation des bibs constructeur.</li>
+                            <li>Aide ponctuelle sur DICOM - la norme médicale de communication entre appareils d'imagerie.</li>
+                            <li>Projet terminé et déployé sur de nombreux sites. Validé jusqu'à 130 utilisateurs simultanés. Norme FDA.</li>
+                        </ul>
+                    </div>
+                    <div class="technologies">Technos : C++, TNI (traitement numérique des images avec OpenCV) et C#, CI/CD.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2009 - 2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Associé CTO</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Quantforce - Création de carte de score prédictive</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>J'ai bâti la partie logicielle de A à Z avec l'aide du mathématicien.</li>
+                            <li>Contexte startup internationale dans une équipe de 5 personnes Benelux. Seul dev.</li>
+                            <li>Simple d'utilisation, création d'une carte de score rapidement. Cette solution est utilisée par Altares.</li>
+                            <li>Version desktop puis web.</li>
+                        </ul>
+                    </div>
+                    <div class="technologies">Technos : C#, génération d'Excel complexes, R, Python.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2002 - 2014</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Développeur principal</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Synarc - Logiciel de consultation d'image médicale avec interfaçage DICOM.</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Reprise d'un gros projet C++ alors que l'entreprise était en perte de vitesse. 1,600,00 lignes de codes dans 7500 fichiers</li>
+                            <li>Passage de connaissance minimum, dernier dev sur le départ.</li>
+                            <li>Pivot du projet pour passer de l'imagerie médicale vers les essais thérapeutiques.</li>
+                            <li>Rachat par une entreprise californienne - travaillé 6 mois avec les équipes US.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">1995 - 2001</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Salarié - Équipe Recherche et Développement</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Atos</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Expert technologies Windows</li>
+                            <li>Développements C++, C#</li>
+                            <li>Veille technologique</li>
+                            <li>Arrivée du Web</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Formateur</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Pixel Technology</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>J'ai donné des formations C#, XML, dev mobile</li>
+                            <li>Créateur d'un cours de programmation pour les grands débutants <a href="https://cours-programmation-gratuit.fr/">https://cours-programmation-gratuit.fr/</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">LANGUES</h2>
+                <div class="languages-section">
+                    <div class="language-item">
+                        <div class="language-name">Français</div>
+                        <div class="language-level">Langue maternelle</div>
+                        <div class="stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Anglais</div>
+                        <div class="language-level">Compétent</div>
+                        <div class="stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star empty"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">IMMÉDIATEMENT OPÉRATIONNEL ET EXPERT SUR</h2>
+                <div class="skills-section">
+                    <div class="skills-grid">
+                        <div class="skill-tag">C/C++ &gt; 20 ans</div>
+                        <div class="skill-tag">C# &gt; 20 ans</div>
+                        <div class="skill-tag">Full Remote &gt; 20 ans</div>
+                        <div class="skill-tag">Fullstack</div>
+                        <div class="skill-tag">SQL</div>
+                        <div class="skill-tag">MongoDB</div>
+                        <div class="skill-tag">API Design</div>
+                        <div class="skill-tag">AI - Vibe Coding</div>
+                        <div class="skill-tag">Product</div>
+                        <div class="skill-tag">DevOps</div>
+                        <div class="skill-tag">Hébergement</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plus-section">
+                <div class="plus-content">
+                    Technologies maîtrisées sur : <a href="https://github.com/iso8859">https://github.com/iso8859</a><br>
+                    Détails de mes autres projets sur <a href="https://www.linkedin.com/in/remi-thomas-fr/">https://www.linkedin.com/in/remi-thomas-fr/</a><br>
+                    &gt;99% au test Coding Game C# et C++<br>
+                    Ouvert vers d'autres technologies comme Rust, Go, Python, Javascript, Typescript<br>
+                    Veille technologique permanente - Stratégie business, product - Autonome, personne ressource - Mode startup.
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- English version (page 1 alternative) -->
+    <div id="cv-en" class="lang">
+    <div class="cv-container">
+        <div class="header">
+            <div class="header-content">
+                <img src="profile-linkedin.png" alt="Rémi Thomas" class="profile-photo">
+                <div class="header-text">
+                    <h1 class="name">RÉMI THOMAS</h1>
+                    <div class="subtitle">Principal Architect and AI-Augmented Developer</div>
+                    <div class="contact-info">
+                        <div>📞 <a href="tel:+33623838798">+33623838798</a></div>
+                        <div>✉️ <a href="mailto:remi@xtware.com">remi@xtware.com</a></div>
+                        <div>📍 Villeneuve d'Ascq (Lille)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">EXPERIENCE</h2>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2010 - 2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Principal architect and developer</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Geideon - Electronic Document Management with automatic classification</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>I built this GED solution from A to Z after several pivots.</li>
+                            <li>Full invoice parsing (all line items), customizable through a plugin mechanism.</li>
+                            <li>Desktop version then Blazor hybrid web version (on‑prem or cloud).</li>
+                            <li>Easy to use, this solution is used by hundreds of companies.</li>
+                        </ul>
+                    </div>
+                    <div class="technologies">Technologies used: C#, MongoDB, OCR, PDF, Electronic signature, batch, e‑invoicing, exposes APIs</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2012 - 2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Architect and developer</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Tribun Health - Digital pathology software (microscope replacement)</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Reinforcement on backend requiring dual expertise: C++ and Windows platform.</li>
+                            <li>Need for very high performance, scalability, and stabilization of vendor libs.</li>
+                            <li>Occasional help on DICOM — the medical communication standard for imaging devices.</li>
+                            <li>Project completed and deployed across many sites. Validated up to 130 concurrent users. FDA compliant.</li>
+                        </ul>
+                    </div>
+                    <div class="technologies">Tech: C++, Image processing (OpenCV) and C#, CI/CD.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2009 - 2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Associate CTO</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Quantforce - Predictive scorecard creation</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>I built the software part from A to Z with the mathematician’s help.</li>
+                            <li>International startup context, Benelux team of 5. Solo developer.</li>
+                            <li>Simple to use: quickly create a scorecard. Solution used by Altares.</li>
+                            <li>Desktop version then web.</li>
+                        </ul>
+                    </div>
+                    <div class="technologies">Tech: C#, complex Excel generation, R, Python.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2002 - 2014</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Lead developer</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Synarc - Medical image viewer with DICOM interfacing</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Took over a large C++ project while the company was losing momentum. 1,600,000 lines of code across 7,500 files.</li>
+                            <li>Minimal knowledge transfer, last developer was leaving.</li>
+                            <li>Pivoted the project from medical imaging to clinical trials.</li>
+                            <li>Acquired by a Californian company — worked 6 months with US teams.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">1995 - 2001</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Employee — Research and Development Team</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Atos</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Windows technologies expert</li>
+                            <li>C++, C# development</li>
+                            <li>Technology watch</li>
+                            <li>Arrival of the Web</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="period-status">
+                        <span class="period">2025</span>
+                        <span class="status">●</span>
+                        <span class="job-title">Trainer</span>
+                    </div>
+                    <div class="company" style="color: #ff6b35; font-weight: bold;">Pixel Technology</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>I taught C#, XML, mobile development courses</li>
+                            <li>Creator of a programming course for absolute beginners <a href="https://cours-programmation-gratuit.fr/">https://cours-programmation-gratuit.fr/</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">LANGUAGES</h2>
+                <div class="languages-section">
+                    <div class="language-item">
+                        <div class="language-name">French</div>
+                        <div class="language-level">Native language</div>
+                        <div class="stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">English</div>
+                        <div class="language-level">Proficient</div>
+                        <div class="stars">
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star filled"></div>
+                            <div class="star empty"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">IMMEDIATELY OPERATIONAL AND EXPERT IN</h2>
+                <div class="skills-section">
+                    <div class="skills-grid">
+                        <div class="skill-tag">C/C++ &gt; 20 years</div>
+                        <div class="skill-tag">C# &gt; 20 years</div>
+                        <div class="skill-tag">Full Remote &gt; 20 years</div>
+                        <div class="skill-tag">Fullstack</div>
+                        <div class="skill-tag">SQL</div>
+                        <div class="skill-tag">MongoDB</div>
+                        <div class="skill-tag">API Design</div>
+                        <div class="skill-tag">AI - Vibe Coding</div>
+                        <div class="skill-tag">Product</div>
+                        <div class="skill-tag">DevOps</div>
+                        <div class="skill-tag">Hosting</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plus-section">
+                <div class="plus-content">
+                    Mastered technologies on: <a href="https://github.com/iso8859">https://github.com/iso8859</a><br>
+                    More project details on <a href="https://www.linkedin.com/in/remi-thomas-fr/">https://www.linkedin.com/in/remi-thomas-fr/</a><br>
+                    &gt;99% on Coding Game test in C# and C++<br>
+                    Open to other technologies such as Rust, Go, Python, JavaScript, TypeScript<br>
+                    Continuous tech watch — Business strategy, product — Autonomous, go-to person — Startup mode.
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- PAGE 2: ATS-friendly keywords (keeps page 1 unchanged) -->
+    <div class="ats-page" role="presentation">
+        <style>
+            /* Page-break and layout for the second printed page */
+            .ats-page {
+                width: calc(210mm - 20mm);
+                margin: 10mm auto;
+                background: white;
+                box-sizing: border-box;
+                padding: 12mm;
+                page-break-before: always;
+                break-before: page;
+                color: #222;
+                font-family: Arial, sans-serif;
+                font-size: 11px;
+                line-height: 1.3;
+            }
+
+            .ats-page h2 {
+                color: #2c5aa0;
+                margin-bottom: 8px;
+                font-size: 16px;
+                letter-spacing: 0.5px;
+            }
+
+            .ats-section {
+                margin-bottom: 10px;
+            }
+
+            .ats-keywords {
+                display: block;
+                color: #111;
+                font-size: 11px;
+            }
+
+            /* Keep it dense and ATS-friendly (plain text-like) */
+            .ats-keywords span { white-space: pre-wrap; }
+
+            @media print {
+                /* Ensure the ATS page prints as a full page */
+                .ats-page { page-break-before: always; }
+            }
+        </style>
+
+        <div class="ats-content">
+            <h2>Skills &amp; Keywords</h2>
+
+            <div class="ats-section">
+                <strong>Programming Languages Expert:</strong>
+                <div class="ats-keywords">C#, C++</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Hyper Dev</strong>
+                <div class="ats-keywords">AI assisted development, GitHub Copilot, Cursor, ...</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Web Technologies:</strong>
+                <div class="ats-keywords">HTML, CSS, JavaScript, Blazor, ASP.NET Core, RESTful APIs, Web Services</div>
+            </div>            
+
+            <div class="ats-section">
+                <strong>Frameworks / Platforms / Libraries:</strong>
+                <div class="ats-keywords">.NET, .NET Core, ASP.NET, Blazor, Win32, MFC, OLE, OpenCV, DICOM, vcpkg</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Datastores &amp; Data:</strong>
+                <div class="ats-keywords">MongoDB, SQLite, SQL Server, MySQL, PostgreSQL, NoSQL, Excel, CSV, JSON</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Tools, DevOps &amp; Cloud:</strong>
+                <div class="ats-keywords">Git, GitHub, CI/CD, Azure DevOps, Docker, Azure, AWS, GCP, Cloudflare, OVH, Scaleway</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Architectures &amp; Patterns:</strong>
+                <div class="ats-keywords">API Design, REST, Microservices, Monolith, Event-driven, Message queues, Scalability, High availability</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Testing &amp; Quality:</strong>
+                <div class="ats-keywords">Unit Testing, Integration Testing, NUnit, xUnit, Code review</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Domain &amp; Specialties:</strong>
+                <div class="ats-keywords">Medical, DICOM, OCR, PDF, Facture électronique, Document management systems (GED), Image processing</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Data Science &amp; Analytics:</strong>
+                <div class="ats-keywords">R, Python, Machine Learning, Predictive scoring, Statistical analysis, Excel automation, Data visualization</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Other Skills &amp; Concepts:</strong>
+                <div class="ats-keywords">Performance tuning, Multi-threading, Windows platform, Cross-platform, Product strategy, Leadership, Remote work, Full Remote, DevOps, CI/CD, Startup</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>File formats &amp; Interop:</strong>
+                <div class="ats-keywords">DICOM, PDF, TIFF, JPEG, PNG, XML, JSON, CSV, MP4</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>APIs &amp; Protocols:</strong>
+                <div class="ats-keywords">HTTP, DNS, FTP, IMAP, SMTP, REST, Web APIs, gRPC, OAuth, Cryptographie</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Soft &amp; Product Skills:</strong>
+                <div class="ats-keywords">Mentoring, Documentation, Training</div>
+            </div>
+
+            <div class="ats-section">
+                <strong>Open to learn</strong>
+                <div class="ats-keywords">Rust, Go, TypeScript</div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    (function() {
+        const switcher = document.querySelector('.lang-switch');
+        if (!switcher) return;
+        const buttons = switcher.querySelectorAll('button[data-lang]');
+        const fr = document.getElementById('cv-fr');
+        const en = document.getElementById('cv-en');
+        const langs = [fr, en].filter(Boolean);
+
+        function setLang(lang) {
+            langs.forEach(el => el && el.classList.toggle('is-active', el.id === 'cv-' + lang));
+            buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+            try { localStorage.setItem('cv-lang', lang); } catch {}
+            document.documentElement.setAttribute('lang', lang);
+        }
+
+        let preferred = 'fr';
+        try {
+            preferred = localStorage.getItem('cv-lang') || preferred;
+        } catch {}
+        if (!preferred) preferred = 'fr';
+        if (!['fr','en'].includes(preferred)) {
+            const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            preferred = nav.startsWith('fr') ? 'fr' : 'en';
+        }
+        setLang(preferred);
+
+        buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    })();
+</script>
+</body></html>

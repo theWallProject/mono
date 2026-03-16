@@ -1,0 +1,69 @@
+[2026-03-13T12:19:04.388Z] === Homepage AI Extractor: Hilico ===
+[2026-03-13T12:19:04.389Z] Started at: 2026-03-13T12:19:04.389Z
+[2026-03-13T12:19:04.389Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773404344388_Hilico
+[2026-03-13T12:19:04.389Z] Company: Hilico
+[2026-03-13T12:19:04.389Z] Website: hilico.com
+[2026-03-13T12:19:04.389Z] cbRank: 1138624
+[2026-03-13T12:19:04.389Z] Reasons: h
+[2026-03-13T12:19:04.389Z] Fetching: https://hilico.com
+[2026-03-13T12:19:15.403Z] Network idle timeout — continuing with current state
+[2026-03-13T12:19:15.457Z] Redirected: https://hilico.com -> https://hilico.com/
+[2026-03-13T12:19:15.467Z] Saved HTML (266197 bytes) to page.html
+[2026-03-13T12:19:15.470Z] Extracted 24 unique links from page
+[2026-03-13T12:19:15.471Z] Saved 24 links to links.json
+[2026-03-13T12:19:15.475Z] Extracted footer HTML (9473 chars)
+[2026-03-13T12:19:15.475Z] Extracted header HTML (13059 chars)
+[2026-03-13T12:19:15.481Z] Website (post-redirect): https://hilico.com/ → origin: https://hilico.com
+[2026-03-13T12:19:15.481Z] External links: 4 (of 24 total)
+[2026-03-13T12:19:15.481Z] ── All external links ──
+[2026-03-13T12:19:15.481Z]   EXT: https://drive.google.com/file/d/1yyc5fZR5UMgPIlO2vlm2feuQAjYlABiW/view?usp=share_link
+[2026-03-13T12:19:15.482Z]   EXT: https://www.instagram.com/hilicooffgrid
+[2026-03-13T12:19:15.482Z]   EXT: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-13T12:19:15.482Z]   EXT: https://www.youtube.com/@Hilico_OffGrid
+[2026-03-13T12:19:15.482Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T12:19:15.482Z]   UNCATEGORIZED: https://drive.google.com/file/d/1yyc5fZR5UMgPIlO2vlm2feuQAjYlABiW/view?usp=share_link
+[2026-03-13T12:19:15.482Z]   REGEX: ig <- https://www.instagram.com/hilicooffgrid
+[2026-03-13T12:19:15.482Z]   UNCATEGORIZED: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-13T12:19:15.482Z]   REGEX: ytp <- https://www.youtube.com/@Hilico_OffGrid
+[2026-03-13T12:19:15.482Z] Programmatic result: ws:1, ig:1, ytp:1 | 2 uncategorized
+[2026-03-13T12:19:15.482Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T12:19:15.484Z] Saved AI prompt (4594 chars) to ai_prompt.txt
+[2026-03-13T12:19:15.484Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T12:19:15.500Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T12:19:32.468Z]   AI: First token received, streaming...
+[2026-03-13T12:19:36.586Z] AI response complete: 80 chars in 21.1s
+[2026-03-13T12:19:36.587Z] Saved AI response to ai_response.json
+[2026-03-13T12:19:36.587Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T12:19:36.587Z]   AI LINK: https://www.instagram.com/hilicooffgrid/
+[2026-03-13T12:19:36.587Z]   AI LINK: https://www.youtube.com/@Hilico_OffGrid
+[2026-03-13T12:19:36.587Z] AI returned 2 valid links
+[2026-03-13T12:19:36.587Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T12:19:36.588Z]   AI→REGEX: ig <- https://www.instagram.com/hilicooffgrid/ (duplicate, skipped)
+[2026-03-13T12:19:36.588Z]   AI→REGEX: ytp <- https://www.youtube.com/@Hilico_OffGrid (duplicate, skipped)
+[2026-03-13T12:19:36.588Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T12:19:36.589Z] Footer/header origins (4):
+[2026-03-13T12:19:36.589Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-13T12:19:36.589Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-13T12:19:36.589Z]   FOOTER/HEADER ORIGIN: https://drive.google.com
+[2026-03-13T12:19:36.589Z]   FOOTER/HEADER ORIGIN: https://www.shopify.com
+[2026-03-13T12:19:36.589Z]   ADDED: urls <- https://drive.google.com/file/d/1yyc5fZR5UMgPIlO2vlm2feuQAjYlABiW/view (cleaned from https://drive.google.com/file/d/1yyc5fZR5UMgPIlO2vlm2feuQAjYlABiW/view?usp=share_link)
+[2026-03-13T12:19:36.589Z]   ADDED: urls <- https://www.shopify.com (cleaned from https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore)
+[2026-03-13T12:19:36.589Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-13T12:19:36.589Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T12:19:36.589Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T12:19:36.589Z] ── Step 3: Final dedup ──
+[2026-03-13T12:19:36.589Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T12:19:36.590Z] ── FINAL RESULT ──
+[2026-03-13T12:19:36.590Z]   ws (1):
+[2026-03-13T12:19:36.590Z]     - https://hilico.com
+[2026-03-13T12:19:36.590Z]   ig (1):
+[2026-03-13T12:19:36.590Z]     - https://www.instagram.com/hilicooffgrid
+[2026-03-13T12:19:36.590Z]   ytp (1):
+[2026-03-13T12:19:36.590Z]     - https://www.youtube.com/@hilico_offgrid
+[2026-03-13T12:19:36.590Z]   urls (2):
+[2026-03-13T12:19:36.590Z]     - https://drive.google.com/file/d/1yyc5fZR5UMgPIlO2vlm2feuQAjYlABiW/view
+[2026-03-13T12:19:36.590Z]     - https://www.shopify.com
+[2026-03-13T12:19:36.590Z] Summary: ws:1, ig:1, ytp:1, urls:2
+[2026-03-13T12:19:36.591Z] Saved final result to result.json
+[2026-03-13T12:19:36.591Z] Override fields: ws, ig, ytp, urls
+[2026-03-13T12:19:36.591Z] Finished at: 2026-03-13T12:19:36.591Z

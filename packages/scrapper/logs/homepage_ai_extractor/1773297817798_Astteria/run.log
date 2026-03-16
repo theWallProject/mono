@@ -1,0 +1,72 @@
+[2026-03-12T06:43:37.798Z] === Homepage AI Extractor: Astteria ===
+[2026-03-12T06:43:37.798Z] Started at: 2026-03-12T06:43:37.798Z
+[2026-03-12T06:43:37.798Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773297817798_Astteria
+[2026-03-12T06:43:37.798Z] Company: Astteria
+[2026-03-12T06:43:37.798Z] Website: astteria.com
+[2026-03-12T06:43:37.798Z] cbRank: 840696
+[2026-03-12T06:43:37.798Z] Reasons: h
+[2026-03-12T06:43:37.798Z] Fetching: https://astteria.com
+[2026-03-12T06:43:48.908Z] Network idle timeout — continuing with current state
+[2026-03-12T06:43:48.964Z] Redirected: https://astteria.com -> https://astteria.com/
+[2026-03-12T06:43:48.986Z] Saved HTML (510845 bytes) to page.html
+[2026-03-12T06:43:48.992Z] Extracted 95 unique links from page
+[2026-03-12T06:43:48.992Z] Saved 95 links to links.json
+[2026-03-12T06:43:48.998Z] Extracted footer HTML (23912 chars)
+[2026-03-12T06:43:48.999Z] Extracted header HTML (100193 chars)
+[2026-03-12T06:43:49.005Z] Website (post-redirect): https://astteria.com/ → origin: https://astteria.com
+[2026-03-12T06:43:49.005Z] External links: 4 (of 95 total)
+[2026-03-12T06:43:49.005Z] ── All external links ──
+[2026-03-12T06:43:49.005Z]   EXT: https://www.facebook.com/ASTTERIA.DIAMONDS
+[2026-03-12T06:43:49.005Z]   EXT: https://www.instagram.com/astteria
+[2026-03-12T06:43:49.006Z]   EXT: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-12T06:43:49.006Z]   EXT: https://www.youtube.com/user/AsteriaDiamonds/videos
+[2026-03-12T06:43:49.006Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T06:43:49.006Z]   REGEX: fb <- https://www.facebook.com/ASTTERIA.DIAMONDS
+[2026-03-12T06:43:49.006Z]   REGEX: ig <- https://www.instagram.com/astteria
+[2026-03-12T06:43:49.006Z]   UNCATEGORIZED: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-12T06:43:49.006Z]   REGEX: ytp <- https://www.youtube.com/user/AsteriaDiamonds/videos
+[2026-03-12T06:43:49.006Z] Programmatic result: ws:1, fb:1, ig:1, ytp:1 | 1 uncategorized
+[2026-03-12T06:43:49.006Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T06:43:49.007Z] Saved AI prompt (7120 chars) to ai_prompt.txt
+[2026-03-12T06:43:49.008Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T06:43:50.951Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T06:44:19.082Z]   AI: First token received, streaming...
+[2026-03-12T06:44:27.133Z] AI response complete: 130 chars in 38.1s
+[2026-03-12T06:44:27.134Z] Saved AI response to ai_response.json
+[2026-03-12T06:44:27.134Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T06:44:27.134Z]   AI LINK: https://www.facebook.com/ASTTERIA.DIAMONDS
+[2026-03-12T06:44:27.134Z]   AI LINK: https://www.instagram.com/astteria/
+[2026-03-12T06:44:27.135Z]   AI LINK: https://www.youtube.com/user/AsteriaDiamonds/videos
+[2026-03-12T06:44:27.135Z] AI returned 3 valid links
+[2026-03-12T06:44:27.135Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T06:44:27.135Z]   AI→REGEX: fb <- https://www.facebook.com/ASTTERIA.DIAMONDS (duplicate, skipped)
+[2026-03-12T06:44:27.135Z]   AI→REGEX: ig <- https://www.instagram.com/astteria/ (duplicate, skipped)
+[2026-03-12T06:44:27.135Z]   AI→REGEX: ytp <- https://www.youtube.com/user/AsteriaDiamonds/videos (duplicate, skipped)
+[2026-03-12T06:44:27.138Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T06:44:27.138Z] Footer/header origins (5):
+[2026-03-12T06:44:27.138Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T06:44:27.138Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T06:44:27.138Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T06:44:27.138Z]   FOOTER/HEADER ORIGIN: https://www.shopify.com
+[2026-03-12T06:44:27.138Z]   FOOTER/HEADER ORIGIN: https://astteria.com
+[2026-03-12T06:44:27.138Z]   ADDED: urls <- https://www.shopify.com (cleaned from https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore)
+[2026-03-12T06:44:27.138Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T06:44:27.138Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T06:44:27.139Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T06:44:27.139Z] ── Step 3: Final dedup ──
+[2026-03-12T06:44:27.139Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T06:44:27.139Z] ── FINAL RESULT ──
+[2026-03-12T06:44:27.139Z]   ws (1):
+[2026-03-12T06:44:27.139Z]     - https://astteria.com
+[2026-03-12T06:44:27.139Z]   fb (1):
+[2026-03-12T06:44:27.139Z]     - https://www.facebook.com/astteria.diamonds
+[2026-03-12T06:44:27.139Z]   ig (1):
+[2026-03-12T06:44:27.139Z]     - https://www.instagram.com/astteria
+[2026-03-12T06:44:27.139Z]   ytp (1):
+[2026-03-12T06:44:27.139Z]     - https://www.youtube.com/@asteriadiamonds
+[2026-03-12T06:44:27.140Z]   urls (1):
+[2026-03-12T06:44:27.140Z]     - https://www.shopify.com
+[2026-03-12T06:44:27.140Z] Summary: ws:1, fb:1, ig:1, ytp:1, urls:1
+[2026-03-12T06:44:27.140Z] Saved final result to result.json
+[2026-03-12T06:44:27.140Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-12T06:44:27.141Z] Finished at: 2026-03-12T06:44:27.141Z

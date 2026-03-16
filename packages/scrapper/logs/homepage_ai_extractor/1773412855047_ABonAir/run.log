@@ -1,0 +1,68 @@
+[2026-03-13T14:40:55.047Z] === Homepage AI Extractor: ABonAir ===
+[2026-03-13T14:40:55.047Z] Started at: 2026-03-13T14:40:55.047Z
+[2026-03-13T14:40:55.048Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773412855047_ABonAir
+[2026-03-13T14:40:55.048Z] Company: ABonAir
+[2026-03-13T14:40:55.048Z] Website: abonair.com
+[2026-03-13T14:40:55.048Z] cbRank: 1174558
+[2026-03-13T14:40:55.048Z] Reasons: h
+[2026-03-13T14:40:55.048Z] Fetching: https://abonair.com
+[2026-03-13T14:41:11.573Z] Redirected: https://abonair.com -> https://www.abonair.com/
+[2026-03-13T14:41:11.578Z] Saved HTML (97607 bytes) to page.html
+[2026-03-13T14:41:11.582Z] Extracted 33 unique links from page
+[2026-03-13T14:41:11.584Z] Saved 33 links to links.json
+[2026-03-13T14:41:11.587Z] Extracted footer HTML (2650 chars)
+[2026-03-13T14:41:11.588Z] Extracted header HTML (18165 chars)
+[2026-03-13T14:41:11.592Z] Website (post-redirect): https://www.abonair.com/ → origin: https://www.abonair.com
+[2026-03-13T14:41:11.593Z] External links: 4 (of 33 total)
+[2026-03-13T14:41:11.593Z] ── All external links ──
+[2026-03-13T14:41:11.593Z]   EXT: https://mal-profi.ru
+[2026-03-13T14:41:11.593Z]   EXT: https://twitter.com/ABonAirRed
+[2026-03-13T14:41:11.593Z]   EXT: https://www.facebook.com/ABonAir1
+[2026-03-13T14:41:11.593Z]   EXT: https://www.linkedin.com/company/abonair
+[2026-03-13T14:41:11.593Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T14:41:11.594Z]   UNCATEGORIZED: https://mal-profi.ru
+[2026-03-13T14:41:11.594Z]   REGEX: tw <- https://twitter.com/ABonAirRed
+[2026-03-13T14:41:11.594Z]   REGEX: fb <- https://www.facebook.com/ABonAir1
+[2026-03-13T14:41:11.594Z]   REGEX: li <- https://www.linkedin.com/company/abonair
+[2026-03-13T14:41:11.594Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-13T14:41:11.594Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T14:41:11.595Z] Saved AI prompt (2905 chars) to ai_prompt.txt
+[2026-03-13T14:41:11.595Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T14:41:11.614Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T14:41:22.741Z]   AI: First token received, streaming...
+[2026-03-13T14:41:28.890Z] AI response complete: 106 chars in 17.3s
+[2026-03-13T14:41:28.891Z] Saved AI response to ai_response.json
+[2026-03-13T14:41:28.891Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T14:41:28.891Z]   AI LINK: https://www.linkedin.com/company/abonair/
+[2026-03-13T14:41:28.891Z]   AI LINK: https://www.facebook.com/ABonAir1
+[2026-03-13T14:41:28.891Z]   AI LINK: https://twitter.com/ABonAirRed
+[2026-03-13T14:41:28.891Z] AI returned 3 valid links
+[2026-03-13T14:41:28.891Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T14:41:28.891Z]   AI→REGEX: li <- https://www.linkedin.com/company/abonair/ (duplicate, skipped)
+[2026-03-13T14:41:28.892Z]   AI→REGEX: fb <- https://www.facebook.com/ABonAir1 (duplicate, skipped)
+[2026-03-13T14:41:28.892Z]   AI→REGEX: tw <- https://twitter.com/ABonAirRed (duplicate, skipped)
+[2026-03-13T14:41:28.892Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T14:41:28.892Z] Footer/header origins (4):
+[2026-03-13T14:41:28.892Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T14:41:28.892Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T14:41:28.892Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-13T14:41:28.892Z]   FOOTER/HEADER ORIGIN: https://www.abonair.com
+[2026-03-13T14:41:28.892Z]   SKIP (not in footer/header): https://mal-profi.ru
+[2026-03-13T14:41:28.892Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T14:41:28.892Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T14:41:28.893Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T14:41:28.893Z] ── Step 3: Final dedup ──
+[2026-03-13T14:41:28.893Z] No urls to dedup
+[2026-03-13T14:41:28.893Z] ── FINAL RESULT ──
+[2026-03-13T14:41:28.893Z]   ws (1):
+[2026-03-13T14:41:28.893Z]     - https://www.abonair.com
+[2026-03-13T14:41:28.893Z]   li (1):
+[2026-03-13T14:41:28.893Z]     - https://www.linkedin.com/company/abonair
+[2026-03-13T14:41:28.893Z]   fb (1):
+[2026-03-13T14:41:28.893Z]     - https://www.facebook.com/abonair1
+[2026-03-13T14:41:28.893Z]   tw (1):
+[2026-03-13T14:41:28.893Z]     - https://x.com/abonairred
+[2026-03-13T14:41:28.893Z] Summary: ws:1, tw:1, fb:1, li:1
+[2026-03-13T14:41:28.894Z] Saved final result to result.json
+[2026-03-13T14:41:28.894Z] Override fields: ws, li, fb, tw
+[2026-03-13T14:41:28.894Z] Finished at: 2026-03-13T14:41:28.894Z

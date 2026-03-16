@@ -1,0 +1,59 @@
+[2026-03-13T08:55:35.213Z] === Homepage AI Extractor: Edge-MT ===
+[2026-03-13T08:55:35.214Z] Started at: 2026-03-13T08:55:35.214Z
+[2026-03-13T08:55:35.214Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773392135213_Edge-MT
+[2026-03-13T08:55:35.214Z] Company: Edge-MT
+[2026-03-13T08:55:35.214Z] Website: edge-mt.com
+[2026-03-13T08:55:35.214Z] cbRank: 1069481
+[2026-03-13T08:55:35.214Z] Reasons: h
+[2026-03-13T08:55:35.214Z] Fetching: https://edge-mt.com
+[2026-03-13T08:55:43.026Z] Redirected: https://edge-mt.com -> https://www.edge-mt.com/
+[2026-03-13T08:55:43.041Z] Saved HTML (434162 bytes) to page.html
+[2026-03-13T08:55:43.045Z] Extracted 15 unique links from page
+[2026-03-13T08:55:43.045Z] Saved 15 links to links.json
+[2026-03-13T08:55:43.048Z] Extracted footer HTML (383 chars)
+[2026-03-13T08:55:43.048Z] Extracted header HTML (7860 chars)
+[2026-03-13T08:55:43.056Z] Website (post-redirect): https://www.edge-mt.com/ → origin: https://www.edge-mt.com
+[2026-03-13T08:55:43.056Z] External links: 3 (of 15 total)
+[2026-03-13T08:55:43.056Z] ── All external links ──
+[2026-03-13T08:55:43.056Z]   EXT: https://www.facebook.com/EdgeMT
+[2026-03-13T08:55:43.056Z]   EXT: https://www.linkedin.com
+[2026-03-13T08:55:43.056Z]   EXT: https://www.youtube.com/channel/UCDV4Sv1grKGttSC8ClEQT8A?guided_help_flow=3
+[2026-03-13T08:55:43.056Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T08:55:43.056Z]   REGEX: fb <- https://www.facebook.com/EdgeMT
+[2026-03-13T08:55:43.056Z]   REGEX: ytc <- https://www.youtube.com/channel/UCDV4Sv1grKGttSC8ClEQT8A?guided_help_flow=3
+[2026-03-13T08:55:43.057Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-13T08:55:43.057Z]   SKIP (regex domain, no match): https://www.linkedin.com
+[2026-03-13T08:55:43.057Z] Programmatic result: ws:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-13T08:55:43.057Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T08:55:43.057Z] Saved AI prompt (2190 chars) to ai_prompt.txt
+[2026-03-13T08:55:43.058Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T08:55:43.164Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T08:55:49.200Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-13T08:55:49.200Z] AI response complete: 0 chars in 6.1s
+[2026-03-13T08:55:49.201Z] Saved AI response to ai_response.json
+[2026-03-13T08:55:49.201Z] ── Parsing AI response (1 lines) ──
+[2026-03-13T08:55:49.201Z] AI returned 0 valid links
+[2026-03-13T08:55:49.201Z] ── Categorizing 0 AI-returned links ──
+[2026-03-13T08:55:49.202Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T08:55:49.202Z] Footer/header origins (1):
+[2026-03-13T08:55:49.202Z]   FOOTER/HEADER ORIGIN: https://www.edge-mt.com
+[2026-03-13T08:55:49.202Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T08:55:49.202Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T08:55:49.202Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-13T08:55:49.805Z]   YOUTUBE: resolved UCDV4Sv1grKGttSC8ClEQT8A → @edgemarketingtechnolog
+[2026-03-13T08:55:49.806Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-13T08:55:49.806Z] ── Step 3: Final dedup ──
+[2026-03-13T08:55:49.806Z] No urls to dedup
+[2026-03-13T08:55:49.806Z] ── FINAL RESULT ──
+[2026-03-13T08:55:49.806Z]   ws (1):
+[2026-03-13T08:55:49.807Z]     - https://www.edge-mt.com
+[2026-03-13T08:55:49.807Z]   fb (1):
+[2026-03-13T08:55:49.807Z]     - https://www.facebook.com/edgemt
+[2026-03-13T08:55:49.807Z]   ytp (1):
+[2026-03-13T08:55:49.807Z]     - https://www.youtube.com/@edgemarketingtechnolog
+[2026-03-13T08:55:49.807Z]   ytc (1):
+[2026-03-13T08:55:49.807Z]     - https://www.youtube.com/channel/UCDV4Sv1grKGttSC8ClEQT8A
+[2026-03-13T08:55:49.807Z] Summary: ws:1, fb:1, ytc:1, ytp:1
+[2026-03-13T08:55:49.808Z] Saved final result to result.json
+[2026-03-13T08:55:49.808Z] Override fields: ws, fb, ytp, ytc
+[2026-03-13T08:55:49.808Z] Finished at: 2026-03-13T08:55:49.808Z

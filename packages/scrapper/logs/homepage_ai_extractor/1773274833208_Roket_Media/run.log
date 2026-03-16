@@ -1,0 +1,66 @@
+[2026-03-12T00:20:33.209Z] === Homepage AI Extractor: Roket Media ===
+[2026-03-12T00:20:33.209Z] Started at: 2026-03-12T00:20:33.209Z
+[2026-03-12T00:20:33.209Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773274833208_Roket_Media
+[2026-03-12T00:20:33.209Z] Company: Roket Media
+[2026-03-12T00:20:33.209Z] Website: roketmedia.com
+[2026-03-12T00:20:33.209Z] cbRank: 721248
+[2026-03-12T00:20:33.209Z] Reasons: h
+[2026-03-12T00:20:33.209Z] Fetching: https://roketmedia.com
+[2026-03-12T00:20:37.399Z] Redirected: https://roketmedia.com -> https://roketmedia.com/
+[2026-03-12T00:20:37.404Z] Saved HTML (93759 bytes) to page.html
+[2026-03-12T00:20:37.412Z] Extracted 32 unique links from page
+[2026-03-12T00:20:37.412Z] Saved 32 links to links.json
+[2026-03-12T00:20:37.416Z] Extracted footer HTML (1704 chars)
+[2026-03-12T00:20:37.416Z] Extracted header HTML (3248 chars)
+[2026-03-12T00:20:37.420Z] Website (post-redirect): https://roketmedia.com/ → origin: https://roketmedia.com
+[2026-03-12T00:20:37.420Z] External links: 5 (of 32 total)
+[2026-03-12T00:20:37.421Z] ── All external links ──
+[2026-03-12T00:20:37.421Z]   EXT: https://vimeo.com/89396394
+[2026-03-12T00:20:37.421Z]   EXT: https://vimeo.com/91973305
+[2026-03-12T00:20:37.421Z]   EXT: https://www.facebook.com/RoketMediaSearch
+[2026-03-12T00:20:37.421Z]   EXT: https://www.linkedin.com/company/roket-media-ltd
+[2026-03-12T00:20:37.421Z]   EXT: https://www.youtube.com/watch?v=kuceVNBTJio
+[2026-03-12T00:20:37.421Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T00:20:37.421Z]   UNCATEGORIZED: https://vimeo.com/89396394
+[2026-03-12T00:20:37.421Z]   UNCATEGORIZED: https://vimeo.com/91973305
+[2026-03-12T00:20:37.421Z]   REGEX: fb <- https://www.facebook.com/RoketMediaSearch
+[2026-03-12T00:20:37.421Z]   REGEX: li <- https://www.linkedin.com/company/roket-media-ltd
+[2026-03-12T00:20:37.421Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-12T00:20:37.422Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=kuceVNBTJio
+[2026-03-12T00:20:37.422Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-12T00:20:37.422Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T00:20:37.422Z] Saved AI prompt (2600 chars) to ai_prompt.txt
+[2026-03-12T00:20:37.423Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T00:20:37.436Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T00:20:46.112Z]   AI: First token received, streaming...
+[2026-03-12T00:20:50.456Z] AI response complete: 90 chars in 13.0s
+[2026-03-12T00:20:50.457Z] Saved AI response to ai_response.json
+[2026-03-12T00:20:50.457Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T00:20:50.457Z]   AI LINK: https://www.facebook.com/RoketMediaSearch
+[2026-03-12T00:20:50.457Z]   AI LINK: https://www.linkedin.com/company/roket-media-ltd
+[2026-03-12T00:20:50.457Z] AI returned 2 valid links
+[2026-03-12T00:20:50.457Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T00:20:50.458Z]   AI→REGEX: fb <- https://www.facebook.com/RoketMediaSearch (duplicate, skipped)
+[2026-03-12T00:20:50.458Z]   AI→REGEX: li <- https://www.linkedin.com/company/roket-media-ltd (duplicate, skipped)
+[2026-03-12T00:20:50.458Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T00:20:50.458Z] Footer/header origins (2):
+[2026-03-12T00:20:50.458Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T00:20:50.458Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T00:20:50.459Z]   SKIP (not in footer/header): https://vimeo.com/89396394
+[2026-03-12T00:20:50.459Z]   SKIP (not in footer/header): https://vimeo.com/91973305
+[2026-03-12T00:20:50.459Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T00:20:50.459Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T00:20:50.459Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T00:20:50.459Z] ── Step 3: Final dedup ──
+[2026-03-12T00:20:50.459Z] No urls to dedup
+[2026-03-12T00:20:50.459Z] ── FINAL RESULT ──
+[2026-03-12T00:20:50.459Z]   ws (1):
+[2026-03-12T00:20:50.459Z]     - https://roketmedia.com
+[2026-03-12T00:20:50.459Z]   li (1):
+[2026-03-12T00:20:50.459Z]     - https://www.linkedin.com/company/roket-media-ltd
+[2026-03-12T00:20:50.459Z]   fb (1):
+[2026-03-12T00:20:50.460Z]     - https://www.facebook.com/roketmediasearch
+[2026-03-12T00:20:50.460Z] Summary: ws:1, fb:1, li:1
+[2026-03-12T00:20:50.460Z] Saved final result to result.json
+[2026-03-12T00:20:50.460Z] Override fields: ws, li, fb
+[2026-03-12T00:20:50.460Z] Finished at: 2026-03-12T00:20:50.460Z

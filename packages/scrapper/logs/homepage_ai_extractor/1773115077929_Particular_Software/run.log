@@ -1,0 +1,80 @@
+[2026-03-10T03:57:57.930Z] === Homepage AI Extractor: Particular Software ===
+[2026-03-10T03:57:57.930Z] Started at: 2026-03-10T03:57:57.930Z
+[2026-03-10T03:57:57.930Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773115077929_Particular_Software
+[2026-03-10T03:57:57.930Z] Company: Particular Software
+[2026-03-10T03:57:57.930Z] Website: particular.net
+[2026-03-10T03:57:57.930Z] cbRank: 371732
+[2026-03-10T03:57:57.930Z] Reasons: h
+[2026-03-10T03:57:57.930Z] Fetching: https://particular.net
+[2026-03-10T03:58:00.920Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-10T03:58:03.888Z] Redirected: https://particular.net -> https://particular.net/
+[2026-03-10T03:58:03.894Z] Saved HTML (26810 bytes) to page.html
+[2026-03-10T03:58:03.896Z] Extracted 46 unique links from page
+[2026-03-10T03:58:03.897Z] Saved 46 links to links.json
+[2026-03-10T03:58:03.900Z] Extracted footer HTML (4071 chars)
+[2026-03-10T03:58:03.900Z] Extracted header HTML (5786 chars)
+[2026-03-10T03:58:03.905Z] Website (post-redirect): https://particular.net/ → origin: https://particular.net
+[2026-03-10T03:58:03.906Z]   SUBDOMAIN: discuss.particular.net (added to ws)
+[2026-03-10T03:58:03.906Z]   SUBDOMAIN: docs.particular.net (added to ws)
+[2026-03-10T03:58:03.906Z]   SUBDOMAIN: learn.particular.net (added to ws)
+[2026-03-10T03:58:03.906Z] Website subdomains found: 3
+[2026-03-10T03:58:03.906Z] External links: 4 (of 46 total)
+[2026-03-10T03:58:03.906Z] ── All external links ──
+[2026-03-10T03:58:03.906Z]   EXT: https://bsky.app/profile/particular.net
+[2026-03-10T03:58:03.906Z]   EXT: https://github.com/Particular
+[2026-03-10T03:58:03.906Z]   EXT: https://www.linkedin.com/company/nservicebus-ltd
+[2026-03-10T03:58:03.906Z]   EXT: https://x.com/ParticularSW
+[2026-03-10T03:58:03.906Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T03:58:03.907Z]   UNCATEGORIZED: https://bsky.app/profile/particular.net
+[2026-03-10T03:58:03.907Z]   REGEX: gh <- https://github.com/Particular
+[2026-03-10T03:58:03.907Z]   REGEX: li <- https://www.linkedin.com/company/nservicebus-ltd
+[2026-03-10T03:58:03.907Z]   REGEX: tw <- https://x.com/ParticularSW
+[2026-03-10T03:58:03.907Z] Programmatic result: ws:4, gh:1, li:1, tw:1 | 1 uncategorized
+[2026-03-10T03:58:03.907Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T03:58:03.908Z] Saved AI prompt (5496 chars) to ai_prompt.txt
+[2026-03-10T03:58:03.908Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T03:58:03.924Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T03:58:26.194Z]   AI: First token received, streaming...
+[2026-03-10T03:58:34.089Z] AI response complete: 146 chars in 30.2s
+[2026-03-10T03:58:34.090Z] Saved AI response to ai_response.json
+[2026-03-10T03:58:34.090Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T03:58:34.090Z]   AI LINK: https://bsky.app/profile/particular.net
+[2026-03-10T03:58:34.090Z]   AI LINK: https://www.linkedin.com/company/nservicebus-ltd/
+[2026-03-10T03:58:34.090Z]   AI LINK: https://github.com/Particular
+[2026-03-10T03:58:34.090Z]   AI LINK: https://x.com/ParticularSW
+[2026-03-10T03:58:34.090Z] AI returned 4 valid links
+[2026-03-10T03:58:34.090Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T03:58:34.090Z]   AI→URLS: https://bsky.app/profile/particular.net
+[2026-03-10T03:58:34.090Z]   AI→REGEX: li <- https://www.linkedin.com/company/nservicebus-ltd/ (duplicate, skipped)
+[2026-03-10T03:58:34.090Z]   AI→REGEX: gh <- https://github.com/Particular (duplicate, skipped)
+[2026-03-10T03:58:34.090Z]   AI→REGEX: tw <- https://x.com/ParticularSW (duplicate, skipped)
+[2026-03-10T03:58:34.092Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T03:58:34.092Z] Footer/header origins (6):
+[2026-03-10T03:58:34.092Z]   FOOTER/HEADER ORIGIN: https://docs.particular.net
+[2026-03-10T03:58:34.092Z]   FOOTER/HEADER ORIGIN: https://discuss.particular.net
+[2026-03-10T03:58:34.092Z]   FOOTER/HEADER ORIGIN: https://bsky.app
+[2026-03-10T03:58:34.092Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T03:58:34.092Z]   FOOTER/HEADER ORIGIN: https://github.com
+[2026-03-10T03:58:34.092Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-10T03:58:34.092Z]   SKIP (AI claimed): https://bsky.app/profile/particular.net
+[2026-03-10T03:58:34.092Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T03:58:34.092Z] ── Step 3: Final dedup ──
+[2026-03-10T03:58:34.092Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T03:58:34.092Z] ── FINAL RESULT ──
+[2026-03-10T03:58:34.093Z]   ws (4):
+[2026-03-10T03:58:34.093Z]     - https://discuss.particular.net
+[2026-03-10T03:58:34.093Z]     - https://docs.particular.net
+[2026-03-10T03:58:34.093Z]     - https://learn.particular.net
+[2026-03-10T03:58:34.093Z]     - https://particular.net
+[2026-03-10T03:58:34.093Z]   li (1):
+[2026-03-10T03:58:34.093Z]     - https://www.linkedin.com/company/nservicebus-ltd
+[2026-03-10T03:58:34.093Z]   tw (1):
+[2026-03-10T03:58:34.093Z]     - https://x.com/particularsw
+[2026-03-10T03:58:34.093Z]   gh (1):
+[2026-03-10T03:58:34.093Z]     - https://github.com/particular
+[2026-03-10T03:58:34.093Z]   urls (1):
+[2026-03-10T03:58:34.093Z]     - https://bsky.app/profile/particular.net
+[2026-03-10T03:58:34.093Z] Summary: ws:4, gh:1, li:1, tw:1, urls:1
+[2026-03-10T03:58:34.096Z] Saved final result to result.json
+[2026-03-10T03:58:34.096Z] Override fields: ws, li, tw, gh, urls
+[2026-03-10T03:58:34.096Z] Finished at: 2026-03-10T03:58:34.096Z

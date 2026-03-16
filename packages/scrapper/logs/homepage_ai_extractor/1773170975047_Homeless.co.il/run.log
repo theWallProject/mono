@@ -1,0 +1,61 @@
+[2026-03-10T19:29:35.048Z] === Homepage AI Extractor: Homeless.co.il ===
+[2026-03-10T19:29:35.048Z] Started at: 2026-03-10T19:29:35.048Z
+[2026-03-10T19:29:35.048Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773170975047_Homeless.co.il
+[2026-03-10T19:29:35.048Z] Company: Homeless.co.il
+[2026-03-10T19:29:35.048Z] Website: homeless.co.il
+[2026-03-10T19:29:35.048Z] cbRank: 507354
+[2026-03-10T19:29:35.048Z] Reasons: h
+[2026-03-10T19:29:35.048Z] Fetching: https://homeless.co.il
+[2026-03-10T19:29:49.921Z] Network idle timeout — continuing with current state
+[2026-03-10T19:29:49.978Z] Redirected: https://homeless.co.il -> https://www.homeless.co.il/
+[2026-03-10T19:29:49.989Z] Saved HTML (298249 bytes) to page.html
+[2026-03-10T19:29:49.995Z] Extracted 288 unique links from page
+[2026-03-10T19:29:49.997Z] Saved 288 links to links.json
+[2026-03-10T19:29:50.001Z] Extracted footer HTML (5947 chars)
+[2026-03-10T19:29:50.001Z] Extracted header HTML (15228 chars)
+[2026-03-10T19:29:50.005Z] Website (post-redirect): https://www.homeless.co.il/ → origin: https://www.homeless.co.il
+[2026-03-10T19:29:50.005Z]   SUBDOMAIN: kablanim.homeless.co.il (added to ws)
+[2026-03-10T19:29:50.005Z]   SUBDOMAIN: moked.homeless.co.il (added to ws)
+[2026-03-10T19:29:50.006Z] Website subdomains found: 2
+[2026-03-10T19:29:50.006Z] External links: 2 (of 288 total)
+[2026-03-10T19:29:50.006Z] ── All external links ──
+[2026-03-10T19:29:50.006Z]   EXT: https://tabnav.com
+[2026-03-10T19:29:50.007Z]   EXT: https://www.facebook.com/homeless.co.il
+[2026-03-10T19:29:50.007Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T19:29:50.007Z]   UNCATEGORIZED: https://tabnav.com
+[2026-03-10T19:29:50.007Z]   REGEX: fb <- https://www.facebook.com/homeless.co.il
+[2026-03-10T19:29:50.007Z] Programmatic result: ws:3, fb:1 | 1 uncategorized
+[2026-03-10T19:29:50.007Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T19:29:50.008Z] Saved AI prompt (5324 chars) to ai_prompt.txt
+[2026-03-10T19:29:50.008Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T19:29:50.028Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T19:30:14.561Z]   AI: First token received, streaming...
+[2026-03-10T19:30:16.035Z] AI response complete: 36 chars in 26.0s
+[2026-03-10T19:30:16.037Z] Saved AI response to ai_response.json
+[2026-03-10T19:30:16.038Z] ── Parsing AI response (1 lines) ──
+[2026-03-10T19:30:16.038Z]   AI LINK: https://www.homeless.co.il/magazine/
+[2026-03-10T19:30:16.038Z] AI returned 1 valid links
+[2026-03-10T19:30:16.038Z] ── Categorizing 1 AI-returned links ──
+[2026-03-10T19:30:16.038Z]   AI→URLS: https://www.homeless.co.il/magazine (cleaned from https://www.homeless.co.il/magazine/)
+[2026-03-10T19:30:16.040Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T19:30:16.040Z] Footer/header origins (3):
+[2026-03-10T19:30:16.040Z]   FOOTER/HEADER ORIGIN: https://www.homeless.co.il
+[2026-03-10T19:30:16.040Z]   FOOTER/HEADER ORIGIN: https://kablanim.homeless.co.il
+[2026-03-10T19:30:16.040Z]   FOOTER/HEADER ORIGIN: https://moked.homeless.co.il
+[2026-03-10T19:30:16.040Z]   SKIP (not in footer/header): https://tabnav.com
+[2026-03-10T19:30:16.040Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T19:30:16.040Z] ── Step 3: Final dedup ──
+[2026-03-10T19:30:16.041Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T19:30:16.041Z] ── FINAL RESULT ──
+[2026-03-10T19:30:16.041Z]   ws (3):
+[2026-03-10T19:30:16.041Z]     - https://kablanim.homeless.co.il
+[2026-03-10T19:30:16.041Z]     - https://moked.homeless.co.il
+[2026-03-10T19:30:16.041Z]     - https://www.homeless.co.il
+[2026-03-10T19:30:16.041Z]   fb (1):
+[2026-03-10T19:30:16.041Z]     - https://www.facebook.com/homeless.co.il
+[2026-03-10T19:30:16.041Z]   urls (1):
+[2026-03-10T19:30:16.041Z]     - https://www.homeless.co.il/magazine
+[2026-03-10T19:30:16.041Z] Summary: ws:3, fb:1, urls:1
+[2026-03-10T19:30:16.042Z] Saved final result to result.json
+[2026-03-10T19:30:16.042Z] Override fields: ws, fb
+[2026-03-10T19:30:16.042Z] Finished at: 2026-03-10T19:30:16.042Z

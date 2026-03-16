@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="he"><head><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords">
+    <title>Solutions in Motion</title>
+
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon48.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon16.ico">
+
+    <link href="/bundles/bootstrap/?v=zrkWJX82jbUi78h5m5fkf-fLVkIezEJ6SYbBZyfhGjw1" rel="stylesheet">
+
+    <link href="/bundles/styles/?v=uBe8YSgO_Al7CA3D4TMfUdz-LdEpxdMiRn-TCZMTpKk1" rel="stylesheet">
+
+    <link href="/bundles/typeicons/?v=dZIE8OY5FKfrhyUBxtPsOXGIe4kHFwc4z4rQh5extJE1" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/opensanshebrew.css">
+    <link href="/bundles/main/?v=tzKxgAhU2VI-UiclOPj2dwdm3Kln8XOGlNNb5zV-NDM1" rel="stylesheet">
+
+    <link rel="canonical" href="https://www.ewavemobile.com/he/">
+    
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-DMWGWNB9D6&amp;cx=c&amp;gtm=4e63b1"></script><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__iw.js" crossorigin="anonymous" integrity="sha384-70ufmXq5nuLl1yrFTO3RfY+DVj0lAHYeSX0dYQsGzUKocfrs74msaYEnsDQqXSk0"></script><script src="/bundles/scripts/head/?v=qH1XlWaAHLu9POegmpoQ5_2iCF-YOHZV2l4KIQeAupA1"></script>
+
+    <script src="/bundles/scripts/angular/?v=im0043h6mfU0HbtL6Cj8Rw70XOMa6D7B-821RP5-pzg1"></script>
+
+
+    <script src="https://www.google.com/recaptcha/api.js?hl=he"></script>
+    
+    <script src="/scripts/apps/HomePageCtr.js"></script>
+
+
+    
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-209660239-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-209660239-1');
+    </script>
+
+
+</head>
+
+<body data-ng-app="ewavemobile" class="home-page ng-scope">
+    <div itemscope="" itemtype="http://schema.oRequest.Url.AbsoluteUrirg/Organization" ng-controller="MasterPageCtr" ng-init="CheckIpAbroad('/he/', 'false')" class="ng-scope">
+        
+        <header class="intro-container" style="">
+                <div class="vid" style="position: absolute; width: 100%; height: 100%; z-index: 0; overflow: hidden;">
+                    <video autoplay="" muted="" loop="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%;">
+                        <source src="/media/1357/ezgifcom-gif-maker.mp4" type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+                </div>
+
+            <div class="smallMenu">
+                <nav class="header-navbar navbar navbar-default aboutMenu">
+                    <div class="container-fluid">
+                        <div class="navbar-collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                        <li><a target="" href="/he/אודות/">אודות</a></li>
+                                        <li><a target="" href="/he/הלקוחות-שלנו/">הלקוחות שלנו</a></li>
+                                        <li><a target="_blank" href="/he/בלוגים/בלוג/">בלוג</a></li>
+                                        <li><a target="" href="/he/דברו-איתנו/">דברו איתנו</a></li>
+                                        <li><a target="_blank" href="http://www.ewave-group.com/he" rel="nofollow">קבוצת Ewave</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                        <li><a href="/en/" onclick="/en/ == '#' ? return false : ''">English</a></li>
+                                        <li><a href="/he/" onclick="/he/ == '#' ? return false : ''">עברית</a></li>
+                                        <li><a href="/ru/" onclick="/ru/ == '#' ? return false : ''">Русский</a></li>
+                                </ul>
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="header-container">
+
+                <div id="menu">
+                    <button class="navbar-toggle navbar-toggle-right" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation" onclick="$('body').toggleClass('menuOpen')">
+                        <em></em><em></em><em></em>
+                    </button>
+
+                    <div class="logo-container">
+                            <a href="/he/">
+                                        <img src="/media/1020/logo.png" class="logoMain" alt="Логотип сайта Ewave mobile" title="logo.png" width="397" height="58">
+
+                                
+                            </a>
+
+
+                        
+                    </div>
+                    <div id="responsiveMenu" class="navbar-collapse collapse">
+                        <nav class="navbar navbar-expand-lg navbar-light static-top sb-navbar">
+
+                            <ul class="header-menu">
+                                <li class="searchFrame">
+                                    <button type="button" aria-label="open search" href="#" ng-click=""></button>
+                                    <input type="text" ng-model="searchInputValue" search-enter-key="DoSearch('/he/', searchInputValue)" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                </li>
+                                        <li class="dropdown">
+                                            <a href="/he/ניהול-שרשרת-אספקה/" onclick="return" data-toggle="dropdown">ניהול שרשרת אספקה</a>
+                                            <span class="dropdown-toggle" style="display:inline-block;"> <b class="caret"></b></span>
+                                            <ul class="dropdown-menu">
+                                                    <li><a href="/he/ניהול-שרשרת-אספקה/ייעוץ-לשרשרת-אספקה-scm/" style="font-size:110%;text-align: right;">ייעוץ לשרשרת אספקה – SCM</a></li>
+                                                    <li><a href="/he/ניהול-שרשרת-אספקה/פתרונות-לניהול-מחסנים-wms/" style="font-size:110%;text-align: right;">פתרונות לניהול מחסנים – WMS</a></li>
+                                                    <li><a href="/he/ניהול-שרשרת-אספקה/ניהול-פלנוגרמות-ושטחי-מדף/" style="font-size:110%;text-align: right;">ניהול פלנוגרמות ושטחי מדף</a></li>
+                                                    <li><a href="/he/ניהול-שרשרת-אספקה/עיתוד-מלאי-ותכניות-ייצור/" style="font-size:110%;text-align: right;">עיתוד מלאי ותכניות ייצור</a></li>
+                                                    <li><a href="/he/ניהול-שרשרת-אספקה/מערכות-לחיזוי-ביקושים/" style="font-size:110%;text-align: right;">מערכות לחיזוי ביקושים</a></li>
+                                                    <li><a href="/he/ניהול-שרשרת-אספקה/מערכות-לניהול-הפצה-tms/" style="font-size:110%;text-align: right;">מערכות לניהול הפצה – TMS</a></li>
+                                                    <li><a href="/he/ניהול-שרשרת-אספקה/הזמנה-חכמה-הדרך-המהירה-להצלחה/" style="font-size:110%;text-align: right;">הזמנה חכמה - הדרך המהירה להצלחה</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="/he/iot-לתעשייה/" onclick="return" data-toggle="dropdown">IoT לתעשייה</a>
+                                            <span class="dropdown-toggle" style="display:inline-block;"> <b class="caret"></b></span>
+                                            <ul class="dropdown-menu">
+                                                    <li><a href="/he/iot-לתעשייה/iiot/" style="font-size:110%;text-align: right;">פתרונות IIoT</a></li>
+                                                    <li><a href="/he/iot-לתעשייה/ייעוץ-בפלטפורמות-iot/" style="font-size:110%;text-align: right;">ייעוץ בפלטפורמות IoT</a></li>
+                                                    <li><a href="/he/iot-לתעשייה/פתרונות-ניהול-נכסים/" style="font-size:110%;text-align: right;">פתרונות ניהול נכסים</a></li>
+                                                    <li><a href="/he/iot-לתעשייה/פתרונות-חכמים-לקמעונאות/" style="font-size:110%;text-align: right;">פתרונות חכמים לקמעונאות</a></li>
+                                                    <li><a href="/he/iot-לתעשייה/פתרונות-ניהול-מתקנים/" style="font-size:110%;text-align: right;">פתרונות ניהול מתקנים</a></li>
+                                                    <li><a href="/he/iot-לתעשייה/פתרונות-iot-מגזריים/" style="font-size:110%;text-align: right;">פתרונות IoT מגזריים</a></li>
+                                                    <li><a href="/he/iot-לתעשייה/מערכות-תפעוליות-לארגונים/" style="font-size:110%;text-align: right;">מערכות תפעוליות לארגונים</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="/he/פתרונות-חומרה/" onclick="return" data-toggle="dropdown">פתרונות חומרה</a>
+                                            <span class="dropdown-toggle" style="display:inline-block;"> <b class="caret"></b></span>
+                                            <ul class="dropdown-menu">
+                                                    <li><a href="/he/המוצרים-שלנו/טאבלטים-מוקשחים/" style="font-size:110%;text-align: right;">טאבלטים מוקשחים</a></li>
+                                                    <li><a href="/he/המוצרים-שלנו/צגי-מחיר-דיגיטליים-esl/" style="font-size:110%;text-align: right;">צגי מחיר דיגיטליים - ESL</a></li>
+                                                    <li><a href="/he/פתרונות-חומרה/מסופונים/" style="font-size:110%;text-align: right;">מסופונים</a></li>
+                                                    <li><a href="/he/פתרונות-חומרה/קוראי-ברקוד/" style="font-size:110%;text-align: right;">קוראי ברקוד</a></li>
+                                                    <li><a href="/he/פתרונות-חומרה/פתרונות-rfid/" style="font-size:110%;text-align: right;">פתרונות RFID</a></li>
+                                                    <li><a href="/he/פתרונות-חומרה/מדפסות-ופתרונות-משלימים/" style="font-size:110%;text-align: right;">מדפסות ופתרונות משלימים</a></li>
+                                                    <li><a href="/he/המוצרים-שלנו/" style="font-size:110%;text-align: right;">כלל מוצרי החומרה</a></li>
+                                            </ul>
+                                        </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                            <div class="sp-shape-1 Default-sp-shape-1 ">
+                                <label class="sp-shape-text"></label>
+                                <div class="sp-shape-2 Default-sp-shape-2 "></div>
+                                <div class="sp-shape-3 Default-sp-shape-3 "></div>
+                            </div>
+
+            </div>
+        </header>
+
+        <main id="content" class="group" role="main">
+            <article>
+                <div ng-controller="HomePageCtr" class="ng-scope">
+
+        <div class="newsItems slick-initialized slick-slider" data-slick=""><div class="slick-prev slick-arrow" style=""><span class="glyphicon glyphicon-chevron-left"></span></div>
+
+                    <div class="slick-list draggable" style="height: 31.4219px;"><div class="slick-track" style="opacity: 1; width: 19200px; transform: translate3d(-1280px, 0px, 0px);"><div class="slider clearfix slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p>חברת אלכם מדיקל רכשה פתרון WMS של חברת איוויב מובייל</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">Ewave Mobile זכתה בפרויקט של 20 מיליון ש"ח ברוסיה: מקימה פעילות מקומית בתחומי ה-IoT ומחשוב שרשרת האספקה</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">חברת ג.ע.ש- גורי עצמון שניר בע"מ הטמיעה בהצלחה פרוייקט WMS באתר הלוגיסטי החדש</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">חברת דיפ שיווק רכשה פתרון WMS לטובת יישום במרכז הלוגיסטי החדש המוקם בימים אילו</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">חברת דיפלומט הטמיעה בהצלחה מערכת תחזיות ועיתוד מלאי</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">הוטמע בחברת פז, פתרון ניהול הפלנוגרמות של חברת Blue Yonder לניהול וסידור המדפים ברשת Yellow, הפרויקט ייושם על ידי eWave Mobile</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p>חברת eWave Mobile הינה חלק מקבוצה עולמית המספקת פתרונות שרשרת אספקה של Blue Yonder. לפרטים נוספים <a rel="nofollow" href="https://the-alliance-partnership.com/blue-yonder-partners-form-the-alliance-partnership-to-improve-resiliency-of-global-supply-chains/" target="_blank" tabindex="-1">לחץ כאן</a></p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p>חברת אלכם מדיקל רכשה פתרון WMS של חברת איוויב מובייל</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">Ewave Mobile זכתה בפרויקט של 20 מיליון ש"ח ברוסיה: מקימה פעילות מקומית בתחומי ה-IoT ומחשוב שרשרת האספקה</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">חברת ג.ע.ש- גורי עצמון שניר בע"מ הטמיעה בהצלחה פרוייקט WMS באתר הלוגיסטי החדש</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">חברת דיפ שיווק רכשה פתרון WMS לטובת יישום במרכז הלוגיסטי החדש המוקם בימים אילו</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="10" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">חברת דיפלומט הטמיעה בהצלחה מערכת תחזיות ועיתוד מלאי</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="11" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p style="direction: rtl;">הוטמע בחברת פז, פתרון ניהול הפלנוגרמות של חברת Blue Yonder לניהול וסידור המדפים ברשת Yellow, הפרויקט ייושם על ידי eWave Mobile</p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="12" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p>חברת eWave Mobile הינה חלק מקבוצה עולמית המספקת פתרונות שרשרת אספקה של Blue Yonder. לפרטים נוספים <a rel="nofollow" href="https://the-alliance-partnership.com/blue-yonder-partners-form-the-alliance-partnership-to-improve-resiliency-of-global-supply-chains/" target="_blank" tabindex="-1">לחץ כאן</a></p>
+                            </div>
+
+                        </div>
+                    </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="13" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                        <div class="container">
+                            <div class="block-container-news">
+                                <p>חברת אלכם מדיקל רכשה פתרון WMS של חברת איוויב מובייל</p>
+                            </div>
+
+                        </div>
+                    </div></div></div>
+                    
+                    
+                    
+                    
+                    
+                    
+
+        <div class="slick-next slick-arrow" style=""><span class="glyphicon glyphicon-chevron-right"></span></div></div>
+
+
+    <ul class="power-buttons include-image" ng-init="InitNavItems('[{&quot;Image&quot;:&quot;/media/1047/industrial-iot.png&quot;,&quot;SubImage&quot;:&quot;/media/1076/industrial-iot-on.png&quot;,&quot;BGColor&quot;:&quot;2dcee8&quot;,&quot;TextLink&quot;:&quot;IoT לתעשייה&quot;,&quot;Link&quot;:&quot;/he/iot-לתעשייה/&quot;},{&quot;Image&quot;:&quot;/media/1045/scm.png&quot;,&quot;SubImage&quot;:&quot;/media/1078/scm-on.png&quot;,&quot;BGColor&quot;:&quot;33dd90&quot;,&quot;TextLink&quot;:&quot;ניהול שרשרת אספקה&quot;,&quot;Link&quot;:&quot;/he/ניהול-שרשרת-אספקה/&quot;},{&quot;Image&quot;:&quot;/media/1046/hardware.png&quot;,&quot;SubImage&quot;:&quot;/media/1077/hardware-on.png&quot;,&quot;BGColor&quot;:&quot;e5ac2e&quot;,&quot;TextLink&quot;:&quot;מוצרי חומרה&quot;,&quot;Link&quot;:&quot;/he/המוצרים-שלנו/&quot;},{&quot;Image&quot;:&quot;/media/1048/our-clients.png&quot;,&quot;SubImage&quot;:&quot;/media/1075/our-clients-on.png&quot;,&quot;BGColor&quot;:&quot;e9e62a&quot;,&quot;TextLink&quot;:&quot;הלקוחות שלנו&quot;,&quot;Link&quot;:&quot;/he/הלקוחות-שלנו/&quot;}]')">
+        <!-- ngRepeat: navItem in NavItems --><li ng-init="imgsrc=navItem.Image" ng-repeat="navItem in NavItems" ng-mouseover="hoverActive=true;imgsrc=navItem.SubImage" ng-mouseleave="hoverActive=false; imgsrc=navItem.Image" ng-style="hoverActive ? {'background-color':'#2dcee8'} : {}" class="ng-scope">
+            <a href="/he/iot-לתעשייה/">
+                <div class="image-container hidden-xs"><img ng-src="/media/1047/industrial-iot.png" src="/media/1047/industrial-iot.png"></div>
+                <div class="button-title ng-binding">IoT לתעשייה</div>
+            </a>
+        </li><!-- end ngRepeat: navItem in NavItems --><li ng-init="imgsrc=navItem.Image" ng-repeat="navItem in NavItems" ng-mouseover="hoverActive=true;imgsrc=navItem.SubImage" ng-mouseleave="hoverActive=false; imgsrc=navItem.Image" ng-style="hoverActive ? {'background-color':'#33dd90'} : {}" class="ng-scope">
+            <a href="/he/ניהול-שרשרת-אספקה/">
+                <div class="image-container hidden-xs"><img ng-src="/media/1045/scm.png" src="/media/1045/scm.png"></div>
+                <div class="button-title ng-binding">ניהול שרשרת אספקה</div>
+            </a>
+        </li><!-- end ngRepeat: navItem in NavItems --><li ng-init="imgsrc=navItem.Image" ng-repeat="navItem in NavItems" ng-mouseover="hoverActive=true;imgsrc=navItem.SubImage" ng-mouseleave="hoverActive=false; imgsrc=navItem.Image" ng-style="hoverActive ? {'background-color':'#e5ac2e'} : {}" class="ng-scope">
+            <a href="/he/המוצרים-שלנו/">
+                <div class="image-container hidden-xs"><img ng-src="/media/1046/hardware.png" src="/media/1046/hardware.png"></div>
+                <div class="button-title ng-binding">מוצרי חומרה</div>
+            </a>
+        </li><!-- end ngRepeat: navItem in NavItems --><li ng-init="imgsrc=navItem.Image" ng-repeat="navItem in NavItems" ng-mouseover="hoverActive=true;imgsrc=navItem.SubImage" ng-mouseleave="hoverActive=false; imgsrc=navItem.Image" ng-style="hoverActive ? {'background-color':'#e9e62a'} : {}" class="ng-scope">
+            <a href="/he/הלקוחות-שלנו/">
+                <div class="image-container hidden-xs"><img ng-src="/media/1048/our-clients.png" src="/media/1048/our-clients.png"></div>
+                <div class="button-title ng-binding">הלקוחות שלנו</div>
+            </a>
+        </li><!-- end ngRepeat: navItem in NavItems -->
+    </ul>
+
+
+
+    <div class="about-us-container">
+        <div class="container block-container">
+                <h2>מי אנחנו</h2>
+                <div>
+                    <p style="direction: rtl;">Ewave Mobile (איוויב מובייל) היא החברה המובילה בישראל בתחומי ניהול שרשרת אספקה, יישום פתרונות משולבים של חומרה ותוכנה, והובלת פרויקטי "אינטרנט של הדברים" (IoT) לתעשייה. החברה מספקת פתרונות מחשוב מקצה לקצה לכלל ענפי התעשייה, הקמעונאות, הלוגיסטיקה ועוד, וכן מערכות מתקדמות המשלבות חומרה ותוכנה עבור העובד הנייד בכל ארגון.</p>
+                </div>
+                <p>
+                    <a href="/he/אודות/">
+                        קראו עוד
+                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                    </a>
+                </p>
+
+        </div>
+        <div class="departmentsMenu">
+                    <div class="item">
+                        <button type="button">IoT</button>
+                        <div class="departmentCat dep_0"></div>
+                        
+                    </div>
+                    <div class="item">
+                        <button type="button">HW</button>
+                        <div class="departmentCat dep_1"></div>
+                        
+                    </div>
+                    <div class="item">
+                        <button type="button">SCM</button>
+                        <div class="departmentCat dep_2"></div>
+                        
+                    </div>
+
+        </div>
+    </div>
+
+    <div class="in-numbers" id="counterMobility">
+
+        <h2>Ewave Mobile במספרים</h2>
+
+        <ul>
+                <li>
+                    <div class="image-container">
+                            <img src="/media/1052/icon-3.png" alt="Корпоративные клиенты Ewave mobile, фото" title="icon-3.png" width="218" height="183">
+
+                    </div>
+                    <div class="number counter-value" data-count="172"></div>
+                    <div class="description">לקוחות ארגוניים</div>
+                </li>
+                <li>
+                    <div class="image-container">
+                            <img src="/media/1053/icon-2.png" alt="Пользователи решений управлений цепями поставок, фото" title="icon-2.png" width="224" height="168">
+
+                    </div>
+                    <div class="number counter-value" data-count="3234"></div>
+                    <div class="description">משתמשים בפתרונות SCM</div>
+                </li>
+                <li>
+                    <div class="image-container">
+                            <img src="/media/1054/icon-1.png" alt="Подключенные датчики IoT" title="icon-1.png" width="203" height="203">
+
+                    </div>
+                    <div class="number counter-value" data-count="9980"></div>
+                    <div class="description">חיישני IoT מחוברים</div>
+                </li>
+        </ul>
+    </div>
+
+    <div class="promotion-sliders slick-initialized slick-slider" data-slick=""><div class="slick-prev slick-arrow" style=""><span class="glyphicon glyphicon-chevron-left"></span></div>
+                <div class="slick-list draggable" style="height: 409px;"><div class="slick-track" style="opacity: 1; width: 8960px; transform: translate3d(-1280px, 0px, 0px);"><div class="slider clearfix slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                    <div class="container">
+                        <div class="col-sm-5 hidden-xs">
+                                <img src="/media/1170/scm.png" alt="Управление цепочками поставок, фото" title="scm.png" width="399" height="409">
+                        </div>
+                        <div class="col-sm-7 col-xs-12 @*content-container*@">
+                            <div class="block-container">
+                                <h2>ניהול שרשרת אספקה</h2>
+                                <p style="direction: rtl;">שרשראות האספקה כיום קשורות זו בזו, עם רשתות לוגיסטיקה מורכבות וגופים רבים העובדים בסנכרון ומספקים מוצרים ללקוחות. שרשרת אספקה גמישה תסייע לארגון להתמודד ביעילות ובמהירות עם השינויים התכופים בשווקים ובטכנולוגיות, ולהשיג יתרון עסקי מובהק על מתחריו.&nbsp;Ewave Mobile מספקת פתרון מקצה לקצה לתחומי ניהול שרשרת האספקה (SCM) וניהול הלוגיסטיקה, עם דגש על תעשייה וקמעונאות.</p>
+                                <p>
+                                    <a href="/he/ניהול-שרשרת-אספקה/" tabindex="-1">
+                                        לכל פתרונות שרשרת האספקה
+                                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slider clearfix slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" style="width: 1280px;">
+                    <div class="container">
+                        <div class="col-sm-5 hidden-xs">
+                                <img src="/media/1055/1445259677378.png" alt="Аппаратные решения для бизнеса, фото" title="1445259677378.png" width="399" height="409">
+                        </div>
+                        <div class="col-sm-7 col-xs-12 @*content-container*@">
+                            <div class="block-container">
+                                <h2>מוצרי חומרה</h2>
+                                <p style="direction: rtl;"><span>מאז הקמתה, התמחתה Ewave Mobile במתן מענה הוליסטי לכל צורכי המחשוב הנייד והתפעול של העובדים הניידים בארגון, עם דגש על יישום של מוצרי חומרה וציוד קצה לצד שירות טכני מקיף. במקביל, החברה פיתחה תשתיות תוכנה מוכנות בתחומים שונים והיא מפתחת עבור לקוחותיה מערכות תפעוליות לפי דרישה, לצד אינטגרציה ואספקת מוצרי חומרה משלימים כגון טלפונים סלולריים מכווני תעשייה, טאבלטים, מסופונים מוקשחים, קוראי ברקוד ו-RFID, מדפסות וחומרים מתכלים.</span></p>
+                                <p>
+                                    <a href="/he/המוצרים-שלנו/" tabindex="0">
+                                        לכל מוצרי החומרה
+                                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slider clearfix slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                    <div class="container">
+                        <div class="col-sm-5 hidden-xs">
+                                <img src="/media/1169/iot.png" alt="Промышленный интернет вещей, фотография" title="iot.png" width="399" height="409">
+                        </div>
+                        <div class="col-sm-7 col-xs-12 @*content-container*@">
+                            <div class="block-container">
+                                <h2>IoT לתעשייה</h2>
+                                <p style="direction: rtl;"><span>תחום ה"אינטרנט של הדברים" (Internet of Things – IoT) מתפתח במהירות ומשלב תקשורת אלחוטית, Big Data ובינה מלאכותית לצורך הפיכת מכונות ותהליכים ל"חכמים" יותר, באמצעות חיישנים המאפשרים לאסוף נתונים, לנתח אותם וליישם פעולות בשטח בזמן אמת. אנו סבורים שהמהפכה התעשייתית הרביעית שמבשרת שרשרת אספקה קוגניטיבית וחכמה יותר, דורשת ספק שירות המביא ידע עמוק הן בתהליכים המדוברים והן בדורות הטכנולוגיה החדשים שנולדים.</span></p>
+                                <p>
+                                    <a href="/he/iot-לתעשייה/" tabindex="-1">
+                                        לכל פתרונות ה-IoT
+                                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slider clearfix slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                    <div class="container">
+                        <div class="col-sm-5 hidden-xs">
+                                <img src="/media/1170/scm.png" alt="Управление цепочками поставок, фото" title="scm.png" width="399" height="409">
+                        </div>
+                        <div class="col-sm-7 col-xs-12 @*content-container*@">
+                            <div class="block-container">
+                                <h2>ניהול שרשרת אספקה</h2>
+                                <p style="direction: rtl;">שרשראות האספקה כיום קשורות זו בזו, עם רשתות לוגיסטיקה מורכבות וגופים רבים העובדים בסנכרון ומספקים מוצרים ללקוחות. שרשרת אספקה גמישה תסייע לארגון להתמודד ביעילות ובמהירות עם השינויים התכופים בשווקים ובטכנולוגיות, ולהשיג יתרון עסקי מובהק על מתחריו.&nbsp;Ewave Mobile מספקת פתרון מקצה לקצה לתחומי ניהול שרשרת האספקה (SCM) וניהול הלוגיסטיקה, עם דגש על תעשייה וקמעונאות.</p>
+                                <p>
+                                    <a href="/he/ניהול-שרשרת-אספקה/" tabindex="-1">
+                                        לכל פתרונות שרשרת האספקה
+                                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                    <div class="container">
+                        <div class="col-sm-5 hidden-xs">
+                                <img src="/media/1055/1445259677378.png" alt="Аппаратные решения для бизнеса, фото" title="1445259677378.png" width="399" height="409">
+                        </div>
+                        <div class="col-sm-7 col-xs-12 @*content-container*@">
+                            <div class="block-container">
+                                <h2>מוצרי חומרה</h2>
+                                <p style="direction: rtl;"><span>מאז הקמתה, התמחתה Ewave Mobile במתן מענה הוליסטי לכל צורכי המחשוב הנייד והתפעול של העובדים הניידים בארגון, עם דגש על יישום של מוצרי חומרה וציוד קצה לצד שירות טכני מקיף. במקביל, החברה פיתחה תשתיות תוכנה מוכנות בתחומים שונים והיא מפתחת עבור לקוחותיה מערכות תפעוליות לפי דרישה, לצד אינטגרציה ואספקת מוצרי חומרה משלימים כגון טלפונים סלולריים מכווני תעשייה, טאבלטים, מסופונים מוקשחים, קוראי ברקוד ו-RFID, מדפסות וחומרים מתכלים.</span></p>
+                                <p>
+                                    <a href="/he/המוצרים-שלנו/" tabindex="-1">
+                                        לכל מוצרי החומרה
+                                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                    <div class="container">
+                        <div class="col-sm-5 hidden-xs">
+                                <img src="/media/1169/iot.png" alt="Промышленный интернет вещей, фотография" title="iot.png" width="399" height="409">
+                        </div>
+                        <div class="col-sm-7 col-xs-12 @*content-container*@">
+                            <div class="block-container">
+                                <h2>IoT לתעשייה</h2>
+                                <p style="direction: rtl;"><span>תחום ה"אינטרנט של הדברים" (Internet of Things – IoT) מתפתח במהירות ומשלב תקשורת אלחוטית, Big Data ובינה מלאכותית לצורך הפיכת מכונות ותהליכים ל"חכמים" יותר, באמצעות חיישנים המאפשרים לאסוף נתונים, לנתח אותם וליישם פעולות בשטח בזמן אמת. אנו סבורים שהמהפכה התעשייתית הרביעית שמבשרת שרשרת אספקה קוגניטיבית וחכמה יותר, דורשת ספק שירות המביא ידע עמוק הן בתהליכים המדוברים והן בדורות הטכנולוגיה החדשים שנולדים.</span></p>
+                                <p>
+                                    <a href="/he/iot-לתעשייה/" tabindex="-1">
+                                        לכל פתרונות ה-IoT
+                                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slider clearfix slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 1280px;">
+                    <div class="container">
+                        <div class="col-sm-5 hidden-xs">
+                                <img src="/media/1170/scm.png" alt="Управление цепочками поставок, фото" title="scm.png" width="399" height="409">
+                        </div>
+                        <div class="col-sm-7 col-xs-12 @*content-container*@">
+                            <div class="block-container">
+                                <h2>ניהול שרשרת אספקה</h2>
+                                <p style="direction: rtl;">שרשראות האספקה כיום קשורות זו בזו, עם רשתות לוגיסטיקה מורכבות וגופים רבים העובדים בסנכרון ומספקים מוצרים ללקוחות. שרשרת אספקה גמישה תסייע לארגון להתמודד ביעילות ובמהירות עם השינויים התכופים בשווקים ובטכנולוגיות, ולהשיג יתרון עסקי מובהק על מתחריו.&nbsp;Ewave Mobile מספקת פתרון מקצה לקצה לתחומי ניהול שרשרת האספקה (SCM) וניהול הלוגיסטיקה, עם דגש על תעשייה וקמעונאות.</p>
+                                <p>
+                                    <a href="/he/ניהול-שרשרת-אספקה/" tabindex="-1">
+                                        לכל פתרונות שרשרת האספקה
+                                        <span class="typcn typcn-chevron-left" aria-hidden="true"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div>
+                
+                
+
+    <div class="slick-next slick-arrow" style=""><span class="glyphicon glyphicon-chevron-right"></span></div></div>
+</div>
+<script>
+    buildDepartmentsMenu.Init();
+</script>
+
+
+            </article>
+        </main>
+        <footer class="page-footer clearfix">
+            <div class="container">
+                <div class="col-sm-7 col-xs-12 footer-links">
+
+                    <ul class="links-list clearfix">
+                                <li class="col-sm-4 col-xs-6"><a target="" href="/he/המוצרים-שלנו/">מוצרי חומרה</a></li>
+                                <li class="col-sm-4 col-xs-6"><a target="" href="/he/ניהול-שרשרת-אספקה/">ניהול שרשרת אספקה</a></li>
+                                <li class="col-sm-4 col-xs-6"><a target="" href="/he/iot-לתעשייה/">IoT לתעשייה</a></li>
+
+                    </ul>
+
+                    <ul class="links-list clearfix">
+                                <li class="col-sm-3 col-xs-6"><a target="" href="/he/דברו-איתנו/">דברו איתנו</a></li>
+                                <li class="col-sm-3 col-xs-6"><a target="" href="/he/אודות/">אודות</a></li>
+                                <li class="col-sm-3 col-xs-6"><a target="_blank" href="http://www.ewave-group.com/he" rel="nofollow">קבוצת  EWAVE</a></li>
+                                <li class="col-sm-3 col-xs-6"><a target="" href="/he/הצהרת-נגישות/">הצהרת נגישות</a></li>
+
+                    </ul>
+
+                    <ul class="languages-list hidden-sm">
+                                <li><a href="/en/">English</a></li>
+                                <li><a href="/he/">עברית</a></li>
+                                <li><a href="/en/">Русский</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-12 footer-links ContactFooterClass">
+                    <ul class="company-details">
+                                <li>
+                                    <span class="typcn" style="color:#2dcee8" aria-hidden="true">
+                                                <img src="/media/1106/location_icon.png" alt="Иконка локации" title="location_icon.png" width="16" height="20">
+
+                                    </span>
+                                    <a target="_blank" href="https://waze.com/ul?q=מבטחים 2, קריית מטלון, פתח תקווה" rel="nofollow">
+                                        מבטחים 2, קריית מטלון, פתח תקווה
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="typcn" style="color:#2dcee8" aria-hidden="true">
+                                                <img src="/media/1107/phone_icon.png" alt="Иконка телефона" title="phone_icon.png" width="20" height="19">
+
+                                    </span>
+                                    <a target="_blank" href="tel:03-9292200" rel="nofollow">
+                                        03-9292200
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="typcn" style="color:#2dcee8" aria-hidden="true">
+                                                <img src="/media/1105/email_icon.png" alt="Иконка E-Mail" title="email_icon.png" width="20" height="13">
+
+                                    </span>
+                                    <a target="_blank" href="mailto:info@ewavemobile.co.il" rel="nofollow">
+                                        info@ewavemobile.co.il
+                                    </a>
+                                </li>
+
+                    </ul>
+
+                    <ul class="social-links hidden-xs">
+                                <li>
+                                    <a target="_blank" href="https://www.linkedin.com/company/474986/admin/" rel="nofollow">
+                                            <img src="/media/1018/icon-linkdin.png" alt="Иконка LinkedIn" title="icon-linkdin.png" width="26" height="25">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.facebook.com/TheEwaveGroup" rel="nofollow">
+                                            <img src="/media/1019/icon-facebook.png" alt="Иконка Facebook" title="icon-facebook.png" width="14" height="25">
+                                    </a>
+                                </li>
+
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <div class="footer-bottom-row">
+            <div class="container">
+                <p class="copyright">© 2018 כל הזכויות שמורות</p>
+                <p class="created-by">
+                    <span>A site by</span>
+                    <a href="#" title="Ewave Group"><img src="/images/ewavefooterlogo.png" alt="Ewave"></a>
+                </p>
+            </div>
+        </div>
+
+        
+    </div>
+
+</body></html>

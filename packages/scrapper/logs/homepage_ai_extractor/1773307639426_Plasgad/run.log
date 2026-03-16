@@ -1,0 +1,75 @@
+[2026-03-12T09:27:19.426Z] === Homepage AI Extractor: Plasgad ===
+[2026-03-12T09:27:19.427Z] Started at: 2026-03-12T09:27:19.426Z
+[2026-03-12T09:27:19.427Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773307639426_Plasgad
+[2026-03-12T09:27:19.427Z] Company: Plasgad
+[2026-03-12T09:27:19.427Z] Website: plasgad.com
+[2026-03-12T09:27:19.427Z] cbRank: 893602
+[2026-03-12T09:27:19.427Z] Reasons: h
+[2026-03-12T09:27:19.427Z] Fetching: https://plasgad.com
+[2026-03-12T09:27:24.620Z] Redirected: https://plasgad.com -> https://www.plasgad.com/
+[2026-03-12T09:27:24.630Z] Saved HTML (243255 bytes) to page.html
+[2026-03-12T09:27:24.634Z] Extracted 57 unique links from page
+[2026-03-12T09:27:24.634Z] Saved 57 links to links.json
+[2026-03-12T09:27:24.638Z] Extracted footer HTML (15272 chars)
+[2026-03-12T09:27:24.639Z] Extracted header HTML (46622 chars)
+[2026-03-12T09:27:24.643Z] Website (post-redirect): https://www.plasgad.com/ → origin: https://www.plasgad.com
+[2026-03-12T09:27:24.643Z] External links: 4 (of 57 total)
+[2026-03-12T09:27:24.643Z] ── All external links ──
+[2026-03-12T09:27:24.643Z]   EXT: https://www.facebook.com/plasgadplasticsolutions
+[2026-03-12T09:27:24.643Z]   EXT: https://www.linkedin.com/company/plasgad-plastic-products
+[2026-03-12T09:27:24.643Z]   EXT: https://www.whiteweb.co.il
+[2026-03-12T09:27:24.644Z]   EXT: https://www.youtube.com/channel/UCn2yCVDBgyIa2Or8iKSQCKw
+[2026-03-12T09:27:24.644Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T09:27:24.644Z]   REGEX: fb <- https://www.facebook.com/plasgadplasticsolutions
+[2026-03-12T09:27:24.644Z]   REGEX: li <- https://www.linkedin.com/company/plasgad-plastic-products
+[2026-03-12T09:27:24.644Z]   UNCATEGORIZED: https://www.whiteweb.co.il
+[2026-03-12T09:27:24.644Z]   REGEX: ytc <- https://www.youtube.com/channel/UCn2yCVDBgyIa2Or8iKSQCKw
+[2026-03-12T09:27:24.644Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-12T09:27:24.644Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T09:27:24.647Z] Saved AI prompt (9908 chars) to ai_prompt.txt
+[2026-03-12T09:27:24.647Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T09:27:24.662Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T09:28:09.773Z]   AI: First token received, streaming...
+[2026-03-12T09:28:21.101Z] AI response complete: 165 chars in 56.5s
+[2026-03-12T09:28:21.102Z] Saved AI response to ai_response.json
+[2026-03-12T09:28:21.102Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T09:28:21.102Z]   AI LINK: https://www.linkedin.com/company/plasgad-plastic-products/
+[2026-03-12T09:28:21.103Z]   AI LINK: https://www.facebook.com/plasgadplasticsolutions/
+[2026-03-12T09:28:21.103Z]   AI LINK: https://www.youtube.com/channel/UCn2yCVDBgyIa2Or8iKSQCKw
+[2026-03-12T09:28:21.103Z] AI returned 3 valid links
+[2026-03-12T09:28:21.103Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T09:28:21.103Z]   AI→REGEX: li <- https://www.linkedin.com/company/plasgad-plastic-products/ (duplicate, skipped)
+[2026-03-12T09:28:21.103Z]   AI→REGEX: fb <- https://www.facebook.com/plasgadplasticsolutions/ (duplicate, skipped)
+[2026-03-12T09:28:21.103Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCn2yCVDBgyIa2Or8iKSQCKw (duplicate, skipped)
+[2026-03-12T09:28:21.103Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T09:28:21.104Z] Footer/header origins (5):
+[2026-03-12T09:28:21.104Z]   FOOTER/HEADER ORIGIN: https://www.plasgad.com
+[2026-03-12T09:28:21.104Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T09:28:21.104Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T09:28:21.104Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T09:28:21.104Z]   FOOTER/HEADER ORIGIN: https://www.whiteweb.co.il
+[2026-03-12T09:28:21.104Z]   ADDED: urls <- https://www.whiteweb.co.il
+[2026-03-12T09:28:21.104Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T09:28:21.104Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T09:28:21.104Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T09:28:21.511Z]   YOUTUBE: resolved UCn2yCVDBgyIa2Or8iKSQCKw → @plasgad1
+[2026-03-12T09:28:21.511Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T09:28:21.512Z] ── Step 3: Final dedup ──
+[2026-03-12T09:28:21.512Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T09:28:21.512Z] ── FINAL RESULT ──
+[2026-03-12T09:28:21.512Z]   ws (1):
+[2026-03-12T09:28:21.512Z]     - https://www.plasgad.com
+[2026-03-12T09:28:21.512Z]   li (1):
+[2026-03-12T09:28:21.512Z]     - https://www.linkedin.com/company/plasgad-plastic-products
+[2026-03-12T09:28:21.512Z]   fb (1):
+[2026-03-12T09:28:21.512Z]     - https://www.facebook.com/plasgadplasticsolutions
+[2026-03-12T09:28:21.512Z]   ytp (1):
+[2026-03-12T09:28:21.512Z]     - https://www.youtube.com/@plasgad1
+[2026-03-12T09:28:21.512Z]   ytc (1):
+[2026-03-12T09:28:21.512Z]     - https://www.youtube.com/channel/UCn2yCVDBgyIa2Or8iKSQCKw
+[2026-03-12T09:28:21.512Z]   urls (1):
+[2026-03-12T09:28:21.512Z]     - https://www.whiteweb.co.il
+[2026-03-12T09:28:21.513Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-12T09:28:21.513Z] Saved final result to result.json
+[2026-03-12T09:28:21.513Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-12T09:28:21.513Z] Finished at: 2026-03-12T09:28:21.513Z

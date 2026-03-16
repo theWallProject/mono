@@ -1,0 +1,476 @@
+<!DOCTYPE html><html lang="en-US"><head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  
+  <meta name="description" content="AI-powered endurance coaching. Personalized training plans, Garmin integration, and smart load management for runners and cyclists.">
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Slack, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://enducloud.com">
+  <meta property="og:title" content="EnduCloud — AI Endurance Coach">
+  <meta property="og:description" content="Personalized training plans powered by AI. Smart load management, Garmin sync, and real-time coaching for runners and cyclists.">
+  <meta property="og:image" content="https://enducloud.com/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="EnduCloud">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EnduCloud — AI Endurance Coach">
+  <meta name="twitter:description" content="Personalized training plans powered by AI. Smart load management, Garmin sync, and real-time coaching for runners and cyclists.">
+  <meta name="twitter:image" content="https://enducloud.com/og-banner.png">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="EnduCloud">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Material Icons Font -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>EnduCloud</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Browser compatibility check.
+       Flutter web (WASM build) requires WebAssembly GC support.
+       We detect this synchronously before loading any other scripts so we can
+       skip the Firebase/Flutter bootstrap entirely and show a helpful message
+       instead of a black screen. -->
+  <script>
+    // ─── Build mode flag ────────────────────────────────────────────────────
+    // Set to true when deploying with `flutter build web --wasm`.
+    // Controls which browser check is used below.
+    // When false  → JS build:   check for basic modern JS APIs (ES2017+).
+    // When true   → WASM build: check for WasmGC support (Chrome 119+, etc.)
+    var BUILD_IS_WASM = false;
+
+    window._browserSupported = (function() {
+      if (BUILD_IS_WASM) {
+        // WasmGC check: required for Flutter WASM builds.
+        // Validates a minimal WasmGC module (struct type, 0 fields).
+        if (typeof WebAssembly !== 'object') return false;
+        try {
+          return WebAssembly.validate(new Uint8Array([
+            0,97,115,109,  // \0asm  (magic)
+            1,0,0,0,        // version 1
+            1,4,1,          // type section, 4 bytes, 1 type
+            95,0            // struct with 0 fields (WasmGC opcode 0x5F)
+          ]));
+        } catch (e) {
+          return false;
+        }
+      } else {
+        // JS build check: Flutter's compiled JS requires ES2017+ (async/await,
+        // Promise, fetch, WeakMap). This blocks only genuinely prehistoric
+        // browsers (IE11, Android 4.x) — no false positives on any modern
+        // browser including DuckDuckGo iOS and Comet.
+        return (
+          typeof Promise !== 'undefined' &&
+          typeof fetch !== 'undefined' &&
+          typeof WeakMap !== 'undefined' &&
+          typeof Symbol !== 'undefined'
+        );
+      }
+    })();
+  </script>
+
+  <!-- Per-session FCM token migration: clear stale FCM IndexedDB stores once per
+       browser session (sessionStorage guard) so no stale token lingers across sessions.
+
+       Why sessionStorage instead of the old localStorage one-time guard:
+       The old localStorage guard ran the cleanup exactly once (ever). After that, a
+       fresh token stored in IndexedDB could become stale across browser restarts. Using
+       sessionStorage means the cleanup runs once per browser session (new tab / browser
+       restart), ensuring every session starts with a clean FCM token slate. -->
+  <script>
+    // Store cleanup promise globally so getFCMToken can await it and
+    // close the race between the async clear and the first getToken() call.
+    window._fcmStartupCleanupPromise = (function() {
+      // Session-based guard: clear IDB once per browser session.
+      // sessionStorage is cleared when the browser tab or window is closed,
+      // so every new session starts with a clean FCM slate.
+      var CLEANUP_KEY = 'fcm_cleanup_session_v1';
+      if (sessionStorage.getItem(CLEANUP_KEY)) return Promise.resolve();
+      // Mark immediately so we never loop, even if async ops fail.
+      sessionStorage.setItem(CLEANUP_KEY, '1');
+
+      // Open a database and clear all its object stores.
+      // Works even when the database is already open by the service worker,
+      // because we just start another concurrent read-write transaction.
+      function clearDBStores(dbName) {
+        return new Promise(function(resolve) {
+          var openReq = indexedDB.open(dbName);
+          openReq.onupgradeneeded = function(e) {
+            // DB did not exist - nothing to clear; abort so it isn't created.
+            try { e.target.transaction.abort(); } catch (_) {}
+          };
+          openReq.onsuccess = function(e) {
+            var db = e.target.result;
+            var storeNames = Array.from(db.objectStoreNames);
+            if (!storeNames.length) { db.close(); resolve(); return; }
+            try {
+              var tx = db.transaction(storeNames, 'readwrite');
+              storeNames.forEach(function(s) { tx.objectStore(s).clear(); });
+              tx.oncomplete = function() { db.close(); resolve(); };
+              tx.onerror   = function() { db.close(); resolve(); };
+              tx.onabort   = function() { db.close(); resolve(); };
+            } catch (err) { db.close(); resolve(); }
+          };
+          openReq.onerror = function() { resolve(); };
+        });
+      }
+
+      return Promise.all([
+        clearDBStores('firebase-messaging-database'),
+        clearDBStores('firebase-installations-database'),
+      ]).then(function() {
+        console.log('[EnduCloud] Cleared stale FCM token storage (one-time migration)');
+      }).catch(function(e) {
+        console.warn('[EnduCloud] FCM cleanup error:', e);
+        return null;
+      });
+    })();
+  </script>
+
+  <!-- Firebase SDK for web push notifications -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "886354900" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */;
+    
+    // Initialize Firebase for push notifications
+    var firebaseConfig = {
+      apiKey: 'AIzaSyDJpAGO-M_uCn5gkETlN6Ye3VUZX2t518A',
+      appId: '1:764750315271:web:246593660c4d87a1620fa2',
+      messagingSenderId: '764750315271',
+      projectId: 'enducloud',
+      authDomain: 'enducloud.firebaseapp.com',
+      storageBucket: 'enducloud.appspot.com',
+    };
+    
+    // Initialize Firebase app for messaging (separate from Flutter's Firebase)
+    var messagingApp = null;
+    var messagingInstance = null;
+    
+    try {
+      // Initialize a named app for messaging to avoid conflict with Flutter's default app
+      // Flutter uses the default app [DEFAULT], so we use 'messagingApp' here
+      messagingApp = firebase.initializeApp(firebaseConfig, 'messagingApp');
+      messagingInstance = firebase.messaging(messagingApp);
+    } catch (e) {
+      console.error('[EnduCloud] Firebase messaging init error:', e);
+    }
+
+    // VAPID key for web push
+    var vapidKey = 'BHkH62U6j9jK_LuUaoPnYgutLSsAfxoWg6eNL0NnXBo3wMJkLk7p1yBdNkvDrjlQ_waPPzqI0db146wXPnbT5hU';
+    
+    // Service worker registration promise - register after page load to avoid conflicts
+    var swRegistration = null;
+    
+    // Helper: open a database and clear all its object stores.
+    // Safe to call while the DB is held open by the service worker — IndexedDB
+    // allows concurrent connections, so clearing via a new rw-transaction works
+    // even when deleteDatabase() would be blocked.
+    async function _clearFCMDBStores(dbName) {
+      return new Promise((resolve) => {
+        const openReq = indexedDB.open(dbName);
+        openReq.onupgradeneeded = (e) => {
+          // DB did not exist — abort so it isn't created; onerror will fire next.
+          try { e.target.transaction.abort(); } catch (_) {}
+        };
+        openReq.onsuccess = (e) => {
+          const db = e.target.result;
+          const storeNames = Array.from(db.objectStoreNames);
+          if (!storeNames.length) { db.close(); resolve(); return; }
+          try {
+            const tx = db.transaction(storeNames, 'readwrite');
+            storeNames.forEach(s => tx.objectStore(s).clear());
+            tx.oncomplete = () => { db.close(); resolve(); };
+            tx.onerror   = () => { db.close(); resolve(); };
+            tx.onabort   = () => { db.close(); resolve(); };
+          } catch (err) { db.close(); resolve(); }
+        };
+        openReq.onerror = () => resolve();
+      });
+    }
+
+    // Concurrency guard: ensures only one getToken() call is in flight at a time.
+    var _fcmTokenInFlight = null;
+
+    // Function callable from Dart to get FCM token
+    window.getFCMToken = async function(isRetry = false) {
+      // If another call is already in progress, return the same promise.
+      if (!isRetry && _fcmTokenInFlight) {
+        return _fcmTokenInFlight;
+      }
+
+      const run = async () => {
+        try {
+          if (!messagingInstance) {
+            console.error('[EnduCloud] Messaging not initialized');
+            return null;
+          }
+
+          // Wait for the startup FCM DB cleanup to finish before calling getToken.
+          // Without this, a race between the async head-cleanup and getToken causes
+          // a 400 DELETE error when the SDK finds the stale token before the clear
+          // completes.  The promise resolves immediately on subsequent loads (cleanup
+          // already ran, stored Promise.resolve()).
+          if (!isRetry && window._fcmStartupCleanupPromise) {
+            await window._fcmStartupCleanupPromise;
+          }
+
+          // Register Firebase service worker if not already done.
+          if (!swRegistration && 'serviceWorker' in navigator) {
+            try {
+              // service-worker.js handles both app caching and Firebase messaging.
+              swRegistration = await navigator.serviceWorker.register('/service-worker.js');
+              await navigator.serviceWorker.ready;
+            } catch (e) {
+              console.error('[EnduCloud] SW registration failed:', e);
+            }
+          }
+
+          // Request notification permission.
+          const permission = await Notification.requestPermission();
+          if (permission !== 'granted') {
+            console.warn('[EnduCloud] Notification permission denied');
+            return null;
+          }
+
+          // Get the token with the service worker registration.
+          const tokenOptions = { vapidKey: vapidKey };
+          if (swRegistration) {
+            tokenOptions.serviceWorkerRegistration = swRegistration;
+          }
+
+          try {
+            return await messagingInstance.getToken(tokenOptions);
+          } catch (tokenError) {
+            // messaging/token-unsubscribe-failed: FCM rejected the DELETE request for
+            // the stale cached token (e.g. legacy APA91b format).  Clear both FCM
+            // databases and retry once.  We use open()+clear() rather than
+            // deleteDatabase() because the service worker keeps the DB open, which
+            // causes deleteDatabase() to block silently — the previous retry logic
+            // never actually cleared the data.
+            if (!isRetry && (tokenError.code === 'messaging/token-unsubscribe-failed' ||
+                             (tokenError.message && tokenError.message.includes('token-unsubscribe-failed')))) {
+              console.warn('[EnduCloud] Stale FCM token detected. Clearing and retrying...');
+
+              // Unregister ALL service workers so their DB connections drain quickly.
+              try {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                await Promise.all(registrations.map(r => r.unregister()));
+              } catch (_) {}
+              swRegistration = null;
+
+              // Clear both FCM databases via open()+clear() which works even while
+              // the page-side Firebase SDK still has the DB open.
+              await Promise.all([
+                _clearFCMDBStores('firebase-messaging-database'),
+                _clearFCMDBStores('firebase-installations-database'),
+              ]);
+
+              // Brief pause to let the SDK's internal state settle after the clear.
+              await new Promise(r => setTimeout(r, 150));
+
+              return await window.getFCMToken(true);
+            }
+            throw tokenError;
+          }
+        } catch (e) {
+          console.error('[EnduCloud] Error getting FCM token:', e);
+          return null;
+        }
+      };
+
+      if (!isRetry) {
+        _fcmTokenInFlight = run().finally(() => { _fcmTokenInFlight = null; });
+        return _fcmTokenInFlight;
+      }
+      return run();
+    };
+    
+    // Handle foreground messages
+    if (messagingInstance) {
+      messagingInstance.onMessage(function(payload) {
+        // Show notification manually for foreground
+        if (Notification.permission === 'granted') {
+          var title = payload.notification?.title || payload.data?.title || 'EnduCloud';
+          var body = payload.notification?.body || payload.data?.body || 'New notification';
+          try {
+            new Notification(title, {
+              body: body,
+              icon: '/icons/Icon-192.png',
+              tag: 'enducloud-foreground'
+            });
+          } catch (e) {
+            console.error('[EnduCloud] Error showing notification:', e);
+          }
+        }
+        // Return undefined (not true) to avoid async response expectation
+        return;
+      });
+    }
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer=""></script>
+<script type="application/javascript" src="https://enducloud.com/main.dart.js"></script><link id="toast-css" rel="stylesheet" href="assets/packages/fluttertoast/assets/toastify.css"><script async="" src="assets/packages/fluttertoast/assets/toastify.js"></script><meta name="generator" content="Flutter"><meta flt-viewport="" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><script type="text/javascript" crossorigin="anonymous">            window.ff_trigger_firebase_core = async (callback) => {
+              console.debug("Initializing Firebase firebase_core");
+              callback(await import("https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js"));
+            };
+          </script><script type="text/javascript" crossorigin="anonymous">            window.ff_trigger_firebase_firestore = async (callback) => {
+              console.debug("Initializing Firebase firebase_firestore");
+              callback(await import("https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js"));
+            };
+          </script><script type="text/javascript" crossorigin="anonymous">            window.ff_trigger_firebase_functions = async (callback) => {
+              console.debug("Initializing Firebase firebase_functions");
+              callback(await import("https://www.gstatic.com/firebasejs/12.9.0/firebase-functions.js"));
+            };
+          </script><script type="text/javascript" crossorigin="anonymous">            window.ff_trigger_firebase_auth = async (callback) => {
+              console.debug("Initializing Firebase firebase_auth");
+              callback(await import("https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js"));
+            };
+          </script><script type="text/javascript" crossorigin="anonymous">            window.ff_trigger_firebase_database = async (callback) => {
+              console.debug("Initializing Firebase firebase_database");
+              callback(await import("https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js"));
+            };
+          </script><script type="text/javascript" crossorigin="anonymous">            window.ff_trigger_firebase_messaging = async (callback) => {
+              console.debug("Initializing Firebase firebase_messaging");
+              callback(await import("https://www.gstatic.com/firebasejs/12.9.0/firebase-messaging.js"));
+            };
+          </script></head>
+<body flt-embedding="full-page" flt-renderer="canvaskit" flt-build-mode="release" spellcheck="false" style="position: fixed; inset: 0px; overflow: hidden; padding: 0px; margin: 0px; user-select: none; touch-action: none;"><flt-semantics-placeholder role="button" aria-live="polite" tabindex="0" aria-label="Enable accessibility" style="position: absolute; left: -1px; top: -1px; width: 1px; height: 1px;"></flt-semantics-placeholder>
+
+  <!-- Shown only when the browser lacks WasmGC support (see head check).
+       Kept display:none by default; the load handler flips it to flex.
+       Sits above everything at z-index:9999 so it's never obscured. -->
+  <div id="unsupported-browser" style="
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #f5f7fa;
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 32px 24px;
+    text-align: center;
+    box-sizing: border-box;
+  ">
+    <img src="icons/Icon-192.png" width="80" height="80" style="border-radius: 20px; margin-bottom: 28px; box-shadow: 0 4px 16px rgba(0,0,0,.12);" alt="EnduCloud">
+    <h1 style="font-size: 22px; font-weight: 700; color: #1a1a2e; margin: 0 0 10px">
+      Browser not supported
+    </h1>
+    <p style="font-size: 15px; color: #555; max-width: 400px; margin: 0 0 8px; line-height: 1.6">
+      EnduCloud requires a modern browser with WebAssembly support.
+      Please open this page in one of:
+    </p>
+    <p style="font-size: 14px; font-weight: 600; color: #111; margin: 0 0 28px">
+      Chrome &nbsp;·&nbsp; Edge &nbsp;·&nbsp; Firefox &nbsp;·&nbsp; Safari
+    </p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px">
+      <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" style="padding: 10px 22px; background: #1a73e8; color: #fff; text-decoration: none;
+                border-radius: 8px; font-size: 14px; font-weight: 600;">Download Chrome</a>
+      <a href="https://www.microsoft.com/edge" target="_blank" rel="noopener" style="padding: 10px 22px; background: #0078d4; color: #fff; text-decoration: none;
+                border-radius: 8px; font-size: 14px; font-weight: 600;">Download Edge</a>
+      <a href="https://www.firefox.com" target="_blank" rel="noopener" style="padding: 10px 22px; background: #ff6611; color: #fff; text-decoration: none;
+                border-radius: 8px; font-size: 14px; font-weight: 600;">Download Firefox</a>
+    </div>
+    <p style="font-size: 12px; color: #aaa; margin: 0">
+      Minimum versions: Chrome 119 &nbsp;·&nbsp; Edge 119 &nbsp;·&nbsp; Firefox 120 &nbsp;·&nbsp; Safari 17.4
+    </p>
+  </div>
+
+  <script>
+    // Disable browser context menu to allow Flutter's custom right-click menus
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    window.addEventListener('load', function(ev) {
+      // Show the unsupported-browser panel and skip Flutter entirely
+      // if WasmGC is not available (detected synchronously in <head>).
+      if (!window._browserSupported) {
+        document.getElementById('unsupported-browser').style.display = 'flex';
+        return;
+      }
+
+      // Register EnduCloud service worker for PWA functionality
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(function(registration) {
+            // Check for updates
+            registration.addEventListener('updatefound', function() {
+              const newWorker = registration.installing;
+
+              newWorker.addEventListener('statechange', function() {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // Notify the app that an update is available
+                  if (navigator.serviceWorker.controller) {
+                    navigator.serviceWorker.controller.postMessage({
+                      type: 'SW_UPDATE_AVAILABLE'
+                    });
+                  }
+                }
+              });
+            });
+            
+            // Check for updates every 5 minutes
+            setInterval(function() {
+              registration.update();
+            }, 5 * 60 * 1000);
+
+            // Also check when user returns to the tab
+            document.addEventListener('visibilitychange', function() {
+              if (!document.hidden) {
+                registration.update();
+              }
+            });
+          })
+          .catch(function(error) {
+            console.error('[EnduCloud] ❌ Service worker registration failed:', error);
+          });
+      }
+
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        // Disable Flutter's default service worker to avoid conflicts with our custom SW
+        // This resolves the "prepareServiceworker took more than 4000ms" error
+        serviceWorker: null,
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+
+
+<p aria-hidden="true" style="position: fixed; bottom: 100%; visibility: hidden; opacity: 0; pointer-events: none; width: auto; height: auto; white-space: nowrap; line-height: 9999px; letter-spacing: 9999px; word-spacing: 9999px; margin: 0px 0px 9999px;">flutter typography measurement</p><flt-announcement-host><flt-announcement-polite aria-live="polite" style="position: fixed; overflow: hidden; transform: translate(-99999px, -99999px); width: 1px; height: 1px;"></flt-announcement-polite><flt-announcement-assertive aria-live="assertive" style="position: fixed; overflow: hidden; transform: translate(-99999px, -99999px); width: 1px; height: 1px;"></flt-announcement-assertive></flt-announcement-host><flt-image-picker-inputs id="__image_picker_web-file-input"></flt-image-picker-inputs><flutter-view flt-view-id="0" tabindex="-1" style="position: absolute; inset: 0px; width: 1280px; height: 720px;"><flt-glass-pane></flt-glass-pane><flt-text-editing-host></flt-text-editing-host><flt-semantics-host style="position: absolute; transform-origin: 0px 0px 0px; transform: scale(1);"></flt-semantics-host><style id="flt-text-editing-stylesheet">flutter-view flt-scene-host {  font: normal normal 14px sans-serif;}flutter-view flt-semantics input[type=range] {  appearance: none;  -webkit-appearance: none;  width: 100%;  position: absolute;  border: none;  top: 0;  right: 0;  bottom: 0;  left: 0;}flutter-view input::selection {  background-color: transparent;}flutter-view textarea::selection {  background-color: transparent;}flutter-view flt-semantics input,flutter-view flt-semantics textarea,flutter-view flt-semantics [contentEditable="true"] {  caret-color: transparent;}flutter-view .flt-text-editing::placeholder {  opacity: 0;}flutter-view:focus { outline: rgb(0, 0, 0) none 0px;}flutter-view .transparentTextEditing:-webkit-autofill,flutter-view .transparentTextEditing:-webkit-autofill:hover,flutter-view .transparentTextEditing:-webkit-autofill:focus,flutter-view .transparentTextEditing:-webkit-autofill:active {  opacity: 0 !important;}</style></flutter-view></body></html>

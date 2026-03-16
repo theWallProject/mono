@@ -1,0 +1,68 @@
+[2026-03-12T11:09:47.400Z] === Homepage AI Extractor: TreGo ===
+[2026-03-12T11:09:47.401Z] Started at: 2026-03-12T11:09:47.401Z
+[2026-03-12T11:09:47.401Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773313787400_TreGo
+[2026-03-12T11:09:47.401Z] Company: TreGo
+[2026-03-12T11:09:47.401Z] Website: trego-trolley.com
+[2026-03-12T11:09:47.401Z] cbRank: 922603
+[2026-03-12T11:09:47.401Z] Reasons: h
+[2026-03-12T11:09:47.401Z] Fetching: https://trego-trolley.com
+[2026-03-12T11:09:49.487Z] Redirected: https://trego-trolley.com -> https://trego-trolley.com/
+[2026-03-12T11:09:49.524Z] Saved HTML (363510 bytes) to page.html
+[2026-03-12T11:09:49.534Z] Extracted 6 unique links from page
+[2026-03-12T11:09:49.535Z] Saved 6 links to links.json
+[2026-03-12T11:09:49.539Z] No footer section found in DOM
+[2026-03-12T11:09:49.539Z] No header section found in DOM
+[2026-03-12T11:09:49.545Z] Website (post-redirect): https://trego-trolley.com/ → origin: https://trego-trolley.com
+[2026-03-12T11:09:49.545Z] External links: 4 (of 6 total)
+[2026-03-12T11:09:49.545Z] ── All external links ──
+[2026-03-12T11:09:49.546Z]   EXT: http://instagram.com/tregobikes
+[2026-03-12T11:09:49.546Z]   EXT: http://pinterest.com/ofiryadan
+[2026-03-12T11:09:49.546Z]   EXT: http://www.youtube.com/channel/UCSZqk4xUeyvjTYrbsHt29Pw
+[2026-03-12T11:09:49.546Z]   EXT: https://www.facebook.com/pages/Tregobikes/545189638956634
+[2026-03-12T11:09:49.546Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T11:09:49.547Z]   REGEX: ig <- http://instagram.com/tregobikes
+[2026-03-12T11:09:49.547Z]   UNCATEGORIZED: http://pinterest.com/ofiryadan
+[2026-03-12T11:09:49.548Z]   REGEX: ytc <- http://www.youtube.com/channel/UCSZqk4xUeyvjTYrbsHt29Pw
+[2026-03-12T11:09:49.548Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-12T11:09:51.055Z]   RESOLVE: https://www.facebook.com/pages/Tregobikes/545189638956634 → https://www.facebook.com/tregobikes
+[2026-03-12T11:09:51.074Z]   RESOLVED: fb <- https://www.facebook.com/tregobikes (from https://www.facebook.com/pages/Tregobikes/545189638956634)
+[2026-03-12T11:09:51.074Z] Programmatic result: ws:1, ig:1, ytc:1, fb:1 | 1 uncategorized
+[2026-03-12T11:09:51.074Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T11:09:51.075Z] Saved AI prompt (1954 chars) to ai_prompt.txt
+[2026-03-12T11:09:51.076Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T11:09:51.091Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T11:09:57.302Z]   AI: First token received, streaming...
+[2026-03-12T11:09:58.189Z] AI response complete: 30 chars in 7.1s
+[2026-03-12T11:09:58.190Z] Saved AI response to ai_response.json
+[2026-03-12T11:09:58.190Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T11:09:58.190Z]   AI LINK: http://pinterest.com/ofiryadan
+[2026-03-12T11:09:58.190Z] AI returned 1 valid links
+[2026-03-12T11:09:58.190Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T11:09:58.190Z]   AI→URLS: http://pinterest.com/ofiryadan
+[2026-03-12T11:09:58.190Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T11:09:58.190Z] Footer/header origins (0):
+[2026-03-12T11:09:58.190Z]   SKIP (AI claimed): http://pinterest.com/ofiryadan
+[2026-03-12T11:09:58.190Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T11:09:58.190Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T11:09:58.191Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T11:09:58.738Z]   YOUTUBE: resolved UCSZqk4xUeyvjTYrbsHt29Pw → @ofiryama2104
+[2026-03-12T11:09:58.738Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T11:09:58.738Z] ── Step 3: Final dedup ──
+[2026-03-12T11:09:58.738Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T11:09:58.738Z] ── FINAL RESULT ──
+[2026-03-12T11:09:58.738Z]   ws (1):
+[2026-03-12T11:09:58.738Z]     - https://trego-trolley.com
+[2026-03-12T11:09:58.738Z]   fb (1):
+[2026-03-12T11:09:58.738Z]     - https://www.facebook.com/tregobikes
+[2026-03-12T11:09:58.738Z]   ig (1):
+[2026-03-12T11:09:58.739Z]     - https://www.instagram.com/tregobikes
+[2026-03-12T11:09:58.739Z]   ytp (1):
+[2026-03-12T11:09:58.739Z]     - https://www.youtube.com/@ofiryama2104
+[2026-03-12T11:09:58.739Z]   ytc (1):
+[2026-03-12T11:09:58.739Z]     - https://www.youtube.com/channel/UCSZqk4xUeyvjTYrbsHt29Pw
+[2026-03-12T11:09:58.739Z]   urls (1):
+[2026-03-12T11:09:58.739Z]     - http://pinterest.com/ofiryadan
+[2026-03-12T11:09:58.739Z] Summary: ws:1, ig:1, ytc:1, fb:1, urls:1, ytp:1
+[2026-03-12T11:09:58.740Z] Saved final result to result.json
+[2026-03-12T11:09:58.740Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-12T11:09:58.740Z] Finished at: 2026-03-12T11:09:58.740Z

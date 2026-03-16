@@ -1,0 +1,58 @@
+[2026-03-11T05:06:58.365Z] === Homepage AI Extractor: Aloma ===
+[2026-03-11T05:06:58.365Z] Started at: 2026-03-11T05:06:58.365Z
+[2026-03-11T05:06:58.365Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773205618364_Aloma
+[2026-03-11T05:06:58.365Z] Company: Aloma
+[2026-03-11T05:06:58.365Z] Website: aii.co.il
+[2026-03-11T05:06:58.365Z] cbRank: 599163
+[2026-03-11T05:06:58.365Z] Reasons: h
+[2026-03-11T05:06:58.365Z] Fetching: https://aii.co.il
+[2026-03-11T05:07:00.817Z] Redirected: https://aii.co.il -> https://www.aii.co.il/
+[2026-03-11T05:07:00.822Z] Saved HTML (97328 bytes) to page.html
+[2026-03-11T05:07:00.828Z] Extracted 22 unique links from page
+[2026-03-11T05:07:00.829Z] Saved 22 links to links.json
+[2026-03-11T05:07:00.835Z] Extracted footer HTML (4236 chars)
+[2026-03-11T05:07:00.835Z] Extracted header HTML (14658 chars)
+[2026-03-11T05:07:00.839Z] Website (post-redirect): https://www.aii.co.il/ → origin: https://www.aii.co.il
+[2026-03-11T05:07:00.839Z]   SUBDOMAIN: en.aii.co.il (added to ws)
+[2026-03-11T05:07:00.839Z] Website subdomains found: 1
+[2026-03-11T05:07:00.839Z] External links: 2 (of 22 total)
+[2026-03-11T05:07:00.839Z] ── All external links ──
+[2026-03-11T05:07:00.839Z]   EXT: https://il.linkedin.com/company/aluma-infrastructure-fund
+[2026-03-11T05:07:00.840Z]   EXT: https://www.richkid.co.il
+[2026-03-11T05:07:00.840Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T05:07:00.840Z]   REGEX: li <- https://il.linkedin.com/company/aluma-infrastructure-fund
+[2026-03-11T05:07:00.840Z]   UNCATEGORIZED: https://www.richkid.co.il
+[2026-03-11T05:07:00.840Z] Programmatic result: ws:2, li:1 | 1 uncategorized
+[2026-03-11T05:07:00.840Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T05:07:00.841Z] Saved AI prompt (3500 chars) to ai_prompt.txt
+[2026-03-11T05:07:00.841Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T05:07:00.852Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T05:07:14.031Z]   AI: First token received, streaming...
+[2026-03-11T05:07:15.926Z] AI response complete: 57 chars in 15.1s
+[2026-03-11T05:07:15.927Z] Saved AI response to ai_response.json
+[2026-03-11T05:07:15.927Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T05:07:15.927Z]   AI LINK: https://il.linkedin.com/company/aluma-infrastructure-fund
+[2026-03-11T05:07:15.928Z] AI returned 1 valid links
+[2026-03-11T05:07:15.928Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T05:07:15.928Z]   AI→REGEX: li <- https://il.linkedin.com/company/aluma-infrastructure-fund (duplicate, skipped)
+[2026-03-11T05:07:15.929Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T05:07:15.929Z] Footer/header origins (3):
+[2026-03-11T05:07:15.929Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-11T05:07:15.929Z]   FOOTER/HEADER ORIGIN: https://www.richkid.co.il
+[2026-03-11T05:07:15.929Z]   FOOTER/HEADER ORIGIN: https://en.aii.co.il
+[2026-03-11T05:07:15.929Z]   ADDED: urls <- https://www.richkid.co.il
+[2026-03-11T05:07:15.929Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T05:07:15.929Z] ── Step 3: Final dedup ──
+[2026-03-11T05:07:15.929Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T05:07:15.929Z] ── FINAL RESULT ──
+[2026-03-11T05:07:15.929Z]   ws (2):
+[2026-03-11T05:07:15.930Z]     - https://en.aii.co.il
+[2026-03-11T05:07:15.930Z]     - https://www.aii.co.il
+[2026-03-11T05:07:15.930Z]   li (1):
+[2026-03-11T05:07:15.930Z]     - https://www.linkedin.com/company/aluma-infrastructure-fund
+[2026-03-11T05:07:15.930Z]   urls (1):
+[2026-03-11T05:07:15.930Z]     - https://www.richkid.co.il
+[2026-03-11T05:07:15.930Z] Summary: ws:2, li:1, urls:1
+[2026-03-11T05:07:15.930Z] Saved final result to result.json
+[2026-03-11T05:07:15.931Z] Override fields: ws, li, urls
+[2026-03-11T05:07:15.931Z] Finished at: 2026-03-11T05:07:15.931Z

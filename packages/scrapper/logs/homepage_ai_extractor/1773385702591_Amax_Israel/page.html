@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang="en" style="--blazor-load-percentage: 100%; --blazor-load-percentage-text: &quot;100%&quot;;"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="AmaxWebSite.styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+
+    <title>AMAX – איי מקס  | JAFFA - תוכנה לניהול עמותות |תוכנה לשימור לקוחות |תוכנה להוראות קבע | ניהול תרומות</title></head>
+
+<body><div dir="rtl" class="mud-rtl-provider mud-application-layout-rtl"><style>
+::-webkit-scrollbar {width: 8px;height: 8px;z-index: 1;}
+::-webkit-scrollbar-track {background: transparent;}
+::-webkit-scrollbar-thumb {background: #c4c4c4;border-radius: 1px;}
+::-webkit-scrollbar-thumb:hover {background: #a6a6a6;}
+html, body * {scrollbar-color: #c4c4c4 transparent;scrollbar-width: thin;}
+</style>
+<style>
+    .mud-chart-serie:hover {
+        filter: url(#lighten);
+    }
+</style>
+
+<style>
+:root{
+--mud-palette-black: rgba(39,44,52,1);
+--mud-palette-white: rgba(255,255,255,1);
+--mud-palette-primary: rgba(33,150,243,1);
+--mud-palette-primary-rgb: 33,150,243;
+--mud-palette-primary-text: rgba(255,255,255,1);
+--mud-palette-primary-darken: rgb(12,128,223);
+--mud-palette-primary-lighten: rgb(71,167,245);
+--mud-palette-primary-hover: rgba(33,150,243,0.058823529411764705);
+--mud-palette-secondary: rgba(0,200,83,1);
+--mud-palette-secondary-rgb: 0,200,83;
+--mud-palette-secondary-text: rgba(255,255,255,1);
+--mud-palette-secondary-darken: rgb(0,163,68);
+--mud-palette-secondary-lighten: rgb(0,235,98);
+--mud-palette-secondary-hover: rgba(0,200,83,0.058823529411764705);
+--mud-palette-tertiary: rgba(30,200,165,1);
+--mud-palette-tertiary-rgb: 30,200,165;
+--mud-palette-tertiary-text: rgba(255,255,255,1);
+--mud-palette-tertiary-darken: rgb(25,169,140);
+--mud-palette-tertiary-lighten: rgb(42,223,187);
+--mud-palette-tertiary-hover: rgba(30,200,165,0.058823529411764705);
+--mud-palette-info: rgba(33,150,243,1);
+--mud-palette-info-rgb: 33,150,243;
+--mud-palette-info-text: rgba(255,255,255,1);
+--mud-palette-info-darken: rgb(12,128,223);
+--mud-palette-info-lighten: rgb(71,167,245);
+--mud-palette-info-hover: rgba(33,150,243,0.058823529411764705);
+--mud-palette-success: rgba(0,200,83,1);
+--mud-palette-success-rgb: 0,200,83;
+--mud-palette-success-text: rgba(255,255,255,1);
+--mud-palette-success-darken: rgb(0,163,68);
+--mud-palette-success-lighten: rgb(0,235,98);
+--mud-palette-success-hover: rgba(0,200,83,0.058823529411764705);
+--mud-palette-warning: rgba(255,152,0,1);
+--mud-palette-warning-rgb: 255,152,0;
+--mud-palette-warning-text: rgba(255,255,255,1);
+--mud-palette-warning-darken: rgb(214,129,0);
+--mud-palette-warning-lighten: rgb(255,167,36);
+--mud-palette-warning-hover: rgba(255,152,0,0.058823529411764705);
+--mud-palette-error: rgba(244,67,54,1);
+--mud-palette-error-rgb: 244,67,54;
+--mud-palette-error-text: rgba(255,255,255,1);
+--mud-palette-error-darken: rgb(242,28,13);
+--mud-palette-error-lighten: rgb(246,96,85);
+--mud-palette-error-hover: rgba(244,67,54,0.058823529411764705);
+--mud-palette-dark: rgba(66,66,66,1);
+--mud-palette-dark-rgb: 66,66,66;
+--mud-palette-dark-text: rgba(255,255,255,1);
+--mud-palette-dark-darken: rgb(46,46,46);
+--mud-palette-dark-lighten: rgb(87,87,87);
+--mud-palette-dark-hover: rgba(66,66,66,0.058823529411764705);
+--mud-palette-text-primary: rgba(66,66,66,1);
+--mud-palette-text-secondary: rgba(0,0,0,0.5372549019607843);
+--mud-palette-text-disabled: rgba(0,0,0,0.3764705882352941);
+--mud-palette-action-default: rgba(0,0,0,0.5372549019607843);
+--mud-palette-action-default-hover: rgba(0,0,0,0.058823529411764705);
+--mud-palette-action-disabled: rgba(0,0,0,0.25882352941176473);
+--mud-palette-action-disabled-background: rgba(0,0,0,0.11764705882352941);
+--mud-palette-surface: rgba(255,255,255,1);
+--mud-palette-background: rgba(34,67,98,1);
+--mud-palette-background-gray: rgba(245,245,245,1);
+--mud-palette-drawer-background: rgba(255,255,255,1);
+--mud-palette-drawer-text: rgba(66,66,66,1);
+--mud-palette-drawer-icon: rgba(97,97,97,1);
+--mud-palette-appbar-background: rgba(34,67,98,1);
+--mud-palette-appbar-text: rgba(255,255,255,1);
+--mud-palette-lines-default: rgba(0,0,0,0.11764705882352941);
+--mud-palette-lines-inputs: rgba(189,189,189,1);
+--mud-palette-table-lines: rgba(224,224,224,1);
+--mud-palette-table-striped: rgba(0,0,0,0.0196078431372549);
+--mud-palette-table-hover: rgba(0,0,0,0.0392156862745098);
+--mud-palette-divider: rgba(224,224,224,1);
+--mud-palette-divider-light: rgba(0,0,0,0.8);
+--mud-palette-skeleton: rgba(0,0,0,0.10980392156862745);
+--mud-palette-gray-default: #9E9E9E;
+--mud-palette-gray-light: #BDBDBD;
+--mud-palette-gray-lighter: #E0E0E0;
+--mud-palette-gray-dark: #757575;
+--mud-palette-gray-darker: #616161;
+--mud-palette-overlay-dark: rgba(33,33,33,0.4980392156862745);
+--mud-palette-overlay-light: rgba(255,255,255,0.4980392156862745);
+--mud-ripple-color: var(--mud-palette-text-primary);
+--mud-ripple-opacity: 0.1;
+--mud-ripple-opacity-secondary: 0.2;
+--mud-elevation-0: none;
+--mud-elevation-1: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+--mud-elevation-2: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+--mud-elevation-3: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+--mud-elevation-4: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+--mud-elevation-5: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+--mud-elevation-6: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+--mud-elevation-7: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+--mud-elevation-8: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+--mud-elevation-9: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+--mud-elevation-10: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+--mud-elevation-11: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+--mud-elevation-12: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+--mud-elevation-13: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+--mud-elevation-14: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+--mud-elevation-15: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+--mud-elevation-16: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+--mud-elevation-17: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+--mud-elevation-18: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+--mud-elevation-19: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+--mud-elevation-20: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+--mud-elevation-21: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+--mud-elevation-22: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+--mud-elevation-23: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+--mud-elevation-24: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+--mud-elevation-25: 0 5px 5px -3px rgba(0,0,0,.06), 0 8px 10px 1px rgba(0,0,0,.042), 0 3px 14px 2px rgba(0,0,0,.036);
+--mud-default-borderradius: 4px;
+--mud-drawer-width-left: 260px;
+--mud-drawer-width-right: 300px;
+--mud-drawer-width-mini-left: 56px;
+--mud-drawer-width-mini-right: 56px;
+--mud-appbar-height: 64px;
+--mud-typography-default-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-default-size: .875rem;
+--mud-typography-default-weight: 400;
+--mud-typography-default-lineheight: 1.43;
+--mud-typography-default-letterspacing: .01071em;
+--mud-typography-default-text-transform: none;
+--mud-typography-h1-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-h1-size: 6rem;
+--mud-typography-h1-weight: 300;
+--mud-typography-h1-lineheight: 1.167;
+--mud-typography-h1-letterspacing: -.01562em;
+--mud-typography-h1-text-transform: none;
+--mud-typography-h2-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-h2-size: 3.75rem;
+--mud-typography-h2-weight: 300;
+--mud-typography-h2-lineheight: 1.2;
+--mud-typography-h2-letterspacing: -.00833em;
+--mud-typography-h2-text-transform: none;
+--mud-typography-h3-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-h3-size: 3rem;
+--mud-typography-h3-weight: 400;
+--mud-typography-h3-lineheight: 1.167;
+--mud-typography-h3-letterspacing: 0;
+--mud-typography-h3-text-transform: none;
+--mud-typography-h4-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-h4-size: 2.125rem;
+--mud-typography-h4-weight: 400;
+--mud-typography-h4-lineheight: 1.235;
+--mud-typography-h4-letterspacing: .00735em;
+--mud-typography-h4-text-transform: none;
+--mud-typography-h5-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-h5-size: 1.5rem;
+--mud-typography-h5-weight: 400;
+--mud-typography-h5-lineheight: 1.334;
+--mud-typography-h5-letterspacing: 0;
+--mud-typography-h5-text-transform: none;
+--mud-typography-h6-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-h6-size: 1.25rem;
+--mud-typography-h6-weight: 500;
+--mud-typography-h6-lineheight: 1.6;
+--mud-typography-h6-letterspacing: .0075em;
+--mud-typography-h6-text-transform: none;
+--mud-typography-subtitle1-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-subtitle1-size: 1rem;
+--mud-typography-subtitle1-weight: 400;
+--mud-typography-subtitle1-lineheight: 1.75;
+--mud-typography-subtitle1-letterspacing: .00938em;
+--mud-typography-subtitle1-text-transform: none;
+--mud-typography-subtitle2-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-subtitle2-size: .875rem;
+--mud-typography-subtitle2-weight: 500;
+--mud-typography-subtitle2-lineheight: 1.57;
+--mud-typography-subtitle2-letterspacing: .00714em;
+--mud-typography-subtitle2-text-transform: none;
+--mud-typography-body1-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-body1-size: 1rem;
+--mud-typography-body1-weight: 400;
+--mud-typography-body1-lineheight: 1.5;
+--mud-typography-body1-letterspacing: .00938em;
+--mud-typography-body1-text-transform: none;
+--mud-typography-body2-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-body2-size: .875rem;
+--mud-typography-body2-weight: 400;
+--mud-typography-body2-lineheight: 1.43;
+--mud-typography-body2-letterspacing: .01071em;
+--mud-typography-body2-text-transform: none;
+--mud-typography-button-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-button-size: .875rem;
+--mud-typography-button-weight: 500;
+--mud-typography-button-lineheight: 1.75;
+--mud-typography-button-letterspacing: .02857em;
+--mud-typography-button-text-transform: uppercase;
+--mud-typography-caption-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-caption-size: .75rem;
+--mud-typography-caption-weight: 400;
+--mud-typography-caption-lineheight: 1.66;
+--mud-typography-caption-letterspacing: .03333em;
+--mud-typography-caption-text-transform: none;
+--mud-typography-overline-family: 'Roboto','Helvetica','Arial','sans-serif';
+--mud-typography-overline-size: .75rem;
+--mud-typography-overline-weight: 400;
+--mud-typography-overline-lineheight: 2.66;
+--mud-typography-overline-letterspacing: .08333em;
+--mud-typography-overline-text-transform: none;
+--mud-zindex-drawer: 1100;
+--mud-zindex-appbar: 1300;
+--mud-zindex-dialog: 1400;
+--mud-zindex-popover: 1200;
+--mud-zindex-snackbar: 1500;
+--mud-zindex-tooltip: 1600;
+--mud-native-html-color-scheme: light;
+}
+</style>
+
+<div class="mud-popover-provider"></div>
+
+
+
+<div id="mud-snackbar-container" class="mud-snackbar-location-top-right"></div></div>
+
+<div class="page"><div class="mud-layout" style=""><!--!--><!--!--><header class="mud-appbar mud-appbar-fixed-top mud-elevation-1 app-bar"><!--!--><div role="toolbar" class="mud-toolbar mud-toolbar-gutters mud-toolbar-appbar"><!--!--><!--!-->
+
+         <img src="images/amax.webp">
+
+
+        <!--!--><!--!--><div aria-hidden="true" class="flex-grow-1"></div><!--!-->
+
+    
+ 
+
+        <!--!--><!--!--><div class="mud-paper mud-paper-outlined  pa-4 align-start d-flex" style="width: 300px;background-color: rgb(34, 67, 98);;"><!--!--><!--!--><button type="button" class="mud-button-root mud-button mud-button-text mud-button-text-inherit mud-button-text-size-medium mud-ripple" _bl_7198aba0-5d03-4f24-80d4-5287cce7a86c=""><span class="mud-button-label"><!--!--><!--!--><h6 class="mud-typography mud-typography-h6 TextColorWhite"><!--!-->עמוד הבית</h6></span></button><!--!-->
+        <!--!--><!--!--><div aria-hidden="true" class="flex-grow-1"></div><!--!-->
+            <!--!--><!--!--><button type="button" class="mud-button-root mud-button mud-button-text mud-button-text-inherit mud-button-text-size-medium mud-ripple" _bl_529573a9-be29-4784-ba76-37fcdecb5233=""><span class="mud-button-label"><!--!--><!--!--><h6 class="mud-typography mud-typography-h6 TextColorWhite"><!--!-->הורדות וכלי עזר</h6></span></button></div></div></header><!--!-->
+
+    <!--!--><aside class="mud-drawer mud-drawer-pos-left mud-drawer--closed mud-drawer--initial mud-drawer-md mud-drawer-clipped-never mud-elevation-1 mud-drawer-temporary" style=""><div class="mud-drawer-content" _bl_4e11849a-c9fd-40e1-8001-727ebbafc055=""><!--!--><!--!--><nav class="mud-navmenu mud-navmenu-default mud-navmenu-margin-none"><!--!--><!--!--><div class="mud-nav-item"><!--!--><a href="/" rel="" tabindex="0" class="mud-nav-link mud-ripple active" aria-current="page"><!--!--><svg class="mud-icon-root mud-icon-default mud-svg-icon mud-icon-size-medium mud-nav-link-icon mud-nav-link-icon-default" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><path d="M0 0h24v24H0z" fill="none"></path><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg><div class="mud-nav-link-text"><!--!-->ראשי</div></a></div><!--!-->
+        <!--!--><div class="mud-nav-item"><!--!--><a href="/dwn" rel="" tabindex="0" class="mud-nav-link mud-ripple"><!--!--><svg class="mud-icon-root mud-icon-default mud-svg-icon mud-icon-size-medium mud-nav-link-icon mud-nav-link-icon-default" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg><div class="mud-nav-link-text"><!--!-->הורדות וכלי עזר</div></a></div></nav></div></aside><!--!-->
+<!--!-->
+ 
+        <div class="mud-main-content" style="text-align: right;"><!--!--><!--!--><!--!--><!--!-->
+
+<!--!--><div class="mud-paper mud-elevation-1" style="height:100%;width:100%;"><!--!--><!--!--><div class="mud-grid mud-grid-spacing-xs-6 justify-start"><!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><div class="mud-paper mud-paper-square mud-elevation-1 MainPage-responsive-paper" style="width:100%;background-color: rgb(34, 67, 98);;"><!--!--><!--!--><div class="mud-grid mud-grid-spacing-xs-6 justify-start" style="padding-right:50px;padding-left:50px"><!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-6"><!--!--><div class="mud-paper mud-elevation-1 d-flex align-center justify-center mud-width-full py-8" style="height:100%;background-color: rgb(34, 67, 98);;"><!--!--><img src="images/hero.22f4e984.svg" class="animated-img delay-1" style="width: 70%;height: auto;"></div></div><!--!-->
+                <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-6"><!--!--><div class="mud-paper mud-elevation-1 d-flex align-center justify-center mud-width-full py-8 animated-Txt delay-2" style="height:100%;background-color: rgb(34, 67, 98);;"><!--!--><!--!--><div class="mud-grid mud-grid-spacing-xs-6 justify-start"><!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h2 class="mud-typography mud-typography-h2 TextColorWhite TextBold"><!--!-->פתרונות חדשניים לניהול עמותות</h2></div><!--!-->
+                            <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h2 class="mud-typography mud-typography-h2 TextColor1 TextBold"><!--!-->A-max  המערכת של </h2></div><!--!-->
+                        <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h6 class="mud-typography mud-typography-h6 TextColorGraylight TextBold"><!--!-->ניהול תרומות,תורמים, קבלות, הוראות קבע ועוד – הכול במערכת אחת חכמה  </h6></div><!--!-->
+                         <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><button type="button" class="mud-button-root mud-button mud-button-filled mud-button-filled-primary mud-button-filled-size-medium mud-ripple" _bl_c6554a00-ae26-43e5-aa67-bd9ac51c5f5c=""><span class="mud-button-label"><span class="mud-button-icon-start mud-button-icon-size-medium"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-medium" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><path d="M0 0h24v24H0z" fill="none"></path><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg></span><!--!--><!--!--><h5 class="mud-typography mud-typography-h5 TextColorWhite"><!--!--> אודות המערכת</h5></span></button></div></div></div><!--!-->`
+                </div></div></div></div><!--!-->
+        <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><div class="mud-paper mud-paper-square mud-elevation-1 MainPage-responsive-paper2" style="width:100%;"><!--!--><!--!--><div class="mud-grid mud-grid-spacing-xs-6 justify-start" style="padding-right:50px;padding-left:50px;padding-top:50px;"><!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h3 dir="rtl" class="mud-typography mud-typography-h3 mud-typography-align-center TextColorBlack TextBold"><!--!-->למה לבחור ב Jaffa CRM ?</h3></div><!--!-->
+
+            <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-center TextColorGray"><!--!-->המחויבות שלנו למצוינות ניכרת בכל תכונה</h6></div><!--!-->
+
+
+            
+
+
+            <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-3"><!--!--><div class="mud-paper mud-elevation-3 pa-16 ma-1 align-start custom-paper animated-Txt delay-4" style=""><div class="d-flex align-center justify-center gap-2" style="width:100%"><!--!--><!--!--><h4 class="mud-typography mud-typography-h4 text-primary font-bold m-0"><!--!-->
+                            דיוק
+                        </h4><!--!-->
+                        <!--!--><!--!--><button aria-label="דיוק" type="button" class="mud-button-root mud-icon-button mud-primary-text hover:mud-primary-hover mud-ripple mud-ripple-icon mud-icon-button-size-large" _bl_14776f7d-ca9d-4c44-b387-776ca8bdf176=""><span class="mud-icon-button-label"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-large" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M19.93,8.21l-3.6,1.68L14,7.7V6.3l2.33-2.19l3.6,1.68c0.38,0.18,0.82,0.01,1-0.36c0.18-0.38,0.01-0.82-0.36-1L16.65,2.6 c-0.38-0.18-0.83-0.1-1.13,0.2l-1.74,1.6C13.6,4.16,13.32,4,13,4c-0.55,0-1,0.45-1,1v1H8.82C8.34,4.65,6.98,3.73,5.4,4.07 C4.24,4.32,3.25,5.32,3.04,6.5C2.82,7.82,3.5,8.97,4.52,9.58L7.08,18H4v3h13v-3h-3.62L8.41,8.77C8.58,8.53,8.72,8.28,8.82,8H12v1 c0,0.55,0.45,1,1,1c0.32,0,0.6-0.16,0.78-0.4l1.74,1.6c0.3,0.3,0.75,0.38,1.13,0.2l3.92-1.83c0.38-0.18,0.54-0.62,0.36-1 C20.75,8.2,20.31,8.03,19.93,8.21z M6,8C5.45,8,5,7.55,5,7s0.45-1,1-1s1,0.45,1,1S6.55,8,6,8z"></path></g></g></g></svg></span></button></div><!--!-->
+                            <!--!--><div class="bg-white flex flex-col gap-2" style="width:100%"><p class="">כלים מדויקים המותאמים לתהליכי עבודה של עמותות</p></div></div></div><!--!-->
+            <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-3"><!--!--><div class="mud-paper mud-elevation-3 pa-16 ma-2  custom-paper animated-Txt delay-3" style=""><div class="d-flex align-center justify-center gap-2" style="width:100%"><!--!--><!--!--><h4 class="mud-typography mud-typography-h4 text-primary font-bold m-0"><!--!-->
+                            חדשנות
+                        </h4><!--!-->
+                        <!--!--><!--!--><button aria-label="חדשנות" type="button" class="mud-button-root mud-icon-button mud-primary-text hover:mud-primary-hover mud-ripple mud-ripple-icon mud-icon-button-size-large" _bl_3d828a22-b3d3-485c-91f7-cc278ddd3a6d=""><span class="mud-icon-button-label"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-large" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M19.93,8.21l-3.6,1.68L14,7.7V6.3l2.33-2.19l3.6,1.68c0.38,0.18,0.82,0.01,1-0.36c0.18-0.38,0.01-0.82-0.36-1L16.65,2.6 c-0.38-0.18-0.83-0.1-1.13,0.2l-1.74,1.6C13.6,4.16,13.32,4,13,4c-0.55,0-1,0.45-1,1v1H8.82C8.34,4.65,6.98,3.73,5.4,4.07 C4.24,4.32,3.25,5.32,3.04,6.5C2.82,7.82,3.5,8.97,4.52,9.58L7.08,18H4v3h13v-3h-3.62L8.41,8.77C8.58,8.53,8.72,8.28,8.82,8H12v1 c0,0.55,0.45,1,1,1c0.32,0,0.6-0.16,0.78-0.4l1.74,1.6c0.3,0.3,0.75,0.38,1.13,0.2l3.92-1.83c0.38-0.18,0.54-0.62,0.36-1 C20.75,8.2,20.31,8.03,19.93,8.21z M6,8C5.45,8,5,7.55,5,7s0.45-1,1-1s1,0.45,1,1S6.55,8,6,8z"></path></g></g></g></svg></span></button></div><!--!-->
+                            <!--!--><div class="bg-white flex flex-col gap-1" style="width:100%"><p class="">
+                            תכונות מודרניות שמתפתחות עם הארגון שלך
+                        </p></div></div></div><!--!-->
+            <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-3"><!--!--><div class="mud-paper mud-elevation-3 pa-16 ma-2 align-start custom-paper animated-Txt delay-1" style=""><div class="d-flex align-center justify-center gap-2 "><!--!--><!--!--><h4 class="mud-typography mud-typography-h4 text-primary font-bold m-0"><!--!-->
+                            יעילות
+                        </h4><!--!-->
+                        <!--!--><!--!--><button aria-label="יעילות" type="button" class="mud-button-root mud-icon-button mud-primary-text hover:mud-primary-hover mud-ripple mud-ripple-icon mud-icon-button-size-large" _bl_343c2b80-d933-49ab-94ec-4b7fa3033b3b=""><span class="mud-icon-button-label"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-large" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M19.93,8.21l-3.6,1.68L14,7.7V6.3l2.33-2.19l3.6,1.68c0.38,0.18,0.82,0.01,1-0.36c0.18-0.38,0.01-0.82-0.36-1L16.65,2.6 c-0.38-0.18-0.83-0.1-1.13,0.2l-1.74,1.6C13.6,4.16,13.32,4,13,4c-0.55,0-1,0.45-1,1v1H8.82C8.34,4.65,6.98,3.73,5.4,4.07 C4.24,4.32,3.25,5.32,3.04,6.5C2.82,7.82,3.5,8.97,4.52,9.58L7.08,18H4v3h13v-3h-3.62L8.41,8.77C8.58,8.53,8.72,8.28,8.82,8H12v1 c0,0.55,0.45,1,1,1c0.32,0,0.6-0.16,0.78-0.4l1.74,1.6c0.3,0.3,0.75,0.38,1.13,0.2l3.92-1.83c0.38-0.18,0.54-0.62,0.36-1 C20.75,8.2,20.31,8.03,19.93,8.21z M6,8C5.45,8,5,7.55,5,7s0.45-1,1-1s1,0.45,1,1S6.55,8,6,8z"></path></g></g></g></svg></span></button></div><!--!-->
+                    <!--!--><div class="bg-white flex flex-col gap-1"><p class="">חיסכון בזמן וניירת עם ממשק פשוט ואינטואיטיבי</p></div></div></div><!--!-->
+            <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-3"><!--!--><div class="mud-paper mud-elevation-3 pa-16 ma-2 align-start custom-paper animated-Txt delay-2" style=""><div class="d-flex align-center justify-center gap-2"><!--!--><!--!--><h4 class="mud-typography mud-typography-h4 text-primary font-bold m-0"><!--!-->
+                            אמינות
+                        </h4><!--!-->
+                        <!--!--><!--!--><button aria-label="אמינות" type="button" class="mud-button-root mud-icon-button mud-primary-text hover:mud-primary-hover mud-ripple mud-ripple-icon mud-icon-button-size-large" _bl_0ffc9443-bb04-488a-80d0-3f5767b72f64=""><span class="mud-icon-button-label"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-large" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M19.93,8.21l-3.6,1.68L14,7.7V6.3l2.33-2.19l3.6,1.68c0.38,0.18,0.82,0.01,1-0.36c0.18-0.38,0.01-0.82-0.36-1L16.65,2.6 c-0.38-0.18-0.83-0.1-1.13,0.2l-1.74,1.6C13.6,4.16,13.32,4,13,4c-0.55,0-1,0.45-1,1v1H8.82C8.34,4.65,6.98,3.73,5.4,4.07 C4.24,4.32,3.25,5.32,3.04,6.5C2.82,7.82,3.5,8.97,4.52,9.58L7.08,18H4v3h13v-3h-3.62L8.41,8.77C8.58,8.53,8.72,8.28,8.82,8H12v1 c0,0.55,0.45,1,1,1c0.32,0,0.6-0.16,0.78-0.4l1.74,1.6c0.3,0.3,0.75,0.38,1.13,0.2l3.92-1.83c0.38-0.18,0.54-0.62,0.36-1 C20.75,8.2,20.31,8.03,19.93,8.21z M6,8C5.45,8,5,7.55,5,7s0.45-1,1-1s1,0.45,1,1S6.55,8,6,8z"></path></g></g></g></svg></span></button></div><!--!-->
+                    <!--!--><div class="bg-white flex flex-col gap-1"><p class="">מערכת יציבה ומאובטחת עם תמיכה שוטפת</p></div></div></div></div></div><!--!-->
+            <div id="targetDiv2Scroll" _bl_a91daaa4-f594-4f5b-9080-dd634294fe26=""></div></div><!--!-->
+        <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><div class="mud-paper mud-paper-square mud-elevation-1 d-flex justify-center  MainPage-responsive-paper3" style="width:100%;"><!--!--><!--!--><div class="mud-grid mud-grid-spacing-xs-6 justify-start" style="padding-right:50px;padding-left:50px;padding-top:50px;width:90%"><!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h3 dir="rtl" class="mud-typography mud-typography-h3 mud-typography-align-right TextColorBlack TextBold animated-img delay-1"><!--!-->
+                            
+                                אודות AMAX
+                            
+                </h3><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:30px"></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    מפתחת ומפעילה את תוכנת Jaffa – התוכנה המושלמת והטובה ביותר לניהול עמותות,עם מאות משתמשים בארץ ובחו”ל.
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:30px"></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    התוכנה עונה על כל צרכי העמותה, ניהול כספי, קבלות והוראות קבע, מעקב חייבים, ניהול כרטיסי לקוח, תזכורות, דיוור , אשראי, דיוור, ניוזלטר, SMS, ימי הולדת. ממשק דו לשוני (עברית/אנגלית).
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:30px"></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    מערכת יחודית, פשוטה ונוחה לניהול כרטסת מאגר התורמים ואנשי הקשר הפקת פלטים ושליפת נתונים.
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    אפשרות לבסיס נתונים אינטרנטי או מקומי, כולל גישה למידע דרך הטלפון הנייד.
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:30px"></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    אפשרות להעברת נתונים מהתוכנה הישנה והתחלת עבודה מיידית.
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:30px"></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    הלקוחות שלנו מקבלים לליווי והדרכה למיצוי כל יכולות התוכנה
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:30px"></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    כולל שרות אישי מהיר וזמין, אדיב ומקצועי, עם הבנה מעמיקה של המגזר השלשי.
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:30px"></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack TextBold"><!--!-->
+                    התקשר/י עכשיו
+                    <!--!--><a href="tel:077-4331490">077-4331490</a></h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!-->
+                    התוכנה מאושרת ע”י מס הכנסה
+                </h6><!--!-->
+                        <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack TextBold" style="height:50px"></h6><!--!-->
+                <!--!--><!--!--><h5 dir="rtl" class="mud-typography mud-typography-h5 mud-typography-align-right TextColorBlack TextBold"><!--!-->
+                מה מייחד את המערכת שלנו?
+                </h5><!--!-->
+                        <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack" style="height:20px"></h6><!--!-->
+                        
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!--><svg class="mud-icon-root mud-svg-icon mud-success-text mud-icon-size-medium me-1" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><title>Check</title><!--!--><path d="M0 0h24v24H0z" fill="none"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg><!--!-->  מותאם במיוחד לעמותות ולצרכים שלהן
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!--><svg class="mud-icon-root mud-svg-icon mud-success-text mud-icon-size-medium me-1" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><title>Check</title><!--!--><path d="M0 0h24v24H0z" fill="none"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg><!--!-->תומך בעברית ואנגלית
+                </h6><!--!-->
+                <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!--><svg class="mud-icon-root mud-svg-icon mud-success-text mud-icon-size-medium me-1" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><title>Check</title><!--!--><path d="M0 0h24v24H0z" fill="none"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg><!--!-->קל לשימוש – גם ללא רקע טכנולוגי
+                </h6><!--!-->
+                        <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack"><!--!--><svg class="mud-icon-root mud-svg-icon mud-success-text mud-icon-size-medium me-1" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><title>Check</title><!--!--><path d="M0 0h24v24H0z" fill="none"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg><!--!-->מתחבר למערכות תשלום, מיילים ועוד
+                        </h6><!--!-->
+
+                        <!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-right TextColorBlack TextBold" style="height:30px"></h6></div></div></div></div><!--!-->
+    <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><div class="mud-paper mud-paper-square mud-elevation-1 MainPage-responsive-paper" style="width:100%;background-color: rgb(34, 67, 98);;"><!--!--><!--!--><div class="mud-grid mud-grid-spacing-xs-6 justify-start" style="padding-right:50px;padding-left:50px"><!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-12"><!--!--><div class="mud-paper mud-elevation-1 d-flex align-center justify-center mud-width-full py-8 animated-Txt delay-2" style="height:100%;background-color: rgb(34, 67, 98);;"><!--!--><!--!--><div class="mud-grid mud-grid-spacing-xs-6 justify-start"><!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h4 dir="rtl" class="mud-typography mud-typography-h4 mud-typography-align-center TextColorWhite TextBold"><!--!-->AMAX במספרים</h4></div><!--!-->
+
+                                <!--!--><div class="mud-grid-item mud-grid-item-xs-12"><!--!--><!--!--><h6 dir="rtl" class="mud-typography mud-typography-h6 mud-typography-align-center TextColorGraylight"><!--!-->
+                                        ההשפעה שלנו ולקוחות מכל העולם
+                                   </h6></div><!--!-->
+
+                                <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-4"><!--!--><div class="mud-paper mud-elevation-3 pa-16 ma-2 align-center custom-paper animated-Txt delay-4 flex flex-col items-center justify-center MainFootBox" style=""><div class="flex flex-col items-center justify-center w-full h-full text-center gap-2"><!--!--><!--!--><button aria-label="שנות פעילות" type="button" class="mud-button-root mud-icon-button mud-secondary-text hover:mud-secondary-hover mud-ripple mud-ripple-icon mud-icon-button-size-large" _bl_70bda256-5aa1-4bc6-96be-07a8b8857249=""><span class="mud-icon-button-label"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-large" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M19.93,8.21l-3.6,1.68L14,7.7V6.3l2.33-2.19l3.6,1.68c0.38,0.18,0.82,0.01,1-0.36c0.18-0.38,0.01-0.82-0.36-1L16.65,2.6 c-0.38-0.18-0.83-0.1-1.13,0.2l-1.74,1.6C13.6,4.16,13.32,4,13,4c-0.55,0-1,0.45-1,1v1H8.82C8.34,4.65,6.98,3.73,5.4,4.07 C4.24,4.32,3.25,5.32,3.04,6.5C2.82,7.82,3.5,8.97,4.52,9.58L7.08,18H4v3h13v-3h-3.62L8.41,8.77C8.58,8.53,8.72,8.28,8.82,8H12v1 c0,0.55,0.45,1,1,1c0.32,0,0.6-0.16,0.78-0.4l1.74,1.6c0.3,0.3,0.75,0.38,1.13,0.2l3.92-1.83c0.38-0.18,0.54-0.62,0.36-1 C20.75,8.2,20.31,8.03,19.93,8.21z M6,8C5.45,8,5,7.55,5,7s0.45-1,1-1s1,0.45,1,1S6.55,8,6,8z"></path></g></g></g></svg></span></button><!--!-->
+                                            <!--!--><!--!--><h4 class="mud-typography mud-typography-h4 font-bold m-0"><!--!-->
+                                                25+
+                                            </h4></div><!--!-->
+
+                                        <!--!--><div class=" flex flex-col items-center gap-1 "><p class="text-center">שנות פעילות</p></div></div></div><!--!-->
+
+                                <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-4"><!--!--><div class="mud-paper mud-elevation-3 pa-16 ma-2 align-center custom-paper animated-Txt delay-4 flex flex-col items-center justify-center MainFootBox" style=""><div class="flex flex-col items-center justify-center w-full h-full text-center gap-2"><!--!--><!--!--><button aria-label="משתמשים" type="button" class="mud-button-root mud-icon-button mud-secondary-text hover:mud-secondary-hover mud-ripple mud-ripple-icon mud-icon-button-size-large" _bl_d0bb76d5-6806-429a-906e-c6fba01314f8=""><span class="mud-icon-button-label"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-large" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M19.93,8.21l-3.6,1.68L14,7.7V6.3l2.33-2.19l3.6,1.68c0.38,0.18,0.82,0.01,1-0.36c0.18-0.38,0.01-0.82-0.36-1L16.65,2.6 c-0.38-0.18-0.83-0.1-1.13,0.2l-1.74,1.6C13.6,4.16,13.32,4,13,4c-0.55,0-1,0.45-1,1v1H8.82C8.34,4.65,6.98,3.73,5.4,4.07 C4.24,4.32,3.25,5.32,3.04,6.5C2.82,7.82,3.5,8.97,4.52,9.58L7.08,18H4v3h13v-3h-3.62L8.41,8.77C8.58,8.53,8.72,8.28,8.82,8H12v1 c0,0.55,0.45,1,1,1c0.32,0,0.6-0.16,0.78-0.4l1.74,1.6c0.3,0.3,0.75,0.38,1.13,0.2l3.92-1.83c0.38-0.18,0.54-0.62,0.36-1 C20.75,8.2,20.31,8.03,19.93,8.21z M6,8C5.45,8,5,7.55,5,7s0.45-1,1-1s1,0.45,1,1S6.55,8,6,8z"></path></g></g></g></svg></span></button><!--!-->
+                                            <!--!--><!--!--><h4 class="mud-typography mud-typography-h4 font-bold m-0"><!--!-->
+                                                500+
+                                            </h4></div><!--!-->
+
+                                        <!--!--><div class=" flex flex-col items-center gap-1"><p class="text-center">משתמשים</p></div></div></div><!--!-->
+                                <!--!--><div class="mud-grid-item mud-grid-item-xs-12 mud-grid-item-md-4"><!--!--><div class="mud-paper mud-elevation-3 pa-16 ma-2 align-center custom-paper animated-Txt delay-4 flex flex-col items-center justify-center MainFootBox" style=""><div class="flex flex-col items-center justify-center w-full h-full text-center gap-2"><!--!--><!--!--><button aria-label="מדינות" type="button" class="mud-button-root mud-icon-button mud-secondary-text hover:mud-secondary-hover mud-ripple mud-ripple-icon mud-icon-button-size-large" _bl_aee92446-81a0-45c3-a7e7-3f1442f3b2f4=""><span class="mud-icon-button-label"><!--!--><svg class="mud-icon-root mud-svg-icon mud-icon-size-large" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="img"><!--!--><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M19.93,8.21l-3.6,1.68L14,7.7V6.3l2.33-2.19l3.6,1.68c0.38,0.18,0.82,0.01,1-0.36c0.18-0.38,0.01-0.82-0.36-1L16.65,2.6 c-0.38-0.18-0.83-0.1-1.13,0.2l-1.74,1.6C13.6,4.16,13.32,4,13,4c-0.55,0-1,0.45-1,1v1H8.82C8.34,4.65,6.98,3.73,5.4,4.07 C4.24,4.32,3.25,5.32,3.04,6.5C2.82,7.82,3.5,8.97,4.52,9.58L7.08,18H4v3h13v-3h-3.62L8.41,8.77C8.58,8.53,8.72,8.28,8.82,8H12v1 c0,0.55,0.45,1,1,1c0.32,0,0.6-0.16,0.78-0.4l1.74,1.6c0.3,0.3,0.75,0.38,1.13,0.2l3.92-1.83c0.38-0.18,0.54-0.62,0.36-1 C20.75,8.2,20.31,8.03,19.93,8.21z M6,8C5.45,8,5,7.55,5,7s0.45-1,1-1s1,0.45,1,1S6.55,8,6,8z"></path></g></g></g></svg></span></button><!--!-->
+                                            <!--!--><!--!--><h4 class="mud-typography mud-typography-h4 font-bold m-0"><!--!-->
+                                                35+
+                                            </h4></div><!--!-->
+
+                                        <!--!--><div class=" flex flex-col items-center gap-1"><p class="text-center">מדינות</p></div></div></div></div></div></div></div></div></div><!--!-->
+
+        <!--!--><div class="mud-grid-item mud-grid-item-xs-12" style="background-color: rgb(34, 67, 98); display: flex; align-items: center; justify-content: center; height: 300px;"><!--!--><!--!--><span dir="rtl" class="mud-typography mud-typography-caption mud-typography-align-center TextColorGraylight"><!--!-->
+                © 2025 AMAX כל הזכויות שמורות.
+            </span></div></div></div><!--!-->
+
+
+
+
+
+
+
+
+
+
+ <!--!--><style>
+    .custom-paper {
+        height: 250px;
+    }
+ </style></div></div></div>
+        
+    <script src="_framework/blazor.web.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <script src="js/global.js"></script></body></html>

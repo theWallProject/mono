@@ -1,0 +1,66 @@
+[2026-03-10T02:37:20.248Z] === Homepage AI Extractor: Shapo ===
+[2026-03-10T02:37:20.248Z] Started at: 2026-03-10T02:37:20.248Z
+[2026-03-10T02:37:20.248Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773110240248_Shapo
+[2026-03-10T02:37:20.248Z] Company: Shapo
+[2026-03-10T02:37:20.249Z] Website: shapo.io
+[2026-03-10T02:37:20.249Z] cbRank: 351825
+[2026-03-10T02:37:20.249Z] Reasons: h
+[2026-03-10T02:37:20.249Z] Fetching: https://shapo.io
+[2026-03-10T02:37:23.684Z] Redirected: https://shapo.io -> https://shapo.io/
+[2026-03-10T02:37:23.690Z] Saved HTML (158638 bytes) to page.html
+[2026-03-10T02:37:23.695Z] Extracted 86 unique links from page
+[2026-03-10T02:37:23.696Z] Saved 86 links to links.json
+[2026-03-10T02:37:23.700Z] No footer section found in DOM
+[2026-03-10T02:37:23.700Z] Extracted header HTML (5588 chars)
+[2026-03-10T02:37:23.705Z] Website (post-redirect): https://shapo.io/ → origin: https://shapo.io
+[2026-03-10T02:37:23.706Z]   SUBDOMAIN: app.shapo.io (added to ws)
+[2026-03-10T02:37:23.706Z]   SUBDOMAIN: help.shapo.io (added to ws)
+[2026-03-10T02:37:23.706Z] Website subdomains found: 2
+[2026-03-10T02:37:23.706Z] External links: 5 (of 86 total)
+[2026-03-10T02:37:23.706Z] ── All external links ──
+[2026-03-10T02:37:23.706Z]   EXT: https://calltuv.com
+[2026-03-10T02:37:23.706Z]   EXT: https://termly.io/products/cookie-consent-manager
+[2026-03-10T02:37:23.707Z]   EXT: https://twitter.com/shapo_io
+[2026-03-10T02:37:23.707Z]   EXT: https://www.facebook.com/shapo.io
+[2026-03-10T02:37:23.707Z]   EXT: https://www.linkedin.com/company/shapo-io
+[2026-03-10T02:37:23.707Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T02:37:23.707Z]   UNCATEGORIZED: https://calltuv.com
+[2026-03-10T02:37:23.707Z]   UNCATEGORIZED: https://termly.io/products/cookie-consent-manager
+[2026-03-10T02:37:23.707Z]   REGEX: tw <- https://twitter.com/shapo_io
+[2026-03-10T02:37:23.708Z]   REGEX: fb <- https://www.facebook.com/shapo.io
+[2026-03-10T02:37:23.708Z]   REGEX: li <- https://www.linkedin.com/company/shapo-io
+[2026-03-10T02:37:23.708Z] Programmatic result: ws:3, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-10T02:37:23.708Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T02:37:23.709Z] Saved AI prompt (1995 chars) to ai_prompt.txt
+[2026-03-10T02:37:23.709Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T02:37:23.730Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T02:37:29.062Z]   AI: AI returned empty response (264 raw bytes) — model produced no tokens
+[2026-03-10T02:37:29.062Z] AI response complete: 0 chars in 5.4s
+[2026-03-10T02:37:29.063Z] Saved AI response to ai_response.json
+[2026-03-10T02:37:29.063Z] ── Parsing AI response (1 lines) ──
+[2026-03-10T02:37:29.063Z] AI returned 0 valid links
+[2026-03-10T02:37:29.063Z] ── Categorizing 0 AI-returned links ──
+[2026-03-10T02:37:29.064Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T02:37:29.064Z] Footer/header origins (2):
+[2026-03-10T02:37:29.064Z]   FOOTER/HEADER ORIGIN: https://shapo.io
+[2026-03-10T02:37:29.064Z]   FOOTER/HEADER ORIGIN: https://app.shapo.io
+[2026-03-10T02:37:29.064Z]   SKIP (not in footer/header): https://calltuv.com
+[2026-03-10T02:37:29.064Z]   SKIP (not in footer/header): https://termly.io/products/cookie-consent-manager
+[2026-03-10T02:37:29.064Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T02:37:29.064Z] ── Step 3: Final dedup ──
+[2026-03-10T02:37:29.064Z] No urls to dedup
+[2026-03-10T02:37:29.065Z] ── FINAL RESULT ──
+[2026-03-10T02:37:29.065Z]   ws (3):
+[2026-03-10T02:37:29.065Z]     - https://app.shapo.io
+[2026-03-10T02:37:29.065Z]     - https://help.shapo.io
+[2026-03-10T02:37:29.065Z]     - https://shapo.io
+[2026-03-10T02:37:29.065Z]   li (1):
+[2026-03-10T02:37:29.065Z]     - https://www.linkedin.com/company/shapo-io
+[2026-03-10T02:37:29.065Z]   fb (1):
+[2026-03-10T02:37:29.065Z]     - https://www.facebook.com/shapo.io
+[2026-03-10T02:37:29.065Z]   tw (1):
+[2026-03-10T02:37:29.065Z]     - https://x.com/shapo_io
+[2026-03-10T02:37:29.065Z] Summary: ws:3, tw:1, fb:1, li:1
+[2026-03-10T02:37:29.066Z] Saved final result to result.json
+[2026-03-10T02:37:29.066Z] Override fields: ws, li, fb, tw
+[2026-03-10T02:37:29.066Z] Finished at: 2026-03-10T02:37:29.066Z

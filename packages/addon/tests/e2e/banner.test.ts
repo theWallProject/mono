@@ -29,11 +29,11 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
   describe("Banner - All Standard Features (Single URL)", () => {
     let page: Page
-    let testUrl: Awaited<ReturnType<typeof getRandomResult>>
+    let testUrl: ReturnType<typeof getRandomResult>
 
     beforeAll(async () => {
       console.log("[TEST] Setting up single URL for all standard banner tests")
-      testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
+      testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
       if (testUrl.isHint) {
@@ -196,7 +196,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
     it("should dismiss banner when skip button is clicked", async () => {
       console.log("[TEST] Starting: should dismiss banner when skip button is clicked")
 
-      const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true })
+      const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
       const page = await context.newPage()
@@ -239,7 +239,7 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       console.log("[TEST] Starting: should not show banner again after dismissal in same session")
 
       // Use a different URL than the previous tests to avoid storage conflicts
-      const testUrl = await getRandomResult({ isHint: false, excludeLoginRequired: true, ruleType: "urlOnly" })
+      const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true, ruleType: "urlOnly" })
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
 
       const page = await context.newPage()
@@ -305,11 +305,11 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
   describe("Banner - Alternatives Button (Requires URL with Alternatives)", () => {
     let page: Page
-    let testUrl: Awaited<ReturnType<typeof getUrlWithAlternatives>>
+    let testUrl: ReturnType<typeof getUrlWithAlternatives>
 
     beforeAll(async () => {
       console.log("[TEST] Setting up URL with alternatives")
-      testUrl = await getUrlWithAlternatives({ excludeLoginRequired: true })
+      testUrl = getUrlWithAlternatives({ excludeLoginRequired: true })
       console.log(`[TEST] Selected URL with alternatives: ${testUrl.url}`)
 
       if (testUrl.isHint) {
@@ -360,11 +360,11 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
   describe("Banner - Support Palestine Button (Requires URL without Alternatives)", () => {
     let page: Page
-    let testUrl: Awaited<ReturnType<typeof getUrlWithoutAlternatives>>
+    let testUrl: ReturnType<typeof getUrlWithoutAlternatives>
 
     beforeAll(async () => {
       console.log("[TEST] Setting up URL without alternatives")
-      testUrl = await getUrlWithoutAlternatives({ excludeLoginRequired: true })
+      testUrl = getUrlWithoutAlternatives({ excludeLoginRequired: true })
       console.log(`[TEST] Selected URL without alternatives: ${testUrl.url}`)
 
       if (testUrl.isHint) {
@@ -434,11 +434,11 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
     it("should display banner for all rule types", async () => {
       console.log("[TEST] Starting: should display banner for all rule types")
 
-      const ruleTypes: Array<"urlOnly" | "urlDomFull" | "urlDomInline"> = ["urlOnly", "urlDomFull", "urlDomInline"]
+      const ruleTypes: Array<"urlOnly" | "urlDomFull"> = ["urlOnly", "urlDomFull"]
 
       for (const ruleType of ruleTypes) {
         console.log(`[TEST] Testing rule type: ${ruleType}`)
-        const testUrl = await getRandomResult({ ruleType, isHint: false, excludeLoginRequired: true })
+        const testUrl = getRandomResult({ ruleType, isHint: false, excludeLoginRequired: true })
         console.log(`[TEST] Selected URL: ${testUrl.url} (ruleType: ${testUrl.ruleType})`)
 
         if (testUrl.isHint) {

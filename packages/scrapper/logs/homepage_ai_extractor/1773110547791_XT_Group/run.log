@@ -1,0 +1,74 @@
+[2026-03-10T02:42:27.791Z] === Homepage AI Extractor: XT Group ===
+[2026-03-10T02:42:27.792Z] Started at: 2026-03-10T02:42:27.792Z
+[2026-03-10T02:42:27.792Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773110547791_XT_Group
+[2026-03-10T02:42:27.792Z] Company: XT Group
+[2026-03-10T02:42:27.792Z] Website: xtholdings.com
+[2026-03-10T02:42:27.792Z] cbRank: 352664
+[2026-03-10T02:42:27.792Z] Reasons: h
+[2026-03-10T02:42:27.792Z] Fetching: https://xtholdings.com
+[2026-03-10T02:42:33.202Z] Redirected: https://xtholdings.com -> https://www.xtholdings.com/
+[2026-03-10T02:42:33.221Z] Saved HTML (370605 bytes) to page.html
+[2026-03-10T02:42:33.225Z] Extracted 17 unique links from page
+[2026-03-10T02:42:33.226Z] Saved 17 links to links.json
+[2026-03-10T02:42:33.230Z] Extracted footer HTML (433 chars)
+[2026-03-10T02:42:33.231Z] Extracted header HTML (10026 chars)
+[2026-03-10T02:42:33.244Z] Website (post-redirect): https://www.xtholdings.com/ → origin: https://www.xtholdings.com
+[2026-03-10T02:42:33.244Z] External links: 8 (of 17 total)
+[2026-03-10T02:42:33.244Z] ── All external links ──
+[2026-03-10T02:42:33.245Z]   EXT: http://www.user-a.co.il
+[2026-03-10T02:42:33.245Z]   EXT: https://policies.google.com/privacy
+[2026-03-10T02:42:33.245Z]   EXT: https://policies.google.com/terms
+[2026-03-10T02:42:33.245Z]   EXT: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-10T02:42:33.245Z]   EXT: https://www.facebook.com/xtholdings
+[2026-03-10T02:42:33.245Z]   EXT: https://www.linkedin.com/company/xtholdings
+[2026-03-10T02:42:33.245Z]   EXT: https://www.youtube.com/@xtgroup1956/playlists
+[2026-03-10T02:42:33.245Z]   EXT: https://xthitech.com
+[2026-03-10T02:42:33.245Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T02:42:33.246Z]   UNCATEGORIZED: http://www.user-a.co.il
+[2026-03-10T02:42:33.246Z]   UNCATEGORIZED: https://policies.google.com/privacy
+[2026-03-10T02:42:33.246Z]   UNCATEGORIZED: https://policies.google.com/terms
+[2026-03-10T02:42:33.246Z]   UNCATEGORIZED: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-10T02:42:33.246Z]   REGEX: fb <- https://www.facebook.com/xtholdings
+[2026-03-10T02:42:33.246Z]   REGEX: li <- https://www.linkedin.com/company/xtholdings
+[2026-03-10T02:42:33.247Z]   REGEX: ytp <- https://www.youtube.com/@xtgroup1956/playlists
+[2026-03-10T02:42:33.247Z]   UNCATEGORIZED: https://xthitech.com
+[2026-03-10T02:42:33.247Z] Programmatic result: ws:1, fb:1, li:1, ytp:1 | 5 uncategorized
+[2026-03-10T02:42:33.247Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T02:42:33.248Z] Saved AI prompt (2475 chars) to ai_prompt.txt
+[2026-03-10T02:42:33.248Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T02:42:33.263Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T02:42:41.688Z]   AI: First token received, streaming...
+[2026-03-10T02:42:41.692Z] AI response complete: 20 chars in 8.4s
+[2026-03-10T02:42:41.692Z] Saved AI response to ai_response.json
+[2026-03-10T02:42:41.693Z] ── Parsing AI response (1 lines) ──
+[2026-03-10T02:42:41.693Z]   AI LINK: https://xthitech.com
+[2026-03-10T02:42:41.693Z] AI returned 1 valid links
+[2026-03-10T02:42:41.693Z] ── Categorizing 1 AI-returned links ──
+[2026-03-10T02:42:41.693Z]   AI→URLS: https://xthitech.com
+[2026-03-10T02:42:41.693Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T02:42:41.693Z] Footer/header origins (1):
+[2026-03-10T02:42:41.693Z]   FOOTER/HEADER ORIGIN: http://www.user-a.co.il
+[2026-03-10T02:42:41.693Z]   ADDED: urls <- http://www.user-a.co.il
+[2026-03-10T02:42:41.693Z]   SKIP (not in footer/header): https://policies.google.com/privacy
+[2026-03-10T02:42:41.694Z]   SKIP (not in footer/header): https://policies.google.com/terms
+[2026-03-10T02:42:41.694Z]   SKIP (not in footer/header): https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-10T02:42:41.694Z]   SKIP (AI claimed): https://xthitech.com
+[2026-03-10T02:42:41.694Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T02:42:41.694Z] ── Step 3: Final dedup ──
+[2026-03-10T02:42:41.694Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T02:42:41.694Z] ── FINAL RESULT ──
+[2026-03-10T02:42:41.694Z]   ws (1):
+[2026-03-10T02:42:41.694Z]     - https://www.xtholdings.com
+[2026-03-10T02:42:41.694Z]   li (1):
+[2026-03-10T02:42:41.694Z]     - https://www.linkedin.com/company/xtholdings
+[2026-03-10T02:42:41.694Z]   fb (1):
+[2026-03-10T02:42:41.695Z]     - https://www.facebook.com/xtholdings
+[2026-03-10T02:42:41.695Z]   ytp (1):
+[2026-03-10T02:42:41.695Z]     - https://www.youtube.com/@xtgroup1956
+[2026-03-10T02:42:41.695Z]   urls (2):
+[2026-03-10T02:42:41.695Z]     - http://www.user-a.co.il
+[2026-03-10T02:42:41.695Z]     - https://xthitech.com
+[2026-03-10T02:42:41.695Z] Summary: ws:1, fb:1, li:1, ytp:1, urls:2
+[2026-03-10T02:42:41.696Z] Saved final result to result.json
+[2026-03-10T02:42:41.696Z] Override fields: ws, li, fb, ytp, urls
+[2026-03-10T02:42:41.696Z] Finished at: 2026-03-10T02:42:41.696Z

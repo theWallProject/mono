@@ -1,0 +1,65 @@
+[2026-03-10T11:12:02.526Z] === Homepage AI Extractor: YieldsApp ===
+[2026-03-10T11:12:02.526Z] Started at: 2026-03-10T11:12:02.526Z
+[2026-03-10T11:12:02.527Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773141122526_YieldsApp
+[2026-03-10T11:12:02.527Z] Company: YieldsApp
+[2026-03-10T11:12:02.527Z] Website: yieldsapp.com
+[2026-03-10T11:12:02.527Z] cbRank: 485774
+[2026-03-10T11:12:02.527Z] Reasons: h
+[2026-03-10T11:12:02.527Z] Fetching: https://yieldsapp.com
+[2026-03-10T11:12:14.747Z] Network idle timeout — continuing with current state
+[2026-03-10T11:12:14.791Z] Redirected: https://yieldsapp.com -> https://yieldsapp.com/
+[2026-03-10T11:12:14.800Z] Saved HTML (239384 bytes) to page.html
+[2026-03-10T11:12:14.803Z] Extracted 16 unique links from page
+[2026-03-10T11:12:14.803Z] Saved 16 links to links.json
+[2026-03-10T11:12:14.806Z] Extracted footer HTML (10385 chars)
+[2026-03-10T11:12:14.806Z] Extracted header HTML (16281 chars)
+[2026-03-10T11:12:14.810Z] Website (post-redirect): https://yieldsapp.com/ → origin: https://yieldsapp.com
+[2026-03-10T11:12:14.810Z] External links: 4 (of 16 total)
+[2026-03-10T11:12:14.810Z] ── All external links ──
+[2026-03-10T11:12:14.810Z]   EXT: https://www.facebook.com/yieldsapp
+[2026-03-10T11:12:14.810Z]   EXT: https://www.statcounter.com
+[2026-03-10T11:12:14.810Z]   EXT: https://www.youtube.com/@yieldsApp-wv7qr
+[2026-03-10T11:12:14.811Z]   EXT: https://x.com/yieldsApp
+[2026-03-10T11:12:14.811Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T11:12:14.811Z]   REGEX: fb <- https://www.facebook.com/yieldsapp
+[2026-03-10T11:12:14.811Z]   UNCATEGORIZED: https://www.statcounter.com
+[2026-03-10T11:12:14.811Z]   REGEX: ytp <- https://www.youtube.com/@yieldsApp-wv7qr
+[2026-03-10T11:12:14.811Z]   REGEX: tw <- https://x.com/yieldsApp
+[2026-03-10T11:12:14.811Z] Programmatic result: ws:1, fb:1, ytp:1, tw:1 | 1 uncategorized
+[2026-03-10T11:12:14.811Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T11:12:14.812Z] Saved AI prompt (4560 chars) to ai_prompt.txt
+[2026-03-10T11:12:14.812Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T11:12:14.828Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T11:12:32.201Z]   AI: First token received, streaming...
+[2026-03-10T11:12:32.436Z] AI response complete: 21 chars in 17.6s
+[2026-03-10T11:12:32.436Z] Saved AI response to ai_response.json
+[2026-03-10T11:12:32.436Z] ── Parsing AI response (1 lines) ──
+[2026-03-10T11:12:32.437Z]   AI LINK: https://yieldsapp.com
+[2026-03-10T11:12:32.437Z] AI returned 1 valid links
+[2026-03-10T11:12:32.437Z] ── Categorizing 1 AI-returned links ──
+[2026-03-10T11:12:32.437Z]   AI→URLS: https://yieldsapp.com
+[2026-03-10T11:12:32.437Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T11:12:32.437Z] Footer/header origins (4):
+[2026-03-10T11:12:32.437Z]   FOOTER/HEADER ORIGIN: https://yieldsapp.com
+[2026-03-10T11:12:32.437Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T11:12:32.438Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-10T11:12:32.438Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T11:12:32.438Z]   SKIP (not in footer/header): https://www.statcounter.com
+[2026-03-10T11:12:32.438Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T11:12:32.438Z] ── Step 3: Final dedup ──
+[2026-03-10T11:12:32.438Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T11:12:32.438Z] ── FINAL RESULT ──
+[2026-03-10T11:12:32.438Z]   ws (1):
+[2026-03-10T11:12:32.438Z]     - https://yieldsapp.com
+[2026-03-10T11:12:32.438Z]   fb (1):
+[2026-03-10T11:12:32.438Z]     - https://www.facebook.com/yieldsapp
+[2026-03-10T11:12:32.438Z]   tw (1):
+[2026-03-10T11:12:32.438Z]     - https://x.com/yieldsapp
+[2026-03-10T11:12:32.438Z]   ytp (1):
+[2026-03-10T11:12:32.438Z]     - https://www.youtube.com/@yieldsapp-wv7qr
+[2026-03-10T11:12:32.438Z]   urls (1):
+[2026-03-10T11:12:32.438Z]     - https://yieldsapp.com
+[2026-03-10T11:12:32.439Z] Summary: ws:1, fb:1, ytp:1, tw:1, urls:1
+[2026-03-10T11:12:32.439Z] Saved final result to result.json
+[2026-03-10T11:12:32.439Z] Override fields: ws, fb, tw, ytp
+[2026-03-10T11:12:32.439Z] Finished at: 2026-03-10T11:12:32.439Z

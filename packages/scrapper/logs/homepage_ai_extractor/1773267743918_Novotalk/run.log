@@ -1,0 +1,73 @@
+[2026-03-11T22:22:23.918Z] === Homepage AI Extractor: Novotalk ===
+[2026-03-11T22:22:23.918Z] Started at: 2026-03-11T22:22:23.918Z
+[2026-03-11T22:22:23.918Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773267743918_Novotalk
+[2026-03-11T22:22:23.918Z] Company: Novotalk
+[2026-03-11T22:22:23.918Z] Website: novotalk.com
+[2026-03-11T22:22:23.918Z] cbRank: 683238
+[2026-03-11T22:22:23.919Z] Reasons: h
+[2026-03-11T22:22:23.919Z] Fetching: https://novotalk.com
+[2026-03-11T22:22:36.180Z] Network idle timeout — continuing with current state
+[2026-03-11T22:22:36.222Z] Redirected: https://novotalk.com -> https://www.novotalk.com/
+[2026-03-11T22:22:36.227Z] Saved HTML (133353 bytes) to page.html
+[2026-03-11T22:22:36.231Z] Extracted 16 unique links from page
+[2026-03-11T22:22:36.231Z] Saved 16 links to links.json
+[2026-03-11T22:22:36.235Z] Extracted footer HTML (12532 chars)
+[2026-03-11T22:22:36.235Z] Extracted header HTML (14968 chars)
+[2026-03-11T22:22:36.239Z] Website (post-redirect): https://www.novotalk.com/ → origin: https://www.novotalk.com
+[2026-03-11T22:22:36.239Z] External links: 4 (of 16 total)
+[2026-03-11T22:22:36.239Z] ── All external links ──
+[2026-03-11T22:22:36.239Z]   EXT: https://www.facebook.com/novotalk1
+[2026-03-11T22:22:36.239Z]   EXT: https://www.linkedin.com/company/novotalk
+[2026-03-11T22:22:36.239Z]   EXT: https://www.youtube.com/@novotalk-now
+[2026-03-11T22:22:36.240Z]   EXT: https://x.com/novotalk
+[2026-03-11T22:22:36.240Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T22:22:36.240Z]   REGEX: fb <- https://www.facebook.com/novotalk1
+[2026-03-11T22:22:36.240Z]   REGEX: li <- https://www.linkedin.com/company/novotalk
+[2026-03-11T22:22:36.240Z]   REGEX: ytp <- https://www.youtube.com/@novotalk-now
+[2026-03-11T22:22:36.240Z]   REGEX: tw <- https://x.com/novotalk
+[2026-03-11T22:22:36.240Z] Programmatic result: ws:1, fb:1, li:1, ytp:1, tw:1 | 0 uncategorized
+[2026-03-11T22:22:36.240Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T22:22:36.241Z] Saved AI prompt (6980 chars) to ai_prompt.txt
+[2026-03-11T22:22:36.241Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T22:22:36.258Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T22:23:03.134Z]   AI: First token received, streaming...
+[2026-03-11T22:23:11.167Z] AI response complete: 138 chars in 34.9s
+[2026-03-11T22:23:11.167Z] Saved AI response to ai_response.json
+[2026-03-11T22:23:11.167Z] ── Parsing AI response (4 lines) ──
+[2026-03-11T22:23:11.168Z]   AI LINK: https://x.com/novotalk
+[2026-03-11T22:23:11.168Z]   AI LINK: https://www.facebook.com/novotalk1/
+[2026-03-11T22:23:11.168Z]   AI LINK: https://www.linkedin.com/company/novotalk
+[2026-03-11T22:23:11.168Z]   AI LINK: https://www.youtube.com/@novotalk-now
+[2026-03-11T22:23:11.168Z] AI returned 4 valid links
+[2026-03-11T22:23:11.168Z] ── Categorizing 4 AI-returned links ──
+[2026-03-11T22:23:11.168Z]   AI→REGEX: tw <- https://x.com/novotalk (duplicate, skipped)
+[2026-03-11T22:23:11.168Z]   AI→REGEX: fb <- https://www.facebook.com/novotalk1/ (duplicate, skipped)
+[2026-03-11T22:23:11.168Z]   AI→REGEX: li <- https://www.linkedin.com/company/novotalk (duplicate, skipped)
+[2026-03-11T22:23:11.168Z]   AI→REGEX: ytp <- https://www.youtube.com/@novotalk-now (duplicate, skipped)
+[2026-03-11T22:23:11.168Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T22:23:11.169Z] Footer/header origins (5):
+[2026-03-11T22:23:11.169Z]   FOOTER/HEADER ORIGIN: https://www.novotalk.com
+[2026-03-11T22:23:11.169Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-11T22:23:11.169Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T22:23:11.169Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T22:23:11.169Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T22:23:11.169Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T22:23:11.169Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T22:23:11.169Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T22:23:11.169Z] ── Step 3: Final dedup ──
+[2026-03-11T22:23:11.169Z] No urls to dedup
+[2026-03-11T22:23:11.169Z] ── FINAL RESULT ──
+[2026-03-11T22:23:11.169Z]   ws (1):
+[2026-03-11T22:23:11.169Z]     - https://www.novotalk.com
+[2026-03-11T22:23:11.169Z]   li (1):
+[2026-03-11T22:23:11.169Z]     - https://www.linkedin.com/company/novotalk
+[2026-03-11T22:23:11.169Z]   fb (1):
+[2026-03-11T22:23:11.169Z]     - https://www.facebook.com/novotalk1
+[2026-03-11T22:23:11.170Z]   tw (1):
+[2026-03-11T22:23:11.170Z]     - https://x.com/novotalk
+[2026-03-11T22:23:11.170Z]   ytp (1):
+[2026-03-11T22:23:11.170Z]     - https://www.youtube.com/@novotalk-now
+[2026-03-11T22:23:11.170Z] Summary: ws:1, fb:1, li:1, ytp:1, tw:1
+[2026-03-11T22:23:11.170Z] Saved final result to result.json
+[2026-03-11T22:23:11.170Z] Override fields: ws, li, fb, tw, ytp
+[2026-03-11T22:23:11.170Z] Finished at: 2026-03-11T22:23:11.170Z

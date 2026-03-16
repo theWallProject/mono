@@ -1,0 +1,70 @@
+[2026-03-10T08:52:10.311Z] === Homepage AI Extractor: Hold Me ===
+[2026-03-10T08:52:10.311Z] Started at: 2026-03-10T08:52:10.311Z
+[2026-03-10T08:52:10.311Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773132730310_Hold_Me
+[2026-03-10T08:52:10.311Z] Company: Hold Me
+[2026-03-10T08:52:10.311Z] Website: holdme.co.il
+[2026-03-10T08:52:10.311Z] cbRank: 447993
+[2026-03-10T08:52:10.311Z] Reasons: h
+[2026-03-10T08:52:10.311Z] Fetching: https://holdme.co.il
+[2026-03-10T08:52:21.204Z] Network idle timeout — continuing with current state
+[2026-03-10T08:52:21.243Z] Redirected: https://holdme.co.il -> https://www.holdme.co.il/
+[2026-03-10T08:52:21.257Z] Saved HTML (461857 bytes) to page.html
+[2026-03-10T08:52:21.260Z] Extracted 6 unique links from page
+[2026-03-10T08:52:21.261Z] Saved 6 links to links.json
+[2026-03-10T08:52:21.263Z] Extracted footer HTML (5647 chars)
+[2026-03-10T08:52:21.263Z] Extracted header HTML (7023 chars)
+[2026-03-10T08:52:21.268Z] Website (post-redirect): https://www.holdme.co.il/ → origin: https://www.holdme.co.il
+[2026-03-10T08:52:21.268Z] External links: 4 (of 6 total)
+[2026-03-10T08:52:21.268Z] ── All external links ──
+[2026-03-10T08:52:21.268Z]   EXT: http://www.facebook.com/holdme
+[2026-03-10T08:52:21.268Z]   EXT: https://www.linkedin.com/company/holdmeltd
+[2026-03-10T08:52:21.268Z]   EXT: https://www.sec.gov/edgar/browse/?CIK=1853630&owner=exclude
+[2026-03-10T08:52:21.269Z]   EXT: https://x.com/mennyshalom
+[2026-03-10T08:52:21.269Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T08:52:21.269Z]   REGEX: fb <- http://www.facebook.com/holdme
+[2026-03-10T08:52:21.269Z]   REGEX: li <- https://www.linkedin.com/company/holdmeltd
+[2026-03-10T08:52:21.269Z]   UNCATEGORIZED: https://www.sec.gov/edgar/browse/?CIK=1853630&owner=exclude
+[2026-03-10T08:52:21.269Z]   REGEX: tw <- https://x.com/mennyshalom
+[2026-03-10T08:52:21.269Z] Programmatic result: ws:1, fb:1, li:1, tw:1 | 1 uncategorized
+[2026-03-10T08:52:21.269Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T08:52:21.270Z] Saved AI prompt (6251 chars) to ai_prompt.txt
+[2026-03-10T08:52:21.270Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T08:52:21.286Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T08:52:55.860Z]   AI: First token received, streaming...
+[2026-03-10T08:53:01.906Z] AI response complete: 100 chars in 40.6s
+[2026-03-10T08:53:01.907Z] Saved AI response to ai_response.json
+[2026-03-10T08:53:01.907Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T08:53:01.907Z]   AI LINK: http://www.facebook.com/holdme
+[2026-03-10T08:53:01.907Z]   AI LINK: https://x.com/mennyshalom
+[2026-03-10T08:53:01.907Z]   AI LINK: https://www.linkedin.com/company/holdmeltd/
+[2026-03-10T08:53:01.907Z] AI returned 3 valid links
+[2026-03-10T08:53:01.907Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T08:53:01.907Z]   AI→REGEX: fb <- http://www.facebook.com/holdme (duplicate, skipped)
+[2026-03-10T08:53:01.908Z]   AI→REGEX: tw <- https://x.com/mennyshalom (duplicate, skipped)
+[2026-03-10T08:53:01.908Z]   AI→REGEX: li <- https://www.linkedin.com/company/holdmeltd/ (duplicate, skipped)
+[2026-03-10T08:53:01.908Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T08:53:01.908Z] Footer/header origins (5):
+[2026-03-10T08:53:01.908Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-10T08:53:01.908Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-10T08:53:01.908Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T08:53:01.908Z]   FOOTER/HEADER ORIGIN: https://www.holdme.co.il
+[2026-03-10T08:53:01.908Z]   FOOTER/HEADER ORIGIN: https://www.sec.gov
+[2026-03-10T08:53:01.908Z]   ADDED: urls <- https://www.sec.gov/edgar/browse (cleaned from https://www.sec.gov/edgar/browse/?CIK=1853630&owner=exclude)
+[2026-03-10T08:53:01.908Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T08:53:01.908Z] ── Step 3: Final dedup ──
+[2026-03-10T08:53:01.909Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T08:53:01.909Z] ── FINAL RESULT ──
+[2026-03-10T08:53:01.909Z]   ws (1):
+[2026-03-10T08:53:01.909Z]     - https://www.holdme.co.il
+[2026-03-10T08:53:01.909Z]   li (1):
+[2026-03-10T08:53:01.909Z]     - https://www.linkedin.com/company/holdmeltd
+[2026-03-10T08:53:01.909Z]   fb (1):
+[2026-03-10T08:53:01.909Z]     - https://www.facebook.com/holdme
+[2026-03-10T08:53:01.909Z]   tw (1):
+[2026-03-10T08:53:01.909Z]     - https://x.com/mennyshalom
+[2026-03-10T08:53:01.909Z]   urls (1):
+[2026-03-10T08:53:01.909Z]     - https://www.sec.gov/edgar/browse
+[2026-03-10T08:53:01.909Z] Summary: ws:1, fb:1, li:1, tw:1, urls:1
+[2026-03-10T08:53:01.911Z] Saved final result to result.json
+[2026-03-10T08:53:01.911Z] Override fields: ws, li, fb, tw, urls
+[2026-03-10T08:53:01.911Z] Finished at: 2026-03-10T08:53:01.911Z

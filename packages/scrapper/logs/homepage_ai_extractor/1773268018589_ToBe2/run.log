@@ -1,0 +1,73 @@
+[2026-03-11T22:26:58.589Z] === Homepage AI Extractor: ToBe2 ===
+[2026-03-11T22:26:58.589Z] Started at: 2026-03-11T22:26:58.589Z
+[2026-03-11T22:26:58.589Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773268018589_ToBe2
+[2026-03-11T22:26:58.589Z] Company: ToBe2
+[2026-03-11T22:26:58.589Z] Website: tobe.green
+[2026-03-11T22:26:58.589Z] cbRank: 684411
+[2026-03-11T22:26:58.589Z] Reasons: h
+[2026-03-11T22:26:58.590Z] Fetching: https://tobe.green
+[2026-03-11T22:27:10.332Z] Network idle timeout — continuing with current state
+[2026-03-11T22:27:10.398Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-11T22:27:18.372Z] Redirected: https://tobe.green -> https://tobe.green/
+[2026-03-11T22:27:18.380Z] Saved HTML (164765 bytes) to page.html
+[2026-03-11T22:27:18.383Z] Extracted 15 unique links from page
+[2026-03-11T22:27:18.383Z] Saved 15 links to links.json
+[2026-03-11T22:27:18.388Z] Extracted footer HTML (23060 chars)
+[2026-03-11T22:27:18.388Z] Extracted header HTML (10259 chars)
+[2026-03-11T22:27:18.393Z] Website (post-redirect): https://tobe.green/ → origin: https://tobe.green
+[2026-03-11T22:27:18.393Z] External links: 5 (of 15 total)
+[2026-03-11T22:27:18.393Z] ── All external links ──
+[2026-03-11T22:27:18.393Z]   EXT: https://www.codenroll.co.il
+[2026-03-11T22:27:18.393Z]   EXT: https://www.facebook.com/ToBeFB
+[2026-03-11T22:27:18.393Z]   EXT: https://www.linkedin.com/company/tobe-beekeeping
+[2026-03-11T22:27:18.393Z]   EXT: https://www.youtube.com/@ToBe_the_future_of_beekeeping
+[2026-03-11T22:27:18.393Z]   EXT: https://www.youtube.com/watch?v=XnhHJ8peMW4
+[2026-03-11T22:27:18.393Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T22:27:18.394Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-11T22:27:18.394Z]   REGEX: fb <- https://www.facebook.com/ToBeFB
+[2026-03-11T22:27:18.394Z]   REGEX: li <- https://www.linkedin.com/company/tobe-beekeeping
+[2026-03-11T22:27:18.394Z]   REGEX: ytp <- https://www.youtube.com/@ToBe_the_future_of_beekeeping
+[2026-03-11T22:27:18.394Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-11T22:27:18.394Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=XnhHJ8peMW4
+[2026-03-11T22:27:18.394Z] Programmatic result: ws:1, fb:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-11T22:27:18.394Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T22:27:18.395Z] Saved AI prompt (2400 chars) to ai_prompt.txt
+[2026-03-11T22:27:18.395Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T22:27:18.415Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T22:27:26.223Z]   AI: First token received, streaming...
+[2026-03-11T22:27:33.351Z] AI response complete: 136 chars in 15.0s
+[2026-03-11T22:27:33.352Z] Saved AI response to ai_response.json
+[2026-03-11T22:27:33.352Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T22:27:33.352Z]   AI LINK: https://www.facebook.com/ToBeFB
+[2026-03-11T22:27:33.352Z]   AI LINK: https://www.linkedin.com/company/tobe-beekeeping/
+[2026-03-11T22:27:33.352Z]   AI LINK: https://www.youtube.com/@ToBe_the_future_of_beekeeping
+[2026-03-11T22:27:33.353Z] AI returned 3 valid links
+[2026-03-11T22:27:33.353Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T22:27:33.353Z]   AI→REGEX: fb <- https://www.facebook.com/ToBeFB (duplicate, skipped)
+[2026-03-11T22:27:33.353Z]   AI→REGEX: li <- https://www.linkedin.com/company/tobe-beekeeping/ (duplicate, skipped)
+[2026-03-11T22:27:33.353Z]   AI→REGEX: ytp <- https://www.youtube.com/@ToBe_the_future_of_beekeeping (duplicate, skipped)
+[2026-03-11T22:27:33.353Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T22:27:33.353Z] Footer/header origins (4):
+[2026-03-11T22:27:33.353Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T22:27:33.353Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T22:27:33.353Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T22:27:33.354Z]   FOOTER/HEADER ORIGIN: https://tobe.green
+[2026-03-11T22:27:33.354Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-11T22:27:33.354Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T22:27:33.354Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T22:27:33.354Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T22:27:33.354Z] ── Step 3: Final dedup ──
+[2026-03-11T22:27:33.354Z] No urls to dedup
+[2026-03-11T22:27:33.354Z] ── FINAL RESULT ──
+[2026-03-11T22:27:33.354Z]   ws (1):
+[2026-03-11T22:27:33.354Z]     - https://tobe.green
+[2026-03-11T22:27:33.354Z]   li (1):
+[2026-03-11T22:27:33.354Z]     - https://www.linkedin.com/company/tobe-beekeeping
+[2026-03-11T22:27:33.354Z]   fb (1):
+[2026-03-11T22:27:33.354Z]     - https://www.facebook.com/tobefb
+[2026-03-11T22:27:33.354Z]   ytp (1):
+[2026-03-11T22:27:33.354Z]     - https://www.youtube.com/@tobe_the_future_of_beekeeping
+[2026-03-11T22:27:33.355Z] Summary: ws:1, fb:1, li:1, ytp:1
+[2026-03-11T22:27:33.355Z] Saved final result to result.json
+[2026-03-11T22:27:33.355Z] Override fields: ws, li, fb, ytp
+[2026-03-11T22:27:33.355Z] Finished at: 2026-03-11T22:27:33.355Z

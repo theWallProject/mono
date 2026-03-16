@@ -1,0 +1,57 @@
+[2026-03-11T04:09:35.838Z] === Homepage AI Extractor: IntellAct ===
+[2026-03-11T04:09:35.838Z] Started at: 2026-03-11T04:09:35.838Z
+[2026-03-11T04:09:35.838Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773202175838_IntellAct
+[2026-03-11T04:09:35.838Z] Company: IntellAct
+[2026-03-11T04:09:35.838Z] Website: intell-act.com
+[2026-03-11T04:09:35.838Z] cbRank: 581109
+[2026-03-11T04:09:35.838Z] Reasons: h
+[2026-03-11T04:09:35.838Z] Fetching: https://intell-act.com
+[2026-03-11T04:09:46.591Z] Network idle timeout — continuing with current state
+[2026-03-11T04:09:46.639Z] Redirected: https://intell-act.com -> https://www.intell-act.com/
+[2026-03-11T04:09:46.667Z] Saved HTML (859605 bytes) to page.html
+[2026-03-11T04:09:46.670Z] Extracted 14 unique links from page
+[2026-03-11T04:09:46.671Z] Saved 14 links to links.json
+[2026-03-11T04:09:46.673Z] Extracted footer HTML (4144 chars)
+[2026-03-11T04:09:46.673Z] Extracted header HTML (5895 chars)
+[2026-03-11T04:09:46.677Z] Website (post-redirect): https://www.intell-act.com/ → origin: https://www.intell-act.com
+[2026-03-11T04:09:46.677Z] External links: 2 (of 14 total)
+[2026-03-11T04:09:46.678Z] ── All external links ──
+[2026-03-11T04:09:46.678Z]   EXT: https://www.linkedin.com/company/27175538
+[2026-03-11T04:09:46.678Z]   EXT: https://www.youtube.com/@Intell-Act
+[2026-03-11T04:09:46.678Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T04:09:46.678Z]   REGEX: li <- https://www.linkedin.com/company/27175538
+[2026-03-11T04:09:46.678Z]   REGEX: ytp <- https://www.youtube.com/@Intell-Act
+[2026-03-11T04:09:46.678Z] Programmatic result: ws:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-11T04:09:46.678Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T04:09:46.679Z] Saved AI prompt (5245 chars) to ai_prompt.txt
+[2026-03-11T04:09:46.679Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T04:09:46.699Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T04:10:13.862Z]   AI: First token received, streaming...
+[2026-03-11T04:10:19.259Z] AI response complete: 77 chars in 32.6s
+[2026-03-11T04:10:19.260Z] Saved AI response to ai_response.json
+[2026-03-11T04:10:19.260Z] ── Parsing AI response (2 lines) ──
+[2026-03-11T04:10:19.260Z]   AI LINK: https://www.youtube.com/@Intell-Act
+[2026-03-11T04:10:19.260Z]   AI LINK: https://www.linkedin.com/company/27175538
+[2026-03-11T04:10:19.260Z] AI returned 2 valid links
+[2026-03-11T04:10:19.260Z] ── Categorizing 2 AI-returned links ──
+[2026-03-11T04:10:19.260Z]   AI→REGEX: ytp <- https://www.youtube.com/@Intell-Act (duplicate, skipped)
+[2026-03-11T04:10:19.260Z]   AI→REGEX: li <- https://www.linkedin.com/company/27175538 (duplicate, skipped)
+[2026-03-11T04:10:19.261Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T04:10:19.261Z] Footer/header origins (3):
+[2026-03-11T04:10:19.261Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T04:10:19.261Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T04:10:19.261Z]   FOOTER/HEADER ORIGIN: https://www.intell-act.com
+[2026-03-11T04:10:19.261Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T04:10:19.261Z] ── Step 3: Final dedup ──
+[2026-03-11T04:10:19.261Z] No urls to dedup
+[2026-03-11T04:10:19.261Z] ── FINAL RESULT ──
+[2026-03-11T04:10:19.261Z]   ws (1):
+[2026-03-11T04:10:19.261Z]     - https://www.intell-act.com
+[2026-03-11T04:10:19.261Z]   li (1):
+[2026-03-11T04:10:19.261Z]     - https://www.linkedin.com/company/27175538
+[2026-03-11T04:10:19.261Z]   ytp (1):
+[2026-03-11T04:10:19.261Z]     - https://www.youtube.com/@intell-act
+[2026-03-11T04:10:19.262Z] Summary: ws:1, li:1, ytp:1
+[2026-03-11T04:10:19.262Z] Saved final result to result.json
+[2026-03-11T04:10:19.262Z] Override fields: ws, li, ytp
+[2026-03-11T04:10:19.262Z] Finished at: 2026-03-11T04:10:19.262Z

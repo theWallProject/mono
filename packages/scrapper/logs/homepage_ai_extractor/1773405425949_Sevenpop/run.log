@@ -1,0 +1,68 @@
+[2026-03-13T12:37:05.949Z] === Homepage AI Extractor: Sevenpop ===
+[2026-03-13T12:37:05.949Z] Started at: 2026-03-13T12:37:05.949Z
+[2026-03-13T12:37:05.949Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773405425949_Sevenpop
+[2026-03-13T12:37:05.949Z] Company: Sevenpop
+[2026-03-13T12:37:05.949Z] Website: sevenpop.com
+[2026-03-13T12:37:05.950Z] cbRank: 1146944
+[2026-03-13T12:37:05.950Z] Reasons: h
+[2026-03-13T12:37:05.950Z] Fetching: https://sevenpop.com
+[2026-03-13T12:37:07.671Z] Redirected: https://sevenpop.com -> http://sevenpop.com/site/home/
+[2026-03-13T12:37:07.674Z] Saved HTML (19664 bytes) to page.html
+[2026-03-13T12:37:07.677Z] Extracted 10 unique links from page
+[2026-03-13T12:37:07.677Z] Saved 10 links to links.json
+[2026-03-13T12:37:07.681Z] Extracted footer HTML (858 chars)
+[2026-03-13T12:37:07.681Z] Extracted header HTML (337 chars)
+[2026-03-13T12:37:07.686Z] Website (post-redirect): http://sevenpop.com/site/home/ → origin: http://sevenpop.com
+[2026-03-13T12:37:07.686Z] External links: 4 (of 10 total)
+[2026-03-13T12:37:07.686Z] ── All external links ──
+[2026-03-13T12:37:07.686Z]   EXT: http://facebook.com/mySevenpop
+[2026-03-13T12:37:07.686Z]   EXT: http://www.twitter.com/mySevenpop
+[2026-03-13T12:37:07.687Z]   EXT: https://itunes.apple.com/us/app/sevenpop/id789767017?mt=8&ign-mpt=uo%3D4
+[2026-03-13T12:37:07.687Z]   EXT: https://play.google.com/store/apps/details?id=com.sevenpop.app
+[2026-03-13T12:37:07.687Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T12:37:07.687Z]   REGEX: fb <- http://facebook.com/mySevenpop
+[2026-03-13T12:37:07.687Z]   REGEX: tw <- http://www.twitter.com/mySevenpop
+[2026-03-13T12:37:07.688Z]   UNCATEGORIZED: https://itunes.apple.com/us/app/sevenpop/id789767017?mt=8&ign-mpt=uo%3D4
+[2026-03-13T12:37:07.688Z]   REGEX: android_app_ids <- com.sevenpop.app (from https://play.google.com/store/apps/details?id=com.sevenpop.app)
+[2026-03-13T12:37:07.688Z] Programmatic result: ws:1, fb:1, tw:1, android_app_ids:1 | 1 uncategorized
+[2026-03-13T12:37:07.688Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T12:37:07.689Z] Saved AI prompt (2474 chars) to ai_prompt.txt
+[2026-03-13T12:37:07.689Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T12:37:07.706Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T12:37:15.831Z]   AI: First token received, streaming...
+[2026-03-13T12:37:26.556Z] AI response complete: 137 chars in 18.9s
+[2026-03-13T12:37:26.557Z] Saved AI response to ai_response.json
+[2026-03-13T12:37:26.557Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T12:37:26.557Z]   AI LINK: https://itunes.apple.com/us/app/sevenpop/id789767017?mt=8&ign-mpt=uo%3D4
+[2026-03-13T12:37:26.557Z]   AI LINK: http://facebook.com/mySevenpop
+[2026-03-13T12:37:26.557Z]   AI LINK: http://www.twitter.com/mySevenpop
+[2026-03-13T12:37:26.557Z] AI returned 3 valid links
+[2026-03-13T12:37:26.557Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T12:37:26.558Z]   AI→URLS: https://itunes.apple.com/us/app/sevenpop/id789767017 (cleaned from https://itunes.apple.com/us/app/sevenpop/id789767017?mt=8&ign-mpt=uo%3D4)
+[2026-03-13T12:37:26.558Z]   AI→REGEX: fb <- http://facebook.com/mySevenpop (duplicate, skipped)
+[2026-03-13T12:37:26.558Z]   AI→REGEX: tw <- http://www.twitter.com/mySevenpop (duplicate, skipped)
+[2026-03-13T12:37:26.558Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T12:37:26.558Z] Footer/header origins (2):
+[2026-03-13T12:37:26.558Z]   FOOTER/HEADER ORIGIN: http://facebook.com
+[2026-03-13T12:37:26.558Z]   FOOTER/HEADER ORIGIN: http://www.twitter.com
+[2026-03-13T12:37:26.558Z]   SKIP (AI claimed): https://itunes.apple.com/us/app/sevenpop/id789767017?mt=8&ign-mpt=uo%3D4
+[2026-03-13T12:37:26.558Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T12:37:26.558Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T12:37:26.558Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T12:37:26.558Z] ── Step 3: Final dedup ──
+[2026-03-13T12:37:26.559Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T12:37:26.559Z] ── FINAL RESULT ──
+[2026-03-13T12:37:26.559Z]   ws (1):
+[2026-03-13T12:37:26.559Z]     - http://sevenpop.com
+[2026-03-13T12:37:26.559Z]   fb (1):
+[2026-03-13T12:37:26.559Z]     - https://www.facebook.com/mysevenpop
+[2026-03-13T12:37:26.559Z]   tw (1):
+[2026-03-13T12:37:26.559Z]     - https://x.com/mysevenpop
+[2026-03-13T12:37:26.559Z]   urls (1):
+[2026-03-13T12:37:26.559Z]     - https://itunes.apple.com/us/app/sevenpop/id789767017
+[2026-03-13T12:37:26.559Z]   android_app_ids (1):
+[2026-03-13T12:37:26.559Z]     - com.sevenpop.app
+[2026-03-13T12:37:26.559Z] Summary: ws:1, fb:1, tw:1, android_app_ids:1, urls:1
+[2026-03-13T12:37:26.560Z] Saved final result to result.json
+[2026-03-13T12:37:26.560Z] Override fields: ws, fb, tw, urls, android_app_ids
+[2026-03-13T12:37:26.560Z] Finished at: 2026-03-13T12:37:26.560Z

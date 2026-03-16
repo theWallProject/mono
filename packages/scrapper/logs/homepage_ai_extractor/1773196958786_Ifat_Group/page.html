@@ -1,0 +1,3259 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKCyjBw2xIzFLIf/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-obDEicORg1BccYuEfFig6FFh0s3Ho2B7lr6lAHLJGwZTVRSgTgfEKmrfdJ2g/NkT"></script><script id="facebook-jssdk" type="text/plain" data-blocked="web3d-consent" data-category="marketing" data-orig-type="text/javascript" data-src="//connect.facebook.net/he_IL/sdk.js#xfbml=1&amp;version=v2.9&amp;appId=784570531653673"></script><script async="" type="text/plain" data-blocked="web3d-consent" data-category="analytics" data-orig-type="text/javascript" data-src="https://www.googletagmanager.com/gtm.js?id=GTM-57XHDFJ"></script><script>
+(function() {
+    "use strict";
+    
+    // Получаем оригинальный descriptor ДО создания блокировки
+    var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");
+    var originalCookieGetter = originalCookieDescriptor ? originalCookieDescriptor.get : function() {
+        return Object.getOwnPropertyDescriptor(Document.prototype, "cookie").get.call(document);
+    };
+    
+    // Функция проверки согласия (используем оригинальный getter, чтобы обойти блокировку)
+    function hasConsent() {
+        try {
+            // Используем оригинальный getter, чтобы получить реальные куки
+            var allCookies = originalCookieGetter.call(document);
+            var consentCookie = allCookies.match(/(^|;)\s*w3d_consent=([^;]*)/);
+            if (!consentCookie) return false;
+            
+            var consent = JSON.parse(decodeURIComponent(consentCookie[2]));
+            return consent && (consent.analytics == 1 || consent.marketing == 1);
+        } catch(e) {
+            return false;
+        }
+    }
+    
+    // Если согласие уже дано - не блокируем
+    if (hasConsent()) {
+        console.log("✅ Consent: Cookies are ACTIVE (consent given)");
+        return; // Выходим из скрипта блокировки
+    }
+    
+    // БЕЛЫЙ СПИСОК: только эти куки разрешены
+    var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+    var blockerActive = true;
+    
+    // Логируем, что блокировка активна
+    console.log("🚫 Consent: Cookies are BLOCKED (waiting for consent)");
+    
+    function isCookieAllowed(cookieName) {
+        // Если блокировка отключена - разрешаем все
+        if (!blockerActive) return true;
+        
+        for (var i = 0; i < allowedCookies.length; i++) {
+            if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    function isRemovalAttempt(value) {
+        var lower = value.toLowerCase();
+        return lower.indexOf("expires=") !== -1 || lower.indexOf("max-age=0") !== -1;
+    }
+    
+    // СТАНДАРТНЫЙ ПЕРЕХВАТ: Object.defineProperty для document.cookie (самый частый и безопасный способ)
+    if (originalCookieDescriptor) {
+        try {
+            // Проверяем, можно ли переопределить свойство (не было ли оно уже переопределено)
+            var currentDescriptor = Object.getOwnPropertyDescriptor(document, "cookie");
+            if (currentDescriptor && currentDescriptor.configurable !== false) {
+                Object.defineProperty(document, "cookie", {
+                    configurable: true,
+                    set: function(value) {
+                        // Проверяем согласие перед каждой установкой куки
+                        if (hasConsent()) {
+                            if (blockerActive) {
+                                disableBlocker();
+                            }
+                            // Используем оригинальный setter напрямую
+                            return originalCookieDescriptor.set.call(document, value);
+                        }
+                        
+                        var cookieName = value.split("=")[0].trim();
+                        if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                            // Блокируем куку (логирование отдельных куки убрано для чистоты консоли)
+                            return;
+                        }
+                        return originalCookieDescriptor.set.call(document, value);
+                    },
+                    get: function() {
+                        return originalCookieDescriptor.get.call(document);
+                    }
+                });
+            }
+        } catch(e) {
+            // Если свойство уже переопределено или неконфигурируемо - это нормально
+        }
+    }
+    
+    // Функция полного отключения блокировки
+    var cleanupInterval = null;
+    var consentCheckInterval = null;
+    var eventHandlers = [];
+    
+    function disableBlocker() {
+        if (!blockerActive) return; // Уже отключено
+        
+        blockerActive = false;
+        console.log("✅ Consent: Cookies are now ACTIVE (consent detected)");
+        
+        // Восстанавливаем оригинальный document.cookie
+        if (originalCookieDescriptor) {
+            try {
+                Object.defineProperty(document, "cookie", originalCookieDescriptor);
+            } catch(e) {
+                // Если не удалось восстановить - это нормально, возможно уже восстановлено
+            }
+        }
+        
+        // Останавливаем все интервалы
+        if (cleanupInterval) {
+            clearInterval(cleanupInterval);
+            cleanupInterval = null;
+        }
+        if (consentCheckInterval) {
+            clearInterval(consentCheckInterval);
+            consentCheckInterval = null;
+        }
+        
+        // Удаляем все обработчики событий
+        eventHandlers.forEach(function(handler) {
+            try {
+                document.removeEventListener(handler.event, handler.fn, true);
+                window.removeEventListener(handler.event, handler.fn, true);
+            } catch(e) {}
+        });
+        eventHandlers = [];
+    }
+    
+    // ПРОСТАЯ очистка: удаляем уже установленные блокируемые куки
+    function cleanupCookies() {
+        // Если согласие дано - отключаем блокировку полностью
+        if (hasConsent()) {
+            disableBlocker();
+            return;
+        }
+        
+        // Если блокировка отключена - не делаем ничего
+        if (!blockerActive) return;
+        
+        try {
+            var allCookiesStr = originalCookieGetter.call(document);
+            if (!allCookiesStr) return;
+            
+            var allCookies = allCookiesStr.split(";");
+            var hostname = window.location.hostname;
+            var expireDate = "Thu, 01 Jan 1970 00:00:00 UTC";
+            
+            for (var i = 0; i < allCookies.length; i++) {
+                var cookie = allCookies[i].trim();
+                if (cookie) {
+                    var cookieName = cookie.split("=")[0].trim();
+                    if (!isCookieAllowed(cookieName)) {
+                        // Используем оригинальный setter напрямую, чтобы обойти наш перехват
+                        if (originalCookieDescriptor && originalCookieDescriptor.set) {
+                            originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/");
+                            originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/; domain=" + hostname);
+                            if (hostname.indexOf(".") > 0) {
+                                originalCookieDescriptor.set.call(document, cookieName + "=; expires=" + expireDate + "; path=/; domain=." + hostname.split(".").slice(-2).join("."));
+                            }
+                        } else {
+                            document.cookie = cookieName + "=; expires=" + expireDate + "; path=/";
+                            document.cookie = cookieName + "=; expires=" + expireDate + "; path=/; domain=" + hostname;
+                            if (hostname.indexOf(".") > 0) {
+                                document.cookie = cookieName + "=; expires=" + expireDate + "; path=/; domain=." + hostname.split(".").slice(-2).join(".");
+                            }
+                        }
+                    }
+                }
+            }
+        } catch(e) {
+            // Тихая обработка ошибок
+        }
+    }
+    
+    // Проверяем согласие сразу - если дано, не запускаем блокировку
+    if (hasConsent()) {
+        disableBlocker();
+        return; // Выходим - блокировка не нужна
+    }
+    
+    // Очищаем сразу и периодически (оптимальная частота для перехвата)
+    cleanupCookies();
+    
+    // Запускаем интервалы только если блокировка активна
+    if (blockerActive) {
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 50);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 100);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 200);
+        setTimeout(function() { 
+            if (blockerActive && !hasConsent()) cleanupCookies(); 
+        }, 500);
+        
+        cleanupInterval = setInterval(function() {
+            if (!blockerActive || hasConsent()) {
+                if (hasConsent()) disableBlocker();
+                if (cleanupInterval) {
+                    clearInterval(cleanupInterval);
+                    cleanupInterval = null;
+                }
+                return;
+            }
+            cleanupCookies();
+        }, 500);
+        
+        // Также очищаем при важных событиях
+        var cleanupHandler = function() {
+            if (blockerActive && !hasConsent()) cleanupCookies();
+        };
+        
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", cleanupHandler, true);
+            eventHandlers.push({event: "DOMContentLoaded", fn: cleanupHandler});
+        }
+        window.addEventListener("load", cleanupHandler, true);
+        eventHandlers.push({event: "load", fn: cleanupHandler});
+        
+        // Слушаем изменения в куке согласия
+        var lastConsentCheck = Date.now();
+        consentCheckInterval = setInterval(function() {
+            if (Date.now() - lastConsentCheck > 1000) {
+                lastConsentCheck = Date.now();
+                if (hasConsent()) {
+                    disableBlocker();
+                }
+            }
+        }, 1000);
+    }
+})();
+</script>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="//gmpg.org/xfn/11">
+	<script>window.isRemovalAttempt = window.isRemovalAttempt || function(){ return false; };</script><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <!-- КРИТИЧЕСКИЙ ПЕРЕХВАТ: блокируем куки ДО загрузки других скриптов -->
+    <script>
+        (function() {
+            'use strict';
+            // БЕЛЫЙ СПИСОК куки (синхронизирован с PHP)
+            var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+            var blockerActive = true;
+
+            function isCookieAllowed(cookieName) {
+                for (var i = 0; i < allowedCookies.length; i++) {
+                    if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function isRemovalAttempt(value) {
+                var lower = value.toLowerCase();
+                return lower.indexOf("expires=") !== -1 || lower.indexOf("max-age=0") !== -1;
+            }
+
+            // Выводим сообщение о блокировке максимум один раз
+            var blockedCookieNoticeShown = false;
+
+            function logBlockedCookie(name) {
+                if (blockedCookieNoticeShown) return;
+                blockedCookieNoticeShown = true;
+            }
+
+            // Перехватываем document.cookie СРАЗУ, до загрузки других скриптов
+            var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+
+            // Проверяем, не было ли свойство уже переопределено
+            var currentDescriptor = Object.getOwnPropertyDescriptor(document, 'cookie');
+            if (currentDescriptor && currentDescriptor.configurable === false) {
+                // Свойство уже переопределено и неконфигурируемо - пропускаем
+                return;
+            }
+
+            try {
+                if (!originalCookieDescriptor) {
+                    // Fallback для старых браузеров
+                    var cookieStore = {};
+                    Object.defineProperty(document, 'cookie', {
+                        configurable: true,
+                        get: function() {
+                            var allowed = [];
+                            for (var name in cookieStore) {
+                                if (isCookieAllowed(name)) {
+                                    allowed.push(name + '=' + cookieStore[name]);
+                                }
+                            }
+                            return allowed.join('; ');
+                        },
+                        set: function(value) {
+                            var cookieName = value.split('=')[0].trim();
+                            if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                                logBlockedCookie(cookieName);
+                                return;
+                            }
+                            cookieStore[cookieName] = value.split('=').slice(1).join('=');
+                        }
+                    });
+                } else {
+                    Object.defineProperty(document, 'cookie', {
+                        configurable: true,
+                        set: function(value) {
+                            var cookieName = value.split('=')[0].trim();
+                            if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                                logBlockedCookie(cookieName);
+                                return;
+                            }
+                            return originalCookieDescriptor.set.call(document, value);
+                        },
+                        get: function() {
+                            return originalCookieDescriptor.get.call(document);
+                        }
+                    });
+                }
+            } catch (e) {
+                // Если свойство уже переопределено - это нормально, просто пропускаем
+            }
+
+            // ОЧИСТКА: удаляем уже установленные куки, которые не в белом списке
+            // Используем оригинальный getter для получения всех cookies
+            function cleanupCookies() {
+                try {
+                    var allCookiesStr = originalCookieDescriptor ? originalCookieDescriptor.get.call(document) : document.cookie;
+                    if (!allCookiesStr) return;
+
+                    var allCookies = allCookiesStr.split(';');
+                    var hostname = window.location.hostname;
+                    var domainParts = hostname.split('.');
+                    var expireDate = 'Thu, 01 Jan 1970 00:00:00 UTC';
+                    var removed = false;
+
+                    for (var i = 0; i < allCookies.length; i++) {
+                        var cookie = allCookies[i].trim();
+                        if (cookie) {
+                            var cookieName = cookie.split('=')[0].trim();
+                            if (!isCookieAllowed(cookieName)) {
+                                // Пытаемся удалить куку разными способами (разные path и domain)
+                                // Используем оригинальный setter напрямую, чтобы обойти наш перехват
+                                if (originalCookieDescriptor && originalCookieDescriptor.set) {
+                                    originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/');
+                                    originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/; domain=' + hostname);
+                                    if (domainParts.length > 1) {
+                                        originalCookieDescriptor.set.call(document, cookieName + '=; expires=' + expireDate + '; path=/; domain=.' + domainParts.slice(-2).join('.'));
+                                    }
+                                } else {
+                                    document.cookie = cookieName + '=; expires=' + expireDate + '; path=/';
+                                    document.cookie = cookieName + '=; expires=' + expireDate + '; path=/; domain=' + hostname;
+                                    if (domainParts.length > 1) {
+                                        document.cookie = cookieName + '=; expires=' + expireDate + '; path=/; domain=.' + domainParts.slice(-2).join('.');
+                                    }
+                                }
+                                removed = true;
+                            }
+                        }
+                    }
+                    if (removed) {}
+                } catch (e) {
+                    // Тихая обработка ошибок
+                }
+            }
+
+            // Очищаем сразу и периодически
+            cleanupCookies();
+            setTimeout(cleanupCookies, 10);
+            setTimeout(cleanupCookies, 100);
+            setTimeout(cleanupCookies, 500);
+        })();
+    </script>
+    <script id="w3d-consent-blocker-v2">
+        (function() {
+            'use strict';
+
+            // Паттерны из PHP
+            var criticalPatterns = ["wp-includes\/js\/","wp-admin\/js\/","jquery","wp-polyfill","wp-i18n","wp-hooks","wp-api","regenerator-runtime","wp-element","wp-components","lodash","moment","react","elementor","\/elementor\/","elementor-frontend","elementor-webpack","swiper","divi-","et-builder","fusion-","vc_","js_composer","beaver-builder","oxygen-","bricks-","woocommerce","wc-","contact-form-7","wpcf7","cf7","gravity","ninja-forms","wpforms","formidable","wp-rocket","autoptimize","litespeed","w3tc","cache","yoast","rank-math","all-in-one-seo","slick","owl.carousel","aos","animate","parallax","isotope","masonry","lightbox","magnific","fancybox","fonts.googleapis.com","fonts.gstatic.com","fontawesome","font-awesome","cdnjs.cloudflare.com\/ajax\/libs\/","unpkg.com","jsdelivr.net","w3d-cb-banner","web3d_consent","w3dConsentUpdated","recaptcha","hcaptcha","turnstile"];
+            var trackingPatterns = ["google-analytics.com\/analytics.js","google-analytics.com\/ga.js","googletagmanager.com\/gtag\/js","googletagmanager.com\/gtm.js","doubleclick.net","googlesyndication.com","googleadservices.com","mc.yandex.ru","yandex.ru\/metrika","hotjar.com","mouseflow.com","crazyegg.com","clarity.ms","fullstory.com","logrocket.com","connect.facebook.net","facebook.net\/signals","snap.licdn.com","ads.linkedin.com","static.ads-twitter.com","analytics.tiktok.com","pinterest.com\/ct\/","adnxs.com","adsrvr.org","criteo.com","outbrain.com","taboola.com"];
+            var allowedCookies = ["w3d_consent","wordpress_","wp-settings","wp-settings-time","wordpress_logged_in_","wordpress_test_cookie","PHPSESSID","woocommerce_","wp_woocommerce_","itsec_interstitial_browser"];
+            var blockerActive = true;
+
+            function hasConsent() {
+                try {
+                    var cookies = document.cookie || '';
+                    var match = cookies.match(/(^|;)\\s*w3d_consent=([^;]*)/);
+                    if (!match) return false;
+                    var consent = JSON.parse(decodeURIComponent(match[2]));
+                    var hasConsentValue = consent && (consent.analytics == 1 || consent.marketing == 1);
+                    if (hasConsentValue && blockerActive) {
+                        blockerActive = false;
+                    }
+                    return hasConsentValue;
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            // Проверяем consent сразу при загрузке
+            if (hasConsent()) {
+                blockerActive = false;
+
+                // Автоматически восстанавливаем заблокированные скрипты
+                function quickReleaseScripts() {
+                    var scripts = document.querySelectorAll('script[type="text/plain"][data-category]');
+                    var released = 0;
+                    scripts.forEach(function(script) {
+                        var category = script.getAttribute('data-category');
+                        var consent = hasConsent();
+                        if (!consent) return;
+
+                        try {
+                            var cookies = document.cookie || '';
+                            var match = cookies.match(/(^|;)\\s*w3d_consent=([^;]*)/);
+                            if (!match) return;
+                            var consentData = JSON.parse(decodeURIComponent(match[2]));
+                            var allowAnalytics = consentData && Number(consentData.analytics) === 1;
+                            var allowMarketing = consentData && Number(consentData.marketing) === 1;
+
+                            if ((category === 'analytics' && !allowAnalytics) ||
+                                (category === 'marketing' && !allowMarketing)) {
+                                return;
+                            }
+
+                            var newScript = document.createElement('script');
+                            var scriptType = script.getAttribute('data-orig-type') || 'text/javascript';
+                            newScript.type = scriptType;
+                            var dataSrc = script.getAttribute('data-src');
+                            if (dataSrc) {
+                                newScript.src = dataSrc;
+                            } else {
+                                newScript.innerHTML = script.innerHTML;
+                            }
+                            script.parentNode.insertBefore(newScript, script.nextSibling);
+                            script.remove();
+                            released++;
+                        } catch (e) {
+                            // Silent error handling
+                        }
+                    });
+                }
+
+                // Восстанавливаем сразу и после DOM готов
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', quickReleaseScripts);
+                } else {
+                    setTimeout(quickReleaseScripts, 50);
+                }
+            }
+
+            function isCritical(src) {
+                if (!src) return false;
+                src = src.toLowerCase();
+                for (var i = 0; i < criticalPatterns.length; i++) {
+                    if (src.indexOf(criticalPatterns[i].toLowerCase()) !== -1) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function isTracking(src) {
+                if (!src) return false;
+                src = src.toLowerCase();
+                for (var i = 0; i < trackingPatterns.length; i++) {
+                    if (src.indexOf(trackingPatterns[i].toLowerCase()) !== -1) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            var marketingHintPatterns = [
+                'doubleclick.net',
+                'googlesyndication.com',
+                'googleadservices.com',
+                'connect.facebook.net',
+                'fbevents.js',
+                'analytics.tiktok.com',
+                'ads.linkedin.com',
+                'snap.licdn.com',
+                'adsrvr.org',
+                'adnxs.com'
+            ];
+
+            function getTrackingCategory(src) {
+                if (!src) return 'analytics';
+                src = src.toLowerCase();
+                for (var i = 0; i < marketingHintPatterns.length; i++) {
+                    if (src.indexOf(marketingHintPatterns[i]) !== -1) {
+                        return 'marketing';
+                    }
+                }
+                return 'analytics';
+            }
+
+            var scriptProto = window.HTMLScriptElement ? HTMLScriptElement.prototype : null;
+            var originalScriptSetAttribute = scriptProto ? scriptProto.setAttribute : null;
+
+            function blockScriptElement(el, src) {
+                if (!el || el.tagName !== 'SCRIPT') return;
+                if (el.getAttribute && el.getAttribute('data-blocked') === 'web3d-consent') return;
+
+                if (hasConsent() || !blockerActive) {
+                    if (src) {
+                        try {
+                            el.src = src;
+                        } catch (e) {
+                            el.setAttribute('src', src);
+                        }
+                    }
+                    return;
+                }
+
+                var category = getTrackingCategory(src || '');
+                var originalType = el.getAttribute ? (el.getAttribute('type') || 'text/javascript') : 'text/javascript';
+
+                try {
+                    if (originalScriptSetAttribute) {
+                        originalScriptSetAttribute.call(el, 'type', 'text/plain');
+                        originalScriptSetAttribute.call(el, 'data-blocked', 'web3d-consent');
+                        originalScriptSetAttribute.call(el, 'data-category', category);
+                        originalScriptSetAttribute.call(el, 'data-orig-type', originalType);
+                        if (src) {
+                            originalScriptSetAttribute.call(el, 'data-src', src);
+                        }
+                    } else {
+                        el.type = 'text/plain';
+                        el.setAttribute('data-blocked', 'web3d-consent');
+                        el.setAttribute('data-category', category);
+                        el.setAttribute('data-orig-type', originalType);
+                        if (src) el.setAttribute('data-src', src);
+                    }
+                } catch (e) {
+                    // fallback
+                    el.type = 'text/plain';
+                    el.setAttribute('data-blocked', 'web3d-consent');
+                    el.setAttribute('data-category', category);
+                    el.setAttribute('data-orig-type', originalType);
+                    if (src) el.setAttribute('data-src', src);
+                }
+                el.text = '';
+            }
+
+            // Сообщаем о блокировке куки максимум один раз
+            var blockedCookieNoticeShown = false;
+
+            function logBlockedCookie(name) {
+                if (blockedCookieNoticeShown) return;
+                blockedCookieNoticeShown = true;
+            }
+
+            // ========== БЛОКИРОВКА ВСЕХ COOKIES (кроме белого списка) ==========
+            var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+            if (!originalCookieDescriptor || !originalCookieDescriptor.set) {
+                return; // Не можем перехватить
+            }
+
+            // Проверяем, не было ли свойство уже переопределено
+            var currentDescriptor = Object.getOwnPropertyDescriptor(document, 'cookie');
+            if (currentDescriptor && currentDescriptor.configurable === false) {
+                // Свойство уже переопределено и неконфигурируемо - пропускаем
+                return;
+            }
+
+            // БЕЛЫЙ СПИСОК: синхронизирован с серверным (из PHP)
+            // allowedCookies уже определен выше из PHP
+
+            // Функция проверки, разрешена ли кука
+            function isCookieAllowed(cookieName) {
+                for (var i = 0; i < allowedCookies.length; i++) {
+                    if (cookieName === allowedCookies[i] || cookieName.indexOf(allowedCookies[i]) === 0) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            try {
+                Object.defineProperty(document, 'cookie', {
+                    configurable: true,
+                    set: function(value) {
+                        if (!blockerActive || hasConsent()) {
+                            blockerActive = false;
+                            return originalCookieDescriptor.set.call(document, value);
+                        }
+                        var cookieName = value.split('=')[0].trim();
+
+                        // Блокируем ВСЕ куки, кроме белого списка
+                        if (!isCookieAllowed(cookieName) && !isRemovalAttempt(value)) {
+                            logBlockedCookie(cookieName);
+                            return;
+                        }
+
+                        return originalCookieDescriptor.set.call(document, value);
+                    },
+                    get: function() {
+                        return originalCookieDescriptor.get.call(document);
+                    }
+                });
+            } catch (e) {
+                // Если свойство уже переопределено - это нормально, просто пропускаем
+            }
+
+            // ========== БЛОКИРОВКА ВНЕШНИХ СКРИПТОВ ==========
+            var originalCreate = document.createElement;
+            document.createElement = function(tag) {
+                var el = originalCreate.call(document, tag);
+
+                if (tag.toLowerCase() === 'script') {
+                    var origSetAttr = el.setAttribute.bind(el);
+
+                    el.setAttribute = function(name, value) {
+                        if (name === 'src' && typeof value === 'string') {
+                            if (!blockerActive || hasConsent()) {
+                                return origSetAttr(name, value);
+                            }
+                            // Критические - разрешаем
+                            if (isCritical(value)) {
+                                return origSetAttr(name, value);
+                            }
+
+                            // Tracking - блокируем
+                            if (isTracking(value)) {
+                                blockScriptElement(el, value);
+                                return;
+                            }
+                        }
+                        return origSetAttr(name, value);
+                    };
+                }
+
+                return el;
+            };
+
+            if (scriptProto && originalScriptSetAttribute) {
+                scriptProto.setAttribute = function(name, value) {
+                    if (!blockerActive || hasConsent()) {
+                        return originalScriptSetAttribute.call(this, name, value);
+                    }
+                    if (
+                        name &&
+                        name.toLowerCase() === 'src' &&
+                        typeof value === 'string' &&
+                        !isCritical(value) &&
+                        isTracking(value)
+                    ) {
+                        blockScriptElement(this, value);
+                        return;
+                    }
+                    return originalScriptSetAttribute.call(this, name, value);
+                };
+            }
+
+            if (scriptProto) {
+                var scriptSrcDescriptor = Object.getOwnPropertyDescriptor(scriptProto, 'src');
+                if (scriptSrcDescriptor && scriptSrcDescriptor.set && scriptSrcDescriptor.configurable !== false) {
+                    Object.defineProperty(scriptProto, 'src', {
+                        configurable: true,
+                        get: scriptSrcDescriptor.get,
+                        set: function(value) {
+                            if (!blockerActive || hasConsent()) {
+                                return scriptSrcDescriptor.set.call(this, value);
+                            }
+                            if (typeof value === 'string' && !isCritical(value) && isTracking(value)) {
+                                blockScriptElement(this, value);
+                                return value;
+                            }
+                            return scriptSrcDescriptor.set.call(this, value);
+                        }
+                    });
+                }
+            }
+
+            // ========== БЛОКИРОВКА INLINE СКРИПТОВ ==========
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.tagName !== 'SCRIPT') return;
+                        if (node.type === 'text/plain') return;
+                        if (node.getAttribute('data-blocked')) return;
+
+                        var src = node.src || '';
+                        var content = node.textContent || node.innerHTML || '';
+
+                        // Пропускаем пустые
+                        if (!src && content.length < 20) return;
+
+                        // Критические - разрешаем
+                        if (isCritical(src) || isCritical(content)) {
+                            return;
+                        }
+
+                        // Проверяем inline tracking код
+                        var trackingInlinePatterns = [
+                            /gtag\s*\(\s*['"]config['"]/,
+                            /gtag\s*\(\s*['"]event['"]/,
+                            /ga\s*\(\s*['"]create['"]/,
+                            /GoogleAnalyticsObject/,
+                            /fbq\s*\(\s*['"]init['"]/,
+                            /fbq\s*\(\s*['"]track['"]/,
+                            /_linkedin_data_partner_id/,
+                            /ttq\.load/,
+                            /ym\s*\(\s*\d+/,
+                            /dataLayer\.push/
+                        ];
+
+                        var isTrackingInline = false;
+                        for (var i = 0; i < trackingInlinePatterns.length; i++) {
+                            if (trackingInlinePatterns[i].test(content)) {
+                                isTrackingInline = true;
+                                break;
+                            }
+                        }
+
+                        if (isTrackingInline || isTracking(src)) {
+                            var originalType = node.getAttribute('type') || 'text/javascript';
+                            node.type = 'text/plain';
+                            node.setAttribute('data-blocked', 'web3d-consent');
+                            node.setAttribute('data-category', 'analytics');
+                            node.setAttribute('data-orig-type', originalType);
+                            if (src) node.setAttribute('data-src', src);
+                            node.textContent = '';
+                        }
+                    });
+                });
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true
+            });
+
+            // ========== БЛОКИРОВКА document.write ==========
+            var origWrite = document.write;
+            document.write = function(content) {
+                if (typeof content === 'string' && content.length > 0) {
+                    for (var i = 0; i < trackingPatterns.length; i++) {
+                        if (content.indexOf(trackingPatterns[i]) !== -1) {
+                            return;
+                        }
+                    }
+                }
+                return origWrite.call(document, content);
+            };
+
+
+        })();
+    </script>
+<link rel="alternate" href="https://ifat.co.il/en/" hreflang="en">
+<link rel="alternate" href="https://ifat.co.il/" hreflang="he">
+
+	<!-- This site is optimized with the Yoast SEO plugin v23.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>קבוצת יפעת - החלטות עסקיות מקבלים עם יפעת</title>
+	<meta name="description" content="קבוצת יפעת היא החברה המובילה בתחום המידע לעסקים ובעלת ניסיון רב באיתור, ניתוח ועיבוד מידע תקשורתי. המוצרים שלנו כוללים מידע בעולמות התקשורת, מדיה ופרסום">
+	<link rel="canonical" href="https://ifat.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:locale:alternate" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="קבוצת יפעת - החלטות עסקיות מקבלים עם יפעת">
+	<meta property="og:description" content="קבוצת יפעת היא החברה המובילה בתחום המידע לעסקים ובעלת ניסיון רב באיתור, ניתוח ועיבוד מידע תקשורתי. המוצרים שלנו כוללים מידע בעולמות התקשורת, מדיה ופרסום">
+	<meta property="og:url" content="https://ifat.co.il/">
+	<meta property="og:site_name" content="קבוצת יפעת">
+	<meta property="article:publisher" content="https://www.facebook.com/ifat.media/">
+	<meta property="article:modified_time" content="2020-04-06T08:38:52+00:00">
+	<meta property="og:image" content="https://ifat.co.il/wp-content/uploads/2017/08/f.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://ifat.co.il/","url":"https://ifat.co.il/","name":"קבוצת יפעת - החלטות עסקיות מקבלים עם יפעת","isPartOf":{"@id":"https://ifat.co.il/#website"},"about":{"@id":"https://ifat.co.il/#organization"},"datePublished":"2017-05-16T11:07:03+00:00","dateModified":"2020-04-06T08:38:52+00:00","description":"קבוצת יפעת היא החברה המובילה בתחום המידע לעסקים ובעלת ניסיון רב באיתור, ניתוח ועיבוד מידע תקשורתי. המוצרים שלנו כוללים מידע בעולמות התקשורת, מדיה ופרסום","breadcrumb":{"@id":"https://ifat.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://ifat.co.il/"]}]},{"@type":"BreadcrumbList","@id":"https://ifat.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"עמוד הבית"}]},{"@type":"WebSite","@id":"https://ifat.co.il/#website","url":"https://ifat.co.il/","name":"קבוצת יפעת","description":"","publisher":{"@id":"https://ifat.co.il/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://ifat.co.il/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"he-IL"},{"@type":"Organization","@id":"https://ifat.co.il/#organization","name":"Ifat group","url":"https://ifat.co.il/","logo":{"@type":"ImageObject","inLanguage":"he-IL","@id":"https://ifat.co.il/#/schema/logo/image/","url":"https://ifat.co.il/wp-content/uploads/2017/05/logo_03.png","contentUrl":"https://ifat.co.il/wp-content/uploads/2017/05/logo_03.png","width":205,"height":50,"caption":"Ifat group"},"image":{"@id":"https://ifat.co.il/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/ifat.media/","https://www.youtube.com/channel/UCEPwBR_G700Elcz_XHjs_Mw","https://www.linkedin.com/company-beta/9208018/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/ifat.co.il\/wp-includes\/js\/wp-emoji-release.min.js?ver=b80ca742d079a9afc87a04961d7e10d1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-rtl-css" href="https://ifat.co.il/wp-includes/css/dist/block-library/style-rtl.min.css?ver=b80ca742d079a9afc87a04961d7e10d1" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="https://ifat.co.il/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.9.8" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-rtl-css" href="https://ifat.co.il/wp-content/plugins/contact-form-7/includes/css/styles-rtl.css?ver=5.9.8" type="text/css" media="all">
+<link rel="stylesheet" id="podium-rtl-style-css" href="https://ifat.co.il/wp-content/themes/podium-master/dist/styles/rtl.min.css?ver=1773061547" type="text/css" media="all">
+<link rel="stylesheet" id="custom-css" href="https://ifat.co.il/wp-content/themes/podium-master/dist/styles/custom.css?ver=1773061547" type="text/css" media="all">
+<link rel="stylesheet" id="qs-style-css" href="https://ifat.co.il/wp-content/themes/podium-master/assets/styles/qs-style.css?ver=1773061547" type="text/css" media="all">
+<link rel="stylesheet" id="wpah-front-styles-css" href="https://ifat.co.il/wp-content/themes/podium-master/accessibility/wp-accessibility-helper/assets/css/wp-accessibility-helper.min.css?ver=1773061547" type="text/css" media="all">
+<script type="text/javascript" src="https://ifat.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://ifat.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://ifat.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://ifat.co.il/wp-json/wp/v2/pages/23"><link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://ifat.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fifat.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://ifat.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fifat.co.il%2F&amp;format=xml">
+<!-- Facebook Pixel Code -->
+<script type="text/plain" data-blocked="web3d-consent" data-category="analytics">/* Blocked by Web3D Consent */</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=761144690590198&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-57XHDFJ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Ads: 1067174628 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-1067174628" type="text/plain" data-blocked="web3d-consent" data-category="analytics">/* Blocked by Web3D Consent */</script>
+<script type="text/plain" data-blocked="web3d-consent" data-category="analytics">/* Blocked by Web3D Consent */</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-102900380-1" type="text/plain" data-blocked="web3d-consent" data-category="analytics">/* Blocked by Web3D Consent */</script>
+<script type="text/plain" data-blocked="web3d-consent" data-category="analytics">/* Blocked by Web3D Consent */</script>
+
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+.lang-item {
+display:none;
+
+}
+.wpcf7 input[type=email] {
+	direction: rtl;
+}
+
+.wpcf7 input[type=tel] {
+	direction: rtl;
+}
+.home-loader-wrapper{
+	display:none!important;
+}
+form input,
+form select,
+form textarea{
+	direction:rtl;
+	text-align:right;
+}
+form input[type=submit]{
+	text-align:center;
+}
+.page-id-517 input[type="checkbox"],
+.page-id-159 input[type="checkbox"] {
+height: unset !important;
+	
+}
+.page-id-517 .web3d-consent-text{
+	direction:rtl;
+}
+.wpcf7-list-item-label{
+	font-size:18px
+}		</style>
+				<style media="screen">
+			@media screen and (max-width: 640px) {
+				.scroll-banner-wrapper .scroll-banner-bg {
+					background-image: url( https://ifat.co.il/wp-content/uploads/2017/05/bg-hp-header-1.jpg ) !important;
+				}
+			}
+		</style>
+		
+		<script type="text/javascript">
+		jQuery(window).load( function(){
+			jQuery('.home-loader-wrapper').fadeOut(500,  function(){
+				jQuery(this).remove();
+			})
+		});
+	</script>
+	
+			<link rel="shortcut icon" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/android-icon-192x192.png" sizes="192x192">
+	<meta name="msapplication-square70x70logo" content="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/smalltile.png">
+	<meta name="msapplication-square150x150logo" content="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/mediumtile.png">
+	<meta name="msapplication-wide310x150logo" content="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/widetile.png">
+	<meta name="msapplication-square310x310logo" content="https://ifat.co.il/wp-content/themes/podium-master/dist/images/favicon/largetile.png">
+	<script type="text/javascript">var ajaxurl = 'https://ifat.co.il/'+'wp-admin/admin-ajax.php';</script>
+
+<script src="https://ifat.co.il/wp-includes/js/wp-emoji-release.min.js?ver=b80ca742d079a9afc87a04961d7e10d1" defer=""></script><meta class="foundation-mq"></head>
+
+<body class="rtl home page-template page-template-view page-template-tpl-home page-template-viewtpl-home-php page page-id-23 group-blog chrome windows wp-accessibility-helper accessibility-contrast_mode_on wah_fstype_script accessibility-underline-setup accessibility-location-right"><div id="wp_access_helper_container" class="accessability_container dark_theme">
+    <!-- WP Accessibility Helper (WAH) - https://wordpress.org/plugins/wp-accessibility-helper/ -->
+	<!-- Official plugin website - https://accessibility-helper.co.il -->
+                    <button type="button" class="wahout aicon_link" accesskey="z" aria-label="Accessibility Helper sidebar" title="Accessibility Helper sidebar">
+                <img src="https://ifat.co.il/wp-content/uploads/2017/06/accessibility48-orange.jpg" alt="Accessibility" class="aicon_image">
+            </button>
+            <div id="access_container" aria-hidden="false">
+                <button tabindex="-1" type="button" class="close_container wahout" accesskey="x" aria-label="סגור" title="סגור">
+                    סגור                </button>
+                <div class="access_container_inner">
+                    <div class="a_module wah_font_resize">
+            <div class="a_module_title">גודל פונט</div>
+            <div class="a_module_exe font_resizer">
+                <button tabindex="-1" type="button" class="wah-action-button smaller wahout" title="smaller font size" aria-label="smaller font size">A-</button>
+                <button tabindex="-1" type="button" class="wah-action-button larger wahout" title="larger font size" aria-label="larger font size">A+</button><button tabindex="-1" type="button" class="wah-action-button wah-font-reset wahout" title="איפוס גודל פונט" aria-label="איפוס גודל פונט">איפוס גודל פונט</button>
+            </div>
+        </div><div class="a_module wah_keyboard_navigation">
+            <div class="a_module_exe">
+                <button tabindex="-1" type="button" class="wah-action-button wahout wah-call-keyboard-navigation" aria-label="ניווט מקלדת" title="ניווט מקלדת">ניווט מקלדת</button>
+            </div>
+        </div><div class="a_module wah_readable_fonts">
+            <div class="a_module_exe readable_fonts">
+                <button tabindex="-1" type="button" class="wah-action-button wahout wah-call-readable-fonts" aria-label="פונט קריא" title="פונט קריא">פונט קריא</button>
+            </div>
+        </div><div class="a_module wah_contrast_trigger">
+                <div class="a_module_title">ניגודיות</div>
+                <div class="a_module_exe">
+                    <button tabindex="-1" type="button" id="contrast_trigger" class="contrast_trigger wah-action-button wahout wah-call-contrast-trigger" title="Contrast">בחר צבע</button>
+                    <div class="color_selector" aria-hidden="true">
+                        <button type="button" class="convar black wahout" data-bgcolor="#000" data-color="#FFF" title="black">black</button>
+                        <button type="button" class="convar white wahout" data-bgcolor="#FFF" data-color="#000" title="white">white</button>
+                        <button type="button" class="convar green wahout" data-bgcolor="#00FF21" data-color="#000" title="green">green</button>
+                        <button type="button" class="convar blue wahout" data-bgcolor="#0FF" data-color="#000" title="blue">blue</button>
+                        <button type="button" class="convar red wahout" data-bgcolor="#F00" data-color="#000" title="red">red</button>
+                        <button type="button" class="convar orange wahout" data-bgcolor="#FF6A00" data-color="#000" title="orange">orange</button>
+                        <button type="button" class="convar yellow wahout" data-bgcolor="#FFD800" data-color="#000" title="yellow">yellow</button>
+                        <button type="button" class="convar navi wahout" data-bgcolor="#B200FF" data-color="#000" title="navi">navi</button>
+                    </div>
+                </div>
+            </div><div class="a_module wah_underline_links">
+            <div class="a_module_exe">
+                <button tabindex="-1" type="button" class="wah-action-button wahout wah-call-underline-links" aria-label="קו תחתון לקישורים" title="קו תחתון לקישורים">קו תחתון לקישורים</button>
+            </div>
+        </div><div class="a_module wah_highlight_links">
+            <div class="a_module_exe">
+                <button tabindex="-1" type="button" class="wah-action-button wahout wah-call-highlight-links" aria-label="סמן קישורים" title="סמן קישורים">סמן קישורים</button>
+            </div>
+        </div><div class="a_module wah_clear_cookies">
+            <div class="a_module_exe">
+                <button tabindex="-1" type="button" class="wah-action-button wahout wah-call-clear-cookies" aria-label="בטל נגישות" title="בטל נגישות">בטל נגישות</button>
+            </div>
+        </div><div class="a_module wah_greyscale">
+            <div class="a_module_exe">
+                <button tabindex="-1" type="button" id="greyscale" class="greyscale wah-action-button wahout wah-call-greyscale" aria-label="תמונות אפורות" title="תמונות אפורות">תמונות אפורות</button>
+            </div>
+        </div><div class="a_module wah_invert">
+            <div class="a_module_exe">
+                <button tabindex="-1" type="button" class="wah-action-button wahout wah-call-invert" aria-label="היפוך צבעים" title="היפוך צבעים">היפוך צבעים</button>
+            </div>
+        </div><div class="a_module wah_remove_animations">
+            <div class="a_module_exe">
+                <button tabindex="-1" type="button" accesskey="a" class="wah-action-button wahout wah-call-remove-animations" aria-label="הסר אנימציות" title="הסר אנימציות">הסר אנימציות</button>
+            </div>
+        </div>                        <button type="button" title="Close sidebar" class="wah-skip close-wah-sidebar">
+        סגור    </button>
+                </div>
+            </div>
+            
+<script type="text/javascript">
+    var roleLink = 1;                                    </script>
+<style>            @media only screen and (max-width: 480px) {div#wp_access_helper_container {display: none;}}
+    </style>    <style media="screen" type="text/css">
+        body #wp_access_helper_container button.aicon_link {
+            top:66px !important;                                            }
+    </style>
+            <!-- WP Accessibility Helper. Created by Alex Volkov. -->
+</div><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57XHDFJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+	<style media="screen" id="loader-style-setup">
+.home-loader-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    z-index: 9999999;
+    top:0;
+    right:0;
+}
+    .cssload-dots {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    outline: 1px solid red;
+    filter: url(#goo);
+        -o-filter: url(#goo);
+        -ms-filter: url(#goo);
+        -webkit-filter: url(#goo);
+        -moz-filter: url(#goo);
+    }
+
+    .cssload-dot {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    }
+    .cssload-dot:before {
+    content: "";
+    width: 31px;
+    height: 31px;
+    border-radius: 45px;
+    background: rgb(251,211,1);
+    position: absolute;
+    left: 50%;
+    transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+    margin-left: -15.5px;
+    margin-top: -15.5px;
+    }
+
+
+
+    .cssload-dot:nth-child(5):before {
+    z-index: 100;
+    width: 40.5px;
+    height: 40.5px;
+    margin-left: -20.75px;
+    margin-top: -20.75px;
+    animation: cssload-dot-colors 4.6s ease infinite;
+        -o-animation: cssload-dot-colors 4.6s ease infinite;
+        -ms-animation: cssload-dot-colors 4.6s ease infinite;
+        -webkit-animation: cssload-dot-colors 4.6s ease infinite;
+        -moz-animation: cssload-dot-colors 4.6s ease infinite;
+    }
+
+
+    .cssload-dot:nth-child(1) {
+    animation: cssload-dot-rotate-1 4.6s 0s linear infinite;
+        -o-animation: cssload-dot-rotate-1 4.6s 0s linear infinite;
+        -ms-animation: cssload-dot-rotate-1 4.6s 0s linear infinite;
+        -webkit-animation: cssload-dot-rotate-1 4.6s 0s linear infinite;
+        -moz-animation: cssload-dot-rotate-1 4.6s 0s linear infinite;
+    }
+    .cssload-dot:nth-child(1):before {
+    background-color: rgb(255,50,112);
+    animation: cssload-dot-move 4.6s 0s ease infinite;
+        -o-animation: cssload-dot-move 4.6s 0s ease infinite;
+        -ms-animation: cssload-dot-move 4.6s 0s ease infinite;
+        -webkit-animation: cssload-dot-move 4.6s 0s ease infinite;
+        -moz-animation: cssload-dot-move 4.6s 0s ease infinite;
+    }
+
+    .cssload-dot:nth-child(2) {
+    animation: cssload-dot-rotate-2 4.6s 1.15s linear infinite;
+        -o-animation: cssload-dot-rotate-2 4.6s 1.15s linear infinite;
+        -ms-animation: cssload-dot-rotate-2 4.6s 1.15s linear infinite;
+        -webkit-animation: cssload-dot-rotate-2 4.6s 1.15s linear infinite;
+        -moz-animation: cssload-dot-rotate-2 4.6s 1.15s linear infinite;
+    }
+    .cssload-dot:nth-child(2):before {
+    background-color: rgb(32,139,241);
+    animation: cssload-dot-move 4.6s 1.15s ease infinite;
+        -o-animation: cssload-dot-move 4.6s 1.15s ease infinite;
+        -ms-animation: cssload-dot-move 4.6s 1.15s ease infinite;
+        -webkit-animation: cssload-dot-move 4.6s 1.15s ease infinite;
+        -moz-animation: cssload-dot-move 4.6s 1.15s ease infinite;
+    }
+
+    .cssload-dot:nth-child(3) {
+    animation: cssload-dot-rotate-3 4.6s 2.3s linear infinite;
+        -o-animation: cssload-dot-rotate-3 4.6s 2.3s linear infinite;
+        -ms-animation: cssload-dot-rotate-3 4.6s 2.3s linear infinite;
+        -webkit-animation: cssload-dot-rotate-3 4.6s 2.3s linear infinite;
+        -moz-animation: cssload-dot-rotate-3 4.6s 2.3s linear infinite;
+    }
+    .cssload-dot:nth-child(3):before {
+    background-color: rgb(175,225,2);
+    animation: cssload-dot-move 4.6s 2.3s ease infinite;
+        -o-animation: cssload-dot-move 4.6s 2.3s ease infinite;
+        -ms-animation: cssload-dot-move 4.6s 2.3s ease infinite;
+        -webkit-animation: cssload-dot-move 4.6s 2.3s ease infinite;
+        -moz-animation: cssload-dot-move 4.6s 2.3s ease infinite;
+    }
+
+    .cssload-dot:nth-child(4) {
+    animation: cssload-dot-rotate-4 4.6s 3.45s linear infinite;
+        -o-animation: cssload-dot-rotate-4 4.6s 3.45s linear infinite;
+        -ms-animation: cssload-dot-rotate-4 4.6s 3.45s linear infinite;
+        -webkit-animation: cssload-dot-rotate-4 4.6s 3.45s linear infinite;
+        -moz-animation: cssload-dot-rotate-4 4.6s 3.45s linear infinite;
+    }
+    .cssload-dot:nth-child(4):before {
+    background-color: rgb(251,211,1);
+    animation: cssload-dot-move 4.6s 3.45s ease infinite;
+        -o-animation: cssload-dot-move 4.6s 3.45s ease infinite;
+        -ms-animation: cssload-dot-move 4.6s 3.45s ease infinite;
+        -webkit-animation: cssload-dot-move 4.6s 3.45s ease infinite;
+        -moz-animation: cssload-dot-move 4.6s 3.45s ease infinite;
+    }
+
+    @keyframes cssload-dot-move {
+    0% {
+        transform: translateY(0);
+    }
+    18%, 22% {
+        transform: translateY(-63px);
+    }
+    40%, 100% {
+        transform: translateY(0);
+    }
+    }
+
+    @-o-keyframes cssload-dot-move {
+    0% {
+        -o-transform: translateY(0);
+    }
+    18%, 22% {
+        -o-transform: translateY(-63px);
+    }
+    40%, 100% {
+        -o-transform: translateY(0);
+    }
+    }
+
+    @-ms-keyframes cssload-dot-move {
+    0% {
+        -ms-transform: translateY(0);
+    }
+    18%, 22% {
+        -ms-transform: translateY(-63px);
+    }
+    40%, 100% {
+        -ms-transform: translateY(0);
+    }
+    }
+
+    @-webkit-keyframes cssload-dot-move {
+    0% {
+        -webkit-transform: translateY(0);
+    }
+    18%, 22% {
+        -webkit-transform: translateY(-63px);
+    }
+    40%, 100% {
+        -webkit-transform: translateY(0);
+    }
+    }
+
+    @-moz-keyframes cssload-dot-move {
+    0% {
+        -moz-transform: translateY(0);
+    }
+    18%, 22% {
+        -moz-transform: translateY(-63px);
+    }
+    40%, 100% {
+        -moz-transform: translateY(0);
+    }
+    }
+
+    @keyframes cssload-dot-colors {
+    0% {
+        background-color: rgb(251,211,1);
+    }
+    25% {
+        background-color: rgb(255,50,112);
+    }
+    50% {
+        background-color: rgb(32,139,241);
+    }
+    75% {
+        background-color: rgb(175,225,2);
+    }
+    100% {
+        background-color: rgb(251,211,1);
+    }
+    }
+
+    @-o-keyframes cssload-dot-colors {
+    0% {
+        background-color: rgb(251,211,1);
+    }
+    25% {
+        background-color: rgb(255,50,112);
+    }
+    50% {
+        background-color: rgb(32,139,241);
+    }
+    75% {
+        background-color: rgb(175,225,2);
+    }
+    100% {
+        background-color: rgb(251,211,1);
+    }
+    }
+
+    @-ms-keyframes cssload-dot-colors {
+    0% {
+        background-color: rgb(251,211,1);
+    }
+    25% {
+        background-color: rgb(255,50,112);
+    }
+    50% {
+        background-color: rgb(32,139,241);
+    }
+    75% {
+        background-color: rgb(175,225,2);
+    }
+    100% {
+        background-color: rgb(251,211,1);
+    }
+    }
+
+    @-webkit-keyframes cssload-dot-colors {
+    0% {
+        background-color: rgb(251,211,1);
+    }
+    25% {
+        background-color: rgb(255,50,112);
+    }
+    50% {
+        background-color: rgb(32,139,241);
+    }
+    75% {
+        background-color: rgb(175,225,2);
+    }
+    100% {
+        background-color: rgb(251,211,1);
+    }
+    }
+
+    @-moz-keyframes cssload-dot-colors {
+    0% {
+        background-color: rgb(251,211,1);
+    }
+    25% {
+        background-color: rgb(255,50,112);
+    }
+    50% {
+        background-color: rgb(32,139,241);
+    }
+    75% {
+        background-color: rgb(175,225,2);
+    }
+    100% {
+        background-color: rgb(251,211,1);
+    }
+    }
+
+    @keyframes cssload-dot-rotate-1 {
+    0% {
+        transform: rotate(-105deg);
+    }
+    100% {
+        transform: rotate(270deg);
+    }
+    }
+
+    @-o-keyframes cssload-dot-rotate-1 {
+    0% {
+        -o-transform: rotate(-105deg);
+    }
+    100% {
+        -o-transform: rotate(270deg);
+    }
+    }
+
+    @-ms-keyframes cssload-dot-rotate-1 {
+    0% {
+        -ms-transform: rotate(-105deg);
+    }
+    100% {
+        -ms-transform: rotate(270deg);
+    }
+    }
+
+    @-webkit-keyframes cssload-dot-rotate-1 {
+    0% {
+        -webkit-transform: rotate(-105deg);
+    }
+    100% {
+        -webkit-transform: rotate(270deg);
+    }
+    }
+
+    @-moz-keyframes cssload-dot-rotate-1 {
+    0% {
+        -moz-transform: rotate(-105deg);
+    }
+    100% {
+        -moz-transform: rotate(270deg);
+    }
+    }
+
+    @keyframes cssload-dot-rotate-2 {
+    0% {
+        transform: rotate(165deg);
+    }
+    100% {
+        transform: rotate(540deg);
+    }
+    }
+
+    @-o-keyframes cssload-dot-rotate-2 {
+    0% {
+        -o-transform: rotate(165deg);
+    }
+    100% {
+        -o-transform: rotate(540deg);
+    }
+    }
+
+    @-ms-keyframes cssload-dot-rotate-2 {
+    0% {
+        -ms-transform: rotate(165deg);
+    }
+    100% {
+        -ms-transform: rotate(540deg);
+    }
+    }
+
+    @-webkit-keyframes cssload-dot-rotate-2 {
+    0% {
+        -webkit-transform: rotate(165deg);
+    }
+    100% {
+        -webkit-transform: rotate(540deg);
+    }
+    }
+
+    @-moz-keyframes cssload-dot-rotate-2 {
+    0% {
+        -moz-transform: rotate(165deg);
+    }
+    100% {
+        -moz-transform: rotate(540deg);
+    }
+    }
+
+    @keyframes cssload-dot-rotate-3 {
+    0% {
+        transform: rotate(435deg);
+    }
+    100% {
+        transform: rotate(810deg);
+    }
+    }
+
+    @-o-keyframes cssload-dot-rotate-3 {
+    0% {
+        -o-transform: rotate(435deg);
+    }
+    100% {
+        -o-transform: rotate(810deg);
+    }
+    }
+
+    @-ms-keyframes cssload-dot-rotate-3 {
+    0% {
+        -ms-transform: rotate(435deg);
+    }
+    100% {
+        -ms-transform: rotate(810deg);
+    }
+    }
+
+    @-webkit-keyframes cssload-dot-rotate-3 {
+    0% {
+        -webkit-transform: rotate(435deg);
+    }
+    100% {
+        -webkit-transform: rotate(810deg);
+    }
+    }
+
+    @-moz-keyframes cssload-dot-rotate-3 {
+    0% {
+        -moz-transform: rotate(435deg);
+    }
+    100% {
+        -moz-transform: rotate(810deg);
+    }
+    }
+
+    @keyframes cssload-dot-rotate-4 {
+    0% {
+        transform: rotate(705deg);
+    }
+    100% {
+        transform: rotate(1080deg);
+    }
+    }
+
+    @-o-keyframes cssload-dot-rotate-4 {
+    0% {
+        -o-transform: rotate(705deg);
+    }
+    100% {
+        -o-transform: rotate(1080deg);
+    }
+    }
+
+    @-ms-keyframes cssload-dot-rotate-4 {
+    0% {
+        -ms-transform: rotate(705deg);
+    }
+    100% {
+        -ms-transform: rotate(1080deg);
+    }
+    }
+
+    @-webkit-keyframes cssload-dot-rotate-4 {
+    0% {
+        -webkit-transform: rotate(705deg);
+    }
+    100% {
+        -webkit-transform: rotate(1080deg);
+    }
+    }
+
+    @-moz-keyframes cssload-dot-rotate-4 {
+    0% {
+        -moz-transform: rotate(705deg);
+    }
+    100% {
+        -moz-transform: rotate(1080deg);
+    }
+    }
+</style>
+
+
+
+	<input type="hidden" name="pid" value="23">
+
+	<div class="mobile-menu-container">
+		<div class="mobile-menu-inner">
+			<div class="mobile-search-form">
+				<form role="search" method="get" class="search-form" action="https://ifat.co.il/">
+    <label>
+        <input type="search" class="search-field" placeholder="" value="" name="s" title="חיפוש:">
+    </label>
+    <button type="submit" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+			</div>
+			<div class="mobile-menu-wrapper">
+				<ul id="menu-header-menu-heb" class="dropdown menu"><li id="menu-item-466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-466"><a href="#" data-wahfont="20" role="link"><i class="fa fa-caret-down" aria-hidden="true"></i>אודות</a>
+<ul class="submenu menu vertical">
+	<li id="menu-item-512" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-512"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%94%d7%97%d7%91%d7%a8%d7%94/" data-wahfont="20" role="link">אודות החברה</a></li>
+	<li id="menu-item-575" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-575"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%97%d7%96%d7%95%d7%9f-%d7%95%d7%a2%d7%a8%d7%9b%d7%99%d7%9d/" data-wahfont="20" role="link">חזון וערכים</a></li>
+	<li id="menu-item-576" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-576"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%94%d7%a0%d7%94%d7%9c%d7%94/" data-wahfont="20" role="link">הנהלה</a></li>
+</ul>
+</li>
+<li id="menu-item-1170" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-1170"><a data-wahfont="20" role="link"><i class="fa fa-caret-down" aria-hidden="true"></i>חברות הקבוצה</a>
+<ul class="submenu menu vertical">
+	<li id="menu-item-581" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-581"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%99%d7%93%d7%a2-%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa%d7%99/" data-wahfont="20" role="link">יפעת מידע תקשורתי</a></li>
+	<li id="menu-item-597" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-597"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%91%d7%a7%d7%a8%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" data-wahfont="20" role="link">יפעת בקרת פרסום</a></li>
+	<li id="menu-item-580" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-580"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%9b%d7%a8%d7%96%d7%99%d7%9d/" data-wahfont="20" role="link">יפעת מכרזים</a></li>
+	<li id="menu-item-587" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-587"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="20" role="link">יפעת מחקרי מדיה</a></li>
+	<li id="menu-item-2123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2123"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/adkit/" data-wahfont="20" role="link">אדקיט</a></li>
+	<li id="menu-item-579" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-579"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/vigo/" data-wahfont="20" role="link">VIGO</a></li>
+</ul>
+</li>
+<li id="menu-item-1171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-1171"><a href="#" data-wahfont="20" role="link"><i class="fa fa-caret-down" aria-hidden="true"></i>עולמות תוכן</a>
+<ul class="submenu menu vertical">
+	<li id="menu-item-589" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-589"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%99%d7%97%d7%a1%d7%99-%d7%a6%d7%99%d7%91%d7%95%d7%a8/" data-wahfont="20" role="link">יחסי ציבור</a></li>
+	<li id="menu-item-588" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-588"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="20" role="link">פרסום מדיה</a></li>
+	<li id="menu-item-596" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-596"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%94%d7%96%d7%93%d7%9e%d7%a0%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa/" data-wahfont="20" role="link">הזדמנות עסקית</a></li>
+	<li id="menu-item-594" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-594"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%9e%d7%93%d7%99%d7%94-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%aa/" data-wahfont="20" role="link">מדיה חברתית</a></li>
+	<li id="menu-item-578" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-578"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%9e%d7%97%d7%a7%d7%a8/" data-wahfont="20" role="link">מחקר</a></li>
+</ul>
+</li>
+<li id="menu-item-584" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-584"><a href="https://ifat.co.il/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/" data-wahfont="20" role="link">קריירה</a></li>
+<li id="menu-item-583" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-583"><a href="https://ifat.co.il/%d7%91%d7%9c%d7%95%d7%92/" data-wahfont="20" role="link">בלוג</a></li>
+<li id="menu-item-585" class="grey-button menu-item menu-item-type-post_type menu-item-object-page menu-item-585"><a href="https://ifat.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" data-wahfont="20" role="link">צור קשר</a></li>
+</ul>			</div>
+			<div class="mobile-menu-account-link">
+				<button type="button" name="login-popup-button">
+					<i class="material-icons">person</i>
+					<span class="login-title" data-wahfont="20">כניסת מנויים</span>
+				</button>
+				
+<div class="login-popup">
+    <button type="button" class="close-login-popup"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
+    <div class="login-popup-inner">
+        <header class="login-header">
+            <div class="person-icon"><i class="material-icons">person</i></div>
+                            <div class="login-popup-title">כניסת מנויים</div>
+                    </header>
+        <div class="login-popup-form">
+            <form action="" method="post">
+                <div class="form-row">
+                    <select class="" name="redirect-url">
+                        <option value="">בחר מוצר יפעת</option>
+                                                    <option value="http://www.iprojects.co.il/bridge.aspx?user={MyUser}&amp;password={MyPassword}">יפעת פרויקטים</option>
+                                                    <option value="http://www.infor.co.il/HomePage.asp?User={MyUser}&amp;Password={MyPassword}">מערכת Infor</option>
+                                                    <option value="http://www.tenders.co.il/login/{MyUser}/{MyPassword}">יפעת מכרזים</option>
+                                                    <option value="http://www.ifatmediasite.com/Login/Login.aspx?AutoLog=true&amp;UserName={MyUser}&amp;Password={MyPassword}">ניטור מידע תקשורתי</option>
+                                                    <option value="http://www.bakaratpirsum.co.il/Account/Login?username={MyUser}&amp;password={MyPassword}">מערכת בקרת פרסום</option>
+                                                    <option value="http://bakaratpirsum.co.il/PersonalInfo/Login.aspx?AutoLog=true&amp;UserName={MyUser}&amp;Password={MyPassword}&amp;referrer=DailyReport.aspx">דוח מתחרים יומי</option>
+                                            </select>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="UserName" class="must" placeholder="שם משתמש">
+                </div>
+                <div class="form-row">
+                    <input type="password" name="Password" class="must" placeholder="סיסמא">
+                </div>
+                <div class="form-row">
+                    <label for="remember">
+                        <input type="checkbox" name="remember" id="remember">
+                        זכור שם משתמש וסיסמה                    </label>
+                </div>
+                <div class="form-row">
+                    <input type="submit" value="כניסה">
+                </div>
+                <div class="form-row">
+                    <span class="login-popup-ajax-message" data-wahfont="16"></span>
+                </div>
+            </form>
+        </div>
+        <footer class="login-popup-footer">
+
+        </footer>
+    </div>
+</div>
+			</div>
+			<ul class="mobile-lang-menu">
+					<li class="lang-item lang-item-2 lang-item-en lang-item-first"><a lang="en-US" hreflang="en-US" href="https://ifat.co.il/en/" data-wahfont="16" role="link">EN</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="page" class="hfeed site">
+		<a class="skip-link show-for-sr" href="#content" data-wahfont="16" role="link">
+			Skip to content		</a>
+
+		<header id="masthead" class="site-header sticky-container" role="banner" data-sticky-container="" style="height: 71.1562px;">
+
+			<div class="show-for-medium top-bar sticky is-anchored is-at-top" data-sticky="uzw0k3-sticky" data-margin-top="0" data-resize="jkvr89-sticky" style="max-width: 1280px; margin-top: 0px; bottom: auto; top: 0px;">
+				<div class="row header-row">
+					<div class="small-12 columns">
+						<div class="top-bar-left">
+							<div class="site-logo">
+								<a href="https://ifat.co.il/" data-wahfont="16" role="link">
+									<img src="https://ifat.co.il/wp-content/uploads/2017/05/logo_03.png" alt="קבוצת יפעת">
+								</a>
+							</div>
+							<ul id="menu-header-menu-heb-1" class="dropdown menu show-for-medium" data-dropdown-menu="xrie0r-dropdown-menu" role="menubar"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-466 is-dropdown-submenu-parent opens-left" role="menuitem" aria-haspopup="true" aria-label="אודות"><a href="#" data-wahfont="18" role="link">אודות</a>
+<ul class="submenu menu vertical is-dropdown-submenu first-sub" data-submenu="" role="menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-512 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%94%d7%97%d7%91%d7%a8%d7%94/" data-wahfont="18" role="link">אודות החברה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-575 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%97%d7%96%d7%95%d7%9f-%d7%95%d7%a2%d7%a8%d7%9b%d7%99%d7%9d/" data-wahfont="18" role="link">חזון וערכים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-576 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%94%d7%a0%d7%94%d7%9c%d7%94/" data-wahfont="18" role="link">הנהלה</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-1170 is-dropdown-submenu-parent opens-left" role="menuitem" aria-haspopup="true" aria-label="חברות הקבוצה"><a data-wahfont="18" role="link">חברות הקבוצה</a>
+<ul class="submenu menu vertical is-dropdown-submenu first-sub" data-submenu="" role="menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-581 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%99%d7%93%d7%a2-%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa%d7%99/" data-wahfont="18" role="link">יפעת מידע תקשורתי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-597 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%91%d7%a7%d7%a8%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" data-wahfont="18" role="link">יפעת בקרת פרסום</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-580 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%9b%d7%a8%d7%96%d7%99%d7%9d/" data-wahfont="18" role="link">יפעת מכרזים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-587 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="18" role="link">יפעת מחקרי מדיה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2123 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/adkit/" data-wahfont="18" role="link">אדקיט</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-579 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/vigo/" data-wahfont="18" role="link">VIGO</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-1171 is-dropdown-submenu-parent opens-left" role="menuitem" aria-haspopup="true" aria-label="עולמות תוכן"><a href="#" data-wahfont="18" role="link">עולמות תוכן</a>
+<ul class="submenu menu vertical is-dropdown-submenu first-sub" data-submenu="" role="menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-589 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%99%d7%97%d7%a1%d7%99-%d7%a6%d7%99%d7%91%d7%95%d7%a8/" data-wahfont="18" role="link">יחסי ציבור</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-588 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="18" role="link">פרסום מדיה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-596 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%94%d7%96%d7%93%d7%9e%d7%a0%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa/" data-wahfont="18" role="link">הזדמנות עסקית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-594 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%9e%d7%93%d7%99%d7%94-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%aa/" data-wahfont="18" role="link">מדיה חברתית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-578 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%9e%d7%97%d7%a7%d7%a8/" data-wahfont="18" role="link">מחקר</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-584" role="menuitem"><a href="https://ifat.co.il/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/" data-wahfont="18" role="link">קריירה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-583" role="menuitem"><a href="https://ifat.co.il/%d7%91%d7%9c%d7%95%d7%92/" data-wahfont="18" role="link">בלוג</a></li>
+<li class="grey-button menu-item menu-item-type-post_type menu-item-object-page menu-item-585" role="menuitem"><a href="https://ifat.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" data-wahfont="18" role="link">צור קשר</a></li>
+</ul>						</div>
+						<div class="top-bar-right">
+							<span class="title-bar-title" data-wahfont="16">
+								<div class="title-bar-element login-area">
+									<button type="button" name="login-popup-button">
+										<i class="material-icons">person</i>
+										<span class="login-title" data-wahfont="20">כניסת מנויים</span>
+									</button>
+									
+<div class="login-popup">
+    <button type="button" class="close-login-popup"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
+    <div class="login-popup-inner">
+        <header class="login-header">
+            <div class="person-icon"><i class="material-icons">person</i></div>
+                            <div class="login-popup-title">כניסת מנויים</div>
+                    </header>
+        <div class="login-popup-form">
+            <form action="" method="post">
+                <div class="form-row">
+                    <select class="" name="redirect-url">
+                        <option value="">בחר מוצר יפעת</option>
+                                                    <option value="http://www.iprojects.co.il/bridge.aspx?user={MyUser}&amp;password={MyPassword}">יפעת פרויקטים</option>
+                                                    <option value="http://www.infor.co.il/HomePage.asp?User={MyUser}&amp;Password={MyPassword}">מערכת Infor</option>
+                                                    <option value="http://www.tenders.co.il/login/{MyUser}/{MyPassword}">יפעת מכרזים</option>
+                                                    <option value="http://www.ifatmediasite.com/Login/Login.aspx?AutoLog=true&amp;UserName={MyUser}&amp;Password={MyPassword}">ניטור מידע תקשורתי</option>
+                                                    <option value="http://www.bakaratpirsum.co.il/Account/Login?username={MyUser}&amp;password={MyPassword}">מערכת בקרת פרסום</option>
+                                                    <option value="http://bakaratpirsum.co.il/PersonalInfo/Login.aspx?AutoLog=true&amp;UserName={MyUser}&amp;Password={MyPassword}&amp;referrer=DailyReport.aspx">דוח מתחרים יומי</option>
+                                            </select>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="UserName" class="must" placeholder="שם משתמש">
+                </div>
+                <div class="form-row">
+                    <input type="password" name="Password" class="must" placeholder="סיסמא">
+                </div>
+                <div class="form-row">
+                    <label for="remember">
+                        <input type="checkbox" name="remember" id="remember">
+                        זכור שם משתמש וסיסמה                    </label>
+                </div>
+                <div class="form-row">
+                    <input type="submit" value="כניסה">
+                </div>
+                <div class="form-row">
+                    <span class="login-popup-ajax-message" data-wahfont="16"></span>
+                </div>
+            </form>
+        </div>
+        <footer class="login-popup-footer">
+
+        </footer>
+    </div>
+</div>
+								</div>
+
+								<div class="title-bar-element language-area">
+									<ul>	<li class="lang-item lang-item-2 lang-item-en lang-item-first"><a lang="en-US" hreflang="en-US" href="https://ifat.co.il/en/" data-wahfont="18" role="link">EN</a></li>
+</ul>
+								</div>
+
+								<div class="title-bar-element search-area">
+									<div class="header-search-form">
+										<form role="search" method="get" class="search-form" action="https://ifat.co.il/">
+    <label>
+        <input type="search" class="search-field" placeholder="" value="" name="s" title="חיפוש:">
+    </label>
+    <button type="submit" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+</form>
+									</div>
+								</div>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="hide-for-medium">
+				<div class="title-bar">
+					<div class="title-bar-left">
+						<button class="menu-icon trigger-mobile-menu" type="button">
+							<i class="material-icons">close</i>
+						</button>
+					</div>
+					<div class="title-bar-right">
+						<span class="title-bar-logo" data-wahfont="16">
+							<a href="https://ifat.co.il/" data-wahfont="16" role="link">
+								<img src="https://ifat.co.il/wp-content/uploads/2017/05/logo_03.png" alt="קבוצת יפעת">
+							</a>
+						</span>
+						<span class="title-bar-call-mobile" data-wahfont="16">
+							<a href="tel:03-5635050" data-wahfont="16" role="link"><i class="fa fa-phone" aria-hidden="true"></i></a>
+						</span>
+					</div>
+				</div>
+			</div>
+
+		</header><!-- #masthead -->
+
+		<div class="off-canvas position-left is-transition-push" id="offCanvas" data-off-canvas="fsy85o-off-canvas" aria-hidden="true">
+			<!-- Close button -->
+			<button class="close-button" aria-label="Close menu" type="button"> 				<span aria-hidden="true" data-wahfont="32">×</span>
+			</button>
+			<!-- Menu -->
+			<ul class="off-canvas-list button-group" role="navigation"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-466"><a href="#" data-wahfont="0" role="link">אודות</a>
+<ul class="submenu menu vertical">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-512"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%94%d7%97%d7%91%d7%a8%d7%94/" data-wahfont="0" role="link">אודות החברה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-575"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%97%d7%96%d7%95%d7%9f-%d7%95%d7%a2%d7%a8%d7%9b%d7%99%d7%9d/" data-wahfont="0" role="link">חזון וערכים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-576"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%94%d7%a0%d7%94%d7%9c%d7%94/" data-wahfont="0" role="link">הנהלה</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-1170"><a data-wahfont="0" role="link">חברות הקבוצה</a>
+<ul class="submenu menu vertical">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-581"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%99%d7%93%d7%a2-%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa%d7%99/" data-wahfont="0" role="link">יפעת מידע תקשורתי</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-597"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%91%d7%a7%d7%a8%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" data-wahfont="0" role="link">יפעת בקרת פרסום</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-580"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%9b%d7%a8%d7%96%d7%99%d7%9d/" data-wahfont="0" role="link">יפעת מכרזים</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-587"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="0" role="link">יפעת מחקרי מדיה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2123"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/adkit/" data-wahfont="0" role="link">אדקיט</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-579"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/vigo/" data-wahfont="0" role="link">VIGO</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-submenu menu-item-1171"><a href="#" data-wahfont="0" role="link">עולמות תוכן</a>
+<ul class="submenu menu vertical">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-589"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%99%d7%97%d7%a1%d7%99-%d7%a6%d7%99%d7%91%d7%95%d7%a8/" data-wahfont="0" role="link">יחסי ציבור</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-588"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="0" role="link">פרסום מדיה</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-596"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%94%d7%96%d7%93%d7%9e%d7%a0%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa/" data-wahfont="0" role="link">הזדמנות עסקית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-594"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%9e%d7%93%d7%99%d7%94-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%aa/" data-wahfont="0" role="link">מדיה חברתית</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-578"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%9e%d7%97%d7%a7%d7%a8/" data-wahfont="0" role="link">מחקר</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-584"><a href="https://ifat.co.il/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/" data-wahfont="0" role="link">קריירה</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-583"><a href="https://ifat.co.il/%d7%91%d7%9c%d7%95%d7%92/" data-wahfont="0" role="link">בלוג</a></li>
+<li class="grey-button menu-item menu-item-type-post_type menu-item-object-page menu-item-585"><a href="https://ifat.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" data-wahfont="0" role="link">צור קשר</a></li>
+</ul>		</div>
+
+		<div class="off-canvas-content" data-off-canvas-content="">
+
+    
+<section class="section home-slider full-width">
+
+    <div class="homepage-banner">
+
+            <div class="homepage-banner-inner">
+
+                
+                    <div class="scroll-banner-wrapper">
+                        <div class="scroll-banner-bg" style="background-image: url(&quot;https://ifat.co.il/wp-content/uploads/2017/05/bg-panoramin.png&quot;); width: 5840px; right: -40.6635px;">
+                        </div>
+                        <div class="banner-titles wow fadeIn animated" data-wow-duration="1s" data-wow-delay="1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1s; animation-name: u;">
+                                                            <div class="banner-title">החלטות עסקיות מקבלים עם יפעת</div>
+                                                                                        <div class="banner-subtitle">קבוצת יפעת מחברת בין עולמות תוכן שונים, יוצרת אינטרקציה<br>
+דינאמית בתחום המידע לעסקים ומספקת שירותים<br>
+במגוון תחומים</div>
+                                                    </div>
+
+                        <div class="box box-lines is-active">
+                            <img src="https://ifat.co.il/wp-content/themes/podium-master/dist/images/lines.png" alt="" role="presentation">
+                        </div>
+
+                        <div class="box box-markers is-active">
+                            <img src="https://ifat.co.il/wp-content/themes/podium-master/dist/images/locations.png" alt="" role="presentation">
+                        </div>
+
+                        <div class="box box-words is-active">
+                            <img src="https://ifat.co.il/wp-content/themes/podium-master/dist/images/keywords.png" alt="" role="presentation">
+                        </div>
+
+                    </div>
+
+                    <div class="fixed-banner-background">
+                        <div class="fixed-banner-background-inner" style="background-image: url(https://ifat.co.il/wp-content/uploads/2017/05/bg-bottom-1.png);">
+
+                        </div>
+                    </div>
+
+                
+                
+                    <div class="banner-tabs show-for-medium wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">                         <div class="row tabs-row">
+                            <div class="large-12 columns">
+                                <div class="banner-tabs-inner">
+                                                                            <div class="tab-item">
+                                            <div class="tab-item-inner">
+
+                                                <div class="tab-item-column">
+
+                                                                                                            <figure class="tab-icon">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/tab5_03.png" alt="">
+                                                        </figure>
+                                                                                                                    <div class="tab-title">יחסי ציבור</div>
+                                                        
+                                                        <div class="tab-hover">
+                                                            <div class="tab-hover-top">
+                                                                                                                                    <div class="tab-title always-show">יחסי ציבור</div>
+                                                                                                                                                                                                    <div class="tab-description"><p data-wahfont="18">אלפי פרטי מידע מכלל כלי התקשורת בישראל, מעובדים, מנותחים ומועברים ללקוחותינו בזמן אמת</p>
+</div>
+                                                                                                                            </div>
+                                                            <div class="tab-hover-bottom">
+                                                                                                                                    <a class="tab-link" href="https://ifat.co.il/%D7%99%D7%97%D7%A1%D7%99-%D7%A6%D7%99%D7%91%D7%95%D7%A8/" style="background-color:#73659d" data-wahfont="22" role="link">
+                                                                        גלה עוד                                                                        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                                                    </a>
+                                                                                                                            </div>
+                                                        </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                                                            <div class="tab-item">
+                                            <div class="tab-item-inner">
+
+                                                <div class="tab-item-column">
+
+                                                                                                            <figure class="tab-icon">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/tab4_03.png" alt="">
+                                                        </figure>
+                                                                                                                    <div class="tab-title">פרסום ומדיה</div>
+                                                        
+                                                        <div class="tab-hover">
+                                                            <div class="tab-hover-top">
+                                                                                                                                    <div class="tab-title always-show">פרסום ומדיה</div>
+                                                                                                                                                                                                    <div class="tab-description"><p data-wahfont="18">מחקר וניתוח של מידע מעולם הפרסום, מאפשר להתמצא ולעקוב בזמן אמת אחר המהלכים הפרסומיים במדיות השונות. </p>
+</div>
+                                                                                                                            </div>
+                                                            <div class="tab-hover-bottom">
+                                                                                                                                    <a class="tab-link" href="https://ifat.co.il/%D7%A4%D7%A8%D7%A1%D7%95%D7%9D-%D7%9E%D7%93%D7%99%D7%94/" style="background-color:#e8235a" data-wahfont="22" role="link">
+                                                                        גלה עוד                                                                        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                                                    </a>
+                                                                                                                            </div>
+                                                        </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                                                            <div class="tab-item">
+                                            <div class="tab-item-inner">
+
+                                                <div class="tab-item-column">
+
+                                                                                                            <figure class="tab-icon">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/tab3_03.png" alt="">
+                                                        </figure>
+                                                                                                                    <div class="tab-title">מדיה חברתית</div>
+                                                        
+                                                        <div class="tab-hover">
+                                                            <div class="tab-hover-top">
+                                                                                                                                    <div class="tab-title always-show">מדיה חברתית</div>
+                                                                                                                                                                                                    <div class="tab-description"><p data-wahfont="18">חברת Vigo מבינה באמת על מה כולם מדברים ומספקת את הכלים למדידת ההשפעה של המותג על השיח ברשת לעומת המתחרים </p>
+</div>
+                                                                                                                            </div>
+                                                            <div class="tab-hover-bottom">
+                                                                                                                                    <a class="tab-link" href="https://ifat.co.il/%D7%9E%D7%93%D7%99%D7%94-%D7%97%D7%91%D7%A8%D7%AA%D7%99%D7%AA/" style="background-color:#2c7cc0" data-wahfont="22" role="link">
+                                                                        גלה עוד                                                                        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                                                    </a>
+                                                                                                                            </div>
+                                                        </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                                                            <div class="tab-item">
+                                            <div class="tab-item-inner">
+
+                                                <div class="tab-item-column">
+
+                                                                                                            <figure class="tab-icon">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/tab2_03.png" alt="">
+                                                        </figure>
+                                                                                                                    <div class="tab-title">מחקר</div>
+                                                        
+                                                        <div class="tab-hover">
+                                                            <div class="tab-hover-top">
+                                                                                                                                    <div class="tab-title always-show">מחקר</div>
+                                                                                                                                                                                                    <div class="tab-description"><p data-wahfont="18">מתמחים בניתוח מידע מכלי התקשורת בישראל ובניתוח אסטרטגי עיסקי ומספקים לחברות וארגונים מחקרים, מידע מעובד, תובנות עיסקיות, תחזיות ואסטרטגיה</p>
+</div>
+                                                                                                                            </div>
+                                                            <div class="tab-hover-bottom">
+                                                                                                                                    <a class="tab-link" href="https://ifat.co.il/%D7%A2%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%AA%D7%95%D7%9B%D7%9F/%D7%9E%D7%97%D7%A7%D7%A8/" style="background-color:#766fb2" data-wahfont="22" role="link">
+                                                                        גלה עוד                                                                        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                                                    </a>
+                                                                                                                            </div>
+                                                        </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                                                            <div class="tab-item">
+                                            <div class="tab-item-inner">
+
+                                                <div class="tab-item-column">
+
+                                                                                                            <figure class="tab-icon">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/tab1_03.png" alt="">
+                                                        </figure>
+                                                                                                                    <div class="tab-title">הזדמנות עסקית</div>
+                                                        
+                                                        <div class="tab-hover">
+                                                            <div class="tab-hover-top">
+                                                                                                                                    <div class="tab-title always-show">הזדמנות עסקית</div>
+                                                                                                                                                                                                    <div class="tab-description"><p data-wahfont="18">הזדמנות עסקיות הן כלי הכרחי  להמשך ולהרחבת פעילות העסק. יפעת מכרזים מאתרת עבורך מגוון רחב של הזדמנויות עסקיות ופרויקטיים</p>
+</div>
+                                                                                                                            </div>
+                                                            <div class="tab-hover-bottom">
+                                                                                                                                    <a class="tab-link" href="https://ifat.co.il/%D7%94%D7%96%D7%93%D7%9E%D7%A0%D7%95%D7%AA-%D7%A2%D7%A1%D7%A7%D7%99%D7%AA/" style="background-color:#1fa249" data-wahfont="22" role="link">
+                                                                        גלה עוד                                                                        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                                                    </a>
+                                                                                                                            </div>
+                                                        </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="banner-tabs-mobile show-for-small-only">
+                        <div class="row expanded tab-items">
+                                                            <div class="column">
+                                    <a href="https://ifat.co.il/%D7%99%D7%97%D7%A1%D7%99-%D7%A6%D7%99%D7%91%D7%95%D7%A8/" data-wahfont="16" role="link">                                                                                    <figure class="tab-icon">
+                                                <img src="https://ifat.co.il/wp-content/uploads/2017/05/mob1_14.png" alt="">
+                                            </figure>
+                                                                                                                            <div class="tab-title">יחסי ציבור</div>
+                                                                                <span class="link-arrow" data-wahfont="16">
+                                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        </span>
+                                    </a>                                </div>
+                                                            <div class="column">
+                                    <a href="https://ifat.co.il/%D7%A4%D7%A8%D7%A1%D7%95%D7%9D-%D7%9E%D7%93%D7%99%D7%94/" data-wahfont="16" role="link">                                                                                    <figure class="tab-icon">
+                                                <img src="https://ifat.co.il/wp-content/uploads/2017/05/mob2_14.png" alt="">
+                                            </figure>
+                                                                                                                            <div class="tab-title">פרסום ומדיה</div>
+                                                                                <span class="link-arrow" data-wahfont="16">
+                                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        </span>
+                                    </a>                                </div>
+                                                            <div class="column">
+                                    <a href="https://ifat.co.il/%D7%9E%D7%93%D7%99%D7%94-%D7%97%D7%91%D7%A8%D7%AA%D7%99%D7%AA/" data-wahfont="16" role="link">                                                                                    <figure class="tab-icon">
+                                                <img src="https://ifat.co.il/wp-content/uploads/2017/05/mob3_14.png" alt="">
+                                            </figure>
+                                                                                                                            <div class="tab-title">מדיה חברתית</div>
+                                                                                <span class="link-arrow" data-wahfont="16">
+                                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        </span>
+                                    </a>                                </div>
+                                                            <div class="column">
+                                    <a href="https://ifat.co.il/%D7%A2%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%AA%D7%95%D7%9B%D7%9F/%D7%9E%D7%97%D7%A7%D7%A8/" data-wahfont="16" role="link">                                                                                    <figure class="tab-icon">
+                                                <img src="https://ifat.co.il/wp-content/uploads/2017/05/mob4_14.png" alt="">
+                                            </figure>
+                                                                                                                            <div class="tab-title">מחקר</div>
+                                                                                <span class="link-arrow" data-wahfont="16">
+                                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        </span>
+                                    </a>                                </div>
+                                                            <div class="column">
+                                    <a href="https://ifat.co.il/%D7%94%D7%96%D7%93%D7%9E%D7%A0%D7%95%D7%AA-%D7%A2%D7%A1%D7%A7%D7%99%D7%AA/" data-wahfont="16" role="link">                                                                                    <figure class="tab-icon">
+                                                <img src="https://ifat.co.il/wp-content/uploads/2017/05/mob5_14.png" alt="">
+                                            </figure>
+                                                                                                                            <div class="tab-title">הזדמנות עסקית</div>
+                                                                                <span class="link-arrow" data-wahfont="16">
+                                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                        </span>
+                                    </a>                                </div>
+                                                    </div>
+                    </div>
+
+                
+            </div>
+
+    </div>
+
+</section>
+
+    
+
+<section class="section media-section">
+    <div class="media-section-inner">
+
+        <div class="row media-section-titles">
+            <div class="large-12 columns">
+                                    <h3 class="section-title" data-wahfont="44">יפעת בתקשורת</h3>
+                                                    <div class="section-description media_section_description">
+                        <p style="text-align: center;" data-wahfont="20">&nbsp;כלי המדיה השונים מספקים תוכן ומידע רב אשר נאסף ומנוטר ע"י המערכות של יפעת ונמצא תחת מחקר רחב אשר מספק תובנות</p>
+<p style="text-align: center;" data-wahfont="20">שונות בהתנהלות העיסקית, להלן כתבות ומידע תקשורתי של קבוצת יפעת בתקשורת:</p>
+<p data-wahfont="20">&nbsp;</p>
+                    </div>
+                            </div>
+        </div>
+
+                    <div class="row medium-up-3 media-section-cubes" data-equalizer="kgl9ie-equalizer" data-equalize-on="medium" data-resize="w6at10-eq" data-mutate="edvd9z-eq" data-events="mutate">
+                                    <div class="column media-cube-item">
+                        <div class="media-cube-item-inner">
+
+                            <div class="media-cube-item-holder" data-equalizer-watch="" style="height: 334px;">
+                                                                    <div class="media-cube-title">"שמאלנית, קרה, מנותקת": השוביניזם ממנו סובלות מגישות התקשורת המובילות</div>
+                                
+                                                                    <div class="media-cube-content"><p id="coteret_SubCoteretText" data-wahfont="18">מחקר חדש שנערך על ידי חברת Vigo בחן את היחס שמקבלות חמש מגישות תקשורת מובילות בישראל, ברשתות החברתיות, וחשף שאחד מכל חמישה אזכורים שלהן – אלים או סקסיסטי. הציטוטים בכותרת הופנו לעבר יונית לוי ש-65% מהשיח כלפיה שלילי.</p>
+<p class="articleInfo" data-wahfont="18">
+</p></div>
+                                                            </div>
+
+                                                            <div class="media-cube-permalink">
+                                    <a href="https://www.globes.co.il/news/article.aspx?did=1001279647" target="_self" data-wahfont="18" role="link">
+                                        גלה עוד <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                                    </div>
+                    </div>
+                                    <div class="column media-cube-item">
+                        <div class="media-cube-item-inner">
+
+                            <div class="media-cube-item-holder" data-equalizer-watch="" style="height: 334px;">
+                                                                    <div class="media-cube-title">עסקים קטנים בעולם של רשתות חברתיות</div>
+                                
+                                                                    <div class="media-cube-content"><p data-wahfont="18">הזירה הכלכלית מבינה כיום את מה שהילדים והפוליטיקאים הבינו מזמן – הקהל הרחב וההזדמנויות העסקיות נמצאים ברשתות החברתיות, ובניגוד למה שניתן היה לצפות, לא צריך להיות חברה גדולה כדי להשיג בהן דריסת רגל משמעותית. איך עושים זאת נכון?</p>
+</div>
+                                                            </div>
+
+                                                            <div class="media-cube-permalink">
+                                    <a href="https://www.calcalist.co.il/articles/0,7340,L-3759417,00.html" target="_self" data-wahfont="18" role="link">
+                                        גלה עוד <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                                    </div>
+                    </div>
+                                    <div class="column media-cube-item">
+                        <div class="media-cube-item-inner">
+
+                            <div class="media-cube-item-holder" data-equalizer-watch="" style="height: 334px;">
+                                                                    <div class="media-cube-title">ניתוח 'יוקר המחייה' של יפעת מחקרי מדיה</div>
+                                
+                                                                    <div class="media-cube-content"><p data-wahfont="18">נושא יוקר המחייה ממשיך לרדת על אף כמה העלאות מחירים שזכו לסיקור שולי, וגם נושא הדיור שהוביל את סדר היום הכלכלי נחלש משמעותית בחודשים האחרונים.<br>
+למעשה, הרבעון השני של שנת 2018 הינו הרבעון הראשון בשלוש השנים האחרונות בו אף אירוע או נושא כלכלי לא התברג לרשימת 20 האירועים המובילים בסיקור התקשורתי.</p>
+<p data-wahfont="18">&nbsp;</p>
+<p data-wahfont="18">&nbsp;</p>
+</div>
+                                                            </div>
+
+                                                            <div class="media-cube-permalink">
+                                    <a href="http://www.bizportal.co.il/general/news/article/747712" target="_self" data-wahfont="18" role="link">
+                                        גלה עוד <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                                    </div>
+                    </div>
+                            </div>
+            </div>
+</section>
+
+
+    
+<section class="section blog-section">
+    <div class="blog-section-inner">
+        <div class="row">
+            <div class="large-12 columns">
+                                    <h3 class="section-title" data-wahfont="44">מתוך הבלוג</h3>
+                            </div>
+        </div>
+
+                    <div class="row large-up-2 blog-row">
+                                    <div class="column blog-column wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0s; animation-name: none;">
+                        <div class="blog-post-figure">
+                            <a href="https://ifat.co.il/%d7%91%d7%a2%d7%9c-%d7%a2%d7%a1%d7%a7-%d7%a7%d7%91%d7%9c-%d7%90%d7%aa-%d7%94%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9c%d7%a9%d7%99%d7%9e%d7%95%d7%a8-%d7%9c%d7%a7%d7%95%d7%97%d7%95%d7%aa-%d7%91%d7%97%d7%9e/" data-wahfont="16" role="link">
+                                <figure class="post-image">
+                                    <img width="568" height="340" src="https://ifat.co.il/wp-content/uploads/2019/03/d79ed793d7a8d799d79a-d79cd7a9d799d79ed795d7a8-d79cd7a7d795d797d795d7aa-568x340.png" class="attachment-home-blog-thumbnail size-home-blog-thumbnail wp-post-image" alt="יפעת מכרזים" decoding="async" fetchpriority="high">                                </figure>
+                                <div class="post-content">
+                                    <div class="post-content-inner">
+                                        <div class="post-title">בעל עסק? קבל את המדריך לשימור לקוחות בחמישה צעדים</div>
+                                                                                <div class="post-excerpt" data-wow-delay="0.2s">
+                                            בעל עסק? קבל את המדריך לשימור לקוחות בחמישה צעדים. הסטטיסטיקות ונתוני הפתיחה אינם מעודדים במיוחד בעבור בעלי עסקים קטנים                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="blog-post-overlay"></div>
+                        </div>
+                    </div>
+                                    <div class="column blog-column wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0s; animation-name: none;">
+                        <div class="blog-post-figure">
+                            <a href="https://ifat.co.il/%d7%94%d7%93%d7%a8%d7%99%d7%a9%d7%94-%d7%9c%d7%94%d7%aa%d7%a2%d7%a8%d7%91%d7%95%d7%aa-%d7%9e%d7%9e%d7%a9%d7%9c%d7%aa%d7%99%d7%aa-%d7%91%d7%a2%d7%a0%d7%a4%d7%99-%d7%94%d7%9e%d7%a9%d7%a7/" data-wahfont="16" role="link">
+                                <figure class="post-image">
+                                    <img width="568" height="340" src="https://ifat.co.il/wp-content/uploads/2019/02/blog-ifat-568x340.png" class="attachment-home-blog-thumbnail size-home-blog-thumbnail wp-post-image" alt="שנת 2018 הסתיימה בעיסוק תקשורתי נרחב בסוגיית יוקר המחיה ובמבנה המשק הישראלי, נושא שעשוי לעלות גם במסגרת קמפיין הבחירות. עם זאת, חשוב לציין שנושאים כלכליים עדיין נמוכים בסדר היום התקשורתי הכללי. כך למשל, סוגיית עליות המחירים במשק מדורגת במקום ה-14 בסדר היום השנתי, הנושא הכלכלי השני המסוקר ביותר אחרי מחיר למשתכן ושוק הדיור. במחקר מיוחד המשלב ניתוח תקשורתי וסקרי דעת קהל, בחנו עד כמה הציבור בישראל מעוניין בהתערבות ממשלתית בענפים השונים במשק ביחס לעבר. ההשוואה היא בין שתי תקופות דומות של מערכת בחירות – מרץ 2015 מול ינואר 2019. התוצאות מעידות על שינויים בהעדפות הציבור במתאם כמעט מושלם לשינוי בהיקפי הסיקור התקשורתי של כל ענף בין השנים. בעוד בשנת 2015, הציבור בישראל הציב בראש את ענפי הנדל&quot;ן והבנקאות, נכון לנקודת הזמן הנוכחית ענפי המזון והאנרגיה הם המובילים בדרישה להתערבות. ניתן לראות בכך שיקוף של השינוי בשיח הציבורי בין קמפיין הבחירות הקודם, והתייחסותו הכמעט בלעדית לדיור ולריכוזיות במערכת הבנקאית, לבין נקודת הפתיחה של הקמפיין הנוכחי על רקע מחאות עליית המחירים שהתמקדו במחירי המזון והחשמל. ענף הדיור, שהיה במרכז הסיקור הכלכלי בשנים האחרונות, נותר גבוה אך כבר אינו הבלעדי. ניתן לראות בתוצאות גם את הישגיו של שר האוצר בדעת הקהל (דיור ובנקאות) אל מול האתגרים המרכזיים לפתחו של השר הבא (מזון ואנרגיה). כאמור, השינוי בהיקף הסיקור של כל ענף נמצא במתאם עם השינוי בדעת הקהל – עדות לשיקוף הולם של התקשורת את תחושות הציבור וייתכן שגם השפעה של התקשורת בעיצוב דעת קהל בתחום זה." decoding="async">                                </figure>
+                                <div class="post-content">
+                                    <div class="post-content-inner">
+                                        <div class="post-title">הדרישה להתערבות ממשלתית בענפי המשק – דעת קהל וסיקור תקשורתי</div>
+                                                                                    <div class="post-sub-title">שחר גור, מנהל מחלקת מחקר</div>
+                                                                                <div class="post-excerpt" data-wow-delay="0.2s">
+                                            ניתוח מיוחד של השיח התקשורתי ועמדות הציבור מעיד על קשר הדוק בין השניים בנושאים הכלכליים צרכניים המטרידים את אזרחי                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="blog-post-overlay"></div>
+                        </div>
+                    </div>
+                            </div>
+            </div>
+</section>
+
+    
+
+<section class="section companies-section">
+
+    <div class="companies-section-inner wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0s; animation-name: none;">
+
+        <div class="row">
+            <div class="large-12 columns">
+                                    <h3 class="section-title" data-wahfont="44">חברות הקבוצה</h3>
+                            </div>
+        </div>
+
+        <div class="row show-for-medium companies-row">
+            <div class="large-12 columns">
+                <div class="logo-strip">
+                                            <div class="company">
+                                                            <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/%D7%9E%D7%99%D7%93%D7%A2-%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA%D7%99/" target="_self" data-wahfont="16" role="link">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/c5_11.png" alt="">
+                                                            </a>
+                                                    </div>
+                                            <div class="company">
+                                                            <a href="https://ifat.co.il/%D7%A2%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%AA%D7%95%D7%9B%D7%9F/%D7%A4%D7%A8%D7%A1%D7%95%D7%9D-%D7%9E%D7%93%D7%99%D7%94/" target="_self" data-wahfont="16" role="link">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/c4_09.png" alt="">
+                                                            </a>
+                                                    </div>
+                                            <div class="company">
+                                                            <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/%D7%9E%D7%9B%D7%A8%D7%96%D7%99%D7%9D/" target="_self" data-wahfont="16" role="link">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2019/01/tenders-1.png" alt="logo tenders">
+                                                            </a>
+                                                    </div>
+                                            <div class="company">
+                                                            <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/%D7%9E%D7%97%D7%A7%D7%A8%D7%99-%D7%9E%D7%93%D7%99%D7%94/" target="_self" data-wahfont="16" role="link">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2017/05/c2_05.png" alt="">
+                                                            </a>
+                                                    </div>
+                                            <div class="company">
+                                                            <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/vigo/" target="_self" data-wahfont="16" role="link">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2019/01/vigo-1.png" alt="logo vigo">
+                                                            </a>
+                                                    </div>
+                                            <div class="company">
+                                                            <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/adkit/" target="_self" data-wahfont="16" role="link">
+                                                            <img src="https://ifat.co.il/wp-content/uploads/2019/01/adkit-1.png" alt="מחקר עיסקי אסטרטגי, אדקיט">
+                                                            </a>
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="row hide-for-large companies-row">
+
+                        <div class="company-item">
+                <div class="column">
+                    <div class="company">
+                                                    <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/%D7%9E%D7%99%D7%93%D7%A2-%D7%AA%D7%A7%D7%A9%D7%95%D7%A8%D7%AA%D7%99/" target="_self" data-wahfont="16" role="link">
+                                                    <img src="https://ifat.co.il/wp-content/uploads/2017/05/mobc1_11.png" alt="">
+                                                            <div class="company-title">
+                                    יפעת מידע תקשורתי                                    <span class="link-arrow" data-wahfont="16">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                                                                </a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="company-item">
+                <div class="column">
+                    <div class="company">
+                                                    <a href="https://ifat.co.il/%D7%A2%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%AA%D7%95%D7%9B%D7%9F/%D7%A4%D7%A8%D7%A1%D7%95%D7%9D-%D7%9E%D7%93%D7%99%D7%94/" target="_self" data-wahfont="16" role="link">
+                                                    <img src="https://ifat.co.il/wp-content/uploads/2017/05/mobc2_11.png" alt="">
+                                                            <div class="company-title">
+                                    יפעת בקרת פרסום                                    <span class="link-arrow" data-wahfont="16">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                                                                </a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="company-item">
+                <div class="column">
+                    <div class="company">
+                                                    <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/%D7%9E%D7%9B%D7%A8%D7%96%D7%99%D7%9D/" target="_self" data-wahfont="16" role="link">
+                                                    <img src="https://ifat.co.il/wp-content/uploads/2019/01/tenders-mobile.png" alt="tenders logo">
+                                                            <div class="company-title">
+                                    יפעת מכרזים                                    <span class="link-arrow" data-wahfont="16">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                                                                </a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="company-item">
+                <div class="column">
+                    <div class="company">
+                                                    <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/%D7%9E%D7%97%D7%A7%D7%A8%D7%99-%D7%9E%D7%93%D7%99%D7%94/" target="_self" data-wahfont="16" role="link">
+                                                    <img src="https://ifat.co.il/wp-content/uploads/2017/05/mobc1_11.png" alt="">
+                                                            <div class="company-title">
+                                    יפעת מחקרי מידע                                    <span class="link-arrow" data-wahfont="16">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                                                                </a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="company-item">
+                <div class="column">
+                    <div class="company">
+                                                    <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/vigo/" target="_self" data-wahfont="16" role="link">
+                                                    <img src="https://ifat.co.il/wp-content/uploads/2019/01/vigo-mobile.png" alt="logo vigo">
+                                                            <div class="company-title">
+                                    VIGO                                    <span class="link-arrow" data-wahfont="16">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                                                                </a>
+                                            </div>
+                </div>
+            </div>
+                        <div class="company-item">
+                <div class="column">
+                    <div class="company">
+                                                    <a href="https://ifat.co.il/%D7%97%D7%91%D7%A8%D7%95%D7%AA-%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%94/adkit/" target="_self" data-wahfont="16" role="link">
+                                                    <img src="https://ifat.co.il/wp-content/uploads/2019/01/adkit-mobile.png" alt="אדקיט, ADKIT">
+                                                            <div class="company-title">
+                                    אדקיט                                    <span class="link-arrow" data-wahfont="16">
+                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                                                                </a>
+                                            </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</section>
+
+
+    
+<section class="section home-products-section">
+    <div class="home-products-section-inner">
+                    <div class="row">
+                <div class="large-12 columns">
+                    <h3 class="section-title" data-wahfont="44">מוצרים מובילים</h3>
+                </div>
+            </div>
+        
+                    <div class="row large-up-4 home-products-row">
+                                    
+<article class="column post-2033 product type-product status-publish has-post-thumbnail hentry wp-sticky">
+    <div class="products-in-company">
+        <header>
+            <figure class="products-in-company-thumbnail">
+                <a href="https://ifat.co.il/product/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%97%d7%93%d7%a9%d7%a0%d7%95%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%aa/" data-wahfont="16" role="link">
+                    <img width="230" height="175" src="https://ifat.co.il/wp-content/uploads/2018/12/d79ed797d7a7d7a8d799-d797d793d7a9d7a0d795d7aa-d79ed795d7a6d7a8d799d7aa-230x175.jpg" class="attachment-product-in-company size-product-in-company wp-post-image" alt="מחקרי חדשנות מוצרית, אדקיט, מחקר עיסקי" decoding="async">                </a>
+            </figure>
+        </header>
+        <div class="entry-content">
+            <h3 data-wahfont="20">
+                <a href="https://ifat.co.il/product/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%97%d7%93%d7%a9%d7%a0%d7%95%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%aa/" data-wahfont="20" role="link">
+                    מחקרי חדשנות מוצרית                </a>
+            </h3>
+            <p data-wahfont="18">
+                <a href="https://ifat.co.il/product/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%97%d7%93%d7%a9%d7%a0%d7%95%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">
+                    </a></p><p data-wahfont="18"><a href="https://ifat.co.il/product/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%97%d7%93%d7%a9%d7%a0%d7%95%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">אנו מלווים חברות רבות מתחום מוצרי הצריכה וגם מתחום התוכנה, בתכנון כל החדשנות שלהם ומסייעים להם לעמוד בחזית החדשנות.</a></p><a href="https://ifat.co.il/product/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%97%d7%93%d7%a9%d7%a0%d7%95%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">
+                </a>
+            <p data-wahfont="18"></p>
+            <div class="permalink-wrapper">
+                <a href="https://ifat.co.il/product/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%97%d7%93%d7%a9%d7%a0%d7%95%d7%aa-%d7%9e%d7%95%d7%a6%d7%a8%d7%99%d7%aa/" class="permalink" data-wahfont="18" role="link">קרא עוד &gt;</a>
+            </div>
+        </div>
+    </div>
+</article>
+                                    
+<article class="column post-1905 product type-product status-publish has-post-thumbnail hentry wp-sticky">
+    <div class="products-in-company">
+        <header>
+            <figure class="products-in-company-thumbnail">
+                <a href="https://ifat.co.il/product/vigo-rtm/" data-wahfont="16" role="link">
+                    <img width="230" height="175" src="https://ifat.co.il/wp-content/uploads/2018/11/rtmnew-230x175.jpg" class="attachment-product-in-company size-product-in-company wp-post-image" alt="VIGO rtm" decoding="async">                </a>
+            </figure>
+        </header>
+        <div class="entry-content">
+            <h3 data-wahfont="20">
+                <a href="https://ifat.co.il/product/vigo-rtm/" data-wahfont="20" role="link">
+                    Vigo RTM                </a>
+            </h3>
+            <p data-wahfont="18">
+                <a href="https://ifat.co.il/product/vigo-rtm/" class="excerpt-permalink" data-wahfont="18" role="link">
+                    </a></p><p data-wahfont="18"><a href="https://ifat.co.il/product/vigo-rtm/" class="excerpt-permalink" data-wahfont="18" role="link">פלטפורמות הניהול בזמן אמת המאפשרת ללקוחותינו להתחבר לנתונים מכל מקום ובכל זמן ולנהל בחוכמה וביעילות את הנכסים הדיגיטליים של הארגון</a></p><a href="https://ifat.co.il/product/vigo-rtm/" class="excerpt-permalink" data-wahfont="18" role="link">
+                </a>
+            <p data-wahfont="18"></p>
+            <div class="permalink-wrapper">
+                <a href="https://ifat.co.il/product/vigo-rtm/" class="permalink" data-wahfont="18" role="link">קרא עוד &gt;</a>
+            </div>
+        </div>
+    </div>
+</article>
+                                    
+<article class="column post-1787 product type-product status-publish has-post-thumbnail hentry wp-sticky">
+    <div class="products-in-company">
+        <header>
+            <figure class="products-in-company-thumbnail">
+                <a href="https://ifat.co.il/product/%d7%94%d7%a4%d7%a7%d7%aa-%d7%9b%d7%aa%d7%95%d7%91%d7%99%d7%95%d7%aa/" data-wahfont="16" role="link">
+                    <img width="230" height="175" src="https://ifat.co.il/wp-content/uploads/2018/05/d79bd7aad795d791d799d795d7aa4-230x175.jpg" class="attachment-product-in-company size-product-in-company wp-post-image" alt="הפקת כתוביות" decoding="async">                </a>
+            </figure>
+        </header>
+        <div class="entry-content">
+            <h3 data-wahfont="20">
+                <a href="https://ifat.co.il/product/%d7%94%d7%a4%d7%a7%d7%aa-%d7%9b%d7%aa%d7%95%d7%91%d7%99%d7%95%d7%aa/" data-wahfont="20" role="link">
+                    הפקת כתוביות                </a>
+            </h3>
+            <p data-wahfont="18">
+                <a href="https://ifat.co.il/product/%d7%94%d7%a4%d7%a7%d7%aa-%d7%9b%d7%aa%d7%95%d7%91%d7%99%d7%95%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">
+                    </a></p><p data-wahfont="18"><a href="https://ifat.co.il/product/%d7%94%d7%a4%d7%a7%d7%aa-%d7%9b%d7%aa%d7%95%d7%91%d7%99%d7%95%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">הפקת כתוביות ותמלולים בשיטה מהירה יותר, מדויקת יותר ומשתלמת יותר בשימוש בטכנולוגיה פורצת דרך המתקדמות ביותר בשוק</a></p><a href="https://ifat.co.il/product/%d7%94%d7%a4%d7%a7%d7%aa-%d7%9b%d7%aa%d7%95%d7%91%d7%99%d7%95%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">
+                </a>
+            <p data-wahfont="18"></p>
+            <div class="permalink-wrapper">
+                <a href="https://ifat.co.il/product/%d7%94%d7%a4%d7%a7%d7%aa-%d7%9b%d7%aa%d7%95%d7%91%d7%99%d7%95%d7%aa/" class="permalink" data-wahfont="18" role="link">קרא עוד &gt;</a>
+            </div>
+        </div>
+    </div>
+</article>
+                                    
+<article class="column post-1215 product type-product status-publish has-post-thumbnail hentry wp-sticky">
+    <div class="products-in-company">
+        <header>
+            <figure class="products-in-company-thumbnail">
+                <a href="https://ifat.co.il/product/%d7%a1%d7%99%d7%9b%d7%95%d7%9d-%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa/" data-wahfont="16" role="link">
+                    <img width="230" height="175" src="https://ifat.co.il/wp-content/uploads/2017/07/d7a1d799d79bd795d79d-d7a7d79ed7a4d799d799d79f-d791d7aad7a7d7a9d795d7a8d7aa-230x175.png" class="attachment-product-in-company size-product-in-company wp-post-image" alt="סיכום קמפיין בתקשורת" decoding="async">                </a>
+            </figure>
+        </header>
+        <div class="entry-content">
+            <h3 data-wahfont="20">
+                <a href="https://ifat.co.il/product/%d7%a1%d7%99%d7%9b%d7%95%d7%9d-%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa/" data-wahfont="20" role="link">
+                    סיכום קמפיין בתקשורת                </a>
+            </h3>
+            <p data-wahfont="18">
+                <a href="https://ifat.co.il/product/%d7%a1%d7%99%d7%9b%d7%95%d7%9d-%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">
+                    </a></p><p data-wahfont="18"><a href="https://ifat.co.il/product/%d7%a1%d7%99%d7%9b%d7%95%d7%9d-%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">סיכום קמפיין הוא ניתוח המשלב בין נתונים מעולמות תוכן שונים: היקף החשיפה התקשורתית (יח"צ), גובה הפרסום, מידת השיחה ברשת וסקרים משלימים</a></p><a href="https://ifat.co.il/product/%d7%a1%d7%99%d7%9b%d7%95%d7%9d-%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa/" class="excerpt-permalink" data-wahfont="18" role="link">
+                </a>
+            <p data-wahfont="18"></p>
+            <div class="permalink-wrapper">
+                <a href="https://ifat.co.il/product/%d7%a1%d7%99%d7%9b%d7%95%d7%9d-%d7%a7%d7%9e%d7%a4%d7%99%d7%99%d7%9f-%d7%91%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa/" class="permalink" data-wahfont="18" role="link">קרא עוד &gt;</a>
+            </div>
+        </div>
+    </div>
+</article>
+                            </div>
+            </div>
+</section>
+
+
+    
+
+<section class="section numbers-section">
+
+    <div class="numbers-section-inner">
+
+                    <div class="row">
+                <div class="large-12 columns">
+                    <h3 class="section-title" data-wahfont="44">קבוצת יפעת במספרים</h3>
+                                            <div class="section-description">
+                            <p data-wahfont="20">הטכנולוגיה שלנו ביפעת מאתרת מנתחת ומעבדת מידע רב. להלן מספרים שיציגו לכם את הכמויות היומיות שאנו מעבדים:</p>
+                        </div>
+                                    </div>
+            </div>
+        
+                    <div class="row large-up-4 medium-up-2 small-up-2 numbers-row">
+                                    <div class="column number-column">
+                        <div class="number-item">
+                            <div class="number-item-column">
+                                <div class="number-counter" data-number="9200"></div>
+                                <div class="number-description">
+                                                                            <div class="number-icon"><img src="https://ifat.co.il/wp-content/uploads/2017/05/media-small-icon_03.png"> מידע מהתקשורת</div>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="column number-column">
+                        <div class="number-item">
+                            <div class="number-item-column">
+                                <div class="number-counter" data-number="400000"></div>
+                                <div class="number-description">
+                                                                            <div class="number-title"><i class="fa fa-comments-o" aria-hidden="true"></i> פוסטים</div>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="column number-column">
+                        <div class="number-item">
+                            <div class="number-item-column">
+                                <div class="number-counter" data-number="4300"></div>
+                                <div class="number-description">
+                                                                            <div class="number-title"><i class="material-icons">radio_button_checked</i> פרסומות</div>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="column number-column">
+                        <div class="number-item">
+                            <div class="number-item-column">
+                                <div class="number-counter" data-number="780"></div>
+                                <div class="number-description">
+                                                                            <div class="number-title"><i class="fa fa-cube" aria-hidden="true"></i> מכרזים</div>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        
+    </div>
+</section>
+
+
+    
+
+<section class="section media-section wow fadeIn" data-wow-duration="1s" data-wow-delay="1s" style="visibility: hidden; animation-duration: 1s; animation-delay: 1s; animation-name: none;">
+    <div class="media-section-inner">
+
+        <div class="row media-section-titles">
+            <div class="large-12 columns">
+                                    <h3 class="section-title" data-wahfont="44">הסיפור שלנו</h3>
+                                                    <div class="section-description media_section_description">
+                        <p style="text-align: center;" data-wahfont="20">קבוצת יפעת היא החברה המובילה בישראל בתחום המידע לעסקים ובעלת ניסיון רב באיתור, ניתוח ועיבוד מידע תקשורתי ועסקי. קבוצת יפעת בנויה מחמש חברות, כל אחת מתמחה בעולם תוכן ייחודי לה ופועלות מסביב לשעון במטרה לספק מגוון שירותים רחב.</p>
+<p style="text-align: center;" data-wahfont="20">המוצרים שלנו כוללים מידע ייחודי וכלי ניהול בעולמות המדיה, הפרסום, יחסי הציבור, המדיה החברתית, הרכש והפיתוח העסקי. אלפי לקוחותינו כוללים משרדי ממשלה, ארגונים, חברות, עמותות, משרדי פרסום, משרדי יח"צ, סוכנויות דיגיטל ובעלי עסקים. קבוצת יפעת חברה בארגון FIBEP הבינלאומי, המאגד את חברות המידע התקשורתי בעולם. לקבוצה פעילות בחו"ל במדינות: צ'ילה, ארגנטינה, ספרד ומקסיקו.</p>
+                    </div>
+                            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+
+	<div class="footer-content">
+		<div class="row">
+			<div class="large-3 columns">
+				<div class="footer-widget">
+					<div class="footer-widget-title">
+						בית יפעת					</div>
+					<div class="footer-widget-content footer-widget-ifat-home">
+						<p data-wahfont="16">הירקון 3 בני ברק, מגדלי LYFE בניין B, קומה 14</p>
+<p data-wahfont="16"><i class="material-icons">place</i> <a href="https://ul.waze.com/ul?place=ChIJLY-M_FVLHRURZcGCxGNJbgw&amp;ll=32.09545550%2C34.82255340&amp;navigate=yes&amp;utm_campaign=default&amp;utm_source=waze_website&amp;utm_medium=lm_share_location" target="_blank" rel="noopener" data-wahfont="16" role="link">ניווט באמצעות וויז</a></p>
+<p data-wahfont="16"><a href="mailto:service@ifat.com" data-wahfont="16" role="link">service@ifat.com</a> | <a href="tel:03-5635050" data-wahfont="16" role="link">03-5635050</a></p>
+					</div>
+				</div>
+				    <div class="sidebar-widget contact-button-widget">
+        <a href="https://ifat.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/?pid=23" data-wahfont="26" role="link">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>צרו עמנו קשר        </a>
+    </div>
+			</div>
+
+												<div class="large-2 columns">
+						<div class="footer-widget-title">
+							ניווט מהיר						</div>
+						<div class="footer-widget-content">
+							<div class="menu-footer-menu-1-heb-container"><ul id="menu-footer-menu-1-heb" class="menu"><li id="menu-item-474" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-474"><a href="https://ifat.co.il" aria-current="page" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>עמוד הבית</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-615"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%94%d7%97%d7%91%d7%a8%d7%94/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>אודות החברה</a></li>
+<li id="menu-item-616" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-616"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%97%d7%96%d7%95%d7%9f-%d7%95%d7%a2%d7%a8%d7%9b%d7%99%d7%9d/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>חזון וערכים</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="https://ifat.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa/%d7%94%d7%a0%d7%94%d7%9c%d7%94/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>הנהלה</a></li>
+<li id="menu-item-618" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-618"><a href="https://ifat.co.il/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>קריירה</a></li>
+<li id="menu-item-619" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-619"><a href="https://ifat.co.il/%d7%91%d7%9c%d7%95%d7%92/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>בלוג</a></li>
+<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://ifat.co.il/%d7%9e%d7%a4%d7%aa-%d7%94%d7%90%d7%aa%d7%a8/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>מפת האתר</a></li>
+</ul></div>						</div>
+					</div>
+									<div class="large-2 columns">
+						<div class="footer-widget-title">
+							חברות הקבוצה						</div>
+						<div class="footer-widget-content">
+							<div class="menu-footer-menu-2-heb-container"><ul id="menu-footer-menu-2-heb" class="menu"><li id="menu-item-610" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-610"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%99%d7%93%d7%a2-%d7%aa%d7%a7%d7%a9%d7%95%d7%a8%d7%aa%d7%99/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>מידע תקשורתי</a></li>
+<li id="menu-item-611" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-611"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%91%d7%a7%d7%a8%d7%aa-%d7%a4%d7%a8%d7%a1%d7%95%d7%9d/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>בקרת פרסום</a></li>
+<li id="menu-item-612" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-612"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%9b%d7%a8%d7%96%d7%99%d7%9d/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>מכרזים</a></li>
+<li id="menu-item-1474" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1474"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/%d7%9e%d7%97%d7%a7%d7%a8%d7%99-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>מחקרי מדיה</a></li>
+<li id="menu-item-2222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2222"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/adkit/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>אדקיט</a></li>
+<li id="menu-item-613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-613"><a href="https://ifat.co.il/%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%94%d7%a7%d7%91%d7%95%d7%a6%d7%94/vigo/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>VIGO</a></li>
+</ul></div>						</div>
+					</div>
+									<div class="large-2 columns">
+						<div class="footer-widget-title">
+							עולמות תוכן						</div>
+						<div class="footer-widget-content">
+							<div class="menu-footer-menu-3-heb-container"><ul id="menu-footer-menu-3-heb" class="menu"><li id="menu-item-607" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-607"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%99%d7%97%d7%a1%d7%99-%d7%a6%d7%99%d7%91%d7%95%d7%a8/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>יחסי ציבור</a></li>
+<li id="menu-item-605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-605"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%a4%d7%a8%d7%a1%d7%95%d7%9d-%d7%9e%d7%93%d7%99%d7%94/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>פרסום מדיה</a></li>
+<li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-606"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%9e%d7%93%d7%99%d7%94-%d7%97%d7%91%d7%a8%d7%aa%d7%99%d7%aa/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>מדיה חברתית</a></li>
+<li id="menu-item-608" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-608"><a href="https://ifat.co.il/%d7%a2%d7%95%d7%9c%d7%9e%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%9f/%d7%94%d7%96%d7%93%d7%9e%d7%a0%d7%95%d7%aa-%d7%a2%d7%a1%d7%a7%d7%99%d7%aa/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>הזדמנות עסקית</a></li>
+<li id="menu-item-1476" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1476"><a href="https://ifat.co.il/%D7%A2%D7%95%D7%9C%D7%9E%D7%95%D7%AA-%D7%AA%D7%95%D7%9B%D7%9F/%D7%9E%D7%97%D7%A7%D7%A8/" data-wahfont="16" role="link"><i class="fa fa-caret-left" aria-hidden="true"></i>מחקר</a></li>
+</ul></div>						</div>
+					</div>
+							
+			<div class="large-3 columns">
+				<div class="footer-widget-title facebook-widget-title">
+					יפעת ברשתות חברתיות				</div>
+				<div class="footer-widget-content">
+					<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.9&appId=784570531653673";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-page" data-href="https://www.facebook.com/ifat.media/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ifat.media/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ifat.media/" data-wahfont="16" role="link">‎יפעת - ifat‎</a></blockquote></div>				</div>
+				<div class="footer-socials">
+											<a href="https://www.facebook.com/ifat.media/" target="_blank" data-wahfont="20" role="link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+																<a href="https://www.youtube.com/channel/UCEPwBR_G700Elcz_XHjs_Mw" target="_blank" data-wahfont="20" role="link"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+																<a href="https://www.linkedin.com/company-beta/9208018/" target="_blank" data-wahfont="20" role="link"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+									</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		<div class="row">
+			<div class="site-info medium-6 columns">
+				כל הזכויות שמורות © 2026 קבוצת יפעת | <a href="https://ifat.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" style="text-decoration:underline;" target="_blank" rel="noopener noreferrer" data-wahfont="16" role="link">מדיניות הפרטיות</a>			</div><!-- .site-info -->
+			<div class="footi"> <a target="_blank" href="https://web3d.co.il/service/בניית-אתרים-הקמת-אתר-אינטרנט/תחזוקת-אתרים/" role="link" style="background: #f7ae01;border-radius: 20px;color: #fff;display: inline-block;font-size: 12px;padding: 4px 12px;direction: ltr;line-height: 2;" data-wahfont="12"> Created By <img src="https://web3d.co.il/web3d-white.png" style="margin: -5px 5px 0;" alt="" width="60"> - תחזוקת אתרים</a></div>
+		</div>
+	</div>
+
+</footer><!-- #colophon -->
+
+</div><!-- .off-canvas-content -->
+
+</div><!-- #page -->
+
+<div class="mobile-menu-overflow"></div>
+
+
+
+
+<script type="text/javascript" src="https://ifat.co.il/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://ifat.co.il/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://ifat.co.il/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.9.8" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/ifat.co.il\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://ifat.co.il/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.9.8" id="contact-form-7-js"></script>
+<script type="text/javascript" defer="defer" src="https://ifat.co.il/wp-content/themes/podium-master/dist/scripts/main.min.js?ver=1773061547" id="podium-scripts-js"></script>
+<script type="text/javascript" src="https://ifat.co.il/wp-content/themes/podium-master/accessibility/wp-accessibility-helper/assets/js/wp-accessibility-helper.min.js?ver=1773061547" id="wp-accessibility-helper-js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LdIxB8sAAAAAFeeVrKOLMf_76754QceRtCj5fpR&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="text/javascript" src="https://ifat.co.il/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LdIxB8sAAAAAFeeVrKOLMf_76754QceRtCj5fpR","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://ifat.co.il/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.9.8" id="wpcf7-recaptcha-js"></script>
+<script type="text/javascript" id="prevent-xss-vulnerability-js-extra">
+/* <![CDATA[ */
+var selfXss = {"message":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://ifat.co.il/wp-content/plugins/prevent-xss-vulnerability/assets/js/script-2.0.1.min.js?ver=1" id="prevent-xss-vulnerability-js"></script>
+<style id="w3d-cb-style">/* Banner container */
+.w3d-cb-banner {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 730px;
+  width: 95%;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px 24px;
+  z-index: 2147483647;
+  box-sizing: border-box;
+}
+
+.w3d-cb-banner.slide-enter {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateX(-50%) translateY(100%); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* Header */
+.w3d-cb-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.w3d-cb-title-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1;
+}
+
+.w3d-cb-cookie-icon {
+  width: 1.6em;
+  height: 1.6em;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.w3d-cb-cookie-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.w3d-cb-cookie-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.w3d-cb-logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.w3d-cb-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: #000000;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+h3.w3d-cb-title {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+.w3d-cb-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  font-size: unset;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  color: #666;
+}
+
+.w3d-cb-close:hover {
+  color: #ffffff;
+}
+
+/* Message */
+.w3d-cb-message {
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.w3d-cb-message a {
+  color: #0073aa;
+  text-decoration: underline;
+}
+
+.w3d-cb-message a:hover {
+  color: #005177;
+}
+
+/* Categories */
+.w3d-cb-categories {
+  margin: 16px 0;
+}
+
+.w3d-cb-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.w3d-cb-category:last-child {
+  border-bottom: none;
+}
+
+.w3d-cb-category-label {
+  font-size: 14px;
+  color: #000000;
+}
+
+/* Toggle Switch */
+.w3d-cb-toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.w3d-cb-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.w3d-cb-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.w3d-cb-slider:before {
+  position: absolute;
+  content: \"\";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider {
+  background-color: #4CAF50;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider:before {
+  transform: translateX(24px);
+}
+
+/* Buttons */
+#w3d-cb-banner .w3d-cb-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+#w3d-cb-banner .w3d-cb-btn {
+  padding: 10px 20px;
+  border: 2px solid #0073aa;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 120px;
+}
+
+#w3d-cb-banner .w3d-cb-btn-accept {
+  background: var(--w3d-accept-bg, #0073aa);
+  border-color: var(--w3d-accept-border, #005177);
+  color: var(--w3d-accept-text, #ffffff);
+}
+
+#w3d-cb-banner .w3d-cb-btn-accept:hover {
+  opacity: 0.9;
+}
+
+#w3d-cb-banner .w3d-cb-btn-deny {
+  background: var(--w3d-deny-bg, transparent);
+  border-color: var(--w3d-deny-border, #0073aa);
+  color: var(--w3d-deny-text, #0073aa);
+}
+
+#w3d-cb-banner .w3d-cb-btn-deny:hover {
+  opacity: 0.8;
+}
+
+#w3d-cb-banner .w3d-cb-btn-save {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: #ffffff;
+}
+
+#w3d-cb-banner .w3d-cb-btn-save:hover {
+  background: #45a049;
+  border-color: #45a049;
+}
+
+#w3d-cb-banner .w3d-cb-btn-view {
+  background: transparent;
+  color: #666;
+  border-color: #999;
+  font-size: 13px;
+  flex-basis: 100%;
+  margin-top: 4px;
+}
+
+#w3d-cb-banner .w3d-cb-btn-view:hover {
+  background: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 425px) {
+  .w3d-cb-banner {
+    width: 100%;
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  #w3d-cb-banner .w3d-cb-buttons {
+    flex-direction: column;
+  }
+
+  #w3d-cb-banner .w3d-cb-btn {
+    width: 100%;
+  }
+}
+
+/* Color Overrides from Settings */
+:root {
+  --w3d-bg: #ffffff;
+  --w3d-border: #ffffff;
+  --w3d-text: #000000;
+  --w3d-link: #1e73be;
+  --w3d-link-underline: #1e73be;
+  --w3d-toggle-active: #4CAF50;
+  --w3d-toggle-inactive: #ccc;
+  --w3d-accept-bg: #f7ae01;
+  --w3d-accept-border: #f7ae01;
+  --w3d-accept-text: #ffffff;
+  --w3d-deny-bg: #e5e5e5;
+  --w3d-deny-border: #e5e5e5;
+  --w3d-deny-text: #000000;
+}
+
+.w3d-cb-banner {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.w3d-cb-title {
+  color: #000000 !important;
+}
+
+.w3d-cb-message {
+  color: #000000 !important;
+}
+
+.w3d-cb-message a {
+  color: #1e73be !important;
+  text-decoration-color: #1e73be !important;
+}
+
+.w3d-cb-message a:hover {
+  color: #1e73be !important;
+  text-decoration-color: #1e73be !important;
+}
+
+.w3d-cb-category-label {
+  color: #000000 !important;
+}
+
+.w3d-cb-slider {
+  background-color: #ccc !important;
+}
+
+.w3d-cb-toggle input:checked + .w3d-cb-slider {
+  background-color: #4CAF50 !important;
+}
+
+.w3d-cb-btn-accept {
+  background: #f7ae01 !important;
+  border-color: #f7ae01 !important;
+  color: #ffffff !important;
+}
+
+.w3d-cb-btn-deny {
+  background: #e5e5e5 !important;
+  border-color: #e5e5e5 !important;
+  color: #000000 !important;
+}
+</style>    <div id="w3d-cb-banner" class="w3d-cb-banner" style="display: block !important;">
+        <div class="w3d-cb-header">
+                        <div class="w3d-cb-title-wrap">
+                <h3 class="w3d-cb-title" data-wahfont="18">ניהול הסכמה</h3>
+                                    <span class="w3d-cb-cookie-icon" aria-hidden="true" data-wahfont="16">
+                        <img src="https://ifat.co.il/wp-content/plugins/consent-13-v2/assets/cookie-icon.png" alt="" role="presentation" decoding="async">                    </span>
+                            </div>
+                    </div>
+
+        <div class="w3d-cb-message">האתר שלנו משתמש בעוגיות לצורך תפעול תקין, שיפור חוויית השימוש, ניתוח סטטיסטי והצגת פרסומות מותאמות אישית. תוכלו לבחור אם לאפשר את כל סוגי העוגיות או לדחות אותן. למידע נוסף: <a href="https://ifat.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/" target="_blank" rel="noopener noreferrer" data-wahfont="14" role="link">מדיניות פרטיות</a></div>
+
+        
+        <div class="w3d-cb-buttons" id="w3d-cb-simple-buttons">
+            <button type="button" class="w3d-cb-btn w3d-cb-btn-accept" id="w3d-cb-accept">לקבל</button>
+            <button type="button" class="w3d-cb-btn w3d-cb-btn-deny" id="w3d-cb-deny">לדחות</button>
+                    </div>
+
+            </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            var COOKIE_NAME = 'w3d_consent';
+            var COOKIE_DAYS = 365;
+            var SHOW_CATEGORIES = false;
+            var initialized = false;
+
+            function getCookie(name) {
+                var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+                return v ? decodeURIComponent(v[2]) : null;
+            }
+
+            function setCookie(name, value, days) {
+                var d = new Date();
+                d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+                document.cookie = name + "=" + encodeURIComponent(value) + ";path=/;expires=" + d.toGMTString() + ";SameSite=Lax";
+            }
+
+            function getStoredConsentData() {
+                var stored = getCookie(COOKIE_NAME);
+                if (!stored) return null;
+                try {
+                    return JSON.parse(stored);
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            function isConsentExpired(consentData) {
+                // Проверяем, истек ли срок действия согласия (прошло ли больше года)
+                if (!consentData || !consentData.timestamp) return true;
+
+                var now = Date.now();
+                var consentTime = parseInt(consentData.timestamp, 10);
+                var daysSinceConsent = (now - consentTime) / (1000 * 60 * 60 * 24); // миллисекунды в дни
+
+                // Если прошло больше года (365 дней), согласие истекло
+                return daysSinceConsent > COOKIE_DAYS;
+            }
+
+            function hasStoredConsent() {
+                var parsed = getStoredConsentData();
+                if (!parsed) return false;
+
+                // Проверяем срок действия
+                if (isConsentExpired(parsed)) {
+                    // Удаляем истекшее cookie
+                    setCookie(COOKIE_NAME, '', -1);
+                    return false;
+                }
+
+                return typeof parsed.functional !== 'undefined' ||
+                    typeof parsed.analytics !== 'undefined' ||
+                    typeof parsed.marketing !== 'undefined';
+            }
+
+            function hasAnalyticsConsent() {
+                var parsed = getStoredConsentData();
+                return !!(parsed && Number(parsed.analytics) === 1);
+            }
+
+            function hasMarketingConsent() {
+                var parsed = getStoredConsentData();
+                return !!(parsed && Number(parsed.marketing) === 1);
+            }
+
+            function restoreBlockedIframe(wrapper) {
+                if (!wrapper || wrapper.getAttribute('data-restored') === '1') return;
+                var encoded = wrapper.getAttribute('data-orig');
+                if (!encoded) return;
+
+                var decoded = '';
+                try {
+                    decoded = atob(encoded);
+                } catch (e) {
+                    return;
+                }
+
+                if (!decoded) return;
+
+                var container = document.createElement('div');
+                container.innerHTML = decoded.trim();
+                var iframe = container.firstElementChild;
+                if (!iframe) return;
+
+                wrapper.parentNode.replaceChild(iframe, wrapper);
+                wrapper.setAttribute('data-restored', '1');
+            }
+
+            function restoreBlockedEmbeds() {
+                document.querySelectorAll('.w3d-blocked-iframe[data-orig]').forEach(function(wrapper) {
+                    restoreBlockedIframe(wrapper);
+                });
+            }
+
+            function releaseBlockedScripts(consent) {
+                consent = consent || getStoredConsentData();
+                if (!consent) return;
+
+                var allowAnalytics = Number(consent.analytics) === 1;
+                var allowMarketing = Number(consent.marketing) === 1;
+
+                if (!allowAnalytics && !allowMarketing) return;
+
+                var scriptsFound = 0;
+                var scriptsRestored = [];
+                document.querySelectorAll('script[type="text/plain"][data-category]').forEach(function(script) {
+                    var category = script.getAttribute('data-category');
+                    if (
+                        (category === 'analytics' && !allowAnalytics) ||
+                        (category === 'marketing' && !allowMarketing)
+                    ) {
+                        return;
+                    }
+                    scriptsFound++;
+
+                    var newScript = document.createElement('script');
+                    var scriptType = script.getAttribute('data-orig-type') || script.getAttribute('type') || 'text/javascript';
+                    newScript.type = scriptType;
+                    var dataSrc = script.getAttribute('data-src');
+                    if (dataSrc) {
+                        newScript.src = dataSrc;
+                    } else {
+                        var inlineContent = script.innerHTML || script.textContent || '';
+                        if (inlineContent.length > 0) {
+                            newScript.innerHTML = inlineContent;
+                        } else {
+                            return;
+                        }
+                    }
+
+                    scriptsRestored.push({
+                        src: dataSrc || 'inline',
+                        category: category,
+                        type: scriptType
+                    });
+                    script.parentNode.insertBefore(newScript, script.nextSibling);
+                    script.remove();
+                });
+
+                if (allowMarketing) {
+                    restoreBlockedEmbeds();
+                }
+            }
+
+            window.w3dUnblockIframe = function(triggerEl) {
+                var wrapper = null;
+                if (triggerEl) {
+                    if (triggerEl.closest) {
+                        wrapper = triggerEl.closest('.w3d-blocked-iframe');
+                    } else {
+                        var node = triggerEl;
+                        while (node && node !== document.body) {
+                            if (node.classList && node.classList.contains('w3d-blocked-iframe')) {
+                                wrapper = node;
+                                break;
+                            }
+                            node = node.parentNode;
+                        }
+                    }
+                }
+                if (!wrapper) return;
+
+                if (!hasMarketingConsent()) {
+                    showBanner();
+                    if (SHOW_CATEGORIES) {
+                        var categories = document.getElementById('w3d-cb-categories');
+                        var simple = document.getElementById('w3d-cb-simple-buttons');
+                        var advanced = document.getElementById('w3d-cb-advanced-buttons');
+                        if (categories) categories.style.display = 'block';
+                        if (simple) simple.style.display = 'none';
+                        if (advanced) advanced.style.display = 'flex';
+                    }
+                    return;
+                }
+
+                restoreBlockedIframe(wrapper);
+            };
+
+            function showBanner() {
+                var banner = document.getElementById('w3d-cb-banner');
+                if (banner) {
+                    banner.style.removeProperty('display');
+                    banner.style.setProperty('display', 'block', 'important');
+                }
+            }
+
+            function hideBanner() {
+                var banner = document.getElementById('w3d-cb-banner');
+                if (banner) {
+                    banner.style.setProperty('display', 'none', 'important');
+                }
+            }
+
+            function saveConsent(functional, analytics, marketing) {
+                var consent = {
+                    functional: functional ? 1 : 0,
+                    analytics: analytics ? 1 : 0,
+                    marketing: marketing ? 1 : 0,
+                    timestamp: Date.now()
+                };
+
+                setCookie(COOKIE_NAME, JSON.stringify(consent), COOKIE_DAYS);
+
+                hideBanner();
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://ifat.co.il/wp-admin/admin-ajax.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send('action=web3d_save_consent_log&consent=' + encodeURIComponent(JSON.stringify(consent)));
+
+                // Разблокируем скрипты и перезагружаем
+                if (analytics || marketing) {
+                    setTimeout(function() {
+                        releaseBlockedScripts(consent);
+
+                        setTimeout(function() {
+                            if (typeof gtag !== 'undefined') {
+                                try {
+                                    gtag('consent', 'update', {
+                                        'analytics_storage': analytics ? 'granted' : 'denied',
+                                        'ad_storage': marketing ? 'granted' : 'denied'
+                                    });
+                                } catch (e) {
+                                    // Silent error handling
+                                }
+                            }
+
+                            setTimeout(function() {
+                                location.reload();
+                            }, 800);
+                        }, 300);
+                    }, 200);
+                }
+
+                if (!analytics && !marketing && typeof gtag !== 'undefined') {
+                    gtag('consent', 'update', {
+                        'analytics_storage': 'denied',
+                        'ad_storage': 'denied'
+                    });
+                }
+            }
+
+            function initBanner() {
+                if (initialized) return;
+
+                var banner = document.getElementById('w3d-cb-banner');
+                if (!banner) return;
+
+                var existingConsent = getStoredConsentData();
+
+                // Проверяем срок действия согласия (прошло ли больше года)
+                var isExpired = existingConsent ? isConsentExpired(existingConsent) : true;
+
+                if (isExpired && existingConsent) {
+                    // Согласие истекло (прошло больше года) - удаляем cookie
+                    setCookie(COOKIE_NAME, '', -1);
+                    existingConsent = null;
+                }
+
+                // Показываем баннер, только если пользователь ещё не принял решение (ни принял, ни отклонил)
+                // Или если согласие истекло (прошло больше года)
+                if (existingConsent && !isExpired && hasStoredConsent()) {
+                    // Согласие уже дано и не истекло - скрываем баннер
+                    hideBanner();
+                    if (existingConsent.analytics || existingConsent.marketing) {
+                        setTimeout(function() {
+                            releaseBlockedScripts(existingConsent);
+                        }, 300);
+                    }
+                    initialized = true;
+                    return;
+                }
+
+                // Согласие не дано или истекло (прошло больше года) - показываем баннер снова
+                showBanner();
+
+                // Event handlers
+                document.getElementById('w3d-cb-accept').onclick = function() {
+                    saveConsent(true, true, true);
+                };
+
+                document.getElementById('w3d-cb-deny').onclick = function() {
+                    saveConsent(true, false, false);
+                };
+
+                if (document.getElementById('w3d-cb-close')) {
+                    document.getElementById('w3d-cb-close').onclick = function() {
+                        // Просто скрываем баннер без сохранения согласия
+                        hideBanner();
+                    };
+                }
+
+                if (SHOW_CATEGORIES) {
+                    document.getElementById('w3d-cb-view').onclick = function() {
+                        document.getElementById('w3d-cb-categories').style.display = 'block';
+                        document.getElementById('w3d-cb-simple-buttons').style.display = 'none';
+                        document.getElementById('w3d-cb-advanced-buttons').style.display = 'flex';
+                    };
+
+                    document.getElementById('w3d-cb-save').onclick = function() {
+                        var analytics = document.getElementById('w3d-cb-analytics').checked;
+                        var marketing = document.getElementById('w3d-cb-marketing').checked;
+                        saveConsent(true, analytics, marketing);
+                    };
+                }
+
+                initialized = true;
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initBanner);
+            } else {
+                initBanner();
+            }
+        })();
+    </script>
+
+<div class="js-off-canvas-overlay is-overlay-fixed"></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-3uie4ujiwe97" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdIxB8sAAAAAFeeVrKOLMf_76754QceRtCj5fpR&amp;co=aHR0cHM6Ly9pZmF0LmNvLmlsOjQ0Mw..&amp;hl=en&amp;v=QvLuXwupqtKCyjBw2xIzFLIf&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=qdog2r2zgkma"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

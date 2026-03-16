@@ -1,0 +1,80 @@
+[2026-03-12T00:51:55.335Z] === Homepage AI Extractor: 010 Data Protection ===
+[2026-03-12T00:51:55.335Z] Started at: 2026-03-12T00:51:55.335Z
+[2026-03-12T00:51:55.335Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773276715335_010_Data_Protection
+[2026-03-12T00:51:55.335Z] Company: 010 Data Protection
+[2026-03-12T00:51:55.335Z] Website: 010.co.il
+[2026-03-12T00:51:55.335Z] cbRank: 733005
+[2026-03-12T00:51:55.335Z] Reasons: h
+[2026-03-12T00:51:55.336Z] Fetching: https://010.co.il
+[2026-03-12T00:51:59.733Z] Redirected: https://010.co.il -> https://010.co.il/
+[2026-03-12T00:51:59.753Z] Saved HTML (468773 bytes) to page.html
+[2026-03-12T00:51:59.759Z] Extracted 46 unique links from page
+[2026-03-12T00:51:59.760Z] Saved 46 links to links.json
+[2026-03-12T00:51:59.771Z] Extracted footer HTML (185230 chars)
+[2026-03-12T00:51:59.771Z] Extracted header HTML (40226 chars)
+[2026-03-12T00:51:59.777Z] Website (post-redirect): https://010.co.il/ → origin: https://010.co.il
+[2026-03-12T00:51:59.777Z]   SUBDOMAIN: 911.010.co.il (added to ws)
+[2026-03-12T00:51:59.777Z] Website subdomains found: 1
+[2026-03-12T00:51:59.777Z] External links: 5 (of 46 total)
+[2026-03-12T00:51:59.777Z] ── All external links ──
+[2026-03-12T00:51:59.777Z]   EXT: https://010grp.ca
+[2026-03-12T00:51:59.777Z]   EXT: https://goo.gl/maps/mevnFJ8NUXdF93WVA
+[2026-03-12T00:51:59.778Z]   EXT: https://netaneli.net
+[2026-03-12T00:51:59.778Z]   EXT: https://www.facebook.com/010DataProtection
+[2026-03-12T00:51:59.778Z]   EXT: https://www.linkedin.com/company/010-managing-it-securely
+[2026-03-12T00:51:59.778Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T00:51:59.778Z]   UNCATEGORIZED: https://010grp.ca
+[2026-03-12T00:51:59.778Z]   UNCATEGORIZED: https://goo.gl/maps/mevnFJ8NUXdF93WVA
+[2026-03-12T00:51:59.778Z]   UNCATEGORIZED: https://netaneli.net
+[2026-03-12T00:51:59.778Z]   REGEX: fb <- https://www.facebook.com/010DataProtection
+[2026-03-12T00:51:59.778Z]   REGEX: li <- https://www.linkedin.com/company/010-managing-it-securely
+[2026-03-12T00:51:59.778Z] Programmatic result: ws:2, fb:1, li:1 | 3 uncategorized
+[2026-03-12T00:51:59.778Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T00:51:59.781Z] Saved AI prompt (5777 chars) to ai_prompt.txt
+[2026-03-12T00:51:59.781Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T00:51:59.795Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T00:52:35.435Z]   AI: First token received, streaming...
+[2026-03-12T00:52:42.094Z] AI response complete: 118 chars in 42.3s
+[2026-03-12T00:52:42.095Z] Saved AI response to ai_response.json
+[2026-03-12T00:52:42.095Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T00:52:42.095Z]   AI LINK: https://010grp.ca
+[2026-03-12T00:52:42.095Z]   AI LINK: https://www.facebook.com/010DataProtection
+[2026-03-12T00:52:42.095Z]   AI LINK: https://www.linkedin.com/company/010-managing-it-securely
+[2026-03-12T00:52:42.095Z] AI returned 3 valid links
+[2026-03-12T00:52:42.095Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T00:52:42.096Z]   AI→URLS: https://010grp.ca
+[2026-03-12T00:52:42.096Z]   AI→REGEX: fb <- https://www.facebook.com/010DataProtection (duplicate, skipped)
+[2026-03-12T00:52:42.096Z]   AI→REGEX: li <- https://www.linkedin.com/company/010-managing-it-securely (duplicate, skipped)
+[2026-03-12T00:52:42.096Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T00:52:42.096Z] Footer/header origins (7):
+[2026-03-12T00:52:42.096Z]   FOOTER/HEADER ORIGIN: https://netaneli.net
+[2026-03-12T00:52:42.096Z]   FOOTER/HEADER ORIGIN: https://010.co.il
+[2026-03-12T00:52:42.097Z]   FOOTER/HEADER ORIGIN: https://010grp.ca
+[2026-03-12T00:52:42.097Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-12T00:52:42.097Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T00:52:42.097Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T00:52:42.097Z]   FOOTER/HEADER ORIGIN: https://911.010.co.il
+[2026-03-12T00:52:42.097Z]   SKIP (AI claimed): https://010grp.ca
+[2026-03-12T00:52:42.097Z]   ADDED: urls <- https://goo.gl/maps/mevnFJ8NUXdF93WVA
+[2026-03-12T00:52:42.097Z]   ADDED: urls <- https://netaneli.net
+[2026-03-12T00:52:42.097Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T00:52:42.097Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T00:52:42.098Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T00:52:42.098Z] ── Step 3: Final dedup ──
+[2026-03-12T00:52:42.098Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-12T00:52:42.098Z] ── FINAL RESULT ──
+[2026-03-12T00:52:42.098Z]   ws (2):
+[2026-03-12T00:52:42.098Z]     - https://010.co.il
+[2026-03-12T00:52:42.098Z]     - https://911.010.co.il
+[2026-03-12T00:52:42.098Z]   li (1):
+[2026-03-12T00:52:42.098Z]     - https://www.linkedin.com/company/010-managing-it-securely
+[2026-03-12T00:52:42.098Z]   fb (1):
+[2026-03-12T00:52:42.098Z]     - https://www.facebook.com/010dataprotection
+[2026-03-12T00:52:42.098Z]   urls (3):
+[2026-03-12T00:52:42.098Z]     - https://010grp.ca
+[2026-03-12T00:52:42.098Z]     - https://goo.gl/maps/mevnFJ8NUXdF93WVA
+[2026-03-12T00:52:42.099Z]     - https://netaneli.net
+[2026-03-12T00:52:42.099Z] Summary: ws:2, fb:1, li:1, urls:3
+[2026-03-12T00:52:42.099Z] Saved final result to result.json
+[2026-03-12T00:52:42.099Z] Override fields: ws, li, fb, urls
+[2026-03-12T00:52:42.100Z] Finished at: 2026-03-12T00:52:42.099Z

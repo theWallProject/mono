@@ -1,0 +1,581 @@
+<!DOCTYPE html><html lang="en-US"><!-- Mirrored from dumpsterapp.mobi/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Apr 2023 11:13:51 GMT --><!-- Added by HTTrack --><head><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),this._loadEverythingNow()}async _loadEverythingNow(){this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{var n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){const n=e[t];Object.defineProperty(e,t,{get:n||function(){},set:n=>{e["rocket"+t]=n}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e?"rocket-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mouseover","touchmove","touchstart","wheel"]);e._delayEventListeners(),e._delayJQueryReady(e),e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script type="rocketlazyloadscript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-28857959-7"></script>
+	<script type="rocketlazyloadscript">
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-28857959-7');
+	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="alternate" hreflang="en" href="index-2.html">
+
+	<!-- This site is optimized with the Yoast SEO plugin v18.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Instantly recover deleted files - Dumpster</title><style id="rocket-critical-css">.amp-wp-enforced-sizes{-o-object-fit:contain;object-fit:contain}amp-img img,amp-img noscript{image-rendering:inherit;-o-object-fit:inherit;object-fit:inherit;-o-object-position:inherit;object-position:inherit}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}a{background-color:transparent}img{border-style:none}select{font-family:inherit;font-size:100%;line-height:1.15;margin:0}select{text-transform:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}@font-face{font-display:swap;font-family:'Roboto';src:url(wp-content/themes/dumpster/fonts/roboto/Roboto-Black.eot);src:url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Black.eot?#iefix) format('embedded-opentype'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Black.woff) format('woff'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Black.ttf) format('truetype');font-weight:900;font-style:normal}@font-face{font-display:swap;font-family:'Roboto';src:url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Bold.eot);src:local('Roboto Bold'),local('Roboto-Bold'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Bold.eot?#iefix) format('embedded-opentype'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Bold.woff) format('woff'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Bold.ttf) format('truetype');font-weight:bold;font-style:normal}@font-face{font-display:swap;font-family:'Roboto';src:url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Medium.eot);src:local('Roboto Medium'),local('Roboto-Medium'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Medium.eot?#iefix) format('embedded-opentype'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Medium.woff) format('woff'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Medium.ttf) format('truetype');font-weight:500;font-style:normal}@font-face{font-display:swap;font-family:'Roboto';src:url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Regular.eot);src:local('Roboto'),local('Roboto-Regular'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Regular.eot?#iefix) format('embedded-opentype'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Regular.woff) format('woff'),url(https://dumpsterapp.mobi/wp-content/themes/dumpster/fonts/roboto/Roboto-Regular.ttf) format('truetype');font-weight:normal;font-style:normal}.owl-carousel{position:relative}.owl-carousel{display:none;width:100%;z-index:1}body{font-family:'Roboto',sans-serif;font-size:15px;font-weight:300;line-height:25px;min-width:320px;position:relative;background:#fff;max-width:3000px;margin:auto;color:#000}header,section{margin:auto}a{text-decoration:none}*{-webkit-box-sizing:border-box;box-sizing:border-box}figure{margin:0}figure img{width:auto;max-width:100%}ul{margin:0;padding:0}ul li{list-style-type:none}p,a{color:#000;font-family:'Roboto',sans-serif;font-size:12px;font-weight:300;line-height:1.5;margin:0}.content-width{width:960px;margin:auto}h1,h2{font-family:'Roboto',sans-serif;font-size:50px;font-weight:900;font-stretch:normal;font-style:normal;line-height:1.2;letter-spacing:normal;color:#000;margin:0 0 30px}.top-line{padding:23px 0 20px;-webkit-box-shadow:0 0 14px 0 rgba(19,21,32,0.15);box-shadow:0 0 14px 0 rgba(19,21,32,0.15);background-color:#ffffff;position:relative;z-index:9900}.top-line .content-width{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap}.top-line .content-width .left{width:40%}.top-line .content-width .right{width:60%}.top-line .content-width .logo{display:inline-block;width:155px;margin:0 20.8% 0 11px}.top-line .content-width .logo a{display:block}.top-line .content-width .logo a img{max-width:100%}.top-line .content-width .top-menu{display:inline-block;vertical-align:top;padding:10px 0 0}.top-line .content-width .top-menu ul{display:-webkit-box;display:-ms-flexbox;display:flex}.top-line .content-width .top-menu ul li{display:inline-block;margin-right:47px;vertical-align:top}.top-line .content-width .top-menu ul li a{font-size:16px;line-height:normal}.top-line .content-width .top-menu ul li:last-child{margin-right:0}.top-line .content-width .right{text-align:right}.top-line .content-width .right .select-block{display:inline-block;vertical-align:top}.top-line .content-width .right .btn-wrap{display:inline-block;margin-right:28px;vertical-align:top;padding:2px 0 0}.btn-default{width:100px;height:40px;border-radius:4px;border:solid 1px #00bd81;text-align:center;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:38px;letter-spacing:normal;color:#00bd81;background:#fff;display:inline-block}.header-content{padding:37px 0 81px;background-color:#f1f2f3}.header-content .content-width{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}.header-content .right{width:254px}.header-content .right img{width:100%}.header-content .left{width:calc(100% - 400px);padding:56px 0 0}.header-content .left h1{margin-bottom:54px}.header-content .left p{font-size:24px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.25;letter-spacing:normal;margin-bottom:62px;max-width:470px}.header-content .left a{display:inline-block}.info-wrap{padding:98px 0 0}.info-wrap .content-width{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap}.info-wrap .content-width .left{width:347px}.info-wrap .content-width .left figure{position:relative;left:-14px}.info-wrap .content-width .left img{width:100%;vertical-align:top}.info-wrap .content-width .right{width:calc(100% - 410px);padding:35px 0 0}.info-wrap .content-width .right h2{margin-bottom:54px}.testimonials-slider{position:relative;z-index:1;max-width:770px;margin:auto}.testimonials-slider .item .stars-wrap{text-align:center;margin-bottom:61px}.testimonials-slider .item .stars-wrap img{width:24px;display:inline-block;margin:0 6px}.testimonials-slider .item blockquote{margin:0 25px}.testimonials-slider .item blockquote p{font-size:18px;font-weight:normal;font-stretch:normal;font-style:italic;line-height:1.44;letter-spacing:normal;text-align:center;color:#000000}.menu-responsive{display:none}.btn-mob{display:none}.btn-sticky{display:inline-block;margin-right:20px}.btn-sticky img{height:40px;position:relative;top:2px}.btn-sticky a{display:inline-block;position:relative;top:-200px}.mobile-toast{display:none}.btn-sticky{display:none!important}.top-line .content-width .right .btn-wrap{display:none}@media (max-width:1024px){.content-width{width:95%}.header-content .content-width{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.header-content .left{width:calc(100% - 285px)}.info-wrap .content-width .right{width:calc(100% - 350px)}.top-line .content-width .logo{margin-right:20px}.mobile-toast{display:block;position:fixed;z-index:1000;min-width:320px;left:0;bottom:0;right:0;background:#fff;padding:10px 24px;box-shadow:0 -4px 4px 0 rgba(0,0,0,0.02);text-align:center}.mobile-toast a{height:48px;line-height:44px;border:2px solid #000;border-radius:3px;text-align:center;display:block;box-shadow:0 2px 10px 0 rgba(0,0,0,0.16)}.mobile-toast a img{max-height:100%;padding:5px 0}.top-line .content-width .top-menu ul li{margin-right:25px}}@media (max-width:767px){.top-line .content-width .top-menu,.top-line .content-width .right .btn-wrap{display:none}.menu-responsive{width:100vw;height:100vh;position:fixed;z-index:0;top:0;left:0;display:block;visibility:hidden;overflow:hidden}.menu-responsive .wrap-panel{width:100%;position:absolute;top:-300px;right:0;-webkit-box-shadow:0 21px 48px 0 rgba(14,32,55,0.14);box-shadow:0 21px 48px 0 rgba(14,32,55,0.14);background-color:#ffffff;overflow:hidden;display:inline-block}.menu-responsive .wrap-panel .menu-wrap{width:100%}.menu-responsive .wrap-panel .menu-wrap ul li{border-bottom:1px solid #d1d2d3;background-color:#ffffff}.menu-responsive .wrap-panel .menu-wrap ul li a{font-size:18px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:2.78;letter-spacing:normal;color:#000000;padding:0 35px}.menu-responsive .wrap-panel .bottom-wrap{display:none;padding:9px 0}.menu-responsive .wrap-panel .bottom-wrap a{width:280px;margin:auto;display:block}.menu-responsive .wrap-panel .bottom-wrap a img{vertical-align:top}.top-line .content-width .logo{width:115px}.top-line{padding:20px 0 12px}.header-content .right{width:135px}.header-content .left{width:calc(100% - 150px);padding:0}h1{font-size:24px!important;margin-bottom:22px!important}h2{font-size:24px!important;margin-bottom:22px!important}.header-content .left p{margin-bottom:30px;font-size:18px;line-height:1.44}.header-content{padding:37px 0}.info-wrap .content-width .left{width:150px}.info-wrap .content-width .right{width:calc(100% - 165px)}.info-wrap{padding:50px 0 0}.btn-sticky{margin-right:40px}.top-line .content-width .right .select-block{margin-right:30px}}@media (max-width:568px){.header-content{padding:33px 0 22px}.header-content .right{width:100%;margin:0 auto 22px;-webkit-box-ordinal-group:1;-ms-flex-order:0;order:0}.header-content .right figure{text-align:center}.header-content .right img{width:165px}.header-content .left{width:100%;-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}.header-content .left h1{text-align:center}.header-content .left p{text-align:center;margin:auto}.header-content .left a{display:none}.info-wrap .content-width .left{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;width:100%;text-align:center}.info-wrap .content-width .left img{width:165px}.info-wrap .content-width .right{width:100%;-webkit-box-ordinal-group:1;-ms-flex-order:0;order:0}.info-wrap .content-width .right h2{text-align:center;max-width:80%;margin:0 auto 20px}.info-wrap{padding:0}.info-wrap .content-width .left figure{left:0}.content-width{width:85%}.btn-sticky{width:115px;margin-right:0}.btn-sticky a{display:inline-block;width:100%}.btn-sticky a img{width:100%}.top-line .content-width .right .select-block{margin-right:15px}.top-line .content-width{width:100%;padding:0 10px}.top-line .content-width .logo{width:125px;margin:0}.top-line .content-width .left{width:80px}.top-line .content-width .right{width:calc(100% - 85px);padding-right:35px}.top-line .content-width .right .select-block{margin-right:0}.testimonials-slider .item blockquote{margin:0 15px}}@media (max-width:350px){.btn-sticky{width:85px;margin-right:0}}</style>
+	<meta name="description" content="Undelete photos, videos, documents, and anything on your device with just one tap">
+	<link rel="canonical" href="index-2.html">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Instantly recover deleted files - Dumpster">
+	<meta property="og:description" content="Undelete photos, videos, documents, and anything on your device with just one tap">
+	<meta property="og:url" content="https://dumpsterapp.mobi/">
+	<meta property="og:site_name" content="Dumpster">
+	<meta property="article:modified_time" content="2021-07-27T10:30:26+00:00">
+	<meta property="og:image" content="https://dumpsterapp.mobi/wp-content/uploads/2021/07/img-1-496x1024c.jpg">
+	<meta property="og:image:width" content="496">
+	<meta property="og:image:height" content="1024">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Est. reading time">
+	<meta name="twitter:data1" content="1 minute">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://dumpsterapp.mobi/#website","url":"https://dumpsterapp.mobi/","name":"Dumpster","description":"The Freedom to Make Mistakes","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://dumpsterapp.mobi/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://dumpsterapp.mobi/#primaryimage","inLanguage":"en-US","url":"https://dumpsterapp.mobi/wp-content/uploads/2021/07/img-1-496x1024c.jpg","contentUrl":"https://dumpsterapp.mobi/wp-content/uploads/2021/07/img-1-496x1024c.jpg","width":496,"height":1024},{"@type":"WebPage","@id":"https://dumpsterapp.mobi/#webpage","url":"https://dumpsterapp.mobi/","name":"Instantly recover deleted files - Dumpster","isPartOf":{"@id":"https://dumpsterapp.mobi/#website"},"primaryImageOfPage":{"@id":"https://dumpsterapp.mobi/#primaryimage"},"datePublished":"2019-11-21T11:16:49+00:00","dateModified":"2021-07-27T10:30:26+00:00","description":"Undelete photos, videos, documents, and anything on your device with just one tap","breadcrumb":{"@id":"https://dumpsterapp.mobi/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://dumpsterapp.mobi/"]}]},{"@type":"BreadcrumbList","@id":"https://dumpsterapp.mobi/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Dumpster » Feed" href="feed/index.html">
+<link rel="alternate" type="application/rss+xml" title="Dumpster » Comments Feed" href="comments/feed/index.html">
+<link rel="stylesheet" href="wp-includes/css/dist/block-library/style.min6a4d.css?ver=6.1.1" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link rel="stylesheet" href="wp-includes/css/classic-themes.min68b3.css?ver=1" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/normalize2829.css?ver=1623785144" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/font3962.css?ver=1623785145" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/wp-content/themes/dumpster/fonts/fontawesome-pro-5.11.2-web/css/all.min3962.css?ver=1623785145" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link rel="stylesheet" href="wp-content/themes/dumpster/css/owl.theme.default.mindbe6.css?ver=1.32" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link rel="stylesheet" href="wp-content/themes/dumpster/css/owl.carousel.mindbe6.css?ver=1.32" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link rel="stylesheet" href="wp-content/themes/dumpster/css/select2.mindbe6.css?ver=1.32" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/styles3962.css?ver=1623785145" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/responsive3962.css?ver=1623785145" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/wp-content/themes/dumpster/style3962.css?ver=1623785145" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/wp-content/cache/busting/1/sccss3962.css?ver=1623785145" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" type="text/css" media="all">
+<script type="text/javascript" id="jquery-core-js-extra">
+/* <![CDATA[ */
+var global = {"url":"https:\/\/dumpsterapp.mobi\/wp-admin\/admin-ajax.php","template":"https:\/\/dumpsterapp.mobi\/wp-content\/themes\/dumpster"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="wp-includes/js/jquery/jquery.mina7a0.js?ver=3.6.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2" id="jquery-migrate-js" defer=""></script>
+<link rel="https://api.w.org/" href="wp-json/index.html"><link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/6.json"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.html?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.1.1">
+<link rel="shortlink" href="index-2.html">
+<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embedbc37.json?url=https%3A%2F%2Fdumpsterapp.mobi%2F">
+<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed2530?url=https%3A%2F%2Fdumpsterapp.mobi%2F&amp;format=xml">
+<meta name="generator" content="WPML ver:4.3.4 stt:1;">
+<link rel="icon" href="wp-content/uploads/2019/11/cropped-dumpster-photo-and-video-restore-logo-1-32x32.png" sizes="32x32">
+<link rel="icon" href="wp-content/uploads/2019/11/cropped-dumpster-photo-and-video-restore-logo-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="wp-content/uploads/2019/11/cropped-dumpster-photo-and-video-restore-logo-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://dumpsterapp.mobi/wp-content/uploads/2019/11/cropped-dumpster-photo-and-video-restore-logo-1-270x270.png">
+<link rel="preload" href="wp-content/themes/dumpster/fonts/fontawesome-pro-5.11.2-web/webfonts/fa-brands-400.woff2" as="font" crossorigin=""><link rel="preload" href="wp-content/themes/dumpster/fonts/fontawesome-pro-5.11.2-web/webfonts/fa-solid-900.woff2" as="font" crossorigin=""><link rel="preload" href="wp-includes/css/dist/block-library/style.min6a4d.css?ver=6.1.1" as="style"><link rel="preload" href="wp-includes/css/classic-themes.min68b3.css?ver=1" as="style"><link data-minify="1" rel="preload" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/normalize2829.css?ver=1623785144" as="style"><link data-minify="1" rel="preload" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/font3962.css?ver=1623785145" as="style"><link data-minify="1" rel="preload" href="wp-content/cache/min/1/wp-content/themes/dumpster/fonts/fontawesome-pro-5.11.2-web/css/all.min3962.css?ver=1623785145" as="style"><link rel="preload" href="wp-content/themes/dumpster/css/owl.theme.default.mindbe6.css?ver=1.32" as="style"><link rel="preload" href="wp-content/themes/dumpster/css/owl.carousel.mindbe6.css?ver=1.32" as="style"><link rel="preload" href="wp-content/themes/dumpster/css/select2.mindbe6.css?ver=1.32" as="style"><link data-minify="1" rel="preload" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/styles3962.css?ver=1623785145" as="style"><link data-minify="1" rel="preload" href="wp-content/cache/min/1/wp-content/themes/dumpster/css/responsive3962.css?ver=1623785145" as="style"><link data-minify="1" rel="preload" href="wp-content/cache/min/1/wp-content/themes/dumpster/style3962.css?ver=1623785145" as="style"><link data-minify="1" rel="preload" href="wp-content/cache/min/1/wp-content/cache/busting/1/sccss3962.css?ver=1623785145" as="style"><link rel="preload" href="wp-includes/js/jquery/jquery.mina7a0.js?ver=3.6.1" as="script"><link rel="preload" href="wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2" as="script"><script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script>
+</head>
+<body data-rsssl="1" class="home page-template page-template-page-home-template page-template-page-home-template-php page page-id-6 wp-custom-logo">
+
+<header class="search-">
+    <div class="top-line">
+        <div class="content-width">
+            <div class="left">
+                <div class="logo">
+                    <a href="index-2.html">
+                        <img src="wp-content/themes/dumpster/img/logo.png" alt="">
+                    </a>
+                </div>
+                <nav class="top-menu">
+					<ul id="menu-main-menu" class="menu"><li id="menu-item-983" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-983"><a href="category/all/index.html">Tips</a></li>
+<li id="menu-item-989" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-989"><a href="faq/index.html">FAQ</a></li>
+</ul>                </nav>
+            </div>
+            <div class="right">
+                <div class="btn-sticky">
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.baloota.dumpster"><img src="wp-content/uploads/2020/12/google-play-badge.png" alt=""></a>
+                </div>
+                <div class="btn-wrap">
+                    <a target="_blank" href="https://web.dumpsterapp.mobi/" class="btn-default">Sign In</a>
+                </div>
+
+                <div class="select-block ">
+                    <label class="form-label" for="lang"></label>
+
+                    
+                </div>
+                <!--div class="icon-menu">
+                    <span class="slicknav_icon-bar"></span>
+                    <span class="slicknav_icon-bar"></span>
+                    <span class="slicknav_icon-bar"></span>
+                </div-->
+            </div>
+        </div>
+    </div>
+    <div class="menu-responsive">
+        <div class="wrap-panel">
+            <nav class="menu-wrap">
+				<ul id="menu-main-menu-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-983"><a href="category/all/index.html">Tips</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-989"><a href="faq/index.html">FAQ</a></li>
+</ul>            </nav>
+
+            <div class="bottom-wrap">
+                <a href="https://play.google.com/store/apps/details?id=com.baloota.dumpster" target="_blank"><img src="wp-content/uploads/2020/12/google-play-badge.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+        <div class="header-content">
+        <div class="content-width">
+            <div class="left">
+                <h1>Instantly recover deleted files</h1>
+
+<p> Our Deep Scan Recovery Technology will help you recover lost photos, videos &amp; files. </p>
+								<a href="https://play.google.com/store/apps/details?id=com.baloota.dumpster" target="_blank"><img src="wp-content/uploads/2020/12/google-play-badge.png" alt=""></a><br>
+								<a href="https://appgallery.huawei.com/#/app/C102639331" target="_blank"><img src="wp-content/uploads/2020/12/ag-badge-black.png" alt=""></a>
+                <!--<a target="_blank" href="https://play.google.com/store/apps/details?id=com.baloota.dumpster" ><img src="https://dumpsterapp.mobi/wp-content/themes/dumpster/img/google-play-btn.svg" alt=""></a>-->
+            </div>
+            <div class="right">
+                <figure>
+                    <img src="wp-content/uploads/2021/07/img-1-496x1024c.jpg" alt="">
+                </figure>
+            </div>
+        </div>
+    </div>
+    </header>
+
+
+
+    <section class="btn-mob">
+        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.baloota.dumpster">
+            <img src="wp-content/themes/dumpster/img/google-mob.svg" alt=""></a>
+    </section>
+
+
+    <section class="info-wrap">
+        <div class="content-width">
+            <div class="left">
+                <figure>
+                    <img src="wp-content/uploads/2019/11/img-2.png" alt="">
+                </figure>
+            </div>
+            <div class="right">
+                <h2>Never lose important
+files again!</h2>
+                <p>We don’t want you lose important photos, videos or files.
+Keep Dumpster installed on your device for full protection!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="privacy-wrap">
+        <div class="content-width">
+            <div class="left">
+                <h2>Your privacy is our priority
+</h2>
+                <p>Keep your photos and videos protected
+using a secure passcode.
+</p>
+            </div>
+            <div class="right">
+                <figure>
+                    <img src="wp-content/uploads/2019/11/img-3.png" alt="">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="web-could-wrap">
+        <div class="content-width">
+            <h2>Save space with our Cloud Storage
+</h2>
+            <div class="web-could-content">
+                <div class="left">
+                    <figure>
+                        <img src="wp-content/uploads/2021/06/img-4-1024x419-1.jpg" alt="">
+                    </figure>
+                </div>
+                <div class="right">
+                    <figure>
+                        <img src="wp-content/uploads/2019/11/img-5.png" alt="">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-wrap">
+        <div class="content-width">
+            <h2>Trusted by over 40 Million people</h2>
+            <div class="testimonials-slider owl-carousel">
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">This app was a lifesaver</span>.</em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">I deleted holiday photos and didn’t think I could get them back. A friend told me about Dumpster so I tried it. The app actually recovered everything I deleted before I had it on my phone.</span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">Saved photos I had on my phone from my son’s wedding. </span></em><em><span style="font-weight: 400;">I was delighted to get these memories back! </span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">From what I read before downloading the app, it clearly works! It also shows you how to get your photos and videos back. It is an amazing app.</span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">It really is a good and reliable program. You really never need to worry about what you’ve deleted. I strongly recommend installing and trying it out. And I’m sure you’ll go for the Premium version.</span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">Beats the competition by recovering more file types and a large time range set by the user. Doesn’t take a lot of space either.</span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">I never really write reviews, but this is an awesome app and for my needs this is the only option I have found so far. Works smooth, keep on developing this great app!</span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">I recovered pics that I lost from 5 moth ago. I’ve tried many apps before and none of them worked, but this one found exactly what I needed. 5 stars!!!</span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+				                    <div class="item">
+
+
+                        <blockquote>
+                            <p></p><p><em><span style="font-weight: 400;">Fantastic, works flawlessly like turn on and forget.</span></em></p>
+<p></p>
+                        </blockquote><br>
+
+                        <div class="stars-wrap">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+		                                                    <img src="wp-content/themes/dumpster/img/star.svg" alt="">
+
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="press-wrap">
+        <div class="content-width">
+            <h6>Features</h6>
+            <div class="press-content">
+				                    <div class="item">
+                        <a><img src="wp-content/uploads/2019/11/img-6.png" alt=""></a>
+                    </div>
+				                    <div class="item">
+                        <a><img src="wp-content/uploads/2019/11/img-7.png" alt=""></a>
+                    </div>
+				                    <div class="item">
+                        <a><img src="wp-content/uploads/2019/11/img-8.png" alt=""></a>
+                    </div>
+				                    <div class="item">
+                        <a><img src="wp-content/uploads/2019/11/img-9.png" alt=""></a>
+                    </div>
+				            </div>
+        </div>
+    </section>
+  <div class="mobile-toast">
+    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.baloota.dumpster"><img src="wp-content/themes/dumpster/img/btn-no-board.png" alt=""></a>
+  </div>
+
+<footer>
+
+
+    <div class="links_1">
+                    <div class="item">
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.baloota.galleryprotector&amp;hl=en">
+                    <img class="nll" src="wp-content/uploads/2020/09/footer-logo-cover.png" alt="">
+                </a>
+            </div>
+                    <div class="item">
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.baloota.dumpster&amp;hl=en">
+                    <img class="nll" src="wp-content/uploads/2020/09/footer-logo-dumpster.png" alt="">
+                </a>
+            </div>
+                    <div class="item">
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.baloota.xcleaner&amp;hl=en">
+                    <img class="nll" src="wp-content/uploads/2020/09/footer-logo-X-cleaner.png" alt="">
+                </a>
+            </div>
+            </div>
+
+
+    <div class="links_2">
+                    <div class="item">
+                <a target="_blank" href="https://www.facebook.com/dumpsterApp/">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+                    <div class="item">
+                <a target="_blank" href="https://twitter.com/dumpsterApp">
+                    <i class="fab  fa-twitter"></i>
+                </a>
+            </div>
+            </div>
+
+
+	<div class="content-width footer">
+		<p>Copyrights ©2023 Baloota Apps</p>
+		<div class="link-wrap">
+			<ul id="menu-footer-menu" class="menu"><li id="menu-item-94" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-94"><a target="_blank" rel="noopener" href="faq/terms-and-conditions/index.html">Terms &amp; Conditions</a></li>
+<li id="menu-item-95" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-95"><a target="_blank" rel="noopener" href="faq/privacy-policy/index.html">Privacy Policy</a></li>
+<li id="menu-item-96" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-96"><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/dev?id=5104976176358171231">Our Apps</a></li>
+</ul>		</div>
+	</div>
+</footer>
+
+
+
+
+		<script type="rocketlazyloadscript">
+		(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			// unbind listeners
+			if( link.addEventListener ){
+				link.removeEventListener( "load", enableStylesheet );
+			} else if( link.attachEvent ){
+				link.detachEvent( "onload", enableStylesheet );
+			}
+			link.setAttribute( "onload", null );
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+		</script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="wp-content/themes/dumpster/js/jquery.slicknav.mindbe6.js?ver=1.32" id="js/jquery.slicknav.min.js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="wp-content/cache/min/1/wp-content/themes/dumpster/js/owl.carousel3962.js?ver=1623785145" id="js/owl.carousel.js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="wp-content/themes/dumpster/js/jquery.ddslick.mindbe6.js?ver=1.32" id="js/jquery.ddslick.min.js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="wp-content/cache/min/1/wp-content/themes/dumpster/js/jquery.sticky3962.js?ver=1623785145" id="js/jquery.sticky.js-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="wp-content/themes/dumpster/js/select2.full.mindbe6.js?ver=1.32" id="js/select2.full.min.js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="wp-content/cache/min/1/wp-content/themes/dumpster/js/script3962.js?ver=1623785145" id="js/script.js-js" defer=""></script>
+<script type="rocketlazyloadscript">"use strict";var wprRemoveCPCSS=function wprRemoveCPCSS(){var elem;document.querySelector('link[data-rocket-async="style"][rel="preload"]')?setTimeout(wprRemoveCPCSS,200):(elem=document.getElementById("rocket-critical-css"))&&"remove"in elem&&elem.remove()};window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link rel='stylesheet' id='wp-block-library-css' href='wp-includes/css/dist/block-library/style.min6a4d.css?ver=6.1.1' type='text/css' media='all' /><link rel='stylesheet' id='classic-theme-styles-css' href='wp-includes/css/classic-themes.min68b3.css?ver=1' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='css/normalize.css-css' href='wp-content/cache/min/1/wp-content/themes/dumpster/css/normalize2829.css?ver=1623785144' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='css/font.css-css' href='wp-content/cache/min/1/wp-content/themes/dumpster/css/font3962.css?ver=1623785145' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='fonts/fontawesome-pro-5.11.2-web/css/all.min.css-css' href='wp-content/cache/min/1/wp-content/themes/dumpster/fonts/fontawesome-pro-5.11.2-web/css/all.min3962.css?ver=1623785145' type='text/css' media='all' /><link rel='stylesheet' id='css/owl.theme.default.min.css-css' href='wp-content/themes/dumpster/css/owl.theme.default.mindbe6.css?ver=1.32' type='text/css' media='all' /><link rel='stylesheet' id='css/owl.carousel.min.css-css' href='wp-content/themes/dumpster/css/owl.carousel.mindbe6.css?ver=1.32' type='text/css' media='all' /><link rel='stylesheet' id='css/select2.min.css-css' href='wp-content/themes/dumpster/css/select2.mindbe6.css?ver=1.32' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='css/styles.css-css' href='wp-content/cache/min/1/wp-content/themes/dumpster/css/styles3962.css?ver=1623785145' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='css/responsive.css-css' href='wp-content/cache/min/1/wp-content/themes/dumpster/css/responsive3962.css?ver=1623785145' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='style-css' href='wp-content/cache/min/1/wp-content/themes/dumpster/style3962.css?ver=1623785145' type='text/css' media='all' /><link data-minify="1" rel='stylesheet' id='scss-css' href='wp-content/cache/min/1/wp-content/cache/busting/1/sccss3962.css?ver=1623785145' type='text/css' media='all' /></noscript>
+
+
+
+
+
+</body><!-- Mirrored from dumpsterapp.mobi/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Apr 2023 11:14:43 GMT --></html>

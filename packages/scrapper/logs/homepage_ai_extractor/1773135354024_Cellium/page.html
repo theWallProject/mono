@@ -1,0 +1,857 @@
+<!DOCTYPE html><html class="no-js" lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#190077">
+
+	
+<!-- Search Engine Optimization by Rank Math PRO - https://rankmath.com/ -->
+<title>Cellium - Indoor Wireless Done Right</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Saira%20Semi%20Condensed%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira%20Semi%20Condensed%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira%20Semi%20Condensed%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" /></noscript><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&amp;family=Saira+Semi+Condensed:wght@400;500;600;700&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&amp;family=Saira+Semi+Condensed:wght@400;500;600;700&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&#038;family=Saira+Semi+Condensed:wght@400;500;600;700&#038;display=swap" /></noscript><link rel="stylesheet" href="https://cellium.net/wp-content/cache/min/1/2a55bb09275c173e299d202ec703ffdd.css" media="all" data-minify="1">
+<meta name="description" content="Experience Cellium’s Innovative EdgeAir™. The Indoor Antenna Sub-System that Revolutionizes In-building Wireless (IBW) Connectivity, Deployment and Cost">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://cellium.net/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cellium - Indoor Wireless Done Right">
+<meta property="og:description" content="Experience Cellium’s Innovative EdgeAir™. The Indoor Antenna Sub-System that Revolutionizes In-building Wireless (IBW) Connectivity, Deployment and Cost">
+<meta property="og:url" content="https://cellium.net/">
+<meta property="og:site_name" content="Cellium">
+<meta property="og:updated_time" content="2024-02-09T18:15:04+02:00">
+<meta property="og:image" content="https://cellium.net/wp-content/uploads/2020/12/fb-share.jpg">
+<meta property="og:image:secure_url" content="https://cellium.net/wp-content/uploads/2020/12/fb-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Indoor Wireless">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="article:published_time" content="2023-05-28T10:42:04+02:00">
+<meta property="article:modified_time" content="2024-02-09T18:15:04+02:00">
+<meta property="og:video" content="https://www.youtube.com/embed/zdjA2Q73KUU">
+<meta property="video:duration" content="51">
+<meta property="ya:ovs:upload_date" content="2022-09-11">
+<meta property="ya:ovs:allow_embed" content="true">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cellium - Indoor Wireless Done Right">
+<meta name="twitter:description" content="Experience Cellium’s Innovative EdgeAir™. The Indoor Antenna Sub-System that Revolutionizes In-building Wireless (IBW) Connectivity, Deployment and Cost">
+<meta name="twitter:image" content="https://cellium.net/wp-content/uploads/2020/12/fb-share.jpg">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Paul W">
+<meta name="twitter:label2" content="Time to read">
+<meta name="twitter:data2" content="2 minutes">
+<script type="application/ld+json" class="rank-math-schema-pro">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://cellium.net/#organization","name":"Cellium Technologies Ltd.","url":"https://cellium.net","logo":{"@type":"ImageObject","@id":"https://cellium.net/#logo","url":"https://cellium.net/wp-content/uploads/2020/12/favicon.png","contentUrl":"https://cellium.net/wp-content/uploads/2020/12/favicon.png","caption":"Cellium","inLanguage":"en-US","width":"512","height":"512"}},{"@type":"WebSite","@id":"https://cellium.net/#website","url":"https://cellium.net","name":"Cellium","publisher":{"@id":"https://cellium.net/#organization"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":"https://cellium.net/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://cellium.net/wp-content/uploads/elementor/thumbs/TCO-savings-q6cwo17w3r6twviafqxrqterjbxnyanpfswd6d73zc.png","url":"https://cellium.net/wp-content/uploads/elementor/thumbs/TCO-savings-q6cwo17w3r6twviafqxrqterjbxnyanpfswd6d73zc.png","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://cellium.net/#webpage","url":"https://cellium.net/","name":"Cellium - Indoor Wireless Done Right","datePublished":"2023-05-28T10:42:04+02:00","dateModified":"2024-02-09T18:15:04+02:00","about":{"@id":"https://cellium.net/#organization"},"isPartOf":{"@id":"https://cellium.net/#website"},"primaryImageOfPage":{"@id":"https://cellium.net/wp-content/uploads/elementor/thumbs/TCO-savings-q6cwo17w3r6twviafqxrqterjbxnyanpfswd6d73zc.png"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://cellium.net/#author","name":"Paul W","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/6f68952b2ad6ee1d3ed4bee1d260283a?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/6f68952b2ad6ee1d3ed4bee1d260283a?s=96&amp;d=mm&amp;r=g","caption":"Paul W","inLanguage":"en-US"},"sameAs":["http://cellium.net"],"worksFor":{"@id":"https://cellium.net/#organization"}},{"headline":"Cellium - Indoor Wireless Done Right","description":"Experience Cellium\u2019s Innovative EdgeAir\u2122. The Indoor Antenna Sub-System that Revolutionizes In-building Wireless (IBW) Connectivity, Deployment and Cost","datePublished":"2023-05-28T10:42:04+02:00","dateModified":"2024-02-09T18:15:04+02:00","author":{"@id":"https://cellium.net/#author","name":"Paul W"},"@type":"Article","name":"Cellium - Indoor Wireless Done Right","@id":"https://cellium.net/#schema-4124","isPartOf":{"@id":"https://cellium.net/#webpage"},"publisher":{"@id":"https://cellium.net/#organization"},"image":{"@id":"https://cellium.net/wp-content/uploads/elementor/thumbs/TCO-savings-q6cwo17w3r6twviafqxrqterjbxnyanpfswd6d73zc.png"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://cellium.net/#webpage"}},{"@type":"VideoObject","name":"Cellium&#039;s EdgeAir - Indoor Wireless Coverage System","description":"Cellium\u2019s EdgeAir is an end-to-end antenna-extension subsystem comprising a Base Unit (BU) that distributes the analog RF signal to various Remote Units (RUs...","uploadDate":"2022-09-11","thumbnailUrl":"https://cellium.net/wp-content/uploads/2023/05/maxresdefault.jpg","embedUrl":"https://www.youtube.com/embed/zdjA2Q73KUU","duration":"PT0M51S","width":"1280","height":"720","isFamilyFriendly":"True","@id":"https://cellium.net/#schema-4125","isPartOf":{"@id":"https://cellium.net/#webpage"},"publisher":{"@id":"https://cellium.net/#organization"},"inLanguage":"en-US"}]}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel="dns-prefetch" href="//player.vimeo.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v8.25.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script type="rocketlazyloadscript" src="//www.googletagmanager.com/gtag/js?id=G-8PERV177RY" data-cfasync="false" data-wpfc-render="false" data-rocket-type="text/javascript" async=""></script>
+			<script type="rocketlazyloadscript" data-cfasync="false" data-wpfc-render="false" data-rocket-type="text/javascript">
+				var mi_version = '8.25.0';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+								var MonsterInsightsDefaultLocations = {"page_location":"https:\/\/cellium.net\/"};
+				if ( typeof MonsterInsightsPrivacyGuardFilter === 'function' ) {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsPrivacyGuardFilter( MonsterInsightsExcludeQuery ) : MonsterInsightsPrivacyGuardFilter( MonsterInsightsDefaultLocations );
+				} else {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsExcludeQuery : MonsterInsightsDefaultLocations;
+				}
+
+								var disableStrs = [
+										'ga-disable-G-8PERV177RY',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (mi_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = monsterinsights_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
+								MonsterInsightsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+						} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dZGIzZG': true,
+											});
+					if ( MonsterInsightsLocations.page_location ) {
+						__gtagTracker('set', MonsterInsightsLocations);
+					}
+										__gtagTracker('config', 'G-8PERV177RY', {"forceSSL":"true","link_attribution":"true"} );
+															window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+									'referrer' : 'page_referrer',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+				<!-- / Google Analytics by MonsterInsights -->
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" id="elementor-post-166-css" href="https://cellium.net/wp-content/uploads/elementor/css/post-166.css?ver=1691498432" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="https://cellium.net/wp-content/uploads/elementor/css/global.css?ver=1691498432" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-453-css" href="https://cellium.net/wp-content/uploads/elementor/css/post-453.css?ver=1691737601" type="text/css" media="all">
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=8.25.0" id="monsterinsights-frontend-script-js" defer=""></script>
+<script data-cfasync="false" data-wpfc-render="false" type="text/javascript" id="monsterinsights-frontend-script-js-extra">/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/cellium.net","hash_tracking":"false","v4_id":"G-8PERV177RY"};/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/cache/min/1/wp-includes/js/jquery/jquery.js?ver=1691497426" id="jquery-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/piotnet-addons-for-elementor-pro/assets/js/minify/extension.min.js?ver=7.1.26" id="pafe-extension-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/cache/min/1/api/player.js?ver=1691497427" id="vimeo-js" defer=""></script>
+<link rel="alternate" type="application/json+oembed" href="https://cellium.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcellium.net%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://cellium.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcellium.net%2F&amp;format=xml">
+<link rel="icon" href="https://cellium.net/wp-content/uploads/2020/12/cropped-favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="https://cellium.net/wp-content/uploads/2020/12/cropped-favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://cellium.net/wp-content/uploads/2020/12/cropped-favicon-180x180.png">
+<meta name="msapplication-TileImage" content="https://cellium.net/wp-content/uploads/2020/12/cropped-favicon-270x270.png">
+<style>.pswp.pafe-lightbox-modal {display: none;}</style>		<style type="text/css" id="wp-custom-css">
+			html, body {
+    overflow-x: hidden;
+}
+
+ /* Improved Animations Stylesheet from https://element.how/elementor-improve-entrance-animations/ , works for the 'fade' animations */
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0,-30px,0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.elementor-element.fadeInDown {
+    animation-name: fadeDown
+}
+
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px,0,0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.elementor-element.fadeInLeft {
+    animation-name: fadeLeft
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translate3d(30px,0,0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.elementor-element.fadeInRight {
+    animation-name: fadeRight
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0,30px,0)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.elementor-element.fadeInUp {
+    animation-name: fadeUp
+}
+.yellow-bar::before{
+	  width: 13px;
+    height: 80px;
+    background: #FF9007;
+    display: block;
+    content: "";
+}
+.yellow-bar {
+    position: relative;
+}
+/* removing white empty block when resizing browser window*/
+.section.elementor-section.elementor-top-section.elementor-element.elementor-element-46de692.elementor-section-full_width.elementor-section-height-default.elementor-section-height-default.elementor-sticky.elementor-sticky--active.elementor-section--handles-inside.elementor-sticky--effects {
+    width: 100% !important;
+}		</style>
+		<style id="wpforms-css-vars-root">
+				:root {
+					--wpforms-field-border-radius: 3px;
+--wpforms-field-background-color: #ffffff;
+--wpforms-field-border-color: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-text-color: rgba( 0, 0, 0, 0.7 );
+--wpforms-label-color: rgba( 0, 0, 0, 0.85 );
+--wpforms-label-sublabel-color: rgba( 0, 0, 0, 0.55 );
+--wpforms-label-error-color: #d63637;
+--wpforms-button-border-radius: 3px;
+--wpforms-button-background-color: #066aab;
+--wpforms-button-text-color: #ffffff;
+--wpforms-page-break-color: #066aab;
+--wpforms-field-size-input-height: 43px;
+--wpforms-field-size-input-spacing: 15px;
+--wpforms-field-size-font-size: 16px;
+--wpforms-field-size-line-height: 19px;
+--wpforms-field-size-padding-h: 14px;
+--wpforms-field-size-checkbox-size: 16px;
+--wpforms-field-size-sublabel-spacing: 5px;
+--wpforms-field-size-icon-size: 1;
+--wpforms-label-size-font-size: 16px;
+--wpforms-label-size-line-height: 19px;
+--wpforms-label-size-sublabel-font-size: 14px;
+--wpforms-label-size-sublabel-line-height: 17px;
+--wpforms-button-size-font-size: 17px;
+--wpforms-button-size-height: 41px;
+--wpforms-button-size-padding-h: 15px;
+--wpforms-button-size-margin-top: 10px;
+
+				}
+			</style>
+<link href="https://www.googletagmanager.com" rel="preconnect"></head>
+<body class="home page-template page-template-elementor_header_footer page page-id-453 cookies-not-set elementor-default elementor-template-full-width elementor-kit-166 elementor-page elementor-page-453">
+
+
+<!-- Header -->
+<header class="site-header" id="masthead">
+
+	<!-- Logo -->
+	<a href="https://cellium.net" class="logo-link">
+		<img src="https://cellium.net/wp-content/themes/cellium-by-dorzki/assets/images/logo.svg" alt="Cellium" class="logo">
+	</a>
+	<!-- /Logo -->
+
+	<!-- Hamburger -->
+	<button class="hamburger" aria-label="Toggle menu">
+		<span class="bar"></span>
+		<span class="bar"></span>
+		<span class="bar"></span>
+	</button>
+	<!-- /Hamburger -->
+
+	<!-- Menu -->
+	<nav class="menu">
+		<ul id="menu-main-menu" class="menu-list u-list-unstyled"><li id="menu-item-610" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-610"><a href="https://cellium.net/solutions/">Solutions</a></li>
+<li id="menu-item-495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-495"><a href="https://cellium.net/technology/">Technology</a></li>
+<li id="menu-item-494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-494"><a href="https://cellium.net/resources/">Resources</a></li>
+<li id="menu-item-493" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-493"><a href="https://cellium.net/about-us/">About us</a></li>
+<li id="menu-item-492" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-492"><a href="https://cellium.net/contact-us/">Contact us</a></li>
+</ul>	</nav>
+	<!-- /Menu -->
+
+</header>
+<!-- /Header -->		<div data-elementor-type="wp-page" data-elementor-id="453" class="elementor elementor-453">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-d01b2e2 elementor-section-height-min-height elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="d01b2e2" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a75afd0" data-id="a75afd0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-f9c7e2c elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="f9c7e2c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.7.4 - 31-08-2022 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default">EdgeAir - A Cost-Effective In-building Wireless Connectivity Solution</h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-bd9d3af elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bd9d3af" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-1a75213" data-id="1a75213" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-35ba1e5 elementor-widget elementor-widget-heading" data-id="35ba1e5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">High performance 5G in-building coverage at a fraction of the cost of traditional indoor deployment solutions.</h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-c2034ef" data-id="c2034ef" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5287232 elementor-widget elementor-widget-text-editor" data-id="5287232" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.7.4 - 31-08-2022 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#818a91;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#818a91;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p style="text-align: left;">Cellium Technologies have developed a unique, cost-effective, approach to provide, high-performance, indoor 5G coverage that addresses all key pain-points associated with current indoor deployments.</p><p>Cellium’s EdgeAir antenna sub-system, integrated with Cellium’s intelligent SoC (System-on-a-Chip), is a revolutionary, technology agnostic, energy-efficient solution, compatible with all wireless technologies including LTE, 5G, Wi-Fi and IoT networks. It provides secure,‘zero-loss’, high-performance indoor coverage with significantly lower CapEX and OpEX compared to traditional in-building wireless technologies.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-528740e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="528740e" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-9f3a109" data-id="9f3a109" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-0351cbd elementor-widget elementor-widget-image" data-id="0351cbd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.7.4 - 31-08-2022 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img src="https://cellium.net/wp-content/uploads/elementor/thumbs/TCO-savings-q6cwo17w3r6twviafqxrqterjbxnyanpfswd6d73zc.png" title="" alt="">															</div>
+				</div>
+				<div class="elementor-element elementor-element-00aac25 elementor-widget elementor-widget-heading" data-id="00aac25" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">TCO savings (CapEX &amp; OpEX) up to
+
+
+ </h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-a8b5d77 elementor-widget elementor-widget-heading" data-id="a8b5d77" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h5 class="elementor-heading-title elementor-size-default">75%</h5>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-ea45a81" data-id="ea45a81" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c6e994e elementor-widget elementor-widget-image" data-id="c6e994e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img src="https://cellium.net/wp-content/uploads/elementor/thumbs/Out-performs-q6cwvh3w7jdjtqp5zgqfzft4u599w177gmtqy85wq0.png" title="" alt="">															</div>
+				</div>
+				<div class="elementor-element elementor-element-f1ccb7b elementor-widget elementor-widget-heading" data-id="f1ccb7b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Out-performs traditional
+deployment
+options</h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-bd184dd" data-id="bd184dd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1dfda09 elementor-widget elementor-widget-image" data-id="1dfda09" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img src="https://cellium.net/wp-content/uploads/elementor/thumbs/Compatible-with-q6cww7fdiwdkutmxps3zx961gxnjvk3ow93cdz2vvs.png" title="" alt="">															</div>
+				</div>
+				<div class="elementor-element elementor-element-1116736 elementor-widget elementor-widget-heading" data-id="1116736" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Agnostic to any to any 3rd party RAN
+equipment and RAN topology
+</h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e29d90c" data-id="e29d90c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4834699 elementor-widget elementor-widget-image" data-id="4834699" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img src="https://cellium.net/wp-content/uploads/elementor/thumbs/Sub-7-q7a45tzhyp7ff5uzq2lu5t10emi6bkx9r0fk75wezy.png" title="" alt="">															</div>
+				</div>
+				<div class="elementor-element elementor-element-7f1adba elementor-widget elementor-widget-heading" data-id="7f1adba" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Compatible with any Sub-7 GHz cellular frequency (LTE, 5G, Wi-Fi &amp; IoT)</h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-7875033" data-id="7875033" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b1581c6 elementor-widget elementor-widget-image" data-id="b1581c6" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img src="https://cellium.net/wp-content/uploads/elementor/thumbs/No-interoperability-q6cwvw5b8vy4zi3bjn8h3c0icb75b6uwup9imnjlyg.png" title="" alt="">															</div>
+				</div>
+				<div class="elementor-element elementor-element-e57e785 elementor-widget elementor-widget-heading" data-id="e57e785" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Minimal interoperability with 3rd party RAN equipment</h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-930abf0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="930abf0" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-40c97f1" data-id="40c97f1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-fe1c747 elementor-widget elementor-widget-heading" data-id="fe1c747" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">What is Cellium’s EdgeAir?</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-38cf095 elementor-widget elementor-widget-text-editor" data-id="38cf095" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><span style="color: #1a0077;">Cellium’s EdgeAir antenna sub-system connects to any 3rd party outdoor RAN equipment, in any Sub-7GHz frequency&nbsp;</span><span style="color: #1a0077;">band (<span style="color: #000000;">LTE, 5G, Wi-Fi and IoT</span>) and re-transmits the original RF frequency throughout the indoor space via multiple&nbsp;</span><span style="color: #1a0077;">Cellium Remote Units (CRU’s) providing in-building cellular coverage up to ~750,000 sq ft. (70,000 sq m).</span></p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-bcd7b53 elementor-widget elementor-widget-image" data-id="bcd7b53" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="839" height="354" src="https://cellium.net/wp-content/uploads/2023/05/Cellium-Home-idoor-deployment-Example.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://cellium.net/wp-content/uploads/2023/05/Cellium-Home-idoor-deployment-Example.png 839w, https://cellium.net/wp-content/uploads/2023/05/Cellium-Home-idoor-deployment-Example-300x127.png 300w, https://cellium.net/wp-content/uploads/2023/05/Cellium-Home-idoor-deployment-Example-768x324.png 768w" sizes="(max-width: 839px) 100vw, 839px">															</div>
+				</div>
+				<div class="elementor-element elementor-element-26e5636 elementor-widget elementor-widget-heading" data-id="26e5636" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Why is EdgeAir different?</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-9f20725 elementor-widget elementor-widget-text-editor" data-id="9f20725" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><span style="color: #1a0077;">The ‘magic’ of EdgeAir lies in the use of Cellium’s proprietary SoC (System on a Chip), by simply connecting EdgeAir to the external 3rd party RAN equipment via the antenna ports, it allows for the original Sub 7 GHz radio frequency to be down converted to intermediate frequency and distributed via the existing in-building coax cables (Cat 6, Cat 6A, Cat 7) to Cellium’s RU’s located throughout the building. The SoC in each of Cellium’s RU’s up-converts the IF frequency back to the original RF frequency to provide high-performance indoor coverage.</span></p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-b795ac2 elementor-align-left elementor-widget elementor-widget-button" data-id="b795ac2" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://cellium.net/technology/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Learn more</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-c44e082 elementor-widget elementor-widget-heading" data-id="c44e082" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Higher Performance at a lower cost</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-8651b74 elementor-widget elementor-widget-text-editor" data-id="8651b74" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><span style="color: #1a0077;">By using in-building ethernet copper cables, Cellium’s EdgeAir antenna sub-system is a cost-effective indoor wireless solution that provides coverage without any compromise in performance. Cellium’s EdgeAir, compared to traditional 5G in-building deployment technologies, offers significant savings in both CapEX and OpEx (up to 75%). By making the right indoor deployment choice, system integrators, enterprise owners and mobile network operators can offer their customers a high-performance in-building wireless solution without the associated high costs with traditional indoor deployment solutions.</span></p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-cd080da elementor-widget elementor-widget-image" data-id="cd080da" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="1326" height="766" src="https://cellium.net/wp-content/uploads/2023/05/Cellium-Comparison.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://cellium.net/wp-content/uploads/2023/05/Cellium-Comparison.png 1326w, https://cellium.net/wp-content/uploads/2023/05/Cellium-Comparison-300x173.png 300w, https://cellium.net/wp-content/uploads/2023/05/Cellium-Comparison-1024x592.png 1024w, https://cellium.net/wp-content/uploads/2023/05/Cellium-Comparison-768x444.png 768w" sizes="(max-width: 1326px) 100vw, 1326px">															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a7278d1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a7278d1" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-caea8c6" data-id="caea8c6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-b208b10 elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b208b10" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3d44891" data-id="3d44891" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-b544de8 elementor-widget elementor-widget-heading" data-id="b544de8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Operators (Single &amp; Multi-Tenant),<br>
+Neutral Host &amp; Private Networks</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2864c07 elementor-widget elementor-widget-text-editor" data-id="2864c07" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Any Sub 7-GHz outdoor RF frequency can be redistributed indoors without the associated high cost, interoperability and performance issues that traditional in-building cellular solutions currently offer.</p>
+<p>Cellium’s agnostic approach to indoor coverage can be used across all indoor vertical scenarios. Cellium’s EdgeAir family consists of a single or multi-tenant variant for MNO’s and a single-tenant variant for Private 5G that provides high-performance, capacity and coverage without compromising on performance.</p>
+<p>Highly scalable, with the option to add additional CRU’s (up to 64) to provide high-performance coverage for any indoor environment up to ~750,000 sq ft (~70,000 sq m).</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-0c05f9e elementor-align-left elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="0c05f9e" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="/solutions" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">EdgeAir Solutions</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-05fe7ba elementor-align-left elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="05fe7ba" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://cellium.net/wp-content/uploads/2023/08/Cellium-Infographic-August-2023.pdf" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">EdgeAir Infographic</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-75d0d1a" data-id="75d0d1a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-0a7a426 elementor-widget elementor-widget-image" data-id="0a7a426" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="800" height="800" src="https://cellium.net/wp-content/uploads/2023/06/Cellium-Buildings-3d-illustrations.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://cellium.net/wp-content/uploads/2023/06/Cellium-Buildings-3d-illustrations.png 800w, https://cellium.net/wp-content/uploads/2023/06/Cellium-Buildings-3d-illustrations-300x300.png 300w, https://cellium.net/wp-content/uploads/2023/06/Cellium-Buildings-3d-illustrations-150x150.png 150w, https://cellium.net/wp-content/uploads/2023/06/Cellium-Buildings-3d-illustrations-768x768.png 768w" sizes="(max-width: 800px) 100vw, 800px">															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ec3324e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ec3324e" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-8ca2059" data-id="8ca2059" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e74c45a elementor-widget elementor-widget-html" data-id="e74c45a" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<div class="yellow-bar"> </div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-dcbc24f" data-id="dcbc24f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9631107 elementor-widget elementor-widget-heading" data-id="9631107" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Ask Us Anything. </h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d1f9a29 elementor-widget elementor-widget-heading" data-id="d1f9a29" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Anytime.</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-41df0d6 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="41df0d6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>The Cellium Technologies team is looking forward to talking to you. Please reach out for more general information about our indoor solutions, an in-depth technical discussion or to arrange an in-person demo.</p><p>For more general inquires please write or send us an email.</p><p>• 26 Habarzel St. Tel Aviv 6971036, Israel</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-f8d203f elementor-align-left elementor-widget elementor-widget-button" data-id="f8d203f" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://cellium.net/contact-us/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Contact Us</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+							</div>
+		<!-- Footer -->
+<footer class="site-footer u-section-even" id="colophon">
+	<div class="container">
+		<div class="contact" id="contact">
+			<p class="contact-title h2">Ready to be part of the indoor<br> wireless connectivity revolution? </p>
+			<div class="contact-form">
+				<strong class="contact-sub-title">Contact Us!</strong>
+				<div role="form" class="wpcf7" id="wpcf7-f78-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f78-o1" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="78">
+<input type="hidden" name="_wpcf7_version" value="5.4.2">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f78-o1">
+<input type="hidden" name="_wpcf7_container_post" value="0">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+</div>
+<label class="wpcf7-label"><span class="wpcf7-label-text">Name*</span> <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span></label>
+<label class="wpcf7-label"><span class="wpcf7-label-text">Phone*</span> <span class="wpcf7-form-control-wrap your-phone"><input type="text" name="your-phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span></label>
+<label class="wpcf7-label"><span class="wpcf7-label-text">Email*</span> <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span></label>
+<label class="wpcf7-label"><span class="wpcf7-label-text">Company*</span> <span class="wpcf7-form-control-wrap your-company"><input type="text" name="your-company" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span></label>
+<label class="wpcf7-label"><span class="wpcf7-label-text">Message</span> <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span></label>
+<label class="wpcf7-label"><span class="wpcf7-label-text">Which is bigger, 3 or 7?</span> <span class="wpcf7-form-control-wrap quiz-596"><label><span class="wpcf7-quiz-label">Which is bigger, 3 or 7?</span> <input type="text" name="quiz-596" size="40" class="wpcf7-form-control wpcf7-quiz" autocomplete="off" aria-required="true" aria-invalid="false"></label><input type="hidden" name="_wpcf7_quiz_answer_quiz-596" value="c03fe834be14836efce1050a65a5921b"></span></label>
+
+
+<div class="wpcf7-submit-wrapper"><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"></div><p style="display: none !important;" class="akismet-fields-container" data-prefix="_wpcf7_ak_"><label>Δ<textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="_wpcf7_ak_js" value="17"><script type="rocketlazyloadscript">document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p><div class="wpcf7-response-output" aria-hidden="true"></div></form></div>			</div>
+		</div>
+		<div class="credits">
+			<div class="credits-logo">
+				<img src="https://cellium.net/wp-content/themes/cellium-by-dorzki/assets/images/icon.svg" alt="Cellium" class="credits-logo-image">
+			</div>
+			<div class="credits-contact">
+				<a href="mailto:info@cellium.net" class="credits-email">info@cellium.net</a>
+				<br>
+				26 Habarzel St.<br> Tel Aviv, Israel 6971036			</div>
+			<div class="credits-social">
+				<strong>Follow us:</strong>
+				<ul class="credits-social-list u-list-unstyled">
+					<li class="credits-social-item">
+						<a href="https://il.linkedin.com/company/cellium" class="credits-social-linkedin" target="_blank">
+							<svg class="credits-social-icon icon">
+								<use xlink:href="#linkedin"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="credits-social-item">
+						<a href="https://www.facebook.com/Cellium.net" class="credits-social-facebook" target="_blank">
+							<svg class="credits-social-icon icon">
+								<use xlink:href="#facebook"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="credits-social-item">
+						<a href="https://www.youtube.com/channel/UC49ocsbR9-cTyblfBvOGnpQ" class="credits-social-youtube" target="_blank">
+							<svg class="credits-social-icon icon">
+								<use xlink:href="#youtube"></use>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<p class="credits-text">Copyright © 2026 Cellium. All rights reserved.</p>
+		</div>
+	</div>
+</footer>
+<!-- /Footer -->
+
+<!-- Resources Modal -->
+<div class="modal resources-modal">
+	<div class="modal-inner">
+		<button class="modal-close">
+			<svg class="modal-icon icon">
+				<use xlink:href="#close"></use>
+			</svg>
+		</button>
+		<div class="modal-body">
+			[contact-form-7 404 "Not Found"]		</div>
+	</div>
+</div><!-- /Resources Modal -->
+
+<!-- Leadership Modal -->
+<div class="modal invert leadership-modal">
+	<div class="modal-inner">
+		<button class="modal-close">
+			<svg class="modal-icon icon">
+				<use xlink:href="#close"></use>
+			</svg>
+		</button>
+		<div class="modal-body">
+		</div>
+	</div>
+</div><!-- /Leadership Modal -->
+
+<!-- Site Icons -->
+<div class="site-icons">
+	<!--?xml version="1.0" encoding="utf-8"?--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="0 0 50 65" id="antenna" xmlns="http://www.w3.org/2000/svg"><path class="ast0" d="M24.9 11c-4 0-7.3 3.3-7.3 7.3s3.3 7.3 7.3 7.3 7.3-3.3 7.3-7.3-3.3-7.3-7.3-7.3zm0 10.4c-1.7 0-3.1-1.4-3.1-3.1s1.4-3.1 3.1-3.1c1.7 0 3.2 1.4 3.2 3.1s-1.4 3.1-3.2 3.1z"></path><path class="ast0" d="M16.9 10.1c.8-.8.8-2.1 0-2.9-.8-.8-2.1-.8-2.9 0-6 6-6 15.9 0 21.9.4.4.9.6 1.5.6.5 0 1.1-.2 1.5-.6.8-.8.8-2.1 0-2.9-4.6-4.4-4.6-11.6-.1-16.1zm19-2.9c-.8-.8-2.1-.8-2.9 0-.8.8-.8 2.1 0 2.9 2.2 2.2 3.4 5 3.4 8.1s-1.2 5.9-3.4 8.1c-.8.8-.8 2.1 0 2.9.4.4.9.6 1.5.6.5 0 1.1-.2 1.5-.6 2.9-2.9 4.6-6.8 4.6-11-.1-4.1-1.8-8-4.7-11z"></path><path class="ast0" d="M4.1 18.2c0-5.6 2.2-10.8 6.1-14.7.8-.8.8-2.1 0-2.9-.8-.8-2.1-.8-2.9 0C2.6 5.3 0 11.6 0 18.2c0 6.7 2.6 12.9 7.3 17.6.4.4.9.6 1.5.6.5 0 1.1-.2 1.5-.6.8-.8.8-2.1 0-2.9-4-3.9-6.2-9.1-6.2-14.7zM42.5.6c-.8-.8-2.1-.8-2.9 0-.8.8-.8 2.1 0 2.9 8.1 8.1 8.1 21.4 0 29.5-.8.8-.8 2.1 0 2.9.4.4.9.6 1.5.6s1.1-.2 1.5-.6c9.7-9.7 9.7-25.6-.1-35.3zM16.8 38.1l2.9-2.9L41 56.9l-3 2.9z"></path><path class="ast0" d="M8.9 56.9l21.4-21.7 2.9 2.9-21.4 21.7z"></path><path class="ast0" d="M43.1 62.2L28.8 22.4c-.4-1.1-1.6-1.6-2.6-1.2-1.1.4-1.6 1.6-1.2 2.6l14.3 39.8c.3.8 1.1 1.4 1.9 1.4.2 0 .5 0 .7-.1 1-.4 1.6-1.6 1.2-2.7z"></path><path class="ast0" d="M23.8 21.2c-1.1-.4-2.2.2-2.6 1.2L6.8 62.2c-.4 1.1.2 2.2 1.2 2.6.2.1.5.2.7.2.8 0 1.6-.5 1.9-1.4L25 23.8c.4-1-.1-2.2-1.2-2.6z"></path></symbol><symbol viewBox="0 0 19.1 19.1" id="close" xmlns="http://www.w3.org/2000/svg"><path class="bst0" d="M-.065 16.97L16.905 0l2.122 2.121-16.97 16.97z"></path><path class="bst0" d="M-.065 2.121L2.056 0l16.97 16.97-2.12 2.122z"></path></symbol><symbol viewBox="0 0 30 30" id="facebook" xmlns="http://www.w3.org/2000/svg"><path class="cst0" d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm3.7 15.5h-2.4v8.7h-3.6v-8.7H11v-3.1h1.7v-2c0-1.4.7-3.6 3.6-3.6H19v3h-1.9c-.3 0-.8.2-.8.8v1.8H19l-.3 3.1z"></path></symbol><symbol id="file" viewBox="0 0 390 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><style>.dst0{fill:#656fe3}</style><path class="dst0" d="M385.6 124.4l-120-120C262.8 1.6 259 0 255 0H45C20.2 0 0 20.2 0 45v422c0 24.8 20.2 45 45 45h300c24.8 0 45-20.2 45-45V135c0-4.1-1.7-7.9-4.4-10.6zM270 51.2l68.8 68.8H285c-8.3 0-15-6.7-15-15V51.2zM345 482H45c-8.3 0-15-6.7-15-15V45c0-8.3 6.7-15 15-15h195v75c0 24.8 20.2 45 45 45h75v317c0 8.3-6.7 15-15 15z"></path><path class="dst0" d="M285 212H105c-8.3 0-15 6.7-15 15s6.7 15 15 15h180c8.3 0 15-6.7 15-15s-6.7-15-15-15zm0 60H105c-8.3 0-15 6.7-15 15s6.7 15 15 15h180c8.3 0 15-6.7 15-15s-6.7-15-15-15zm0 60H105c-8.3 0-15 6.7-15 15s6.7 15 15 15h180c8.3 0 15-6.7 15-15s-6.7-15-15-15zm-60 60H105c-8.3 0-15 6.7-15 15s6.7 15 15 15h120c8.3 0 15-6.7 15-15s-6.7-15-15-15z"></path></symbol><symbol id="link" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><style>.est0{fill:#656fe3}</style><path class="est0" d="M212.3 390.2L152 450.5c-25 25-65.5 25-90.5 0s-25-65.5 0-90.5l120.7-120.7c25-25 65.5-25 90.5 0 8.3 8.3 21.8 8.3 30.2 0 8.3-8.3 8.3-21.8 0-30.2-41.7-41.7-109.2-41.7-150.8 0L31.2 329.9c-41.7 41.7-41.7 109.2 0 150.8 41.6 41.7 109.2 41.7 150.9 0l60.3-60.3c8.3-8.3 8.3-21.8 0-30.2s-21.8-8.3-30.1 0z"></path><path class="est0" d="M480.8 31.2c-41.7-41.7-109.2-41.7-150.9 0l-72.4 72.4c-8.3 8.3-8.3 21.8 0 30.2 8.3 8.3 21.8 8.3 30.2 0l72.4-72.4c25-25 65.5-25 90.5 0s25 65.5 0 90.5L317.8 284.6c-25 25-65.5 25-90.5 0-8.3-8.3-21.8-8.3-30.2 0s-8.3 21.8 0 30.2c41.7 41.7 109.2 41.7 150.8 0l132.7-132.7c41.8-41.7 41.8-109.2.2-150.9z"></path></symbol><symbol viewBox="0 0 33 33" id="linkedin" xmlns="http://www.w3.org/2000/svg"><path class="fst0" d="M16.5 0C7.4 0 0 7.4 0 16.5S7.4 33 16.5 33 33 25.6 33 16.5 25.6 0 16.5 0zm-4.8 24.9h-4v-12h4v12zm-2-13.7c-1.4 0-2.2-.9-2.2-2.1C7.4 7.9 8.3 7 9.7 7s2.2.9 2.2 2.1c.1 1.2-.8 2.1-2.2 2.1zm16.5 13.7h-4v-6.5c0-1.6-.6-2.7-2-2.7-1.1 0-1.8.7-2.1 1.5-.1.3-.1.6-.1 1V25h-4s.1-11 0-12.1h4v1.7c.5-.8 1.5-2 3.6-2 2.6 0 4.6 1.7 4.6 5.4v6.9z"></path></symbol><symbol viewBox="0 0 34 34" id="play" xmlns="http://www.w3.org/2000/svg"><path class="gst0" d="M22.6 16.3l-7-5.1c-.3-.2-.6-.2-.9-.1-.3.1-.5.4-.5.8v10.2c0 .3.2.6.5.8.1.1.3.1.4.1.2 0 .4-.1.5-.2l7-5.1c.2-.2.4-.4.4-.7-.1-.3-.2-.5-.4-.7z"></path><path class="gst0" d="M17 0C7.6 0 0 7.6 0 17s7.6 17 17 17 17-7.6 17-17c-.1-9.4-7.7-17-17-17zm0 31.1C9.2 31.1 2.8 24.8 2.8 17S9.2 2.8 17 2.8c7.8 0 14.1 6.3 14.1 14.1 0 7.9-6.3 14.2-14.1 14.2z"></path></symbol><symbol viewBox="0 0 71.3 51.8" id="router" xmlns="http://www.w3.org/2000/svg"><path class="hst0" d="M69.1 29.8H56.9L71 4c.6-1 .2-2.3-.8-2.8s-2.3-.2-2.8.8L52.2 29.8H19L3.9 2C3.4 1 2.1.6 1.1 1.2.1 1.7-.3 3 .3 4l14 25.8H2.1c-1.2 0-2.1.9-2.1 2.1v17.8c0 1.2.9 2.1 2.1 2.1h67c1.2 0 2.1-.9 2.1-2.1V31.9c0-1.1-.9-2.1-2.1-2.1zM67 47.6H4.2V34H67v13.6z"></path><path class="hst0" d="M30.2 20.6c-.8.8-.8 2 0 2.8s2.1.8 2.9 0c1.4-1.3 3.6-1.3 4.9 0 .8.8 2.1.8 2.9 0 .8-.8.8-2 0-2.8-2.9-2.8-7.7-2.8-10.7 0zM47.5 17c.8-.8.8-2.1 0-2.9-6.3-6.4-16.6-6.4-22.9 0-.8.8-.8 2.1 0 2.9s2.1.8 2.9 0c4.7-4.8 12.4-4.8 17.1 0 .8.8 2.1.8 2.9 0z"></path><path class="hst0" d="M21.1 10.5c8.3-8.4 21.6-8.4 29.9 0 .8.8 2.1.8 2.9 0 .8-.8.8-2.2 0-3-9.9-10-25.9-10-35.8 0-.8.8-.8 2.2 0 3 .9.8 2.2.8 3 0zm32.3 27.4H17.8c-1.2 0-2.1 1-2.1 2.3s.9 2.3 2.1 2.3h35.6c1.2 0 2.1-1 2.1-2.3 0-1.2-.9-2.3-2.1-2.3z"></path></symbol><symbol id="video" viewBox="0 0 512.2 387.9" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><style>.ist0{fill:#656fe3}</style><path class="ist0" d="M334.8 171l-113.1-61.9c-6.5-3.6-14.2-3.4-20.6.4-6.4 3.8-10.2 10.5-10.2 17.9V250c0 7.4 3.8 14 10.1 17.8 3.3 2 7 3 10.7 3 3.4 0 6.7-.8 9.8-2.5l113.1-60.8c6.7-3.6 10.9-10.6 10.9-18.2.1-7.6-4-14.6-10.7-18.3zm-113.9 63.6v-91.7l84.5 46.3-84.5 45.4z"></path><path class="ist0" d="M508.2 91.5v-.2c-.4-4.1-4.8-40.8-22.6-59.4C465 9.9 441.7 7.3 430.5 6c-.9-.1-1.8-.2-2.5-.3l-.9-.1C359.3.7 257.1 0 256.1 0h-.2c-1 0-103.2.7-171.5 5.6l-.9.1c-.7.1-1.5.2-2.4.3C70 7.3 46.9 9.9 26.2 32.7 9.2 51.1 4.3 87 3.8 91l-.1.5C3.6 93.2 0 134.1 0 175.1v38.3c0 41 3.6 81.8 3.8 83.5v.3c.4 4.1 4.7 40 22.5 58.7 19.4 21.2 43.9 24 57 25.5 2.1.2 3.9.4 5.1.7l1.2.2c39.1 3.7 161.6 5.6 166.8 5.6h.4c1 0 103.2-.7 170.9-5.6l.9-.1c.9-.1 1.8-.2 2.9-.3 11-1.2 34-3.6 54.4-26 17-18.4 21.9-54.3 22.4-58.3l.1-.5c.2-1.7 3.8-42.5 3.8-83.5v-38.3c-.2-41.2-3.8-82.1-4-83.8zM482 213.4c0 37.9-3.3 77-3.6 80.6-1.3 9.9-6.4 32.6-14.7 41.6-12.8 14-25.8 15.4-35.4 16.4-1.2.1-2.2.2-3.2.4-65.5 4.7-163.8 5.5-168.4 5.5-5.1-.1-125.8-1.9-163.7-5.4-1.9-.3-4-.6-6.2-.8-11.2-1.3-26.6-3-38.4-16l-.3-.3c-8.1-8.5-13.2-29.7-14.4-41.1-.2-2.7-3.6-42.2-3.6-80.7v-38.3c0-37.9 3.3-76.9 3.6-80.6 1.5-11.6 6.8-33 14.7-41.6C61.5 38.6 75.4 37 84.6 36c.9-.1 1.7-.2 2.4-.3 66.4-4.8 165.5-5.5 169-5.5 3.6 0 102.6.7 168.4 5.5.8.1 1.7.2 2.6.3 9.4 1.1 23.7 2.7 36.7 16.6l.1.1c8.1 8.5 13.2 30.1 14.4 41.8.2 2.6 3.6 42.2 3.6 80.7v38.2h.2z"></path></symbol><symbol viewBox="0 0 30 30" id="youtube" xmlns="http://www.w3.org/2000/svg"><path class="jst0" d="M7.9 16.1H9v6.4h1.1v-6.4h1.2V15H7.9v1.1zm9.5.8c-.4 0-.7.2-1 .6V15h-1v7.5h1V22c.3.4.7.6 1 .6.4 0 .7-.2.8-.6.1-.2.1-.6.1-1.1v-2.2c0-.5 0-.9-.1-1.1-.2-.5-.4-.7-.8-.7zm-.2 4c0 .5-.1.8-.4.8-.2 0-.3-.1-.5-.2V18c.2-.2.3-.2.5-.2.3 0 .4.3.4.8v2.3zm-3.8.3c-.2.3-.4.5-.6.5-.1 0-.2-.1-.2-.2V17h-1v4.4c0 .4 0 .7.1.8.1.3.3.4.6.4.4 0 .8-.2 1.2-.7v.6h1v-5.6h-1c-.1 0-.1 4.3-.1 4.3zm.9-9.4c.3 0 .5-.3.5-.8V8.6c0-.5-.2-.8-.5-.8s-.5.3-.5.8V11c0 .5.2.8.5.8z"></path><path class="jst0" d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.2 0 15 0zm1.6 7h1v4.5c0 .2.1.2.2.2.2 0 .4-.2.6-.5V7h1v5.6h-1V12c-.4.5-.8.7-1.2.7-.3 0-.6-.1-.7-.4-.1-.2-.1-.4-.1-.8.2-.1.2-4.5.2-4.5zm-3.8 1.8c0-.6.1-1 .3-1.3.3-.4.7-.6 1.2-.6s.9.2 1.2.6c.2.3.3.7.3 1.3v2c0 .6-.1 1-.3 1.3-.3.4-.7.6-1.2.6s-.9-.2-1.2-.6c-.2-.3-.3-.7-.3-1.3v-2zM10 5.1l.8 3 .8-3h1.1l-1.4 4.5v3.1h-1.1V9.6c0-.6-.3-1.4-.6-2.4-.3-.7-.5-1.4-.7-2.1H10zM23 23c-.2.9-.9 1.5-1.8 1.6-2.1.2-4.2.2-6.3.2-2.1 0-4.2 0-6.2-.2-.9-.1-1.6-.8-1.8-1.6-.3-1.3-.3-2.6-.3-3.9s0-2.7.3-3.9c.2-.9.9-1.5 1.8-1.6 2.1-.2 4.2-.2 6.3-.2 2.1 0 4.2 0 6.3.2.9.1 1.6.8 1.8 1.6.3 1.3.3 2.6.3 3.9s-.1 2.6-.4 3.9z"></path><path class="jst0" d="M20.6 16.9c-.5 0-.9.2-1.2.6-.2.3-.3.7-.3 1.3v2c0 .6.1 1 .3 1.3.3.4.7.6 1.2.6s.9-.2 1.2-.6c.1-.2.2-.4.2-.6v-.7h-1v.7c-.1.3-.2.4-.5.4s-.5-.3-.5-.8v-1h2v-1.2c0-.6-.1-1-.3-1.3-.2-.6-.6-.7-1.1-.7zm.5 2.1h-1v-.5c0-.5.2-.8.5-.8s.5.3.5.8v.5z"></path></symbol></svg></div>
+<!-- /Site Icons -->
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.7" id="regenerator-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/cellium.net\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1691497427" id="contact-form-7-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/themes/cellium-by-dorzki/assets/js/vendor/slick.min.js?ver=2.2.1" id="slick-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/themes/cellium-by-dorzki/assets/js/vendor/flickity.min.js?ver=2.2.1" id="flickity-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/themes/cellium-by-dorzki/assets/js/vendor/flickity-fade.min.js?ver=1.0.0" id="flickity-fade-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/themes/cellium-by-dorzki/assets/js/main.min.js?ver=1.0.0" id="cellium-scripts-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/themes/cellium-by-dorzki/assets/js/pages/homepage.min.js?ver=1.0.0" id="cellium-homepage-js" defer=""></script>
+<script type="text/javascript" src="https://cellium.net/wp-includes/js/wp-embed.min.js?ver=5.8.12" id="wp-embed-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" defer="" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/cache/min/1/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1709819352" id="akismet-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.7.4" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.7.4" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.7.4","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"additional_custom_breakpoints":true,"e_import_export":true,"e_hidden_wordpress_widgets":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true},"urls":{"assets":"https:\/\/cellium.net\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":453,"title":"Cellium%20-%20Indoor%20Wireless%20Done%20Right","excerpt":"","featuredImage":false}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.7.4" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/piotnet-addons-for-elementor-pro/assets/js/minify/purify.min.js?ver=7.1.26" id="purify-js" defer=""></script>
+<script type="text/javascript" id="pafe-custom-css-script-js-extra">
+/* <![CDATA[ */
+var elementData = {"postID":"453"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/cache/min/1/wp-content/plugins/piotnet-addons-for-elementor-pro/assets/js/minify/custom-css.js?ver=1707495554" id="pafe-custom-css-script-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-includes/js/underscore.min.js?ver=1.13.1" id="underscore-js" defer=""></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-includes/js/wp-util.min.js?ver=5.8.12" id="wp-util-js" defer=""></script>
+<script type="text/javascript" id="wpforms-elementor-js-extra">
+/* <![CDATA[ */
+var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" src="https://cellium.net/wp-content/plugins/wpforms-lite/assets/js/integrations/elementor/frontend.min.js?ver=1.8.7.2" id="wpforms-elementor-js" defer=""></script>
+<div class="pafe-break-point" data-pafe-break-point-md="767" data-pafe-break-point-lg="1024" data-pafe-ajax-url="https://cellium.net/wp-admin/admin-ajax.php"></div><div data-pafe-form-builder-tinymce-upload="https://cellium.net/wp-content/plugins/piotnet-addons-for-elementor-pro/inc/tinymce/tinymce-upload.php"></div><div data-pafe-plugin-url="https://cellium.net/wp-content/plugins"></div>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>

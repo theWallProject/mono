@@ -1,0 +1,1354 @@
+<!DOCTYPE html><html lang="en-US"><!--<![endif]--><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.4",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+	<!-- Google Tag Manager -->
+	<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TXXQWBDK');</script>
+	<!-- End Google Tag Manager -->
+
+	
+	<title>Pima Electronic Systems | Residential &amp; Commercial Security Systems</title>
+<link data-rocket-prefetch="" href="https://www.gstatic.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.google-analytics.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://fonts.googleapis.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://accessible.vagas.co.il" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.google.com" rel="dns-prefetch">
+<link data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C300%2Cregular%2C700%2C900%7COpen%20Sans%3A300%7CIndie%20Flower%3Aregular%7COswald%3A300%2Cregular%2C700%7CRoboto%3A400&amp;subset=latin%2Clatin-ext&amp;display=swap" rel="preload">
+<link href="https://fonts.googleapis.com/css?family=Lato%3A100%2C300%2Cregular%2C700%2C900%7COpen%20Sans%3A300%7CIndie%20Flower%3Aregular%7COswald%3A300%2Cregular%2C700%7CRoboto%3A400&amp;subset=latin%2Clatin-ext&amp;display=swap" media="all" onload="this.media='all'" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C300%2Cregular%2C700%2C900%7COpen%20Sans%3A300%7CIndie%20Flower%3Aregular%7COswald%3A300%2Cregular%2C700%7CRoboto%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap"></noscript><link rel="preload" data-rocket-preload="" as="image" href="https://www.pima-alarms.com/wp-content/uploads/FORCE-eng-693x559-png.png" fetchpriority="high">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="pingback" href="https://www.pima-alarms.com/xmlrpc.php">
+
+	<link rel="apple-touch-icon" href="https://www.pima-alarms.com/wp-content/themes/omega/assets/images/favicons/apple-touch-icon-precomposed.png">	<link rel="apple-touch-icon" href="https://www.pima-alarms.com/wp-content/themes/omega/assets/images/favicons/apple-touch-icon-114x114-precomposed.png" sizes="114x114">	<link rel="apple-touch-icon" href="https://www.pima-alarms.com/wp-content/themes/omega/assets/images/favicons/apple-touch-icon-72x72-precomposed.png" sizes="72x72">		<link rel="shortcut icon" href="https://www.pima-alarms.com/wp-content/uploads/PIMA-Eng-fav-logo.ico">
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">var ajaxurl = "https://www.pima-alarms.com/wp-admin/admin-ajax.php";</script>
+	
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.1.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<meta name="description" content="Pima Electronic Systems provide an overall commercial &amp; residential security solutions. We manufacture &amp; distribute our high quality security products worldwide. Alarm Systems, Keypads, Detectors &amp; Sensors, Monitoring Stations Solutions &amp; More. Enter to watch our catalog.">
+	<link rel="canonical" href="https://www.pima-alarms.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Pima Electronic Systems | Residential &amp; Commercial Security Systems">
+	<meta property="og:description" content="Pima Electronic Systems provide an overall commercial &amp; residential security solutions. We manufacture &amp; distribute our high quality security products worldwide. Alarm Systems, Keypads, Detectors &amp; Sensors, Monitoring Stations Solutions &amp; More. Enter to watch our catalog.">
+	<meta property="og:url" content="https://www.pima-alarms.com/">
+	<meta property="og:site_name" content="פימא מערכות אלקטרוניות">
+	<meta property="article:modified_time" content="2024-08-06T05:20:42+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.pima-alarms.com/","url":"https://www.pima-alarms.com/","name":"Pima Electronic Systems | Residential & Commercial Security Systems","isPartOf":{"@id":"https://www.pima-alarms.com/#website"},"datePublished":"2017-08-31T07:26:17+00:00","dateModified":"2024-08-06T05:20:42+00:00","description":"Pima Electronic Systems provide an overall commercial & residential security solutions. We manufacture & distribute our high quality security products worldwide. Alarm Systems, Keypads, Detectors & Sensors, Monitoring Stations Solutions & More. Enter to watch our catalog.","breadcrumb":{"@id":"https://www.pima-alarms.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.pima-alarms.com/"]}]},{"@type":"BreadcrumbList","@id":"https://www.pima-alarms.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.pima-alarms.com/#website","url":"https://www.pima-alarms.com/","name":"פימא מערכות אלקטרוניות","description":"Intruder Alarm Systems and CMS Software Company","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.pima-alarms.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="פימא מערכות אלקטרוניות » Feed" href="https://www.pima-alarms.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="פימא מערכות אלקטרוניות » Comments Feed" href="https://www.pima-alarms.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="פימא מערכות אלקטרוניות » Homepage Comments Feed" href="https://www.pima-alarms.com/homepage2-2/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.pima-alarms.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.pima-alarms.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.pima-alarms.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.pima-alarms.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="layerslider-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/plugins/LayerSlider/assets/static/layerslider/css/layerslider.css?ver=1770736528" type="text/css" media="all">
+
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="https://www.pima-alarms.com/wp-includes/css/dist/block-library/style.min.css?ver=6.9.4" type="text/css" media="all">
+
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="rs-plugin-settings-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=1770736529" type="text/css" media="all">
+<style id="rs-plugin-settings-inline-css" type="text/css">
+#rs-demo-id {}
+/*# sourceURL=rs-plugin-settings-inline-css */
+</style>
+<link rel="stylesheet" id="theme-my-login-css" href="https://www.pima-alarms.com/wp-content/plugins/theme-my-login/assets/styles/theme-my-login.min.css?ver=7.1.14" type="text/css" media="all">
+<link rel="stylesheet" id="wpml-legacy-dropdown-0-css" href="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/style.min.css?ver=1" type="text/css" media="all">
+<link rel="stylesheet" id="wpml-legacy-horizontal-list-0-css" href="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css?ver=1" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="child-style-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega-child-theme/style.css?ver=1770736529" type="text/css" media="all">
+<link rel="stylesheet" id="mediaelement-css" href="https://www.pima-alarms.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17" type="text/css" media="all">
+<link rel="stylesheet" id="wp-mediaelement-css" href="https://www.pima-alarms.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.9.4" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-bootstrap-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/bootstrap.min.css?ver=1770736529" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-theme-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/theme.css?ver=1770736532" type="text/css" media="all">
+<link rel="stylesheet" id="fullcalendar-css" href="https://www.pima-alarms.com/wp-content/themes/omega-child-theme/css/fullcalendar.min.css?ver=6.9.4" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="addons-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega-child-theme/addons.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="addons-responsive-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega-child-theme/addons-responsive.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-swatch-white-red-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/white-red.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-swatch-white-black-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/white-black.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-swatch-white-green-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/white-green.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-swatch-gray-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/gray.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-swatch-black-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/black.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-swatch-white-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/white.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-swatch-blue-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/blue.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="omega-vc-frontend-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/inc/assets/stylesheets/visual-composer/vc-frontend.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="y-style-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/themes/omega/assets/css/y-style.css?ver=1770736532" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="js_composer_front-css" href="https://www.pima-alarms.com/wp-content/cache/min/1/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=1770736532" type="text/css" media="all">
+<script type="text/javascript" id="wpml-cookie-js-extra">
+/* <![CDATA[ */
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"/"}};
+//# sourceURL=wpml-cookie-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=486900" id="wpml-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="layerslider-utils-js-extra">
+/* <![CDATA[ */
+var LS_Meta = {"v":"6.11.1","fixGSAP":"1"};
+//# sourceURL=layerslider-utils-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/LayerSlider/assets/static/layerslider/js/layerslider.utils.js?ver=6.11.1" id="layerslider-utils-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/LayerSlider/assets/static/layerslider/js/layerslider.kreaturamedia.jquery.js?ver=6.11.1" id="layerslider-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/LayerSlider/assets/static/layerslider/js/layerslider.transitions.js?ver=6.11.1" id="layerslider-transitions-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.0.2" id="tp-tools-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.2.6" id="revmin-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/script.min.js?ver=1" id="wpml-legacy-dropdown-0-js"></script>
+<script type="text/javascript" id="wpml-browser-redirect-js-extra">
+/* <![CDATA[ */
+var wpml_browser_redirect_params = {"pageLanguage":"en","languageUrls":{"en_us":"https://www.pima-alarms.com/","en":"https://www.pima-alarms.com/","us":"https://www.pima-alarms.com/","he_il":"https://www.pima-alarms.com/he/","he":"https://www.pima-alarms.com/he/","il":"https://www.pima-alarms.com/he/","es_es":"https://www.pima-alarms.com/es/","es":"https://www.pima-alarms.com/es/"},"cookie":{"name":"_icl_visitor_lang_js","domain":"www.pima-alarms.com","path":"/","expiration":24}};
+//# sourceURL=wpml-browser-redirect-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/dist/js/browser-redirect/app.js?ver=486900" id="wpml-browser-redirect-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/wp-charts/js/Chart.min.js?ver=6.9.4" id="charts-js-js"></script>
+<meta name="generator" content="Powered by LayerSlider 6.11.1 - Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider Plugin for WordPress.">
+<!-- LayerSlider updates and docs at: https://layerslider.kreaturamedia.com -->
+<link rel="https://api.w.org/" href="https://www.pima-alarms.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.pima-alarms.com/wp-json/wp/v2/pages/1404"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.pima-alarms.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="shortlink" href="https://www.pima-alarms.com/">
+<meta name="generator" content="WPML ver:4.8.6 stt:1,20,2;">
+<!-- BEGIN VGS Cookies Pop-Up -->
+<link href="https://accessible.vagas.co.il" rel="preconnect"><link href="https://www.google.com" rel="preconnect"></head><body class="home wp-singular page-template-default page page-id-1404 page-parent wp-theme-omega wp-child-theme-omega-child-theme not-logged-in-user en woo-cart-popup wpb-js-composer js-comp-ver-6.2.0 vc_responsive"><dialog id="vgs-cookies" closedby="none">
+	<div class="lang he-IL">
+		<h2><strong>מדיניות שימוש בפרטיות הגולש</strong></h2>  
+		<p>
+			שלום! 😊<br>
+			באתר זה אנו משתמשים בקבצי Cookies, כדי לאפשר לאתר לעבוד בצורה תקינה ולשפר את חוויית הגלישה שלך.<br>
+			למידע נוסף על השימוש שלנו בקוקיז ועל פרטיותך, מוזמן לקרוא את מדיניות <a style="color: #0000ff" href="https://www.pima-alarms.com/he/מדיניות-פרטיות/">הפרטיות שלנו</a>.</p>
+		<div class="accept"><p>בלחיצה על "מאשר" אתה מסכים לתנאי השימוש שלנו בקוקיז.<br>המשך שימוש באתר מהווה אישור והסכמה למדיניות הפרטיות שלנו.</p><button><span style="font-size:90%">✔</span> מאשר</button></div>		
+	</div>
+	<div class="lang en-US">
+		<h2><strong>User Privacy Policy</strong></h2>
+		<p>
+		Hello! 😊<br>
+		On this site we use cookies to allow the site to work properly and improve your browsing experience.<br>
+		For more information about our use of cookies and your privacy, please read our <a style="color: #0000ff" href="https://www.pima-alarms.com/he/מדיניות-פרטיות/">privacy policy</a>.</p>
+		<div class="accept"><p>By clicking "Accept" you agree to our terms of use of cookies.<br>Continued use of the site constitutes approval and agreement to our privacy policy.</p><button><span style="font-size:90%">✔</span> Accept</button></div>		
+	</div>
+</dialog>
+<style>
+#vgs-cookies {
+  width: 500px;
+  max-width: 100%;
+  border-width: 5px;
+  border-radius: 5px;
+  border-color: rgb(192, 255, 192);
+  left: unset;
+  right: 0;
+  top: unset;
+  bottom: 0;
+  z-index: 2147483647;
+  max-height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  font-size: 80%;
+  line-height: 120%;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+
+#vgs-cookies .lang.en-US {
+	display: none;
+}
+
+html[lang^="en"] #vgs-cookies {
+	right: unset;
+	left: 0;
+}
+	
+html[lang^="en"] #vgs-cookies .lang.he-IL {
+	display: none;
+}
+html[lang^="en"] #vgs-cookies .lang.en-US {
+	display: block;
+}
+
+#vgs-cookies h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-transform: none;
+  font-size: 120%;
+}
+
+#vgs-cookies p {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+#vgs-cookies .accept {
+  text-align: center;
+}
+
+#vgs-cookies button {
+  width: 100%;
+  max-width: 8rem;
+  min-height: 2rem;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: rgb(0, 64, 0);
+  background: rgb(192, 255, 192);
+}
+</style>
+<script type="rocketlazyloadscript">
+{
+  const cookie_name = "vgs-cookies";  
+  function setCookie() {
+    var d = new Date();
+    d.setTime(new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1));
+    document.cookie = cookie_name + "=1;expires=" + d.toUTCString() + ";path=/";
+}
+  function isCookieSet(name) {
+    var _name = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i=0; i<ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(_name) == 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+  function showDialog() {  
+    const dialog = document.querySelector("#vgs-cookies");
+    const buttons = document.querySelectorAll("#vgs-cookies button");    
+    dialog.show();
+	for(var i=0;i<buttons.length;i++) {
+		buttons[i].addEventListener("click", () => {
+			dialog.close();
+			setCookie(); 
+		}); 
+	}
+  }
+  function ready(){
+    if(!isCookieSet(cookie_name)) showDialog();
+  }
+  
+  if (document.readyState !== 'loading') {
+    ready()
+  } else {
+    document.addEventListener('DOMContentLoaded', ready)
+  }
+}
+</script>
+<!-- END VGS Cookies Pop-Up -->
+    <style type="text/css" media="screen">
+        #masthead .navbar-brand{padding:0;line-height:73px;height:73px;}#masthead .navbar-brand img{left:0px;vertical-align:middle;max-height:100%;}#masthead .nav > li > a{padding-top:24.5px;padding-bottom:24.5px;}#masthead .nav > li > a:before{margin-bottom:- 10.25px;}#masthead .nav > li.active > a:before,#masthead .nav > li > a:hover:before,#masthead .nav > li.current-page-parent > a:before,#masthead .nav > li.current-menu-parent > a:before,#masthead .nav > li.current-page-ancestor > a:before,#masthead .nav > li.current-menu-ancestor > a:before{opacity:1;margin-bottom:- 12.25px;}#masthead .navbar-text{line-height:24px;margin-top:24.5px;margin-bottom:24.5px;}#masthead.navbar{min-height:73px;}#masthead.navbar-scrolled{min-height:60px;}#masthead.navbar-scrolled .navbar-brand{line-height:60px;height:60px;}#masthead.navbar-scrolled .navbar-nav > li > a{padding-top:18px;padding-bottom:18px;}#masthead.navbar-scrolled .navbar-text{margin-top:18px;margin-bottom:18px;}.navbar-toggle{margin-top:19.5px;margin-bottom:19.5px;}.navbar-scrolled .navbar-toggle{margin-top:13px;margin-bottom:13px;}#masthead .dropdown-menu{min-width:220px;}#masthead .search-close{top:0;height:73px;width:73px;}#masthead .menu-sidebar .form-control{height:73px;}#masthead.navbar-scrolled .menu-sidebar .search-close{top:0;height:60px;width:60px;}#masthead.navbar-scrolled .menu-sidebar .form-control{height:60px;}        .btn span{background:rgba(255, 255, 255, 0.2);}.btn i{color:#fff !important;}.btn-default{background:#231f20 !important;color:#fff !important;}.btn-default:hover{background:#404040 !important;}.btn-warning{background:#f0ad4e !important;color:#fff !important;}.btn-warning:hover{background:#ed9c28 !important;}.btn-danger{background:#bf2e1a !important;color:#fff !important;}.btn-danger:hover{background:#d62c1a !important;}.btn-success{background:#a3c36f !important;color:#fff !important;}.btn-success:hover{background:#b7d685 !important;}.btn-info{background:#5d89ac !important;color:#fff !important;}.btn-info:hover{background:#486f8e !important;}.pace-overlay{background:#fff;}.pace-dot .pace-progress-inner{background:#bf2e1a;}.pace-minimal .pace .pace-progress{background:#bf2e1a;}.pace-counter .pace .pace-progress:after{color:#bf2e1a;}.panel-default .panel-heading{background:#231f20 !important;}.panel-default .panel-heading a,.panel-default .panel-heading a:hover{color:#fff !important;}.panel-default .panel-title{color:#fff !important;}.panel-warning .panel-heading{background:#f0ad4e !important;}.panel-warning .panel-heading a,.panel-warning .panel-heading a:hover{color:#fff !important;}.panel-warning .panel-title{color:#fff !important;}.panel-danger .panel-heading{background:#bf2e1a !important;}.panel-danger .panel-heading a,.panel-danger .panel-heading a:hover{color:#fff !important;}.panel-danger .panel-title{color:#fff !important;}.panel-success .panel-heading{background:#a3c36f !important;}.panel-success .panel-heading a,.panel-success .panel-heading a:hover{color:#fff !important;}.panel-success .panel-title{color:#fff !important;}.panel-info .panel-heading{background:#5d89ac !important;}.panel-info .panel-heading a,.panel-info .panel-heading a:hover{color:#fff !important;}.panel-info .panel-title{color:#fff !important;}.alert-warning{background:#f0ad4e;color:#fff !important;}.alert-warning a{color:#fff !important;text-decoration:underline;}.alert-warning .btn,.alert-warning .button{background:#fff !important;color:#f0ad4e !important;text-decoration:none;}.alert-danger{background:#bf2e1a;color:#fff !important;}.alert-danger a{color:#fff !important;text-decoration:underline;}.alert-danger .btn,.alert-danger .button{background:#fff !important;color:#bf2e1a !important;text-decoration:none;}.alert-success{background:#a3c36f;color:#fff !important;}.alert-success a{color:#fff !important;text-decoration:underline;}.alert-success .btn,.alert-success .button{background:#fff !important;color:#a3c36f !important;text-decoration:none;}.alert-info{background:#5d89ac;color:#fff !important;}.alert-info a{color:#fff !important;text-decoration:underline;}.alert-info .btn,.alert-info .button{background:#fff !important;color:#5d89ac !important;text-decoration:none;}.progress-bar-default{box-shadow:none;background:#231f20;}.progress-bar-default span{color:#fff;}.progress-bar-default.progress-striped .progress-bar,.progress-striped .progress-bar-default{background-color:#231f20;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-warning{background:#f0ad4e;box-shadow:none;}.progress-bar-warning span{color:#fff;}.progress-bar-warning.progress-striped .progress-bar,.progress-striped .progress-bar-warning{background-color:#f0ad4e;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-danger{box-shadow:none;background:#bf2e1a;}.progress-bar-danger span{color:#fff;}.progress-bar-danger.progress-striped .progress-bar,.progress-striped .progress-bar-danger{background-color:#bf2e1a;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-success{box-shadow:none;background:#a3c36f;}.progress-bar-success span{color:#fff;}.progress-bar-success.progress-striped .progress-bar,.progress-striped .progress-bar-success{background-color:#a3c36f;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-info{box-shadow:none;background:#5d89ac;}.progress-bar-info span{color:#fff;}.progress-bar-info.progress-striped .progress-bar,.progress-striped .progress-bar-info{background-color:#5d89ac;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.figure-overlay{background-color:rgba(0, 0, 0, 0.5);color:#fff;}.figure-overlay .figure-caption-title,.figure-overlay .figure-caption-description{color:#fff;}.figure-overlay .figure-icon{border-color:rgba(255, 255, 255, .8);}.figure-overlay small{color:rgba(255, 255, 255, .8) !important;}.figure-overlay svg{stroke:#fff !important;}.figure-overlay .bordered:after{background:#fff !important;}.figure-overlay .btn{background:#fff !important;color:rgba(0, 0, 0, 0.5) !important;}.figure-overlay .btn:hover{background:rgba(255, 255, 255, .8) !important;}.mfp-bg{background:rgba(255, 255, 255, 0.95);}.mfp-image-holder .mfp-close,.mfp-iframe-holder .mfp-close{background-color:rgba(0, 0, 0, .9) !important;color:#fff;}.mfp-counter,.mfp-preloader{color:#000;}button.mfp-arrow{background:rgba(0, 0, 0, .9) !important;}.mfp-arrow:before{color:#fff;}.go-top{background:#000 !important;}.go-top i{color:#fff;}.carousel-control{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.carousel-caption,.carousel-caption h3{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.carousel-indicators li{background:rgba(0, 0, 0, 0.2);border-color:transparent;}.carousel-indicators li.active{background:#fff;border-color:#fff;}.flex-direction-nav a{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.flex-control-nav a{background:rgba(0, 0, 0, 0.2);box-shadow:0px 0px 0px 3px rgba(0, 0, 0, 0.2);}.flex-control-nav a.flex-active{background:#fff;}.flexslider figcaption{background:rgba(0, 0, 0, 0.2);}.flexslider figcaption h3,.flexslider figcaption p{color:#fff;}.ls-fullwidth .ls-nav-prev:after,.ls-fullwidth .ls-nav-next:after{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.gform_wrapper .gfield_required.gfield_error,.gform_wrapper .gfield_error .gfield_label,.gform_wrapper .gfield_contains_required.gfield_error{color:#65180e;}.gform_wrapper .gfield_error input,.gform_wrapper .gfield_error select,.gform_wrapper .gfield_error textarea{border:1px solid rgba(146, 35, 20, .5);background:rgba(191, 46, 26, .5);color:#65180e;}.gform_wrapper .gfield_error input:focus,.gform_wrapper .gfield_error select:focus,.gform_wrapper .gfield_error textarea:focus{box-shadow:0px 3px 0px #bf2e1a;}.validation_error{background:#bf2e1a;color:#fff;}.validation_error hr{border-top-color:#bf2e1a;}.validation_error .alert-link{color:#e6e6e6;}.panel-bbpress .bbp-template-notice{color:#bf2e1a;}[role="alert"]{color:#bf2e1a;}[role="alert"].wpcf7-mail-sent-ok{color:#a3c36f;}                            </style>
+<!--[if lte IE 8]><script src="https://www.pima-alarms.com/wp-content/plugins/wp-charts/js/excanvas.compiled.js"></script><![endif]-->	<style>
+    			/*wp_charts_js responsive canvas CSS override*/
+    			.wp_charts_canvas {
+    				width:100%!important;
+    				max-width:100%;
+    			}
+
+    			@media screen and (max-width:480px) {
+    				div.wp-chart-wrap {
+    					width:100%!important;
+    					float: none!important;
+						margin-left: auto!important;
+						margin-right: auto!important;
+						text-align: center;
+    				}
+    			}
+    		</style><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+<meta name="generator" content="Powered by Slider Revolution 6.2.6 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<link rel="icon" href="https://www.pima-alarms.com/wp-content/uploads/Logo-Pima-Eng-No-Slogan.jpg" sizes="32x32">
+<link rel="icon" href="https://www.pima-alarms.com/wp-content/uploads/Logo-Pima-Eng-No-Slogan.jpg" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.pima-alarms.com/wp-content/uploads/Logo-Pima-Eng-No-Slogan.jpg">
+<meta name="msapplication-TileImage" content="https://www.pima-alarms.com/wp-content/uploads/Logo-Pima-Eng-No-Slogan.jpg">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {				 
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
+				try {								
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
+					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
+						newh = Math.max(e.mh,window.RSIH);					
+					else{					
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,						
+							sl;					
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];									
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}				
+					if(window.rs_init_css===undefined) window.rs_init_css = document.head.appendChild(document.createElement("style"));					
+					document.getElementById(e.c).height = newh+"px";
+					window.rs_init_css.innerHTML += "#"+e.c+"_wrapper { height: "+newh+"px }";				
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}					   
+			//});
+		  };</script>
+<style type="text/css" data-type="vc_custom-css">.redp{
+    color:#bf2e1a!important;
+    font-weight:bold;
+}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>	
+			<script type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "Organization",
+		  "url": "http://www.pima-alarms.com/",
+		  "logo": "http://www.pima-alarms.com/wp-content/uploads/Logo-Pima-Eng_s.jpg",
+		   "name" : "PIMA Electronic Systems Ltd.",
+			"sameAs" : [ "http://www.linkedin.com/company/435527?trk=NUS_CMPY_FOL-pdctd",
+			"https://twitter.com/PimaAlarms"]
+		}
+		</script>
+		<script type="application/ld+json">
+		{
+		  "@context" : "http://schema.org",
+		  "@type" : "WebSite",
+		  "name" : "PIMA Electronic Systems Ltd.",
+		  "url" : "http://www.pima-alarms.com/"
+		}
+		</script>
+	<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.20.3" data-wpr-features="wpr_delay_js wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_minify_css wpr_preload_links wpr_desktop">
+
+	
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXXQWBDK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+	<div class="pace-overlay"></div>
+	<div class="top-bar swatch-white-red">
+    <div class="container">
+        <div class="top top-left">
+                    </div>
+        <div class="top top-right">
+            <div id="icl_lang_sel_widget-3" class="sidebar-widget text-right small-screen-center widget_icl_lang_sel_widget">
+<div class="wpml-ls-sidebars-above-nav-right wpml-ls wpml-ls-legacy-dropdown js-wpml-ls-legacy-dropdown">
+	<ul role="menu">
+
+		<li role="none" tabindex="0" class="wpml-ls-slot-above-nav-right wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-dropdown">
+			<a href="#" class="js-wpml-ls-item-toggle wpml-ls-item-toggle" role="menuitem" title="Switch to English">
+                            <img class="wpml-ls-flag" src="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt=""><span class="wpml-ls-native" role="menuitem">English</span></a>
+
+			<ul class="wpml-ls-sub-menu" role="menu">
+				
+					<li class="wpml-ls-slot-above-nav-right wpml-ls-item wpml-ls-item-he" role="none">
+						<a href="https://www.pima-alarms.com/he/" class="wpml-ls-link" role="menuitem" aria-label="Switch to עברית" title="Switch to עברית">
+                                        <img class="wpml-ls-flag" src="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/he.png" alt=""><span class="wpml-ls-native" lang="he">עברית</span></a>
+					</li>
+
+				
+					<li class="wpml-ls-slot-above-nav-right wpml-ls-item wpml-ls-item-es wpml-ls-last-item" role="none">
+						<a href="https://www.pima-alarms.com/es/" class="wpml-ls-link" role="menuitem" aria-label="Switch to Español" title="Switch to Español">
+                                        <img class="wpml-ls-flag" src="https://www.pima-alarms.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/es.png" alt=""><span class="wpml-ls-native" lang="es">Español</span></a>
+					</li>
+
+							</ul>
+
+		</li>
+
+	</ul>
+</div>
+</div><div id="text-9" class="sidebar-widget text-right small-screen-center widget_text">			<div class="textwidget"><a href="#login-popup" class="login-icon">Login</a></div>
+		</div><div id="text-10" class="sidebar-widget text-right small-screen-center widget_text">			<div class="textwidget"><a href="#register-popup" class="register-icon">Register</a></div>
+		</div><div id="text-16" class="sidebar-widget text-right small-screen-center widget_text">			<div class="textwidget"><p style="direction: ltr;"></p>
+</div>
+		</div><div class="sidebar-widget widget_search"><div class="top-search"><h3 class="sidebar-header">Search</h3><form role="search" method="get" id="searchform" action="https://www.pima-alarms.com/"><div class="input-group"><input type="text" value="" name="s" id="s" class="form-control" placeholder="Search"><span class="input-group-btn"><button class="btn" type="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></span></div></form><i class="fa fa-search search-trigger navbar-text"></i><svg class="search-close" preserveAspectRatio="none" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M25 25 L75 75" stroke-width="2"></path><path d="M25 75 L75 25" stroke-width="2"></path></svg></div></div>        </div>
+    </div>
+</div>
+<div id="masthead" class="navbar navbar-static-top oxy-mega-menu navbar-sticky swatch-white-red no-underline text-none" role="banner">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.pima-alarms.com" class="navbar-brand"><img src="https://www.pima-alarms.com/wp-content/uploads/Logo-Pima-Eng_s.jpg" alt="פימא מערכות אלקטרוניות"></a>        </div>
+
+        <nav id="main-navbar" class="collapse navbar-collapse" role="navigation">
+
+            <div class="menu-sidebar pull-right">
+                            </div>
+
+            <div class="menu-main-menu-eng-container"><ul id="menu-main-menu-eng" class="nav navbar-nav navbar-right"><li id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-948 dropdown"><a href="https://www.pima-alarms.com/company-profile/" class="dropdown-toggle">About PIMA</a><ul role="menu" class="dropdown-menu">	<li id="menu-item-827" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-827"><a href="/company-profile/#why-pima">Why PIMA</a></li>
+	<li id="menu-item-12690" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12690"><a href="https://www.pima-alarms.com/company-profile/pima-quality-policy-2/">PIMA’s Quality Policy</a></li>
+	<li id="menu-item-51568" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51568"><a href="https://www.pima-alarms.com/company-profile/accessibility-statement/">Accessibility Statement</a></li>
+</ul>
+</li>
+<li id="menu-item-942" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_menu menu-item-has-children menu-item-942 dropdown"><a href="#" class="dropdown-toggle">Products &amp; Solutions</a><ul role="menu" class="dropdown-menu row">	<li id="menu-item-943" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-943 col-md-4 dropdown"><strong><a href="/categories/">Categories</a></strong>	<ul role="menu" class="">		<li id="menu-item-868" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-868"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/alarm-systems/">Alarm Systems</a></li>
+		<li id="menu-item-842" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-842"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/keypads/">Keypads</a></li>
+		<li id="menu-item-2212" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-2212"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/peripherals/">Peripherals</a></li>
+		<li id="menu-item-2093" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-2093"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/monitoring-stations-solutions/">Central Monitoring Stations</a></li>
+		<li id="menu-item-50113" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-50113"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/intercom-2/">Guest intercom</a></li>
+	</ul>
+</li>
+	<li id="menu-item-945" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-945 col-md-4 dropdown"><strong><a href="/products">Products</a></strong>	<ul role="menu" class="">		<li id="menu-item-34380" class="menu-item menu-item-type-post_type menu-item-object-oxy_portfolio_image menu-item-34380"><a href="https://www.pima-alarms.com/our-products/vision/">VISION</a></li>
+		<li id="menu-item-20336" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-20336"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/force/">FORCE Series</a></li>
+		<li id="menu-item-3820" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3820"><a href="https://www.pima-alarms.com/products/pimalink-3-0-app/">PIMAlink 3.0 App</a></li>
+	</ul>
+</li>
+	<li id="menu-item-944" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-944 col-md-4 dropdown"><strong><a href="/solutions/">Solutions</a></strong>	<ul role="menu" class="">		<li id="menu-item-14101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14101"><a href="https://www.pima-alarms.com/solutions/professional-installers/">Professional Installers</a></li>
+		<li id="menu-item-2096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2096"><a href="https://www.pima-alarms.com/solutions/central-monitoring-stations/">CMS (Central Monitoring Stations)</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-950" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-950 dropdown"><a href="https://www.pima-alarms.com/help-support/" class="dropdown-toggle">Help &amp; Support</a><ul role="menu" class="dropdown-menu">	<li id="menu-item-1133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1133"><a href="https://www.pima-alarms.com/download/">Download Center</a></li>
+	<li id="menu-item-12676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12676"><a href="https://www.pima-alarms.com/help-support/pima-product-warranty/">Product Warranty</a></li>
+	<li id="menu-item-47133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47133"><a href="https://www.pima-alarms.com/training-videos/">Training videos</a></li>
+	<li id="menu-item-4889" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4889"><a href="https://www.pima-alarms.com/help-support/faq/">FAQs</a></li>
+</ul>
+</li>
+<li id="menu-item-9610" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9610"><a href="https://www.pima-alarms.com/homepage2-2/news-events/">News &amp; Events</a></li>
+<li id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-949"><a href="https://www.pima-alarms.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-39237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39237"><a href="https://www.pima-alarms.com/where-to-buy/">Where To Buy</a></li>
+</ul></div>
+        </nav>
+    </div>
+</div>
+	<div id="content" role="main">
+<article id="post-1404" class="post-1404 page type-page status-publish hentry">
+    <section class="section swatch-white  section-text-no-shadow section-inner-no-shadow section-normal section-opaque" data-label="">
+    
+    <div class="background-overlay grid-overlay-0 " style="background-color: ;"></div>
+
+    <div class="container-fullwidth">
+        <div class="row vertical-top">
+            <div class="col-md-12     text-default small-screen-default"><div class="wpb_revslider_element wpb_content_element">
+			<!-- START pimaop2 REVOLUTION SLIDER 6.2.6 --><p class="rs-p-wp-fix"></p>
+			<rs-module-wrap id="rev_slider_9_1_wrapper" data-source="gallery" style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
+				<rs-module id="rev_slider_9_1" style="" data-version="6.2.6">
+					<rs-slides>
+						<rs-slide data-key="rs-53" data-title="Slide" data-thumb="//www.pima-alarms.com/wp-content/uploads/Vision_eng-banner3-1-100x50.jpg" data-anim="ei:d;eo:d;s:1000;r:0;t:fade;sl:0;">
+							<img fetchpriority="high" decoding="async" src="//www.pima-alarms.com/wp-content/uploads/Vision_eng-banner3-1.jpg" title="Vision_eng-banner3" width="1900" height="480" class="rev-slidebg" data-no-retina="">
+<!--
+							--><a id="slider-9-slide-53-layer-0" class="rs-layer" href="https://www.pima-alarms.com/our-products/vision/" target="_self" rel="nofollow" data-type="shape" data-rsp_ch="on" data-xy="x:-298px;" data-text="w:normal;" data-dim="w:1921px;h:100%;" data-frame_999="o:0;st:w;" style="z-index:5;background-color:rgba(0,0,0,0);"> 
+							</a><!--
+-->						</rs-slide>
+						<rs-slide data-key="rs-48" data-title="Slide" data-thumb="//www.pima-alarms.com/wp-content/uploads/peripherals-banner-eng2-100x50.jpg" data-link="//www.pima-alarms.com/oxy_portfolio_categories/wireless-detectors/" data-target="_blank" data-seoz="front" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:d;">
+							<img decoding="async" src="//www.pima-alarms.com/wp-content/uploads/peripherals-banner-eng2.jpg" title="Homepage" class="rev-slidebg" data-no-retina="">
+<!---->						</rs-slide>
+						<rs-slide data-key="rs-31" data-title="Slide" data-thumb="//www.pima-alarms.com/wp-content/uploads/s4-eng-1-100x50.jpg" data-link="//www.pima-alarms.com/oxy_portfolio_categories/force/" data-target="_blank" data-seoz="front" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:d;">
+							<img decoding="async" src="//www.pima-alarms.com/wp-content/uploads/s4-eng-1.jpg" title="Homepage" class="rev-slidebg" data-no-retina="">
+<!---->						</rs-slide>
+						<rs-slide data-key="rs-28" data-title="Slide" data-thumb="//www.pima-alarms.com/wp-content/uploads/s5-eng2-100x50.jpg" data-link="//www.pima-alarms.com/products/pimalink-3-0-app/" data-target="_blank" data-seoz="front" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:d;">
+							<img decoding="async" src="//www.pima-alarms.com/wp-content/uploads/s5-eng2.jpg" title="Homepage" class="rev-slidebg" data-no-retina="">
+<!---->						</rs-slide>
+					</rs-slides>
+					<rs-progress class="rs-bottom" style="visibility: hidden !important;"></rs-progress>
+				</rs-module>
+				<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+					setREVStartSize({c: 'rev_slider_9_1',rl:[1240,1024,778,480],el:[480],gw:[1140],gh:[480],type:'standard',justify:'',layout:'fullwidth',mh:"0"});
+					var	revapi9,
+						tpj;
+					jQuery(function() {
+						tpj = jQuery;
+						revapi9 = tpj("#rev_slider_9_1")
+						if(revapi9==undefined || revapi9.revolution == undefined){
+							revslider_showDoubleJqueryError("rev_slider_9_1");
+						}else{
+							revapi9.revolution({
+								sliderLayout:"fullwidth",
+								duration:2000,
+								visibilityLevels:"1240,1024,778,480",
+								gridwidth:1140,
+								gridheight:480,
+								spinner:"spinner0",
+								perspective:600,
+								perspectiveType:"local",
+								editorheight:"480,768,960,720",
+								responsiveLevels:"1240,1024,778,480",
+								disableProgressBar:"on",
+								navigation: {
+									mouseScrollNavigation:false,
+									onHoverStop:false,
+									arrows: {
+										enable:true,
+										style:"uranus",
+										left: {
+
+										},
+										right: {
+
+										}
+									},
+									bullets: {
+										enable:true,
+										tmp:"",
+										style:"hermes"
+									}
+								},
+								fallbacks: {
+									allowHTML5AutoPlayOnAndroid:true
+								},
+							});
+						}
+						
+					});
+				</script>
+				<script type="rocketlazyloadscript">
+					var htmlDivCss = unescape("%23rev_slider_9_1_wrapper%20.uranus.tparrows%20%7B%0A%20%20width%3A50px%3B%0A%20%20height%3A50px%3B%0A%20%20background%3Argba%28255%2C255%2C255%2C0%29%3B%0A%20%7D%0A%20%23rev_slider_9_1_wrapper%20.uranus.tparrows%3Abefore%20%7B%0A%20width%3A50px%3B%0A%20height%3A50px%3B%0A%20line-height%3A50px%3B%0A%20font-size%3A40px%3B%0A%20transition%3Aall%200.3s%3B%0A-webkit-transition%3Aall%200.3s%3B%0A%20%7D%0A%20%0A%20%20%23rev_slider_9_1_wrapper%20.uranus.tparrows%3Ahover%3Abefore%20%7B%0A%20%20%20%20opacity%3A0.75%3B%0A%20%20%7D%0A%23rev_slider_9_1_wrapper%20.hermes.tp-bullets%20%7B%0A%7D%0A%0A%23rev_slider_9_1_wrapper%20.hermes%20.tp-bullet%20%7B%0A%20%20%20%20overflow%3Ahidden%3B%0A%20%20%20%20border-radius%3A50%25%3B%0A%20%20%20%20width%3A16px%3B%0A%20%20%20%20height%3A16px%3B%0A%20%20%20%20background-color%3A%20rgba%280%2C%200%2C%200%2C%200%29%3B%0A%20%20%20%20box-shadow%3A%20inset%200%200%200%202px%20%23ffffff%3B%0A%20%20%20%20-webkit-transition%3A%20background%200.3s%20ease%3B%0A%20%20%20%20transition%3A%20background%200.3s%20ease%3B%0A%20%20%20%20position%3Aabsolute%3B%0A%7D%0A%0A%23rev_slider_9_1_wrapper%20.hermes%20.tp-bullet%3Ahover%20%7B%0A%09%20%20background-color%3A%20rgba%280%2C0%2C0%2C0.21%29%3B%0A%7D%0A%23rev_slider_9_1_wrapper%20.hermes%20.tp-bullet%3Aafter%20%7B%0A%20%20content%3A%20%27%20%27%3B%0A%20%20position%3A%20absolute%3B%0A%20%20bottom%3A%200%3B%0A%20%20height%3A%200%3B%0A%20%20left%3A%200%3B%0A%20%20width%3A%20100%25%3B%0A%20%20background-color%3A%20%23ffffff%3B%0A%20%20box-shadow%3A%200%200%201px%20%23ffffff%3B%0A%20%20-webkit-transition%3A%20height%200.3s%20ease%3B%0A%20%20transition%3A%20height%200.3s%20ease%3B%0A%7D%0A%23rev_slider_9_1_wrapper%20.hermes%20.tp-bullet.selected%3Aafter%20%7B%0A%20%20height%3A100%25%3B%0A%7D%0A%0A");
+					var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+					if(htmlDiv) {
+						htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+					}else{
+						var htmlDiv = document.createElement('div');
+						htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+						document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+					}
+				</script>
+				<script type="rocketlazyloadscript">
+					var htmlDivCss = unescape("%0A%0A%0A%0A%0A%0A%0A%0A");
+					var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+					if(htmlDiv) {
+						htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+					}else{
+						var htmlDiv = document.createElement('div');
+						htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+						document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+					}
+				</script>
+			</rs-module-wrap>
+			<!-- END REVOLUTION SLIDER -->
+</div></div>        </div>
+    </div>
+</section>
+<section class="section swatch-white home-products section-text-no-shadow section-inner-no-shadow section-normal section-opaque" data-label="">
+    
+    <div class="background-overlay grid-overlay-0 " style="background-color: rgba(0,0,0,0);"></div>
+
+    <div class="container">
+        <div class="row vertical-top">
+            <div class="col-md-12     text-default small-screen-default"><header class="text-justify  element-normal-top element-no-bottom not-condensed" data-os-animation="none" data-os-animation-delay="0s">
+    <h2 class="normal bold bordered bordered-normal">
+        Our Products    </h2>
+            <p class="normal">We create an overall security concept with a comprehensive solution for each customer - large and small, residential or commercial - according to his specific requirements</p>
+    </header>
+<div class="row "><div class="col-md-4     text-default small-screen-default"><div class="figure  element-short-top element-short-bottom image-filter-none image-filter-onhover fade-none text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/alarm-systems/" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img fetchpriority="high" decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/FORCE-eng-693x559-png.png" class="normalwidth">    
+            </a>
+    
+    <div class="figure-caption text-left">
+        <h3 class="figure-caption-title bordered bordered-small bordered-link">
+                            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/alarm-systems/" class="" data-links="" target="_self">
+                        Alarm Systems                            </a>
+                    </h3>
+        <p class="figure-caption-description"></p>
+    </div>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-short-top element-short-bottom image-filter-none image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/keypads/" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/Keypads-for-FORCE-Eng-1.png" alt="keypads" class="normalwidth">    
+            </a>
+    
+    <div class="figure-caption text-left">
+        <h3 class="figure-caption-title bordered bordered-small bordered-link">
+                            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/keypads/" class="" data-links="" target="_self">
+                        Keypads                            </a>
+                    </h3>
+        <p class="figure-caption-description"></p>
+    </div>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-short-top element-short-bottom image-filter-none image-filter-onhover fade-none text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/detectors-and-sensors/" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/גלאים-אלחוטיים.png" class="normalwidth">    
+            </a>
+    
+    <div class="figure-caption text-left">
+        <h3 class="figure-caption-title bordered bordered-small bordered-link">
+                            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/detectors-and-sensors/" class="" data-links="" target="_self">
+                        Detectors &amp; Sensors                            </a>
+                    </h3>
+        <p class="figure-caption-description"></p>
+    </div>
+</div></div></div><div class="row "><div class="col-md-4     text-default small-screen-default"><div class="figure  element-no-top element-medium-bottom image-filter-none image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/communication-modules/" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/CLM412.png" class="normalwidth">    
+            </a>
+    
+    <div class="figure-caption text-left">
+        <h3 class="figure-caption-title bordered bordered-small bordered-link">
+                            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/communication-modules/" class="" data-links="" target="_self">
+                        Communication Modules                            </a>
+                    </h3>
+        <p class="figure-caption-description"></p>
+    </div>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-no-top element-medium-bottom image-filter-none image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/monitoring-stations-solutions/" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/CMS-new.png" class="normalwidth">    
+            </a>
+    
+    <div class="figure-caption text-left">
+        <h3 class="figure-caption-title bordered bordered-small bordered-link">
+                            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/monitoring-stations-solutions/" class="" data-links="" target="_self">
+                        Solutions for Monitoring Stations                            </a>
+                    </h3>
+        <p class="figure-caption-description"></p>
+    </div>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-no-top element-medium-bottom image-filter-none image-filter-onhover fade-none text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="https://www.pima-alarms.com/products/pimalink-3-0-app/" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/PIMAlink-Smartphone-app-for-web.jpg" class="normalwidth">    
+            </a>
+    
+    <div class="figure-caption text-left">
+        <h3 class="figure-caption-title bordered bordered-small bordered-link">
+                            <a href="https://www.pima-alarms.com/products/pimalink-3-0-app/" class="" data-links="" target="_self">
+                        PIMAlink 3.0 Smartphone App                            </a>
+                    </h3>
+        <p class="figure-caption-description"></p>
+    </div>
+</div></div></div><div class="row "><div class="col-md-4     text-default small-screen-default"><div class="figure  element-no-top element-medium-bottom image-filter-none image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/communication-modules/" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/2023-10-23_09h26_57.png" class="normalwidth">    
+            </a>
+    
+    <div class="figure-caption text-left">
+        <h3 class="figure-caption-title bordered bordered-small bordered-link">
+                            <a href="https://www.pima-alarms.com/oxy_portfolio_categories/communication-modules/" class="" data-links="" target="_self">
+                        Communication Modules                            </a>
+                    </h3>
+        <p class="figure-caption-description"></p>
+    </div>
+</div></div></div></div>        </div>
+    </div>
+</section>
+<section class="section swatch-gray home-why-pima section-text-no-shadow section-inner-no-shadow section-normal section-opaque" data-label="">
+    
+    <div class="background-overlay grid-overlay-0 " style="background-color: rgba(0,0,0,0);"></div>
+
+    <div class="container">
+        <div class="row vertical-top">
+            <div class="col-md-12     text-default small-screen-default"><header class="text-center  element-normal-top element-no-bottom not-condensed" data-os-animation="none" data-os-animation-delay="0s">
+    <h2 class="normal bold bordered bordered-normal">
+        WHY PIMA?    </h2>
+    </header>
+<div class="row "><div class="col-md-4     text-default small-screen-default"><div class="figure  element-short-top element-medium-bottom image-filter-none image-filter-onhover fade-in text-center figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <span class="figure-image">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/2017/home-icon1.png" class="normalwidth">    
+            </span>
+    
+    <div class="figure-caption text-center">
+        <h3 class="figure-caption-title bordered bordered-small ">
+                        Comprehensive security solutions                    </h3>
+        <p class="figure-caption-description">PIMA provides advanced end-to-end intruder alarm solutions for a wide range of customers including distributors, installers, Central Monitoring Stations and Project Managers. System flexibility enables easy expansion and integration of new elements as needed</p>
+    </div>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-short-top element-medium-bottom image-filter-none image-filter-onhover fade-in text-center figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <span class="figure-image">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/2017/home-icon2.png" class="normalwidth">    
+            </span>
+    
+    <div class="figure-caption text-center">
+        <h3 class="figure-caption-title bordered bordered-small ">
+                        Millions of systems installed globally                    </h3>
+        <p class="figure-caption-description">PIMA is a leader in the Israeli intruder alarm market with over 50% market share. Additionally, PIMA’s range of products can be found worldwide. A network of professional distributors ensures rapid delivery and installation of our systems, each especially customized to meet the customer’s specific security needs</p>
+    </div>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-short-top element-medium-bottom image-filter-none image-filter-onhover fade-in text-center figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <span class="figure-image">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/2017/home-icon3.png" class="normalwidth">    
+            </span>
+    
+    <div class="figure-caption text-center">
+        <h3 class="figure-caption-title bordered bordered-small ">
+                        Uncompromising system reliability and ease-of-use                    </h3>
+        <p class="figure-caption-description">Known for their scalability and durability, PIMA’s systems are developed and assembled in-house to ensure product robustness, easy operation and minimal maintenance. Initial installation is simple and fast, with intuitive ongoing use a major advantage for the customer</p>
+    </div>
+</div></div></div></div>        </div>
+    </div>
+</section>
+<section class="section swatch-white home-solutions section-text-no-shadow section-inner-no-shadow section-normal section-opaque" data-label="">
+    
+    <div class="background-overlay grid-overlay-0 " style="background-color: rgba(0,0,0,0);"></div>
+
+    <div class="container">
+        <div class="row vertical-top">
+            <div class="col-md-12     text-default small-screen-default"><header class="text-justify  element-normal-top element-no-bottom not-condensed" data-os-animation="none" data-os-animation-delay="0s">
+    <h2 class="normal bold bordered bordered-normal">
+        Our Solutions    </h2>
+            <p class="normal">At PIMA we invest a great deal of efforts to ensure that our intruder alarm systems provide Monitoring Centers, professional installers and end users with the best possible installation, programming and user experience</p>
+    </header>
+<div class="row "><div class="col-md-4     text-default small-screen-default"><div class="figure  element-no-top element-no-bottom image-filter-none image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="#" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/Installer-360x240.jpg" class="normalwidth">    
+            </a>
+    
+</div><div class=" element-no-top element-medium-bottom" data-os-animation="none" data-os-animation-delay="0s">
+    <h3>Professional Installers</h3>
+<p><a href="https://www.pima-alarms.com/solutions/professional-installers/">Read More</a></p>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-no-top element-no-bottom image-filter-none image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="#" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/CMS-new.png" class="normalwidth">    
+            </a>
+    
+</div><div class=" element-no-top element-medium-bottom" data-os-animation="none" data-os-animation-delay="0s">
+    <h3>Monitoring Stations</h3>
+<p><a href="https://www.pima-alarms.com/solutions/central-monitoring-stations/">Read More</a></p>
+</div></div><div class="col-md-4     text-default small-screen-default"><div class="figure  element-no-top element-no-bottom image-filter-none image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="none" data-os-animation-delay="0s">
+            <a href="#" class="figure-image  image-all" data-links="" target="_self">
+    
+    <img decoding="async" src="https://www.pima-alarms.com/wp-content/uploads/2017/homeproduct3.jpg" class="normalwidth">    
+            </a>
+    
+</div><div class=" element-no-top element-medium-bottom" data-os-animation="none" data-os-animation-delay="0s">
+    <h3>Business &amp; Home Owners</h3>
+<p><a href="https://www.pima-alarms.com/solutions/business-home-owners/">Read More</a></p>
+</div></div></div></div>        </div>
+    </div>
+</section>
+<section class="section swatch-gray cta-bottom section-text-no-shadow section-inner-no-shadow section-normal section-opaque" data-label="">
+    
+    <div class="background-overlay grid-overlay-0 " style="background-color: rgba(233,233,233,1);"></div>
+
+    <div class="container">
+        <div class="row vertical-top">
+            <div class="col-md-12     text-default small-screen-default"><header class="text-center  element-medium-top element-medium-bottom not-condensed os-animation" data-os-animation="fadeInLeft" data-os-animation-delay="0s">
+    <h4 class="normal regular no-bordered-header bordered-normal">
+        We want to hear from you    </h4>
+    </header>
+<a href="/contact-us/" class="btn btn-default btn-lg    element-medium-top element-medium-bottom os-animation" target="_self" data-os-animation="fadeInRight" data-os-animation-delay="0s ">
+	Get In Touch 	</a>
+</div>        </div>
+    </div>
+</section>
+        <span class="hide"></span></article>
+        
+        <footer data-wpr-lazyrender="1" id="footer" role="contentinfo">
+                                    <section class="section swatch-white">
+                <div class="container">
+                    <div class="row element-short-top element-short-bottom">
+                                                <div class="col-md-4"><div id="swatch_social-2" class="sidebar-widget  widget_swatch_social"><ul class="unstyled inline social-icons social-background social-lg"><li><a data-iconcolor="#5FB0D5" href="https://www.linkedin.com/company/435527?trk=NUS_CMPY_FOL-pdctd"><i class="fa fa-linkedin"></i></a></li><li><a data-iconcolor="#c4302b" href="https://www.youtube.com/channel/UC2if1NCExDBwbRL2tkvZj4g?view_as=subscriber"><i class="fa fa-youtube"></i></a></li><li><a data-iconcolor="#3b5998" href="https://www.facebook.com/PIMAsystems/"><i class="fa fa-facebook"></i></a></li></ul></div></div>
+                            <div class="col-md-4"><div id="nav_menu-2" class="sidebar-widget  widget_nav_menu"><h3 class="sidebar-header">Main</h3><div class="menu-footer-main-container"><ul id="menu-footer-main" class="menu"><li id="menu-item-956" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-956"><a href="https://www.pima-alarms.com/company-profile/">About PIMA</a></li>
+<li id="menu-item-4902" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4902"><a href="https://www.pima-alarms.com/categories/">Categories</a></li>
+<li id="menu-item-4901" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4901"><a href="https://www.pima-alarms.com/solutions/">Solutions</a></li>
+<li id="menu-item-4900" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4900"><a href="https://www.pima-alarms.com/download/">Download Center</a></li>
+<li id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958"><a href="https://www.pima-alarms.com/help-support/">Help &amp; Support</a></li>
+<li id="menu-item-51569" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51569"><a href="https://www.pima-alarms.com/company-profile/accessibility-statement/">Accessibility Statement</a></li>
+<li id="menu-item-4970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4970"><a href="https://www.pima-alarms.com/contact-us/">Contact Us</a></li>
+</ul></div></div><div id="nav_menu-3" class="sidebar-widget  widget_nav_menu"><h3 class="sidebar-header">Solutions</h3><div class="menu-footer-solutions-container"><ul id="menu-footer-solutions" class="menu"><li id="menu-item-14104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14104"><a href="https://www.pima-alarms.com/solutions/professional-installers/">Professional Installers</a></li>
+<li id="menu-item-4957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4957"><a href="https://www.pima-alarms.com/solutions/central-monitoring-stations/">CMS (Central Monitoring Stations)</a></li>
+</ul></div></div><div id="nav_menu-4" class="sidebar-widget  widget_nav_menu"><h3 class="sidebar-header">Products</h3><div class="menu-footer-products-container"><ul id="menu-footer-products" class="menu"><li id="menu-item-4953" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-4953"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/alarm-systems/">Alarm Systems</a></li>
+<li id="menu-item-4954" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-4954"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/keypads/">Keypads</a></li>
+<li id="menu-item-4955" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-4955"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/peripherals/">Peripherals</a></li>
+<li id="menu-item-4956" class="menu-item menu-item-type-taxonomy menu-item-object-oxy_portfolio_categories menu-item-4956"><a href="https://www.pima-alarms.com/oxy_portfolio_categories/monitoring-stations-solutions/">Central Monitoring Stations</a></li>
+</ul></div></div></div>
+                            <div class="col-md-4"><div id="text-13" class="sidebar-widget  widget_text"><h3 class="sidebar-header">Contact Us</h3>			<div class="textwidget">PIMA Electronic Systems Ltd<br>
+5 Hatzoref street, Holon 5885633<br>
+Tel: 972.3.650400<br>
+E-mail: <a href="mailto:sales@pima-alarms.com">sales@pima-alarms.com</a></div>
+		</div></div>                    </div>
+                </div>
+            </section>
+            			<section class="bottom-part">
+				<div class="container">
+					<a href="https://www.dooble.co.il" target="blank">dooble web development</a>
+				</div>
+			</section>
+        </footer>
+    </div>
+        <!-- Fixing the Back to top button -->
+
+                     <a href="javascript:void(0)" class="go-top go-top-square">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        
+                            <script type="rocketlazyloadscript">
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+              ga('create', 'UA-XXXXX-X', 'auto');
+              ga('send', 'pageview');
+            </script>
+                
+        
+<div id="login-popup" class="mfp-hide">
+    <div class="user-login-popup-inner">
+        <div class="user-login-header">
+            LOGIN        </div>
+        <div class="user-login-body">
+            <form class="user-login-form">
+                <div class="form-row">
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="login-email" value="" class="req">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Password</span>
+                        <input type="password" name="login-password" value="" class="req">
+                    </label>
+                </div>
+
+                <div class="forgot-password clear">
+                    <a href="https://www.pima-alarms.com/lostpassword/">Forgot password</a>
+                    <a href="#register-popup">New user? Register here</a>
+                </div>
+
+                <button type="submit" class="submit-login">SEND</button>
+                <span class="ajax-error"></span>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="register-popup" class="mfp-hide">
+	<div class="user-register-popup-inner">
+		<div class="user-login-header">
+			REGISTER		</div>
+		<div class="user-login-body">
+			<form class="user-register-form">
+				<div class="user-register-form-inner">
+					<div class="form-row">
+						<div class="form-item">
+							<label>
+								<span>
+									Full Name									<span class="error-message" style="display:none;">(required field)</span>
+								</span>
+								<input type="text" name="reg-fullname" value="" class="req">
+							</label>
+						</div>
+						<div class="form-item">
+							<label>
+								<span>
+									Phone									<span class="error-message" style="display:none;">(required field)</span>
+								</span>
+								<input type="tel" name="reg-phone" value="" class="req">
+							</label>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-item">
+							<label>
+								<span>
+									Email									<span class="error-message" style="display:none;">(required field)</span>
+								</span>
+								<input type="email" name="reg-email" value="" class="req">
+							</label>
+						</div>
+						<div class="form-item radio-list">
+							<label class="radio-label">
+								<input type="radio" class="trigger-reg-user-type" name="reg-user-type" value="private" checked="">
+								<span>
+									Private									<span class="error-message" style="display:none;">(required field)</span>
+								</span>
+							</label>
+							<label class="radio-label">
+								<input type="radio" class="trigger-reg-user-type" name="reg-user-type" value="installer">
+								<span>
+									Installer									<span class="error-message" style="display:none;">(required field)</span>
+								</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-item">
+							<label class="company-label" style="display:none;">
+								<span>
+									Company									<span class="error-message" style="display:none;">(required field)</span>
+								</span>
+								<input type="text" name="reg-company" value="" class="">
+							</label>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-item">
+															<label>
+									<span>
+										choose country										<span class="error-message" style="display:none;">(required field)</span>
+									</span>
+									<select class="" name="reg-choose-country" required="">
+										<option value="">choose country</option>
+																					<option value="Afghanistan">Afghanistan</option>
+																					<option value="Albania">Albania</option>
+																					<option value="Algeria">Algeria</option>
+																					<option value="American Samoa">American Samoa</option>
+																					<option value="Andorra">Andorra</option>
+																					<option value="Angola">Angola</option>
+																					<option value="Anguilla">Anguilla</option>
+																					<option value="Antarctica">Antarctica</option>
+																					<option value="Antigua and Barbuda">Antigua and Barbuda</option>
+																					<option value="Argentina">Argentina</option>
+																					<option value="Armenia">Armenia</option>
+																					<option value="Aruba">Aruba</option>
+																					<option value="Australia">Australia</option>
+																					<option value="Austria">Austria</option>
+																					<option value="Azerbaijan">Azerbaijan</option>
+																					<option value="Bahamas">Bahamas</option>
+																					<option value="Bahrain">Bahrain</option>
+																					<option value="Bangladesh">Bangladesh</option>
+																					<option value="Barbados">Barbados</option>
+																					<option value="Belarus">Belarus</option>
+																					<option value="Belgium">Belgium</option>
+																					<option value="Belize">Belize</option>
+																					<option value="Benin">Benin</option>
+																					<option value="Bermuda">Bermuda</option>
+																					<option value="Bhutan">Bhutan</option>
+																					<option value="Bolivia">Bolivia</option>
+																					<option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+																					<option value="Botswana">Botswana</option>
+																					<option value="Bouvet Island">Bouvet Island</option>
+																					<option value="Brazil">Brazil</option>
+																					<option value="British Antarctic Territory">British Antarctic Territory</option>
+																					<option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+																					<option value="British Virgin Islands">British Virgin Islands</option>
+																					<option value="Brunei">Brunei</option>
+																					<option value="Bulgaria">Bulgaria</option>
+																					<option value="Burkina Faso">Burkina Faso</option>
+																					<option value="Burundi">Burundi</option>
+																					<option value="Cambodia">Cambodia</option>
+																					<option value="Cameroon">Cameroon</option>
+																					<option value="Canada">Canada</option>
+																					<option value="Canton and Enderbury Islands">Canton and Enderbury Islands</option>
+																					<option value="Cape Verde">Cape Verde</option>
+																					<option value="Cayman Islands">Cayman Islands</option>
+																					<option value="Central African Republic">Central African Republic</option>
+																					<option value="Chad">Chad</option>
+																					<option value="Chile">Chile</option>
+																					<option value="China">China</option>
+																					<option value="Christmas Island">Christmas Island</option>
+																					<option value="Cocos [Keeling] Islands">Cocos [Keeling] Islands</option>
+																					<option value="Colombia">Colombia</option>
+																					<option value="Comoros">Comoros</option>
+																					<option value="Congo - Brazzaville">Congo - Brazzaville</option>
+																					<option value="Congo - Kinshasa">Congo - Kinshasa</option>
+																					<option value="Cook Islands">Cook Islands</option>
+																					<option value="Costa Rica">Costa Rica</option>
+																					<option value="Croatia">Croatia</option>
+																					<option value="Cuba">Cuba</option>
+																					<option value="Cyprus">Cyprus</option>
+																					<option value="Czech Republic">Czech Republic</option>
+																					<option value="Côte d’Ivoire">Côte d’Ivoire</option>
+																					<option value="Denmark">Denmark</option>
+																					<option value="Djibouti">Djibouti</option>
+																					<option value="Dominica">Dominica</option>
+																					<option value="Dominican Republic">Dominican Republic</option>
+																					<option value="Dronning Maud Land">Dronning Maud Land</option>
+																					<option value="East Germany">East Germany</option>
+																					<option value="Ecuador">Ecuador</option>
+																					<option value="Egypt">Egypt</option>
+																					<option value="El Salvador">El Salvador</option>
+																					<option value="Equatorial Guinea">Equatorial Guinea</option>
+																					<option value="Eritrea">Eritrea</option>
+																					<option value="Estonia">Estonia</option>
+																					<option value="Ethiopia">Ethiopia</option>
+																					<option value="Falkland Islands">Falkland Islands</option>
+																					<option value="Faroe Islands">Faroe Islands</option>
+																					<option value="Fiji">Fiji</option>
+																					<option value="Finland">Finland</option>
+																					<option value="France">France</option>
+																					<option value="French Guiana">French Guiana</option>
+																					<option value="French Polynesia">French Polynesia</option>
+																					<option value="French Southern Territories">French Southern Territories</option>
+																					<option value="French Southern and Antarctic Territories">French Southern and Antarctic Territories</option>
+																					<option value="Gabon">Gabon</option>
+																					<option value="Gambia">Gambia</option>
+																					<option value="Georgia">Georgia</option>
+																					<option value="Germany">Germany</option>
+																					<option value="Ghana">Ghana</option>
+																					<option value="Gibraltar">Gibraltar</option>
+																					<option value="Greece">Greece</option>
+																					<option value="Greenland">Greenland</option>
+																					<option value="Grenada">Grenada</option>
+																					<option value="Guadeloupe">Guadeloupe</option>
+																					<option value="Guam">Guam</option>
+																					<option value="Guatemala">Guatemala</option>
+																					<option value="Guernsey">Guernsey</option>
+																					<option value="Guinea">Guinea</option>
+																					<option value="Guinea-Bissau">Guinea-Bissau</option>
+																					<option value="Guyana">Guyana</option>
+																					<option value="Haiti">Haiti</option>
+																					<option value="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+																					<option value="Honduras">Honduras</option>
+																					<option value="Hong Kong SAR China">Hong Kong SAR China</option>
+																					<option value="Hungary">Hungary</option>
+																					<option value="Iceland">Iceland</option>
+																					<option value="India">India</option>
+																					<option value="Indonesia">Indonesia</option>
+																					<option value="Iran">Iran</option>
+																					<option value="Iraq">Iraq</option>
+																					<option value="Ireland">Ireland</option>
+																					<option value="Isle of Man">Isle of Man</option>
+																					<option value="Israel">Israel</option>
+																					<option value="Italy">Italy</option>
+																					<option value="Jamaica">Jamaica</option>
+																					<option value="Japan">Japan</option>
+																					<option value="Jersey">Jersey</option>
+																					<option value="Johnston Island">Johnston Island</option>
+																					<option value="Jordan">Jordan</option>
+																					<option value="Kazakhstan">Kazakhstan</option>
+																					<option value="Kenya">Kenya</option>
+																					<option value="Kiribati">Kiribati</option>
+																					<option value="Kuwait">Kuwait</option>
+																					<option value="Kyrgyzstan">Kyrgyzstan</option>
+																					<option value="Laos">Laos</option>
+																					<option value="Latvia">Latvia</option>
+																					<option value="Lebanon">Lebanon</option>
+																					<option value="Lesotho">Lesotho</option>
+																					<option value="Liberia">Liberia</option>
+																					<option value="Libya">Libya</option>
+																					<option value="Liechtenstein">Liechtenstein</option>
+																					<option value="Lithuania">Lithuania</option>
+																					<option value="Luxembourg">Luxembourg</option>
+																					<option value="Macau SAR China">Macau SAR China</option>
+																					<option value="Macedonia">Macedonia</option>
+																					<option value="Madagascar">Madagascar</option>
+																					<option value="Malawi">Malawi</option>
+																					<option value="Malaysia">Malaysia</option>
+																					<option value="Maldives">Maldives</option>
+																					<option value="Mali">Mali</option>
+																					<option value="Malta">Malta</option>
+																					<option value="Marshall Islands">Marshall Islands</option>
+																					<option value="Martinique">Martinique</option>
+																					<option value="Mauritania">Mauritania</option>
+																					<option value="Mauritius">Mauritius</option>
+																					<option value="Mayotte">Mayotte</option>
+																					<option value="Metropolitan France">Metropolitan France</option>
+																					<option value="Mexico">Mexico</option>
+																					<option value="Micronesia">Micronesia</option>
+																					<option value="Midway Islands">Midway Islands</option>
+																					<option value="Moldova">Moldova</option>
+																					<option value="Monaco">Monaco</option>
+																					<option value="Mongolia">Mongolia</option>
+																					<option value="Montenegro">Montenegro</option>
+																					<option value="Montserrat">Montserrat</option>
+																					<option value="Morocco">Morocco</option>
+																					<option value="Mozambique">Mozambique</option>
+																					<option value="Myanmar [Burma]">Myanmar [Burma]</option>
+																					<option value="Namibia">Namibia</option>
+																					<option value="Nauru">Nauru</option>
+																					<option value="Nepal">Nepal</option>
+																					<option value="Netherlands">Netherlands</option>
+																					<option value="Netherlands Antilles">Netherlands Antilles</option>
+																					<option value="Neutral Zone">Neutral Zone</option>
+																					<option value="New Caledonia">New Caledonia</option>
+																					<option value="New Zealand">New Zealand</option>
+																					<option value="Nicaragua">Nicaragua</option>
+																					<option value="Niger">Niger</option>
+																					<option value="Nigeria">Nigeria</option>
+																					<option value="Niue">Niue</option>
+																					<option value="Norfolk Island">Norfolk Island</option>
+																					<option value="North Korea">North Korea</option>
+																					<option value="North Vietnam">North Vietnam</option>
+																					<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+																					<option value="Norway">Norway</option>
+																					<option value="Oman">Oman</option>
+																					<option value="Pacific Islands Trust Territory">Pacific Islands Trust Territory</option>
+																					<option value="Pakistan">Pakistan</option>
+																					<option value="Palau">Palau</option>
+																					<option value="Palestinian Territories">Palestinian Territories</option>
+																					<option value="Panama">Panama</option>
+																					<option value="Panama Canal Zone">Panama Canal Zone</option>
+																					<option value="Papua New Guinea">Papua New Guinea</option>
+																					<option value="Paraguay">Paraguay</option>
+																					<option value="People's Democratic Republic of Yemen">People's Democratic Republic of Yemen</option>
+																					<option value="Peru">Peru</option>
+																					<option value="Philippines">Philippines</option>
+																					<option value="Pitcairn Islands">Pitcairn Islands</option>
+																					<option value="Poland">Poland</option>
+																					<option value="Portugal">Portugal</option>
+																					<option value="Puerto Rico">Puerto Rico</option>
+																					<option value="Qatar">Qatar</option>
+																					<option value="Romania">Romania</option>
+																					<option value="Russia">Russia</option>
+																					<option value="Rwanda">Rwanda</option>
+																					<option value="Saint Barthélemy">Saint Barthélemy</option>
+																					<option value="Saint Helena">Saint Helena</option>
+																					<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+																					<option value="Saint Lucia">Saint Lucia</option>
+																					<option value="Saint Martin">Saint Martin</option>
+																					<option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+																					<option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+																					<option value="Samoa">Samoa</option>
+																					<option value="San Marino">San Marino</option>
+																					<option value="Saudi Arabia">Saudi Arabia</option>
+																					<option value="Senegal">Senegal</option>
+																					<option value="Serbia">Serbia</option>
+																					<option value="Serbia and Montenegro">Serbia and Montenegro</option>
+																					<option value="Seychelles">Seychelles</option>
+																					<option value="Sierra Leone">Sierra Leone</option>
+																					<option value="Singapore">Singapore</option>
+																					<option value="Slovakia">Slovakia</option>
+																					<option value="Slovenia">Slovenia</option>
+																					<option value="Solomon Islands">Solomon Islands</option>
+																					<option value="Somalia">Somalia</option>
+																					<option value="South Africa">South Africa</option>
+																					<option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+																					<option value="South Korea">South Korea</option>
+																					<option value="Spain">Spain</option>
+																					<option value="Sri Lanka">Sri Lanka</option>
+																					<option value="Sudan">Sudan</option>
+																					<option value="Suriname">Suriname</option>
+																					<option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+																					<option value="Swaziland">Swaziland</option>
+																					<option value="Sweden">Sweden</option>
+																					<option value="Switzerland">Switzerland</option>
+																					<option value="Syria">Syria</option>
+																					<option value="São Tomé and Príncipe">São Tomé and Príncipe</option>
+																					<option value="Taiwan">Taiwan</option>
+																					<option value="Tajikistan">Tajikistan</option>
+																					<option value="Tanzania">Tanzania</option>
+																					<option value="Thailand">Thailand</option>
+																					<option value="Timor-Leste">Timor-Leste</option>
+																					<option value="Togo">Togo</option>
+																					<option value="Tokelau">Tokelau</option>
+																					<option value="Tonga">Tonga</option>
+																					<option value="Trinidad and Tobago">Trinidad and Tobago</option>
+																					<option value="Tunisia">Tunisia</option>
+																					<option value="Turkey">Turkey</option>
+																					<option value="Turkmenistan">Turkmenistan</option>
+																					<option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+																					<option value="Tuvalu">Tuvalu</option>
+																					<option value="U.S. Minor Outlying Islands">U.S. Minor Outlying Islands</option>
+																					<option value="U.S. Miscellaneous Pacific Islands">U.S. Miscellaneous Pacific Islands</option>
+																					<option value="U.S. Virgin Islands">U.S. Virgin Islands</option>
+																					<option value="Uganda">Uganda</option>
+																					<option value="Ukraine">Ukraine</option>
+																					<option value="Union of Soviet Socialist Republics">Union of Soviet Socialist Republics</option>
+																					<option value="United Arab Emirates">United Arab Emirates</option>
+																					<option value="United Kingdom">United Kingdom</option>
+																					<option value="United States">United States</option>
+																					<option value="Unknown or Invalid Region">Unknown or Invalid Region</option>
+																					<option value="Uruguay">Uruguay</option>
+																					<option value="Uzbekistan">Uzbekistan</option>
+																					<option value="Vanuatu">Vanuatu</option>
+																					<option value="Vatican City">Vatican City</option>
+																					<option value="Venezuela">Venezuela</option>
+																					<option value="Vietnam">Vietnam</option>
+																					<option value="Wake Island">Wake Island</option>
+																					<option value="Wallis and Futuna">Wallis and Futuna</option>
+																					<option value="Western Sahara">Western Sahara</option>
+																					<option value="Yemen">Yemen</option>
+																					<option value="Zambia">Zambia</option>
+																					<option value="Zimbabwe">Zimbabwe</option>
+																					<option value="Åland Islands">Åland Islands</option>
+																			</select>
+								</label>
+													</div>
+						<div class="form-item">
+															<label>
+									<span>
+										choose language										<span class="error-message" style="display:none;">(required field)</span>
+									</span>
+									<select class="" name="reg-choose-language" required="">
+
+																																	<option value="English">English</option>
+																																																															
+																																																						<option value="Spanish">Spanish</option>
+																																												<option value="Hebrew">Hebrew</option>
+																					
+									</select>
+								</label>
+													</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-item pass">
+							<label>
+								<span>
+									Password									<span class="error-message" style="display:none;">(required field)</span>
+								</span>
+								<input type="password" name="reg-password" minlength="8" class="req">
+							</label>
+						</div>
+					</div>
+
+					<button type="submit" class="submit-login">REGISTER</button>
+				</div>
+				<div class="user-register-form-message" style="display:none;">
+					<p><span style="font-weight: 400;">Thank you for your registration!</span></p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="customer-popup" class="mfp-hide">
+    <div class="user-login-popup-inner">
+        <div class="user-login-body">
+            <p>Access for authorized customers only</p>
+        </div>
+    </div>
+</div>
+
+        <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/omega-child-theme/*","/wp-content/themes/omega/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://accessible.vagas.co.il/a/pima-alarms/accessibility.js"></script>
+
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		if(typeof revslider_showDoubleJqueryError === "undefined") {
+			function revslider_showDoubleJqueryError(sliderID) {
+				var err = "<div class='rs_error_message_box'>";
+				err += "<div class='rs_error_message_oops'>Oops...</div>";
+				err += "<div class='rs_error_message_content'>";
+				err += "You have some jquery.js library include that comes after the Slider Revolution files js inclusion.<br>";
+				err += "To fix this, you can:<br>&nbsp;&nbsp;&nbsp; 1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on";
+				err += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jQuery.js inclusion and remove it";
+				err += "</div>";
+			err += "</div>";
+				var slider = document.getElementById(sliderID); slider.innerHTML = err; slider.style.display = "block";
+			}
+		}
+		</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/comment-reply.min.js?ver=6.9.4" id="comment-reply-js" async="async" data-wp-strategy="async" fetchpriority="low"></script>
+<script type="text/javascript" id="theme-my-login-js-extra">
+/* <![CDATA[ */
+var themeMyLogin = {"action":"","errors":[]};
+//# sourceURL=theme-my-login-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/theme-my-login/assets/scripts/theme-my-login.min.js?ver=7.1.14" id="theme-my-login-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.pima-alarms.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/themes/omega-child-theme/js/magnific-popup.min.js" id="magnific-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/dist/vendor/moment.min.js?ver=2.30.1" id="moment-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="moment-js-after">
+/* <![CDATA[ */
+moment.updateLocale( 'en_US', {"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"week":{"dow":0},"longDateFormat":{"LT":"g:i A","LTS":null,"L":null,"LL":"F j, Y","LLL":"F j, Y g:i a","LLLL":null}} );
+//# sourceURL=moment-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/themes/omega-child-theme/js/fullcalendar.min.js" id="fullcalendar-js"></script>
+<script type="text/javascript" id="child-scripts-js-extra">
+/* <![CDATA[ */
+var site_settings = {"translations":{"checkemail":"Check your email to confirm login.","password_hint":"The password should be at least eight characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! \" ? $ % ^ & )."}};
+//# sourceURL=child-scripts-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/themes/omega-child-theme/js/scripts.js" id="child-scripts-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="mediaelement-core-js-before">
+/* <![CDATA[ */
+var mejsL10n = {"language":"en","strings":{"mejs.download-file":"Download File","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https://get.adobe.com/flashplayer/","mejs.fullscreen":"Fullscreen","mejs.play":"Play","mejs.pause":"Pause","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left/Right Arrow keys to advance one second, Up/Down arrows to advance ten seconds.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Use Up/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Captions/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+//# sourceURL=mediaelement-core-js-before
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17" id="mediaelement-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.9.4" id="mediaelement-migrate-js"></script>
+<script type="text/javascript" id="mediaelement-js-extra">
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"/wp-includes/js/mediaelement/","classPrefix":"mejs-","stretching":"responsive","audioShortcodeLibrary":"mediaelement","videoShortcodeLibrary":"mediaelement"};
+//# sourceURL=mediaelement-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.9.4" id="wp-mediaelement-js"></script>
+<script type="text/javascript" id="omega-theme-js-extra">
+/* <![CDATA[ */
+var oxyThemeData = {"navbarScrolledPoint":"200","navbarScrolledSwatches":{"up":"swatch-white-red","down":"swatch-white-red"},"navbarHeight":"73","navbarScrolled":"60","scrollFinishedMessage":"No more items to load.","siteLoader":"off","hoverMenu":{"hoverActive":true,"hoverDelay":"157","hoverFadeDelay":"152"}};
+//# sourceURL=omega-theme-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/themes/omega/assets/js/theme.js?ver=1.0" id="omega-theme-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/wp-charts//js/functions.js?ver=6.9.4" id="wp-chart-functions-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6Lduuq4UAAAAAAkMpxKUC4J0LSDcZaisbZAVGFmN&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wpcf7-recaptcha-js-before">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {
+    "sitekey": "6Lduuq4UAAAAAAkMpxKUC4J0LSDcZaisbZAVGFmN",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.5" id="wpcf7-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.pima-alarms.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=6.2.0" id="wpb_composer_front_js-js"></script>
+
+
+    
+
+
+
+</body></html>

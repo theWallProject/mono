@@ -1,0 +1,73 @@
+[2026-03-10T06:54:22.132Z] === Homepage AI Extractor: Cywareness ===
+[2026-03-10T06:54:22.132Z] Started at: 2026-03-10T06:54:22.132Z
+[2026-03-10T06:54:22.132Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773125662131_Cywareness
+[2026-03-10T06:54:22.133Z] Company: Cywareness
+[2026-03-10T06:54:22.133Z] Website: cywareness.io
+[2026-03-10T06:54:22.133Z] cbRank: 418894
+[2026-03-10T06:54:22.133Z] Reasons: h
+[2026-03-10T06:54:22.133Z] Fetching: https://cywareness.io
+[2026-03-10T06:54:33.903Z] Network idle timeout — continuing with current state
+[2026-03-10T06:54:33.954Z] Redirected: https://cywareness.io -> https://cywareness.io/
+[2026-03-10T06:54:33.960Z] Saved HTML (159921 bytes) to page.html
+[2026-03-10T06:54:33.967Z] Extracted 29 unique links from page
+[2026-03-10T06:54:33.968Z] Saved 29 links to links.json
+[2026-03-10T06:54:33.971Z] Extracted footer HTML (15863 chars)
+[2026-03-10T06:54:33.971Z] Extracted header HTML (12408 chars)
+[2026-03-10T06:54:33.977Z] Website (post-redirect): https://cywareness.io/ → origin: https://cywareness.io
+[2026-03-10T06:54:33.977Z]   SUBDOMAIN: app.cywareness.io (added to ws)
+[2026-03-10T06:54:33.977Z] Website subdomains found: 1
+[2026-03-10T06:54:33.977Z] External links: 6 (of 29 total)
+[2026-03-10T06:54:33.977Z] ── All external links ──
+[2026-03-10T06:54:33.977Z]   EXT: https://policies.google.com/privacy
+[2026-03-10T06:54:33.977Z]   EXT: https://policies.google.com/terms
+[2026-03-10T06:54:33.977Z]   EXT: https://startit.qodeinteractive.com
+[2026-03-10T06:54:33.977Z]   EXT: https://www.cyberpro-ai.com
+[2026-03-10T06:54:33.977Z]   EXT: https://www.linkedin.com/company/cywareness-io
+[2026-03-10T06:54:33.978Z]   EXT: https://www.youtube.com/@cywareness
+[2026-03-10T06:54:33.978Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:54:33.978Z]   UNCATEGORIZED: https://policies.google.com/privacy
+[2026-03-10T06:54:33.978Z]   UNCATEGORIZED: https://policies.google.com/terms
+[2026-03-10T06:54:33.978Z]   UNCATEGORIZED: https://startit.qodeinteractive.com
+[2026-03-10T06:54:33.978Z]   UNCATEGORIZED: https://www.cyberpro-ai.com
+[2026-03-10T06:54:33.978Z]   REGEX: li <- https://www.linkedin.com/company/cywareness-io
+[2026-03-10T06:54:33.978Z]   REGEX: ytp <- https://www.youtube.com/@cywareness
+[2026-03-10T06:54:33.978Z] Programmatic result: ws:2, li:1, ytp:1 | 4 uncategorized
+[2026-03-10T06:54:33.978Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:54:33.979Z] Saved AI prompt (3039 chars) to ai_prompt.txt
+[2026-03-10T06:54:33.979Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:54:33.999Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:54:43.737Z]   AI: First token received, streaming...
+[2026-03-10T06:54:48.084Z] AI response complete: 83 chars in 14.1s
+[2026-03-10T06:54:48.086Z] Saved AI response to ai_response.json
+[2026-03-10T06:54:48.086Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T06:54:48.086Z]   AI LINK: https://www.youtube.com/@cywareness
+[2026-03-10T06:54:48.086Z]   AI LINK: https://www.linkedin.com/company/cywareness-io/
+[2026-03-10T06:54:48.086Z] AI returned 2 valid links
+[2026-03-10T06:54:48.086Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T06:54:48.086Z]   AI→REGEX: ytp <- https://www.youtube.com/@cywareness (duplicate, skipped)
+[2026-03-10T06:54:48.087Z]   AI→REGEX: li <- https://www.linkedin.com/company/cywareness-io/ (duplicate, skipped)
+[2026-03-10T06:54:48.087Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:54:48.087Z] Footer/header origins (4):
+[2026-03-10T06:54:48.087Z]   FOOTER/HEADER ORIGIN: https://cywareness.io
+[2026-03-10T06:54:48.087Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T06:54:48.087Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T06:54:48.087Z]   FOOTER/HEADER ORIGIN: https://app.cywareness.io
+[2026-03-10T06:54:48.087Z]   SKIP (not in footer/header): https://policies.google.com/privacy
+[2026-03-10T06:54:48.088Z]   SKIP (not in footer/header): https://policies.google.com/terms
+[2026-03-10T06:54:48.088Z]   SKIP (not in footer/header): https://startit.qodeinteractive.com
+[2026-03-10T06:54:48.088Z]   SKIP (not in footer/header): https://www.cyberpro-ai.com
+[2026-03-10T06:54:48.088Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T06:54:48.088Z] ── Step 3: Final dedup ──
+[2026-03-10T06:54:48.088Z] No urls to dedup
+[2026-03-10T06:54:48.088Z] ── FINAL RESULT ──
+[2026-03-10T06:54:48.088Z]   ws (2):
+[2026-03-10T06:54:48.088Z]     - https://app.cywareness.io
+[2026-03-10T06:54:48.088Z]     - https://cywareness.io
+[2026-03-10T06:54:48.088Z]   li (1):
+[2026-03-10T06:54:48.088Z]     - https://www.linkedin.com/company/cywareness-io
+[2026-03-10T06:54:48.088Z]   ytp (1):
+[2026-03-10T06:54:48.088Z]     - https://www.youtube.com/@cywareness
+[2026-03-10T06:54:48.088Z] Summary: ws:2, li:1, ytp:1
+[2026-03-10T06:54:48.089Z] Saved final result to result.json
+[2026-03-10T06:54:48.089Z] Override fields: ws, li, ytp
+[2026-03-10T06:54:48.089Z] Finished at: 2026-03-10T06:54:48.089Z

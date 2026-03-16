@@ -1,0 +1,77 @@
+[2026-03-13T09:12:12.081Z] === Homepage AI Extractor: Hellix ===
+[2026-03-13T09:12:12.081Z] Started at: 2026-03-13T09:12:12.081Z
+[2026-03-13T09:12:12.081Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773393132080_Hellix
+[2026-03-13T09:12:12.081Z] Company: Hellix
+[2026-03-13T09:12:12.081Z] Website: hellix.co.il
+[2026-03-13T09:12:12.081Z] cbRank: 1073958
+[2026-03-13T09:12:12.081Z] Reasons: h
+[2026-03-13T09:12:12.081Z] Fetching: https://hellix.co.il
+[2026-03-13T09:12:21.078Z] Redirected: https://hellix.co.il -> https://hellix.co.il/
+[2026-03-13T09:12:21.086Z] Saved HTML (212684 bytes) to page.html
+[2026-03-13T09:12:21.090Z] Extracted 46 unique links from page
+[2026-03-13T09:12:21.091Z] Saved 46 links to links.json
+[2026-03-13T09:12:21.094Z] Extracted footer HTML (9827 chars)
+[2026-03-13T09:12:21.094Z] Extracted header HTML (11543 chars)
+[2026-03-13T09:12:21.099Z] Website (post-redirect): https://hellix.co.il/ → origin: https://hellix.co.il
+[2026-03-13T09:12:21.099Z]   SUBDOMAIN: drills.hellix.co.il (added to ws)
+[2026-03-13T09:12:21.100Z] Website subdomains found: 1
+[2026-03-13T09:12:21.100Z] External links: 4 (of 46 total)
+[2026-03-13T09:12:21.100Z] ── All external links ──
+[2026-03-13T09:12:21.100Z]   EXT: https://twitter.com/HellixEnglish
+[2026-03-13T09:12:21.100Z]   EXT: https://www.pinterest.com/hellix_efl
+[2026-03-13T09:12:21.100Z]   EXT: https://www.tiktok.com/@hellixenglish
+[2026-03-13T09:12:21.100Z]   EXT: https://www.youtube.com/c/HellixESL
+[2026-03-13T09:12:21.100Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T09:12:21.100Z]   REGEX: tw <- https://twitter.com/HellixEnglish
+[2026-03-13T09:12:21.100Z]   UNCATEGORIZED: https://www.pinterest.com/hellix_efl
+[2026-03-13T09:12:21.101Z]   REGEX: tt <- https://www.tiktok.com/@hellixenglish
+[2026-03-13T09:12:21.101Z]   REGEX: ytp <- https://www.youtube.com/c/HellixESL
+[2026-03-13T09:12:21.101Z] Programmatic result: ws:2, tw:1, tt:1, ytp:1 | 1 uncategorized
+[2026-03-13T09:12:21.101Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T09:12:21.102Z] Saved AI prompt (4059 chars) to ai_prompt.txt
+[2026-03-13T09:12:21.102Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T09:12:21.160Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T09:12:36.620Z]   AI: First token received, streaming...
+[2026-03-13T09:12:46.110Z] AI response complete: 145 chars in 25.0s
+[2026-03-13T09:12:46.111Z] Saved AI response to ai_response.json
+[2026-03-13T09:12:46.111Z] ── Parsing AI response (4 lines) ──
+[2026-03-13T09:12:46.111Z]   AI LINK: https://www.youtube.com/c/HellixESL
+[2026-03-13T09:12:46.111Z]   AI LINK: https://www.tiktok.com/@hellixenglish
+[2026-03-13T09:12:46.111Z]   AI LINK: https://twitter.com/HellixEnglish
+[2026-03-13T09:12:46.111Z]   AI LINK: https://www.pinterest.com/hellix_efl/
+[2026-03-13T09:12:46.111Z] AI returned 4 valid links
+[2026-03-13T09:12:46.111Z] ── Categorizing 4 AI-returned links ──
+[2026-03-13T09:12:46.112Z]   AI→REGEX: ytp <- https://www.youtube.com/c/HellixESL (duplicate, skipped)
+[2026-03-13T09:12:46.112Z]   AI→REGEX: tt <- https://www.tiktok.com/@hellixenglish (duplicate, skipped)
+[2026-03-13T09:12:46.112Z]   AI→REGEX: tw <- https://twitter.com/HellixEnglish (duplicate, skipped)
+[2026-03-13T09:12:46.112Z]   AI→URLS: https://www.pinterest.com/hellix_efl (cleaned from https://www.pinterest.com/hellix_efl/)
+[2026-03-13T09:12:46.113Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T09:12:46.113Z] Footer/header origins (6):
+[2026-03-13T09:12:46.113Z]   FOOTER/HEADER ORIGIN: https://drills.hellix.co.il
+[2026-03-13T09:12:46.113Z]   FOOTER/HEADER ORIGIN: https://hellix.co.il
+[2026-03-13T09:12:46.113Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-13T09:12:46.113Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-13T09:12:46.113Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-13T09:12:46.114Z]   FOOTER/HEADER ORIGIN: https://www.pinterest.com
+[2026-03-13T09:12:46.114Z]   SKIP (AI claimed): https://www.pinterest.com/hellix_efl
+[2026-03-13T09:12:46.114Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T09:12:46.114Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T09:12:46.114Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T09:12:46.114Z] ── Step 3: Final dedup ──
+[2026-03-13T09:12:46.114Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T09:12:46.114Z] ── FINAL RESULT ──
+[2026-03-13T09:12:46.114Z]   ws (2):
+[2026-03-13T09:12:46.114Z]     - https://drills.hellix.co.il
+[2026-03-13T09:12:46.114Z]     - https://hellix.co.il
+[2026-03-13T09:12:46.114Z]   tw (1):
+[2026-03-13T09:12:46.115Z]     - https://x.com/hellixenglish
+[2026-03-13T09:12:46.115Z]   ytp (1):
+[2026-03-13T09:12:46.115Z]     - https://www.youtube.com/@hellixesl
+[2026-03-13T09:12:46.115Z]   tt (1):
+[2026-03-13T09:12:46.115Z]     - https://www.tiktok.com/@hellixenglish
+[2026-03-13T09:12:46.115Z]   urls (1):
+[2026-03-13T09:12:46.115Z]     - https://www.pinterest.com/hellix_efl
+[2026-03-13T09:12:46.115Z] Summary: ws:2, tw:1, tt:1, ytp:1, urls:1
+[2026-03-13T09:12:46.116Z] Saved final result to result.json
+[2026-03-13T09:12:46.116Z] Override fields: ws, tw, ytp, tt, urls
+[2026-03-13T09:12:46.116Z] Finished at: 2026-03-13T09:12:46.116Z

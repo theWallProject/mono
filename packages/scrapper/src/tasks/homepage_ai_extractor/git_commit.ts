@@ -136,6 +136,10 @@ export const assertGitPreconditions = (): void => {
  *   Success: "homepage-extract: Tower Semiconductor"
  *   Failure: "homepage-extract-failed: D-ID - DNS_FAILURE"
  *
+ * Note: WS_ONLY and NON_GREEN_LINKS results use success=true because the
+ * extraction itself succeeded — they're added to the retry list for manual
+ * review, but the commit title should reflect that data was extracted.
+ *
  * Throws on ANY git failure or if there are unexpectedly no changes to commit.
  * The caller (runBatch) must let this propagate to abort the batch immediately.
  */

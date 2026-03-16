@@ -1,0 +1,70 @@
+[2026-03-13T12:51:39.568Z] === Homepage AI Extractor: Market Master ===
+[2026-03-13T12:51:39.568Z] Started at: 2026-03-13T12:51:39.568Z
+[2026-03-13T12:51:39.568Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773406299567_Market_Master
+[2026-03-13T12:51:39.568Z] Company: Market Master
+[2026-03-13T12:51:39.568Z] Website: marketmaster.co.il
+[2026-03-13T12:51:39.568Z] cbRank: 1156133
+[2026-03-13T12:51:39.568Z] Reasons: h
+[2026-03-13T12:51:39.568Z] Fetching: https://marketmaster.co.il
+[2026-03-13T12:51:44.374Z] Redirected: https://marketmaster.co.il -> https://www.marketmaster.co.il/
+[2026-03-13T12:51:44.380Z] Saved HTML (148880 bytes) to page.html
+[2026-03-13T12:51:44.386Z] Extracted 47 unique links from page
+[2026-03-13T12:51:44.387Z] Saved 47 links to links.json
+[2026-03-13T12:51:44.390Z] Extracted footer HTML (1615 chars)
+[2026-03-13T12:51:44.390Z] Extracted header HTML (2592 chars)
+[2026-03-13T12:51:44.397Z] Website (post-redirect): https://www.marketmaster.co.il/ → origin: https://www.marketmaster.co.il
+[2026-03-13T12:51:44.397Z] External links: 5 (of 47 total)
+[2026-03-13T12:51:44.397Z] ── All external links ──
+[2026-03-13T12:51:44.397Z]   EXT: http://marketmaster.layerltd.com/contact
+[2026-03-13T12:51:44.397Z]   EXT: https://he-il.facebook.com/marketmastervideo
+[2026-03-13T12:51:44.397Z]   EXT: https://vimeo.com/marketmastervideo
+[2026-03-13T12:51:44.397Z]   EXT: https://www.gemplan.co.il
+[2026-03-13T12:51:44.398Z]   EXT: https://www.youtube.com/user/marketmastervideo
+[2026-03-13T12:51:44.398Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T12:51:44.398Z]   UNCATEGORIZED: http://marketmaster.layerltd.com/contact
+[2026-03-13T12:51:44.398Z]   REGEX: fb <- https://he-il.facebook.com/marketmastervideo
+[2026-03-13T12:51:44.398Z]   UNCATEGORIZED: https://vimeo.com/marketmastervideo
+[2026-03-13T12:51:44.398Z]   UNCATEGORIZED: https://www.gemplan.co.il
+[2026-03-13T12:51:44.398Z]   REGEX: ytp <- https://www.youtube.com/user/marketmastervideo
+[2026-03-13T12:51:44.398Z] Programmatic result: ws:1, fb:1, ytp:1 | 3 uncategorized
+[2026-03-13T12:51:44.398Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T12:51:44.399Z] Saved AI prompt (2992 chars) to ai_prompt.txt
+[2026-03-13T12:51:44.399Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T12:51:44.418Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T12:51:57.465Z]   AI: First token received, streaming...
+[2026-03-13T12:51:58.591Z] AI response complete: 35 chars in 14.2s
+[2026-03-13T12:51:58.592Z] Saved AI response to ai_response.json
+[2026-03-13T12:51:58.592Z] ── Parsing AI response (1 lines) ──
+[2026-03-13T12:51:58.592Z]   AI LINK: https://vimeo.com/marketmastervideo
+[2026-03-13T12:51:58.592Z] AI returned 1 valid links
+[2026-03-13T12:51:58.592Z] ── Categorizing 1 AI-returned links ──
+[2026-03-13T12:51:58.592Z]   AI→URLS: https://vimeo.com/marketmastervideo
+[2026-03-13T12:51:58.592Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T12:51:58.593Z] Footer/header origins (5):
+[2026-03-13T12:51:58.593Z]   FOOTER/HEADER ORIGIN: https://www.marketmaster.co.il
+[2026-03-13T12:51:58.593Z]   FOOTER/HEADER ORIGIN: https://www.gemplan.co.il
+[2026-03-13T12:51:58.593Z]   FOOTER/HEADER ORIGIN: https://he-il.facebook.com
+[2026-03-13T12:51:58.593Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-13T12:51:58.593Z]   FOOTER/HEADER ORIGIN: https://vimeo.com
+[2026-03-13T12:51:58.593Z]   SKIP (not in footer/header): http://marketmaster.layerltd.com/contact
+[2026-03-13T12:51:58.593Z]   SKIP (AI claimed): https://vimeo.com/marketmastervideo
+[2026-03-13T12:51:58.593Z]   ADDED: urls <- https://www.gemplan.co.il
+[2026-03-13T12:51:58.593Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T12:51:58.593Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T12:51:58.593Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T12:51:58.594Z] ── Step 3: Final dedup ──
+[2026-03-13T12:51:58.594Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T12:51:58.594Z] ── FINAL RESULT ──
+[2026-03-13T12:51:58.594Z]   ws (1):
+[2026-03-13T12:51:58.594Z]     - https://www.marketmaster.co.il
+[2026-03-13T12:51:58.594Z]   fb (1):
+[2026-03-13T12:51:58.594Z]     - https://www.facebook.com/marketmastervideo
+[2026-03-13T12:51:58.594Z]   ytp (1):
+[2026-03-13T12:51:58.594Z]     - https://www.youtube.com/@marketmastervideo
+[2026-03-13T12:51:58.594Z]   urls (2):
+[2026-03-13T12:51:58.594Z]     - https://vimeo.com/marketmastervideo
+[2026-03-13T12:51:58.594Z]     - https://www.gemplan.co.il
+[2026-03-13T12:51:58.594Z] Summary: ws:1, fb:1, ytp:1, urls:2
+[2026-03-13T12:51:58.595Z] Saved final result to result.json
+[2026-03-13T12:51:58.595Z] Override fields: ws, fb, ytp, urls
+[2026-03-13T12:51:58.595Z] Finished at: 2026-03-13T12:51:58.595Z

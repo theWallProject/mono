@@ -1,0 +1,67 @@
+[2026-03-13T04:52:42.527Z] === Homepage AI Extractor: Sonary ===
+[2026-03-13T04:52:42.528Z] Started at: 2026-03-13T04:52:42.528Z
+[2026-03-13T04:52:42.528Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773377562527_Sonary
+[2026-03-13T04:52:42.528Z] Company: Sonary
+[2026-03-13T04:52:42.528Z] Website: sonary.com
+[2026-03-13T04:52:42.528Z] cbRank: 990205
+[2026-03-13T04:52:42.528Z] Reasons: h
+[2026-03-13T04:52:42.528Z] Fetching: https://sonary.com
+[2026-03-13T04:52:45.583Z] Redirected: https://sonary.com -> https://sonary.com/
+[2026-03-13T04:52:45.660Z] Saved HTML (516117 bytes) to page.html
+[2026-03-13T04:52:45.757Z] Extracted 62 unique links from page
+[2026-03-13T04:52:45.758Z] Saved 62 links to links.json
+[2026-03-13T04:52:45.810Z] Extracted footer HTML (4185 chars)
+[2026-03-13T04:52:45.810Z] Extracted header HTML (3379 chars)
+[2026-03-13T04:52:45.825Z] Website (post-redirect): https://sonary.com/ → origin: https://sonary.com
+[2026-03-13T04:52:45.825Z]   SUBDOMAIN: out.sonary.com (added to ws)
+[2026-03-13T04:52:45.825Z] Website subdomains found: 1
+[2026-03-13T04:52:45.826Z] External links: 3 (of 62 total)
+[2026-03-13T04:52:45.826Z] ── All external links ──
+[2026-03-13T04:52:45.826Z]   EXT: https://twitter.com/sonarydotcom
+[2026-03-13T04:52:45.826Z]   EXT: https://www.facebook.com/sonarydotcom
+[2026-03-13T04:52:45.826Z]   EXT: https://www.linkedin.com/company/sonary-com
+[2026-03-13T04:52:45.826Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T04:52:45.827Z]   REGEX: tw <- https://twitter.com/sonarydotcom
+[2026-03-13T04:52:45.827Z]   REGEX: fb <- https://www.facebook.com/sonarydotcom
+[2026-03-13T04:52:45.827Z]   REGEX: li <- https://www.linkedin.com/company/sonary-com
+[2026-03-13T04:52:45.828Z] Programmatic result: ws:2, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-13T04:52:45.828Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T04:52:45.829Z] Saved AI prompt (4619 chars) to ai_prompt.txt
+[2026-03-13T04:52:45.829Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T04:52:45.847Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T04:53:01.040Z]   AI: First token received, streaming...
+[2026-03-13T04:53:07.262Z] AI response complete: 115 chars in 21.4s
+[2026-03-13T04:53:07.262Z] Saved AI response to ai_response.json
+[2026-03-13T04:53:07.263Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T04:53:07.263Z]   AI LINK: https://www.linkedin.com/company/sonary-com/
+[2026-03-13T04:53:07.263Z]   AI LINK: https://www.facebook.com/sonarydotcom
+[2026-03-13T04:53:07.263Z]   AI LINK: https://twitter.com/sonarydotcom
+[2026-03-13T04:53:07.263Z] AI returned 3 valid links
+[2026-03-13T04:53:07.263Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T04:53:07.263Z]   AI→REGEX: li <- https://www.linkedin.com/company/sonary-com/ (duplicate, skipped)
+[2026-03-13T04:53:07.264Z]   AI→REGEX: fb <- https://www.facebook.com/sonarydotcom (duplicate, skipped)
+[2026-03-13T04:53:07.264Z]   AI→REGEX: tw <- https://twitter.com/sonarydotcom (duplicate, skipped)
+[2026-03-13T04:53:07.264Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T04:53:07.264Z] Footer/header origins (3):
+[2026-03-13T04:53:07.264Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T04:53:07.264Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T04:53:07.265Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-13T04:53:07.265Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T04:53:07.265Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T04:53:07.265Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T04:53:07.265Z] ── Step 3: Final dedup ──
+[2026-03-13T04:53:07.265Z] No urls to dedup
+[2026-03-13T04:53:07.265Z] ── FINAL RESULT ──
+[2026-03-13T04:53:07.265Z]   ws (2):
+[2026-03-13T04:53:07.265Z]     - https://out.sonary.com
+[2026-03-13T04:53:07.265Z]     - https://sonary.com
+[2026-03-13T04:53:07.265Z]   li (1):
+[2026-03-13T04:53:07.265Z]     - https://www.linkedin.com/company/sonary-com
+[2026-03-13T04:53:07.265Z]   fb (1):
+[2026-03-13T04:53:07.265Z]     - https://www.facebook.com/sonarydotcom
+[2026-03-13T04:53:07.266Z]   tw (1):
+[2026-03-13T04:53:07.266Z]     - https://x.com/sonarydotcom
+[2026-03-13T04:53:07.266Z] Summary: ws:2, tw:1, fb:1, li:1
+[2026-03-13T04:53:07.267Z] Saved final result to result.json
+[2026-03-13T04:53:07.267Z] Override fields: ws, li, fb, tw
+[2026-03-13T04:53:07.267Z] Finished at: 2026-03-13T04:53:07.267Z

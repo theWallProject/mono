@@ -1,0 +1,67 @@
+[2026-03-13T05:47:38.616Z] === Homepage AI Extractor: Innocom ===
+[2026-03-13T05:47:38.616Z] Started at: 2026-03-13T05:47:38.616Z
+[2026-03-13T05:47:38.616Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773380858616_Innocom
+[2026-03-13T05:47:38.616Z] Company: Innocom
+[2026-03-13T05:47:38.616Z] Website: innocom.co.il
+[2026-03-13T05:47:38.616Z] cbRank: 1011953
+[2026-03-13T05:47:38.617Z] Reasons: h
+[2026-03-13T05:47:38.617Z] Fetching: https://innocom.co.il
+[2026-03-13T05:47:41.457Z] Redirected: https://innocom.co.il -> https://www.innocom.co.il/
+[2026-03-13T05:47:41.466Z] Saved HTML (154304 bytes) to page.html
+[2026-03-13T05:47:41.470Z] Extracted 34 unique links from page
+[2026-03-13T05:47:41.471Z] Saved 34 links to links.json
+[2026-03-13T05:47:41.475Z] Extracted footer HTML (13061 chars)
+[2026-03-13T05:47:41.475Z] Extracted header HTML (3153 chars)
+[2026-03-13T05:47:41.479Z] Website (post-redirect): https://www.innocom.co.il/ → origin: https://www.innocom.co.il
+[2026-03-13T05:47:41.479Z] External links: 4 (of 34 total)
+[2026-03-13T05:47:41.479Z] ── All external links ──
+[2026-03-13T05:47:41.480Z]   EXT: https://goo.gl/maps/QVYox91DmvnZsiaVA
+[2026-03-13T05:47:41.480Z]   EXT: https://www.codenroll.co.il
+[2026-03-13T05:47:41.480Z]   EXT: https://www.facebook.com/InnoCom.Israel
+[2026-03-13T05:47:41.480Z]   EXT: https://www.linkedin.com/company/innocom/?viewAsMember=true
+[2026-03-13T05:47:41.480Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T05:47:41.480Z]   UNCATEGORIZED: https://goo.gl/maps/QVYox91DmvnZsiaVA
+[2026-03-13T05:47:41.480Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-13T05:47:41.480Z]   REGEX: fb <- https://www.facebook.com/InnoCom.Israel
+[2026-03-13T05:47:41.480Z]   REGEX: li <- https://www.linkedin.com/company/innocom/?viewAsMember=true
+[2026-03-13T05:47:41.480Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-13T05:47:41.481Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T05:47:41.481Z] Saved AI prompt (6720 chars) to ai_prompt.txt
+[2026-03-13T05:47:41.481Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T05:47:41.507Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T05:48:10.604Z]   AI: First token received, streaming...
+[2026-03-13T05:48:15.725Z] AI response complete: 99 chars in 34.2s
+[2026-03-13T05:48:15.728Z] Saved AI response to ai_response.json
+[2026-03-13T05:48:15.728Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T05:48:15.728Z]   AI LINK: https://www.linkedin.com/company/innocom/?viewAsMember=true
+[2026-03-13T05:48:15.728Z]   AI LINK: https://www.facebook.com/InnoCom.Israel
+[2026-03-13T05:48:15.729Z] AI returned 2 valid links
+[2026-03-13T05:48:15.729Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T05:48:15.729Z]   AI→REGEX: li <- https://www.linkedin.com/company/innocom/?viewAsMember=true (duplicate, skipped)
+[2026-03-13T05:48:15.729Z]   AI→REGEX: fb <- https://www.facebook.com/InnoCom.Israel (duplicate, skipped)
+[2026-03-13T05:48:15.729Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T05:48:15.730Z] Footer/header origins (4):
+[2026-03-13T05:48:15.730Z]   FOOTER/HEADER ORIGIN: https://www.innocom.co.il
+[2026-03-13T05:48:15.730Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-13T05:48:15.730Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T05:48:15.730Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T05:48:15.730Z]   ADDED: urls <- https://goo.gl/maps/QVYox91DmvnZsiaVA
+[2026-03-13T05:48:15.730Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-13T05:48:15.730Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T05:48:15.730Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T05:48:15.730Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T05:48:15.731Z] ── Step 3: Final dedup ──
+[2026-03-13T05:48:15.731Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T05:48:15.731Z] ── FINAL RESULT ──
+[2026-03-13T05:48:15.731Z]   ws (1):
+[2026-03-13T05:48:15.731Z]     - https://www.innocom.co.il
+[2026-03-13T05:48:15.731Z]   li (1):
+[2026-03-13T05:48:15.731Z]     - https://www.linkedin.com/company/innocom
+[2026-03-13T05:48:15.731Z]   fb (1):
+[2026-03-13T05:48:15.731Z]     - https://www.facebook.com/innocom.israel
+[2026-03-13T05:48:15.731Z]   urls (1):
+[2026-03-13T05:48:15.731Z]     - https://goo.gl/maps/QVYox91DmvnZsiaVA
+[2026-03-13T05:48:15.732Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-13T05:48:15.732Z] Saved final result to result.json
+[2026-03-13T05:48:15.732Z] Override fields: ws, li, fb, urls
+[2026-03-13T05:48:15.732Z] Finished at: 2026-03-13T05:48:15.732Z

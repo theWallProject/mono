@@ -1,0 +1,75 @@
+[2026-03-13T08:58:11.542Z] === Homepage AI Extractor: Mennen Medical ===
+[2026-03-13T08:58:11.542Z] Started at: 2026-03-13T08:58:11.542Z
+[2026-03-13T08:58:11.542Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773392291541_Mennen_Medical
+[2026-03-13T08:58:11.542Z] Company: Mennen Medical
+[2026-03-13T08:58:11.542Z] Website: mennenmedical.com
+[2026-03-13T08:58:11.542Z] cbRank: 1070898
+[2026-03-13T08:58:11.542Z] Reasons: h
+[2026-03-13T08:58:11.542Z] Fetching: https://mennenmedical.com
+[2026-03-13T08:58:19.468Z] Redirected: https://mennenmedical.com -> https://www.mennenmedical.com/
+[2026-03-13T08:58:19.471Z] Saved HTML (52960 bytes) to page.html
+[2026-03-13T08:58:19.475Z] Extracted 21 unique links from page
+[2026-03-13T08:58:19.476Z] Saved 21 links to links.json
+[2026-03-13T08:58:19.479Z] Extracted footer HTML (1044 chars)
+[2026-03-13T08:58:19.479Z] Extracted header HTML (3160 chars)
+[2026-03-13T08:58:19.482Z] Website (post-redirect): https://www.mennenmedical.com/ → origin: https://www.mennenmedical.com
+[2026-03-13T08:58:19.483Z] External links: 5 (of 21 total)
+[2026-03-13T08:58:19.483Z] ── All external links ──
+[2026-03-13T08:58:19.483Z]   EXT: http://www.elegantthemes.com
+[2026-03-13T08:58:19.483Z]   EXT: http://www.wordpress.org
+[2026-03-13T08:58:19.483Z]   EXT: https://www.linkedin.com/company/644438
+[2026-03-13T08:58:19.483Z]   EXT: https://www.linkedin.com/company/644438/admin
+[2026-03-13T08:58:19.483Z]   EXT: https://www.youtube.com/channel/UCe3nqvLuZjXmOepOg7NHi9A
+[2026-03-13T08:58:19.483Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T08:58:19.484Z]   UNCATEGORIZED: http://www.elegantthemes.com
+[2026-03-13T08:58:19.484Z]   UNCATEGORIZED: http://www.wordpress.org
+[2026-03-13T08:58:19.484Z]   REGEX: li <- https://www.linkedin.com/company/644438
+[2026-03-13T08:58:19.484Z]   REGEX: li <- https://www.linkedin.com/company/644438/admin (duplicate, skipped)
+[2026-03-13T08:58:19.484Z]   REGEX: ytc <- https://www.youtube.com/channel/UCe3nqvLuZjXmOepOg7NHi9A
+[2026-03-13T08:58:19.484Z] Programmatic result: ws:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-13T08:58:19.485Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T08:58:19.485Z] Saved AI prompt (2634 chars) to ai_prompt.txt
+[2026-03-13T08:58:19.485Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T08:58:19.700Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T08:58:28.446Z]   AI: First token received, streaming...
+[2026-03-13T08:58:36.532Z] AI response complete: 96 chars in 17.0s
+[2026-03-13T08:58:36.533Z] Saved AI response to ai_response.json
+[2026-03-13T08:58:36.533Z] ── Parsing AI response (2 lines) ──
+[2026-03-13T08:58:36.533Z]   AI LINK: https://www.linkedin.com/company/644438
+[2026-03-13T08:58:36.533Z]   AI LINK: https://www.youtube.com/channel/UCe3nqvLuZjXmOepOg7NHi9A
+[2026-03-13T08:58:36.533Z] AI returned 2 valid links
+[2026-03-13T08:58:36.533Z] ── Categorizing 2 AI-returned links ──
+[2026-03-13T08:58:36.533Z]   AI→REGEX: li <- https://www.linkedin.com/company/644438 (duplicate, skipped)
+[2026-03-13T08:58:36.533Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCe3nqvLuZjXmOepOg7NHi9A (duplicate, skipped)
+[2026-03-13T08:58:36.534Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T08:58:36.534Z] Footer/header origins (5):
+[2026-03-13T08:58:36.534Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T08:58:36.534Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-13T08:58:36.534Z]   FOOTER/HEADER ORIGIN: http://www.elegantthemes.com
+[2026-03-13T08:58:36.534Z]   FOOTER/HEADER ORIGIN: http://www.wordpress.org
+[2026-03-13T08:58:36.534Z]   FOOTER/HEADER ORIGIN: https://www.mennenmedical.com
+[2026-03-13T08:58:36.534Z]   ADDED: urls <- http://www.elegantthemes.com
+[2026-03-13T08:58:36.534Z]   ADDED: urls <- http://www.wordpress.org
+[2026-03-13T08:58:36.534Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-13T08:58:36.535Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T08:58:36.535Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-13T08:58:37.142Z]   YOUTUBE: resolved UCe3nqvLuZjXmOepOg7NHi9A → @mennenmedical306
+[2026-03-13T08:58:37.142Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-13T08:58:37.142Z] ── Step 3: Final dedup ──
+[2026-03-13T08:58:37.142Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T08:58:37.142Z] ── FINAL RESULT ──
+[2026-03-13T08:58:37.142Z]   ws (1):
+[2026-03-13T08:58:37.142Z]     - https://www.mennenmedical.com
+[2026-03-13T08:58:37.142Z]   li (1):
+[2026-03-13T08:58:37.142Z]     - https://www.linkedin.com/company/644438
+[2026-03-13T08:58:37.142Z]   ytp (1):
+[2026-03-13T08:58:37.143Z]     - https://www.youtube.com/@mennenmedical306
+[2026-03-13T08:58:37.143Z]   ytc (1):
+[2026-03-13T08:58:37.143Z]     - https://www.youtube.com/channel/UCe3nqvLuZjXmOepOg7NHi9A
+[2026-03-13T08:58:37.143Z]   urls (2):
+[2026-03-13T08:58:37.143Z]     - http://www.elegantthemes.com
+[2026-03-13T08:58:37.143Z]     - http://www.wordpress.org
+[2026-03-13T08:58:37.143Z] Summary: ws:1, li:1, ytc:1, urls:2, ytp:1
+[2026-03-13T08:58:37.144Z] Saved final result to result.json
+[2026-03-13T08:58:37.144Z] Override fields: ws, li, ytp, ytc, urls
+[2026-03-13T08:58:37.144Z] Finished at: 2026-03-13T08:58:37.144Z

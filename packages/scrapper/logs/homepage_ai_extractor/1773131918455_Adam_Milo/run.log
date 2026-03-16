@@ -1,0 +1,74 @@
+[2026-03-10T08:38:38.455Z] === Homepage AI Extractor: Adam Milo ===
+[2026-03-10T08:38:38.455Z] Started at: 2026-03-10T08:38:38.455Z
+[2026-03-10T08:38:38.455Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773131918455_Adam_Milo
+[2026-03-10T08:38:38.455Z] Company: Adam Milo
+[2026-03-10T08:38:38.455Z] Website: adam-milo.com
+[2026-03-10T08:38:38.455Z] cbRank: 444491
+[2026-03-10T08:38:38.455Z] Reasons: h
+[2026-03-10T08:38:38.456Z] Fetching: https://adam-milo.com
+[2026-03-10T08:38:43.328Z] Redirected: https://adam-milo.com -> https://adam-milo.com/
+[2026-03-10T08:38:43.343Z] Saved HTML (324076 bytes) to page.html
+[2026-03-10T08:38:43.347Z] Extracted 28 unique links from page
+[2026-03-10T08:38:43.348Z] Saved 28 links to links.json
+[2026-03-10T08:38:43.353Z] Extracted footer HTML (5121 chars)
+[2026-03-10T08:38:43.353Z] Extracted header HTML (9622 chars)
+[2026-03-10T08:38:43.359Z] Website (post-redirect): https://adam-milo.com/ → origin: https://adam-milo.com
+[2026-03-10T08:38:43.360Z] External links: 6 (of 28 total)
+[2026-03-10T08:38:43.360Z] ── All external links ──
+[2026-03-10T08:38:43.360Z]   EXT: https://ama.veritas-hr.com
+[2026-03-10T08:38:43.360Z]   EXT: https://vee.co.il
+[2026-03-10T08:38:43.360Z]   EXT: https://vee.co.il/pricing
+[2026-03-10T08:38:43.360Z]   EXT: https://www.facebook.com/AdamMiloLTD
+[2026-03-10T08:38:43.360Z]   EXT: https://www.linkedin.com/company/adamilo
+[2026-03-10T08:38:43.360Z]   EXT: https://www.youtube.com/watch?v=PkhyjuFmPxY
+[2026-03-10T08:38:43.360Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T08:38:43.361Z]   UNCATEGORIZED: https://ama.veritas-hr.com
+[2026-03-10T08:38:43.361Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-10T08:38:43.361Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-10T08:38:43.361Z]   REGEX: fb <- https://www.facebook.com/AdamMiloLTD
+[2026-03-10T08:38:43.361Z]   REGEX: li <- https://www.linkedin.com/company/adamilo
+[2026-03-10T08:38:43.362Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-10T08:38:43.362Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=PkhyjuFmPxY
+[2026-03-10T08:38:43.362Z] Programmatic result: ws:1, fb:1, li:1 | 3 uncategorized
+[2026-03-10T08:38:43.362Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T08:38:43.363Z] Saved AI prompt (5022 chars) to ai_prompt.txt
+[2026-03-10T08:38:43.363Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T08:38:43.387Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T08:39:03.770Z]   AI: First token received, streaming...
+[2026-03-10T08:39:12.098Z] AI response complete: 122 chars in 28.7s
+[2026-03-10T08:39:12.099Z] Saved AI response to ai_response.json
+[2026-03-10T08:39:12.099Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T08:39:12.100Z]   AI LINK: https://www.youtube.com/watch?v=PkhyjuFmPxY
+[2026-03-10T08:39:12.100Z]   AI LINK: https://www.facebook.com/AdamMiloLTD
+[2026-03-10T08:39:12.100Z]   AI LINK: https://www.linkedin.com/company/adamilo/
+[2026-03-10T08:39:12.100Z] AI returned 3 valid links
+[2026-03-10T08:39:12.100Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T08:39:12.100Z]   AI→SKIP (regex domain, no match): https://www.youtube.com/watch?v=PkhyjuFmPxY
+[2026-03-10T08:39:12.100Z]   AI→REGEX: fb <- https://www.facebook.com/AdamMiloLTD (duplicate, skipped)
+[2026-03-10T08:39:12.100Z]   AI→REGEX: li <- https://www.linkedin.com/company/adamilo/ (duplicate, skipped)
+[2026-03-10T08:39:12.101Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T08:39:12.101Z] Footer/header origins (5):
+[2026-03-10T08:39:12.101Z]   FOOTER/HEADER ORIGIN: https://adam-milo.com
+[2026-03-10T08:39:12.101Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T08:39:12.101Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T08:39:12.101Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T08:39:12.101Z]   FOOTER/HEADER ORIGIN: https://ama.veritas-hr.com
+[2026-03-10T08:39:12.101Z]   ADDED: urls <- https://ama.veritas-hr.com
+[2026-03-10T08:39:12.101Z]   SKIP (not in footer/header): https://vee.co.il
+[2026-03-10T08:39:12.101Z]   SKIP (not in footer/header): https://vee.co.il/pricing
+[2026-03-10T08:39:12.101Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T08:39:12.101Z] ── Step 3: Final dedup ──
+[2026-03-10T08:39:12.101Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T08:39:12.102Z] ── FINAL RESULT ──
+[2026-03-10T08:39:12.102Z]   ws (1):
+[2026-03-10T08:39:12.102Z]     - https://adam-milo.com
+[2026-03-10T08:39:12.102Z]   li (1):
+[2026-03-10T08:39:12.102Z]     - https://www.linkedin.com/company/adamilo
+[2026-03-10T08:39:12.102Z]   fb (1):
+[2026-03-10T08:39:12.102Z]     - https://www.facebook.com/adammiloltd
+[2026-03-10T08:39:12.102Z]   urls (1):
+[2026-03-10T08:39:12.102Z]     - https://ama.veritas-hr.com
+[2026-03-10T08:39:12.102Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-10T08:39:12.103Z] Saved final result to result.json
+[2026-03-10T08:39:12.103Z] Override fields: ws, li, fb, urls
+[2026-03-10T08:39:12.103Z] Finished at: 2026-03-10T08:39:12.103Z

@@ -1,0 +1,66 @@
+[2026-03-10T05:41:03.815Z] === Homepage AI Extractor: NOVELSAT ===
+[2026-03-10T05:41:03.815Z] Started at: 2026-03-10T05:41:03.815Z
+[2026-03-10T05:41:03.816Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773121263815_NOVELSAT
+[2026-03-10T05:41:03.816Z] Company: NOVELSAT
+[2026-03-10T05:41:03.816Z] Website: novelsat.com
+[2026-03-10T05:41:03.816Z] cbRank: 395146
+[2026-03-10T05:41:03.816Z] Reasons: h
+[2026-03-10T05:41:03.816Z] Fetching: https://novelsat.com
+[2026-03-10T05:41:06.851Z] Redirected: https://novelsat.com -> https://novelsat.com/
+[2026-03-10T05:41:06.859Z] Saved HTML (174506 bytes) to page.html
+[2026-03-10T05:41:06.867Z] Extracted 58 unique links from page
+[2026-03-10T05:41:06.868Z] Saved 58 links to links.json
+[2026-03-10T05:41:06.871Z] Extracted footer HTML (3794 chars)
+[2026-03-10T05:41:06.871Z] Extracted header HTML (21189 chars)
+[2026-03-10T05:41:06.888Z] Website (post-redirect): https://novelsat.com/ → origin: https://novelsat.com
+[2026-03-10T05:41:06.888Z] External links: 4 (of 58 total)
+[2026-03-10T05:41:06.888Z] ── All external links ──
+[2026-03-10T05:41:06.888Z]   EXT: https://www.codenroll.co.il
+[2026-03-10T05:41:06.888Z]   EXT: https://www.facebook.com/novelsat.satellite
+[2026-03-10T05:41:06.889Z]   EXT: https://www.linkedin.com/company/novelsat
+[2026-03-10T05:41:06.889Z]   EXT: https://www.youtube.com/channel/UCR6f_4qvMKl2x9kFEdztuvg/featured
+[2026-03-10T05:41:06.889Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T05:41:06.889Z]   UNCATEGORIZED: https://www.codenroll.co.il
+[2026-03-10T05:41:06.889Z]   REGEX: fb <- https://www.facebook.com/novelsat.satellite
+[2026-03-10T05:41:06.889Z]   REGEX: li <- https://www.linkedin.com/company/novelsat
+[2026-03-10T05:41:06.889Z]   REGEX: ytc <- https://www.youtube.com/channel/UCR6f_4qvMKl2x9kFEdztuvg/featured
+[2026-03-10T05:41:06.889Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-10T05:41:06.889Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T05:41:06.894Z] Saved AI prompt (3762 chars) to ai_prompt.txt
+[2026-03-10T05:41:06.894Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T05:41:06.914Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T05:41:20.410Z]   AI: First token received, streaming...
+[2026-03-10T05:41:31.302Z] AI response complete: 152 chars in 24.4s
+[2026-03-10T05:41:31.303Z] Saved AI response to ai_response.json
+[2026-03-10T05:41:31.303Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T05:41:31.303Z]   AI LINK: https://www.facebook.com/novelsat.satellite
+[2026-03-10T05:41:31.303Z]   AI LINK: https://www.linkedin.com/company/novelsat/
+[2026-03-10T05:41:31.303Z]   AI LINK: https://www.youtube.com/channel/UCR6f_4qvMKl2x9kFEdztuvg/featured
+[2026-03-10T05:41:31.303Z] AI returned 3 valid links
+[2026-03-10T05:41:31.304Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T05:41:31.304Z]   AI→REGEX: fb <- https://www.facebook.com/novelsat.satellite (duplicate, skipped)
+[2026-03-10T05:41:31.304Z]   AI→REGEX: li <- https://www.linkedin.com/company/novelsat/ (duplicate, skipped)
+[2026-03-10T05:41:31.304Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCR6f_4qvMKl2x9kFEdztuvg/featured (duplicate, skipped)
+[2026-03-10T05:41:31.304Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T05:41:31.304Z] Footer/header origins (4):
+[2026-03-10T05:41:31.305Z]   FOOTER/HEADER ORIGIN: https://novelsat.com
+[2026-03-10T05:41:31.305Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T05:41:31.305Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T05:41:31.305Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T05:41:31.305Z]   SKIP (not in footer/header): https://www.codenroll.co.il
+[2026-03-10T05:41:31.305Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T05:41:31.305Z] ── Step 3: Final dedup ──
+[2026-03-10T05:41:31.305Z] No urls to dedup
+[2026-03-10T05:41:31.305Z] ── FINAL RESULT ──
+[2026-03-10T05:41:31.305Z]   ws (1):
+[2026-03-10T05:41:31.305Z]     - https://novelsat.com
+[2026-03-10T05:41:31.305Z]   li (1):
+[2026-03-10T05:41:31.305Z]     - https://www.linkedin.com/company/novelsat
+[2026-03-10T05:41:31.305Z]   fb (1):
+[2026-03-10T05:41:31.305Z]     - https://www.facebook.com/novelsat.satellite
+[2026-03-10T05:41:31.305Z]   ytc (1):
+[2026-03-10T05:41:31.305Z]     - https://www.youtube.com/channel/UCR6f_4qvMKl2x9kFEdztuvg
+[2026-03-10T05:41:31.305Z] Summary: ws:1, fb:1, li:1, ytc:1
+[2026-03-10T05:41:31.306Z] Saved final result to result.json
+[2026-03-10T05:41:31.306Z] Override fields: ws, li, fb, ytc
+[2026-03-10T05:41:31.306Z] Finished at: 2026-03-10T05:41:31.306Z

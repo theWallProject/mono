@@ -1,0 +1,60 @@
+[2026-03-10T08:12:53.207Z] === Homepage AI Extractor: Chromagen ===
+[2026-03-10T08:12:53.207Z] Started at: 2026-03-10T08:12:53.207Z
+[2026-03-10T08:12:53.207Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773130373207_Chromagen
+[2026-03-10T08:12:53.208Z] Company: Chromagen
+[2026-03-10T08:12:53.208Z] Website: chromagen.com
+[2026-03-10T08:12:53.208Z] cbRank: 438970
+[2026-03-10T08:12:53.208Z] Reasons: h
+[2026-03-10T08:12:53.208Z] Fetching: https://chromagen.com
+[2026-03-10T08:12:55.155Z] Redirected: https://chromagen.com -> https://chromagen.com/
+[2026-03-10T08:12:55.161Z] Saved HTML (86661 bytes) to page.html
+[2026-03-10T08:12:55.167Z] Extracted 43 unique links from page
+[2026-03-10T08:12:55.168Z] Saved 43 links to links.json
+[2026-03-10T08:12:55.172Z] No footer section found in DOM
+[2026-03-10T08:12:55.172Z] Extracted header HTML (9128 chars)
+[2026-03-10T08:12:55.176Z] Website (post-redirect): https://chromagen.com/ → origin: https://chromagen.com
+[2026-03-10T08:12:55.177Z] External links: 3 (of 43 total)
+[2026-03-10T08:12:55.177Z] ── All external links ──
+[2026-03-10T08:12:55.177Z]   EXT: https://anyflip.com/aefko/tsjz
+[2026-03-10T08:12:55.177Z]   EXT: https://www.chromagen.co.il
+[2026-03-10T08:12:55.177Z]   EXT: https://www.chromagen.com.au
+[2026-03-10T08:12:55.177Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T08:12:55.177Z]   UNCATEGORIZED: https://anyflip.com/aefko/tsjz
+[2026-03-10T08:12:55.178Z]   UNCATEGORIZED: https://www.chromagen.co.il
+[2026-03-10T08:12:55.178Z]   UNCATEGORIZED: https://www.chromagen.com.au
+[2026-03-10T08:12:55.178Z] Programmatic result: ws:1 | 3 uncategorized
+[2026-03-10T08:12:55.178Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T08:12:55.179Z] Saved AI prompt (2027 chars) to ai_prompt.txt
+[2026-03-10T08:12:55.179Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T08:12:55.212Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T08:13:01.852Z]   AI: First token received, streaming...
+[2026-03-10T08:13:04.648Z] AI response complete: 56 chars in 9.5s
+[2026-03-10T08:13:04.649Z] Saved AI response to ai_response.json
+[2026-03-10T08:13:04.649Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T08:13:04.649Z]   AI LINK: https://www.chromagen.co.il
+[2026-03-10T08:13:04.649Z]   AI LINK: https://www.chromagen.com.au
+[2026-03-10T08:13:04.649Z] AI returned 2 valid links
+[2026-03-10T08:13:04.649Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T08:13:04.649Z]   AI→URLS: https://www.chromagen.co.il
+[2026-03-10T08:13:04.649Z]   AI→URLS: https://www.chromagen.com.au
+[2026-03-10T08:13:04.650Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T08:13:04.650Z] Footer/header origins (2):
+[2026-03-10T08:13:04.650Z]   FOOTER/HEADER ORIGIN: https://chromagen.com
+[2026-03-10T08:13:04.650Z]   FOOTER/HEADER ORIGIN: https://anyflip.com
+[2026-03-10T08:13:04.650Z]   ADDED: urls <- https://anyflip.com/aefko/tsjz
+[2026-03-10T08:13:04.650Z]   SKIP (AI claimed): https://www.chromagen.co.il
+[2026-03-10T08:13:04.650Z]   SKIP (AI claimed): https://www.chromagen.com.au
+[2026-03-10T08:13:04.650Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T08:13:04.650Z] ── Step 3: Final dedup ──
+[2026-03-10T08:13:04.650Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-10T08:13:04.650Z] ── FINAL RESULT ──
+[2026-03-10T08:13:04.650Z]   ws (1):
+[2026-03-10T08:13:04.650Z]     - https://chromagen.com
+[2026-03-10T08:13:04.651Z]   urls (3):
+[2026-03-10T08:13:04.651Z]     - https://anyflip.com/aefko/tsjz
+[2026-03-10T08:13:04.651Z]     - https://www.chromagen.co.il
+[2026-03-10T08:13:04.651Z]     - https://www.chromagen.com.au
+[2026-03-10T08:13:04.651Z] Summary: ws:1, urls:3
+[2026-03-10T08:13:04.652Z] Saved final result to result.json
+[2026-03-10T08:13:04.652Z] Override fields: ws, urls
+[2026-03-10T08:13:04.652Z] Finished at: 2026-03-10T08:13:04.652Z

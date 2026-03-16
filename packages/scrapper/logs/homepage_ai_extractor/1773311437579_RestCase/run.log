@@ -1,0 +1,79 @@
+[2026-03-12T10:30:37.579Z] === Homepage AI Extractor: RestCase ===
+[2026-03-12T10:30:37.580Z] Started at: 2026-03-12T10:30:37.580Z
+[2026-03-12T10:30:37.580Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773311437579_RestCase
+[2026-03-12T10:30:37.580Z] Company: RestCase
+[2026-03-12T10:30:37.580Z] Website: restcase.com
+[2026-03-12T10:30:37.580Z] cbRank: 911045
+[2026-03-12T10:30:37.580Z] Reasons: h
+[2026-03-12T10:30:37.580Z] Fetching: https://restcase.com
+[2026-03-12T10:30:40.184Z] Redirected: https://restcase.com -> https://restcase.com/
+[2026-03-12T10:30:40.222Z] Saved HTML (1193476 bytes) to page.html
+[2026-03-12T10:30:40.226Z] Extracted 19 unique links from page
+[2026-03-12T10:30:40.227Z] Saved 19 links to links.json
+[2026-03-12T10:30:40.231Z] Extracted footer HTML (2351 chars)
+[2026-03-12T10:30:40.231Z] Extracted header HTML (5472 chars)
+[2026-03-12T10:30:40.235Z] Website (post-redirect): https://restcase.com/ → origin: https://restcase.com
+[2026-03-12T10:30:40.235Z]   SUBDOMAIN: blog.restcase.com (added to ws)
+[2026-03-12T10:30:40.235Z] Website subdomains found: 1
+[2026-03-12T10:30:40.235Z] External links: 4 (of 19 total)
+[2026-03-12T10:30:40.235Z] ── All external links ──
+[2026-03-12T10:30:40.235Z]   EXT: https://apibldr.com
+[2026-03-12T10:30:40.235Z]   EXT: https://twitter.com/RestCaseApi
+[2026-03-12T10:30:40.235Z]   EXT: https://www.facebook.com/RestCase
+[2026-03-12T10:30:40.235Z]   EXT: https://www.linkedin.com/company/restcase
+[2026-03-12T10:30:40.235Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T10:30:40.236Z]   UNCATEGORIZED: https://apibldr.com
+[2026-03-12T10:30:40.236Z]   REGEX: tw <- https://twitter.com/RestCaseApi
+[2026-03-12T10:30:40.236Z]   REGEX: fb <- https://www.facebook.com/RestCase
+[2026-03-12T10:30:40.236Z]   REGEX: li <- https://www.linkedin.com/company/restcase
+[2026-03-12T10:30:40.236Z] Programmatic result: ws:2, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-12T10:30:40.236Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T10:30:40.237Z] Saved AI prompt (4018 chars) to ai_prompt.txt
+[2026-03-12T10:30:40.237Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T10:30:40.253Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T10:30:55.590Z]   AI: First token received, streaming...
+[2026-03-12T10:31:03.298Z] AI response complete: 154 chars in 23.1s
+[2026-03-12T10:31:03.299Z] Saved AI response to ai_response.json
+[2026-03-12T10:31:03.299Z] ── Parsing AI response (5 lines) ──
+[2026-03-12T10:31:03.299Z]   AI LINK: https://apibldr.com
+[2026-03-12T10:31:03.300Z]   AI LINK: https://blog.restcase.com
+[2026-03-12T10:31:03.300Z]   AI LINK: https://www.linkedin.com/company/restcase
+[2026-03-12T10:31:03.300Z]   AI LINK: https://www.facebook.com/RestCase/
+[2026-03-12T10:31:03.300Z]   AI LINK: https://twitter.com/RestCaseApi
+[2026-03-12T10:31:03.300Z] AI returned 5 valid links
+[2026-03-12T10:31:03.300Z] ── Categorizing 5 AI-returned links ──
+[2026-03-12T10:31:03.300Z]   AI→URLS: https://apibldr.com
+[2026-03-12T10:31:03.300Z]   AI→URLS: https://blog.restcase.com
+[2026-03-12T10:31:03.301Z]   AI→REGEX: li <- https://www.linkedin.com/company/restcase (duplicate, skipped)
+[2026-03-12T10:31:03.301Z]   AI→REGEX: fb <- https://www.facebook.com/RestCase/ (duplicate, skipped)
+[2026-03-12T10:31:03.301Z]   AI→REGEX: tw <- https://twitter.com/RestCaseApi (duplicate, skipped)
+[2026-03-12T10:31:03.301Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T10:31:03.302Z] Footer/header origins (5):
+[2026-03-12T10:31:03.302Z]   FOOTER/HEADER ORIGIN: https://apibldr.com
+[2026-03-12T10:31:03.302Z]   FOOTER/HEADER ORIGIN: https://blog.restcase.com
+[2026-03-12T10:31:03.302Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T10:31:03.302Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T10:31:03.302Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T10:31:03.302Z]   SKIP (AI claimed): https://apibldr.com
+[2026-03-12T10:31:03.302Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T10:31:03.302Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T10:31:03.302Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T10:31:03.302Z] ── Step 3: Final dedup ──
+[2026-03-12T10:31:03.302Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T10:31:03.303Z] ── FINAL RESULT ──
+[2026-03-12T10:31:03.303Z]   ws (2):
+[2026-03-12T10:31:03.303Z]     - https://blog.restcase.com
+[2026-03-12T10:31:03.303Z]     - https://restcase.com
+[2026-03-12T10:31:03.303Z]   li (1):
+[2026-03-12T10:31:03.303Z]     - https://www.linkedin.com/company/restcase
+[2026-03-12T10:31:03.303Z]   fb (1):
+[2026-03-12T10:31:03.303Z]     - https://www.facebook.com/restcase
+[2026-03-12T10:31:03.303Z]   tw (1):
+[2026-03-12T10:31:03.303Z]     - https://x.com/restcaseapi
+[2026-03-12T10:31:03.303Z]   urls (2):
+[2026-03-12T10:31:03.303Z]     - https://apibldr.com
+[2026-03-12T10:31:03.303Z]     - https://blog.restcase.com
+[2026-03-12T10:31:03.304Z] Summary: ws:2, tw:1, fb:1, li:1, urls:2
+[2026-03-12T10:31:03.304Z] Saved final result to result.json
+[2026-03-12T10:31:03.304Z] Override fields: ws, li, fb, tw, urls
+[2026-03-12T10:31:03.304Z] Finished at: 2026-03-12T10:31:03.304Z

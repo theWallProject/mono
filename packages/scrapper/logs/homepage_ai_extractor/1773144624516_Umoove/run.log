@@ -1,0 +1,92 @@
+[2026-03-10T12:10:24.516Z] === Homepage AI Extractor: Umoove ===
+[2026-03-10T12:10:24.516Z] Started at: 2026-03-10T12:10:24.516Z
+[2026-03-10T12:10:24.516Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773144624516_Umoove
+[2026-03-10T12:10:24.517Z] Company: Umoove
+[2026-03-10T12:10:24.517Z] Website: umoove.me
+[2026-03-10T12:10:24.517Z] cbRank: 495274
+[2026-03-10T12:10:24.517Z] Reasons: h
+[2026-03-10T12:10:24.517Z] Fetching: https://umoove.me
+[2026-03-10T12:10:29.387Z] Redirected: https://umoove.me -> https://www.umoove.me/
+[2026-03-10T12:10:29.390Z] Saved HTML (18179 bytes) to page.html
+[2026-03-10T12:10:29.400Z] Extracted 10 unique links from page
+[2026-03-10T12:10:29.401Z] Saved 10 links to links.json
+[2026-03-10T12:10:29.403Z] Extracted footer HTML (2093 chars)
+[2026-03-10T12:10:29.404Z] Extracted header HTML (2034 chars)
+[2026-03-10T12:10:29.410Z] Website (post-redirect): https://www.umoove.me/ → origin: https://www.umoove.me
+[2026-03-10T12:10:29.410Z]   SUBDOMAIN: blog.umoove.me (added to ws)
+[2026-03-10T12:10:29.411Z] Website subdomains found: 1
+[2026-03-10T12:10:29.411Z] External links: 6 (of 10 total)
+[2026-03-10T12:10:29.411Z] ── All external links ──
+[2026-03-10T12:10:29.411Z]   EXT: http://www.linkedin.com/company/umoove-ltd-
+[2026-03-10T12:10:29.411Z]   EXT: https://mindreset.app
+[2026-03-10T12:10:29.411Z]   EXT: https://plus.google.com/103134544952297291855/about
+[2026-03-10T12:10:29.411Z]   EXT: https://twitter.com/UmooveMe
+[2026-03-10T12:10:29.411Z]   EXT: https://www.facebook.com/Umoove
+[2026-03-10T12:10:29.411Z]   EXT: https://www.youtube.com/user/UmooveChannel
+[2026-03-10T12:10:29.411Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T12:10:29.411Z]   REGEX: li <- http://www.linkedin.com/company/umoove-ltd-
+[2026-03-10T12:10:29.412Z]   UNCATEGORIZED: https://mindreset.app
+[2026-03-10T12:10:29.412Z]   UNCATEGORIZED: https://plus.google.com/103134544952297291855/about
+[2026-03-10T12:10:29.412Z]   REGEX: tw <- https://twitter.com/UmooveMe
+[2026-03-10T12:10:29.412Z]   REGEX: fb <- https://www.facebook.com/Umoove
+[2026-03-10T12:10:29.412Z]   REGEX: ytp <- https://www.youtube.com/user/UmooveChannel
+[2026-03-10T12:10:29.412Z] Programmatic result: ws:2, li:1, tw:1, fb:1, ytp:1 | 2 uncategorized
+[2026-03-10T12:10:29.412Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T12:10:29.413Z] Saved AI prompt (3411 chars) to ai_prompt.txt
+[2026-03-10T12:10:29.413Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T12:10:29.429Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T12:10:43.031Z]   AI: First token received, streaming...
+[2026-03-10T12:10:59.521Z]   AI streaming: 200 chars received (30.1s elapsed)
+[2026-03-10T12:11:00.460Z] AI response complete: 222 chars in 31.0s
+[2026-03-10T12:11:00.461Z] Saved AI response to ai_response.json
+[2026-03-10T12:11:00.461Z] ── Parsing AI response (6 lines) ──
+[2026-03-10T12:11:00.461Z]   AI LINK: https://www.youtube.com/user/UmooveChannel
+[2026-03-10T12:11:00.461Z]   AI LINK: https://twitter.com/UmooveMe
+[2026-03-10T12:11:00.461Z]   AI LINK: https://www.facebook.com/Umoove
+[2026-03-10T12:11:00.461Z]   AI LINK: http://www.linkedin.com/company/umoove-ltd-
+[2026-03-10T12:11:00.461Z]   AI LINK: https://plus.google.com/103134544952297291855/about
+[2026-03-10T12:11:00.461Z]   AI LINK: http://blog.umoove.me/
+[2026-03-10T12:11:00.462Z] AI returned 6 valid links
+[2026-03-10T12:11:00.462Z] ── Categorizing 6 AI-returned links ──
+[2026-03-10T12:11:00.462Z]   AI→REGEX: ytp <- https://www.youtube.com/user/UmooveChannel (duplicate, skipped)
+[2026-03-10T12:11:00.462Z]   AI→REGEX: tw <- https://twitter.com/UmooveMe (duplicate, skipped)
+[2026-03-10T12:11:00.462Z]   AI→REGEX: fb <- https://www.facebook.com/Umoove (duplicate, skipped)
+[2026-03-10T12:11:00.462Z]   AI→REGEX: li <- http://www.linkedin.com/company/umoove-ltd- (duplicate, skipped)
+[2026-03-10T12:11:00.462Z]   AI→URLS: https://plus.google.com/103134544952297291855/about
+[2026-03-10T12:11:00.462Z]   AI→URLS: http://blog.umoove.me (cleaned from http://blog.umoove.me/)
+[2026-03-10T12:11:00.462Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T12:11:00.462Z] Footer/header origins (10):
+[2026-03-10T12:11:00.462Z]   FOOTER/HEADER ORIGIN: http://bits.blogs.nytimes.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: http://blogs.wsj.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: http://news.yahoo.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: http://huffingtonpost.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: http://blog.umoove.me
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-10T12:11:00.463Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-10T12:11:00.463Z]   SKIP (not in footer/header): https://mindreset.app
+[2026-03-10T12:11:00.463Z]   SKIP (AI claimed): https://plus.google.com/103134544952297291855/about
+[2026-03-10T12:11:00.463Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T12:11:00.463Z] ── Step 3: Final dedup ──
+[2026-03-10T12:11:00.463Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T12:11:00.463Z] ── FINAL RESULT ──
+[2026-03-10T12:11:00.463Z]   ws (2):
+[2026-03-10T12:11:00.464Z]     - https://blog.umoove.me
+[2026-03-10T12:11:00.464Z]     - https://www.umoove.me
+[2026-03-10T12:11:00.464Z]   li (1):
+[2026-03-10T12:11:00.464Z]     - https://www.linkedin.com/company/umoove-ltd-
+[2026-03-10T12:11:00.464Z]   fb (1):
+[2026-03-10T12:11:00.464Z]     - https://www.facebook.com/umoove
+[2026-03-10T12:11:00.464Z]   tw (1):
+[2026-03-10T12:11:00.464Z]     - https://x.com/umooveme
+[2026-03-10T12:11:00.464Z]   ytp (1):
+[2026-03-10T12:11:00.464Z]     - https://www.youtube.com/@umoovechannel
+[2026-03-10T12:11:00.464Z]   urls (2):
+[2026-03-10T12:11:00.464Z]     - http://blog.umoove.me
+[2026-03-10T12:11:00.464Z]     - https://plus.google.com/103134544952297291855/about
+[2026-03-10T12:11:00.464Z] Summary: ws:2, li:1, tw:1, fb:1, ytp:1, urls:2
+[2026-03-10T12:11:00.465Z] Saved final result to result.json
+[2026-03-10T12:11:00.465Z] Override fields: ws, li, fb, tw, ytp, urls
+[2026-03-10T12:11:00.465Z] Finished at: 2026-03-10T12:11:00.465Z

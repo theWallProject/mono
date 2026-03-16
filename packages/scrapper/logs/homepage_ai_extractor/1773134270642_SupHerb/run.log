@@ -1,0 +1,81 @@
+[2026-03-10T09:17:50.643Z] === Homepage AI Extractor: SupHerb ===
+[2026-03-10T09:17:50.643Z] Started at: 2026-03-10T09:17:50.643Z
+[2026-03-10T09:17:50.643Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773134270642_SupHerb
+[2026-03-10T09:17:50.643Z] Company: SupHerb
+[2026-03-10T09:17:50.643Z] Website: supherb.co.il
+[2026-03-10T09:17:50.643Z] cbRank: 449462
+[2026-03-10T09:17:50.643Z] Reasons: h
+[2026-03-10T09:17:50.643Z] Fetching: https://supherb.co.il
+[2026-03-10T09:18:03.193Z] Redirected: https://supherb.co.il -> https://www.supherb.co.il/
+[2026-03-10T09:18:03.207Z] Saved HTML (331546 bytes) to page.html
+[2026-03-10T09:18:03.211Z] Extracted 82 unique links from page
+[2026-03-10T09:18:03.212Z] Saved 82 links to links.json
+[2026-03-10T09:18:03.217Z] Extracted footer HTML (15633 chars)
+[2026-03-10T09:18:03.217Z] Extracted header HTML (38770 chars)
+[2026-03-10T09:18:03.223Z] Website (post-redirect): https://www.supherb.co.il/ → origin: https://www.supherb.co.il
+[2026-03-10T09:18:03.224Z] External links: 6 (of 82 total)
+[2026-03-10T09:18:03.224Z] ── All external links ──
+[2026-03-10T09:18:03.224Z]   EXT: https://he-il.facebook.com/israel.supherb
+[2026-03-10T09:18:03.224Z]   EXT: https://supherbshop.com/ru
+[2026-03-10T09:18:03.224Z]   EXT: https://www.dooble.co.il
+[2026-03-10T09:18:03.224Z]   EXT: https://www.instagram.com/supherb_il
+[2026-03-10T09:18:03.224Z]   EXT: https://www.supherbshop.com
+[2026-03-10T09:18:03.224Z]   EXT: https://www.youtube.com/user/SupherbIsrael/videos
+[2026-03-10T09:18:03.224Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T09:18:03.224Z]   REGEX: fb <- https://he-il.facebook.com/israel.supherb
+[2026-03-10T09:18:03.225Z]   UNCATEGORIZED: https://supherbshop.com/ru
+[2026-03-10T09:18:03.225Z]   UNCATEGORIZED: https://www.dooble.co.il
+[2026-03-10T09:18:03.225Z]   REGEX: ig <- https://www.instagram.com/supherb_il
+[2026-03-10T09:18:03.225Z]   UNCATEGORIZED: https://www.supherbshop.com
+[2026-03-10T09:18:03.225Z]   REGEX: ytp <- https://www.youtube.com/user/SupherbIsrael/videos
+[2026-03-10T09:18:03.225Z] Programmatic result: ws:1, fb:1, ig:1, ytp:1 | 3 uncategorized
+[2026-03-10T09:18:03.225Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T09:18:03.226Z] Saved AI prompt (6846 chars) to ai_prompt.txt
+[2026-03-10T09:18:03.226Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T09:18:03.241Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T09:18:55.302Z]   AI: First token received, streaming...
+[2026-03-10T09:19:05.790Z] AI response complete: 158 chars in 62.6s
+[2026-03-10T09:19:05.791Z] Saved AI response to ai_response.json
+[2026-03-10T09:19:05.791Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T09:19:05.791Z]   AI LINK: https://www.supherbshop.com
+[2026-03-10T09:19:05.791Z]   AI LINK: https://www.youtube.com/user/SupherbIsrael/videos
+[2026-03-10T09:19:05.791Z]   AI LINK: https://he-il.facebook.com/israel.supherb/
+[2026-03-10T09:19:05.791Z]   AI LINK: https://www.instagram.com/supherb_il/
+[2026-03-10T09:19:05.791Z] AI returned 4 valid links
+[2026-03-10T09:19:05.791Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T09:19:05.792Z]   AI→URLS: https://www.supherbshop.com
+[2026-03-10T09:19:05.792Z]   AI→REGEX: ytp <- https://www.youtube.com/user/SupherbIsrael/videos (duplicate, skipped)
+[2026-03-10T09:19:05.792Z]   AI→REGEX: fb <- https://he-il.facebook.com/israel.supherb/ (duplicate, skipped)
+[2026-03-10T09:19:05.792Z]   AI→REGEX: ig <- https://www.instagram.com/supherb_il/ (duplicate, skipped)
+[2026-03-10T09:19:05.792Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T09:19:05.792Z] Footer/header origins (7):
+[2026-03-10T09:19:05.793Z]   FOOTER/HEADER ORIGIN: https://www.supherb.co.il
+[2026-03-10T09:19:05.793Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T09:19:05.793Z]   FOOTER/HEADER ORIGIN: https://he-il.facebook.com
+[2026-03-10T09:19:05.793Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T09:19:05.793Z]   FOOTER/HEADER ORIGIN: https://www.dooble.co.il
+[2026-03-10T09:19:05.793Z]   FOOTER/HEADER ORIGIN: https://www.supherbshop.com
+[2026-03-10T09:19:05.793Z]   FOOTER/HEADER ORIGIN: https://supherbshop.com
+[2026-03-10T09:19:05.793Z]   ADDED: urls <- https://supherbshop.com/ru
+[2026-03-10T09:19:05.793Z]   ADDED: urls <- https://www.dooble.co.il
+[2026-03-10T09:19:05.793Z]   SKIP (AI claimed): https://www.supherbshop.com
+[2026-03-10T09:19:05.793Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-10T09:19:05.793Z] ── Step 3: Final dedup ──
+[2026-03-10T09:19:05.793Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-10T09:19:05.793Z] ── FINAL RESULT ──
+[2026-03-10T09:19:05.793Z]   ws (1):
+[2026-03-10T09:19:05.793Z]     - https://www.supherb.co.il
+[2026-03-10T09:19:05.794Z]   fb (1):
+[2026-03-10T09:19:05.794Z]     - https://www.facebook.com/israel.supherb
+[2026-03-10T09:19:05.794Z]   ig (1):
+[2026-03-10T09:19:05.794Z]     - https://www.instagram.com/supherb_il
+[2026-03-10T09:19:05.794Z]   ytp (1):
+[2026-03-10T09:19:05.794Z]     - https://www.youtube.com/@supherbisrael
+[2026-03-10T09:19:05.794Z]   urls (3):
+[2026-03-10T09:19:05.794Z]     - https://supherbshop.com/ru
+[2026-03-10T09:19:05.794Z]     - https://www.dooble.co.il
+[2026-03-10T09:19:05.794Z]     - https://www.supherbshop.com
+[2026-03-10T09:19:05.794Z] Summary: ws:1, fb:1, ig:1, ytp:1, urls:3
+[2026-03-10T09:19:05.794Z] Saved final result to result.json
+[2026-03-10T09:19:05.795Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-10T09:19:05.795Z] Finished at: 2026-03-10T09:19:05.795Z

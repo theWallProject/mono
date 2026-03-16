@@ -1,0 +1,70 @@
+[2026-03-12T02:26:41.184Z] === Homepage AI Extractor: Fourplace ===
+[2026-03-12T02:26:41.184Z] Started at: 2026-03-12T02:26:41.184Z
+[2026-03-12T02:26:41.184Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773282401183_Fourplace
+[2026-03-12T02:26:41.184Z] Company: Fourplace
+[2026-03-12T02:26:41.184Z] Website: four.place
+[2026-03-12T02:26:41.184Z] cbRank: 755788
+[2026-03-12T02:26:41.184Z] Reasons: h
+[2026-03-12T02:26:41.184Z] Fetching: https://four.place
+[2026-03-12T02:26:52.937Z] Network idle timeout — continuing with current state
+[2026-03-12T02:26:53.003Z] Redirected: https://four.place -> https://four.place/
+[2026-03-12T02:26:53.053Z] Saved HTML (1506765 bytes) to page.html
+[2026-03-12T02:26:53.056Z] Extracted 9 unique links from page
+[2026-03-12T02:26:53.057Z] Saved 9 links to links.json
+[2026-03-12T02:26:53.061Z] Extracted footer HTML (16639 chars)
+[2026-03-12T02:26:53.061Z] Extracted header HTML (14127 chars)
+[2026-03-12T02:26:53.064Z] Website (post-redirect): https://four.place/ → origin: https://four.place
+[2026-03-12T02:26:53.065Z]   SUBDOMAIN: eos.four.place (added to ws)
+[2026-03-12T02:26:53.065Z] Website subdomains found: 1
+[2026-03-12T02:26:53.065Z] External links: 3 (of 9 total)
+[2026-03-12T02:26:53.065Z] ── All external links ──
+[2026-03-12T02:26:53.065Z]   EXT: https://twitter.com/Fourplacecom
+[2026-03-12T02:26:53.065Z]   EXT: https://www.facebook.com/Fourplace-110207491614988
+[2026-03-12T02:26:53.065Z]   EXT: https://www.linkedin.com/company/fourplace
+[2026-03-12T02:26:53.065Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T02:26:53.065Z]   REGEX: tw <- https://twitter.com/Fourplacecom
+[2026-03-12T02:26:53.065Z]   REGEX: fb <- https://www.facebook.com/Fourplace-110207491614988
+[2026-03-12T02:26:53.065Z]   REGEX: li <- https://www.linkedin.com/company/fourplace
+[2026-03-12T02:26:53.065Z] Programmatic result: ws:2, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-12T02:26:53.065Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T02:26:53.066Z] Saved AI prompt (9294 chars) to ai_prompt.txt
+[2026-03-12T02:26:53.066Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T02:26:53.083Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T02:27:30.731Z]   AI: First token received, streaming...
+[2026-03-12T02:27:40.067Z] AI response complete: 127 chars in 47.0s
+[2026-03-12T02:27:40.068Z] Saved AI response to ai_response.json
+[2026-03-12T02:27:40.068Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T02:27:40.068Z]   AI LINK: https://twitter.com/Fourplacecom
+[2026-03-12T02:27:40.068Z]   AI LINK: https://www.facebook.com/Fourplace-110207491614988
+[2026-03-12T02:27:40.069Z]   AI LINK: https://www.linkedin.com/company/fourplace/
+[2026-03-12T02:27:40.069Z] AI returned 3 valid links
+[2026-03-12T02:27:40.069Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T02:27:40.069Z]   AI→REGEX: tw <- https://twitter.com/Fourplacecom (duplicate, skipped)
+[2026-03-12T02:27:40.069Z]   AI→REGEX: fb <- https://www.facebook.com/Fourplace-110207491614988 (duplicate, skipped)
+[2026-03-12T02:27:40.069Z]   AI→REGEX: li <- https://www.linkedin.com/company/fourplace/ (duplicate, skipped)
+[2026-03-12T02:27:40.070Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T02:27:40.070Z] Footer/header origins (5):
+[2026-03-12T02:27:40.070Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T02:27:40.070Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T02:27:40.070Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T02:27:40.070Z]   FOOTER/HEADER ORIGIN: https://eos.four.place
+[2026-03-12T02:27:40.070Z]   FOOTER/HEADER ORIGIN: https://four.place
+[2026-03-12T02:27:40.070Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T02:27:40.070Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T02:27:40.070Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T02:27:40.070Z] ── Step 3: Final dedup ──
+[2026-03-12T02:27:40.071Z] No urls to dedup
+[2026-03-12T02:27:40.071Z] ── FINAL RESULT ──
+[2026-03-12T02:27:40.071Z]   ws (2):
+[2026-03-12T02:27:40.071Z]     - https://eos.four.place
+[2026-03-12T02:27:40.071Z]     - https://four.place
+[2026-03-12T02:27:40.071Z]   li (1):
+[2026-03-12T02:27:40.071Z]     - https://www.linkedin.com/company/fourplace
+[2026-03-12T02:27:40.071Z]   fb (1):
+[2026-03-12T02:27:40.071Z]     - https://www.facebook.com/fourplace-110207491614988
+[2026-03-12T02:27:40.071Z]   tw (1):
+[2026-03-12T02:27:40.071Z]     - https://x.com/fourplacecom
+[2026-03-12T02:27:40.071Z] Summary: ws:2, tw:1, fb:1, li:1
+[2026-03-12T02:27:40.073Z] Saved final result to result.json
+[2026-03-12T02:27:40.073Z] Override fields: ws, li, fb, tw
+[2026-03-12T02:27:40.073Z] Finished at: 2026-03-12T02:27:40.073Z

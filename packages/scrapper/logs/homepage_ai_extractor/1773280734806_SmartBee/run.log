@@ -1,0 +1,70 @@
+[2026-03-12T01:58:54.806Z] === Homepage AI Extractor: SmartBee ===
+[2026-03-12T01:58:54.807Z] Started at: 2026-03-12T01:58:54.807Z
+[2026-03-12T01:58:54.807Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773280734806_SmartBee
+[2026-03-12T01:58:54.807Z] Company: SmartBee
+[2026-03-12T01:58:54.807Z] Website: smartbee.co.il
+[2026-03-12T01:58:54.807Z] cbRank: 748946
+[2026-03-12T01:58:54.807Z] Reasons: h
+[2026-03-12T01:58:54.807Z] Fetching: https://smartbee.co.il
+[2026-03-12T01:58:56.296Z] Redirected: https://smartbee.co.il -> https://smartbee.co.il/start/default/
+[2026-03-12T01:58:56.301Z] Saved HTML (89949 bytes) to page.html
+[2026-03-12T01:58:56.305Z] Extracted 19 unique links from page
+[2026-03-12T01:58:56.305Z] Saved 19 links to links.json
+[2026-03-12T01:58:56.309Z] Extracted footer HTML (4940 chars)
+[2026-03-12T01:58:56.309Z] Extracted header HTML (3398 chars)
+[2026-03-12T01:58:56.313Z] Website (post-redirect): https://smartbee.co.il/start/default/ → origin: https://smartbee.co.il
+[2026-03-12T01:58:56.313Z] External links: 5 (of 19 total)
+[2026-03-12T01:58:56.313Z] ── All external links ──
+[2026-03-12T01:58:56.313Z]   EXT: http://play.google.com/store/apps/details?id=com.smartbee.wat&hl=en
+[2026-03-12T01:58:56.313Z]   EXT: http://www.facebook.com/smartbee.co.il
+[2026-03-12T01:58:56.313Z]   EXT: http://www.youtube.com/smartbeecoil
+[2026-03-12T01:58:56.313Z]   EXT: https://itunes.apple.com/il/app/smartbee-co-il/id1200192931?mt=8
+[2026-03-12T01:58:56.313Z]   EXT: https://www.microsoft.com/store/apps/9n69cs7d78w6
+[2026-03-12T01:58:56.313Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T01:58:56.313Z]   REGEX: android_app_ids <- com.smartbee.wat (from http://play.google.com/store/apps/details?id=com.smartbee.wat&hl=en)
+[2026-03-12T01:58:56.314Z]   REGEX: fb <- http://www.facebook.com/smartbee.co.il
+[2026-03-12T01:58:56.314Z]   REGEX: ytp <- http://www.youtube.com/smartbeecoil
+[2026-03-12T01:58:56.314Z]   UNCATEGORIZED: https://itunes.apple.com/il/app/smartbee-co-il/id1200192931?mt=8
+[2026-03-12T01:58:56.314Z]   UNCATEGORIZED: https://www.microsoft.com/store/apps/9n69cs7d78w6
+[2026-03-12T01:58:56.314Z] Programmatic result: ws:1, android_app_ids:1, fb:1, ytp:1 | 2 uncategorized
+[2026-03-12T01:58:56.314Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T01:58:56.315Z] Saved AI prompt (3765 chars) to ai_prompt.txt
+[2026-03-12T01:58:56.315Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T01:58:56.331Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T01:59:10.590Z]   AI: First token received, streaming...
+[2026-03-12T01:59:20.398Z] AI response complete: 114 chars in 24.1s
+[2026-03-12T01:59:20.401Z] Saved AI response to ai_response.json
+[2026-03-12T01:59:20.401Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T01:59:20.401Z]   AI LINK: https://itunes.apple.com/il/app/smartbee-co-il/id1200192931?mt=8
+[2026-03-12T01:59:20.401Z]   AI LINK: https://www.microsoft.com/store/apps/9n69cs7d78w6
+[2026-03-12T01:59:20.402Z] AI returned 2 valid links
+[2026-03-12T01:59:20.402Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T01:59:20.402Z]   AI→URLS: https://itunes.apple.com/il/app/smartbee-co-il/id1200192931 (cleaned from https://itunes.apple.com/il/app/smartbee-co-il/id1200192931?mt=8)
+[2026-03-12T01:59:20.402Z]   AI→URLS: https://www.microsoft.com/store/apps/9n69cs7d78w6
+[2026-03-12T01:59:20.402Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T01:59:20.403Z] Footer/header origins (2):
+[2026-03-12T01:59:20.403Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-12T01:59:20.403Z]   FOOTER/HEADER ORIGIN: http://www.youtube.com
+[2026-03-12T01:59:20.403Z]   SKIP (AI claimed): https://itunes.apple.com/il/app/smartbee-co-il/id1200192931?mt=8
+[2026-03-12T01:59:20.403Z]   SKIP (AI claimed): https://www.microsoft.com/store/apps/9n69cs7d78w6
+[2026-03-12T01:59:20.403Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T01:59:20.403Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T01:59:20.403Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T01:59:20.403Z] ── Step 3: Final dedup ──
+[2026-03-12T01:59:20.403Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T01:59:20.403Z] ── FINAL RESULT ──
+[2026-03-12T01:59:20.403Z]   ws (1):
+[2026-03-12T01:59:20.403Z]     - https://smartbee.co.il
+[2026-03-12T01:59:20.404Z]   fb (1):
+[2026-03-12T01:59:20.404Z]     - https://www.facebook.com/smartbee.co.il
+[2026-03-12T01:59:20.404Z]   ytp (1):
+[2026-03-12T01:59:20.404Z]     - https://www.youtube.com/@smartbeecoil
+[2026-03-12T01:59:20.404Z]   urls (2):
+[2026-03-12T01:59:20.404Z]     - https://itunes.apple.com/il/app/smartbee-co-il/id1200192931
+[2026-03-12T01:59:20.404Z]     - https://www.microsoft.com/store/apps/9n69cs7d78w6
+[2026-03-12T01:59:20.404Z]   android_app_ids (1):
+[2026-03-12T01:59:20.404Z]     - com.smartbee.wat
+[2026-03-12T01:59:20.404Z] Summary: ws:1, android_app_ids:1, fb:1, ytp:1, urls:2
+[2026-03-12T01:59:20.405Z] Saved final result to result.json
+[2026-03-12T01:59:20.405Z] Override fields: ws, fb, ytp, urls, android_app_ids
+[2026-03-12T01:59:20.405Z] Finished at: 2026-03-12T01:59:20.405Z

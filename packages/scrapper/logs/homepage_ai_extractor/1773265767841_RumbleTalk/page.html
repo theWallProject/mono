@@ -1,0 +1,735 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Online group chat | Rumbletalk, chat for live events and websites</title>
+    <link rel="shortcut icon" href="https://rumbletalk.com/favicon.ico">
+    <meta property="og:title" content="Online group chat | Rumbletalk, chat for live events and websites">
+    <meta property="og:description" content="Your online group chat platform for websites, live events and communities. Embed in any webpage, wordpress, react, angular. Engage your audience in real-time">
+    <meta property="og:image" content="https://d1pfint8izqszg.cloudfront.net/new/images/logo.png">
+    <meta property="og:site_name" content="RumbleTalk">
+    <meta name="description" content="Your online group chat platform for websites, live events and communities. Embed in any webpage, wordpress, react, angular. Engage your audience in real-time">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+            <script src="https://connect.facebook.net/signals/config/2419174404816132?v=2.9.277&amp;r=stable&amp;domain=rumbletalk.com&amp;hme=b0ad3da822578fe2b808f13c29c26424c1eec6df21f897230a1f8d7975c03c8e&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C262%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C249%2C250%2C248%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C277%2C201%2C190%2C191%2C189%2C280%2C272%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="https://amplify.outbrain.com/cp/obtp.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-0BLHSWMLV9&amp;cx=c&amp;gtm=4e63a1"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-57B4PLT"></script><script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-57B4PLT');
+        </script>
+            <link rel="stylesheet" href="https://d1pfint8izqszg.cloudfront.net/new/website/build/2025-03-02/base.min.gz.css">
+            <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"SoftwareApplication","name":"Embed a Live group chat for Websites and online events","image":"https:\/\/d1pfint8izqszg.cloudfront.net\/new\/images\/webp\/logo2.webp"}</script>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <script>console.log('web20');</script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/prettify.css"></head>
+<body class="intro">
+<div id="fb-root"></div>
+<header class="navbar navbar-default navbar-fixed-top white">
+            <section id="accept-cookies" style="display: block;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <p>
+                            RumbleTalk uses cookies to ensure the best user experience on the website and guarantee its
+                            flawless performance. By continuing to use this website, you agree to the use of cookies.
+                        </p>
+                        <p>
+                            Click here to read more about our <a href="/about_us/gdpr_info/">GDPR overview</a>.
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <button type="button" id="close-btn" title="Close Menu" class="close btn">
+                            <em class="glyphicon glyphicon-remove"></em>
+                        </button>
+                        <div class="acceptBtn">
+                            <button type="button" class="btn btn-primary" onclick="RumbleTalk.acceptCookies()">Accept
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+        <div class="navbar-header">
+            <a href="/" class="navbar-brand">
+                <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/logo2.webp" width="215" height="64" alt="RumbleTalk">
+            </a>
+        </div>
+        <nav class="navbar-collapse bs-navbar-collapse">
+            <a href="#" id="menu" class="hide-desktop">
+                <img src="https://d1pfint8izqszg.cloudfront.net/web7/images/open-menu.svg" width="22" height="16" alt="Toggle Menu" class="menu">
+            </a>
+            <ul class="nav navbar-nav navbar-right menu-wrap" id="navList">
+                <li id="exit" class="hide-desktop"><img src="https://d1pfint8izqszg.cloudfront.net/web7/images/exit.svg" width="20" height="20" alt="exit chat"></li>
+                <li>
+                    <div class="products-dropdown">
+                        <button class="products-dpbtn btn-toggle">PRODUCTS</button>
+                        <div id="product-dd" class="products-content">
+                            <a href="/queued-chat/" class="sub-content">Queued Chat</a>
+                            <a href="/members-chat/" class="sub-content">Members Chat</a>
+                            <a href="/private-chat/" class="sub-content">Private Chats</a>
+                            <a href="/social-chat/" class="sub-content">Social Chat</a>
+                            <a href="/experts-chat/" class="sub-content">Experts Chat</a>
+                            <a href="/chat-pages/" class="sub-content">Chat Pages</a>
+                        </div>
+                    </div>
+                    <div class="show-submenu-mobile">
+                        <a href="/queued-chat/" class="sub-content">Queued Chat</a>
+                        <a href="/members-chat/" class="sub-content">Members Chat</a>
+                        <a href="/private-chat/" class="sub-content">Private Chats</a>
+                        <a href="/social-chat/" class="sub-content">Social Chat</a>
+                        <a href="/experts-chat/" class="sub-content">Experts Chat</a>
+                        <a href="/chat-pages/" class="sub-content">Chat Pages</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="solutions-dropdown">
+                        <button class="solutions-dpbtn btn-toggle">SOLUTIONS</button>
+                        <div id="solutions-dd" class="solutions-content">
+                            <a href="/social-communities-chat/" class="sub-content">Social &amp; Communities</a>
+                            <a href="/virtual-events-chat/" class="sub-content">Virtual Events &amp; Conferences</a>
+                            <a href="/job-fairs-chat/" class="sub-content">Job Fairs</a>
+                            <a href="/e-learning-chat/" class="sub-content">E-Learning</a>
+                            <a href="/telehealth-chat/" class="sub-content">Telehealth</a>
+                            <a href="/online-traders-chat/" class="sub-content">Online Traders</a>
+                            <a href="/broadcast-podcast-chat/" class="sub-content">Broadcast &amp; Podcast</a>
+                            <a href="/live-qa-chat/" class="sub-content">Live Q&amp;A</a>
+                            <a href="/live-polls-chat/" class="sub-content">Live Polls</a>
+                            <a href="/chat-software/" class="sub-content">Chat Software vs Service</a>
+							<a href="/wordpress-chat-room-plugin/" class="sub-content">WordPress Members Chat</a>
+                            <a href="/corporate-training-chat/" class="sub-content">Corporate Training Chat</a>
+                        </div>
+                    </div>
+                    <div class="show-submenu-mobile">
+                        <a href="/social-communities-chat/" class="sub-content">Social &amp; Communities</a>
+                        <a href="/virtual-events-chat/" class="sub-content">Virtual Events &amp; Conferences</a>
+                        <a href="/job-fairs-chat/" class="sub-content">Job Fairs</a>
+                        <a href="/e-learning-chat/" class="sub-content">E-Learning</a>
+                        <a href="/telehealth-chat/" class="sub-content">Telehealth</a>
+                        <a href="/online-traders-chat/" class="sub-content">Online Traders</a>
+                        <a href="/broadcast-podcast-chat/" class="sub-content">Broadcast &amp; Podcast</a>
+                        <a href="/live-qa-chat/" class="sub-content">Live Q&amp;A</a>
+                        <a href="/live-polls-chat/" class="sub-content">Live Polls</a>
+                        <a href="/chat-software/" class="sub-content">Chat Software vs Service</a>
+                        <a href="/wordpress-chat-room-plugin/" class="sub-content">WordPress Members Chat</a>
+                        <a href="/corporate-training-chat/" class="sub-content">Corporate Training Chat</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/pricing/" class="pricing-btn">PRICING</a>
+                </li>
+                <li>
+                    <div class="resources-dropdown">
+                        <button class="resources-dpbtn btn-toggle">RESOURCES</button>
+                        <div id="resources-dd" class="resources-content">
+                            <a href="/features/" class="sub-content">Chat Features</a>
+                            <a href="/blog/" class="sub-content">Blog</a>
+                            <a href="/case-study/" class="sub-content">Case Studies</a>
+                            <a href="/demo/" class="sub-content">Live Chat Demo</a>
+                            <a href="/blog/index.php/knowledge-base/" class="sub-content">Support &amp; Knowledge base</a>
+                            <a href="/plugins/" class="sub-content">Plugins &amp; Integrations</a>
+                            <a href="/support/API_Auto_Login/" class="sub-content">Users Integration API</a>
+                            <a href="https://dev.rumbletalk.com/" class="sub-content">REST API for developers</a>
+                            <a href="/videos/" class="sub-content">Video Tutorials</a>
+                            <a href="/chat-skins/" class="sub-content">Chat Skins Gallery</a>
+                        </div>
+                    </div>
+                    <div class="show-submenu-mobile">
+                        <a href="/features/" class="sub-content">Chat Features</a>
+                        <a href="/blog/" class="sub-content">Blog</a>
+                        <a href="/case-study/" class="sub-content">Case Studies</a>
+                        <a href="/demo/" class="sub-content">Live Chat Demo</a>
+                        <a href="/blog/index.php/knowledge-base/" class="sub-content">Support &amp; Knowledge base</a>
+                        <a href="/plugins/" class="sub-content">Plugins &amp; Integrations</a>
+                        <a href="/support/API_Auto_Login/" class="sub-content">Users Integration API</a>
+                        <a href="https://dev.rumbletalk.com/" class="sub-content">REST API for developers</a>
+                        <a href="/videos/" class="sub-content">Video Tutorials</a>
+                    </div>
+                </li>
+                <li class="custom-link mg-top">
+                    <a href="/about_us/salesdemo/" class="btn btn-primary btn-demo">
+                        REQUEST A DEMO
+                    </a>
+                </li>
+                <li class="custom-link">
+                    <a href="https://cp.rumbletalk.com/signup" class="btn btn-primary btn-login">
+                        CREATE AN ACCOUNT
+                    </a>
+                </li>
+                <li class="custom-link">
+                    <a href="https://cp.rumbletalk.com/login" class="btn btn-primary mobile-login-btn">
+                        <span class="mobile-login">Login</span>
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/menu-user-icon2.webp" width="20" height="23" class="menu-user-icon" alt="User Icon for the Menu">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- hero section -->
+<section class="hero">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-5">
+            <div class="left-content">
+               <h1 class="home">Your online group chat platform for websites and virtual events</h1>
+               <h2 class="home subtitle">Easily embed and engage with your audience using smartly-designed chat tools like polls, queued messages, video calls and Q&amp;A sessions</h2>
+               <a href="https://cp.rumbletalk.com/signup" class="btn btn-primary" id="btnCreate">Get a free chat now</a>
+               <p class="chat-quantity">More than <span>765,000</span> online group chats created and embedded to date!</p>
+            </div>
+         </div>
+         <div class="col-md-7">
+            <div class="right-content">
+               <!-- initial carousel -->
+               <div id="chatroomCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2500">
+                  <div class="carousel-inner">
+                     <div class="item">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/site-slider-1.webp" width="652" height="442" alt="Online Group Chat platform">
+                     </div>
+                     <div class="item active">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/site-slider-2.webp" width="652" height="442" alt="Queued Moderated group Chat for live events">
+                     </div>
+                     <div class="item">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/site-slider-3.webp" width="652" height="442" alt="Private web chatting for enterprise">
+                     </div>
+                     <div class="item">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/site-slider-4.webp" width="652" height="442" alt="Video chat calls feature">
+                     </div>
+                  </div>
+               </div>
+               <!-- features carousel -->
+               <div id="featuresCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+                  <div class="carousel-inner">
+                     <div class="item" id="moderatedChat">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/moderated-banner.webp" width="652" height="356" alt="real-time Moderated Chatting platform for enterprsie">
+                     </div>
+                     <div class="item" id="polls">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/polls-banner.webp" width="652" height="356" alt="real-time Chat Polls ">
+                     </div>
+                     <div class="item" id="videoCalls">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/video-call-banner.webp" width="652" height="356" alt="real-time video Call">
+                     </div>
+                     <div class="item" id="oneOnOne">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/one-one-one-banner.webp" width="652" height="356" alt="real-time private One-on-One">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+</div></section>
+<!-- company logo section -->
+<section class="company-logo">
+   <!--desktop-->
+   <div class="container hide-mobile">
+      <div class="row">
+         <div class="col-md-12">
+            <ul>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/nasdaq.webp" width="107" height="32" alt="Nasdaq realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/wix.webp" width="78" height="45" alt="Wix realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/hp.webp" width="45" height="45" alt="HP realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/veeam.webp" width="107" height="40" alt="Veeam realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/f5.webp" width="45" height="45" alt="F5 realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/solarwinds.webp" width="107" height="36" alt="Solarwinds realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/blog-talk.webp" width="51" height="45" alt="Blog Talk Radio realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/myob.webp" width="106" height="45" alt="Myob realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/online-academy.webp" width="96" height="45" alt="Online Academy education gov realtime online group chat platform"></li>
+               <li><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/sony-music.webp" width="108" height="25" alt="Sony Music realtime online group chat platform"></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+   <!--mobile-->
+   <div class="container hide-desktop">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="carousel slide multi-item-carousel" id="theCarousel">
+               <div class="carousel-inner">
+                  <div class="item active">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/nasdaq.webp" width="85" height="25" alt="Nasdaq realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/wix.webp" width="78" height="45" alt="Wix realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/hp.webp" width="45" height="45" alt="HP realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/wix.webp" width="78" height="45" alt="Wix realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/hp.webp" width="45" height="45" alt="HP realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/veeam.webp" width="85" height="32" alt="Veeam realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/hp.webp" width="45" height="45" alt="HP realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/veeam.webp" width="85" height="32" alt="Veeam realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/f5.webp" width="45" height="45" alt="F5 realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/veeam.webp" width="85" height="32" alt="Veeam realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/f5.webp" width="45" height="45" alt="F5 realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/solarwinds.webp" width="85" height="30" alt="Solarwinds realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/f5.webp" width="45" height="45" alt="F5 realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/solarwinds.webp" width="85" height="30" alt="Solarwinds realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/blog-talk.webp" width="51" height="45" alt="Blog Talk Radio realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/solarwinds.webp" width="85" height="30" alt="Solarwinds realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/blog-talk.webp" width="51" height="45" alt="Blog Talk Radio realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/myob.webp" width="85" height="36" alt="Myob realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/blog-talk.webp" width="51" height="45" alt="Blog Talk Radio realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/myob.webp" width="85" height="36" alt="Myob realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/online-academy.webp" width="85" height="40" alt="Online Academy education gov realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/myob.webp" width="85" height="36" alt="Myob realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/online-academy.webp" width="85" height="40" alt="Online Academy education gov realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/sony-music.webp" width="85" height="20" alt="Sony Music realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/online-academy.webp" width="85" height="40" alt="Online Academy education gov realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/sony-music.webp" width="85" height="20" alt="Sony Music realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/nasdaq.webp" width="85" height="25" alt="Nasdaq realtime online group chat platform" class="img-responsive"></div></div>
+                  <div class="item">
+                     <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/sony-music.webp" width="85" height="20" alt="Sony Music realtime online group chat platform" class="img-responsive"></div>
+                  <div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/nasdaq.webp" width="85" height="25" alt="Nasdaq realtime online group chat platform" class="img-responsive"></div><div class="col-xs-4"><img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/wix.webp" width="78" height="45" alt="Wix realtime online group chat platform" class="img-responsive"></div></div>
+               </div>
+               <a class="left carousel-control" href="#theCarousel" data-slide="prev"><em class="glyphicon glyphicon-chevron-left"></em><span class="sr-only">Previous</span></a>
+               <a class="right carousel-control" href="#theCarousel" data-slide="next"><em class="glyphicon glyphicon-chevron-right"></em><span class="sr-only">Next</span></a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- chat features -->
+<section class="home chat-features home sec-pd">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <h3 class="sec-title primary-color">Online group chat platform built for ease of use and quick integration</h3>
+            <p class="sec-subtitle1">Different chat types to embed whether you need </p>
+            <p class="sec-subtitle">one or multiple rooms</p>
+         </div>
+      </div>
+      <div class="control-link text-center">
+         <ul>
+            <li class="active">
+               <a data-toggle="tab" href="#membersChat">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/members_1.webp" width="100" height="100" alt="Embed Members group chat service for private conversations">
+                  <span>Member's Chat</span>
+               </a>
+            </li>
+            <li>
+               <a data-toggle="tab" href="#moderatedChats">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/moderated_1.webp" width="100" height="100" alt="Embed Moderate group chat for Q&amp;A sessions ">
+                  <span>Q&amp;A Chat</span>
+               </a>
+            </li>
+            <li>
+               <a data-toggle="tab" href="#socialChat">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/social_1.webp" width="100" height="100" alt="Embed Social group Chat for community engagement">
+                  <span>Social Group Chat</span>
+               </a>
+            </li>
+            <li>
+               <a data-toggle="tab" href="#expertsChat">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/experts_1.webp" width="100" height="100" alt="Embed Expert Chat for one-on-one advisory session">
+                  <span>Expert's Chat</span>
+               </a>
+            </li>
+            <li>
+               <a data-toggle="tab" href="#privateChat">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/private_1.webp" width="100" height="100" alt="Embed Private Chat for real-time one-on-one mingling and engagements">
+                  <span>Private Chats</span>
+               </a>
+            </li>
+         </ul>
+      </div>
+
+      <div class="tab-content">
+         <div id="membersChat" class="tab-pane fade in active chat">
+            <div class="chat-content-wrap">
+               <div class="left-content">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/04-13-members.webp" width="566" height="383" alt="Members only group Chat for closed communities">
+               </div>
+               <div class="right-content">
+                  <p class="member">Member's Group Chat</p>
+                  <p>Built for members only. Only your members can view or participate in the group chat conversation. Best used in closed private group chat discussions.</p>
+                  <ul>
+                     <li>⚌ Only your members will be able to log in to the chat room</li>
+                     <li>⚌ Integrated with your own userbase</li>
+                     <li>⚌ Pre-integrated with WordPress plugin chat</li>
+                     <li>⚌ Easy integration - REST API, React, Angular, SDK, JS</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div id="moderatedChats" class="tab-pane fade chat">
+            <div class="chat-content-wrap">
+               <div class="left-content">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/04-13-q&amp;a.webp" width="566" height="383" alt="Moderated your Group Chat with RumbleTalk">
+               </div>
+               <div class="right-content">
+                  <p class="moderated">Moderated Q&amp;A Chat</p>
+                  <p>Built for online events, Q&amp;A chat, live stream, or webinars. A chat admin will need to approve every group message. Only approved chat messages will be visible to all.</p>
+                  <ul>
+                     <li>⚌ Q&amp;A chat mode - easy to control what messages will be visible</li>
+                     <li>⚌ Only approved chat messages will be seen by all</li>
+                     <li>⚌ Only admins can approve chat room messages</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div id="socialChat" class="tab-pane fade chat">
+            <div class="chat-content-wrap">
+               <div class="left-content">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/04-13-social.webp" width="566" height="383" alt="Engage your audience with Social Group Chat of RumbleTalk">
+               </div>
+               <div class="right-content">
+                  <p class="social">Social Chat Room</p>
+                  <p>Built for communities and open discussions. Engage your online audience with a real-time social chat. Add an open chat room to any webpage and connect with your audience. Social features can be turned on/off as needed.</p>
+                  <ul>
+                     <li>⚌ Send text, video &amp; audio messages</li>
+                     <li>⚌ Send files such as PDF, Word, and Excel</li>
+                     <li>⚌ Share images and talk to anyone on the group chat and private chat</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div id="expertsChat" class="tab-pane fade chat">
+            <div class="chat-content-wrap">
+               <div class="left-content">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/09-19-experts.webp" width="566" height="383" alt="Engage your customers with RumbleTalk's Expert Chat">
+               </div>
+               <div class="right-content">
+                  <p class="experts">One-on-one Expert's Chat</p>
+                  <p>Built for a private one-on-one conversation with an advisor. Only admins can start a chat and talk with users simultaneously. Great for consultants and job fairs, interviews, gurus and advisors.</p>
+                  <ul>
+                     <li>⚌ Only the advisor (admin) can initiate a conversation with others</li>
+                     <li>⚌ Users won't see other users nor start a conversations</li>
+                     <li>⚌ Chat face to face with a live video feature</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div id="privateChat" class="tab-pane fade chat">
+            <div class="chat-content-wrap">
+               <div class="left-content">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/04-13-private.webp" width="566" height="383" alt="Have your online comunnity connect with one another thru RumbleTalk Private Chat">
+               </div>
+               <div class="right-content">
+                  <p class="private">Private Chats</p>
+                  <p>Built for socializing in private conversations. Use private chats for private one-on-one chats. Chatters will be able to privately chat with everyone.</p>
+                  <ul>
+                     <li>⚌ One-on-one conversations with everyone in the chat room</li>
+                     <li>⚌ Only private chats, no group chat discussion</li>
+                     <li>⚌ Hold private audio and video calls, send private messages, and more</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div id="paidChat" class="tab-pane fade chat">
+            <div class="chat-content-wrap">
+               <div class="left-content">
+                  <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/04-13-paid.webp" width="566" height="383" alt="RumbleTalk Paid Chat">
+               </div>
+               <div class="right-content">
+                  <p class="paid">Get Paid Chat</p>
+                  <p>Built for monetizing your chat (paid access PayWall). Perfect for charging your audience. Charge a fee for entering your chat or send a payment request.</p>
+                  <ul>
+                     <li>⚌ Set a paid access fee for your chat</li>
+                     <li>⚌ Direct payments between admin and a user</li>
+                     <li>⚌ Set a donation option</li>
+                     <li>⚌ Get paid for a limited time</li>
+                     <li>⚌ Get paid for a membership (subscription)</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- testimonials -->
+<section class="testimonials sec-pd hide-mobile">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <ul>
+               <li>
+                  <div class="content">
+                     <p>The RumbleTalk online group chat platform is the fastest and easiest way to add a full-blown realtime chat room to your site. And our customers? They simply love RumbleTalk!! We have more than 180,000 customer-created chat rooms using RumbleTalk.</p>
+                  </div>
+                  <div class="author">
+                     <div class="img-wrap">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/avishai.webp" width="60" height="60" alt="Avishai Abrahami CEO of Wix says about RumbleTalk">
+                     </div>
+                     <div class="name-wrap">
+                        <span>Avishai Abrahami</span>
+                        <span>CEO &amp; Co-founder </span>
+                        <span>Wix</span>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="content">
+                     <p>After the event, we received so many emails from attendees giving us rave reviews about the quality of our videos and the smoothness with which our group chat functioned. It was a great improvement to past solutions.</p>
+                  </div>
+                  <div class="author">
+                     <div class="img-wrap">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/rachel.webp" width="60" height="60" alt="Rachel Morrill of SolarWinds says about RumbleTalk">
+                     </div>
+                     <div class="name-wrap">
+                        <span>Rachel Morrill</span>
+                        <span>Web &amp; Platform Lead, events and product manager</span>
+                        <span>SolarWinds</span>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="content">
+                     <p>Feedback from the team was incredibly positive! Any fears they had - main worries were about lag time, feature failure or inability to juggle Q&amp;A - were quickly squashed once the event started. There was zero lag and the moderators were easily able to manage the Q&amp;A after a quick training session that afternoon of the event.</p>
+                  </div>
+                  <div class="author">
+                     <div class="img-wrap">
+                        <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/sherry.webp" width="60" height="60" alt="Sherry Errera of Agora Financial says about RumbleTalk">
+                     </div>
+                     <div class="name-wrap">
+                        <span>Sherry Errera</span>
+                        <span>Senior Manager, Digital Experiences &amp; Optimization</span>
+                        <span>Agora Financial</span>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- testimonial mobile -->
+<section class="testimonials sec-pd hide-desktop">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div id="testimonialCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+               <!-- Indicators -->
+               <ol class="carousel-indicators">
+                  <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+                  <li data-target="#testimonialCarousel" data-slide-to="2"></li>
+               </ol>
+               <!-- Wrapper for slides -->
+               <div class="carousel-inner">
+                  <div class="item active">
+                     <div class="content">
+                        <p>The RumbleTalk online group chat platform is the fastest and easiest way to add a full-blown realtime chat room to your site. And our customers? They simply love RumbleTalk!! We have more than 150,000 customer-created chat rooms using RumbleTalk.</p>
+                     </div>
+                     <div class="author">
+                        <div class="img-wrap">
+                           <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/avishai.webp" width="60" height="60" alt="Avishai Abrahami CEO of Wix says about the RumbleTalk embed chat service">
+                        </div>
+                        <div class="name-wrap">
+                           <span>Avishai Abrahami</span>
+                           <span>CEO &amp; Co-founder</span>
+                           <span>Wix</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="content">
+                        <p>After our live event, we received so many emails from attendees giving us rave reviews about the quality of our videos and the smoothness with which our online group chat functioned. It was a great improvement to past solutions.</p>
+                     </div>
+                     <div class="author">
+                        <div class="img-wrap">
+                           <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/rachel.webp" width="60" height="60" alt="Rachel Morrill of SolarWinds says about the RumbleTalk embed chat for live events">
+                        </div>
+                        <div class="name-wrap">
+                           <span>Rachel Morrill</span>
+                           <span>Web &amp; Platform Lead, Events and Product Manager</span>
+                           <span>SolarWinds</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="content">
+                        <p>Feedback from the team was incredibly positive! Any fears they had - main worries were about lag time, feature failure or inability to juggle Q&amp;A - were quickly squashed once the event started. There was zero lag and the moderators were easily able to manage the Q&amp;A after a quick training session that afternoon of the event.</p>
+                     </div>
+                     <div class="author">
+                        <div class="img-wrap">
+                           <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/sherry.webp" width="60" height="60" alt="Sherry Errera of Agora Financial says about the RumbleTalk embed chat platform for live events">
+                        </div>
+                        <div class="name-wrap">
+                           <span>Sherry Errera</span>
+                           <span>Senior Manager, Digital Experiences &amp; Optimization</span>
+                           <span>Agora Financial</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="other-features sec-pd">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <ul>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/03-30-features-polls1.webp" width="60" height="60" alt="Live Polls">
+                     <p class="title-other-features">Live Polls</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/03-30-features-moderated1.webp" width="60" height="60" alt="Live Moderated Q&amp;A">
+                     <p class="title-other-features">Live Moderated Q&amp;A</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/03-30-features-slowdown1.webp" width="60" height="60" alt="Slow Down Chat">
+                     <p class="title-other-features">Slow Down Chat</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/send.webp" width="60" height="60" alt="Send Text, Audio &amp; Video Messages with your RumbleTalk Group Chat platform">
+                     <p class="title-other-features">Send Text, Audio &amp; <br> Video Chat Messages</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/approve.webp" width="60" height="60" alt="Approve Messages Before Going Public for your Live online events">
+                     <p class="title-other-features">Approve Chat Messages <br>Before Going Public</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/monetize.webp" width="60" height="60" alt="Monetize from your Group Chat with PayWall and Donation features with RumbleTalk Chat platform">
+                     <p class="title-other-features">Monetize your Chat with<br> Payments, PayWall and Donations</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/private-4.webp" width="60" height="60" alt="Have a Private one-on-one conversation with Video and Audio Calls in RumbleTalk Group Chat platform">
+                     <p class="title-other-features">Private Chat Conversation with <br> Video and Audio Calls</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/admin.webp" width="60" height="60" alt="Mute your users and Allow only Admins to Talk in your Group Chat platform">
+                     <p class="title-other-features">Mute Users and Allow Only <br>Admins to Talk</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/wordpress.webp" width="60" height="60" alt="Wordpress RumbleTalk Plugin helps to integrate your Group Chat to your WordPress website">
+                     <p class="title-other-features">WordPress Group Chat Plugin <br>Users Integration</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/api.webp" width="60" height="60" alt="RESTful API &amp; Login SDK will take your RumbleTalk group chat platform to another level">
+                     <p class="title-other-features">RESTful API &amp; <br>Angular, React Login SDK</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/css.webp" width="60" height="60" alt="You can customize your group chat look and feel with Advance CSS Designs">
+                     <p class="title-other-features">Customizable Chat Room Design <br>Using Admin Panel or CSS</p>
+                  </div>
+               </li>
+               <li>
+                  <div class="content-wrap">
+                     <img src="https://d1pfint8izqszg.cloudfront.net/new/images/webp/minisite.webp" width="60" height="60" alt="Create Your Own Chat Mini Site with your RumbleTalk Group Chat">
+                     <p class="title-other-features">Create Your Own <br>Live Stream Chat (Mini Site)</p>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>
+<footer id="footer">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-3 menu">
+            <h3>General</h3>
+            <ul>
+               <li><a href="/queued-chat/">Products</a></li>
+               <li><a href="/social-communities-chat/">Solutions</a></li>
+               <li><a href="/pricing/">Pricing</a></li>
+               <li><a href="/features/">Chat Features</a></li>
+               <li><a href="/blog/">News &amp; Blog</a></li>
+               <li><a href="/case-study/">Case Studies</a></li>
+               <li><a href="/demo/">Live Chat Demo</a></li>
+               <li><a href="/videos/">Video Tutorials</a></li>
+               <li><a href="/chat-skins/">Chat Skins Gallery</a></li>
+               <li><a href="/faq2/">FAQs</a></li>
+            </ul>
+         </div>
+         <div class="col-sm-3 menu">
+            <h3>Company</h3>
+            <ul>
+               <li><a href="/about_us/">About us</a></li>
+               <li><a href="/about_us/contact_us/">Contact us</a></li>
+               <li><a href="/refer/">Partners program</a></li>
+               <li><a href="/about_us/press/">Press</a></li>
+               <li><a href="/about_us/terms/">Terms</a></li>
+               <li><a href="/about_us/content_policy/">Content policy</a></li>
+               <li><a href="/about_us/privacy_policy/">Privacy policy</a></li>
+            </ul>
+         </div>
+         <div class="col-sm-3 menu">
+            <h3>Tech</h3>
+            <ul>
+               <li><a href="/blog/index.php/knowledge-base/">Support &amp; Knowledge Base</a></li>
+               <li><a href="/plugins/">Plug-ins and Integrations</a></li>
+               <li><a href="/support/API_Auto_Login/">Users Integration API</a></li>
+               <li><a href="https://dev.rumbletalk.com/">REST API for developers</a></li>
+               <li><a href="https://rumbletalk.com/blog/index.php/knowledge-base/getting-started/">Getting Started</a></li>
+            </ul>
+         </div>
+         <!-- NEW FOURTH COLUMN WITH LOGIN LINKS -->
+         <div class="col-sm-3 menu">
+            <h3>Resources</h3>
+            <ul>
+               <li><a href="/social-chat/">Embed Online Group Chat on Website</a></li>
+               <li><a href="/virtual-events-chat/">	Chat for Live Events</a></li>
+               <li><a href="/live-qa-chat/">Pre-moderated Virtual Event Chat</a></li>
+               <li><a href="/features/">Group Chat Platform</a></li>
+               <li><a href="https://dev.rumbletalk.com/">Chat API for website</a></li>
+			   <li><a href="/wordpress-chat-room-plugin/">Wordperss Chat Room</a></li>
+			   <li><a href="/virtual-events-chat/">Virtual Event Chat platform</a></li>
+            </ul>
+            <hr>
+            <ul class="quick-links">
+               <li><a href="https://cp.rumbletalk.com/signup">Create your account</a></li>
+               <li><a href="https://cp.rumbletalk.com/login">Login</a></li>
+            </ul>
+         </div>
+      </div>
+      <div class="row d-block">
+         <div class="col-xs-12">
+            <hr>
+            <div class="social-wrap">
+               <ul>
+                  <li>
+                      <a href="https://twitter.com/rumbletalk/" target="_blank">
+                          <img src="https://d1pfint8izqszg.cloudfront.net/new/images/home8/twitter.webp" alt="RumbleTalk @ Twitter">
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.facebook.com/rumbletalk/" target="_blank">
+                          <img src="https://d1pfint8izqszg.cloudfront.net/new/images/home8/facebook.webp" alt="RumbleTalk @ Facebook">
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.instagram.com/rumbletalk/" target="_blank">
+                          <img src="https://d1pfint8izqszg.cloudfront.net/new/images/home8/social-media.webp" alt="RumbleTalk @ Instagram">
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.pinterest.com/rumbletalkchat/" target="_blank">
+                          <img src="https://d1pfint8izqszg.cloudfront.net/new/images/home8/pinterest.webp" alt="RumbleTalk @ Pinterest">
+                      </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</footer>
+<script src="https://d1pfint8izqszg.cloudfront.net/new/website/build/2025-03-02/base.min.gz.js"></script>
+
+
+<script type="text/javascript" id="" charset="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","2419174404816132");fbq("set","agent","tmgoogletagmanager","2419174404816132");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2419174404816132&amp;ev=PageView&amp;noscript=1"></noscript>
+</body></html>

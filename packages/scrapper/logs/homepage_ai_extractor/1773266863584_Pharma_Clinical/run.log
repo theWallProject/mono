@@ -1,0 +1,64 @@
+[2026-03-11T22:07:43.585Z] === Homepage AI Extractor: Pharma Clinical ===
+[2026-03-11T22:07:43.585Z] Started at: 2026-03-11T22:07:43.585Z
+[2026-03-11T22:07:43.585Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773266863584_Pharma_Clinical
+[2026-03-11T22:07:43.585Z] Company: Pharma Clinical
+[2026-03-11T22:07:43.586Z] Website: pharmaclinical.co.il
+[2026-03-11T22:07:43.586Z] cbRank: 679801
+[2026-03-11T22:07:43.586Z] Reasons: h
+[2026-03-11T22:07:43.586Z] Fetching: https://pharmaclinical.co.il
+[2026-03-11T22:07:54.908Z] Network idle timeout — continuing with current state
+[2026-03-11T22:07:54.961Z] Redirected: https://pharmaclinical.co.il -> https://www.pharmaclinical.co.il/
+[2026-03-11T22:07:54.997Z] Saved HTML (1110508 bytes) to page.html
+[2026-03-11T22:07:55.002Z] Extracted 19 unique links from page
+[2026-03-11T22:07:55.003Z] Saved 19 links to links.json
+[2026-03-11T22:07:55.009Z] Extracted footer HTML (23436 chars)
+[2026-03-11T22:07:55.009Z] Extracted header HTML (11946 chars)
+[2026-03-11T22:07:55.014Z] Website (post-redirect): https://www.pharmaclinical.co.il/ → origin: https://www.pharmaclinical.co.il
+[2026-03-11T22:07:55.015Z] External links: 4 (of 19 total)
+[2026-03-11T22:07:55.015Z] ── All external links ──
+[2026-03-11T22:07:55.015Z]   EXT: http://www.abcreative.co.il
+[2026-03-11T22:07:55.015Z]   EXT: https://il.linkedin.com/company/pharma-clinical-s.a.g-2003-ltd.
+[2026-03-11T22:07:55.015Z]   EXT: https://vee.co.il
+[2026-03-11T22:07:55.015Z]   EXT: https://vee.co.il/pricing
+[2026-03-11T22:07:55.015Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T22:07:55.016Z]   UNCATEGORIZED: http://www.abcreative.co.il
+[2026-03-11T22:07:55.016Z]   REGEX: li <- https://il.linkedin.com/company/pharma-clinical-s.a.g-2003-ltd.
+[2026-03-11T22:07:55.016Z]   UNCATEGORIZED: https://vee.co.il
+[2026-03-11T22:07:55.016Z]   UNCATEGORIZED: https://vee.co.il/pricing
+[2026-03-11T22:07:55.016Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-11T22:07:55.016Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T22:07:55.017Z] Saved AI prompt (11044 chars) to ai_prompt.txt
+[2026-03-11T22:07:55.017Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T22:07:55.042Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T22:08:45.807Z]   AI: First token received, streaming...
+[2026-03-11T22:08:49.995Z] AI response complete: 63 chars in 55.0s
+[2026-03-11T22:08:49.995Z] Saved AI response to ai_response.json
+[2026-03-11T22:08:49.996Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T22:08:49.996Z]   AI LINK: https://il.linkedin.com/company/pharma-clinical-s.a.g-2003-ltd.
+[2026-03-11T22:08:49.996Z] AI returned 1 valid links
+[2026-03-11T22:08:49.996Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T22:08:49.996Z]   AI→REGEX: li <- https://il.linkedin.com/company/pharma-clinical-s.a.g-2003-ltd. (duplicate, skipped)
+[2026-03-11T22:08:49.996Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T22:08:49.996Z] Footer/header origins (3):
+[2026-03-11T22:08:49.996Z]   FOOTER/HEADER ORIGIN: https://www.pharmaclinical.co.il
+[2026-03-11T22:08:49.997Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-11T22:08:49.997Z]   FOOTER/HEADER ORIGIN: http://www.abcreative.co.il
+[2026-03-11T22:08:49.997Z]   ADDED: urls <- http://www.abcreative.co.il
+[2026-03-11T22:08:49.997Z]   SKIP (not in footer/header): https://vee.co.il
+[2026-03-11T22:08:49.997Z]   SKIP (not in footer/header): https://vee.co.il/pricing
+[2026-03-11T22:08:49.997Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T22:08:49.997Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T22:08:49.997Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T22:08:49.997Z] ── Step 3: Final dedup ──
+[2026-03-11T22:08:49.997Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T22:08:49.998Z] ── FINAL RESULT ──
+[2026-03-11T22:08:49.998Z]   ws (1):
+[2026-03-11T22:08:49.998Z]     - https://www.pharmaclinical.co.il
+[2026-03-11T22:08:49.998Z]   li (1):
+[2026-03-11T22:08:49.998Z]     - https://www.linkedin.com/company/pharma-clinical-s.a.g-2003-ltd.
+[2026-03-11T22:08:49.998Z]   urls (1):
+[2026-03-11T22:08:49.998Z]     - http://www.abcreative.co.il
+[2026-03-11T22:08:49.998Z] Summary: ws:1, li:1, urls:1
+[2026-03-11T22:08:49.998Z] Saved final result to result.json
+[2026-03-11T22:08:49.998Z] Override fields: ws, li, urls
+[2026-03-11T22:08:49.999Z] Finished at: 2026-03-11T22:08:49.999Z

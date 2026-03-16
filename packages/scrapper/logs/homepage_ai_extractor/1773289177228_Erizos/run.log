@@ -1,0 +1,76 @@
+[2026-03-12T04:19:37.228Z] === Homepage AI Extractor: Erizos ===
+[2026-03-12T04:19:37.228Z] Started at: 2026-03-12T04:19:37.228Z
+[2026-03-12T04:19:37.228Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773289177228_Erizos
+[2026-03-12T04:19:37.228Z] Company: Erizos
+[2026-03-12T04:19:37.229Z] Website: erizos.tv
+[2026-03-12T04:19:37.229Z] cbRank: 792758
+[2026-03-12T04:19:37.229Z] Reasons: h
+[2026-03-12T04:19:37.229Z] Fetching: https://erizos.tv
+[2026-03-12T04:19:40.132Z] Redirected: https://erizos.tv -> https://erizos.tv/
+[2026-03-12T04:19:40.163Z] Saved HTML (866209 bytes) to page.html
+[2026-03-12T04:19:40.166Z] Extracted 10 unique links from page
+[2026-03-12T04:19:40.167Z] Saved 10 links to links.json
+[2026-03-12T04:19:40.169Z] Extracted footer HTML (4387 chars)
+[2026-03-12T04:19:40.169Z] Extracted header HTML (2646 chars)
+[2026-03-12T04:19:40.176Z] Website (post-redirect): https://erizos.tv/ → origin: https://erizos.tv
+[2026-03-12T04:19:40.176Z]   SUBDOMAIN: virtual.erizos.tv (added to ws)
+[2026-03-12T04:19:40.176Z] Website subdomains found: 1
+[2026-03-12T04:19:40.176Z] External links: 4 (of 10 total)
+[2026-03-12T04:19:40.177Z] ── All external links ──
+[2026-03-12T04:19:40.177Z]   EXT: https://il.linkedin.com/company/erizos
+[2026-03-12T04:19:40.177Z]   EXT: https://twitter.com/ErizosRealTime
+[2026-03-12T04:19:40.177Z]   EXT: https://www.facebook.com/erizostv
+[2026-03-12T04:19:40.177Z]   EXT: https://www.youtube.com/@ErizosAdvancedRealtimeTools
+[2026-03-12T04:19:40.177Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T04:19:40.177Z]   REGEX: li <- https://il.linkedin.com/company/erizos
+[2026-03-12T04:19:40.177Z]   REGEX: tw <- https://twitter.com/ErizosRealTime
+[2026-03-12T04:19:40.177Z]   REGEX: fb <- https://www.facebook.com/erizostv
+[2026-03-12T04:19:40.177Z]   REGEX: ytp <- https://www.youtube.com/@ErizosAdvancedRealtimeTools
+[2026-03-12T04:19:40.178Z] Programmatic result: ws:2, li:1, tw:1, fb:1, ytp:1 | 0 uncategorized
+[2026-03-12T04:19:40.178Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T04:19:40.180Z] Saved AI prompt (3307 chars) to ai_prompt.txt
+[2026-03-12T04:19:40.180Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T04:19:40.191Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T04:19:51.543Z]   AI: First token received, streaming...
+[2026-03-12T04:20:00.980Z] AI response complete: 161 chars in 20.8s
+[2026-03-12T04:20:00.981Z] Saved AI response to ai_response.json
+[2026-03-12T04:20:00.981Z] ── Parsing AI response (4 lines) ──
+[2026-03-12T04:20:00.981Z]   AI LINK: https://www.facebook.com/erizostv/
+[2026-03-12T04:20:00.981Z]   AI LINK: https://twitter.com/ErizosRealTime
+[2026-03-12T04:20:00.982Z]   AI LINK: https://il.linkedin.com/company/erizos
+[2026-03-12T04:20:00.982Z]   AI LINK: https://www.youtube.com/@ErizosAdvancedRealtimeTools
+[2026-03-12T04:20:00.982Z] AI returned 4 valid links
+[2026-03-12T04:20:00.982Z] ── Categorizing 4 AI-returned links ──
+[2026-03-12T04:20:00.982Z]   AI→REGEX: fb <- https://www.facebook.com/erizostv/ (duplicate, skipped)
+[2026-03-12T04:20:00.982Z]   AI→REGEX: tw <- https://twitter.com/ErizosRealTime (duplicate, skipped)
+[2026-03-12T04:20:00.982Z]   AI→REGEX: li <- https://il.linkedin.com/company/erizos (duplicate, skipped)
+[2026-03-12T04:20:00.982Z]   AI→REGEX: ytp <- https://www.youtube.com/@ErizosAdvancedRealtimeTools (duplicate, skipped)
+[2026-03-12T04:20:00.983Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T04:20:00.983Z] Footer/header origins (6):
+[2026-03-12T04:20:00.983Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T04:20:00.983Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T04:20:00.983Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-12T04:20:00.983Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T04:20:00.983Z]   FOOTER/HEADER ORIGIN: https://erizos.tv
+[2026-03-12T04:20:00.983Z]   FOOTER/HEADER ORIGIN: https://virtual.erizos.tv
+[2026-03-12T04:20:00.983Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T04:20:00.984Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T04:20:00.984Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T04:20:00.984Z] ── Step 3: Final dedup ──
+[2026-03-12T04:20:00.984Z] No urls to dedup
+[2026-03-12T04:20:00.984Z] ── FINAL RESULT ──
+[2026-03-12T04:20:00.984Z]   ws (2):
+[2026-03-12T04:20:00.984Z]     - https://erizos.tv
+[2026-03-12T04:20:00.984Z]     - https://virtual.erizos.tv
+[2026-03-12T04:20:00.984Z]   li (1):
+[2026-03-12T04:20:00.984Z]     - https://www.linkedin.com/company/erizos
+[2026-03-12T04:20:00.984Z]   fb (1):
+[2026-03-12T04:20:00.984Z]     - https://www.facebook.com/erizostv
+[2026-03-12T04:20:00.984Z]   tw (1):
+[2026-03-12T04:20:00.984Z]     - https://x.com/erizosrealtime
+[2026-03-12T04:20:00.985Z]   ytp (1):
+[2026-03-12T04:20:00.985Z]     - https://www.youtube.com/@erizosadvancedrealtimetools
+[2026-03-12T04:20:00.985Z] Summary: ws:2, li:1, tw:1, fb:1, ytp:1
+[2026-03-12T04:20:00.985Z] Saved final result to result.json
+[2026-03-12T04:20:00.985Z] Override fields: ws, li, fb, tw, ytp
+[2026-03-12T04:20:00.985Z] Finished at: 2026-03-12T04:20:00.985Z

@@ -1,0 +1,80 @@
+[2026-03-13T04:35:59.235Z] === Homepage AI Extractor: Almog ===
+[2026-03-13T04:35:59.235Z] Started at: 2026-03-13T04:35:59.235Z
+[2026-03-13T04:35:59.235Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773376559234_Almog
+[2026-03-13T04:35:59.235Z] Company: Almog
+[2026-03-13T04:35:59.235Z] Website: almogerp.com
+[2026-03-13T04:35:59.235Z] cbRank: 986121
+[2026-03-13T04:35:59.235Z] Reasons: h
+[2026-03-13T04:35:59.235Z] Fetching: https://almogerp.com
+[2026-03-13T04:36:13.988Z] Network idle timeout — continuing with current state
+[2026-03-13T04:36:14.055Z] Redirected: https://almogerp.com -> https://almogerp.com/
+[2026-03-13T04:36:14.065Z] Saved HTML (231918 bytes) to page.html
+[2026-03-13T04:36:14.070Z] Extracted 32 unique links from page
+[2026-03-13T04:36:14.071Z] Saved 32 links to links.json
+[2026-03-13T04:36:14.074Z] Extracted footer HTML (6427 chars)
+[2026-03-13T04:36:14.074Z] Extracted header HTML (5971 chars)
+[2026-03-13T04:36:14.080Z] Website (post-redirect): https://almogerp.com/ → origin: https://almogerp.com
+[2026-03-13T04:36:14.080Z]   SUBDOMAIN: portal.almogerp.com (added to ws)
+[2026-03-13T04:36:14.081Z] Website subdomains found: 1
+[2026-03-13T04:36:14.081Z] External links: 5 (of 32 total)
+[2026-03-13T04:36:14.081Z] ── All external links ──
+[2026-03-13T04:36:14.081Z]   EXT: https://policies.google.com/privacy
+[2026-03-13T04:36:14.081Z]   EXT: https://policies.google.com/terms
+[2026-03-13T04:36:14.081Z]   EXT: https://www.facebook.com/almog.ERP
+[2026-03-13T04:36:14.081Z]   EXT: https://www.linkedin.com/company/almog
+[2026-03-13T04:36:14.081Z]   EXT: https://www.youtube.com/channel/UCMBxN2js7ADCsgAnevvXshg
+[2026-03-13T04:36:14.081Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T04:36:14.081Z]   UNCATEGORIZED: https://policies.google.com/privacy
+[2026-03-13T04:36:14.082Z]   UNCATEGORIZED: https://policies.google.com/terms
+[2026-03-13T04:36:14.082Z]   REGEX: fb <- https://www.facebook.com/almog.ERP
+[2026-03-13T04:36:14.082Z]   REGEX: li <- https://www.linkedin.com/company/almog
+[2026-03-13T04:36:14.082Z]   REGEX: ytc <- https://www.youtube.com/channel/UCMBxN2js7ADCsgAnevvXshg
+[2026-03-13T04:36:14.082Z] Programmatic result: ws:2, fb:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-13T04:36:14.082Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T04:36:14.083Z] Saved AI prompt (5655 chars) to ai_prompt.txt
+[2026-03-13T04:36:14.083Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T04:36:14.100Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T04:36:45.472Z]   AI: First token received, streaming...
+[2026-03-13T04:36:54.850Z] AI response complete: 131 chars in 40.8s
+[2026-03-13T04:36:54.851Z] Saved AI response to ai_response.json
+[2026-03-13T04:36:54.851Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T04:36:54.852Z]   AI LINK: https://www.youtube.com/channel/UCMBxN2js7ADCsgAnevvXshg
+[2026-03-13T04:36:54.852Z]   AI LINK: https://www.facebook.com/almog.ERP
+[2026-03-13T04:36:54.852Z]   AI LINK: https://www.linkedin.com/company/almog/
+[2026-03-13T04:36:54.852Z] AI returned 3 valid links
+[2026-03-13T04:36:54.852Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T04:36:54.852Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCMBxN2js7ADCsgAnevvXshg (duplicate, skipped)
+[2026-03-13T04:36:54.852Z]   AI→REGEX: fb <- https://www.facebook.com/almog.ERP (duplicate, skipped)
+[2026-03-13T04:36:54.852Z]   AI→REGEX: li <- https://www.linkedin.com/company/almog/ (duplicate, skipped)
+[2026-03-13T04:36:54.852Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T04:36:54.852Z] Footer/header origins (5):
+[2026-03-13T04:36:54.853Z]   FOOTER/HEADER ORIGIN: https://almogerp.com
+[2026-03-13T04:36:54.853Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-13T04:36:54.853Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T04:36:54.853Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T04:36:54.853Z]   FOOTER/HEADER ORIGIN: https://portal.almogerp.com
+[2026-03-13T04:36:54.853Z]   SKIP (not in footer/header): https://policies.google.com/privacy
+[2026-03-13T04:36:54.853Z]   SKIP (not in footer/header): https://policies.google.com/terms
+[2026-03-13T04:36:54.853Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T04:36:54.853Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T04:36:54.853Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-13T04:36:55.268Z]   YOUTUBE: resolved UCMBxN2js7ADCsgAnevvXshg → @AlmogSoftwareInc
+[2026-03-13T04:36:55.268Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-13T04:36:55.268Z] ── Step 3: Final dedup ──
+[2026-03-13T04:36:55.268Z] No urls to dedup
+[2026-03-13T04:36:55.268Z] ── FINAL RESULT ──
+[2026-03-13T04:36:55.269Z]   ws (2):
+[2026-03-13T04:36:55.269Z]     - https://almogerp.com
+[2026-03-13T04:36:55.269Z]     - https://portal.almogerp.com
+[2026-03-13T04:36:55.269Z]   li (1):
+[2026-03-13T04:36:55.269Z]     - https://www.linkedin.com/company/almog
+[2026-03-13T04:36:55.269Z]   fb (1):
+[2026-03-13T04:36:55.269Z]     - https://www.facebook.com/almog.erp
+[2026-03-13T04:36:55.269Z]   ytp (1):
+[2026-03-13T04:36:55.269Z]     - https://www.youtube.com/@AlmogSoftwareInc
+[2026-03-13T04:36:55.269Z]   ytc (1):
+[2026-03-13T04:36:55.269Z]     - https://www.youtube.com/channel/UCMBxN2js7ADCsgAnevvXshg
+[2026-03-13T04:36:55.269Z] Summary: ws:2, fb:1, li:1, ytc:1, ytp:1
+[2026-03-13T04:36:55.270Z] Saved final result to result.json
+[2026-03-13T04:36:55.270Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-13T04:36:55.270Z] Finished at: 2026-03-13T04:36:55.270Z

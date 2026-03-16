@@ -1,0 +1,68 @@
+[2026-03-12T11:06:52.132Z] === Homepage AI Extractor: Einstein ===
+[2026-03-12T11:06:52.133Z] Started at: 2026-03-12T11:06:52.133Z
+[2026-03-12T11:06:52.133Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773313612132_Einstein
+[2026-03-12T11:06:52.133Z] Company: Einstein
+[2026-03-12T11:06:52.133Z] Website: einsteinworld.com
+[2026-03-12T11:06:52.133Z] cbRank: 921965
+[2026-03-12T11:06:52.133Z] Reasons: h
+[2026-03-12T11:06:52.133Z] Fetching: https://einsteinworld.com
+[2026-03-12T11:07:06.937Z] Network idle timeout — continuing with current state
+[2026-03-12T11:07:06.994Z] Redirected: https://einsteinworld.com -> https://einsteinworld.com/ew/
+[2026-03-12T11:07:07.004Z] Saved HTML (141514 bytes) to page.html
+[2026-03-12T11:07:07.008Z] Extracted 28 unique links from page
+[2026-03-12T11:07:07.009Z] Saved 28 links to links.json
+[2026-03-12T11:07:07.012Z] No footer section found in DOM
+[2026-03-12T11:07:07.012Z] Extracted header HTML (5323 chars)
+[2026-03-12T11:07:07.017Z] Website (post-redirect): https://einsteinworld.com/ew/ → origin: https://einsteinworld.com
+[2026-03-12T11:07:07.017Z] External links: 5 (of 28 total)
+[2026-03-12T11:07:07.017Z] ── All external links ──
+[2026-03-12T11:07:07.018Z]   EXT: https://apps.apple.com/us/app/milabex/id1265787706
+[2026-03-12T11:07:07.018Z]   EXT: https://play.google.com/store/apps/details?id=fourier.milabx&hl=en_US
+[2026-03-12T11:07:07.018Z]   EXT: https://www.facebook.com/FourierEducation
+[2026-03-12T11:07:07.018Z]   EXT: https://www.linkedin.com/company/fourier-systems
+[2026-03-12T11:07:07.018Z]   EXT: https://www.youtube.com/user/FourierEDU
+[2026-03-12T11:07:07.018Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T11:07:07.018Z]   UNCATEGORIZED: https://apps.apple.com/us/app/milabex/id1265787706
+[2026-03-12T11:07:07.018Z]   REGEX: android_app_ids <- fourier.milabx (from https://play.google.com/store/apps/details?id=fourier.milabx&hl=en_US)
+[2026-03-12T11:07:07.018Z]   REGEX: fb <- https://www.facebook.com/FourierEducation
+[2026-03-12T11:07:07.018Z]   REGEX: li <- https://www.linkedin.com/company/fourier-systems
+[2026-03-12T11:07:07.018Z]   REGEX: ytp <- https://www.youtube.com/user/FourierEDU
+[2026-03-12T11:07:07.019Z] Programmatic result: ws:1, android_app_ids:1, fb:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-12T11:07:07.019Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T11:07:07.019Z] Saved AI prompt (1983 chars) to ai_prompt.txt
+[2026-03-12T11:07:07.019Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T11:07:07.036Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T11:07:13.515Z]   AI: First token received, streaming...
+[2026-03-12T11:07:17.558Z] AI response complete: 50 chars in 10.5s
+[2026-03-12T11:07:17.559Z] Saved AI response to ai_response.json
+[2026-03-12T11:07:17.559Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T11:07:17.559Z]   AI LINK: https://apps.apple.com/us/app/milabex/id1265787706
+[2026-03-12T11:07:17.559Z] AI returned 1 valid links
+[2026-03-12T11:07:17.559Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T11:07:17.559Z]   AI→URLS: https://apps.apple.com/us/app/milabex/id1265787706
+[2026-03-12T11:07:17.559Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T11:07:17.559Z] Footer/header origins (1):
+[2026-03-12T11:07:17.560Z]   FOOTER/HEADER ORIGIN: https://einsteinworld.com
+[2026-03-12T11:07:17.560Z]   SKIP (AI claimed): https://apps.apple.com/us/app/milabex/id1265787706
+[2026-03-12T11:07:17.560Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T11:07:17.560Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T11:07:17.560Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T11:07:17.560Z] ── Step 3: Final dedup ──
+[2026-03-12T11:07:17.560Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T11:07:17.560Z] ── FINAL RESULT ──
+[2026-03-12T11:07:17.560Z]   ws (1):
+[2026-03-12T11:07:17.560Z]     - https://einsteinworld.com
+[2026-03-12T11:07:17.560Z]   li (1):
+[2026-03-12T11:07:17.560Z]     - https://www.linkedin.com/company/fourier-systems
+[2026-03-12T11:07:17.560Z]   fb (1):
+[2026-03-12T11:07:17.561Z]     - https://www.facebook.com/fouriereducation
+[2026-03-12T11:07:17.561Z]   ytp (1):
+[2026-03-12T11:07:17.561Z]     - https://www.youtube.com/@fourieredu
+[2026-03-12T11:07:17.561Z]   urls (1):
+[2026-03-12T11:07:17.561Z]     - https://apps.apple.com/us/app/milabex/id1265787706
+[2026-03-12T11:07:17.561Z]   android_app_ids (1):
+[2026-03-12T11:07:17.561Z]     - fourier.milabx
+[2026-03-12T11:07:17.561Z] Summary: ws:1, android_app_ids:1, fb:1, li:1, ytp:1, urls:1
+[2026-03-12T11:07:17.561Z] Saved final result to result.json
+[2026-03-12T11:07:17.562Z] Override fields: ws, li, fb, ytp, urls, android_app_ids
+[2026-03-12T11:07:17.562Z] Finished at: 2026-03-12T11:07:17.562Z

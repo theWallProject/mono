@@ -1,0 +1,61 @@
+[2026-03-11T03:35:47.844Z] === Homepage AI Extractor: Afrodita ===
+[2026-03-11T03:35:47.844Z] Started at: 2026-03-11T03:35:47.844Z
+[2026-03-11T03:35:47.845Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773200147844_Afrodita
+[2026-03-11T03:35:47.845Z] Company: Afrodita
+[2026-03-11T03:35:47.845Z] Website: afrodita.co.il
+[2026-03-11T03:35:47.845Z] cbRank: 569263
+[2026-03-11T03:35:47.845Z] Reasons: h
+[2026-03-11T03:35:47.845Z] Fetching: https://afrodita.co.il
+[2026-03-11T03:35:52.438Z] Redirected: https://afrodita.co.il -> https://afrodita.co.il/
+[2026-03-11T03:35:52.446Z] Saved HTML (241879 bytes) to page.html
+[2026-03-11T03:35:52.451Z] Extracted 74 unique links from page
+[2026-03-11T03:35:52.452Z] Saved 74 links to links.json
+[2026-03-11T03:35:52.457Z] Extracted footer HTML (6231 chars)
+[2026-03-11T03:35:52.457Z] Extracted header HTML (728 chars)
+[2026-03-11T03:35:52.464Z] Website (post-redirect): https://afrodita.co.il/ → origin: https://afrodita.co.il
+[2026-03-11T03:35:52.464Z] External links: 3 (of 74 total)
+[2026-03-11T03:35:52.464Z] ── All external links ──
+[2026-03-11T03:35:52.464Z]   EXT: https://www.facebook.com/afrodita.co.il
+[2026-03-11T03:35:52.464Z]   EXT: https://www.idus.co.il
+[2026-03-11T03:35:52.464Z]   EXT: https://www.instagram.com/afroditaisrael
+[2026-03-11T03:35:52.465Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:35:52.465Z]   REGEX: fb <- https://www.facebook.com/afrodita.co.il
+[2026-03-11T03:35:52.465Z]   UNCATEGORIZED: https://www.idus.co.il
+[2026-03-11T03:35:52.465Z]   REGEX: ig <- https://www.instagram.com/afroditaisrael
+[2026-03-11T03:35:52.465Z] Programmatic result: ws:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-11T03:35:52.465Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:35:52.466Z] Saved AI prompt (3795 chars) to ai_prompt.txt
+[2026-03-11T03:35:52.466Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:35:52.484Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:36:09.584Z]   AI: First token received, streaming...
+[2026-03-11T03:36:14.292Z] AI response complete: 82 chars in 21.8s
+[2026-03-11T03:36:14.293Z] Saved AI response to ai_response.json
+[2026-03-11T03:36:14.293Z] ── Parsing AI response (2 lines) ──
+[2026-03-11T03:36:14.293Z]   AI LINK: https://www.facebook.com/afrodita.co.il/
+[2026-03-11T03:36:14.293Z]   AI LINK: https://www.instagram.com/afroditaisrael/
+[2026-03-11T03:36:14.293Z] AI returned 2 valid links
+[2026-03-11T03:36:14.293Z] ── Categorizing 2 AI-returned links ──
+[2026-03-11T03:36:14.294Z]   AI→REGEX: fb <- https://www.facebook.com/afrodita.co.il/ (duplicate, skipped)
+[2026-03-11T03:36:14.294Z]   AI→REGEX: ig <- https://www.instagram.com/afroditaisrael/ (duplicate, skipped)
+[2026-03-11T03:36:14.294Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:36:14.294Z] Footer/header origins (3):
+[2026-03-11T03:36:14.294Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T03:36:14.294Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-11T03:36:14.294Z]   FOOTER/HEADER ORIGIN: https://www.idus.co.il
+[2026-03-11T03:36:14.295Z]   ADDED: urls <- https://www.idus.co.il
+[2026-03-11T03:36:14.295Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T03:36:14.295Z] ── Step 3: Final dedup ──
+[2026-03-11T03:36:14.295Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T03:36:14.295Z] ── FINAL RESULT ──
+[2026-03-11T03:36:14.295Z]   ws (1):
+[2026-03-11T03:36:14.295Z]     - https://afrodita.co.il
+[2026-03-11T03:36:14.295Z]   fb (1):
+[2026-03-11T03:36:14.295Z]     - https://www.facebook.com/afrodita.co.il
+[2026-03-11T03:36:14.295Z]   ig (1):
+[2026-03-11T03:36:14.295Z]     - https://www.instagram.com/afroditaisrael
+[2026-03-11T03:36:14.295Z]   urls (1):
+[2026-03-11T03:36:14.295Z]     - https://www.idus.co.il
+[2026-03-11T03:36:14.296Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-11T03:36:14.296Z] Saved final result to result.json
+[2026-03-11T03:36:14.296Z] Override fields: ws, fb, ig, urls
+[2026-03-11T03:36:14.296Z] Finished at: 2026-03-11T03:36:14.296Z

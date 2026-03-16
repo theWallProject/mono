@@ -1,0 +1,76 @@
+[2026-03-11T03:54:16.328Z] === Homepage AI Extractor: KeeperForms ===
+[2026-03-11T03:54:16.328Z] Started at: 2026-03-11T03:54:16.328Z
+[2026-03-11T03:54:16.328Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773201256327_KeeperForms
+[2026-03-11T03:54:16.328Z] Company: KeeperForms
+[2026-03-11T03:54:16.328Z] Website: keeperforms.com
+[2026-03-11T03:54:16.328Z] cbRank: 576572
+[2026-03-11T03:54:16.328Z] Reasons: h
+[2026-03-11T03:54:16.328Z] Fetching: https://keeperforms.com
+[2026-03-11T03:54:19.533Z] Redirected: https://keeperforms.com -> https://keeperforms.com/
+[2026-03-11T03:54:19.539Z] Saved HTML (110017 bytes) to page.html
+[2026-03-11T03:54:19.544Z] Extracted 19 unique links from page
+[2026-03-11T03:54:19.544Z] Saved 19 links to links.json
+[2026-03-11T03:54:19.548Z] Extracted footer HTML (3652 chars)
+[2026-03-11T03:54:19.548Z] Extracted header HTML (2921 chars)
+[2026-03-11T03:54:19.552Z] Website (post-redirect): https://keeperforms.com/ → origin: https://keeperforms.com
+[2026-03-11T03:54:19.553Z] External links: 6 (of 19 total)
+[2026-03-11T03:54:19.553Z] ── All external links ──
+[2026-03-11T03:54:19.553Z]   EXT: https://facebook.com/facebook
+[2026-03-11T03:54:19.553Z]   EXT: https://plus.google.com/u/0/b/110907999056274723975/110907999056274723975
+[2026-03-11T03:54:19.553Z]   EXT: https://twitter.com/@twitter
+[2026-03-11T03:54:19.553Z]   EXT: https://twitter.com/KeeperForms
+[2026-03-11T03:54:19.553Z]   EXT: https://www.facebook.com/keeperforms
+[2026-03-11T03:54:19.553Z]   EXT: https://www.linkedin.com/company/18212043
+[2026-03-11T03:54:19.553Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:54:19.553Z]   REGEX: fb <- https://facebook.com/facebook
+[2026-03-11T03:54:19.553Z]   UNCATEGORIZED: https://plus.google.com/u/0/b/110907999056274723975/110907999056274723975
+[2026-03-11T03:54:19.553Z]   REGEX: tw <- https://twitter.com/@twitter
+[2026-03-11T03:54:19.553Z]   REGEX: tw <- https://twitter.com/KeeperForms
+[2026-03-11T03:54:19.554Z]   REGEX: fb <- https://www.facebook.com/keeperforms
+[2026-03-11T03:54:19.554Z]   REGEX: li <- https://www.linkedin.com/company/18212043
+[2026-03-11T03:54:19.554Z] Programmatic result: ws:1, fb:2, tw:2, li:1 | 1 uncategorized
+[2026-03-11T03:54:19.554Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:54:19.554Z] Saved AI prompt (3839 chars) to ai_prompt.txt
+[2026-03-11T03:54:19.555Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:54:19.576Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:54:34.862Z]   AI: First token received, streaming...
+[2026-03-11T03:54:54.364Z] AI response complete: 185 chars in 34.8s
+[2026-03-11T03:54:54.364Z] Saved AI response to ai_response.json
+[2026-03-11T03:54:54.364Z] ── Parsing AI response (4 lines) ──
+[2026-03-11T03:54:54.365Z]   AI LINK: https://www.facebook.com/keeperforms/
+[2026-03-11T03:54:54.365Z]   AI LINK: https://twitter.com/KeeperForms
+[2026-03-11T03:54:54.365Z]   AI LINK: https://plus.google.com/u/0/b/110907999056274723975/110907999056274723975
+[2026-03-11T03:54:54.365Z]   AI LINK: https://www.linkedin.com/company/18212043
+[2026-03-11T03:54:54.365Z] AI returned 4 valid links
+[2026-03-11T03:54:54.365Z] ── Categorizing 4 AI-returned links ──
+[2026-03-11T03:54:54.365Z]   AI→REGEX: fb <- https://www.facebook.com/keeperforms/ (duplicate, skipped)
+[2026-03-11T03:54:54.365Z]   AI→REGEX: tw <- https://twitter.com/KeeperForms (duplicate, skipped)
+[2026-03-11T03:54:54.366Z]   AI→URLS: https://plus.google.com/u/0/b/110907999056274723975/110907999056274723975
+[2026-03-11T03:54:54.366Z]   AI→REGEX: li <- https://www.linkedin.com/company/18212043 (duplicate, skipped)
+[2026-03-11T03:54:54.366Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:54:54.366Z] Footer/header origins (4):
+[2026-03-11T03:54:54.366Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T03:54:54.366Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-11T03:54:54.366Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-11T03:54:54.367Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T03:54:54.367Z]   SKIP (AI claimed): https://plus.google.com/u/0/b/110907999056274723975/110907999056274723975
+[2026-03-11T03:54:54.367Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T03:54:54.367Z] ── Step 3: Final dedup ──
+[2026-03-11T03:54:54.367Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T03:54:54.367Z] ── FINAL RESULT ──
+[2026-03-11T03:54:54.367Z]   ws (1):
+[2026-03-11T03:54:54.367Z]     - https://keeperforms.com
+[2026-03-11T03:54:54.367Z]   li (1):
+[2026-03-11T03:54:54.367Z]     - https://www.linkedin.com/company/18212043
+[2026-03-11T03:54:54.367Z]   fb (2):
+[2026-03-11T03:54:54.367Z]     - https://www.facebook.com/facebook
+[2026-03-11T03:54:54.367Z]     - https://www.facebook.com/keeperforms
+[2026-03-11T03:54:54.368Z]   tw (2):
+[2026-03-11T03:54:54.368Z]     - https://x.com/@twitter
+[2026-03-11T03:54:54.368Z]     - https://x.com/keeperforms
+[2026-03-11T03:54:54.368Z]   urls (1):
+[2026-03-11T03:54:54.368Z]     - https://plus.google.com/u/0/b/110907999056274723975/110907999056274723975
+[2026-03-11T03:54:54.368Z] Summary: ws:1, fb:2, tw:2, li:1, urls:1
+[2026-03-11T03:54:54.368Z] Saved final result to result.json
+[2026-03-11T03:54:54.369Z] Override fields: ws, li, fb, tw, urls
+[2026-03-11T03:54:54.369Z] Finished at: 2026-03-11T03:54:54.369Z

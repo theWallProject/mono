@@ -1,0 +1,66 @@
+[2026-03-13T09:02:49.880Z] === Homepage AI Extractor: Logicloud ===
+[2026-03-13T09:02:49.880Z] Started at: 2026-03-13T09:02:49.880Z
+[2026-03-13T09:02:49.880Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773392569879_Logicloud
+[2026-03-13T09:02:49.880Z] Company: Logicloud
+[2026-03-13T09:02:49.880Z] Website: logicloud.co.il
+[2026-03-13T09:02:49.880Z] cbRank: 1072669
+[2026-03-13T09:02:49.880Z] Reasons: h
+[2026-03-13T09:02:49.880Z] Fetching: https://logicloud.co.il
+[2026-03-13T09:02:54.869Z] Redirected: https://logicloud.co.il -> https://www.logicloud.co.il/
+[2026-03-13T09:02:54.879Z] Saved HTML (181585 bytes) to page.html
+[2026-03-13T09:02:54.885Z] Extracted 28 unique links from page
+[2026-03-13T09:02:54.886Z] Saved 28 links to links.json
+[2026-03-13T09:02:54.890Z] Extracted footer HTML (7283 chars)
+[2026-03-13T09:02:54.890Z] Extracted header HTML (10841 chars)
+[2026-03-13T09:02:54.895Z] Website (post-redirect): https://www.logicloud.co.il/ → origin: https://www.logicloud.co.il
+[2026-03-13T09:02:54.895Z] External links: 3 (of 28 total)
+[2026-03-13T09:02:54.896Z] ── All external links ──
+[2026-03-13T09:02:54.896Z]   EXT: https://twitter.com/LogiCloud1
+[2026-03-13T09:02:54.896Z]   EXT: https://www.facebook.com/profile.php?id=100069746285205
+[2026-03-13T09:02:54.896Z]   EXT: https://www.linkedin.com/company/logicloud-tech
+[2026-03-13T09:02:54.896Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T09:02:54.896Z]   REGEX: tw <- https://twitter.com/LogiCloud1
+[2026-03-13T09:02:54.897Z]   REGEX: li <- https://www.linkedin.com/company/logicloud-tech
+[2026-03-13T09:02:54.897Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-13T09:02:56.493Z]   RESOLVE: https://www.facebook.com/profile.php?id=100069746285205 → https://www.facebook.com/people/Logicloud/100069746285205
+[2026-03-13T09:02:56.498Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Logicloud/100069746285205 (from https://www.facebook.com/profile.php?id=100069746285205)
+[2026-03-13T09:02:56.498Z] Programmatic result: ws:1, tw:1, li:1 | 0 uncategorized
+[2026-03-13T09:02:56.498Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T09:02:56.500Z] Saved AI prompt (5363 chars) to ai_prompt.txt
+[2026-03-13T09:02:56.500Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T09:02:56.530Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T09:03:15.761Z]   AI: First token received, streaming...
+[2026-03-13T09:03:25.358Z] AI response complete: 135 chars in 28.9s
+[2026-03-13T09:03:25.359Z] Saved AI response to ai_response.json
+[2026-03-13T09:03:25.359Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T09:03:25.359Z]   AI LINK: https://www.facebook.com/profile.php?id=100069746285205
+[2026-03-13T09:03:25.359Z]   AI LINK: https://twitter.com/LogiCloud1
+[2026-03-13T09:03:25.359Z]   AI LINK: https://www.linkedin.com/company/logicloud-tech/
+[2026-03-13T09:03:25.359Z] AI returned 3 valid links
+[2026-03-13T09:03:25.359Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T09:03:26.871Z]   RESOLVE: https://www.facebook.com/profile.php?id=100069746285205 → https://www.facebook.com/people/Logicloud/100069746285205
+[2026-03-13T09:03:26.876Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/Logicloud/100069746285205 (from https://www.facebook.com/profile.php?id=100069746285205)
+[2026-03-13T09:03:26.876Z]   AI→REGEX: tw <- https://twitter.com/LogiCloud1 (duplicate, skipped)
+[2026-03-13T09:03:26.876Z]   AI→REGEX: li <- https://www.linkedin.com/company/logicloud-tech/ (duplicate, skipped)
+[2026-03-13T09:03:26.877Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T09:03:26.877Z] Footer/header origins (4):
+[2026-03-13T09:03:26.877Z]   FOOTER/HEADER ORIGIN: https://www.logicloud.co.il
+[2026-03-13T09:03:26.877Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T09:03:26.877Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-13T09:03:26.877Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T09:03:26.877Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T09:03:26.877Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T09:03:26.877Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T09:03:26.877Z] ── Step 3: Final dedup ──
+[2026-03-13T09:03:26.877Z] No urls to dedup
+[2026-03-13T09:03:26.878Z] ── FINAL RESULT ──
+[2026-03-13T09:03:26.878Z]   ws (1):
+[2026-03-13T09:03:26.878Z]     - https://www.logicloud.co.il
+[2026-03-13T09:03:26.878Z]   li (1):
+[2026-03-13T09:03:26.878Z]     - https://www.linkedin.com/company/logicloud-tech
+[2026-03-13T09:03:26.878Z]   tw (1):
+[2026-03-13T09:03:26.878Z]     - https://x.com/logicloud1
+[2026-03-13T09:03:26.878Z] Summary: ws:1, tw:1, li:1
+[2026-03-13T09:03:26.879Z] Saved final result to result.json
+[2026-03-13T09:03:26.879Z] Override fields: ws, li, tw
+[2026-03-13T09:03:26.879Z] Finished at: 2026-03-13T09:03:26.879Z

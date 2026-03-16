@@ -1,0 +1,76 @@
+[2026-03-10T08:56:24.218Z] === Homepage AI Extractor: Maradin ===
+[2026-03-10T08:56:24.218Z] Started at: 2026-03-10T08:56:24.218Z
+[2026-03-10T08:56:24.218Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773132984218_Maradin
+[2026-03-10T08:56:24.218Z] Company: Maradin
+[2026-03-10T08:56:24.218Z] Website: maradin.co.il
+[2026-03-10T08:56:24.218Z] cbRank: 449176
+[2026-03-10T08:56:24.218Z] Reasons: h
+[2026-03-10T08:56:24.218Z] Fetching: https://maradin.co.il
+[2026-03-10T08:56:35.582Z] Network idle timeout — continuing with current state
+[2026-03-10T08:56:35.627Z] Redirected: https://maradin.co.il -> https://www.maradin.co.il/
+[2026-03-10T08:56:35.634Z] Saved HTML (164982 bytes) to page.html
+[2026-03-10T08:56:35.638Z] Extracted 35 unique links from page
+[2026-03-10T08:56:35.639Z] Saved 35 links to links.json
+[2026-03-10T08:56:35.643Z] Extracted footer HTML (25625 chars)
+[2026-03-10T08:56:35.643Z] Extracted header HTML (16437 chars)
+[2026-03-10T08:56:35.649Z] Website (post-redirect): https://www.maradin.co.il/ → origin: https://www.maradin.co.il
+[2026-03-10T08:56:35.650Z] External links: 5 (of 35 total)
+[2026-03-10T08:56:35.650Z] ── All external links ──
+[2026-03-10T08:56:35.650Z]   EXT: https://rinati.digital
+[2026-03-10T08:56:35.650Z]   EXT: https://www.facebook.com/MaradinLtd
+[2026-03-10T08:56:35.650Z]   EXT: https://www.linkedin.com/company/maradin
+[2026-03-10T08:56:35.650Z]   EXT: https://www.youtube.com/channel/UC6k_Rjuu4FkoBr359-NhgVQ
+[2026-03-10T08:56:35.650Z]   EXT: https://yds.co.il
+[2026-03-10T08:56:35.650Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T08:56:35.651Z]   UNCATEGORIZED: https://rinati.digital
+[2026-03-10T08:56:35.651Z]   REGEX: fb <- https://www.facebook.com/MaradinLtd
+[2026-03-10T08:56:35.651Z]   REGEX: li <- https://www.linkedin.com/company/maradin
+[2026-03-10T08:56:35.651Z]   REGEX: ytc <- https://www.youtube.com/channel/UC6k_Rjuu4FkoBr359-NhgVQ
+[2026-03-10T08:56:35.651Z]   UNCATEGORIZED: https://yds.co.il
+[2026-03-10T08:56:35.651Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-10T08:56:35.651Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T08:56:35.652Z] Saved AI prompt (3158 chars) to ai_prompt.txt
+[2026-03-10T08:56:35.652Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T08:56:35.665Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T08:56:46.714Z]   AI: First token received, streaming...
+[2026-03-10T08:56:56.391Z] AI response complete: 133 chars in 20.7s
+[2026-03-10T08:56:56.393Z] Saved AI response to ai_response.json
+[2026-03-10T08:56:56.393Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T08:56:56.393Z]   AI LINK: https://www.facebook.com/MaradinLtd
+[2026-03-10T08:56:56.393Z]   AI LINK: https://www.youtube.com/channel/UC6k_Rjuu4FkoBr359-NhgVQ
+[2026-03-10T08:56:56.393Z]   AI LINK: https://www.linkedin.com/company/maradin
+[2026-03-10T08:56:56.393Z] AI returned 3 valid links
+[2026-03-10T08:56:56.393Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T08:56:56.393Z]   AI→REGEX: fb <- https://www.facebook.com/MaradinLtd (duplicate, skipped)
+[2026-03-10T08:56:56.394Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC6k_Rjuu4FkoBr359-NhgVQ (duplicate, skipped)
+[2026-03-10T08:56:56.394Z]   AI→REGEX: li <- https://www.linkedin.com/company/maradin (duplicate, skipped)
+[2026-03-10T08:56:56.394Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T08:56:56.394Z] Footer/header origins (7):
+[2026-03-10T08:56:56.394Z]   FOOTER/HEADER ORIGIN: https://www.maradin.co.il
+[2026-03-10T08:56:56.394Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T08:56:56.394Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T08:56:56.394Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T08:56:56.394Z]   FOOTER/HEADER ORIGIN: http://www.maradin.co.il
+[2026-03-10T08:56:56.394Z]   FOOTER/HEADER ORIGIN: https://yds.co.il
+[2026-03-10T08:56:56.395Z]   FOOTER/HEADER ORIGIN: https://rinati.digital
+[2026-03-10T08:56:56.395Z]   ADDED: urls <- https://rinati.digital
+[2026-03-10T08:56:56.395Z]   ADDED: urls <- https://yds.co.il
+[2026-03-10T08:56:56.395Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-10T08:56:56.395Z] ── Step 3: Final dedup ──
+[2026-03-10T08:56:56.395Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T08:56:56.395Z] ── FINAL RESULT ──
+[2026-03-10T08:56:56.395Z]   ws (1):
+[2026-03-10T08:56:56.395Z]     - https://www.maradin.co.il
+[2026-03-10T08:56:56.395Z]   li (1):
+[2026-03-10T08:56:56.395Z]     - https://www.linkedin.com/company/maradin
+[2026-03-10T08:56:56.395Z]   fb (1):
+[2026-03-10T08:56:56.395Z]     - https://www.facebook.com/maradinltd
+[2026-03-10T08:56:56.395Z]   ytc (1):
+[2026-03-10T08:56:56.395Z]     - https://www.youtube.com/channel/UC6k_Rjuu4FkoBr359-NhgVQ
+[2026-03-10T08:56:56.395Z]   urls (2):
+[2026-03-10T08:56:56.395Z]     - https://rinati.digital
+[2026-03-10T08:56:56.395Z]     - https://yds.co.il
+[2026-03-10T08:56:56.396Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:2
+[2026-03-10T08:56:56.396Z] Saved final result to result.json
+[2026-03-10T08:56:56.396Z] Override fields: ws, li, fb, ytc, urls
+[2026-03-10T08:56:56.396Z] Finished at: 2026-03-10T08:56:56.396Z

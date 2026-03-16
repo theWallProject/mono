@@ -1,0 +1,67 @@
+[2026-03-12T13:14:59.650Z] === Homepage AI Extractor: Harash ===
+[2026-03-12T13:14:59.650Z] Started at: 2026-03-12T13:14:59.650Z
+[2026-03-12T13:14:59.650Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773321299650_Harash
+[2026-03-12T13:14:59.650Z] Company: Harash
+[2026-03-12T13:14:59.650Z] Website: harash.co.il
+[2026-03-12T13:14:59.651Z] cbRank: 963326
+[2026-03-12T13:14:59.651Z] Reasons: h
+[2026-03-12T13:14:59.651Z] Fetching: https://harash.co.il
+[2026-03-12T13:15:04.327Z] Redirected: https://harash.co.il -> https://harash.co.il/
+[2026-03-12T13:15:04.334Z] Saved HTML (155766 bytes) to page.html
+[2026-03-12T13:15:04.337Z] Extracted 19 unique links from page
+[2026-03-12T13:15:04.338Z] Saved 19 links to links.json
+[2026-03-12T13:15:04.341Z] Extracted footer HTML (1716 chars)
+[2026-03-12T13:15:04.341Z] Extracted header HTML (5407 chars)
+[2026-03-12T13:15:04.345Z] Website (post-redirect): https://harash.co.il/ → origin: https://harash.co.il
+[2026-03-12T13:15:04.345Z] External links: 4 (of 19 total)
+[2026-03-12T13:15:04.345Z] ── All external links ──
+[2026-03-12T13:15:04.345Z]   EXT: http://junami.co.il
+[2026-03-12T13:15:04.346Z]   EXT: https://www.facebook.com/harash.designs
+[2026-03-12T13:15:04.346Z]   EXT: https://www.instagram.com/harash.il
+[2026-03-12T13:15:04.346Z]   EXT: https://www.youtube.com/watch?v=GpfFyQxY1NY
+[2026-03-12T13:15:04.346Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T13:15:04.346Z]   UNCATEGORIZED: http://junami.co.il
+[2026-03-12T13:15:04.346Z]   REGEX: fb <- https://www.facebook.com/harash.designs
+[2026-03-12T13:15:04.346Z]   REGEX: ig <- https://www.instagram.com/harash.il
+[2026-03-12T13:15:04.346Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-12T13:15:04.346Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=GpfFyQxY1NY
+[2026-03-12T13:15:04.347Z] Programmatic result: ws:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-12T13:15:04.347Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T13:15:04.348Z] Saved AI prompt (2801 chars) to ai_prompt.txt
+[2026-03-12T13:15:04.348Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T13:15:04.365Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T13:15:14.463Z]   AI: First token received, streaming...
+[2026-03-12T13:15:18.251Z] AI response complete: 77 chars in 13.9s
+[2026-03-12T13:15:18.252Z] Saved AI response to ai_response.json
+[2026-03-12T13:15:18.252Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T13:15:18.252Z]   AI LINK: https://www.facebook.com/harash.designs/
+[2026-03-12T13:15:18.252Z]   AI LINK: https://www.instagram.com/harash.il/
+[2026-03-12T13:15:18.252Z] AI returned 2 valid links
+[2026-03-12T13:15:18.253Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T13:15:18.253Z]   AI→REGEX: fb <- https://www.facebook.com/harash.designs/ (duplicate, skipped)
+[2026-03-12T13:15:18.253Z]   AI→REGEX: ig <- https://www.instagram.com/harash.il/ (duplicate, skipped)
+[2026-03-12T13:15:18.253Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T13:15:18.253Z] Footer/header origins (4):
+[2026-03-12T13:15:18.253Z]   FOOTER/HEADER ORIGIN: https://harash.co.il
+[2026-03-12T13:15:18.253Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T13:15:18.253Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T13:15:18.253Z]   FOOTER/HEADER ORIGIN: http://junami.co.il
+[2026-03-12T13:15:18.254Z]   ADDED: urls <- http://junami.co.il
+[2026-03-12T13:15:18.254Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T13:15:18.254Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T13:15:18.254Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T13:15:18.254Z] ── Step 3: Final dedup ──
+[2026-03-12T13:15:18.254Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T13:15:18.254Z] ── FINAL RESULT ──
+[2026-03-12T13:15:18.254Z]   ws (1):
+[2026-03-12T13:15:18.254Z]     - https://harash.co.il
+[2026-03-12T13:15:18.254Z]   fb (1):
+[2026-03-12T13:15:18.254Z]     - https://www.facebook.com/harash.designs
+[2026-03-12T13:15:18.254Z]   ig (1):
+[2026-03-12T13:15:18.254Z]     - https://www.instagram.com/harash.il
+[2026-03-12T13:15:18.254Z]   urls (1):
+[2026-03-12T13:15:18.254Z]     - http://junami.co.il
+[2026-03-12T13:15:18.254Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-12T13:15:18.255Z] Saved final result to result.json
+[2026-03-12T13:15:18.255Z] Override fields: ws, fb, ig, urls
+[2026-03-12T13:15:18.255Z] Finished at: 2026-03-12T13:15:18.255Z

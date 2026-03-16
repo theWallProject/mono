@@ -1,0 +1,732 @@
+<!DOCTYPE html><html lang="en-US" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache no-svg no-inlinesvg no-smil no-svgclippaths wf-minionpro-n4-active wf-freightdisplaypro-n3-active wf-freightdisplaypro-i4-active wf-freightdisplaypro-n4-active wf-freightdisplaypro-i3-active wf-adobecaslonpro-i6-active wf-adobecaslonpro-i4-active wf-active"><head>
+
+
+<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800" rel="stylesheet" type="text/css">
+
+<script src="https://use.typekit.net/ixi8mkb.js"></script>
+<style type="text/css">.tk-adobe-caslon-pro{font-family:"adobe-caslon-pro",serif;}.tk-freight-display-pro{font-family:"freight-display-pro",sans-serif;}.tk-minion-pro{font-family:"minion-pro",serif;}</style><style type="text/css">@font-face{font-family:tk-adobe-caslon-pro-i4;src:url(https://use.typekit.net/af/200aad/000000000000000000012d67/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/200aad/000000000000000000012d67/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/200aad/000000000000000000012d67/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-adobe-caslon-pro-i6;src:url(https://use.typekit.net/af/8c23a7/000000000000000000012d6a/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i6&v=3) format("woff2"),url(https://use.typekit.net/af/8c23a7/000000000000000000012d6a/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i6&v=3) format("woff"),url(https://use.typekit.net/af/8c23a7/000000000000000000012d6a/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i6&v=3) format("opentype");font-weight:600;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-freight-display-pro-n4;src:url(https://use.typekit.net/af/f15774/0000000000000000000132cf/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/f15774/0000000000000000000132cf/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/f15774/0000000000000000000132cf/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-freight-display-pro-i4;src:url(https://use.typekit.net/af/51f389/0000000000000000000132d0/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/51f389/0000000000000000000132d0/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/51f389/0000000000000000000132d0/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-freight-display-pro-n3;src:url(https://use.typekit.net/af/99ae27/0000000000000000000132d1/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/99ae27/0000000000000000000132d1/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/99ae27/0000000000000000000132d1/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-freight-display-pro-i3;src:url(https://use.typekit.net/af/aefbaa/0000000000000000000132d2/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i3&v=3) format("woff2"),url(https://use.typekit.net/af/aefbaa/0000000000000000000132d2/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i3&v=3) format("woff"),url(https://use.typekit.net/af/aefbaa/0000000000000000000132d2/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i3&v=3) format("opentype");font-weight:300;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-minion-pro-n4;src:url(https://use.typekit.net/af/1286c7/0000000000000000000151d6/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/1286c7/0000000000000000000151d6/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/1286c7/0000000000000000000151d6/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-stretch:normal;font-display:auto;}</style><script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://lr-group.com/xmlrpc.php">
+
+
+	<!-- This site is optimized with the Yoast SEO plugin v15.5 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Home - LR Group - Making Vision Reality</title>
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<link rel="canonical" href="https://lr-group.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Home - LR Group - Making Vision Reality">
+	<meta property="og:url" content="https://lr-group.com/">
+	<meta property="og:site_name" content="LR Group - Making Vision Reality">
+	<meta property="article:modified_time" content="2019-08-13T13:10:45+00:00">
+	<meta name="twitter:card" content="summary">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lr-group.com/#organization","name":"LR-Group","url":"https://lr-group.com/","sameAs":[],"logo":{"@type":"ImageObject","@id":"https://lr-group.com/#logo","inLanguage":"en-US","url":"https://i0.wp.com/lr-group.com/wp-content/uploads/2016/03/logo2.png?fit=190%2C80&ssl=1","width":190,"height":80,"caption":"LR-Group"},"image":{"@id":"https://lr-group.com/#logo"}},{"@type":"WebSite","@id":"https://lr-group.com/#website","url":"https://lr-group.com/","name":"LR Group - Making Vision Reality","description":"We bring business and society together by creating shared value","publisher":{"@id":"https://lr-group.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://lr-group.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://lr-group.com/#webpage","url":"https://lr-group.com/","name":"Home - LR Group - Making Vision Reality","isPartOf":{"@id":"https://lr-group.com/#website"},"about":{"@id":"https://lr-group.com/#organization"},"datePublished":"2015-12-02T16:44:38+00:00","dateModified":"2019-08-13T13:10:45+00:00","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://lr-group.com/"]}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="dns-prefetch" href="//i0.wp.com">
+<link rel="dns-prefetch" href="//i1.wp.com">
+<link rel="dns-prefetch" href="//i2.wp.com">
+<link rel="alternate" type="application/rss+xml" title="LR Group - Making Vision Reality » Feed" href="https://lr-group.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="LR Group - Making Vision Reality » Comments Feed" href="https://lr-group.com/comments/feed/">
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.14.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<!-- Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel. -->
+<!-- No UA code set -->
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/lr-group.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6.16"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://lr-group.com/wp-includes/js/wp-emoji-release.min.js?ver=5.6.16" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://lr-group.com/wp-includes/css/dist/block-library/style.min.css?ver=5.6.16" type="text/css" media="all">
+<style id="wp-block-library-inline-css" type="text/css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="https://lr-group.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2" type="text/css" media="all">
+<link rel="stylesheet" id="monsterinsights-popular-posts-style-css" href="https://lr-group.com/wp-content/plugins/google-analytics-for-wordpress/assets/css/frontend.min.css?ver=7.14.0" type="text/css" media="all">
+<link rel="stylesheet" id="rs-default-css" href="https://lr-group.com/wp-content/themes/lr-group/royalslider/skins/default/rs-default.css?ver=5.6.16" type="text/css" media="all">
+<link rel="stylesheet" id="royalslider-css" href="https://lr-group.com/wp-content/themes/lr-group/royalslider/royalslider.css?ver=5.6.16" type="text/css" media="all">
+<link rel="stylesheet" id="lr-group-style-css" href="https://lr-group.com/wp-content/themes/lr-group/style.css?ver=5.6.16" type="text/css" media="all">
+<link rel="stylesheet" id="more_styles-css" href="https://lr-group.com/wp-content/themes/lr-group/more_styles.css?ver=1.1" type="text/css" media="all">
+<link rel="stylesheet" id="risponsive-css" href="https://lr-group.com/wp-content/themes/lr-group/risponsive.css?ver=1.1" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="https://lr-group.com/wp-content/plugins/jetpack/css/jetpack.css?ver=9.2.2" type="text/css" media="all">
+<script type="text/javascript" src="https://lr-group.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://lr-group.com/wp-json/"><link rel="alternate" type="application/json" href="https://lr-group.com/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://lr-group.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://lr-group.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.6.16">
+<link rel="shortlink" href="https://wp.me/P75vAC-2">
+<link rel="alternate" type="application/json+oembed" href="https://lr-group.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flr-group.com%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://lr-group.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flr-group.com%2F&amp;format=xml">
+<style type="text/css">img#wpstats{display:none}</style><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><style type="text/css">@font-face{font-family:adobe-caslon-pro;src:url(https://use.typekit.net/af/200aad/000000000000000000012d67/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/200aad/000000000000000000012d67/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/200aad/000000000000000000012d67/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:adobe-caslon-pro;src:url(https://use.typekit.net/af/8c23a7/000000000000000000012d6a/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i6&v=3) format("woff2"),url(https://use.typekit.net/af/8c23a7/000000000000000000012d6a/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i6&v=3) format("woff"),url(https://use.typekit.net/af/8c23a7/000000000000000000012d6a/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i6&v=3) format("opentype");font-weight:600;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:freight-display-pro;src:url(https://use.typekit.net/af/f15774/0000000000000000000132cf/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/f15774/0000000000000000000132cf/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/f15774/0000000000000000000132cf/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:freight-display-pro;src:url(https://use.typekit.net/af/51f389/0000000000000000000132d0/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/51f389/0000000000000000000132d0/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/51f389/0000000000000000000132d0/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:freight-display-pro;src:url(https://use.typekit.net/af/99ae27/0000000000000000000132d1/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/99ae27/0000000000000000000132d1/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/99ae27/0000000000000000000132d1/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:freight-display-pro;src:url(https://use.typekit.net/af/aefbaa/0000000000000000000132d2/27/l?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i3&v=3) format("woff2"),url(https://use.typekit.net/af/aefbaa/0000000000000000000132d2/27/d?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i3&v=3) format("woff"),url(https://use.typekit.net/af/aefbaa/0000000000000000000132d2/27/a?primer=b997bcdf54b83a9f7b731c29130c4fbe326c83acb7cf220896c6041d3c02ba6a&fvd=i3&v=3) format("opentype");font-weight:300;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:minion-pro;src:url(https://use.typekit.net/af/1286c7/0000000000000000000151d6/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/1286c7/0000000000000000000151d6/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/1286c7/0000000000000000000151d6/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-stretch:normal;font-display:auto;}</style><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+
+<body class="home page-template-default page page-id-2 group-blog">
+
+    <div class="header">
+     
+  <div class="logobox">
+    <a href="https://lr-group.com" class="logo"></a>
+  </div>
+
+  <div class="back-box">
+    <a class="back" href="https://lr-group.com">Back to Home Page</a>
+  </div>
+
+  <div class="btnbox">
+    <a class="burgWrapper sideBtn">
+       <div class="burg"></div>
+    </a>
+    <h6 class="sideBtn">Menu</h6>
+  </div>
+</div><!-- end of header -->
+
+ <div class="navigation">
+   <div class="navscroll">
+    <ul>
+
+      <li>
+            <h4>
+                Who We Are            </h4>
+            <div class="menu-who-we-are-container"><ul id="menu-who-we-are" class="menu"><li id="menu-item-411" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-411"><a href="http://lr-group.com/about/#info">About Us</a></li>
+<li id="menu-item-412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-412"><a href="http://lr-group.com/about/#leadership">Leadership</a></li>
+<li id="menu-item-413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-413"><a href="https://lr-group.com/entrepreneurship/">Social Entrepreneurship</a></li>
+<li id="menu-item-416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-416"><a href="https://lr-group.com/letter/">Letter from Roy &amp; Ami</a></li>
+</ul></div>      </li>
+
+        <li>
+            <h4>
+                What We Do            </h4>
+            <div class="menu-what-we-do-container"><ul id="menu-what-we-do" class="menu"><li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-419"><a href="https://lr-group.com/line-of-business/">Line of Business</a></li>
+<li id="menu-item-420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a href="https://lr-group.com/projects/">Projects that matter</a></li>
+<li id="menu-item-421" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-421"><a href="http://lr-group.com/#World-impact" aria-current="page">World Impact</a></li>
+</ul></div>      </li>
+
+     <li>
+            <h4>
+                How We Work            </h4>
+            <div class="menu-how-we-work-container"><ul id="menu-how-we-work" class="menu"><li id="menu-item-422" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-422"><a href="https://lr-group.com/smart/">The SMART Way</a></li>
+<li id="menu-item-423" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-423"><a href="https://lr-group.com/sustainability/">Sustainability</a></li>
+<li id="menu-item-424" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-424"><a href="https://lr-group.com/knowledge/">Knowledge transfer program</a></li>
+<li id="menu-item-425" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-425"><a href="https://lr-group.com/business-models/">Business Models</a></li>
+<li id="menu-item-428" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-428"><a href="https://lr-group.com/finance/">Finance Facilitation</a></li>
+<li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="https://lr-group.com/ethics/">Ethical Guidelines</a></li>
+<li id="menu-item-2037" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2037"><a href="https://lr-group.com/compliance-program/">Compliance Program</a></li>
+</ul></div>      </li>
+
+
+      <li>
+            <h4>
+                Info &amp; Media            </h4>
+            <div class="menu-info-media-container"><ul id="menu-info-media" class="menu"><li id="menu-item-431" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-431"><a href="https://lr-group.com/news/">News</a></li>
+<li id="menu-item-1206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1206"><a href="https://lr-group.com/stories/">Stories</a></li>
+<li id="menu-item-430" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-430"><a href="https://lr-group.com/info/">Contact Us</a></li>
+</ul></div>      </li>
+
+      <li>
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/company/lr-group?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A676199%2Cidx%3A1-1-1%2CtarId%3A1445171064203%2Ctas%3Alr+g" target="_blank"><img src="https://lr-group.com/wp-content/themes/lr-group/images/in.png"></a></li>
+          <!-- <li><a href="#"><img src="https://lr-group.com/wp-content/themes/lr-group/images/instag.png"></a></li> -->
+          <li><a href="https://www.youtube.com/user/TheLRGROUP" target="_blank"><img src="https://lr-group.com/wp-content/themes/lr-group/images/ytube.png"></a></li>
+        </ul>
+      </li>
+    </ul>
+   </div>
+  </div>
+  <!-- end of navigation -->
+  
+ <div class="overlay_screen" style="display: none;"></div>
+<!-- end of overlay screen -->
+
+<a class="arrow" href="#taste" data-scroll="" data-speed="1000" data-easing="easeInOutCubic" style="display: block;">Explore</a>
+<!-- end of arrow -->
+
+<div class="main">
+ 
+
+              <div class="slider_wrap homebanner">
+
+                        <div id="full-width-slider" class="royalSlider heroSlider rsMinW rsHor rsFade rsWithBullets"><div class="rsOverflow" style="width: 1280px; height: 720px;"><div class="rsContainer"><div style="z-index:0;" class="rsSlide "><div class="rsContent" data-rsdelay="8000" style="visibility: visible; opacity: 1; transition: opacity 400ms ease-in-out;">
+                                             <div class="slider_title_wrap">
+                                                     <div class="slider_title animated fadein">
+                                                          <h4>30 Years of</h4>
+                                                                <div class="intros">
+                                                                       <div class="inner-wrap">
+                                                                                <div class="intro animated-intro fadein-intro delay1">
+                                                                                      <h3 class="bigtext">Making</h3>
+                                                                                </div>
+                                                                                <div class="intro animated-intro fadein-intro delay2">
+                                                                                      <h3 class="bigtext">Vision</h3>
+                                                                                </div>
+                                                                                <div class="intro2 animated-intro fadein-intro delay3">
+                                                                                      <h3 class="bigtext">Reality</h3> 
+                                                                                </div>
+                                                                      </div>
+                                                            </div>
+                                                     </div>
+                                             </div>
+                                             
+                                            
+                                             
+                                             <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/home3.jpg" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                                    </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="8000">
+                                                <div class="slider_title_wrap">
+                                                              <div class="slider_title animated fadein">
+                                                                  <h4>We bring business and society together by</h4>
+                                                                  <h1>creating shared value</h1>
+                                                              </div>
+                                                     </div>
+                                                       <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/home1.jpg" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                                            </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="8000">
+                                                <div class="slider_title_wrap">
+                                                              <div class="slider_title animated fadein">
+                                                                  <h4>Translating big ideas into long term solutions</h4>
+                                                                  <h1>Impacting thousands of people's lives</h1>
+                                                              </div>
+                                                     </div>
+                                                       <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/home4.jpg" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                                            </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="8000">
+                                                <div class="slider_title_wrap">
+                                                              <div class="slider_title animated fadein">
+                                                                  <h4>We provide Sustainable solutions that create &amp; ensure</h4>
+                                                                  <h1>growth &amp; positive impact</h1>
+                                                              </div>
+                                                     </div>
+                                                       <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/home7.jpg" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                                            </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="8000">
+                                                <div class="slider_title_wrap">
+                                                              <div class="slider_title animated fadein">
+                                                                  <h4>In every thing we do</h4>
+                                                                  <h1>We believe in creating change</h1>
+                                                              </div>
+                                                     </div>
+                                                       <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/home6.jpg" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                                            </div></div></div><div class="rsArrow rsArrowLeft rsHidden" style="display: block;"><div class="rsArrowIcn"></div></div><div class="rsArrow rsArrowRight rsHidden" style="display: block;"><div class="rsArrowIcn"></div></div></div><div class="rsNav rsBullets"><div class="rsNavItem rsBullet rsNavSelected"><span></span></div><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet"><span></span></div></div></div><!-- End of slider-->
+            </div><!-- End of Slider Wrap -->
+
+<div class="anchorbox">
+  <span id="taste"></span>
+</div>
+
+<div class="text-box home">
+    <div class="wrapper_1000">
+      <h3><em>For the last 30 </em>years we’ve been on the forefront of international development, presenting an impressive record of <em>successful sustainable projects.</em> By enabling people to unleash their potential and to make the most of their land, natural resources and skills, we have helped <em>entire communities thrive.</em></h3>       <div class="linebox">
+          <div class="line big"></div>
+       </div>
+    </div>
+</div><!-- end of text box -->
+
+<div class="polle-box">
+    <div class="wrapper_polle">
+        <div class="box">
+            
+                              <a href="line-of-business" class="item big position1 lr-module">
+                      <h4 class="text-box">Line of Business</h4>
+                      <div class="image">
+                          <img src="https://lr-group.com/wp-content/uploads/2015/12/pic1.jpg">
+                      </div>
+                  </a>
+                                    <a class="item small position-para1 ">
+                    <div class="image-icon1" data-stellar-ratio="1.5" data-stellar-vertical-offset="600" style="display: none;">
+                        <img src="https://lr-group.com/wp-content/uploads/2015/12/icon-1.png">
+                    </div>
+                  </a>
+                                    <a href="sustainability" class="item small position2">
+                      <h4 class="text-box">Sustainability</h4>
+                      <div class="image">
+                          <img src="https://lr-group.com/wp-content/uploads/2015/12/pic2.jpg">
+                      </div>
+                  </a>
+                                    <a href="about#letter" class="item small position3 lr-module">
+                      <h4 class="text-box">Letter from Roy &amp; Ami</h4>
+                      <div class="image">
+                          <img src="https://lr-group.com/wp-content/uploads/2015/12/pic3.jpg">
+                      </div>
+                  </a>
+                                    <a class="item small position-para2">
+                    <div class="image-icon2" data-stellar-ratio="1.6" data-stellar-vertical-offset="600" style="display: none;">
+                        <img src="https://lr-group.com/wp-content/uploads/2015/12/icon-2.png">
+                    </div>
+                  </a>
+                   
+                    <a href="#World-impact" data-scroll="" data-speed="1000" data-easing="easeInOutCubic" class="item huge position-para4">
+                      <div class="image-icon4" data-stellar-ratio="1.6" data-stellar-vertical-offset="600" style="display: none;">
+                          <img src="https://lr-group.com/wp-content/uploads/2015/12/icon-3.png">
+                      </div>
+                      <div class="text">
+                         <h4><span class="small-title">Our World
+</span>Impact</h4>
+                      </div>
+                    </a>
+                                    <a href="projects" class="item big position5">
+                      <h4 class="text-box">Projects that Matter</h4>
+                      <div class="image">
+                          <img src="https://lr-group.com/wp-content/uploads/2015/12/pic6.jpg">
+                      </div>
+                  </a>
+                                    <a href="knowledge" class="item small position6">
+                      <h4 class="text-box">Knowledge Transfer Program</h4>
+                      <div class="image">
+                          <img src="https://lr-group.com/wp-content/uploads/2015/12/pic5.jpg">
+                      </div>
+                  </a>
+                   
+                    <a href="smart" class="item huge sec position-para3">
+                      <div class="image-icon3" data-stellar-ratio="1.6" data-stellar-vertical-offset="600" style="display: none;">
+                          <img src="https://lr-group.com/wp-content/uploads/2015/12/icon-4.png">
+                      </div>
+                      <div class="text">
+                         <h4><span class="small-title">The
+</span>Smart
+<span class="small-title">way</span></h4>
+                      </div>
+                    </a>
+                   
+
+        </div>
+    </div>
+</div><!-- end of polle-box -->
+
+<div class="video-box">
+   <div class="title_wrap">
+       <div class="title">
+         <div class="wrapper_2000">
+          <h3>30 Years of making vision reality</h3>
+          <h4>A word from the management</h4>
+          <div class="container">
+            <div class="play-btn play_btn">
+              <div class="circle">
+                <img src="https://lr-group.com/wp-content/themes/lr-group/images/play-icon.png">
+              </div>
+            </div>
+          </div>
+         </div>
+       </div>
+    </div>
+
+      <video loop="loop" class="video" autoplay="true" preload="true" poster="https://lr-group.com/wp-content/uploads/2015/12/videobk.jpg">
+             <source src="https://lr-group.com/wp-content/uploads/2015/12/movie.mp4" type="video/mp4"> 
+             <source src="https://lr-group.com/wp-content/uploads/2015/12/movie.webm" type="video/webm">
+     </video>
+</div> <!-- end of video box -->
+
+<div class="video_wrapper">
+          <div class="closingXWrapper">
+              <div class="closing-rel">
+                <div class="closingX"></div>
+              </div>
+          </div>
+          <div class="video_content">
+                  <div id="responsive_video">
+                    <iframe id="reshetVideo" src="https://player.vimeo.com/video/142118370?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                  </div>
+          </div>
+</div>
+
+
+
+<div class="slider_wrap map">
+<span class="anchor" id="World-impact"></span>
+<div class="map-anim">
+        <div id="map-slider" class="royalSlider heroSlider rsMinW rsDefault rs2 rsHor rsFade rsWithBullets"><div class="rsOverflow" style="width: 1280px; height: 720px;"><div class="rsContainer"><div style="z-index:0;" class="rsSlide "><div class="rsContent" data-rsdelay="5000" style="visibility: visible; opacity: 1; transition: opacity 400ms ease-in-out;">
+                             <div class="slider_title_wrap">
+                                      <div class="slider_title first">
+                                          <h3><span>Our</span><br>World impact</h3>
+                                          <div class="long-line"></div>
+                                          <ul>
+                                            <li class="continentbtn" data-changeslide="1">Africa</li>
+                                            <li class="continentbtn" data-changeslide="2">America</li>
+                                            <li class="continentbtn" data-changeslide="3">Europe</li>
+                                            <li class="continentbtn" data-changeslide="4">East Asia</li>
+                                          </ul>
+                                    </div>
+                             </div>
+                             <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/map01.png" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                    </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="5000">
+                        <div class="slider_title_wrap">
+                                      <div class="slider_title">
+                                          <h3>Africa</h3>
+                                          <div class="long-line"></div>
+                                          <ul>
+                                                                                         <li>Guinea</li>
+                                                                                          <li>Liberia</li>
+                                                                                          <li>Ghana</li>
+                                                                                          <li>Cote D'Ivoire</li>
+                                                                                          <li>Zambia</li>
+                                                                                          <li>DRC</li>
+                                                                                          <li>Chad</li>
+                                                                                          <li>Gabon</li>
+                                                                                          <li>Uganda</li>
+                                                                                          <li>Tanzania</li>
+                                                                                          <li>Nigeria</li>
+                                                                                          <li>Angola</li>
+                                             
+                                          </ul>
+                                    </div>
+                             </div>
+                               <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/africa.jpg" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                    </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="5000">
+                              <div class="slider_title_wrap">
+                                        <div class="slider_title">
+                                          <h3>America</h3>
+                                          <div class="long-line"></div>
+                                          <ul>
+                                                                                          <li>USA</li>
+                                                                                          <li>Peru</li>
+                                                                                          <li>Panama</li>
+                                                                                          <li>Ecuador</li>
+                                                                                          <li>Suriname</li>
+                                             
+                                          </ul>
+                                      </div>
+                             </div>
+                               <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/america.png" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                    </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="5000">
+                              <div class="slider_title_wrap">
+                                        <div class="slider_title">
+                                          <h3>East Asia</h3>
+                                          <div class="long-line"></div>
+                                           <ul>
+                                                                                          <li>China</li>
+                                                                                          <li>India</li>
+                                                                                          <li>Sri Lanka</li>
+                                                                                          <li>Vietnam</li>
+                                                                                          <li>PNG</li>
+                                                                                          <li>Fiji</li>
+                                             
+                                          </ul>
+                                      </div>
+                               </div>
+                               <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/far-east.png" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                    </div></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><div class="rsContent" data-rsdelay="5000">
+                              <div class="slider_title_wrap">
+                                        <div class="slider_title">
+                                          <h3>Europe</h3>
+                                          <div class="long-line"></div>
+                                           <ul>
+                                                                                           <li>Ukraine</li>
+                                                                                          <li>Kazakhstan</li>
+                                             
+                                          </ul>
+                                      </div>
+                             </div>
+                               <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/europe.png" style="width: 1280px; height: 742px; margin-left: 0px; margin-top: -11px;">
+                    </div></div></div><div class="rsArrow rsArrowLeft" style="display: block;"><div class="rsArrowIcn"></div></div><div class="rsArrow rsArrowRight" style="display: block;"><div class="rsArrowIcn"></div></div></div><div class="rsNav rsBullets"><div class="rsNavItem rsBullet rsNavSelected"><span></span></div><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet"><span></span></div></div></div><!-- End of slider-->
+</div><!-- End of map anim -->
+</div><!-- End of Slider Wrap -->
+
+
+
+<div class="projects-area">
+
+<div class="headlinebox">
+<h3>Proof of success</h3>
+</div>
+
+    <div class="wrapper_tiles">
+        
+        <div class="box">
+            
+                              
+                <div class="item small text position1">
+                   <div class="text-box">
+                       <p>“ Angola works with LR Group which provides us knowledge, technology, know how &amp; skills beyond the implementation of the project ”</p>
+                       <h5><b><span dir="LTR"> Jose Eduardo dos Santos, </span></b><span dir="LTR">President of the Republic of Angola</span></h5>                   </div>
+                </div>
+                
+                                
+                 <div class="item big position2">
+                      <div class="image">
+
+                         <div class="slider_wrap">
+
+                                <div id="solutions-slider1" class="royalSlider heroSlider rsMinW rsDefault rsHor rsFade rsWithBullets"><div class="rsOverflow" style="width: 665.594px; height: 360px;"><div class="rsContainer"><div style="z-index:0;" class="rsSlide "><a href="/business-line/agriculture/" class="slide-a rsContent" data-rsdelay="4000" style="visibility: visible; opacity: 1; transition: opacity 400ms ease-in-out;">
+                                                     <div class="rsABlock slider_title_wrap" style="display: block; transform: translate3d(0px, 0px, 0px); opacity: 1; transition-property: -webkit-transform, opacity; transition-duration: 400ms; transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);">
+                                                              <div class="slider_title ">
+                                                                  <h3> Agriculture</h3>
+                                                            </div>
+                                                     </div>
+                                                     <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/agri.jpg" style="width: 666px; height: 386px; margin-left: -1px; margin-top: -13px;">
+                                            </a></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><a href="/business-line/energy-power/" class="slide-a rsContent" data-rsdelay="4000">
+                                                     <div class="rsABlock slider_title_wrap" style="display: none;">
+                                                              <div class="slider_title ">
+                                                                  <h3> Energy</h3>
+                                                            </div>
+                                                     </div>
+                                                     <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/energy.jpg" style="width: 666px; height: 386px; margin-left: -1px; margin-top: -13px;">
+                                            </a></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><a href="/business-line/health" class="slide-a rsContent" data-rsdelay="4000">
+                                                     <div class="rsABlock slider_title_wrap" style="display: none;">
+                                                              <div class="slider_title ">
+                                                                  <h3> Health</h3>
+                                                            </div>
+                                                     </div>
+                                                     <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/health.jpg" style="width: 666px; height: 386px; margin-left: -1px; margin-top: -13px;">
+                                            </a></div></div><div class="rsArrow rsArrowLeft rsHidden" style="display: block;"><div class="rsArrowIcn"></div></div><div class="rsArrow rsArrowRight rsHidden" style="display: block;"><div class="rsArrowIcn"></div></div></div><div class="rsNav rsBullets"><div class="rsNavItem rsBullet rsNavSelected"><span></span></div><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet"><span></span></div></div></div><!-- End of slider-->
+                         </div><!-- End of Slider Wrap -->
+
+                      </div>
+            </div>
+                               
+                 <div class="item small position3">
+                      <div class="image">
+
+                         <div class="slider_wrap">
+
+                                <div id="solutions-slider2" class="royalSlider heroSlider rsMinW rsDefault rsHor rsFade rsWithBullets"><div class="rsOverflow" style="width: 332.797px; height: 360px;"><div class="rsContainer"><div style="z-index:0;" class="rsSlide "><a href="/business-line/construction-infrastructure/" class="slide-a rsContent" data-rsdelay="4000" style="visibility: visible; opacity: 1; transition: opacity 400ms ease-in-out;">
+                                                     <div class="rsABlock slider_title_wrap" style="display: block; transform: translate3d(0px, 0px, 0px); opacity: 1; transition-property: -webkit-transform, opacity; transition-duration: 400ms; transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);">
+                                                              <div class="slider_title ">
+                                                                  <h3> Construction</h3>
+                                                            </div>
+                                                     </div>
+                                                     <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/construction.jpg" style="width: 622px; height: 360px; margin-left: -145px; margin-top: 0px;">
+                                            </a></div><div style="z-index: 10; display: block; opacity: 1; transition-duration: 600ms; transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);" class="rsSlide "><a href="/business-line/water/" class="slide-a rsContent" data-rsdelay="4000">
+                                                     <div class="rsABlock slider_title_wrap" style="display: none;">
+                                                              <div class="slider_title ">
+                                                                  <h3> Water</h3>
+                                                            </div>
+                                                     </div>
+                                                     <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/pic03.jpg" style="width: 622px; height: 360px; margin-left: -145px; margin-top: 0px;">
+                                            </a></div><div style="z-index:0; display:none; opacity:0;" class="rsSlide "><a href="/business-line/telecommunications/" class="slide-a rsContent" data-rsdelay="4000">
+                                                     <div class="rsABlock slider_title_wrap" style="display: none;">
+                                                              <div class="slider_title ">
+                                                                  <h3> Telecommunications</h3>
+                                                            </div>
+                                                     </div>
+                                                     <img class="rsImg rsMainSlideImage" src="https://lr-group.com/wp-content/uploads/2015/12/communication.jpg" style="width: 622px; height: 360px; margin-left: -145px; margin-top: 0px;">
+                                            </a></div></div><div class="rsArrow rsArrowLeft rsHidden" style="display: block;"><div class="rsArrowIcn"></div></div><div class="rsArrow rsArrowRight rsHidden" style="display: block;"><div class="rsArrowIcn"></div></div></div><div class="rsNav rsBullets"><div class="rsNavItem rsBullet"><span></span></div><div class="rsNavItem rsBullet rsNavSelected"><span></span></div><div class="rsNavItem rsBullet"><span></span></div></div></div><!-- End of slider-->
+                         </div><!-- End of Slider Wrap -->
+
+                      </div>
+            </div>
+                                 
+                <div class="item small text position4">
+                   <div class="text-box">
+                       <p>" This project would provide jobs for the people and further attract more investment opportunities for the state  "</p>
+                       <h5><b>Nigeria Rivers State Governor </b>Rt. Hon. Chibuike Rotimi Amaechi</h5>                   </div>
+                </div>
+                
+                                
+                  <div class="item  small position12">
+                       <div class="text-box">
+                          <a href="line-of-business" class="explore">
+                            <h5>Explore Our Business lines</h5>
+                            <div class="linebox">
+                               <div class="line small"></div>
+                            </div>
+                          </a>
+
+                       </div>
+                    </div>
+                    
+                                
+                 <a href="project/nsele-presidential-farm-drc/" class="item huge position5">
+                  <h4 class="textbox">N’sele Presidential Farm</h4>                  <div class="image">
+                  <img src="https://lr-group.com/wp-content/uploads/2015/12/pic05.jpg">
+                  </div>
+                </a>
+                
+                                
+                    <div class="item small position6">
+                      <div class="image">
+                       <video loop="loop" class="video" autoplay="true" preload="true" poster="https://lr-group.com/wp-content/uploads/2015/12/videobk.jpg">
+                               <source src="https://lr-group.com/wp-content/uploads/2015/12/small-movie2.webm" type="video/webm">
+                               <source src="https://lr-group.com/wp-content/uploads/2015/12/small-movie2.mp4" type="video/mp4"> 
+
+                       </video>
+                      </div>
+                    </div>
+                 
+                                    
+                <div class="item small text position7">
+                   <div class="text-box">
+                       <p>" In the agricultural sector, food security will be the most urgent priority. We intend to make it the principal pillar to our&nbsp;march towards modernity. "</p>
+                       <h5><strong>President Joseph Kabila</strong>
+President of DRC</h5>                   </div>
+                </div>
+                
+                                  
+                <div class="item small text position8">
+                   <div class="text-box">
+                       <p> I'm working with LR Group Innovative Agro Industry to focus on creating employment for about 160 women who can make money while working the land as well. "</p>
+                       <h5><strong>Honorable Anderson Agiru</strong>
+Governor of Hela Province, PNG</h5>                   </div>
+                </div>
+                
+                                
+                  <div class="item small position9">
+                       <div class="text-box">
+                          <a href="projects" class="explore">
+                            <h5></h5><h5>Explore Projects</h5>
+                            <div class="linebox">
+                               <div class="line small"></div>
+                            </div>
+                          </a>
+
+                       </div>
+                    </div>
+                    
+                                
+                 <a href="finance" class="item big position10">
+                  <h4 class="textbox">Finance Facilitation</h4>                  <div class="image">
+                  <img src="https://lr-group.com/wp-content/uploads/2015/12/pic061.jpg">
+                  </div>
+                </a>
+                
+                                  
+                <div class="item small text position11">
+                   <div class="text-box">
+                       <p>" Today our people in the Lae City will receive extra 25 MW power. That will continue to provide some reliability which will go a long way."</p>
+                       <h5><strong>Prime Minister Honorable Peter O’Neill</strong>
+Prime Minister of PNG</h5>                   </div>
+                </div>
+                
+                 
+
+        </div>
+        
+    </div>
+
+
+</div> <!-- end of projects-area-->
+
+   
+    <div class="down-info">
+      <div class="info">
+          <div class="wrapper_tiles">
+            <div class="box">
+               <h3>Learn More <em>About Us</em></h3>               <div class="bluebtn">
+                                   <a href="about"> About LR Group</a>
+                                 </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="picture" style="background-image:url(https://lr-group.com/wp-content/uploads/2015/12/home-down.jpg)">
+      </div>
+
+    </div><!-- end of down-info -->
+    
+    
+
+<div class="footer main2">
+    <div class="hidenav"></div>
+    <div class="wrapper_2000">
+    <div class="navigation foot">
+
+   <ul>
+
+      <li>
+            <h4>
+                Who We Are            </h4>
+            <div class="menu-who-we-are-container"><ul id="menu-who-we-are-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-411"><a href="http://lr-group.com/about/#info">About Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-412"><a href="http://lr-group.com/about/#leadership">Leadership</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-413"><a href="https://lr-group.com/entrepreneurship/">Social Entrepreneurship</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-416"><a href="https://lr-group.com/letter/">Letter from Roy &amp; Ami</a></li>
+</ul></div>      </li>
+
+        <li>
+            <h4>
+                What We Do            </h4>
+            <div class="menu-what-we-do-container"><ul id="menu-what-we-do-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-419"><a href="https://lr-group.com/line-of-business/">Line of Business</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-420"><a href="https://lr-group.com/projects/">Projects that matter</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-421"><a href="http://lr-group.com/#World-impact" aria-current="page">World Impact</a></li>
+</ul></div>      </li>
+
+     <li>
+            <h4>
+                How We Work            </h4>
+            <div class="menu-how-we-work-container"><ul id="menu-how-we-work-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-422"><a href="https://lr-group.com/smart/">The SMART Way</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-423"><a href="https://lr-group.com/sustainability/">Sustainability</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-424"><a href="https://lr-group.com/knowledge/">Knowledge transfer program</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-425"><a href="https://lr-group.com/business-models/">Business Models</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-428"><a href="https://lr-group.com/finance/">Finance Facilitation</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="https://lr-group.com/ethics/">Ethical Guidelines</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2037"><a href="https://lr-group.com/compliance-program/">Compliance Program</a></li>
+</ul></div>      </li>
+
+
+      <li>
+            <h4>
+                Info &amp; Media            </h4>
+            <div class="menu-info-media-container"><ul id="menu-info-media-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-431"><a href="https://lr-group.com/news/">News</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1206"><a href="https://lr-group.com/stories/">Stories</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-430"><a href="https://lr-group.com/info/">Contact Us</a></li>
+</ul></div>      </li>
+
+     
+    </ul>
+
+  </div>
+  <!-- end of navigation -->
+ </div>
+</div>
+
+<div class="footer">
+ <div class="wrapper_2000">
+   <ul class="more">
+    <li><p class="leftt">LR GROUP | All rights reserved 2015 | <a href="/disclaimer">Disclaimer</a></p></li>
+    <li>
+      <ul class="icons">
+          <li><a href="https://www.linkedin.com/company/lr-group?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A676199%2Cidx%3A1-1-1%2CtarId%3A1445171064203%2Ctas%3Alr+g" target="_blank"><img src="https://lr-group.com/wp-content/themes/lr-group/images/in.png"></a></li>
+          <!--  <li><a href="#"><img src="https://lr-group.com/wp-content/themes/lr-group/images/instag.png"></a></li> -->
+          <li><a href="https://www.youtube.com/user/TheLRGROUP" target="_blank"><img src="https://lr-group.com/wp-content/themes/lr-group/images/ytube.png"></a></li>
+      </ul>
+    </li>
+    <li><a href="http://muze-studio.co.il" target="blank">Site by MUZE</a></li>
+   </ul>
+ </div>
+</div>
+
+</div> <!-- end of main -->
+
+<!--MODAL WINDOW - Team -->
+    
+<script type="text/javascript" src="https://lr-group.com/wp-content/plugins/jetpack/_inc/build/photon/photon.min.js?ver=20191001" id="jetpack-photon-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/lr-group.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.3.2" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/navigation.js?ver=20120206" id="lr-group-navigation-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/royalslider/jquery.royalslider.min.js?ver=5.6.16" id="royalslider_js-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/modernizr1.1.0.min.js?ver=5.6.16" id="modernizr-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/jquery.stellar.min.js?ver=5.6.16" id="stellar-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/jquery.waypoints.min.js?ver=5.6.16" id="waypoints-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/froogaloop.js?ver=5.6.16" id="froogaloop2-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/jquery.fitvids.js?ver=5.6.16" id="fitvids-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/smooth-scroll.js?ver=5.6.16" id="smooth-scroll-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/muzeme.js?ver=1.1" id="muzeme-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-content/themes/lr-group/js/skip-link-focus-fix.js?ver=20130115" id="lr-group-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="https://lr-group.com/wp-includes/js/wp-embed.min.js?ver=5.6.16" id="wp-embed-js"></script>
+<script type="text/javascript" src="https://stats.wp.com/e-202611.js" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:9.2.2',blog:'104747426',post:'2',tz:'0',srv:'lr-group.com'} ]);
+	_stq.push([ 'clickTrackerInit', '104747426', '2' ]);
+</script>
+
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;ns=1&amp;cb=459547985" async=""></script>
+<img src="https://pixel.wp.com/g.gif?v=ext&amp;j=1%3A9.2.2&amp;blog=104747426&amp;post=2&amp;tz=0&amp;srv=lr-group.com&amp;host=lr-group.com&amp;ref=&amp;fcp=1320&amp;rand=0.8516713049712424" alt="" width="6" height="5" id="wpstats"></body></html>

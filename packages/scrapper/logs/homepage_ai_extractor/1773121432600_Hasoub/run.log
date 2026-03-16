@@ -1,0 +1,72 @@
+[2026-03-10T05:43:52.601Z] === Homepage AI Extractor: Hasoub ===
+[2026-03-10T05:43:52.601Z] Started at: 2026-03-10T05:43:52.601Z
+[2026-03-10T05:43:52.601Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773121432600_Hasoub
+[2026-03-10T05:43:52.601Z] Company: Hasoub
+[2026-03-10T05:43:52.601Z] Website: hasoub.org
+[2026-03-10T05:43:52.601Z] cbRank: 396521
+[2026-03-10T05:43:52.601Z] Reasons: h
+[2026-03-10T05:43:52.601Z] Fetching: https://hasoub.org
+[2026-03-10T05:44:03.567Z] Network idle timeout — continuing with current state
+[2026-03-10T05:44:03.616Z] Redirected: https://hasoub.org -> https://www.hasoub.org/
+[2026-03-10T05:44:03.658Z] Saved HTML (1278406 bytes) to page.html
+[2026-03-10T05:44:03.661Z] Extracted 32 unique links from page
+[2026-03-10T05:44:03.662Z] Saved 32 links to links.json
+[2026-03-10T05:44:03.664Z] Extracted footer HTML (6801 chars)
+[2026-03-10T05:44:03.665Z] Extracted header HTML (16839 chars)
+[2026-03-10T05:44:03.668Z] Website (post-redirect): https://www.hasoub.org/ → origin: https://www.hasoub.org
+[2026-03-10T05:44:03.669Z] External links: 4 (of 32 total)
+[2026-03-10T05:44:03.669Z] ── All external links ──
+[2026-03-10T05:44:03.669Z]   EXT: https://wa.me/+972507162301
+[2026-03-10T05:44:03.669Z]   EXT: https://www.facebook.com/Hasoub.org
+[2026-03-10T05:44:03.669Z]   EXT: https://www.linkedin.com/company/hasoub/about
+[2026-03-10T05:44:03.669Z]   EXT: https://www.youtube.com/channel/UCMt9Kqn6ROvQSNXcik7S1qA
+[2026-03-10T05:44:03.669Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T05:44:03.669Z]   UNCATEGORIZED: https://wa.me/+972507162301
+[2026-03-10T05:44:03.669Z]   REGEX: fb <- https://www.facebook.com/Hasoub.org
+[2026-03-10T05:44:03.669Z]   REGEX: li <- https://www.linkedin.com/company/hasoub/about
+[2026-03-10T05:44:03.670Z]   REGEX: ytc <- https://www.youtube.com/channel/UCMt9Kqn6ROvQSNXcik7S1qA
+[2026-03-10T05:44:03.670Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-10T05:44:03.670Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T05:44:03.670Z] Saved AI prompt (4503 chars) to ai_prompt.txt
+[2026-03-10T05:44:03.670Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T05:44:03.687Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T05:44:23.020Z]   AI: First token received, streaming...
+[2026-03-10T05:44:37.523Z] AI response complete: 168 chars in 33.9s
+[2026-03-10T05:44:37.524Z] Saved AI response to ai_response.json
+[2026-03-10T05:44:37.524Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T05:44:37.524Z]   AI LINK: https://www.facebook.com/Hasoub.org/
+[2026-03-10T05:44:37.524Z]   AI LINK: https://wa.me/+972507162301
+[2026-03-10T05:44:37.524Z]   AI LINK: https://www.linkedin.com/company/hasoub/about/
+[2026-03-10T05:44:37.524Z]   AI LINK: https://www.youtube.com/channel/UCMt9Kqn6ROvQSNXcik7S1qA
+[2026-03-10T05:44:37.524Z] AI returned 4 valid links
+[2026-03-10T05:44:37.524Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T05:44:37.524Z]   AI→REGEX: fb <- https://www.facebook.com/Hasoub.org/ (duplicate, skipped)
+[2026-03-10T05:44:37.524Z]   AI→URLS: https://wa.me/+972507162301
+[2026-03-10T05:44:37.524Z]   AI→REGEX: li <- https://www.linkedin.com/company/hasoub/about/ (duplicate, skipped)
+[2026-03-10T05:44:37.525Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCMt9Kqn6ROvQSNXcik7S1qA (duplicate, skipped)
+[2026-03-10T05:44:37.525Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T05:44:37.525Z] Footer/header origins (5):
+[2026-03-10T05:44:37.525Z]   FOOTER/HEADER ORIGIN: https://www.hasoub.org
+[2026-03-10T05:44:37.525Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T05:44:37.525Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-10T05:44:37.525Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T05:44:37.525Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T05:44:37.525Z]   SKIP (AI claimed): https://wa.me/+972507162301
+[2026-03-10T05:44:37.525Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T05:44:37.525Z] ── Step 3: Final dedup ──
+[2026-03-10T05:44:37.525Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T05:44:37.525Z] ── FINAL RESULT ──
+[2026-03-10T05:44:37.526Z]   ws (1):
+[2026-03-10T05:44:37.526Z]     - https://www.hasoub.org
+[2026-03-10T05:44:37.526Z]   li (1):
+[2026-03-10T05:44:37.526Z]     - https://www.linkedin.com/company/hasoub
+[2026-03-10T05:44:37.526Z]   fb (1):
+[2026-03-10T05:44:37.526Z]     - https://www.facebook.com/hasoub.org
+[2026-03-10T05:44:37.526Z]   ytc (1):
+[2026-03-10T05:44:37.526Z]     - https://www.youtube.com/channel/UCMt9Kqn6ROvQSNXcik7S1qA
+[2026-03-10T05:44:37.526Z]   urls (1):
+[2026-03-10T05:44:37.526Z]     - https://wa.me/+972507162301
+[2026-03-10T05:44:37.526Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:1
+[2026-03-10T05:44:37.526Z] Saved final result to result.json
+[2026-03-10T05:44:37.527Z] Override fields: ws, li, fb, ytc, urls
+[2026-03-10T05:44:37.527Z] Finished at: 2026-03-10T05:44:37.527Z

@@ -1,0 +1,76 @@
+[2026-03-11T19:21:27.242Z] === Homepage AI Extractor: ETF Insider ===
+[2026-03-11T19:21:27.242Z] Started at: 2026-03-11T19:21:27.242Z
+[2026-03-11T19:21:27.242Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773256887242_ETF_Insider
+[2026-03-11T19:21:27.243Z] Company: ETF Insider
+[2026-03-11T19:21:27.243Z] Website: etfinsider.co
+[2026-03-11T19:21:27.243Z] cbRank: 627430
+[2026-03-11T19:21:27.243Z] Reasons: h
+[2026-03-11T19:21:27.243Z] Fetching: https://etfinsider.co
+[2026-03-11T19:21:30.684Z] Redirected: https://etfinsider.co -> https://etfinsider.co/
+[2026-03-11T19:21:30.690Z] Saved HTML (156773 bytes) to page.html
+[2026-03-11T19:21:30.694Z] Extracted 17 unique links from page
+[2026-03-11T19:21:30.694Z] Saved 17 links to links.json
+[2026-03-11T19:21:30.697Z] Extracted footer HTML (15637 chars)
+[2026-03-11T19:21:30.698Z] No header section found in DOM
+[2026-03-11T19:21:30.702Z] Website (post-redirect): https://etfinsider.co/ → origin: https://etfinsider.co
+[2026-03-11T19:21:30.702Z] External links: 5 (of 17 total)
+[2026-03-11T19:21:30.703Z] ── All external links ──
+[2026-03-11T19:21:30.703Z]   EXT: https://termly.io/products/cookie-consent-manager
+[2026-03-11T19:21:30.703Z]   EXT: https://twitter.com/etfinsider
+[2026-03-11T19:21:30.703Z]   EXT: https://www.facebook.com/etfinsider
+[2026-03-11T19:21:30.703Z]   EXT: https://www.linkedin.com/company/etfinsider
+[2026-03-11T19:21:30.703Z]   EXT: https://www.reddit.com/r/ETF_Insider
+[2026-03-11T19:21:30.703Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T19:21:30.703Z]   UNCATEGORIZED: https://termly.io/products/cookie-consent-manager
+[2026-03-11T19:21:30.703Z]   REGEX: tw <- https://twitter.com/etfinsider
+[2026-03-11T19:21:30.704Z]   REGEX: fb <- https://www.facebook.com/etfinsider
+[2026-03-11T19:21:30.704Z]   REGEX: li <- https://www.linkedin.com/company/etfinsider
+[2026-03-11T19:21:30.704Z]   UNCATEGORIZED: https://www.reddit.com/r/ETF_Insider
+[2026-03-11T19:21:30.704Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-11T19:21:30.704Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T19:21:30.705Z] Saved AI prompt (3955 chars) to ai_prompt.txt
+[2026-03-11T19:21:30.705Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T19:21:30.724Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T19:21:44.788Z]   AI: First token received, streaming...
+[2026-03-11T19:21:54.138Z] AI response complete: 149 chars in 23.4s
+[2026-03-11T19:21:54.139Z] Saved AI response to ai_response.json
+[2026-03-11T19:21:54.139Z] ── Parsing AI response (4 lines) ──
+[2026-03-11T19:21:54.139Z]   AI LINK: https://www.facebook.com/etfinsider
+[2026-03-11T19:21:54.139Z]   AI LINK: https://www.linkedin.com/company/etfinsider/
+[2026-03-11T19:21:54.139Z]   AI LINK: https://twitter.com/etfinsider
+[2026-03-11T19:21:54.139Z]   AI LINK: https://www.reddit.com/r/ETF_Insider/
+[2026-03-11T19:21:54.139Z] AI returned 4 valid links
+[2026-03-11T19:21:54.139Z] ── Categorizing 4 AI-returned links ──
+[2026-03-11T19:21:54.139Z]   AI→REGEX: fb <- https://www.facebook.com/etfinsider (duplicate, skipped)
+[2026-03-11T19:21:54.139Z]   AI→REGEX: li <- https://www.linkedin.com/company/etfinsider/ (duplicate, skipped)
+[2026-03-11T19:21:54.139Z]   AI→REGEX: tw <- https://twitter.com/etfinsider (duplicate, skipped)
+[2026-03-11T19:21:54.140Z]   AI→URLS: https://www.reddit.com/r/ETF_Insider (cleaned from https://www.reddit.com/r/ETF_Insider/)
+[2026-03-11T19:21:54.140Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T19:21:54.140Z] Footer/header origins (5):
+[2026-03-11T19:21:54.140Z]   FOOTER/HEADER ORIGIN: https://etfinsider.co
+[2026-03-11T19:21:54.140Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T19:21:54.140Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T19:21:54.140Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-11T19:21:54.140Z]   FOOTER/HEADER ORIGIN: https://www.reddit.com
+[2026-03-11T19:21:54.140Z]   SKIP (not in footer/header): https://termly.io/products/cookie-consent-manager
+[2026-03-11T19:21:54.140Z]   SKIP (AI claimed): https://www.reddit.com/r/ETF_Insider
+[2026-03-11T19:21:54.140Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T19:21:54.140Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T19:21:54.141Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T19:21:54.141Z] ── Step 3: Final dedup ──
+[2026-03-11T19:21:54.141Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T19:21:54.141Z] ── FINAL RESULT ──
+[2026-03-11T19:21:54.141Z]   ws (1):
+[2026-03-11T19:21:54.141Z]     - https://etfinsider.co
+[2026-03-11T19:21:54.141Z]   li (1):
+[2026-03-11T19:21:54.141Z]     - https://www.linkedin.com/company/etfinsider
+[2026-03-11T19:21:54.141Z]   fb (1):
+[2026-03-11T19:21:54.141Z]     - https://www.facebook.com/etfinsider
+[2026-03-11T19:21:54.141Z]   tw (1):
+[2026-03-11T19:21:54.141Z]     - https://x.com/etfinsider
+[2026-03-11T19:21:54.141Z]   urls (1):
+[2026-03-11T19:21:54.141Z]     - https://www.reddit.com/r/ETF_Insider
+[2026-03-11T19:21:54.141Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-11T19:21:54.142Z] Saved final result to result.json
+[2026-03-11T19:21:54.142Z] Override fields: ws, li, fb, tw, urls
+[2026-03-11T19:21:54.142Z] Finished at: 2026-03-11T19:21:54.142Z

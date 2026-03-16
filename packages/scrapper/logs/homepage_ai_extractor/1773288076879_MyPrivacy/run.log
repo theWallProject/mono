@@ -1,0 +1,81 @@
+[2026-03-12T04:01:16.880Z] === Homepage AI Extractor: MyPrivacy ===
+[2026-03-12T04:01:16.880Z] Started at: 2026-03-12T04:01:16.880Z
+[2026-03-12T04:01:16.880Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773288076879_MyPrivacy
+[2026-03-12T04:01:16.880Z] Company: MyPrivacy
+[2026-03-12T04:01:16.880Z] Website: myprivacy.io
+[2026-03-12T04:01:16.880Z] cbRank: 784773
+[2026-03-12T04:01:16.880Z] Reasons: h
+[2026-03-12T04:01:16.880Z] Fetching: https://myprivacy.io
+[2026-03-12T04:01:19.188Z] Redirected: https://myprivacy.io -> https://myprivacy.io/
+[2026-03-12T04:01:19.199Z] Saved HTML (298819 bytes) to page.html
+[2026-03-12T04:01:19.203Z] Extracted 14 unique links from page
+[2026-03-12T04:01:19.204Z] Saved 14 links to links.json
+[2026-03-12T04:01:19.208Z] Extracted footer HTML (4200 chars)
+[2026-03-12T04:01:19.208Z] Extracted header HTML (4251 chars)
+[2026-03-12T04:01:19.213Z] Website (post-redirect): https://myprivacy.io/ → origin: https://myprivacy.io
+[2026-03-12T04:01:19.213Z] External links: 6 (of 14 total)
+[2026-03-12T04:01:19.213Z] ── All external links ──
+[2026-03-12T04:01:19.213Z]   EXT: http://onelink.to/242wt7
+[2026-03-12T04:01:19.213Z]   EXT: https://apps.apple.com/us/app/myprivacy-simply-private/id1347862164
+[2026-03-12T04:01:19.213Z]   EXT: https://play.google.com/store/apps/details?id=com.myprivacy&hl=en
+[2026-03-12T04:01:19.213Z]   EXT: https://twitter.com/mypermissions
+[2026-03-12T04:01:19.213Z]   EXT: https://www.facebook.com/MyPrivacy.io
+[2026-03-12T04:01:19.213Z]   EXT: https://www.linkedin.com/company/mypermissions
+[2026-03-12T04:01:19.213Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T04:01:19.214Z]   UNCATEGORIZED: http://onelink.to/242wt7
+[2026-03-12T04:01:19.214Z]   UNCATEGORIZED: https://apps.apple.com/us/app/myprivacy-simply-private/id1347862164
+[2026-03-12T04:01:19.214Z]   REGEX: android_app_ids <- com.myprivacy (from https://play.google.com/store/apps/details?id=com.myprivacy&hl=en)
+[2026-03-12T04:01:19.214Z]   REGEX: tw <- https://twitter.com/mypermissions
+[2026-03-12T04:01:19.214Z]   REGEX: fb <- https://www.facebook.com/MyPrivacy.io
+[2026-03-12T04:01:19.214Z]   REGEX: li <- https://www.linkedin.com/company/mypermissions
+[2026-03-12T04:01:19.214Z] Programmatic result: ws:1, android_app_ids:1, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-12T04:01:19.214Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T04:01:19.215Z] Saved AI prompt (3813 chars) to ai_prompt.txt
+[2026-03-12T04:01:19.215Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T04:01:19.232Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T04:01:36.119Z]   AI: First token received, streaming...
+[2026-03-12T04:01:46.722Z] AI response complete: 188 chars in 27.5s
+[2026-03-12T04:01:46.723Z] Saved AI response to ai_response.json
+[2026-03-12T04:01:46.723Z] ── Parsing AI response (4 lines) ──
+[2026-03-12T04:01:46.723Z]   AI LINK: https://www.facebook.com/MyPrivacy.io/
+[2026-03-12T04:01:46.723Z]   AI LINK: https://www.linkedin.com/company/mypermissions/
+[2026-03-12T04:01:46.723Z]   AI LINK: https://twitter.com/mypermissions
+[2026-03-12T04:01:46.723Z]   AI LINK: https://apps.apple.com/us/app/myprivacy-simply-private/id1347862164
+[2026-03-12T04:01:46.723Z] AI returned 4 valid links
+[2026-03-12T04:01:46.723Z] ── Categorizing 4 AI-returned links ──
+[2026-03-12T04:01:46.724Z]   AI→REGEX: fb <- https://www.facebook.com/MyPrivacy.io/ (duplicate, skipped)
+[2026-03-12T04:01:46.724Z]   AI→REGEX: li <- https://www.linkedin.com/company/mypermissions/ (duplicate, skipped)
+[2026-03-12T04:01:46.724Z]   AI→REGEX: tw <- https://twitter.com/mypermissions (duplicate, skipped)
+[2026-03-12T04:01:46.724Z]   AI→URLS: https://apps.apple.com/us/app/myprivacy-simply-private/id1347862164
+[2026-03-12T04:01:46.724Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T04:01:46.724Z] Footer/header origins (5):
+[2026-03-12T04:01:46.724Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T04:01:46.724Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T04:01:46.724Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T04:01:46.724Z]   FOOTER/HEADER ORIGIN: https://myprivacy.io
+[2026-03-12T04:01:46.724Z]   FOOTER/HEADER ORIGIN: http://onelink.to
+[2026-03-12T04:01:46.725Z]   ADDED: urls <- http://onelink.to/242wt7
+[2026-03-12T04:01:46.725Z]   SKIP (AI claimed): https://apps.apple.com/us/app/myprivacy-simply-private/id1347862164
+[2026-03-12T04:01:46.725Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T04:01:46.725Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T04:01:46.725Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T04:01:46.725Z] ── Step 3: Final dedup ──
+[2026-03-12T04:01:46.725Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T04:01:46.725Z] ── FINAL RESULT ──
+[2026-03-12T04:01:46.725Z]   ws (1):
+[2026-03-12T04:01:46.725Z]     - https://myprivacy.io
+[2026-03-12T04:01:46.725Z]   li (1):
+[2026-03-12T04:01:46.725Z]     - https://www.linkedin.com/company/mypermissions
+[2026-03-12T04:01:46.725Z]   fb (1):
+[2026-03-12T04:01:46.726Z]     - https://www.facebook.com/myprivacy.io
+[2026-03-12T04:01:46.726Z]   tw (1):
+[2026-03-12T04:01:46.726Z]     - https://x.com/mypermissions
+[2026-03-12T04:01:46.726Z]   urls (2):
+[2026-03-12T04:01:46.726Z]     - http://onelink.to/242wt7
+[2026-03-12T04:01:46.726Z]     - https://apps.apple.com/us/app/myprivacy-simply-private/id1347862164
+[2026-03-12T04:01:46.726Z]   android_app_ids (1):
+[2026-03-12T04:01:46.726Z]     - com.myprivacy
+[2026-03-12T04:01:46.726Z] Summary: ws:1, android_app_ids:1, tw:1, fb:1, li:1, urls:2
+[2026-03-12T04:01:46.727Z] Saved final result to result.json
+[2026-03-12T04:01:46.727Z] Override fields: ws, li, fb, tw, urls, android_app_ids
+[2026-03-12T04:01:46.727Z] Finished at: 2026-03-12T04:01:46.727Z

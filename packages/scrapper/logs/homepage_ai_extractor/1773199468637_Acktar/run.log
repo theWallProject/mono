@@ -1,0 +1,68 @@
+[2026-03-11T03:24:28.638Z] === Homepage AI Extractor: Acktar ===
+[2026-03-11T03:24:28.638Z] Started at: 2026-03-11T03:24:28.638Z
+[2026-03-11T03:24:28.638Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773199468637_Acktar
+[2026-03-11T03:24:28.638Z] Company: Acktar
+[2026-03-11T03:24:28.638Z] Website: acktar.com
+[2026-03-11T03:24:28.639Z] cbRank: 564986
+[2026-03-11T03:24:28.639Z] Reasons: h
+[2026-03-11T03:24:28.639Z] Fetching: https://acktar.com
+[2026-03-11T03:24:39.313Z] Network idle timeout — continuing with current state
+[2026-03-11T03:24:39.378Z] Redirected: https://acktar.com -> https://acktar.com/
+[2026-03-11T03:24:39.385Z] Saved HTML (156428 bytes) to page.html
+[2026-03-11T03:24:39.389Z] Extracted 88 unique links from page
+[2026-03-11T03:24:39.390Z] Saved 88 links to links.json
+[2026-03-11T03:24:39.393Z] Extracted footer HTML (11741 chars)
+[2026-03-11T03:24:39.393Z] Extracted header HTML (10939 chars)
+[2026-03-11T03:24:39.398Z] Website (post-redirect): https://acktar.com/ → origin: https://acktar.com
+[2026-03-11T03:24:39.399Z]   SUBDOMAIN: de.acktar.com (added to ws)
+[2026-03-11T03:24:39.399Z] Website subdomains found: 1
+[2026-03-11T03:24:39.399Z] External links: 3 (of 88 total)
+[2026-03-11T03:24:39.399Z] ── All external links ──
+[2026-03-11T03:24:39.399Z]   EXT: https://il.linkedin.com/company/acktar-international
+[2026-03-11T03:24:39.399Z]   EXT: https://www.facebook.com/Acktar-Ltd-143757935772770
+[2026-03-11T03:24:39.399Z]   EXT: https://www.youtube.com/channel/UCvDIOSXwDPs1TCWchhCwxDg/featured
+[2026-03-11T03:24:39.399Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T03:24:39.399Z]   REGEX: li <- https://il.linkedin.com/company/acktar-international
+[2026-03-11T03:24:39.400Z]   REGEX: fb <- https://www.facebook.com/Acktar-Ltd-143757935772770
+[2026-03-11T03:24:39.400Z]   REGEX: ytc <- https://www.youtube.com/channel/UCvDIOSXwDPs1TCWchhCwxDg/featured
+[2026-03-11T03:24:39.400Z] Programmatic result: ws:2, li:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-11T03:24:39.400Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T03:24:39.401Z] Saved AI prompt (9834 chars) to ai_prompt.txt
+[2026-03-11T03:24:39.401Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T03:24:39.422Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T03:25:33.256Z]   AI: First token received, streaming...
+[2026-03-11T03:25:48.741Z] AI response complete: 170 chars in 69.3s
+[2026-03-11T03:25:48.742Z] Saved AI response to ai_response.json
+[2026-03-11T03:25:48.742Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T03:25:48.742Z]   AI LINK: https://il.linkedin.com/company/acktar-international
+[2026-03-11T03:25:48.742Z]   AI LINK: https://www.facebook.com/Acktar-Ltd-143757935772770
+[2026-03-11T03:25:48.742Z]   AI LINK: https://www.youtube.com/channel/UCvDIOSXwDPs1TCWchhCwxDg/featured
+[2026-03-11T03:25:48.742Z] AI returned 3 valid links
+[2026-03-11T03:25:48.742Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T03:25:48.742Z]   AI→REGEX: li <- https://il.linkedin.com/company/acktar-international (duplicate, skipped)
+[2026-03-11T03:25:48.743Z]   AI→REGEX: fb <- https://www.facebook.com/Acktar-Ltd-143757935772770 (duplicate, skipped)
+[2026-03-11T03:25:48.743Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCvDIOSXwDPs1TCWchhCwxDg/featured (duplicate, skipped)
+[2026-03-11T03:25:48.743Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T03:25:48.743Z] Footer/header origins (5):
+[2026-03-11T03:25:48.743Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-11T03:25:48.743Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T03:25:48.743Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T03:25:48.743Z]   FOOTER/HEADER ORIGIN: https://acktar.com
+[2026-03-11T03:25:48.744Z]   FOOTER/HEADER ORIGIN: https://de.acktar.com
+[2026-03-11T03:25:48.744Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T03:25:48.744Z] ── Step 3: Final dedup ──
+[2026-03-11T03:25:48.744Z] No urls to dedup
+[2026-03-11T03:25:48.744Z] ── FINAL RESULT ──
+[2026-03-11T03:25:48.744Z]   ws (2):
+[2026-03-11T03:25:48.744Z]     - https://acktar.com
+[2026-03-11T03:25:48.744Z]     - https://de.acktar.com
+[2026-03-11T03:25:48.744Z]   li (1):
+[2026-03-11T03:25:48.744Z]     - https://www.linkedin.com/company/acktar-international
+[2026-03-11T03:25:48.744Z]   fb (1):
+[2026-03-11T03:25:48.744Z]     - https://www.facebook.com/acktar-ltd-143757935772770
+[2026-03-11T03:25:48.744Z]   ytc (1):
+[2026-03-11T03:25:48.744Z]     - https://www.youtube.com/channel/UCvDIOSXwDPs1TCWchhCwxDg
+[2026-03-11T03:25:48.745Z] Summary: ws:2, li:1, fb:1, ytc:1
+[2026-03-11T03:25:48.745Z] Saved final result to result.json
+[2026-03-11T03:25:48.745Z] Override fields: ws, li, fb, ytc
+[2026-03-11T03:25:48.745Z] Finished at: 2026-03-11T03:25:48.745Z

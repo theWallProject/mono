@@ -1,0 +1,71 @@
+[2026-03-13T09:05:38.413Z] === Homepage AI Extractor: Plant-Ditech ===
+[2026-03-13T09:05:38.413Z] Started at: 2026-03-13T09:05:38.413Z
+[2026-03-13T09:05:38.413Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773392738412_Plant-Ditech
+[2026-03-13T09:05:38.413Z] Company: Plant-Ditech
+[2026-03-13T09:05:38.413Z] Website: plant-ditech.com
+[2026-03-13T09:05:38.413Z] cbRank: 1072996
+[2026-03-13T09:05:38.414Z] Reasons: h
+[2026-03-13T09:05:38.414Z] Fetching: https://plant-ditech.com
+[2026-03-13T09:05:51.667Z] Network idle timeout — continuing with current state
+[2026-03-13T09:05:51.759Z] Redirected: https://plant-ditech.com -> https://www.plant-ditech.com/
+[2026-03-13T09:05:51.780Z] Saved HTML (407181 bytes) to page.html
+[2026-03-13T09:05:51.797Z] Extracted 41 unique links from page
+[2026-03-13T09:05:51.798Z] Saved 41 links to links.json
+[2026-03-13T09:05:51.853Z] Extracted footer HTML (412 chars)
+[2026-03-13T09:05:51.853Z] Extracted header HTML (9326 chars)
+[2026-03-13T09:05:51.871Z] Website (post-redirect): https://www.plant-ditech.com/ → origin: https://www.plant-ditech.com
+[2026-03-13T09:05:51.871Z]   SUBDOMAIN: spac.plant-ditech.com (added to ws)
+[2026-03-13T09:05:51.871Z] Website subdomains found: 1
+[2026-03-13T09:05:51.872Z] External links: 4 (of 41 total)
+[2026-03-13T09:05:51.872Z] ── All external links ──
+[2026-03-13T09:05:51.872Z]   EXT: https://www.linkedin.com/company/plant-ditech
+[2026-03-13T09:05:51.872Z]   EXT: https://www.youtube.com/channel/UCjN4DwepFlQfW0UeYzEpXng/videos
+[2026-03-13T09:05:51.872Z]   EXT: https://x.com/PlantDiTech
+[2026-03-13T09:05:51.872Z]   EXT: https://youtu.be/uJxrR0lMlzk
+[2026-03-13T09:05:51.872Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T09:05:51.873Z]   REGEX: li <- https://www.linkedin.com/company/plant-ditech
+[2026-03-13T09:05:51.873Z]   REGEX: ytc <- https://www.youtube.com/channel/UCjN4DwepFlQfW0UeYzEpXng/videos
+[2026-03-13T09:05:51.873Z]   REGEX: tw <- https://x.com/PlantDiTech
+[2026-03-13T09:05:51.873Z]   UNCATEGORIZED: https://youtu.be/uJxrR0lMlzk
+[2026-03-13T09:05:51.873Z] Programmatic result: ws:2, li:1, ytc:1, tw:1 | 1 uncategorized
+[2026-03-13T09:05:51.873Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T09:05:51.874Z] Saved AI prompt (2236 chars) to ai_prompt.txt
+[2026-03-13T09:05:51.874Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T09:05:51.926Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T09:05:59.327Z]   AI: First token received, streaming...
+[2026-03-13T09:06:00.452Z] AI response complete: 36 chars in 8.6s
+[2026-03-13T09:06:00.452Z] Saved AI response to ai_response.json
+[2026-03-13T09:06:00.453Z] ── Parsing AI response (1 lines) ──
+[2026-03-13T09:06:00.453Z]   AI LINK: https://www.plant-ditech.com/privacy
+[2026-03-13T09:06:00.453Z] AI returned 1 valid links
+[2026-03-13T09:06:00.453Z] ── Categorizing 1 AI-returned links ──
+[2026-03-13T09:06:00.453Z]   AI→URLS: https://www.plant-ditech.com/privacy
+[2026-03-13T09:06:00.453Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T09:06:00.453Z] Footer/header origins (1):
+[2026-03-13T09:06:00.453Z]   FOOTER/HEADER ORIGIN: https://www.plant-ditech.com
+[2026-03-13T09:06:00.454Z]   SKIP (not in footer/header): https://youtu.be/uJxrR0lMlzk
+[2026-03-13T09:06:00.454Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T09:06:00.454Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T09:06:00.454Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-13T09:06:01.123Z]   YOUTUBE: resolved UCjN4DwepFlQfW0UeYzEpXng → @plant-ditech
+[2026-03-13T09:06:01.124Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-13T09:06:01.124Z] ── Step 3: Final dedup ──
+[2026-03-13T09:06:01.124Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T09:06:01.124Z] ── FINAL RESULT ──
+[2026-03-13T09:06:01.124Z]   ws (2):
+[2026-03-13T09:06:01.124Z]     - https://spac.plant-ditech.com
+[2026-03-13T09:06:01.124Z]     - https://www.plant-ditech.com
+[2026-03-13T09:06:01.124Z]   li (1):
+[2026-03-13T09:06:01.125Z]     - https://www.linkedin.com/company/plant-ditech
+[2026-03-13T09:06:01.125Z]   tw (1):
+[2026-03-13T09:06:01.125Z]     - https://x.com/plantditech
+[2026-03-13T09:06:01.125Z]   ytp (1):
+[2026-03-13T09:06:01.125Z]     - https://www.youtube.com/@plant-ditech
+[2026-03-13T09:06:01.125Z]   ytc (1):
+[2026-03-13T09:06:01.125Z]     - https://www.youtube.com/channel/UCjN4DwepFlQfW0UeYzEpXng
+[2026-03-13T09:06:01.125Z]   urls (1):
+[2026-03-13T09:06:01.125Z]     - https://www.plant-ditech.com/privacy
+[2026-03-13T09:06:01.125Z] Summary: ws:2, li:1, ytc:1, tw:1, urls:1, ytp:1
+[2026-03-13T09:06:01.126Z] Saved final result to result.json
+[2026-03-13T09:06:01.126Z] Override fields: ws, li, tw, ytp, ytc
+[2026-03-13T09:06:01.126Z] Finished at: 2026-03-13T09:06:01.126Z

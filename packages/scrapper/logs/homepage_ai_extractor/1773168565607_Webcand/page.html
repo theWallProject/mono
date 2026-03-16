@@ -1,0 +1,295 @@
+<html lang="en"><head>
+
+        <title>AI Video Interview &amp; Screening Platform | Webcand</title>
+
+        <meta name="description" content="Webcand is an AI-powered hiring platform that helps recruiters screen candidates via video, WhatsApp chat flows, and automated interview analysis. Save time and hire smarter.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+
+        <meta property="og:title" content="AI Video Interview &amp; Screening Platform | Webcand">
+        <meta property="og:description" content="Send digital interviews, filter candidates with WhatsApp, and let AI highlight top talent. Save time and make smarter hiring decisions.">
+        <meta property="og:url" content="https://webcand.com">
+        <meta property="og:type" content="website">
+
+        <link rel="alternate" hreflang="en" href="https://webcand.com/en/home/">
+        <link rel="alternate" hreflang="he" href="https://webcand.com/he/home/">
+        <link rel="alternate" hreflang="es" href="https://webcand.com/co/home/">
+        <link rel="alternate" hreflang="fr" href="https://webcand.com/fr/home/">
+        <link rel="alternate" hreflang="pt" href="https://webcand.com/pt/home/">
+        <link rel="alternate" hreflang="ru" href="https://webcand.com/ru/home/">
+        <link rel="alternate" hreflang="zh" href="https://webcand.com/zh/home/">
+
+        <script src="/scripts/jquery-3.7.0.min.js"></script>
+        <script src="/scripts/pages/home/home.js?v=191"></script>
+        <script src="/scripts/ui.js"></script>
+        
+        <!-- Google tag (gtag.js) -->
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-06705NNB5Q"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-06705NNB5Q');
+
+            // Report custom event for homepage view
+            gtag('event', 'home_page', {
+                'event_category': 'Onboarding2',
+                'event_label': 'Home page view',
+                'value': 1
+            });
+
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="/css/fontawesome-all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/pages/home.css">
+        
+        <link rel="Shortcut Icon" href="/favicon.ico">
+
+    </head>
+
+    <body>
+
+        <div class="overlay" id="loader">
+            <img src="/Images/progress6.gif" style="filter: hue-rotate(-300deg);" alt="Loading...">
+        </div>
+
+        <div class="hamburger">
+            <input type="checkbox" id="hamburger-toggle" onclick="toggleMenu();">
+            <label for="hamburger-toggle" class="hamburger-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <div id="menu">
+            <div class="menu-panel">
+                <div class="menu-item" onclick="menuClickHome();"><i class="fas fa-home"></i> Home</div>
+                <div class="menu-item" onclick="menuClickFeatures();"><i class="fas fa-star"></i> Features</div>
+                <div class="menu-item" onclick="menuClickCandidateFAQs();"><i class="fas fa-user-friends"></i> Candidate FAQs</div>
+                <div class="menu-item" style="border-top: 1px solid #e0e0e0;" onclick="menuClickLogin();"><i class="fas fa-key"></i> Companies Login</div>
+                <div class="menu-item" style="border-top: 1px solid #e0e0e0;" onclick="menuClickContact();"><i class="fas fa-envelope"></i> Contact</div>
+                <div class="menu-item highlight" style="margin-top: 20px;" onclick="menuClickStartNow();"><i class="fas fa-play-circle"></i> Start Now</div>
+            </div>
+        </div>
+
+        <div id="div-promo">
+            <img id="logo" src="/Images/logo3.png" alt="webcand.com Logo">
+            <button id="button-login" class="button-link" onclick="window.location.href='/login';">
+                <i class="fas fa-key"></i>&nbsp;
+                <span>COMPANIES LOGIN</span>
+            </button>
+            <button id="button-promo-start-top" class="button-bordered" onclick="window.location.href='/start';">
+                <span>START FOR FREE</span>
+            </button>  
+            <div style="height: 44px;"></div>
+
+            <img src="/Images/logo3.png" id="mobile-logo" alt="Webcand Logo">
+
+            <div id="promo-main-title">
+                <b>Smarter Hiring Starts Here</b><br>
+                with <b>AI-Driven Video Interviews</b>
+            </div>
+            <div id="promo-sub-title">
+                <table style="margin: 0 auto;">
+                    <tbody><tr>
+                        <td style="vertical-align: top; padding-right: 8px;">
+                            <span style="font-size: 1.2em; color: #00ff95;">●</span>
+                        </td>
+                        <td>
+                            Send video interviews to candidates with one click
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top; padding-right: 8px;">
+                            <span style="font-size: 1.2em; color: #00ff95;">●</span>
+                        </td>
+                        <td>
+                            Automatically filter responses with AI and WhatsApp
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top; padding-right: 8px;">
+                            <span style="font-size: 1.2em; color: #00ff95;">●</span>
+                        </td>
+                        <td>
+                            Save time, hire faster, and make better decisions
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+
+            <div>
+                <button id="button-promo-start" class="button-promo" onclick="window.location.href='/start';">
+                    <span>START FOR FREE</span>
+                </button>  
+            </div>
+
+            <div id="promo-feature-container">
+
+                <img src="/Images/promo-phone.png" id="promo-phone-img">
+
+                <table id="table-promo-features">
+                    <tbody><tr>
+                        <td>
+                            <i class="green promo-feature-icon fas fa-robot"></i>
+                        </td>
+                        <td>
+                            <div class="promo-feature-title">AI Screening &amp; Insights</div>
+                            Let AI analyze candidate answers and highlight top performers.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="green promo-feature-icon fas fa-comments"></i>
+                        </td>
+                        <td>
+                            <div class="promo-feature-title">WhatsApp Interview Flow</div>
+                            Engage candidates automatically via WhatsApp chat and questions.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="green promo-feature-icon fas fa-video"></i>
+                        </td>
+                        <td>
+                            <div class="promo-feature-title">Video Interview Platform</div>
+                            Send structured, branded video interviews to any candidate.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="green promo-feature-icon fas fa-stopwatch"></i>
+                        </td>
+                        <td>
+                            <div class="promo-feature-title">Save Time, Hire Smarter</div>
+                            Automate early-stage screening and focus on top talent faster.
+                        </td>
+                    </tr>
+                </tbody></table>
+
+                <div>
+                    <button class="button-bordered" onclick="window.location.href='features'">
+                        <i class="fas fa-star"></i>&nbsp;
+                        LEARN MORE
+                    </button>
+                </div>
+            </div>
+
+            <div id="promo-video-section">
+                <div id="promo-bullets">
+                    <ul style="font-size: 1.15em; line-height: 1.7; margin: 0 0 0 20px; padding: 0;">
+                        <li>Reduce screening time with AI-powered analysis</li>
+                        <li>Engage candidates instantly via WhatsApp</li>
+                        <li>Send branded video interviews in seconds</li>
+                        <li>Focus on top talent, not manual filtering</li>
+                    </ul>
+                </div>
+                <div id="promo-video-container" style="float: left;">
+                    <video id="promoVideo" controls="" webkit-playsinline="true" playsinline="true" oncontextmenu="return false;" controlslist="nodownload" poster="/images/poster.png">
+                        <source src="/images/webcand.homepage.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div id="promo-clients" class="valigned">
+                <div id="promo-clients-title" class="valigned">
+                    <i class="fas fa-certificate" style="color: gray;"></i>&nbsp;&nbsp;
+                    Trusted by Leading Companies
+                </div>
+                <div id="promo-clients-subtitle">Join top brands using Webcand to streamline hiring</div>
+                <div id="promo-clients-logos" class="valigned">
+                    <img class="customerImg" src="/Images/Customers/soda.png" alt="Soda">
+                    <img class="customerImg" src="/Images/Customers/zota.png" alt="zota">
+                    <img class="customerImg" src="/Images/Customers/teva.png" alt="Teva">
+                    <img class="customerImg" src="/Images/Customers/chec.png" alt="Chec">
+                    <img class="customerImg" src="/Images/Customers/roch.png" alt="Roch">
+                    <img class="customerImg" src="/Images/Customers/zimm.png" alt="Zimm">
+                    <img class="customerImg" src="/Images/Customers/erne.png" alt="Erne">
+                    <img class="customerImg" src="/Images/Customers/manpower.png" alt="manpower">
+                    <img class="customerImg" src="/Images/Customers/cbc.png" alt="coca cola">
+                </div>
+            </div>
+         
+            <table id="promo-testimonials-table">
+                <tbody><tr>
+                    <td class="testimonial-image-td">
+                        <img class="promo-testimonials-image" src="/images/Testimonials/1.png">
+                    </td>
+                    <td class="testimonial-text-td">
+                        "Webcand helped us screen over 200 applicants in just days. The AI picked out the top talent with surprising accuracy."
+                        <div class="testimonial-name">– Alex G., Tech Recruiter</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="testimonial-image-td">
+                        <img class="promo-testimonials-image" src="/images/Testimonials/2.png">
+                    </td>
+                    <td class="testimonial-text-td">
+                        "Our hiring process used to take weeks. With Webcand’s WhatsApp flow and video interviews, we cut that in half."
+                        <div class="testimonial-name">– Maya S., HR Director</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="testimonial-image-td">
+                        <img class="promo-testimonials-image" src="/images/Testimonials/3.png">
+                    </td>
+                    <td class="testimonial-text-td">
+                        "The ability to customize questions and automatically score answers changed the way we recruit—completely."
+                        <div class="testimonial-name">– Jonathan D., Talent Manager</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="testimonial-image-td">
+                        <img class="promo-testimonials-image" src="/images/Testimonials/4.png">
+                    </td>
+                    <td class="testimonial-text-td">
+                        "Webcand makes our small HR team feel like a big one. The automation is a game changer."
+                        <div class="testimonial-name">– Nina L., Startup Founder</div>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <img id="promo-tablet-image" src="/images/promo-tablet.png" alt="tablet image">
+
+        </div>
+
+        <div id="div-change-language">
+            <input type="button" class="button-link" value="English" onclick="changeLanguage('en');"><br>
+            <input type="button" class="button-link" value="עברית" onclick="changeLanguage('he');"><br>
+            <input type="button" class="button-link" value="Français" onclick="changeLanguage('fr');"><br>
+            <input type="button" class="button-link" value="Español" onclick="changeLanguage('co');"><br>
+            <input type="button" class="button-link" value="Português" onclick="changeLanguage('pt');"><br>
+            <input type="button" class="button-link" value="Русский" onclick="changeLanguage('ru');"><br>
+            <input type="button" class="button-link" value="中文" onclick="changeLanguage('zh');">
+        </div>
+
+        <div id="div-footer" class="valigned">
+            <a class="link" onclick="$('#div-change-language').slideToggle();">Language</a>&nbsp;&nbsp;&nbsp;
+            <a class="link" onclick="window.location.href='/contact'">Contact</a>&nbsp;&nbsp;&nbsp;
+            <a class="link" href="/d.p" target="_blank">Privacy Policy</a>&nbsp;&nbsp;&nbsp;
+            <i class="link fab fa-instagram" style="font-size: 22px;display: none;"></i>
+            <i class="link fab fa-facebook" style="font-size: 22px;" onclick="window.open('https://www.facebook.com/webcand', '_blank');"></i>&nbsp;&nbsp;&nbsp;
+            <i class="link fab fa-linkedin" style="font-size: 22px;" onclick="window.open('https://www.linkedin.com/company/webcand','_blank')"></i>
+        </div>
+    
+
+        <div id="cookieAgreementDiv" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f1f1f1; color: #212121ff; padding-top:15px; box-shadow: 0 -2px 5px rgba(0,0,0,0.3); z-index: 1000;direction: ltr;">
+            <div style="width: 100%;text-align: center;padding-bottom: 50px;">
+                <div style="margin-bottom: 10px; font-size: 17px;">
+                    <div>We use cookies to ensure you get the best experience on our website.</div>
+                    <div>By continuing to use our site, you accept our <a href="/d.p" target="_blank">Privacy and Cookie Policy</a>.</div>
+                </div>
+
+                <button id="acceptCookiesButton" style="padding:6px 20px; background-color:#00A19A; color:white;font-size:20px; border:none; border-radius:40px; cursor:pointer;">
+                        Accept
+                </button>
+
+                <button id="declineCookiesButton" style="padding:6px 20px; background-color:#cccccc; color:#000;font-size:20px; border:none; border-radius:40px; cursor:pointer; margin-left:10px;">
+                        Decline
+                </button>
+
+                <br><br>
+            </div>
+        </div>
+        </body></html>

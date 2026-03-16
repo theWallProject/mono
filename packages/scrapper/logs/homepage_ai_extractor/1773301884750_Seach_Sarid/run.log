@@ -1,0 +1,71 @@
+[2026-03-12T07:51:24.751Z] === Homepage AI Extractor: Seach Sarid ===
+[2026-03-12T07:51:24.751Z] Started at: 2026-03-12T07:51:24.751Z
+[2026-03-12T07:51:24.751Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773301884750_Seach_Sarid
+[2026-03-12T07:51:24.751Z] Company: Seach Sarid
+[2026-03-12T07:51:24.751Z] Website: seach.co.il
+[2026-03-12T07:51:24.751Z] cbRank: 853524
+[2026-03-12T07:51:24.752Z] Reasons: h
+[2026-03-12T07:51:24.752Z] Fetching: https://seach.co.il
+[2026-03-12T07:51:26.909Z] Redirected: https://seach.co.il -> https://seach.co.il/
+[2026-03-12T07:51:26.927Z] Saved HTML (412555 bytes) to page.html
+[2026-03-12T07:51:26.933Z] Extracted 40 unique links from page
+[2026-03-12T07:51:26.934Z] Saved 40 links to links.json
+[2026-03-12T07:51:26.963Z] Extracted footer HTML (43108 chars)
+[2026-03-12T07:51:26.963Z] Extracted header HTML (43348 chars)
+[2026-03-12T07:51:27.011Z] Website (post-redirect): https://seach.co.il/ → origin: https://seach.co.il
+[2026-03-12T07:51:27.017Z] External links: 4 (of 40 total)
+[2026-03-12T07:51:27.017Z] ── All external links ──
+[2026-03-12T07:51:27.017Z]   EXT: https://api.whatsapp.com/send?phone=972584158411
+[2026-03-12T07:51:27.017Z]   EXT: https://www.facebook.com/seachmedical
+[2026-03-12T07:51:27.017Z]   EXT: https://www.instagram.com/seach
+[2026-03-12T07:51:27.017Z]   EXT: https://www.linkedin.com/company/seach-medical-cannabis-group
+[2026-03-12T07:51:27.017Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T07:51:27.018Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972584158411
+[2026-03-12T07:51:27.018Z]   REGEX: fb <- https://www.facebook.com/seachmedical
+[2026-03-12T07:51:27.018Z]   REGEX: ig <- https://www.instagram.com/seach
+[2026-03-12T07:51:27.018Z]   REGEX: li <- https://www.linkedin.com/company/seach-medical-cannabis-group
+[2026-03-12T07:51:27.018Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-12T07:51:27.018Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T07:51:27.035Z] Saved AI prompt (3027 chars) to ai_prompt.txt
+[2026-03-12T07:51:27.035Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T07:51:27.053Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T07:51:38.093Z]   AI: First token received, streaming...
+[2026-03-12T07:51:44.400Z] AI response complete: 134 chars in 17.4s
+[2026-03-12T07:51:44.401Z] Saved AI response to ai_response.json
+[2026-03-12T07:51:44.401Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T07:51:44.401Z]   AI LINK: https://www.facebook.com/seachmedical/
+[2026-03-12T07:51:44.401Z]   AI LINK: https://www.instagram.com/seach/
+[2026-03-12T07:51:44.401Z]   AI LINK: https://www.linkedin.com/company/seach-medical-cannabis-group/
+[2026-03-12T07:51:44.401Z] AI returned 3 valid links
+[2026-03-12T07:51:44.401Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T07:51:44.402Z]   AI→REGEX: fb <- https://www.facebook.com/seachmedical/ (duplicate, skipped)
+[2026-03-12T07:51:44.402Z]   AI→REGEX: ig <- https://www.instagram.com/seach/ (duplicate, skipped)
+[2026-03-12T07:51:44.402Z]   AI→REGEX: li <- https://www.linkedin.com/company/seach-medical-cannabis-group/ (duplicate, skipped)
+[2026-03-12T07:51:44.402Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T07:51:44.403Z] Footer/header origins (5):
+[2026-03-12T07:51:44.403Z]   FOOTER/HEADER ORIGIN: https://seach.co.il
+[2026-03-12T07:51:44.403Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T07:51:44.403Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T07:51:44.403Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T07:51:44.403Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-12T07:51:44.403Z]   ADDED: urls <- https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972584158411)
+[2026-03-12T07:51:44.403Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T07:51:44.403Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T07:51:44.403Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T07:51:44.403Z] ── Step 3: Final dedup ──
+[2026-03-12T07:51:44.404Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T07:51:44.404Z] ── FINAL RESULT ──
+[2026-03-12T07:51:44.404Z]   ws (1):
+[2026-03-12T07:51:44.404Z]     - https://seach.co.il
+[2026-03-12T07:51:44.404Z]   li (1):
+[2026-03-12T07:51:44.404Z]     - https://www.linkedin.com/company/seach-medical-cannabis-group
+[2026-03-12T07:51:44.404Z]   fb (1):
+[2026-03-12T07:51:44.404Z]     - https://www.facebook.com/seachmedical
+[2026-03-12T07:51:44.404Z]   ig (1):
+[2026-03-12T07:51:44.404Z]     - https://www.instagram.com/seach
+[2026-03-12T07:51:44.404Z]   urls (1):
+[2026-03-12T07:51:44.404Z]     - https://api.whatsapp.com/send
+[2026-03-12T07:51:44.405Z] Summary: ws:1, fb:1, ig:1, li:1, urls:1
+[2026-03-12T07:51:44.405Z] Saved final result to result.json
+[2026-03-12T07:51:44.405Z] Override fields: ws, li, fb, ig, urls
+[2026-03-12T07:51:44.405Z] Finished at: 2026-03-12T07:51:44.405Z

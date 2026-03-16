@@ -1,0 +1,62 @@
+[2026-03-12T02:22:03.673Z] === Homepage AI Extractor: Wondernet ===
+[2026-03-12T02:22:03.673Z] Started at: 2026-03-12T02:22:03.673Z
+[2026-03-12T02:22:03.673Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773282123673_Wondernet
+[2026-03-12T02:22:03.673Z] Company: Wondernet
+[2026-03-12T02:22:03.674Z] Website: wondernet.co.il
+[2026-03-12T02:22:03.674Z] cbRank: 754203
+[2026-03-12T02:22:03.674Z] Reasons: h
+[2026-03-12T02:22:03.674Z] Fetching: https://wondernet.co.il
+[2026-03-12T02:22:06.151Z] Redirected: https://wondernet.co.il -> https://www.wondernet.co.il/
+[2026-03-12T02:22:06.155Z] Saved HTML (56640 bytes) to page.html
+[2026-03-12T02:22:06.159Z] Extracted 25 unique links from page
+[2026-03-12T02:22:06.160Z] Saved 25 links to links.json
+[2026-03-12T02:22:06.163Z] Extracted footer HTML (3512 chars)
+[2026-03-12T02:22:06.163Z] Extracted header HTML (7647 chars)
+[2026-03-12T02:22:06.167Z] Website (post-redirect): https://www.wondernet.co.il/ → origin: https://www.wondernet.co.il
+[2026-03-12T02:22:06.167Z] External links: 3 (of 25 total)
+[2026-03-12T02:22:06.167Z] ── All external links ──
+[2026-03-12T02:22:06.167Z]   EXT: http://www.linkedin.com/company/78852?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A19027541378221414553%2CVSRPtargetId%3A78852%2CVSRPcmpt%3Aprimary
+[2026-03-12T02:22:06.167Z]   EXT: http://www.wn-concord.com
+[2026-03-12T02:22:06.167Z]   EXT: https://goo.gl/hQiD7p
+[2026-03-12T02:22:06.168Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T02:22:06.168Z]   REGEX: li <- http://www.linkedin.com/company/78852?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A19027541378221414553%2CVSRPtargetId%3A78852%2CVSRPcmpt%3Aprimary
+[2026-03-12T02:22:06.168Z]   UNCATEGORIZED: http://www.wn-concord.com
+[2026-03-12T02:22:06.168Z]   UNCATEGORIZED: https://goo.gl/hQiD7p
+[2026-03-12T02:22:06.168Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-12T02:22:06.168Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T02:22:06.169Z] Saved AI prompt (3925 chars) to ai_prompt.txt
+[2026-03-12T02:22:06.169Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T02:22:06.184Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T02:22:20.961Z]   AI: First token received, streaming...
+[2026-03-12T02:22:21.647Z] AI response complete: 28 chars in 15.5s
+[2026-03-12T02:22:21.649Z] Saved AI response to ai_response.json
+[2026-03-12T02:22:21.649Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T02:22:21.649Z]   AI LINK: https://www.wondernet.co.il/
+[2026-03-12T02:22:21.650Z] AI returned 1 valid links
+[2026-03-12T02:22:21.650Z] ── Categorizing 1 AI-returned links ──
+[2026-03-12T02:22:21.650Z]   AI→URLS: https://www.wondernet.co.il (cleaned from https://www.wondernet.co.il/)
+[2026-03-12T02:22:21.650Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T02:22:21.650Z] Footer/header origins (3):
+[2026-03-12T02:22:21.650Z]   FOOTER/HEADER ORIGIN: https://www.wondernet.co.il
+[2026-03-12T02:22:21.651Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-12T02:22:21.651Z]   FOOTER/HEADER ORIGIN: http://www.wn-concord.com
+[2026-03-12T02:22:21.651Z]   ADDED: urls <- http://www.wn-concord.com
+[2026-03-12T02:22:21.651Z]   ADDED: urls <- https://goo.gl/hQiD7p
+[2026-03-12T02:22:21.651Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T02:22:21.651Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T02:22:21.651Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T02:22:21.651Z] ── Step 3: Final dedup ──
+[2026-03-12T02:22:21.651Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-12T02:22:21.651Z] ── FINAL RESULT ──
+[2026-03-12T02:22:21.651Z]   ws (1):
+[2026-03-12T02:22:21.651Z]     - https://www.wondernet.co.il
+[2026-03-12T02:22:21.652Z]   li (1):
+[2026-03-12T02:22:21.652Z]     - https://www.linkedin.com/company/78852
+[2026-03-12T02:22:21.652Z]   urls (3):
+[2026-03-12T02:22:21.652Z]     - http://www.wn-concord.com
+[2026-03-12T02:22:21.652Z]     - https://goo.gl/hQiD7p
+[2026-03-12T02:22:21.652Z]     - https://www.wondernet.co.il
+[2026-03-12T02:22:21.652Z] Summary: ws:1, li:1, urls:3
+[2026-03-12T02:22:21.652Z] Saved final result to result.json
+[2026-03-12T02:22:21.653Z] Override fields: ws, li, urls
+[2026-03-12T02:22:21.653Z] Finished at: 2026-03-12T02:22:21.653Z

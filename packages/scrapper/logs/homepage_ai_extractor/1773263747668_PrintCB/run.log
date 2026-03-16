@@ -1,0 +1,69 @@
+[2026-03-11T21:15:47.669Z] === Homepage AI Extractor: PrintCB ===
+[2026-03-11T21:15:47.669Z] Started at: 2026-03-11T21:15:47.669Z
+[2026-03-11T21:15:47.669Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773263747668_PrintCB
+[2026-03-11T21:15:47.669Z] Company: PrintCB
+[2026-03-11T21:15:47.669Z] Website: printcb.com
+[2026-03-11T21:15:47.669Z] cbRank: 663718
+[2026-03-11T21:15:47.669Z] Reasons: h
+[2026-03-11T21:15:47.669Z] Fetching: https://printcb.com
+[2026-03-11T21:15:59.241Z] Network idle timeout — continuing with current state
+[2026-03-11T21:15:59.282Z] Redirected: https://printcb.com -> https://www.printcb.com/
+[2026-03-11T21:15:59.285Z] Saved HTML (26858 bytes) to page.html
+[2026-03-11T21:15:59.288Z] Extracted 20 unique links from page
+[2026-03-11T21:15:59.288Z] Saved 20 links to links.json
+[2026-03-11T21:15:59.291Z] Extracted footer HTML (4005 chars)
+[2026-03-11T21:15:59.291Z] Extracted header HTML (5706 chars)
+[2026-03-11T21:15:59.296Z] Website (post-redirect): https://www.printcb.com/ → origin: https://www.printcb.com
+[2026-03-11T21:15:59.297Z] External links: 3 (of 20 total)
+[2026-03-11T21:15:59.297Z] ── All external links ──
+[2026-03-11T21:15:59.297Z]   EXT: https://www.facebook.com/Printcb
+[2026-03-11T21:15:59.297Z]   EXT: https://www.linkedin.com/company/printcb
+[2026-03-11T21:15:59.297Z]   EXT: https://www.youtube.com/channel/UCctkLIEw8uayMW6A3kyqxeg
+[2026-03-11T21:15:59.297Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T21:15:59.297Z]   REGEX: fb <- https://www.facebook.com/Printcb
+[2026-03-11T21:15:59.297Z]   REGEX: li <- https://www.linkedin.com/company/printcb
+[2026-03-11T21:15:59.297Z]   REGEX: ytc <- https://www.youtube.com/channel/UCctkLIEw8uayMW6A3kyqxeg
+[2026-03-11T21:15:59.297Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-11T21:15:59.298Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T21:15:59.299Z] Saved AI prompt (4071 chars) to ai_prompt.txt
+[2026-03-11T21:15:59.300Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T21:15:59.320Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T21:16:15.218Z]   AI: First token received, streaming...
+[2026-03-11T21:16:23.704Z] AI response complete: 130 chars in 24.4s
+[2026-03-11T21:16:23.707Z] Saved AI response to ai_response.json
+[2026-03-11T21:16:23.707Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T21:16:23.707Z]   AI LINK: https://www.youtube.com/channel/UCctkLIEw8uayMW6A3kyqxeg
+[2026-03-11T21:16:23.707Z]   AI LINK: https://www.facebook.com/Printcb
+[2026-03-11T21:16:23.707Z]   AI LINK: https://www.linkedin.com/company/printcb
+[2026-03-11T21:16:23.708Z] AI returned 3 valid links
+[2026-03-11T21:16:23.708Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T21:16:23.708Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCctkLIEw8uayMW6A3kyqxeg (duplicate, skipped)
+[2026-03-11T21:16:23.708Z]   AI→REGEX: fb <- https://www.facebook.com/Printcb (duplicate, skipped)
+[2026-03-11T21:16:23.708Z]   AI→REGEX: li <- https://www.linkedin.com/company/printcb (duplicate, skipped)
+[2026-03-11T21:16:23.709Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T21:16:23.709Z] Footer/header origins (3):
+[2026-03-11T21:16:23.709Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T21:16:23.709Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T21:16:23.709Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T21:16:23.709Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T21:16:23.709Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T21:16:23.709Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-11T21:16:24.669Z]   YOUTUBE: resolved UCctkLIEw8uayMW6A3kyqxeg → @printcb793
+[2026-03-11T21:16:24.669Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-11T21:16:24.670Z] ── Step 3: Final dedup ──
+[2026-03-11T21:16:24.670Z] No urls to dedup
+[2026-03-11T21:16:24.670Z] ── FINAL RESULT ──
+[2026-03-11T21:16:24.670Z]   ws (1):
+[2026-03-11T21:16:24.670Z]     - https://www.printcb.com
+[2026-03-11T21:16:24.670Z]   li (1):
+[2026-03-11T21:16:24.670Z]     - https://www.linkedin.com/company/printcb
+[2026-03-11T21:16:24.670Z]   fb (1):
+[2026-03-11T21:16:24.670Z]     - https://www.facebook.com/printcb
+[2026-03-11T21:16:24.670Z]   ytp (1):
+[2026-03-11T21:16:24.670Z]     - https://www.youtube.com/@printcb793
+[2026-03-11T21:16:24.670Z]   ytc (1):
+[2026-03-11T21:16:24.670Z]     - https://www.youtube.com/channel/UCctkLIEw8uayMW6A3kyqxeg
+[2026-03-11T21:16:24.670Z] Summary: ws:1, fb:1, li:1, ytc:1, ytp:1
+[2026-03-11T21:16:24.673Z] Saved final result to result.json
+[2026-03-11T21:16:24.673Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-11T21:16:24.673Z] Finished at: 2026-03-11T21:16:24.673Z

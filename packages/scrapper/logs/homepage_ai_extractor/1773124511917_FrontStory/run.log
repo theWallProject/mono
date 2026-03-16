@@ -1,0 +1,66 @@
+[2026-03-10T06:35:11.917Z] === Homepage AI Extractor: FrontStory ===
+[2026-03-10T06:35:11.917Z] Started at: 2026-03-10T06:35:11.917Z
+[2026-03-10T06:35:11.917Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773124511917_FrontStory
+[2026-03-10T06:35:11.917Z] Company: FrontStory
+[2026-03-10T06:35:11.917Z] Website: frontstory.com
+[2026-03-10T06:35:11.917Z] cbRank: 413157
+[2026-03-10T06:35:11.918Z] Reasons: h
+[2026-03-10T06:35:11.918Z] Fetching: https://frontstory.com
+[2026-03-10T06:35:15.527Z] Redirected: https://frontstory.com -> https://www.frontstory.com/
+[2026-03-10T06:35:15.545Z] Saved HTML (567559 bytes) to page.html
+[2026-03-10T06:35:15.548Z] Extracted 13 unique links from page
+[2026-03-10T06:35:15.549Z] Saved 13 links to links.json
+[2026-03-10T06:35:15.552Z] Extracted footer HTML (10481 chars)
+[2026-03-10T06:35:15.552Z] Extracted header HTML (516 chars)
+[2026-03-10T06:35:15.555Z] Website (post-redirect): https://www.frontstory.com/ → origin: https://www.frontstory.com
+[2026-03-10T06:35:15.556Z] External links: 4 (of 13 total)
+[2026-03-10T06:35:15.556Z] ── All external links ──
+[2026-03-10T06:35:15.556Z]   EXT: https://monetizego.com
+[2026-03-10T06:35:15.556Z]   EXT: https://www.facebook.com/myfrontstory
+[2026-03-10T06:35:15.556Z]   EXT: https://www.linkedin.com/company/frontstory
+[2026-03-10T06:35:15.556Z]   EXT: https://www.monetizego.com
+[2026-03-10T06:35:15.556Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:35:15.556Z]   UNCATEGORIZED: https://monetizego.com
+[2026-03-10T06:35:15.556Z]   REGEX: fb <- https://www.facebook.com/myfrontstory
+[2026-03-10T06:35:15.556Z]   REGEX: li <- https://www.linkedin.com/company/frontstory
+[2026-03-10T06:35:15.556Z]   UNCATEGORIZED: https://www.monetizego.com
+[2026-03-10T06:35:15.556Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-10T06:35:15.557Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:35:15.557Z] Saved AI prompt (8561 chars) to ai_prompt.txt
+[2026-03-10T06:35:15.558Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:35:15.577Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:35:56.260Z]   AI: First token received, streaming...
+[2026-03-10T06:36:01.823Z] AI response complete: 110 chars in 46.3s
+[2026-03-10T06:36:01.825Z] Saved AI response to ai_response.json
+[2026-03-10T06:36:01.825Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T06:36:01.825Z]   AI LINK: https://www.frontstory.com/
+[2026-03-10T06:36:01.825Z]   AI LINK: https://www.linkedin.com/company/frontstory
+[2026-03-10T06:36:01.825Z]   AI LINK: https://www.facebook.com/myfrontstory/
+[2026-03-10T06:36:01.825Z] AI returned 3 valid links
+[2026-03-10T06:36:01.825Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T06:36:01.826Z]   AI→URLS: https://www.frontstory.com (cleaned from https://www.frontstory.com/)
+[2026-03-10T06:36:01.826Z]   AI→REGEX: li <- https://www.linkedin.com/company/frontstory (duplicate, skipped)
+[2026-03-10T06:36:01.826Z]   AI→REGEX: fb <- https://www.facebook.com/myfrontstory/ (duplicate, skipped)
+[2026-03-10T06:36:01.826Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:36:01.826Z] Footer/header origins (3):
+[2026-03-10T06:36:01.826Z]   FOOTER/HEADER ORIGIN: https://www.frontstory.com
+[2026-03-10T06:36:01.826Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T06:36:01.826Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T06:36:01.826Z]   SKIP (not in footer/header): https://monetizego.com
+[2026-03-10T06:36:01.826Z]   SKIP (not in footer/header): https://www.monetizego.com
+[2026-03-10T06:36:01.826Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T06:36:01.826Z] ── Step 3: Final dedup ──
+[2026-03-10T06:36:01.826Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T06:36:01.826Z] ── FINAL RESULT ──
+[2026-03-10T06:36:01.826Z]   ws (1):
+[2026-03-10T06:36:01.826Z]     - https://www.frontstory.com
+[2026-03-10T06:36:01.827Z]   li (1):
+[2026-03-10T06:36:01.827Z]     - https://www.linkedin.com/company/frontstory
+[2026-03-10T06:36:01.827Z]   fb (1):
+[2026-03-10T06:36:01.827Z]     - https://www.facebook.com/myfrontstory
+[2026-03-10T06:36:01.827Z]   urls (1):
+[2026-03-10T06:36:01.827Z]     - https://www.frontstory.com
+[2026-03-10T06:36:01.827Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-10T06:36:01.827Z] Saved final result to result.json
+[2026-03-10T06:36:01.827Z] Override fields: ws, li, fb
+[2026-03-10T06:36:01.827Z] Finished at: 2026-03-10T06:36:01.827Z

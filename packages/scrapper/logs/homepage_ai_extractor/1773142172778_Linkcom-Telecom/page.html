@@ -1,0 +1,1044 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.3",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseenter","mouseout","mouseleave","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input","visibilitychange"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),this.F("domReady"),await this.T(),await this.j(),await this.I(),this.F("windowLoad"),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise((t=>setTimeout(t,500-Date.now()+this.lastTouchEnd))),this.H(),this.F("all"),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))}),{isRocket:!0})}o(){window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0}),{isRocket:!0}),window.addEventListener("pagehide",(()=>{this.onFirstUserAction=null}),{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",(function i(o){Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1})),event.preventDefault(),window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}))}),{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),this.savedUserEvents.length>0&&(t.stopPropagation(),t.stopImmediatePropagation()),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach((t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})))}U(){this.userEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0}))),this.savedUserEvents.forEach((t=>{t.target.dispatchEvent(new window[t.constructor.name](t.type,t))}))}m(){this.eventsMutationObserver=new MutationObserver((t=>{const e="return false";for(const i of t){if("attributes"===i.type){const t=i.target.getAttribute(i.attributeName);t&&t!==e&&(i.target.setAttribute("data-rocket-"+i.attributeName,t),i.target["rocket"+i.attributeName]=new Function("event",t),i.target.setAttribute(i.attributeName,e))}"childList"===i.type&&i.addedNodes.forEach((t=>{if(t.nodeType===Node.ELEMENT_NODE)for(const i of t.attributes)this.attributeEvents.includes(i.name)&&i.value&&""!==i.value&&(t.setAttribute("data-rocket-"+i.name,i.value),t["rocket"+i.name]=new Function("event",i.value),t.setAttribute(i.name,e))}))}})),this.eventsMutationObserver.observe(document,{subtree:!0,childList:!0,attributeFilter:this.attributeEvents})}H(){this.eventsMutationObserver.disconnect(),this.attributeEvents.forEach((t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach((e=>{e.setAttribute(t,e.getAttribute("data-rocket-"+t)),e.removeAttribute("data-rocket-"+t)}))}))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o})},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}F(t){"all"===t&&(EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener),this.savedEventListeners=this.savedEventListeners.filter((e=>{let i=e.type,o=e.target||window;return"domReady"===t&&"DOMContentLoaded"!==i&&"readystatechange"!==i||("windowLoad"===t&&"load"!==i&&"readystatechange"!==i&&"pageshow"!==i||(this.B(i,o)&&(i="rocket-"+i),e.remove?o.removeEventListener(i,e.func,e.options):o.addEventListener(i,e.func,e.options),!1))}))}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,(()=>{e[t].forEach((t=>t()))}),{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout((()=>i.bind(document)(o))):i.bind(document)(o)}return t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise((t=>{this.userActionTriggered?t():this.onFirstUserAction=t}))}async L(){return new Promise((t=>{document.addEventListener("DOMContentLoaded",(()=>{this.realDomReadyFired=!0,t()}),{isRocket:!0})}))}async I(){return this.realWindowLoadedFired?Promise.resolve():new Promise((t=>{window.addEventListener("load",t,{isRocket:!0})}))}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver((t=>{for(const e of t)e.addedNodes.forEach((t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise((e=>{const i=()=>{const i=this.pendingScripts.findIndex((e=>e.script===t));i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)}))})}))})),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async j(){await this.J(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.j()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.N(t,"preconnect")}async $(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",(()=>{i.setAttribute("data-rocket-status","failed-network"),e()}),{isRocket:!0}),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.$(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())}),{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.$(e),this.C(t)):Promise.resolve()}O(){this.N([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}N(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach((t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}})),document.head.appendChild(o)}W(){this.trash.forEach((t=>t.remove()))}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async G(){Date.now()-this.lastBreath>45&&(await this.J(),this.lastBreath=Date.now())}async J(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>Linkcom-Telecom</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="alternate" type="application/rss+xml" title="Linkcom-Telecom » Feed" href="https://linkcom-telecom.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Linkcom-Telecom » Comments Feed" href="https://linkcom-telecom.com/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://linkcom-telecom.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flinkcom-telecom.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://linkcom-telecom.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flinkcom-telecom.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel="stylesheet" id="jet-engine-frontend-css" href="https://linkcom-telecom.com/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=3.3.4" media="all">
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="hello-elementor-css" href="https://linkcom-telecom.com/wp-content/themes/hello-elementor/style.min.css?ver=3.1.1" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://linkcom-telecom.com/wp-content/themes/hello-elementor/theme.min.css?ver=3.1.1" media="all">
+<link rel="stylesheet" id="hello-elementor-header-footer-css" href="https://linkcom-telecom.com/wp-content/themes/hello-elementor/header-footer.min.css?ver=3.1.1" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="elementor-post-6-css" href="https://linkcom-telecom.com/wp-content/uploads/elementor/css/post-6.css?ver=1773139646" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="widget-icon-list-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="widget-mega-menu-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/css/widget-mega-menu.min.css?ver=3.25.4" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="e-animation-shrink-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="widget-form-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=3.25.4" media="all">
+<link rel="stylesheet" id="widget-text-editor-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/widget-text-editor.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="widget-social-icons-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="e-apple-webkit-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="e-popup-style-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=3.25.4" media="all">
+<link rel="stylesheet" id="bdt-uikit-css" href="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/css/bdt-uikit.css?ver=3.21.7" media="all">
+<link data-minify="1" rel="stylesheet" id="ep-helper-css" href="https://linkcom-telecom.com/wp-content/cache/min/1/wp-content/plugins/bdthemes-element-pack/assets/css/ep-helper.css?ver=1773140858" media="all">
+<link data-minify="1" rel="stylesheet" id="ep-advanced-heading-css" href="https://linkcom-telecom.com/wp-content/cache/min/1/wp-content/plugins/bdthemes-element-pack/assets/css/ep-advanced-heading.css?ver=1773140858" media="all">
+<link data-minify="1" rel="stylesheet" id="ep-advanced-counter-css" href="https://linkcom-telecom.com/wp-content/cache/min/1/wp-content/plugins/bdthemes-element-pack/assets/css/ep-advanced-counter.css?ver=1773140858" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-css" href="https://linkcom-telecom.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1773140858" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.27.5" media="all">
+<link rel="stylesheet" id="widget-image-carousel-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css?ver=3.27.5" media="all">
+<link data-minify="1" rel="stylesheet" id="ep-font-css" href="https://linkcom-telecom.com/wp-content/cache/min/1/wp-content/plugins/bdthemes-element-pack/assets/css/ep-font.css?ver=1773140858" media="all">
+<link data-minify="1" rel="stylesheet" id="ep-post-grid-css" href="https://linkcom-telecom.com/wp-content/cache/min/1/wp-content/plugins/bdthemes-element-pack/assets/css/ep-post-grid.css?ver=1773140858" media="all">
+<link rel="stylesheet" id="elementor-post-131-css" href="https://linkcom-telecom.com/wp-content/uploads/elementor/css/post-131.css?ver=1773139648" media="all">
+<link rel="stylesheet" id="elementor-post-994-css" href="https://linkcom-telecom.com/wp-content/uploads/elementor/css/post-994.css?ver=1773139648" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://linkcom-telecom.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://linkcom-telecom.com/wp-json/wp/v2/pages/1084"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://linkcom-telecom.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.1">
+<link rel="canonical" href="https://linkcom-telecom.com/">
+<link rel="shortlink" href="https://linkcom-telecom.com/">
+<meta name="generator" content="Elementor 3.27.5; features: e_font_icon_svg, additional_custom_breakpoints, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://linkcom-telecom.com/wp-content/uploads/2024/12/cropped-עיצוב-ללא-שם-2024-12-10T205227.353-32x32.png" sizes="32x32">
+<link rel="icon" href="https://linkcom-telecom.com/wp-content/uploads/2024/12/cropped-עיצוב-ללא-שם-2024-12-10T205227.353-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://linkcom-telecom.com/wp-content/uploads/2024/12/cropped-עיצוב-ללא-שם-2024-12-10T205227.353-180x180.png">
+<meta name="msapplication-TileImage" content="https://linkcom-telecom.com/wp-content/uploads/2024/12/cropped-עיצוב-ללא-שם-2024-12-10T205227.353-270x270.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link rel="stylesheet" id="e-motion-fx-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=3.25.4" media="all">
+<link rel="stylesheet" id="e-sticky-css" href="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.25.4" media="all">
+
+<meta name="generator" content="WP Rocket 3.19.0.1" data-wpr-features="wpr_delay_js wpr_minify_js wpr_lazyload_images wpr_minify_css"></head>
+<body class="home wp-singular page-template-default page page-id-1084 wp-custom-logo wp-theme-hello-elementor elementor-default elementor-kit-6 elementor-page elementor-page-1084">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<div data-elementor-type="header" data-elementor-id="131" class="elementor elementor-131 elementor-location-header" data-elementor-settings="{&quot;element_pack_global_tooltip_width&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true}}" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-52ffc6c e-con-full e-flex e-con e-parent" data-id="52ffc6c" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;background_motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;background_motion_fx_opacity_effect&quot;:&quot;yes&quot;,&quot;background_motion_fx_opacity_range&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:95,&quot;end&quot;:100}},&quot;sticky&quot;:&quot;top&quot;,&quot;background_motion_fx_opacity_direction&quot;:&quot;out-in&quot;,&quot;background_motion_fx_opacity_level&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;background_motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+				<div data-rocket-location-hash="1bd57ee2524f42bd09820d8a2e248b06" class="elementor-element elementor-element-7e45e08 elementor-widget__width-initial elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="7e45e08" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://linkcom-telecom.com">
+			<img width="300" height="100" src="https://linkcom-telecom.com/wp-content/uploads/2024/12/Untitled-design-6-e1740992104545.png" class="attachment-full size-full wp-image-1145 entered lazyloaded" alt="" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2024/12/Untitled-design-6-e1740992104545.png" data-ll-status="loaded"><noscript><img width="300" height="100" src="https://linkcom-telecom.com/wp-content/uploads/2024/12/Untitled-design-6-e1740992104545.png" class="attachment-full size-full wp-image-1145" alt="" /></noscript>				</a>
+											</div>
+				</div>
+				<div class="elementor-element elementor-element-64c7b43 elementor-widget-mobile__width-initial elementor-widget__width-initial e-full_width e-n-menu-layout-horizontal e-n-menu-tablet elementor-widget elementor-widget-n-menu" data-id="64c7b43" data-element_type="widget" data-settings="{&quot;menu_items&quot;:[{&quot;item_title&quot;:&quot;home&quot;,&quot;_id&quot;:&quot;7040f3c&quot;,&quot;__dynamic__&quot;:{&quot;item_link&quot;:&quot;[elementor-tag id=\&quot;d32dc70\&quot; name=\&quot;site-url\&quot; settings=\&quot;%7B%7D\&quot;]&quot;},&quot;item_link&quot;:{&quot;url&quot;:&quot;https:\/\/linkcom-telecom.com&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;},{&quot;item_title&quot;:&quot;services&quot;,&quot;_id&quot;:&quot;c0b20bc&quot;,&quot;__dynamic__&quot;:{&quot;item_link&quot;:&quot;[elementor-tag id=\&quot;fd43331\&quot; name=\&quot;internal-url\&quot; settings=\&quot;%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%2255%22%7D\&quot;]&quot;},&quot;item_dropdown_content&quot;:&quot;yes&quot;,&quot;item_link&quot;:{&quot;url&quot;:&quot;https:\/\/linkcom-telecom.com\/services\/&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;},{&quot;item_title&quot;:&quot;projects&quot;,&quot;_id&quot;:&quot;48ea0ff&quot;,&quot;__dynamic__&quot;:{&quot;item_link&quot;:&quot;[elementor-tag id=\&quot;aef5f28\&quot; name=\&quot;internal-url\&quot; settings=\&quot;%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%2257%22%7D\&quot;]&quot;},&quot;item_link&quot;:{&quot;url&quot;:&quot;https:\/\/linkcom-telecom.com\/projects\/&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;},{&quot;item_title&quot;:&quot;partners&quot;,&quot;_id&quot;:&quot;9305d0c&quot;,&quot;__dynamic__&quot;:{&quot;item_link&quot;:&quot;[elementor-tag id=\&quot;55e01d9\&quot; name=\&quot;internal-url\&quot; settings=\&quot;%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%2264%22%7D\&quot;]&quot;},&quot;item_link&quot;:{&quot;url&quot;:&quot;https:\/\/linkcom-telecom.com\/partners-2\/&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;},{&quot;_id&quot;:&quot;7cc0c5a&quot;,&quot;item_title&quot;:&quot;about us&quot;,&quot;__dynamic__&quot;:{&quot;item_link&quot;:&quot;[elementor-tag id=\&quot;8da2609\&quot; name=\&quot;internal-url\&quot; settings=\&quot;%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%2266%22%7D\&quot;]&quot;},&quot;item_link&quot;:{&quot;url&quot;:&quot;https:\/\/linkcom-telecom.com\/about\/&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;},{&quot;_id&quot;:&quot;07751fa&quot;,&quot;item_title&quot;:&quot;articles&quot;,&quot;__dynamic__&quot;:{&quot;item_link&quot;:&quot;[elementor-tag id=\&quot;ea2b9be\&quot; name=\&quot;internal-url\&quot; settings=\&quot;%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%22829%22%7D\&quot;]&quot;},&quot;item_link&quot;:{&quot;url&quot;:&quot;https:\/\/linkcom-telecom.com\/articles\/&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;},{&quot;_id&quot;:&quot;1760ffa&quot;,&quot;item_title&quot;:&quot;contact us&quot;,&quot;__dynamic__&quot;:{&quot;item_link&quot;:&quot;[elementor-tag id=\&quot;311aa00\&quot; name=\&quot;internal-url\&quot; settings=\&quot;%7B%22type%22%3A%22post%22%2C%22post_id%22%3A%2259%22%7D\&quot;]&quot;},&quot;item_link&quot;:{&quot;url&quot;:&quot;https:\/\/linkcom-telecom.com\/partners\/&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;},&quot;item_dropdown_content&quot;:&quot;no&quot;,&quot;item_icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;item_icon_active&quot;:null,&quot;element_id&quot;:&quot;&quot;}],&quot;item_position_horizontal&quot;:&quot;center&quot;,&quot;item_position_horizontal_mobile&quot;:&quot;center&quot;,&quot;menu_item_title_distance_from_content_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;content_width&quot;:&quot;full_width&quot;,&quot;item_layout&quot;:&quot;horizontal&quot;,&quot;open_on&quot;:&quot;hover&quot;,&quot;horizontal_scroll&quot;:&quot;disable&quot;,&quot;breakpoint_selector&quot;:&quot;tablet&quot;,&quot;menu_item_title_distance_from_content&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;menu_item_title_distance_from_content_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="mega-menu.default">
+				<div class="elementor-widget-container">
+							<nav class="e-n-menu" data-widget-number="105" aria-label="Menu">
+					<button class="e-n-menu-toggle" id="menu-toggle-105" aria-haspopup="true" aria-expanded="false" aria-controls="menubar-105" aria-label="Menu Toggle">
+			<span class="e-n-menu-toggle-icon e-open">
+				<svg class="e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg>			</span>
+			<span class="e-n-menu-toggle-icon e-close">
+				<svg class="e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>			</span>
+		</button>
+					<div class="e-n-menu-wrapper" id="menubar-105" aria-labelledby="menu-toggle-105">
+				<ul class="e-n-menu-heading">
+								<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1051" class="e-n-menu-title e-current">
+					<a class="e-n-menu-title-container e-focus e-link" href="https://linkcom-telecom.com" aria-current="page">												<span class="e-n-menu-title-text">
+							home						</span>
+					</a>									</div>
+							</li>
+					<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1052" class="e-n-menu-title">
+					<a class="e-n-menu-title-container e-focus e-link" href="https://linkcom-telecom.com/services/">												<span class="e-n-menu-title-text">
+							services						</span>
+					</a>											<button id="e-n-menu-dropdown-icon-1052" class="e-n-menu-dropdown-icon e-focus" data-tab-index="2" aria-haspopup="true" aria-expanded="false" aria-controls="e-n-menu-content-1052">
+							<span class="e-n-menu-dropdown-icon-opened">
+								<svg aria-hidden="true" class="e-font-icon-svg e-fas-caret-up" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"></path></svg>								<span class="elementor-screen-only">Close services</span>
+							</span>
+							<span class="e-n-menu-dropdown-icon-closed">
+								<svg aria-hidden="true" class="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>								<span class="elementor-screen-only">Open services</span>
+							</span>
+						</button>
+									</div>
+									<div class="e-n-menu-content">
+						<div id="e-n-menu-content-1052" data-tab-index="2" aria-labelledby="e-n-menu-dropdown-icon-1052" class="elementor-element elementor-element-c330af2 e-con-full e-flex e-con e-child" data-id="c330af2" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-d7988be elementor-mobile-align-center elementor-widget__width-initial elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="d7988be" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Engineering and System Design</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">RFI Survey and Mitigation</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Site Survey and Layout</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Professional Installation Services</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Expertise in RF Testing</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Satellite Service Provider</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Training, Documentation, and Technical Support</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Equipment Supplier</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">Engineering and Consultancy</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				</div>
+							</div>
+							</li>
+					<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1053" class="e-n-menu-title">
+					<a class="e-n-menu-title-container e-focus e-link" href="https://linkcom-telecom.com/projects/">												<span class="e-n-menu-title-text">
+							projects						</span>
+					</a>									</div>
+							</li>
+					<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1054" class="e-n-menu-title">
+					<a class="e-n-menu-title-container e-focus e-link" href="https://linkcom-telecom.com/partners-2/">												<span class="e-n-menu-title-text">
+							partners						</span>
+					</a>									</div>
+							</li>
+					<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1055" class="e-n-menu-title">
+					<a class="e-n-menu-title-container e-focus e-link" href="https://linkcom-telecom.com/about/">												<span class="e-n-menu-title-text">
+							about us						</span>
+					</a>									</div>
+							</li>
+					<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1056" class="e-n-menu-title">
+					<a class="e-n-menu-title-container e-focus e-link" href="https://linkcom-telecom.com/articles/">												<span class="e-n-menu-title-text">
+							articles						</span>
+					</a>									</div>
+							</li>
+					<li class="e-n-menu-item">
+				<div id="e-n-menu-title-1057" class="e-n-menu-title">
+					<a class="e-n-menu-title-container e-focus e-link" href="https://linkcom-telecom.com/partners/">												<span class="e-n-menu-title-text">
+							contact us						</span>
+					</a>									</div>
+							</li>
+						</ul>
+			</div>
+		</nav>
+						</div>
+				</div>
+				<div data-rocket-location-hash="09473080f3b9bb837b7eaae831d2a1b9" class="elementor-element elementor-element-8ecf08d elementor-align-right elementor-widget__width-initial elementor-widget elementor-widget-button" data-id="8ecf08d" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/partners/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">contact</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+		
+<main data-rocket-location-hash="0328430c9bca80f131c27094e44096dc" id="content" class="site-main post-1084 page type-page status-publish hentry">
+
+	
+	<div data-rocket-location-hash="c83da318538040736752f757a6274db5" class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="1084" class="elementor elementor-1084" data-elementor-settings="{&quot;element_pack_global_tooltip_width&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true}}" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-473cd36 e-con-full e-flex e-con e-parent" data-id="473cd36" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/linkcom-telecom.com\/wp-content\/uploads\/2025\/03\/WhatsApp-Video-2025-03-03-at-09.45.14.mp4&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
+		<div class="elementor-background-video-container">
+							<video class="elementor-background-video-hosted" autoplay="" muted="" playsinline="" loop=""></video>
+					</div><div class="elementor-element elementor-element-25cbc30 e-con-full e-flex e-con e-child" data-id="25cbc30" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+				<div class="elementor-element elementor-element-9907ddc elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="9907ddc" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">BESPOKE INTEGRATED CUTTING EDGE </h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-c19e5ba elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="c19e5ba" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">SATELLITE COMMUNICATION</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-583ae8a elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="583ae8a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">TURNKEY TAILORED SOLUTION AND SERVICES.
+
+ ANYWHERE. ANYTIME!</h2>				</div>
+				</div>
+		<div class="elementor-element elementor-element-2ba5936 e-con-full e-flex e-con e-child" data-id="2ba5936" data-element_type="container">
+				<div class="elementor-element elementor-element-bc9a999 elementor-widget elementor-widget-button" data-id="bc9a999" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">CONTACT US</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-7318605 elementor-widget elementor-widget-button" data-id="7318605" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/projects/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">OUR PROJECTS</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-2f7666c e-flex e-con-boxed e-con e-child" data-id="2f7666c" data-element_type="container">
+					<div class="e-con-inner">
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-418c320 e-con-full e-flex e-con e-parent" data-id="418c320" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-e9dc446 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="e9dc446" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">OUR SERVICES</h2>				</div>
+				</div>
+		<div class="elementor-element elementor-element-08c0356 e-grid e-con-full e-con e-child" data-id="08c0356" data-element_type="container">
+		<div class="elementor-element elementor-element-016387f e-con-full e-flex e-con e-child" data-id="016387f" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-cc4ece5 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="cc4ece5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Engineering and System Design</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-14312a6 e-con-full e-flex e-con e-child" data-id="14312a6" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-6bfa30f elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="6bfa30f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">RFI Survey and Mitigation
+</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-2a5c455 e-con-full e-flex e-con e-child" data-id="2a5c455" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-7d66057 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="7d66057" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Site Survey and Layout
+</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-a7ca711 e-con-full e-flex e-con e-child" data-id="a7ca711" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-dbb5d56 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="dbb5d56" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Professional Installation Services</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-b0e506e e-con-full e-flex e-con e-child" data-id="b0e506e" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-8d5d57b elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="8d5d57b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Expertise in RF Testing
+</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-d20c3f6 e-con-full e-flex e-con e-child" data-id="d20c3f6" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-f79c619 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="f79c619" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Training, Documentation, and Technical Support
+</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-cd2edbe e-con-full e-flex e-con e-child" data-id="cd2edbe" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-c675895 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="c675895" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Satellite Service Provider
+</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-c279df2 e-con-full e-flex e-con e-child" data-id="c279df2" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-f8fa338 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="f8fa338" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Equipment Supplier
+</h2>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-93dcf72 e-con-full e-flex e-con e-child" data-id="93dcf72" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-c16edf9 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="c16edf9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Engineering and Consultancy
+</h2>				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-bb28bc2 e-con-full e-flex e-con e-child" data-id="bb28bc2" data-element_type="container">
+				<div class="elementor-element elementor-element-d5a3443 bdt-scroll-effect-yes elementor-widget__width-initial elementor-widget elementor-widget-bdt-advanced-heading" data-id="d5a3443" data-element_type="widget" data-settings="{&quot;ep_widget_sf_fx_enable&quot;:&quot;yes&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.5,&quot;sizes&quot;:[]},&quot;motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="bdt-advanced-heading.default">
+				<div class="elementor-widget-container">
+					<div id="d5a3443" class="bdt-ep-advanced-heading" data-settings="{&quot;titleMultiColor&quot;:&quot;no&quot;}"><h2 class="bdt-ep-advanced-heading-title"><span class="bdt-ep-advanced-heading-main-title"><span class="bdt-ep-advanced-heading-main-title-inner">LEARN MORE ABOUT OUR SERVICES</span></span></h2></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-61369c9 elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="61369c9" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">ALL SERVICES</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-2bc5698 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="2bc5698" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Linkcom by numbers</h2>				</div>
+				</div>
+		<div class="elementor-element elementor-element-e138b26 e-con-full e-flex e-con e-child" data-id="e138b26" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-8731a0c e-con-full e-flex e-con e-child" data-id="8731a0c" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+				<div class="elementor-element elementor-element-d1c2a4c elementor-widget__width-initial bdt-icon-type-icon elementor-position-top bdt-icon-effect-none elementor-widget elementor-widget-bdt-advanced-counter" data-id="d1c2a4c" data-element_type="widget" data-widget_type="bdt-advanced-counter.default">
+				<div class="elementor-widget-container">
+							<div class="bdt-ep-advanced-counter" data-settings="{&quot;id&quot;:&quot;bdt-ep-advanced-counter-data-d1c2a4c&quot;,&quot;countStart&quot;:1,&quot;countNumber&quot;:35,&quot;language&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;],&quot;duration&quot;:&quot;2&quot;,&quot;useEasing&quot;:&quot;yes&quot;,&quot;decimalSymbol&quot;:&quot;.&quot;,&quot;counterSuffix&quot;:&quot;+&quot;}">
+																<div class="bdt-ep-advanced-counter-icon-wrap">
+					<span class="bdt-ep-advanced-counter-icon">
+																								</span>
+				</div>
+					
+							<div class="bdt-ep-advanced-counter-content">
+									
+					<div class="bdt-ep-advanced-counter-number">
+				<span class="bdt-count-this" id="bdt-ep-advanced-counter-data-d1c2a4c">
+					35				</span>
+			</div>
+																				<h4 class="bdt-ep-advanced-counter-text">
+						Years of Experience					</h4>
+							</div>
+		</div>
+
+		
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-f3c14f4 elementor-widget__width-initial bdt-icon-type-icon elementor-position-top bdt-icon-effect-none elementor-widget elementor-widget-bdt-advanced-counter" data-id="f3c14f4" data-element_type="widget" data-widget_type="bdt-advanced-counter.default">
+				<div class="elementor-widget-container">
+							<div class="bdt-ep-advanced-counter" data-settings="{&quot;id&quot;:&quot;bdt-ep-advanced-counter-data-f3c14f4&quot;,&quot;countStart&quot;:1,&quot;countNumber&quot;:1000,&quot;language&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;],&quot;duration&quot;:&quot;2&quot;,&quot;useEasing&quot;:&quot;yes&quot;,&quot;decimalSymbol&quot;:&quot;.&quot;,&quot;counterSuffix&quot;:&quot;+&quot;}">
+																<div class="bdt-ep-advanced-counter-icon-wrap">
+					<span class="bdt-ep-advanced-counter-icon">
+																								</span>
+				</div>
+					
+							<div class="bdt-ep-advanced-counter-content">
+									
+					<div class="bdt-ep-advanced-counter-number">
+				<span class="bdt-count-this" id="bdt-ep-advanced-counter-data-f3c14f4">
+					1000				</span>
+			</div>
+																				<h4 class="bdt-ep-advanced-counter-text">
+						Satisfied customers					</h4>
+							</div>
+		</div>
+
+		
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-fce62bb elementor-widget__width-initial bdt-icon-type-icon elementor-position-top bdt-icon-effect-none elementor-widget elementor-widget-bdt-advanced-counter" data-id="fce62bb" data-element_type="widget" data-widget_type="bdt-advanced-counter.default">
+				<div class="elementor-widget-container">
+							<div class="bdt-ep-advanced-counter" data-settings="{&quot;id&quot;:&quot;bdt-ep-advanced-counter-data-fce62bb&quot;,&quot;countStart&quot;:1,&quot;countNumber&quot;:1500,&quot;language&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;],&quot;duration&quot;:&quot;2&quot;,&quot;useEasing&quot;:&quot;yes&quot;,&quot;decimalSymbol&quot;:&quot;.&quot;,&quot;counterSuffix&quot;:&quot;+&quot;}">
+																<div class="bdt-ep-advanced-counter-icon-wrap">
+					<span class="bdt-ep-advanced-counter-icon">
+																								</span>
+				</div>
+					
+							<div class="bdt-ep-advanced-counter-content">
+									
+					<div class="bdt-ep-advanced-counter-number">
+				<span class="bdt-count-this" id="bdt-ep-advanced-counter-data-fce62bb">
+					1500				</span>
+			</div>
+																				<h4 class="bdt-ep-advanced-counter-text">
+						Projects completed					</h4>
+							</div>
+		</div>
+
+		
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-2f2ee68 elementor-widget__width-initial bdt-icon-type-icon elementor-position-top bdt-icon-effect-none elementor-widget elementor-widget-bdt-advanced-counter" data-id="2f2ee68" data-element_type="widget" data-widget_type="bdt-advanced-counter.default">
+				<div class="elementor-widget-container">
+							<div class="bdt-ep-advanced-counter" data-settings="{&quot;id&quot;:&quot;bdt-ep-advanced-counter-data-2f2ee68&quot;,&quot;countStart&quot;:1,&quot;countNumber&quot;:100,&quot;language&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;],&quot;duration&quot;:&quot;2&quot;,&quot;useEasing&quot;:&quot;yes&quot;,&quot;decimalSymbol&quot;:&quot;.&quot;,&quot;counterSuffix&quot;:&quot;+&quot;}">
+																<div class="bdt-ep-advanced-counter-icon-wrap">
+					<span class="bdt-ep-advanced-counter-icon">
+																								</span>
+				</div>
+					
+							<div class="bdt-ep-advanced-counter-content">
+									
+					<div class="bdt-ep-advanced-counter-number">
+				<span class="bdt-count-this" id="bdt-ep-advanced-counter-data-2f2ee68">
+					100				</span>
+			</div>
+																				<h4 class="bdt-ep-advanced-counter-text">
+						Global footprint					</h4>
+							</div>
+		</div>
+
+		
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-d7f918a elementor-widget__width-initial bdt-icon-type-icon elementor-position-top bdt-icon-effect-none elementor-widget elementor-widget-bdt-advanced-counter" data-id="d7f918a" data-element_type="widget" data-widget_type="bdt-advanced-counter.default">
+				<div class="elementor-widget-container">
+							<div class="bdt-ep-advanced-counter" data-settings="{&quot;id&quot;:&quot;bdt-ep-advanced-counter-data-d7f918a&quot;,&quot;countStart&quot;:1,&quot;countNumber&quot;:25,&quot;language&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;],&quot;duration&quot;:&quot;2&quot;,&quot;useEasing&quot;:&quot;yes&quot;,&quot;decimalSymbol&quot;:&quot;.&quot;,&quot;counterSuffix&quot;:&quot;+&quot;}">
+																<div class="bdt-ep-advanced-counter-icon-wrap">
+					<span class="bdt-ep-advanced-counter-icon">
+																								</span>
+				</div>
+					
+							<div class="bdt-ep-advanced-counter-content">
+									
+					<div class="bdt-ep-advanced-counter-number">
+				<span class="bdt-count-this" id="bdt-ep-advanced-counter-data-d7f918a">
+					25				</span>
+			</div>
+																				<h4 class="bdt-ep-advanced-counter-text">
+						Awards and achievemen					</h4>
+							</div>
+		</div>
+
+		
+				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-c6e3f22 e-con-full e-flex e-con e-child" data-id="c6e3f22" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/linkcom-telecom.com\/wp-content\/uploads\/2025\/03\/MAP_SATTELLITE_3.mp4&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
+		<div class="elementor-background-video-container">
+							<video class="elementor-background-video-hosted" autoplay="" muted="" playsinline="" loop=""></video>
+					</div>		</div>
+				</div>
+		<div class="elementor-element elementor-element-99aa104 e-con-full e-flex e-con e-parent" data-id="99aa104" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-5d27e3e e-con-full e-flex e-con e-child" data-id="5d27e3e" data-element_type="container">
+				<div class="elementor-element elementor-element-59a2d09 bdt-scroll-effect-yes elementor-widget__width-initial elementor-widget elementor-widget-bdt-advanced-heading" data-id="59a2d09" data-element_type="widget" data-settings="{&quot;ep_widget_sf_fx_enable&quot;:&quot;yes&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.5,&quot;sizes&quot;:[]},&quot;motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="bdt-advanced-heading.default">
+				<div class="elementor-widget-container">
+					<div id="59a2d09" class="bdt-ep-advanced-heading" data-settings="{&quot;titleMultiColor&quot;:&quot;no&quot;}"><div class="bdt-ep-advanced-heading-content "><div class="bdt-transform-origin-top-left">ANYWEHRE ANYTIME</div></div><h2 class="bdt-ep-advanced-heading-title"><span class="bdt-ep-advanced-heading-main-title"><span class="bdt-ep-advanced-heading-main-title-inner">OUR PROJECTS</span></span></h2></div>				</div>
+				</div>
+		<div class="elementor-element elementor-element-12aaf50 e-con-full e-flex e-con e-child" data-id="12aaf50" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:50,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;sticky_effects_offset&quot;:500,&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_anchor_link_offset&quot;:0}">
+		<div class="elementor-element elementor-element-066838a e-con-full e-flex e-con e-child" data-id="066838a" data-element_type="container">
+				<div class="elementor-element elementor-element-a7c0517 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="a7c0517" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">South Eurasia
+</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-e80c245 elementor-widget-text-editor elementor-widget elementor-widget-text-editor" data-id="e80c245" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="font-weight: 400;">Design, supply and installation and Testing of 6 motorized tracking earth station antennas from 4.5m diameter to 9.3m as well as 4 smaller 1.8m Antennas.&nbsp;</span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-4a0f8b0 elementor-widget elementor-widget-button" data-id="4a0f8b0" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/azerbaijan-2012/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">read more</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-f10f3cd elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="f10f3cd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img fetchpriority="high" decoding="async" width="1920" height="1434" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201434'%3E%3C/svg%3E" class="attachment-full size-full wp-image-391" alt="" data-lazy-srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-300x224.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-1024x765.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-768x574.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-1536x1147.webp 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6.webp"><noscript><img fetchpriority="high" decoding="async" width="1920" height="1434" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6.webp" class="attachment-full size-full wp-image-391" alt="" srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-300x224.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-1024x765.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-768x574.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Azerbeijan-6-1536x1147.webp 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-f27cfe0 e-con-full e-flex e-con e-child" data-id="f27cfe0" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:100,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;sticky_anchor_link_offset&quot;:150,&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_effects_offset&quot;:0}">
+		<div class="elementor-element elementor-element-236401a e-con-full e-flex e-con e-child" data-id="236401a" data-element_type="container">
+				<div class="elementor-element elementor-element-3fc17e8 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="3fc17e8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">South-west Atlantic Ocean</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-15c951b elementor-widget-text-editor elementor-widget elementor-widget-text-editor" data-id="15c951b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="font-weight: 400;">Design, supply and installation and Testing of a 9.0m C-Band motorized tracking earth station antenna with a redundant 2.25Kwatt indoor HPA system, RF distribution as well as rack integration of CFE modem subsystem.&nbsp;</span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-1887e88 elementor-widget elementor-widget-button" data-id="1887e88" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/falkland-islands-2023/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">read more</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-ad4a916 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="ad4a916" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="1920" height="1440" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201440'%3E%3C/svg%3E" class="attachment-full size-full wp-image-676" alt="" data-lazy-srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-300x225.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-1024x768.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-768x576.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-1536x1152.webp 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10.webp"><noscript><img decoding="async" width="1920" height="1440" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10.webp" class="attachment-full size-full wp-image-676" alt="" srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-300x225.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-1024x768.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-768x576.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Falkland-Islands-2023-2-10-1536x1152.webp 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1fe7091 e-con-full e-flex e-con e-child" data-id="1fe7091" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:150,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;sticky_anchor_link_offset&quot;:500,&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_effects_offset&quot;:0}">
+		<div class="elementor-element elementor-element-c4c71cd e-con-full e-flex e-con e-child" data-id="c4c71cd" data-element_type="container">
+				<div class="elementor-element elementor-element-79d29d4 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="79d29d4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Southeast Europe #1
+</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-acab8c2 elementor-widget-text-editor elementor-widget elementor-widget-text-editor" data-id="acab8c2" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="font-weight: 400;">Design, supply and installation and Testing of a 4.8m Ku-Band earth station antenna with HUB integration of L-Band to IF converter system as well as RF distribution and rack integration of modem. subsystem.</span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-bd6cb7a elementor-widget elementor-widget-button" data-id="bd6cb7a" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/greece-2021/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">read more</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-4ed5e54 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="4ed5e54" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="1920" height="1440" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201440'%3E%3C/svg%3E" class="attachment-full size-full wp-image-652" alt="" data-lazy-srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-300x225.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-1024x768.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-768x576.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-1536x1152.webp 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4.webp"><noscript><img loading="lazy" decoding="async" width="1920" height="1440" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4.webp" class="attachment-full size-full wp-image-652" alt="" srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-300x225.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-1024x768.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-768x576.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Greece-4-1536x1152.webp 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-0b2426c e-con-full e-flex e-con e-child" data-id="0b2426c" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:200,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+		<div class="elementor-element elementor-element-7ec657a e-con-full e-flex e-con e-child" data-id="7ec657a" data-element_type="container">
+				<div class="elementor-element elementor-element-be1c579 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="be1c579" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">West Africa
+</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-e059d24 elementor-widget-text-editor elementor-widget elementor-widget-text-editor" data-id="e059d24" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="font-weight: 400;">We designed, supplied, and installed a complete command and control solution, including four deployable sites and a 3.7m main hub antenna.&nbsp;</span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-5b3f012 elementor-widget elementor-widget-button" data-id="5b3f012" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/afrika-2023/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">read more</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-7b1d8da elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="7b1d8da" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="1920" height="1440" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201440'%3E%3C/svg%3E" class="attachment-full size-full wp-image-669" alt="" data-lazy-srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-300x225.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-1024x768.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-768x576.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-1536x1152.webp 1536w" data-lazy-sizes="(max-width: 1920px) 100vw, 1920px" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4.webp"><noscript><img loading="lazy" decoding="async" width="1920" height="1440" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4.webp" class="attachment-full size-full wp-image-669" alt="" srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4.webp 1920w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-300x225.webp 300w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-1024x768.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-768x576.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/Africa-2024-4-1536x1152.webp 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3dd6d0b e-con-full e-flex e-con e-child" data-id="3dd6d0b" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:250,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+		<div class="elementor-element elementor-element-413c4a8 e-con-full e-flex e-con e-child" data-id="413c4a8" data-element_type="container">
+				<div class="elementor-element elementor-element-b531019 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="b531019" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">EXPLORE MORE PROJECTS</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-57a7567 elementor-align-center elementor-widget elementor-widget-button" data-id="57a7567" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/projects/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">ALL PROJECTS</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-15075f8 e-con-full e-flex e-con e-parent" data-id="15075f8" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-748821a elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="748821a" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">OUR PARTNERS</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-ec8c406 elementor-widget elementor-widget-image-carousel" data-id="ec8c406" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;10&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;speed&quot;:5000,&quot;slides_to_show_mobile&quot;:&quot;4&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="1" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/1.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/1.png" alt="1" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="2" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/2.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/2.png" alt="2" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="3" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/3.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/3.png" alt="3" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="4" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/4.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/4.png" alt="4" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="5" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/5.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/5.png" alt="5" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="6 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="6" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/6.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/6.png" alt="6" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="7 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="7" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/7.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/7.png" alt="7" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="8 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="8" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/8.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/8.png" alt="8" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="9 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="9" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/9.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/9.png" alt="9" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="10 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="10" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/10.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/10.png" alt="10" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="11 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="11" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/11.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/11.png" alt="11" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="12 of 12"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Untitled (1200 x 1200 px) (3)" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/06/Untitled-1200-x-1200-px-3.png"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/06/Untitled-1200-x-1200-px-3.png" alt="Untitled (1200 x 1200 px) (3)" /></noscript></figure></div>			</div>
+							
+									</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-08753f8 elementor-widget elementor-widget-image-carousel" data-id="08753f8" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;10&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;speed&quot;:5000,&quot;slides_to_show_mobile&quot;:&quot;4&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="rtl">
+			<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
+								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Sea_02" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sea_02.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sea_02.webp" alt="Sea_02" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Sea_01" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sea_01.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sea_01.webp" alt="Sea_01" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Sat_02" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sat_02.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sat_02.webp" alt="Sat_02" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Sat_01" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sat_01.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Sat_01.webp" alt="Sat_01" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="5 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Land_Mobile" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile.webp" alt="Land_Mobile" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="6 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Land_Mobile_03" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile_03.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile_03.webp" alt="Land_Mobile_03" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="7 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Land_Mobile_02" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile_02.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile_02.webp" alt="Land_Mobile_02" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="8 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Land_Mobile (2)" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile-2.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Land_Mobile-2.webp" alt="Land_Mobile (2)" /></noscript></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="9 of 9"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Air" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Air.webp"><noscript><img decoding="async" class="swiper-slide-image" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/Air.webp" alt="Air" /></noscript></figure></div>			</div>
+							
+									</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1c5c38b e-con-full e-flex e-con e-parent" data-id="1c5c38b" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-9093688 e-con-full e-flex e-con e-child" data-id="9093688" data-element_type="container">
+				<div class="elementor-element elementor-element-607fa7d bdt-scroll-effect-yes elementor-widget__width-initial elementor-widget elementor-widget-bdt-advanced-heading" data-id="607fa7d" data-element_type="widget" data-settings="{&quot;ep_widget_sf_fx_enable&quot;:&quot;yes&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.5,&quot;sizes&quot;:[]},&quot;motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="bdt-advanced-heading.default">
+				<div class="elementor-widget-container">
+					<div id="607fa7d" class="bdt-ep-advanced-heading" data-settings="{&quot;titleMultiColor&quot;:&quot;no&quot;}"><div class="bdt-ep-advanced-heading-content "><div class="bdt-transform-origin-top-left">KNOW MORE</div></div><h2 class="bdt-ep-advanced-heading-title"><span class="bdt-ep-advanced-heading-main-title"><span class="bdt-ep-advanced-heading-main-title-inner">ABOUT US</span></span></h2></div>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-edccd7f e-con-full e-flex e-con e-child" data-id="edccd7f" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-bf069a4 e-con-full e-flex e-con e-child" data-id="bf069a4" data-element_type="container">
+				<div class="elementor-element elementor-element-f1e2f4f elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="f1e2f4f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Elie Levy - Founder &amp; President, Linkcom Telecom Ltd.
+
+</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5a9832d elementor-widget-text-editor elementor-widget elementor-widget-text-editor" data-id="5a9832d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Elie Levy is a visionary leader, Pioneer in bringing satcom technology in Israel &nbsp;and a prominent figure in the satellite communications (satcom) industry. With decades of experience spanning aerospace engineering, satellite technology, and business management, he has made a lasting impact on global telecommunications and defense systems.</p>								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-bd5a095 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="bd5a095" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="683" height="1024" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20683%201024'%3E%3C/svg%3E" class="attachment-large size-large wp-image-716" alt="" data-lazy-srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-683x1024.webp 683w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-200x300.webp 200w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-768x1152.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-1024x1536.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4.webp 1280w" data-lazy-sizes="(max-width: 683px) 100vw, 683px" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-683x1024.webp"><noscript><img loading="lazy" decoding="async" width="683" height="1024" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-683x1024.webp" class="attachment-large size-large wp-image-716" alt="" srcset="https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-683x1024.webp 683w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-200x300.webp 200w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-768x1152.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4-1024x1536.webp 1024w, https://linkcom-telecom.com/wp-content/uploads/2025/01/MG_0072-4.webp 1280w" sizes="(max-width: 683px) 100vw, 683px" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-27893a7 e-con-full e-flex e-con e-child" data-id="27893a7" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+				<div class="elementor-element elementor-element-12db15f elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="12db15f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="1280" height="1920" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%201920'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1282" alt="" data-lazy-srcset="https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1.webp 1280w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-200x300.webp 200w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-683x1024.webp 683w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-768x1152.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-1024x1536.webp 1024w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1.webp"><noscript><img loading="lazy" decoding="async" width="1280" height="1920" src="https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1.webp" class="attachment-full size-full wp-image-1282" alt="" srcset="https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1.webp 1280w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-200x300.webp 200w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-683x1024.webp 683w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-768x1152.webp 768w, https://linkcom-telecom.com/wp-content/uploads/2025/03/Untitled-design-5-1-1-1024x1536.webp 1024w" sizes="(max-width: 1280px) 100vw, 1280px" /></noscript>															</div>
+				</div>
+		<div class="elementor-element elementor-element-a920a0c e-con-full e-flex e-con e-child" data-id="a920a0c" data-element_type="container">
+				<div class="elementor-element elementor-element-c9b218d elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="c9b218d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Zak Levi - CEO/CTO
+</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-1b92a68 elementor-widget-text-editor elementor-widget elementor-widget-text-editor" data-id="1b92a68" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="font-weight: 400;">Zak Levi joined Linkcom-Telecom as a System Engineer in 2007, bringing a wealth of multidisciplinary expertise and insights gained from his experience in the high-tech industry, academia, and the Israeli military. He holds both a B.Sc. and an M.Sc. in Electrical Engineering from Tel Aviv University, graduating at the top of his class with honors.</span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-7f03dd3 elementor-align-left elementor-widget elementor-widget-button" data-id="7f03dd3" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://linkcom-telecom.com/about/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">More about us</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-5c9fdd1 e-con-full e-flex e-con e-parent" data-id="5c9fdd1" data-element_type="container">
+				<div class="elementor-element elementor-element-75002aa elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="75002aa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">ARTICLES</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-ed707cf elementor-widget__width-initial elementor-widget elementor-widget-bdt-post-grid" data-id="ed707cf" data-element_type="widget" data-settings="{&quot;columns&quot;:&quot;2&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_mobile&quot;:&quot;1&quot;}" data-widget_type="bdt-post-grid.bdt-harold">
+				<div class="elementor-widget-container">
+					 
+		<div id="bdt-post-grid-ed707cf" class="bdt-post-grid bdt-post-grid-skin-harold">
+	  		<div class="bdt-grid bdt-grid-medium bdt-grid-medium" data-bdt-grid="">
+
+					  			
+		  			<div class=" bdt-width-1-1@m bdt-width-1-1@s bdt-width-1-1 bdt-primary bdt-text-center">
+								<div class="bdt-post-grid-item bdt-transition-toggle bdt-position-relative bdt-box-shadow-small">								
+			<div class="bdt-post-grid-img-wrap bdt-overflow-hidden">
+				<a data-bg="https://linkcom-telecom.com/wp-content/uploads/2024/12/ks2104_Large_satellite_antenna_with_a_test_rig_attached_captu_6bbe8803-f7d8-4016-99fb-1a681f95bd45_3-1.webp" href="https://linkcom-telecom.com/how-to-choose-satellite-service-provider/" class="bdt-transition-scale-up bdt-background-cover bdt-transition-opaque bdt-flex rocket-lazyload" title="How to choose Satellite Service Provider" style="">
+  				</a>
+			</div>
+	  		
+	  		<div class="bdt-post-grid-desc bdt-padding">
+				<h2 class="bdt-post-grid-title">
+				<a href="https://linkcom-telecom.com/how-to-choose-satellite-service-provider/" class="bdt-post-grid-link" title="How to choose Satellite Service Provider">
+					How to choose Satellite Service Provider
+				</a>
+			</h2>
+											</div>
+
+			
+					<div class="bdt-post-grid-category bdt-position-small bdt-position-top-right">
+			<a href="https://linkcom-telecom.com/category/uncategorized/">Uncategorized</a>		</div>
+				</div>
+							</div>
+					  			
+		  			<div class=" bdt-width-1-2@m bdt-width-1-2@s bdt-width-1-1 bdt-secondary">
+								<div class="bdt-post-grid-item bdt-transition-toggle bdt-position-relative bdt-box-shadow-small">								
+			<div class="bdt-post-grid-img-wrap bdt-overflow-hidden">
+				<a data-bg="https://linkcom-telecom.com/wp-content/uploads/2024/12/ks2104_A_dynamic_shot_of_an_antenna_assembly_being_carefully__4d4b72f5-b983-4161-9df8-19f1f801158b_0-1.webp" href="https://linkcom-telecom.com/what-is-site-survey-and-layout/" class="bdt-transition-scale-up bdt-background-cover bdt-transition-opaque bdt-flex rocket-lazyload" title="what is Site Survey and Layout?" style="">
+  				</a>
+			</div>
+	  		
+	  		<div class="bdt-post-grid-desc bdt-padding">
+				<h2 class="bdt-post-grid-title">
+				<a href="https://linkcom-telecom.com/what-is-site-survey-and-layout/" class="bdt-post-grid-link" title="what is Site Survey and Layout?">
+					what is Site Survey and Layout?
+				</a>
+			</h2>
+											</div>
+
+			
+					<div class="bdt-post-grid-category bdt-position-small bdt-position-top-right">
+			<a href="https://linkcom-telecom.com/category/uncategorized/">Uncategorized</a>		</div>
+				</div>
+							</div>
+					  			
+		  			<div class=" bdt-width-1-2@m bdt-width-1-2@s bdt-width-1-1 bdt-secondary">
+								<div class="bdt-post-grid-item bdt-transition-toggle bdt-position-relative bdt-box-shadow-small">								
+			<div class="bdt-post-grid-img-wrap bdt-overflow-hidden">
+				<a data-bg="https://linkcom-telecom.com/wp-content/uploads/2024/12/ks2104_Two_experts_outdoors_analyzing_waveforms_on_a_tablet_c_0232ae46-8613-4ecf-83c5-e8b4df6c7c46_2.webp" href="https://linkcom-telecom.com/configuration-of-system-design/" class="bdt-transition-scale-up bdt-background-cover bdt-transition-opaque bdt-flex rocket-lazyload" title="configuration of System Design" style="">
+  				</a>
+			</div>
+	  		
+	  		<div class="bdt-post-grid-desc bdt-padding">
+				<h2 class="bdt-post-grid-title">
+				<a href="https://linkcom-telecom.com/configuration-of-system-design/" class="bdt-post-grid-link" title="configuration of System Design">
+					configuration of System Design
+				</a>
+			</h2>
+											</div>
+
+			
+					<div class="bdt-post-grid-category bdt-position-small bdt-position-top-right">
+			<a href="https://linkcom-telecom.com/category/uncategorized/">Uncategorized</a>		</div>
+				</div>
+							</div>
+							</div>
+		</div>	
+ 						</div>
+				</div>
+				</div>
+				</div>
+		
+		
+			</div>
+
+	
+</main>
+
+			<div data-elementor-type="footer" data-elementor-id="994" class="elementor elementor-994 elementor-location-footer" data-elementor-settings="{&quot;element_pack_global_tooltip_width&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true}}" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-341fa7c e-con-full e-flex e-con e-parent" data-id="341fa7c" data-element_type="container">
+		<div class="elementor-element elementor-element-4961181 e-con-full e-flex e-con e-child" data-id="4961181" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-8ee7dbd elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="8ee7dbd" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">CONTACT US</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-d290c38 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="d290c38" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" name="New Form">
+			<input type="hidden" name="post_id" value="994">
+			<input type="hidden" name="form_id" value="d290c38">
+			<input type="hidden" name="referer_title" value="Page not found">
+
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-name" class="elementor-field-label">
+								Name							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Name" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-email" class="elementor-field-label">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Email" required="required" aria-required="true">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_3390658 elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_3390658" class="elementor-field-label">
+								Phone							</label>
+								<input size="1" type="tel" name="form_fields[field_3390658]" id="form-field-field_3390658" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="phone" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+
+						</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+												<label for="form-field-message" class="elementor-field-label">
+								Message							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[message]" id="form-field-message" rows="4" placeholder="Message"></textarea>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm elementor-animation-shrink" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Send</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-e786933 e-con-full e-flex e-con e-child" data-id="e786933" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-6f4703c e-con-full e-flex e-con e-parent" data-id="6f4703c" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-15b14524 e-con-full e-flex e-con e-child" data-id="15b14524" data-element_type="container">
+				<div class="elementor-element elementor-element-5917e3c elementor-widget elementor-widget-image" data-id="5917e3c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="150" height="150" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20150%20150'%3E%3C/svg%3E" class="attachment-thumbnail size-thumbnail wp-image-1413" alt="" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2025/01/8f8148d6-df74-42ba-81b8-b6f8fc26e8ff-150x150.jpeg"><noscript><img width="150" height="150" src="https://linkcom-telecom.com/wp-content/uploads/2025/01/8f8148d6-df74-42ba-81b8-b6f8fc26e8ff-150x150.jpeg" class="attachment-thumbnail size-thumbnail wp-image-1413" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-b7c04df elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="b7c04df" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://linkcom-telecom.com">
+			<img width="300" height="100" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20100'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1145" alt="" data-lazy-src="https://linkcom-telecom.com/wp-content/uploads/2024/12/Untitled-design-6-e1740992104545.png"><noscript><img width="300" height="100" src="https://linkcom-telecom.com/wp-content/uploads/2024/12/Untitled-design-6-e1740992104545.png" class="attachment-full size-full wp-image-1145" alt="" /></noscript>				</a>
+											</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1e56b8ef e-con-full e-flex e-con e-child" data-id="1e56b8ef" data-element_type="container">
+				<div class="elementor-element elementor-element-a6f3299 elementor-widget elementor-widget-text-editor" data-id="a6f3299" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>WORKING HOURS</strong></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-65a7efcf elementor-widget elementor-widget-text-editor" data-id="65a7efcf" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Sunday – Friday 9am – 6pm</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-762149dc e-con-full e-flex e-con e-child" data-id="762149dc" data-element_type="container">
+				<div class="elementor-element elementor-element-403e34c elementor-widget elementor-widget-text-editor" data-id="403e34c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>Quick access</strong></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-b1bf6a3 elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="b1bf6a3" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/services/">
+
+											<span class="elementor-icon-list-text">OUR SERVICES</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/about/">
+
+											<span class="elementor-icon-list-text">ABOUT US</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/projects/">
+
+											<span class="elementor-icon-list-text">OUR PROJECTS</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://linkcom-telecom.com/articles/">
+
+											<span class="elementor-icon-list-text">ARTICLES</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-28d274a5 e-con-full e-flex e-con e-child" data-id="28d274a5" data-element_type="container">
+				<div class="elementor-element elementor-element-199c120 elementor-widget elementor-widget-text-editor" data-id="199c120" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>CONTACT US</strong></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-1b2ecc4c elementor-widget elementor-widget-text-editor" data-id="1b2ecc4c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><span style="color: #ffffff;">Phone: +972-9216226</span><br><span style="color: #ffffff;">Email: zak@linkcom-telecom.com</span></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-97c1da6 elementor-widget elementor-widget-text-editor" data-id="97c1da6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>FOLLOW&nbsp; US</strong></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-22edd904 elementor-shape-square e-grid-align-left e-grid-align-tablet-left e-grid-align-mobile-center elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="22edd904" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-a6804e5" href="https://www.linkedin.com/company/12907898/admin/dashboard/" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-f91ae33 e-flex e-con-boxed e-con e-parent" data-id="f91ae33" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-80ff307 elementor-widget elementor-widget-text-editor" data-id="80ff307" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Made with love by <span style="color: #ffffff;"><a style="color: #ffffff;" href="https://in2a.co.il/">IN2A MARKETING</a></span></p>								</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=3.1.1" id="hello-theme-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.25.4" id="e-sticky-js"></script>
+<script id="bdt-uikit-js-extra">
+var element_pack_ajax_login_config = {"ajaxurl":"https://linkcom-telecom.com/wp-admin/admin-ajax.php","language":"en","loadingmessage":"Sending user info, please wait...","unknownerror":"Unknown error, make sure access is correct!"};
+var ElementPackConfig = {"ajaxurl":"https://linkcom-telecom.com/wp-admin/admin-ajax.php","nonce":"a01efaf295","data_table":{"language":{"sLengthMenu":"Show _MENU_ Entries","sInfo":"Showing _START_ to _END_ of _TOTAL_ entries","sSearch":"Search :","sZeroRecords":"No matching records found","oPaginate":{"sPrevious":"Previous","sNext":"Next"}}},"contact_form":{"sending_msg":"Sending message please wait...","captcha_nd":"Invisible captcha not defined!","captcha_nr":"Could not get invisible captcha response!"},"mailchimp":{"subscribing":"Subscribing you please wait..."},"search":{"more_result":"More Results","search_result":"SEARCH RESULT","not_found":"not found"},"words_limit":{"read_more":"[read more]","read_less":"[read less]"},"elements_data":{"sections":[],"columns":[],"widgets":[]}};
+//# sourceURL=bdt-uikit-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/js/bdt-uikit.min.js?ver=3.21.7" id="bdt-uikit-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-advanced-heading.min.js?ver=7.18.12" id="ep-advanced-heading-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-advanced-counter.min.js?ver=7.18.12" id="ep-advanced-counter-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-post-grid.min.js?ver=7.18.12" id="ep-post-grid-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/vendor/js/countUp.min.js?ver=2.0.4" id="advanced-counter-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/js/common/helper.min.js?ver=7.18.12" id="element-pack-helper-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/vendor/js/gsap.min.js?ver=3.12.5" id="gsap-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/vendor/js/ScrollTrigger.min.js?ver=3.12.5" id="scroll-trigger-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-scroll-fill-effect.min.js?ver=7.18.12" id="ep-scroll-fill-effect-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.25.4" id="elementor-pro-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.27.5" id="elementor-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.27.5" id="elementor-frontend-modules-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/linkcom-telecom.com\/wp-admin\/admin-ajax.php","nonce":"3ba0915d81","urls":{"assets":"https:\/\/linkcom-telecom.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/linkcom-telecom.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/linkcom-telecom.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.25.4" id="elementor-pro-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.27.5","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_swiper_latest":true,"e_onboarding":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"home_screen":true,"nested-elements":true,"e_element_cache":true,"link-in-bio":true,"floating-buttons":true,"launchpad-checklist":true,"mega-menu":true},"urls":{"assets":"https:\/\/linkcom-telecom.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/linkcom-telecom.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/linkcom-telecom.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"bf33144ef4"},"swiperClass":"swiper","settings":{"page":{"element_pack_global_tooltip_width":{"unit":"px","size":"","sizes":[]},"element_pack_global_tooltip_width_tablet":{"unit":"px","size":"","sizes":[]},"element_pack_global_tooltip_width_mobile":{"unit":"px","size":"","sizes":[]},"element_pack_global_tooltip_padding":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_padding_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_padding_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_border_radius":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_border_radius_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_border_radius_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true}},"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_footer_logo_type":"logo"},"post":{"id":1084,"title":"Linkcom-Telecom","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.27.5" id="elementor-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://linkcom-telecom.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.25.4" id="pro-elements-handlers-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://linkcom-telecom.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.1"}}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://linkcom-telecom.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://linkcom-telecom.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>var rocket_beacon_data = {"ajax_url":"https:\/\/linkcom-telecom.com\/wp-admin\/admin-ajax.php","nonce":"2a854516e7","url":"https:\/\/linkcom-telecom.com","is_mobile":false,"width_threshold":1600,"height_threshold":700,"delay":500,"debug":null,"status":{"atf":true,"lrc":true,"preconnect_external_domain":true},"elements":"img, video, picture, p, main, div, li, svg, section, header, span","lrc_threshold":1800,"preconnect_external_domain_elements":["link","script","iframe"],"preconnect_external_domain_exclusions":["static.cloudflareinsights.com","rel=\"profile\"","rel=\"preconnect\"","rel=\"dns-prefetch\"","rel=\"icon\""]}</script><script data-name="wpr-wpr-beacon" src="https://linkcom-telecom.com/wp-content/plugins/wp-rocket/assets/js/wpr-beacon.min.js" async="" beacon-completed="true"></script><script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach((t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}}))}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find((t=>e[t]))];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout((()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)}),i);window.addEventListener("rocket-startLoading",(function(){clearTimeout(o)}))}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach((t=>{e.forEach((e=>{i.push(t+e)}))})),i}l(t,e){this.i().forEach((t=>delete e[t])),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script>
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

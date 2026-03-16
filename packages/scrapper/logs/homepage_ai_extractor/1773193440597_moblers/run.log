@@ -1,0 +1,69 @@
+[2026-03-11T01:44:00.597Z] === Homepage AI Extractor: moblers ===
+[2026-03-11T01:44:00.597Z] Started at: 2026-03-11T01:44:00.597Z
+[2026-03-11T01:44:00.597Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773193440597_moblers
+[2026-03-11T01:44:00.598Z] Company: moblers
+[2026-03-11T01:44:00.598Z] Website: moblers.com
+[2026-03-11T01:44:00.598Z] cbRank: 539139
+[2026-03-11T01:44:00.598Z] Reasons: h
+[2026-03-11T01:44:00.598Z] Fetching: https://moblers.com
+[2026-03-11T01:44:03.267Z] Redirected: https://moblers.com -> https://moblers.com/
+[2026-03-11T01:44:03.305Z] Saved HTML (923577 bytes) to page.html
+[2026-03-11T01:44:03.312Z] Extracted 36 unique links from page
+[2026-03-11T01:44:03.313Z] Saved 36 links to links.json
+[2026-03-11T01:44:03.321Z] Extracted footer HTML (86387 chars)
+[2026-03-11T01:44:03.321Z] Extracted header HTML (48686 chars)
+[2026-03-11T01:44:03.327Z] Website (post-redirect): https://moblers.com/ → origin: https://moblers.com
+[2026-03-11T01:44:03.327Z] External links: 4 (of 36 total)
+[2026-03-11T01:44:03.327Z] ── All external links ──
+[2026-03-11T01:44:03.327Z]   EXT: https://maps.app.goo.gl/B5WY9FL7tiBZhqRu5
+[2026-03-11T01:44:03.328Z]   EXT: https://twitter.com/MoblersS
+[2026-03-11T01:44:03.328Z]   EXT: https://www.facebook.com/moblers
+[2026-03-11T01:44:03.328Z]   EXT: https://www.linkedin.com/company/moblers
+[2026-03-11T01:44:03.328Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T01:44:03.328Z]   UNCATEGORIZED: https://maps.app.goo.gl/B5WY9FL7tiBZhqRu5
+[2026-03-11T01:44:03.328Z]   REGEX: tw <- https://twitter.com/MoblersS
+[2026-03-11T01:44:03.328Z]   REGEX: fb <- https://www.facebook.com/moblers
+[2026-03-11T01:44:03.328Z]   REGEX: li <- https://www.linkedin.com/company/moblers
+[2026-03-11T01:44:03.329Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-11T01:44:03.329Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T01:44:03.330Z] Saved AI prompt (3231 chars) to ai_prompt.txt
+[2026-03-11T01:44:03.331Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T01:44:03.352Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T01:44:13.748Z]   AI: First token received, streaming...
+[2026-03-11T01:44:19.260Z] AI response complete: 104 chars in 15.9s
+[2026-03-11T01:44:19.260Z] Saved AI response to ai_response.json
+[2026-03-11T01:44:19.260Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T01:44:19.261Z]   AI LINK: https://www.facebook.com/moblers/
+[2026-03-11T01:44:19.261Z]   AI LINK: https://www.linkedin.com/company/moblers/
+[2026-03-11T01:44:19.261Z]   AI LINK: https://twitter.com/MoblersS
+[2026-03-11T01:44:19.261Z] AI returned 3 valid links
+[2026-03-11T01:44:19.261Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T01:44:19.261Z]   AI→REGEX: fb <- https://www.facebook.com/moblers/ (duplicate, skipped)
+[2026-03-11T01:44:19.261Z]   AI→REGEX: li <- https://www.linkedin.com/company/moblers/ (duplicate, skipped)
+[2026-03-11T01:44:19.261Z]   AI→REGEX: tw <- https://twitter.com/MoblersS (duplicate, skipped)
+[2026-03-11T01:44:19.262Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T01:44:19.262Z] Footer/header origins (5):
+[2026-03-11T01:44:19.262Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T01:44:19.262Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T01:44:19.262Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-11T01:44:19.262Z]   FOOTER/HEADER ORIGIN: https://maps.app.goo.gl
+[2026-03-11T01:44:19.263Z]   FOOTER/HEADER ORIGIN: https://moblers.com
+[2026-03-11T01:44:19.263Z]   ADDED: urls <- https://maps.app.goo.gl/B5WY9FL7tiBZhqRu5
+[2026-03-11T01:44:19.263Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T01:44:19.263Z] ── Step 3: Final dedup ──
+[2026-03-11T01:44:19.263Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T01:44:19.263Z] ── FINAL RESULT ──
+[2026-03-11T01:44:19.263Z]   ws (1):
+[2026-03-11T01:44:19.263Z]     - https://moblers.com
+[2026-03-11T01:44:19.263Z]   li (1):
+[2026-03-11T01:44:19.263Z]     - https://www.linkedin.com/company/moblers
+[2026-03-11T01:44:19.263Z]   fb (1):
+[2026-03-11T01:44:19.263Z]     - https://www.facebook.com/moblers
+[2026-03-11T01:44:19.264Z]   tw (1):
+[2026-03-11T01:44:19.264Z]     - https://x.com/moblerss
+[2026-03-11T01:44:19.264Z]   urls (1):
+[2026-03-11T01:44:19.264Z]     - https://maps.app.goo.gl/B5WY9FL7tiBZhqRu5
+[2026-03-11T01:44:19.264Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-11T01:44:19.264Z] Saved final result to result.json
+[2026-03-11T01:44:19.264Z] Override fields: ws, li, fb, tw, urls
+[2026-03-11T01:44:19.265Z] Finished at: 2026-03-11T01:44:19.265Z

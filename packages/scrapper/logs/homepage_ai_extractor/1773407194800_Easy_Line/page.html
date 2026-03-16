@@ -1,0 +1,850 @@
+<!DOCTYPE html><html dir="rtl" lang="he-IL"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#fff">
+
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+            <script data-no-defer="1" data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer="" data-cookieconsent="ignore">
+                var ctPublicFunctions = {"_ajax_nonce":"2af6b5f2d3","_rest_nonce":"fa21668ea0","_ajax_url":"\/wp-admin\/admin-ajax.php","_rest_url":"https:\/\/easyline.co.il\/wp-json\/","data__cookies_type":"native","data__ajax_type":"rest","data__bot_detector_enabled":0,"data__frontend_data_log_enabled":1,"cookiePrefix":"","wprocket_detected":true,"host_url":"easyline.co.il","text__ee_click_to_select":"Click to select the whole data","text__ee_original_email":"The complete one is","text__ee_got_it":"Got it","text__ee_blocked":"Blocked","text__ee_cannot_connect":"Cannot connect","text__ee_cannot_decode":"Can not decode email. Unknown reason","text__ee_email_decoder":"CleanTalk email decoder","text__ee_wait_for_decoding":"The magic is on the way!","text__ee_decoding_process":"Please wait a few seconds while we decode the contact data."}
+            </script>
+        
+            <script data-no-defer="1" data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer="" data-cookieconsent="ignore">
+                var ctPublic = {"_ajax_nonce":"2af6b5f2d3","settings__forms__check_internal":"0","settings__forms__check_external":"0","settings__forms__force_protection":0,"settings__forms__search_test":"1","settings__forms__wc_add_to_cart":"0","settings__data__bot_detector_enabled":0,"settings__sfw__anti_crawler":0,"blog_home":"https:\/\/easyline.co.il\/","pixel__setting":"3","pixel__enabled":true,"pixel__url":"https:\/\/moderate10-v4.cleantalk.org\/pixel\/31ef898119e59f03902754e6a8f46fdd.gif","data__email_check_before_post":"1","data__email_check_exist_post":1,"data__cookies_type":"native","data__key_is_ok":true,"data__visible_fields_required":true,"wl_brandname":"Anti-Spam by CleanTalk","wl_brandname_short":"CleanTalk","ct_checkjs_key":"99a591b9a5da710e6300ae7aee2372b5fb4b6a205b60bb14271f5806738683a9","emailEncoderPassKey":"25e601d17a54c0f77a4e8e2839ac00c9","bot_detector_forms_excluded":"W10=","advancedCacheExists":true,"varnishCacheExists":false,"wc_ajax_add_to_cart":true,"theRealPerson":{"phrases":{"trpHeading":"The Real Person Badge!","trpContent1":"The commenter acts as a real person and verified as not a bot.","trpContent2":" Anti-Spam by CleanTalk","trpContentLearnMore":"Learn more"},"trpContentLink":"https:\/\/cleantalk.org\/help\/the-real-person?utm_id=&amp;utm_term=&amp;utm_source=admin_side&amp;utm_medium=trp_badge&amp;utm_content=trp_badge_link_click&amp;utm_campaign=apbct_links","imgPersonUrl":"https:\/\/easyline.co.il\/wp-content\/plugins\/cleantalk-spam-protect\/css\/images\/real_user.svg","imgShieldUrl":"https:\/\/easyline.co.il\/wp-content\/plugins\/cleantalk-spam-protect\/css\/images\/shield.svg"}}
+            </script>
+        
+	<!-- This site is optimized with the Yoast SEO Premium plugin v24.5 (Yoast SEO v26.5) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>דף הבית - איזי ליין חברת איזי ליין מספקת תוספי תזונה, מזון ייעודי להזנה אנטרלית</title><style id="rocket-critical-css">:root{--woocommerce:#7F54B3;--wc-green:#7ad03a;--wc-red:#a00;--wc-orange:#ffba00;--wc-blue:#2ea2cc;--wc-primary:#7F54B3;--wc-primary-text:white;--wc-secondary:#e9e6ed;--wc-secondary-text:#515151;--wc-highlight:#b3af54;--wc-highligh-text:white;--wc-content-bg:#fff;--wc-subtext:#767676}:root{--woocommerce:#7F54B3;--wc-green:#7ad03a;--wc-red:#a00;--wc-orange:#ffba00;--wc-blue:#2ea2cc;--wc-primary:#7F54B3;--wc-primary-text:white;--wc-secondary:#e9e6ed;--wc-secondary-text:#515151;--wc-highlight:#b3af54;--wc-highligh-text:white;--wc-content-bg:#fff;--wc-subtext:#767676}:root{--woocommerce:#7F54B3;--wc-green:#7ad03a;--wc-red:#a00;--wc-orange:#ffba00;--wc-blue:#2ea2cc;--wc-primary:#7F54B3;--wc-primary-text:white;--wc-secondary:#e9e6ed;--wc-secondary-text:#515151;--wc-highlight:#b3af54;--wc-highligh-text:white;--wc-content-bg:#fff;--wc-subtext:#767676}.wpml-ls-legacy-list-horizontal{border:1px solid transparent;padding:7px;clear:both}.wpml-ls-legacy-list-horizontal>ul{padding:0;margin:0!important;list-style-type:none}.wpml-ls-legacy-list-horizontal .wpml-ls-item{padding:0;margin:0;list-style-type:none;display:inline-block}.wpml-ls-legacy-list-horizontal a{display:block;text-decoration:none;padding:5px 10px 6px;line-height:1}.wpml-ls-legacy-list-horizontal a span{vertical-align:middle}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}header,main,nav{display:block}a{background-color:transparent}img{border:0}button,input{margin:0;font:inherit;color:inherit}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}input{line-height:normal}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}button,input{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#337ab7;text-decoration:none}img{vertical-align:middle}p{margin:0 0 10px}ul{margin-top:0;margin-bottom:10px}ul ul{margin-bottom:0}.container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container{width:750px}}@media (min-width:992px){.container{width:970px}}@media (min-width:1200px){.container{width:1170px}}.row{margin-right:-15px;margin-left:-15px}.col-md-10,.col-md-2,.col-xs-12{position:relative;min-height:1px;padding-right:15px;padding-left:15px}.col-xs-12{float:left}.col-xs-12{width:100%}@media (min-width:992px){.col-md-10,.col-md-2{float:left}.col-md-10{width:83.33333333%}.col-md-2{width:16.66666667%}}.dropdown{position:relative}.container:after,.container:before,.row:after,.row:before{display:table;content:" "}.container:after,.row:after{clear:both}@-ms-viewport{width:device-width}.visible-sm-inline-block,.visible-xs-block,.visible-xs-inline-block{display:none!important}@media (max-width:767px){.visible-xs-block{display:block!important}}@media (max-width:767px){.visible-xs-inline-block{display:inline-block!important}}@media (min-width:768px) and (max-width:991px){.visible-sm-inline-block{display:inline-block!important}}.mfp-hide{display:none!important}button::-moz-focus-inner{padding:0;border:0}html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}header,main,nav{display:block}a{background-color:transparent;-webkit-text-decoration-skip:objects}img{border-style:none}button,input{font:inherit;margin:0}button,input{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring{outline:1px dotted ButtonText}::-webkit-input-placeholder{color:inherit;opacity:0.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.icon{display:inline-block}@font-face{font-display:swap;font-family:'Open Sans Hebrew';src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Light.eot);src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Light.eot?#iefix) format('embedded-opentype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Light.woff) format('woff'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Light.ttf) format('truetype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Light.svg#OpenSansHebrew-Light) format('svg');font-weight:300;font-style:normal}@font-face{font-display:swap;font-family:'Open Sans Hebrew';src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-LightItalic.eot);src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-LightItalic.eot?#iefix) format('embedded-opentype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-LightItalic.woff) format('woff'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-LightItalic.ttf) format('truetype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-LightItalic.svg#OpenSansHebrew-LightItalic) format('svg');font-weight:300;font-style:italic}@font-face{font-display:swap;font-family:'Open Sans Hebrew';src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Regular.eot);src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Regular.eot?#iefix) format('embedded-opentype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Regular.woff) format('woff'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Regular.ttf) format('truetype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Regular.svg#OpenSansHebrew-Regular) format('svg');font-weight:400;font-style:normal}@font-face{font-display:swap;font-family:'Open Sans Hebrew';src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Italic.eot);src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Italic.eot?#iefix) format('embedded-opentype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Italic.woff) format('woff'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Italic.ttf) format('truetype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Italic.svg#OpenSansHebrew-Italic) format('svg');font-weight:400;font-style:italic}@font-face{font-display:swap;font-family:'Open Sans Hebrew';src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Bold.eot);src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Bold.eot?#iefix) format('embedded-opentype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Bold.woff) format('woff'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Bold.ttf) format('truetype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-Bold.svg#OpenSansHebrew-Bold) format('svg');font-weight:700;font-style:normal}@font-face{font-display:swap;font-family:'Open Sans Hebrew';src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-BoldItalic.eot);src:url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-BoldItalic.eot?#iefix) format('embedded-opentype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-BoldItalic.woff) format('woff'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-BoldItalic.ttf) format('truetype'),url(https://easyline.co.il/wp-content/themes/easyline2/fonts/opensanshebrew/OpenSansHebrew-BoldItalic.svg#OpenSansHebrew-BoldItalic) format('svg');font-weight:700;font-style:italic}body{border:0;margin:0;padding:0;font-family:"Open Sans Hebrew",sans-serif}p{line-height:normal}img{max-width:100%;height:auto}.container .row>div{float:right;padding:0}.container>.row{margin:0}.thanks{display:none;color:green;font-size:15px;text-align:center;font-weight:bold}body a{text-decoration:none!important}.woocommerce-mini-cart__empty-message{padding:10px}.thanks-popup{width:400px;margin:auto;max-width:100%;position:relative;background:white;padding:20px;text-align:center;border-radius:20px}.thanks__title{margin-bottom:15px;font-size:18px}.cart-header{font-size:16px;position:absolute;background:white;border:2px solid #d6eab4;border-radius:25px;opacity:0;visibility:hidden;z-index:-1;width:260px;padding:10px}.toggle_mnu{position:relative;width:21px;display:inline-block;z-index:1;margin-right:8px;height:18px;border:none;background:transparent;outline:none}.toggle_mnu .sandwich{width:21px;height:18px;position:absolute;top:0px;bottom:0;left:0;z-index:200}.toggle_mnu .sandwich .sw-topper{position:relative;top:0;width:21px;height:3px;background:#335940;border:none;-webkit-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px;display:block}.toggle_mnu .sandwich .sw-bottom{position:relative;width:21px;height:3px;top:4.2px;background:#335940;border:none;-webkit-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px;display:block}.toggle_mnu .sandwich .sw-footer{position:relative;width:21px;height:3px;top:8px;background:#335940;border:none;-webkit-border-radius:4px 4px 4px 4px;border-radius:4px 4px 4px 4px;display:block}.header{position:fixed;width:100%;z-index:123;left:15px;top:0}.header .logo{padding:30px 30px 0 20px;background:white}.header .top-line-wrap{padding:25px 40px 0 25px}.header .top-line{padding:25px 25px 0 25px;-webkit-box-shadow:0 15px 33px rgba(37,35,36,0.23);box-shadow:0 15px 33px rgba(37,35,36,0.23);background-color:rgba(255,255,255,0.82);font-size:0}.header .top-line .main-menu{display:inline-block;vertical-align:middle;margin-left:20px}.header .top-line .main-menu>ul{margin-bottom:0;padding-right:10px;padding-left:0}.header .top-line .main-menu>ul>li{margin-left:10px;display:inline-block;vertical-align:middle;position:relative;padding-bottom:25px}.rtl .header .top-line .main-menu>ul>li:last-of-type{margin-left:0;padding-left:0;border-left:0}.header .top-line .main-menu>ul>li>a{border-left:2px solid #396047;padding-left:10px;color:#396047;font-size:18px;display:inline-block;position:relative}.header .top-line .main-menu>ul>li>a:after{content:'';position:absolute;bottom:0;left:10px;width:0;height:2px;background:#396047}.header .top-line .main-menu>ul>li.sub a{padding-left:10px}.header .top-line .main-menu>ul>li.sub a:after{left:30px}.header .top-line .cart{display:inline-block;vertical-align:middle;padding-bottom:25px;max-width:25px}.header .top-line .cart a{display:block}.header .phone{padding-bottom:25px;color:#335940;font:23px "Open Sans Hebrew",sans-serif;font-weight:bold;margin-left:40px;display:inline-block;vertical-align:middle}.header .phone span{margin-left:5px}.header .phone a{color:#335940;position:relative;display:inline-block}.header .phone a:after{content:'';position:absolute;bottom:0;left:0px;width:0;height:3px;background:#396047}.header .top-line .searchform{padding-bottom:25px;position:relative;padding-right:36px;width:30%;display:inline-block;vertical-align:middle}.header .top-line .searchform input[type="text"]{width:100%;height:40px;background:transparent;font-size:12px;padding:0 10px;border:0;border:2px solid #d6eab4}.header .top-line .searchform button{max-width:30px;position:absolute;top:0;right:0;border:0;background:transparent;padding:0}.content-page .right-menu{padding-top:212px;padding-right:30px;margin-bottom:30px}.content-page .right-menu ul{padding-right:0;list-style:none;margin-bottom:0}.content-page .right-menu ul li{margin-bottom:10px}.content-page .right-menu ul li:last-of-type{margin-bottom:0}.content-page .right-menu ul li a{color:#000000;font-size:18px;display:inline-block;vertical-align:middle;margin-left:5px}.content-page .right-menu ul li ul{display:none;padding-right:20px}.content-page .right-menu ul li ul li a{color:#455b08;position:relative}.content-page .right-menu ul li ul li a:after{content:'';position:absolute;bottom:0;right:0;width:0;height:2px;background:#a6d15b}.btn-cart{margin-right:30px;margin-left:10px;border:1px solid #ffffff;-webkit-box-shadow:0 0 7px rgba(0,0,0,0.25);box-shadow:0 0 7px rgba(0,0,0,0.25);-webkit-border-radius:20px;border-radius:20px;background-color:#ffffff;padding:6px 30px;display:inline-block}.btn-cart .icon{display:inline-block;vertical-align:middle;margin-left:9px}.btn-cart .text{display:inline-block;vertical-align:middle;font-size:15px;line-height:1;color:#000000}.content-page .basket-right{margin:65px 30px 0 30px;-webkit-box-shadow:0 0 7px rgba(0,0,0,0.65);box-shadow:0 0 7px rgba(0,0,0,0.65);-webkit-border-radius:15px;border-radius:15px;border:1px solid #ffffff;background-color:#f2f2f2;overflow:hidden}.content-page .home-banner{background-image:url("/wp-content/themes/easyline/img/slider2.png");background-repeat:no-repeat;background-size:cover;padding:420px 210px 365px 0}.content-page .home-banner__link{position:absolute;top:0;left:0;right:0;bottom:0}.category{background:#d6eab4;padding:140px 40px 30px 40px}.category .content{background-color:rgba(255,255,255,0.58);padding:35px}.category .content .products{font-size:0}.category .content .products .product-item{overflow:hidden;position:relative}.category .content .products .product-item-image{display:block;border:1px solid #91b123;-webkit-border-radius:10px;border-radius:10px;background-color:#ffffff;padding:20px 5px 10px;margin-bottom:10px;text-align:center;position:relative}.category .content .products .product-item-image:after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(255,255,255,0.6);opacity:0}.category .content .products .product-item-image img{max-height:260px;width:auto}.category .content .products .product-item:nth-child(3n){margin-left:0}.product-btn{display:inline-block;-webkit-border-radius:10px;border-radius:10px;border:3px solid #a8c951;background-color:#ffffff;padding:4.5px 12px;font:15px "Open Sans Hebrew",sans-serif;font-weight:bold;color:#374f37}.shop .content{padding-bottom:45px}.content-page .right-menu ul li ul{margin:20px 0 30px}.shop .content .products .product-item-shop:nth-child(6n+2) .product-item-shop__title{background-color:#3b4711}.shop .content .products .product-item-shop:nth-child(6n+3) .product-item-shop__title{background-color:#083167}.shop .content .products .product-item-shop:nth-child(6n+4) .product-item-shop__title{background-color:#300f66}.shop .content .products .product-item-shop:nth-child(6n+5) .product-item-shop__title{background-color:#1a4e08}.shop .content .products .product-item-shop:nth-child(6n) .product-item-shop__title{background-color:#2f302d}.shop .content .products .product-item-shop .product-item-image{padding:10px}.shop .content .products .product-item-shop .product-item-image:after{display:none}.shop .content .products .product-item-shop__title{font-size:26px;line-height:1;padding:11px 3px;text-align:center;background-color:#91b123;margin-bottom:20px}.shop .content .products .product-item-shop__title a{color:#ffffff;text-decoration:none}.shop .content .products .product-item-shop .more{display:inline-block;color:#ffffff;font-size:15px;padding:5px 12px;background-color:#91b123}.product-item-shop .image-link{display:flex;align-items:center;margin-bottom:5px;justify-content:center;min-height:336px}.category .content .products .product-item-image{min-height:400px}.content-page .right-menu ul li.menu-item-has-children>a{border-left:1px solid grey;padding-left:5px}.banner-right{display:block;margin:20px 30px;text-align:center;font-size:29px}.language{display:inline-block;vertical-align:middle;font-size:15px;padding:0 0 25px 0;margin-right:10px}.language ul{padding:0;margin:0;display:flex;list-style:none}.language li{padding:0;margin:0}.language li a{display:inline-block!important;color:#396047}.language li:first-child::after{content:"/";color:#396047}.main-menu{position:relative}.toggle_mnu{position:absolute;right:0;bottom:30px}.banner-right img{margin:auto}.product-item-shop .image-link{min-height:initial;height:fit-content!important}.category .content .products .product-item-image{min-height:inherit;height:fit-content!important}.category .content .products .product-item{overflow:hidden;display:inline-block;vertical-align:top;margin-bottom:63px;width:30%;margin-left:5%;position:relative}@media (max-width:1700px){.header .top-line .searchform{width:25%}.btn-cart{padding:6px 21px}.header .top-line .main-menu{margin-left:10px}.header .phone{margin-left:12px}.header .top-line .main-menu>ul>li>a{font-size:16px}}@media (max-width:1200px){.category .content{padding-bottom:50px}.category .content .products .product-item:nth-child(3n){margin-left:4%}.category .content .products .product-item:nth-child(even){margin-left:0}.category .content .products .product-item:nth-child(even){margin-left:0}.content-page .basket-right{margin-left:15px}.content-page .home-banner{padding:300px 50px 300px 0}.language{font-size:13px}.header .top-line .searchform{width:25%}.header .phone{font-size:20px;margin-left:15px}.header .searchform button img{width:30px}.header .top-line .main-menu>ul>li>a{font-size:15px}.header .top-line .main-menu>ul>li{margin-left:7px}.header .top-line .main-menu>ul{padding-right:5px}.header .top-line .main-menu{margin-left:10px}.header .top-line .cart{width:25px}.btn-cart{padding:6px 15px}.btn-cart .icon{width:20px;margin-left:4px}.btn-cart .text{font-size:12px}}@media (max-width:991px){.content-page .right-menu{padding-top:150px}.content-page .basket-right{margin-top:10px}.content-page .basket-right{width:300px}.content-page .right-menu ul{display:none}.right-menu>ul{position:fixed;top:140px;right:0;width:100%;z-index:11111;background:white;padding-right:18px!important;padding-bottom:15px;height:auto;max-height:389px;overflow:auto}.header .logo a:not(.btn-cart) img{height:60px}.header{left:0}.category{padding-top:40px}.header .logo{padding-right:40px}.header .logo{background-color:white}.header .top-line .searchform,.header .top-line .main-menu>ul>li,.header .phone,.header .top-line .cart,.language{padding-bottom:0px}.header .top-line-wrap{background:white;padding-right:10px}.header .top-line{padding:10px;box-shadow:none}.header .phone{font-size:15px;margin-left:10px}.header .top-line .main-menu>ul>li.sub a{padding-left:20px}.content-page .home-banner{padding:245px 50px 245px 0}.header .top-line .main-menu>ul>li>a{font-size:13px}.header .top-line .main-menu>ul>li>a{padding-left:5px}.header .top-line .cart{width:20px}.header .top-line .main-menu>ul{padding-right:5px}.header .top-line .main-menu>ul>li{margin-left:5px}.banner-right{margin-bottom:20px}.category .content{padding:25px 25px 50px 0}.language{line-height:40px}.header .logo{text-align:center;background-color:white;padding:10px 10px 0 10px;display:flex;justify-content:space-between;align-items:center}.header .logo a:not(.btn-cart) img{max-height:400px}#searchform{margin-top:0px}.header .top-line .searchform{width:calc(100% - 315px);margin-bottom:5px;margin-right:30px;padding-right:33px}.header .top-line-wrap{padding:0}.header .top-line{text-align:right}.header .phone{margin-left:10px;font-size:16px;display:inline-block}.header .top-line .main-menu{display:inline-block;margin-left:0;padding-right:30px}}@media (max-width:767px){.header .top-line .searchform{width:calc(100% - 233px)}.right-menu>ul{top:140px;height:calc(100% - 145px)}.btn-cart{margin-right:5px}.header .logo a:not(.btn-cart) img{height:50px}.category .content{padding-bottom:20px}.category .content .products .product-item:nth-child(3n){margin-left:0}.category-shop-slider.shop .content .products{margin-bottom:0}.category-shop-slider.category .content{padding-bottom:0}.basket-right,.banner-right{display:none}body .content-page .sidebar{padding-bottom:0px}.header .top-line .main-menu>ul>li.sub,.header .top-line .cart{display:none}.product-item-shop .image-link,.category .content .products .product-item-image{min-height:inherit}.category .content{padding-right:10px;padding-left:10px}.category .content .products{padding-left:0}.category{padding:30px 20px 40px 20px}.shop .content .products{margin-bottom:0}.header{left:0}.content-page .right-menu{padding-top:140px;margin-bottom:0px}.content-page .home-banner{padding:200px 10px 200px 0}}@media (max-width:480px){.right-menu>ul{top:55px;height:calc(100% - 60px)}.language{margin-right:20px}.header .top-line .searchform{width:100%;margin-right:0}.toggle_mnu{bottom:inherit;top:-34px}.header .logo{justify-content:center}.language{margin-right:0}.header .top-line .main-menu{padding-right:0}.header .top-line .searchform{width:60%}.content-page .right-menu{padding-top:180px}}@media (min-width:320px){.container{width:100%;padding:0}}</style><link rel="stylesheet" href="https://easyline.co.il/wp-content/cache/min/1/c7f64b328a390b77c40f5e489de2f5c6.css" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" media="all" data-minify="1">
+	<meta name="description" content="חברת איזי ליין מתמחה בייצור תכשירי מזון ייעודים להזנה אנטרלית, במקביל לתכשירי מזון המשמשים להעשרות תזונתיות בנוזל, באבקה ותוספי תזונה. פיתוח המוצרים נעשה בשילוב ידע תזונתי נרחב של דיאטניות קליניות ושל טכנולוגי מזון מתוך התחשבות בצרכים המיוחדים של האוכלוסייה אליה המוצרים מיועדים.">
+	<link rel="canonical" href="https://easyline.co.il/">
+	<meta property="og:locale" content="he_IL">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="דף הבית">
+	<meta property="og:description" content="חברת איזי ליין מתמחה בייצור תכשירי מזון ייעודים להזנה אנטרלית, במקביל לתכשירי מזון המשמשים להעשרות תזונתיות בנוזל, באבקה ותוספי תזונה. פיתוח המוצרים נעשה בשילוב ידע תזונתי נרחב של דיאטניות קליניות ושל טכנולוגי מזון מתוך התחשבות בצרכים המיוחדים של האוכלוסייה אליה המוצרים מיועדים.">
+	<meta property="og:url" content="https://easyline.co.il/">
+	<meta property="og:site_name" content="איזי ליין">
+	<meta property="article:publisher" content="https://www.facebook.com/EasylineNutrition/">
+	<meta property="article:modified_time" content="2025-04-21T14:51:13+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://easyline.co.il/","url":"https://easyline.co.il/","name":"דף הבית - איזי ליין חברת איזי ליין מספקת תוספי תזונה, מזון ייעודי להזנה אנטרלית","isPartOf":{"@id":"https://easyline.co.il/#website"},"datePublished":"2018-05-31T12:12:40+00:00","dateModified":"2025-04-21T14:51:13+00:00","description":"חברת איזי ליין מתמחה בייצור תכשירי מזון ייעודים להזנה אנטרלית, במקביל לתכשירי מזון המשמשים להעשרות תזונתיות בנוזל, באבקה ותוספי תזונה. פיתוח המוצרים נעשה בשילוב ידע תזונתי נרחב של דיאטניות קליניות ושל טכנולוגי מזון מתוך התחשבות בצרכים המיוחדים של האוכלוסייה אליה המוצרים מיועדים.","breadcrumb":{"@id":"https://easyline.co.il/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https://easyline.co.il/"]}]},{"@type":"BreadcrumbList","@id":"https://easyline.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://easyline.co.il/#website","url":"https://easyline.co.il/","name":"איזי ליין","description":"בשלב שהגוף זקוק לחיזוק","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://easyline.co.il/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<script type="rocketlazyloadscript" data-rocket-type="application/javascript" id="pys-version-script">console.log('PixelYourSite Free version 11.1.4.2');</script>
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://easyline.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Feasyline.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://easyline.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Feasyline.co.il%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+
+
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+
+
+
+
+
+
+<link rel="preload" href="https://easyline.co.il/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen-rtl.css?ver=10.3.8" data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')" type="text/css" media="only screen and (max-width: 768px)">
+
+<style id="woocommerce-inline-inline-css" type="text/css">
+.woocommerce form .form-row .required { visibility: visible; }
+/*# sourceURL=woocommerce-inline-inline-css */
+</style>
+
+
+
+
+
+
+
+
+
+
+<script type="rocketlazyloadscript" id="woocommerce-google-analytics-integration-gtag-js-after">
+/* Google Analytics for WooCommerce (gtag.js) */
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					// Set up default consent state.
+					for ( const mode of [{"analytics_storage":"denied","ad_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","region":["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IS","IE","IT","LV","LI","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE","GB","CH"]}] || [] ) {
+						gtag( "consent", "default", { "wait_for_update": 500, ...mode } );
+					}
+					gtag("js", new Date());
+					gtag("set", "developer_id.dOGY3NW", true);
+					gtag("config", "UA-179757234-1", {"track_404":true,"allow_google_signals":true,"logged_in":false,"linker":{"domains":[],"allow_incoming":false},"custom_map":{"dimension1":"logged_in"}});
+//# sourceURL=woocommerce-google-analytics-integration-gtag-js-after
+</script>
+<script src="https://easyline.co.il/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle_gathering.min.js?ver=6.69.1_1765196977" id="apbct-public-bundle_gathering.min-js-js"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.10.3.8" id="wc-jquery-blockui-js" defer="" data-wp-strategy="defer"></script>
+<script id="wc-add-to-cart-js-extra">
+var wc_add_to_cart_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%","i18n_view_cart":"\u05de\u05e2\u05d1\u05e8 \u05dc\u05e1\u05dc \u05d4\u05e7\u05e0\u05d9\u05d5\u05ea","cart_url":"https://easyline.co.il/%d7%97%d7%a9%d7%91%d7%95%d7%9f-%d7%a9%d7%9c%d7%99/","is_cart":"","cart_redirect_after_add":"no"};
+//# sourceURL=wc-add-to-cart-js-extra
+</script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=10.3.8" id="wc-add-to-cart-js" defer="" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.10.3.8" id="wc-js-cookie-js" defer="" data-wp-strategy="defer"></script>
+<script id="woocommerce-js-extra">
+var woocommerce_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%","i18n_password_show":"\u05dc\u05d4\u05e6\u05d9\u05d2 \u05e1\u05d9\u05e1\u05de\u05d4","i18n_password_hide":"\u05dc\u05d4\u05e1\u05ea\u05d9\u05e8 \u05e1\u05d9\u05e1\u05de\u05d4"};
+//# sourceURL=woocommerce-js-extra
+</script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=10.3.8" id="woocommerce-js" defer="" data-wp-strategy="defer"></script>
+<script id="wc-cart-fragments-js-extra">
+var wc_cart_fragments_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_url":"/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_d85a26b9157121adc20a1e92490d41b7-he","fragment_name":"wc_fragments_d85a26b9157121adc20a1e92490d41b7","request_timeout":"5000"};
+//# sourceURL=wc-cart-fragments-js-extra
+</script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=10.3.8" id="wc-cart-fragments-js" defer="" data-wp-strategy="defer"></script>
+<script type="text/plain" data-service="facebook" data-category="marketing" data-cmplz-src="https://easyline.co.il/wp-content/plugins/pixelyoursite/dist/scripts/jquery.bind-first-0.2.3.min.js?ver=0.2.3" id="jquery-bind-first-js"></script>
+<script type="text/plain" data-service="facebook" data-category="marketing" data-cmplz-src="https://easyline.co.il/wp-content/plugins/pixelyoursite/dist/scripts/js.cookie-2.1.3.min.js?ver=2.1.3" id="js-cookie-pys-js"></script>
+<script type="text/plain" data-service="facebook" data-category="marketing" data-cmplz-src="https://easyline.co.il/wp-content/plugins/pixelyoursite/dist/scripts/tld.min.js?ver=2.3.1" id="js-tld-js"></script>
+<script type="text/plain" data-service="facebook" data-category="marketing" id="pys-js-extra">
+var pysOptions = {"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"static","ajaxFire":false,"name":"PageView","pixelIds":["1676192066238162"],"eventID":"bebc8906-b446-4562-81cf-740ce47cecea","params":{"page_title":"\u05d3\u05e3 \u05d4\u05d1\u05d9\u05ea","post_type":"page","post_id":2,"plugin":"PixelYourSite","user_role":"guest","event_url":"easyline.co.il/"},"e_id":"init_event","ids":[],"hasTimeWindow":false,"timeWindow":0,"woo_order":"","edd_order":""}]}},"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"facebook":{"pixelIds":["1676192066238162"],"advancedMatching":{"external_id":"cedecebdccedabdaabffafbe"},"advancedMatchingEnabled":true,"removeMetadata":false,"wooVariableAsSimple":false,"serverApiEnabled":false,"wooCRSendFromServer":false,"send_external_id":null,"enabled_medical":false,"do_not_track_medical_param":["event_url","post_title","page_title","landing_page","content_name","categories","category_name","tags"],"meta_ldu":false},"debug":"","siteUrl":"https://easyline.co.il","ajaxUrl":"https://easyline.co.il/wp-admin/admin-ajax.php","ajax_event":"e1ab2b9eba","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","ajaxForServerStaticEvent":"1","useSendBeacon":"1","send_external_id":"1","external_id_expire":"180","track_cookie_for_subdomains":"1","google_consent_mode":"1","gdpr":{"ajax_enabled":false,"all_disabled_by_api":false,"facebook_disabled_by_api":false,"analytics_disabled_by_api":false,"google_ads_disabled_by_api":false,"pinterest_disabled_by_api":false,"bing_disabled_by_api":false,"reddit_disabled_by_api":false,"externalID_disabled_by_api":false,"facebook_prior_consent_enabled":true,"analytics_prior_consent_enabled":true,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":true,"bing_prior_consent_enabled":true,"cookiebot_integration_enabled":false,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":"marketing","cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":false,"real_cookie_banner_integration_enabled":false,"cookie_notice_integration_enabled":false,"cookie_law_info_integration_enabled":false,"analytics_storage":{"enabled":true,"value":"granted","filter":false},"ad_storage":{"enabled":true,"value":"granted","filter":false},"ad_user_data":{"enabled":true,"value":"granted","filter":false},"ad_personalization":{"enabled":true,"value":"granted","filter":false}},"cookie":{"disabled_all_cookie":false,"disabled_start_session_cookie":false,"disabled_advanced_form_data_cookie":false,"disabled_landing_page_cookie":false,"disabled_first_visit_cookie":false,"disabled_trafficsource_cookie":false,"disabled_utmTerms_cookie":false,"disabled_utmId_cookie":false},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"undefined","TrafficUtms":[],"TrafficUtmsId":[]},"GATags":{"ga_datalayer_type":"default","ga_datalayer_name":"dataLayerPYS"},"woo":{"enabled":true,"enabled_save_data_to_orders":true,"addToCartOnButtonEnabled":true,"addToCartOnButtonValueEnabled":true,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":false,"containOrderId":false},"edd":{"enabled":false},"cache_bypass":"1772540865"};
+//# sourceURL=pys-js-extra
+</script>
+<script type="text/plain" data-service="facebook" data-category="marketing" data-cmplz-src="https://easyline.co.il/wp-content/plugins/pixelyoursite/dist/scripts/public.js?ver=11.1.4.2" id="pys-js"></script>
+<link rel="https://api.w.org/" href="https://easyline.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://easyline.co.il/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://easyline.co.il/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.1">
+<meta name="generator" content="WooCommerce 10.3.8">
+<meta name="generator" content="WPML ver:4.8.6 stt:1,20;">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">(function(){var e=document.createElement('script');e.async=true;e.defer=true;e.setAttribute("type","text/javascript");e.setAttribute("src","https://my.pluro.ai/unitoolbar.js?lang=en");document.getElementsByTagName("head")[0].appendChild(e);})();</script>
+<!-- This website runs the Product Feed PRO for WooCommerce by AdTribes.io plugin - version woocommercesea_option_installed_version -->
+			<style>.cmplz-hidden {
+					display: none !important;
+				}</style>  <!-- Google Tag Manager -->
+  <script type="rocketlazyloadscript">
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NT5R3QH');
+  </script>
+  <!-- End Google Tag Manager -->
+  	<!-- Meta Pixel Code -->
+	<script type="text/plain" data-service="facebook" data-category="marketing">
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+			n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		 n.queue=[];t=b.createElement(e);t.async=!0;
+		 t.src=v;s=b.getElementsByTagName(e)[0];
+		 s.parentNode.insertBefore(t,s)}(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '1676192066238162');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1676192066238162&ev=PageView&noscript=1" />
+	</noscript>
+	<!-- End Meta Pixel Code -->
+          <!--noptimize-->
+        <!-- Global site tag (gtag.js) - Google Ads: 548540930 -->
+        <script type="text/plain" data-service="google-analytics" data-category="statistics" async="" data-cmplz-src="https://www.googletagmanager.com/gtag/js?id=AW-548540930"></script>
+        <script type="rocketlazyloadscript">
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'AW-548540930');
+        </script>
+        <!--/noptimize-->
+
+        	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<link rel="modulepreload" href="https://easyline.co.il/wp-content/plugins/advanced-coupons-for-woocommerce-free/dist/common/NoticesPlugin.4b31c3cc.js"><link rel="modulepreload" href="https://easyline.co.il/wp-content/plugins/advanced-coupons-for-woocommerce-free/dist/common/NoticesPlugin.4b31c3cc.js"><link rel="icon" href="https://easyline.co.il/wp-content/uploads/2018/06/cropped-logo-100x100.png" sizes="32x32">
+<link rel="icon" href="https://easyline.co.il/wp-content/uploads/2018/06/cropped-logo-300x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://easyline.co.il/wp-content/uploads/2018/06/cropped-logo-300x300.png">
+<meta name="msapplication-TileImage" content="https://easyline.co.il/wp-content/uploads/2018/06/cropped-logo-300x300.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script></head>
+
+<body data-cmplz="1" class="rtl home wp-singular page-template page-template-template-index page-template-template-index-php page page-id-2 wp-theme-easyline2 theme-easyline2 woocommerce-no-js">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT5R3QH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-xs-12">
+          <div class="logo">
+  <a href="https://easyline.co.il">
+    <img width="257" height="84" src="https://easyline.co.il/wp-content/uploads/2018/06/logo.png" alt="לוגו איזיליין" data-lazy-src="https://easyline.co.il/wp-content/uploads/2018/06/logo.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="257" height="84" src="https://easyline.co.il/wp-content/uploads/2018/06/logo.png" alt="לוגו איזיליין" /></noscript>
+  </a>
+</div>        </div>
+
+        <div class="col-md-10 col-xs-12">
+          <div class="top-line-wrap">
+            <div class="top-line">
+                <div class="toggle_mnu visible-xs-inline-block visible-sm-inline-block">
+    <span class="sandwich">
+      <span class="sw-topper"></span>
+      <span class="sw-bottom"></span>
+      <span class="sw-footer"></span>
+    </span>
+  </div>
+  
+              <div class="phone"><span>טל. </span><a href="tel:046327777">04-6327777</a></div>
+              <form apbct-form-sign="native_search" action="#" id="searchform" class="searchform" role="search" aria-label="Search Form">
+	<button type="submit" aria-label="Submit search">
+		<span style="font-size: 0px;">Submit search</span>
+		<img width="36" height="31" src="https://easyline.co.il/wp-content/themes/easyline2/img/search.svg" alt="search" data-lazy-src="https://easyline.co.il/wp-content/themes/easyline2/img/search.svg" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="36" height="31" src="https://easyline.co.il/wp-content/themes/easyline2/img/search.svg" alt="search" /></noscript>
+	</button>
+	<input type="text" id="s" name="s" placeholder="חיפוש..." aria-label="Search input">
+</form>
+              <nav class="main-menu" aria-label="Main Menu">
+  <ul>
+          <li>
+        <a href="https://easyline.co.il/%d7%94%d7%aa%d7%97%d7%91%d7%a8%d7%95%d7%aa/">התחברות </a>
+      </li>
+    
+      </ul>
+</nav>
+              
+<div class="cart">
+  <a href="https://easyline.co.il/%d7%97%d7%a9%d7%91%d7%95%d7%9f-%d7%a9%d7%9c%d7%99/" class="cart-icon">
+    <img width="30" height="27" src="https://easyline.co.il/wp-content/themes/easyline2/img/cart.png" alt="cart" data-lazy-src="https://easyline.co.il/wp-content/themes/easyline2/img/cart.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="30" height="27" src="https://easyline.co.il/wp-content/themes/easyline2/img/cart.png" alt="cart" /></noscript>
+    <span class="cart-count" id="header-cart-count">
+      0    </span>
+  </a>
+
+  <div class="cart-header">
+    <div id="updated_header_mini_cart">
+
+	<p class="woocommerce-mini-cart__empty-message">אין מוצרים בסל הקניות.</p>
+
+
+</div>
+  </div>
+</div>
+              <div class="language dropdown">
+                
+<div class="wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-rtl wpml-ls-legacy-list-horizontal">
+	<ul role="menu"><li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-en wpml-ls-first-item wpml-ls-item-legacy-list-horizontal" role="none">
+				<a href="https://easyline.co.il/en/" class="wpml-ls-link" role="menuitem" aria-label="עבור ל-EN" title="עבור ל-EN">
+                    <span class="wpml-ls-native" lang="en">EN</span></a>
+			</li><li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-he wpml-ls-current-language wpml-ls-last-item wpml-ls-item-legacy-list-horizontal" role="none">
+				<a href="https://easyline.co.il/" class="wpml-ls-link" role="menuitem">
+                    <span class="wpml-ls-native" role="menuitem">‫עב‬</span></a>
+			</li></ul>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header><main class="content-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-xs-12 sidebar">
+	<nav class="right-menu" aria-label="Menu Right">
+		<ul>
+						<li id="menu-item-35" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-wrap-top__item page_item page-item-2 current_page_item menu-item-35"><a href="https://easyline.co.il/" aria-current="page">ראשי</a></li>
+<li id="menu-item-659" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-659"><a href="https://easyline.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%94%d7%97%d7%91%d7%a8%d7%94/">אודות החברה</a></li>
+<li id="menu-item-660" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-660"><a href="https://easyline.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92-%d7%a9%d7%9c%d7%a0%d7%95/">המותג שלנו</a></li>
+<li id="menu-item-661" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-661"><a href="https://easyline.co.il/%d7%97%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%a0%d7%9c%d7%99%d7%99%d7%9f/">חנות אונליין</a>
+<ul class="menu-wrap-top">
+	<li id="menu-item-665" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-665"><a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa/">כל מוצרי איזיליין</a></li>
+	<li id="menu-item-667" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-667"><a href="https://easyline.co.il/product-category/%d7%a1%d7%a4%d7%95%d7%a8%d7%98%d7%90%d7%99%d7%9d/">העשרות חלבון</a></li>
+	<li id="menu-item-6098" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-6098"><a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%99%d7%9d-%d7%9e%d7%94%d7%a6%d7%95%d7%9e%d7%97-%d7%91%d7%9c%d7%91%d7%93/">פתרונות תזונתיים מהצומח בלבד</a></li>
+	<li id="menu-item-666" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-666"><a href="https://easyline.co.il/product-category/%d7%94%d7%96%d7%a0%d7%94-%d7%91%d7%a6%d7%99%d7%a0%d7%95%d7%a8%d7%99%d7%aa/">הזנה בצינורית</a></li>
+	<li id="menu-item-6074" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-6074"><a href="https://easyline.co.il/product-category/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%90%d7%99%d7%96%d7%99%d7%9c%d7%99%d7%99%d7%9f-%d7%9c%d7%aa%d7%99%d7%a0%d7%95%d7%a7%d7%95%d7%aa-%d7%95%d7%99%d7%9c%d7%93%d7%99%d7%9d/">מוצרי איזיליין לתינוקות וילדים</a></li>
+	<li id="menu-item-668" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-668"><a href="https://easyline.co.il/product-category/%d7%9b%d7%a9%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%95%d7%94%d7%94/">כשרות גבוהה</a></li>
+	<li id="menu-item-6073" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-6073"><a href="https://easyline.co.il/product-category/%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa-%d7%91%d7%a1%d7%95%d7%9b%d7%a8%d7%aa/">תמיכה תזונתית בסוכרת</a></li>
+	<li id="menu-item-669" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-669"><a href="https://easyline.co.il/product-category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94/">תוספי תזונה</a></li>
+	<li id="menu-item-670" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-670"><a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%9c%d7%9e%d7%96%d7%95%d7%9f-%d7%9e%d7%95%d7%a1%d7%9e%d7%9a/">פתרונות להסמכת מזון ושתייה</a></li>
+</ul>
+</li>
+<li id="menu-item-701" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-701"><a href="https://easyline.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99%d7%99%d7%9d/">מאמרים בנושא תזונה</a></li>
+<li id="menu-item-887" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-887"><a href="https://easyline.co.il/%d7%9e%d7%aa%d7%9b%d7%95%d7%a0%d7%99%d7%9d-%d7%90%d7%99%d7%96%d7%99%d7%9c%d7%99%d7%99%d7%9f/">מתכונים</a></li>
+<li id="menu-item-6682" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-6682"><a href="https://easyline.co.il/%d7%90%d7%99%d7%96%d7%99%d7%9c%d7%99%d7%99%d7%9f-%d7%91%d7%a7%d7%95%d7%a4%d7%95%d7%aa-%d7%94%d7%97%d7%95%d7%9c%d7%99%d7%9d/">איזיליין בקופות החולים</a></li>
+<li id="menu-item-663" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-663"><a href="https://easyline.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%95%d7%aa%d7%a9%d7%95%d7%91%d7%95%d7%aa/">שאלות ותשובות</a></li>
+<li id="menu-item-662" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-662"><a href="https://easyline.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/">צור קשר</a></li>
+		</ul>
+	</nav>
+
+			<a href="https://easyline.co.il/%d7%94%d7%aa%d7%97%d7%91%d7%a8%d7%95%d7%aa/" class="btn-cart">
+			<img width="28" height="30" class="icon entered lazyloaded" src="https://easyline.co.il/wp-content/themes/easyline2/img/cart-black.png" alt="cart" data-lazy-src="https://easyline.co.il/wp-content/themes/easyline2/img/cart-black.png" data-ll-status="loaded"><noscript><img width="28" height="30" class="icon" src="https://easyline.co.il/wp-content/themes/easyline2/img/cart-black.png" alt="cart" /></noscript>
+			<span class="text">לקוח חדש?  <br>לחץ כאן </span>
+		</a>
+	
+		
+	
+			<div class="banners">
+												<a href="https://www.facebook.com/EasylineNutrition/" class="banner-right">
+						<img width="2242" height="1455" src="https://easyline.co.il/wp-content/uploads/2025/03/עקבו-בפייסבוק-2.png" alt="banner" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/03/עקבו-בפייסבוק-2.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="2242" height="1455" src="https://easyline.co.il/wp-content/uploads/2025/03/עקבו-בפייסבוק-2.png" alt="banner" /></noscript>
+					</a>
+																<a href="https://easyline.co.il/product/%d7%90%d7%99%d7%96%d7%99-%d7%a1%d7%99%d7%a4-%d7%aa%d7%95%d7%aa/" class="banner-right">
+						<img width="2560" height="1352" src="https://easyline.co.il/wp-content/uploads/2025/07/איזי-סיפ-חדש-באתר_-סלייד-צדדי-1-scaled.png" alt="banner" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/07/איזי-סיפ-חדש-באתר_-סלייד-צדדי-1-scaled.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="2560" height="1352" src="https://easyline.co.il/wp-content/uploads/2025/07/איזי-סיפ-חדש-באתר_-סלייד-צדדי-1-scaled.png" alt="banner" /></noscript>
+					</a>
+																<a href="https://easyline.co.il/product/%d7%90%d7%99%d7%96%d7%99-%d7%a1%d7%95%d7%99-1-%d7%a7%d7%92/" class="banner-right">
+						<img width="2560" height="1352" src="https://easyline.co.il/wp-content/uploads/2025/07/איזי-סוי-חדש-באתר-סלייד-צדדי-scaled.png" alt="banner" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/07/איזי-סוי-חדש-באתר-סלייד-צדדי-scaled.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="2560" height="1352" src="https://easyline.co.il/wp-content/uploads/2025/07/איזי-סוי-חדש-באתר-סלייד-צדדי-scaled.png" alt="banner" /></noscript>
+					</a>
+																<a href="https://easyline.co.il/product/%d7%90%d7%99%d7%96%d7%99-%d7%a9%d7%99%d7%99%d7%a7-2/" class="banner-right">
+						<img width="1444" height="727" src="https://easyline.co.il/wp-content/uploads/2026/02/איזי-שייק-סלייד-צדדי.png" alt="banner" data-lazy-src="https://easyline.co.il/wp-content/uploads/2026/02/איזי-שייק-סלייד-צדדי.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img width="1444" height="727" src="https://easyline.co.il/wp-content/uploads/2026/02/איזי-שייק-סלייד-צדדי.png" alt="banner" /></noscript>
+					</a>
+																<a href="https://easyline.co.il/product/%d7%a4%d7%a8%d7%95-%d7%9e%d7%a1-23-%d7%92%d7%a8%d7%9d/" class="banner-right">
+						<img width="1444" height="727" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201444%20727'%3E%3C/svg%3E" alt="banner" data-lazy-src="https://easyline.co.il/wp-content/uploads/2026/02/פרו-מס-סלייד-צדדי.png"><noscript><img width="1444" height="727" src="https://easyline.co.il/wp-content/uploads/2026/02/פרו-מס-סלייד-צדדי.png" alt="banner" /></noscript>
+					</a>
+																<a href="https://www.instagram.com/easylineltd?igsh=dng0eWQ2dzI3Ym0y" class="banner-right">
+						<img width="1244" height="727" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201244%20727'%3E%3C/svg%3E" alt="banner" data-lazy-src="https://easyline.co.il/wp-content/uploads/2026/03/עקבו-אחרינו-גם-באינסטגרם.png"><noscript><img width="1244" height="727" src="https://easyline.co.il/wp-content/uploads/2026/03/עקבו-אחרינו-גם-באינסטגרם.png" alt="banner" /></noscript>
+					</a>
+									</div>
+	</div>
+
+			<div class="col-md-10 col-xs-12">
+								<div class="home-banner-slider">
+											
+						<div data-bg="https://easyline.co.il/wp-content/uploads/2021/01/easyline_slider1-1024x564.jpg" class="home-banner rocket-lazyload entered lazyloaded" style="background-repeat: no-repeat; background-size: cover; background-image: url(&quot;https://easyline.co.il/wp-content/uploads/2021/01/easyline_slider1-1024x564.jpg&quot;);" aria-label="Banner Image 0" data-ll-status="loaded">
+															<a href="https://easyline.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/" class="home-banner__link"></a>
+													</div>
+											
+						<div data-bg="https://easyline.co.il/wp-content/uploads/2021/01/easyline_slider2-1024x564.jpg" class="home-banner rocket-lazyload entered lazyloaded" style="background-repeat: no-repeat; background-size: cover; background-image: url(&quot;https://easyline.co.il/wp-content/uploads/2021/01/easyline_slider2-1024x564.jpg&quot;);" aria-label="Banner Image 1" data-ll-status="loaded">
+															<a href="https://easyline.co.il/%d7%97%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%a0%d7%9c%d7%99%d7%99%d7%9f/" class="home-banner__link"></a>
+													</div>
+											
+						<div data-bg="https://easyline.co.il/wp-content/uploads/2021/01/easyline_slider3-1024x564.jpg" class="home-banner rocket-lazyload" style="background-repeat:no-repeat;background-size:cover;" aria-label="Banner Image 2">
+															<a href="https://easyline.co.il/%d7%97%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%a0%d7%9c%d7%99%d7%99%d7%9f/" class="home-banner__link"></a>
+													</div>
+									</div>
+
+				<div class="category shop category-shop-slider visible-xs-block">
+					<div class="content">
+						<div class="products">
+																<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa-%d7%91%d7%a1%d7%95%d7%9b%d7%a8%d7%aa/">תמיכה תזונתית בסוכרת</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa-%d7%91%d7%a1%d7%95%d7%9b%d7%a8%d7%aa/" class="image-link"><img width="742" height="686" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20742%20686'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/07/מוצרי-תמיכה-בסכרת.png"><noscript><img width="742" height="686" src="https://easyline.co.il/wp-content/uploads/2025/07/מוצרי-תמיכה-בסכרת.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa-%d7%91%d7%a1%d7%95%d7%9b%d7%a8%d7%aa/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94/">תוספי תזונה</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94/" class="image-link"><img width="1175" height="686" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201175%20686'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/05/קומפוזיציות-לאתר.png"><noscript><img width="1175" height="686" src="https://easyline.co.il/wp-content/uploads/2025/05/קומפוזיציות-לאתר.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%99%d7%9d-%d7%9e%d7%94%d7%a6%d7%95%d7%9e%d7%97-%d7%91%d7%9c%d7%91%d7%93/">פתרונות תזונתיים מהצומח בלבד</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%99%d7%9d-%d7%9e%d7%94%d7%a6%d7%95%d7%9e%d7%97-%d7%91%d7%9c%d7%91%d7%93/" class="image-link"><img width="1175" height="1123" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201175%201123'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/05/מוצרים-מהצומח.png"><noscript><img width="1175" height="1123" src="https://easyline.co.il/wp-content/uploads/2025/05/מוצרים-מהצומח.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%99%d7%9d-%d7%9e%d7%94%d7%a6%d7%95%d7%9e%d7%97-%d7%91%d7%9c%d7%91%d7%93/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%9c%d7%9e%d7%96%d7%95%d7%9f-%d7%9e%d7%95%d7%a1%d7%9e%d7%9a/">פתרונות להסמכת מזון ושתייה</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%9c%d7%9e%d7%96%d7%95%d7%9f-%d7%9e%d7%95%d7%a1%d7%9e%d7%9a/" class="image-link"><img width="2350" height="2145" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202350%202145'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/07/פתרונות-להסמכת-מזון-ושתייה.png"><noscript><img width="2350" height="2145" src="https://easyline.co.il/wp-content/uploads/2025/07/פתרונות-להסמכת-מזון-ושתייה.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%9c%d7%9e%d7%96%d7%95%d7%9f-%d7%9e%d7%95%d7%a1%d7%9e%d7%9a/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%90%d7%99%d7%96%d7%99%d7%9c%d7%99%d7%99%d7%9f-%d7%9c%d7%aa%d7%99%d7%a0%d7%95%d7%a7%d7%95%d7%aa-%d7%95%d7%99%d7%9c%d7%93%d7%99%d7%9d/">מוצרי איזיליין לתינוקות וילדים</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%90%d7%99%d7%96%d7%99%d7%9c%d7%99%d7%99%d7%9f-%d7%9c%d7%aa%d7%99%d7%a0%d7%95%d7%a7%d7%95%d7%aa-%d7%95%d7%99%d7%9c%d7%93%d7%99%d7%9d/" class="image-link"><img width="2038" height="1371" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202038%201371'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/07/מוצרי-איזיליין-לתינוקות-וילדים.png"><noscript><img width="2038" height="1371" src="https://easyline.co.il/wp-content/uploads/2025/07/מוצרי-איזיליין-לתינוקות-וילדים.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%9e%d7%95%d7%a6%d7%a8%d7%99-%d7%90%d7%99%d7%96%d7%99%d7%9c%d7%99%d7%99%d7%9f-%d7%9c%d7%aa%d7%99%d7%a0%d7%95%d7%a7%d7%95%d7%aa-%d7%95%d7%99%d7%9c%d7%93%d7%99%d7%9d/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%9b%d7%a9%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%95%d7%94%d7%94/">כשרות גבוהה</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%9b%d7%a9%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%95%d7%94%d7%94/" class="image-link"><img width="1985" height="686" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201985%20686'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/05/כשרות-גבוהה.png"><noscript><img width="1985" height="686" src="https://easyline.co.il/wp-content/uploads/2025/05/כשרות-גבוהה.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%9b%d7%a9%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%95%d7%94%d7%94/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa/">כל מוצרי איזיליין</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa/" class="image-link"><img width="2350" height="1371" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202350%201371'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/07/כל-מוצרי-החנות.png"><noscript><img width="2350" height="1371" src="https://easyline.co.il/wp-content/uploads/2025/07/כל-מוצרי-החנות.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%a1%d7%a4%d7%95%d7%a8%d7%98%d7%90%d7%99%d7%9d/">העשרות חלבון</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%a1%d7%a4%d7%95%d7%a8%d7%98%d7%90%d7%99%d7%9d/" class="image-link"><img width="1567" height="1103" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201567%201103'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2025/05/מוצרי-העשרות-חלבון-1.png"><noscript><img width="1567" height="1103" src="https://easyline.co.il/wp-content/uploads/2025/05/מוצרי-העשרות-חלבון-1.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%a1%d7%a4%d7%95%d7%a8%d7%98%d7%90%d7%99%d7%9d/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+																		<div class="product-item product-item-shop">
+										<div class="product-item-image">
+											<div class="product-item-shop__title">
+												<a href="https://easyline.co.il/product-category/%d7%94%d7%96%d7%a0%d7%94-%d7%91%d7%a6%d7%99%d7%a0%d7%95%d7%a8%d7%99%d7%aa/">הזנה בצינורית</a>
+											</div>
+										 											<a href="https://easyline.co.il/product-category/%d7%94%d7%96%d7%a0%d7%94-%d7%91%d7%a6%d7%99%d7%a0%d7%95%d7%a8%d7%99%d7%aa/" class="image-link"><img width="3734" height="1372" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203734%201372'%3E%3C/svg%3E" class="image" alt="image" data-lazy-src="https://easyline.co.il/wp-content/uploads/2023/08/הזנה-בצינורית.png"><noscript><img width="3734" height="1372" src="https://easyline.co.il/wp-content/uploads/2023/08/הזנה-בצינורית.png" class="image" alt="image" /></noscript></a>
+											<div>
+												<a href="https://easyline.co.il/product-category/%d7%94%d7%96%d7%a0%d7%94-%d7%91%d7%a6%d7%99%d7%a0%d7%95%d7%a8%d7%99%d7%aa/" class="more">לפרטים נוספים &gt;</a>
+											</div>
+										</div>
+									</div>
+															</div>
+					</div>
+				</div>
+				<section class="slider-wrap">
+					<div class="col-md-5">
+						<div class="row">
+							<div class="slide__image slider-image">
+								<img width="601" height="282" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20601%20282'%3E%3C/svg%3E" alt="slider" data-lazy-src="/wp-content/uploads/2018/06/slider.png"><noscript><img width="601" height="282" src="/wp-content/uploads/2018/06/slider.png" alt="slider" /></noscript>
+							</div>
+						</div>
+					</div>
+					<div class="slider">
+												<div class="slide">
+							<div class="row">
+								<div class="col-sm-11">
+									<div class="desc">מגוון המוצרים והפתרונות השונים להעשרה תזונתית אפשר לי לתת מענה טוב לאמא.</div>
+								</div>
+
+							</div>
+						</div>
+												<div class="slide">
+							<div class="row">
+								<div class="col-sm-11">
+									<div class="desc">שמחתי להכיר את מוצרי חברת איזי ליין, השימוש בהם עזר לי מאוד.</div>
+								</div>
+
+							</div>
+						</div>
+												<div class="slide">
+							<div class="row">
+								<div class="col-sm-11">
+									<div class="desc">מאוד נהניתי מהשירות המהיר בחברת איזי ליין.</div>
+								</div>
+
+							</div>
+						</div>
+												<div class="slide">
+							<div class="row">
+								<div class="col-sm-11">
+									<div class="desc">המענה המקצועי של הדיאטנית בחברת איזי ליין כיוון אותי בבחירת המוצר המתאים.</div>
+								</div>
+
+							</div>
+						</div>
+												<div class="slide">
+							<div class="row">
+								<div class="col-sm-11">
+									<div class="desc">אספקת המוצרים המיועדים להעשרה תזונתית עד הבית יעיל והגיוני.</div>
+								</div>
+
+							</div>
+						</div>
+												<div class="slide">
+							<div class="row">
+								<div class="col-sm-11">
+									<div class="desc">סוף סוף מצאנו משקה העשרה- איזי דרינק בכשרות המתאימה.</div>
+								</div>
+
+							</div>
+						</div>
+											</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</main>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+          <div class="footer-top">
+            <div class="row">
+              <div class="col-md-3 col-sm-3 col-xs-6">
+                <form action="#" method="post" class="question" id="question" aria-label="טופס פניות ושאלות">
+                  <div class="question__title">נשמח לפניות ושאלות </div>
+                  <div class="input-wrap">
+                    <input type="text" name="name_user" id="name_user" placeholder="שם מלא (שדה חובה)" required="">
+                  </div>
+                  <div class="input-wrap">
+                    <input type="text" name="mail_user" id="mail_user" placeholder="טלפון (שדה חובה)" required="">
+                  </div>
+                  <div class="input-wrap">
+                    <input type="submit" class="submit" value="שלח ">
+                  </div>
+                  <div class="thanks">
+                    שלח                   </div>
+                <input type="hidden" id="apbct_visible_fields_1" name="apbct_visible_fields" value="eyIwIjp7InZpc2libGVfZmllbGRzIjoibmFtZV91c2VyIG1haWxfdXNlciIsInZpc2libGVfZmllbGRzX2NvdW50IjoyLCJpbnZpc2libGVfZmllbGRzIjoiIiwiaW52aXNpYmxlX2ZpZWxkc19jb3VudCI6MH19"></form>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6">
+                                <ul class="footer-menu" id="menu-menu-footer"><li id="menu-item-707" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-707"><a href="https://easyline.co.il/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%94%d7%97%d7%91%d7%a8%d7%94/">אודות החברה</a></li>
+<li id="menu-item-708" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-708"><a href="https://easyline.co.il/%d7%94%d7%9e%d7%95%d7%aa%d7%92-%d7%a9%d7%9c%d7%a0%d7%95/">המותג שלנו</a></li>
+<li id="menu-item-709" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-709"><a href="https://easyline.co.il/%d7%97%d7%a0%d7%95%d7%aa-%d7%90%d7%95%d7%a0%d7%9c%d7%99%d7%99%d7%9f/">חנות אונליין</a></li>
+<li id="menu-item-710" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-710"><a href="https://easyline.co.il/%d7%97%d7%a9%d7%91%d7%95%d7%9f-%d7%a9%d7%9c%d7%99/">חשבון שלי</a></li>
+</ul>                <div class="social-footer">
+                                    <a href="https://www.facebook.com/EasylineNutrition/" class="facebook">
+                    <img width="30" height="30" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E" alt="facebook" data-lazy-src="https://easyline.co.il/wp-content/uploads/2018/06/facebook.png"><noscript><img width="30" height="30" src="https://easyline.co.il/wp-content/uploads/2018/06/facebook.png" alt="facebook" /></noscript>
+                  </a>
+                                                    </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6">
+                <ul class="footer-menu">
+                                    <li id="menu-item-414" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-414"><a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%aa%d7%9e%d7%99%d7%9b%d7%94-%d7%aa%d7%96%d7%95%d7%a0%d7%aa%d7%99%d7%aa/">כל מוצרי איזיליין</a></li>
+<li id="menu-item-415" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-415"><a href="https://easyline.co.il/product-category/%d7%94%d7%96%d7%a0%d7%94-%d7%91%d7%a6%d7%99%d7%a0%d7%95%d7%a8%d7%99%d7%aa/">הזנה בצינורית</a></li>
+<li id="menu-item-416" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-416"><a href="https://easyline.co.il/product-category/%d7%9b%d7%a9%d7%a8%d7%95%d7%aa-%d7%92%d7%91%d7%95%d7%94%d7%94/">כשרות גבוהה</a></li>
+<li id="menu-item-417" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-417"><a href="https://easyline.co.il/product-category/%d7%a1%d7%a4%d7%95%d7%a8%d7%98%d7%90%d7%99%d7%9d/">העשרות חלבון</a></li>
+<li id="menu-item-418" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-418"><a href="https://easyline.co.il/product-category/%d7%a4%d7%aa%d7%a8%d7%95%d7%a0%d7%95%d7%aa-%d7%9c%d7%9e%d7%96%d7%95%d7%9f-%d7%9e%d7%95%d7%a1%d7%9e%d7%9a/">פתרונות להסמכת מזון ושתייה</a></li>
+<li id="menu-item-419" class="menu-wrap-top__item menu-item-type-taxonomy menu-item-object-product_cat menu-item-419"><a href="https://easyline.co.il/product-category/%d7%aa%d7%95%d7%a1%d7%a4%d7%99-%d7%aa%d7%96%d7%95%d7%a0%d7%94/">תוספי תזונה</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-6">
+                <ul class="footer-menu">
+                                    <li id="menu-item-702" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-702"><a href="https://easyline.co.il/%d7%9e%d7%90%d7%9e%d7%a8%d7%99%d7%9d-%d7%9e%d7%a7%d7%a6%d7%95%d7%a2%d7%99%d7%99%d7%9d/">מאמרים בנושא תזונה</a></li>
+<li id="menu-item-704" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-704"><a href="https://easyline.co.il/%d7%a9%d7%90%d7%9c%d7%95%d7%aa-%d7%95%d7%aa%d7%a9%d7%95%d7%91%d7%95%d7%aa/">שאלות ותשובות</a></li>
+<li id="menu-item-703" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-703"><a href="https://easyline.co.il/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/">צור קשר</a></li>
+<li id="menu-item-705" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-705"><a rel="privacy-policy" href="https://easyline.co.il/%d7%aa%d7%a7%d7%a0%d7%95%d7%9f-%d7%95%d7%aa%d7%a0%d7%90%d7%99-%d7%a9%d7%99%d7%9e%d7%95%d7%a9/">תקנון ותנאי שימוש</a></li>
+<li id="menu-item-5182" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-5182"><a href="https://easyline.co.il/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/">הצהרת נגישות</a></li>
+<li id="menu-item-6739" class="menu-wrap-top__item menu-item-type-post_type menu-item-object-page menu-item-6739"><a href="https://easyline.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/">מדיניות פרטיות</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <ul class="phones">
+              <li><a href="tel:046327777">
+                  טל  04-6327777</a></li>
+            </ul>
+            <div class="adress">הטוחן 2 א.תעשיה קסריה</div>
+            <a href="mailto:office@easyline.co.il" class="mail">office@easyline.co.il</a>
+            <div class="privacy">ט.ל.ח    התמונות להמחשה בלבד </div>
+            <div class="copyright">כל הזכויות שמורות לאיזיליין© </div>
+            <div class="logo-footer">
+                              <img width="64" height="21" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2021'%3E%3C/svg%3E" alt="לוגו איזיליין" data-lazy-src="https://easyline.co.il/wp-content/uploads/2018/06/logo-footer.png"><noscript><img width="64" height="21" src="https://easyline.co.il/wp-content/uploads/2018/06/logo-footer.png"
+                  alt="לוגו איזיליין" /></noscript>
+                            </div>
+            <div class="build">
+              Built By <a href="http://webeffect.co.il/">Webeffect</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mfp-hide">
+    <div class="thanks-popup" id="thanks">
+      <div class="thanks__title">
+        המוצר נוסף בהצלחה לעגלת הקניות       </div>
+      <div class="btn-wrap">
+        <a href="" class="product-btn close-popup">המשך בקניות </a>
+        <a href="https://easyline.co.il/%d7%97%d7%a9%d7%91%d7%95%d7%9f-%d7%a9%d7%9c%d7%99/" class="product-btn">
+          עבור אל סל הקניות         </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mfp-hide">
+    <div class="thanks-popup" id="thanks_wishlist">
+      <div class="thanks__title">
+        המוצר נוסף בהצלחה לרשימת המשאלות       </div>
+      <div class="btn-wrap">
+        <a href="" class="product-btn close-popup">המשך בקניות </a>
+        <a href="https://easyline.co.il/?page_id=125" class="product-btn">עבור לרשימת משאלות </a>
+      </div>
+    </div>
+  </div>
+  <!-- END out-->
+
+  <script type="rocketlazyloadscript">				
+                    document.addEventListener('DOMContentLoaded', function () {
+                        setTimeout(function(){
+                            if( document.querySelectorAll('[name^=ct_checkjs]').length > 0 ) {
+                                if (typeof apbct_public_sendREST === 'function' && typeof apbct_js_keys__set_input_value === 'function') {
+                                    apbct_public_sendREST(
+                                    'js_keys__get',
+                                    { callback: apbct_js_keys__set_input_value })
+                                }
+                            }
+                        },0)					    
+                    })				
+                </script><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/easyline2/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<!-- Consent Management powered by Complianz | GDPR/CCPA Cookie Consent https://wordpress.org/plugins/complianz-gdpr -->
+<div id="cmplz-cookiebanner-container"><div class="cmplz-cookiebanner cmplz-hidden banner-1 banner-a optin cmplz-bottom-left cmplz-categories-type-view-preferences" aria-modal="true" data-nosnippet="true" role="dialog" aria-live="polite" aria-labelledby="cmplz-header-1-optin" aria-describedby="cmplz-message-1-optin">
+	<div class="cmplz-header">
+		<div class="cmplz-logo"></div>
+		<div class="cmplz-title" id="cmplz-header-1-optin">הודעה בדבר שימוש בקובצי Cookies</div>
+		<div class="cmplz-close" tabindex="0" role="button" aria-label="סגור חלון">
+			<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+		</div>
+	</div>
+
+	<div class="cmplz-divider cmplz-divider-header"></div>
+	<div class="cmplz-body">
+		<div class="cmplz-message" id="cmplz-message-1-optin"><p>באתר זה נעשה שימוש בקובצי Cookies לצורך תפעול תקין, שיפור חוויית המשתמש, התאמת תוכן ושירותים אישיים, ולמטרות ניתוח ובקרה.<br>חלק מהקבצים חיוניים להפעלת האתר, ואחרים נועדו לשפר את ביצועיו ולספק חווייה מותאמת עבורך.</p><p>למידע נוסף אודות סוגי הקוקיז ואופן עיבוד המידע האישי, ניתן לעיין ב<a href="https://easyline.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/">מדיניות הפרטיות שלנו</a>.<br>בלחיצה על <strong>"מאשר"</strong> או בהמשך שימושך באתר, אתה מביע את הסכמתך למדיניות זו.</p></div>
+		<!-- categories start -->
+		<div class="cmplz-categories">
+			<details class="cmplz-category cmplz-functional">
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">פונקציונלי</span>
+							<span class="cmplz-always-active">
+								<span class="cmplz-banner-checkbox">
+									<input type="checkbox" id="cmplz-functional-optin" data-category="cmplz_functional" class="cmplz-consent-checkbox cmplz-functional" size="40" value="1">
+									<label class="cmplz-label" for="cmplz-functional-optin"><span class="screen-reader-text">פונקציונלי</span></label>
+								</span>
+								Always active							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18"><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-functional">The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-preferences">
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Preferences</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox" id="cmplz-preferences-optin" data-category="cmplz_preferences" class="cmplz-consent-checkbox cmplz-preferences" size="40" value="1">
+								<label class="cmplz-label" for="cmplz-preferences-optin"><span class="screen-reader-text">Preferences</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18"><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-preferences">The technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-statistics">
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Statistics</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox" id="cmplz-statistics-optin" data-category="cmplz_statistics" class="cmplz-consent-checkbox cmplz-statistics" size="40" value="1">
+								<label class="cmplz-label" for="cmplz-statistics-optin"><span class="screen-reader-text">Statistics</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18"><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-statistics">The technical storage or access that is used exclusively for statistical purposes.</span>
+					<span class="cmplz-description-statistics-anonymous">The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.</span>
+				</div>
+			</details>
+			<details class="cmplz-category cmplz-marketing">
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Marketing</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox" id="cmplz-marketing-optin" data-category="cmplz_marketing" class="cmplz-consent-checkbox cmplz-marketing" size="40" value="1">
+								<label class="cmplz-label" for="cmplz-marketing-optin"><span class="screen-reader-text">Marketing</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18"><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"></path></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-marketing">The technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.</span>
+				</div>
+			</details>
+		</div><!-- categories end -->
+			</div>
+
+	<div class="cmplz-links cmplz-information">
+		<ul>
+			<li><a class="cmplz-link cmplz-manage-options cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Manage options</a></li>
+			<li><a class="cmplz-link cmplz-manage-third-parties cookie-statement" href="#" data-relative_url="#cmplz-cookies-overview">Manage services</a></li>
+			<li><a class="cmplz-link cmplz-manage-vendors tcf cookie-statement" href="#" data-relative_url="#cmplz-tcf-wrapper">Manage {vendor_count} vendors</a></li>
+			<li><a class="cmplz-link cmplz-external cmplz-read-more-purposes tcf" target="_blank" rel="noopener noreferrer nofollow" href="https://cookiedatabase.org/tcf/purposes/" aria-label="Read more about TCF purposes on Cookie Database">Read more about these purposes</a></li>
+		</ul>
+			</div>
+
+	<div class="cmplz-divider cmplz-footer"></div>
+
+	<div class="cmplz-buttons">
+		<button class="cmplz-btn cmplz-accept">מאשר/ת</button>
+		<button class="cmplz-btn cmplz-deny">לדחות</button>
+		<button class="cmplz-btn cmplz-view-preferences">הצג העדפות</button>
+		<button class="cmplz-btn cmplz-save-preferences">שמירת העדפות</button>
+		<a class="cmplz-btn cmplz-manage-options tcf cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">הצג העדפות</a>
+			</div>
+
+	
+	<div class="cmplz-documents cmplz-links">
+		<ul>
+			<li><a class="cmplz-link cookie-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link privacy-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link impressum" href="#" data-relative_url="">{title}</a></li>
+		</ul>
+			</div>
+</div>
+</div>
+					<div id="cmplz-manage-consent" data-nosnippet="true"><button class="cmplz-btn cmplz-hidden cmplz-manage-consent manage-consent-1">ניהול הסכמה</button>
+
+</div>
+        <!-- START Google Code for Dynamic Retargeting -->
+            <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+                
+                gtag('event', 'page_view', {
+                    'send_to'       : 'AW-548540930',
+                    'ecomm_pagetype': 'home'
+                });
+            </script>
+            
+        <!-- END Google Code for Dynamic Retargeting -->
+
+        <div id="pys_ajax_events"></div>        <script type="rocketlazyloadscript">
+            var node = document.getElementsByClassName('woocommerce-message')[0];
+            if(node && document.getElementById('pys_late_event')) {
+                var messageText = node.textContent.trim();
+                if(!messageText) {
+                    node.style.display = 'none';
+                }
+            }
+        </script>
+        <noscript><img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=1676192066238162&ev=PageView&noscript=1&cd%5Bpage_title%5D=%D7%93%D7%A3+%D7%94%D7%91%D7%99%D7%AA&cd%5Bpost_type%5D=page&cd%5Bpost_id%5D=2&cd%5Bplugin%5D=PixelYourSite&cd%5Buser_role%5D=guest&cd%5Bevent_url%5D=easyline.co.il%2F" alt=""></noscript>
+	<script type="rocketlazyloadscript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script type="text/plain" data-service="google-analytics" data-category="statistics" async="" data-cmplz-src="https://www.googletagmanager.com/gtag/js?id=UA-179757234-1" id="google-tag-manager-js" data-wp-strategy="async"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://easyline.co.il/wp-content/cache/min/1/wp-content/plugins/woocommerce-google-analytics-integration/assets/js/build/main.js?ver=1766588927" id="woocommerce-google-analytics-integration-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://easyline.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1766588927" id="swv-js"></script>
+<script type="rocketlazyloadscript" id="contact-form-7-js-before">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/easyline.co.il\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://easyline.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1766588927" id="contact-form-7-js"></script>
+<script id="app-js-extra">
+var admin_ajax = {"url":"https://easyline.co.il/wp-admin/admin-ajax.php"};
+//# sourceURL=app-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://easyline.co.il/wp-content/cache/min/1/wp-content/themes/easyline2/js/app.js?ver=1766588927" id="app-js"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/themes/easyline2/js/jquery.magnific-popup.min.js" id="magnific-js"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/themes/easyline2/js/hammer.min.js" id="hammer-js"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/themes/easyline2/js/jquery.mousewheel.min.js" id="mousewheel-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://easyline.co.il/wp-content/cache/min/1/wp-content/themes/easyline2/js/ap-image-zoom.js?ver=1766588927" id="zoom2-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://easyline.co.il/wp-content/cache/min/1/wp-content/themes/easyline2/js/common.js?ver=1766588927" id="commonjs-js"></script>
+<script id="cart-widget-js-extra">
+var actions = {"is_lang_switched":"0","force_reset":"0"};
+//# sourceURL=cart-widget-js-extra
+</script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce-multilingual/res/js/cart_widget.min.js?ver=5.5.3.1" id="cart-widget-js" defer="" data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=10.3.8" id="sourcebuster-js-js"></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https://easyline.co.il/wp-admin/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+//# sourceURL=wc-order-attribution-js-extra
+</script>
+<script type="rocketlazyloadscript" src="https://easyline.co.il/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=10.3.8" id="wc-order-attribution-js"></script>
+<script id="cmplz-cookiebanner-js-extra">
+var complianz = {"prefix":"cmplz_","user_banner_id":"1","set_cookies":[],"block_ajax_content":"","banner_version":"29","version":"7.4.4.1","store_consent":"","do_not_track_enabled":"","consenttype":"optin","region":"eu","geoip":"","dismiss_timeout":"","disable_cookiebanner":"","soft_cookiewall":"","dismiss_on_scroll":"","cookie_expiry":"365","url":"https://easyline.co.il/wp-json/complianz/v1/","locale":"lang=he&locale=he_IL","set_cookies_on_root":"","cookie_domain":"","current_policy_id":"30","cookie_path":"/","categories":{"statistics":"statistics","marketing":"marketing"},"tcf_active":"","placeholdertext":"Click to accept {category} cookies and enable this content","css_file":"https://easyline.co.il/wp-content/uploads/complianz/css/banner-{banner_id}-{type}.css?v=29","page_links":{"eu":{"cookie-statement":{"title":"\u05de\u05d3\u05d9\u05e0\u05d9\u05d5\u05ea \u05e4\u05e8\u05d8\u05d9\u05d5\u05ea","url":"https://easyline.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%99%d7%95%d7%aa-%d7%a4%d7%a8%d7%98%d7%99%d7%95%d7%aa/"}}},"tm_categories":"","forceEnableStats":"","preview":"","clean_cookies":"","aria_label":"Click to accept {category} cookies and enable this content"};
+//# sourceURL=cmplz-cookiebanner-js-extra
+</script>
+<script type="rocketlazyloadscript" defer="" src="https://easyline.co.il/wp-content/plugins/complianz-gdpr/cookiebanner/js/complianz.min.js?ver=1765197000" id="cmplz-cookiebanner-js"></script>
+<script type="rocketlazyloadscript" id="cmplz-cookiebanner-js-after">
+document.addEventListener("cmplz_enable_category", function () {
+                document.querySelectorAll('[data-rocket-lazyload]').forEach(obj => {
+                    if (obj.hasAttribute('data-lazy-src')) {
+                        obj.setAttribute('src', obj.getAttribute('data-lazy-src'));
+                    }
+                });
+            });
+        
+		
+//# sourceURL=cmplz-cookiebanner-js-after
+</script>
+<script type="rocketlazyloadscript" id="woocommerce-google-analytics-integration-data-js-after">
+window.ga4w = { data: {"cart":{"items":[],"coupons":[],"totals":{"currency_code":"ILS","total_price":0,"currency_minor_unit":2}}}, settings: {"tracker_function_name":"gtag","events":["purchase","add_to_cart","remove_from_cart","view_item_list","select_content","view_item","begin_checkout"],"identifier":null} }; document.dispatchEvent(new Event("ga4w:ready"));
+//# sourceURL=woocommerce-google-analytics-integration-data-js-after
+</script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://easyline.co.il/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>  <script type="rocketlazyloadscript">"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link rel="stylesheet" href="https://easyline.co.il/wp-content/cache/min/1/c7f64b328a390b77c40f5e489de2f5c6.css" media="all" data-minify="1" /><link rel='stylesheet' id='woocommerce-smallscreen-rtl-css' href='https://easyline.co.il/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen-rtl.css?ver=10.3.8' type='text/css' media='only screen and (max-width: 768px)' /></noscript>
+
+  
+</body></html>

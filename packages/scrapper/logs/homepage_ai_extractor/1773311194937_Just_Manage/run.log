@@ -1,0 +1,69 @@
+[2026-03-12T10:26:34.938Z] === Homepage AI Extractor: Just Manage ===
+[2026-03-12T10:26:34.938Z] Started at: 2026-03-12T10:26:34.938Z
+[2026-03-12T10:26:34.938Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773311194937_Just_Manage
+[2026-03-12T10:26:34.938Z] Company: Just Manage
+[2026-03-12T10:26:34.938Z] Website: justmanage.com
+[2026-03-12T10:26:34.938Z] cbRank: 909619
+[2026-03-12T10:26:34.938Z] Reasons: h
+[2026-03-12T10:26:34.938Z] Fetching: https://justmanage.com
+[2026-03-12T10:26:46.495Z] Network idle timeout — continuing with current state
+[2026-03-12T10:26:46.553Z] Redirected: https://justmanage.com -> https://www.justmanage.com/
+[2026-03-12T10:26:46.580Z] Saved HTML (670834 bytes) to page.html
+[2026-03-12T10:26:46.584Z] Extracted 12 unique links from page
+[2026-03-12T10:26:46.585Z] Saved 12 links to links.json
+[2026-03-12T10:26:46.588Z] Extracted footer HTML (6754 chars)
+[2026-03-12T10:26:46.588Z] Extracted header HTML (5305 chars)
+[2026-03-12T10:26:46.592Z] Website (post-redirect): https://www.justmanage.com/ → origin: https://www.justmanage.com
+[2026-03-12T10:26:46.593Z]   SUBDOMAIN: hebrew.justmanage.com (added to ws)
+[2026-03-12T10:26:46.593Z]   SUBDOMAIN: jm.justmanage.com (added to ws)
+[2026-03-12T10:26:46.593Z] Website subdomains found: 2
+[2026-03-12T10:26:46.593Z] External links: 2 (of 12 total)
+[2026-03-12T10:26:46.593Z] ── All external links ──
+[2026-03-12T10:26:46.593Z]   EXT: https://play.google.com/store/apps/details?id=com.justmanage.justmanage
+[2026-03-12T10:26:46.593Z]   EXT: https://www.facebook.com/Just2Manage/?ref=bookmarks
+[2026-03-12T10:26:46.593Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T10:26:46.593Z]   REGEX: android_app_ids <- com.justmanage.justmanage (from https://play.google.com/store/apps/details?id=com.justmanage.justmanage)
+[2026-03-12T10:26:46.593Z]   REGEX: fb <- https://www.facebook.com/Just2Manage/?ref=bookmarks
+[2026-03-12T10:26:46.594Z] Programmatic result: ws:3, android_app_ids:1, fb:1 | 0 uncategorized
+[2026-03-12T10:26:46.594Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T10:26:46.596Z] Saved AI prompt (5223 chars) to ai_prompt.txt
+[2026-03-12T10:26:46.596Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T10:26:46.628Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T10:27:10.678Z]   AI: First token received, streaming...
+[2026-03-12T10:27:18.465Z] AI response complete: 156 chars in 31.9s
+[2026-03-12T10:27:18.466Z] Saved AI response to ai_response.json
+[2026-03-12T10:27:18.466Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T10:27:18.466Z]   AI LINK: https://www.facebook.com/Just2Manage/?ref=bookmarks
+[2026-03-12T10:27:18.466Z]   AI LINK: http://www.hebrew.justmanage.com
+[2026-03-12T10:27:18.466Z]   AI LINK: https://play.google.com/store/apps/details?id=com.justmanage.justmanage
+[2026-03-12T10:27:18.466Z] AI returned 3 valid links
+[2026-03-12T10:27:18.466Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T10:27:18.466Z]   AI→REGEX: fb <- https://www.facebook.com/Just2Manage/?ref=bookmarks (duplicate, skipped)
+[2026-03-12T10:27:18.466Z]   AI→URLS: http://www.hebrew.justmanage.com
+[2026-03-12T10:27:18.466Z]   AI→REGEX: android_app_ids <- com.justmanage.justmanage (duplicate, skipped)
+[2026-03-12T10:27:18.467Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T10:27:18.467Z] Footer/header origins (4):
+[2026-03-12T10:27:18.467Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T10:27:18.467Z]   FOOTER/HEADER ORIGIN: http://www.hebrew.justmanage.com
+[2026-03-12T10:27:18.467Z]   FOOTER/HEADER ORIGIN: https://play.google.com
+[2026-03-12T10:27:18.467Z]   FOOTER/HEADER ORIGIN: https://www.justmanage.com
+[2026-03-12T10:27:18.467Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T10:27:18.467Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T10:27:18.467Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T10:27:18.467Z] ── Step 3: Final dedup ──
+[2026-03-12T10:27:18.467Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T10:27:18.468Z] ── FINAL RESULT ──
+[2026-03-12T10:27:18.468Z]   ws (3):
+[2026-03-12T10:27:18.468Z]     - https://hebrew.justmanage.com
+[2026-03-12T10:27:18.468Z]     - https://jm.justmanage.com
+[2026-03-12T10:27:18.468Z]     - https://www.justmanage.com
+[2026-03-12T10:27:18.468Z]   fb (1):
+[2026-03-12T10:27:18.468Z]     - https://www.facebook.com/just2manage
+[2026-03-12T10:27:18.468Z]   urls (1):
+[2026-03-12T10:27:18.468Z]     - http://www.hebrew.justmanage.com
+[2026-03-12T10:27:18.468Z]   android_app_ids (1):
+[2026-03-12T10:27:18.468Z]     - com.justmanage.justmanage
+[2026-03-12T10:27:18.468Z] Summary: ws:3, android_app_ids:1, fb:1, urls:1
+[2026-03-12T10:27:18.469Z] Saved final result to result.json
+[2026-03-12T10:27:18.469Z] Override fields: ws, fb, android_app_ids
+[2026-03-12T10:27:18.469Z] Finished at: 2026-03-12T10:27:18.469Z

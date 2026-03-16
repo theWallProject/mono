@@ -1,0 +1,74 @@
+[2026-03-13T05:57:49.534Z] === Homepage AI Extractor: Electric Lounge ===
+[2026-03-13T05:57:49.534Z] Started at: 2026-03-13T05:57:49.534Z
+[2026-03-13T05:57:49.534Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773381469534_Electric_Lounge
+[2026-03-13T05:57:49.535Z] Company: Electric Lounge
+[2026-03-13T05:57:49.535Z] Website: traklin.co.il
+[2026-03-13T05:57:49.535Z] cbRank: 1013990
+[2026-03-13T05:57:49.535Z] Reasons: h
+[2026-03-13T05:57:49.535Z] Fetching: https://traklin.co.il
+[2026-03-13T05:57:55.931Z] Redirected: https://traklin.co.il -> https://www.traklin.co.il/
+[2026-03-13T05:57:55.942Z] Saved HTML (306530 bytes) to page.html
+[2026-03-13T05:57:55.948Z] Extracted 164 unique links from page
+[2026-03-13T05:57:55.949Z] Saved 164 links to links.json
+[2026-03-13T05:57:55.953Z] Extracted footer HTML (7338 chars)
+[2026-03-13T05:57:55.953Z] Extracted header HTML (30555 chars)
+[2026-03-13T05:57:55.958Z] Website (post-redirect): https://www.traklin.co.il/ → origin: https://www.traklin.co.il
+[2026-03-13T05:57:55.959Z] External links: 5 (of 164 total)
+[2026-03-13T05:57:55.960Z] ── All external links ──
+[2026-03-13T05:57:55.960Z]   EXT: https://t.me/traklin
+[2026-03-13T05:57:55.960Z]   EXT: https://web.whatsapp.com/send?phone=972526663383&text&type=phone_number&app_absent=0
+[2026-03-13T05:57:55.960Z]   EXT: https://www.facebook.com/traklin
+[2026-03-13T05:57:55.960Z]   EXT: https://www.instagram.com/traklinhashmal
+[2026-03-13T05:57:55.960Z]   EXT: https://www.sharkor.co.il
+[2026-03-13T05:57:55.960Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T05:57:55.960Z]   UNCATEGORIZED: https://t.me/traklin
+[2026-03-13T05:57:55.961Z]   UNCATEGORIZED: https://web.whatsapp.com/send?phone=972526663383&text&type=phone_number&app_absent=0
+[2026-03-13T05:57:55.961Z]   REGEX: fb <- https://www.facebook.com/traklin
+[2026-03-13T05:57:55.961Z]   REGEX: ig <- https://www.instagram.com/traklinhashmal
+[2026-03-13T05:57:55.961Z]   UNCATEGORIZED: https://www.sharkor.co.il
+[2026-03-13T05:57:55.961Z] Programmatic result: ws:1, fb:1, ig:1 | 3 uncategorized
+[2026-03-13T05:57:55.961Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T05:57:55.962Z] Saved AI prompt (7601 chars) to ai_prompt.txt
+[2026-03-13T05:57:55.962Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T05:57:55.979Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T05:58:29.116Z]   AI: First token received, streaming...
+[2026-03-13T05:58:34.586Z] AI response complete: 96 chars in 38.6s
+[2026-03-13T05:58:34.587Z] Saved AI response to ai_response.json
+[2026-03-13T05:58:34.587Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T05:58:34.587Z]   AI LINK: https://www.facebook.com/traklin/
+[2026-03-13T05:58:34.587Z]   AI LINK: https://www.instagram.com/traklinhashmal/
+[2026-03-13T05:58:34.587Z]   AI LINK: https://t.me/traklin
+[2026-03-13T05:58:34.587Z] AI returned 3 valid links
+[2026-03-13T05:58:34.587Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T05:58:34.587Z]   AI→REGEX: fb <- https://www.facebook.com/traklin/ (duplicate, skipped)
+[2026-03-13T05:58:34.588Z]   AI→REGEX: ig <- https://www.instagram.com/traklinhashmal/ (duplicate, skipped)
+[2026-03-13T05:58:34.588Z]   AI→URLS: https://t.me/traklin
+[2026-03-13T05:58:34.588Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T05:58:34.588Z] Footer/header origins (5):
+[2026-03-13T05:58:34.588Z]   FOOTER/HEADER ORIGIN: https://www.traklin.co.il
+[2026-03-13T05:58:34.588Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T05:58:34.588Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-13T05:58:34.589Z]   FOOTER/HEADER ORIGIN: https://t.me
+[2026-03-13T05:58:34.589Z]   FOOTER/HEADER ORIGIN: https://www.sharkor.co.il
+[2026-03-13T05:58:34.589Z]   SKIP (AI claimed): https://t.me/traklin
+[2026-03-13T05:58:34.589Z]   SKIP (not in footer/header): https://web.whatsapp.com/send?phone=972526663383&text&type=phone_number&app_absent=0
+[2026-03-13T05:58:34.589Z]   ADDED: urls <- https://www.sharkor.co.il
+[2026-03-13T05:58:34.589Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-13T05:58:34.589Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T05:58:34.589Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T05:58:34.589Z] ── Step 3: Final dedup ──
+[2026-03-13T05:58:34.589Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T05:58:34.589Z] ── FINAL RESULT ──
+[2026-03-13T05:58:34.589Z]   ws (1):
+[2026-03-13T05:58:34.590Z]     - https://www.traklin.co.il
+[2026-03-13T05:58:34.590Z]   fb (1):
+[2026-03-13T05:58:34.590Z]     - https://www.facebook.com/traklin
+[2026-03-13T05:58:34.590Z]   ig (1):
+[2026-03-13T05:58:34.590Z]     - https://www.instagram.com/traklinhashmal
+[2026-03-13T05:58:34.590Z]   urls (2):
+[2026-03-13T05:58:34.590Z]     - https://t.me/traklin
+[2026-03-13T05:58:34.590Z]     - https://www.sharkor.co.il
+[2026-03-13T05:58:34.590Z] Summary: ws:1, fb:1, ig:1, urls:2
+[2026-03-13T05:58:34.593Z] Saved final result to result.json
+[2026-03-13T05:58:34.593Z] Override fields: ws, fb, ig, urls
+[2026-03-13T05:58:34.593Z] Finished at: 2026-03-13T05:58:34.593Z

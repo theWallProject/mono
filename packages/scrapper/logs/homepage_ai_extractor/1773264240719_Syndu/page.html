@@ -1,0 +1,1956 @@
+<!DOCTYPE html><html lang="en" style="transition: none; background-color: rgb(7, 21, 43);"><head>
+  
+  
+  
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+  <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202603050101/show_ads_impl_fy2021.js"></script><script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+  Your IP Address — Syndu Web LTD
+</title>
+  <meta name="description" content="Syndu created Lilith, an AI with a knack of teaching Django">
+  
+  <meta name="trustburn-site-verification" content="8027c753b4798b46a5e5b0575ee73a5e">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+
+  <link href="https://synduweb.sgp1.digitaloceanspaces.com/assets/styles/main.css" rel="stylesheet" type="text/css">
+
+  <link href="https://synduweb.sgp1.digitaloceanspaces.com/assets/css/prism.css" rel="stylesheet">
+  <script src="https://synduweb.sgp1.digitaloceanspaces.com/assets/js/prism.js"></script>
+
+  <!-- include summernote css/js -->
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.js"></script>
+
+  <meta name="csrf-token" content="5ADKXM6VW33WrtZj12rljc4I1Ovat3ADzH6hVkbd9USS89qgxmJyhWmJBlG47WeS">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Open+Sans:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cookie&amp;display=swap">
+
+  
+  
+
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-268C1PX10W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-268C1PX10W');
+  </script>
+
+  <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6577084735419016" crossorigin="anonymous" data-checked-head="true"></script>
+
+  <!-- Time-of-day background (uniform blue, smooth hour-to-hour drift) -->
+  <script>
+    (function () {
+      // 24 blues, aligned loosely with sky brightness through the day (no gradient, single color).
+      // 00..23
+      const BLUES_24 = [
+        "#061225", "#061327", "#07152A", "#08172E", "#091A33", "#0A1D38",
+        "#0B213E", "#0C2646", "#0D2C50", "#0E335C", "#103A69", "#124276",
+        "#154A84", "#185292", "#1B5A9F", "#1E61AA", "#2168B4", "#1E61AA",
+        "#1B5A9F", "#154A84", "#103A69", "#0C2646", "#08172E", "#061327"
+      ];
+
+      function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+
+      function hexToRgb(hex){
+        const h = hex.replace("#", "").trim();
+        const full = h.length === 3 ? h.split("").map(c => c + c).join("") : h;
+        const n = parseInt(full, 16);
+        return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+      }
+
+      function lerp(a,b,t){ return a + (b - a) * t; }
+
+      function mixHex(aHex, bHex, t){
+        t = clamp01(t);
+        const a = hexToRgb(aHex);
+        const b = hexToRgb(bHex);
+        const r = Math.round(lerp(a.r, b.r, t));
+        const g = Math.round(lerp(a.g, b.g, t));
+        const b2 = Math.round(lerp(a.b, b.b, t));
+        return `rgb(${r}, ${g}, ${b2})`;
+      }
+
+      function getHourBlend(now){
+        const hour = now.getHours();
+        const next = (hour + 1) % 24;
+
+        // progress through the hour as a fraction (0..1)
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const ms = now.getMilliseconds();
+        const t = (minutes * 60 * 1000 + seconds * 1000 + ms) / (60 * 60 * 1000);
+
+        return { hour, next, t };
+      }
+
+      function applyBackground(color){
+        const el = document.documentElement; // apply to <html> so it covers everything
+        el.style.backgroundColor = color;
+      }
+
+      function tick(){
+        const now = new Date();
+        const { hour, next, t } = getHourBlend(now);
+        const color = mixHex(BLUES_24[hour], BLUES_24[next], t);
+        applyBackground(color);
+        requestAnimationFrame(tick);
+      }
+
+      function init(){
+        // Keep body transparent so the html background shows everywhere.
+        document.documentElement.style.transition = "none";
+        document.body && (document.body.style.backgroundColor = "transparent");
+        tick();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+    
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><style>                      .htmx-indicator{opacity:0;transition: opacity 200ms ease-in;}                      .htmx-request .htmx-indicator{opacity:1}                      .htmx-request.htmx-indicator{opacity:1}                    </style></head>
+
+<body style="background-color: transparent;">
+  <!-- crown/templates/crown/includes/crown.html -->
+
+
+
+
+
+<header style="
+    margin: 0;
+    padding: 6px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  ">
+  <a href="https://www.digitalocean.com/?refcode=43a21b048d8f&amp;utm_campaign=Referral_Invite&amp;utm_medium=Referral_Program&amp;utm_source=badge" target="_blank" rel="noopener noreferrer">
+    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" style="height: 40px; max-width: 90%;">
+  </a>
+</header>
+
+
+
+
+  
+  
+<script src="https://synduweb.sgp1.digitaloceanspaces.com/assets/homepage/js/featured_entities_carousel.js" defer=""></script>
+<div id="ip_page_container">
+  
+
+<div id="clouds_wrapper">
+    <div id="clouds">
+        <div id="cloud1" class="effect_cloud" data-interval="2" style="visibility: visible; transform: translate(-396px, 96px);">
+            <img class="lazy-pixelated" src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/c1.png" alt="cloud1">
+        </div>
+        <div id="cloud2" class="effect_cloud" data-interval="1.7" style="visibility: visible; transform: translate(-239.1px, 192px);">
+            <img class="lazy-pixelated" src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/c2.png" alt="cloud2">
+        </div>
+        <div id="cloud3" class="effect_cloud" data-interval="1.3" style="visibility: visible; transform: translate(-279.9px, 288px);">
+            <img class="lazy-pixelated" src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/c3.png" alt="cloud3">
+        </div>
+        <div id="cloud4" class="effect_cloud" data-interval="1" style="visibility: visible; transform: translate(-198px, 384px);">
+            <img class="lazy-pixelated" src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/c4.png" alt="cloud4">
+        </div>
+        <div id="cloud5" class="effect_cloud" data-interval="0.8" style="visibility: visible; transform: translate(-818.4px, 480px);">
+            <img class="lazy-pixelated" src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/c5.png" alt="cloud5">
+        </div>
+        <div id="cloud6" class="effect_cloud" data-interval="0.6" style="visibility: visible; transform: translate(-763.8px, 576px);">
+            <img class="lazy-pixelated" src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/c6.png" alt="cloud6">
+        </div>
+    </div>
+    <script src="https://synduweb.sgp1.digitaloceanspaces.com/assets/js/cloud_animation.js"></script>
+
+</div>
+
+
+
+
+
+  <div class="smart-panel-stack">
+
+    
+
+
+<section class="smart-panel smart-panel--primary hero-panel" data-widget="card-1-awareness">
+
+  
+  <div class="hero-video-wrap">
+    <video id="hero_bg_video" class="hero-video" loop="" muted="" playsinline="" poster="https://synduweb.sgp1.digitaloceanspaces.com/assets/movies/CloudLoop_landscape.mp4">
+      <source id="hero_bg_source" src="https://synduweb.sgp1.digitaloceanspaces.com/assets/movies/CloudLoop_landscape.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  
+  <div class="hero-overlay">
+
+    <h1 class="smart-panel-title hero-title">
+      Syndu Is the Global Traffic Reflective Surface
+    </h1>
+
+    <p class="smart-panel-body hero-body">
+      We transform unsolicited traffic recorded in logs into enriched, annotated, normalized and ranked insight that reveals and contextualizes risk</p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const videoEl  = document.getElementById('hero_bg_video');
+    const sourceEl = document.getElementById('hero_bg_source');
+    if (!videoEl || !sourceEl) return;
+
+    const LANDSCAPE_SRC = "https://synduweb.sgp1.digitaloceanspaces.com/assets/movies/CloudLoop_landscape.mp4";
+    const PORTRAIT_SRC  = "https://synduweb.sgp1.digitaloceanspaces.com/assets/movies/CloudLoop_portrait.mp4";
+
+    function isPortrait() {
+      return window.innerHeight > window.innerWidth;
+    }
+
+    function setVideoSourceByOrientation() {
+      const newSrc = isPortrait() ? PORTRAIT_SRC : LANDSCAPE_SRC;
+      if (sourceEl.src !== newSrc) {
+        sourceEl.src = newSrc;
+        videoEl.load();
+      }
+    }
+
+    function handleOrientationChange() {
+      setVideoSourceByOrientation();
+      videoEl.play().catch(err => {
+        console.warn('Hero video playback blocked or errored:', err);
+      });
+    }
+
+    // init
+    setVideoSourceByOrientation();
+    window.addEventListener('orientationchange', handleOrientationChange);
+    window.addEventListener('resize', handleOrientationChange);
+
+    videoEl.muted = true;
+    videoEl.loop = true;
+    videoEl.playsInline = true;
+    videoEl.play().catch(err => {
+      console.warn('Hero video autoplay blocked or errored:', err);
+    });
+  });
+</script>
+
+
+
+    
+<section class="smart-panel smart-panel--secondary" data-widget="card-4-my-ip">
+  <h2 class="smart-panel-title">Your Network, As Seen From Here</h2>
+
+  
+    <p class="smart-panel-lead">Your IP Address</p>
+    <p class="ip-address">95.90.235.246</p>
+    
+      <p class="smart-panel-body">
+        AS3209 — Vodafone GmbH<br>
+        Vodafone Kabel Deutschland GmbH<br>
+        Berlin, Germany
+      </p>
+      
+    
+    <a class="smart-panel-cta" href="/logmap_db/ip/95.90.235.246/">View details for this IP</a>
+  
+
+  
+</section>
+
+
+    
+
+
+<section class="smart-panel surfshark" data-widget="card-generic-vpn-recommendation">
+<a class="smart-panel-link" href="https://get.surfshark.net/aff_c?offer_id=926&amp;aff_id=42714" target="_blank" rel="noopener noreferrer">
+  <div class="smart-panel-title">
+           Please Use Your VPN.
+  </div>
+  <div class="smart-panel-body">
+      <div class="smart-panel-header">
+        If you don't have a VPN installed, we recommend that you download Surfshark.
+      </div>
+             <img src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/Surfshark_Logo_White_720px.png" alt="SurfShark VPN" class="surfshark_logo">
+  </div>
+</a>
+</section>
+
+
+
+
+    
+<section class="smart-panel smart-panel--secondary" data-widget="card-6-regional-threats" data-endpoint="/regional_threats/?city_key=germany%7Cstate+of+berlin%7Cberlin">
+
+  <h2 class="smart-panel-title">Threat Actors Near You</h2>
+
+  <div class="regional-threats-container">
+    <div class="rt-loader" data-role="loader" hidden="">Loading local peers…</div>
+
+    <div class="rt-error" data-role="error" hidden="">
+      Unable to load local peers from your current network.
+    </div>
+
+    <div class="rt-content" data-role="content">
+      <div class="rt-block">
+        <div class="rt-block-title">Top Orgs in your city</div>
+        <div class="rt-cloud" data-role="orgs"><a class="rt-tag rt-tag--5" href="/report_org/org/org_unknown/" title="org_unknown · 4,132 hits" rel="noopener"><span class="txt">org_unknown</span></a><a class="rt-tag rt-tag--5" href="/report_org/org/vodafone%20kabel%20deutschland%20gmbh/" title="Vodafone Kabel Deutschland GmbH · 4,105 hits" rel="noopener"><span class="txt">Vodafone Kabel Deutschland GmbH</span></a><a class="rt-tag rt-tag--4" href="/report_org/org/ll%20boullioun%20aviation%20services/" title="LL: Boullioun Aviation Services · 3,186 hits" rel="noopener"><span class="txt">LL: Boullioun Aviation Services</span></a><a class="rt-tag rt-tag--3" href="/report_org/org/deutsche%20telekom%20ag/" title="Deutsche Telekom AG · 1,688 hits" rel="noopener"><span class="txt">Deutsche Telekom AG</span></a><a class="rt-tag rt-tag--2" href="/report_org/org/3xk%20tech%20gmbh/" title="3xK Tech GmbH · 1,150 hits" rel="noopener"><span class="txt">3xK Tech GmbH</span></a><a class="rt-tag rt-tag--1" href="/report_org/org/strato%20ag/" title="Strato AG · 520 hits" rel="noopener"><span class="txt">Strato AG</span></a><a class="rt-tag rt-tag--1" href="/report_org/org/telefonica%20germany%20gmbh%20co./" title="Telefonica Germany GmbH &amp; Co. · 512 hits" rel="noopener"><span class="txt">Telefonica Germany GmbH &amp; Co.</span></a><a class="rt-tag rt-tag--1" href="/report_org/org/tele%20columbus%20ag/" title="Tele Columbus AG · 505 hits" rel="noopener"><span class="txt">Tele Columbus AG</span></a><a class="rt-tag rt-tag--1" href="/report_org/org/ionos%20se/" title="IONOS SE · 420 hits" rel="noopener"><span class="txt">IONOS SE</span></a><a class="rt-tag rt-tag--1" href="/report_org/org/digitalcourage%20e.v/" title="Digitalcourage e.V · 352 hits" rel="noopener"><span class="txt">Digitalcourage e.V</span></a><a class="rt-tag rt-tag--1" href="/report_org/org/freedomtech%20solutions%20ltd/" title="Freedomtech Solutions Ltd · 300 hits" rel="noopener"><span class="txt">Freedomtech Solutions Ltd</span></a><a class="rt-tag rt-tag--1" href="/report_org/org/e-plus%20mobilfunk%20gmbh%20co.%20kg/" title="E-Plus Mobilfunk GmbH &amp; Co. KG · 236 hits" rel="noopener"><span class="txt">E-Plus Mobilfunk GmbH &amp; Co. KG</span></a></div>
+      </div>
+
+      <div class="rt-block" style="margin-top:10px;">
+        <div class="rt-block-title">Top ASNs in your city</div>
+        <div class="rt-cloud" data-role="asns"><a class="rt-tag rt-tag--5" href="/report_asn/asn/3209/" title="AS3209 · Vodafone GmbH · 4,411 hits" rel="noopener"><span class="txt">AS3209 · Vodafone GmbH</span></a><a class="rt-tag rt-tag--5" href="/report_asn/asn/8560/" title="AS8560 · IONOS SE · 4,391 hits" rel="noopener"><span class="txt">AS8560 · IONOS SE</span></a><a class="rt-tag rt-tag--4" href="/report_asn/asn/201341/" title="AS201341 · trafficforce, UAB · 3,170 hits" rel="noopener"><span class="txt">AS201341 · trafficforce, UAB</span></a><a class="rt-tag rt-tag--2" href="/report_asn/asn/3320/" title="AS3320 · Deutsche Telekom AG · 1,734 hits" rel="noopener"><span class="txt">AS3320 · Deutsche Telekom AG</span></a><a class="rt-tag rt-tag--2" href="/report_asn/asn/200373/" title="AS200373 · 3xK Tech GmbH · 1,150 hits" rel="noopener"><span class="txt">AS200373 · 3xK Tech GmbH</span></a><a class="rt-tag rt-tag--2" href="/report_asn/asn/6805/" title="AS6805 · Telefonica Germany GmbH &amp; Co.OHG · 885 hits" rel="noopener"><span class="txt">AS6805 · Telefonica Germany GmbH &amp; Co.OHG</span></a><a class="rt-tag rt-tag--1" href="/report_asn/asn/8881/" title="AS8881 · 1&amp;1 Versatel GmbH · 709 hits" rel="noopener"><span class="txt">AS8881 · 1&amp;1 Versatel GmbH</span></a><a class="rt-tag rt-tag--1" href="/report_asn/asn/208843/" title="AS208843 · Alpha Strike Labs GmbH · 630 hits" rel="noopener"><span class="txt">AS208843 · Alpha Strike Labs GmbH</span></a><a class="rt-tag rt-tag--1" href="/report_asn/asn/50436/" title="AS50436 · Tele Columbus AG · 415 hits" rel="noopener"><span class="txt">AS50436 · Tele Columbus AG</span></a><a class="rt-tag rt-tag--1" href="/report_asn/asn/174/" title="AS174 · Cogent Communications, LLC · 358 hits" rel="noopener"><span class="txt">AS174 · Cogent Communications, LLC</span></a><a class="rt-tag rt-tag--1" href="/report_asn/asn/60729/" title="AS60729 · Stiftung Erneuerbare Freiheit · 352 hits" rel="noopener"><span class="txt">AS60729 · Stiftung Erneuerbare Freiheit</span></a><a class="rt-tag rt-tag--1" href="/report_asn/asn/680/" title="AS680 · Verein zur Foerderung eines Deutschen Forschungsnetzes e.V. · 154 hits" rel="noopener"><span class="txt">AS680 · Verein zur Foerderung eines Deutschen Forschungsnetzes e.V.</span></a></div>
+      </div>
+    </div>
+
+    <a class="smart-panel-cta" href="/report_city/cities/">Explore City Directory</a>
+  </div>
+
+  <style>
+    .rt-block-title{
+      font-size:.72rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(165,176,195,.95);
+      margin:2px 0 8px;
+    }
+    .rt-cloud{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .rt-cloud > .muted {
+      margin: 0px auto;
+      color: rgba(250, 235, 215, 0.9);
+
+    }
+    .rt-tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(191,151,255,.30);
+      background: radial-gradient(circle at 0 0, rgba(168,85,247,.18), rgba(0,0,0,.12));
+      color: rgba(240,245,255,.94);
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      text-decoration:none;
+      white-space:nowrap;
+      max-width:100%;
+      user-select:none;
+    }
+    .rt-tag .txt{ overflow:hidden; text-overflow:ellipsis; max-width: 34ch; }
+    .rt-tag--1{ font-size:.62rem; opacity:.82; }
+    .rt-tag--2{ font-size:.72rem; opacity:.86; }
+    .rt-tag--3{ font-size:.78rem; opacity:.90; }
+    .rt-tag--4{ font-size:.82rem; }
+    .rt-tag--5{
+      font-size:.90rem;
+      box-shadow: 0 0 26px rgba(168,85,247,.25), 0 12px 34px rgba(0,0,0,.38);
+    }
+    .rt-tag:hover{ filter:brightness(1.06); }
+  </style>
+
+  <script>
+    (function() {
+      function initCard(card) {
+        const endpoint = card.getAttribute("data-endpoint");
+        if (!endpoint) return;
+
+        const loader  = card.querySelector('[data-role="loader"]');
+        const error   = card.querySelector('[data-role="error"]');
+        const content = card.querySelector('[data-role="content"]');
+        const orgsEl  = card.querySelector('[data-role="orgs"]');
+        const asnsEl  = card.querySelector('[data-role="asns"]');
+
+        function showLoader()  { loader.hidden = false; error.hidden = true;  content.hidden = true; }
+        function showError()   { loader.hidden = true;  error.hidden = false; content.hidden = true; }
+        function showContent() { loader.hidden = true;  error.hidden = true;  content.hidden = false; }
+
+        function renderTags(el, tags) {
+          el.innerHTML = "";
+          (tags || []).forEach(t => {
+            const a = document.createElement("a");
+            a.className = "rt-tag rt-tag--" + (t.level || 2);
+            a.href = t.url || "#";
+            a.title = t.title || t.text || "";
+            a.rel = "noopener";
+            a.innerHTML = '<span class="txt"></span>';
+            a.querySelector(".txt").textContent = t.text || "—";
+            if (!t.url) {
+              a.style.opacity = "0.55";
+              a.style.pointerEvents = "none";
+            }
+            el.appendChild(a);
+          });
+          if (!tags || !tags.length) {
+            const s = document.createElement("span");
+            s.className = "muted";
+            s.textContent = "No peers found for this city (yet).";
+            el.appendChild(s);
+          }
+        }
+
+        showLoader();
+
+        fetch(endpoint, { headers: { "Accept": "application/json" } })
+          .then(resp => resp.ok ? resp.json() : resp.text().then(t => { throw new Error(t || ("HTTP " + resp.status)); }))
+          .then(data => {
+            if (!data || data.status !== "ok") { showError(); return; }
+            renderTags(orgsEl, data.orgs || []);
+            renderTags(asnsEl, data.asns || []);
+            showContent();
+          })
+          .catch(err => {
+            console.error("[RT] peers fetch error:", err);
+            showError();
+          });
+      }
+
+      function initAll() {
+        document.querySelectorAll('[data-widget="card-6-regional-threats"]').forEach(initCard);
+      }
+
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", initAll);
+      else
+        initAll();
+    })();
+  </script>
+</section>
+
+
+
+
+
+    
+<section class="smart-panel smart-panel--secondary" data-widget="card-2-networks">
+  <h2 class="smart-panel-title">How Networks Behave</h2>
+  <p class="smart-panel-lead">
+    Explore organizations and ASNs as they appear in our awareness layer.
+  </p>
+  <a class="smart-panel-cta" href="/report_asn/asns/">View networks</a>
+</section>
+
+
+
+    
+
+
+<style>
+  /******************************************************************
+   * Featured Entities (Card 3)
+   * Goals:
+   *  - Preserve all carousel functionality (JS hooks unchanged)
+   *  - Tight layout; no tallest-slide empty space
+   *  - Nav/dots at top (outside viewport clip)
+   *  - Slide content order:
+   *      (1) muted meta
+   *      (2) hero name
+   *      (3) ribbon
+   *      (4) CTA + added-at
+   ******************************************************************/
+
+  .smart-panel[data-widget="card-3-featured-entities"] .panel-lead-top{
+    margin-top: 0.1rem;
+    margin-bottom: 1.1rem;
+    font-size: 0.92rem;
+    color: var(--muted, #a5b0c3);
+  }
+
+  /* ------------------------------------------------------------
+   * Carousel structure:
+   *  - carousel wrapper: overflow visible (nav not clipped)
+   *  - viewport: overflow hidden (slides clipped)
+   *  - track: flex row; align-items:flex-start prevents stretch
+   * ------------------------------------------------------------ */
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entities-carousel{
+    position: relative;
+    margin-top: 0.75rem;
+    overflow: visible; /* critical: nav must not be clipped */
+    outline: none;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entities-viewport{
+    overflow: hidden; /* only slide area clips */
+    width: 100%;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entities-track{
+    display: flex;
+    width: 100%;
+    align-items: flex-start; /* KEY: stops tallest-slide stretching */
+    transition: transform 0.6s ease; /* JS also appends height transition inline */
+    will-change: transform, height;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-card{
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+
+    /* prevent stretch / inheritance */
+    height: auto;
+    align-self: flex-start;
+
+    /* your visual behavior */
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.985);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-card.is-active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-card-inner{
+    padding: 1.25rem 1.5rem;
+  }
+
+  @media (max-width: 575px){
+    .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-card-inner{
+      padding: 1rem 1.1rem;
+    }
+  }
+
+  /* ------------------------------------------------------------
+   * Nav at top (outside viewport)
+   * ------------------------------------------------------------ */
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entities-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entities-nav--top{
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .carousel-btn{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(11,17,27,.9);
+    color: #f5f5f5;
+    font-size: 18px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .carousel-btn:hover{
+    background: rgba(17,24,38,.98);
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .carousel-dots{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .carousel-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.28);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .carousel-dot.is-active{
+    background: #ffdf85;
+    border-color: #ffdf85;
+  }
+
+  /* ------------------------------------------------------------
+   * Slide content order + tight spacing
+   * ------------------------------------------------------------ */
+
+  /* (1) muted meta on top */
+  .smart-panel[data-widget="card-3-featured-entities"] .entity-sub{
+    font-size: 0.95rem;
+    color: var(--muted, #a5b0c3);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .entity-sub--top{
+    margin: 0 0 10px;
+  }
+
+  /* (2) hero name: remove huge vertical margins */
+  .smart-panel[data-widget="card-3-featured-entities"] .entity-title{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.45rem, 3.6vw, 3.6rem);
+    font-weight: 800;
+    color: #f7fbff;
+    text-shadow: 0 0 0 0 rgba(0,0,0,0.75), 0 0 8px rgba(0,0,0,0.5);
+    line-height: 1.14;
+    margin: 40px 0 ; /* was 40px 0; this inflated some slides */
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  /* (3) ribbon below title */
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon-wrap{
+    display: flex;
+    justify-content: center;
+    margin: 0.4rem auto 0.9rem;
+    padding-inline: 0.4rem;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon{
+    position: relative;
+    z-index: 1;
+    display: block;
+    max-width: min(100%, 600px);
+
+    min-height: 3.2rem;
+    padding: 0.85rem 2.1rem;
+
+    background: linear-gradient(135deg, #f4d061, #d8a937);
+    color: #1a1307;
+
+    font-size: clamp(0.98rem, 1.1vw, 1.12rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+
+    box-shadow: 0 10px 22px rgba(0,0,0,0.85),
+                0 0 12px rgba(255,215,0,0.45);
+
+    display: flex;
+    align-items: center;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon::before,
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0.12rem;
+    bottom: -0.40rem;
+    width: 22px;
+    background: linear-gradient(135deg, #b88b23, #7b5814);
+    clip-path: polygon(0% 0%, 100% 0%, 82% 50%, 100% 100%, 0% 100%, 18% 50%);
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon::before{ left: -15px; }
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon::after{
+    right: -15px;
+    transform: scaleX(-1);
+    transform-origin: center;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon-track{
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon-inner{
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    will-change: transform;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon-text{
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-ribbon-inner.is-ticker{
+    animation: featured-ribbon-marquee var(--ticker-duration, 16s) linear infinite;
+  }
+
+  @keyframes featured-ribbon-marquee{
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* (4) CTA + added at bottom */
+  .smart-panel[data-widget="card-3-featured-entities"] .btn-stack{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-link{
+    text-decoration: none;
+  }
+
+  .smart-panel[data-widget="card-3-featured-entities"] .featured-entity-added-at{
+    font-size: 0.78rem;
+    color: var(--muted, #a5b0c3);
+    text-align: center;
+  }
+
+  /* Pills/badges explicitly off (preserve intent) */
+  .smart-panel[data-widget="card-3-featured-entities"] .entity-badges{ display:none; }
+  .smart-panel[data-widget="card-3-featured-entities"] .badge{ display:none; }
+</style>
+
+<section class="smart-panel smart-panel--secondary" data-widget="card-3-featured-entities">
+  <h2 class="smart-panel-title">Featured Entities</h2>
+  <p class="panel-lead-top">
+    Curated editorial picks — the posture layer we choose to surface publicly.
+  </p>
+
+  
+    <div class="featured-entities-carousel" data-featured-carousel="" role="region" aria-roledescription="carousel" aria-label="Featured entities" tabindex="0" data-carousel-init="1">
+
+      
+      
+        <div class="featured-entities-nav featured-entities-nav--top" aria-label="Carousel navigation">
+          <button type="button" class="carousel-btn" aria-label="Previous featured entity" data-carousel-prev="">‹</button>
+
+          <div class="carousel-dots" role="tablist" aria-label="Slides">
+            
+              <button type="button" class="carousel-dot" data-carousel-dot="" role="tab" aria-selected="false" aria-label="Show Oracle Corporation" tabindex="-1">
+              </button>
+            
+              <button type="button" class="carousel-dot is-active" data-carousel-dot="" role="tab" aria-selected="true" aria-label="Show Lanzhou" tabindex="0">
+              </button>
+            
+              <button type="button" class="carousel-dot" data-carousel-dot="" role="tab" aria-selected="false" aria-label="Show Google Cloud (us-central1)" tabindex="-1">
+              </button>
+            
+              <button type="button" class="carousel-dot" data-carousel-dot="" role="tab" aria-selected="false" aria-label="Show Microsoft Azure Cloud (eastus)" tabindex="-1">
+              </button>
+            
+              <button type="button" class="carousel-dot" data-carousel-dot="" role="tab" aria-selected="false" aria-label="Show Yandex LLC" tabindex="-1">
+              </button>
+            
+              <button type="button" class="carousel-dot" data-carousel-dot="" role="tab" aria-selected="false" aria-label="Show Tencent Cloud Computing" tabindex="-1">
+              </button>
+            
+              <button type="button" class="carousel-dot" data-carousel-dot="" role="tab" aria-selected="false" aria-label="Show Microsoft Azure Cloud (southcentralus)" tabindex="-1">
+              </button>
+            
+              <button type="button" class="carousel-dot" data-carousel-dot="" role="tab" aria-selected="false" aria-label="Show Facebook, Inc." tabindex="-1">
+              </button>
+            
+          </div>
+
+          <button type="button" class="carousel-btn" aria-label="Next featured entity" data-carousel-next="">›</button>
+        </div>
+      
+
+      
+      <div class="featured-entities-viewport" data-carousel-viewport="">
+        <div class="featured-entities-track" data-carousel-track="" style="transition: transform 0.6s, height 0.22s; align-items: flex-start; transform: translateX(-100%); height: 371px;">
+
+          
+            <article class="featured-entity-card" data-carousel-slide="" aria-label="Slide 1 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  ORG · oracle corporation
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Oracle Corporation</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner is-ticker" data-featured-ribbon-inner="" style="--ticker-duration: 11.167023554603855s;">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Oracle, the tech giant from redwood shores, sprawls the globe with its giant data center footprint.
+                          </span>
+                        <span class="featured-entity-ribbon-text" data-featured-ribbon-text="" aria-hidden="true" data-featured-ribbon-clone="1">
+                            Oracle, the tech giant from redwood shores, sprawls the globe with its giant data center footprint.
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-17
+                    </span>
+                  
+
+                  <a href="/report_org/org/oracle%20corporation/" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+            <article class="featured-entity-card is-active" data-carousel-slide="" aria-label="Slide 2 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  CITY · china|gansu|lanzhou
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Lanzhou</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner" data-featured-ribbon-inner="">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Probably China’s Cyber HQ.
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-26
+                    </span>
+                  
+
+                  <a href="/report_city/city/china|gansu|lanzhou/" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+            <article class="featured-entity-card" data-carousel-slide="" aria-label="Slide 3 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  ORG · google cloud (us-central1)
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Google Cloud (us-central1)</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner is-ticker" data-featured-ribbon-inner="" style="--ticker-duration: 8.423982869379016s;">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Google Cloud is a different organization within google
+                          </span>
+                        <span class="featured-entity-ribbon-text" data-featured-ribbon-text="" aria-hidden="true" data-featured-ribbon-clone="1">
+                            Google Cloud is a different organization within google
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-17
+                    </span>
+                  
+
+                  <a href="/report_org/org/google%20cloud%20(us-central1)/" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+            <article class="featured-entity-card" data-carousel-slide="" aria-label="Slide 4 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  ORG · microsoft azure cloud (eastus)
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Microsoft Azure Cloud (eastus)</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner is-ticker" data-featured-ribbon-inner="" style="--ticker-duration: 9.10492505353319s;">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Another Organization to Microsoft’s sprawling network footprint
+                          </span>
+                        <span class="featured-entity-ribbon-text" data-featured-ribbon-text="" aria-hidden="true" data-featured-ribbon-clone="1">
+                            Another Organization to Microsoft’s sprawling network footprint
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-17
+                    </span>
+                  
+
+                  <a href="/report_org/org/microsoft%20azure%20cloud%20(eastus)/" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+            <article class="featured-entity-card" data-carousel-slide="" aria-label="Slide 5 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  ORG · yandex llc
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Yandex LLC</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner is-ticker" data-featured-ribbon-inner="" style="--ticker-duration: 10.0813704496788s;">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Yandex is one of Russia’s largest tech giants and digital infrastructure behemoths.
+                          </span>
+                        <span class="featured-entity-ribbon-text" data-featured-ribbon-text="" aria-hidden="true" data-featured-ribbon-clone="1">
+                            Yandex is one of Russia’s largest tech giants and digital infrastructure behemoths.
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-17
+                    </span>
+                  
+
+                  <a href="/report_org/org/yandex%20llc/" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+            <article class="featured-entity-card" data-carousel-slide="" aria-label="Slide 6 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  ORG · tencent cloud computing
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Tencent Cloud Computing</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner is-ticker" data-featured-ribbon-inner="" style="--ticker-duration: 9.63811563169165s;">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Tencent is one of the largest tech giants in the East. A part of the Pax Silica.
+                          </span>
+                        <span class="featured-entity-ribbon-text" data-featured-ribbon-text="" aria-hidden="true" data-featured-ribbon-clone="1">
+                            Tencent is one of the largest tech giants in the East. A part of the Pax Silica.
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-17
+                    </span>
+                  
+
+                  <a href="/report_org/org/tencent%20cloud%20computing/" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+            <article class="featured-entity-card" data-carousel-slide="" aria-label="Slide 7 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  ORG · microsoft azure cloud (southcentralus)
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Microsoft Azure Cloud (southcentralus)</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner is-ticker" data-featured-ribbon-inner="" style="--ticker-duration: 9.117773019271949s;">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Microsoft Azure is part of Microsoft’s global network deployment.
+                          </span>
+                        <span class="featured-entity-ribbon-text" data-featured-ribbon-text="" aria-hidden="true" data-featured-ribbon-clone="1">
+                            Microsoft Azure is part of Microsoft’s global network deployment.
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-17
+                    </span>
+                  
+
+                  <a href="/report_org/org/microsoft%20azure%20cloud%20(southcentralus)/" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+            <article class="featured-entity-card" data-carousel-slide="" aria-label="Slide 8 of 8">
+              <div class="featured-entity-card-inner" data-slide-inner="">
+
+                
+                <div class="entity-sub entity-sub--top">
+                  ORG · facebook inc.
+                  
+                </div>
+
+                
+                <h3 class="entity-title">Facebook, Inc.</h3>
+
+                
+                
+                  <div class="featured-entity-ribbon-wrap">
+                    <div class="featured-entity-ribbon">
+                      <div class="featured-entity-ribbon-track" data-featured-ribbon-track="" data-ticker-init="1">
+                        <div class="featured-entity-ribbon-inner is-ticker" data-featured-ribbon-inner="" style="--ticker-duration: 10.29336188436831s;">
+                          <span class="featured-entity-ribbon-text" data-featured-ribbon-text="">
+                            Meta, formerly known as Facebook, still retains its previous name in certain networks.
+                          </span>
+                        <span class="featured-entity-ribbon-text" data-featured-ribbon-text="" aria-hidden="true" data-featured-ribbon-clone="1">
+                            Meta, formerly known as Facebook, still retains its previous name in certain networks.
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+                <div class="btn-stack">
+
+                  
+                    <span class="featured-entity-added-at">
+                      Added 2026-01-17
+                    </span>
+                  
+
+                  <a href="/report_org/org/facebook%20inc./" class="smart-panel-cta featured-entity-link">
+                    View report
+                  </a>
+
+                </div>
+
+              </div>
+            </article>
+          
+
+        </div>
+      </div>
+    </div>
+  
+</section>
+
+
+
+    
+
+<section class="smart-panel smart-panel--secondary" data-widget="card-5-my-network">
+  <h2 class="smart-panel-title">Your Infrastructure’s External Footprint</h2>
+  <p class="smart-panel-lead">
+    See how your network appears in the awareness layer.
+  </p>
+  <a class="smart-panel-cta" href="/report_org/org/vodafone%20kabel%20deutschland%20gmbh/">Inspect footprint</a>
+</section>
+
+
+
+    
+
+
+
+    
+<section class="smart-panel smart-panel--secondary" data-widget="card-8-data">
+  <h2 class="smart-panel-title">Report Subscriptions</h2>
+  <p class="smart-panel-lead">
+    Daily quota subscriptions for the report graph, with live usage visibility and a privacy-safe business flow.
+  </p>
+  <a class="smart-panel-cta" href="/pages/reports-business/">
+    Explore pricing
+  </a>
+</section>
+
+    
+
+
+<div class="smart-panel" data-widget="card-9-footer-line">
+  <div class="smart-panel-header">
+    <img src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/syndu_logo.png" alt="Syndu" class="syndu_logo">
+  </div>
+  <div class="smart-panel-body">
+    <p class="smart-panel-lead">
+      Awareness precedes security. Syndu reflects networks as they behave, bringing context into awareness, and supporting risk decisions.
+    </p>
+  </div>
+</div>
+<div class="spacer-32"></div>
+
+
+
+
+  </div>
+</div><ins class="adsbygoogle adsbygoogle-noablate" data-ad-hi="true" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-6577084735419016&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1773264244&amp;plat=1%3A16777216%2C2%3A16777216%2C3%3A16%2C4%3A16%2C9%3A134250504%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fsyndu.com%2F&amp;pra=5&amp;aiof=9&amp;asro=0&amp;itsi=-1&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.0001&amp;aiactd=0.0001&amp;aicct=0.0001&amp;aicctd=0.0001&amp;ailct=0.0001&amp;ailctd=0.0001&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiMTAuMCIsIng4NiIsIiIsIiIsbnVsbCwwLG51bGwsIiIsW1siSGVhZGxlc3NDaHJvbWUiLCIiXSxbIk5vdD9BX0JyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIiXV0sMF0.&amp;abgtt=6&amp;dt=1773264244148&amp;bpp=3&amp;bdt=2566&amp;idt=168&amp;shv=r20260309&amp;mjsv=m202603050101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;eoidce=1&amp;nras=1&amp;correlator=2745119726345&amp;frm=20&amp;pv=2&amp;u_tz=60&amp;u_his=2&amp;u_h=720&amp;u_w=1280&amp;u_ah=720&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1280&amp;bih=720&amp;scr_x=0&amp;scr_y=0&amp;eid=95378425%2C95381340%2C95381490%2C95383701%2C95384194%2C95385043%2C95384715%2C95379824&amp;oid=2&amp;pvsid=6083675621846923&amp;tmod=518547785&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1296%2C808%2C1280%2C720&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1.01&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=185" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins>
+
+
+
+<div id="footer-toggle" class="footer-toggle" aria-controls="site-footer-panel" aria-expanded="false" role="button" tabindex="0" style="top: 640px;">
+  <div class="glyph-circle">
+    <svg id="glyph-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="50" height="50" style="transition:transform .18s ease-out">
+      <defs>
+        <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="black"></feDropShadow>
+        </filter>
+        <linearGradient id="strokeGradient" gradientTransform="rotate(135)">
+          <stop offset="0%" stop-color="#ffef77"></stop>
+          <stop offset="100%" stop-color="#c49f27"></stop>
+        </linearGradient>
+        <radialGradient id="backgroundGradient" cx="50%" cy="50%" r="40%">
+          <stop offset="0%" stop-color="#ffef77"></stop>
+          <stop offset="100%" stop-color="transparent"></stop>
+        </radialGradient>
+      </defs>
+
+      <rect width="400" height="400" fill="url(#backgroundGradient)"></rect>
+      <circle cx="200" cy="200" r="180" fill="none" stroke="url(#strokeGradient)" stroke-width="3"></circle>
+      <path d="M120 80 A160 400 0 0 0 280 80" fill="none" stroke="url(#strokeGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#dropShadow)"></path>
+      <path d="M120 80 A160 200 0 0 0 280 80" fill="none" stroke="url(#strokeGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#dropShadow)"></path>
+      <g filter="url(#dropShadow)" transform="translate(0,-20)">
+        <polygon points="200,100 300,300 100,300" fill="none" stroke="url(#strokeGradient)" stroke-width="12" stroke-linejoin="round"></polygon>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<footer id="site-footer-panel" class="footer-panel" aria-label="Site footer">
+  <div class="footer-scroll-container">
+    <div class="footer-action-card footer-action-card--primary">
+      <a href="/" class="smart-panel-cta footer-home-cta">Home</a>
+    </div>
+
+    
+
+    <details class="footer-accordion">
+      <summary class="footer-accordion-summary">
+        <span class="footer-accordion-title">Reports</span>
+        <span class="footer-accordion-label">Directories and drill paths</span>
+      </summary>
+      <div class="footer-link-grid">
+        <a href="/report_country/countries/" class="smart-panel-cta">Country Directory</a>
+        <a href="/report_region/regions/" class="smart-panel-cta">Region Directory</a>
+        <a href="/report_city/cities/" class="smart-panel-cta">City Directory</a>
+        <a href="/report_org/orgs/" class="smart-panel-cta">Org Directory</a>
+        <a href="/report_asn/asns/" class="smart-panel-cta">ASN Directory</a>
+        <a href="/report_isp/isps/" class="smart-panel-cta">ISP Directory</a>
+        <a href="/report_subnet/subnets/" class="smart-panel-cta">Subnet Directory</a>
+        <a href="/report_ipaddress/ips/" class="smart-panel-cta">IP Directory</a>
+      </div>
+    </details>
+
+    <details class="footer-accordion">
+      <summary class="footer-accordion-summary">
+        <span class="footer-accordion-title">My Account</span>
+        <span class="footer-accordion-label">
+          
+            Sign in, register, and learn more
+          
+        </span>
+      </summary>
+      <div class="footer-link-grid">
+        
+          <a href="/accounts/login/" class="smart-panel-cta">Login</a>
+          <a href="/accounts/signup/" class="smart-panel-cta">Register</a>
+          <a href="/pages/reports-business/" class="smart-panel-cta">Product Brief</a>
+        
+      </div>
+    </details>
+
+    <details class="footer-accordion">
+      <summary class="footer-accordion-summary">
+        <span class="footer-accordion-title">Godai</span>
+        <span class="footer-accordion-label">Interactive game surface</span>
+      </summary>
+      <div class="footer-link-grid">
+        <a href="/godai/" class="smart-panel-cta">Launch Godai</a>
+      </div>
+    </details>
+
+    <details class="footer-accordion">
+      <summary class="footer-accordion-summary">
+        <span class="footer-accordion-title">About</span>
+        <span class="footer-accordion-label">Product and business pages</span>
+      </summary>
+      <div class="footer-link-grid">
+        <a href="/pages/reports-business/" class="smart-panel-cta">Product Brief</a>
+        <a href="/pages/pricing/" class="smart-panel-cta">Pricing</a>
+        <a href="/pages/how-quotas-work/" class="smart-panel-cta">How Quotas Work</a>
+        <a href="/pages/privacy-commitment/" class="smart-panel-cta">Privacy Commitment</a>
+        <a href="/pages/report-subscriptions-faq/" class="smart-panel-cta">Subscriptions FAQ</a>
+      </div>
+    </details>
+
+    <details class="footer-accordion">
+      <summary class="footer-accordion-summary">
+        <span class="footer-accordion-title">Resources</span>
+        <span class="footer-accordion-label">Operational reading</span>
+      </summary>
+      <div class="footer-link-grid">
+        <a href="/pages/resources/report-coverage/" class="smart-panel-cta">Report Coverage</a>
+        <a href="/pages/resources/soc-siem-context/" class="smart-panel-cta">SoC and SIEM Fit</a>
+        <a href="/pages/resources/consumption-at-scale/" class="smart-panel-cta">Consumption at Scale</a>
+        <a href="/pages/resources/network-hygiene-prerequisites/" class="smart-panel-cta">Metadata and Hygiene</a>
+      </div>
+    </details>
+
+    <div class="footer-action-card footer-action-card--secondary">
+      <a href="/blog" class="smart-panel-cta footer-blog-cta">Blog</a>
+    </div>
+
+    <div class="footer-brand">
+      <p class="m-0 text-center">
+        <img src="https://synduweb.sgp1.digitaloceanspaces.com/assets/img/syndu_logo.png" alt="Syndu" class="syndu_logo">
+      </p>
+      
+        <p class="m-0 text-center">Made With Joy &amp; AI © Syndu Web LTD 2024.</p>
+      
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer-safe-space{
+  padding-bottom:clamp(8rem,16vh,10.5rem) !important;
+}
+
+.footer-safe-space .smart-panel-stack{
+  padding-bottom:clamp(4rem,10vh,6rem) !important;
+}
+
+.footer-safe-space .smart-panel-stack > :last-child{
+  margin-bottom:clamp(3rem,8vh,4.5rem) !important;
+}
+
+.footer-panel{
+  font-family:'Roboto',sans-serif;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:-100%;
+  width:100%;
+  color:rgb(255,196,87);
+  background:
+    radial-gradient(circle at 22% 0, rgba(135,196,255,.18), rgba(4,8,30,.94) 42%, rgba(0,0,12,.98) 100%);
+  border-top:1px solid rgba(173,209,255,.16);
+  box-shadow:
+    0 -20px 56px rgba(0,0,0,.52),
+    0 0 28px rgba(135,196,255,.16);
+  backdrop-filter:blur(18px);
+  z-index:9000;
+  transition:bottom .45s ease-in-out,max-height .45s ease-in-out;
+  max-height:0;
+  overflow:hidden;
+}
+
+.footer-panel::before{
+  content:"";
+  position:absolute;
+  top:-26%;
+  right:-12%;
+  bottom:-30%;
+  left:-12%;
+  pointer-events:none;
+  background-image:
+    url("/static/img/c1.png"),
+    url("/static/img/c2.png"),
+    url("/static/img/c3.png"),
+    url("/static/img/c2.png"),
+    url("/static/img/c1.png");
+  background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+  background-size:182% auto, 148% auto, 132% auto, 138% auto, 168% auto;
+  background-position:-132% 6%, 136% 34%, -138% 58%, 126% 82%, -126% 96%;
+  opacity:0;
+  mix-blend-mode:screen;
+  z-index:0;
+  will-change:background-position,opacity;
+  transition:opacity .35s ease-out;
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.92) 8%, #000 20%, #000 92%, transparent 100%);
+  mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.92) 8%, #000 20%, #000 92%, transparent 100%);
+}
+
+.footer-panel::after{
+  content:"";
+  position:absolute;
+  top:-18%;
+  right:-10%;
+  bottom:-34%;
+  left:-10%;
+  pointer-events:none;
+  background-image:
+    url("/static/img/c2.png"),
+    url("/static/img/c3.png"),
+    url("/static/img/c1.png");
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-size:154% auto, 138% auto, 148% auto;
+  background-position:124% 18%, -126% 72%, 118% 94%;
+  opacity:0;
+  mix-blend-mode:screen;
+  z-index:0;
+  will-change:background-position,opacity;
+  transition:opacity .35s ease-out;
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.88) 10%, #000 28%, #000 94%, transparent 100%);
+  mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.88) 10%, #000 28%, #000 94%, transparent 100%);
+}
+
+.footer-panel.active{
+  bottom:0;
+  max-height:78vh;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+.footer-panel.active::before{
+  opacity:.16;
+  animation:
+    footer-clouds-right 62s linear infinite,
+    footer-clouds-fade 62s ease-in-out infinite;
+}
+
+.footer-panel.active::after{
+  opacity:.13;
+  animation:
+    footer-clouds-left 74s linear infinite,
+    footer-clouds-fade-soft 74s ease-in-out infinite;
+}
+
+.footer-scroll-container{
+  width:min(980px, calc(100% - 28px));
+  margin:72px auto 0;
+  padding-bottom:28px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  position:relative;
+  z-index:1;
+}
+
+.footer-action-card{
+  padding:0;
+  border:none;
+  background:transparent;
+  box-shadow:none;
+}
+
+.footer-action-card .smart-panel-cta{
+  width:100%;
+  min-height:60px;
+}
+
+.footer-action-card--primary{
+  margin-bottom:2px;
+}
+
+.footer-action-card--secondary{
+  margin-top:2px;
+}
+
+.footer-accordion{
+  border:1px solid rgba(173,209,255,.14);
+  background:radial-gradient(circle at 18% 0, rgba(135,196,255,.10), rgba(7,13,36,.62));
+  backdrop-filter:blur(10px);
+  box-shadow:
+    0 10px 26px rgba(0,0,0,.18),
+    0 0 18px rgba(135,196,255,.06);
+  transition:
+    border-color .24s ease,
+    box-shadow .24s ease,
+    background .24s ease;
+}
+
+.footer-accordion[open]{
+  background:radial-gradient(circle at 18% 0, rgba(135,196,255,.14), rgba(7,13,36,.74));
+  border-color:rgba(202,229,255,.24);
+  box-shadow:
+    0 16px 34px rgba(0,0,0,.24),
+    0 0 22px rgba(135,196,255,.10);
+}
+
+.footer-accordion--admin{
+  border-color:rgba(173,139,255,.22);
+  background:radial-gradient(circle at 18% 0, rgba(147,118,255,.14), rgba(16,11,43,.72));
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.20),
+    0 0 22px rgba(158,116,255,.10);
+}
+
+.footer-accordion--admin[open]{
+  border-color:rgba(196,168,255,.34);
+  background:radial-gradient(circle at 18% 0, rgba(162,126,255,.18), rgba(16,11,43,.82));
+  box-shadow:
+    0 18px 38px rgba(0,0,0,.24),
+    0 0 28px rgba(162,126,255,.16);
+}
+
+.footer-accordion--admin .footer-accordion-title{
+  color:#d8c2ff;
+}
+
+.footer-accordion--admin .footer-accordion-label,
+.footer-accordion--admin .footer-accordion-summary::after{
+  color:rgba(218,197,255,.82);
+}
+
+.footer-accordion-summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:16px 18px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.footer-accordion-summary::-webkit-details-marker{
+  display:none;
+}
+
+.footer-accordion-title{
+  display:block;
+  color:#ffdf80;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:.86rem;
+}
+
+.footer-accordion-label{
+  color:rgba(219,230,255,.72);
+  text-align:right;
+  font-size:.82rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.footer-accordion-summary::after{
+  content:"+";
+  color:#ffdf80;
+  font-size:1.2rem;
+  line-height:1;
+  margin-left:auto;
+}
+
+.footer-accordion[open] .footer-accordion-summary::after{
+  content:"−";
+}
+
+.footer-link-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:12px;
+  padding:0 18px 18px;
+}
+
+.footer-panel .smart-panel-cta{
+  width:100%;
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:0;
+}
+
+.footer-cta--admin{
+  color:#f2ecff !important;
+  background:
+    linear-gradient(135deg, rgba(147,118,255,.22), rgba(38,29,92,.9)),
+    radial-gradient(circle at 0 0, rgba(182,156,255,.24), transparent 55%);
+  border:1px solid rgba(187,156,255,.42);
+  box-shadow:
+    0 10px 24px rgba(27,18,59,.38),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.footer-cta--admin:hover,
+.footer-cta--admin:focus-visible{
+  color:#fbf7ff !important;
+  background:
+    linear-gradient(135deg, rgba(169,135,255,.32), rgba(45,33,108,.96)),
+    radial-gradient(circle at 0 0, rgba(198,176,255,.28), transparent 58%);
+  border-color:rgba(214,187,255,.58);
+  box-shadow:
+    0 14px 30px rgba(30,18,68,.46),
+    0 0 20px rgba(153,112,255,.20);
+}
+
+.footer-home-cta,
+.footer-blog-cta{
+  font-size:.98rem;
+  letter-spacing:.16em;
+  min-height:60px;
+}
+
+.footer-brand{
+  padding:8px 8px 0;
+  display:grid;
+  gap:10px;
+  justify-items:center;
+  color:rgba(219,230,255,.74);
+  text-align:center;
+}
+
+.footer-toggle{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:9990;
+  cursor:pointer;
+  transition:top .45s ease-in-out;
+}
+
+.glyph-circle{
+  width:60px;
+  height:60px;
+  background:rgba(0,0,11,.75);
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:20px 0;
+  backdrop-filter:blur(20px);
+  box-shadow:0 0 15px rgba(255,215,0,.7),0 0 30px rgba(255,215,0,.5),0 0 45px rgba(255,215,0,.3);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.glyph-circle:hover{
+  transform:scale(1.08);
+  background:rgba(0,0,0,.5);
+  box-shadow:0 0 15px rgba(255,215,0,.9),0 0 30px rgba(255,215,0,.7),0 0 45px rgba(255,215,0,.5);
+}
+
+.syndu_logo{
+  height:40px;
+  width:auto;
+}
+
+@keyframes footer-clouds-right{
+  0%{
+    background-position:-132% 6%, 136% 34%, -138% 58%, 126% 82%, -126% 96%;
+  }
+  100%{
+    background-position:132% 10%, -132% 38%, 138% 62%, -124% 86%, 124% 92%;
+  }
+}
+
+@keyframes footer-clouds-left{
+  0%{
+    background-position:124% 18%, -126% 72%, 118% 94%;
+  }
+  100%{
+    background-position:-124% 14%, 126% 68%, -118% 90%;
+  }
+}
+
+@keyframes footer-clouds-fade{
+  0%,100%{
+    opacity:0;
+  }
+  22%{
+    opacity:.05;
+  }
+  50%{
+    opacity:.14;
+  }
+  82%{
+    opacity:.06;
+  }
+}
+
+@keyframes footer-clouds-fade-soft{
+  0%,100%{
+    opacity:0;
+  }
+  18%{
+    opacity:.05;
+  }
+  50%{
+    opacity:.13;
+  }
+  84%{
+    opacity:.07;
+  }
+}
+
+@media (max-width: 720px){
+  .footer-scroll-container{
+    width:calc(100% - 16px);
+    max-width:100%;
+    margin:72px auto 0;
+    padding-bottom:20px;
+    gap:12px;
+  }
+
+  .footer-accordion-summary{
+    padding:14px 14px;
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .footer-accordion-label{
+    text-align:left;
+    letter-spacing:.06em;
+  }
+
+  .footer-accordion-summary::after{
+    position:absolute;
+    right:14px;
+    top:14px;
+  }
+
+  .footer-accordion{
+    position:relative;
+  }
+
+  .footer-link-grid{
+    grid-template-columns:1fr;
+    padding:0 14px 14px;
+  }
+
+  .footer-action-card{
+    padding:0;
+  }
+
+  .footer-safe-space{
+    padding-bottom:clamp(8.5rem,18vh,11.5rem) !important;
+  }
+
+  .footer-safe-space .smart-panel-stack{
+    padding-bottom:clamp(4.5rem,12vh,6.5rem) !important;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('footer-toggle');
+  const panel = document.getElementById('site-footer-panel');
+  if (!toggle || !panel) return;
+
+  const circle = toggle.querySelector('.glyph-circle');
+  const glyph = document.getElementById('glyph-svg');
+  let ph = 0;
+  let ch = 0;
+  let closed = 0;
+  let open = 0;
+  let idle;
+  let tgtX = innerWidth / 2;
+  let tgtY = innerHeight / 2;
+  let queued = false;
+  const GAP_OPEN = 50;
+
+  const visiblePanelHeight = () => {
+    const hardCap = window.innerHeight * 0.78;
+    return Math.min(panel.scrollHeight || 0, hardCap);
+  };
+
+  const calc = () => {
+    ph = visiblePanelHeight();
+    ch = circle.getBoundingClientRect().height;
+    closed = innerHeight - ch - 20;
+    open = (innerHeight - ph) - ch - GAP_OPEN;
+  };
+
+  const place = (isOpen) => {
+    toggle.style.top = isOpen ? `${open}px` : `${closed}px`;
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  };
+
+  const setOpen = (isOpen) => {
+    panel.classList.toggle('active', isOpen);
+    calc();
+    place(isOpen);
+    requestAnimationFrame(() => {
+      calc();
+      place(isOpen);
+    });
+  };
+
+  const toggleFooter = () => setOpen(!panel.classList.contains('active'));
+
+  toggle.addEventListener('click', toggleFooter);
+  toggle.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleFooter();
+    }
+  });
+
+  calc();
+  place(false);
+  addEventListener('resize', () => {
+    calc();
+    place(panel.classList.contains('active'));
+  });
+  panel.addEventListener('transitionend', () => {
+    calc();
+    place(panel.classList.contains('active'));
+  });
+
+  const update = () => {
+    const b = circle.getBoundingClientRect();
+    const ang = Math.atan2(tgtY - (b.top + b.height / 2), tgtX - (b.left + b.width / 2)) * 180 / Math.PI;
+    glyph.style.transform = `rotate(${ang + 90}deg)`;
+    queued = false;
+  };
+
+  const see = (x, y) => {
+    tgtX = x;
+    tgtY = y;
+    clearTimeout(idle);
+    idle = setTimeout(() => {
+      glyph.style.transform = 'rotate(0deg)';
+    }, 2000);
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(update);
+    }
+  };
+
+  document.addEventListener('mousemove', (event) => see(event.clientX, event.clientY));
+  document.addEventListener('touchmove', (event) => {
+    const touch = event.touches[0];
+    if (touch) see(touch.clientX, touch.clientY);
+  }, { passive: true });
+});
+</script>
+
+
+
+  <!-- Post modal -->
+  <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom alert modal -->
+  <div id="customAlert" class="custom-alert" style="display: none;">
+    <div class="custom-alert-content">
+      <span class="custom-alert-close" onclick="closeCustomAlert()">×</span>
+      <p id="customAlertMessage">This is a custom alert message.</p>
+    </div>
+  </div>
+
+  <!-- Custom Confirmation Modal -->
+  <div id="customConfirmModal" class="custom-modal" style="display: none;">
+    <div class="custom-modal-content">
+      <span class="custom-modal-close" onclick="closeCustomConfirmModal()">×</span>
+      <div class="modal-title">
+        <h2 id="customConfirmTitle">Confirm Action</h2>
+      </div>
+      <div class="modal-body">
+        <p id="customConfirmMessage">Are you sure you want to proceed?</p>
+      </div>
+      <div class="modal-footer row">
+        <div class="custom-modal-actions row">
+          <div class="col-6">
+            <button onclick="closeCustomConfirmModal()" class="btn-cancel bn5">Cancel</button>
+          </div>
+          <div class="col-6">
+            <button id="confirmBtn" class="btn-confirm bn5">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    function loadPostIntoModal(postId, targetModal) {
+      $.ajax({
+        url: `/blog/post/${postId}/ajax/`,
+        method: 'GET',
+        success: function(response) {
+          $(targetModal).find('.modal-body').html(response.html);
+          $(targetModal).modal('show');
+        },
+        error: function() {
+          showCustomAlert('An error occurred while fetching the post details.');
+        }
+      });
+    }
+
+    function loadRelatedPosts(postId) {
+      $.ajax({
+        url: "/blog/related_posts/0/".replace('/0/', '/' + postId + '/'),
+        type: 'GET',
+        success: function(data) {
+          console.log(data);
+          $('#related-posts').html(data.html);
+        },
+        error: function() {
+          $('#related-posts').html('<p>Unable to load related posts.</p>');
+        }
+      });
+    }
+
+    $(document).on('click', '[data-toggle="modal"][data-target="#postModal"]', function(e) {
+      e.preventDefault();
+      var postId = $(this).data('id');
+      var targetModal = $(this).data('target');
+      loadPostIntoModal(postId, targetModal);
+      loadRelatedPosts(postId);
+    });
+
+    const csrftoken = getCookie('csrftoken');
+
+    $.ajaxSetup({
+      beforeSend: function(xhr, settings) {
+        if (!this.crossDomain) {
+          xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          xhr.setRequestHeader("X-Requested-With", 'XMLHttpRequest');
+        }
+      }
+    });
+  </script>
+
+  <script src="https://synduweb.sgp1.digitaloceanspaces.com/assets/blog/js/search.js"></script>
+  <script src="https://synduweb.sgp1.digitaloceanspaces.com/assets/js/customAlert.js"></script>
+
+
+
+
+</body><iframe id="google_esf" name="google_esf" src="https://pagead2.googlesyndication.com/pagead/html/r20260309/r20190131/zrt_lookup_fy2021.html" style="display: none;"></iframe></html>

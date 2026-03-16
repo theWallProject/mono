@@ -1,0 +1,65 @@
+[2026-03-11T02:30:21.720Z] === Homepage AI Extractor: ForeMedia ===
+[2026-03-11T02:30:21.720Z] Started at: 2026-03-11T02:30:21.720Z
+[2026-03-11T02:30:21.720Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773196221720_ForeMedia
+[2026-03-11T02:30:21.720Z] Company: ForeMedia
+[2026-03-11T02:30:21.720Z] Website: foremedia.net
+[2026-03-11T02:30:21.720Z] cbRank: 552883
+[2026-03-11T02:30:21.720Z] Reasons: h
+[2026-03-11T02:30:21.720Z] Fetching: https://foremedia.net
+[2026-03-11T02:30:25.416Z] Redirected: https://foremedia.net -> https://foremedia.net/
+[2026-03-11T02:30:25.422Z] Saved HTML (159758 bytes) to page.html
+[2026-03-11T02:30:25.426Z] Extracted 22 unique links from page
+[2026-03-11T02:30:25.427Z] Saved 22 links to links.json
+[2026-03-11T02:30:25.430Z] No footer section found in DOM
+[2026-03-11T02:30:25.430Z] Extracted header HTML (2305 chars)
+[2026-03-11T02:30:25.434Z] Website (post-redirect): https://foremedia.net/ → origin: https://foremedia.net
+[2026-03-11T02:30:25.434Z]   SUBDOMAIN: platform.foremedia.net (added to ws)
+[2026-03-11T02:30:25.434Z] Website subdomains found: 1
+[2026-03-11T02:30:25.434Z] External links: 4 (of 22 total)
+[2026-03-11T02:30:25.434Z] ── All external links ──
+[2026-03-11T02:30:25.434Z]   EXT: https://www.facebook.com/foremedia.net
+[2026-03-11T02:30:25.434Z]   EXT: https://www.google.com/partners/agency?id=1762892803
+[2026-03-11T02:30:25.434Z]   EXT: https://www.instagram.com/foremedia.official
+[2026-03-11T02:30:25.434Z]   EXT: https://www.linkedin.com/company/foremedia-crew/?viewAsMember=true
+[2026-03-11T02:30:25.434Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T02:30:25.435Z]   REGEX: fb <- https://www.facebook.com/foremedia.net
+[2026-03-11T02:30:25.435Z]   UNCATEGORIZED: https://www.google.com/partners/agency?id=1762892803
+[2026-03-11T02:30:25.435Z]   REGEX: ig <- https://www.instagram.com/foremedia.official
+[2026-03-11T02:30:25.435Z]   REGEX: li <- https://www.linkedin.com/company/foremedia-crew/?viewAsMember=true
+[2026-03-11T02:30:25.435Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-11T02:30:25.435Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T02:30:25.436Z] Saved AI prompt (1988 chars) to ai_prompt.txt
+[2026-03-11T02:30:25.436Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T02:30:25.454Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T02:30:31.955Z]   AI: First token received, streaming...
+[2026-03-11T02:30:35.948Z] AI response complete: 52 chars in 10.5s
+[2026-03-11T02:30:35.948Z] Saved AI response to ai_response.json
+[2026-03-11T02:30:35.949Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T02:30:35.949Z]   AI LINK: https://www.google.com/partners/agency?id=1762892803
+[2026-03-11T02:30:35.949Z] AI returned 1 valid links
+[2026-03-11T02:30:35.949Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T02:30:35.949Z]   AI→URLS: https://www.google.com/partners/agency (cleaned from https://www.google.com/partners/agency?id=1762892803)
+[2026-03-11T02:30:35.949Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T02:30:35.949Z] Footer/header origins (2):
+[2026-03-11T02:30:35.950Z]   FOOTER/HEADER ORIGIN: https://foremedia.net
+[2026-03-11T02:30:35.950Z]   FOOTER/HEADER ORIGIN: https://platform.foremedia.net
+[2026-03-11T02:30:35.950Z]   SKIP (AI claimed): https://www.google.com/partners/agency?id=1762892803
+[2026-03-11T02:30:35.950Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T02:30:35.950Z] ── Step 3: Final dedup ──
+[2026-03-11T02:30:35.950Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T02:30:35.950Z] ── FINAL RESULT ──
+[2026-03-11T02:30:35.950Z]   ws (2):
+[2026-03-11T02:30:35.950Z]     - https://foremedia.net
+[2026-03-11T02:30:35.950Z]     - https://platform.foremedia.net
+[2026-03-11T02:30:35.950Z]   li (1):
+[2026-03-11T02:30:35.950Z]     - https://www.linkedin.com/company/foremedia-crew
+[2026-03-11T02:30:35.950Z]   fb (1):
+[2026-03-11T02:30:35.951Z]     - https://www.facebook.com/foremedia.net
+[2026-03-11T02:30:35.951Z]   ig (1):
+[2026-03-11T02:30:35.951Z]     - https://www.instagram.com/foremedia.official
+[2026-03-11T02:30:35.951Z]   urls (1):
+[2026-03-11T02:30:35.951Z]     - https://www.google.com/partners/agency
+[2026-03-11T02:30:35.951Z] Summary: ws:2, fb:1, ig:1, li:1, urls:1
+[2026-03-11T02:30:35.951Z] Saved final result to result.json
+[2026-03-11T02:30:35.952Z] Override fields: ws, li, fb, ig, urls
+[2026-03-11T02:30:35.952Z] Finished at: 2026-03-11T02:30:35.952Z

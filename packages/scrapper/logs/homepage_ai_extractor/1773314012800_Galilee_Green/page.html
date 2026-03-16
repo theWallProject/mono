@@ -1,0 +1,870 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v26.9 (Yoast SEO v27.1.1) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Best Olive Oil and Raw Natural Honey from Israel | Galilee Green</title><link rel="preload" href="https://galileegreen.com/wp-content/uploads/2024/10/hand-pouring-olive-oil-on-salad-in-orchard-jpg-low.jpg" as="image"><link rel="preload" href="" as="image" imagesrcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2017/06/gg-logo-171x80.png.webp">
+	<meta name="description" content="Savor the flavors of extra virgin olive oil from Israel and pure natural honey - and support small business in Israel">
+	<link rel="canonical" href="https://galileegreen.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Best Olive Oil and Raw Natural Honey from Israel">
+	<meta property="og:description" content="Savor the flavors of extra virgin olive oil from Israel and pure natural honey - and support small business in Israel">
+	<meta property="og:url" content="https://galileegreen.com/">
+	<meta property="og:site_name" content="Galilee Green">
+	<meta property="article:publisher" content="https://www.facebook.com/GalileeGreen/">
+	<meta property="article:modified_time" content="2024-10-15T09:30:47+00:00">
+	<meta property="og:image" content="https://galileegreen.com/wp-content/uploads/2015/11/cropped-olive-tree-yavneel.jpg">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="575">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@galileegreen">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://galileegreen.com/","url":"https://galileegreen.com/","name":"Best Olive Oil and Raw Natural Honey from Israel | Galilee Green","isPartOf":{"@id":"https://galileegreen.com/#website"},"about":{"@id":"https://galileegreen.com/#organization"},"primaryImageOfPage":{"@id":"https://galileegreen.com/#primaryimage"},"image":{"@id":"https://galileegreen.com/#primaryimage"},"thumbnailUrl":"https://galileegreen.com/wp-content/uploads/2015/11/cropped-olive-tree-yavneel.jpg","datePublished":"2024-09-25T10:59:35+00:00","dateModified":"2024-10-15T09:30:47+00:00","description":"Savor the flavors of extra virgin olive oil from Israel and pure natural honey - and support small business in Israel","breadcrumb":{"@id":"https://galileegreen.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://galileegreen.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://galileegreen.com/#primaryimage","url":"https://galileegreen.com/wp-content/uploads/2015/11/cropped-olive-tree-yavneel.jpg","contentUrl":"https://galileegreen.com/wp-content/uploads/2015/11/cropped-olive-tree-yavneel.jpg","width":1000,"height":575,"caption":"Olive Tree in Yavne'el"},{"@type":"BreadcrumbList","@id":"https://galileegreen.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://galileegreen.com/#website","url":"https://galileegreen.com/","name":"Galilee Green","description":"Best Olive Oil &amp; Raw Honey from Israel","publisher":{"@id":"https://galileegreen.com/#organization"},"alternateName":"GGOO","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://galileegreen.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://galileegreen.com/#organization","name":"Galilee Green","alternateName":"GGOO","url":"https://galileegreen.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://galileegreen.com/#/schema/logo/image/","url":"https://galileegreen.com/wp-content/uploads/2017/06/gg-logo-171x80.png","contentUrl":"https://galileegreen.com/wp-content/uploads/2017/06/gg-logo-171x80.png","width":156,"height":67,"caption":"Galilee Green"},"image":{"@id":"https://galileegreen.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/GalileeGreen/","https://x.com/galileegreen","https://mastodon.social/@galileegreen","https://www.pinterest.com/galileegreen/","https://www.instagram.com/galileegreenoliveoil/","https://www.linkedin.com/in/shmuelveffer/","https://www.youtube.com/@GalileeGreen"],"description":"Galilee Green is a premier provider of extra virgin olive oil and natural honey, sourced directly from the lush Galilee region of Israel. Our mission is to connect people worldwide with the rich heritage, health benefits, and exquisite flavors of our authentic, high-quality products. Our Products Extra Virgin Olive Oil: Our olive oil is crafted from handpicked olives, cold-pressed to preserve its natural goodness and robust flavor. Each bottle reflects our commitment to sustainable farming practices and excellence, ensuring you receive the purest, most flavorful olive oil. Natural Honey: Sourced from the pristine landscapes of Galilee, our honey is 100% natural and packed with nutrients. It offers a delightful sweetness that complements our olive oil, making it a perfect addition to your pantry. Our Commitment At Galilee Green, we pride ourselves on: Sustainability: We employ eco-friendly farming techniques to protect the environment and ensure the longevity of our olive groves and beehives. Quality: From harvest to production, we maintain the highest standards to deliver products that are not only delicious but also beneficial for your health. Heritage: We celebrate the rich agricultural traditions of the Galilee region, bringing you products that are steeped in history and culture. Why Choose Galilee Green? Health Benefits: Our extra virgin olive oil and natural honey are rich in antioxidants, vitamins, and minerals, promoting overall wellness. Authenticity: We guarantee that our products are 100% pure and natural, with no additives or preservatives. Community: By choosing Galilee Green, you support local farmers and contribute to the preservation of traditional farming practices.","email":"help@galileegreen.com","telephone":"+972-58-782-0108","legalName":"Galilee Green","foundingDate":"2014-09-14","numberOfEmployees":{"@type":"QuantitativeValue","minValue":"1","maxValue":"10"},"publishingPrinciples":"https://galileegreen.com/publishing-principles/","ownershipFundingInfo":"https://galileegreen.com/ownership-funding-info/","actionableFeedbackPolicy":"https://galileegreen.com/actionable-feedback-policy/","correctionsPolicy":"https://galileegreen.com/corrections-policy/","ethicsPolicy":"https://galileegreen.com/ethics-diversity-policy/","diversityPolicy":"https://galileegreen.com/ethics-diversity-policy/","diversityStaffingReport":"https://galileegreen.com/ethics-diversity-policy/"}]}</script>
+	<meta name="msvalidate.01" content="23B579F07BBAA8BF92FF21F4E9F96D6D">
+	<meta name="google-site-verification" content="zuJ4QUYhGWCBC2xV-8J1ftbxzT16pWB6PVEf18SFBTo">
+	<meta name="p:domain_verify" content="66e2ae7b4c077284248d73bb02011119">
+	<meta name="yandex-verification" content="24961fcf5e47a574">
+	<link rel="me" href="https://mastodon.social/@galileegreen">
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Galilee Green » Feed" href="https://galileegreen.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Galilee Green » Comments Feed" href="https://galileegreen.com/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://galileegreen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgalileegreen.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://galileegreen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgalileegreen.com%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="wp-block-gallery-inline-css" type="text/css">
+.blocks-gallery-grid:not(.has-nested-images),.wp-block-gallery:not(.has-nested-images){display:flex;flex-wrap:wrap;list-style-type:none;margin:0;padding:0}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item{display:flex;flex-direction:column;flex-grow:1;justify-content:center;margin:0 1em 1em 0;position:relative;width:calc(50% - 1em)}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image:nth-of-type(2n),.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item:nth-of-type(2n){margin-right:0}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image figure,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item figure,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image figure,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item figure{align-items:flex-end;display:flex;height:100%;justify-content:flex-start;margin:0}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image img,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item img{display:block;height:auto;max-width:100%;width:auto}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image figcaption,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item figcaption,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image figcaption,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item figcaption{background:linear-gradient(0deg,#000000b3,#0000004d 70%,#0000);bottom:0;box-sizing:border-box;color:#fff;font-size:.8em;margin:0;max-height:100%;overflow:auto;padding:3em .77em .7em;position:absolute;text-align:center;width:100%;z-index:2}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image figcaption img,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item figcaption img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image figcaption img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item figcaption img{display:inline}.blocks-gallery-grid:not(.has-nested-images) figcaption,.wp-block-gallery:not(.has-nested-images) figcaption{flex-grow:1}.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-image a,.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-image img,.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-item a,.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-item img,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-image a,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-image img,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-item a,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-item img{flex:1;height:100%;object-fit:cover;width:100%}.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-item{margin-right:0;width:100%}@media (min-width:600px){.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-item{margin-right:1em;width:calc(33.33333% - .66667em)}.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-item{margin-right:1em;width:calc(25% - .75em)}.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-item{margin-right:1em;width:calc(20% - .8em)}.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-item{margin-right:1em;width:calc(16.66667% - .83333em)}.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-item{margin-right:1em;width:calc(14.28571% - .85714em)}.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-item{margin-right:1em;width:calc(12.5% - .875em)}.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-image:nth-of-type(1n),.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-item:nth-of-type(1n),.blocks-gallery-grid:not(.has-nested-images).columns-2 .blocks-gallery-image:nth-of-type(2n),.blocks-gallery-grid:not(.has-nested-images).columns-2 .blocks-gallery-item:nth-of-type(2n),.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-image:nth-of-type(3n),.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-item:nth-of-type(3n),.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-image:nth-of-type(4n),.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-item:nth-of-type(4n),.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-image:nth-of-type(5n),.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-item:nth-of-type(5n),.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-image:nth-of-type(6n),.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-item:nth-of-type(6n),.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-image:nth-of-type(7n),.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-item:nth-of-type(7n),.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-image:nth-of-type(8n),.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-item:nth-of-type(8n),.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-image:nth-of-type(1n),.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-item:nth-of-type(1n),.wp-block-gallery:not(.has-nested-images).columns-2 .blocks-gallery-image:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images).columns-2 .blocks-gallery-item:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-image:nth-of-type(3n),.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-item:nth-of-type(3n),.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-image:nth-of-type(4n),.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-item:nth-of-type(4n),.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-image:nth-of-type(5n),.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-item:nth-of-type(5n),.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-image:nth-of-type(6n),.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-item:nth-of-type(6n),.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-image:nth-of-type(7n),.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-item:nth-of-type(7n),.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-image:nth-of-type(8n),.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-item:nth-of-type(8n){margin-right:0}}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image:last-child,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item:last-child,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image:last-child,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item:last-child{margin-right:0}.blocks-gallery-grid:not(.has-nested-images).alignleft,.blocks-gallery-grid:not(.has-nested-images).alignright,.wp-block-gallery:not(.has-nested-images).alignleft,.wp-block-gallery:not(.has-nested-images).alignright{max-width:420px;width:100%}.blocks-gallery-grid:not(.has-nested-images).aligncenter .blocks-gallery-item figure,.wp-block-gallery:not(.has-nested-images).aligncenter .blocks-gallery-item figure{justify-content:center}.wp-block-gallery:not(.is-cropped) .blocks-gallery-item{align-self:flex-start}figure.wp-block-gallery.has-nested-images{align-items:normal}.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image){margin:0;width:calc(50% - var(--wp--style--unstable-gallery-gap, 16px)/2)}.wp-block-gallery.has-nested-images figure.wp-block-image{box-sizing:border-box;display:flex;flex-direction:column;flex-grow:1;justify-content:center;max-width:100%;position:relative}.wp-block-gallery.has-nested-images figure.wp-block-image>a,.wp-block-gallery.has-nested-images figure.wp-block-image>div{flex-direction:column;flex-grow:1;margin:0}.wp-block-gallery.has-nested-images figure.wp-block-image img{display:block;height:auto;max-width:100%!important;width:auto}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption,.wp-block-gallery.has-nested-images figure.wp-block-image:has(figcaption):before{bottom:0;left:0;max-height:100%;position:absolute;right:0}.wp-block-gallery.has-nested-images figure.wp-block-image:has(figcaption):before{backdrop-filter:blur(3px);content:"";height:100%;-webkit-mask-image:linear-gradient(0deg,#000 20%,#0000);mask-image:linear-gradient(0deg,#000 20%,#0000);max-height:40%;pointer-events:none}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{box-sizing:border-box;color:#fff;font-size:13px;margin:0;overflow:auto;padding:1em;text-align:center;text-shadow:0 0 1.5px #000}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption::-webkit-scrollbar{height:12px;width:12px}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption::-webkit-scrollbar-track{background-color:initial}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:initial;border:3px solid #0000;border-radius:8px}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus-within::-webkit-scrollbar-thumb,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus::-webkit-scrollbar-thumb,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:hover::-webkit-scrollbar-thumb{background-color:#fffc}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{scrollbar-color:#0000 #0000;scrollbar-gutter:stable both-edges;scrollbar-width:thin}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus-within,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:hover{scrollbar-color:#fffc #0000}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{will-change:transform}@media (hover:none){.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{scrollbar-color:#fffc #0000}}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{background:linear-gradient(0deg,#0006,#0000)}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption img{display:inline}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption a{color:inherit}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border>a,.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border>div,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded>a,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded>div{flex:1 1 auto}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border figcaption,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded figcaption{background:none;color:inherit;flex:initial;margin:0;padding:10px 10px 9px;position:relative;text-shadow:none}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border:before,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded:before{content:none}.wp-block-gallery.has-nested-images figcaption{flex-basis:100%;flex-grow:1;text-align:center}.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image){margin-bottom:auto;margin-top:0}.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image){align-self:inherit}.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image)>a,.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image)>div:not(.components-drop-zone){display:flex}.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image) a,.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image) img{flex:1 0 0%;height:100%;object-fit:cover;width:100%}.wp-block-gallery.has-nested-images.columns-1 figure.wp-block-image:not(#individual-image){width:100%}@media (min-width:600px){.wp-block-gallery.has-nested-images.columns-3 figure.wp-block-image:not(#individual-image){width:calc(33.33333% - var(--wp--style--unstable-gallery-gap, 16px)*.66667)}.wp-block-gallery.has-nested-images.columns-4 figure.wp-block-image:not(#individual-image){width:calc(25% - var(--wp--style--unstable-gallery-gap, 16px)*.75)}.wp-block-gallery.has-nested-images.columns-5 figure.wp-block-image:not(#individual-image){width:calc(20% - var(--wp--style--unstable-gallery-gap, 16px)*.8)}.wp-block-gallery.has-nested-images.columns-6 figure.wp-block-image:not(#individual-image){width:calc(16.66667% - var(--wp--style--unstable-gallery-gap, 16px)*.83333)}.wp-block-gallery.has-nested-images.columns-7 figure.wp-block-image:not(#individual-image){width:calc(14.28571% - var(--wp--style--unstable-gallery-gap, 16px)*.85714)}.wp-block-gallery.has-nested-images.columns-8 figure.wp-block-image:not(#individual-image){width:calc(12.5% - var(--wp--style--unstable-gallery-gap, 16px)*.875)}.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image){width:calc(33.33% - var(--wp--style--unstable-gallery-gap, 16px)*.66667)}.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image):first-child:nth-last-child(2),.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image):first-child:nth-last-child(2)~figure.wp-block-image:not(#individual-image){width:calc(50% - var(--wp--style--unstable-gallery-gap, 16px)*.5)}.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image):first-child:last-child{width:100%}}.wp-block-gallery.has-nested-images.alignleft,.wp-block-gallery.has-nested-images.alignright{max-width:420px;width:100%}.wp-block-gallery.has-nested-images.aligncenter{justify-content:center}
+/*# sourceURL=https://galileegreen.com/wp-includes/blocks/gallery/style.min.css */
+</style>
+<style id="wp-block-image-inline-css" type="text/css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .close-button{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px;padding:0;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .close-button:focus,.wp-lightbox-overlay .close-button:hover,.wp-lightbox-overlay .close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:9999999999}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://galileegreen.com/wp-includes/blocks/image/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent: #69018e;--wp--preset--color--background-color: #d6d6d6;--wp--preset--color--header-gradient: #ffffff;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-accent-color{color: var(--wp--preset--color--accent) !important;}.has-background-color-color{color: var(--wp--preset--color--background-color) !important;}.has-header-gradient-color{color: var(--wp--preset--color--header-gradient) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-accent-background-color{background-color: var(--wp--preset--color--accent) !important;}.has-background-color-background-color{background-color: var(--wp--preset--color--background-color) !important;}.has-header-gradient-background-color{background-color: var(--wp--preset--color--header-gradient) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-accent-border-color{border-color: var(--wp--preset--color--accent) !important;}.has-background-color-border-color{border-color: var(--wp--preset--color--background-color) !important;}.has-header-gradient-border-color{border-color: var(--wp--preset--color--header-gradient) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="swpm.common-css" href="https://galileegreen.com/wp-content/cache/min/1/wp-content/plugins/simple-membership/css/swpm.common.css?ver=1769105093" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="hestia-clients-bar-css" href="https://galileegreen.com/wp-content/cache/min/1/wp-content/plugins/themeisle-companion/obfx_modules/companion-legacy/assets/css/hestia/clients-bar.css?ver=1769105093" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="https://galileegreen.com/wp-content/themes/hestia/assets/bootstrap/css/bootstrap.min.css?ver=1.0.2" type="text/css" media="all">
+<link rel="stylesheet" id="hestia-font-sizes-css" href="https://galileegreen.com/wp-content/themes/hestia/assets/css/font-sizes.min.css?ver=3.3.3" type="text/css" media="all">
+<link rel="stylesheet" id="hestia_style-css" href="https://galileegreen.com/wp-content/themes/hestia/style.min.css?ver=3.3.3" type="text/css" media="all">
+<style id="hestia_style-inline-css" type="text/css">
+.hestia-top-bar,.hestia-top-bar .widget.widget_shopping_cart .cart_list{background-color:#363537}.hestia-top-bar .widget .label-floating input[type=search]:-webkit-autofill{-webkit-box-shadow:inset 0 0 0 9999px #363537}.hestia-top-bar,.hestia-top-bar .widget .label-floating input[type=search],.hestia-top-bar .widget.widget_search form.form-group:before,.hestia-top-bar .widget.widget_product_search form.form-group:before,.hestia-top-bar .widget.widget_shopping_cart:before{color:#fff}.hestia-top-bar .widget .label-floating input[type=search]{-webkit-text-fill-color:#fff !important}.hestia-top-bar div.widget.widget_shopping_cart:before,.hestia-top-bar .widget.widget_product_search form.form-group:before,.hestia-top-bar .widget.widget_search form.form-group:before{background-color:#fff}.hestia-top-bar a,.hestia-top-bar .top-bar-nav li a{color:#fff}.hestia-top-bar ul li a[href*="mailto:"]:before,.hestia-top-bar ul li a[href*="tel:"]:before{background-color:#fff}.hestia-top-bar a:hover,.hestia-top-bar .top-bar-nav li a:hover{color:#eee}.hestia-top-bar ul li:hover a[href*="mailto:"]:before,.hestia-top-bar ul li:hover a[href*="tel:"]:before{background-color:#eee}
+footer.footer.footer-black{background:#323437}footer.footer.footer-black.footer-big{color:#fff}footer.footer.footer-black a{color:#fff}footer.footer.footer-black hr{border-color:#5e5e5e}.footer-big p,.widget,.widget code,.widget pre{color:#5e5e5e}
+:root{--hestia-primary-color:#69018e}a,.navbar .dropdown-menu li:hover>a,.navbar .dropdown-menu li:focus>a,.navbar .dropdown-menu li:active>a,.navbar .navbar-nav>li .dropdown-menu li:hover>a,body:not(.home) .navbar-default .navbar-nav>.active:not(.btn)>a,body:not(.home) .navbar-default .navbar-nav>.active:not(.btn)>a:hover,body:not(.home) .navbar-default .navbar-nav>.active:not(.btn)>a:focus,a:hover,.card-blog a.moretag:hover,.card-blog a.more-link:hover,.widget a:hover,.has-text-color.has-accent-color,p.has-text-color a{color:#69018e}.svg-text-color{fill:#69018e}.pagination span.current,.pagination span.current:focus,.pagination span.current:hover{border-color:#69018e}button,button:hover,.woocommerce .track_order button[type="submit"],.woocommerce .track_order button[type="submit"]:hover,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit:hover,input[type="button"],input[type="button"]:hover,input[type="submit"],input[type="submit"]:hover,input#searchsubmit,.pagination span.current,.pagination span.current:focus,.pagination span.current:hover,.btn.btn-primary,.btn.btn-primary:link,.btn.btn-primary:hover,.btn.btn-primary:focus,.btn.btn-primary:active,.btn.btn-primary.active,.btn.btn-primary.active:focus,.btn.btn-primary.active:hover,.btn.btn-primary:active:hover,.btn.btn-primary:active:focus,.btn.btn-primary:active:hover,.hestia-sidebar-open.btn.btn-rose,.hestia-sidebar-close.btn.btn-rose,.hestia-sidebar-open.btn.btn-rose:hover,.hestia-sidebar-close.btn.btn-rose:hover,.hestia-sidebar-open.btn.btn-rose:focus,.hestia-sidebar-close.btn.btn-rose:focus,.label.label-primary,.hestia-work .portfolio-item:nth-child(6n+1) .label,.nav-cart .nav-cart-content .widget .buttons .button,.has-accent-background-color[class*="has-background"]{background-color:#69018e}@media(max-width:768px){.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus,.navbar .navbar-nav .dropdown .dropdown-menu li a:hover,.navbar .navbar-nav .dropdown .dropdown-menu li a:focus,.navbar button.navbar-toggle:hover,.navbar .navbar-nav li:hover>a i{color:#69018e}}body:not(.woocommerce-page) button:not([class^="fl-"]):not(.hestia-scroll-to-top):not(.navbar-toggle):not(.close),body:not(.woocommerce-page) .button:not([class^="fl-"]):not(hestia-scroll-to-top):not(.navbar-toggle):not(.add_to_cart_button):not(.product_type_grouped):not(.product_type_external),div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,input[type="submit"],input[type="button"],.btn.btn-primary,.widget_product_search button[type="submit"],.hestia-sidebar-open.btn.btn-rose,.hestia-sidebar-close.btn.btn-rose,.everest-forms button[type=submit].everest-forms-submit-button{-webkit-box-shadow:0 2px 2px 0 rgba(105,1,142,0.14),0 3px 1px -2px rgba(105,1,142,0.2),0 1px 5px 0 rgba(105,1,142,0.12);box-shadow:0 2px 2px 0 rgba(105,1,142,0.14),0 3px 1px -2px rgba(105,1,142,0.2),0 1px 5px 0 rgba(105,1,142,0.12)}.card .header-primary,.card .content-primary,.everest-forms button[type=submit].everest-forms-submit-button{background:#69018e}body:not(.woocommerce-page) .button:not([class^="fl-"]):not(.hestia-scroll-to-top):not(.navbar-toggle):not(.add_to_cart_button):hover,body:not(.woocommerce-page) button:not([class^="fl-"]):not(.hestia-scroll-to-top):not(.navbar-toggle):not(.close):hover,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit:hover,input[type="submit"]:hover,input[type="button"]:hover,input#searchsubmit:hover,.widget_product_search button[type="submit"]:hover,.pagination span.current,.btn.btn-primary:hover,.btn.btn-primary:focus,.btn.btn-primary:active,.btn.btn-primary.active,.btn.btn-primary:active:focus,.btn.btn-primary:active:hover,.hestia-sidebar-open.btn.btn-rose:hover,.hestia-sidebar-close.btn.btn-rose:hover,.pagination span.current:hover,.everest-forms button[type=submit].everest-forms-submit-button:hover,.everest-forms button[type=submit].everest-forms-submit-button:focus,.everest-forms button[type=submit].everest-forms-submit-button:active{-webkit-box-shadow:0 14px 26px -12px rgba(105,1,142,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(105,1,142,0.2);box-shadow:0 14px 26px -12px rgba(105,1,142,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(105,1,142,0.2);color:#fff}.form-group.is-focused .form-control{background-image:-webkit-gradient(linear,left top,left bottom,from(#69018e),to(#69018e)),-webkit-gradient(linear,left top,left bottom,from(#d2d2d2),to(#d2d2d2));background-image:-webkit-linear-gradient(linear,left top,left bottom,from(#69018e),to(#69018e)),-webkit-linear-gradient(linear,left top,left bottom,from(#d2d2d2),to(#d2d2d2));background-image:linear-gradient(linear,left top,left bottom,from(#69018e),to(#69018e)),linear-gradient(linear,left top,left bottom,from(#d2d2d2),to(#d2d2d2))}.navbar:not(.navbar-transparent) li:not(.btn):hover>a,.navbar li.on-section:not(.btn)>a,.navbar.full-screen-menu.navbar-transparent li:not(.btn):hover>a,.navbar.full-screen-menu .navbar-toggle:hover,.navbar:not(.navbar-transparent) .nav-cart:hover,.navbar:not(.navbar-transparent) .hestia-toggle-search:hover{color:#69018e}.header-filter-gradient{background:linear-gradient(45deg,rgba(255,255,255,1) 0,rgb(255,255,234) 100%)}.has-text-color.has-header-gradient-color{color:#fff}.has-header-gradient-background-color[class*="has-background"]{background-color:#fff}.has-text-color.has-background-color-color{color:#d6d6d6}.has-background-color-background-color[class*="has-background"]{background-color:#d6d6d6}
+.btn.btn-primary:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item),input[type="submit"]:not(.search-submit),body:not(.woocommerce-account) .woocommerce .button.woocommerce-Button,.woocommerce .product button.button,.woocommerce .product button.button.alt,.woocommerce .product #respond input#submit,.woocommerce-cart .blog-post .woocommerce .cart-collaterals .cart_totals .checkout-button,.woocommerce-checkout #payment #place_order,.woocommerce-account.woocommerce-page button.button,.woocommerce .track_order button[type="submit"],.nav-cart .nav-cart-content .widget .buttons .button,.woocommerce a.button.wc-backward,body.woocommerce .wccm-catalog-item a.button,body.woocommerce a.wccm-button.button,form.woocommerce-form-coupon button.button,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,div.woocommerce a.button.alt,div.woocommerce table.my_account_orders .button,.btn.colored-button,.btn.btn-left,.btn.btn-right,.btn:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item):not(.hestia-sidebar-open):not(.hestia-sidebar-close){padding-top:15px;padding-bottom:15px;padding-left:33px;padding-right:33px}
+:root{--hestia-button-border-radius:27px}.btn.btn-primary:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item),input[type="submit"]:not(.search-submit),body:not(.woocommerce-account) .woocommerce .button.woocommerce-Button,.woocommerce .product button.button,.woocommerce .product button.button.alt,.woocommerce .product #respond input#submit,.woocommerce-cart .blog-post .woocommerce .cart-collaterals .cart_totals .checkout-button,.woocommerce-checkout #payment #place_order,.woocommerce-account.woocommerce-page button.button,.woocommerce .track_order button[type="submit"],.nav-cart .nav-cart-content .widget .buttons .button,.woocommerce a.button.wc-backward,body.woocommerce .wccm-catalog-item a.button,body.woocommerce a.wccm-button.button,form.woocommerce-form-coupon button.button,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,div.woocommerce a.button.alt,div.woocommerce table.my_account_orders .button,input[type="submit"].search-submit,.hestia-view-cart-wrapper .added_to_cart.wc-forward,.woocommerce-product-search button,.woocommerce-cart .actions .button,#secondary div[id^=woocommerce_price_filter] .button,.woocommerce div[id^=woocommerce_widget_cart].widget .buttons .button,.searchform input[type=submit],.searchform button,.search-form:not(.media-toolbar-primary) input[type=submit],.search-form:not(.media-toolbar-primary) button,.woocommerce-product-search input[type=submit],.btn.colored-button,.btn.btn-left,.btn.btn-right,.btn:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item):not(.hestia-sidebar-open):not(.hestia-sidebar-close){border-radius:27px}
+@media(min-width:769px){.page-header.header-small .hestia-title,.page-header.header-small .title,h1.hestia-title.title-in-content,.main article.section .has-title-font-size{font-size:49px}}@media(max-width:768px){.page-header.header-small .hestia-title,.page-header.header-small .title,h1.hestia-title.title-in-content,.main article.section .has-title-font-size{font-size:26px}}@media(max-width:480px){.page-header.header-small .hestia-title,.page-header.header-small .title,h1.hestia-title.title-in-content,.main article.section .has-title-font-size{font-size:26px}}@media(min-width:769px){.single-post-wrap h1:not(.title-in-content),.page-content-wrap h1:not(.title-in-content),.page-template-template-fullwidth article h1:not(.title-in-content){font-size:30px}.single-post-wrap h2,.page-content-wrap h2,.page-template-template-fullwidth article h2,.main article.section .has-heading-font-size{font-size:25px}.single-post-wrap h3,.page-content-wrap h3,.page-template-template-fullwidth article h3{font-size:20px}.single-post-wrap h4,.page-content-wrap h4,.page-template-template-fullwidth article h4{font-size:15px}.single-post-wrap h5,.page-content-wrap h5,.page-template-template-fullwidth article h5{font-size:11px}.single-post-wrap h6,.page-content-wrap h6,.page-template-template-fullwidth article h6{font-size:6px}}@media(min-width:769px){.single-post-wrap,.page-content-wrap,.single-post-wrap ul,.page-content-wrap ul,.single-post-wrap ol,.page-content-wrap ol,.single-post-wrap dl,.page-content-wrap dl,.single-post-wrap table,.page-content-wrap table,.page-template-template-fullwidth article,.main article.section .has-body-font-size{font-size:17px}}@media(min-width:769px){#carousel-hestia-generic .hestia-title{font-size:67px}#carousel-hestia-generic span.sub-title{font-size:18px}#carousel-hestia-generic .btn{font-size:14px}}@media(min-width:769px){section.hestia-features .hestia-title,section.hestia-shop .hestia-title,section.hestia-work .hestia-title,section.hestia-team .hestia-title,section.hestia-pricing .hestia-title,section.hestia-ribbon .hestia-title,section.hestia-testimonials .hestia-title,section.hestia-subscribe h2.title,section.hestia-blogs .hestia-title,.section.related-posts .hestia-title,section.hestia-contact .hestia-title{font-size:39px}section.hestia-features .hestia-info h4.info-title,section.hestia-shop h4.card-title,section.hestia-team h4.card-title,section.hestia-testimonials h4.card-title,section.hestia-blogs h4.card-title,.section.related-posts h4.card-title,section.hestia-contact h4.card-title,section.hestia-contact .hestia-description h6{font-size:18px}section.hestia-work h4.card-title,section.hestia-contact .hestia-description h5{font-size:23px}section.hestia-contact .hestia-description h1{font-size:42px}section.hestia-contact .hestia-description h2{font-size:37px}section.hestia-contact .hestia-description h3{font-size:32px}section.hestia-contact .hestia-description h4{font-size:27px}}@media(min-width:769px){section.hestia-features h5.description,section.hestia-shop h5.description,section.hestia-work h5.description,section.hestia-team h5.description,section.hestia-testimonials h5.description,section.hestia-subscribe h5.subscribe-description,section.hestia-blogs h5.description,section.hestia-contact h5.description{font-size:23px}}@media(min-width:769px){section.hestia-team p.card-description,section.hestia-pricing p.text-gray,section.hestia-testimonials p.card-description,section.hestia-blogs p.card-description,.section.related-posts p.card-description,.hestia-contact p,section.hestia-features .hestia-info p,section.hestia-shop .card-description p{font-size:18px}section.hestia-shop h6.category,section.hestia-work .label-primary,section.hestia-team h6.category,section.hestia-pricing .card-pricing h6.category,section.hestia-testimonials h6.category,section.hestia-blogs h6.category,.section.related-posts h6.category{font-size:16px}}
+@media( min-width:480px){}@media( min-width:768px){}.hestia-scroll-to-top{border-radius :50%;background-color:#999}.hestia-scroll-to-top:hover{background-color:#999}.hestia-scroll-to-top:hover svg,.hestia-scroll-to-top:hover p{color:#fff}.hestia-scroll-to-top svg,.hestia-scroll-to-top p{color:#fff}
+/*# sourceURL=hestia_style-inline-css */
+</style>
+<link rel="stylesheet" id="hestia_fonts-css" href="https://galileegreen.com/wp-content/cache/perfmatters/galileegreen.com/fonts/b75cee0f10d1.google-fonts.min.css" type="text/css" media="all">
+<style id="rocket-lazyload-inline-css" type="text/css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://galileegreen.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-content/themes/hestia/assets/js/parallax.min.js?ver=1.0.2" id="hestia-parallax-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://galileegreen.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://galileegreen.com/wp-json/wp/v2/pages/13826"><script type="rocketlazyloadscript">document.createElement( "picture" );if(!window.HTMLPictureElement && document.addEventListener) {window.addEventListener("DOMContentLoaded", function() {var s = document.createElement("script");s.src = "https://galileegreen.com/wp-content/plugins/webp-express/js/picturefill.min.js";document.body.appendChild(s);});}</script><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #d6d6d6; }
+</style>
+	<meta name="p:domain_verify" content="22bcfeb1ee8f3f20ea2ad472536f5fd4">
+<meta name="google-site-verification" content="zuJ4QUYhGWCBC2xV-8J1ftbxzT16pWB6PVEf18SFBTo">
+<meta name="p:domain_verify" content="ff441991234023ed1856427b45457ada"><!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-54BJCJS');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="icon" href="https://galileegreen.com/wp-content/uploads/2015/02/gg-favicon-e1423510772393.png" sizes="32x32">
+<link rel="icon" href="https://galileegreen.com/wp-content/uploads/2015/02/gg-favicon-e1423510772393.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://galileegreen.com/wp-content/uploads/2015/02/gg-favicon-e1423510772393.png">
+<meta name="msapplication-TileImage" content="https://galileegreen.com/wp-content/uploads/2015/02/gg-favicon-e1423510772393.png">
+		<style type="text/css" id="wp-custom-css">
+			
+.hestia-top-bar {background-color: #69018e}
+/* Change font weight and color for body text */
+body {
+    font-weight: normal; /* Change the font weight */
+    color: dark-gray; /* Change the font color */
+}
+
+ul {list-style-image: url(https://galileegreen.com/wp-content/uploads/2014/09/gg-favicon-e1409854451890.png); 
+list-style-position: outside;
+}
+/* list icon NONE  */
+ul.a {list-style-image: none;
+    list-style-type: none;
+}
+
+/* Change text color and weight for multiple classes */
+.main main-raised, .card-description, .category text-muted{
+    color: black; /* Change to your desired color */
+    font-weight: normal; /* Change to your desired weight */
+}
+ /* make container for boxes on subscribe page   */
+.subcontainer {
+  display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; 
+   display:flex;
+   flex-wrap:wrap;
+   justify-content: center;
+   background-image: url('https://galileegreen.com/wp-content/uploads/2015/07/1-Olives.jpg'); 
+    background-repeat: repeat-y;
+    background-size: 150%;
+    background-position: center; 
+  
+    position: relative;
+    width: 100%;
+    /*padding-bottom: 50%;  2:1 */
+}
+.subcontainer2 {
+  display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; 
+   display:flex;
+   flex-wrap:wrap;
+   justify-content: center;
+   background-image: url('https://galileegreen.com/wp-content/uploads/2024/08/thumb-grid-bee-flowering-tree.jpg'); 
+    background-repeat: repeat-y;
+    background-size: 150%;
+    background-position: center; 
+    position: relative;
+    width: 100%;
+    /*padding-bottom: 50%;  2:1 */
+}
+/* boxes on subscribe page   */
+
+.subboxhc {
+    width: 280px;
+    min-width: 280px;
+    margin:20px 10px 20px 10px;
+    border:8px solid #4a2d70;
+    background:rgba(232, 232, 232, .95);;
+    text-align: left;
+   padding: 20px 15px 0px 25px;
+	box-shadow: 4px 4px 10px 4px rgba(119, 119, 119, 0.66);
+-moz-box-shadow: 4px 4px 10px 4px rgba(119, 119, 119, 0.66);
+-webkit-box-shadow: 4px 4px 10px 4px rgba(119, 119, 119, 0.66);
+}
+
+.testimonial {
+width: 90%;
+    min-width: 280px;
+    border:10px;
+    margin: 20px;
+    background: rgba(232, 232, 232, 0.95);;
+    text-align: left;
+    color: #333333;
+    line-height: 150%;
+   padding: 20px 20px 15px 20px;
+box-shadow: 4px 4px 10px 4px rgba(119, 119, 119, 0.66);
+-moz-box-shadow: 4px 4px 10px 4px rgba(119, 119, 119, 0.66);
+-webkit-box-shadow: 4px 4px 10px 4px rgba(119, 119, 119, 0.66);
+}
+
+.page-id-4788 h1 {
+  color: #000000 !important;
+}
+/* GLOBAL CHAPTER STYLING */
+.category-buried-secrets .entry-content {
+    max-width: 800px;
+    margin: 0 auto !important;
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+}
+
+/* DESKTOP: Boomer-Friendly Large Text */
+@media (min-width: 769px) {
+    .story-text p {
+        font-size: 24px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+    .drop-cap {
+        float: left;
+        font-size: 90px;
+        line-height: 70px;
+        padding-right: 15px;
+        font-weight: bold;
+    }
+}
+
+/* MOBILE: No Squeeze, Readable Text */
+@media (max-width: 768px) {
+    .category-buried-secrets .entry-content {
+        padding: 0 20px !important; /* Healthy side margins for phones */
+    }
+    .story-text p {
+        font-size: 18px; /* Scales down for mobile */
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    .drop-cap {
+        float: left;
+        font-size: 50px;
+        line-height: 45px;
+        padding-right: 10px;
+        font-weight: bold;
+    }
+    .shmuels-corner {
+        padding: 20px !important;
+    }
+}
+
+/* SHMUEL'S CORNER BOX STYLING */
+.shmuels-corner {
+    background: #f4f7f4;
+    border: 2px solid #5d7a5d;
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: 60px;
+}
+.shmuel-avatar {
+    width: 80px;
+    float: right;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+/* --- UNIVERSAL CHAPTER NAVIGATION BUTTONS --- */
+
+/* 1. The Container: Handles spacing and centering for both PC & Mobile */
+.category-buried-secrets p[style*="text-align: center"] {
+    margin: 40px auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    max-width: 800px;
+    color: transparent !important; /* Hides the | separator */
+    font-size: 0 !important;
+}
+
+/* 2. The Button Base: Large and easy to click for all users */
+.category-buried-secrets p[style*="text-align: center"] a {
+    display: inline-block !important;
+    background-color: #f1f3f5 !important;
+    border: 1px solid #ced4da !important;
+    padding: 14px 28px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-size: 18px !important;
+    color: #2c3e50 !important;
+    font-weight: bold !important;
+    font-family: Arial, sans-serif !important;
+    transition: all 0.2s ease;
+}
+
+/* 3. Highlighting 'Next Chapter' (The last link in your list) */
+.category-buried-secrets p[style*="text-align: center"] a:last-of-type {
+    background-color: #5d7a5d !important; /* Your Galilee Green */
+    color: #ffffff !important;
+    border: none !important;
+    min-width: 180px;
+}
+
+/* 4. Hover States: Makes it feel interactive on Desktop */
+.category-buried-secrets p[style*="text-align: center"] a:hover {
+    background-color: #e9ecef !important;
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+.category-buried-secrets p[style*="text-align: center"] a:last-of-type:hover {
+    background-color: #4a634a !important; /* Darker Green */
+}
+
+/* 5. Mobile Layout: Stacks them for "Thick Fingers" */
+@media (max-width: 768px) {
+    .category-buried-secrets p[style*="text-align: center"] {
+        flex-direction: column !important;
+        padding: 0 10px !important;
+    }
+    .category-buried-secrets p[style*="text-align: center"] a {
+        width: 100% !important; /* Full width buttons on phones */
+    }
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link data-minify="1" rel="stylesheet" id="forminator-module-css-13023-css" href="https://galileegreen.com/wp-content/cache/min/1/wp-content/uploads/forminator/13023_9dd9e46efe524c67b05d62c021b3d4d4/css/style-13023.css?ver=1769105094" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="forminator-icons-css" href="https://galileegreen.com/wp-content/cache/min/1/wp-content/plugins/forminator/assets/forminator-ui/css/forminator-icons.min.css?ver=1769105094" type="text/css" media="all">
+<link rel="stylesheet" id="forminator-utilities-css" href="https://galileegreen.com/wp-content/plugins/forminator/assets/forminator-ui/css/src/forminator-utilities.min.css?ver=1.51.1" type="text/css" media="all">
+<link rel="stylesheet" id="forminator-grid-default-css" href="https://galileegreen.com/wp-content/plugins/forminator/assets/forminator-ui/css/src/grid/forminator-grid.open.min.css?ver=1.51.1" type="text/css" media="all">
+<link rel="stylesheet" id="forminator-forms-default-base-css" href="https://galileegreen.com/wp-content/plugins/forminator/assets/forminator-ui/css/src/form/forminator-form-default.base.min.css?ver=1.51.1" type="text/css" media="all">
+<link rel="stylesheet" id="buttons-css" href="https://galileegreen.com/wp-includes/css/buttons.min.css?ver=c6098bb01a1e67367f3c27d12434cb85" type="text/css" media="all">
+<style id="core-block-supports-inline-css" type="text/css">
+.wp-block-gallery.wp-block-gallery-1{--wp--style--unstable-gallery-gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+<link data-minify="1" rel="stylesheet" id="font-awesome-5-all-css" href="https://galileegreen.com/wp-content/cache/min/1/wp-content/themes/hestia/assets/font-awesome/css/all.min.css?ver=1769105094" type="text/css" media="all">
+
+</head>
+
+<body class="home wp-singular page-template-default page page-id-13826 custom-background wp-custom-logo wp-theme-hestia blog-post header-layout-default">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54BJCJS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+		<div class="wrapper ">
+		<header class="header header-with-topbar">
+			<div style="display: none"></div><div class="hestia-top-bar">		<div class="container">
+			<div class="row">
+								<div class="pull-left col-md-12">
+					<div id="top-bar-navigation" class="menu-top-menu-container"><ul id="menu-top-menu" class="nav top-bar-nav"><li id="menu-item-13881" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13881"><a title="Recipes" href="https://galileegreen.com/category/recipes/">Recipes</a></li>
+<li id="menu-item-14372" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14372"><a title="Beautiful Israel" href="https://galileegreen.com/category/israel/">Beautiful Israel</a></li>
+<li id="menu-item-13883" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13883"><a title="Torah Wisdom" href="https://galileegreen.com/category/wisdom/">Torah Wisdom</a></li>
+<li id="menu-item-13888" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13888"><a title="News" href="https://galileegreen.com/category/news/">News</a></li>
+<li id="menu-item-13889" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13889"><a title="Wellness" href="https://galileegreen.com/category/health-tips/">Wellness</a></li>
+</ul></div>				</div>
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+		</div>		<nav class="navbar navbar-default  navbar-color-on-scroll navbar-transparent hestia_left header-with-topbar navbar-fixed-top">
+						<div class="container">
+						<div class="navbar-header">
+			<div class="title-logo-wrapper">
+				<a class="navbar-brand" href="https://galileegreen.com/" title="Galilee Green">
+					<picture data-perfmatters-preload=""><source srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2017/06/gg-logo-171x80.png.webp" type="image/webp"><img data-perfmatters-preload="" src="https://galileegreen.com/wp-content/uploads/2017/06/gg-logo-171x80.png" alt="Galilee Green Olive Oil" width="156" height="67" class="webpexpress-processed"></picture></a>
+			</div>
+								<div class="navbar-toggle-wrapper">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+								<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>				<span class="sr-only">Toggle Navigation</span>
+			</button>
+					</div>
+				</div>
+		<div id="main-navigation" class="collapse navbar-collapse"><ul id="menu-main-menu" class="nav navbar-nav"><li id="menu-item-15295" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-15295 dropdown"><a title="***INNER CIRCLE***" href="https://galileegreen.com/membership-login/" class="dropdown-toggle">***INNER CIRCLE*** <span class="caret-wrap"><span class="caret"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg></span></span></a>
+<ul role="menu" class="dropdown-menu">
+	<li id="menu-item-15298" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15298"><a title="INNER CIRCLE LOGIN" href="https://galileegreen.com/membership-login/">INNER CIRCLE LOGIN</a></li>
+	<li id="menu-item-15390" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15390"><a title="INNER CIRCLE LOGOUT" href="https://galileegreen.com/?swpm-logout=true">INNER CIRCLE LOGOUT</a></li>
+	<li id="menu-item-15296" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15296"><a title="INNER CIRCLE HOME" href="https://galileegreen.com/inner-circle-home/">INNER CIRCLE HOME</a></li>
+	<li id="menu-item-15297" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15297"><a title="INNER CIRCLE JOIN" href="https://galileegreen.com/membership-join/">INNER CIRCLE JOIN</a></li>
+</ul>
+</li>
+<li id="menu-item-6342" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6342"><a title="About Us" href="https://galileegreen.com/about-us/">About Us</a></li>
+<li id="menu-item-898" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-898"><a title="Testimonials" href="https://galileegreen.com/reviews-testimonials/">Testimonials</a></li>
+<li id="menu-item-13891" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13891"><a title="Recipes" href="https://galileegreen.com/category/recipes/">Recipes</a></li>
+<li id="menu-item-6372" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6372"><a title="BUY HONEY" href="https://galileegreen.com/honey/">BUY HONEY</a></li>
+<li id="menu-item-1369" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1369"><a title="BUY OLIVE OIL" href="https://galileegreen.com/subscribe/">BUY OLIVE OIL</a></li>
+<li class="hestia-search-in-menu"><div class="hestia-nav-search"><form role="search" method="get" class="search-form" action="https://galileegreen.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></div><a class="hestia-toggle-search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></a></li></ul></div>			</div>
+					</nav>
+				</header>
+		<div id="carousel-hestia-generic" class="carousel slide" data-ride="carousel">
+			<div class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div id="parallax_move"><div data-bg="https://galileegreen.com/wp-content/uploads/2024/10/hand-pouring-olive-oil-on-salad-in-orchard-jpg-low.jpg" class="layer layer1 rocket-lazyload entered lazyloaded" data-depth="0.10" style="background-image: url(&quot;https://galileegreen.com/wp-content/uploads/2024/10/hand-pouring-olive-oil-on-salad-in-orchard-jpg-low.jpg&quot;);" data-ll-status="loaded"></div><div data-bg="https://galileegreen.com/wp-content/uploads/2024/10/bee-hovering-1980x1080-72dpi.png" class="layer layer2 rocket-lazyload entered lazyloaded" data-depth="0.20" style="background-image: url(&quot;https://galileegreen.com/wp-content/uploads/2024/10/bee-hovering-1980x1080-72dpi.png&quot;);" data-ll-status="loaded"></div></div>
+		<div class="item active">
+			<div class="page-header">
+				
+				<div class="container">
+										<div class="row hestia-big-title-content">
+						<div class="big-title-sidebar-wrapper  col-md-5  hestia-slider-alignment-right "></div>		<div class="
+		 big-title-slider-content text-right col-md-7 margin-left-auto 		">
+							<h1 class="hestia-title">Taste the Blessings of Israel</h1>
+										<span class="sub-title">Experience the Land with every drop and drizzle!</span>
+										<div class="buttons">
+					<a href="https://galileegreen.com/how-is-galilee-green-oil-different/" title="DISCOVER MORE" class="btn btn-primary">DISCOVER MORE</a>
+									</div>
+					</div>
+							</div>
+									</div><!-- /.container -->
+
+				<div class="header-filter"></div><!-- /.header-filter -->
+							</div><!-- /.page-header -->
+		</div>
+						</div>
+			</div>
+		</div>
+			<div class="main  main-raised ">
+					<section data-bg="https://galileegreen.com/wp-content/uploads/2015/11/cropped-olive-tree-yavneel.jpg" class="hestia-about section-image rocket-lazyload entered lazyloaded" id="about" data-sorder="hestia_about" style="background-image: url(&quot;https://galileegreen.com/wp-content/uploads/2015/11/cropped-olive-tree-yavneel.jpg&quot;);" data-ll-status="loaded">
+								<div class="container">
+					<div class="row hestia-about-content">
+						<h2>Our Flavorful Journey</h2>
+<h5>Welcome to Galilee Green: where we don’t just sell the best olive oil from Israel and honey; we give you a taste of Israel!</h5>
+<p><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/10/Migdal-looking-toward-Tiberias-and-the-Kinneret-Sea-of-Galilee-587x-346.jpg.webp" type="image/webp" srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/10/Migdal-looking-toward-Tiberias-and-the-Kinneret-Sea-of-Galilee-587x-346.jpg.webp"><img fetchpriority="high" decoding="async" src="https://galileegreen.com/wp-content/uploads/2024/10/Migdal-looking-toward-Tiberias-and-the-Kinneret-Sea-of-Galilee-587x-346.jpg" alt="Best Olive Oil from Israel" class="alignright webpexpress-processed entered lazyloaded" width="587" height="346" padding="25" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/10/Migdal-looking-toward-Tiberias-and-the-Kinneret-Sea-of-Galilee-587x-346.jpg" data-ll-status="loaded"><noscript><img fetchpriority="high" decoding="async" src="https://galileegreen.com/wp-content/uploads/2024/10/Migdal-looking-toward-Tiberias-and-the-Kinneret-Sea-of-Galilee-587x-346.jpg" alt="Best Olive Oil from Israel" class="alignright webpexpress-processed" width="587" height="346" padding="25"></noscript></picture></p>
+<h6>Our extra virgin olive oil from Israel is not just the best olive oil you’ve tasted; it’s the liquid gold that your kitchen has been crying out for. Cold-pressed and unprocessed, it’s like a hug from the Holy Land in every drop!</h6>
+<h6>And let’s not forget our raw natural honey, harvested from the happiest bees in Israel. These little buzzers work hard to bring you the sweetest, most authentic honey that will make your taste buds dance!</h6>
+<h6>Join our community of food lovers and Israel supporters who appreciate quality and authenticity.</h6>
+<h6>Sign up for our weekly email, where we serve up <a style="color: yellow;" href="https://galileegreen.com/category/recipes/" target="_blank" rel="noopener">delicious recipes</a>, <a style="color: yellow;" href="https://www.youtube.com/@GalileeGreen" target="_blank" rel="noopener">stunning visuals of Israel’s historic sites</a>, and a <a style="color: yellow;" href="https://shmuelveffer.com/" target="_blank" rel="noopener">sprinkle of Torah wisdom</a> on current events. Because who doesn’t want to eat well and stay informed?</h6>
+					</div>
+				</div>
+			</section>
+					<section class="hestia-team " id="team" data-sorder="hestia_team">
+						<div class="container">
+									<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center hestia-team-title-area">
+							<h2 class="hestia-title">Meet Our Galilee Green Team</h2><h5 class="description">We are your family in Israel</h5>						</div>
+					</div>
+					<div class="hestia-team-content"><div class="row"><div class="col-xs-12 col-ms-6 col-sm-6"><div class="card card-profile card-plain"><div class="col-md-5"><div class="card-image"><a href="https://galileegreen.com/our-team/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/shmuel-purple-3.jpg.webp 348w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/shmuel-purple-3-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/shmuel-purple-3-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3.jpg 348w, https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3-150x150.jpg 150w" title="Rabbi Shmuel Veffer" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3.jpg" srcset="https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3.jpg 348w, https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/shmuel-purple-3-150x150.jpg 150w" title="Rabbi Shmuel Veffer"></noscript></picture></a></div></div><div class="col-md-7"><div class="content"><a href="https://galileegreen.com/our-team/"><h4 class="card-title">Rabbi Shmuel Veffer</h4><h6 class="category text-muted">Founder &amp; Chief Rabbi</h6><p class="card-description">Reb Shmuel was a  management consultant in Toronto before moving to Israel and becoming involved in  Jewish education over 30 years ago. He was a senior lecturer at Aish HaTorah in Jerusalem, co-founder of Honest Reporting Canada and has lectured internationally on Jewish topics.<br><br>Shmuel is the inventor of the KosherLamp and founder of Kosher Innovations. He founded Galilee Green in 2014 and currently lives with his wife Sarah in Tiberias in the Galilee.</p></a></div></div></div></div><div class="col-xs-12 col-ms-6 col-sm-6"><div class="card card-profile card-plain"><div class="col-md-5"><div class="card-image"><a href="https://galileegreen.com/our-team/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/yonah-veffer-no-background.jpg.webp 500w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/yonah-veffer-no-background-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/yonah-veffer-no-background-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background.jpg 500w, https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background-150x150.jpg 150w" title="Yonah Veffer" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background.jpg" srcset="https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background.jpg 500w, https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/yonah-veffer-no-background-150x150.jpg 150w" title="Yonah Veffer"></noscript></picture></a></div></div><div class="col-md-7"><div class="content"><a href="https://galileegreen.com/our-team/"><h4 class="card-title">Yonah Veffer</h4><h6 class="category text-muted">General Manager &amp; Customer Happiness</h6><p class="card-description">Yonah was born and raised in Jerusalem and then moved to Toronto with his family for his teenage years.He returned to Israel to begin advanced Talmudic Studies after highschool.<br><br>In addition to his organizational skills, Yonah brings logistics, management and computer technical experience to our team.<br><br>When he’s not helping to build Galilee Green, he spends quality time with his wife and children in Ramat Beit Shemesh.</p></a></div></div></div></div></div></div>			</div>
+					</section>
+				<section data-bg="https://galileegreen.com/wp-content/uploads/2024/10/olive-tree-in-yavneel-israel-front-page-low.jpg" class="hestia-ribbon section section-image rocket-lazyload" id="ribbon" data-sorder="hestia_ribbon" style="">
+						<div class="container">
+				<div class="row hestia-xs-text-center hestia-like-table hestia-ribbon-content">
+										<div class="col-md-8 hestia-ribbon-content-left">
+													<h2 class="hestia-title" style="margin:0;">
+							START YOUR ISRAEL ADVENTURE NOW!
+
+Sign up for our FREE weekly email, where we serve up delicious recipes, stunning visuals of Israel's sites, and a sprinkle of Torah wisdom.					</h2>
+												</div>
+					<div class="col-md-4 text-center hestia-ribbon-content-right">
+						<a href="http://eepurl.com/YZX-X" target="_blank" class="btn btn-md btn-primary hestia-subscribe-button">SIGN ME UP! -- I love recipes &amp; Israel</a>					</div>
+				</div>
+			</div>
+		</section>
+				<section class="hestia-testimonials " id="testimonials" data-sorder="hestia_testimonials">
+						<div class="container">
+									<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center hestia-testimonials-title-area">
+							<h2 class="hestia-title">Join our Galilee Green Family!</h2><h5 class="description">Lovers of Israel from Around the World</h5>						</div>
+					</div>
+							<div class="hestia-testimonials-content">
+		<div class="row">				<div class="col-xs-12 col-ms-6 col-sm-6 col-md-4">
+					<div class="card card-testimonial card-plain">
+													<div class="card-avatar">
+								<a href="https://galileegreen.com/reviews-testimonials/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/Debi-Swartz-Profile.jpg.webp 200w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/Debi-Swartz-Profile-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/Debi-Swartz-Profile-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Debi Swartz" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile-150x150.jpg 150w" title="Debi Swartz" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile.jpg" alt="Debi Swartz" srcset="https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/Debi-Swartz-Profile-150x150.jpg 150w" title="Debi Swartz"></noscript></picture></a>							</div>
+												<div class="content">
+															<h4 class="card-title">Debi Swartz</h4>
+																						<h6 class="category text-muted">Bend, Oregon</h6>
+																						<p class="card-description">"Galilee Green is a great place to buy real and fresh extra virgin olive oil!"</p>
+													</div>
+					</div>
+				</div>
+								<div class="col-xs-12 col-ms-6 col-sm-6 col-md-4">
+					<div class="card card-testimonial card-plain">
+													<div class="card-avatar">
+								<a href="https://galileegreen.com/reviews-testimonials/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile.jpg.webp 200w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Jo Anne Tell" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile-150x150.jpg 150w" title="Jo Anne Tell" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile.jpg" alt="Jo Anne Tell" srcset="https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/Jo-Anne-Tell-Bellingham-Washington-Profile-150x150.jpg 150w" title="Jo Anne Tell"></noscript></picture></a>							</div>
+												<div class="content">
+															<h4 class="card-title">Jo Anne Tell</h4>
+																						<h6 class="category text-muted">Billingham, Washington</h6>
+																						<p class="card-description">"I love my Galilee Green olive oil, it is the best I have ever used!"</p>
+													</div>
+					</div>
+				</div>
+								<div class="col-xs-12 col-ms-6 col-sm-6 col-md-4">
+					<div class="card card-testimonial card-plain">
+													<div class="card-avatar">
+								<a href="https://galileegreen.com/reviews-testimonials/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/maria-garcia-dallas-texas-profile.jpg.webp 200w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/maria-garcia-dallas-texas-profile-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/maria-garcia-dallas-texas-profile-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Maria Garcia" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile-150x150.jpg 150w" title="Maria Garcia" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile.jpg" alt="Maria Garcia" srcset="https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/maria-garcia-dallas-texas-profile-150x150.jpg 150w" title="Maria Garcia"></noscript></picture></a>							</div>
+												<div class="content">
+															<h4 class="card-title">Maria Garcia</h4>
+																						<h6 class="category text-muted">Dallas, Texas</h6>
+																						<p class="card-description">"The best olive oil from the Land for my tacos, challah and everything else!"</p>
+													</div>
+					</div>
+				</div>
+								<div class="col-xs-12 col-ms-6 col-sm-6 col-md-4">
+					<div class="card card-testimonial card-plain">
+													<div class="card-avatar">
+								<a href="https://galileegreen.com/reviews-testimonials/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2014/11/donna-holbrook.jpg.webp 256w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2014/11/donna-holbrook-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2014/11/donna-holbrook-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Donna Holbrook" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook.jpg 256w, https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook-150x150.jpg 150w" title="Donna Holbrook" data-lazy-src="https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook.jpg" alt="Donna Holbrook" srcset="https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook.jpg 256w, https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2014/11/donna-holbrook-150x150.jpg 150w" title="Donna Holbrook"></noscript></picture></a>							</div>
+												<div class="content">
+															<h4 class="card-title">Donna Holbrook</h4>
+																						<h6 class="category text-muted">Toronto, Canada</h6>
+																						<p class="card-description">"Made Israeli Salad with Galilee Green olive oil and it was delicious!"</p>
+													</div>
+					</div>
+				</div>
+								<div class="col-xs-12 col-ms-6 col-sm-6 col-md-4">
+					<div class="card card-testimonial card-plain">
+													<div class="card-avatar">
+								<a href="https://galileegreen.com/reviews-testimonials/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/shona-Ilui-profiel.jpg.webp 200w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/shona-Ilui-profiel-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/08/shona-Ilui-profiel-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Shona Ilui" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel-150x150.jpg 150w" title="Shona Ilui" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel.jpg" alt="Shona Ilui" srcset="https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/08/shona-Ilui-profiel-150x150.jpg 150w" title="Shona Ilui"></noscript></picture></a>							</div>
+												<div class="content">
+															<h4 class="card-title">Shona Ilui</h4>
+																						<h6 class="category text-muted">Blenheim, New Zealand</h6>
+																						<p class="card-description">"Love your olive oil. I am humbled to receive it!"</p>
+													</div>
+					</div>
+				</div>
+								<div class="col-xs-12 col-ms-6 col-sm-6 col-md-4">
+					<div class="card card-testimonial card-plain">
+													<div class="card-avatar">
+								<a href="https://galileegreen.com/reviews-testimonials/"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/04/Sara-Gebra-Profile.jpg.webp 200w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/04/Sara-Gebra-Profile-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/04/Sara-Gebra-Profile-150x150.jpg.webp 150w" type="image/webp"><img class="img webpexpress-processed" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Sara Gebra" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile-150x150.jpg 150w" title="Sara Gebra" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile.jpg"><noscript><img class="img webpexpress-processed" src="https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile.jpg" alt="Sara Gebra" srcset="https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile.jpg 200w, https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/04/Sara-Gebra-Profile-150x150.jpg 150w" title="Sara Gebra"></noscript></picture></a>							</div>
+												<div class="content">
+															<h4 class="card-title">Sara Gebra</h4>
+																						<h6 class="category text-muted">Helsinki, Finland</h6>
+																						<p class="card-description">"Wonderful, real olive tasting oil, better than any other on this planet!"</p>
+													</div>
+					</div>
+				</div>
+				</div>		</div>
+					</div>
+					</section>
+				<section data-bg="https://galileegreen.com/wp-content/uploads/2024/10/Galilee-Green-Customers-with-Israel-Olive-Oil-in-their-home.jpg" class="hestia-subscribe subscribe-line subscribe-line-image rocket-lazyload" id="subscribe" data-sorder="hestia_subscribe" style="">
+						<div class="container">
+								<div class="row text-center">
+					<div class="col-md-8 col-md-offset-2 text-center hestia-subscribe-title-area">
+													<h2 class="title">Bring Israel's blessings into your home</h2>
+																	</div>
+				</div>
+									<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="card card-raised card-form-horizontal">
+								<div class="content">
+									<div class="row">
+										
+<figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-large"><a href="https://galileegreen.com/subscribe"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/two-pack-in-box.jpg.webp 1021w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/two-pack-in-box-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/two-pack-in-box-600x600.jpg.webp 600w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/two-pack-in-box-550x550.jpg.webp 550w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/two-pack-in-box-150x150.jpg.webp 150w" sizes="(max-width: 1021px) 100vw, 1021px" type="image/webp"><img decoding="async" width="1021" height="1021" data-id="13712" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201021%201021'%3E%3C/svg%3E" alt="" class="wp-image-13712 webpexpress-processed" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box.jpg 1021w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-600x600.jpg 600w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-550x550.jpg 550w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-150x150.jpg 150w" data-lazy-sizes="(max-width: 1021px) 100vw, 1021px" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box.jpg"><noscript><img decoding="async" width="1021" height="1021" data-id="13712" src="https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box.jpg" alt="" class="wp-image-13712 webpexpress-processed" srcset="https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box.jpg 1021w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-600x600.jpg 600w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-550x550.jpg 550w, https://galileegreen.com/wp-content/uploads/2024/09/two-pack-in-box-150x150.jpg 150w" sizes="(max-width: 1021px) 100vw, 1021px"></noscript></picture></a><figcaption class="wp-element-caption"><strong>Try our Extra Virgin Olive Oil</strong></figcaption></figure>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://galileegreen.com/honey"><picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1024x1024.jpg.webp 1024w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-160x160.jpg.webp 160w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-600x600.jpg.webp 600w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-550x550.jpg.webp 550w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-150x150.jpg.webp 150w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1536x1536.jpg.webp 1536w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-2048x2048.jpg.webp 2048w" sizes="(max-width: 1024px) 100vw, 1024px" type="image/webp"><img decoding="async" width="1024" height="1024" data-id="13790" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%201024'%3E%3C/svg%3E" alt="" class="wp-image-13790 webpexpress-processed" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1024x1024.jpg 1024w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-600x600.jpg 600w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-550x550.jpg 550w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-150x150.jpg 150w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1536x1536.jpg 1536w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-2048x2048.jpg 2048w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1024x1024.jpg"><noscript><img decoding="async" width="1024" height="1024" data-id="13790" src="https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1024x1024.jpg" alt="" class="wp-image-13790 webpexpress-processed" srcset="https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1024x1024.jpg 1024w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-160x160.jpg 160w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-600x600.jpg 600w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-550x550.jpg 550w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-150x150.jpg 150w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-1536x1536.jpg 1536w, https://galileegreen.com/wp-content/uploads/2024/09/David-Kessell-Honey-Cornwall-UK-2048x2048.jpg 2048w" sizes="(max-width: 1024px) 100vw, 1024px"></noscript></picture></a><figcaption class="wp-element-caption"><strong>Try our Raw Natural Honey</strong></figcaption></figure>
+</figure>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+											</div>
+					</section>
+				<section class="hestia-blogs " id="blog" data-sorder="hestia_blog">
+						<div class="container">
+									<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center hestia-blogs-title-area">
+							<h2 class="hestia-title">Explore the Flavors, the Beauty and Wisdom of Israel</h2>						</div>
+					</div>
+									<div class="hestia-blog-content">
+				<div class="row">			<article class="col-xs-12 col-ms-10 col-ms-offset-1 col-sm-8 col-sm-offset-2 col-md-4 hestia-blog-item">
+				<div class="card card-plain card-blog">
+												<div class="card-image">
+								<a href="https://galileegreen.com/stuffed-red-peppers-without-rice/" title="Stuffed Red Peppers Without Rice">
+									<picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2021/08/stuffed-red-peppers-e1629061806133.jpg.webp 1024w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2021/08/stuffed-red-peppers-e1629061806133-600x338.jpg.webp 600w" sizes="(max-width: 360px) 100vw, 360px" type="image/webp"><img width="360" height="203" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20203'%3E%3C/svg%3E" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="" decoding="async" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2021/08/stuffed-red-peppers-e1629061806133.jpg 1024w, https://galileegreen.com/wp-content/uploads/2021/08/stuffed-red-peppers-e1629061806133-600x338.jpg 600w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://galileegreen.com/wp-content/uploads/2021/08/stuffed-red-peppers-e1629061806133.jpg"><noscript><img width="360" height="203" src="https://galileegreen.com/wp-content/uploads/2021/08/stuffed-red-peppers-e1629061806133.jpg" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="" decoding="async" srcset="https://galileegreen.com/wp-content/uploads/2021/08/stuffed-red-peppers-e1629061806133.jpg 1024w, https://galileegreen.com/wp-content/uploads/2021/08/stuffed-red-peppers-e1629061806133-600x338.jpg 600w" sizes="(max-width: 360px) 100vw, 360px"></noscript></picture>								</a>
+							</div>
+											<div class="content">
+						<span class="category"><a href="https://galileegreen.com/category/recipes/" title="View all posts in Recipes" rel="tag">Recipes</a> </span>
+						<h4 class="card-title entry-title">
+							<a class="blog-item-title-link" href="https://galileegreen.com/stuffed-red-peppers-without-rice/" title="Stuffed Red Peppers Without Rice" rel="bookmark">
+								Stuffed Red Peppers Without Rice							</a>
+						</h4>
+						<p class="card-description">Stuffed Red Peppers Without Rice – Keto-Friendly &amp; Delicious I love roasted red pepper salad as an appetizer. It pairs perfectly with fresh Challah on Friday night. Red peppers bring sweetness and creamy texture. Green<a class="moretag" href="https://galileegreen.com/stuffed-red-peppers-without-rice/"> Read more</a></p>
+					</div>
+				</div>
+				</article>
+							<article class="col-xs-12 col-ms-10 col-ms-offset-1 col-sm-8 col-sm-offset-2 col-md-4 hestia-blog-item">
+				<div class="card card-plain card-blog">
+												<div class="card-image">
+								<a href="https://galileegreen.com/zucchini-kale-quiche/" title="Zucchini Kale Quiche – grain-free, dairy-free!!">
+									<picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2018/02/shelley-quiche-jpg.jpg.webp 960w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2018/02/shelley-quiche-jpg-600x338.jpg.webp 600w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2018/02/shelley-quiche-jpg-350x197.jpg.webp 350w" sizes="(max-width: 360px) 100vw, 360px" type="image/webp"><img width="360" height="203" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20203'%3E%3C/svg%3E" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="Quiche" decoding="async" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg.jpg 960w, https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg-600x338.jpg 600w, https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg-350x197.jpg 350w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg.jpg"><noscript><img width="360" height="203" src="https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg.jpg" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="Quiche" decoding="async" srcset="https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg.jpg 960w, https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg-600x338.jpg 600w, https://galileegreen.com/wp-content/uploads/2018/02/shelley-quiche-jpg-350x197.jpg 350w" sizes="(max-width: 360px) 100vw, 360px"></noscript></picture>								</a>
+							</div>
+											<div class="content">
+						<span class="category"><a href="https://galileegreen.com/category/recipes/" title="View all posts in Recipes" rel="tag">Recipes</a> </span>
+						<h4 class="card-title entry-title">
+							<a class="blog-item-title-link" href="https://galileegreen.com/zucchini-kale-quiche/" title="Zucchini Kale Quiche – grain-free, dairy-free!!" rel="bookmark">
+								Zucchini Kale Quiche – grain-free, dairy-free!!							</a>
+						</h4>
+						<p class="card-description">We have a very low carb lifestyle in our home and only have a small amount of challah on Shabbat and festivals. Recently a friend was up here visiting in Yavne’el and she brought a<a class="moretag" href="https://galileegreen.com/zucchini-kale-quiche/"> Read more</a></p>
+					</div>
+				</div>
+				</article>
+							<article class="col-xs-12 col-ms-10 col-ms-offset-1 col-sm-8 col-sm-offset-2 col-md-4 hestia-blog-item">
+				<div class="card card-plain card-blog">
+												<div class="card-image">
+								<a href="https://galileegreen.com/scrabble-cookies/" title="Scrabble Cookies for your Purim Party!">
+									<picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2019/03/scrabble-cookies-feature-2.jpeg.webp 900w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2019/03/scrabble-cookies-feature-2-600x337.jpeg.webp 600w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2019/03/scrabble-cookies-feature-2-350x196.jpeg.webp 350w" sizes="(max-width: 360px) 100vw, 360px" type="image/webp"><img width="360" height="202" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20202'%3E%3C/svg%3E" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="Scrabble Cookies" decoding="async" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2.jpeg 900w, https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2-600x337.jpeg 600w, https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2-350x196.jpeg 350w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2.jpeg"><noscript><img width="360" height="202" src="https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2.jpeg" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="Scrabble Cookies" decoding="async" srcset="https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2.jpeg 900w, https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2-600x337.jpeg 600w, https://galileegreen.com/wp-content/uploads/2019/03/scrabble-cookies-feature-2-350x196.jpeg 350w" sizes="(max-width: 360px) 100vw, 360px"></noscript></picture>								</a>
+							</div>
+											<div class="content">
+						<span class="category"><a href="https://galileegreen.com/category/recipes/" title="View all posts in Recipes" rel="tag">Recipes</a> </span>
+						<h4 class="card-title entry-title">
+							<a class="blog-item-title-link" href="https://galileegreen.com/scrabble-cookies/" title="Scrabble Cookies for your Purim Party!" rel="bookmark">
+								Scrabble Cookies for your Purim Party!							</a>
+						</h4>
+						<p class="card-description">To get ready for Purim here’s a fun recipe for Scrabble cookies from our daughter Rachel Rosenthal. Rachel makes Jewish life at home both spiritually uplifting and FUN! She posted these photos and comments in<a class="moretag" href="https://galileegreen.com/scrabble-cookies/"> Read more</a></p>
+					</div>
+				</div>
+				</article>
+				</div><!-- /.row --><div class="row">			<article class="col-xs-12 col-ms-10 col-ms-offset-1 col-sm-8 col-sm-offset-2 col-md-4 hestia-blog-item">
+				<div class="card card-plain card-blog">
+												<div class="card-image">
+								<a href="https://galileegreen.com/purim-grogger-for-you/" title="PURIM GROGGER FOR YOU">
+									<picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2015/02/groggers.jpg.webp 852w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2015/02/groggers-600x317.jpg.webp 600w, https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2015/02/groggers-300x158.jpg.webp 300w" sizes="(max-width: 360px) 100vw, 360px" type="image/webp"><img width="360" height="190" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20190'%3E%3C/svg%3E" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="Groggers for purim" decoding="async" data-lazy-srcset="https://galileegreen.com/wp-content/uploads/2015/02/groggers.jpg 852w, https://galileegreen.com/wp-content/uploads/2015/02/groggers-600x317.jpg 600w, https://galileegreen.com/wp-content/uploads/2015/02/groggers-300x158.jpg 300w" data-lazy-sizes="(max-width: 360px) 100vw, 360px" data-lazy-src="https://galileegreen.com/wp-content/uploads/2015/02/groggers.jpg"><noscript><img width="360" height="190" src="https://galileegreen.com/wp-content/uploads/2015/02/groggers.jpg" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="Groggers for purim" decoding="async" srcset="https://galileegreen.com/wp-content/uploads/2015/02/groggers.jpg 852w, https://galileegreen.com/wp-content/uploads/2015/02/groggers-600x317.jpg 600w, https://galileegreen.com/wp-content/uploads/2015/02/groggers-300x158.jpg 300w" sizes="(max-width: 360px) 100vw, 360px"></noscript></picture>								</a>
+							</div>
+											<div class="content">
+						<span class="category"><a href="https://galileegreen.com/category/gifts/" title="View all posts in Gifts" rel="tag">Gifts</a> </span>
+						<h4 class="card-title entry-title">
+							<a class="blog-item-title-link" href="https://galileegreen.com/purim-grogger-for-you/" title="PURIM GROGGER FOR YOU" rel="bookmark">
+								PURIM GROGGER FOR YOU							</a>
+						</h4>
+						<p class="card-description">PURIM GROGGER FOR YOU Purim is a joyful Jewish holiday that celebrates the salvation of the Jewish people in ancient Persia, as recounted in the Book of Esther. This year Purim falls on the evening<a class="moretag" href="https://galileegreen.com/purim-grogger-for-you/"> Read more</a></p>
+					</div>
+				</div>
+				</article>
+							<article class="col-xs-12 col-ms-10 col-ms-offset-1 col-sm-8 col-sm-offset-2 col-md-4 hestia-blog-item">
+				<div class="card card-plain card-blog">
+												<div class="card-image">
+								<a href="https://galileegreen.com/chapter-15/" title="Chapter 15">
+									<picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2026/01/Buried-Secrets-banner-360x240.jpg.webp" type="image/webp"><img width="360" height="240" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20240'%3E%3C/svg%3E" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="" decoding="async" data-lazy-src="https://galileegreen.com/wp-content/uploads/2026/01/Buried-Secrets-banner-360x240.jpg"><noscript><img width="360" height="240" src="https://galileegreen.com/wp-content/uploads/2026/01/Buried-Secrets-banner-360x240.jpg" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="" decoding="async"></noscript></picture>								</a>
+							</div>
+											<div class="content">
+						<span class="category"><a href="https://galileegreen.com/category/buried-secrets/" title="View all posts in Buried Secrets" rel="tag">Buried Secrets</a> </span>
+						<h4 class="card-title entry-title">
+							<a class="blog-item-title-link" href="https://galileegreen.com/chapter-15/" title="Chapter 15" rel="bookmark">
+								Chapter 15							</a>
+						</h4>
+						<p class="card-description">GUSH HALAV, UPPER GALILEE – SPRING, 33 C.E.
+
+The rhythmic clanging of his father’s chisel was the heartbeat of the morning.
+
+Eleven-year-old Yossi sat perched on a massive, sun-warmed basalt boulder just outside the synagogue’s construction site. He leaned forward, crushing a sprig of wild hyssop between his palms, the peppery scent mingling with the fine white dust of pulverized limestone that hung in the air.</p>
+					</div>
+				</div>
+				</article>
+							<article class="col-xs-12 col-ms-10 col-ms-offset-1 col-sm-8 col-sm-offset-2 col-md-4 hestia-blog-item">
+				<div class="card card-plain card-blog">
+												<div class="card-image">
+								<a href="https://galileegreen.com/chapter-14/" title="Chapter 14">
+									<picture><source data-lazy-srcset="https://galileegreen.com/wp-content/webp-express/webp-images/uploads/2026/01/Buried-Secrets-banner-360x240.jpg.webp" type="image/webp"><img width="360" height="240" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%20240'%3E%3C/svg%3E" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="" decoding="async" data-lazy-src="https://galileegreen.com/wp-content/uploads/2026/01/Buried-Secrets-banner-360x240.jpg"><noscript><img width="360" height="240" src="https://galileegreen.com/wp-content/uploads/2026/01/Buried-Secrets-banner-360x240.jpg" class="attachment-hestia-blog size-hestia-blog wp-post-image webpexpress-processed" alt="" decoding="async"></noscript></picture>								</a>
+							</div>
+											<div class="content">
+						<span class="category"><a href="https://galileegreen.com/category/buried-secrets/" title="View all posts in Buried Secrets" rel="tag">Buried Secrets</a> </span>
+						<h4 class="card-title entry-title">
+							<a class="blog-item-title-link" href="https://galileegreen.com/chapter-14/" title="Chapter 14" rel="bookmark">
+								Chapter 14							</a>
+						</h4>
+						<p class="card-description">JISH, UPPER GALILEE – SUNDAY, DAWN
+
+A dark silhouette emerged from the mist. Ibrahim, a man with tough hands and a weathered face, approached the van.
+
+“Ya hala... bil-akhir,” he said, his voice a low growl. “About time. The plane’s waiting.”
+
+Samir scanned the farm.
+
+A small, unpaved road cut through the field. Wide enough for a small plane to take off and land unnoticed, though recent rains had made the earth soft.</p>
+					</div>
+				</div>
+				</article>
+				</div><!-- /.row --><div class="row"></div>				</div>
+							</div>
+					</section>
+				<section data-bg="https://galileegreen.com/wp-content/uploads/2024/10/western-wall-550x413-low.jpg" class="hestia-contact contactus section-image rocket-lazyload" id="contact" data-sorder="hestia_contact" style="">
+						<div class="container">
+								<div class="row">
+					<div class="col-md-5 hestia-contact-title-area">
+													<h2 class="hestia-title">Get in Touch!</h2>
+																		<div class="hestia-description"><div class="hestia-info info info-horizontal"><div class="description"><ul><li><h5><strong>Tell us how much you love and support Israel!<br></strong></h5></li><li><h5><strong>Want to receive our weekly updates with yummy recipes and new from Israel?</strong></h5></li><li><h5><strong>Need help ordering online?</strong></h5></li><li><h5><strong>Wondering about your order?</strong></h5></li><li><h5><strong>Questions about our olive oil?</strong></h5></li></ul></div></div><div class="hestia-info info info-horizontal"></div></div>					</div>
+											<div class="col-md-5 col-md-offset-2 hestia-contact-form-col">
+							<div class="card card-contact">
+																	<div class="header header-raised header-primary text-center">
+										<h4 class="card-title">Contact Us</h4>
+									</div>
+																<div class="content">
+									<div class="forminator-ui forminator-custom-form forminator-custom-form-13023 forminator-design--default  forminator_ajax" data-forminator-render="0" data-form="forminator-module-13023" data-uid="69b2946c45d48"><br></div><form id="forminator-module-13023" class="forminator-ui forminator-custom-form forminator-custom-form-13023 forminator-design--default  forminator_ajax" method="post" data-forminator-render="0" data-form-id="13023" data-color-option="default" data-design="default" data-grid="open" style="display: none;" data-uid="69b2946c45d48"><div role="alert" aria-live="polite" class="forminator-response-message forminator-error" aria-hidden="true"></div><div class="forminator-row"><div id="name-1" class="forminator-field-name forminator-col forminator-col-12 "><div class="forminator-row forminator-no-margin" data-multiple="true"><div class="forminator-col forminator-col-md-6"><div class="forminator-field"><label for="forminator-field-first-name-1_69b2946c45d48" id="forminator-field-first-name-1_69b2946c45d48-label" class="forminator-label">First Name</label><input type="text" name="name-1-first-name" placeholder="E.g. John" id="forminator-field-first-name-1_69b2946c45d48" class="forminator-input" aria-required="false" data-multi="1" autocomplete="given-name" value=""></div></div><div class="forminator-col forminator-col-md-6"><div class="forminator-field"><label for="forminator-field-last-name-1_69b2946c45d48" id="forminator-field-last-name-1_69b2946c45d48-label" class="forminator-label">Last Name</label><input type="text" name="name-1-last-name" placeholder="E.g. Doe" id="forminator-field-last-name-1_69b2946c45d48" class="forminator-input" aria-required="false" data-multi="1" autocomplete="family-name" value=""></div></div></div></div></div><div class="forminator-row"><div id="email-1" class="forminator-field-email forminator-col forminator-col-12 "><div class="forminator-field"><label for="forminator-field-email-1_69b2946c45d48" id="forminator-field-email-1_69b2946c45d48-label" class="forminator-label">Email Address <span class="forminator-required">*</span></label><input type="email" name="email-1" value="" placeholder="E.g. john@doe.com" id="forminator-field-email-1_69b2946c45d48" class="forminator-input forminator-email--field" data-required="true" aria-required="true" autocomplete="email"></div></div></div><div class="forminator-row"><div id="textarea-1" class="forminator-field-textarea forminator-col forminator-col-12 "><div class="forminator-field"><label for="forminator-field-textarea-1_69b2946c45d48" id="forminator-field-textarea-1_69b2946c45d48-label" class="forminator-label">Message</label><textarea name="textarea-1" placeholder="Tell us how we can help you" id="forminator-field-textarea-1_69b2946c45d48" class="forminator-textarea" rows="6" style="min-height:20px;"></textarea></div></div></div><div class="forminator-row"><div id="captcha-1" class="forminator-field-captcha forminator-col forminator-col-12 "><div class="forminator-captcha-left forminator-turnstile" data-theme="auto" data-language="en-us" data-sitekey="0x4AAAAAABar8AAKn7qCBKf7" data-size="normal"></div> </div></div><input type="hidden" name="referer_url" value=""><div class="forminator-row forminator-row-last"><div class="forminator-col"><div class="forminator-field"><button class="forminator-button forminator-button-submit">Send Message</button></div></div></div><input type="hidden" id="forminator_nonce" name="forminator_nonce" value="9ccc3e1281"><input type="hidden" name="_wp_http_referer" value="/"><input type="hidden" name="form_id" value="13023"><input type="hidden" name="page_id" value="13826"><input type="hidden" name="form_type" value="default"><input type="hidden" name="current_url" value="https://galileegreen.com/"><input type="hidden" name="render_id" value="0"><input type="hidden" name="action" value="forminator_submit_form_custom-forms"><label for="input_4" class="forminator-hidden" aria-hidden="true">Please do not fill in this field. <input id="input_4" type="text" name="input_4" value="" autocomplete="off"></label></form>								</div>
+							</div>
+						</div>
+										</div>
+							</div>
+					</section>
+			</div>
+					<footer class="footer footer-black footer-big">
+						<div class="container">
+								
+		<div class="content">
+			<div class="row">
+				<div class="col-md-4"><div id="text-35" class="widget widget_text">			<div class="textwidget"></div>
+		</div></div><div class="col-md-4"><div id="text-11" class="widget widget_text">			<div class="textwidget"></div>
+		</div></div>			</div>
+		</div>
+		<hr>
+										<div class="hestia-bottom-footer-content"><ul id="menu-sub-menu" class="footer-menu pull-left"><li id="menu-item-13162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13162"><a href="https://galileegreen.com/terms-conditions/">Terms &amp; Conditions</a></li>
+<li id="menu-item-4439" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4439"><a href="https://galileegreen.com/return/">Return Policy &amp; Satisfaction Guarantee</a></li>
+<li id="menu-item-7871" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-7871"><a rel="privacy-policy" href="https://galileegreen.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-14016" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14016"><a href="https://galileegreen.com/publishing-principles/">Publishing Principles</a></li>
+<li id="menu-item-14023" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14023"><a href="https://galileegreen.com/actionable-feedback-policy/">Actionable Feedback Policy</a></li>
+<li id="menu-item-14026" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14026"><a href="https://galileegreen.com/ethics-diversity-policy/">Ethics &amp; Diversity Policy</a></li>
+<li id="menu-item-14015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14015"><a href="https://galileegreen.com/ownership-funding-info/">Ownership / Funding Info</a></li>
+<li id="menu-item-14022" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14022"><a href="https://galileegreen.com/corrections-policy/">Corrections Policy</a></li>
+<li id="menu-item-4435" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4435"><a href="https://galileegreen.com/contact/">Contact Us</a></li>
+</ul><div class="copyright pull-right">Hestia | Developed by <a href="https://themeisle.com" rel="nofollow">ThemeIsle</a></div></div>			</div>
+					</footer>
+			</div>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hestia/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="rocketlazyloadscript" id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/83159625d5cc033b1f1ff9da4/d39fe80566ec04e96612ea280.js");</script>    <style>
+    .gg-bday-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+      background-color: #79ae3f;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+      /* start hidden offscreen to the left */
+      transform: translateX(-150%);
+      transition: transform 0.5s ease;
+    }
+    /* slide-in state */
+    .gg-bday-banner.gg-slide-in {
+      transform: translateX(0);
+    }
+    /* close “×” button */
+    .gg-bday-close {
+      position: absolute;
+      top: 4px;
+      right: 6px;
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      .gg-bday-banner {
+        bottom: 15px;
+        left: 15px;
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+      .gg-bday-close {
+        top: 2px;
+        right: 4px;
+      }
+    }
+    </style>
+
+    <a href="https://galileegreen.com/calculate-hebrew-birthday/" class="gg-bday-banner" target="_blank" rel="noopener">
+      <span class="gg-bday-close">×</span>
+      Free Hebrew B-Day Calculator!
+    </a>
+
+    <script type="rocketlazyloadscript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var banner = document.querySelector('.gg-bday-banner');
+      if (!banner) return;
+
+      // If the user has already closed or clicked the banner, hide it
+      if ( localStorage.getItem('ggBannerClosed') ) {
+        banner.style.display = 'none';
+        return;
+      }
+
+      // Slide in after 3 seconds
+      setTimeout(function() {
+        banner.classList.add('gg-slide-in');
+      }, 3000);
+
+      // Clicking anywhere on the banner sets the “closed” flag
+      banner.addEventListener('click', function() {
+        localStorage.setItem('ggBannerClosed', 'true');
+      });
+
+      // Close button (prevents navigation, hides banner, sets flag)
+      var closeBtn = banner.querySelector('.gg-bday-close');
+      closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        banner.style.display = 'none';
+        localStorage.setItem('ggBannerClosed', 'true');
+      });
+    });
+    </script>
+    
+		<button class="hestia-scroll-to-top hestia-scroll-right " title="Enable Scroll to Top">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="12.5px" height="20px"><path fill="currentColor" d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"></path></svg>								</button>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"/inner-circle-home/|/chapter-(.*)/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://galileegreen.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-includes/js/comment-reply.min.js?ver=c6098bb01a1e67367f3c27d12434cb85" id="comment-reply-js" async="async" data-wp-strategy="async" fetchpriority="low"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-content/themes/hestia/assets/bootstrap/js/bootstrap.min.js?ver=1.0.2" id="jquery-bootstrap-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script type="text/javascript" id="hestia_scripts-js-extra">
+/* <![CDATA[ */
+var requestpost = {"ajaxurl":"https://galileegreen.com/wp-admin/admin-ajax.php","disable_autoslide":"","masonry":"","scroll_offset":"0"};
+//# sourceURL=hestia_scripts-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-content/themes/hestia/assets/js/script.min.js?ver=3.3.3" id="hestia_scripts-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-content/plugins/wp-rocket/assets/js/heartbeat.js?ver=3.14.4.2" id="heartbeat-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" async="" data-no-optimize="1" data-rocket-src="https://galileegreen.com/wp-content/plugins/perfmatters/vendor/instant-page/pminstantpage.min.js?ver=6.3.1" id="perfmatters-instant-page-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-content/plugins/forminator/assets/js/library/jquery.validate.min.js?ver=1.51.1" id="forminator-jquery-validate-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-content/plugins/forminator/assets/forminator-ui/js/forminator-form.min.js?ver=1.51.1" id="forminator-form-js" defer=""></script>
+<script type="text/javascript" id="forminator-front-scripts-js-extra">
+/* <![CDATA[ */
+var ForminatorFront = {"ajaxUrl":"https://galileegreen.com/wp-admin/admin-ajax.php","cform":{"processing":"Submitting form, please wait","error":"An error occurred while processing the form. Please try again","upload_error":"An upload error occurred while processing the form. Please try again","pagination_prev":"Previous","pagination_next":"Next","pagination_go":"Submit","gateway":{"processing":"Processing payment, please wait","paid":"Success! Payment confirmed. Submitting form, please wait","error":"Error! Something went wrong when verifying the payment"},"captcha_error":"Invalid CAPTCHA","no_file_chosen":"No file chosen","intlTelInput_utils_script":"https://galileegreen.com/wp-content/plugins/forminator/assets/js/library/intlTelInputUtils.js","process_error":"Please try again","payment_failed":"Payment failed. Please try again.","payment_cancelled":"Payment was cancelled"},"poll":{"processing":"Submitting vote, please wait","error":"An error occurred saving the vote. Please try again"},"quiz":{"view_results":"View Results"},"select2":{"load_more":"Loading more results\u2026","no_result_found":"No results found","searching":"Searching\u2026","loaded_error":"The results could not be loaded."}};
+//# sourceURL=forminator-front-scripts-js-extra
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://galileegreen.com/wp-content/plugins/forminator/build/front/front.multi.min.js?ver=1.51.1" id="forminator-front-scripts-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=forminator_render_turnstile&amp;render=explicit" id="forminator-turnstile-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {jQuery(function() {jQuery.ajax({url: 'https://galileegreen.com/wp-admin/admin-ajax.php',type: "POST",data: {action: "forminator_get_nonce",form_id: "13023",},success: function (response) {jQuery('#forminator-module-13023 #forminator_nonce').val( response.data );}});})});</script>		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+			jQuery(function () {
+				window.Forminator_Cform_Paginations = window.Forminator_Cform_Paginations || [];
+								window.Forminator_Cform_Paginations[13023] =
+						{"has-pagination":false,"pagination-header-design":"show","pagination-header":"nav","last-steps":"Finish","last-previous":"Previous","pagination-labels":"default","has-paypal":false,"progress-bar-type":"progress","page-number-text":"Page %1$s of %2$s"};
+
+				var runForminatorFront = function () {
+					jQuery('#forminator-module-13023[data-forminator-render="0"]')
+						.forminatorFront({"form_type":"custom-form","inline_validation":true,"print_value":false,"rules":"\"email-1\": {\n\"required\": true,\"emailWP\": true,},\n","messages":"\"email-1\": {\n\"required\": \"This field is required. Please input a valid email.\",\n\"emailWP\": \"This is not a valid email.\",\n\"email\": \"This is not a valid email.\",\n},\n","conditions":{"fields":[],"relations":{"name-1":[],"email-1":[],"textarea-1":[],"captcha-1":[],"submit":[]}},"calendar":"{\"days\":[\"Su\",\"Mo\",\"Tu\",\"We\",\"Th\",\"Fr\",\"Sa\"],\"months\":[\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"]}","paypal_config":{"live_id":"","sandbox_id":"","redirect_url":"https:\/\/galileegreen.com","form_id":13023},"forminator_fields":["address","calculation","captcha","consent","currency","custom","date","email","gdprcheckbox","group","hidden","html","checkbox","name","number","page-break","password","paypal","phone","postdata","radio","rating","section","select","slider","stripe-ocs","stripe","text","textarea","time","upload","url"],"general_messages":{"calculation_error":"Failed to calculate field.","payment_require_ssl_error":"SSL required to submit this form, please check your URL.","payment_require_amount_error":"PayPal amount must be greater than 0.","form_has_error":"Please correct the errors before submission."},"payment_require_ssl":false,"has_loader":true,"loader_label":"Submitting...","calcs_memoize_time":300,"is_reset_enabled":true,"has_stripe":false,"has_paypal":false,"submit_button_class":""});
+				}
+
+				if (window.elementorFrontend) {
+					if (typeof elementorFrontend.hooks !== "undefined") {
+						elementorFrontend.hooks.addAction('frontend/element_ready/global', function () {
+							runForminatorFront();
+						});
+					}
+				} else {
+					runForminatorFront();
+				}
+
+										if (typeof ForminatorValidationErrors !== 'undefined') {
+					var forminatorFrontSubmit = jQuery(ForminatorValidationErrors.selector).data('forminatorFrontSubmit');
+					if (typeof forminatorFrontSubmit !== 'undefined') {
+						forminatorFrontSubmit.show_messages(ForminatorValidationErrors.errors);
+					}
+				}
+				if (typeof ForminatorFormHider !== 'undefined') {
+					var forminatorFront = jQuery(ForminatorFormHider.selector).data('forminatorFront');
+					if (typeof forminatorFront !== 'undefined') {
+						jQuery(forminatorFront.forminator_selector).find('.forminator-row').hide();
+						jQuery(forminatorFront.forminator_selector).find('.forminator-pagination-steps').hide();
+						jQuery(forminatorFront.forminator_selector).find('.forminator-pagination-footer').hide();
+					}
+				}
+			});
+		});</script>
+		<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://galileegreen.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+
+
+</body></html>

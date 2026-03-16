@@ -1,0 +1,57 @@
+[2026-03-12T02:41:30.048Z] === Homepage AI Extractor: Chilli Attack ===
+[2026-03-12T02:41:30.049Z] Started at: 2026-03-12T02:41:30.049Z
+[2026-03-12T02:41:30.049Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773283290048_Chilli_Attack
+[2026-03-12T02:41:30.049Z] Company: Chilli Attack
+[2026-03-12T02:41:30.049Z] Website: chilliattack.com
+[2026-03-12T02:41:30.049Z] cbRank: 760121
+[2026-03-12T02:41:30.049Z] Reasons: h
+[2026-03-12T02:41:30.049Z] Fetching: https://chilliattack.com
+[2026-03-12T02:41:32.331Z] Redirected: https://chilliattack.com -> https://chilliattack.com/
+[2026-03-12T02:41:32.334Z] Saved HTML (14380 bytes) to page.html
+[2026-03-12T02:41:32.337Z] Extracted 2 unique links from page
+[2026-03-12T02:41:32.338Z] Saved 2 links to links.json
+[2026-03-12T02:41:32.343Z] Extracted footer HTML (676 chars)
+[2026-03-12T02:41:32.343Z] No header section found in DOM
+[2026-03-12T02:41:32.347Z] Website (post-redirect): https://chilliattack.com/ → origin: https://chilliattack.com
+[2026-03-12T02:41:32.348Z] External links: 2 (of 2 total)
+[2026-03-12T02:41:32.348Z] ── All external links ──
+[2026-03-12T02:41:32.348Z]   EXT: https://www.facebook.com/chilliattack
+[2026-03-12T02:41:32.348Z]   EXT: https://www.linkedin.com/company/chilliattack
+[2026-03-12T02:41:32.348Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T02:41:32.348Z]   REGEX: fb <- https://www.facebook.com/chilliattack
+[2026-03-12T02:41:32.348Z]   REGEX: li <- https://www.linkedin.com/company/chilliattack
+[2026-03-12T02:41:32.348Z] Programmatic result: ws:1, fb:1, li:1 | 0 uncategorized
+[2026-03-12T02:41:32.348Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T02:41:32.349Z] Saved AI prompt (2399 chars) to ai_prompt.txt
+[2026-03-12T02:41:32.349Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T02:41:32.361Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T02:41:40.452Z]   AI: First token received, streaming...
+[2026-03-12T02:41:43.575Z] AI response complete: 83 chars in 11.2s
+[2026-03-12T02:41:43.576Z] Saved AI response to ai_response.json
+[2026-03-12T02:41:43.576Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T02:41:43.576Z]   AI LINK: https://www.linkedin.com/company/chilliattack
+[2026-03-12T02:41:43.577Z]   AI LINK: https://www.facebook.com/chilliattack
+[2026-03-12T02:41:43.577Z] AI returned 2 valid links
+[2026-03-12T02:41:43.577Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T02:41:43.577Z]   AI→REGEX: li <- https://www.linkedin.com/company/chilliattack (duplicate, skipped)
+[2026-03-12T02:41:43.577Z]   AI→REGEX: fb <- https://www.facebook.com/chilliattack (duplicate, skipped)
+[2026-03-12T02:41:43.577Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T02:41:43.577Z] Footer/header origins (2):
+[2026-03-12T02:41:43.577Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T02:41:43.577Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T02:41:43.578Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T02:41:43.578Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T02:41:43.578Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T02:41:43.578Z] ── Step 3: Final dedup ──
+[2026-03-12T02:41:43.578Z] No urls to dedup
+[2026-03-12T02:41:43.578Z] ── FINAL RESULT ──
+[2026-03-12T02:41:43.578Z]   ws (1):
+[2026-03-12T02:41:43.578Z]     - https://chilliattack.com
+[2026-03-12T02:41:43.578Z]   li (1):
+[2026-03-12T02:41:43.578Z]     - https://www.linkedin.com/company/chilliattack
+[2026-03-12T02:41:43.578Z]   fb (1):
+[2026-03-12T02:41:43.579Z]     - https://www.facebook.com/chilliattack
+[2026-03-12T02:41:43.579Z] Summary: ws:1, fb:1, li:1
+[2026-03-12T02:41:43.579Z] Saved final result to result.json
+[2026-03-12T02:41:43.579Z] Override fields: ws, li, fb
+[2026-03-12T02:41:43.579Z] Finished at: 2026-03-12T02:41:43.579Z

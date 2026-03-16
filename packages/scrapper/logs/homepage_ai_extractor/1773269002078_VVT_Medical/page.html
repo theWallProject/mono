@@ -1,0 +1,1100 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+	<!-- This site is optimized with the Yoast SEO plugin v25.8 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Varicose Veins Solutions | VVT MEDICAL Ltd</title><link rel="stylesheet" href="https://www.vvtmed.com/wp-content/cache/min/1/5227b91716be8e591595031d3d547cc5.css" media="all" data-minify="1">
+	<meta name="description" content="VVT Medical delivers a new standard of care in Aesthetic and Medical vein treatments by offering advanced Non-Thermal Non-Tumescent solutions">
+	<link rel="canonical" href="https://www.vvtmed.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Varicose Veins Solutions | VVT MEDICAL Ltd">
+	<meta property="og:description" content="VVT Medical delivers a new standard of care in Aesthetic and Medical vein treatments by offering advanced Non-Thermal Non-Tumescent solutions">
+	<meta property="og:url" content="https://www.vvtmed.com/">
+	<meta property="og:site_name" content="VVT MEDICAL Ltd">
+	<meta property="article:publisher" content="https://www.facebook.com/VVTMedical/?ref=pages_you_manage">
+	<meta property="article:modified_time" content="2023-06-29T13:23:08+00:00">
+	<meta property="og:image" content="https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@VVTMedicalLtd">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.vvtmed.com/","url":"https://www.vvtmed.com/","name":"Varicose Veins Solutions | VVT MEDICAL Ltd","isPartOf":{"@id":"https://www.vvtmed.com/#website"},"about":{"@id":"https://www.vvtmed.com/#organization"},"primaryImageOfPage":{"@id":"https://www.vvtmed.com/#primaryimage"},"image":{"@id":"https://www.vvtmed.com/#primaryimage"},"thumbnailUrl":"https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg","datePublished":"2022-02-22T10:11:13+00:00","dateModified":"2023-06-29T13:23:08+00:00","description":"VVT Medical delivers a new standard of care in Aesthetic and Medical vein treatments by offering advanced Non-Thermal Non-Tumescent solutions","breadcrumb":{"@id":"https://www.vvtmed.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.vvtmed.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.vvtmed.com/#primaryimage","url":"https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg","contentUrl":"https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg","width":800,"height":533,"caption":"The Groundbreaking ScleroSafe Technique"},{"@type":"BreadcrumbList","@id":"https://www.vvtmed.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"VVT Medical"}]},{"@type":"WebSite","@id":"https://www.vvtmed.com/#website","url":"https://www.vvtmed.com/","name":"VVT MEDICAL Ltd","description":"Revolutionizing the Treatment of Varicose Veins","publisher":{"@id":"https://www.vvtmed.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.vvtmed.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.vvtmed.com/#organization","name":"VVT Medical","url":"https://www.vvtmed.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.vvtmed.com/#/schema/logo/image/","url":"https://www.vvtmed.com/wp-content/uploads/2020/04/Logo_70.png","contentUrl":"https://www.vvtmed.com/wp-content/uploads/2020/04/Logo_70.png","width":268,"height":49,"caption":"VVT Medical"},"image":{"@id":"https://www.vvtmed.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/VVTMedical/?ref=pages_you_manage","https://x.com/VVTMedicalLtd","https://www.instagram.com/vvt_medical/","https://www.linkedin.com/company/vvt-medical-ltd/mycompany/?viewAsMember=true","https://www.youtube.com/channel/UCqzVKyULhJl4_1dy4BLrOBQ"]}]}</script>
+	<meta name="google-site-verification" content="pCDHnGcvMShV30Ag2wH_IWz8XJIisBslbhUUBTHbJa0">
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;line-height: inherit;padding: calc(0.667em + 2px) calc(1.333em + 2px);text-decoration: none;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" id="elementor-post-101-css" href="https://www.vvtmed.com/wp-content/uploads/elementor/css/post-101.css?ver=1756388548" media="all">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" id="elementor-post-1048-css" href="https://www.vvtmed.com/wp-content/uploads/elementor/css/post-1048.css?ver=1756389941" media="all">
+<link rel="stylesheet" id="elementor-post-1619-css" href="https://www.vvtmed.com/wp-content/uploads/elementor/css/post-1619.css?ver=1756388549" media="all">
+<link rel="stylesheet" id="elementor-post-1686-css" href="https://www.vvtmed.com/wp-content/uploads/elementor/css/post-1686.css?ver=1756388549" media="all">
+
+
+
+
+
+
+
+
+
+
+<script id="jquery-core-js-extra">
+var pp = {"ajax_url":"https:\/\/www.vvtmed.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script src="https://www.vvtmed.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://www.vvtmed.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.vvtmed.com/wp-json/wp/v2/pages/1048"><style type="text/css"> .ae_data .elementor-editor-element-setting {
+            display:none !important;
+            }
+            </style><script>document.createElement( "picture" );if(!window.HTMLPictureElement && document.addEventListener) {window.addEventListener("DOMContentLoaded", function() {var s = document.createElement("script");s.src = "https://www.vvtmed.com/wp-content/plugins/webp-express/js/picturefill.min.js";document.body.appendChild(s);});}</script>
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MJ6QHBH');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJ6QHBH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://www.vvtmed.com/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://www.vvtmed.com/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.vvtmed.com/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.vvtmed.com/wp-content/uploads/2021/08/cropped-android-chrome-512x512-1-270x270.png">
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+<body class="home wp-singular page-template-default page page-id-1048 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-elementor-child hello-elementor-default exclusive-addons-elementor elementor-default elementor-kit-101 elementor-page elementor-page-1048 e--ua-isTouchDevice e--ua-blink e--ua-webkit" data-elementor-device-mode="desktop">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-elementor-type="header" data-elementor-id="1619" class="elementor elementor-1619 elementor-location-header" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-5e5d097 elementor-section-stretched elementor-hidden-tablet elementor-hidden-mobile elementor-section-content-middle elementor-reverse-tablet elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no" data-id="5e5d097" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="width: 1280px; left: 0px;">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-83b5687 exad-glass-effect-no exad-sticky-section-no" data-id="83b5687" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fc97e64 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="fc97e64" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://www.vvtmed.com">
+			<picture><source data-lazy-srcset="https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2021/08/website-banner.jpg.webp 400w, https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2021/08/website-banner-300x68.jpg.webp 300w" sizes="(max-width: 400px) 100vw, 400px" type="image/webp" srcset="https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2021/08/website-banner.jpg.webp 400w, https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2021/08/website-banner-300x68.jpg.webp 300w"><img width="400" height="90" src="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp" class="attachment-full size-full wp-image-936 webpexpress-processed entered lazyloaded" alt="" data-lazy-srcset="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp 400w,https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner-300x68.jpg.webp 300w" data-lazy-sizes="(max-width: 400px) 100vw, 400px" data-lazy-src="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp" data-ll-status="loaded" sizes="(max-width: 400px) 100vw, 400px" srcset="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp 400w,https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner-300x68.jpg.webp 300w"><noscript><img width="400" height="90" src="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp" class="attachment-full size-full wp-image-936 webpexpress-processed" alt="" srcset="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp 400w,https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner-300x68.jpg.webp 300w" sizes="(max-width: 400px) 100vw, 400px"></noscript></picture>				</a>
+											</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-fe86470 exad-glass-effect-no exad-sticky-section-no" data-id="fe86470" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-141baa2 elementor-nav-menu__align-center elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-widget__width-inherit elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-nav-menu" data-id="141baa2" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-chevron-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-141baa2" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2402"><a href="#" class="elementor-item elementor-item-anchor">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2230"><a href="https://www.vvtmed.com/products/the-sclerosafe-platform/" class="elementor-sub-item">ScleroSafe</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2229"><a href="https://www.vvtmed.com/products/v-block/" class="elementor-sub-item">V-Block</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3771"><a href="#" class="elementor-item elementor-item-anchor">Varicose Veins</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3778"><a href="https://www.vvtmed.com/varicose-vein/" class="elementor-sub-item">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3773"><a href="https://www.vvtmed.com/conventional-treatments/" class="elementor-sub-item">Conventional Treatments</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4042"><a href="https://www.vvtmed.com/our-non-thermal-non-tumescent-treatment/" class="elementor-sub-item">Our Non-thermal, Non-tumescent Treatment</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2403"><a href="#" class="elementor-item elementor-item-anchor">Resources</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2155"><a href="https://www.vvtmed.com/vvt-medical-blog/" class="elementor-sub-item">VVT Medical Blog</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2093"><a href="https://www.vvtmed.com/resources/literature/" class="elementor-sub-item">Literature</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2092"><a href="https://www.vvtmed.com/resources/faq/" class="elementor-sub-item">FAQ</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2404"><a href="#" class="elementor-item elementor-item-anchor">Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2098"><a href="https://www.vvtmed.com/company/about-us/" class="elementor-sub-item">About VVT Medical</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2711"><a href="https://www.vvtmed.com/company/meet-the-team/" class="elementor-sub-item">Meet The Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a href="https://www.vvtmed.com/company/news-and-events/" class="elementor-sub-item">News &amp; Events</a></li>
+</ul>
+</li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-141baa2" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2402"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2230"><a href="https://www.vvtmed.com/products/the-sclerosafe-platform/" class="elementor-sub-item" tabindex="-1">ScleroSafe</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2229"><a href="https://www.vvtmed.com/products/v-block/" class="elementor-sub-item" tabindex="-1">V-Block</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3771"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Varicose Veins</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3778"><a href="https://www.vvtmed.com/varicose-vein/" class="elementor-sub-item" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3773"><a href="https://www.vvtmed.com/conventional-treatments/" class="elementor-sub-item" tabindex="-1">Conventional Treatments</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4042"><a href="https://www.vvtmed.com/our-non-thermal-non-tumescent-treatment/" class="elementor-sub-item" tabindex="-1">Our Non-thermal, Non-tumescent Treatment</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2403"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Resources</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2155"><a href="https://www.vvtmed.com/vvt-medical-blog/" class="elementor-sub-item" tabindex="-1">VVT Medical Blog</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2093"><a href="https://www.vvtmed.com/resources/literature/" class="elementor-sub-item" tabindex="-1">Literature</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2092"><a href="https://www.vvtmed.com/resources/faq/" class="elementor-sub-item" tabindex="-1">FAQ</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2404"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2098"><a href="https://www.vvtmed.com/company/about-us/" class="elementor-sub-item" tabindex="-1">About VVT Medical</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2711"><a href="https://www.vvtmed.com/company/meet-the-team/" class="elementor-sub-item" tabindex="-1">Meet The Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a href="https://www.vvtmed.com/company/news-and-events/" class="elementor-sub-item" tabindex="-1">News &amp; Events</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-8f2b88c exad-glass-effect-no exad-sticky-section-no" data-id="8f2b88c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-53ff539 elementor-align-right exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-button" data-id="53ff539" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="https://www.vvtmed.com/contact-us/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Contact Us</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-478fcd7 elementor-hidden-desktop elementor-section-full_width elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="478fcd7" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7b0ae47 exad-glass-effect-no exad-sticky-section-no" data-id="7b0ae47" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f272934 elementor-widget-mobile__width-initial exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="f272934" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://www.vvtmed.com">
+			<picture><source data-lazy-srcset="https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2021/08/website-banner.jpg.webp 400w, https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2021/08/website-banner-300x68.jpg.webp 300w" sizes="(max-width: 400px) 100vw, 400px" type="image/webp"><img width="400" height="90" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%2090'%3E%3C/svg%3E" class="attachment-full size-full wp-image-936 webpexpress-processed" alt="" data-lazy-srcset="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp 400w,https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner-300x68.jpg.webp 300w" data-lazy-sizes="(max-width: 400px) 100vw, 400px" data-lazy-src="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp"><noscript><img width="400" height="90" src="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp" class="attachment-full size-full wp-image-936 webpexpress-processed" alt="" srcset="https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner.jpg.webp 400w,https://www.vvtmed.com/wp-content/uploads/2021/08/website-banner-300x68.jpg.webp 300w" sizes="(max-width: 400px) 100vw, 400px"></noscript></picture>				</a>
+											</div>
+				</div>
+				<div class="elementor-element elementor-element-3d61195 elementor-nav-menu__align-center elementor-nav-menu--stretch elementor-nav-menu__text-align-center elementor-widget__width-inherit elementor-absolute elementor-nav-menu--dropdown-tablet elementor-nav-menu--toggle elementor-nav-menu--burger exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-nav-menu" data-id="3d61195" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-chevron-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;_position&quot;:&quot;absolute&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-3d61195" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4100"><a href="#" class="elementor-item elementor-item-anchor">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4092"><a href="https://www.vvtmed.com/products/the-sclerosafe-platform/" class="elementor-sub-item">ScleroSafe</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4093"><a href="https://www.vvtmed.com/products/v-block/" class="elementor-sub-item">V-Block</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4103"><a href="#" class="elementor-item elementor-item-anchor">Varicose Veins</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4098"><a href="https://www.vvtmed.com/varicose-vein/" class="elementor-sub-item">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4089"><a href="https://www.vvtmed.com/conventional-treatments/" class="elementor-sub-item">Conventional treatments</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4090"><a href="https://www.vvtmed.com/our-non-thermal-non-tumescent-treatment/" class="elementor-sub-item">Our NT-NT Treatment</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4101"><a href="#" class="elementor-item elementor-item-anchor">Resources</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4099"><a href="https://www.vvtmed.com/vvt-medical-blog/" class="elementor-sub-item">VVT Medical Blog</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4096"><a href="https://www.vvtmed.com/resources/literature/" class="elementor-sub-item">Literature</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4095"><a href="https://www.vvtmed.com/resources/faq/" class="elementor-sub-item">FAQ</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4102"><a href="#" class="elementor-item elementor-item-anchor">Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4085"><a href="https://www.vvtmed.com/company/about-us/" class="elementor-sub-item">About VVT Medical</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4086"><a href="https://www.vvtmed.com/company/meet-the-team/" class="elementor-sub-item">Meet The Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4087"><a href="https://www.vvtmed.com/company/news-and-events/" class="elementor-sub-item">News &amp; Events</a></li>
+</ul>
+</li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-3d61195" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4100"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Products</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4092"><a href="https://www.vvtmed.com/products/the-sclerosafe-platform/" class="elementor-sub-item" tabindex="-1">ScleroSafe</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4093"><a href="https://www.vvtmed.com/products/v-block/" class="elementor-sub-item" tabindex="-1">V-Block</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4103"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Varicose Veins</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4098"><a href="https://www.vvtmed.com/varicose-vein/" class="elementor-sub-item" tabindex="-1">Overview</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4089"><a href="https://www.vvtmed.com/conventional-treatments/" class="elementor-sub-item" tabindex="-1">Conventional treatments</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4090"><a href="https://www.vvtmed.com/our-non-thermal-non-tumescent-treatment/" class="elementor-sub-item" tabindex="-1">Our NT-NT Treatment</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4101"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Resources</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4099"><a href="https://www.vvtmed.com/vvt-medical-blog/" class="elementor-sub-item" tabindex="-1">VVT Medical Blog</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4096"><a href="https://www.vvtmed.com/resources/literature/" class="elementor-sub-item" tabindex="-1">Literature</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4095"><a href="https://www.vvtmed.com/resources/faq/" class="elementor-sub-item" tabindex="-1">FAQ</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4102"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Company</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4085"><a href="https://www.vvtmed.com/company/about-us/" class="elementor-sub-item" tabindex="-1">About VVT Medical</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4086"><a href="https://www.vvtmed.com/company/meet-the-team/" class="elementor-sub-item" tabindex="-1">Meet The Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4087"><a href="https://www.vvtmed.com/company/news-and-events/" class="elementor-sub-item" tabindex="-1">News &amp; Events</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</header>
+		
+<main id="content" class="site-main post-1048 page type-page status-publish hentry">
+
+	
+	<div class="page-content">
+				<div data-elementor-type="wp-page" data-elementor-id="1048" class="elementor elementor-1048" data-elementor-post-type="page">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-8814101 elementor-hidden-tablet elementor-hidden-mobile elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle exad-glass-effect-no exad-sticky-section-no" data-id="8814101" data-element_type="section" id="tops">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b108063 exad-glass-effect-no exad-sticky-section-no" data-id="b108063" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fee9262 elementor--v-position-top elementor--h-position-center exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-slides" data-id="fee9262" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition&quot;:&quot;slide&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-swiper">
+					<div class="elementor-slides-wrapper elementor-main-swiper swiper" role="region" aria-roledescription="carousel" aria-label="Slides" dir="ltr" data-animation="fadeInUp">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-72983d6 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img"></div><div class="elementor-background-overlay"></div><div class="swiper-slide-inner"><div class="swiper-slide-contents"><div class="elementor-slide-heading">The Beauty of Treating <br>Varicose Veins</div></div></div></div><div class="elementor-repeater-item-ce7e068 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img"></div><div class="elementor-background-overlay"></div><div class="swiper-slide-inner"><div class="swiper-slide-contents"><div class="elementor-slide-heading">Innovative Technology for the Treatment of Varicose Veins </div></div></div></div>				</div>
+																					</div>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-3c975f4 elementor-widget__width-auto elementor-hidden-tablet elementor-hidden-mobile elementor-absolute elementor-align-center exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-button" data-id="3c975f4" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-xl" href="https://www.vvtmed.com/contact-us/" id="contact-slider-home">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Contact Us</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-d25f9a6 elementor-absolute elementor-widget__width-auto exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-button" data-id="d25f9a6" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-xl" href="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJ0eXBlIjoidmlkZW8iLCJ2aWRlb1R5cGUiOiJob3N0ZWQiLCJ1cmwiOiJodHRwczpcL1wvd3d3LnZ2dG1lZC5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjJcLzA0XC9QYXRpZW50LVRlc3RpbW9ueS1FaXRhbi1NYWNob3Zlci5tcDQifQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-play"></i>			</span>
+									<span class="elementor-button-text">View Testimonial</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-d0efd09 elementor-section-stretched elementor-hidden-desktop elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle exad-glass-effect-no exad-sticky-section-no" data-id="d0efd09" data-element_type="section" id="tops" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-606598e exad-glass-effect-no exad-sticky-section-no" data-id="606598e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-01dee16 elementor--v-position-top elementor--h-position-center exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-slides" data-id="01dee16" data-element_type="widget" data-settings="{&quot;navigation&quot;:&quot;none&quot;,&quot;transition&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;transition_speed&quot;:500}" data-widget_type="slides.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-swiper">
+					<div class="elementor-slides-wrapper elementor-main-swiper swiper" role="region" aria-roledescription="carousel" aria-label="Slides" dir="ltr" data-animation="fadeInUp">
+				<div class="swiper-wrapper elementor-slides">
+										<div class="elementor-repeater-item-72983d6 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img"></div><div class="elementor-background-overlay"></div><div class="swiper-slide-inner"><div class="swiper-slide-contents"><div class="elementor-slide-heading">The Beauty of Treating <br>Varicose Veins</div></div></div></div><div class="elementor-repeater-item-ce7e068 swiper-slide" role="group" aria-roledescription="slide"><div class="swiper-slide-bg" role="img"></div><div class="elementor-background-overlay"></div><div class="swiper-slide-inner"><div class="swiper-slide-contents"><div class="elementor-slide-heading">Innovative Technology for the Treatment of Varicose Veins </div></div></div></div>				</div>
+																					</div>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-61afe13 elementor-absolute elementor-widget-mobile__width-auto exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-button" data-id="61afe13" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJ0eXBlIjoidmlkZW8iLCJ2aWRlb1R5cGUiOiJob3N0ZWQiLCJ1cmwiOiJodHRwczpcL1wvd3d3LnZ2dG1lZC5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjJcLzA0XC9QYXRpZW50LVRlc3RpbW9ueS1FaXRhbi1NYWNob3Zlci5tcDQifQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-play"></i>			</span>
+									<span class="elementor-button-text">View Testimonial</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2008870 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="2008870" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-70db6e4 exad-glass-effect-no exad-sticky-section-no" data-id="70db6e4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-44766bf exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="44766bf" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							A New Approach to Varicose Vein Treatment						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						VVT Medical develops, manufactures and distributes minimally-invasive, non-thermal,<br>non-tumescent solutions for the treatment of varicose veins. Our line of products is based on the versatile, "open" ScleroSafe Platform. ScleroSafe has 510(k) by the FDA, CE approval, CSDCO (India), TGA (Australia&amp; New Zealand), ANVISA (Brazil) and more...					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-299feef elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="299feef" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-8cd867d exad-glass-effect-no exad-sticky-section-no" data-id="8cd867d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7ef4973 elementor-widget__width-auto exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-image" data-id="7ef4973" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<picture><source data-lazy-srcset="https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2022/03/varicose-veins.jpg.webp 800w, https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2022/03/varicose-veins-300x200.jpg.webp 300w, https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2022/03/varicose-veins-768x512.jpg.webp 768w" sizes="(max-width: 800px) 100vw, 800px" type="image/webp"><img fetchpriority="high" decoding="async" width="800" height="533" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20533'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1647 webpexpress-processed" alt="The Groundbreaking ScleroSafe Technique" data-lazy-srcset="https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg.webp 800w,https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins-300x200.jpg.webp 300w,https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins-768x512.jpg.webp 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg.webp"><noscript><img fetchpriority="high" decoding="async" width="800" height="533" src="https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg.webp" class="attachment-full size-full wp-image-1647 webpexpress-processed" alt="The Groundbreaking ScleroSafe Technique" srcset="https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins.jpg.webp 800w,https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins-300x200.jpg.webp 300w,https://www.vvtmed.com/wp-content/uploads/2022/03/varicose-veins-768x512.jpg.webp 768w" sizes="(max-width: 800px) 100vw, 800px"></noscript></picture>															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-bdec570 exad-glass-effect-no exad-sticky-section-no" data-id="bdec570" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-945f8e7 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-text-editor" data-id="945f8e7" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<h2 style="font-weight: bold; font-family: ubuntu;">ScleroSafe™</h2><p>VVT Medical’s patented delivery systems are the next generation of Endovenous Chemical Ablation (ECA), non-thermal non-tumescent (NT-NT) techniques. ScleroSafe’s unique and innovative design concept offers a new level of safety, with a low risk of side effects, for endovenous chemical ablation for trunk and reticular varicose veins. The ScleroSafe technique simplifies the procedure and shortens the treatment process, while minimizing pain, recovery time and the need for post-procedure care.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-dbd9d17 elementor-widget__width-auto exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-button" data-id="dbd9d17" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.vvtmed.com/solutions/the-sclerosafe-platform/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">About ScleroSafe</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ed5369e elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="ed5369e" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-0e39187 exad-glass-effect-no exad-sticky-section-no" data-id="0e39187" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-56410fe exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-text-editor" data-id="56410fe" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<h2 style="font-weight: bold; font-family:ubuntu;">V-Block™</h2>
+<p>ScleroSafe with V-Block is especially designed to simply, safely and effectively treat severely dilated and challenging Great Saphenous Vein (GSV) conditions, including GSV valve incompetence and Reflux.</p>
+<p>While all ScleroSafe products share the Double Lumen Catheter and Inverse Action Dual Syringe design concepts, V-Block products also feature a unique embolization device which further enhances the safety and efficacy of treating larger vessels.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-6639b8f elementor-widget__width-auto exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-button" data-id="6639b8f" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.vvtmed.com/products/v-block/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">About V-Block</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4d514a5 exad-glass-effect-no exad-sticky-section-no" data-id="4d514a5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c026d15 elementor-widget__width-auto exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-image" data-id="c026d15" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<picture><source data-lazy-srcset="https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2022/03/v-block.jpg.webp 800w, https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2022/03/v-block-300x200.jpg.webp 300w, https://www.vvtmed.com/wp-content/webp-express/webp-images/uploads/2022/03/v-block-768x512.jpg.webp 768w" sizes="(max-width: 800px) 100vw, 800px" type="image/webp"><img decoding="async" width="800" height="533" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20533'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1648 webpexpress-processed" alt="V-Block" data-lazy-srcset="https://www.vvtmed.com/wp-content/uploads/2022/03/v-block.jpg.webp 800w,https://www.vvtmed.com/wp-content/uploads/2022/03/v-block-300x200.jpg.webp 300w,https://www.vvtmed.com/wp-content/uploads/2022/03/v-block-768x512.jpg.webp 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://www.vvtmed.com/wp-content/uploads/2022/03/v-block.jpg.webp"><noscript><img decoding="async" width="800" height="533" src="https://www.vvtmed.com/wp-content/uploads/2022/03/v-block.jpg.webp" class="attachment-full size-full wp-image-1648 webpexpress-processed" alt="V-Block" srcset="https://www.vvtmed.com/wp-content/uploads/2022/03/v-block.jpg.webp 800w,https://www.vvtmed.com/wp-content/uploads/2022/03/v-block-300x200.jpg.webp 300w,https://www.vvtmed.com/wp-content/uploads/2022/03/v-block-768x512.jpg.webp 768w" sizes="(max-width: 800px) 100vw, 800px"></noscript></picture>															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7c247da elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="7c247da" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-21c0b7f exad-glass-effect-no exad-sticky-section-no" data-id="21c0b7f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-956bd08 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="956bd08" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							A New Approach to Varicose Vein Treatment						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						VVT Medical’s solutions were specifically designed to replace traditional invasive surgery as well as newer ablation methods for treating chronic venous disorders, including saphenous incompetence, varicosities and incompetent perforator veins.
+
+					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ac39a40 elementor-section-stretched elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="ac39a40" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3f72267 exad-glass-effect-no exad-sticky-section-no" data-id="3f72267" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-67a50d2 elementor-widget__width-initial elementor-view-default exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon" data-id="67a50d2" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 98.82 122.88"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>medical-history</title><path class="cls-1" d="M6.57,13.17H22.34V19H11.18a5.62,5.62,0,0,0-5.56,5.55v87a5.6,5.6,0,0,0,5.56,5.55H87.64a5.57,5.57,0,0,0,5.55-5.55v-87A5.6,5.6,0,0,0,87.64,19H76.48V13.17H92.24a6.6,6.6,0,0,1,6.58,6.57v96.57a6.62,6.62,0,0,1-6.58,6.57H6.57A6.6,6.6,0,0,1,0,116.31V19.74a6.59,6.59,0,0,1,6.57-6.57Zm44,19.44H85.24V35.9H50.52V32.61Zm0,17.92H62.47v3.3H50.52v-3.3Zm0-9.33H67.31v3.3H50.52V41.2Zm25.13-.92h2.87a1,1,0,0,1,1,1v3.33h3.33a1,1,0,0,1,1,1v2.88a1,1,0,0,1-1,1H79.5v3.25a1,1,0,0,1-1,1H75.65a1,1,0,0,1-1-1V49.42H71.34a1,1,0,0,1-1-1V45.57a1,1,0,0,1,1-1h3.33V41.26a1,1,0,0,1,1-1Zm-52,6.33c.14-.31.26-.66.34-.89a11.45,11.45,0,0,1-.9-1.29L22.2,43a2.66,2.66,0,0,1-.51-1.32.94.94,0,0,1,.09-.48.83.83,0,0,1,.31-.36.94.94,0,0,1,.22-.12,22.59,22.59,0,0,1,0-2.61,3.84,3.84,0,0,1,.11-.59,3.52,3.52,0,0,1,1.54-2,4.74,4.74,0,0,1,1.3-.58c.29-.08-.25-1,.05-1,1.45-.15,3.8,1.18,4.81,2.27a3.55,3.55,0,0,1,.9,2.24l-.06,2.38h0a.63.63,0,0,1,.48.49,2,2,0,0,1-.25,1.25h0l0,0-1,1.72A9.09,9.09,0,0,1,28.82,46a2.43,2.43,0,0,0,.14.2c1.76,2.59,4.14,1.26,6.91,3.28l-.09.11V54H17V49.55H17a.25.25,0,0,1,.12-.13c1.79-1,5.92-1.39,6.55-2.81Zm-9-17.55H38.11a2,2,0,0,1,2,2V56.86a2,2,0,0,1-.59,1.39,2,2,0,0,1-1.4.6H14.72a2,2,0,0,1-2-2V31.05a2,2,0,0,1,2-2Zm23.39,1.7H14.72a.29.29,0,0,0-.2.09.25.25,0,0,0-.09.2V56.86a.28.28,0,0,0,.09.19.27.27,0,0,0,.2.09H38.11a.31.31,0,0,0,.28-.28V31.05a.27.27,0,0,0-.09-.2.28.28,0,0,0-.19-.09ZM13.78,101.68H69.91V105H13.78v-3.27Zm0-12.55H85V92.4H13.78V89.13Zm0-14.86h17l3.07-6.22,6.05,8.71L46,64.84l6.31,12.37L55,74.7l1.1-.43h8.63l5.41-5.58,5,5.58H85v3.27H73.69l-3.63-4.07-3.94,4.07H56.74l-5.42,5L46,72,40.27,83.07l-6-8.63-1.53,3.1h-19V74.27ZM31.45,9.18H38.9A10.18,10.18,0,0,1,48.78,0a10.16,10.16,0,0,1,9.86,9.07l8.72.11a1.1,1.1,0,0,1,1.1,1.1V20.79a1.1,1.1,0,0,1-1.1,1.1H31.46a1.1,1.1,0,0,1-1.1-1.1V10.28a1.08,1.08,0,0,1,1.09-1.1Zm13.24,4.51A7.43,7.43,0,0,0,47.35,16,4.78,4.78,0,0,0,50,16a7.17,7.17,0,0,0,3.1-3.3,5.44,5.44,0,0,0,.11-1.09,4.45,4.45,0,1,0-8.88,0,5.16,5.16,0,0,0,.41,2Z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-eebb733 elementor-widget__width-initial elementor-view-default exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon" data-id="eebb733" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 80.63 122.88"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>cost-reduction-dollar</title><path class="cls-1" d="M80.63,40.31A40.33,40.33,0,0,1,54.9,77.9v6H68.33c2.24.1,3.84.84,4.76,2.24,2.49,3.74-.92,7.44-3.28,10-6.71,7.36-21.9,20.7-25.21,24.59a5.48,5.48,0,0,1-8.59,0c-3.43-4-19.45-18.14-25.82-25.3C8,93,5.24,89.61,7.54,86.16c.94-1.4,2.52-2.14,4.76-2.24H25.69v-6A40.32,40.32,0,1,1,80.63,40.31Zm-27,5.75a11.11,11.11,0,0,1-2.39,7,12.4,12.4,0,0,1-7.28,4.26l-.51,4.44H36l-.91-1,.45-3.1A48.58,48.58,0,0,1,27,56l1.74-10.38,1.09-.84a24.39,24.39,0,0,0,5.48,3.29,13,13,0,0,0,4.9,1.29c1,0,1.55-.34,1.55-1a1.44,1.44,0,0,0-.88-1.26,26.86,26.86,0,0,0-3.06-1.32A34.24,34.24,0,0,1,33,43.62a10.5,10.5,0,0,1-3.48-3.19A9,9,0,0,1,28,35.11a10.73,10.73,0,0,1,2.44-7A12.79,12.79,0,0,1,37.35,24l.45-5.06H45l1.09,1-.38,3.58A29.81,29.81,0,0,1,53,25.06L51.27,35l-1.68.45a23.11,23.11,0,0,0-4.67-2.38,11.73,11.73,0,0,0-3.77-.9c-.9,0-1.35.27-1.35.83a1.55,1.55,0,0,0,.93,1.36,28.61,28.61,0,0,0,3.13,1.35,36.52,36.52,0,0,1,4.86,2.09,10.13,10.13,0,0,1,3.42,3.1,8.74,8.74,0,0,1,1.45,5.18ZM40.31,8.55A31.77,31.77,0,1,1,8.55,40.31,31.76,31.76,0,0,1,40.31,8.55Z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-4e623db elementor-widget__width-initial elementor-view-default exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon" data-id="4e623db" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 79.63"><title>good-quality-thumbs-up</title><path d="M91.4,2.81A3.59,3.59,0,0,1,93.21.91,4.23,4.23,0,0,1,96.12.75,8,8,0,0,1,98.9,2.17,13.71,13.71,0,0,1,104,12a29.48,29.48,0,0,1-.07,4.38c-.08,1-.21,2.1-.39,3.22h10.58a11.37,11.37,0,0,1,4.76,1.22,7.76,7.76,0,0,1,2.94,2.58,6.51,6.51,0,0,1,1.06,3.93,9.29,9.29,0,0,1-1,3.63,11.36,11.36,0,0,1,.28,4.39,5.11,5.11,0,0,1-1.45,3A13.21,13.21,0,0,1,120,43.3,10.45,10.45,0,0,1,117.66,47a15.21,15.21,0,0,1-.47,2.62,9,9,0,0,1-1.32,2.83h0c-1.79,2.53-3.23,2.47-5.5,2.38-.32,0-.65,0-1.18,0H88.59A10,10,0,0,1,84,53.86a11,11,0,0,1-3.64-3.17L80,49.81v-24l1-.28c2.65-.71,4.74-3,6.37-5.7a40,40,0,0,0,3.64-8.72V4.85a3.94,3.94,0,0,1,.34-2ZM29.51,1.36A39.88,39.88,0,0,1,71.75,16H65.31A34.87,34.87,0,0,0,9.7,22.26l-.07.13A34.88,34.88,0,0,0,22.26,69.94l.13.07A34.9,34.9,0,0,0,66,62.81H72.3A39.78,39.78,0,0,1,19.91,74.29l-.14-.09A39.77,39.77,0,0,1,5.35,19.91l.09-.14A39.65,39.65,0,0,1,29.51,1.36ZM18.94,18.93l4.28,1.46,3.62-2.71-.06,4.52,3.7,2.61-4.32,1.34-1.34,4.32-2.61-3.7-4.52.06,2.71-3.62-1.46-4.28ZM10.58,39.81l4.06-2,.64-4.48,3.15,3.24,4.46-.76-2.11,4,2.11,4L18.43,43l-3.15,3.24-.64-4.48-4.06-2Zm8.36,20.87,1.45-4.28-2.7-3.62,4.52.06,2.6-3.69,1.34,4.32,4.32,1.33-3.69,2.61.06,4.52-3.62-2.71-4.28,1.46ZM39.81,69l-2-4.05-4.47-.65,3.24-3.15-.77-4.46,4,2.11,4-2.11L43,61.19l3.24,3.15L41.8,65l-2,4.05Zm0-58.46,2,4.05,4.47.65-3.24,3.15.77,4.46-4-2.11-4,2.11.77-4.46-3.24-3.15,4.47-.65,2-4.05Zm28.54,22.9a2.21,2.21,0,1,0-2.21-2.21,2.21,2.21,0,0,0,2.21,2.21ZM54.09,23.28h20.7a2.12,2.12,0,0,1,2.11,2.11V53.46a2.12,2.12,0,0,1-2.11,2.11H49.59a2.12,2.12,0,0,1-2.11-2.11c2.3-9.36,2.2-18.71,4.5-28.07a2.12,2.12,0,0,1,2.11-2.11ZM94.39,3.47a1.12,1.12,0,0,0-.53.82v7l-.06.4a43.53,43.53,0,0,1-4,9.55c-1.76,2.94-4,5.47-7,6.64V49.31a7.53,7.53,0,0,0,2.39,2,7.41,7.41,0,0,0,3.39.63h20.6c.37,0,.84,0,1.29,0,1.35,0,2.2.09,3.11-1.2h0a6.35,6.35,0,0,0,.9-2,12.86,12.86,0,0,0,.41-2.6l.44-.92a8.12,8.12,0,0,0,2-3,11.1,11.1,0,0,0,.54-4.54l0-.84.71-.44a2.15,2.15,0,0,0,.86-1.56,9.2,9.2,0,0,0-.36-3.73l.11-1a7.13,7.13,0,0,0,.89-2.92,3.87,3.87,0,0,0-.62-2.3,5,5,0,0,0-1.88-1.63,8.36,8.36,0,0,0-3.52-.89H100.17l.31-1.66c.3-1.61.52-3.15.65-4.6a26.58,26.58,0,0,0,.06-4,10.84,10.84,0,0,0-4-7.82,5.41,5.41,0,0,0-1.78-.94,1.56,1.56,0,0,0-1,0Z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-3628418 elementor-section-stretched elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="3628418" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-dd2ad1a exad-glass-effect-no exad-sticky-section-no" data-id="dd2ad1a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c5507de elementor-widget__width-initial exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="c5507de" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							Faster Procedure Time						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						Our unique disposable kits and delivery system treat the dysfunctional vein with extreme accuracy and within as little as 3 minutes.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-e5b654d elementor-widget__width-initial exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="e5b654d" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							Cost Savings						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						Our single-use products eliminate the need for capital equipment to perform treatments. Each product is a complete kit that contains all the necessary components for performing outpatient procedures in any private clinic or hospital setting.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d357d9e elementor-widget__width-initial exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="d357d9e" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							Immediate Patient Satisfaction						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						Our NT-NT (Non-Thermal, Non-Tumescent) technology allows patients to experience little to no discomfort during the procedure, regain full mobility right after treatment and benefit from immediate improvement of painful and/or cosmetic symptoms.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-824736f elementor-section-full_width elementor-section-stretched elementor-hidden-desktop elementor-hidden-tablet elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="824736f" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e85743e exad-glass-effect-no exad-sticky-section-no" data-id="e85743e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a54a03d elementor-view-default elementor-position-top elementor-mobile-position-top exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="a54a03d" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 98.82 122.88"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>medical-history</title><path class="cls-1" d="M6.57,13.17H22.34V19H11.18a5.62,5.62,0,0,0-5.56,5.55v87a5.6,5.6,0,0,0,5.56,5.55H87.64a5.57,5.57,0,0,0,5.55-5.55v-87A5.6,5.6,0,0,0,87.64,19H76.48V13.17H92.24a6.6,6.6,0,0,1,6.58,6.57v96.57a6.62,6.62,0,0,1-6.58,6.57H6.57A6.6,6.6,0,0,1,0,116.31V19.74a6.59,6.59,0,0,1,6.57-6.57Zm44,19.44H85.24V35.9H50.52V32.61Zm0,17.92H62.47v3.3H50.52v-3.3Zm0-9.33H67.31v3.3H50.52V41.2Zm25.13-.92h2.87a1,1,0,0,1,1,1v3.33h3.33a1,1,0,0,1,1,1v2.88a1,1,0,0,1-1,1H79.5v3.25a1,1,0,0,1-1,1H75.65a1,1,0,0,1-1-1V49.42H71.34a1,1,0,0,1-1-1V45.57a1,1,0,0,1,1-1h3.33V41.26a1,1,0,0,1,1-1Zm-52,6.33c.14-.31.26-.66.34-.89a11.45,11.45,0,0,1-.9-1.29L22.2,43a2.66,2.66,0,0,1-.51-1.32.94.94,0,0,1,.09-.48.83.83,0,0,1,.31-.36.94.94,0,0,1,.22-.12,22.59,22.59,0,0,1,0-2.61,3.84,3.84,0,0,1,.11-.59,3.52,3.52,0,0,1,1.54-2,4.74,4.74,0,0,1,1.3-.58c.29-.08-.25-1,.05-1,1.45-.15,3.8,1.18,4.81,2.27a3.55,3.55,0,0,1,.9,2.24l-.06,2.38h0a.63.63,0,0,1,.48.49,2,2,0,0,1-.25,1.25h0l0,0-1,1.72A9.09,9.09,0,0,1,28.82,46a2.43,2.43,0,0,0,.14.2c1.76,2.59,4.14,1.26,6.91,3.28l-.09.11V54H17V49.55H17a.25.25,0,0,1,.12-.13c1.79-1,5.92-1.39,6.55-2.81Zm-9-17.55H38.11a2,2,0,0,1,2,2V56.86a2,2,0,0,1-.59,1.39,2,2,0,0,1-1.4.6H14.72a2,2,0,0,1-2-2V31.05a2,2,0,0,1,2-2Zm23.39,1.7H14.72a.29.29,0,0,0-.2.09.25.25,0,0,0-.09.2V56.86a.28.28,0,0,0,.09.19.27.27,0,0,0,.2.09H38.11a.31.31,0,0,0,.28-.28V31.05a.27.27,0,0,0-.09-.2.28.28,0,0,0-.19-.09ZM13.78,101.68H69.91V105H13.78v-3.27Zm0-12.55H85V92.4H13.78V89.13Zm0-14.86h17l3.07-6.22,6.05,8.71L46,64.84l6.31,12.37L55,74.7l1.1-.43h8.63l5.41-5.58,5,5.58H85v3.27H73.69l-3.63-4.07-3.94,4.07H56.74l-5.42,5L46,72,40.27,83.07l-6-8.63-1.53,3.1h-19V74.27ZM31.45,9.18H38.9A10.18,10.18,0,0,1,48.78,0a10.16,10.16,0,0,1,9.86,9.07l8.72.11a1.1,1.1,0,0,1,1.1,1.1V20.79a1.1,1.1,0,0,1-1.1,1.1H31.46a1.1,1.1,0,0,1-1.1-1.1V10.28a1.08,1.08,0,0,1,1.09-1.1Zm13.24,4.51A7.43,7.43,0,0,0,47.35,16,4.78,4.78,0,0,0,50,16a7.17,7.17,0,0,0,3.1-3.3,5.44,5.44,0,0,0,.11-1.09,4.45,4.45,0,1,0-8.88,0,5.16,5.16,0,0,0,.41,2Z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							<span style="font-style: normal">Faster procedure time</span>						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						<br>Our unique disposable kits and delivery system treat the dysfunctional vein with extreme accuracy and within as little as 3 minutes.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-f5b2b9b elementor-view-default elementor-position-top elementor-mobile-position-top exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="f5b2b9b" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 80.63 122.88"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>cost-reduction-dollar</title><path class="cls-1" d="M80.63,40.31A40.33,40.33,0,0,1,54.9,77.9v6H68.33c2.24.1,3.84.84,4.76,2.24,2.49,3.74-.92,7.44-3.28,10-6.71,7.36-21.9,20.7-25.21,24.59a5.48,5.48,0,0,1-8.59,0c-3.43-4-19.45-18.14-25.82-25.3C8,93,5.24,89.61,7.54,86.16c.94-1.4,2.52-2.14,4.76-2.24H25.69v-6A40.32,40.32,0,1,1,80.63,40.31Zm-27,5.75a11.11,11.11,0,0,1-2.39,7,12.4,12.4,0,0,1-7.28,4.26l-.51,4.44H36l-.91-1,.45-3.1A48.58,48.58,0,0,1,27,56l1.74-10.38,1.09-.84a24.39,24.39,0,0,0,5.48,3.29,13,13,0,0,0,4.9,1.29c1,0,1.55-.34,1.55-1a1.44,1.44,0,0,0-.88-1.26,26.86,26.86,0,0,0-3.06-1.32A34.24,34.24,0,0,1,33,43.62a10.5,10.5,0,0,1-3.48-3.19A9,9,0,0,1,28,35.11a10.73,10.73,0,0,1,2.44-7A12.79,12.79,0,0,1,37.35,24l.45-5.06H45l1.09,1-.38,3.58A29.81,29.81,0,0,1,53,25.06L51.27,35l-1.68.45a23.11,23.11,0,0,0-4.67-2.38,11.73,11.73,0,0,0-3.77-.9c-.9,0-1.35.27-1.35.83a1.55,1.55,0,0,0,.93,1.36,28.61,28.61,0,0,0,3.13,1.35,36.52,36.52,0,0,1,4.86,2.09,10.13,10.13,0,0,1,3.42,3.1,8.74,8.74,0,0,1,1.45,5.18ZM40.31,8.55A31.77,31.77,0,1,1,8.55,40.31,31.76,31.76,0,0,1,40.31,8.55Z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							<span style="font-style: normal">Cost savings</span>						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						<br>Our single-use products eliminate the need for capital equipment to perform treatments. Each product is a complete kit that contains all the necessary components for performing outpatient procedures in any private clinic or hospital setting.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-fa3b27b elementor-view-default elementor-position-top elementor-mobile-position-top exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="fa3b27b" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 79.63"><title>good-quality-thumbs-up</title><path d="M91.4,2.81A3.59,3.59,0,0,1,93.21.91,4.23,4.23,0,0,1,96.12.75,8,8,0,0,1,98.9,2.17,13.71,13.71,0,0,1,104,12a29.48,29.48,0,0,1-.07,4.38c-.08,1-.21,2.1-.39,3.22h10.58a11.37,11.37,0,0,1,4.76,1.22,7.76,7.76,0,0,1,2.94,2.58,6.51,6.51,0,0,1,1.06,3.93,9.29,9.29,0,0,1-1,3.63,11.36,11.36,0,0,1,.28,4.39,5.11,5.11,0,0,1-1.45,3A13.21,13.21,0,0,1,120,43.3,10.45,10.45,0,0,1,117.66,47a15.21,15.21,0,0,1-.47,2.62,9,9,0,0,1-1.32,2.83h0c-1.79,2.53-3.23,2.47-5.5,2.38-.32,0-.65,0-1.18,0H88.59A10,10,0,0,1,84,53.86a11,11,0,0,1-3.64-3.17L80,49.81v-24l1-.28c2.65-.71,4.74-3,6.37-5.7a40,40,0,0,0,3.64-8.72V4.85a3.94,3.94,0,0,1,.34-2ZM29.51,1.36A39.88,39.88,0,0,1,71.75,16H65.31A34.87,34.87,0,0,0,9.7,22.26l-.07.13A34.88,34.88,0,0,0,22.26,69.94l.13.07A34.9,34.9,0,0,0,66,62.81H72.3A39.78,39.78,0,0,1,19.91,74.29l-.14-.09A39.77,39.77,0,0,1,5.35,19.91l.09-.14A39.65,39.65,0,0,1,29.51,1.36ZM18.94,18.93l4.28,1.46,3.62-2.71-.06,4.52,3.7,2.61-4.32,1.34-1.34,4.32-2.61-3.7-4.52.06,2.71-3.62-1.46-4.28ZM10.58,39.81l4.06-2,.64-4.48,3.15,3.24,4.46-.76-2.11,4,2.11,4L18.43,43l-3.15,3.24-.64-4.48-4.06-2Zm8.36,20.87,1.45-4.28-2.7-3.62,4.52.06,2.6-3.69,1.34,4.32,4.32,1.33-3.69,2.61.06,4.52-3.62-2.71-4.28,1.46ZM39.81,69l-2-4.05-4.47-.65,3.24-3.15-.77-4.46,4,2.11,4-2.11L43,61.19l3.24,3.15L41.8,65l-2,4.05Zm0-58.46,2,4.05,4.47.65-3.24,3.15.77,4.46-4-2.11-4,2.11.77-4.46-3.24-3.15,4.47-.65,2-4.05Zm28.54,22.9a2.21,2.21,0,1,0-2.21-2.21,2.21,2.21,0,0,0,2.21,2.21ZM54.09,23.28h20.7a2.12,2.12,0,0,1,2.11,2.11V53.46a2.12,2.12,0,0,1-2.11,2.11H49.59a2.12,2.12,0,0,1-2.11-2.11c2.3-9.36,2.2-18.71,4.5-28.07a2.12,2.12,0,0,1,2.11-2.11ZM94.39,3.47a1.12,1.12,0,0,0-.53.82v7l-.06.4a43.53,43.53,0,0,1-4,9.55c-1.76,2.94-4,5.47-7,6.64V49.31a7.53,7.53,0,0,0,2.39,2,7.41,7.41,0,0,0,3.39.63h20.6c.37,0,.84,0,1.29,0,1.35,0,2.2.09,3.11-1.2h0a6.35,6.35,0,0,0,.9-2,12.86,12.86,0,0,0,.41-2.6l.44-.92a8.12,8.12,0,0,0,2-3,11.1,11.1,0,0,0,.54-4.54l0-.84.71-.44a2.15,2.15,0,0,0,.86-1.56,9.2,9.2,0,0,0-.36-3.73l.11-1a7.13,7.13,0,0,0,.89-2.92,3.87,3.87,0,0,0-.62-2.3,5,5,0,0,0-1.88-1.63,8.36,8.36,0,0,0-3.52-.89H100.17l.31-1.66c.3-1.61.52-3.15.65-4.6a26.58,26.58,0,0,0,.06-4,10.84,10.84,0,0,0-4-7.82,5.41,5.41,0,0,0-1.78-.94,1.56,1.56,0,0,0-1,0Z"></path></svg>				</span>
+			</div>
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							<span style="font-style: normal">Immediate patient satisfaction</span>						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						Our NT-NT (Non-Thermal, Non-Tumescent) technology allows patients to experience little to no discomfort during the procedure, regain full mobility right after treatment and benefit from immediate improvement of painful and/or cosmetic symptoms.					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-16b5ae6 elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="16b5ae6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8d656aa exad-glass-effect-no exad-sticky-section-no" data-id="8d656aa" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1e8fc02 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-menu-anchor" data-id="1e8fc02" data-element_type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-menu-anchor" id="contact-us-home"></div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-4f85218 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-box" data-id="4f85218" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-box-wrapper">
+
+			
+						<div class="elementor-icon-box-content">
+
+									<h2 class="elementor-icon-box-title">
+						<span>
+							Meet our Groundbreaking Solutions						</span>
+					</h2>
+				
+									<p class="elementor-icon-box-description">
+						Please fill in the following details and one of our skilled professionals will get back to you					</p>
+				
+			</div>
+			
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-818cff3 elementor-button-align-start exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-form" data-id="818cff3" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;step_type&quot;:&quot;none&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" name="Home Form" aria-label="Home Form">
+			<input type="hidden" name="post_id" value="1048">
+			<input type="hidden" name="form_id" value="818cff3">
+			<input type="hidden" name="referer_title" value="Varicose Veins Solutions | VVT MEDICAL Ltd">
+
+							<input type="hidden" name="queried_id" value="1048">
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-name" class="elementor-field-label">
+								First Name							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_bd274d0 elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_bd274d0" class="elementor-field-label">
+								Last Name							</label>
+														<input size="1" type="text" name="form_fields[field_bd274d0]" id="form-field-field_bd274d0" class="elementor-field elementor-size-md  elementor-field-textual" required="required">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-email" class="elementor-field-label">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-md  elementor-field-textual" required="required">
+											</div>
+								<div class="elementor-field-type-text">
+					<input size="1" type="text" name="form_fields[field_2451e37]" id="form-field-field_2451e37" class="elementor-field elementor-size-md " style="display:none !important;">				</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_e6d5c6d elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_e6d5c6d" class="elementor-field-label">
+								Phone							</label>
+								<input size="1" type="tel" name="form_fields[field_e6d5c6d]" id="form-field-field_e6d5c6d" class="elementor-field elementor-size-md  elementor-field-textual" required="required" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+
+						</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_c962616 elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_c962616" class="elementor-field-label">
+								Country							</label>
+														<input size="1" type="text" name="form_fields[field_c962616]" id="form-field-field_c962616" class="elementor-field elementor-size-md  elementor-field-textual" required="required">
+											</div>
+								<div class="elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-iama elementor-col-100">
+												<label for="form-field-iama" class="elementor-field-label">
+								I'm A							</label>
+						<div class="elementor-field-subgroup  elementor-subgroup-inline"><span class="elementor-field-option"><input type="radio" value="Physician" id="form-field-iama-0" name="form_fields[iama]"> <label for="form-field-iama-0">Physician</label></span><span class="elementor-field-option"><input type="radio" value="Patient" id="form-field-iama-1" name="form_fields[iama]"> <label for="form-field-iama-1">Patient</label></span><span class="elementor-field-option"><input type="radio" value="Other" id="form-field-iama-2" name="form_fields[iama]"> <label for="form-field-iama-2">Other</label></span></div>				</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+												<label for="form-field-message" class="elementor-field-label">
+								Tell us what you need							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-md" name="form_fields[message]" id="form-field-message" rows="10" placeholder="Tell us what you need"></textarea>				</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_b6feea4 elementor-col-100 recaptcha_v3-inline">
+					<div class="elementor-field" id="form-field-field_b6feea4"><div class="elementor-g-recaptcha" data-sitekey="6LdpgxAgAAAAAF8dNraoFTKGXHBCcmiBnTFr0JAF" data-type="v3" data-action="Form" data-badge="inline" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-md" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Join the revolution</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-533b937 pp-buttons-halign-right elementor-widget__width-inherit elementor-hidden-tablet elementor-hidden-mobile pp-buttons-valign-middle pp-buttons-stack-none exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-pp-buttons" data-id="533b937" data-element_type="widget" data-settings="{&quot;sticky&quot;:&quot;bottom&quot;,&quot;sticky_offset&quot;:18,&quot;sticky_effects_offset&quot;:39,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_anchor_link_offset&quot;:0}" data-widget_type="pp-buttons.default">
+				<div class="elementor-widget-container">
+							<div class="pp-buttons-group">
+											<a href="#tops" class="pp-button elementor-button elementor-size-sm elementor-repeater-item-5c6d4d0 " data-tooltip="{&quot;show_tooltip&quot;:&quot;yes&quot;,&quot;id&quot;:&quot;533b937-5c6d4d0&quot;,&quot;position&quot;:&quot;top&quot;,&quot;position_mobile&quot;:&quot;top&quot;,&quot;position_tablet&quot;:&quot;top&quot;}" data-tooltip-content="#pp-tooltip-content-533b937-5c6d4d0">
+					<div class="pp-button-content-wrapper">
+						<span class="pp-button-content-inner pp-icon-before">
+																	<span class="pp-button-icon pp-icon">
+											<i aria-hidden="true" class="fas fa-chevron-up"></i>										</span>
+																</span>
+					</div>
+				</a>
+									<div class="pp-tooltip-container">
+						<div class="pp-tooltip-content pp-tooltip-content-533b937" id="pp-tooltip-content-533b937-5c6d4d0">
+							Back to top						</div>
+					</div>
+										</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+		
+			</div>
+
+	
+</main>
+
+			<footer data-elementor-type="footer" data-elementor-id="1686" class="elementor elementor-1686 elementor-location-footer" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-ad082da elementor-section-stretched elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="ad082da" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f552602 exad-glass-effect-no exad-sticky-section-no" data-id="f552602" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-50a4f7c elementor-widget__width-initial elementor-icon-list--layout-traditional elementor-list-item-link-full_width exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-list" data-id="50a4f7c" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/products/the-sclerosafe-platform/">
+
+											<span class="elementor-icon-list-text">The Sclerosafe Platform</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/products/v-block/">
+
+											<span class="elementor-icon-list-text">V-Block</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/varicose-vein/">
+
+											<span class="elementor-icon-list-text">Varicose Veins</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/vvt-medical-blog/">
+
+											<span class="elementor-icon-list-text">VVT Medical Blog</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/resources/faq/">
+
+											<span class="elementor-icon-list-text">FAQ</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/company/about-us/">
+
+											<span class="elementor-icon-list-text">About Us</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-aa30e3d elementor-widget__width-initial exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-text-editor" data-id="aa30e3d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<b>Contact Information:</b>
+<p><a target="_blank" href="https://ul.waze.com/ul?place=ChIJ_9DmsL05HRUR78p1v6BGEds&amp;ll=32.17171820%2C34.92639310&amp;navigate=yes&amp;utm_campaign=default&amp;utm_source=waze_website&amp;utm_medium=lm_share_location">Hasadna 6 st. Kfar Sava 4442405 Israel</a></p>
+<p><a href="tel:097660480">+972-9766-0480</a></p>
+<p><a href="mailto:info@vvtmed.com">info@vvtmed.com</a></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-90fe03d elementor-shape-circle elementor-grid-3 e-grid-align-right elementor-widget__width-initial exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-social-icons" data-id="90fe03d" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-0452774" href="https://www.linkedin.com/company/vvt-medical-ltd/mycompany/?viewAsMember=true" target="_blank">
+						<span class="elementor-screen-only">Linkedin-in</span>
+						<i class="fab fa-linkedin-in"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-702b757" href="https://www.youtube.com/channel/UCqzVKyULhJl4_1dy4BLrOBQ" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-f3a27ab" href="https://www.facebook.com/VVTMedical/?ref=pages_you_manage" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-16117fe" href="https://www.instagram.com/vvt_medical/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<i class="fab fa-instagram"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-e1eef10" href="https://twitter.com/VVTMedicalLtd" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<i class="fab fa-twitter"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-tiktok elementor-repeater-item-ae1262f" href="https://www.tiktok.com/@vvtmedical?lang=en" target="_blank">
+						<span class="elementor-screen-only">Tiktok</span>
+						<i class="fab fa-tiktok"></i>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6ba3447 elementor-section-full_width elementor-section-stretched elementor-hidden-desktop elementor-section-content-middle elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="6ba3447" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-491c594 exad-glass-effect-no exad-sticky-section-no" data-id="491c594" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4d64299 elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-icon-list" data-id="4d64299" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/products/the-sclerosafe-platform/">
+
+											<span class="elementor-icon-list-text">The Sclerosafe Platform</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/products/v-block/">
+
+											<span class="elementor-icon-list-text">V-Block</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/varicose-vein/">
+
+											<span class="elementor-icon-list-text">Varicose Veins</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/vvt-medical-blog/">
+
+											<span class="elementor-icon-list-text">VVT Medical Blog</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/resources/faq/">
+
+											<span class="elementor-icon-list-text">FAQ</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.vvtmed.com/company/about-us/">
+
+											<span class="elementor-icon-list-text">About Us</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-0495151 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-text-editor" data-id="0495151" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<b>Contact Information:</b>
+<p><a target="_blank" href="https://ul.waze.com/ul?place=ChIJ_9DmsL05HRUR78p1v6BGEds&amp;ll=32.17171820%2C34.92639310&amp;navigate=yes&amp;utm_campaign=default&amp;utm_source=waze_website&amp;utm_medium=lm_share_location">Hasadna 6 st. Kfar Sava 4442405 Israel</a></p>
+<p><a href="tel:097660480">+972-9766-0480</a></p>
+<p><a href="mailto:info@vvtmed.com">info@vvtmed.com</a></p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-7b5cb12 elementor-shape-circle elementor-grid-3 e-grid-align-mobile-center e-grid-align-center exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-social-icons" data-id="7b5cb12" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-repeater-item-0452774" href="https://www.linkedin.com/company/vvt-medical-ltd/mycompany/?viewAsMember=true" target="_blank">
+						<span class="elementor-screen-only">Linkedin-in</span>
+						<i class="fab fa-linkedin-in"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-702b757" href="https://www.youtube.com/channel/UCqzVKyULhJl4_1dy4BLrOBQ" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-f3a27ab" href="https://www.facebook.com/VVTMedical/?ref=pages_you_manage" target="_blank">
+						<span class="elementor-screen-only">Facebook-f</span>
+						<i class="fab fa-facebook-f"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-16117fe" href="https://www.instagram.com/vvt_medical/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<i class="fab fa-instagram"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-e1eef10" href="https://twitter.com/VVTMedicalLtd" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<i class="fab fa-twitter"></i>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-tiktok elementor-repeater-item-ae1262f" href="https://www.tiktok.com/@vvtmedical?lang=en" target="_blank">
+						<span class="elementor-screen-only">Tiktok</span>
+						<i class="fab fa-tiktok"></i>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-0546126 exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-text-editor" data-id="0546126" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<span style="font-size:14px;">®Copyright 2022 All Rights Reserved</span>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-32fde59 elementor-hidden-desktop elementor-section-boxed elementor-section-height-default elementor-section-height-default exad-glass-effect-no exad-sticky-section-no" data-id="32fde59" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;bottom&quot;,&quot;sticky_on&quot;:[&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-bb865e3 exad-glass-effect-no exad-sticky-section-no" data-id="bb865e3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-edaf121 elementor-align-center elementor-widget__width-initial exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-button" data-id="edaf121" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="https://www.vvtmed.com/contact-us/" id="footer-button">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Contact Us</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-3c5e563 pp-buttons-halign-mobile-center elementor-widget-mobile__width-initial pp-buttons-valign-middle pp-buttons-halign-left pp-buttons-stack-none exad-sticky-section-no exad-glass-effect-no elementor-widget elementor-widget-pp-buttons" data-id="3c5e563" data-element_type="widget" data-widget_type="pp-buttons.default">
+				<div class="elementor-widget-container">
+							<div class="pp-buttons-group">
+											<a href="#tops" class="pp-button elementor-button elementor-size-md elementor-repeater-item-65b7e8b ">
+					<div class="pp-button-content-wrapper">
+						<span class="pp-button-content-inner pp-icon-before">
+																	<span class="pp-button-icon pp-icon">
+											<i aria-hidden="true" class="fas fa-chevron-up"></i>										</span>
+																</span>
+					</div>
+				</a>
+										</div>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/hello-elementor-child\/*","\/wp-content\/themes\/hello-elementor\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script data-minify="1" src="https://www.vvtmed.com/wp-content/cache/min/1/wp-content/plugins/exclusive-addons-for-elementor/assets/vendor/js/jquery.sticky-sidebar.js?ver=1756388454" id="exad-sticky-jquery-js" defer=""></script>
+<script id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.vvtmed.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.31.3" id="elementor-webpack-runtime-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.31.3" id="elementor-frontend-modules-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.31.3","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"theme_builder_v2":true,"e_element_cache":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true},"urls":{"assets":"https:\/\/www.vvtmed.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.vvtmed.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.vvtmed.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"f7996ce1ea"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":1048,"title":"Varicose%20Veins%20Solutions%20%7C%20VVT%20MEDICAL%20Ltd","excerpt":"","featuredImage":false}};
+</script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.31.3" id="elementor-frontend-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.31.2" id="e-sticky-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/powerpack-elements/assets/lib/tooltipster/tooltipster.min.js?ver=2.12.10" id="pp-tooltipster-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/powerpack-elements/assets/js/min/frontend-buttons.min.js?ver=2.12.10" id="pp-buttons-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js" defer=""></script>
+<script id="exad-main-script-js-extra">
+var exad_ajax_object = {"ajax_url":"https:\/\/www.vvtmed.com\/wp-admin\/admin-ajax.php","nonce":"ec976ca7f0"};
+</script>
+<script src="https://www.vvtmed.com/wp-content/plugins/exclusive-addons-for-elementor/assets/js/exad-scripts.min.js?ver=2.7.9.5" id="exad-main-script-js" defer=""></script>
+<script id="rdt_custom_js-js-extra">
+var rdt_custom_object = {"ajaxurl":"https:\/\/www.vvtmed.com\/wp-admin\/admin-ajax.php","home_url":"https:\/\/www.vvtmed.com","stylesheet_url":"https:\/\/www.vvtmed.com\/wp-content\/themes\/hello-elementor-child"};
+</script>
+<script src="https://www.vvtmed.com/wp-content/themes/hello-elementor-child/js/rdt-scripts.js?ver=260311-205805" id="rdt_custom_js-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=explicit&amp;ver=3.31.2" id="elementor-recaptcha_v3-api-js"></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.31.2" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script src="https://www.vvtmed.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.vvtmed.com\/wp-admin\/admin-ajax.php","nonce":"b4836a606d","urls":{"assets":"https:\/\/www.vvtmed.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.vvtmed.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.vvtmed.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.31.2" id="elementor-pro-frontend-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.31.2" id="pro-elements-handlers-js" defer=""></script>
+<script src="https://www.vvtmed.com/wp-content/plugins/powerpack-elements/assets/js/min/frontend-tooltip.min.js?ver=2.12.10" id="pp-elements-tooltip-js" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://www.vvtmed.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span><svg style="display: none;" class="e-font-icon-svg-symbols"></svg><span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

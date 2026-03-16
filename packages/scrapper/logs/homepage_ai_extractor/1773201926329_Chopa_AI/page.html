@@ -1,0 +1,1145 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chopa AI - Building the Future with AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --chopa-green: #27C39F;
+            --dark-gray: #111111;
+            --white: #FFFFFF;
+            --light-gray: #F5F7FA;
+            --neon-purple: #8B5CF6;
+            --neon-teal: #14B8A6;
+            --neon-pink: #EC4899;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--chopa-green);
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--neon-teal);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--chopa-green);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(39, 195, 159, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--light-gray) 0%, rgba(139, 92, 246, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%2327C39F;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%2327C39F;stop-opacity:0" /></radialGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23grad1)"><animate attributeName="cx" values="200;800;200" dur="20s" repeatCount="indefinite"/></circle><circle cx="800" cy="800" r="200" fill="url(%23grad1)"><animate attributeName="cy" values="800;200;800" dur="25s" repeatCount="indefinite"/></circle></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--dark-gray), var(--chopa-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(39, 195, 159, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark-gray);
+            padding: 1rem 2rem;
+            border: 2px solid var(--dark-gray);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark-gray);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--dark-gray), var(--chopa-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--dark-gray);
+            color: white;
+        }
+
+        .products .section-title {
+            background: linear-gradient(135deg, white, var(--chopa-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .products .section-subtitle {
+            color: #ccc;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: #1a1a1a;
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid #333;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(39, 195, 159, 0.2);
+            border-color: var(--chopa-green);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .product-tagline {
+            font-style: italic;
+            color: var(--chopa-green);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .product-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-live {
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+            color: white;
+        }
+
+        .badge-flagship {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .product-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-bullets {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .product-bullets li {
+            color: #ddd;
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .product-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--chopa-green);
+            font-weight: bold;
+        }
+
+        .product-cta {
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .product-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(39, 195, 159, 0.4);
+        }
+
+        .products-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .products-intro p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .products-footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-style: italic;
+            color: #888;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--light-gray), rgba(39, 195, 159, 0.1));
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .modal-header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            background: white;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e7ff;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--chopa-green);
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(39, 195, 159, 0.4);
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(39, 195, 159, 0.5);
+        }
+
+        .form-button:disabled {
+            opacity: 0.6;
+            transform: none;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--chopa-green);
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            color: #ccc;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .contact h2 {
+                font-size: 2.5rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Floating Elements */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--chopa-green), var(--neon-teal));
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--neon-teal), var(--neon-purple));
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">Chopa AI</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="nav-cta" onclick="openModal(); return false;">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content fade-in visible">
+                <h1>Building the Future with AI</h1>
+                <p>Chopa AI develops its own AI solutions and helps companies unlock the power of artificial intelligence. We're not just consultants — we are builders who live and breathe AI.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="openModal()" style="transform: translateY(0px);">Book a Consultation</button>
+                    <a href="#products" class="btn-secondary">Let's Build Together</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About Us</h2>
+            </div>
+            <div class="about-content fade-in">
+                <p>Chopa AI began as a single product experiment, but quickly grew into a company fully dedicated to AI innovation. Our strength lies in combining business insight with cutting-edge AI tools.</p>
+                <p>We don't just advise companies — we create, test, and launch AI solutions ourselves. This unique mix gives us the perspective to turn ideas into real business results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">We help businesses navigate and implement AI with confidence</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>AI Consulting</h3>
+                    <p>Identify opportunities, design strategies, and adopt AI with confidence. We help you understand where AI can make the biggest impact in your business.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Integration &amp; Enablement</h3>
+                    <p>Bring AI into existing workflows, from HR to CRM to operations. We ensure seamless integration that enhances rather than disrupts your processes.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Training &amp; Workshops</h3>
+                    <p>Practical education for teams to use AI effectively. Hands-on sessions that build real competency and confidence with AI tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Products</h2>
+                <p class="section-subtitle">AI tools we build — practical, fast, business-driven.</p>
+            </div>
+            <div class="products-intro fade-in">
+                <p>We are building our own suite of AI products for both B2B and B2C markets. These tools are designed to make communication, decision-making, and daily work smarter.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-header">
+                        <div>
+                            <h3>BeReadyAgent</h3>
+                            <div class="product-tagline">AI-Powered Interview Preparation</div>
+                        </div>
+                    </div>
+                    <p class="product-description">BeReadyAgent generates a complete interview prep report in minutes — company overview, competitors, key metrics, SWOT, and tailored question prompts. It turns scattered research into a focused brief you can actually use.</p>
+                    <ul class="product-bullets">
+                        <li>Save hours of manual prep</li>
+                        <li>Get smart question prompts for the interview</li>
+                        <li>Understand the company narrative at a glance</li>
+                        <li>Download/share your report instantly (PDF)</li>
+                    </ul>
+                    <a href="https://bereadyagent.com" target="_blank" class="product-cta">Generate My Report</a>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-header">
+                        <div>
+                            <h3>Msgly AI</h3>
+                            <div class="product-tagline">Personalized LinkedIn Outreach at Scale</div>
+                        </div>
+                        <div class="product-badge badge-flagship">FLAGSHIP</div>
+                    </div>
+                    <p class="product-description">Msgly AI analyzes LinkedIn profiles and crafts hyper-personalized messages designed to boost reply rates. Works where you work — directly inside your browser.</p>
+                    <ul class="product-bullets">
+                        <li>One-click message generation based on profile context</li>
+                        <li>Consistent tone that still feels human</li>
+                        <li>Faster testing of multiple angles/variants</li>
+                        <li>Start free — no credit card required</li>
+                    </ul>
+                    <a href="https://msgly.ai" target="_blank" class="product-cta">Try Msgly Now</a>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-header">
+                        <div>
+                            <h3>SalesResearchAgent</h3>
+                            <div class="product-tagline">Sales Intelligence, Automated</div>
+                        </div>
+                    </div>
+                    <p class="product-description">SalesResearchAgent aggregates and synthesizes account and market signals so reps can prioritize faster and outreach smarter. Replace tab-sprawl with actionable insights your team can use today.</p>
+                    <ul class="product-bullets">
+                        <li>Automate prospect &amp; market research</li>
+                        <li>Prioritize accounts with higher confidence</li>
+                        <li>Feed outreach with tailored talking points</li>
+                        <li>Reduce ramp time for new reps</li>
+                    </ul>
+                    <a href="https://salesresearchagent.com" target="_blank" class="product-cta">Start Sales Research</a>
+                </div>
+            </div>
+            <div class="products-footer fade-in">
+                <p>More AI products are in development — stay tuned.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content fade-in">
+                <h2>Let's Talk About AI</h2>
+                <p>Whether you're exploring strategy, integration, or future products — we're here to help you move forward with AI.</p>
+                <button class="btn-primary" onclick="openModal()">Get in Touch</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Chopa AI</h3>
+                    <p>Building the future with AI for businesses and people.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p>AI Consulting<br>Integration &amp; Enablement<br>Training &amp; Workshops</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>sales@chopa.io<br>Ready to build together?</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Chopa AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="contactModal" style="display: block;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">×</span>
+                <h2>Let's Talk About AI</h2>
+                <p>Get in touch to explore how AI can transform your business</p>
+            </div>
+            <div class="modal-body">
+                <form action="https://api.web3forms.com/submit" id="contactForm" method="POST">
+                    <input name="access_key" type="hidden" value="81640420-8f53-4a73-a71e-5863867a1978">
+                    <input name="subject" type="hidden" value="New Contact Form Submission - Chopa AI">
+                    <input name="from_name" type="hidden" value="Chopa AI Contact Form">
+                    <input name="to" type="hidden" value="Ziv@chopa.io">
+                    <input name="redirect" type="hidden" value="https://web3forms.com/success">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input aria-required="true" id="name" name="name" required="" type="text">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Business Email *</label>
+                        <input aria-required="true" id="email" name="email" required="" type="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input aria-required="true" id="phone" name="phone" required="" type="tel">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input aria-required="true" id="company" name="company" required="" type="text">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">Your Role *</label>
+                        <select aria-required="true" id="role" name="role" required="">
+                            <option value="">Select Your Role</option>
+                            <option value="ceo">CEO</option>
+                            <option value="cto">CTO</option>
+                            <option value="coo">COO</option>
+                            <option value="founder">Founder</option>
+                            <option value="vp-engineering">VP Engineering</option>
+                            <option value="vp-product">VP Product</option>
+                            <option value="director">Director</option>
+                            <option value="manager">Manager</option>
+                            <option value="consultant">Consultant</option>
+                            <option value="entrepreneur">Entrepreneur</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-size">Company Size</label>
+                        <select id="company-size" name="company_size">
+                            <option value="">Select Company Size</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-1000">201-1000 employees</option>
+                            <option value="1000+">1000+ employees</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="challenge">What's your biggest challenge or opportunity with AI?</label>
+                        <textarea id="challenge" name="message" placeholder="Tell us about your AI goals, challenges, or how we can help transform your business..." rows="4"></textarea>
+                    </div>
+                    
+                    <input class="hidden" name="botcheck" style="display: none;" type="checkbox">
+                    <button class="form-button" type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.service-card, .btn-primary, .btn-secondary').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = this.classList.contains('service-card') ? 'translateY(-10px)' : 'translateY(-3px)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    // Show loading state
+                    const submitBtn = this.querySelector('.form-button');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Get form data for validation
+                    const formData = new FormData(this);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const phone = formData.get('phone');
+                    const company = formData.get('company');
+                    const role = formData.get('role');
+
+                    // Validate required fields
+                    if (!name || !email || !phone || !company || !role) {
+                        e.preventDefault();
+                        alert('Please fill in all required fields (Name, Email, Phone, Company, and Role).');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        return false;
+                    }
+                    
+                    // Validate email format
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        e.preventDefault();
+                        alert('Please enter a valid email address.');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        return false;
+                    }
+                    
+                    // Log submission
+                    console.log('📧 Submitting contact form for:', company);
+                    
+                    // Show immediate feedback
+                    setTimeout(() => {
+                        alert(`🎉 Thank you ${name}! Your message has been sent to our team. We'll contact you within 24 hours.`);
+                        closeModal();
+                        form.reset();
+                    }, 100);
+                });
+            }
+        });
+    </script>
+
+</body></html>

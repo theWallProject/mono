@@ -1,0 +1,72 @@
+[2026-03-12T07:50:28.602Z] === Homepage AI Extractor: BeeComm ===
+[2026-03-12T07:50:28.603Z] Started at: 2026-03-12T07:50:28.603Z
+[2026-03-12T07:50:28.603Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773301828602_BeeComm
+[2026-03-12T07:50:28.603Z] Company: BeeComm
+[2026-03-12T07:50:28.603Z] Website: beecomm.com
+[2026-03-12T07:50:28.603Z] cbRank: 853507
+[2026-03-12T07:50:28.603Z] Reasons: h
+[2026-03-12T07:50:28.603Z] Fetching: https://beecomm.com
+[2026-03-12T07:50:40.987Z] Network idle timeout — continuing with current state
+[2026-03-12T07:50:41.061Z] Redirected: https://beecomm.com -> https://www.beecomm.com/
+[2026-03-12T07:50:41.146Z] Saved HTML (2999302 bytes) to page.html
+[2026-03-12T07:50:41.151Z] Extracted 14 unique links from page
+[2026-03-12T07:50:41.151Z] Saved 14 links to links.json
+[2026-03-12T07:50:41.157Z] Extracted footer HTML (24896 chars)
+[2026-03-12T07:50:41.157Z] Extracted header HTML (6464 chars)
+[2026-03-12T07:50:41.162Z] Website (post-redirect): https://www.beecomm.com/ → origin: https://www.beecomm.com
+[2026-03-12T07:50:41.162Z] External links: 5 (of 14 total)
+[2026-03-12T07:50:41.162Z] ── All external links ──
+[2026-03-12T07:50:41.162Z]   EXT: https://www.enable.co.il
+[2026-03-12T07:50:41.162Z]   EXT: https://www.facebook.com/BeeComm
+[2026-03-12T07:50:41.162Z]   EXT: https://www.instagram.com/beecomm.pos
+[2026-03-12T07:50:41.162Z]   EXT: https://www.linkedin.com/company/beecomm-pos
+[2026-03-12T07:50:41.162Z]   EXT: https://www.upress.co.il
+[2026-03-12T07:50:41.162Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T07:50:41.163Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-12T07:50:41.163Z]   REGEX: fb <- https://www.facebook.com/BeeComm
+[2026-03-12T07:50:41.163Z]   REGEX: ig <- https://www.instagram.com/beecomm.pos
+[2026-03-12T07:50:41.163Z]   REGEX: li <- https://www.linkedin.com/company/beecomm-pos
+[2026-03-12T07:50:41.163Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-12T07:50:41.163Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 2 uncategorized
+[2026-03-12T07:50:41.163Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T07:50:41.165Z] Saved AI prompt (2229 chars) to ai_prompt.txt
+[2026-03-12T07:50:41.165Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T07:50:41.182Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T07:50:48.239Z]   AI: First token received, streaming...
+[2026-03-12T07:50:54.169Z] AI response complete: 117 chars in 13.0s
+[2026-03-12T07:50:54.170Z] Saved AI response to ai_response.json
+[2026-03-12T07:50:54.170Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T07:50:54.170Z]   AI LINK: https://www.facebook.com/BeeComm
+[2026-03-12T07:50:54.170Z]   AI LINK: https://www.instagram.com/beecomm.pos/
+[2026-03-12T07:50:54.170Z]   AI LINK: https://www.linkedin.com/company/beecomm-pos/
+[2026-03-12T07:50:54.170Z] AI returned 3 valid links
+[2026-03-12T07:50:54.170Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T07:50:54.171Z]   AI→REGEX: fb <- https://www.facebook.com/BeeComm (duplicate, skipped)
+[2026-03-12T07:50:54.171Z]   AI→REGEX: ig <- https://www.instagram.com/beecomm.pos/ (duplicate, skipped)
+[2026-03-12T07:50:54.171Z]   AI→REGEX: li <- https://www.linkedin.com/company/beecomm-pos/ (duplicate, skipped)
+[2026-03-12T07:50:54.171Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T07:50:54.171Z] Footer/header origins (4):
+[2026-03-12T07:50:54.171Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T07:50:54.171Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T07:50:54.171Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T07:50:54.171Z]   FOOTER/HEADER ORIGIN: https://www.beecomm.com
+[2026-03-12T07:50:54.172Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-12T07:50:54.172Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-12T07:50:54.172Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T07:50:54.172Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T07:50:54.172Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T07:50:54.172Z] ── Step 3: Final dedup ──
+[2026-03-12T07:50:54.172Z] No urls to dedup
+[2026-03-12T07:50:54.172Z] ── FINAL RESULT ──
+[2026-03-12T07:50:54.172Z]   ws (1):
+[2026-03-12T07:50:54.172Z]     - https://www.beecomm.com
+[2026-03-12T07:50:54.172Z]   li (1):
+[2026-03-12T07:50:54.173Z]     - https://www.linkedin.com/company/beecomm-pos
+[2026-03-12T07:50:54.173Z]   fb (1):
+[2026-03-12T07:50:54.173Z]     - https://www.facebook.com/beecomm
+[2026-03-12T07:50:54.173Z]   ig (1):
+[2026-03-12T07:50:54.173Z]     - https://www.instagram.com/beecomm.pos
+[2026-03-12T07:50:54.173Z] Summary: ws:1, fb:1, ig:1, li:1
+[2026-03-12T07:50:54.173Z] Saved final result to result.json
+[2026-03-12T07:50:54.174Z] Override fields: ws, li, fb, ig
+[2026-03-12T07:50:54.174Z] Finished at: 2026-03-12T07:50:54.174Z

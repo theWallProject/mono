@@ -1,0 +1,69 @@
+[2026-03-13T12:29:47.957Z] === Homepage AI Extractor: TandemG ===
+[2026-03-13T12:29:47.957Z] Started at: 2026-03-13T12:29:47.957Z
+[2026-03-13T12:29:47.957Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773404987957_TandemG
+[2026-03-13T12:29:47.957Z] Company: TandemG
+[2026-03-13T12:29:47.957Z] Website: tandemg.com
+[2026-03-13T12:29:47.957Z] cbRank: 1144887
+[2026-03-13T12:29:47.958Z] Reasons: h
+[2026-03-13T12:29:47.958Z] Fetching: https://tandemg.com
+[2026-03-13T12:29:49.592Z] Redirected: https://tandemg.com -> https://tandemg.com/
+[2026-03-13T12:29:49.598Z] Saved HTML (152508 bytes) to page.html
+[2026-03-13T12:29:49.602Z] Extracted 42 unique links from page
+[2026-03-13T12:29:49.603Z] Saved 42 links to links.json
+[2026-03-13T12:29:49.606Z] Extracted footer HTML (18165 chars)
+[2026-03-13T12:29:49.606Z] Extracted header HTML (12146 chars)
+[2026-03-13T12:29:49.610Z] Website (post-redirect): https://tandemg.com/ → origin: https://tandemg.com
+[2026-03-13T12:29:49.611Z] External links: 4 (of 42 total)
+[2026-03-13T12:29:49.611Z] ── All external links ──
+[2026-03-13T12:29:49.611Z]   EXT: http://www.linkedin.com/company/tandemg
+[2026-03-13T12:29:49.611Z]   EXT: https://wa.me/972545642689
+[2026-03-13T12:29:49.611Z]   EXT: https://www.facebook.com/TandemGroup
+[2026-03-13T12:29:49.611Z]   EXT: https://www.niels.co.il/?=fromTANDEM-G
+[2026-03-13T12:29:49.611Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T12:29:49.611Z]   REGEX: li <- http://www.linkedin.com/company/tandemg
+[2026-03-13T12:29:49.611Z]   UNCATEGORIZED: https://wa.me/972545642689
+[2026-03-13T12:29:49.611Z]   REGEX: fb <- https://www.facebook.com/TandemGroup
+[2026-03-13T12:29:49.612Z]   UNCATEGORIZED: https://www.niels.co.il/?=fromTANDEM-G
+[2026-03-13T12:29:49.612Z] Programmatic result: ws:1, li:1, fb:1 | 2 uncategorized
+[2026-03-13T12:29:49.612Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T12:29:49.612Z] Saved AI prompt (8282 chars) to ai_prompt.txt
+[2026-03-13T12:29:49.613Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T12:29:49.630Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T12:30:27.985Z]   AI: First token received, streaming...
+[2026-03-13T12:30:35.913Z] AI response complete: 103 chars in 46.3s
+[2026-03-13T12:30:35.914Z] Saved AI response to ai_response.json
+[2026-03-13T12:30:35.914Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T12:30:35.914Z]   AI LINK: https://www.facebook.com/TandemGroup
+[2026-03-13T12:30:35.914Z]   AI LINK: http://www.linkedin.com/company/tandemg
+[2026-03-13T12:30:35.915Z]   AI LINK: https://wa.me/972545642689
+[2026-03-13T12:30:35.915Z] AI returned 3 valid links
+[2026-03-13T12:30:35.915Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T12:30:35.915Z]   AI→REGEX: fb <- https://www.facebook.com/TandemGroup (duplicate, skipped)
+[2026-03-13T12:30:35.915Z]   AI→REGEX: li <- http://www.linkedin.com/company/tandemg (duplicate, skipped)
+[2026-03-13T12:30:35.915Z]   AI→URLS: https://wa.me/972545642689
+[2026-03-13T12:30:35.915Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T12:30:35.915Z] Footer/header origins (4):
+[2026-03-13T12:30:35.916Z]   FOOTER/HEADER ORIGIN: https://tandemg.com
+[2026-03-13T12:30:35.916Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-13T12:30:35.916Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-13T12:30:35.916Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-13T12:30:35.916Z]   SKIP (AI claimed): https://wa.me/972545642689
+[2026-03-13T12:30:35.916Z]   SKIP (not in footer/header): https://www.niels.co.il/?=fromTANDEM-G
+[2026-03-13T12:30:35.916Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T12:30:35.916Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T12:30:35.916Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T12:30:35.916Z] ── Step 3: Final dedup ──
+[2026-03-13T12:30:35.916Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-13T12:30:35.916Z] ── FINAL RESULT ──
+[2026-03-13T12:30:35.916Z]   ws (1):
+[2026-03-13T12:30:35.916Z]     - https://tandemg.com
+[2026-03-13T12:30:35.917Z]   li (1):
+[2026-03-13T12:30:35.917Z]     - https://www.linkedin.com/company/tandemg
+[2026-03-13T12:30:35.917Z]   fb (1):
+[2026-03-13T12:30:35.917Z]     - https://www.facebook.com/tandemgroup
+[2026-03-13T12:30:35.917Z]   urls (1):
+[2026-03-13T12:30:35.917Z]     - https://wa.me/972545642689
+[2026-03-13T12:30:35.917Z] Summary: ws:1, li:1, fb:1, urls:1
+[2026-03-13T12:30:35.917Z] Saved final result to result.json
+[2026-03-13T12:30:35.918Z] Override fields: ws, li, fb, urls
+[2026-03-13T12:30:35.918Z] Finished at: 2026-03-13T12:30:35.918Z

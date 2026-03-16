@@ -1,0 +1,552 @@
+<!DOCTYPE html><html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mycelium - Greener.Faster.Better.</title>
+    <meta name="description" content="Set of smart tools to manage, optimize and deliver all transport services within any type of industry">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/styles/vendor/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="assets/fonts/et-lineicons/css/style.css">
+    <link rel="stylesheet" href="assets/fonts/linea-font/css/linea-font.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/font-awesome.min.css">
+    <!-- Slider -->
+    <link rel="stylesheet" href="assets/styles/vendor/slick.css">
+    <!-- Lightbox -->
+    <link rel="stylesheet" href="assets/styles/vendor/magnific-popup.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="assets/styles/vendor/animate.css">
+
+    <!-- Definity CSS -->
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/responsive.css">
+    <!-- JS -->
+	<script data-src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" type="text/javascript" data-categories="performance" data-autoblocked="1" async=""></script><script type="text/javascript" src="https://app.termly.io/embed.min.js" data-auto-block="on" data-website-uuid="3f08f273-de30-415e-ba0f-474f899495da"></script><style>button.termly-styles-root-b60a7d{background:rgba(0,0,0,0) url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIHZpZXdCb3g9IjAgMCA5MCA5MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWx0ZXI9InVybCgjZmlsdGVyMF9kXzcwOTU4XzE1Mzc1NikiPgogICAgPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjFfZF83MDk1OF8xNTM3NTYpIj4KICAgICAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHJ4PSIyNSIgZmlsbD0iIzQ2NzJGRiIvPgogICAgPC9nPgogICAgPHBhdGggZD0iTTQ1IDI4QzQ3LjAyMzcgMjggNDguOTY0NiAyOC4zNTQyIDUwLjc2NDYgMjkuMDAyOUM1MC4yOTAzIDI5LjUzMzUgNTAgMzAuMjMyMiA1MCAzMUM1MCAzMi42NTY5IDUxLjM0MzEgMzQgNTMgMzRDNTMuMTc2MyAzNCA1My4zNDg3IDMzLjk4MzMgNTMuNTE2NiAzMy45NTQxQzUzLjE4MzUgMzQuNzM1OSA1MyAzNS41OTY2IDUzIDM2LjVDNTMgNDAuMDg5OSA1NS45MTAxIDQzIDU5LjUgNDNDNjAuMzE5NiA0MyA2MS4xMDMgNDIuODQ2MiA2MS44MjUyIDQyLjU2OTNDNjEuOTM4OSA0My4zNjMzIDYyIDQ0LjE3NDYgNjIgNDVDNjIgNTQuMzg4OCA1NC4zODg4IDYyIDQ1IDYyQzM1LjYxMTIgNjIgMjggNTQuMzg4OCAyOCA0NUMyOCAzNS42MTEyIDM1LjYxMTIgMjggNDUgMjhaIiBmaWxsPSJ3aGl0ZSIvPgogICAgPHBhdGggZD0iTTQ4LjA3OTEgNDEuNzg0Mkg1MS4wMjQ0TDQxLjE4MjYgNTUuNTY3NFYzNy4xODk1SDUxLjM2MDRMNDguMDc5MSA0MS43ODQyWiIgZmlsbD0iIzQ2NzJGRiIvPgogICAgPGNpcmNsZSBjeD0iNTguNjMxNiIgY3k9IjM2LjYzMTUiIHI9IjIiIHRyYW5zZm9ybT0icm90YXRlKC0yMy40OTY4IDU4LjYzMTYgMzYuNjMxNSkiIGZpbGw9IndoaXRlIi8+CiAgICA8Y2lyY2xlIGN4PSI1NiIgY3k9IjMyIiByPSIxIiBmaWxsPSJ3aGl0ZSIvPgogIDwvZz4KICA8ZGVmcz4KICAgIDxmaWx0ZXIgaWQ9ImZpbHRlcjBfZF83MDk1OF8xNTM3NTYiIHg9IjEwIiB5PSIxNCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjcwIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+CiAgICAgIDxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+CiAgICAgIDxmZUNvbG9yTWF0cml4IGluPSJTb3VyY2VBbHBoYSIgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDEyNyAwIiByZXN1bHQ9ImhhcmRBbHBoYSIvPgogICAgICA8ZmVPZmZzZXQgZHk9IjQiLz4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNSIvPgogICAgICA8ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIG9wZXJhdG9yPSJvdXQiLz4KICAgICAgPGZlQ29sb3JNYXRyaXggdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjAgMCAwIDAgMC4xNTI5NDEgMCAwIDAgMCAwLjE2NDcwNiAwIDAgMCAwIDAuMjM1Mjk0IDAgMCAwIDAuMTUgMCIvPgogICAgICA8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9ImVmZmVjdDFfZHJvcFNoYWRvd183MDk1OF8xNTM3NTYiLz4KICAgICAgPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJlZmZlY3QxX2Ryb3BTaGFkb3dfNzA5NThfMTUzNzU2IiByZXN1bHQ9InNoYXBlIi8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+Cjwvc3ZnPgo=) no-repeat center/100%;border:0;bottom:1rem;cursor:pointer;display:none;filter:drop-shadow(0 4px 10px rgba(39, 42, 60, 0.15));height:60px;left:1rem;overflow:visible;position:absolute;width:60px;z-index:var(--termly-z-index)}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL1Jlc291cmNlQmxvY2tlci9GbG9hdGluZ1ByZWZlcmVuY2VzQnV0dG9uL3N0eWxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVNBLGlDQUNFLHNGQUFBLENBQ0EsUUFBQSxDQUNBLFdBQUEsQ0FDQSxjQUFBLENBQ0EsWUFBQSxDQUNBLHFEQUFBLENBQ0EsV0FBQSxDQUNBLFNBQUEsQ0FDQSxnQkFBQSxDQUNBLGlCQUFBLENBQ0EsVUFBQSxDQUNBLDZCQUFBIiwic291cmNlc0NvbnRlbnQiOlsiLy8gT3JkaW5hcmlseSwgd2UgZG9uJ3Qgd2FudCB0byB1c2UgdGFnIG5hbWVzIGluIG91ciBzdHlsZXMgYmVjYXVzZSBpdCBjYXVzZXNcbi8vIHByb2JsZW1zIHdpdGggY2FzY2FkaW5nIGFuZCBmb3JjZXMgZ3Jvc3MgYmVoYXZpb3IgbGlrZSBuZXN0ZWQgc2VsZWN0b3JzIGFuZFxuLy8gIWltcG9ydGFudC4gQnV0IGluIHRoaXMgY2FzZSwgd2UncmUgZW1iZWRkaW5nIG9uIGNsaWVudCB3ZWJzaXRlcyBhbmQgdGhleVxuLy8gb2Z0ZW4gdGltZXMgaGF2ZSBDU1MgcnVsZXMgdGhhdCBzZXQgc3R5bGVzIG9uIHRhZyBuYW1lcyBvciBldmVuIG9uIGF0dHJpYnV0ZXNcbi8vIChzZWUgVEVSLTE3OTQ4IGZvciBpbnN0YW5jZSkuIEluIG9yZGVyIHRvIHNpZGVzdGVwIHRob3NlIGlzc3VlcyBhbmQgdG8gYXZvaWRcbi8vIHRoZSB1c2Ugb2YgIWltcG9ydGFudCwgSSdtIGluY2x1ZGluZyB0aGUgdGFnIG5hbWUgaGVyZS4gSSBoYXRlIGl0LCBidXQgc2luY2Vcbi8vIHdlIGhhdmUgbm8gY29udHJvbCBvdmVyIHRoZSBob3N0IHNpdGUncyBzdHlsZXMsIHRoaXMgaXMgcHJldHR5IG11Y2ggYWxsIHdlXG4vLyBjYW4gZG8uXG4vL1xuYnV0dG9uLnJvb3Qge1xuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCB1cmwoLi9pbWcvdGVybWx5LWNvb2tpZS5zdmcpIG5vLXJlcGVhdCBjZW50ZXIvMTAwJTtcbiAgYm9yZGVyOiAwO1xuICBib3R0b206IDFyZW07XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgZGlzcGxheTogbm9uZTtcbiAgZmlsdGVyOiBkcm9wLXNoYWRvdygwIDRweCAxMHB4IHJnYmEoMzksIDQyLCA2MCwgMC4xNSkpO1xuICBoZWlnaHQ6IDYwcHg7XG4gIGxlZnQ6IDFyZW07XG4gIG92ZXJmbG93OiB2aXNpYmxlO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOiA2MHB4O1xuICB6LWluZGV4OiB2YXIoLS10ZXJtbHktei1pbmRleCk7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style id="_goober"> @keyframes go2264125279{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go3020080000{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}@keyframes go463499852{from{transform:scale(0) rotate(90deg);opacity:0;}to{transform:scale(1) rotate(90deg);opacity:1;}}@keyframes go1268368563{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}@keyframes go1310225428{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go651618207{0%{height:0;width:0;opacity:0;}40%{height:0;width:6px;opacity:1;}100%{opacity:1;height:10px;}}@keyframes go901347462{from{transform:scale(0.6);opacity:0.4;}to{transform:scale(1);opacity:1;}}.go4109123758{z-index:9999;}.go4109123758 > *{pointer-events:auto;}</style><style>.termly-styles-root-c36810{display:flex;align-items:center;gap:.75rem;background:#003afa;color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:15px;padding:1rem;border-radius:5px;box-shadow:0px 4px 10px rgba(0,50,123,.1);max-width:500px;min-width:300px}.termly-styles-icon-f711e2{flex-shrink:0;display:flex;align-items:center;justify-content:center}.termly-styles-message-ea3e0e{flex:1;line-height:1.5}.termly-styles-link-b46a41{color:#fff;text-decoration:none;margin-left:.25rem;display:inline-flex;align-items:center;justify-content:center}.termly-styles-questionMark-e58ee5{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:#fff;border-radius:50%;color:#000;font-weight:bold;font-size:.875rem;line-height:1}.termly-styles-closeButton-b843e0{background:none;border:none;color:#fff;cursor:pointer;font-size:1.5rem;line-height:1;padding:0;width:1.5rem;height:1.5rem;display:flex;align-items:center;justify-content:center;opacity:.7;transition:opacity .2s}.termly-styles-closeButton-b843e0:hover{opacity:1}.termly-styles-closeButton-b843e0:focus{outline:2px solid #fff;outline-offset:2px}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL1Jlc291cmNlQmxvY2tlckFwcC9HUENIYW5kbGVyL0dQQ05vdGlmaWNhdGlvbi9zdHlsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSwyQkFDRSxZQUFBLENBQ0Esa0JBQUEsQ0FDQSxVQUFBLENBQ0Esa0JBQUEsQ0FDQSxVQUFBLENBQ0Esc0NBQUEsQ0FDQSxjQUFBLENBQ0EsWUFBQSxDQUNBLGlCQUFBLENBQ0EseUNBQUEsQ0FDQSxlQUFBLENBQ0EsZUFBQSxDQUdGLDJCQUNFLGFBQUEsQ0FDQSxZQUFBLENBQ0Esa0JBQUEsQ0FDQSxzQkFBQSxDQUdGLDhCQUNFLE1BQUEsQ0FDQSxlQUFBLENBR0YsMkJBQ0UsVUFBQSxDQUNBLG9CQUFBLENBQ0Esa0JBQUEsQ0FDQSxtQkFBQSxDQUNBLGtCQUFBLENBQ0Esc0JBQUEsQ0FHRixtQ0FDRSxtQkFBQSxDQUNBLGtCQUFBLENBQ0Esc0JBQUEsQ0FDQSxVQUFBLENBQ0EsV0FBQSxDQUNBLGVBQUEsQ0FDQSxpQkFBQSxDQUNBLFVBQUEsQ0FDQSxnQkFBQSxDQUNBLGlCQUFBLENBQ0EsYUFBQSxDQUdGLGtDQUNFLGVBQUEsQ0FDQSxXQUFBLENBQ0EsVUFBQSxDQUNBLGNBQUEsQ0FDQSxnQkFBQSxDQUNBLGFBQUEsQ0FDQSxTQUFBLENBQ0EsWUFBQSxDQUNBLGFBQUEsQ0FDQSxZQUFBLENBQ0Esa0JBQUEsQ0FDQSxzQkFBQSxDQUNBLFVBQUEsQ0FDQSxzQkFBQSxDQUVBLHdDQUNFLFNBQUEsQ0FHRix3Q0FDRSxzQkFBQSxDQUNBLGtCQUFBIiwic291cmNlc0NvbnRlbnQiOlsiLnJvb3Qge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBnYXA6IDAuNzVyZW07XG4gIGJhY2tncm91bmQ6ICMwMDNBRkE7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC1mYW1pbHk6IEhlbHZldGljYSwgQXJpYWwsIHNhbnMtc2VyaWY7XG4gIGZvbnQtc2l6ZTogMTVweDtcbiAgcGFkZGluZzogMXJlbTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBib3gtc2hhZG93OiAwcHggNHB4IDEwcHggcmdiYSgwLCA1MCwgMTIzLCAwLjEpO1xuICBtYXgtd2lkdGg6IDUwMHB4O1xuICBtaW4td2lkdGg6IDMwMHB4O1xufVxuXG4uaWNvbiB7XG4gIGZsZXgtc2hyaW5rOiAwO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbn1cblxuLm1lc3NhZ2Uge1xuICBmbGV4OiAxO1xuICBsaW5lLWhlaWdodDogMS41O1xufVxuXG4ubGluayB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBtYXJnaW4tbGVmdDogMC4yNXJlbTtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuXG4ucXVlc3Rpb25NYXJrIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICB3aWR0aDogMjBweDtcbiAgaGVpZ2h0OiAyMHB4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBjb2xvcjogYmxhY2s7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBmb250LXNpemU6IDAuODc1cmVtO1xuICBsaW5lLWhlaWdodDogMTtcbn1cblxuLmNsb3NlQnV0dG9uIHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgYm9yZGVyOiBub25lO1xuICBjb2xvcjogd2hpdGU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgZm9udC1zaXplOiAxLjVyZW07XG4gIGxpbmUtaGVpZ2h0OiAxO1xuICBwYWRkaW5nOiAwO1xuICB3aWR0aDogMS41cmVtO1xuICBoZWlnaHQ6IDEuNXJlbTtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIG9wYWNpdHk6IDAuNztcbiAgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjJzO1xuXG4gICY6aG92ZXIge1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAycHggc29saWQgd2hpdGU7XG4gICAgb3V0bGluZS1vZmZzZXQ6IDJweDtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.termly-styles-module-primary-c223ae{color:#4672ff}.termly-styles-module-secondary-b4b905{color:#00c999}.termly-styles-module-dangerous-be20a5{color:#ed7474}.termly-styles-module-root-aecb0e{font-size:.875em;font-family:Roboto,"Open Sans",Helvetica,Arial}.termly-styles-module-root-aecb0e.termly-styles-module-disabled-e3ea5b{opacity:.5;cursor:not-allowed}.termly-styles-module-root-aecb0e:not(.termly-styles-module-disabled-e3ea5b){cursor:pointer}.termly-styles-module-outline-fc7224{border-width:1px;border-radius:3px;border-style:solid;background:#fff;padding:.625em 2em}.termly-styles-module-outline-fc7224.termly-styles-module-primary-c223ae{border-color:#4672ff}.termly-styles-module-outline-fc7224.termly-styles-module-secondary-b4b905{border-color:#00c999}.termly-styles-module-outline-fc7224.termly-styles-module-dangerous-be20a5{border-color:#ed7474}.termly-styles-module-solid-aab01d{border-width:1px;border-radius:3px;border-style:solid;color:#fff;padding:.625em 2em}.termly-styles-module-solid-aab01d.termly-styles-module-primary-c223ae{border-color:#4672ff;background:#4672ff}.termly-styles-module-solid-aab01d.termly-styles-module-secondary-b4b905{border-color:#00c999;background:#00c999}.termly-styles-module-solid-aab01d.termly-styles-module-dangerous-be20a5{border-color:#ed7474;background:#ed7474}.termly-styles-module-text-f75ba3{border:none;background:rgba(0,0,0,0);padding:0}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uLy4uLy4uLy55YXJuL19fdmlydHVhbF9fL0B0ZXJtbHktcmVhY3QtY29tcG9uZW50cy12aXJ0dWFsLWYzMDc0ODczYWYvMC9jYWNoZS9AdGVybWx5LXJlYWN0LWNvbXBvbmVudHMtbnBtLTMuMTAuMy1lZDZlNzU5ZmI3LWQ3ZTY3ZGJjMGYuemlwL25vZGVfbW9kdWxlcy9AdGVybWx5L3JlYWN0LWNvbXBvbmVudHMvc3JjL2NvbXBvbmVudHMvQnV0dG9uL3N0eWxlcy5tb2R1bGUuc2FzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQSxxQ0FDRSxhQUxlLENBTWpCLHVDQUNFLGFBTmlCLENBT25CLHVDQUNFLGFBUGMsQ0FTaEIsa0NBQ0UsZ0JBQUEsQ0FDQSw4Q0FBQSxDQUNBLHVFQUNFLFVBQUEsQ0FDQSxrQkFBQSxDQUNGLDZFQUNFLGNBQUEsQ0FFSixxQ0FDRSxnQkFBQSxDQUNBLGlCQUFBLENBQ0Esa0JBQUEsQ0FDQSxlQUFBLENBQ0Esa0JBQUEsQ0FDQSx5RUFDRSxvQkEzQmEsQ0E0QmYsMkVBQ0Usb0JBNUJlLENBNkJqQiwyRUFDRSxvQkE3QlksQ0ErQmhCLG1DQUNFLGdCQUFBLENBQ0EsaUJBQUEsQ0FDQSxrQkFBQSxDQUNBLFVBQUEsQ0FDQSxrQkFBQSxDQUNBLHVFQUNFLG9CQXhDYSxDQXlDYixrQkF6Q2EsQ0EwQ2YseUVBQ0Usb0JBMUNlLENBMkNmLGtCQTNDZSxDQTRDakIseUVBQ0Usb0JBNUNZLENBNkNaLGtCQTdDWSxDQStDaEIsa0NBQ0UsV0FBQSxDQUNBLHdCQUFBLENBQ0EsU0FBQSIsInNvdXJjZXNDb250ZW50IjpbIiRjb2xvci0tcHJpbWFyeTogIzQ2NzJmZlxuJGNvbG9yLS1zZWNvbmRhcnk6ICMwMGM5OTlcbiRjb2xvci0tZGFuZ2VyOiAjZWQ3NDc0XG5cbi5wcmltYXJ5XG4gIGNvbG9yOiAkY29sb3ItLXByaW1hcnlcbi5zZWNvbmRhcnlcbiAgY29sb3I6ICRjb2xvci0tc2Vjb25kYXJ5XG4uZGFuZ2Vyb3VzXG4gIGNvbG9yOiAkY29sb3ItLWRhbmdlclxuXG4ucm9vdFxuICBmb250LXNpemU6IDAuODc1ZW1cbiAgZm9udC1mYW1pbHk6IFJvYm90bywgXCJPcGVuIFNhbnNcIiwgSGVsdmV0aWNhLCBBcmlhbFxuICAmLmRpc2FibGVkXG4gICAgb3BhY2l0eTogMC41XG4gICAgY3Vyc29yOiBub3QtYWxsb3dlZFxuICAmOm5vdCguZGlzYWJsZWQpXG4gICAgY3Vyc29yOiBwb2ludGVyXG5cbi5vdXRsaW5lXG4gIGJvcmRlci13aWR0aDogMXB4XG4gIGJvcmRlci1yYWRpdXM6IDNweFxuICBib3JkZXItc3R5bGU6IHNvbGlkXG4gIGJhY2tncm91bmQ6ICNmZmZcbiAgcGFkZGluZzogMC42MjVlbSAyZW1cbiAgJi5wcmltYXJ5XG4gICAgYm9yZGVyLWNvbG9yOiAkY29sb3ItLXByaW1hcnlcbiAgJi5zZWNvbmRhcnlcbiAgICBib3JkZXItY29sb3I6ICRjb2xvci0tc2Vjb25kYXJ5XG4gICYuZGFuZ2Vyb3VzXG4gICAgYm9yZGVyLWNvbG9yOiAkY29sb3ItLWRhbmdlclxuXG4uc29saWRcbiAgYm9yZGVyLXdpZHRoOiAxcHhcbiAgYm9yZGVyLXJhZGl1czogM3B4XG4gIGJvcmRlci1zdHlsZTogc29saWRcbiAgY29sb3I6ICNmZmZcbiAgcGFkZGluZzogMC42MjVlbSAyZW1cbiAgJi5wcmltYXJ5XG4gICAgYm9yZGVyLWNvbG9yOiAkY29sb3ItLXByaW1hcnlcbiAgICBiYWNrZ3JvdW5kOiAkY29sb3ItLXByaW1hcnlcbiAgJi5zZWNvbmRhcnlcbiAgICBib3JkZXItY29sb3I6ICRjb2xvci0tc2Vjb25kYXJ5XG4gICAgYmFja2dyb3VuZDogJGNvbG9yLS1zZWNvbmRhcnlcbiAgJi5kYW5nZXJvdXNcbiAgICBib3JkZXItY29sb3I6ICRjb2xvci0tZGFuZ2VyXG4gICAgYmFja2dyb3VuZDogJGNvbG9yLS1kYW5nZXJcblxuLnRleHRcbiAgYm9yZGVyOiBub25lXG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50XG4gIHBhZGRpbmc6IDBcbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.termly-styles-module-root-aef0a2{display:flex;font-family:Roboto,"Open Sans",Helvetica,Arial;gap:8px}.termly-styles-module-root-aef0a2.termly-styles-module-disabled-a839ea{cursor:not-allowed;opacity:.5}.termly-styles-module-root-aef0a2:not(.termly-styles-module-disabled-a839ea){cursor:pointer}.termly-styles-module-checkbox-c3023c{background-color:#fff;width:18px;height:18px;border:solid 1px #e1e3e6;border-radius:3px;display:flex;flex:0 0 18px;background-repeat:no-repeat;background-position:center}.termly-styles-module-checkbox-c3023c.termly-styles-module-checked-aa9668{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTIgOSI+CiAgICA8cGF0aCBmaWxsPSIjMDAzQUZBIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik02IDE5di0zSDR2NWgxMHYtMkg2eiIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IC0xMC42MDcgMTQuNjIxKSIvPgo8L3N2Zz4K)}.termly-styles-module-checkbox-c3023c.termly-styles-module-indeterminate-a7e282{background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMiIgdmlld0JveD0iMCAwIDEwIDIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMCAtOC43NDIyOGUtMDdMMTAgMkwxLjc0ODQ2ZS0wNyAyTDAgMEwxMCAtOC43NDIyOGUtMDdaIiBmaWxsPSIjMDAzQUZBIi8+Cjwvc3ZnPgo=)}.termly-styles-module-input-e009d9{display:none}.termly-styles-module-label-bfef05{display:flex;align-items:center;min-width:0}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uLy4uLy4uLy55YXJuL19fdmlydHVhbF9fL0B0ZXJtbHktcmVhY3QtY29tcG9uZW50cy12aXJ0dWFsLWYzMDc0ODczYWYvMC9jYWNoZS9AdGVybWx5LXJlYWN0LWNvbXBvbmVudHMtbnBtLTMuMTAuMy1lZDZlNzU5ZmI3LWQ3ZTY3ZGJjMGYuemlwL25vZGVfbW9kdWxlcy9AdGVybWx5L3JlYWN0LWNvbXBvbmVudHMvc3JjL2NvbXBvbmVudHMvQ2hlY2tib3gvc3R5bGVzLm1vZHVsZS5zYXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBLGtDQUNFLFlBQUEsQ0FDQSw4Q0FBQSxDQUNBLE9BQUEsQ0FDQSx1RUFDRSxrQkFBQSxDQUNBLFVBQUEsQ0FDRiw2RUFDRSxjQUFBLENBRUosc0NBQ0UscUJBQUEsQ0FDQSxVQWZPLENBZ0JQLFdBaEJPLENBaUJQLHdCQUFBLENBQ0EsaUJBQUEsQ0FDQSxZQUFBLENBQ0EsYUFBQSxDQUNBLDJCQUFBLENBQ0EsMEJBQUEsQ0FDQSwwRUFDRSx3REFBQSxDQUNGLGdGQUNFLHdEQUFBLENBRUosbUNBQ0UsWUFBQSxDQUVGLG1DQUNFLFlBQUEsQ0FDQSxrQkFBQSxDQUVBLFdBQUEiLCJzb3VyY2VzQ29udGVudCI6WyIkaGVpZ2h0OiAxOHB4XG4kd2lkdGg6ICRoZWlnaHRcblxuLnJvb3RcbiAgZGlzcGxheTogZmxleFxuICBmb250LWZhbWlseTogUm9ib3RvLCAnT3BlbiBTYW5zJywgSGVsdmV0aWNhLCBBcmlhbFxuICBnYXA6IDhweFxuICAmLmRpc2FibGVkXG4gICAgY3Vyc29yOiBub3QtYWxsb3dlZFxuICAgIG9wYWNpdHk6IDAuNVxuICAmOm5vdCguZGlzYWJsZWQpXG4gICAgY3Vyc29yOiBwb2ludGVyXG5cbi5jaGVja2JveFxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmXG4gIHdpZHRoOiAkaGVpZ2h0XG4gIGhlaWdodDogJHdpZHRoXG4gIGJvcmRlcjogc29saWQgMXB4ICNlMWUzZTZcbiAgYm9yZGVyLXJhZGl1czogM3B4XG4gIGRpc3BsYXk6IGZsZXhcbiAgZmxleDogMCAwICR3aWR0aFxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlclxuICAmLmNoZWNrZWRcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoLi9pbWcvY2hlY2ttYXJrLnN2ZylcbiAgJi5pbmRldGVybWluYXRlXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKC4vaW1nL2luZGV0ZXJtaW5hdGUuc3ZnKVxuXG4uaW5wdXRcbiAgZGlzcGxheTogbm9uZVxuXG4ubGFiZWxcbiAgZGlzcGxheTogZmxleFxuICBhbGlnbi1pdGVtczogY2VudGVyXG4gIC8vIE5lY2Vzc2FyeSB0byBnZXQgZWxpc2lvbiB3b3JraW5nXG4gIG1pbi13aWR0aDogMFxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.termly-styles-module-root-db581f{border-radius:3px;border:1px solid #ced4da;color:#363840;font-size:inherit;line-height:1.429;padding:.714em 1.0714em}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uLy4uLy4uLy55YXJuL19fdmlydHVhbF9fL0B0ZXJtbHktcmVhY3QtY29tcG9uZW50cy12aXJ0dWFsLWYzMDc0ODczYWYvMC9jYWNoZS9AdGVybWx5LXJlYWN0LWNvbXBvbmVudHMtbnBtLTMuMTAuMy1lZDZlNzU5ZmI3LWQ3ZTY3ZGJjMGYuemlwL25vZGVfbW9kdWxlcy9AdGVybWx5L3JlYWN0LWNvbXBvbmVudHMvc3JjL2NvbXBvbmVudHMvSW5wdXQvc3R5bGVzLm1vZHVsZS5zYXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGtDQUNFLGlCQUFBLENBQ0Esd0JBQUEsQ0FDQSxhQUFBLENBQ0EsaUJBQUEsQ0FDQSxpQkFBQSxDQUNBLHVCQUFBIiwic291cmNlc0NvbnRlbnQiOlsiLnJvb3RcbiAgYm9yZGVyLXJhZGl1czogM3B4XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjZWQ0ZGFcbiAgY29sb3I6ICMzNjM4NDBcbiAgZm9udC1zaXplOiBpbmhlcml0XG4gIGxpbmUtaGVpZ2h0OiAxLjQyOVxuICBwYWRkaW5nOiAwLjcxNGVtIDEuMDcxNGVtXG5cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.termly-styles-module-root-b65dea{height:100%}.termly-styles-module-spinner-cf4f35{animation:termly-styles-module-rotate-f68cf1 2s linear infinite;z-index:2;position:relative;width:100%;height:100%;display:flex}.termly-styles-module-spinner-cf4f35 .termly-styles-module-path-e6874b{stroke:var(--loading-circle-color, hsl(210, 70%, 75%));stroke-linecap:round;animation:termly-styles-module-dash-e05a10 1.5s ease-in-out infinite}@keyframes termly-styles-module-rotate-f68cf1{100%{transform:rotate(360deg)}}@keyframes termly-styles-module-dash-e05a10{0%{stroke-dasharray:1,150;stroke-dashoffset:0}50%{stroke-dasharray:90,150;stroke-dashoffset:-35}100%{stroke-dasharray:90,150;stroke-dashoffset:-124}}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uLy4uLy4uLy55YXJuL19fdmlydHVhbF9fL0B0ZXJtbHktcmVhY3QtY29tcG9uZW50cy12aXJ0dWFsLWYzMDc0ODczYWYvMC9jYWNoZS9AdGVybWx5LXJlYWN0LWNvbXBvbmVudHMtbnBtLTMuMTAuMy1lZDZlNzU5ZmI3LWQ3ZTY3ZGJjMGYuemlwL25vZGVfbW9kdWxlcy9AdGVybWx5L3JlYWN0LWNvbXBvbmVudHMvc3JjL2NvbXBvbmVudHMvTG9hZGluZy9zdHlsZXMubW9kdWxlLnNhc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsa0NBQ0UsV0FBQSxDQUVGLHFDQUNFLCtEQUFBLENBQ0EsU0FBQSxDQUNBLGlCQUFBLENBQ0EsVUFBQSxDQUNBLFdBQUEsQ0FDQSxZQUFBLENBQ0EsdUVBQ0Usc0RBQUEsQ0FDQSxvQkFBQSxDQUNBLG9FQUFBLENBRUosOENBQ0UsS0FDRSx3QkFBQSxDQUFBLENBRUosNENBQ0UsR0FDRSxzQkFBQSxDQUNBLG1CQUFBLENBRUYsSUFDRSx1QkFBQSxDQUNBLHFCQUFBLENBRUYsS0FDRSx1QkFBQSxDQUNBLHNCQUFBLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyIucm9vdFxuICBoZWlnaHQ6IDEwMCVcblxuLnNwaW5uZXJcbiAgYW5pbWF0aW9uOiByb3RhdGUgMnMgbGluZWFyIGluZmluaXRlXG4gIHotaW5kZXg6IDJcbiAgcG9zaXRpb246IHJlbGF0aXZlXG4gIHdpZHRoOiAxMDAlXG4gIGhlaWdodDogMTAwJVxuICBkaXNwbGF5OiBmbGV4XG4gICYgLnBhdGhcbiAgICBzdHJva2U6IHZhcigtLWxvYWRpbmctY2lyY2xlLWNvbG9yLCBoc2woMjEwLCA3MCUsIDc1JSkpXG4gICAgc3Ryb2tlLWxpbmVjYXA6IHJvdW5kXG4gICAgYW5pbWF0aW9uOiBkYXNoIDEuNXMgZWFzZS1pbi1vdXQgaW5maW5pdGVcblxuQGtleWZyYW1lcyByb3RhdGVcbiAgMTAwJVxuICAgIHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZylcblxuQGtleWZyYW1lcyBkYXNoXG4gIDAlXG4gICAgc3Ryb2tlLWRhc2hhcnJheTogMSwgMTUwXG4gICAgc3Ryb2tlLWRhc2hvZmZzZXQ6IDBcblxuICA1MCVcbiAgICBzdHJva2UtZGFzaGFycmF5OiA5MCwgMTUwXG4gICAgc3Ryb2tlLWRhc2hvZmZzZXQ6IC0zNVxuXG4gIDEwMCVcbiAgICBzdHJva2UtZGFzaGFycmF5OiA5MCwgMTUwXG4gICAgc3Ryb2tlLWRhc2hvZmZzZXQ6IC0xMjRcbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.termly-styles-module-root-c548f1{display:flex;font-family:Roboto,"Open Sans",Helvetica,Arial;gap:5px}.termly-styles-module-root-c548f1.termly-styles-module-disabled-ac02d8{cursor:not-allowed}.termly-styles-module-root-c548f1:not(.termly-styles-module-disabled-ac02d8){cursor:pointer}.termly-styles-module-input-acbcfa{display:none}.termly-styles-module-radio-e6a0b1{width:15px;height:15px;border-radius:9px;border:1px solid #ced0da;background-image:linear-gradient(to top, #f2f4fb, #feffff);display:flex;justify-content:center;align-items:center}.termly-styles-module-radio-e6a0b1.termly-styles-module-checked-a4cedc .termly-styles-module-radio__inner-d08c41{width:7px;height:7px;border-radius:4px;background-color:#239eeb}.termly-styles-module-radio-e6a0b1.termly-styles-module-disabled-ac02d8{opacity:.5}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uLy4uLy4uLy55YXJuL19fdmlydHVhbF9fL0B0ZXJtbHktcmVhY3QtY29tcG9uZW50cy12aXJ0dWFsLWYzMDc0ODczYWYvMC9jYWNoZS9AdGVybWx5LXJlYWN0LWNvbXBvbmVudHMtbnBtLTMuMTAuMy1lZDZlNzU5ZmI3LWQ3ZTY3ZGJjMGYuemlwL25vZGVfbW9kdWxlcy9AdGVybWx5L3JlYWN0LWNvbXBvbmVudHMvc3JjL2NvbXBvbmVudHMvUmFkaW9Hcm91cC9SYWRpb0J1dHRvbi9zdHlsZXMubW9kdWxlLnNhc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT0Esa0NBQ0UsWUFBQSxDQUNBLDhDQUFBLENBQ0EsT0FBQSxDQUNBLHVFQUNFLGtCQUFBLENBQ0YsNkVBQ0UsY0FBQSxDQUVKLG1DQUNFLFlBQUEsQ0FFRixtQ0FDRSxVQUFBLENBQ0EsV0FBQSxDQUNBLGlCQUFBLENBQ0Esd0JBQUEsQ0FDQSwwREFBQSxDQUNBLFlBQUEsQ0FDQSxzQkFBQSxDQUNBLGtCQUFBLENBRUUsaUhBQ0UsU0FBQSxDQUNBLFVBQUEsQ0FDQSxpQkFBQSxDQUNBLHdCQS9CTyxDQWdDWCx3RUFDRSxVQUFBIiwic291cmNlc0NvbnRlbnQiOlsiLy8gVE9ETzogU3RpbGwgbmVlZCB0byBnZXQgdmFyaWFibGVzIGV4dHJhY3RlZCBpbnRvIGEgY29tbW9uIHN0eWxlc2hlZXRcblxuJGF6dXJlLW5pbmU6ICMyMzllZWJcbiRzaWx2ZXItdHdvOiAjY2VkMGRhXG4kZm9ybWF0LXNlbGVjdGVkLWJsdWUtb25lOiAjMzdhOWU2XG4kZm9ybWF0LXNlbGVjdGVkLWJsdWUtdHdvOiAjM2Y1OWQ4XG5cbi5yb290XG4gIGRpc3BsYXk6IGZsZXhcbiAgZm9udC1mYW1pbHk6IFJvYm90bywgXCJPcGVuIFNhbnNcIiwgSGVsdmV0aWNhLCBBcmlhbFxuICBnYXA6IDVweFxuICAmLmRpc2FibGVkXG4gICAgY3Vyc29yOiBub3QtYWxsb3dlZFxuICAmOm5vdCguZGlzYWJsZWQpXG4gICAgY3Vyc29yOiBwb2ludGVyXG5cbi5pbnB1dFxuICBkaXNwbGF5OiBub25lXG5cbi5yYWRpb1xuICB3aWR0aDogMTVweFxuICBoZWlnaHQ6IDE1cHhcbiAgYm9yZGVyLXJhZGl1czogOXB4XG4gIGJvcmRlcjogMXB4IHNvbGlkICRzaWx2ZXItdHdvXG4gIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byB0b3AsI2YyZjRmYiwjZmVmZmZmKVxuICBkaXNwbGF5OiBmbGV4XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXJcbiAgJi5jaGVja2VkXG4gICAgLnJhZGlvX19pbm5lclxuICAgICAgd2lkdGg6IDdweFxuICAgICAgaGVpZ2h0OiA3cHhcbiAgICAgIGJvcmRlci1yYWRpdXM6IDRweFxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogJGF6dXJlLW5pbmVcbiAgJi5kaXNhYmxlZFxuICAgIG9wYWNpdHk6IDAuNVxuXG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.termly-styles-module-root-a0ea7f{display:flex;flex-direction:row;font-size:1rem;font-family:Roboto,"Open Sans",Helvetica,Arial;background:#e6e7e8;align-items:center;justify-content:center;container:holder/size;flex:1;height:100%}.termly-styles-module-shadowBox-fff901{background:var(--termly-theme-background-color);border-radius:5px;border:1px solid #ddd;box-shadow:0px 0px 15px rgba(0,0,0,.15);display:inline-flex;flex-direction:column;max-width:32em;min-width:min-content;padding:2em;gap:1em}.termly-styles-module-title-b31e43{color:var(--termly-theme-color);font-size:1.25em;font-weight:500;line-height:1}.termly-styles-module-content-f5be7c{color:var(--termly-theme-color);font-size:var(--termly-theme-font-size);line-height:1.75}.termly-styles-module-buttons-e4250e{display:flex;justify-content:center;gap:.5em}.termly-styles-module-buttons-e4250e>*{font-weight:600;font-size:var(--termly-theme-font-size);width:100%}.termly-styles-module-buttons-e4250e .termly-styles-module-acceptButton-b04512{background:var(--termly-theme-button-background-color);border-color:var(--termly-theme-button-background-color) !important;color:var(--termly-theme-button-text-color) !important}.termly-styles-module-buttons-e4250e .termly-styles-module-prefsButton-c1a9b2{background:rgba(0,0,0,0);border-color:var(--termly-theme-color) !important;color:var(--termly-theme-color) !important}@container holder (height < 155px){.termly-styles-module-shadowBox-fff901{padding:6cqb;display:inline-flex;gap:.5em}.termly-styles-module-acceptButton-b04512{width:auto !important;padding:3cqb 6cqb;font-size:9cqb}.termly-styles-module-content-f5be7c{font-size:9cqb}.termly-styles-module-prefsButton-c1a9b2,.termly-styles-module-toAllowContent-f3c279,.termly-styles-module-title-b31e43{display:none}}@container holder ( width < 197px ){.termly-styles-module-buttons-e4250e .termly-styles-module-prefsButton-c1a9b2{display:none}}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL0Jsb2NrZWRDb250ZW50L3N0eWxlcy5tb2R1bGUuc2FzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxrQ0FDRSxZQUFBLENBQ0Esa0JBQUEsQ0FDQSxjQUFBLENBQ0EsOENBQUEsQ0FDQSxrQkFBQSxDQUNBLGtCQUFBLENBQ0Esc0JBQUEsQ0FDQSxxQkFBQSxDQUNBLE1BQUEsQ0FDQSxXQUFBLENBRUYsdUNBQ0UsK0NBQUEsQ0FDQSxpQkFBQSxDQUNBLHFCQUFBLENBQ0EsdUNBQUEsQ0FDQSxtQkFBQSxDQUNBLHFCQUFBLENBQ0EsY0FBQSxDQUNBLHFCQUFBLENBQ0EsV0FBQSxDQUNBLE9BQUEsQ0FFRixtQ0FDRSwrQkFBQSxDQUNBLGdCQUFBLENBQ0EsZUFBQSxDQUNBLGFBQUEsQ0FFRixxQ0FDRSwrQkFBQSxDQUNBLHVDQUFBLENBQ0EsZ0JBQUEsQ0FFRixxQ0FDRSxZQUFBLENBQ0Esc0JBQUEsQ0FDQSxRQUFBLENBRUEsdUNBQ0UsZUFBQSxDQUNBLHVDQUFBLENBQ0EsVUFBQSxDQUVGLCtFQUNFLHNEQUFBLENBQ0EsbUVBQUEsQ0FDQSxzREFBQSxDQUVGLDhFQUNFLHdCQUFBLENBQ0EsaURBQUEsQ0FDQSwwQ0FBQSxDQUVKLG1DQUNFLHVDQUNFLFlBQUEsQ0FDQSxtQkFBQSxDQUNBLFFBQUEsQ0FDRiwwQ0FDRSxxQkFBQSxDQUNBLGlCQUFBLENBQ0EsY0FBQSxDQUNGLHFDQUNFLGNBQUEsQ0FDRix3SEFHRSxZQUFBLENBQUEsQ0FFSixvQ0FFSSw4RUFDRSxZQUFBLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyIucm9vdFxuICBkaXNwbGF5OiBmbGV4XG4gIGZsZXgtZGlyZWN0aW9uOiByb3dcbiAgZm9udC1zaXplOiAxcmVtXG4gIGZvbnQtZmFtaWx5OiBSb2JvdG8sICdPcGVuIFNhbnMnLCBIZWx2ZXRpY2EsIEFyaWFsXG4gIGJhY2tncm91bmQ6ICNlNmU3ZThcbiAgYWxpZ24taXRlbXM6IGNlbnRlclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlclxuICBjb250YWluZXI6IGhvbGRlciAvIHNpemVcbiAgZmxleDogMVxuICBoZWlnaHQ6IDEwMCVcblxuLnNoYWRvd0JveFxuICBiYWNrZ3JvdW5kOiB2YXIoLS10ZXJtbHktdGhlbWUtYmFja2dyb3VuZC1jb2xvcilcbiAgYm9yZGVyLXJhZGl1czogNXB4XG4gIGJvcmRlcjogMXB4IHNvbGlkICNkZGRcbiAgYm94LXNoYWRvdzogMHB4IDBweCAxNXB4IHJnYmEoMCwgMCwgMCwgMC4xNSlcbiAgZGlzcGxheTogaW5saW5lLWZsZXhcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtblxuICBtYXgtd2lkdGg6IDMyZW1cbiAgbWluLXdpZHRoOiBtaW4tY29udGVudFxuICBwYWRkaW5nOiAyZW1cbiAgZ2FwOiAxZW1cblxuLnRpdGxlXG4gIGNvbG9yOiB2YXIoLS10ZXJtbHktdGhlbWUtY29sb3IpXG4gIGZvbnQtc2l6ZTogMS4yNWVtXG4gIGZvbnQtd2VpZ2h0OiA1MDBcbiAgbGluZS1oZWlnaHQ6IDFcblxuLmNvbnRlbnRcbiAgY29sb3I6IHZhcigtLXRlcm1seS10aGVtZS1jb2xvcilcbiAgZm9udC1zaXplOiB2YXIoLS10ZXJtbHktdGhlbWUtZm9udC1zaXplKVxuICBsaW5lLWhlaWdodDogMS43NVxuXG4uYnV0dG9uc1xuICBkaXNwbGF5OiBmbGV4XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyXG4gIGdhcDogMC41ZW1cblxuICAmID4gKlxuICAgIGZvbnQtd2VpZ2h0OiA2MDBcbiAgICBmb250LXNpemU6IHZhcigtLXRlcm1seS10aGVtZS1mb250LXNpemUpXG4gICAgd2lkdGg6IDEwMCVcblxuICAuYWNjZXB0QnV0dG9uXG4gICAgYmFja2dyb3VuZDogdmFyKC0tdGVybWx5LXRoZW1lLWJ1dHRvbi1iYWNrZ3JvdW5kLWNvbG9yKVxuICAgIGJvcmRlci1jb2xvcjogdmFyKC0tdGVybWx5LXRoZW1lLWJ1dHRvbi1iYWNrZ3JvdW5kLWNvbG9yKSAhaW1wb3J0YW50XG4gICAgY29sb3I6IHZhcigtLXRlcm1seS10aGVtZS1idXR0b24tdGV4dC1jb2xvcikgIWltcG9ydGFudFxuXG4gIC5wcmVmc0J1dHRvblxuICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50XG4gICAgYm9yZGVyLWNvbG9yOiB2YXIoLS10ZXJtbHktdGhlbWUtY29sb3IpICFpbXBvcnRhbnRcbiAgICBjb2xvcjogdmFyKC0tdGVybWx5LXRoZW1lLWNvbG9yKSAhaW1wb3J0YW50XG5cbkBjb250YWluZXIgaG9sZGVyIChoZWlnaHQgPCAxNTVweClcbiAgLnNoYWRvd0JveFxuICAgIHBhZGRpbmc6IDZjcWJcbiAgICBkaXNwbGF5OiBpbmxpbmUtZmxleFxuICAgIGdhcDogMC41ZW1cbiAgLmFjY2VwdEJ1dHRvblxuICAgIHdpZHRoOiBhdXRvICFpbXBvcnRhbnRcbiAgICBwYWRkaW5nOiAzY3FiIDZjcWJcbiAgICBmb250LXNpemU6IDljcWJcbiAgLmNvbnRlbnRcbiAgICBmb250LXNpemU6IDljcWJcbiAgLnByZWZzQnV0dG9uLFxuICAudG9BbGxvd0NvbnRlbnQsXG4gIC50aXRsZVxuICAgIGRpc3BsYXk6IG5vbmVcblxuQGNvbnRhaW5lciBob2xkZXIgKCB3aWR0aCA8IDE5N3B4IClcbiAgLmJ1dHRvbnNcbiAgICAucHJlZnNCdXR0b25cbiAgICAgIGRpc3BsYXk6IG5vbmVcbiJdLCJzb3VyY2VSb290IjoiIn0= */</style>
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script>var dt = new Date();</script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" data-categories="analytics" data-src="https://www.googletagmanager.com/gtag/js?id=UA-112835436-3" type="text/plain" data-autoblocked="1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112835436-3');
+    </script>
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar"><div id="termly-code-snippet-support"></div>
+
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- ========== Preloader ========== -->
+    <div class="preloader" style="opacity: 0.0049;">
+        <img src="assets/images/loader.svg" alt="Loading..." style="display: none;">
+    </div>
+
+    <!--<audio preload="auto" autoplay>
+        <source src="assets/daftpunk.mp3" type="audio/mpeg">
+    </audio>-->
+    <!-- ========== Navigation ========== -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-trans  navbar-fw" role="navigation">
+        <div class="navbar-header page-scroll">
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>-->
+            <!-- Logo -->
+            <a class="navbar-brand" href="#contact"><img src="assets/images/logo-light.png" alt="Request a Demo"></a>
+        </div>
+        <!-- Navbar Links -->
+        <!--<div id="navbar" class="navbar-collapse collapse page-scroll navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="#home">Home<span class="sr-only"></span></a></li>
+                <li><a href="#about">About<span class="sr-only"></span></a></li>
+                <li><a href="#services">Services<span class="sr-only"></span></a></li>
+                <li><a href="#portfolio">Portfolio<span class="sr-only"></span></a></li>
+                <li><a href="#testimonials">Testimonials<span class="sr-only"></span></a></li>
+                <li><a href="#blog">Blog<span class="sr-only"></span></a></li>
+                <li><a href="#contact">Contact<span class="sr-only"></span></a></li>
+                <!--<li><a href="index.html">All Demos<span class="sr-only"></span></a></li>-->
+        <!--</ul><!-- / .nav .navbar-nav -->
+        <!--</div>--><!--/.navbar-collapse -->
+    </nav><!-- / .navbar -->
+    <!-- ========== Hero Cover ========== -->
+    <div id="home" class="agency2-hero">
+        <div class="bg-overlay">
+
+            <div id="large-header" class="large-header" style="height: 720px;">
+                <canvas id="demo-canvas" class="demo-canvas" width="1280" height="720"></canvas>
+                <!-- Hero Content -->
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+
+                        <!--<img src="assets/images/hero/ag2-logo.png" alt="Mycelium">-->
+                        <h1 class="hero-lead">MYCELIUM</h1>
+                        <h4 class="h-alt hero-secondary">Greener. Faster. Better.</h4>
+                        <a href="#about" class="btn btn-light">Learn More</a>
+
+                        <!-- Scroller -->
+                        <a href="#about" class="scroller">
+                            <span class="scroller-text">scroll down</span>
+                            <span class="linea-basic-magic-mouse"></span>
+                        </a>
+                    </div><!-- / .hero-content -->
+                </div><!-- / .hero-content-wrapper -->
+            </div><!-- / #large-header -->
+        </div><!-- / .bg-overlay -->
+    </div><!-- / #home -->
+    <!-- ========== Feature - Boxed Hover List ========== -->
+    <div class="gray-bg">
+        <section id="about" class="container section ft-boxed-hover">
+            <header class="sec-heading">
+                <h2>The Brain of Routed Services</h2>
+                <span class="subheading">Set of smart tools to manage, optimize and deliver all transport services within any type of industry</span>
+            </header>
+            <div class="row">
+                <div class="col-md-12 no-gap">
+                    <ul>
+                        <!-- Item 1 -->
+                        <li>
+                            <span class="linea-basic-smartphone ft-icon"></span>
+                            <h5>End-to-End Solutions</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-smartphone ft-icon"></span>
+                                <span class="ft-heading">End-to-End Solutions</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#">Learn more</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                        <!-- Item 2 -->
+                        <li>
+                            <span class="linea-basic-gear ft-icon"></span>
+                            <h5>Optimized Route Planning</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-gear ft-icon"></span>
+                                <span class="ft-heading">Optimized Route Planning</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#" class="link-btn">Learn More</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                        <!-- Item 3 -->
+                        <li>
+                            <span class="linea-basic-clockwise ft-icon"></span>
+                            <h5>Fully Autonomous Dispatcher</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-clockwise ft-icon"></span>
+                                <span class="ft-heading">Fully Autonomous Dispatcher</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#" class="link-btn">Learn More</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                        <!-- Item 4 -->
+                        <li>
+                            <span class="linea-basic-cloud ft-icon"></span>
+                            <h5>Seamless integration</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-cloud ft-icon"></span>
+                                <span class="ft-heading">Seamless integrations</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#" class="link-btn">Learn More</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                        <!-- Item 5 -->
+                        <li>
+                            <span class="linea-basic-keyboard ft-icon"></span>
+                            <h5>Development Tools</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-keyboard ft-icon"></span>
+                                <span class="ft-heading">Development Tools</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#" class="link-btn">Learn More</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                        <!-- Item 6 -->
+                        <li>
+                            <span class="linea-basic-todolist-pencil ft-icon"></span>
+                            <h5>Management Tools</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-todolist-pencil ft-icon"></span>
+                                <span class="ft-heading">Management Tools</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#" class="link-btn">Learn More</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                        <!-- Item 7 -->
+                        <li>
+                            <span class="linea-basic-pencil-ruler ft-icon"></span>
+                            <h5>Optimization Playground</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-pencil-ruler ft-icon"></span>
+                                <span class="ft-heading">Optimization Playground</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#" class="link-btn">Learn More</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                        <!-- Item 8 -->
+                        <li>
+                            <span class="linea-basic-geolocalize-05 ft-icon"></span>
+                            <h5>Realtime Monitoring</h5>
+                            <h6 class="h-alt"></h6>
+                            <div class="hover-content">
+                                <span class="linea-basic-geolocalize-05 ft-icon"></span>
+                                <span class="ft-heading">Realtime Monitoring</span>
+                                <!--<p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </p>
+                                <a href="#" class="link-btn">Learn More</a>-->
+                            </div><!-- / .hover-content -->
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- / .row -->
+        </section><!-- / .cotnainer -->
+    </div><!-- / .gray-bg -->
+    <!-- ========== Number Counters - Dark bg ========== -->
+    <div class="number-counters-dark-bg">
+        <div class="container">
+            <div id="counters-min" class="row count-wrapper">
+
+                <!-- Item 1 -->
+                <div class="col-md-3 mb-sm-100 count-item wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
+                    <span id="count-min-1" class="count-nbr">4M</span>
+                    <span class="count-text">Routes created</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="col-md-3 mb-sm-100 count-item wow fadeIn" data-wow-duration="1s">
+                    <span id="count-min-2" class="count-nbr">19M</span>
+                    <span class="count-text">KM Planned</span>
+                </div>
+                <!-- Item 3 -->
+                <!--<div class="col-md-3 mb-sm-100 count-item wow fadeIn" data-wow-duration="1s">
+                    <span id="count-min-3" class="count-nbr">100M</span>
+                    <span class="count-text">Transported Orders</span>
+                </div>-->
+                <div class="col-md-3 mb-sm-100 count-item wow fadeIn" data-wow-duration="1s">
+                    <span id="count-min-3" class="count-nbr">30%</span>
+                    <span class="count-text">Reduced Co2</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="col-md-3 count-item wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
+                    <span id="count-min-4" class="count-nbr">461K</span>
+                    <span class="count-text">Happy end customers</span>
+                </div>
+            </div><!-- / .row -->
+        </div><!-- / .container -->
+    </div><!-- / .number-counters -->
+    <!-- ========== Feature - Horizontal Aligned ========== -->
+    <!--<section class="container ft-x">-->
+    <div class="gray-bg">
+        <section class="container ft-centered">
+            <div class="section">
+                <div class="row">
+                    <div class="col-md-4 ws-s">
+                        <h1>
+                            <br>
+                            Let Mycelium do the work for you,<br>
+                            the smart way.
+                        </h1>
+                    </div>
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-tools"></span>
+                        <h5>Maximize fleet utilization</h5>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-happy"></span>
+                        <h5>Increase customer satiafaction to new heights</h5>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-dial"></span>
+                        <h5>Flexibly adapt to individual requirements</h5>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-adjustments"></span>
+                        <h5>Easily test new business models</h5>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-wallet"></span>
+                        <h5>Save time, money and energy</h5>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-calendar"></span>
+                        <h5>Automate daily transportation routines</h5>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-recycle"></span>
+                        <h5>Reduce pollution, fuel and wear of resources</h5>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4 ws-s no-gap ft-item ft-material">
+                        <span class="et-presentation"></span>
+                        <h5>Allow your staff to focus on the real business</h5>
+                        <p></p>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+        </section>
+    </div>
+
+    <!-- ========== Clients List - Dark ========== -->
+    <div class="dark-bg">
+        <div class="container">
+            <div class="row">
+                <div class="ws-s"></div>
+                <ul class="t-clients clients-slider ws-s">
+                    <li><a href="https://gett.com/uk/" target="_blank"><img src="assets/images/brands/gett.png" alt="Gett"></a></li>
+                    <li><a href="https://www.shufersal.co.il/" target="_blank"><img src="assets/images/brands/shufersal.png" alt="Shufersal"></a></li>
+                    <li><a href="https://www.partner.co.il/en" target="_blank"><img src="assets/images/brands/partner.png" alt="Partner"></a></li>
+                    <li><a href="http://www.ritzcarlton.com/" target="_blank"><img src="assets/images/brands/ritz.png" alt="Ritz"></a></li>
+                    <li><a href="https://www.tel-aviv.gov.il/en/Pages/HomePage.aspx" target="_blank"><img src="assets/images/brands/tlvmuni.png" alt="TLV Muni"></a></li>
+                    <li><a href="https://www.israir.co.il/" target="_blank"><img src="assets/images/brands/israir.png" alt="Israir"></a></li>
+                    <li><a href="http://www.petah-tikva.muni.il/Pages/default.aspx" target="_blank"><img src="assets/images/brands/petachtikva.png" alt="Petach Tikva Muni"></a></li>
+                    <li><a href="http://www.bankhapoalim.com/" target="_blank"><img src="assets/images/brands/hapoalim.png" alt="Bank Hapoalim"></a></li>
+                    <li><a href="http://www.shahal.co.il/" target="_blank"><img src="assets/images/brands/shahal.png" alt="Shahal"></a></li>
+                    <li><a href="http://www.ynet.co.il/" target="_blank"><img src="assets/images/brands/ynet.png" alt="YNet"></a></li>
+                    <li><a href="https://www.herods-hotels.com/" target="_blank"><img src="assets/images/brands/herods.png" alt="Herods"></a></li>
+                    <li><a href="https://www.discountbank.co.il/DB/en"><img src="assets/images/brands/discount.png" alt="Discount Bank"></a></li>
+                    <!--<li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>
+                    <li><a href="#"><img src="assets/images/client-logo-placeholder.png" alt="Client"></a></li>-->
+                </ul><!-- / .t-clients -->
+            </div><!-- / .row -->
+        </div><!-- / .container -->
+    </div><!-- / .dark-bg -->
+
+    <div class="cta-link">
+        <div class="bg-overlay">
+
+            <div class="cta-wrapper">
+                <h3 class="h-alt wow fadeIn" data-wow-delay=".1s" data-wow-duration="1s">See what we can do for you</h3>
+                <a href="#contact" class="btn btn-light btn-large wow fadeIn" data-wow-delay=".3s" data-wow-duration="1s">Get in touch</a>
+            </div>
+        </div>
+    </div><!-- / .dark-bg .cta-link -->
+    <!-- ========== Testimonials ========== -->
+
+    <div id="testimonials" class="gray-bg">
+        <section class="container testimonials-3col">
+            <div class="row section">
+                <header class="sec-heading">
+                    <h2>What people say about us</h2>
+                    <span class="subheading">Read some of the testimonials from our amazing clients</span>
+                </header>
+
+                <!-- Item 1 -->
+                <div class="col-md-4 mb-sm-50">
+                    <div class="t-item wow fadeIn" data-wow-duration="1s">
+                        <!--<img src="assets/images/avatar-placeholder.png" alt="Testimonial">-->
+                        <blockquote>
+                            <p>Being Israel's largest tourism retailer, we are committed to complex operations and challenging timetables. Along with the unprecedented growth in our scope of activity, we chose Gett &amp; Mycelium - strong, innovative and reliable partners to manage and operate our flight's crew rides.</p>
+                            <footer>
+                                <!--<cite>by Oshrat Morad<span>Israir</span></cite>-->
+                            </footer>
+                        </blockquote>
+                        <span class="et-quote t-icon"></span>
+                    </div><!-- / .t-item -->
+                </div><!-- / .col-md-4 -->
+                <!-- Item 2 -->
+                <div class="col-md-4 mb-sm-50">
+                    <div class="t-item wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
+                        <!--<img src="assets/images/avatar-placeholder.png" alt="Testimonial">-->
+                        <blockquote>
+                            <p>At last, a real solution for planning and optimization, with a set of tools that changed the way we work. Now we can concentrate more on our business and less on the operation.</p>
+                            <footer>
+                                <!--<cite>by Cecilia Acosta<span>Apple</span></cite>-->
+                            </footer>
+                        </blockquote>
+                        <span class="et-quote t-icon"></span>
+                    </div><!-- / .t-item -->
+                </div><!-- / .col-md-4 -->
+                <!-- Item 3 -->
+                <div class="col-md-4">
+                    <div class="t-item wow fadeIn" data-wow-duration="1s" data-wow-delay=".6s">
+                        <!--<img src="assets/images/avatar-placeholder.png" alt="Testimonial">-->
+                        <blockquote>
+                            <p>Mycelium enables us to get new market share and new kind of customers, with new pricing models and new services in our offering. Using Mycelium core - "The Brain", we can be much more efficient and competitive.</p>
+                            <footer>
+                                <!--<cite>by Gerald Pena<span>Facebook</span></cite>-->
+                            </footer>
+                        </blockquote>
+                        <span class="et-quote t-icon"></span>
+                    </div><!-- / .t-item -->
+                </div><!-- / .col-md-4 -->
+            </div><!-- / .row -->
+        </section><!-- / .container -->
+    </div><!-- / .gray-bg -->
+    <!-- ========== Footer Contact ========== -->
+
+    <footer class="footer-contact">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Map and address -->
+                <div class="col-lg-6 no-gap contact-info">
+                    <!-- Show Info Button -->
+                    <a href="#" class="show-info-link"><i class="fa fa-info"></i>Show info</a>
+                    <div id="map-canvas" class="footer-map"></div>
+                    <address class="contact-info-wrapper">
+                        <ul>
+                            <!-- Address -->
+                            <!--<li class="contact-group">
+                                <span class="adr-heading">Address</span>
+                                <span class="adr-info">100 Street, Il, US</span>
+                            </li>-->
+                            <!-- Email -->
+                            <li class="contact-group">
+                                <span class="adr-heading">Email</span>
+                                <span class="adr-info"><a style="text-decoration: none;color:inherit;" href="mailto:aviad@way2go.ai" target="_top" onclick="ga('send', 'event', 'CTA', 'emailClick', 'Email', 1);">info@mycelium.ai</a></span>
+                            </li>
+                            <li class="contact-group">
+                                <span class="adr-heading">Mobile</span>
+                                <span class="adr-info"><a style="text-decoration: none;color:inherit;" href="tel:+972544344443" target="_top" onclick="ga('send', 'event', 'CTA', 'telClick', 'Telephone', 1);">+ 972 54 434 4443</a></span>
+                            </li>
+                        </ul>
+
+                        <!--<a href="#" class="show-map"><span class="linea-basic-geolocalize-05"></span>show on map</a>-->
+                    </address>
+                </div><!-- / .col-lg-6 -->
+                <!-- Contact Form -->
+                <div id="contact" class="col-lg-6 no-gap section contact-form">
+                    <div class="sec-heading">
+                        <h2>Request A Demo</h2>
+                        <span class="subheading">Time to move in the right direction</span>
+                    </div>
+                    <form action="https://fishart.co.il/ajax/mycelium.ai.mailer.php" method="POST" class="form-ajax wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                        <!-- Name -->
+                        <div class="form-group">
+                            <input type="text" name="name" id="name-contact-1" class="form-control validate-locally" placeholder="Enter your name">
+                            <label for="name-contact-1">Name</label>
+                            <span class="pull-right alert-error"></span>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <input type="email" name="email" id="email-contact-1" class="form-control validate-locally" placeholder="Enter your email">
+                            <label for="email-contact-1">Email</label>
+                            <span class="pull-right alert-error"></span>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <input type="tel" name="phone" id="phone-contact-1" class="form-control validate-locally" placeholder="Enter your telphone">
+                            <label for="email-contact-1">Telephone</label>
+                            <span class="pull-right alert-error"></span>
+                        </div>
+                        <!-- Message -->
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" id="message-contact-1" rows="5" placeholder="Your Message"></textarea>
+                            <label for="message-contact-1">Message</label>
+                        </div>
+                        <input type="submit" class="btn pull-right" value="Send Message">
+                        <!--<a href="mailto:aviad@way2go.ai?Subject=Request%20a%20Demo" class="btn pull-right" target="_top" onclick="ga('send', {  hitType: 'event',  eventCategory: 'CTA',  eventAction: 'sendMessage',  eventLabel: 'Request a Demo'});">Send Message</a>-->
+                        <!-- Ajax Message -->
+                        <div class="ajax-message col-md-12 no-gap"></div>
+                    </form>
+                </div><!-- / .col-lg-6 -->
+            </div><!-- / .row -->
+        </div><!-- / .container-fluid -->
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <small>© 2015-
+                        <script>document.write(dt.getFullYear());</script>2026 Mycelium LTD.</small>
+                    </div>
+					<div class="col-md-3">
+                        <small><a target="_blank" href="https://app.termly.io/document/privacy-policy/2d9ee632-52ba-47ba-a701-68bb297e7dc0" class="to-the-top">Privacy Policy</a>  |  
+						<a target="_blank" href="https://app.termly.io/document/terms-of-use-for-website/64af7c5e-bd2c-4d13-a4a6-dd5592e59d55" class="to-the-top">Terms of Use</a></small>
+                    </div>
+                    <div class="col-md-3">
+                        <small><a href="#page-top" class="pull-right to-the-top">To the top<i class="fa fa-angle-up"></i></a></small>
+                    </div>
+                </div><!-- / .row -->
+            </div><!-- / .container -->
+        </div><!-- / .copyright -->
+    </footer><!-- / .footer-contact -->
+    <!-- ========== Scripts ========== -->
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="assets/js/vendor/google-fonts.js"></script>
+    <script src="assets/js/vendor/jquery.easing.js"></script>
+    <script src="assets/js/vendor/jquery.waypoints.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/js/vendor/smoothscroll.js"></script>
+    <script src="assets/js/vendor/jquery.localScroll.min.js"></script>
+    <script src="assets/js/vendor/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/vendor/jquery.stellar.min.js"></script>
+    <script src="assets/js/vendor/jquery.parallax.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/jquery.easypiechart.min.js"></script>
+    <script src="assets/js/vendor/countup.min.js"></script>
+    <script src="assets/js/vendor/isotope.min.js"></script>
+    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <script src="assets/js/vendor/jquery.ajaxchimp.js"></script>
+    <script src="assets/js/vendor/animDots.js"></script>
+    <!-- Google Maps -->
+    <script src="assets/js/gmap.js"></script>
+    <script type="text/plain" data-categories="performance" data-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqlxOlMN5lFdRsqK3s4KHjIjD064Mf2lg" data-autoblocked="1"></script>
+    <!-- Definity JS -->
+    <script src="assets/js/main.js?v=1"></script>
+
+
+</body></html>

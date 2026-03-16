@@ -1,0 +1,56 @@
+[2026-03-11T04:19:50.043Z] === Homepage AI Extractor: Vital Op ===
+[2026-03-11T04:19:50.043Z] Started at: 2026-03-11T04:19:50.043Z
+[2026-03-11T04:19:50.043Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773202790042_Vital_Op
+[2026-03-11T04:19:50.043Z] Company: Vital Op
+[2026-03-11T04:19:50.043Z] Website: vitalop.com
+[2026-03-11T04:19:50.043Z] cbRank: 582772
+[2026-03-11T04:19:50.043Z] Reasons: h
+[2026-03-11T04:19:50.043Z] Fetching: https://vitalop.com
+[2026-03-11T04:20:04.874Z] Network idle timeout — continuing with current state
+[2026-03-11T04:20:04.934Z] Redirected: https://vitalop.com -> https://vitalop.com/
+[2026-03-11T04:20:04.940Z] Saved HTML (52095 bytes) to page.html
+[2026-03-11T04:20:04.944Z] Extracted 10 unique links from page
+[2026-03-11T04:20:04.945Z] Saved 10 links to links.json
+[2026-03-11T04:20:04.949Z] Extracted footer HTML (2190 chars)
+[2026-03-11T04:20:04.949Z] Extracted header HTML (2166 chars)
+[2026-03-11T04:20:04.955Z] Website (post-redirect): https://vitalop.com/ → origin: https://vitalop.com
+[2026-03-11T04:20:04.955Z] External links: 2 (of 10 total)
+[2026-03-11T04:20:04.955Z] ── All external links ──
+[2026-03-11T04:20:04.955Z]   EXT: https://www.anova.co.il
+[2026-03-11T04:20:04.955Z]   EXT: https://www.linkedin.com/company/vital-op
+[2026-03-11T04:20:04.956Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T04:20:04.956Z]   UNCATEGORIZED: https://www.anova.co.il
+[2026-03-11T04:20:04.956Z]   REGEX: li <- https://www.linkedin.com/company/vital-op
+[2026-03-11T04:20:04.956Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-11T04:20:04.956Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T04:20:04.957Z] Saved AI prompt (3056 chars) to ai_prompt.txt
+[2026-03-11T04:20:04.957Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T04:20:04.973Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T04:20:16.087Z]   AI: First token received, streaming...
+[2026-03-11T04:20:17.261Z] AI response complete: 41 chars in 12.3s
+[2026-03-11T04:20:17.262Z] Saved AI response to ai_response.json
+[2026-03-11T04:20:17.262Z] ── Parsing AI response (1 lines) ──
+[2026-03-11T04:20:17.262Z]   AI LINK: https://www.linkedin.com/company/vital-op
+[2026-03-11T04:20:17.263Z] AI returned 1 valid links
+[2026-03-11T04:20:17.263Z] ── Categorizing 1 AI-returned links ──
+[2026-03-11T04:20:17.263Z]   AI→REGEX: li <- https://www.linkedin.com/company/vital-op (duplicate, skipped)
+[2026-03-11T04:20:17.263Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T04:20:17.263Z] Footer/header origins (3):
+[2026-03-11T04:20:17.263Z]   FOOTER/HEADER ORIGIN: https://vitalop.com
+[2026-03-11T04:20:17.263Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T04:20:17.263Z]   FOOTER/HEADER ORIGIN: https://www.anova.co.il
+[2026-03-11T04:20:17.263Z]   ADDED: urls <- https://www.anova.co.il
+[2026-03-11T04:20:17.264Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T04:20:17.264Z] ── Step 3: Final dedup ──
+[2026-03-11T04:20:17.264Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-11T04:20:17.264Z] ── FINAL RESULT ──
+[2026-03-11T04:20:17.264Z]   ws (1):
+[2026-03-11T04:20:17.264Z]     - https://vitalop.com
+[2026-03-11T04:20:17.264Z]   li (1):
+[2026-03-11T04:20:17.264Z]     - https://www.linkedin.com/company/vital-op
+[2026-03-11T04:20:17.264Z]   urls (1):
+[2026-03-11T04:20:17.264Z]     - https://www.anova.co.il
+[2026-03-11T04:20:17.264Z] Summary: ws:1, li:1, urls:1
+[2026-03-11T04:20:17.265Z] Saved final result to result.json
+[2026-03-11T04:20:17.265Z] Override fields: ws, li, urls
+[2026-03-11T04:20:17.265Z] Finished at: 2026-03-11T04:20:17.265Z

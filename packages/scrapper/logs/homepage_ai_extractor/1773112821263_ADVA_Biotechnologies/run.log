@@ -1,0 +1,61 @@
+[2026-03-10T03:20:21.264Z] === Homepage AI Extractor: ADVA Biotechnologies ===
+[2026-03-10T03:20:21.264Z] Started at: 2026-03-10T03:20:21.264Z
+[2026-03-10T03:20:21.264Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773112821263_ADVA_Biotechnologies
+[2026-03-10T03:20:21.264Z] Company: ADVA Biotechnologies
+[2026-03-10T03:20:21.264Z] Website: advabio.com
+[2026-03-10T03:20:21.264Z] cbRank: 360795
+[2026-03-10T03:20:21.264Z] Reasons: h
+[2026-03-10T03:20:21.264Z] Fetching: https://advabio.com
+[2026-03-10T03:20:38.802Z] Network idle timeout — continuing with current state
+[2026-03-10T03:20:39.019Z] Redirected: https://advabio.com -> https://www.advabio.com/
+[2026-03-10T03:20:39.033Z] Saved HTML (104084 bytes) to page.html
+[2026-03-10T03:20:39.041Z] Extracted 29 unique links from page
+[2026-03-10T03:20:39.042Z] Saved 29 links to links.json
+[2026-03-10T03:20:39.047Z] Extracted footer HTML (2323 chars)
+[2026-03-10T03:20:39.047Z] Extracted header HTML (9848 chars)
+[2026-03-10T03:20:39.054Z] Website (post-redirect): https://www.advabio.com/ → origin: https://www.advabio.com
+[2026-03-10T03:20:39.055Z] External links: 4 (of 29 total)
+[2026-03-10T03:20:39.055Z] ── All external links ──
+[2026-03-10T03:20:39.055Z]   EXT: https://www.linkedin.com/company/adva-biotechnology
+[2026-03-10T03:20:39.055Z]   EXT: https://www.youtube.com/channel/UC-MHD-u3j_vRlBMmK-W8Ndg
+[2026-03-10T03:20:39.055Z]   EXT: https://www.youtube.com/watch?v=TLXJm1DqVLU
+[2026-03-10T03:20:39.055Z]   EXT: https://www.youtube.com/watch?v=UcgRLit1gHo
+[2026-03-10T03:20:39.055Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T03:20:39.056Z]   REGEX: li <- https://www.linkedin.com/company/adva-biotechnology
+[2026-03-10T03:20:39.056Z]   REGEX: ytc <- https://www.youtube.com/channel/UC-MHD-u3j_vRlBMmK-W8Ndg
+[2026-03-10T03:20:39.056Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-10T03:20:39.056Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=TLXJm1DqVLU
+[2026-03-10T03:20:39.056Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=UcgRLit1gHo
+[2026-03-10T03:20:39.056Z] Programmatic result: ws:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-10T03:20:39.056Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T03:20:39.057Z] Saved AI prompt (3364 chars) to ai_prompt.txt
+[2026-03-10T03:20:39.057Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T03:20:39.076Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T03:20:51.657Z]   AI: First token received, streaming...
+[2026-03-10T03:20:58.921Z] AI response complete: 109 chars in 19.9s
+[2026-03-10T03:20:58.922Z] Saved AI response to ai_response.json
+[2026-03-10T03:20:58.922Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T03:20:58.922Z]   AI LINK: https://www.linkedin.com/company/adva-biotechnology/
+[2026-03-10T03:20:58.922Z]   AI LINK: https://www.youtube.com/channel/UC-MHD-u3j_vRlBMmK-W8Ndg
+[2026-03-10T03:20:58.922Z] AI returned 2 valid links
+[2026-03-10T03:20:58.923Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T03:20:58.923Z]   AI→REGEX: li <- https://www.linkedin.com/company/adva-biotechnology/ (duplicate, skipped)
+[2026-03-10T03:20:58.923Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC-MHD-u3j_vRlBMmK-W8Ndg (duplicate, skipped)
+[2026-03-10T03:20:58.923Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T03:20:58.924Z] Footer/header origins (2):
+[2026-03-10T03:20:58.924Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T03:20:58.924Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T03:20:58.924Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T03:20:58.924Z] ── Step 3: Final dedup ──
+[2026-03-10T03:20:58.924Z] No urls to dedup
+[2026-03-10T03:20:58.924Z] ── FINAL RESULT ──
+[2026-03-10T03:20:58.924Z]   ws (1):
+[2026-03-10T03:20:58.924Z]     - https://www.advabio.com
+[2026-03-10T03:20:58.924Z]   li (1):
+[2026-03-10T03:20:58.924Z]     - https://www.linkedin.com/company/adva-biotechnology
+[2026-03-10T03:20:58.924Z]   ytc (1):
+[2026-03-10T03:20:58.924Z]     - https://www.youtube.com/channel/UC-MHD-u3j_vRlBMmK-W8Ndg
+[2026-03-10T03:20:58.924Z] Summary: ws:1, li:1, ytc:1
+[2026-03-10T03:20:58.925Z] Saved final result to result.json
+[2026-03-10T03:20:58.925Z] Override fields: ws, li, ytc
+[2026-03-10T03:20:58.925Z] Finished at: 2026-03-10T03:20:58.925Z

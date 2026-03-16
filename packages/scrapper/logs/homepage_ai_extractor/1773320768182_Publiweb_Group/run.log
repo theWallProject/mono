@@ -1,0 +1,84 @@
+[2026-03-12T13:06:08.182Z] === Homepage AI Extractor: Publiweb Group ===
+[2026-03-12T13:06:08.182Z] Started at: 2026-03-12T13:06:08.182Z
+[2026-03-12T13:06:08.183Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773320768182_Publiweb_Group
+[2026-03-12T13:06:08.183Z] Company: Publiweb Group
+[2026-03-12T13:06:08.183Z] Website: publiweb.group
+[2026-03-12T13:06:08.183Z] cbRank: 960682
+[2026-03-12T13:06:08.183Z] Reasons: h
+[2026-03-12T13:06:08.183Z] Fetching: https://publiweb.group
+[2026-03-12T13:06:11.892Z] Redirected: https://publiweb.group -> https://publiweb.group/
+[2026-03-12T13:06:11.969Z] Saved HTML (2449752 bytes) to page.html
+[2026-03-12T13:06:11.973Z] Extracted 38 unique links from page
+[2026-03-12T13:06:11.974Z] Saved 38 links to links.json
+[2026-03-12T13:06:11.978Z] Extracted footer HTML (40684 chars)
+[2026-03-12T13:06:11.979Z] Extracted header HTML (21954 chars)
+[2026-03-12T13:06:11.983Z] Website (post-redirect): https://publiweb.group/ → origin: https://publiweb.group
+[2026-03-12T13:06:11.983Z]   SUBDOMAIN: app.publiweb.group (added to ws)
+[2026-03-12T13:06:11.983Z] Website subdomains found: 1
+[2026-03-12T13:06:11.984Z] External links: 6 (of 38 total)
+[2026-03-12T13:06:11.984Z] ── All external links ──
+[2026-03-12T13:06:11.984Z]   EXT: https://api.whatsapp.com/message/DKRZRFVLUUJZP1?autoload=1&app_absent=0
+[2026-03-12T13:06:11.984Z]   EXT: https://calendly.com/publiweb/demo-publiweb?utm_source=site-publiweb
+[2026-03-12T13:06:11.984Z]   EXT: https://www.facebook.com/publiwebgroup
+[2026-03-12T13:06:11.984Z]   EXT: https://www.instagram.com/publiweb_group/?hl=fr
+[2026-03-12T13:06:11.984Z]   EXT: https://www.linkedin.com/company/18767325/admin
+[2026-03-12T13:06:11.984Z]   EXT: https://www.linkedin.com/company/publiweb-group
+[2026-03-12T13:06:11.984Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T13:06:11.984Z]   UNCATEGORIZED: https://api.whatsapp.com/message/DKRZRFVLUUJZP1?autoload=1&app_absent=0
+[2026-03-12T13:06:11.985Z]   UNCATEGORIZED: https://calendly.com/publiweb/demo-publiweb?utm_source=site-publiweb
+[2026-03-12T13:06:11.985Z]   REGEX: fb <- https://www.facebook.com/publiwebgroup
+[2026-03-12T13:06:11.985Z]   REGEX: ig <- https://www.instagram.com/publiweb_group/?hl=fr
+[2026-03-12T13:06:11.985Z]   REGEX: li <- https://www.linkedin.com/company/18767325/admin
+[2026-03-12T13:06:11.985Z]   REGEX: li <- https://www.linkedin.com/company/publiweb-group
+[2026-03-12T13:06:11.985Z] Programmatic result: ws:2, fb:1, ig:1, li:2 | 2 uncategorized
+[2026-03-12T13:06:11.985Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T13:06:11.995Z] Saved AI prompt (3384 chars) to ai_prompt.txt
+[2026-03-12T13:06:11.996Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T13:06:12.023Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T13:06:23.739Z]   AI: First token received, streaming...
+[2026-03-12T13:06:35.908Z]   AI streaming: 201 chars received (23.9s elapsed)
+[2026-03-12T13:06:35.909Z] AI response complete: 204 chars in 23.9s
+[2026-03-12T13:06:35.910Z] Saved AI response to ai_response.json
+[2026-03-12T13:06:35.910Z] ── Parsing AI response (4 lines) ──
+[2026-03-12T13:06:35.910Z]   AI LINK: https://www.instagram.com/publiweb_group/?hl=fr
+[2026-03-12T13:06:35.910Z]   AI LINK: https://www.facebook.com/publiwebgroup/
+[2026-03-12T13:06:35.910Z]   AI LINK: https://www.linkedin.com/company/publiweb-group
+[2026-03-12T13:06:35.910Z]   AI LINK: https://calendly.com/publiweb/demo-publiweb?utm_source=site-publiweb
+[2026-03-12T13:06:35.911Z] AI returned 4 valid links
+[2026-03-12T13:06:35.911Z] ── Categorizing 4 AI-returned links ──
+[2026-03-12T13:06:35.911Z]   AI→REGEX: ig <- https://www.instagram.com/publiweb_group/?hl=fr (duplicate, skipped)
+[2026-03-12T13:06:35.911Z]   AI→REGEX: fb <- https://www.facebook.com/publiwebgroup/ (duplicate, skipped)
+[2026-03-12T13:06:35.911Z]   AI→REGEX: li <- https://www.linkedin.com/company/publiweb-group (duplicate, skipped)
+[2026-03-12T13:06:35.911Z]   AI→URLS: https://calendly.com/publiweb/demo-publiweb (cleaned from https://calendly.com/publiweb/demo-publiweb?utm_source=site-publiweb)
+[2026-03-12T13:06:35.911Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T13:06:35.911Z] Footer/header origins (6):
+[2026-03-12T13:06:35.911Z]   FOOTER/HEADER ORIGIN: https://publiweb.group
+[2026-03-12T13:06:35.911Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-12T13:06:35.911Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T13:06:35.912Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T13:06:35.912Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T13:06:35.912Z]   FOOTER/HEADER ORIGIN: https://app.publiweb.group
+[2026-03-12T13:06:35.912Z]   SKIP (not in footer/header): https://api.whatsapp.com/message/DKRZRFVLUUJZP1?autoload=1&app_absent=0
+[2026-03-12T13:06:35.912Z]   SKIP (AI claimed): https://calendly.com/publiweb/demo-publiweb?utm_source=site-publiweb
+[2026-03-12T13:06:35.912Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T13:06:35.912Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T13:06:35.912Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T13:06:35.912Z] ── Step 3: Final dedup ──
+[2026-03-12T13:06:35.912Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T13:06:35.912Z] ── FINAL RESULT ──
+[2026-03-12T13:06:35.912Z]   ws (2):
+[2026-03-12T13:06:35.912Z]     - https://app.publiweb.group
+[2026-03-12T13:06:35.912Z]     - https://publiweb.group
+[2026-03-12T13:06:35.912Z]   li (2):
+[2026-03-12T13:06:35.912Z]     - https://www.linkedin.com/company/18767325
+[2026-03-12T13:06:35.913Z]     - https://www.linkedin.com/company/publiweb-group
+[2026-03-12T13:06:35.913Z]   fb (1):
+[2026-03-12T13:06:35.913Z]     - https://www.facebook.com/publiwebgroup
+[2026-03-12T13:06:35.913Z]   ig (1):
+[2026-03-12T13:06:35.913Z]     - https://www.instagram.com/publiweb_group
+[2026-03-12T13:06:35.913Z]   urls (1):
+[2026-03-12T13:06:35.913Z]     - https://calendly.com/publiweb/demo-publiweb
+[2026-03-12T13:06:35.913Z] Summary: ws:2, fb:1, ig:1, li:2, urls:1
+[2026-03-12T13:06:35.913Z] Saved final result to result.json
+[2026-03-12T13:06:35.914Z] Override fields: ws, li, fb, ig, urls
+[2026-03-12T13:06:35.914Z] Finished at: 2026-03-12T13:06:35.914Z

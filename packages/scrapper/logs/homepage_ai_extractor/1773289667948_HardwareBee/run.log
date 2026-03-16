@@ -1,0 +1,71 @@
+[2026-03-12T04:27:47.949Z] === Homepage AI Extractor: HardwareBee ===
+[2026-03-12T04:27:47.949Z] Started at: 2026-03-12T04:27:47.949Z
+[2026-03-12T04:27:47.949Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773289667948_HardwareBee
+[2026-03-12T04:27:47.949Z] Company: HardwareBee
+[2026-03-12T04:27:47.949Z] Website: hardwarebee.com
+[2026-03-12T04:27:47.949Z] cbRank: 795035
+[2026-03-12T04:27:47.949Z] Reasons: h
+[2026-03-12T04:27:47.949Z] Fetching: https://hardwarebee.com
+[2026-03-12T04:27:58.886Z] Redirected: https://hardwarebee.com -> https://hardwarebee.com/
+[2026-03-12T04:27:58.893Z] Saved HTML (149345 bytes) to page.html
+[2026-03-12T04:27:58.897Z] Extracted 117 unique links from page
+[2026-03-12T04:27:58.898Z] Saved 117 links to links.json
+[2026-03-12T04:27:58.902Z] Extracted footer HTML (9646 chars)
+[2026-03-12T04:27:58.902Z] Extracted header HTML (656 chars)
+[2026-03-12T04:27:58.907Z] Website (post-redirect): https://hardwarebee.com/ → origin: https://hardwarebee.com
+[2026-03-12T04:27:58.907Z] External links: 4 (of 117 total)
+[2026-03-12T04:27:58.907Z] ── All external links ──
+[2026-03-12T04:27:58.908Z]   EXT: https://dei-eng.com
+[2026-03-12T04:27:58.908Z]   EXT: https://twitter.com/HardwareBee
+[2026-03-12T04:27:58.908Z]   EXT: https://www.facebook.com/HardwareBee-178032362798224
+[2026-03-12T04:27:58.908Z]   EXT: https://www.linkedin.com/company/hardwarebee
+[2026-03-12T04:27:58.908Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T04:27:58.908Z]   UNCATEGORIZED: https://dei-eng.com
+[2026-03-12T04:27:58.908Z]   REGEX: tw <- https://twitter.com/HardwareBee
+[2026-03-12T04:27:58.908Z]   REGEX: fb <- https://www.facebook.com/HardwareBee-178032362798224
+[2026-03-12T04:27:58.908Z]   REGEX: li <- https://www.linkedin.com/company/hardwarebee
+[2026-03-12T04:27:58.908Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 1 uncategorized
+[2026-03-12T04:27:58.909Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T04:27:58.909Z] Saved AI prompt (7669 chars) to ai_prompt.txt
+[2026-03-12T04:27:58.909Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T04:27:58.932Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T04:28:25.893Z]   AI: First token received, streaming...
+[2026-03-12T04:28:35.293Z] AI response complete: 131 chars in 36.4s
+[2026-03-12T04:28:35.294Z] Saved AI response to ai_response.json
+[2026-03-12T04:28:35.294Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T04:28:35.294Z]   AI LINK: https://www.facebook.com/HardwareBee-178032362798224/
+[2026-03-12T04:28:35.294Z]   AI LINK: https://twitter.com/HardwareBee
+[2026-03-12T04:28:35.294Z]   AI LINK: https://www.linkedin.com/company/hardwarebee/
+[2026-03-12T04:28:35.294Z] AI returned 3 valid links
+[2026-03-12T04:28:35.294Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T04:28:35.294Z]   AI→REGEX: fb <- https://www.facebook.com/HardwareBee-178032362798224/ (duplicate, skipped)
+[2026-03-12T04:28:35.295Z]   AI→REGEX: tw <- https://twitter.com/HardwareBee (duplicate, skipped)
+[2026-03-12T04:28:35.295Z]   AI→REGEX: li <- https://www.linkedin.com/company/hardwarebee/ (duplicate, skipped)
+[2026-03-12T04:28:35.295Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T04:28:35.295Z] Footer/header origins (5):
+[2026-03-12T04:28:35.295Z]   FOOTER/HEADER ORIGIN: https://hardwarebee.com
+[2026-03-12T04:28:35.295Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T04:28:35.295Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-12T04:28:35.295Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T04:28:35.295Z]   FOOTER/HEADER ORIGIN: https://dei-eng.com
+[2026-03-12T04:28:35.295Z]   ADDED: urls <- https://dei-eng.com
+[2026-03-12T04:28:35.296Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T04:28:35.296Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T04:28:35.296Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T04:28:35.296Z] ── Step 3: Final dedup ──
+[2026-03-12T04:28:35.296Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T04:28:35.296Z] ── FINAL RESULT ──
+[2026-03-12T04:28:35.296Z]   ws (1):
+[2026-03-12T04:28:35.296Z]     - https://hardwarebee.com
+[2026-03-12T04:28:35.296Z]   li (1):
+[2026-03-12T04:28:35.296Z]     - https://www.linkedin.com/company/hardwarebee
+[2026-03-12T04:28:35.296Z]   fb (1):
+[2026-03-12T04:28:35.296Z]     - https://www.facebook.com/hardwarebee-178032362798224
+[2026-03-12T04:28:35.296Z]   tw (1):
+[2026-03-12T04:28:35.296Z]     - https://x.com/hardwarebee
+[2026-03-12T04:28:35.296Z]   urls (1):
+[2026-03-12T04:28:35.297Z]     - https://dei-eng.com
+[2026-03-12T04:28:35.297Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-12T04:28:35.297Z] Saved final result to result.json
+[2026-03-12T04:28:35.297Z] Override fields: ws, li, fb, tw, urls
+[2026-03-12T04:28:35.297Z] Finished at: 2026-03-12T04:28:35.297Z

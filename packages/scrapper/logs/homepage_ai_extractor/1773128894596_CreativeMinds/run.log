@@ -1,0 +1,78 @@
+[2026-03-10T07:48:14.596Z] === Homepage AI Extractor: CreativeMinds ===
+[2026-03-10T07:48:14.597Z] Started at: 2026-03-10T07:48:14.597Z
+[2026-03-10T07:48:14.597Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773128894596_CreativeMinds
+[2026-03-10T07:48:14.597Z] Company: CreativeMinds
+[2026-03-10T07:48:14.597Z] Website: cminds.com
+[2026-03-10T07:48:14.597Z] cbRank: 432560
+[2026-03-10T07:48:14.597Z] Reasons: h
+[2026-03-10T07:48:14.597Z] Fetching: https://cminds.com
+[2026-03-10T07:48:17.040Z] Redirected: https://cminds.com -> https://www.cminds.com/
+[2026-03-10T07:48:17.066Z] Saved HTML (439063 bytes) to page.html
+[2026-03-10T07:48:17.074Z] Extracted 80 unique links from page
+[2026-03-10T07:48:17.075Z] Saved 80 links to links.json
+[2026-03-10T07:48:17.082Z] Extracted footer HTML (365 chars)
+[2026-03-10T07:48:17.082Z] Extracted header HTML (830 chars)
+[2026-03-10T07:48:17.088Z] Website (post-redirect): https://www.cminds.com/ → origin: https://www.cminds.com
+[2026-03-10T07:48:17.089Z] External links: 8 (of 80 total)
+[2026-03-10T07:48:17.089Z] ── All external links ──
+[2026-03-10T07:48:17.089Z]   EXT: https://creativeminds.helpscoutdocs.com
+[2026-03-10T07:48:17.089Z]   EXT: https://silktide.com/consent-manager
+[2026-03-10T07:48:17.090Z]   EXT: https://vimeo.com/cminds
+[2026-03-10T07:48:17.090Z]   EXT: https://www.facebook.com/cmplugins
+[2026-03-10T07:48:17.090Z]   EXT: https://www.linkedin.com/company/1722410
+[2026-03-10T07:48:17.090Z]   EXT: https://www.pinterest.com/cmplugins
+[2026-03-10T07:48:17.090Z]   EXT: https://www.twitter.com/cmplugins
+[2026-03-10T07:48:17.091Z]   EXT: https://www.youtube.com/user/cmindschannel
+[2026-03-10T07:48:17.091Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T07:48:17.091Z]   UNCATEGORIZED: https://creativeminds.helpscoutdocs.com
+[2026-03-10T07:48:17.091Z]   UNCATEGORIZED: https://silktide.com/consent-manager
+[2026-03-10T07:48:17.091Z]   UNCATEGORIZED: https://vimeo.com/cminds
+[2026-03-10T07:48:17.091Z]   REGEX: fb <- https://www.facebook.com/cmplugins
+[2026-03-10T07:48:17.091Z]   REGEX: li <- https://www.linkedin.com/company/1722410
+[2026-03-10T07:48:17.092Z]   UNCATEGORIZED: https://www.pinterest.com/cmplugins
+[2026-03-10T07:48:17.092Z]   REGEX: tw <- https://www.twitter.com/cmplugins
+[2026-03-10T07:48:17.092Z]   REGEX: ytp <- https://www.youtube.com/user/cmindschannel
+[2026-03-10T07:48:17.092Z] Programmatic result: ws:1, fb:1, li:1, tw:1, ytp:1 | 4 uncategorized
+[2026-03-10T07:48:17.092Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T07:48:17.093Z] Saved AI prompt (2294 chars) to ai_prompt.txt
+[2026-03-10T07:48:17.094Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T07:48:17.118Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T07:48:24.740Z]   AI: First token received, streaming...
+[2026-03-10T07:48:27.307Z] AI response complete: 60 chars in 10.2s
+[2026-03-10T07:48:27.307Z] Saved AI response to ai_response.json
+[2026-03-10T07:48:27.307Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T07:48:27.308Z]   AI LINK: https://vimeo.com/cminds
+[2026-03-10T07:48:27.308Z]   AI LINK: https://www.pinterest.com/cmplugins
+[2026-03-10T07:48:27.308Z] AI returned 2 valid links
+[2026-03-10T07:48:27.308Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T07:48:27.308Z]   AI→URLS: https://vimeo.com/cminds
+[2026-03-10T07:48:27.308Z]   AI→URLS: https://www.pinterest.com/cmplugins
+[2026-03-10T07:48:27.308Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T07:48:27.308Z] Footer/header origins (1):
+[2026-03-10T07:48:27.308Z]   FOOTER/HEADER ORIGIN: https://silktide.com
+[2026-03-10T07:48:27.309Z]   SKIP (not in footer/header): https://creativeminds.helpscoutdocs.com
+[2026-03-10T07:48:27.309Z]   ADDED: urls <- https://silktide.com/consent-manager
+[2026-03-10T07:48:27.309Z]   SKIP (AI claimed): https://vimeo.com/cminds
+[2026-03-10T07:48:27.309Z]   SKIP (AI claimed): https://www.pinterest.com/cmplugins
+[2026-03-10T07:48:27.309Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T07:48:27.309Z] ── Step 3: Final dedup ──
+[2026-03-10T07:48:27.309Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-10T07:48:27.309Z] ── FINAL RESULT ──
+[2026-03-10T07:48:27.309Z]   ws (1):
+[2026-03-10T07:48:27.309Z]     - https://www.cminds.com
+[2026-03-10T07:48:27.309Z]   li (1):
+[2026-03-10T07:48:27.309Z]     - https://www.linkedin.com/company/1722410
+[2026-03-10T07:48:27.309Z]   fb (1):
+[2026-03-10T07:48:27.309Z]     - https://www.facebook.com/cmplugins
+[2026-03-10T07:48:27.310Z]   tw (1):
+[2026-03-10T07:48:27.310Z]     - https://x.com/cmplugins
+[2026-03-10T07:48:27.310Z]   ytp (1):
+[2026-03-10T07:48:27.310Z]     - https://www.youtube.com/@cmindschannel
+[2026-03-10T07:48:27.310Z]   urls (3):
+[2026-03-10T07:48:27.310Z]     - https://silktide.com/consent-manager
+[2026-03-10T07:48:27.310Z]     - https://vimeo.com/cminds
+[2026-03-10T07:48:27.310Z]     - https://www.pinterest.com/cmplugins
+[2026-03-10T07:48:27.310Z] Summary: ws:1, fb:1, li:1, tw:1, ytp:1, urls:3
+[2026-03-10T07:48:27.311Z] Saved final result to result.json
+[2026-03-10T07:48:27.311Z] Override fields: ws, li, fb, tw, ytp, urls
+[2026-03-10T07:48:27.311Z] Finished at: 2026-03-10T07:48:27.311Z

@@ -1,0 +1,75 @@
+[2026-03-11T21:06:50.174Z] === Homepage AI Extractor: Loola ===
+[2026-03-11T21:06:50.175Z] Started at: 2026-03-11T21:06:50.175Z
+[2026-03-11T21:06:50.175Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773263210174_Loola
+[2026-03-11T21:06:50.175Z] Company: Loola
+[2026-03-11T21:06:50.175Z] Website: loola.tv
+[2026-03-11T21:06:50.175Z] cbRank: 660754
+[2026-03-11T21:06:50.175Z] Reasons: h
+[2026-03-11T21:06:50.175Z] Fetching: https://loola.tv
+[2026-03-11T21:06:53.902Z] Redirected: https://loola.tv -> https://loola.tv/
+[2026-03-11T21:06:53.906Z] Saved HTML (50103 bytes) to page.html
+[2026-03-11T21:06:53.909Z] Extracted 12 unique links from page
+[2026-03-11T21:06:53.909Z] Saved 12 links to links.json
+[2026-03-11T21:06:53.912Z] Extracted footer HTML (1240 chars)
+[2026-03-11T21:06:53.912Z] Extracted header HTML (1197 chars)
+[2026-03-11T21:06:53.916Z] Website (post-redirect): https://loola.tv/ → origin: https://loola.tv
+[2026-03-11T21:06:53.916Z]   SUBDOMAIN: support.loola.tv (added to ws)
+[2026-03-11T21:06:53.916Z] Website subdomains found: 1
+[2026-03-11T21:06:53.916Z] External links: 4 (of 12 total)
+[2026-03-11T21:06:53.917Z] ── All external links ──
+[2026-03-11T21:06:53.917Z]   EXT: https://twitter.com/LoolaTv
+[2026-03-11T21:06:53.917Z]   EXT: https://www.facebook.com/loola.tv
+[2026-03-11T21:06:53.917Z]   EXT: https://www.instagram.com/loola.tv
+[2026-03-11T21:06:53.917Z]   EXT: https://www.linkedin.com/company/loola-tv
+[2026-03-11T21:06:53.917Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T21:06:53.917Z]   REGEX: tw <- https://twitter.com/LoolaTv
+[2026-03-11T21:06:53.917Z]   REGEX: fb <- https://www.facebook.com/loola.tv
+[2026-03-11T21:06:53.917Z]   REGEX: ig <- https://www.instagram.com/loola.tv
+[2026-03-11T21:06:53.917Z]   REGEX: li <- https://www.linkedin.com/company/loola-tv
+[2026-03-11T21:06:53.917Z] Programmatic result: ws:2, tw:1, fb:1, ig:1, li:1 | 0 uncategorized
+[2026-03-11T21:06:53.917Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T21:06:53.918Z] Saved AI prompt (2848 chars) to ai_prompt.txt
+[2026-03-11T21:06:53.918Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T21:06:53.932Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T21:07:03.508Z]   AI: First token received, streaming...
+[2026-03-11T21:07:11.796Z] AI response complete: 141 chars in 17.9s
+[2026-03-11T21:07:11.797Z] Saved AI response to ai_response.json
+[2026-03-11T21:07:11.797Z] ── Parsing AI response (4 lines) ──
+[2026-03-11T21:07:11.797Z]   AI LINK: https://www.facebook.com/loola.tv/
+[2026-03-11T21:07:11.797Z]   AI LINK: https://twitter.com/LoolaTv
+[2026-03-11T21:07:11.797Z]   AI LINK: https://www.instagram.com/loola.tv/
+[2026-03-11T21:07:11.797Z]   AI LINK: https://www.linkedin.com/company/loola-tv/
+[2026-03-11T21:07:11.797Z] AI returned 4 valid links
+[2026-03-11T21:07:11.797Z] ── Categorizing 4 AI-returned links ──
+[2026-03-11T21:07:11.798Z]   AI→REGEX: fb <- https://www.facebook.com/loola.tv/ (duplicate, skipped)
+[2026-03-11T21:07:11.798Z]   AI→REGEX: tw <- https://twitter.com/LoolaTv (duplicate, skipped)
+[2026-03-11T21:07:11.798Z]   AI→REGEX: ig <- https://www.instagram.com/loola.tv/ (duplicate, skipped)
+[2026-03-11T21:07:11.798Z]   AI→REGEX: li <- https://www.linkedin.com/company/loola-tv/ (duplicate, skipped)
+[2026-03-11T21:07:11.798Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T21:07:11.798Z] Footer/header origins (5):
+[2026-03-11T21:07:11.798Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T21:07:11.798Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-11T21:07:11.798Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-11T21:07:11.798Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T21:07:11.799Z]   FOOTER/HEADER ORIGIN: https://support.loola.tv
+[2026-03-11T21:07:11.799Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T21:07:11.799Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T21:07:11.799Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T21:07:11.799Z] ── Step 3: Final dedup ──
+[2026-03-11T21:07:11.799Z] No urls to dedup
+[2026-03-11T21:07:11.799Z] ── FINAL RESULT ──
+[2026-03-11T21:07:11.799Z]   ws (2):
+[2026-03-11T21:07:11.799Z]     - https://loola.tv
+[2026-03-11T21:07:11.799Z]     - https://support.loola.tv
+[2026-03-11T21:07:11.799Z]   li (1):
+[2026-03-11T21:07:11.799Z]     - https://www.linkedin.com/company/loola-tv
+[2026-03-11T21:07:11.799Z]   fb (1):
+[2026-03-11T21:07:11.799Z]     - https://www.facebook.com/loola.tv
+[2026-03-11T21:07:11.799Z]   tw (1):
+[2026-03-11T21:07:11.799Z]     - https://x.com/loolatv
+[2026-03-11T21:07:11.800Z]   ig (1):
+[2026-03-11T21:07:11.800Z]     - https://www.instagram.com/loola.tv
+[2026-03-11T21:07:11.800Z] Summary: ws:2, tw:1, fb:1, ig:1, li:1
+[2026-03-11T21:07:11.800Z] Saved final result to result.json
+[2026-03-11T21:07:11.800Z] Override fields: ws, li, fb, tw, ig
+[2026-03-11T21:07:11.800Z] Finished at: 2026-03-11T21:07:11.800Z

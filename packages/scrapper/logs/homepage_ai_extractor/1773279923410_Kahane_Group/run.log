@@ -1,0 +1,65 @@
+[2026-03-12T01:45:23.411Z] === Homepage AI Extractor: Kahane Group ===
+[2026-03-12T01:45:23.411Z] Started at: 2026-03-12T01:45:23.411Z
+[2026-03-12T01:45:23.411Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773279923410_Kahane_Group
+[2026-03-12T01:45:23.411Z] Company: Kahane Group
+[2026-03-12T01:45:23.411Z] Website: kahane.co.il
+[2026-03-12T01:45:23.411Z] cbRank: 745117
+[2026-03-12T01:45:23.411Z] Reasons: h
+[2026-03-12T01:45:23.411Z] Fetching: https://kahane.co.il
+[2026-03-12T01:45:25.181Z] Redirected: https://kahane.co.il -> https://www.kahane.co.il/
+[2026-03-12T01:45:25.193Z] Saved HTML (314841 bytes) to page.html
+[2026-03-12T01:45:25.197Z] Extracted 57 unique links from page
+[2026-03-12T01:45:25.198Z] Saved 57 links to links.json
+[2026-03-12T01:45:25.205Z] Extracted footer HTML (16249 chars)
+[2026-03-12T01:45:25.205Z] Extracted header HTML (83818 chars)
+[2026-03-12T01:45:25.209Z] Website (post-redirect): https://www.kahane.co.il/ → origin: https://www.kahane.co.il
+[2026-03-12T01:45:25.210Z] External links: 3 (of 57 total)
+[2026-03-12T01:45:25.210Z] ── All external links ──
+[2026-03-12T01:45:25.210Z]   EXT: https://www.facebook.com/KahanegroupIL
+[2026-03-12T01:45:25.210Z]   EXT: https://www.instagram.com/kahanegroupil
+[2026-03-12T01:45:25.210Z]   EXT: https://www.youtube.com/@Kahanegroup
+[2026-03-12T01:45:25.210Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T01:45:25.210Z]   REGEX: fb <- https://www.facebook.com/KahanegroupIL
+[2026-03-12T01:45:25.210Z]   REGEX: ig <- https://www.instagram.com/kahanegroupil
+[2026-03-12T01:45:25.211Z]   REGEX: ytp <- https://www.youtube.com/@Kahanegroup
+[2026-03-12T01:45:25.211Z] Programmatic result: ws:1, fb:1, ig:1, ytp:1 | 0 uncategorized
+[2026-03-12T01:45:25.211Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T01:45:25.212Z] Saved AI prompt (10398 chars) to ai_prompt.txt
+[2026-03-12T01:45:25.212Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T01:45:25.228Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T01:46:12.115Z]   AI: First token received, streaming...
+[2026-03-12T01:46:18.893Z] AI response complete: 117 chars in 53.7s
+[2026-03-12T01:46:18.896Z] Saved AI response to ai_response.json
+[2026-03-12T01:46:18.896Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T01:46:18.896Z]   AI LINK: https://www.youtube.com/@Kahanegroup
+[2026-03-12T01:46:18.896Z]   AI LINK: https://www.instagram.com/kahanegroupil/
+[2026-03-12T01:46:18.897Z]   AI LINK: https://www.facebook.com/KahanegroupIL/
+[2026-03-12T01:46:18.897Z] AI returned 3 valid links
+[2026-03-12T01:46:18.897Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T01:46:18.897Z]   AI→REGEX: ytp <- https://www.youtube.com/@Kahanegroup (duplicate, skipped)
+[2026-03-12T01:46:18.897Z]   AI→REGEX: ig <- https://www.instagram.com/kahanegroupil/ (duplicate, skipped)
+[2026-03-12T01:46:18.897Z]   AI→REGEX: fb <- https://www.facebook.com/KahanegroupIL/ (duplicate, skipped)
+[2026-03-12T01:46:18.897Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T01:46:18.898Z] Footer/header origins (4):
+[2026-03-12T01:46:18.898Z]   FOOTER/HEADER ORIGIN: https://www.kahane.co.il
+[2026-03-12T01:46:18.898Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T01:46:18.898Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T01:46:18.898Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T01:46:18.898Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T01:46:18.898Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T01:46:18.898Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T01:46:18.898Z] ── Step 3: Final dedup ──
+[2026-03-12T01:46:18.898Z] No urls to dedup
+[2026-03-12T01:46:18.898Z] ── FINAL RESULT ──
+[2026-03-12T01:46:18.898Z]   ws (1):
+[2026-03-12T01:46:18.898Z]     - https://www.kahane.co.il
+[2026-03-12T01:46:18.898Z]   fb (1):
+[2026-03-12T01:46:18.899Z]     - https://www.facebook.com/kahanegroupil
+[2026-03-12T01:46:18.899Z]   ig (1):
+[2026-03-12T01:46:18.899Z]     - https://www.instagram.com/kahanegroupil
+[2026-03-12T01:46:18.899Z]   ytp (1):
+[2026-03-12T01:46:18.899Z]     - https://www.youtube.com/@kahanegroup
+[2026-03-12T01:46:18.899Z] Summary: ws:1, fb:1, ig:1, ytp:1
+[2026-03-12T01:46:18.899Z] Saved final result to result.json
+[2026-03-12T01:46:18.900Z] Override fields: ws, fb, ig, ytp
+[2026-03-12T01:46:18.900Z] Finished at: 2026-03-12T01:46:18.900Z

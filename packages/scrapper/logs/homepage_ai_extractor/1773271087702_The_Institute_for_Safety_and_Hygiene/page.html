@@ -1,0 +1,1703 @@
+<!DOCTYPE html><html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style=""><head id="Head1"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>
+	אתר המוסד לבטיחות וגיהות
+</title><link type="text/css" href="/static/1037_297739704.css" rel="stylesheet"><script src="https://connect.facebook.net/en_US/all.js?hash=d2c4f642ad656252c8eb5d2dd1534422" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=402353406528185"></script><script type="text/javascript" src="/static/1037_900089365.js"></script>
+
+    <!--[if IE 8]>
+	<link type='text/css' href='/static/1037_843947677.css' rel='stylesheet'/><script type="text/javascript" src="/static/1037_251948900.js"></script>
+	<![endif]-->
+
+    <!--[if IE 9]>
+	<link type='text/css' href='/static/1037_835796446.css' rel='stylesheet'/>
+	<![endif]-->
+
+    <script type="text/javascript">
+        var canGo = true;
+        var textnotvalid = 'טקסט לא חוקי.';
+		var required = "חובה להזין שדה זה";
+        var req2 = "חסרים פרטים בשדות המסומנים באדום. אנא מלא את הפרטים ושלח את הטופס בשנית.";
+        var canGo = true;
+        var galPage = 1;
+        var pageCount = 9;
+        var sort = 1;
+        var dir = 'asc';
+        var srch = '';
+        var imgname = new Array();
+        var actCon;
+        var actCan;
+        var errStr = '';
+        var readPop;
+
+        function doActionOK(x) {
+            if (x != undefined && x.length > 0) eval("doAction" + x + "()");
+        }
+        function doActionConfirm(x) {
+            if (x != undefined && x.length > 0) eval("doAction" + x + "()");
+        }
+        function doActionCancel(x) {
+            if (x != undefined && x.length > 0) eval("doAction" + x + "()");
+        }
+
+        function pageLoad() {
+            window.onbeforeunload = LogoutOnClose;
+            document.onmousedown = zero;
+            document.onkeydown = checkKeycode;
+        }
+
+        var isClose = false;
+        function checkKeycode(e) {
+            var keycode;
+            if (window.event)
+                keycode = window.event.keyCode;
+            else if (e)
+                keycode = e.which;
+            if (keycode == 116) {
+                isClose = true;
+            }
+        }
+        function zero() {
+            isClose = true;
+        }
+        function LogoutOnClose(evt) {
+            if (!isClose) {
+                $.ajax({
+                    type: "POST",
+                    url: "/json/ajax.aspx/close",
+		            data: "{}",
+		            contentType: "application/json; charset=utf-8",
+		            dataType: "json",
+		            async: false
+		        });
+            }
+        }
+
+        $(document).ready(function () {
+            var wpbid = "";
+            if (document.getElementById('wpBone')) {
+                readPop = $.cookies.get('seenpop');
+                if (readPop == null || readPop == "null") readPop = "";
+                wpbid = document.getElementById('wpBone').value;
+                var hasId = false;
+                if (readPop != null && readPop.length > 0) {
+                    var fb = readPop.toString().split(',');
+                    for (ib = 0; ib < fb.length; ib++) {
+                        if (fb[ib] == wpbid) {
+                            hasId = true;
+                            break;
+                        }
+                    }
+                }
+                // if (!hasId) {
+                
+	            $("#welcomePopup").dialog({
+	                bgiframe: true,
+	                width: 755,
+	                //height: 350,
+	                modal: true,
+	                autoOpen: true,
+	                draggable: false,
+	                open: function () {
+	                    $('.ui-widget-overlay').css('position', 'fixed');
+	                    //setTimeout(function () {
+	                    //    $("#welcomePopup").dialog('close');
+	                    //}, 5000);
+	                },
+	                close: function () { $('.ui-widget-overlay').css('position', 'absolute'); },
+	                dialogClass: 'welcomePopupFrame'
+	            });
+                
+	            $('div[class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"]').hide();
+	            readPop += wpbid + ",";
+	            $.cookies.set('seenpop', readPop);
+	            // }
+	        }
+	    });
+
+    </script>
+    
+    <!---Google Analytics--->
+    <script src="https://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        _uacct = "UA-189010-1";
+        urchinTracker();
+    </script>
+    
+    <meta name="description" content="אתר המוסד לבטיחות וגיהות"><meta name="keywords" content="המוסד לבטיחות, המוסד לבטיחות וגיהות"><style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+
+.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+
+.fb_dialog{background:#525252b3;position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:700;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) #fff no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:#0006;inset:0;min-height:100%;position:absolute;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba),to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:#fff 0 1px 1px -1px inset;color:#fff;font:700 14px Helvetica,sans-serif;text-overflow:ellipsis;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2),to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:700 12px Helvetica,sans-serif;margin:2px -12px;padding:2px 6px 3px;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:700;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4A4A4A;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4A4A4A;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/y2/r/onuUJj0tCqE.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+</style></head>
+<body onload="pageLoad();" class="">
+
+    <form name="form1" method="post" action="/heb/main/" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTUyMDk3OTUwNmRkiz1CJmiUvdfBVvz5zC0gyHhoPdnzq+h8CAiFi4LcVEc=">
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3F6C317D">
+</div>
+
+        
+<script type="text/javascript">
+    var cNumCard = 0;
+    function logoff()
+    {
+        $.ajax({
+            type: "POST",
+            url: "/json/ajax.aspx/logoff",
+			data: "{}",
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function (msg)
+			{
+			    location.href = '/heb/main/';
+			}
+		});
+        }
+        $(document).ready(function ()
+        {
+
+            var tmpIds = $.cookies.get('prodIds');
+            if (tmpIds != null && tmpIds.toString().length > 0)
+            {
+                var tt = tmpIds.toString().split(',');
+                for (i = 0; i < tt.length; i++)
+                {
+                    if (tt[i].length > 0)
+                    {
+                        cNumCard++;
+                    }
+                }
+            }
+            if (cNumCard > 0)
+                $("#spCartNum").html("(" + cNumCard + ")");
+        });
+        function siteSearch()
+        {
+            var x = $("#search").val();
+            if (!checkText(x))
+            {
+                alertPopup("שגיאה", "טקסט לא תקין");
+                return;
+            }
+            location.href = '/heb/searchresults/?s=' + x;
+    }
+
+    function siteSearchMobile()
+    {
+        $("#search").val($("#searchMobile").val());
+        siteSearch();
+    }
+</script>
+
+
+<header>
+    <section class="header">
+	    
+        <a href="/heb/login/" class="logInBtn">כניסה</a>
+        <a href="/heb/signup/" class="logInBtn">הרשמה</a>
+		
+
+		<div class="basketBtn">
+            <a href="/heb/shop/card/"><img src="/images/basketIcon.png" width="26" height="26" alt="">
+            <span>סל הזמנות <span id="spCartNum"></span></span></a>
+            <a href="/heb/shop/card/" class="oraneBtn">לרכישה</a>
+        </div>
+		
+        <div class="search">
+            <div class="desktop">
+                <input type="text" onfocus="this.placeholder = ' '" onblur="javascript:SetKeywordsLang();" style="width:190px;height:22px;" id="search" onkeypress="if (event.keyCode == 13) {siteSearch();return false;}" placeholder=" חיפוש באתר " value="">
+                <input type="button" id="bSubmit" onclick="siteSearch();">
+            </div>
+            <div class="mobile">
+                <div>
+                    <span class="text">חפש באתר</span>
+                    <div class="searchInputWrapper">
+                        <input type="text" id="searchMobile" onkeypress="if (event.keyCode == 13) {siteSearchMobile();return false;}" value="">
+                        <input type="button" onclick="siteSearchMobile();">
+                    </div>
+                </div>
+                <span class="toggleBtn"></span>
+            </div>
+        </div>
+        <script>
+            function SetKeywordsLang()
+            {
+
+                if ($('#search').val() == ' ' || $('#search').val() == '')
+                {
+                    var pathArray = window.location.pathname.split('/');
+                    if ($.inArray('eng', pathArray) > 0)
+                    {
+                        document.getElementById("search").placeholder = 'Site search';
+                    } else
+                    {
+                        document.getElementById("search").placeholder = 'חיפוש באתר';
+                    }
+                }
+            }
+        </script>
+  
+        <div class="language">
+			
+            <a href="/eng/Main" id="aLang1033">English</a>
+            <a href="https://www.osh.org.il/ara/main/" id="aLang3073">العربية</a>
+		</div>
+
+        <a href="/heb/About/Contact/" id="al1" class="contactUs">צור קשר</a>
+		
+		
+    </section>
+    <style>
+        #search::-ms-clear 
+        {
+            display: none;
+        }
+    </style>
+    
+</header>
+
+
+        
+<div class="menu">
+
+    <section class="menuInner">
+        <div class="hamburgerContainer">
+            <span class="hamburger"><span>תפריט</span></span>
+        </div>
+        
+
+        <a href="https://www.osh.org.il//heb/main">
+            <img src="/images/logoNew.svg?v=4" alt=""></a>
+        
+        <menu>
+            <ul class="ul_active">
+                
+                        <li>
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">אודות</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">דבר המנכ"ל</p><div class="leftBoxFramePic"><img src="/UploadedImages/10_2013/mosad.png" width="241" height="156" alt="דבר המנכ&quot;ל" style="cursor:pointer;" onclick="location.href=&quot;https://www.osh.org.il/heb/About/GeneralManager/article,5/ &quot;"></div><p class="clear-both"><br><a href="https://www.osh.org.il/heb/About/GeneralManager/article,5/" class="more">קרא עוד</a></p></div><div class="rightBox" style="width: 596px;"><div class="editorText" style="width: 556px;">&nbsp;
+<table border="0" cellpadding="1" cellspacing="1" style="width: 600px;">
+	<tbody>
+		<tr>
+			<td><br>
+			<span style="font-size: 16px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></td>
+			<td>» <span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,408/">אודות המוסד</a><a href="/heb/About/AboutOrg/" target="_self">&nbsp;</a></span></span>&nbsp;&nbsp;&nbsp;</td>
+			<td rowspan="4"><font color="#4b4d4c"><a href="https://www.osh.org.il/heb/About/Contact/.aspx#"><img alt="" border="0" src="https://www.osh.org.il/UploadedImages//10_2013/contact_1.jpg" style="width: 245px; height: 123px;"></a><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; צור קשר</font><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/About/GeneralManager/article,5/" style="">דבר המנכ"ל</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/About/council_members/article,438" style="">המועצה וחבריה</a></span></span></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/articles/article,836/" style="line-height: 19.2px;" target="_self">מבנה מערך הבטיחות</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="line-height: 19.2px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/About/Contact/" style="">בעלי תפקידים ויצירת קשר</a></span></span></td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">מכרזי&nbsp;משרות פתוחות</a></span></span></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,907/" style="line-height: 19.2px;" target="_blank">המוס"ל בתקשורת</a></span></span></td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/projects/.aspx" style="" target="_blank">מכרזים כלליים</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="/heb/About/AboutSite/" style="line-height: 19.2px;" target="_self">תנאי שימוש באתר</a></span></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><a href="https://www.osh.org.il/UploadedImages//10_2025/sk_mangement_rivon_2_2025.pdf" style="font-size: 14px; font-family: arial, helvetica, sans-serif;" target="_blank">דוח מסכם פעילות לרבעון 2 - 2025</a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/articles/article,845" style="line-height: 19.2px;" target="_self">דוחות כספיים</a></span></span></td>
+			<td><span style="font-size: 16px;">»</span><a href="https://www.osh.org.il/heb/projects/manp/#" style="font-size: 16px;" target="_blank">&nbsp;</a><a href="https://www.osh.org.il/UploadFiles/12_2025/sk_mangement_rivon_3_2025.pdf" style="font-size: 16px;" target="_blank"><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;">דוח מסכם פעילות לרבעון 3 - 2025</span></span></a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/UploadedImages//09_2024/Contribution_Section_46_2024.pdf" target="_blank">אישור לעניין תרומות</a></span></span></td>
+			<td><span style="font-size: 16px;">»</span><a href="https://www.osh.org.il/heb/projects/manp/#" style="font-size: 16px;" target="_blank">&nbsp;</a><a href="https://www.osh.org.il/UploadFiles/02_2026/sk_mangement_Year%20summary_2025.pdf" target="_blank"><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;">סיכום תוכנית עבודה מוס"ל 2025 - הצגה לחברי מועצה</span></span></a></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/UploadedImages//09_2024/MediniyutPratitDugma_24_1.pdf" style="line-height: 19.2px;" target="_self">מדיניות הגנת הפרטיות</a></span></span></td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+</div></div></div></div>
+                        </li>
+
+                    
+                        <li>
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">מינהל צפון ודרום</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">ניידות בטיחות</p><div class="leftBoxFramePic"><img src="/UploadedImages/02_2022/nayadet.JPG" width="241" height="156" alt="" style="cursor:pointer;" onclick="location.href=&quot;https://www.osh.org.il/heb/training/nayadot/ &quot;"></div><p class="clear-both"><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">ניידת הדרכה חדשה להדרכה יחידנית בקבוצות בשטח העבודה, הניידת עם מערכת מולטימדיה ממוחשבת המשוכללת מסוגה בעולם</span></span><br><a href="javascript:void(0)" onclick="window.open(&quot;https://www.osh.org.il/heb/training/nayadot/&quot;);" class="more">קרא עוד</a></p></div><div class="megaMenuRegion">
+
+                                <div class="region" id="defaultRegion">
+                                    <img src="/images/defaultRegion.png?v=1" width="363" height="300" usemap="#defaultRegion">
+                                    <map name="defaultRegion">
+                                      <area shape="poly" coords="173,53,282,118,385,3,384,2,240,0,173,53" alt="מנהל צפון" title="מנהל צפון" rel="#northRegion" href="#">
+                                      <area shape="poly" coords="163,50,269,127,39,298,8,229,83,94,163,50" alt="מנהל הדרום" title="מנהל דרום" rel="#centerRegion" href="#">
+                                    </map>
+                                </div>
+
+                                <div class="region" id="northRegion" onclick="location.href=&quot;https://www.osh.org.il/heb/branches/branchNorth/&quot;">
+                                    <img src="/images/northRegion.png?v=1" width="363" height="300" usemap="#northRegion">
+                                    <span class="regionText"></span>
+                                    <map name="northRegion">
+                                      <area shape="poly" coords="173,53,282,118,385,3,384,2,240,0,173,53" alt="מנהל צפון" title="מנהל צפון" rel="#northRegion" href="#">
+                                      <area shape="poly" coords="163,50,269,127,39,298,8,229,83,94,163,50" alt="מנהל הדרום" title="מנהל דרום" rel="#centerRegion" href="#">
+                                    </map>
+                                </div>
+
+                                <div class="region" id="centerRegion" onclick="location.href=&quot;https://www.osh.org.il/heb/branches/branchCenter/&quot;">
+                                    <img src="/images/centerRegion.png?v=1" width="363" height="300" usemap="#centerRegion">
+                                    <span class="regionText"></span>
+                                    <map name="centerRegion">
+                                      <area shape="poly" coords="173,53,282,118,385,3,384,2,240,0,173,53" alt="מנהל צפון" title="מנהל צפון" rel="#northRegion" href="#">
+                                      <area shape="poly" coords="163,50,269,127,39,298,8,229,83,94,163,50" alt="מנהל הדרום" title="מנהל דרום" rel="#centerRegion" href="#">
+                                    </map>
+                                </div> 
+
+                                <p class="mapInfo">לקבלת מידע על המנהלות השונים<br>לחץ על האזור המבוקש במפה:</p>
+
+                            </div></div></div>
+                        </li>
+
+                    
+                        <li>
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">מדורים מקצועיים</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="rightBox" style="width: 954px;"><div class="editorText">&nbsp; &nbsp;
+<table border="0" cellpadding="1" cellspacing="1" style="width: 925px;">
+	<tbody>
+		<tr>
+			<td style="width: 25px;">&nbsp;</td>
+			<td><font color="#4b4d4c" face="Arial, Helvetica, sans-serif"><span style="color: rgb(255, 165, 0); font-family: arial, helvetica, sans-serif; font-size: 16px;">מדורים מקצועיים</span></font><br>
+			&nbsp;</td>
+			<td><font color="#4b4d4c" face="Arial, Helvetica, sans-serif"><span style="color: rgb(255, 165, 0); font-family: arial, helvetica, sans-serif; font-size: 16px;">גיהות ובריאות תעסוקתית</span></font><br>
+			&nbsp;</td>
+			<td><font color="#4b4d4c" face="Arial, Helvetica, sans-serif"><span style="color: rgb(255, 165, 0); font-family: arial, helvetica, sans-serif; font-size: 16px;">ריכוז מידע בנושאי בטיחות וגיהות</span></font><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<a href="https://www.osh.org.il/heb/Prof/bniya1/" target="_blank"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">קידום הבטיחות והבריאות בבנייה</span></span></a></td>
+			<td><span style="line-height: 19.2px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/war/" style="line-height: 19.2px;" target="_blank">עבודה בטוחה ובריאה בעת מלחמה וחירום</a></span></span></td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,783/" target="_blank">בטיחות בעבודה עם&nbsp;עגורנים</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/hashmal_n/" target="_blank">בטיחות חשמל</a></span></span></td>
+			<td><span style="font-size: 16px; line-height: 19.2px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/ergonomics/" style="font-size: 14px; line-height: 19.2px;">ארגונומיה וגורם אנושי</a></span></span></td>
+			<td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a a="" href="https://www.osh.org.il/heb/projects/icsc/" span="" style="font-size: 14px;" target="_self">כרטיסי בטיחות לחומרים כימיים</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,781/" target="_blank">קידום בטיחות בעבודה בקרב בני נוער</a></span></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/silica/" style="font-size: 14px;">סיליקה</a></span></span></td>
+			<td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/info_inner_ar/" style="font-size: 14px;">הפקת לקחים מתאונות</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,780/" style="font-size: 14px;" target="_blank">פעילות לקידום הבטיחות לעובדים עם מוגבלות</a></span></span></td>
+			<td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/bio_page/" style="font-size: 14px;">בטיחות ובריאות ביולוגית</a></span></span></td>
+			<td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="http://www.sheilapantry.com/oshworld/diary.html" style="font-size: 14px;" target="_blank">כנסים ואירועים בינלאומיים</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/Research/pagecontrols,640/" style="font-size: 14px;" target="_blank">מחקר ישומי בבטיחות ובריאות תעסוקתית</a></span></span></td>
+			<td><span style="font-size: 16px; line-height: 19.2px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/noise/article,385/" style="font-size: 14px; line-height: 19.2px;" target="_blank">רעש</a></span></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/library/" target="_blank">גיליונות מידע על סיכונים תעסוקתיים</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/mador/">עובדים עם מוגבלות</a></span></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/hasifa_taasukati/" style="font-size: 14px;" target="_self">חוברת חשיפה לגורמים מזיקים</a></span></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/cis/" style="font-size: 14px;" target="_blank">דפי מידע טכניים CIS</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/radiation_page/" target="_blank">קרינה בלתי מייננת</a></span></span></td>
+			<td><span style="font-size: 16px; line-height: 19.2px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/corona/" style="font-size: 14px; line-height: 19.2px;">עבודה בטוחה בזמן קורונה</a></span></span></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/info_inner_homas/" style="font-size: 14px;" target="_blank">שינוע חומרים מסוכנים</a></span></span><br>
+			&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,98/" style="font-size: 14px;">מוסד מורשה לניהול בטיחות ובריאות בתעסוקה</a></span></span><br>
+			&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,779/" style="font-size: 14px;" target="_blank">מידע כללי בשפה הערבית</a></span></span><br>
+			&nbsp;</td>
+			<td>&nbsp; &nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+</div></div></div></div>
+                        </li>
+
+                    
+                        <li>
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">מרכז מידע</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">שאילתא</p><div class="leftBoxFramePic"><img src="/UploadedImages/08_2013/querySubmission_.png" width="241" height="156" alt="" style="cursor:pointer;" onclick="location.href=&quot;http://www.osh.org.il/heb/queryform/ &quot;"></div><p class="clear-both"><br><a href="http://www.osh.org.il/heb/queryform/" class="more">קרא עוד</a></p></div><div class="rightBox" style="width: 596px;"><div class="editorText" style="width: 556px;">&nbsp;
+<table border="0" cellpadding="1" cellspacing="1" style="width: 600px;">
+	<tbody>
+		<tr>
+			<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/library/" style="font-size: 16px;" target="_blank">ספריה מקצועית</a></span></td>
+			<td>»&nbsp;<span style="font-size:16px;"><a href="/heb/info/dictionary/" style="font-size: 16px;" target="_self">מילונים</a></span></td>
+			<td>»&nbsp;<span style="font-size:16px;"><a href="/heb/projects/icsc/" style="font-size: 16px;" target="_self">כרטיסי בטיחות לחומרים כימיים</a></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/info/info_center/" style="font-size: 16px;" target="_self">פרסומי מרכז מידע</a></span></td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/info/safety-sites-international/article,1048/" style="font-size: 16px;" target="_self">אתרי בטיחות</a></span></td>
+			<td>»&nbsp;<span style="font-size:16px;"><a href="https://www.osh.org.il/heb/articles/" style="font-size: 16px;" target="_blank">מאמרים מקצועיים</a></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="/heb/questionlobby/" style="font-size: 16px;" target="_self">תשובת השבוע</a></span></td>
+			<td>»&nbsp;<a href="https://www.osh.org.il/heb/newsletterarchive/2026/newsletter,236/" target="_blank"><span style="font-size: 16px;">ניוזלטר</span></a></td>
+			<td><span style="font-size:16px;">»<a href="https://www.osh.org.il/heb/projects/.aspx" target="_blank">&nbsp;</a></span><a href="http://www.osh.org.il/heb/general/effort/article,710/" style="font-size: 16px;" target="_blank"><span style="font-size: 16px;">קישורים לטפסים לבעלי עסק&nbsp;</span></a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 16px;"><a href="/heb/info/laws/" style="font-size: 16px;" target="_self">חוקים ותקנות</a></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><a href="https://www.osh.org.il/heb/newsletterarchive/" style="font-size: 16px;" target="_blank">ארכיון ניוזלטר</a></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/articles/articles/worldsafety/" style="font-size: 16px;" target="_self">חדשות בטיחות מהעולם</a></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><br>
+			<span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 16px;"><a href="http://www.osh.org.il/heb/info/digital/" style="font-size: 16px;" target="_blank"><span style="font-size: 16px; color: rgb(255, 165, 0);">ספריה למנוים בלבד</span></a></span></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<a href="https://mapa.osh.org.il" target="_blank"><img alt="" src="https://www.osh.org.il/UploadedImages//04_2020/kav-k-1.jpg" style="width: 175px; height: 102px; margin: 15px;"></a></div></div></div></div>
+                        </li>
+
+                    
+                        <li>
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">הדרכות והכשרות</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="rightBox" style="width: 954px;"><div class="editorText"><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="font-family: arial, helvetica, sans-serif; font-size: 20px;">»&nbsp;</strong><span style="font-size:20px;"><a href="https://www.osh.org.il/heb/training/"><span style="color:#FFA500;"><strong><span style="font-family:arial,helvetica,sans-serif;">לחיפוש הדרכות והכשרות והזמנות</span></strong></span></a></span> &nbsp; &nbsp;
+
+<table border="0" cellpadding="1" cellspacing="1" style="width: 500px;">
+	<tbody>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong style="font-size: 20px; font-family: arial, helvetica, sans-serif;">»&nbsp;<a href="https://www.osh.org.il/heb/general/effort/article,778/" style="font-size: 16px;" target="_blank">הזמנת שירותי המוס"ל - בשפה עברית וערבית</a></strong></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp; &nbsp; &nbsp;&nbsp;<br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="/heb/training/info_inner_h_online/" style="font-size: 16px;" target="_blank">למידת בטיחות ONLINE</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td>&nbsp; &nbsp; &nbsp;&nbsp;<br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/general/effort/article,863/" style="font-size: 16px;" target="_blank">וובינר - הדרכות מקוונות</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/training/nayadot/" style="font-size: 16px;" target="_blank">מערכת הדרכה בניידות בטיחות</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="/heb/info/digital/" style="font-size: 16px;" target="_blank">ספריה דיגיטלית – קורס ממונים על הבטיחות</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://moodle.osh.org.il" style="font-size: 16px;" target="_blank">לסביבת למידה המקוונת moodle </a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/articles/article,1072/" style="font-size: 16px;" target="_blank">המרכז הלאומי לסימולטורים בבטיחות בעבודה</a>&nbsp;</strong></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/general/effort/article,1375/" style="font-size: 16px;" target="_blank">הדרכת כיבוי אש באמצעות סימולטור מציאות מדומה</a>&nbsp;</strong></span></span></td>
+		</tr>
+	</tbody>
+</table>
+</div></div></div></div>
+                        </li>
+
+                    
+                        <li>
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">פרסומים וחנות</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">חנות פרסומי בטיחות ובריאות</p><div class="leftBoxFramePic"><img src="/UploadedImages/02_2015/digital_store_button.jpg" width="241" height="156" alt="" style="cursor:pointer;" onclick="location.href=&quot;https://shop.osh.org.il/il/ &quot;"></div><p class="clear-both">חנות פרסומים, כרזות, מדבקות ועוד..&nbsp;<br><a href="https://shop.osh.org.il/il/" class="more">קרא עוד</a></p></div><div class="rightBox" style="width: 596px;"><div class="editorText" style="width: 556px;"><table border="0" cellpadding="1" cellspacing="1" style="width: 260px; float: right;">
+	<tbody>
+		<tr>
+			<td><br>
+			<span style="font-size: 16px;">»&nbsp;</span><a href="https://shop.osh.org.il" style="font-size: 16px;"><span style="font-size: 16px;"><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">רכישת ספרות ופרסומי בטיחות ובריאות</span></span></a><br>
+			<br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<a href="https://www.osh.org.il/heb/newsletterarchive/2026/newsletter,236/" target="_blank"><span style="font-size: 16px;"><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">ניוזלטר</span></span></a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/newsletterarchive/" target="_blank">ארכיון ניוזלטר</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/journallobby/bitaon/" target="_self">בטאונים ועלוני קיר</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/journallobby/" target="_self">ארכיון בטאונים ועלוני קיר</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr style="font-size: 16px;">
+			<td style="font-size: 16px;">»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,629" style="font-size: 16px;">דוחות ע"פ חוק חופש המידע</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="font-size: 16px;"><span style="font-size:16px;">»&nbsp;<span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/suppliers/" target="_self">מדריך ספקים</a>&nbsp;</span></span>&nbsp;<br>
+			&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<span style="font-size: 18px;">&nbsp; &nbsp; <a href="https://www.osh.org.il/heb/articles/article,862/" target="_blank"><img alt="" src="https://www.osh.org.il/UploadedImages//02_2019/iStock_000017126650Small.jpg" style="width: 250px; height: 125px; float: left;"></a>&nbsp;</span><br>
+&nbsp;</div></div></div></div>
+                        </li>
+
+                    
+            </ul>
+        </menu>
+
+    </section>
+    <div class="main-menu-container-mobile"><ul class="ul_active">
+                
+                        <li class="icon-1">
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">אודות</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">דבר המנכ"ל</p><div class="leftBoxFramePic"><img src="/UploadedImages/10_2013/mosad.png" width="241" height="156" alt="דבר המנכ&quot;ל" style="cursor:pointer;" onclick="location.href=&quot;https://www.osh.org.il/heb/About/GeneralManager/article,5/ &quot;"></div><p class="clear-both"><br><a href="https://www.osh.org.il/heb/About/GeneralManager/article,5/" class="more">קרא עוד</a></p></div><div class="rightBox" style="width: 596px;"><div class="editorText" style="width: 556px;">&nbsp;
+<table border="0" cellpadding="1" cellspacing="1" style="width: 600px;">
+	<tbody>
+		<tr>
+			<td><br>
+			<span style="font-size: 16px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></td>
+			<td>» <span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,408/">אודות המוסד</a><a href="/heb/About/AboutOrg/" target="_self">&nbsp;</a></span></span>&nbsp;&nbsp;&nbsp;</td>
+			<td rowspan="4"><font color="#4b4d4c"><a href="https://www.osh.org.il/heb/About/Contact/.aspx#"><img alt="" border="0" src="https://www.osh.org.il/UploadedImages//10_2013/contact_1.jpg" style="width: 245px; height: 123px;"></a><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; צור קשר</font><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/About/GeneralManager/article,5/" style="">דבר המנכ"ל</a></span></span></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/About/council_members/article,438" style="">המועצה וחבריה</a></span></span></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/articles/article,836/" style="line-height: 19.2px;" target="_self">מבנה מערך הבטיחות</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td><span style="line-height: 19.2px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/About/Contact/" style="">בעלי תפקידים ויצירת קשר</a></span></span></td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">מכרזי&nbsp;משרות פתוחות</a></span></span></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,907/" style="line-height: 19.2px;" target="_blank">המוס"ל בתקשורת</a></span></span></td>
+			<td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/projects/.aspx" style="" target="_blank">מכרזים כלליים</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="/heb/About/AboutSite/" style="line-height: 19.2px;" target="_self">תנאי שימוש באתר</a></span></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><a href="https://www.osh.org.il/UploadedImages//10_2025/sk_mangement_rivon_2_2025.pdf" style="font-size: 14px; font-family: arial, helvetica, sans-serif;" target="_blank">דוח מסכם פעילות לרבעון 2 - 2025</a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/articles/article,845" style="line-height: 19.2px;" target="_self">דוחות כספיים</a></span></span></td>
+			<td><span style="font-size: 16px;">»</span><a href="https://www.osh.org.il/heb/projects/manp/#" style="font-size: 16px;" target="_blank">&nbsp;</a><a href="https://www.osh.org.il/UploadFiles/12_2025/sk_mangement_rivon_3_2025.pdf" style="font-size: 16px;" target="_blank"><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;">דוח מסכם פעילות לרבעון 3 - 2025</span></span></a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/UploadedImages//09_2024/Contribution_Section_46_2024.pdf" target="_blank">אישור לעניין תרומות</a></span></span></td>
+			<td><span style="font-size: 16px;">»</span><a href="https://www.osh.org.il/heb/projects/manp/#" style="font-size: 16px;" target="_blank">&nbsp;</a><a href="https://www.osh.org.il/UploadFiles/02_2026/sk_mangement_Year%20summary_2025.pdf" target="_blank"><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;">סיכום תוכנית עבודה מוס"ל 2025 - הצגה לחברי מועצה</span></span></a></td>
+		</tr>
+		<tr>
+			<td><br>
+			&nbsp;</td>
+			<td>»<a href="https://www.osh.org.il/heb/projects/manp/#" style="" target="_blank">&nbsp;</a><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/UploadedImages//09_2024/MediniyutPratitDugma_24_1.pdf" style="line-height: 19.2px;" target="_self">מדיניות הגנת הפרטיות</a></span></span></td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+</div></div></div></div>
+                        </li>
+
+                    
+                        <li class="icon-2">
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">מינהל צפון ודרום</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">ניידות בטיחות</p><div class="leftBoxFramePic"><img src="/UploadedImages/02_2022/nayadet.JPG" width="241" height="156" alt="" style="cursor:pointer;" onclick="location.href=&quot;https://www.osh.org.il/heb/training/nayadot/ &quot;"></div><p class="clear-both"><span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;">ניידת הדרכה חדשה להדרכה יחידנית בקבוצות בשטח העבודה, הניידת עם מערכת מולטימדיה ממוחשבת המשוכללת מסוגה בעולם</span></span><br><a href="javascript:void(0)" onclick="window.open(&quot;https://www.osh.org.il/heb/training/nayadot/&quot;);" class="more">קרא עוד</a></p></div><div class="megaMenuRegion">
+
+                                <div class="region" id="defaultRegion">
+                                    <img src="/images/defaultRegion.png?v=1" width="363" height="300" usemap="#defaultRegion">
+                                    <map name="defaultRegion">
+                                      <area shape="poly" coords="173,53,282,118,385,3,384,2,240,0,173,53" alt="מנהל צפון" title="מנהל צפון" rel="#northRegion" href="#">
+                                      <area shape="poly" coords="163,50,269,127,39,298,8,229,83,94,163,50" alt="מנהל הדרום" title="מנהל דרום" rel="#centerRegion" href="#">
+                                    </map>
+                                </div>
+
+                                <div class="region" id="northRegion" onclick="location.href=&quot;https://www.osh.org.il/heb/branches/branchNorth/&quot;">
+                                    <img src="/images/northRegion.png?v=1" width="363" height="300" usemap="#northRegion">
+                                    <span class="regionText"></span>
+                                    <map name="northRegion">
+                                      <area shape="poly" coords="173,53,282,118,385,3,384,2,240,0,173,53" alt="מנהל צפון" title="מנהל צפון" rel="#northRegion" href="#">
+                                      <area shape="poly" coords="163,50,269,127,39,298,8,229,83,94,163,50" alt="מנהל הדרום" title="מנהל דרום" rel="#centerRegion" href="#">
+                                    </map>
+                                </div>
+
+                                <div class="region" id="centerRegion" onclick="location.href=&quot;https://www.osh.org.il/heb/branches/branchCenter/&quot;">
+                                    <img src="/images/centerRegion.png?v=1" width="363" height="300" usemap="#centerRegion">
+                                    <span class="regionText"></span>
+                                    <map name="centerRegion">
+                                      <area shape="poly" coords="173,53,282,118,385,3,384,2,240,0,173,53" alt="מנהל צפון" title="מנהל צפון" rel="#northRegion" href="#">
+                                      <area shape="poly" coords="163,50,269,127,39,298,8,229,83,94,163,50" alt="מנהל הדרום" title="מנהל דרום" rel="#centerRegion" href="#">
+                                    </map>
+                                </div> 
+
+                                <p class="mapInfo">לקבלת מידע על המנהלות השונים<br>לחץ על האזור המבוקש במפה:</p>
+
+                            </div></div></div>
+                        </li>
+
+                    
+                        <li class="icon-3">
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">מדורים מקצועיים</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="rightBox" style="width: 954px;"><div class="editorText">&nbsp; &nbsp;
+<table border="0" cellpadding="1" cellspacing="1" style="width: 925px;"><tbody><tr><td style="width: 25px;" class="emptyCell">&nbsp;</td><td class="emptyCell"><br>
+			&nbsp;</td><td class="emptyCell"><br>
+			&nbsp;</td><td class="emptyCell"><br>
+			&nbsp;</td><td class="emptyCell"><br>
+			&nbsp;</td><td class="emptyCell"><br>
+			&nbsp;</td><td class="emptyCell"><br>
+			&nbsp;</td><td class="emptyCell"><br>
+			&nbsp;</td><td class="emptyCell">&nbsp;</td><td class="emptyCell">&nbsp;</td><td class="emptyCell">&nbsp;</td><td><font color="#4b4d4c" face="Arial, Helvetica, sans-serif"><span style="color: rgb(255, 165, 0); font-family: arial, helvetica, sans-serif; font-size: 16px;">מדורים מקצועיים</span></font><br>
+			&nbsp;</td><td>»&nbsp;<a href="https://www.osh.org.il/heb/Prof/bniya1/" target="_blank"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">קידום הבטיחות והבריאות בבנייה</span></span></a></td><td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/hashmal_n/" target="_blank">בטיחות חשמל</a></span></span></td><td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,781/" target="_blank">קידום בטיחות בעבודה בקרב בני נוער</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,780/" style="font-size: 14px;" target="_blank">פעילות לקידום הבטיחות לעובדים עם מוגבלות</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/Research/pagecontrols,640/" style="font-size: 14px;" target="_blank">מחקר ישומי בבטיחות ובריאות תעסוקתית</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/mador/">עובדים עם מוגבלות</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/radiation_page/" target="_blank">קרינה בלתי מייננת</a></span></span></td><td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/info_inner_homas/" style="font-size: 14px;" target="_blank">שינוע חומרים מסוכנים</a></span></span><br>
+			&nbsp;</td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,98/" style="font-size: 14px;">מוסד מורשה לניהול בטיחות ובריאות בתעסוקה</a></span></span><br>
+			&nbsp;</td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,779/" style="font-size: 14px;" target="_blank">מידע כללי בשפה הערבית</a></span></span><br>
+			&nbsp;</td><td><font color="#4b4d4c" face="Arial, Helvetica, sans-serif"><span style="color: rgb(255, 165, 0); font-family: arial, helvetica, sans-serif; font-size: 16px;">גיהות ובריאות תעסוקתית</span></font><br>
+			&nbsp;</td><td><span style="line-height: 19.2px;">»&nbsp;</span><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/Prof/war/" style="line-height: 19.2px;" target="_blank">עבודה בטוחה ובריאה בעת מלחמה וחירום</a></span></span></td><td><span style="font-size: 16px; line-height: 19.2px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/ergonomics/" style="font-size: 14px; line-height: 19.2px;">ארגונומיה וגורם אנושי</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/silica/" style="font-size: 14px;">סיליקה</a></span></span></td><td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/bio_page/" style="font-size: 14px;">בטיחות ובריאות ביולוגית</a></span></span></td><td><span style="font-size: 16px; line-height: 19.2px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/noise/article,385/" style="font-size: 14px; line-height: 19.2px;" target="_blank">רעש</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/hasifa_taasukati/" style="font-size: 14px;" target="_self">חוברת חשיפה לגורמים מזיקים</a></span></span></td><td><span style="font-size: 16px; line-height: 19.2px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/corona/" style="font-size: 14px; line-height: 19.2px;">עבודה בטוחה בזמן קורונה</a></span></span></td><td class="emptyCell">&nbsp;</td><td class="emptyCell">&nbsp;</td><td class="emptyCell">&nbsp; &nbsp;</td><td><font color="#4b4d4c" face="Arial, Helvetica, sans-serif"><span style="color: rgb(255, 165, 0); font-family: arial, helvetica, sans-serif; font-size: 16px;">ריכוז מידע בנושאי בטיחות וגיהות</span></font><br>
+			&nbsp;</td><td>»&nbsp;<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,783/" target="_blank">בטיחות בעבודה עם&nbsp;עגורנים</a></span></span></td><td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a a="" href="https://www.osh.org.il/heb/projects/icsc/" span="" style="font-size: 14px;" target="_self">כרטיסי בטיחות לחומרים כימיים</a></span></span></td><td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/info_inner_ar/" style="font-size: 14px;">הפקת לקחים מתאונות</a></span></span></td><td>»&nbsp;<span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="http://www.sheilapantry.com/oshworld/diary.html" style="font-size: 14px;" target="_blank">כנסים ואירועים בינלאומיים</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/library/" target="_blank">גיליונות מידע על סיכונים תעסוקתיים</a></span></span></td><td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 14px;"><span style="font-size: 14px; font-family: arial, helvetica, sans-serif;"><a href="https://www.osh.org.il/heb/Prof/cis/" style="font-size: 14px;" target="_blank">דפי מידע טכניים CIS</a></span></span></td><td class="emptyCell">&nbsp;</td><td class="emptyCell">&nbsp;</td><td class="emptyCell">&nbsp;</td><td class="emptyCell">&nbsp;</td></tr></tbody></table>
+</div></div></div></div>
+                        </li>
+
+                    
+                        <li class="icon-4">
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">מרכז מידע</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">שאילתא</p><div class="leftBoxFramePic"><img src="/UploadedImages/08_2013/querySubmission_.png" width="241" height="156" alt="" style="cursor:pointer;" onclick="location.href=&quot;http://www.osh.org.il/heb/queryform/ &quot;"></div><p class="clear-both"><br><a href="http://www.osh.org.il/heb/queryform/" class="more">קרא עוד</a></p></div><div class="rightBox" style="width: 596px;"><div class="editorText" style="width: 556px;">&nbsp;
+<table border="0" cellpadding="1" cellspacing="1" style="width: 600px;">
+	<tbody>
+		<tr>
+			<td class="emptyCell">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/library/" style="font-size: 16px;" target="_blank">ספריה מקצועית</a></span></td>
+			<td>»&nbsp;<span style="font-size:16px;"><a href="/heb/info/dictionary/" style="font-size: 16px;" target="_self">מילונים</a></span></td>
+			<td>»&nbsp;<span style="font-size:16px;"><a href="/heb/projects/icsc/" style="font-size: 16px;" target="_self">כרטיסי בטיחות לחומרים כימיים</a></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/info/info_center/" style="font-size: 16px;" target="_self">פרסומי מרכז מידע</a></span></td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/info/safety-sites-international/article,1048/" style="font-size: 16px;" target="_self">אתרי בטיחות</a></span></td>
+			<td>»&nbsp;<span style="font-size:16px;"><a href="https://www.osh.org.il/heb/articles/" style="font-size: 16px;" target="_blank">מאמרים מקצועיים</a></span></td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td>»&nbsp;<span style="font-size: 16px;"><a href="/heb/questionlobby/" style="font-size: 16px;" target="_self">תשובת השבוע</a></span></td>
+			<td>»&nbsp;<a href="https://www.osh.org.il/heb/newsletterarchive/2026/newsletter,236/" target="_blank"><span style="font-size: 16px;">ניוזלטר</span></a></td>
+			<td><span style="font-size:16px;">»<a href="https://www.osh.org.il/heb/projects/.aspx" target="_blank">&nbsp;</a></span><a href="http://www.osh.org.il/heb/general/effort/article,710/" style="font-size: 16px;" target="_blank"><span style="font-size: 16px;">קישורים לטפסים לבעלי עסק&nbsp;</span></a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 16px;"><a href="/heb/info/laws/" style="font-size: 16px;" target="_self">חוקים ותקנות</a></span></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><a href="https://www.osh.org.il/heb/newsletterarchive/" style="font-size: 16px;" target="_blank">ארכיון ניוזלטר</a></td>
+			<td><span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 16px;"><a href="https://www.osh.org.il/heb/articles/articles/worldsafety/" style="font-size: 16px;" target="_self">חדשות בטיחות מהעולם</a></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td><br>
+			<span style="font-size: 16px;">»&nbsp;</span><span style="font-size: 16px;"><a href="http://www.osh.org.il/heb/info/digital/" style="font-size: 16px;" target="_blank"><span style="font-size: 16px; color: rgb(255, 165, 0);">ספריה למנוים בלבד</span></a></span></td>
+			<td class="emptyCell">&nbsp;</td>
+			<td class="emptyCell">&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<a href="https://mapa.osh.org.il" target="_blank"><img alt="" src="https://www.osh.org.il/UploadedImages//04_2020/kav-k-1.jpg" style="width: 175px; height: 102px; margin: 15px;"></a></div></div></div></div>
+                        </li>
+
+                    
+                        <li class="icon-5">
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">הדרכות והכשרות</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="rightBox" style="width: 954px;"><div class="editorText"><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong style="font-family: arial, helvetica, sans-serif; font-size: 20px;">»&nbsp;</strong><span style="font-size:20px;"><a href="https://www.osh.org.il/heb/training/"><span style="color:#FFA500;"><strong><span style="font-family:arial,helvetica,sans-serif;">לחיפוש הדרכות והכשרות והזמנות</span></strong></span></a></span> &nbsp; &nbsp;
+
+<table border="0" cellpadding="1" cellspacing="1" style="width: 500px;">
+	<tbody>
+		<tr>
+			<td class="emptyCell">&nbsp;</td>
+			<td class="emptyCell">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="emptyCell">&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong style="font-size: 20px; font-family: arial, helvetica, sans-serif;">»&nbsp;<a href="https://www.osh.org.il/heb/general/effort/article,778/" style="font-size: 16px;" target="_blank">הזמנת שירותי המוס"ל - בשפה עברית וערבית</a></strong></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="emptyCell">&nbsp; &nbsp; &nbsp;&nbsp;<br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="/heb/training/info_inner_h_online/" style="font-size: 16px;" target="_blank">למידת בטיחות ONLINE</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td class="emptyCell">&nbsp; &nbsp; &nbsp;&nbsp;<br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/general/effort/article,863/" style="font-size: 16px;" target="_blank">וובינר - הדרכות מקוונות</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/training/nayadot/" style="font-size: 16px;" target="_blank">מערכת הדרכה בניידות בטיחות</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="/heb/info/digital/" style="font-size: 16px;" target="_blank">ספריה דיגיטלית – קורס ממונים על הבטיחות</a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://moodle.osh.org.il" style="font-size: 16px;" target="_blank">לסביבת למידה המקוונת moodle </a></strong></span></span></td>
+		</tr>
+		<tr>
+			<td class="emptyCell">&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/articles/article,1072/" style="font-size: 16px;" target="_blank">המרכז הלאומי לסימולטורים בבטיחות בעבודה</a>&nbsp;</strong></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="emptyCell"><br>
+			&nbsp;</td>
+			<td><span style="font-size:20px;"><span style="font-family:arial,helvetica,sans-serif;"><strong>»&nbsp;<a href="https://www.osh.org.il/heb/general/effort/article,1375/" style="font-size: 16px;" target="_blank">הדרכת כיבוי אש באמצעות סימולטור מציאות מדומה</a>&nbsp;</strong></span></span></td>
+		</tr>
+	</tbody>
+</table>
+</div></div></div></div>
+                        </li>
+
+                    
+                        <li class="icon-6">
+                            <p>
+                                <a href="javascript:void(0);" id="aLink" class="defcursor">פרסומים וחנות</a>
+                            </p>
+                            <div class="megaMenu"><div class="megaMenuInner"><div class="leftBox"><p class="fs18">חנות פרסומי בטיחות ובריאות</p><div class="leftBoxFramePic"><img src="/UploadedImages/02_2015/digital_store_button.jpg" width="241" height="156" alt="" style="cursor:pointer;" onclick="location.href=&quot;https://shop.osh.org.il/il/ &quot;"></div><p class="clear-both">חנות פרסומים, כרזות, מדבקות ועוד..&nbsp;<br><a href="https://shop.osh.org.il/il/" class="more">קרא עוד</a></p></div><div class="rightBox" style="width: 596px;"><div class="editorText" style="width: 556px;"><table border="0" cellpadding="1" cellspacing="1" style="width: 260px; float: right;">
+	<tbody>
+		<tr>
+			<td><br>
+			<span style="font-size: 16px;">»&nbsp;</span><a href="https://shop.osh.org.il" style="font-size: 16px;"><span style="font-size: 16px;"><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">רכישת ספרות ופרסומי בטיחות ובריאות</span></span></a><br>
+			<br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<a href="https://www.osh.org.il/heb/newsletterarchive/2026/newsletter,236/" target="_blank"><span style="font-size: 16px;"><span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">ניוזלטר</span></span></a><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/newsletterarchive/" target="_blank">ארכיון ניוזלטר</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/journallobby/bitaon/" target="_self">בטאונים ועלוני קיר</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td>»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/journallobby/" target="_self">ארכיון בטאונים ועלוני קיר</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr style="font-size: 16px;">
+			<td style="font-size: 16px;">»&nbsp;<span style="font-size:16px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/general/effort/article,629" style="font-size: 16px;">דוחות ע"פ חוק חופש המידע</a></span></span><br>
+			&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="font-size: 16px;"><span style="font-size:16px;">»&nbsp;<span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/heb/suppliers/" target="_self">מדריך ספקים</a>&nbsp;</span></span>&nbsp;<br>
+			&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<span style="font-size: 18px;">&nbsp; &nbsp; <a href="https://www.osh.org.il/heb/articles/article,862/" target="_blank"><img alt="" src="https://www.osh.org.il/UploadedImages//02_2019/iStock_000017126650Small.jpg" style="width: 250px; height: 125px; float: left;"></a>&nbsp;</span><br>
+&nbsp;</div></div></div></div>
+                        </li>
+
+                    
+            </ul></div>
+</div>
+
+
+        
+    
+    
+
+	<div style="" class="customplaceholder " position="PageHeader" id="MainPromotion">
+<section class="mainPromotion">
+    <div class="mainPromotionInner">
+        <div class="mainPromotionBgT">&nbsp;</div>
+		
+		
+        <div class="anythingSlider anythingSlider-default activeSlider" style="width: 954px; height: 329px;"><div class="anythingWindow" style="width: 100%; height: 100%;"><ul class="mainPromotionCarousel anythingBase horizontal" style="width: 954px; left: 0px;">
+	        
+            <li class="panel" style="width: 954px; height: 329px;">
+                <div class="mainCarouselText">
+                    <div class="mainCarouselTitle">כנס בריאות תעסוקתית 2026</div>
+                    <p></p><p style="border-width: 0px; margin: 0px; padding: 0px; outline: 0px; text-align: right; color: rgb(70, 70, 70); line-height: 1.3;; vertical-align: baseline; direction: rtl; background-color: rgb(243, 243, 243);"><br>
+<span style="font-size:18px;"><span style="color:#000000;"><span style="font-family:arial,helvetica,sans-serif;"><span style="white-space-collapse: preserve;">אנו מזמינים אתכם לכנס בריאות תעסוקתי השנתי שיעסוק השנה בנושא סרטן תעסוקתי זיהוי, מניעה ופיצוי. הכנס ייערך בשיתוף אוניברסיטת ת"א, תוכנית הכנס תתפרסם בקרוב, להרשמה&nbsp;</span></span></span></span></p>
+<p></p>
+                    <a href="https://mapa.osh.org.il/#/forms/conference">קרא עוד</a>
+                </div>
+                <div class="carouselPic" style="background: url(/UploadedImages/02_2026/news_260428_2.png) center center no-repeat;">&nbsp;</div>
+            </li>
+				
+        </ul></div><div class="anythingControls" style="display: none;"><ul class="thumbNav" style="display: none;"></ul></div></div>
+		
+        <div class="mainPromotionBgB">&nbsp;</div>
+    </div>
+</section>
+<div class="ddblock"></div></div>
+
+
+
+    <div class="wrapper">
+
+        <section class="main3Column">
+                
+            <section class="rightColumn">
+
+                
+	
+<div style="" class="customplaceholder rightColumn" position="RightColumn" id="RightColumn">
+<section class="promotion weekAnswer">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+     <h3></h3>
+    <p>&nbsp;</p>
+    <div class="editorTable"><p><a href="https://www.osh.org.il/heb/elearning/"><img alt="" src="https://www.osh.org.il/UploadedImages//07_2023/limodim_daf rashai_1_3.png" style="width: 331px; height: 193px;"></a></p></div>
+    <p>&nbsp;</p>
+    
+    <div id="datepicker"></div>
+    <a href="javascript:void(0)" class="more" style="cursor:default;"></a>
+    <br>
+     <script>
+         $(function () {
+             var url = window.location.href;
+
+             if (typeof SHOW_CALENDAR !== 'undefined' && SHOW_CALENDAR) {
+                 $("#datepicker").datepicker({
+                     onSelect: function (dateText) {
+                         $.cookies.set('searchByDate', true);
+                         $.cookies.set('searchByDatePage', 0);
+                         $.cookies.set('searchedDate', dateText);
+                         $('#cTrainingType').val(-1);
+                         $('#cTraining').val(-1);
+                         $('#cRegion').val(-1);
+                         $('#cText').val('');
+                         searchByDate(dateText, 0);
+                   
+                     }
+                 });
+              
+             }
+         });
+     </script>
+    <style>
+         {
+            width:192px !important;
+        }
+        .ui-datepicker-header{
+            background-color:aliceblue;
+        }
+        .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+            background-color :#609ce2;
+            color:blanchedalmond;
+            border :1px solid #333333;
+        }
+    </style>
+
+
+</section>
+
+<section class="promotion weekAnswer">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+     <h3></h3>
+    <p>&nbsp;</p>
+    <div class="editorTable"><p><a href="https://mapa.osh.org.il" target="_blank"><img alt="אתר &quot;קו החיים&quot;" src="https://www.osh.org.il/UploadedImages//09_2024/kav_24_2.png" style="width: 335px; height: 195px;"></a></p></div>
+    <p>&nbsp;</p>
+    
+    <div id="datepicker"></div>
+    <a href="javascript:void(0)" class="more" style="cursor:default;"></a>
+    <br>
+     <script>
+         $(function () {
+             var url = window.location.href;
+
+             if (typeof SHOW_CALENDAR !== 'undefined' && SHOW_CALENDAR) {
+                 $("#datepicker").datepicker({
+                     onSelect: function (dateText) {
+                         $.cookies.set('searchByDate', true);
+                         $.cookies.set('searchByDatePage', 0);
+                         $.cookies.set('searchedDate', dateText);
+                         $('#cTrainingType').val(-1);
+                         $('#cTraining').val(-1);
+                         $('#cRegion').val(-1);
+                         $('#cText').val('');
+                         searchByDate(dateText, 0);
+                   
+                     }
+                 });
+              
+             }
+         });
+     </script>
+    <style>
+         {
+            width:192px !important;
+        }
+        .ui-datepicker-header{
+            background-color:aliceblue;
+        }
+        .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+            background-color :#609ce2;
+            color:blanchedalmond;
+            border :1px solid #333333;
+        }
+    </style>
+
+
+</section>
+
+
+<script type="text/javascript">
+
+	var readIds = '';
+
+	function searchSimple() {
+		$("#spNoRes").hide();
+		srch = $("#sNewsSrch").val();
+		$.ajax({
+			type: "POST",
+			url: "/json/ajax.aspx/getNews",
+		    data: JSON.stringify({
+		        Page:1,
+		        s:'',
+		        lcid:1037,
+		        bid:47,
+		        ps:5,
+		        isMobile: false
+		    }),
+		    contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			async: false,
+			success: function (msg) {
+				if (msg.d.length > 0) {
+					buildResults(msg.d);
+				}
+			}
+		});
+	}
+
+	function buildResults(x) {
+
+		$("#divWait").html("");
+
+		$('#scroller').html('');
+		var res = x.split('~');
+
+		var lng = parseInt(res[0]);
+
+		var tbl = document.getElementById('scroller');
+
+		var str = "";
+
+		for (i = 1; i < res.length; i++) {
+			var f = res[i].split('|');
+			str += "<li><span>" + f[2] + "</span>";
+
+            if (f[4].length > 0)
+            {
+                var href_news = f[4];
+                str += "<a href='" + href_news + "' target='_blank' onclick='saveId(" + f[0] + ");'>" + getNewsName(f[1], f[0]) + "</a>";
+            }
+            else
+            {
+				if (f[3].length > 0) {
+					str += "<a href='/UploadFiles/" + f[3] + "' target='_blank' onclick='saveId(" + f[0] + ");'>" + getNewsName(f[1], f[0]) + "</a>";
+				} else {
+					str += "<a href='" + f[5] + "' onclick='saveId(" + f[0] + ");'>" + getNewsName(f[1], f[0]) + "</a>";
+				}
+            }
+
+			str += "</li>";
+		}
+
+		tbl.innerHTML = str;
+
+		//$('#newsTicker').totemticker({
+		//	row_height: '50px',
+		//	speed: 800,
+		//	interval: 4000,
+		//	mousestop: true
+	    //});
+
+		//$jScroller.add("#scroller_container", "#scroller", "up", 3, true);
+
+		//$jScroller.start();
+	}
+
+	function getNewsName(name, id) {
+		if (readIds == null) {
+			return "<b>" + name + "</b>";
+		}
+		var fa = readIds.toString().split(',');
+		for (ia = 0; ia < fa.length; ia++) {
+			if (fa[ia] == id) {
+				return name;
+			}
+		}
+		return "<b>" + name + "</b>";
+	}
+
+	function saveId(id) {
+		if (readIds == null) {
+			//setCookie('rc', id, 14);
+			$.cookies.set('rc', id);
+		} else {
+			var fb = readIds.toString().split(',');
+			var hasId = false;
+			for (ib = 0; ib < fb.length; ib++) {
+				if (fb[ib] == id) {
+					hasId = true;
+					break;
+				}
+			}
+			if (!hasId) {
+				readIds += "," + id;
+				//setCookie('rc', readIds, 14);
+				$.cookies.set('rc', readIds);
+			}
+		}
+	}
+
+	$(document).ready(function () {
+		//readIds = getCookie('rc');
+		readIds = $.cookies.get('rc');
+		$("#divWait").html("<table width='100%'><tr><td align='center' style='text-align:center !important;padding-top:10px;'><img src='/images/ajax-loader.gif' /></td></tr></table>");
+		searchSimple();
+	});
+</script>
+
+<section class="promotion news">
+    <h3 style="color: #084E8C;">חדשות</h3>
+	<div id="divWait"><table width="100%"><tbody><tr><td align="center" style="text-align:center !important;padding-top:10px;"><img src="/images/ajax-loader.gif"></td></tr></tbody></table></div>
+    <div id="scroller_container" style="cursor: pointer;">
+        <div class="scrollingtext" style="top: 122.1px;">
+            <ul id="scroller">
+            </ul>
+        </div>
+    </div>
+    
+    <a href="/heb/news/" class="more"><span style="font-size: 16px; line-height: 19.2000007629395px; text-align: start;">לכל החדשות</span></a>
+
+</section>
+<script type="text/javascript">
+	function addNL() {
+		canGo = true;
+
+		if ($("#tNL").val().length == 0) {
+		    alertPopup('הירשמו לעדכונים בדוא&#34;ל', 'נא להזין כתובת אלקטרוני');
+			return;
+		}
+
+		if (canGo) {
+			if (!checkEmailRegExp2('tNL')) {
+			    alertPopup('הירשמו לעדכונים בדוא&#34;ל', 'כתובת המייל שהזנת אינה תקינה');
+				return;
+			}
+		}
+		
+		if (canGo) {
+		    var user = cleanstr($("#tNL").val());
+		    var from = $('title').html().trim();
+			$.ajax({
+				type: "POST",
+				url: "/json/ajax.aspx/AddNL",
+			    data: "{e:'" + user + "',fname:'',lname:'',cname:'',from:'"+from+"'}",
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				success: function (msg) {
+					$("#tNL").val("");
+					if (msg.d == "0") {
+					    alertPopup('הירשמו לעדכונים בדוא&#34;ל', 'נרשמת בהצלחה!');
+					} else {
+					    alertPopup('הירשמו לעדכונים בדוא&#34;ל', 'משתמש זה כבר רשום לקבלת ניזולטר באתר');
+					}
+				},
+			});
+		}
+	}
+</script>
+<section class="emailUpdates">
+    <div class="emailUpdatesInner">
+        <div class="emailUpdatesInnerTitle">הירשמו לעדכונים בדוא"ל</div>
+        <p>לקבלת פרסומים, מועדי הדרכות ועוד דברים טובים</p>
+        <div class="newsletterBox">
+            <p class="gentext"> הזן דוא"ל:</p>
+            <p class="newsBoxButton"><input type="button" value="שלח" id="Button1" onclick="addNL();"></p>
+            <p class="newsBoxTextBox"><input type="text" id="tNL"></p>
+        </div>
+        
+        
+        <a href="https://www.osh.org.il/heb/newsletterarchive/2026/newsletter,236/" class="float-lan">ניוזלטר</a>
+        <a href="https://www.osh.org.il/heb/newsletterarchive/" class="float-invert-lan">גיליונות הניוזלטר</a>
+        
+    </div>
+</section>
+
+<section class="promotion weekAnswer">
+
+    <h3 style="color: #084E8C;">תשובת השבוע</h3>
+    <p class="fromDate"><strong>מתאריך: 15.02.2026</strong></p>
+    <p>&nbsp;</p>
+    <p><strong>שאלה:</strong></p>
+    <p>מהי תדירות בדיקת בודק מוסמך א. סל הרמה במלגזה - ב. עגורן/מנוף?</p>
+    <p>&nbsp;</p>
+    <p><strong>התשובה:</strong></p>
+    <p>סל הרמת אדם עפ"י אופי ומטרת השימוש עונה באופן מוחלט על הגדרת "אביזר הרמה" של ה"פקודה".</p>
+    <a href="/heb/questionlobby/weekanswer,1683">&nbsp;&lt;&nbsp;קרא עוד</a>
+    <p>&nbsp;</p>
+    <a href="/heb/questionlobby/" class="more">לארכיון תשובת השבוע</a>
+    
+    
+</section>
+
+
+<script type="text/javascript">
+
+    var width = $(window).width();
+
+    $(document).ready(function () {
+
+        if (width <= 640) {
+
+          //  $('div#CenterLeftColumn').append($('.promotion.weekAnswer').remove());            
+        }        
+    });
+
+</script>
+<section class="facebookBox">
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+<script>(function (d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=402353406528185";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box fb_iframe_widget" data-href="http://www.facebook.com/safeworkil" data-width="326" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=402353406528185&amp;container_width=328&amp;header=true&amp;href=http%3A%2F%2Fwww.facebook.com%2Fsafeworkil&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false&amp;width=326"><span style="vertical-align: bottom; width: 326px; height: 130px;"><iframe name="f9033850107c9e66a" width="326px" height="1000px" data-testid="fb:like_box Facebook Social Plugin" title="fb:like_box Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/plugins/like_box.php?app_id=402353406528185&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df6f4f0a35f7c7da25%26domain%3Dwww.osh.org.il%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.osh.org.il%252Ffa2ae5bd35ea3922b%26relation%3Dparent.parent&amp;container_width=328&amp;header=true&amp;href=http%3A%2F%2Fwww.facebook.com%2Fsafeworkil&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false&amp;width=326" style="border: none; visibility: visible; width: 326px; height: 130px;" class=""></iframe></span></div>
+</section><div class="ddblock"></div></div>
+
+
+
+            </section>
+
+            <section class="centerColumn">
+
+                
+
+<div style="" class="customplaceholder centerColumn" position="Center" id="CenterColumn">
+
+
+<section class="promotion articles">
+    
+    <ul>
+	    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/03_2026/9090.png" alt=""></div>
+			<a href="javascript:void(0)" onclick="window.open(&quot;https://www.osh.org.il/heb/articles/article,1749/&quot;);"><p>השפעת סטרס על נפילות במדרגות: מדוע הסיכון גדל דווקא בדרך למקלט?</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://www.osh.org.il/heb/articles/article,1749/" style="text-decoration: none;color: rgb(70, 70, 70);"><span>נפילות במדרגות מהוות גורם משמעותי לפציעות באוכלוסייה הכללית. מחקרים מצביעים על כך כי ירידה במדרגות מסוכנת יותר מעלייה, וכי שיעור הפציעות המתרחשות בזמן הירידה גבוה יותר. בתקופות חירום</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/03_2026/savethedate_14_7_26_2.png" alt=""></div>
+			<p>ועידת נצרת ה-6 בתאריך 14/07/26</p>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="" style="text-decoration: none;color: rgb(70, 70, 70);"><span>בקרוב תתקיים ועידת נצרת ה-6 במגזר הערבי, הועידה יתקיים ב- 14/07/26, אנו מזמינים אתכם להמשיכו לעקוב, פרטים יתפרסמו בהמשך</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/12_2025/Report_button_website_2.png" alt=""></div>
+			<a href="https://mapa.osh.org.il/"><p>דיווח במוקד הלאומי קו החיים</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://mapa.osh.org.il/" style="text-decoration: none;color: rgb(70, 70, 70);"><span>ראיתם עובד בגובה ללא קסדה? הבחנתם בעובד במפעל ללא ציוד בטיחות? שמתם לב למפגע שמסכן את העובדים ואתכם? דווחו למוקד הלאומי קו החיים.</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/04_2024/kampyn_mans_1.jpg" alt=""></div>
+			<a href="https://www.osh.org.il/heb/news/news,6367/"><p>המוס"ל יצא בקמפיינים סרטוני בטיחות בתחומים שונים</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://www.osh.org.il/heb/news/news,6367/" style="text-decoration: none;color: rgb(70, 70, 70);"><span>פרויקט קמפיין סרטוני אנימציה קצרים במגוון נושאי בטיחות בעבודה ובריאות תעסוקתית למעסיקים ולעובדים במקומות העבודה במימון הביטוח הלאומי. לצפיה לחץ כאן</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/01_2022/cimolator.JPG" alt=""></div>
+			<a href="https://www.osh.org.il/heb/articles/article,1072/"><p>המוסד לבטיחות ולגהות גאה להציג את המרכז הלאומי לסימולטורים בבטיחות בעבודה</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://www.osh.org.il/heb/articles/article,1072/" style="text-decoration: none;color: rgb(70, 70, 70);"><span>הצגת המרכז הלאומי לסימולטורים במוסד לבטיחות ולגהות, התחלנו לנסות ולהבין איך מפעילים ומקימים את המרכז הזה.</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/01_2025/פרסום לדף הבית לאמצע_1.jpg" alt=""></div>
+			<a href="https://mapa.osh.org.il/#/forms/construction-site"><p>ייעוץ מקצועי ע"י מדריכי המוס"ל בוועדת בטיחות ללא עלות!</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://mapa.osh.org.il/#/forms/construction-site" style="text-decoration: none;color: rgb(70, 70, 70);"><span>הנכם מפעל המעסיק 25 עובדים ומעלה?
+הנכם מחויבים לבצע 8 וועדות בטיחות בשנה. 
+המוס"ל "קו החיים" מציג: ייעוץ מקצועי ע"י מדריכי המוס"ל בוועדת בטיחות ללא עלות!
+לחצו על הקישור להזמנה</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/07_2024/iStock-896264102.jpg" alt=""></div>
+			<a href="https://www.osh.org.il/heb/general/effort/article,1086/"><p>קהילת הבוגרים של המוס"ל - הבית שלכם בבטיחות ובבריאות תעסוקתית</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://www.osh.org.il/heb/general/effort/article,1086/" style="text-decoration: none;color: rgb(70, 70, 70);"><span> קיבלתם תפקיד חדש? רוצים לעדכן פרטים? עדכנו אותנו&gt;&gt;</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/05_2023/kav_haim_new_katan.jpg" alt=""></div>
+			<a href="https://mapa.osh.org.il/#/catalog-statistics"><p>סטטיסטיקות ופרסומים המוקד הלאומי קו החיים</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://mapa.osh.org.il/#/catalog-statistics" style="text-decoration: none;color: rgb(70, 70, 70);"><span>פרסומי ממצאים עקרים מדיווחי קו החיים, פרסומים וחלוקה לערים לפי כמות דיווחים</span></a>
+            
+        </li>
+		    
+        <li>
+            <div class="picFrame"><img src="/UploadedImages/09_2018/picture_news_180906.jpg" alt=""></div>
+			<a href="https://www.osh.org.il/heb/general/effort/article,778/"><p>הזמנת שירותי המוס"ל - בשפה העברית והערבית</p></a>
+            <span class="code"> תאריך: 12/03/2026</span> 
+            <a href="https://www.osh.org.il/heb/general/effort/article,778/" style="text-decoration: none;color: rgb(70, 70, 70);"><span>קבלנים, מעסיקים-
+אל תחכו לאסון הבא.
+אנו מגיעים עד אליכם, להדרכות ללא תשלום</span></a>
+            
+        </li>
+		    
+    </ul>
+
+    <a href="/heb/articles/" class="more">לכל המאמרים</a>
+
+</section><img src="/UploadedImages//07_2023/site_1.png" id="imgEvent" class="pointer" onclick="window.open('https://www.osh.org.il/UploadFiles/moodle-campaign/index.html');">
+
+
+
+
+<section class="promotion video">
+    <h3 style="color: #084E8C;">סרטוני בטיחות</h3>
+    
+
+   
+
+    <iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/5kFWG9nYOPw?si=tkjrld7iL7RDJqqu" style="width: 100%; height: 200px;">&amp;lt;/iframe&lt;/iframe</iframe><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/DcSR8ic5SAw?si=FKTJp64P1WvcBiEu" style="width: 100%; height: 200px;" title="YouTube video player">&amp;lt;/iframe&lt;/iframe</iframe><br>
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/oj6xeQ4z3_4" style="width: 100%; height: 200px;">&amp;lt;/iframe&lt;/iframe</iframe><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed//15UitqfyVaY?si=42EGQ5LY3bMRI082" style="width: 100%; height: 200px;" title="YouTube video player">&amp;lt;/iframe&lt;/iframe</iframe>
+</section><div class="ddblock"></div></div>
+
+
+
+            </section>
+
+            <section class="leftColumn">
+
+                
+
+	<div style="" class="customplaceholder leftColumn" position="LeftColumn" id="LeftColumn"><img src="/UploadedImages//05_2020/Safety_truck_order_1.png" id="imgEvent" class="pointer" onclick="window.open('https://mapa.osh.org.il/#/forms/orderingSafetyCar');">
+
+
+
+
+<section class="promotionSmall">
+    
+    <ul>
+	    
+        <li style="margin-left: 17px;">
+            <div>
+                <a><img src="/UploadedImages//06_2022/אישכתום - קסדה - כסא כחול - רקע.jpg" id="imgEvent" width="108" height="105" onclick="location.href='https://www.osh.org.il/UploadFiles/moodle-campaign/index.html'">
+
+</a>
+                <a style="display: none;"><img src="/UploadedImages//06_2022/אישלבן - קסדה - כסא - רקע כתום.jpg" id="imgEvent" width="108" height="105" onclick="location.href='https://www.osh.org.il/UploadFiles/moodle-campaign/index.html'">
+
+</a>
+            </div>
+            <a href="https://www.osh.org.il/UploadFiles/moodle-campaign/index.html" id="aLink" target="_self" class="linkAuto1">הדרכות באמצעות לומדה</a>
+			
+        </li>
+		    
+        <li>
+            <div>
+                <a><img src="/UploadedImages//08_2013/trainingOrder_.png" id="imgEvent" width="108" height="105" onclick="location.href='https://www.osh.org.il/heb/training/?s=&amp;tt=-1&amp;r=-1&amp;n=&amp;p=1'">
+
+</a>
+                <a style="display: none;"><img src="/UploadedImages//08_2013/trainingOrder_hover.png" id="imgEvent" width="108" height="105" onclick="location.href='https://www.osh.org.il/heb/training/?s=&amp;tt=-1&amp;r=-1&amp;n=&amp;p=1'">
+
+</a>
+            </div>
+            <a href="https://www.osh.org.il/heb/training/?s=&amp;tt=-1&amp;r=-1&amp;n=&amp;p=1" id="aLink" target="_self" class="linkAuto2">הזמנת הדרכה</a>
+			
+        </li>
+		    
+        <li style="margin-left: 17px;">
+            <div>
+                <a><img src="/UploadedImages//08_2013/entranceLibrary_.png" id="imgEvent" width="108" height="105" onclick="window.open('https://www.osh.org.il/heb/library/');">
+
+</a>
+                <a style="display: none;"><img src="/UploadedImages//08_2013/entranceLibrary_hover.png" id="imgEvent" width="108" height="105" onclick="window.open('https://www.osh.org.il/heb/library/');">
+
+</a>
+            </div>
+            <a href="https://www.osh.org.il/heb/library/" id="aLink" target="_blank" class="linkAuto3">כניסה לספריה אלקטרונית</a>
+			
+        </li>
+		    
+        <li>
+            <div>
+                <a><img src="/UploadedImages//08_2013/orderPublications_.png" id="imgEvent" width="108" height="105" onclick="location.href='https://shop.osh.org.il/il/'">
+
+</a>
+                <a style="display: none;"><img src="/UploadedImages//08_2013/orderPublications_hover.png" id="imgEvent" width="108" height="105" onclick="location.href='https://shop.osh.org.il/il/'">
+
+</a>
+            </div>
+            <a href="https://shop.osh.org.il/il/" id="aLink" target="_blank" class="linkAuto5">חנות דיגיטלית</a>
+			
+        </li>
+		    
+        <li style="margin-left: 17px;">
+            <div>
+                <a><img src="/UploadedImages//10_2024/research_25_1.png" id="imgEvent" width="108" height="105" onclick="location.href='https://www.osh.org.il/heb/Prof/Research/pagecontrols,640/'">
+
+</a>
+                <a style="display: none;"><img src="/UploadedImages//10_2024/research_1_25_1.png" id="imgEvent" width="108" height="105" onclick="location.href='https://www.osh.org.il/heb/Prof/Research/pagecontrols,640/'">
+
+</a>
+            </div>
+            <a href="https://www.osh.org.il/heb/Prof/Research/pagecontrols,640/" id="aLink" target="_self" class="linkAuto11">מחקר</a>
+			
+        </li>
+		    
+        <li>
+            <div>
+                <a><img src="/UploadedImages//08_2013/tendersProjects_.png" id="imgEvent" width="108" height="105" onclick="location.href='http://www.osh.org.il/heb/projects/.aspx'">
+
+</a>
+                <a style="display: none;"><img src="/UploadedImages//08_2013/tendersProjects_hover.png" id="imgEvent" width="108" height="105" onclick="location.href='http://www.osh.org.il/heb/projects/.aspx'">
+
+</a>
+            </div>
+            <a href="http://www.osh.org.il/heb/projects/.aspx" id="aLink" target="_self" class="linkAuto6">מכרזים כלליים ומשרות פתוחות</a>
+			
+        </li>
+		    
+    </ul>
+
+</section>
+
+    <div class="social">
+        <a href="http://www.facebook.com/safeworkil" target="_new"><img src="/images/facebookIcon.png" alt=""></a>
+        <a href="https://www.instagram.com/safe_work_il/" target="_new"><img src="/images/inIcon.png" alt=""></a>
+        <a href="http://twitter.com/#!/Safeworkil" target="_new"><img src="/images/twitterIcon.png" alt=""></a>
+        <a href="http://www.youtube.com/user/safeworkil" target="_new"><img src="/images/youTubeIcon.png" alt=""></a>
+    </div>
+
+<section class="promotion weekAnswer">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+     <h3></h3>
+    <p>&nbsp;</p>
+    <div class="editorTable"><p><font size="3"><font face="arial, helvetica, sans-serif"><b><span style="font-size: 18px;">חדש בספריה האלקטרונית</span></b></font></font><br>
+<br>
+<strong><a href="https://www.osh.org.il/heb/articles/article,1631/" target="_blank"><span style="color:#0000FF;"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">הדור הסלולרי החמישי - האם קיימת חשיפה עודפת לקרינה בלתי מייננת? ממצאי מחקר חדש</span></span></span></a></strong><br>
+<br>
+<a href="https://www.osh.org.il/UploadedImages//02_2024/Radiation_risks_Seminar_lectures.pdf" target="_blank"><strong><span style="color:#0000FF;"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">הרצאות וימי עיון בקרינה בלתי מייננת במקומות עבודה&nbsp;</span></span></span></strong></a><br>
+<br>
+<a href="http://apps.moital.gov.il/OSL/Pages/" target="_blank"><strong><span style="color:#0000FF;"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">מנוע חיפוש נותני שירות בתחום הבטיחות והגיהות</span></span></span></strong></a><br>
+<br>
+<strong><a href="https://www.osh.org.il/UploadedImages/05_2021/hoveret%20krina.pdf"><span style="color:#0000FF;"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">קרינה אלקטרומגנטית בלתי מייננת - המלצות כלליות וראשוניות להתגוננות במקומות עבודה</span></span></span></a></strong><br>
+<br>
+<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/UploadedImages//07_2025/Non_ionizing_radiation.jpg" target="_blank"><span style="color:#0000FF;"><strong>בטיחות קרינה בלתי מייננת ושדות מגנטיים במקומות העבודה - הצעה למדידות ולסקרים באמצעות המוס"ל</strong></span></a></span></span><br>
+<br>
+<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><a href="https://www.osh.org.il/UploadFiles/09_2021/_r1_t.pdf" target="_blank"><span style="color:#0000FF;"><strong>טיפים לבטיחות ובריאות לעבודה ברפת בתאית</strong></span></a></span></span><br>
+&nbsp;</p></div>
+    <p>&nbsp;</p>
+    
+    <div id="datepicker"></div>
+    <a href="javascript:void(0)" class="more" style="cursor:default;"></a>
+    <br>
+     <script>
+         $(function () {
+             var url = window.location.href;
+
+             if (typeof SHOW_CALENDAR !== 'undefined' && SHOW_CALENDAR) {
+                 $("#datepicker").datepicker({
+                     onSelect: function (dateText) {
+                         $.cookies.set('searchByDate', true);
+                         $.cookies.set('searchByDatePage', 0);
+                         $.cookies.set('searchedDate', dateText);
+                         $('#cTrainingType').val(-1);
+                         $('#cTraining').val(-1);
+                         $('#cRegion').val(-1);
+                         $('#cText').val('');
+                         searchByDate(dateText, 0);
+                   
+                     }
+                 });
+              
+             }
+         });
+     </script>
+    <style>
+         {
+            width:192px !important;
+        }
+        .ui-datepicker-header{
+            background-color:aliceblue;
+        }
+        .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+            background-color :#609ce2;
+            color:blanchedalmond;
+            border :1px solid #333333;
+        }
+    </style>
+
+
+</section>
+<div class="ddblock"></div></div>
+
+
+
+            </section>
+
+        </section>
+		
+		
+	
+	<div class="gentext"></div>
+
+
+		
+        
+	
+	
+<nav>
+    
+    <ul>
+	    
+			<li><a><img src="/UploadedImages//09_2013/navLogosPic1.png" id="imgEvent" onclick="window.open('http://www.sii.org.il');">
+
+</a></li>	    
+		    
+			<li><a><img src="/UploadedImages//09_2013/navLogosPic3.png" id="imgEvent" onclick="window.open('https://www.osh.org.il/heb/general/effort/article,98/');">
+
+</a></li>	    
+		    
+			<li><a><img src="/UploadedImages//09_2013/navLogosPic4.png" id="imgEvent" onclick="window.open('http://osh.org.il/site/hasmaha_CIS-ILO.html');">
+
+</a></li>	    
+		    
+    </ul>
+
+</nav>
+
+
+
+
+    </div>
+        
+
+
+        
+<footer>
+
+    <section class="footer">
+		
+        <ul>
+	        <li><ul><li><a href="javascript:void(0)" onclick="window.open(&quot;https://www.osh.org.il/heb/general/effort/article,408/&quot;);">אודות</a></li></ul></li><li><ul><li><a href="https://www.osh.org.il//heb/About/AboutSite/.aspx">אודות האתר</a></li></ul></li><li><ul></ul></li><li><ul></ul></li><li><ul><li><a href="https://www.osh.org.il//heb/About/Contact/.aspx">צור קשר</a></li></ul></li>
+		</ul>
+
+        <a href="http://www.ewave.co.il"><img src="/images/ewaveLogo.png" alt="איוייב מציעה מגוון פתרונות תוכנה ואינטגרציה. אנו מתמחים בפיתוח מערכות מידע וניהול מבוזרות מבוססות תשתית אינטרנט"></a>
+    
+    </section>
+
+</footer>
+
+
+        <div id="alertPopup" class="generalPopup" style="display: none;">
+            <div class="popupTitle gentext">
+                <label id="textAlert"></label>
+                <a href="#" onclick="closedialog()">
+                    <img src="/images/closePopup.png" width="26" height="26" alt="">
+                    <span>סגור חלון</span>
+                </a>
+            </div>
+            <label id="textAlert"></label>
+            <div class="footerPopup">
+                <a class="btnG" id="bOK" onclick="closedialog();doActionConfirm(actCon);">אשר</a>
+            </div>
+        </div>
+
+
+        <div id="confirmPopup" class="generalPopup gentext" style="display: none;">
+            <div class="popupTitle">
+                <a href="#" onclick="closedialog()">
+                    <img src="/images/closePopup.png" width="26" height="26" alt="">
+                    <span>סגור חלון</span>
+                </a>
+            </div>
+            <label id="textAlert2"></label>
+            <div class="footerPopup">
+                <a class="btnG" onclick="closedialog();doActionCancel(actCan);">ביטול</a>
+                <a class="btnG" id="bOK2" onclick="closedialog();doActionConfirm(actCon);">אשר</a>
+            </div>
+        </div>
+
+        
+    </form>
+    <script type="text/javascript" src="/static/1037_620908515.js"></script>
+    <script type="text/javascript" src="/static/1037_841531760.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($('.printButton').length) {
+                $('.printButton').click(function (e) {
+                    e.preventDefault();
+                    var w = window.open("/Pages/printPage.aspx");
+				});
+            }
+		});
+    </script>
+    
+    
+    <!-- Accessibility - osh.org.il -->
+
+    <script data-cfasync="false">
+        window.interdeal = {
+            sitekey: "5b1a38b61604996312215c4018fbaa11",
+            Position: "Left",
+            Menulang: "HE",
+        }
+    </script>
+   <script src="https://js.nagich.co.il/accessibility.js" async="" data-cfasync="false"></script>
+    
+
+
+<iframe title="IND - Default Props" id="INDdefaultPropIframe" src="about:blank" sandbox="" style="display: none;"></iframe></body></html>

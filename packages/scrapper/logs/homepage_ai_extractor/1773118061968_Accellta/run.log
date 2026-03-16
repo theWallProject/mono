@@ -1,0 +1,63 @@
+[2026-03-10T04:47:41.968Z] === Homepage AI Extractor: Accellta ===
+[2026-03-10T04:47:41.968Z] Started at: 2026-03-10T04:47:41.968Z
+[2026-03-10T04:47:41.969Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773118061968_Accellta
+[2026-03-10T04:47:41.969Z] Company: Accellta
+[2026-03-10T04:47:41.969Z] Website: accellta.com
+[2026-03-10T04:47:41.969Z] cbRank: 381789
+[2026-03-10T04:47:41.969Z] Reasons: h
+[2026-03-10T04:47:41.969Z] Fetching: https://accellta.com
+[2026-03-10T04:47:43.677Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-10T04:47:46.638Z] Redirected: https://accellta.com -> https://accellta.com/
+[2026-03-10T04:47:46.646Z] Saved HTML (158069 bytes) to page.html
+[2026-03-10T04:47:46.649Z] Extracted 17 unique links from page
+[2026-03-10T04:47:46.650Z] Saved 17 links to links.json
+[2026-03-10T04:47:46.653Z] Extracted footer HTML (580 chars)
+[2026-03-10T04:47:46.654Z] Extracted header HTML (19005 chars)
+[2026-03-10T04:47:46.657Z] Website (post-redirect): https://accellta.com/ → origin: https://accellta.com
+[2026-03-10T04:47:46.658Z] External links: 3 (of 17 total)
+[2026-03-10T04:47:46.658Z] ── All external links ──
+[2026-03-10T04:47:46.658Z]   EXT: http://imaginet.co.il
+[2026-03-10T04:47:46.658Z]   EXT: https://www.linkedin.com/company/accellta-ltd.
+[2026-03-10T04:47:46.658Z]   EXT: https://www.youtube.com/@Accellta-ESCs
+[2026-03-10T04:47:46.658Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T04:47:46.658Z]   UNCATEGORIZED: http://imaginet.co.il
+[2026-03-10T04:47:46.658Z]   REGEX: li <- https://www.linkedin.com/company/accellta-ltd.
+[2026-03-10T04:47:46.658Z]   REGEX: ytp <- https://www.youtube.com/@Accellta-ESCs
+[2026-03-10T04:47:46.658Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-10T04:47:46.658Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T04:47:46.659Z] Saved AI prompt (2327 chars) to ai_prompt.txt
+[2026-03-10T04:47:46.659Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T04:47:46.677Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T04:47:54.473Z]   AI: First token received, streaming...
+[2026-03-10T04:47:58.711Z] AI response complete: 91 chars in 12.1s
+[2026-03-10T04:47:58.711Z] Saved AI response to ai_response.json
+[2026-03-10T04:47:58.711Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T04:47:58.712Z]   AI LINK: https://accellta.com/index.php/privacy-policy/
+[2026-03-10T04:47:58.712Z]   AI LINK: https://accellta.com/index.php/terms-of-use/
+[2026-03-10T04:47:58.712Z] AI returned 2 valid links
+[2026-03-10T04:47:58.712Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T04:47:58.712Z]   AI→URLS: https://accellta.com/index.php/privacy-policy (cleaned from https://accellta.com/index.php/privacy-policy/)
+[2026-03-10T04:47:58.712Z]   AI→URLS: https://accellta.com/index.php/terms-of-use (cleaned from https://accellta.com/index.php/terms-of-use/)
+[2026-03-10T04:47:58.712Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T04:47:58.713Z] Footer/header origins (2):
+[2026-03-10T04:47:58.713Z]   FOOTER/HEADER ORIGIN: https://accellta.com
+[2026-03-10T04:47:58.713Z]   FOOTER/HEADER ORIGIN: http://imaginet.co.il
+[2026-03-10T04:47:58.713Z]   ADDED: urls <- http://imaginet.co.il
+[2026-03-10T04:47:58.713Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T04:47:58.713Z] ── Step 3: Final dedup ──
+[2026-03-10T04:47:58.713Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-10T04:47:58.713Z] ── FINAL RESULT ──
+[2026-03-10T04:47:58.713Z]   ws (1):
+[2026-03-10T04:47:58.713Z]     - https://accellta.com
+[2026-03-10T04:47:58.713Z]   li (1):
+[2026-03-10T04:47:58.713Z]     - https://www.linkedin.com/company/accellta-ltd.
+[2026-03-10T04:47:58.714Z]   ytp (1):
+[2026-03-10T04:47:58.714Z]     - https://www.youtube.com/@accellta-escs
+[2026-03-10T04:47:58.714Z]   urls (3):
+[2026-03-10T04:47:58.714Z]     - http://imaginet.co.il
+[2026-03-10T04:47:58.714Z]     - https://accellta.com/index.php/privacy-policy
+[2026-03-10T04:47:58.714Z]     - https://accellta.com/index.php/terms-of-use
+[2026-03-10T04:47:58.714Z] Summary: ws:1, li:1, ytp:1, urls:3
+[2026-03-10T04:47:58.716Z] Saved final result to result.json
+[2026-03-10T04:47:58.716Z] Override fields: ws, li, ytp, urls
+[2026-03-10T04:47:58.716Z] Finished at: 2026-03-10T04:47:58.716Z

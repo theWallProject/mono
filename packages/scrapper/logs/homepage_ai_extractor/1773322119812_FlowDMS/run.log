@@ -1,0 +1,61 @@
+[2026-03-12T13:28:39.812Z] === Homepage AI Extractor: FlowDMS ===
+[2026-03-12T13:28:39.813Z] Started at: 2026-03-12T13:28:39.813Z
+[2026-03-12T13:28:39.813Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773322119812_FlowDMS
+[2026-03-12T13:28:39.813Z] Company: FlowDMS
+[2026-03-12T13:28:39.813Z] Website: flowdms.co.il
+[2026-03-12T13:28:39.813Z] cbRank: 969563
+[2026-03-12T13:28:39.813Z] Reasons: h
+[2026-03-12T13:28:39.813Z] Fetching: https://flowdms.co.il
+[2026-03-12T13:28:47.281Z] Redirected: https://flowdms.co.il -> https://flowdms.co.il/
+[2026-03-12T13:28:47.300Z] Saved HTML (625703 bytes) to page.html
+[2026-03-12T13:28:47.303Z] Extracted 16 unique links from page
+[2026-03-12T13:28:47.304Z] Saved 16 links to links.json
+[2026-03-12T13:28:47.308Z] Extracted footer HTML (36016 chars)
+[2026-03-12T13:28:47.308Z] Extracted header HTML (16412 chars)
+[2026-03-12T13:28:47.311Z] Website (post-redirect): https://flowdms.co.il/ → origin: https://flowdms.co.il
+[2026-03-12T13:28:47.312Z] External links: 3 (of 16 total)
+[2026-03-12T13:28:47.312Z] ── All external links ──
+[2026-03-12T13:28:47.312Z]   EXT: https://il.linkedin.com/company/flowdms
+[2026-03-12T13:28:47.312Z]   EXT: https://www.enable.co.il
+[2026-03-12T13:28:47.312Z]   EXT: https://www.upress.co.il
+[2026-03-12T13:28:47.312Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T13:28:47.312Z]   REGEX: li <- https://il.linkedin.com/company/flowdms
+[2026-03-12T13:28:47.312Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-12T13:28:47.312Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-12T13:28:47.312Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-12T13:28:47.312Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T13:28:47.315Z] Saved AI prompt (2461 chars) to ai_prompt.txt
+[2026-03-12T13:28:47.315Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T13:28:47.333Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T13:28:56.763Z]   AI: First token received, streaming...
+[2026-03-12T13:29:00.383Z] AI response complete: 67 chars in 13.1s
+[2026-03-12T13:29:00.384Z] Saved AI response to ai_response.json
+[2026-03-12T13:29:00.384Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T13:29:00.384Z]   AI LINK: https://il.linkedin.com/company/flowdms
+[2026-03-12T13:29:00.384Z]   AI LINK: https://flowdms.co.il/blog/
+[2026-03-12T13:29:00.384Z] AI returned 2 valid links
+[2026-03-12T13:29:00.384Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T13:29:00.385Z]   AI→REGEX: li <- https://il.linkedin.com/company/flowdms (duplicate, skipped)
+[2026-03-12T13:29:00.385Z]   AI→URLS: https://flowdms.co.il/blog (cleaned from https://flowdms.co.il/blog/)
+[2026-03-12T13:29:00.385Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T13:29:00.385Z] Footer/header origins (2):
+[2026-03-12T13:29:00.385Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-12T13:29:00.385Z]   FOOTER/HEADER ORIGIN: https://flowdms.co.il
+[2026-03-12T13:29:00.385Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-12T13:29:00.385Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-12T13:29:00.385Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T13:29:00.385Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T13:29:00.386Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T13:29:00.386Z] ── Step 3: Final dedup ──
+[2026-03-12T13:29:00.386Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T13:29:00.386Z] ── FINAL RESULT ──
+[2026-03-12T13:29:00.386Z]   ws (1):
+[2026-03-12T13:29:00.386Z]     - https://flowdms.co.il
+[2026-03-12T13:29:00.386Z]   li (1):
+[2026-03-12T13:29:00.386Z]     - https://www.linkedin.com/company/flowdms
+[2026-03-12T13:29:00.386Z]   urls (1):
+[2026-03-12T13:29:00.386Z]     - https://flowdms.co.il/blog
+[2026-03-12T13:29:00.386Z] Summary: ws:1, li:1, urls:1
+[2026-03-12T13:29:00.387Z] Saved final result to result.json
+[2026-03-12T13:29:00.387Z] Override fields: ws, li
+[2026-03-12T13:29:00.387Z] Finished at: 2026-03-12T13:29:00.387Z

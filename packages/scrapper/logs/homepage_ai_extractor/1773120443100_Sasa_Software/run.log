@@ -1,0 +1,73 @@
+[2026-03-10T05:27:23.100Z] === Homepage AI Extractor: Sasa Software ===
+[2026-03-10T05:27:23.100Z] Started at: 2026-03-10T05:27:23.100Z
+[2026-03-10T05:27:23.100Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773120443100_Sasa_Software
+[2026-03-10T05:27:23.100Z] Company: Sasa Software
+[2026-03-10T05:27:23.100Z] Website: sasa-software.com
+[2026-03-10T05:27:23.100Z] cbRank: 391209
+[2026-03-10T05:27:23.100Z] Reasons: h
+[2026-03-10T05:27:23.100Z] Fetching: https://sasa-software.com
+[2026-03-10T05:27:28.673Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-10T05:27:31.601Z] Redirected: https://sasa-software.com -> https://www.sasa-software.com/
+[2026-03-10T05:27:31.618Z] Saved HTML (479144 bytes) to page.html
+[2026-03-10T05:27:31.623Z] Extracted 68 unique links from page
+[2026-03-10T05:27:31.624Z] Saved 68 links to links.json
+[2026-03-10T05:27:31.630Z] Extracted footer HTML (26184 chars)
+[2026-03-10T05:27:31.630Z] Extracted header HTML (109223 chars)
+[2026-03-10T05:27:31.635Z] Website (post-redirect): https://www.sasa-software.com/ → origin: https://www.sasa-software.com
+[2026-03-10T05:27:31.635Z] External links: 5 (of 68 total)
+[2026-03-10T05:27:31.635Z] ── All external links ──
+[2026-03-10T05:27:31.635Z]   EXT: https://cookiedatabase.org/tcf/purposes
+[2026-03-10T05:27:31.635Z]   EXT: https://sasa-software.freshdesk.com/support/login
+[2026-03-10T05:27:31.635Z]   EXT: https://twitter.com/sasa_software
+[2026-03-10T05:27:31.635Z]   EXT: https://www.facebook.com/sasasoftware
+[2026-03-10T05:27:31.635Z]   EXT: https://www.linkedin.com/company/sasa-software
+[2026-03-10T05:27:31.635Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T05:27:31.636Z]   UNCATEGORIZED: https://cookiedatabase.org/tcf/purposes
+[2026-03-10T05:27:31.636Z]   UNCATEGORIZED: https://sasa-software.freshdesk.com/support/login
+[2026-03-10T05:27:31.636Z]   REGEX: tw <- https://twitter.com/sasa_software
+[2026-03-10T05:27:31.636Z]   REGEX: fb <- https://www.facebook.com/sasasoftware
+[2026-03-10T05:27:31.636Z]   REGEX: li <- https://www.linkedin.com/company/sasa-software
+[2026-03-10T05:27:31.636Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 2 uncategorized
+[2026-03-10T05:27:31.636Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T05:27:31.637Z] Saved AI prompt (3408 chars) to ai_prompt.txt
+[2026-03-10T05:27:31.637Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T05:27:31.649Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T05:27:42.904Z]   AI: First token received, streaming...
+[2026-03-10T05:27:49.059Z] AI response complete: 120 chars in 17.4s
+[2026-03-10T05:27:49.059Z] Saved AI response to ai_response.json
+[2026-03-10T05:27:49.059Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T05:27:49.060Z]   AI LINK: https://twitter.com/sasa_software
+[2026-03-10T05:27:49.060Z]   AI LINK: https://www.facebook.com/sasasoftware/
+[2026-03-10T05:27:49.060Z]   AI LINK: https://www.linkedin.com/company/sasa-software/
+[2026-03-10T05:27:49.060Z] AI returned 3 valid links
+[2026-03-10T05:27:49.060Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T05:27:49.060Z]   AI→REGEX: tw <- https://twitter.com/sasa_software (duplicate, skipped)
+[2026-03-10T05:27:49.060Z]   AI→REGEX: fb <- https://www.facebook.com/sasasoftware/ (duplicate, skipped)
+[2026-03-10T05:27:49.060Z]   AI→REGEX: li <- https://www.linkedin.com/company/sasa-software/ (duplicate, skipped)
+[2026-03-10T05:27:49.061Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T05:27:49.061Z] Footer/header origins (5):
+[2026-03-10T05:27:49.061Z]   FOOTER/HEADER ORIGIN: https://www.sasa-software.com
+[2026-03-10T05:27:49.061Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-10T05:27:49.062Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T05:27:49.062Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T05:27:49.062Z]   FOOTER/HEADER ORIGIN: https://sasa-software.freshdesk.com
+[2026-03-10T05:27:49.062Z]   SKIP (not in footer/header): https://cookiedatabase.org/tcf/purposes
+[2026-03-10T05:27:49.062Z]   ADDED: urls <- https://sasa-software.freshdesk.com/support/login
+[2026-03-10T05:27:49.062Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T05:27:49.062Z] ── Step 3: Final dedup ──
+[2026-03-10T05:27:49.062Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T05:27:49.062Z] ── FINAL RESULT ──
+[2026-03-10T05:27:49.062Z]   ws (1):
+[2026-03-10T05:27:49.062Z]     - https://www.sasa-software.com
+[2026-03-10T05:27:49.062Z]   li (1):
+[2026-03-10T05:27:49.062Z]     - https://www.linkedin.com/company/sasa-software
+[2026-03-10T05:27:49.062Z]   fb (1):
+[2026-03-10T05:27:49.062Z]     - https://www.facebook.com/sasasoftware
+[2026-03-10T05:27:49.062Z]   tw (1):
+[2026-03-10T05:27:49.062Z]     - https://x.com/sasa_software
+[2026-03-10T05:27:49.062Z]   urls (1):
+[2026-03-10T05:27:49.063Z]     - https://sasa-software.freshdesk.com/support/login
+[2026-03-10T05:27:49.063Z] Summary: ws:1, tw:1, fb:1, li:1, urls:1
+[2026-03-10T05:27:49.063Z] Saved final result to result.json
+[2026-03-10T05:27:49.063Z] Override fields: ws, li, fb, tw, urls
+[2026-03-10T05:27:49.063Z] Finished at: 2026-03-10T05:27:49.063Z

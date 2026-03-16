@@ -1,0 +1,957 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ged-i | AI-Powered WhatsApp Automation Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #d41830;
+            --primary-light: rgba(212, 24, 48, 0.1);
+            --gradient: linear-gradient(135deg, #d41830 0%, #a31521 100%);
+            --dark: #1a1a1a;
+            --darker: #121212;
+            --light: #f8f9fa;
+            --text: #2d3748;
+            --text-light: #718096;
+            --card-bg: #ffffff;
+            --card-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            --whatsapp: #25D366;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        @supports (font-variation-settings: normal) {
+            body { font-family: 'Inter var', -apple-system, BlinkMacSystemFont, sans-serif; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Modern Header */
+         .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .header.scrolled {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background-color: white;
+        }
+        
+         .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #d41830 0%, #a31521 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d41830 0%, #a31521 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 14px rgba(212, 24, 48, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 24, 48, 0.4);
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #1a1a1a 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            max-width: 1500px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            font-size: 24px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .feature-desc {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+        
+        /* Analytics Section */
+        .analytics {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .analytics-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .analytics-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .analytics-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .analytics-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .analytics-features {
+            list-style: none;
+        }
+        
+        .analytics-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .analytics-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .analytics-features i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+        
+        /* WhatsApp Section */
+        .whatsapp-integration {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .integration-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .integration-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .integration-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        .integration-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .integration-content p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 18px;
+        }
+        
+        /* Management Section */
+        .management {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 80px 0 40px;
+            background: var(--darker);
+            color: white;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            text-decoration: none;
+        }
+        
+        .footer-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .footer-logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-about {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 16px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .analytics-grid,
+            .management-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .integration-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 150px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-icon"><img src="assets/img/documents/ged-i-logo-white.png" alt="WhatsApp Dashboard" style="height: 40px; width: 40px;"></div>
+            <div class="logo-text">Ged-i</div>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#analytics">Analytics</a>
+            <a href="#whatsapp">WhatsApp</a>
+            <a href="#management">Management</a>
+            <a href="#resources">Resources</a>
+        </nav>
+        
+        <div class="auth-buttons">
+                        <button class="btn btn-outline" onclick="window.location.href='https://ged-i.com/v1/auth/branded/log-in'">Sign In</button>
+                        
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Customer Engagement with Ged-i</h1>
+                <p class="hero-subtitle">Our AI-powered WhatsApp automation platform delivers intelligent 24/7 customer interactions, comprehensive analytics, and seamless lead management.</p>
+                
+                <div class="hero-buttons">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='https://ged-i.com/v1/auth/branded/log-in'">
+                        <i class="fas fa-rocket"></i> Get Started
+                    </button>
+                    
+                    <button type="button" class="btn btn-whatsapp" onclick="window.location.href='https://ged-i.com/documentation/'">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Integration
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/img/documents/dashboard-page.png" alt="WhatsApp Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <p class="section-subtitle">Ged-i provides everything you need to automate and optimize your customer communications</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title">AI-Powered Automation</h3>
+                    <p class="feature-desc">Smart responses that learn from interactions to provide personalized customer service at scale.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Advanced Analytics</h3>
+                    <p class="feature-desc">Track leads, conversations, and customer data with comprehensive visual reports.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Customer Segmentation</h3>
+                    <p class="feature-desc">Organize contacts by type (B2C, B2B, B2G), location, and behavior patterns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Geographic Insights</h3>
+                    <p class="feature-desc">Visualize customer distribution by country, state, and city for targeted campaigns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3 class="feature-title">Customer Profiling</h3>
+                    <p class="feature-desc">Collect and analyze names, IDs, contact details, and preferences automatically.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="feature-title">Real-time Alerts</h3>
+                    <p class="feature-desc">Get instant notifications for important messages and system events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="analytics" class="analytics">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Analytics</h2>
+            <p class="section-subtitle">Powerful reporting tools to understand your customer interactions</p>
+            
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <div class="analytics-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3 class="analytics-title">Distribution Analytics</h3>
+                    </div>
+                    <ul class="analytics-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Detailed country, state, and city breakdowns of your customer base</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Gender distribution analysis for demographic insights</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Bank and financial institution preferences tracking</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Entity type categorization (individuals, businesses, government)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <div class="analytics-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="analytics-title">Engagement Metrics</h3>
+                    </div>
+                    <ul class="analytics-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Enquiry source breakdown (WhatsApp, Facebook, etc.)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Enquiry quality rating system</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Status tracking throughout customer journey</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>SACCO name and branch distribution analysis</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="whatsapp" class="whatsapp-integration">
+        <div class="container">
+            <div class="integration-container">
+                <div class="integration-image">
+                    <!-- WhatsApp integration placeholder -->
+                    <div style="height: 400px; background: linear-gradient(135deg, #e5f8ed 0%, #25D366 100%); display: flex; align-items: center; justify-content: center; color: white;">
+                        <div style="text-align: center; padding: 40px;">
+                            <i class="fab fa-whatsapp" style="font-size: 80px; margin-bottom: 20px;"></i>
+                            <h3 style="font-size: 28px; margin-bottom: 16px;">WhatsApp Business Integration</h3>
+                            <p>Seamlessly connect your WhatsApp Business account to Ged-i</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="integration-content">
+                    <h2>Powerful WhatsApp Automation</h2>
+                    <p>Ged-i transforms your WhatsApp Business account into a 24/7 automated customer service and lead generation machine with intelligent routing and response capabilities.</p>
+                    
+                    <ul style="list-style: none; margin-bottom: 32px;">
+                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--whatsapp);"></i>
+                            <span>Automated collection of customer data (names, IDs, locations)</span>
+                        </li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--whatsapp);"></i>
+                            <span>Smart consent management for data sharing preferences</span>
+                        </li>
+                        <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--whatsapp);"></i>
+                            <span>Real-time conversation analytics and quality scoring</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="https://ged-i.com/documentation/" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Connect WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="management" class="management">
+        <div class="container">
+            <h2 class="section-title">Customer &amp; Data Management</h2>
+            <p class="section-subtitle">Advanced tools to organize and optimize your customer interactions</p>
+            
+            <div class="management-grid">
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <div class="analytics-icon">
+                            <i class="fas fa-user-tag"></i>
+                        </div>
+                        <h3 class="analytics-title">Customer Type System</h3>
+                    </div>
+                    <ul class="analytics-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Multiple customer categories (B2C, B2B, B2G, C2B)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Detailed customer type definitions and privileges</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Status tracking for active/inactive customers</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Special categories for partners and government accounts</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <div class="analytics-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="analytics-title">Data Operations</h3>
+                    </div>
+                    <ul class="analytics-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Bulk lead import from CSV with automatic processing</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Option to create new users or update existing records</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Data source tracking for imported leads</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Automated bot interaction activation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="resources" class="features" style="background-color: white; padding-bottom: 60px;">
+        <div class="container">
+            <h2 class="section-title">Developer Resources</h2>
+            <p class="section-subtitle">Tools and integrations to extend Ged-i's capabilities</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="feature-title">API Access</h3>
+                    <p class="feature-desc">Secure API keys with client IDs and secret keys for integration with your systems.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Webhooks</h3>
+                    <p class="feature-desc">Real-time event notifications to trigger actions in external services.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="feature-title">Notification Channels</h3>
+                    <p class="feature-desc">Configure WhatsApp, mobile, and desktop alerts for important events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">
+                        <div class="footer-logo-icon"><img src="assets/img/documents/ged-i-logo-white.png" alt="WhatsApp Dashboard" style="height: 40px; width: 40px;"></div>
+                        <div class="footer-logo-text">Ged-i</div>
+                    </a>
+                    <p class="footer-about">AI-powered WhatsApp automation platform for intelligent customer engagement and lead management.</p>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#analytics">Analytics</a></li>
+                        <li><a href="#whatsapp">WhatsApp</a></li>
+                        <li><a href="#management">Management</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#resources">API &amp; Developers</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">2025 © Ged-i. Powered By DataLock Ltd.</div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add active class to current section in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const header = document.querySelector('.header');
+            
+            function makeActive() {
+                let current = '';
+                
+                // Check scroll position for header shadow
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Check for active section
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', makeActive);
+            makeActive(); // Call once on load to set initial active state
+        });
+    </script>
+
+</body></html>

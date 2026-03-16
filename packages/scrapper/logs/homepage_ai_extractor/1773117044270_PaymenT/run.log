@@ -1,0 +1,76 @@
+[2026-03-10T04:30:44.270Z] === Homepage AI Extractor: PaymenT ===
+[2026-03-10T04:30:44.270Z] Started at: 2026-03-10T04:30:44.270Z
+[2026-03-10T04:30:44.270Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773117044270_PaymenT
+[2026-03-10T04:30:44.270Z] Company: PaymenT
+[2026-03-10T04:30:44.270Z] Website: payment-pay.co.il
+[2026-03-10T04:30:44.270Z] cbRank: 377698
+[2026-03-10T04:30:44.270Z] Reasons: h
+[2026-03-10T04:30:44.270Z] Fetching: https://payment-pay.co.il
+[2026-03-10T04:30:47.704Z] Redirected: https://payment-pay.co.il -> https://payment-pay.co.il/
+[2026-03-10T04:30:47.725Z] Saved HTML (566732 bytes) to page.html
+[2026-03-10T04:30:47.728Z] Extracted 25 unique links from page
+[2026-03-10T04:30:47.729Z] Saved 25 links to links.json
+[2026-03-10T04:30:47.734Z] Extracted footer HTML (25547 chars)
+[2026-03-10T04:30:47.734Z] Extracted header HTML (24883 chars)
+[2026-03-10T04:30:47.737Z] Website (post-redirect): https://payment-pay.co.il/ → origin: https://payment-pay.co.il
+[2026-03-10T04:30:47.738Z]   SUBDOMAIN: platform.payment-pay.co.il (added to ws)
+[2026-03-10T04:30:47.738Z] Website subdomains found: 1
+[2026-03-10T04:30:47.738Z] External links: 5 (of 25 total)
+[2026-03-10T04:30:47.738Z] ── All external links ──
+[2026-03-10T04:30:47.738Z]   EXT: https://amitmoreno.com
+[2026-03-10T04:30:47.738Z]   EXT: https://waze.com/ul?ll=32.16219,34.806775&navigate=yes
+[2026-03-10T04:30:47.738Z]   EXT: https://www.facebook.com/PaymentIL
+[2026-03-10T04:30:47.738Z]   EXT: https://www.instagram.com/payment.il
+[2026-03-10T04:30:47.738Z]   EXT: https://www.linkedin.com/company/credit-shop-ltd
+[2026-03-10T04:30:47.738Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T04:30:47.738Z]   UNCATEGORIZED: https://amitmoreno.com
+[2026-03-10T04:30:47.738Z]   UNCATEGORIZED: https://waze.com/ul?ll=32.16219,34.806775&navigate=yes
+[2026-03-10T04:30:47.739Z]   REGEX: fb <- https://www.facebook.com/PaymentIL
+[2026-03-10T04:30:47.739Z]   REGEX: ig <- https://www.instagram.com/payment.il
+[2026-03-10T04:30:47.739Z]   REGEX: li <- https://www.linkedin.com/company/credit-shop-ltd
+[2026-03-10T04:30:47.739Z] Programmatic result: ws:2, fb:1, ig:1, li:1 | 2 uncategorized
+[2026-03-10T04:30:47.739Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T04:30:47.740Z] Saved AI prompt (10831 chars) to ai_prompt.txt
+[2026-03-10T04:30:47.740Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T04:30:47.757Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T04:31:43.349Z]   AI: First token received, streaming...
+[2026-03-10T04:31:49.849Z] AI response complete: 121 chars in 62.1s
+[2026-03-10T04:31:49.851Z] Saved AI response to ai_response.json
+[2026-03-10T04:31:49.851Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T04:31:49.851Z]   AI LINK: https://www.facebook.com/PaymentIL
+[2026-03-10T04:31:49.851Z]   AI LINK: https://www.instagram.com/payment.il
+[2026-03-10T04:31:49.851Z]   AI LINK: https://www.linkedin.com/company/credit-shop-ltd/
+[2026-03-10T04:31:49.851Z] AI returned 3 valid links
+[2026-03-10T04:31:49.851Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T04:31:49.851Z]   AI→REGEX: fb <- https://www.facebook.com/PaymentIL (duplicate, skipped)
+[2026-03-10T04:31:49.851Z]   AI→REGEX: ig <- https://www.instagram.com/payment.il (duplicate, skipped)
+[2026-03-10T04:31:49.851Z]   AI→REGEX: li <- https://www.linkedin.com/company/credit-shop-ltd/ (duplicate, skipped)
+[2026-03-10T04:31:49.852Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T04:31:49.852Z] Footer/header origins (6):
+[2026-03-10T04:31:49.852Z]   FOOTER/HEADER ORIGIN: https://payment-pay.co.il
+[2026-03-10T04:31:49.852Z]   FOOTER/HEADER ORIGIN: https://waze.com
+[2026-03-10T04:31:49.852Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T04:31:49.852Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T04:31:49.852Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T04:31:49.852Z]   FOOTER/HEADER ORIGIN: https://platform.payment-pay.co.il
+[2026-03-10T04:31:49.852Z]   SKIP (not in footer/header): https://amitmoreno.com
+[2026-03-10T04:31:49.852Z]   ADDED: urls <- https://waze.com/ul (cleaned from https://waze.com/ul?ll=32.16219,34.806775&navigate=yes)
+[2026-03-10T04:31:49.852Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T04:31:49.852Z] ── Step 3: Final dedup ──
+[2026-03-10T04:31:49.852Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T04:31:49.853Z] ── FINAL RESULT ──
+[2026-03-10T04:31:49.853Z]   ws (2):
+[2026-03-10T04:31:49.853Z]     - https://payment-pay.co.il
+[2026-03-10T04:31:49.853Z]     - https://platform.payment-pay.co.il
+[2026-03-10T04:31:49.853Z]   li (1):
+[2026-03-10T04:31:49.853Z]     - https://www.linkedin.com/company/credit-shop-ltd
+[2026-03-10T04:31:49.853Z]   fb (1):
+[2026-03-10T04:31:49.853Z]     - https://www.facebook.com/paymentil
+[2026-03-10T04:31:49.853Z]   ig (1):
+[2026-03-10T04:31:49.853Z]     - https://www.instagram.com/payment.il
+[2026-03-10T04:31:49.853Z]   urls (1):
+[2026-03-10T04:31:49.853Z]     - https://waze.com/ul
+[2026-03-10T04:31:49.853Z] Summary: ws:2, fb:1, ig:1, li:1, urls:1
+[2026-03-10T04:31:49.854Z] Saved final result to result.json
+[2026-03-10T04:31:49.854Z] Override fields: ws, li, fb, ig, urls
+[2026-03-10T04:31:49.854Z] Finished at: 2026-03-10T04:31:49.854Z

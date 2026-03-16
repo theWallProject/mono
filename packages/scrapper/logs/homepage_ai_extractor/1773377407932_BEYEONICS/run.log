@@ -1,0 +1,65 @@
+[2026-03-13T04:50:07.933Z] === Homepage AI Extractor: BEYEONICS ===
+[2026-03-13T04:50:07.933Z] Started at: 2026-03-13T04:50:07.933Z
+[2026-03-13T04:50:07.933Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773377407932_BEYEONICS
+[2026-03-13T04:50:07.933Z] Company: BEYEONICS
+[2026-03-13T04:50:07.933Z] Website: beyeonics-vision.com
+[2026-03-13T04:50:07.933Z] cbRank: 990036
+[2026-03-13T04:50:07.933Z] Reasons: h
+[2026-03-13T04:50:07.933Z] Fetching: https://beyeonics-vision.com
+[2026-03-13T04:50:22.711Z] Network idle timeout — continuing with current state
+[2026-03-13T04:50:22.804Z] Redirected: https://beyeonics-vision.com -> https://beyeonics-vision.com/
+[2026-03-13T04:50:22.810Z] Saved HTML (102433 bytes) to page.html
+[2026-03-13T04:50:22.815Z] Extracted 16 unique links from page
+[2026-03-13T04:50:22.815Z] Saved 16 links to links.json
+[2026-03-13T04:50:22.820Z] Extracted footer HTML (2349 chars)
+[2026-03-13T04:50:22.820Z] Extracted header HTML (3610 chars)
+[2026-03-13T04:50:22.828Z] Website (post-redirect): https://beyeonics-vision.com/ → origin: https://beyeonics-vision.com
+[2026-03-13T04:50:22.829Z] External links: 3 (of 16 total)
+[2026-03-13T04:50:22.829Z] ── All external links ──
+[2026-03-13T04:50:22.829Z]   EXT: https://www.instagram.com/beyeonics
+[2026-03-13T04:50:22.829Z]   EXT: https://www.linkedin.com/company/18548655/admin
+[2026-03-13T04:50:22.829Z]   EXT: https://www.youtube.com/results?search_query=beyeonics
+[2026-03-13T04:50:22.829Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T04:50:22.830Z]   REGEX: ig <- https://www.instagram.com/beyeonics
+[2026-03-13T04:50:22.830Z]   REGEX: li <- https://www.linkedin.com/company/18548655/admin
+[2026-03-13T04:50:22.830Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-13T04:50:22.830Z]   SKIP (regex domain, no match): https://www.youtube.com/results?search_query=beyeonics
+[2026-03-13T04:50:22.830Z] Programmatic result: ws:1, ig:1, li:1 | 0 uncategorized
+[2026-03-13T04:50:22.831Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T04:50:22.832Z] Saved AI prompt (3039 chars) to ai_prompt.txt
+[2026-03-13T04:50:22.832Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T04:50:22.854Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T04:50:32.959Z]   AI: First token received, streaming...
+[2026-03-13T04:50:41.394Z] AI response complete: 140 chars in 18.6s
+[2026-03-13T04:50:41.395Z] Saved AI response to ai_response.json
+[2026-03-13T04:50:41.395Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T04:50:41.395Z]   AI LINK: https://www.youtube.com/results?search_query=beyeonics
+[2026-03-13T04:50:41.395Z]   AI LINK: https://www.linkedin.com/company/18548655/admin/
+[2026-03-13T04:50:41.395Z]   AI LINK: https://www.instagram.com/beyeonics/
+[2026-03-13T04:50:41.395Z] AI returned 3 valid links
+[2026-03-13T04:50:41.395Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T04:50:41.396Z]   AI→SKIP (regex domain, no match): https://www.youtube.com/results?search_query=beyeonics
+[2026-03-13T04:50:41.396Z]   AI→REGEX: li <- https://www.linkedin.com/company/18548655/admin/ (duplicate, skipped)
+[2026-03-13T04:50:41.396Z]   AI→REGEX: ig <- https://www.instagram.com/beyeonics/ (duplicate, skipped)
+[2026-03-13T04:50:41.396Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T04:50:41.396Z] Footer/header origins (4):
+[2026-03-13T04:50:41.396Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-13T04:50:41.396Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T04:50:41.396Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-13T04:50:41.397Z]   FOOTER/HEADER ORIGIN: https://beyeonics-vision.com
+[2026-03-13T04:50:41.397Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T04:50:41.397Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T04:50:41.397Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T04:50:41.397Z] ── Step 3: Final dedup ──
+[2026-03-13T04:50:41.397Z] No urls to dedup
+[2026-03-13T04:50:41.397Z] ── FINAL RESULT ──
+[2026-03-13T04:50:41.397Z]   ws (1):
+[2026-03-13T04:50:41.397Z]     - https://beyeonics-vision.com
+[2026-03-13T04:50:41.397Z]   li (1):
+[2026-03-13T04:50:41.397Z]     - https://www.linkedin.com/company/18548655
+[2026-03-13T04:50:41.397Z]   ig (1):
+[2026-03-13T04:50:41.397Z]     - https://www.instagram.com/beyeonics
+[2026-03-13T04:50:41.397Z] Summary: ws:1, ig:1, li:1
+[2026-03-13T04:50:41.398Z] Saved final result to result.json
+[2026-03-13T04:50:41.398Z] Override fields: ws, li, ig
+[2026-03-13T04:50:41.398Z] Finished at: 2026-03-13T04:50:41.398Z

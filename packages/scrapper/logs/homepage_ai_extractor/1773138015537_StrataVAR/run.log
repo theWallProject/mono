@@ -1,0 +1,61 @@
+[2026-03-10T10:20:15.538Z] === Homepage AI Extractor: StrataVAR ===
+[2026-03-10T10:20:15.538Z] Started at: 2026-03-10T10:20:15.538Z
+[2026-03-10T10:20:15.538Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773138015537_StrataVAR
+[2026-03-10T10:20:15.538Z] Company: StrataVAR
+[2026-03-10T10:20:15.538Z] Website: stratavar.com
+[2026-03-10T10:20:15.538Z] cbRank: 470958
+[2026-03-10T10:20:15.538Z] Reasons: h
+[2026-03-10T10:20:15.538Z] Fetching: https://stratavar.com
+[2026-03-10T10:20:26.881Z] Network idle timeout — continuing with current state
+[2026-03-10T10:20:26.976Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-10T10:20:34.924Z] Redirected: https://stratavar.com -> https://www.stratavar.com/
+[2026-03-10T10:20:34.930Z] Saved HTML (118658 bytes) to page.html
+[2026-03-10T10:20:34.932Z] Extracted 32 unique links from page
+[2026-03-10T10:20:34.933Z] Saved 32 links to links.json
+[2026-03-10T10:20:34.938Z] Extracted footer HTML (6137 chars)
+[2026-03-10T10:20:34.938Z] Extracted header HTML (9682 chars)
+[2026-03-10T10:20:34.943Z] Website (post-redirect): https://www.stratavar.com/ → origin: https://www.stratavar.com
+[2026-03-10T10:20:34.943Z]   SUBDOMAIN: help.stratavar.com (added to ws)
+[2026-03-10T10:20:34.943Z] Website subdomains found: 1
+[2026-03-10T10:20:34.943Z] External links: 2 (of 32 total)
+[2026-03-10T10:20:34.944Z] ── All external links ──
+[2026-03-10T10:20:34.944Z]   EXT: https://www.linkedin.com/company/stratavar
+[2026-03-10T10:20:34.944Z]   EXT: https://www.youtube.com/channel/UCOgcSSnr3seffJw-E4xjt6g
+[2026-03-10T10:20:34.944Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T10:20:34.944Z]   REGEX: li <- https://www.linkedin.com/company/stratavar
+[2026-03-10T10:20:34.944Z]   REGEX: ytc <- https://www.youtube.com/channel/UCOgcSSnr3seffJw-E4xjt6g
+[2026-03-10T10:20:34.944Z] Programmatic result: ws:2, li:1, ytc:1 | 0 uncategorized
+[2026-03-10T10:20:34.944Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T10:20:34.945Z] Saved AI prompt (4208 chars) to ai_prompt.txt
+[2026-03-10T10:20:34.945Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T10:20:34.962Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T10:20:49.990Z]   AI: First token received, streaming...
+[2026-03-10T10:20:57.128Z] AI response complete: 99 chars in 22.2s
+[2026-03-10T10:20:57.129Z] Saved AI response to ai_response.json
+[2026-03-10T10:20:57.130Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T10:20:57.130Z]   AI LINK: https://www.linkedin.com/company/stratavar
+[2026-03-10T10:20:57.130Z]   AI LINK: https://www.youtube.com/channel/UCOgcSSnr3seffJw-E4xjt6g
+[2026-03-10T10:20:57.130Z] AI returned 2 valid links
+[2026-03-10T10:20:57.130Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T10:20:57.130Z]   AI→REGEX: li <- https://www.linkedin.com/company/stratavar (duplicate, skipped)
+[2026-03-10T10:20:57.130Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCOgcSSnr3seffJw-E4xjt6g (duplicate, skipped)
+[2026-03-10T10:20:57.131Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T10:20:57.131Z] Footer/header origins (3):
+[2026-03-10T10:20:57.131Z]   FOOTER/HEADER ORIGIN: https://help.stratavar.com
+[2026-03-10T10:20:57.131Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T10:20:57.131Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T10:20:57.131Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T10:20:57.131Z] ── Step 3: Final dedup ──
+[2026-03-10T10:20:57.131Z] No urls to dedup
+[2026-03-10T10:20:57.131Z] ── FINAL RESULT ──
+[2026-03-10T10:20:57.132Z]   ws (2):
+[2026-03-10T10:20:57.132Z]     - https://help.stratavar.com
+[2026-03-10T10:20:57.132Z]     - https://www.stratavar.com
+[2026-03-10T10:20:57.132Z]   li (1):
+[2026-03-10T10:20:57.132Z]     - https://www.linkedin.com/company/stratavar
+[2026-03-10T10:20:57.132Z]   ytc (1):
+[2026-03-10T10:20:57.132Z]     - https://www.youtube.com/channel/UCOgcSSnr3seffJw-E4xjt6g
+[2026-03-10T10:20:57.132Z] Summary: ws:2, li:1, ytc:1
+[2026-03-10T10:20:57.132Z] Saved final result to result.json
+[2026-03-10T10:20:57.132Z] Override fields: ws, li, ytc
+[2026-03-10T10:20:57.133Z] Finished at: 2026-03-10T10:20:57.133Z

@@ -1,0 +1,1422 @@
+<!DOCTYPE html><html itemscope="" itemtype="http://schema.org/WebPage" lang="en"><head>
+    <title>Eventact - Event Management Software. Have less to do, get more done.</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/images/eventact.ico">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;family=Raleway:wght@100..800&amp;display=swap" as="style">
+
+<style>
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @media (min-width: 576px) {
+        .container, .container-sm {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container, .container-md, .container-sm {
+            max-width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container, .container-lg, .container-md, .container-sm {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container, .container-lg, .container-md, .container-sm, .container-xl {
+            max-width: 1140px;
+        }
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .ml-auto, .mx-auto {
+        margin-left: auto !important;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .mt-3 {
+        margin-top: 1rem !important;
+    }
+
+    .mb-5 {
+        margin-bottom: 3rem !important;
+    }
+
+    .pt-3 {
+        padding-top: 1rem !important;
+    }
+
+    .pt-4 {
+        padding-top: 1.5rem !important;
+    }
+
+    .pt-5 {
+        padding-top: 3rem !important;
+    }
+
+    .btn {
+        background-color: #008fdb;
+        color: white;
+        border: 1px solid #a0d3e9;
+        border-radius: .5rem;
+    }
+
+    .btn-lg {
+        padding: 1.25rem 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: .5rem
+    }
+
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5 {
+        margin-top: 0;
+        margin-bottom: .5rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .navbar {
+        --bs-navbar-padding-x: 0;
+        --bs-navbar-padding-y: 0.5rem;
+        --bs-navbar-color: rgba(0, 0, 0, 0.55);
+        --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
+        --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
+        --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
+        --bs-navbar-brand-padding-y: 0.3125rem;
+        --bs-navbar-brand-margin-end: 1rem;
+        --bs-navbar-brand-font-size: 1.25rem;
+        --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
+        --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
+        --bs-navbar-nav-link-padding-x: 0.5rem;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+    }
+
+    .navbar-nav {
+        --bs-nav-link-padding-x: 0;
+        --bs-nav-link-padding-y: 0.5rem;
+        --bs-nav-link-font-weight:;
+        --bs-nav-link-color: var(--bs-navbar-color);
+        --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+        --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+
+    .navbar-toggler {
+        padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+        font-size: var(--bs-navbar-toggler-font-size);
+        line-height: 1;
+        color: var(--bs-navbar-color);
+        background-color: transparent;
+        border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
+        border-radius: var(--bs-navbar-toggler-border-radius);
+        transition: var(--bs-navbar-toggler-transition);
+    }
+
+    .navbar-toggler-icon {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: middle;
+        background-image: var(--bs-navbar-toggler-icon-bg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+
+    @media (min-width: 768px) {
+        .navbar-expand-md .navbar-nav {
+            flex-direction: row;
+        }
+
+        .navbar-expand-md .navbar-collapse {
+            display: -ms-flexbox !important;
+            display: flex !important;
+            flex-basis: auto;
+        }
+
+        .navbar-expand-md .navbar-toggler {
+            display: none;
+        }
+    }
+
+    .navbar-collapse {
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * var(--bs-gutter-y));
+        margin-right: calc(-.5 * var(--bs-gutter-x));
+        margin-left: calc(-.5 * var(--bs-gutter-x));
+    }
+
+        .row > * {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * .5);
+            padding-left: calc(var(--bs-gutter-x) * .5);
+            margin-top: var(--bs-gutter-y);
+        }
+
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    @media (min-width: 576px) {
+        .col-sm-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+
+        .col-sm-12 {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .col-md-4 {
+            flex: 0 0 auto;
+            width: 33.33333333%;
+        }
+
+        .col-md-5 {
+            flex: 0 0 auto;
+            width: 41.666667%;
+        }
+
+        .col-md-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+
+        .col-md-7 {
+            flex: 0 0 auto;
+            width: 58.333333%;
+        }
+
+        .col-md-8 {
+            flex: 0 0 auto;
+            width: 66.66666667%;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .col-lg-3 {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+
+        .col-lg-5 {
+            flex: 0 0 auto;
+            width: 41.666667%;
+        }
+
+        .col-lg-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+
+        .col-lg-7 {
+            flex: 0 0 auto;
+            width: 58.333333%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .col-xl-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+
+        .col-xl-7 {
+            flex: 0 0 auto;
+            width: 58.33333333%;
+        }
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-clip: border-box;
+        border-radius: calc(0.375rem - 1px);
+    }
+</style>
+
+<link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</noscript>
+<style>
+    body {
+        margin: 0;
+        color: #002447;
+        font-family: Raleway, Trebuchet MS, sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    header {
+        box-shadow: 0px 3px 6px #00000029;
+        position: relative;
+    }
+
+    h1, h2 {
+        font-family: Poppins, Verdana-fb, sans-serif;
+    }
+
+    .navbar {
+        padding: 0.5rem 0 0.5rem 0;
+    }
+
+    .nav-item {
+        margin-left: 1rem;
+    }
+
+        .nav-item > .nav-link {
+            font-size: 14px;
+            color: #002447;
+            text-decoration: none;
+            padding-right: 1.25rem;
+            padding-left: 1.25rem;
+            transition: none;
+        }
+
+    .nav-link {
+        padding-left: 20px;
+        padding-right: 20px
+    }
+
+    #navbarContent {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .navbar .navbar-brand {
+        padding-top: 0;
+        padding-left: 1rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .navbar-brand > svg {
+        display: inline;
+        border: none;
+        margin-top: 9px;
+        margin-left: 0rem;
+    }
+
+    .banner-content {
+        padding-top: 60px;
+    }
+
+    @media (min-width: 650px) and (max-width: 1400px) {
+        .banner-content {
+            padding-top: 30px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .navbar button {
+            margin: 12px 1rem 0 1rem;
+            margin-left: 1rem;
+            margin-top: 12px;
+        }
+
+        .nav-item {
+            margin-left: 0;
+        }
+
+        .banner-content {
+            padding-top: 10px;
+        }
+
+        #navbarContent.show {
+            display: block;
+        }
+
+        .collapse:not(.show) {
+            display: none;
+        }
+    }
+
+    .btn {
+        background-color: #002447;
+        color: white;
+        border: 1px solid #002447;
+        margin-top: 5px;
+        font-size: 1rem;
+        display: inline-block;
+        line-height: 1.5rem;
+        transition: none !important;
+    }
+
+    .btn-lg {
+        padding: 1.25rem 1.25rem;
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: #002447;
+        border: 2px solid #002447;
+        font-weight: 600
+    }
+
+    a.btn-login {
+        background-color: white;
+        color: #002447 !important;
+        border: 1px solid #002447;
+        border-radius: 0.375rem;
+        text-decoration: none;
+        padding: 0.4rem 1rem;
+    }
+
+    .banner-text {
+        padding-top: 1rem;
+        text-align: left;
+    }
+
+    a.btn-login:hover {
+        background-color: #008fdb;
+        color: white !important;
+    }
+
+    .banner-text a {
+        text-decoration: none;
+    }
+
+    .banner-text p {
+        font-size: 16px;
+    }
+
+    .banner-text .banner-caption {
+        font-family: Poppins, Verdana-fb, sans-serif;
+        font-size: 1.5rem;
+        line-height: 35px;
+    }
+
+    .banner-text .banner-title {
+        font-family: Poppins, Verdana-fb, sans-serif;
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    .banner-text i.mdi {
+        vertical-align: middle;
+    }
+
+    .banner-title a, .banner-caption a {
+        color: white;
+    }
+
+    .banner-footer {
+        height: 3rem;
+    }
+
+    .banner-right {
+        text-align: center;
+    }
+
+    .colors-alt {
+        background-color: #002447;
+        color: white;
+    }
+
+    .check-circle {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    /*
+    .home-back {
+        background-image: url(../images/home//home/shape-header.svg);
+        background-repeat: repeat-x;
+        padding-top: 100px;
+        background-position-y: -1px;
+    }
+
+
+    /*.home-back {
+        background-image: url(../images/home/shape_header.svg);
+        background-repeat: no-repeat;
+        padding-top: 120px;
+        background-size: contain;
+        background-position-y: -600px;
+    }*/
+    @font-face {
+        font-family: "Trebuchet MS";
+        src: local("Trebuchet MS");
+        size-adjust: 104%;
+    }
+
+    @font-face {
+        font-family: "Verdana-fb";
+        src: local("Verdana");
+        size-adjust: 99%;
+        ascent-override: 94%;
+    }
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway&amp;family=Poppins&amp;display=swap" onload="this.onload=null;this.removeAttribute('media');">
+
+<link rel="stylesheet" as="style" href="css/style.css?v=31" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link href="css/style.css?v=30" rel="stylesheet" crossorigin="anonymous" />
+</noscript>
+
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eventact">
+<meta name="twitter:site" content="@eventact">
+
+<script src="js/ea.js?v=2"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-L77QQP9D7Z"></script>
+
+    <meta name="description" content="EventAct simplifies event operations, boosts engagement, and empowers your control. Based on years of experience and unmatched expertise, it is your partner for years to come.">
+    <meta property="og:description" content="EventAct simplifies event operations, boosts engagement, and empowers your control. Based on years of experience and unmatched expertise, it is your partner for years to come.">
+    <meta property="og:title" content="Eventact - Event Management Software. Have less to do, get more done.">
+    <meta property="og:image" content="https://www.eventact.com/images/home/online_event1.png">
+    <meta property="og:url" content="https://www.eventact.com">
+    <link rel="preload" href="images/home/shape-header.svg" as="image">
+    <link rel="preload" href="images/home/event-management.png" as="image">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&amp;display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://www.eventact.com">
+    <style>
+        #banner {
+            background-image: url('/images/home/shape-header.svg');
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: cover;
+            background-color: #002447; 
+            margin-bottom: 0;
+            height: 120px
+        }
+
+        #homepage .banner-text .banner-caption {
+            font-size: 1.25rem;
+            font-family: 'Raleway', medium
+        }
+
+        #homepage .banner-text .banner-title {
+            font-size: 4.5rem;
+            line-height: 5rem
+        }
+        /* #homepage .banner-content {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 941.6 570.9'><path fill='%23f7fcff' d='M633.4 480.2a284.8 284.8 0 0 1-162.7 83C417.3 571 313.9 587 226.4 524 45.4 393.5 106 84.5 419.4 19.4s497 45.3 518.5 162a223.5 223.5 0 0 1 3.7 35.9c2 94.3-63 172.8-149.5 186.7-49.7 8-111.3 28-158.7 76.2ZM50.7 161.6a38.9 38.9 0 0 0 8.6-8.8c6.8-9.4 32.2-40 77.3-46.7 53.5-7.9 75.7-8.8 71.8-36S138.4 1.7 74 30.7s-79.7 80-72.3 106.6c7.5 26.7 30 38 49 24.3Z'/></svg>");
+            background-repeat: no-repeat;
+            background-size: 80% 80%;
+            background-position-x: 100%;
+            background-position-y: 45px;
+        }*/
+        .comma {
+            font-family: sans-serif
+        }
+
+        .banner-title-bold {
+            font-weight: bold
+        }
+
+        .colored-dot {
+            color: #88c8e3;
+            font-size: 5.62rem;
+            line-height: 2.5rem
+        }
+
+        .card-feature {
+            background-color: #1c3c5b;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1rem 1rem;
+        }
+
+        h3.section-title {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .section-subtitle {
+            max-width: 50rem;
+            padding-top: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 3.2rem
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        #homepage .ems-feature-title {
+            color: white;
+            font-size: 2rem;
+            font-family: Poppins, Verdana-fb, sans-serif;
+        }
+
+        #homepage .small {
+            font-size: 1.25rem;
+        }
+
+        #homepage .ems-feature-text {
+            color: white;
+            font-size: 1.25rem
+        }
+
+        #homepage .card-feature {
+            height: 100%
+        }
+
+        #homepage .small-text {
+            font-size: 0.88rem;
+        }
+
+        #homepage .check-circle {
+            width: 2.25rem;
+            height: 2.25rem
+        }
+
+        #homepage .ems-feature img {
+            width: auto;
+            height: 4.5rem;
+        }
+
+        #homepage .ems-feature .link-more {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 0.75rem
+        }
+
+
+        #visitblog {
+            vertical-align: top;
+            display: inline-block;
+            padding: 0 13.75rem 6.25rem 13.75rem;
+            background-image: url(/images/paperplan.svg);
+            background-repeat: no-repeat;
+            background-size: 21.25rem;
+            background-position: left 40%;
+            min-height: 18rem;
+        }
+
+            #visitblog .btn {
+                border-radius: 5px;
+                color: #002447;
+                background-color: white;
+                margin-top: 1rem;
+            }
+
+                #visitblog .btn:hover {
+                    background-color: #88c8e3;
+                }
+
+            #visitblog p {
+                max-width: 25rem;
+                margin: auto;
+                font-size: 1.25rem;
+            }
+
+        .blockquote {
+            font-size: 50px
+        }
+
+        .quote {
+            background-color: rgba(0, 36, 71, 0.92);
+            background-image: url(../images/home/maskgroup.svg);
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .blockquote-footer {
+            background-color: transparent;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .rotate-upside-down {
+            background-image: url(../images/home/quotes.svg);
+            background-repeat: no-repeat;
+            background-size: 6.25rem;
+            background-position: center;
+            height: 9.38rem;
+            padding: 0;
+            margin-top: 0
+        }
+
+        @media (max-width: 359px) {
+            #visitblog {
+                padding: 0 1rem 5rem 1rem;
+                background-size: 12rem;
+                background-position: 0.5rem 70%;
+            }
+
+                #visitblog .planner-type {
+                    width: 392px;
+                    height: 566px;
+                }
+
+                #visitblog .btn {
+                    margin-top: 5rem
+                }
+
+            .section-subtitle {
+                font-size: 2.2rem
+            }
+
+            .blockquote {
+                font-size: 2.2rem
+            }
+
+            .blockquote-footer {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 360px) and (max-width: 499px) {
+            #visitblog .planner-type {
+                width: 392px;
+                height: 566px;
+            }
+
+            #visitblog {
+                padding: 0 3rem 5rem 3rem;
+                background-size: 12rem;
+                background-position: 0.5rem 70%;
+            }
+
+                #visitblog .btn {
+                    margin-top: 5rem
+                }
+        }
+
+        @media (min-width: 500px) and (max-width: 768px) {
+            #visitblog {
+                padding: 0 3.75rem 5rem 3.75rem;
+                background-size: 12rem;
+                background-position: 0.5rem 70%;
+            }
+
+                #visitblog .btn {
+                    margin-top: 5rem
+                }
+        }
+
+
+        @media (max-width: 991px) and (min-width: 768px) {
+            #visitblog {
+                padding: 0 3.75rem 5rem 3.75rem;
+                background-size: 12rem;
+                background-position: 22% 64%;
+            }
+
+                #visitblog .btn {
+                    margin-top: 3.5rem;
+                }
+
+            #homepage .ems-feature-title {
+                font-size: 1.4rem;
+            }
+
+            #homepage .ems-feature-text {
+                color: white;
+                font-size: 1rem;
+            }
+        }
+
+
+        @media (min-width: 1400px) {
+            .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+                max-width: 1500px;
+            }
+        }
+
+        @media (min-width: 360px) and (max-width: 768px) {
+            .section-subtitle {
+                font-size: 2.6rem
+            }
+
+            .blockquote {
+                font-size: 2.6rem
+            }
+        }
+    </style>
+    <style>
+    a.ems-feature {
+        text-decoration: none;
+    }
+
+    .ems-feature a, .ems-feature a:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .ems-feature .link-more {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: #008FDB;
+        text-decoration: underline;
+    }
+
+        .ems-feature .link-more:hover {
+            color: #88C8E3;
+        }
+
+    .ems-feature-title {
+        font-family: Poppins, Verdana, sans-serif;
+        font-size: 1.25rem;
+    }
+
+    .ems-feature img {
+        margin-bottom: 15px;
+        width: 85px;
+        height: 60px;
+    }
+
+    .ems-feature-text {
+        padding-top: 6px;
+        font-weight: 300;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        margin-bottom: 0.3rem
+    }
+
+</style>
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://www.eventact.com",
+        "name": "Eventact",
+        "description": "The Smart Event Management Software",
+        "sameAs": ["https://twitter.com/eventact"]
+        }</script>
+</head>
+
+<body id="homepage">
+    <header>
+    <nav class="container navbar navbar-expand-md">
+        <a class="navbar-brand" title="eventact" href="/">
+            <svg width="179" height="35" viewBox="0 0 179 35"><g data-name="Layer" transform="matrix(.46 0 0 .46 -63.6 -78.8)"><path fill="#00aeef" d="M444 225v-.02.02z"></path><clipPath id="a"><path d="M0 0h842v595H0z"></path></clipPath><g clip-path="url(#a)"><path fill="#008fdb" d="M514 196h12.5v-12.4H514v-12.5h-12.4l-.01 51.4a24.9 24.9 0 0 0 24.9 24.5v-12.4a12.54 12.54 0 0 1-12.5-12.5v-.05zm-42.9 38.3h-.09a12.45 12.45 0 0 1-12.4-12.5l-.03-14.3h-.04v-.01h.04a12.54 12.54 0 0 1 12.5-12.5h.06c6.89.02 12.4 5.61 12.4 12.5v.05s12.4-.03 12.4-.05a24.91 24.91 0 0 0-24.84-24.93h-.06c-13.7 0-24.8 11.1-24.9 24.8h-.01v14.89a24.88 24.88 0 0 0 24.9 24.4h.1c13.7 0 24.8-10.8 24.9-24.6h-12.4c-.03 6.88-5.58 12.1-12.5 12.1"></path><path fill="#696a6d" d="M323 183h-.01a24.97 24.97 0 0 0-24.9 24.8l-.01 38.2h12.5l.03-38a12.45 12.45 0 1 1 24.9 0l.03 38h12.5v-38.2a25.07 25.07 0 0 0-24.9-24.8m-90.5.5-16.5 45.1-16.5-45h-13.2l21.2 58s1.18 3 3.92 4.36a8.96 8.96 0 0 0 4.5 1.2 9 9 0 0 0 4.59-1.26c2.73-1.37 3.82-4.3 3.82-4.3l21.2-58.1zm-68.9-.57-.04.01c-13.7 0-24.8 11-24.9 24.7l-.01-.03-.02 13.5c0 13.7 11.1 24.8 24.9 24.8l18.3.02v-12.4l-18.8-.01c-6.65-.3-12-5.76-12-12.5v-.04h-.02v-13.3c.02-6.88 5.7-12.4 12.6-12.4l.03-.01c6.88.02 12.4 5.67 12.5 12.6l-12.1 3.18 2.4 9.09.77 2.93 15.2-4.01c.75-.23 5.3-1.1 5.94-5.75.63-4.58-.02-8.35-.02-8.35a25.02 25.02 0 0 0-24.7-22.1m105 0h-.04c-13.7 0-24.8 11-24.9 24.7l-.01-.02-.02 13.5c0 13.7 11.1 24.8 24.9 24.8l18.3.01v-12.4h-18.8c-6.65-.3-12-5.76-12-12.5v-.04h-.03l-.01-13.3a12.54 12.54 0 0 1 12.6-12.4l.04-.01c6.87.02 12.4 5.67 12.5 12.6l-12.1 3.18 2.39 9.09.77 2.93 15.2-4.01c.75-.23 5.3-1.1 5.94-5.75.63-4.58 0-8.35 0-8.35a25.1 25.1 0 0 0-24.7-22.1m134 40.2V216h-12.4v6.1h-.03a12.4 12.4 0 0 1-12.2 12.4 12.54 12.54 0 0 1-12.5-12.5v-26.1h12.5v-12.4h-12.5V171h-12.4v51.4a24.95 24.95 0 0 0 24.5 24.5v.03h.06a25 25 0 0 0 24.9-24z"></path><path fill="#008fdb" d="M439 226v-23.1c.25-3.63 1.31-6.57 4.1-7.91l-2.99-12.1a17.66 17.66 0 0 0-8.76 6.34 25.11 25.11 0 0 0-17.3-6.83h-.08a25.15 25.15 0 0 0-20.8 11.1 24.6 24.6 0 0 0-4.14 13.3v5.8h12.5v-5.33c0-5.95 4.16-10.9 9.73-12.2a12.6 12.6 0 0 1 2.72-.31h.07c6.88 0 12.4 5.26 12.5 12.1v15c-.02 6.88-5.58 12.1-12.5 12.1h-.07a12.7 12.7 0 0 1-2.72-.31 12.5 12.5 0 0 1-7.05-4.45 24.66 24.66 0 0 1-6.05 11.4 1.34 1.34 0 0 1-.08.08 24.9 24.9 0 0 0 15.9 5.74h.08a25.1 25.1 0 0 0 17.3-6.85 17.65 17.65 0 0 0 8.76 6.34l3-12.1c-2.8-1.34-3.85-4.28-4.1-7.9"></path></g></g></svg>
+        </a>
+        <button class="navbar-toggler" type="button" onclick="toggleShow('navbarContent');" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="event-software">Event Software</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog/">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-login" href="https://office.eventact.com" title="Eventact login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+    <!-- Banner start -->
+    <section id="banner-main">
+        <div class="container">
+            <div class="banner-content">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 col-12 d-flex align-items-center mt-5">
+                        <div class="banner-text">
+                            <h1 class="banner-caption">Event Management Software</h1>
+                            <p class="banner-title">
+                                Have less to do<span class="comma">,</span><br> get<span class="banner-title-bold"> more done<span class="colored-dot">.</span></span>
+                            </p>
+                            <div class="pt-5 mb-5">
+                                <a href="event-software" title="Event Management Software" class="btn btn-lg me-2">
+                                    <span class="visually-hidden">Event Management Software: </span>
+                                    Learn more
+                                </a>
+                                <a href="demo" class="btn btn-lg btn-outline">Get a demo or free trial</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- banner content right -->
+                    <div class="col-lg-7 col-md-12 col-sm-12 ps-0">
+                        <div class="banner-right">
+                            <div id="media-container">
+                                <img id="initial-image" class="img-fluid" src="Images/home/event-management.png" alt="Eventact Event Management Platform" style="overflow: hidden;" width="863" height="566">
+                                <div id="video-details"><video id="media" src="images/home/event-management.mp4" loop="" style="width: 100%; display: none; clip-path: inset(2px);"></video></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <section id="banner">
+        </section>
+    </section>
+    <!-- Banner ends -->
+    <section id="ems" class="colors-alt pb-5 pt-5">
+        <div class="container text-center">
+            <h2 class="section-subtitle mb-5 ps-3 pe-3 pt-5">
+                It's Time To Get More Productive
+            </h2>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle" viewBox="0 0 36 36" fill="#008fdb">
+                    <circle cx="18" cy="18" r="18" fill="#008fdb"></circle>
+                    <path d="m10.5 16.335 6.375 6.885 9.334-10.72" stroke="#fff" stroke-linecap="round" stroke-width="3"></path>
+                </symbol>
+            </svg>
+
+            <div class="row pt-5 mb-5">
+                <div class="col-md-4 mb-2">
+                    <div class="card card-feature">
+                        <div class="card-body">
+                            <svg class="check-circle">
+                                <use xlink:href="#check-circle"></use>
+                            </svg>
+                            <h3 class="ems-feature-title mt-2">All Events</h3>
+                            <p class="ems-feature-text">Conferences, Exhibitions, In-Person, and Hybrid Events</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <div class="card card-feature">
+                        <div class="card-body">
+                            <svg class="check-circle">
+                                <use xlink:href="#check-circle"></use>
+                            </svg>
+                            <h3 class="ems-feature-title mt-2">All-In-One</h3>
+                            <p class="ems-feature-text">Registration, Agenda, Abstracts, Networking and Exhibition</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <div class="card card-feature">
+                        <div class="card-body">
+                            <svg class="check-circle">
+                                <use xlink:href="#check-circle"></use>
+                            </svg>
+                            <h3 class="ems-feature-title mt-2">
+                                Organizers First
+                            </h3>
+                            <p class="ems-feature-text">
+                                Work the way event organizers want, fast and smart
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ems-features pt-5">
+                <h2 class="section-subtitle mb-5">The Most Complete Conference Management Solution</h2>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature">
+                            <a href="event-registration">
+                                <img src="images/icons/reg.svg" class="img-fluid move" alt="Event Registration" height="78" width="72">
+                                <h3 class="ems-feature-title small">Registration</h3>
+                                <p class="ems-feature-text small-text">Registration and Tickets</p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature text-center">
+                            <a href="abstract-management">
+                                <img src="images/icons/abstracts.svg" class="img-fluid move" alt="Abstract Management" height="78" width="72">
+                                <h3 class="ems-feature-title small">Abstracts</h3>
+                                <p class="ems-feature-text small-text">
+                                    Abstracts Management
+                                </p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature text-center">
+                            <a href="networking-app">
+                                <img src="images/icons/networking.svg" class="img-fluid move" alt="event networking" height="78" width="72">
+                                <h3 class="ems-feature-title small">Networking</h3>
+                                <p class="ems-feature-text small-text">B2B Meetings and Matchmaking</p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature">
+                            <a href="online-events">
+                                <img src="images/icons/virtual-events.svg" class="img-fluid move" alt="Virtual Events" height="78" width="72">
+                                <h3 class="ems-feature-title small">Virtual Events</h3>
+                                <p class="ems-feature-text small-text">
+                                    Hybrid &amp; Virtual Events
+                                </p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature">
+                            <a href="website-builder">
+                                <img src="images/icons/website.svg" class="img-fluid move" alt="Event website" height="78" width="72">
+                                <h3 class="ems-feature-title small">Website</h3>
+                                <p class="ems-feature-text small-text">Website Builder</p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature text-center" href="event-checkin">
+                            <a href="event-checkin">
+                                <img src="images/icons/checkin.svg" class="img-fluid move" alt="event check-in app" height="78" width="72">
+                                <h3 class="ems-feature-title small">Check-in</h3>
+                                <p class="ems-feature-text small-text">Guest Check-In &amp; Name Tags</p>
+                                <span class="link-more">Learn more<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature">
+                            <a href="agenda-management">
+                                <img src="images/icons/program.svg" class="img-fluid move" alt="event agenda" height="78" width="72">
+                                <h3 class="ems-feature-title small">Agenda Builder</h3>
+                                <p class="ems-feature-text small-text">
+                                    Interactive Event Agendas
+                                </p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature" href="event-app">
+                            <a href="event-app">
+                                <img src="images/icons/app.svg" class="img-fluid move" alt="Event App" loading="lazy" height="78" width="72">
+                                <h3 class="ems-feature-title small">Event App</h3>
+                                <p class="ems-feature-text small-text">Application for Attendees</p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature text-center">
+                            <a href="lead-retrieval">
+                                <img src="images/icons/exhibition.svg" class="img-fluid move" alt="Lead Retrieval app" loading="lazy" height="78" width="72">
+                                <h3 class="ems-feature-title small">Lead Retrieval</h3>
+                                <p class="ems-feature-text small-text">Leads for Exhibitors</p>
+                                <span href="lead-retrieval" class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature text-center">
+                            <a href="attendance-tracking">
+                                <img src="images/icons/session-tracking.svg" class="img-fluid move" alt="session attendance" height="78" width="72">
+                                <h3 class="ems-feature-title small">Tracking</h3>
+                                <p class="ems-feature-text small-text">
+                                    Track Session Attendance
+                                </p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature text-center">
+                            <a href="event-travel">
+                                <img src="images/icons/travel.svg" class="img-fluid move" alt="Event travel" loading="lazy" height="78" width="72">
+                                <h3 class="ems-feature-title small">Accommodation</h3>
+                                <p class="ems-feature-text small-text">
+                                    Hotels Booking and Flights
+                                </p>
+                                <span href="event-travel" class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-5 mt-5">
+                        <div class="ems-feature text-center">
+                            <a href="event-crm">
+                                <img src="images/icons/crm.svg" class="img-fluid move" alt="Event CRM" loading="lazy" height="78" width="72">
+                                <h3 class="ems-feature-title small">Event CRM</h3>
+                                <p class="ems-feature-text small-text">
+                                    Marketing Database Builder
+                                </p>
+                                <span class="link-more">Learn More<svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem;"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" fill="currentcolor"></path></svg></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="colors-alt2 text-center pt-5">
+        <div id="visitblog" class="mt-3">
+            <h2 class="section-subtitle mb-4">Event Management Briefings</h2>
+            <p class="mt-3">Read about Event Planning, Registration Management &amp; Event Marketing</p>
+            <a class="btn btn-lg btn-outline" href="blog/">Event Management Tips</a>
+        </div>
+    </section>
+    <!--
+        <section id="event-planner_bk" class="section pt-5">
+            <div class="container">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="section-title pt-3">Business Conferences</h3>
+                        <ul class="bullets">
+                            <li><i class="mdi mdi-check"></i>&nbsp;Interactive lectures and screen sharing</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Play recorded lectures live</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Live polls</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Virtual exhibition</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Multiple halls and breakout rooms</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Online B2B meetings</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Ticket based access control</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Moderated video and chats</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Create leads for exhibitors and sponsors</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <picture>
+                            <source type="image/webp" srcset="/images/home/virtual-event1-3x.webp 1920w, /images/home/virtual-event1-2x.webp 960w, /images/home/virtual-event1.webp 540w">
+                            <source type="image/jpeg" srcset="/images/home/virtual-event1-3x.jpg 1920w, /images/home/virtual-event1-2x.jpg 960w, /images/home/virtual-event1.jpg 540w">
+                            <img class="img img-fluid rounded img-frame"
+                                 src="/images/home/virtual-event1.jpg" width="540" height="356" loading="lazy"
+                                 alt="Virtual Event business" />
+                        </picture>
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-sm-6">
+                        <h3 class="section-title pt-3">Scientific Conferences</h3>
+                        <ul class="bullets">
+                            <li><i class="mdi mdi-check"></i>&nbsp;Hybrid and virtual academic events</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Multiple virtual halls for multi-track events</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Online workshops</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Abstract management and program builder</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Online e-Posters</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;VOD library</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <picture>
+                            <source type="image/webp" srcset="/images/home/virtual-medical-event-3x.webp 1920w, /images/home/virtual-medical-event-2x.webp 960w, /images/home/virtual-medical-event.webp 540w">
+                            <source type="image/jpeg" srcset="/images/home/virtual-medical-event-3x.png 1920w, /images/home/virtual-medical-event-2x.png 960w, /images/home/virtual-medical-event.png 540w">
+                            <img class="img img-fluid rounded img-frame"
+                                 src="/images/home/virtual-medical-event.png" width="540" height="360" loading="lazy"
+                                 alt="Virtual Scientific Event" />
+                        </picture>
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-sm-6">
+                        <h3 class="section-title pt-3">Workshops & Seminars</h3>
+                        <ul class="bullets">
+                            <li><i class="mdi mdi-check"></i>&nbsp;Golden ring experience for remote participants</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;High-quality video and audio</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Focus the event on the performer</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Live interaction with remote participants</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Ticket-based access control</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;VOD and private rooms</li>
+                            <li><i class="mdi mdi-check"></i>&nbsp;Opportunities for additional revenues</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <picture>
+                            <source type="image/webp" srcset="/images/home/virtual-event2-3x.webp 1920w, /images/home/virtual-event2-2x.webp 960w, /images/home/virtual-event2.webp 540w">
+                            <source type="image/jpeg" srcset="/images/home/virtual-event2-3x.png 1920w, /images/home/virtual-event2-2x.png 960w, /images/home/virtual-event2.png 540w">
+                            <img class="img img-fluid rounded img-frame"
+                                 src="/images/home/virtual-event2.png" width="540" height="360" loading="lazy"
+                                 srcset="/images/home/virtual-event2-3x.png 1920w, /images/home/virtual-event2-2x.png 960w, /images/home/virtual-event2.png 540w"
+                                 alt="Virtual Workshop" />
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+    -->
+
+    <div id="event-planner_bk">
+        <section id="event-planner" class="container section pt-5">
+            <h2 class="section-subtitle mb-5 text-center pt-5">Learn About Our Features for Event Organizers</h2>
+
+            <div class="event-planners pt-5">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 event-planners-card">
+                        <div class="planner-type">
+                            <div class="planner-img">
+                                <img src="images/home/event-pco.svg" class="img-fluid" loading="lazy" width="346" height="225" alt="Event PCO">
+                            </div>
+                            <div class="planner-body">
+                                <a href="pco">
+                                    <h3 class="planner-title">PCO</h3>
+                                </a>
+                                <p class="planner-text">Streamlining professional event management for seamless organization.</p>
+                                <a href="pco" class="btn">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-12 event-planners-card">
+                        <div class="planner-type">
+                            <div class="planner-img">
+                                <img src="images/home/event-enterprise.svg" class="img-fluid" loading="lazy" width="346" height="225" alt="enterprise EMS">
+                            </div>
+                            <div class="planner-body">
+                                <a href="enterprise">
+                                    <h3 class="planner-title">Enterprise</h3>
+                                </a>
+                                <p class="planner-text">Powerful enterprise solutions for unmatched performance and custom data workflows.</p>
+                                <a href="enterprise" class="btn">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-12 event-planners-card">
+                        <div class="planner-type">
+                            <div class="planner-img">
+                                <img src="images/home/event-bussiness.svg" loading="lazy" width="346" height="225" class="img-fluid" alt="Event planner software">
+                            </div>
+                            <div class="planner-body">
+                                <a href="event-planner">
+                                    <h3 class="planner-title">Event Planner</h3>
+                                </a>
+                                <p class="planner-text">
+                                    Create an unforgettable event with our tools for a lasting impression, no matter the size.
+                                </p>
+                                <a href="event-planner" class="btn">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <section class="pb-5 mt-5 quote">
+        <div class="row justify-content-center pt-4">
+            <div class="col-8 text-center" style="color:white; font-family: Poppins">
+                <blockquote class="blockquote">
+                    <p class="rotate-upside-down">
+
+                    </p>
+                    <p class="mb-5">The one who follows the crowd will usually go no further than the crowd.</p>
+                    <footer class="blockquote-footer"> Albert Einstein</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-5 mt-4 text-center">
+        <a href="about#contactus" class="btn btn-lg">Contact us</a>
+    </section>
+
+    <script>
+        const videoElement = document.createElement('video');
+        videoElement.id = 'media';
+        videoElement.src = 'images/home/event-management.mp4';
+        videoElement.controls = false;
+        videoElement.muted = true;
+        videoElement.loop = true;
+        videoElement.playsinline = true;
+        videoElement.style.width = '100%';
+        videoElement.style.display = 'none';
+        videoElement.style.clipPath = 'inset(2px 2px)';
+
+        const initialImage = document.getElementById('initial-image');
+        const detailsDiv = document.getElementById('video-details');
+        detailsDiv.append(videoElement);
+
+        videoElement.onloadeddata = function () {
+            setTimeout(function () {
+                initialImage.style.display = 'none';
+                videoElement.style.display = "block";
+                videoElement.play();
+            }, 50); 
+        };
+
+    </script>
+    <footer id="footer">
+    <div class="container-fluid">
+        <div class="footer-container">
+            <div class="row">
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6">
+                    <h5 role="heading" aria-level="4"><strong>Eventact</strong></h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a id="about_us" href="about">
+                                About us
+                            </a>
+                        </li>
+                        <li>
+                            <a id="features" href="features">
+                                Features
+                            </a>
+                        </li>
+                        <li>
+                            <a id="pricing" href="pricing">
+                                Pricing
+                            </a>
+                        </li>
+                        <li>
+                            <a id="support" href="about#contactus">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6">
+                    <h5>Core Features</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="event-registration"> Event Registration </a>
+                        </li>
+                        <li>
+                            <a href="abstract-management">Abstract Management</a>
+                        </li>
+                        <li>
+                            <a href="website-builder">Website Builder</a>
+                        </li>
+                        <li>
+                            <a href="event-app">Event App</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6">
+                    <h5>More Features</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="event-checkin">Event Check-In</a>
+                        </li>
+                        <li>
+                            <a href="agenda-management">Agenda Builder</a>
+                        </li>
+                        <li>
+                            <a href="online-events">Virtual Events</a>
+                        </li>
+                        <li>
+                            <a href="networking-app">Event Networking</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 col-md-3 col-sm-6">
+                    <h5>Resources</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="blog">Blog</a>
+                        </li>
+                        <li>
+                            <a href="pro">Pro blog</a>
+                        </li>
+                        <li>
+                            <a href="demos">Demos</a>
+                        </li>
+                        <li>
+                            <a href="support">Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="policy-footer" class="container-fluid">
+        <div class="row">
+            <div>
+                <div class="muted-text">
+                    <p>©<span id="currect_year">2026</span> Eventact</p>
+                </div>
+            </div>
+            <div>
+                <ul class="footer-links-inline">
+                    <li>
+                        <a id="privacy" href="policies/privacy">Privacy</a>
+                    </li>
+                    <li>
+                        <a id="cookies" href="policies/cookies">Cookies </a>
+                    </li>
+                    <li>
+                        <a id="legal" href="policies/accessibility">Accessibility </a>
+                    </li>
+                    <li>
+                        <a id="legal" href="policies/tos">Terms </a>
+                    </li>
+                    <li>
+                        <a id="contact_us" href="about#contactus">Contact Us </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById('currect_year').textContent = new Date().getFullYear();
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-L77QQP9D7Z');
+</script>
+<script src="js/ea2.js?v=2"></script>
+
+
+</body></html>

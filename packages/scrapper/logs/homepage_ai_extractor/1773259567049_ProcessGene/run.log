@@ -1,0 +1,69 @@
+[2026-03-11T20:06:07.049Z] === Homepage AI Extractor: ProcessGene ===
+[2026-03-11T20:06:07.049Z] Started at: 2026-03-11T20:06:07.049Z
+[2026-03-11T20:06:07.049Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773259567049_ProcessGene
+[2026-03-11T20:06:07.049Z] Company: ProcessGene
+[2026-03-11T20:06:07.050Z] Website: processgene.com
+[2026-03-11T20:06:07.050Z] cbRank: 643917
+[2026-03-11T20:06:07.050Z] Reasons: h
+[2026-03-11T20:06:07.050Z] Fetching: https://processgene.com
+[2026-03-11T20:06:22.511Z] Redirected: https://processgene.com -> https://processgene.com/
+[2026-03-11T20:06:22.517Z] Saved HTML (118413 bytes) to page.html
+[2026-03-11T20:06:22.523Z] Extracted 97 unique links from page
+[2026-03-11T20:06:22.524Z] Saved 97 links to links.json
+[2026-03-11T20:06:22.530Z] Extracted footer HTML (1124 chars)
+[2026-03-11T20:06:22.530Z] Extracted header HTML (18720 chars)
+[2026-03-11T20:06:22.535Z] Website (post-redirect): https://processgene.com/ → origin: https://processgene.com
+[2026-03-11T20:06:22.536Z] External links: 3 (of 97 total)
+[2026-03-11T20:06:22.536Z] ── All external links ──
+[2026-03-11T20:06:22.536Z]   EXT: http://www.process-web.com/phpbb
+[2026-03-11T20:06:22.536Z]   EXT: https://plus.google.com/+Processgene/posts
+[2026-03-11T20:06:22.536Z]   EXT: https://www.linkedin.com/company/processgene-ltd
+[2026-03-11T20:06:22.536Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T20:06:22.536Z]   UNCATEGORIZED: http://www.process-web.com/phpbb
+[2026-03-11T20:06:22.536Z]   UNCATEGORIZED: https://plus.google.com/+Processgene/posts
+[2026-03-11T20:06:22.537Z]   REGEX: li <- https://www.linkedin.com/company/processgene-ltd
+[2026-03-11T20:06:22.537Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-11T20:06:22.537Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T20:06:22.537Z] Saved AI prompt (2636 chars) to ai_prompt.txt
+[2026-03-11T20:06:22.538Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T20:06:22.555Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T20:06:31.007Z]   AI: First token received, streaming...
+[2026-03-11T20:06:36.744Z] AI response complete: 125 chars in 14.2s
+[2026-03-11T20:06:36.744Z] Saved AI response to ai_response.json
+[2026-03-11T20:06:36.744Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T20:06:36.744Z]   AI LINK: https://plus.google.com/+Processgene/posts
+[2026-03-11T20:06:36.745Z]   AI LINK: https://www.linkedin.com/company/processgene-ltd
+[2026-03-11T20:06:36.745Z]   AI LINK: https://processgene.com/feed/rss/
+[2026-03-11T20:06:36.745Z] AI returned 3 valid links
+[2026-03-11T20:06:36.745Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T20:06:36.745Z]   AI→URLS: https://plus.google.com/+Processgene/posts
+[2026-03-11T20:06:36.745Z]   AI→REGEX: li <- https://www.linkedin.com/company/processgene-ltd (duplicate, skipped)
+[2026-03-11T20:06:36.745Z]   AI→URLS: https://processgene.com/feed/rss (cleaned from https://processgene.com/feed/rss/)
+[2026-03-11T20:06:36.745Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T20:06:36.746Z] Footer/header origins (6):
+[2026-03-11T20:06:36.746Z]   FOOTER/HEADER ORIGIN: https://processgene.com
+[2026-03-11T20:06:36.746Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-11T20:06:36.746Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T20:06:36.746Z]   FOOTER/HEADER ORIGIN: http://processgene.com
+[2026-03-11T20:06:36.746Z]   FOOTER/HEADER ORIGIN: http://www.processgene.com
+[2026-03-11T20:06:36.746Z]   FOOTER/HEADER ORIGIN: http://www.process-web.com
+[2026-03-11T20:06:36.746Z]   ADDED: urls <- http://www.process-web.com/phpbb
+[2026-03-11T20:06:36.746Z]   SKIP (AI claimed): https://plus.google.com/+Processgene/posts
+[2026-03-11T20:06:36.746Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T20:06:36.746Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T20:06:36.746Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T20:06:36.746Z] ── Step 3: Final dedup ──
+[2026-03-11T20:06:36.746Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-11T20:06:36.746Z] ── FINAL RESULT ──
+[2026-03-11T20:06:36.747Z]   ws (1):
+[2026-03-11T20:06:36.747Z]     - https://processgene.com
+[2026-03-11T20:06:36.747Z]   li (1):
+[2026-03-11T20:06:36.747Z]     - https://www.linkedin.com/company/processgene-ltd
+[2026-03-11T20:06:36.747Z]   urls (3):
+[2026-03-11T20:06:36.747Z]     - http://www.process-web.com/phpbb
+[2026-03-11T20:06:36.747Z]     - https://plus.google.com/+Processgene/posts
+[2026-03-11T20:06:36.747Z]     - https://processgene.com/feed/rss
+[2026-03-11T20:06:36.747Z] Summary: ws:1, li:1, urls:3
+[2026-03-11T20:06:36.747Z] Saved final result to result.json
+[2026-03-11T20:06:36.747Z] Override fields: ws, li, urls
+[2026-03-11T20:06:36.748Z] Finished at: 2026-03-11T20:06:36.748Z

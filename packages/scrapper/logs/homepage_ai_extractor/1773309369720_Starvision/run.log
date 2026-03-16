@@ -1,0 +1,72 @@
+[2026-03-12T09:56:09.720Z] === Homepage AI Extractor: Starvision ===
+[2026-03-12T09:56:09.720Z] Started at: 2026-03-12T09:56:09.720Z
+[2026-03-12T09:56:09.720Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773309369720_Starvision
+[2026-03-12T09:56:09.720Z] Company: Starvision
+[2026-03-12T09:56:09.721Z] Website: starvisionpartners.com
+[2026-03-12T09:56:09.721Z] cbRank: 900258
+[2026-03-12T09:56:09.721Z] Reasons: h
+[2026-03-12T09:56:09.721Z] Fetching: https://starvisionpartners.com
+[2026-03-12T09:56:16.447Z] Redirected: https://starvisionpartners.com -> https://starvisionpartners.com/
+[2026-03-12T09:56:16.456Z] Saved HTML (195592 bytes) to page.html
+[2026-03-12T09:56:16.461Z] Extracted 30 unique links from page
+[2026-03-12T09:56:16.461Z] Saved 30 links to links.json
+[2026-03-12T09:56:16.466Z] No footer section found in DOM
+[2026-03-12T09:56:16.466Z] Extracted header HTML (18543 chars)
+[2026-03-12T09:56:16.470Z] Website (post-redirect): https://starvisionpartners.com/ → origin: https://starvisionpartners.com
+[2026-03-12T09:56:16.471Z] External links: 5 (of 30 total)
+[2026-03-12T09:56:16.471Z] ── All external links ──
+[2026-03-12T09:56:16.471Z]   EXT: https://www.facebook.com/StarVision.ProductExperts
+[2026-03-12T09:56:16.471Z]   EXT: https://www.linkedin.com/company/starvision
+[2026-03-12T09:56:16.471Z]   EXT: https://www.meetup.com/Technology-Business-and-Product-Management-Israel
+[2026-03-12T09:56:16.471Z]   EXT: https://www.youtube.com/channel/UCS6wAiPlw5qjPsOWazq7DBw
+[2026-03-12T09:56:16.471Z]   EXT: https://www.youtube.com/watch?v=rzv_lUuRwGI&feature=youtu.be
+[2026-03-12T09:56:16.471Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T09:56:16.471Z]   REGEX: fb <- https://www.facebook.com/StarVision.ProductExperts
+[2026-03-12T09:56:16.471Z]   REGEX: li <- https://www.linkedin.com/company/starvision
+[2026-03-12T09:56:16.472Z]   UNCATEGORIZED: https://www.meetup.com/Technology-Business-and-Product-Management-Israel
+[2026-03-12T09:56:16.472Z]   REGEX: ytc <- https://www.youtube.com/channel/UCS6wAiPlw5qjPsOWazq7DBw
+[2026-03-12T09:56:16.472Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-12T09:56:16.472Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=rzv_lUuRwGI&feature=youtu.be
+[2026-03-12T09:56:16.472Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 1 uncategorized
+[2026-03-12T09:56:16.472Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T09:56:16.475Z] Saved AI prompt (2011 chars) to ai_prompt.txt
+[2026-03-12T09:56:16.475Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T09:56:16.490Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T09:56:21.843Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-12T09:56:21.843Z] AI response complete: 0 chars in 5.4s
+[2026-03-12T09:56:21.844Z] Saved AI response to ai_response.json
+[2026-03-12T09:56:21.844Z] ── Parsing AI response (1 lines) ──
+[2026-03-12T09:56:21.844Z] AI returned 0 valid links
+[2026-03-12T09:56:21.844Z] ── Categorizing 0 AI-returned links ──
+[2026-03-12T09:56:21.844Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T09:56:21.844Z] Footer/header origins (5):
+[2026-03-12T09:56:21.844Z]   FOOTER/HEADER ORIGIN: https://starvisionpartners.com
+[2026-03-12T09:56:21.844Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T09:56:21.844Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T09:56:21.844Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T09:56:21.845Z]   FOOTER/HEADER ORIGIN: https://www.meetup.com
+[2026-03-12T09:56:21.845Z]   ADDED: urls <- https://www.meetup.com/Technology-Business-and-Product-Management-Israel
+[2026-03-12T09:56:21.845Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T09:56:21.845Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T09:56:21.845Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T09:56:22.229Z]   YOUTUBE: resolved UCS6wAiPlw5qjPsOWazq7DBw → @starvisionproductmanagemen6248
+[2026-03-12T09:56:22.230Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T09:56:22.230Z] ── Step 3: Final dedup ──
+[2026-03-12T09:56:22.230Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T09:56:22.230Z] ── FINAL RESULT ──
+[2026-03-12T09:56:22.230Z]   ws (1):
+[2026-03-12T09:56:22.230Z]     - https://starvisionpartners.com
+[2026-03-12T09:56:22.230Z]   li (1):
+[2026-03-12T09:56:22.230Z]     - https://www.linkedin.com/company/starvision
+[2026-03-12T09:56:22.230Z]   fb (1):
+[2026-03-12T09:56:22.230Z]     - https://www.facebook.com/starvision.productexperts
+[2026-03-12T09:56:22.230Z]   ytp (1):
+[2026-03-12T09:56:22.231Z]     - https://www.youtube.com/@starvisionproductmanagemen6248
+[2026-03-12T09:56:22.231Z]   ytc (1):
+[2026-03-12T09:56:22.231Z]     - https://www.youtube.com/channel/UCS6wAiPlw5qjPsOWazq7DBw
+[2026-03-12T09:56:22.231Z]   urls (1):
+[2026-03-12T09:56:22.231Z]     - https://www.meetup.com/Technology-Business-and-Product-Management-Israel
+[2026-03-12T09:56:22.231Z] Summary: ws:1, fb:1, li:1, ytc:1, urls:1, ytp:1
+[2026-03-12T09:56:22.232Z] Saved final result to result.json
+[2026-03-12T09:56:22.232Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-12T09:56:22.232Z] Finished at: 2026-03-12T09:56:22.232Z

@@ -1,0 +1,65 @@
+[2026-03-10T02:59:14.256Z] === Homepage AI Extractor: PicUP ===
+[2026-03-10T02:59:14.256Z] Started at: 2026-03-10T02:59:14.256Z
+[2026-03-10T02:59:14.257Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773111554256_PicUP
+[2026-03-10T02:59:14.257Z] Company: PicUP
+[2026-03-10T02:59:14.257Z] Website: picup.io
+[2026-03-10T02:59:14.257Z] cbRank: 356287
+[2026-03-10T02:59:14.257Z] Reasons: h
+[2026-03-10T02:59:14.257Z] Fetching: https://picup.io
+[2026-03-10T02:59:15.708Z] Redirected: https://picup.io -> https://picup.io/
+[2026-03-10T02:59:15.713Z] Saved HTML (53197 bytes) to page.html
+[2026-03-10T02:59:15.719Z] Extracted 17 unique links from page
+[2026-03-10T02:59:15.720Z] Saved 17 links to links.json
+[2026-03-10T02:59:15.725Z] Extracted footer HTML (2644 chars)
+[2026-03-10T02:59:15.725Z] Extracted header HTML (2122 chars)
+[2026-03-10T02:59:15.730Z] Website (post-redirect): https://picup.io/ → origin: https://picup.io
+[2026-03-10T02:59:15.730Z] External links: 5 (of 17 total)
+[2026-03-10T02:59:15.730Z] ── All external links ──
+[2026-03-10T02:59:15.730Z]   EXT: https://calendly.com/picup_lior/30-minute-meeting-mwc-barcelona
+[2026-03-10T02:59:15.730Z]   EXT: https://www.ft.com/content/bd465078-89a8-4841-af09-3ed7dbf51132
+[2026-03-10T02:59:15.730Z]   EXT: https://www.linkedin.com/company/picup-mobile
+[2026-03-10T02:59:15.730Z]   EXT: https://www.linkedin.com/feed/update/urn:li:activity:6929764153788112896
+[2026-03-10T02:59:15.730Z]   EXT: https://www.youtube.com/channel/UCZikR1ATv94el7xL9U49WLA
+[2026-03-10T02:59:15.731Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T02:59:15.731Z]   UNCATEGORIZED: https://calendly.com/picup_lior/30-minute-meeting-mwc-barcelona
+[2026-03-10T02:59:15.731Z]   UNCATEGORIZED: https://www.ft.com/content/bd465078-89a8-4841-af09-3ed7dbf51132
+[2026-03-10T02:59:15.731Z]   REGEX: li <- https://www.linkedin.com/company/picup-mobile
+[2026-03-10T02:59:15.731Z]   REGEX: ytc <- https://www.youtube.com/channel/UCZikR1ATv94el7xL9U49WLA
+[2026-03-10T02:59:15.732Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-10T02:59:15.732Z]   SKIP (regex domain, no match): https://www.linkedin.com/feed/update/urn:li:activity:6929764153788112896
+[2026-03-10T02:59:15.732Z] Programmatic result: ws:1, li:1, ytc:1 | 2 uncategorized
+[2026-03-10T02:59:15.732Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T02:59:15.733Z] Saved AI prompt (3582 chars) to ai_prompt.txt
+[2026-03-10T02:59:15.733Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T02:59:15.750Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T02:59:28.460Z]   AI: First token received, streaming...
+[2026-03-10T02:59:36.318Z] AI response complete: 102 chars in 20.6s
+[2026-03-10T02:59:36.319Z] Saved AI response to ai_response.json
+[2026-03-10T02:59:36.319Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T02:59:36.320Z]   AI LINK: https://www.linkedin.com/company/picup-mobile
+[2026-03-10T02:59:36.320Z]   AI LINK: https://www.youtube.com/channel/UCZikR1ATv94el7xL9U49WLA
+[2026-03-10T02:59:36.320Z] AI returned 2 valid links
+[2026-03-10T02:59:36.320Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T02:59:36.320Z]   AI→REGEX: li <- https://www.linkedin.com/company/picup-mobile (duplicate, skipped)
+[2026-03-10T02:59:36.320Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCZikR1ATv94el7xL9U49WLA (duplicate, skipped)
+[2026-03-10T02:59:36.320Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T02:59:36.320Z] Footer/header origins (3):
+[2026-03-10T02:59:36.320Z]   FOOTER/HEADER ORIGIN: https://picup.io
+[2026-03-10T02:59:36.320Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T02:59:36.321Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T02:59:36.321Z]   SKIP (not in footer/header): https://calendly.com/picup_lior/30-minute-meeting-mwc-barcelona
+[2026-03-10T02:59:36.321Z]   SKIP (not in footer/header): https://www.ft.com/content/bd465078-89a8-4841-af09-3ed7dbf51132
+[2026-03-10T02:59:36.321Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T02:59:36.321Z] ── Step 3: Final dedup ──
+[2026-03-10T02:59:36.321Z] No urls to dedup
+[2026-03-10T02:59:36.321Z] ── FINAL RESULT ──
+[2026-03-10T02:59:36.321Z]   ws (1):
+[2026-03-10T02:59:36.321Z]     - https://picup.io
+[2026-03-10T02:59:36.321Z]   li (1):
+[2026-03-10T02:59:36.321Z]     - https://www.linkedin.com/company/picup-mobile
+[2026-03-10T02:59:36.321Z]   ytc (1):
+[2026-03-10T02:59:36.321Z]     - https://www.youtube.com/channel/UCZikR1ATv94el7xL9U49WLA
+[2026-03-10T02:59:36.322Z] Summary: ws:1, li:1, ytc:1
+[2026-03-10T02:59:36.322Z] Saved final result to result.json
+[2026-03-10T02:59:36.323Z] Override fields: ws, li, ytc
+[2026-03-10T02:59:36.323Z] Finished at: 2026-03-10T02:59:36.323Z

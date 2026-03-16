@@ -1,0 +1,66 @@
+[2026-03-11T18:45:35.175Z] === Homepage AI Extractor: LogiTag ===
+[2026-03-11T18:45:35.175Z] Started at: 2026-03-11T18:45:35.175Z
+[2026-03-11T18:45:35.175Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773254735174_LogiTag
+[2026-03-11T18:45:35.175Z] Company: LogiTag
+[2026-03-11T18:45:35.175Z] Website: logi-tag.com
+[2026-03-11T18:45:35.175Z] cbRank: 619007
+[2026-03-11T18:45:35.175Z] Reasons: h
+[2026-03-11T18:45:35.175Z] Fetching: https://logi-tag.com
+[2026-03-11T18:45:38.727Z] Redirected: https://logi-tag.com -> https://logi-tag.com/
+[2026-03-11T18:45:38.735Z] Saved HTML (140163 bytes) to page.html
+[2026-03-11T18:45:38.738Z] Extracted 12 unique links from page
+[2026-03-11T18:45:38.739Z] Saved 12 links to links.json
+[2026-03-11T18:45:38.743Z] Extracted footer HTML (10956 chars)
+[2026-03-11T18:45:38.743Z] Extracted header HTML (16289 chars)
+[2026-03-11T18:45:38.748Z] Website (post-redirect): https://logi-tag.com/ → origin: https://logi-tag.com
+[2026-03-11T18:45:38.748Z] External links: 3 (of 12 total)
+[2026-03-11T18:45:38.748Z] ── All external links ──
+[2026-03-11T18:45:38.748Z]   EXT: https://push-digital.co.il
+[2026-03-11T18:45:38.748Z]   EXT: https://www.linkedin.com/in/logitag-systems-59242a257
+[2026-03-11T18:45:38.748Z]   EXT: https://www.youtube.com/@logi-tag/featured
+[2026-03-11T18:45:38.748Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T18:45:38.748Z]   UNCATEGORIZED: https://push-digital.co.il
+[2026-03-11T18:45:38.748Z]   REGEX: ytp <- https://www.youtube.com/@logi-tag/featured
+[2026-03-11T18:45:38.748Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-11T18:45:38.748Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/logitag-systems-59242a257
+[2026-03-11T18:45:38.748Z] Programmatic result: ws:1, ytp:1 | 1 uncategorized
+[2026-03-11T18:45:38.749Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T18:45:38.749Z] Saved AI prompt (6229 chars) to ai_prompt.txt
+[2026-03-11T18:45:38.749Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T18:45:38.767Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T18:46:05.050Z]   AI: First token received, streaming...
+[2026-03-11T18:46:12.855Z] AI response complete: 118 chars in 34.1s
+[2026-03-11T18:46:12.856Z] Saved AI response to ai_response.json
+[2026-03-11T18:46:12.856Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T18:46:12.856Z]   AI LINK: https://logi-tag.com
+[2026-03-11T18:46:12.856Z]   AI LINK: https://www.youtube.com/@logi-tag/featured
+[2026-03-11T18:46:12.857Z]   AI LINK: https://www.linkedin.com/in/logitag-systems-59242a257/
+[2026-03-11T18:46:12.857Z] AI returned 3 valid links
+[2026-03-11T18:46:12.857Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T18:46:12.857Z]   AI→URLS: https://logi-tag.com
+[2026-03-11T18:46:12.857Z]   AI→REGEX: ytp <- https://www.youtube.com/@logi-tag/featured (duplicate, skipped)
+[2026-03-11T18:46:12.857Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/logitag-systems-59242a257/
+[2026-03-11T18:46:12.857Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T18:46:12.857Z] Footer/header origins (4):
+[2026-03-11T18:46:12.857Z]   FOOTER/HEADER ORIGIN: https://logi-tag.com
+[2026-03-11T18:46:12.857Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T18:46:12.858Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T18:46:12.858Z]   FOOTER/HEADER ORIGIN: https://push-digital.co.il
+[2026-03-11T18:46:12.858Z]   ADDED: urls <- https://push-digital.co.il
+[2026-03-11T18:46:12.858Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-11T18:46:12.858Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T18:46:12.858Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T18:46:12.858Z] ── Step 3: Final dedup ──
+[2026-03-11T18:46:12.858Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-11T18:46:12.858Z] ── FINAL RESULT ──
+[2026-03-11T18:46:12.858Z]   ws (1):
+[2026-03-11T18:46:12.858Z]     - https://logi-tag.com
+[2026-03-11T18:46:12.858Z]   ytp (1):
+[2026-03-11T18:46:12.858Z]     - https://www.youtube.com/@logi-tag
+[2026-03-11T18:46:12.858Z]   urls (2):
+[2026-03-11T18:46:12.858Z]     - https://logi-tag.com
+[2026-03-11T18:46:12.858Z]     - https://push-digital.co.il
+[2026-03-11T18:46:12.858Z] Summary: ws:1, ytp:1, urls:2
+[2026-03-11T18:46:12.859Z] Saved final result to result.json
+[2026-03-11T18:46:12.859Z] Override fields: ws, ytp, urls
+[2026-03-11T18:46:12.859Z] Finished at: 2026-03-11T18:46:12.859Z

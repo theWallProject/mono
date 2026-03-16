@@ -1,0 +1,63 @@
+[2026-03-12T12:59:08.355Z] === Homepage AI Extractor: Aquanity ===
+[2026-03-12T12:59:08.355Z] Started at: 2026-03-12T12:59:08.355Z
+[2026-03-12T12:59:08.355Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773320348355_Aquanity
+[2026-03-12T12:59:08.355Z] Company: Aquanity
+[2026-03-12T12:59:08.355Z] Website: aquanity.com
+[2026-03-12T12:59:08.355Z] cbRank: 958518
+[2026-03-12T12:59:08.355Z] Reasons: h
+[2026-03-12T12:59:08.355Z] Fetching: https://aquanity.com
+[2026-03-12T12:59:20.160Z] Network idle timeout — continuing with current state
+[2026-03-12T12:59:20.202Z] Redirected: https://aquanity.com -> https://aquanity.com/
+[2026-03-12T12:59:20.214Z] Saved HTML (348323 bytes) to page.html
+[2026-03-12T12:59:20.217Z] Extracted 19 unique links from page
+[2026-03-12T12:59:20.218Z] Saved 19 links to links.json
+[2026-03-12T12:59:20.222Z] Extracted footer HTML (5804 chars)
+[2026-03-12T12:59:20.222Z] Extracted header HTML (561 chars)
+[2026-03-12T12:59:20.228Z] Website (post-redirect): https://aquanity.com/ → origin: https://aquanity.com
+[2026-03-12T12:59:20.228Z] External links: 2 (of 19 total)
+[2026-03-12T12:59:20.228Z] ── All external links ──
+[2026-03-12T12:59:20.228Z]   EXT: https://www.facebook.com/Aquanity-103295011324120
+[2026-03-12T12:59:20.229Z]   EXT: https://www.youtube.com/channel/UCXWcEPkByUqNuZ2qpCLJxhg
+[2026-03-12T12:59:20.229Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T12:59:20.229Z]   REGEX: fb <- https://www.facebook.com/Aquanity-103295011324120
+[2026-03-12T12:59:20.229Z]   REGEX: ytc <- https://www.youtube.com/channel/UCXWcEPkByUqNuZ2qpCLJxhg
+[2026-03-12T12:59:20.229Z] Programmatic result: ws:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-12T12:59:20.229Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T12:59:20.230Z] Saved AI prompt (4368 chars) to ai_prompt.txt
+[2026-03-12T12:59:20.230Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T12:59:20.250Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T12:59:39.056Z]   AI: First token received, streaming...
+[2026-03-12T12:59:49.708Z] AI response complete: 107 chars in 29.5s
+[2026-03-12T12:59:49.709Z] Saved AI response to ai_response.json
+[2026-03-12T12:59:49.709Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T12:59:49.709Z]   AI LINK: https://www.facebook.com/Aquanity-103295011324120
+[2026-03-12T12:59:49.709Z]   AI LINK: https://www.youtube.com/channel/UCXWcEPkByUqNuZ2qpCLJxhg/
+[2026-03-12T12:59:49.709Z] AI returned 2 valid links
+[2026-03-12T12:59:49.710Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T12:59:49.710Z]   AI→REGEX: fb <- https://www.facebook.com/Aquanity-103295011324120 (duplicate, skipped)
+[2026-03-12T12:59:49.710Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCXWcEPkByUqNuZ2qpCLJxhg/ (duplicate, skipped)
+[2026-03-12T12:59:49.710Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T12:59:49.710Z] Footer/header origins (3):
+[2026-03-12T12:59:49.710Z]   FOOTER/HEADER ORIGIN: https://aquanity.com
+[2026-03-12T12:59:49.710Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T12:59:49.710Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T12:59:49.710Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T12:59:49.710Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T12:59:49.711Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-12T12:59:50.219Z]   YOUTUBE: resolved UCXWcEPkByUqNuZ2qpCLJxhg → @aquanity6317
+[2026-03-12T12:59:50.219Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-12T12:59:50.219Z] ── Step 3: Final dedup ──
+[2026-03-12T12:59:50.219Z] No urls to dedup
+[2026-03-12T12:59:50.219Z] ── FINAL RESULT ──
+[2026-03-12T12:59:50.220Z]   ws (1):
+[2026-03-12T12:59:50.220Z]     - https://aquanity.com
+[2026-03-12T12:59:50.220Z]   fb (1):
+[2026-03-12T12:59:50.220Z]     - https://www.facebook.com/aquanity-103295011324120
+[2026-03-12T12:59:50.220Z]   ytp (1):
+[2026-03-12T12:59:50.220Z]     - https://www.youtube.com/@aquanity6317
+[2026-03-12T12:59:50.220Z]   ytc (1):
+[2026-03-12T12:59:50.220Z]     - https://www.youtube.com/channel/UCXWcEPkByUqNuZ2qpCLJxhg
+[2026-03-12T12:59:50.220Z] Summary: ws:1, fb:1, ytc:1, ytp:1
+[2026-03-12T12:59:50.221Z] Saved final result to result.json
+[2026-03-12T12:59:50.221Z] Override fields: ws, fb, ytp, ytc
+[2026-03-12T12:59:50.221Z] Finished at: 2026-03-12T12:59:50.221Z

@@ -1,0 +1,66 @@
+[2026-03-11T22:24:01.388Z] === Homepage AI Extractor: Dueto ===
+[2026-03-11T22:24:01.388Z] Started at: 2026-03-11T22:24:01.388Z
+[2026-03-11T22:24:01.388Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773267841387_Dueto
+[2026-03-11T22:24:01.388Z] Company: Dueto
+[2026-03-11T22:24:01.388Z] Website: dueto.io
+[2026-03-11T22:24:01.388Z] cbRank: 683603
+[2026-03-11T22:24:01.388Z] Reasons: h
+[2026-03-11T22:24:01.388Z] Fetching: https://dueto.io
+[2026-03-11T22:24:12.691Z] Network idle timeout — continuing with current state
+[2026-03-11T22:24:12.734Z] Redirected: https://dueto.io -> https://www.dueto.io/
+[2026-03-11T22:24:12.759Z] Saved HTML (812237 bytes) to page.html
+[2026-03-11T22:24:12.762Z] Extracted 8 unique links from page
+[2026-03-11T22:24:12.763Z] Saved 8 links to links.json
+[2026-03-11T22:24:12.766Z] Extracted footer HTML (6136 chars)
+[2026-03-11T22:24:12.766Z] Extracted header HTML (5806 chars)
+[2026-03-11T22:24:12.771Z] Website (post-redirect): https://www.dueto.io/ → origin: https://www.dueto.io
+[2026-03-11T22:24:12.772Z]   SUBDOMAIN: employer.dueto.io (added to ws)
+[2026-03-11T22:24:12.772Z]   SUBDOMAIN: recruiter.dueto.io (added to ws)
+[2026-03-11T22:24:12.772Z] Website subdomains found: 2
+[2026-03-11T22:24:12.772Z] External links: 2 (of 8 total)
+[2026-03-11T22:24:12.772Z] ── All external links ──
+[2026-03-11T22:24:12.772Z]   EXT: https://www.facebook.com/duetoAI
+[2026-03-11T22:24:12.772Z]   EXT: https://www.linkedin.com/company/dueto-io/mycompany/?viewAsMember=true
+[2026-03-11T22:24:12.772Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T22:24:12.772Z]   REGEX: fb <- https://www.facebook.com/duetoAI
+[2026-03-11T22:24:12.772Z]   REGEX: li <- https://www.linkedin.com/company/dueto-io/mycompany/?viewAsMember=true
+[2026-03-11T22:24:12.772Z] Programmatic result: ws:3, fb:1, li:1 | 0 uncategorized
+[2026-03-11T22:24:12.772Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T22:24:12.773Z] Saved AI prompt (5893 chars) to ai_prompt.txt
+[2026-03-11T22:24:12.773Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T22:24:12.792Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T22:24:41.914Z]   AI: First token received, streaming...
+[2026-03-11T22:24:47.162Z] AI response complete: 103 chars in 34.4s
+[2026-03-11T22:24:47.162Z] Saved AI response to ai_response.json
+[2026-03-11T22:24:47.162Z] ── Parsing AI response (2 lines) ──
+[2026-03-11T22:24:47.163Z]   AI LINK: https://www.linkedin.com/company/dueto-io/mycompany/?viewAsMember=true
+[2026-03-11T22:24:47.163Z]   AI LINK: https://www.facebook.com/duetoAI
+[2026-03-11T22:24:47.163Z] AI returned 2 valid links
+[2026-03-11T22:24:47.163Z] ── Categorizing 2 AI-returned links ──
+[2026-03-11T22:24:47.163Z]   AI→REGEX: li <- https://www.linkedin.com/company/dueto-io/mycompany/?viewAsMember=true (duplicate, skipped)
+[2026-03-11T22:24:47.163Z]   AI→REGEX: fb <- https://www.facebook.com/duetoAI (duplicate, skipped)
+[2026-03-11T22:24:47.163Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T22:24:47.163Z] Footer/header origins (5):
+[2026-03-11T22:24:47.163Z]   FOOTER/HEADER ORIGIN: https://www.dueto.io
+[2026-03-11T22:24:47.163Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T22:24:47.163Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T22:24:47.163Z]   FOOTER/HEADER ORIGIN: https://employer.dueto.io
+[2026-03-11T22:24:47.163Z]   FOOTER/HEADER ORIGIN: https://recruiter.dueto.io
+[2026-03-11T22:24:47.163Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T22:24:47.164Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-11T22:24:47.164Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-11T22:24:47.164Z] ── Step 3: Final dedup ──
+[2026-03-11T22:24:47.164Z] No urls to dedup
+[2026-03-11T22:24:47.164Z] ── FINAL RESULT ──
+[2026-03-11T22:24:47.164Z]   ws (3):
+[2026-03-11T22:24:47.164Z]     - https://employer.dueto.io
+[2026-03-11T22:24:47.164Z]     - https://recruiter.dueto.io
+[2026-03-11T22:24:47.164Z]     - https://www.dueto.io
+[2026-03-11T22:24:47.164Z]   li (1):
+[2026-03-11T22:24:47.164Z]     - https://www.linkedin.com/company/dueto-io
+[2026-03-11T22:24:47.164Z]   fb (1):
+[2026-03-11T22:24:47.164Z]     - https://www.facebook.com/duetoai
+[2026-03-11T22:24:47.164Z] Summary: ws:3, fb:1, li:1
+[2026-03-11T22:24:47.165Z] Saved final result to result.json
+[2026-03-11T22:24:47.165Z] Override fields: ws, li, fb
+[2026-03-11T22:24:47.165Z] Finished at: 2026-03-11T22:24:47.165Z

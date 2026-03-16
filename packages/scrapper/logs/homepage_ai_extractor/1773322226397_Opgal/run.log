@@ -1,0 +1,77 @@
+[2026-03-12T13:30:26.397Z] === Homepage AI Extractor: Opgal ===
+[2026-03-12T13:30:26.397Z] Started at: 2026-03-12T13:30:26.397Z
+[2026-03-12T13:30:26.397Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773322226397_Opgal
+[2026-03-12T13:30:26.398Z] Company: Opgal
+[2026-03-12T13:30:26.398Z] Website: opgal.com
+[2026-03-12T13:30:26.398Z] cbRank: 970251
+[2026-03-12T13:30:26.398Z] Reasons: h
+[2026-03-12T13:30:26.398Z] Fetching: https://opgal.com
+[2026-03-12T13:30:34.580Z] Redirected: https://opgal.com -> https://www.opgal.com/
+[2026-03-12T13:30:34.588Z] Saved HTML (205603 bytes) to page.html
+[2026-03-12T13:30:34.595Z] Extracted 36 unique links from page
+[2026-03-12T13:30:34.598Z] Saved 36 links to links.json
+[2026-03-12T13:30:34.602Z] Extracted footer HTML (23896 chars)
+[2026-03-12T13:30:34.602Z] Extracted header HTML (13087 chars)
+[2026-03-12T13:30:34.606Z] Website (post-redirect): https://www.opgal.com/ → origin: https://www.opgal.com
+[2026-03-12T13:30:34.606Z]   SUBDOMAIN: www.opgal.com (added to ws)
+[2026-03-12T13:30:34.606Z] Website subdomains found: 1
+[2026-03-12T13:30:34.606Z] External links: 6 (of 36 total)
+[2026-03-12T13:30:34.606Z] ── All external links ──
+[2026-03-12T13:30:34.606Z]   EXT: https://geo-media.co.il/en/home
+[2026-03-12T13:30:34.607Z]   EXT: https://marcelluscoalition.org
+[2026-03-12T13:30:34.607Z]   EXT: https://www.awma.org
+[2026-03-12T13:30:34.607Z]   EXT: https://www.linkedin.com/showcase/eyecgas---optical-gas-imaging-camera
+[2026-03-12T13:30:34.607Z]   EXT: https://www.ptac.org
+[2026-03-12T13:30:34.607Z]   EXT: https://www.youtube.com/@opgaloptronicindustries7098
+[2026-03-12T13:30:34.607Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T13:30:34.607Z]   UNCATEGORIZED: https://geo-media.co.il/en/home
+[2026-03-12T13:30:34.607Z]   UNCATEGORIZED: https://marcelluscoalition.org
+[2026-03-12T13:30:34.607Z]   UNCATEGORIZED: https://www.awma.org
+[2026-03-12T13:30:34.607Z]   REGEX: li <- https://www.linkedin.com/showcase/eyecgas---optical-gas-imaging-camera
+[2026-03-12T13:30:34.607Z]   UNCATEGORIZED: https://www.ptac.org
+[2026-03-12T13:30:34.607Z]   REGEX: ytp <- https://www.youtube.com/@opgaloptronicindustries7098
+[2026-03-12T13:30:34.607Z] Programmatic result: ws:2, li:1, ytp:1 | 4 uncategorized
+[2026-03-12T13:30:34.607Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T13:30:34.608Z] Saved AI prompt (3091 chars) to ai_prompt.txt
+[2026-03-12T13:30:34.609Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T13:30:34.621Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T13:30:44.887Z]   AI: First token received, streaming...
+[2026-03-12T13:30:52.630Z] AI response complete: 124 chars in 18.0s
+[2026-03-12T13:30:52.630Z] Saved AI response to ai_response.json
+[2026-03-12T13:30:52.631Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T13:30:52.631Z]   AI LINK: https://www.linkedin.com/showcase/eyecgas---optical-gas-imaging-camera/
+[2026-03-12T13:30:52.631Z]   AI LINK: https://www.youtube.com/@opgaloptronicindustries7098
+[2026-03-12T13:30:52.631Z] AI returned 2 valid links
+[2026-03-12T13:30:52.631Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T13:30:52.631Z]   AI→REGEX: li <- https://www.linkedin.com/showcase/eyecgas---optical-gas-imaging-camera/ (duplicate, skipped)
+[2026-03-12T13:30:52.631Z]   AI→REGEX: ytp <- https://www.youtube.com/@opgaloptronicindustries7098 (duplicate, skipped)
+[2026-03-12T13:30:52.631Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T13:30:52.631Z] Footer/header origins (5):
+[2026-03-12T13:30:52.631Z]   FOOTER/HEADER ORIGIN: https://www.opgal.com
+[2026-03-12T13:30:52.632Z]   FOOTER/HEADER ORIGIN: https://www.www.opgal.com
+[2026-03-12T13:30:52.632Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T13:30:52.632Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T13:30:52.632Z]   FOOTER/HEADER ORIGIN: https://geo-media.co.il
+[2026-03-12T13:30:52.632Z]   ADDED: urls <- https://geo-media.co.il/en/home
+[2026-03-12T13:30:52.632Z]   SKIP (not in footer/header): https://marcelluscoalition.org
+[2026-03-12T13:30:52.632Z]   SKIP (not in footer/header): https://www.awma.org
+[2026-03-12T13:30:52.632Z]   SKIP (not in footer/header): https://www.ptac.org
+[2026-03-12T13:30:52.632Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T13:30:52.632Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T13:30:52.632Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T13:30:52.632Z] ── Step 3: Final dedup ──
+[2026-03-12T13:30:52.632Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T13:30:52.632Z] ── FINAL RESULT ──
+[2026-03-12T13:30:52.632Z]   ws (2):
+[2026-03-12T13:30:52.632Z]     - https://www.opgal.com
+[2026-03-12T13:30:52.632Z]     - https://www.opgal.com
+[2026-03-12T13:30:52.632Z]   li (1):
+[2026-03-12T13:30:52.632Z]     - https://www.linkedin.com/company/eyecgas---optical-gas-imaging-camera
+[2026-03-12T13:30:52.633Z]   ytp (1):
+[2026-03-12T13:30:52.633Z]     - https://www.youtube.com/@opgaloptronicindustries7098
+[2026-03-12T13:30:52.633Z]   urls (1):
+[2026-03-12T13:30:52.633Z]     - https://geo-media.co.il/en/home
+[2026-03-12T13:30:52.633Z] Summary: ws:2, li:1, ytp:1, urls:1
+[2026-03-12T13:30:52.633Z] Saved final result to result.json
+[2026-03-12T13:30:52.633Z] Override fields: ws, li, ytp, urls
+[2026-03-12T13:30:52.633Z] Finished at: 2026-03-12T13:30:52.633Z

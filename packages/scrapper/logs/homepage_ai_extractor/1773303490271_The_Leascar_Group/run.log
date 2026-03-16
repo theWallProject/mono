@@ -1,0 +1,64 @@
+[2026-03-12T08:18:10.271Z] === Homepage AI Extractor: The Leascar Group ===
+[2026-03-12T08:18:10.271Z] Started at: 2026-03-12T08:18:10.271Z
+[2026-03-12T08:18:10.271Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773303490271_The_Leascar_Group
+[2026-03-12T08:18:10.271Z] Company: The Leascar Group
+[2026-03-12T08:18:10.272Z] Website: leascar.co.il
+[2026-03-12T08:18:10.272Z] cbRank: 861342
+[2026-03-12T08:18:10.272Z] Reasons: h
+[2026-03-12T08:18:10.272Z] Fetching: https://leascar.co.il
+[2026-03-12T08:18:14.123Z] Redirected: https://leascar.co.il -> https://www.leascar.co.il/
+[2026-03-12T08:18:14.129Z] Saved HTML (104277 bytes) to page.html
+[2026-03-12T08:18:14.134Z] Extracted 96 unique links from page
+[2026-03-12T08:18:14.135Z] Saved 96 links to links.json
+[2026-03-12T08:18:14.139Z] Extracted footer HTML (3801 chars)
+[2026-03-12T08:18:14.139Z] Extracted header HTML (5575 chars)
+[2026-03-12T08:18:14.145Z] Website (post-redirect): https://www.leascar.co.il/ → origin: https://www.leascar.co.il
+[2026-03-12T08:18:14.146Z] External links: 3 (of 96 total)
+[2026-03-12T08:18:14.146Z] ── All external links ──
+[2026-03-12T08:18:14.146Z]   EXT: https://www.facebook.com/leascar.experts
+[2026-03-12T08:18:14.146Z]   EXT: https://www.ngsoft.com
+[2026-03-12T08:18:14.146Z]   EXT: https://www.tiktok.com/@leascar1?is_from_webapp=1&sender_device=pc
+[2026-03-12T08:18:14.147Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T08:18:14.147Z]   REGEX: fb <- https://www.facebook.com/leascar.experts
+[2026-03-12T08:18:14.147Z]   UNCATEGORIZED: https://www.ngsoft.com
+[2026-03-12T08:18:14.147Z]   REGEX: tt <- https://www.tiktok.com/@leascar1?is_from_webapp=1&sender_device=pc
+[2026-03-12T08:18:14.147Z] Programmatic result: ws:1, fb:1, tt:1 | 1 uncategorized
+[2026-03-12T08:18:14.147Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T08:18:14.148Z] Saved AI prompt (4560 chars) to ai_prompt.txt
+[2026-03-12T08:18:14.148Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T08:18:14.162Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T08:18:37.640Z]   AI: First token received, streaming...
+[2026-03-12T08:18:44.793Z] AI response complete: 111 chars in 30.6s
+[2026-03-12T08:18:44.794Z] Saved AI response to ai_response.json
+[2026-03-12T08:18:44.794Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T08:18:44.794Z]   AI LINK: https://www.facebook.com/leascar.experts
+[2026-03-12T08:18:44.794Z]   AI LINK: https://www.tiktok.com/@leascar1?is_from_webapp=1&amp;sender_device=pc
+[2026-03-12T08:18:44.794Z] AI returned 2 valid links
+[2026-03-12T08:18:44.794Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T08:18:44.794Z]   AI→REGEX: fb <- https://www.facebook.com/leascar.experts (duplicate, skipped)
+[2026-03-12T08:18:44.795Z]   AI→SKIP (regex domain, no match): https://www.tiktok.com/@leascar1?is_from_webapp=1&amp;sender_device=pc
+[2026-03-12T08:18:44.796Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T08:18:44.796Z] Footer/header origins (4):
+[2026-03-12T08:18:44.796Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T08:18:44.796Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-12T08:18:44.796Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-12T08:18:44.796Z]   FOOTER/HEADER ORIGIN: https://www.ngsoft.com
+[2026-03-12T08:18:44.796Z]   ADDED: urls <- https://www.ngsoft.com
+[2026-03-12T08:18:44.796Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T08:18:44.796Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T08:18:44.796Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T08:18:44.797Z] ── Step 3: Final dedup ──
+[2026-03-12T08:18:44.797Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-12T08:18:44.797Z] ── FINAL RESULT ──
+[2026-03-12T08:18:44.797Z]   ws (1):
+[2026-03-12T08:18:44.797Z]     - https://www.leascar.co.il
+[2026-03-12T08:18:44.797Z]   fb (1):
+[2026-03-12T08:18:44.797Z]     - https://www.facebook.com/leascar.experts
+[2026-03-12T08:18:44.797Z]   tt (1):
+[2026-03-12T08:18:44.797Z]     - https://www.tiktok.com/@leascar1
+[2026-03-12T08:18:44.797Z]   urls (1):
+[2026-03-12T08:18:44.797Z]     - https://www.ngsoft.com
+[2026-03-12T08:18:44.797Z] Summary: ws:1, fb:1, tt:1, urls:1
+[2026-03-12T08:18:44.798Z] Saved final result to result.json
+[2026-03-12T08:18:44.798Z] Override fields: ws, fb, tt, urls
+[2026-03-12T08:18:44.798Z] Finished at: 2026-03-12T08:18:44.798Z

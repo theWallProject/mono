@@ -1,0 +1,62 @@
+[2026-03-13T05:19:31.123Z] === Homepage AI Extractor: BroutonLab ===
+[2026-03-13T05:19:31.123Z] Started at: 2026-03-13T05:19:31.123Z
+[2026-03-13T05:19:31.123Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773379171122_BroutonLab
+[2026-03-13T05:19:31.123Z] Company: BroutonLab
+[2026-03-13T05:19:31.123Z] Website: broutonlab.com
+[2026-03-13T05:19:31.123Z] cbRank: 1002862
+[2026-03-13T05:19:31.123Z] Reasons: h
+[2026-03-13T05:19:31.123Z] Fetching: https://broutonlab.com
+[2026-03-13T05:19:33.488Z] Redirected: https://broutonlab.com -> https://broutonlab.com/
+[2026-03-13T05:19:33.492Z] Saved HTML (40748 bytes) to page.html
+[2026-03-13T05:19:33.494Z] Extracted 34 unique links from page
+[2026-03-13T05:19:33.495Z] Saved 34 links to links.json
+[2026-03-13T05:19:33.498Z] Extracted footer HTML (6615 chars)
+[2026-03-13T05:19:33.498Z] Extracted header HTML (3059 chars)
+[2026-03-13T05:19:33.502Z] Website (post-redirect): https://broutonlab.com/ → origin: https://broutonlab.com
+[2026-03-13T05:19:33.502Z] External links: 2 (of 34 total)
+[2026-03-13T05:19:33.502Z] ── All external links ──
+[2026-03-13T05:19:33.502Z]   EXT: https://clutch.co/profile/broutonlab#highlights
+[2026-03-13T05:19:33.503Z]   EXT: https://www.linkedin.com/company/broutonlab
+[2026-03-13T05:19:33.503Z] ── Step 1: Programmatic categorization ──
+[2026-03-13T05:19:33.503Z]   UNCATEGORIZED: https://clutch.co/profile/broutonlab#highlights
+[2026-03-13T05:19:33.503Z]   REGEX: li <- https://www.linkedin.com/company/broutonlab
+[2026-03-13T05:19:33.503Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-13T05:19:33.503Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-13T05:19:33.504Z] Saved AI prompt (6490 chars) to ai_prompt.txt
+[2026-03-13T05:19:33.504Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-13T05:19:33.523Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-13T05:19:58.911Z]   AI: First token received, streaming...
+[2026-03-13T05:20:06.032Z] AI response complete: 120 chars in 32.5s
+[2026-03-13T05:20:06.033Z] Saved AI response to ai_response.json
+[2026-03-13T05:20:06.033Z] ── Parsing AI response (3 lines) ──
+[2026-03-13T05:20:06.033Z]   AI LINK: https://clutch.co/profile/broutonlab#highlights
+[2026-03-13T05:20:06.033Z]   AI LINK: https://www.linkedin.com/company/broutonlab
+[2026-03-13T05:20:06.033Z]   AI LINK: https://broutonlab.com/blog/
+[2026-03-13T05:20:06.033Z] AI returned 3 valid links
+[2026-03-13T05:20:06.033Z] ── Categorizing 3 AI-returned links ──
+[2026-03-13T05:20:06.034Z]   AI→URLS: https://clutch.co/profile/broutonlab (cleaned from https://clutch.co/profile/broutonlab#highlights)
+[2026-03-13T05:20:06.034Z]   AI→REGEX: li <- https://www.linkedin.com/company/broutonlab (duplicate, skipped)
+[2026-03-13T05:20:06.034Z]   AI→URLS: https://broutonlab.com/blog (cleaned from https://broutonlab.com/blog/)
+[2026-03-13T05:20:06.035Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-13T05:20:06.035Z] Footer/header origins (3):
+[2026-03-13T05:20:06.035Z]   FOOTER/HEADER ORIGIN: https://broutonlab.com
+[2026-03-13T05:20:06.035Z]   FOOTER/HEADER ORIGIN: https://clutch.co
+[2026-03-13T05:20:06.035Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-13T05:20:06.035Z]   SKIP (AI claimed): https://clutch.co/profile/broutonlab#highlights
+[2026-03-13T05:20:06.035Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-13T05:20:06.035Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-13T05:20:06.035Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-13T05:20:06.035Z] ── Step 3: Final dedup ──
+[2026-03-13T05:20:06.035Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-13T05:20:06.035Z] ── FINAL RESULT ──
+[2026-03-13T05:20:06.035Z]   ws (1):
+[2026-03-13T05:20:06.035Z]     - https://broutonlab.com
+[2026-03-13T05:20:06.035Z]   li (1):
+[2026-03-13T05:20:06.036Z]     - https://www.linkedin.com/company/broutonlab
+[2026-03-13T05:20:06.036Z]   urls (2):
+[2026-03-13T05:20:06.036Z]     - https://broutonlab.com/blog
+[2026-03-13T05:20:06.036Z]     - https://clutch.co/profile/broutonlab
+[2026-03-13T05:20:06.036Z] Summary: ws:1, li:1, urls:2
+[2026-03-13T05:20:06.038Z] Saved final result to result.json
+[2026-03-13T05:20:06.039Z] Override fields: ws, li, urls
+[2026-03-13T05:20:06.039Z] Finished at: 2026-03-13T05:20:06.039Z

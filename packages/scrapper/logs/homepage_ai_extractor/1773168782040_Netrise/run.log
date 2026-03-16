@@ -1,0 +1,67 @@
+[2026-03-10T18:53:02.040Z] === Homepage AI Extractor: Netrise ===
+[2026-03-10T18:53:02.040Z] Started at: 2026-03-10T18:53:02.040Z
+[2026-03-10T18:53:02.040Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773168782040_Netrise
+[2026-03-10T18:53:02.040Z] Company: Netrise
+[2026-03-10T18:53:02.040Z] Website: netrise.co.il
+[2026-03-10T18:53:02.040Z] cbRank: 499805
+[2026-03-10T18:53:02.040Z] Reasons: h
+[2026-03-10T18:53:02.041Z] Fetching: https://netrise.co.il
+[2026-03-10T18:53:12.874Z] Network idle timeout — continuing with current state
+[2026-03-10T18:53:12.921Z] Redirected: https://netrise.co.il -> https://netrise.co.il/
+[2026-03-10T18:53:12.928Z] Saved HTML (166430 bytes) to page.html
+[2026-03-10T18:53:12.932Z] Extracted 22 unique links from page
+[2026-03-10T18:53:12.932Z] Saved 22 links to links.json
+[2026-03-10T18:53:12.936Z] Extracted footer HTML (29722 chars)
+[2026-03-10T18:53:12.936Z] Extracted header HTML (2828 chars)
+[2026-03-10T18:53:12.941Z] Website (post-redirect): https://netrise.co.il/ → origin: https://netrise.co.il
+[2026-03-10T18:53:12.942Z] External links: 4 (of 22 total)
+[2026-03-10T18:53:12.942Z] ── All external links ──
+[2026-03-10T18:53:12.942Z]   EXT: https://wa.me/972527983357
+[2026-03-10T18:53:12.942Z]   EXT: https://www.facebook.com/Netrise
+[2026-03-10T18:53:12.942Z]   EXT: https://www.instagram.com/life_at_netrise/#all-netrise
+[2026-03-10T18:53:12.942Z]   EXT: https://www.linkedin.com/company/netriseweb/?originalSubdomain=il
+[2026-03-10T18:53:12.942Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T18:53:12.942Z]   UNCATEGORIZED: https://wa.me/972527983357
+[2026-03-10T18:53:12.943Z]   REGEX: fb <- https://www.facebook.com/Netrise
+[2026-03-10T18:53:12.943Z]   REGEX: ig <- https://www.instagram.com/life_at_netrise/#all-netrise
+[2026-03-10T18:53:12.943Z]   REGEX: li <- https://www.linkedin.com/company/netriseweb/?originalSubdomain=il
+[2026-03-10T18:53:12.943Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 1 uncategorized
+[2026-03-10T18:53:12.943Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T18:53:12.945Z] Saved AI prompt (9208 chars) to ai_prompt.txt
+[2026-03-10T18:53:12.945Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T18:53:12.965Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T18:53:51.494Z]   AI: First token received, streaming...
+[2026-03-10T18:54:00.794Z] AI response complete: 154 chars in 47.8s
+[2026-03-10T18:54:00.797Z] Saved AI response to ai_response.json
+[2026-03-10T18:54:00.797Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T18:54:00.797Z]   AI LINK: https://www.facebook.com/Netrise/
+[2026-03-10T18:54:00.797Z]   AI LINK: https://www.instagram.com/life_at_netrise/#all-netrise
+[2026-03-10T18:54:00.797Z]   AI LINK: https://www.linkedin.com/company/netriseweb/?originalSubdomain=il
+[2026-03-10T18:54:00.797Z] AI returned 3 valid links
+[2026-03-10T18:54:00.797Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T18:54:00.797Z]   AI→REGEX: fb <- https://www.facebook.com/Netrise/ (duplicate, skipped)
+[2026-03-10T18:54:00.798Z]   AI→REGEX: ig <- https://www.instagram.com/life_at_netrise/#all-netrise (duplicate, skipped)
+[2026-03-10T18:54:00.798Z]   AI→REGEX: li <- https://www.linkedin.com/company/netriseweb/?originalSubdomain=il (duplicate, skipped)
+[2026-03-10T18:54:00.798Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T18:54:00.798Z] Footer/header origins (4):
+[2026-03-10T18:54:00.798Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T18:54:00.798Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T18:54:00.798Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T18:54:00.798Z]   FOOTER/HEADER ORIGIN: https://netrise.co.il
+[2026-03-10T18:54:00.798Z]   SKIP (not in footer/header): https://wa.me/972527983357
+[2026-03-10T18:54:00.798Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T18:54:00.799Z] ── Step 3: Final dedup ──
+[2026-03-10T18:54:00.799Z] No urls to dedup
+[2026-03-10T18:54:00.799Z] ── FINAL RESULT ──
+[2026-03-10T18:54:00.799Z]   ws (1):
+[2026-03-10T18:54:00.799Z]     - https://netrise.co.il
+[2026-03-10T18:54:00.799Z]   li (1):
+[2026-03-10T18:54:00.799Z]     - https://www.linkedin.com/company/netriseweb
+[2026-03-10T18:54:00.799Z]   fb (1):
+[2026-03-10T18:54:00.799Z]     - https://www.facebook.com/netrise
+[2026-03-10T18:54:00.799Z]   ig (1):
+[2026-03-10T18:54:00.799Z]     - https://www.instagram.com/life_at_netrise
+[2026-03-10T18:54:00.799Z] Summary: ws:1, fb:1, ig:1, li:1
+[2026-03-10T18:54:00.800Z] Saved final result to result.json
+[2026-03-10T18:54:00.800Z] Override fields: ws, li, fb, ig
+[2026-03-10T18:54:00.800Z] Finished at: 2026-03-10T18:54:00.800Z

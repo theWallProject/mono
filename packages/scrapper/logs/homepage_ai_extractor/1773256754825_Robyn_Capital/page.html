@@ -1,0 +1,1235 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+  <script type="rocketlazyloadscript" id="reCaptchaScript"></script>
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+	<!-- This site is optimized with the Yoast SEO plugin v20.9 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Robyn Capital - The #1 Employee Options Exercise Solution</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CLato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CLato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CLato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" /></noscript>
+<link rel="preload" as="font" href="https://robyncapital.com/wp-content/themes/understrap-child-master/fonts/Spartan-ExtraBold.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://robyncapital.com/wp-content/themes/understrap-child-master/fonts/fontawesome-webfont.woff2?v=4.7.0" crossorigin="">
+	<meta name="description" content="Robyn Capital provides funding solutions for employees to exercise their options without any risk. We work with employees from the world's largest companies.">
+	<link rel="canonical" href="https://robyncapital.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Robyn Capital - The #1 Employee Options Exercise Solution">
+	<meta property="og:description" content="Robyn Capital provides funding solutions for employees to exercise their options without any risk. We work with employees from the world's largest companies.">
+	<meta property="og:url" content="https://robyncapital.com/">
+	<meta property="og:site_name" content="RobynCapital">
+	<meta property="article:modified_time" content="2024-03-27T14:52:04+00:00">
+	<meta property="og:image" content="https://robyncapital.com/wp-content/uploads/2023/06/beige-orange-circle2.svg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Est. reading time">
+	<meta name="twitter:data1" content="14 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://robyncapital.com/","url":"https://robyncapital.com/","name":"Robyn Capital - The #1 Employee Options Exercise Solution","isPartOf":{"@id":"https://robyncapital.com/#website"},"about":{"@id":"https://robyncapital.com/#organization"},"primaryImageOfPage":{"@id":"https://robyncapital.com/#primaryimage"},"image":{"@id":"https://robyncapital.com/#primaryimage"},"thumbnailUrl":"https://robyncapital.com/wp-content/uploads/2023/06/beige-orange-circle2.svg","datePublished":"2020-09-24T04:41:25+00:00","dateModified":"2024-03-27T14:52:04+00:00","description":"Robyn Capital provides funding solutions for employees to exercise their options without any risk. We work with employees from the world's largest companies.","breadcrumb":{"@id":"https://robyncapital.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://robyncapital.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://robyncapital.com/#primaryimage","url":"https://robyncapital.com/wp-content/uploads/2023/06/beige-orange-circle2.svg","contentUrl":"https://robyncapital.com/wp-content/uploads/2023/06/beige-orange-circle2.svg","width":631,"height":631},{"@type":"BreadcrumbList","@id":"https://robyncapital.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://robyncapital.com/#website","url":"https://robyncapital.com/","name":"Robyn Capital","description":"We help employees &amp; founders exercise options and liquidate equity.","publisher":{"@id":"https://robyncapital.com/#organization"},"alternateName":"רובין קפיטל","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://robyncapital.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://robyncapital.com/#organization","name":"Robyn Capital","alternateName":"רובין קפיטל","url":"https://robyncapital.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://robyncapital.com/#/schema/logo/image/","url":"https://robyncapital.com/wp-content/uploads/2020/09/logo.png","contentUrl":"https://robyncapital.com/wp-content/uploads/2020/09/logo.png","width":132,"height":86,"caption":"Robyn Capital"},"image":{"@id":"https://robyncapital.com/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//cdn.enable.co.il">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="RobynCapital » Feed" href="https://robyncapital.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="RobynCapital » Comments Feed" href="https://robyncapital.com/comments/feed/">
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="https://robyncapital.com/wp-includes/css/dist/block-library/style.min.css?ver=6.7.4" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel="stylesheet" id="contact-form-7-css" href="https://robyncapital.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1733769985" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="child-understrap-styles-css" href="https://robyncapital.com/wp-content/cache/min/1/wp-content/themes/understrap-child-master/css/child-theme.min.css?ver=1733769985" type="text/css" media="all">
+<link rel="stylesheet" id="datepicker-styles-css" href="https://robyncapital.com/wp-content/themes/understrap-child-master/css/datepicker.min.css?ver=0.5.5" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-bundle.min-css" href="https://robyncapital.com/wp-content/cache/min/1/wp-content/themes/understrap-child-master/css/swiper-bundle.min.css?ver=1733769985" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="slick-styles-css" href="https://robyncapital.com/wp-content/cache/min/1/wp-content/themes/understrap-child-master/css/slick.css?ver=1733769985" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-css" href="https://robyncapital.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1733769985" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://robyncapital.com/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.17.3" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-css" href="https://robyncapital.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1733769985" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-547-css" href="https://robyncapital.com/wp-content/uploads/elementor/css/post-547.css?ver=1733769983" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="https://robyncapital.com/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min.css?ver=3.13.2" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="https://robyncapital.com/wp-content/uploads/elementor/css/global.css?ver=1733769984" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-21-css" href="https://robyncapital.com/wp-content/uploads/elementor/css/post-21.css?ver=1768497496" type="text/css" media="all">
+
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/cache/min/1/wp-content/themes/understrap-child-master/js/google-tag-manager.js?ver=1707332213" id="google-tag-manager-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://robyncapital.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://robyncapital.com/wp-json/wp/v2/pages/21"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://robyncapital.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.7.4">
+<link rel="shortlink" href="https://robyncapital.com/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://robyncapital.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frobyncapital.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://robyncapital.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frobyncapital.com%2F&amp;format=xml">
+
+		<script type="rocketlazyloadscript">
+		(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:2050254,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
+		<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="RobynCapital - We help employees &amp; founders exercise options and liquidate equity.">
+<meta name="generator" content="Elementor 3.17.3; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+_linkedin_partner_id = "5114897";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=5114897&fmt=gif" />
+</noscript>
+<!-- Meta Pixel Code -->
+<script type="rocketlazyloadscript">
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2336910713341273');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2336910713341273&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-586703805"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-586703805');
+</script>
+
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="https://robyncapital.com/wp-content/uploads/2020/09/RC_Favicon-02.png" sizes="32x32">
+<link rel="icon" href="https://robyncapital.com/wp-content/uploads/2020/09/RC_Favicon-02.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://robyncapital.com/wp-content/uploads/2020/09/RC_Favicon-02.png">
+<meta name="msapplication-TileImage" content="https://robyncapital.com/wp-content/uploads/2020/09/RC_Favicon-02.png">
+		<style type="text/css" id="wp-custom-css">
+			.primary {
+	color: var( --e-global-color-primary );
+}
+.blockquote{
+	position: relative;
+}
+
+.blockquote:before {
+    top: 64px;
+    left: -139px;
+}
+.contact-us-socials a{
+	font-family: 'FontAwesome' !important;
+}
+
+.blockquote h2:before {
+    content: "";
+width: 178px;
+	height: 178px;
+	background: url('/wp-content/uploads/2023/06/123.png');
+	position: absolute;
+	background-size:contain;
+	opacity: 0.1;
+	top: -80px;
+	left: -140px;
+	background-repeat: no-repeat;
+}
+.slogan span {
+    position: relative;
+    background: url(/wp-content/uploads/2023/06/marker-about-us-1.png) no-repeat center 73%;
+    background-size: contain;
+}
+
+.blockquote h2:after {
+    content: "";
+width: 178px;
+	height: 178px;
+	background: url('/wp-content/uploads/2023/06/123.png');
+	position: absolute;
+	background-size:contain;
+	opacity: 0.1;
+	bottom: -60px;
+	right: -80px;
+	transform: rotate(-180deg);
+	background-repeat: no-repeat;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link href="https://cdn.enable.co.il" rel="preconnect"><link href="https://www.google.com" rel="preconnect"></head>
+
+<body class="home page-template page-template-elementor_header_footer page page-id-21 wp-custom-logo wp-embed-responsive elementor-default elementor-template-full-width elementor-kit-547 elementor-page elementor-page-21">
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5RGVPM"
+            height="0" width="0"
+            style="display:none;
+            visibility:hidden">
+    </iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="site " id="page">
+	<!-- ******************* The Navbar Area ******************* -->
+	<div id="wrapper-navbar" itemscope="" itemtype="http://schema.org/WebSite">
+
+		<a class="skip-link sr-only sr-only-focusable" href="#content">Skip to content</a>
+
+		<nav class="navbar navbar-expand-lg navbar-light custom-header-style">
+
+					<div class="container">
+		
+					<!-- Your site title as branding in the menu -->
+					<a href="https://robyncapital.com/" class="navbar-brand custom-logo-link" rel="home" aria-current="page"><img width="132" height="86" src="https://robyncapital.com/wp-content/uploads/2020/09/logo.png" class="img-fluid entered lazyloaded" alt="Logo" decoding="async" data-lazy-src="https://robyncapital.com/wp-content/uploads/2020/09/logo.png" data-ll-status="loaded"><noscript><img width="132" height="86" src="https://robyncapital.com/wp-content/uploads/2020/09/logo.png" class="img-fluid" alt="Logo" decoding="async" /></noscript></a><!-- end custom logo -->
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- The WordPress Menu goes here -->
+				<div id="navbarNavDropdown" class="collapse navbar-collapse navbar-collapse-custom"><ul id="main-menu" class="navbar-nav ml-auto navbar-nav-custom"><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-228" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-228 nav-item"><a title="How It Works" href="#how-it-works" class="nav-link">How It Works</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-299" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-299 nav-item"><a title="Financing" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-299">Financing</a>
+<ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-299" role="menu">
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-298 nav-item"><a title="Options Exercise" href="https://robyncapital.com/options-exercise/" class="dropdown-item">Options Exercise</a></li>
+	<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-297 nav-item"><a title="Liquidity" href="https://robyncapital.com/liquidity/" class="dropdown-item">Liquidity</a></li>
+</ul>
+</li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-203 nav-item"><a title="Blog" href="https://robyncapital.com/blog/" class="nav-link">Blog</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-48" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48 nav-item"><a title="About Us" href="https://robyncapital.com/about-us/" class="nav-link">About Us</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45 nav-item"><a title="FAQ" href="https://robyncapital.com/faq/" class="nav-link">FAQ</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-497" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-497 nav-item"><a title="Contact us" href="https://robyncapital.com/contact-us/" class="nav-link">Contact us</a></li>
+<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46 nav-item"><a title="Request Funding" href="https://robyncapital.com/request-funding/" class="nav-link">Request Funding</a></li>
+</ul></div>						</div><!-- .container -->
+			
+		</nav><!-- .site-navigation -->
+
+	</div><!-- #wrapper-navbar end -->
+		<div data-elementor-type="wp-page" data-elementor-id="21" class="elementor elementor-21">
+							<section class="elementor-element elementor-element-67090494 e-con-full e-flex e-con e-parent" data-id="67090494" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;gradient&quot;}" data-core-v316-plus="true">
+				<div class="elementor-element elementor-element-c75273f elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="c75273f" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.17.0 - 08-11-2023 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img fetchpriority="high" decoding="async" width="631" height="631" src="https://robyncapital.com/wp-content/uploads/2023/06/beige-orange-circle2.svg" class="attachment-large size-large wp-image-658 entered lazyloaded" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/beige-orange-circle2.svg" data-ll-status="loaded"><noscript><img fetchpriority="high" decoding="async" width="631" height="631" src="https://robyncapital.com/wp-content/uploads/2023/06/beige-orange-circle2.svg" class="attachment-large size-large wp-image-658" alt="" /></noscript>															</div>
+				</div>
+		<div class="elementor-element elementor-element-64287bc7 e-flex e-con-boxed e-con e-child" data-id="64287bc7" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-19ea6ffe e-flex e-con-boxed e-con e-child" data-id="19ea6ffe" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-21e7c45 elementor-widget elementor-widget-heading" data-id="21e7c45" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.17.0 - 08-11-2023 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">Make the most of your options or shares​</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2d3faca7 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="2d3faca7" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.17.0 - 08-11-2023 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				The ultimate funding solution to exercise options and liquidate equity.						</div>
+				</div>
+				<div class="elementor-element elementor-element-1c21428f elementor-align-left elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="1c21428f" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="/request-funding/?tab=get-started">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon elementor-align-icon-right">
+				<svg x="0px" y="0px" viewBox="0 0 476.213 476.213" fill="currentColor" xml:space="preserve">                        <polygon points="345.606,107.5 324.394,128.713 418.787,223.107 0,223.107 0,253.107                         418.787,253.107 324.394,347.5 345.606,368.713 476.213,238.106 "></polygon>                    </svg>			</span>
+						<span class="elementor-button-text">Request Funding</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-7013f323 e-flex e-con-boxed e-con e-child" data-id="7013f323" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3fcf65f7 elementor-widget__width-inherit elementor-widget elementor-widget-image" data-id="3fcf65f7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="960" height="541" src="https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image.webp" class="attachment-full size-full wp-image-821 entered lazyloaded" alt="Investor and employee highfive - hero image" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image.webp 960w, https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image-300x169.webp 300w, https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image-768x433.webp 768w" data-lazy-sizes="(max-width: 960px) 100vw, 960px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image.webp" data-ll-status="loaded" sizes="(max-width: 960px) 100vw, 960px" srcset="https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image.webp 960w, https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image-300x169.webp 300w, https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image-768x433.webp 768w"><noscript><img decoding="async" width="960" height="541" src="https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image.webp" class="attachment-full size-full wp-image-821" alt="Investor and employee highfive - hero image" srcset="https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image.webp 960w, https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image-300x169.webp 300w, https://robyncapital.com/wp-content/uploads/2023/06/Investor-and-employee-highfive-hero-image-768x433.webp 768w" sizes="(max-width: 960px) 100vw, 960px" /></noscript>															</div>
+				</div>
+					</div>
+				</div>
+					</div>
+				</div>
+				</section>
+		<section class="elementor-element elementor-element-1263daea e-con-full e-flex e-con e-parent" data-id="1263daea" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}" data-core-v316-plus="true">
+		<div class="elementor-element elementor-element-4473b3e e-flex e-con-boxed e-con e-child" data-id="4473b3e" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-74f4aeb2 elementor-widget elementor-widget-heading" data-id="74f4aeb2" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Our Portfolio</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1d7e82d0 elementor-widget elementor-widget-heading" data-id="1d7e82d0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">We've financed stockholders from these companies</p>		</div>
+				</div>
+		<div class="elementor-element elementor-element-c577ae9 elementor-hidden-tablet elementor-hidden-mobile e-con-full e-flex e-con e-child" data-id="c577ae9" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-41229831 e-con-full e-flex e-con e-child" data-id="41229831" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-1535269a elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="1535269a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.google.com/aclk?sa=l&amp;ai=DChcSEwjP2My6r4CFAxUSq1oFHXGxAUkYABAAGgJ2dQ&amp;ase=2&amp;gclid=CjwKCAjw7-SvBhB6EiwAwYdCAWBYD5WOtkztgPPC2TPh-7g2Xh9lgMZn2DfcH4UMTV0MDwmPzoW7CBoCRvUQAvD_BwE&amp;ei=4Ir5ZYAEpJ6L6A_dvaOYBA&amp;sig=AOD64_0qsWNM1S9PsHi_LHplzFgJ4jGpRA&amp;q&amp;sqi=2&amp;nis=4&amp;adurl&amp;ved=2ahUKEwiA9MG6r4CFAxUkzwIHHd3eCEMQ0Qx6BAgJEAE" target="_blank" rel="nofollow">
+							<img decoding="async" width="1200" height="375" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20375'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1151" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585.webp 1200w, https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585-300x94.webp 300w, https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585-1024x320.webp 1024w, https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585-768x240.webp 768w" data-lazy-sizes="(max-width: 1200px) 100vw, 1200px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585.webp"><noscript><img decoding="async" width="1200" height="375" src="https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585.webp" class="attachment-full size-full wp-image-1151" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585.webp 1200w, https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585-300x94.webp 300w, https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585-1024x320.webp 1024w, https://robyncapital.com/wp-content/uploads/2024/03/appsflyer-e1710851609585-768x240.webp 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-6e62e32f elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="6e62e32f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://claroty.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="1222" height="234" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201222%20234'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1160" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/claroty.png 1222w, https://robyncapital.com/wp-content/uploads/2024/03/claroty-300x57.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/claroty-1024x196.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/claroty-768x147.png 768w" data-lazy-sizes="(max-width: 1222px) 100vw, 1222px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/claroty.png"><noscript><img decoding="async" width="1222" height="234" src="https://robyncapital.com/wp-content/uploads/2024/03/claroty.png" class="attachment-full size-full wp-image-1160" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/claroty.png 1222w, https://robyncapital.com/wp-content/uploads/2024/03/claroty-300x57.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/claroty-1024x196.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/claroty-768x147.png 768w" sizes="(max-width: 1222px) 100vw, 1222px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-684eefaa elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="684eefaa" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.catonetworks.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="300" height="125" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20125'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1166" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/cato-networks-logo-99061E34A5-seeklogo.com_.png"><noscript><img decoding="async" width="300" height="125" src="https://robyncapital.com/wp-content/uploads/2024/03/cato-networks-logo-99061E34A5-seeklogo.com_.png" class="attachment-full size-full wp-image-1166" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-76b41dad elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="76b41dad" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://vastdata.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="992" height="249" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20992%20249'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1164" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/vast-logo.png 992w, https://robyncapital.com/wp-content/uploads/2024/03/vast-logo-300x75.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/vast-logo-768x193.png 768w" data-lazy-sizes="(max-width: 992px) 100vw, 992px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/vast-logo.png"><noscript><img decoding="async" width="992" height="249" src="https://robyncapital.com/wp-content/uploads/2024/03/vast-logo.png" class="attachment-full size-full wp-image-1164" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/vast-logo.png 992w, https://robyncapital.com/wp-content/uploads/2024/03/vast-logo-300x75.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/vast-logo-768x193.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-28876364 e-con-full e-flex e-con e-child" data-id="28876364" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-5b0fc84c elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="5b0fc84c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.placer.ai/" target="_blank" rel="nofollow">
+							<img decoding="async" width="264" height="80" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20264%2080'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1156" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/placer.png"><noscript><img decoding="async" width="264" height="80" src="https://robyncapital.com/wp-content/uploads/2024/03/placer.png" class="attachment-full size-full wp-image-1156" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-15915b53 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="15915b53" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.google.com/aclk?sa=l&amp;ai=DChcSEwibkPDWr4CFAxVOi2gJHSIMAt4YABAAGgJ3Zg&amp;ase=2&amp;gclid=CjwKCAjw7-SvBhB6EiwAwYdCAbp_jez5zmzJyue7wljQz8jEKcCh_SMp1dqh4oM_qssOG8zMiEbqnxoCCb0QAvD_BwE&amp;sig=AOD64_0w53hJxW_m2cOfw2G4fuH2ufVxjA&amp;q&amp;nis=4&amp;adurl&amp;ved=2ahUKEwjF1ufWr4CFAxVx8gIHHUZiD3EQ0Qx6BAgKEAE" target="_blank" rel="nofollow">
+							<img decoding="async" width="3980" height="782" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203980%20782'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1154" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1.png 3980w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-300x59.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-1024x201.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-768x151.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-1536x302.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-2048x402.png 2048w" data-lazy-sizes="(max-width: 3980px) 100vw, 3980px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1.png"><noscript><img decoding="async" width="3980" height="782" src="https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1.png" class="attachment-full size-full wp-image-1154" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1.png 3980w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-300x59.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-1024x201.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-768x151.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-1536x302.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/perimeter-1-2048x402.png 2048w" sizes="(max-width: 3980px) 100vw, 3980px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-47afebdd elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="47afebdd" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.taboola.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="3496" height="1073" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203496%201073'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1171" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/logo-blue.png 3496w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-300x92.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-1024x314.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-768x236.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-1536x471.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-2048x629.png 2048w" data-lazy-sizes="(max-width: 3496px) 100vw, 3496px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/logo-blue.png"><noscript><img decoding="async" width="3496" height="1073" src="https://robyncapital.com/wp-content/uploads/2024/03/logo-blue.png" class="attachment-full size-full wp-image-1171" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/logo-blue.png 3496w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-300x92.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-1024x314.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-768x236.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-1536x471.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/logo-blue-2048x629.png 2048w" sizes="(max-width: 3496px) 100vw, 3496px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-5a3f507b elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="5a3f507b" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.armis.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="256" height="125" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20256%20125'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1170" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/armis-logo-large-e1710853198893.png"><noscript><img decoding="async" width="256" height="125" src="https://robyncapital.com/wp-content/uploads/2024/03/armis-logo-large-e1710853198893.png" class="attachment-full size-full wp-image-1170" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3c718b79 e-con-full e-flex e-con e-child" data-id="3c718b79" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-921b6d elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="921b6d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.google.com/aclk?sa=l&amp;ai=DChcSEwidvKXlr4CFAxVYUUECHelDBQ8YABABGgJ3cw&amp;ase=2&amp;gclid=CjwKCAjw7-SvBhB6EiwAwYdCAeNfUROxUeLfASn6N6jNEYPk4jl5n70TjAyIZ6tsG4-87BVc0Qc0xhoCff0QAvD_BwE&amp;sig=AOD64_0IErOmzAYlIOnME11nkw89rqbgFg&amp;q&amp;nis=4&amp;adurl&amp;ved=2ahUKEwid1J3lr4CFAxV93AIHHfPXAz4Q0Qx6BAgGEAE" target="_blank" rel="nofollow">
+							<img decoding="async" width="2560" height="492" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202560%20492'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1157" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/cloudinary.png 2560w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-300x58.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-1024x197.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-768x148.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-1536x295.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-2048x394.png 2048w" data-lazy-sizes="(max-width: 2560px) 100vw, 2560px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/cloudinary.png"><noscript><img decoding="async" width="2560" height="492" src="https://robyncapital.com/wp-content/uploads/2024/03/cloudinary.png" class="attachment-full size-full wp-image-1157" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/cloudinary.png 2560w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-300x58.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-1024x197.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-768x148.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-1536x295.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/cloudinary-2048x394.png 2048w" sizes="(max-width: 2560px) 100vw, 2560px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-282b55ee elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="282b55ee" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://redis.io/" target="_blank" rel="nofollow">
+							<img decoding="async" width="1200" height="410" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20410'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1189" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg.png 1200w, https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg-300x103.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg-1024x350.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg-768x262.png 768w" data-lazy-sizes="(max-width: 1200px) 100vw, 1200px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg.png"><noscript><img decoding="async" width="1200" height="410" src="https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg.png" class="attachment-full size-full wp-image-1189" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg.png 1200w, https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg-300x103.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg-1024x350.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/Logo-redis.svg-768x262.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-89fa37d elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="89fa37d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.gong.io/" target="_blank" rel="nofollow">
+							<img decoding="async" width="501" height="244" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20501%20244'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1163" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/hibob-1.png 501w, https://robyncapital.com/wp-content/uploads/2024/03/hibob-1-300x146.png 300w" data-lazy-sizes="(max-width: 501px) 100vw, 501px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/hibob-1.png"><noscript><img decoding="async" width="501" height="244" src="https://robyncapital.com/wp-content/uploads/2024/03/hibob-1.png" class="attachment-full size-full wp-image-1163" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/hibob-1.png 501w, https://robyncapital.com/wp-content/uploads/2024/03/hibob-1-300x146.png 300w" sizes="(max-width: 501px) 100vw, 501px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-59aa36fe elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="59aa36fe" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.at-bay.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="7893" height="4501" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%207893%204501'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1158" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/atbay.png 7893w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-300x171.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-1024x584.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-768x438.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-1536x876.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-2048x1168.png 2048w" data-lazy-sizes="(max-width: 7893px) 100vw, 7893px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/atbay.png"><noscript><img decoding="async" width="7893" height="4501" src="https://robyncapital.com/wp-content/uploads/2024/03/atbay.png" class="attachment-full size-full wp-image-1158" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/atbay.png 7893w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-300x171.png 300w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-1024x584.png 1024w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-768x438.png 768w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-1536x876.png 1536w, https://robyncapital.com/wp-content/uploads/2024/03/atbay-2048x1168.png 2048w" sizes="(max-width: 7893px) 100vw, 7893px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-277f05ab elementor-widget elementor-widget-image" data-id="277f05ab" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.valens.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="115" height="49" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20115%2049'%3E%3C/svg%3E" class="attachment-full size-full wp-image-674" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/15.png"><noscript><img decoding="async" width="115" height="49" src="https://robyncapital.com/wp-content/uploads/2023/06/15.png" class="attachment-full size-full wp-image-674" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-4db89cd3 e-con-full e-flex e-con e-child" data-id="4db89cd3" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-19075730 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="19075730" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://transmitsecurity.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="300" height="82" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%2082'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1161" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/Transmit_Security_logo-e1710852377395.png"><noscript><img decoding="async" width="300" height="82" src="https://robyncapital.com/wp-content/uploads/2024/03/Transmit_Security_logo-e1710852377395.png" class="attachment-full size-full wp-image-1161" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-19628f76 elementor-widget elementor-widget-image" data-id="19628f76" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.walkme.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="133" height="44" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20133%2044'%3E%3C/svg%3E" class="attachment-full size-full wp-image-677" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/18.png"><noscript><img decoding="async" width="133" height="44" src="https://robyncapital.com/wp-content/uploads/2023/06/18.png" class="attachment-full size-full wp-image-677" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-24c796d8 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="24c796d8" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.coinbase.com/blog/coinbase-to-acquire-leading-cryptographic-security-company-unbound-security" target="_blank" rel="nofollow">
+							<img decoding="async" width="364" height="120" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20364%20120'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1159" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/unbound-core-for-crypto-asset-security.webp 364w, https://robyncapital.com/wp-content/uploads/2024/03/unbound-core-for-crypto-asset-security-300x99.webp 300w" data-lazy-sizes="(max-width: 364px) 100vw, 364px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/unbound-core-for-crypto-asset-security.webp"><noscript><img decoding="async" width="364" height="120" src="https://robyncapital.com/wp-content/uploads/2024/03/unbound-core-for-crypto-asset-security.webp" class="attachment-full size-full wp-image-1159" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/unbound-core-for-crypto-asset-security.webp 364w, https://robyncapital.com/wp-content/uploads/2024/03/unbound-core-for-crypto-asset-security-300x99.webp 300w" sizes="(max-width: 364px) 100vw, 364px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-4259f4d7 elementor-widget elementor-widget-image" data-id="4259f4d7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.biocatch.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="194" height="39" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20194%2039'%3E%3C/svg%3E" class="attachment-full size-full wp-image-679" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/20.png"><noscript><img decoding="async" width="194" height="39" src="https://robyncapital.com/wp-content/uploads/2023/06/20.png" class="attachment-full size-full wp-image-679" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-683979b3 e-con-full e-flex e-con e-child" data-id="683979b3" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-6165da0 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="6165da0" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://capitolis.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="1972" height="318" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201972%20318'%3E%3C/svg%3E" class="attachment-full size-full wp-image-1162" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01.webp 1972w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-300x48.webp 300w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-1024x165.webp 1024w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-768x124.webp 768w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-1536x248.webp 1536w" data-lazy-sizes="(max-width: 1972px) 100vw, 1972px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01.webp"><noscript><img decoding="async" width="1972" height="318" src="https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01.webp" class="attachment-full size-full wp-image-1162" alt="" srcset="https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01.webp 1972w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-300x48.webp 300w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-1024x165.webp 1024w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-768x124.webp 768w, https://robyncapital.com/wp-content/uploads/2024/03/Capitolis-Logos-August-1-2022-01-1536x248.webp 1536w" sizes="(max-width: 1972px) 100vw, 1972px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-381e4592 elementor-widget elementor-widget-image" data-id="381e4592" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://jfrog.com/press-room/jfrog-to-acquire-vdoo-to-deliver-end-to-end-continuous-security-from-development-to-device/" target="_blank" rel="nofollow">
+							<img decoding="async" width="113" height="37" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20113%2037'%3E%3C/svg%3E" class="attachment-full size-full wp-image-669" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/8.png"><noscript><img decoding="async" width="113" height="37" src="https://robyncapital.com/wp-content/uploads/2023/06/8.png" class="attachment-full size-full wp-image-669" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-6e4e1d58 elementor-widget elementor-widget-image" data-id="6e4e1d58" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.payoneer.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="141" height="50" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20141%2050'%3E%3C/svg%3E" class="attachment-full size-full wp-image-682" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/23.png"><noscript><img decoding="async" width="141" height="50" src="https://robyncapital.com/wp-content/uploads/2023/06/23.png" class="attachment-full size-full wp-image-682" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-191faeb6 elementor-widget elementor-widget-image" data-id="191faeb6" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://bigid.com.ua/" target="_blank" rel="nofollow">
+							<img decoding="async" width="115" height="50" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20115%2050'%3E%3C/svg%3E" class="attachment-full size-full wp-image-684" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/25.png"><noscript><img decoding="async" width="115" height="50" src="https://robyncapital.com/wp-content/uploads/2023/06/25.png" class="attachment-full size-full wp-image-684" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-6bbb6551 elementor-hidden-desktop e-flex e-con-boxed e-con e-child" data-id="6bbb6551" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-c88cd89 e-con-full e-flex e-con e-child" data-id="c88cd89" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-14b9460 elementor-widget elementor-widget-image" data-id="14b9460" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://khealth.ai/" target="_blank" rel="nofollow">
+							<img decoding="async" width="139" height="49" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20139%2049'%3E%3C/svg%3E" class="attachment-full size-full wp-image-660" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/1.png"><noscript><img decoding="async" width="139" height="49" src="https://robyncapital.com/wp-content/uploads/2023/06/1.png" class="attachment-full size-full wp-image-660" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-510e8f15 elementor-widget elementor-widget-image" data-id="510e8f15" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://jfrog.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="69" height="69" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2069%2069'%3E%3C/svg%3E" class="attachment-full size-full wp-image-661" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/2.png"><noscript><img decoding="async" width="69" height="69" src="https://robyncapital.com/wp-content/uploads/2023/06/2.png" class="attachment-full size-full wp-image-661" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-7c604e19 elementor-widget elementor-widget-image" data-id="7c604e19" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.lightricks.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="185" height="59" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20185%2059'%3E%3C/svg%3E" class="attachment-full size-full wp-image-662" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/3.png"><noscript><img decoding="async" width="185" height="59" src="https://robyncapital.com/wp-content/uploads/2023/06/3.png" class="attachment-full size-full wp-image-662" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-4ce50849 e-con-full e-flex e-con e-child" data-id="4ce50849" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-2d2ca809 elementor-widget elementor-widget-image" data-id="2d2ca809" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.rapyd.net/" target="_blank" rel="nofollow">
+							<img decoding="async" width="116" height="57" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20116%2057'%3E%3C/svg%3E" class="attachment-full size-full wp-image-663" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/4.png"><noscript><img decoding="async" width="116" height="57" src="https://robyncapital.com/wp-content/uploads/2023/06/4.png" class="attachment-full size-full wp-image-663" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-537b250f elementor-widget elementor-widget-image" data-id="537b250f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.riskified.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="134" height="60" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20134%2060'%3E%3C/svg%3E" class="attachment-full size-full wp-image-664" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/5.png"><noscript><img decoding="async" width="134" height="60" src="https://robyncapital.com/wp-content/uploads/2023/06/5.png" class="attachment-full size-full wp-image-664" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-62b8b1c3 elementor-widget elementor-widget-image" data-id="62b8b1c3" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://logz.io/" target="_blank" rel="nofollow">
+							<img decoding="async" width="140" height="48" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20140%2048'%3E%3C/svg%3E" class="attachment-full size-full wp-image-665" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/6.png"><noscript><img decoding="async" width="140" height="48" src="https://robyncapital.com/wp-content/uploads/2023/06/6.png" class="attachment-full size-full wp-image-665" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-140ecdd0 e-con-full e-flex e-con e-child" data-id="140ecdd0" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-f458d4e elementor-widget elementor-widget-image" data-id="f458d4e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://monday.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="186" height="34" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20186%2034'%3E%3C/svg%3E" class="attachment-full size-full wp-image-666" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/7.png"><noscript><img decoding="async" width="186" height="34" src="https://robyncapital.com/wp-content/uploads/2023/06/7.png" class="attachment-full size-full wp-image-666" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-35683373 elementor-widget elementor-widget-image" data-id="35683373" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.cybereason.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="113" height="37" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20113%2037'%3E%3C/svg%3E" class="attachment-full size-full wp-image-669" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/8.png"><noscript><img decoding="async" width="113" height="37" src="https://robyncapital.com/wp-content/uploads/2023/06/8.png" class="attachment-full size-full wp-image-669" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-71166156 elementor-widget elementor-widget-image" data-id="71166156" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.taboola.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="118" height="29" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20118%2029'%3E%3C/svg%3E" class="attachment-full size-full wp-image-668" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/9.png"><noscript><img decoding="async" width="118" height="29" src="https://robyncapital.com/wp-content/uploads/2023/06/9.png" class="attachment-full size-full wp-image-668" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-319ecda1 e-con-full e-flex e-con e-child" data-id="319ecda1" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-2ac46c8d elementor-widget elementor-widget-image" data-id="2ac46c8d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.vdoo.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="157" height="28" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20157%2028'%3E%3C/svg%3E" class="attachment-full size-full wp-image-667" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2023/06/10.png 157w, https://robyncapital.com/wp-content/uploads/2023/06/10-150x28.png 150w" data-lazy-sizes="(max-width: 157px) 100vw, 157px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/10.png"><noscript><img decoding="async" width="157" height="28" src="https://robyncapital.com/wp-content/uploads/2023/06/10.png" class="attachment-full size-full wp-image-667" alt="" srcset="https://robyncapital.com/wp-content/uploads/2023/06/10.png 157w, https://robyncapital.com/wp-content/uploads/2023/06/10-150x28.png 150w" sizes="(max-width: 157px) 100vw, 157px" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-74b5119a elementor-widget elementor-widget-image" data-id="74b5119a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://redislabs.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="168" height="42" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20168%2042'%3E%3C/svg%3E" class="attachment-full size-full wp-image-670" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/11.png"><noscript><img decoding="async" width="168" height="42" src="https://robyncapital.com/wp-content/uploads/2023/06/11.png" class="attachment-full size-full wp-image-670" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-47777345 elementor-widget elementor-widget-image" data-id="47777345" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.sisense.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="167" height="42" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20167%2042'%3E%3C/svg%3E" class="attachment-full size-full wp-image-671" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/12.png"><noscript><img decoding="async" width="167" height="42" src="https://robyncapital.com/wp-content/uploads/2023/06/12.png" class="attachment-full size-full wp-image-671" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3257ad29 e-con-full e-flex e-con e-child" data-id="3257ad29" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-e935bec elementor-widget elementor-widget-image" data-id="e935bec" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://fundbox.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="130" height="39" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20130%2039'%3E%3C/svg%3E" class="attachment-full size-full wp-image-672" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/13.png"><noscript><img decoding="async" width="130" height="39" src="https://robyncapital.com/wp-content/uploads/2023/06/13.png" class="attachment-full size-full wp-image-672" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-60f866c elementor-widget elementor-widget-image" data-id="60f866c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://bigid.com.ua/" target="_blank" rel="nofollow">
+							<img decoding="async" width="115" height="50" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20115%2050'%3E%3C/svg%3E" class="attachment-full size-full wp-image-684" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/25.png"><noscript><img decoding="async" width="115" height="50" src="https://robyncapital.com/wp-content/uploads/2023/06/25.png" class="attachment-full size-full wp-image-684" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-1d3f1b73 elementor-widget elementor-widget-image" data-id="1d3f1b73" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.catonetworks.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="84" height="42" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2084%2042'%3E%3C/svg%3E" class="attachment-full size-full wp-image-673" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/14.png"><noscript><img decoding="async" width="84" height="42" src="https://robyncapital.com/wp-content/uploads/2023/06/14.png" class="attachment-full size-full wp-image-673" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-d4a0c92 elementor-widget elementor-widget-image" data-id="d4a0c92" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.valens.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="115" height="49" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20115%2049'%3E%3C/svg%3E" class="attachment-full size-full wp-image-674" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/15.png"><noscript><img decoding="async" width="115" height="49" src="https://robyncapital.com/wp-content/uploads/2023/06/15.png" class="attachment-full size-full wp-image-674" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3797d8c9 e-con-full e-flex e-con e-child" data-id="3797d8c9" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-14243dc4 elementor-widget elementor-widget-image" data-id="14243dc4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.global-e.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="128" height="28" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20128%2028'%3E%3C/svg%3E" class="attachment-full size-full wp-image-675" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/16.png"><noscript><img decoding="async" width="128" height="28" src="https://robyncapital.com/wp-content/uploads/2023/06/16.png" class="attachment-full size-full wp-image-675" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-1bce29aa elementor-widget elementor-widget-image" data-id="1bce29aa" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.gong.io/" target="_blank" rel="nofollow">
+							<img decoding="async" width="100" height="60" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%2060'%3E%3C/svg%3E" class="attachment-full size-full wp-image-676" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/17.png"><noscript><img decoding="async" width="100" height="60" src="https://robyncapital.com/wp-content/uploads/2023/06/17.png" class="attachment-full size-full wp-image-676" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-468c7122 elementor-widget elementor-widget-image" data-id="468c7122" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.walkme.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="133" height="44" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20133%2044'%3E%3C/svg%3E" class="attachment-full size-full wp-image-677" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/18.png"><noscript><img decoding="async" width="133" height="44" src="https://robyncapital.com/wp-content/uploads/2023/06/18.png" class="attachment-full size-full wp-image-677" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1e22143 e-con-full e-flex e-con e-child" data-id="1e22143" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-73569360 elementor-widget elementor-widget-image" data-id="73569360" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://personetics.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="201" height="36" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20201%2036'%3E%3C/svg%3E" class="attachment-full size-full wp-image-678" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/19.png"><noscript><img decoding="async" width="201" height="36" src="https://robyncapital.com/wp-content/uploads/2023/06/19.png" class="attachment-full size-full wp-image-678" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-1cda1fd1 elementor-widget elementor-widget-image" data-id="1cda1fd1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.biocatch.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="194" height="39" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20194%2039'%3E%3C/svg%3E" class="attachment-full size-full wp-image-679" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/20.png"><noscript><img decoding="async" width="194" height="39" src="https://robyncapital.com/wp-content/uploads/2023/06/20.png" class="attachment-full size-full wp-image-679" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-7b891930 elementor-widget elementor-widget-image" data-id="7b891930" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://healthy.io/" target="_blank" rel="nofollow">
+							<img decoding="async" width="202" height="50" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20202%2050'%3E%3C/svg%3E" class="attachment-full size-full wp-image-680" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/21.png"><noscript><img decoding="async" width="202" height="50" src="https://robyncapital.com/wp-content/uploads/2023/06/21.png" class="attachment-full size-full wp-image-680" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-184ada51 e-con-full e-flex e-con e-child" data-id="184ada51" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-3c120e1e elementor-widget elementor-widget-image" data-id="3c120e1e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.guesty.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="145" height="46" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20145%2046'%3E%3C/svg%3E" class="attachment-full size-full wp-image-681" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/22.png"><noscript><img decoding="async" width="145" height="46" src="https://robyncapital.com/wp-content/uploads/2023/06/22.png" class="attachment-full size-full wp-image-681" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-526cd185 elementor-widget elementor-widget-image" data-id="526cd185" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.payoneer.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="141" height="50" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20141%2050'%3E%3C/svg%3E" class="attachment-full size-full wp-image-682" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/23.png"><noscript><img decoding="async" width="141" height="50" src="https://robyncapital.com/wp-content/uploads/2023/06/23.png" class="attachment-full size-full wp-image-682" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-2c554377 elementor-widget elementor-widget-image" data-id="2c554377" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://www.skyboxsecurity.com/" target="_blank" rel="nofollow">
+							<img decoding="async" width="182" height="40" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20182%2040'%3E%3C/svg%3E" class="attachment-full size-full wp-image-683" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/24.png"><noscript><img decoding="async" width="182" height="40" src="https://robyncapital.com/wp-content/uploads/2023/06/24.png" class="attachment-full size-full wp-image-683" alt="" /></noscript>								</a>
+															</div>
+				</div>
+				</div>
+					</div>
+				</div>
+					</div>
+				</div>
+				</section>
+		<section class="elementor-element elementor-element-381dfec5 e-flex e-con-boxed e-con e-parent" data-id="381dfec5" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}" data-core-v316-plus="true">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-30b50b74 e-flex e-con-boxed e-con e-child" data-id="30b50b74" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-2f567e72 e-con-full e-flex e-con e-child" data-id="2f567e72" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-479cdd83 elementor-widget__width-auto elementor-widget elementor-widget-html" data-id="479cdd83" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<svg width="36" height="42" viewBox="0 0 36 42"><defs><style>.a{fill:#3ab54a;}</style></defs>
+                            <path class="a" d="M38.5,8C30.16,8,23,2.388,22.93,2.328a1.5,1.5,0,0,0-1.86,0C20.995,2.388,13.87,8,5.5,8A1.5,1.5,0,
+                            0,0,4,9.5V23c0,10.067,4.065,15,17.385,20.87a1.5,1.5,0,0,0,1.23,0C35.935,38.006,40,33.07,40,23V9.5A1.5,1.5,0,0,0,
+                            38.5,8ZM23.5,30.5V32a1.5,1.5,0,1,1-3,0V30.5a4.5,4.5,0,0,1-3.885-2.251,1.5,1.5,0,1,1,2.58-1.5,1.5,1.5,0,0,0,1.305.75h3a1.5,1.5,
+                            0,0,0,0-3h-3a4.5,4.5,0,0,1,0-9V14a1.5,1.5,0,1,1,3,0v1.5a4.5,4.5,0,0,1,3.885,2.251,1.5,1.5,0,1,1-2.58,1.5A1.5,1.5,0,0,0,23.5,
+                            18.5h-3a1.5,1.5,0,0,0,0,3h3a4.5,4.5,0,0,1,0,9Z" transform="translate(-4 -2.005)"></path>
+                        </svg>		</div>
+				</div>
+				<div class="elementor-element elementor-element-837955f elementor-widget elementor-widget-heading" data-id="837955f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Exercise options,<br><span class="primary">Risk Free</span>
+</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6a505d03 elementor-widget elementor-widget-text-editor" data-id="6a505d03" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							Get the capital you need.<br>
+While maintaining your future upside.						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-9b7c4c8 e-con-full e-flex e-con e-child" data-id="9b7c4c8" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-45fbbef2 elementor-widget__width-auto elementor-widget elementor-widget-html" data-id="45fbbef2" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<svg width="28" height="40" viewBox="0 0 28 40">
+                            <defs><style>.a{fill:#3ab54a;}</style></defs>
+                            <path class="a" d="M103.125,16.03h-18V10.238a6.247,6.247,0,0,1,4.8-6.192,6.124,6.124,0,0,1,7.2,5.992,2,
+                            2,0,0,0,4,0,10.038,10.038,0,0,0-11-9.987,10.375,10.375,0,0,0-9,10.387V16.03h-2a2,2,0,0,0-2,2V38a2.149,2.149,0,
+                            0,0,2,2h24a2,2,0,0,0,2-2V18.028A1.888,1.888,0,0,0,103.125,16.03Zm-10,13.383v2.6a2,2,0,0,1-4,0v-2.6a4.119,4.119,0,
+                            0,1-2-3.4,3.961,3.961,0,0,1,5-3.8,4.5,4.5,0,0,1,3,3A3.888,3.888,0,0,1,93.125,29.413Z" transform="translate(-77.125)"></path></svg>		</div>
+				</div>
+				<div class="elementor-element elementor-element-4c333429 elementor-widget elementor-widget-heading" data-id="4c333429" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Unlock <span class="primary">value</span>,<br>
+without selling equity
+</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-4a144f76 elementor-widget elementor-widget-text-editor" data-id="4a144f76" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							Already exercised your options? Sitting on a pile of equity? Liquidate today without losing your shares.						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+					</div>
+				</section>
+		<section class="elementor-element elementor-element-2ac9cfb0 e-flex e-con-boxed e-con e-parent" data-id="2ac9cfb0" data-element_type="container" id="how-it-works" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;content_width&quot;:&quot;boxed&quot;}" data-core-v316-plus="true">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-7dd4600b elementor-widget elementor-widget-heading" data-id="7dd4600b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">How It Works</h2>		</div>
+				</div>
+		<div class="elementor-element elementor-element-5eaf42b0 e-con-full e-flex e-con e-child" data-id="5eaf42b0" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-79565bc1 e-flex e-con-boxed e-con e-child" data-id="79565bc1" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-567b6775 e-con-full e-flex e-con e-child" data-id="567b6775" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-1303087b e-con-full e-flex e-con e-child" data-id="1303087b" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-21b27bb1 elementor-absolute elementor-widget elementor-widget-heading" data-id="21b27bb1" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">1</span>		</div>
+				</div>
+				<div class="elementor-element elementor-element-389ca088 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="389ca088" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="234" height="216" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20234%20216'%3E%3C/svg%3E" class="attachment-full size-full wp-image-686" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/step-1.png"><noscript><img decoding="async" width="234" height="216" src="https://robyncapital.com/wp-content/uploads/2023/06/step-1.png" class="attachment-full size-full wp-image-686" alt="" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-2b159e8 e-con-full e-flex e-con e-child" data-id="2b159e8" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-5f0348a3 elementor-widget elementor-widget-heading" data-id="5f0348a3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">Submit your options or equity</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-685faff1 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="685faff1" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="2" height="82" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202%2082'%3E%3C/svg%3E" class="attachment-full size-full wp-image-687" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg"><noscript><img decoding="async" width="2" height="82" src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg" class="attachment-full size-full wp-image-687" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-15bb8070 elementor-widget__width-initial elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="15bb8070" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="324" height="112" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20112'%3E%3C/svg%3E" class="attachment-full size-full wp-image-688" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg"><noscript><img decoding="async" width="324" height="112" src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg" class="attachment-full size-full wp-image-688" alt="" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-782a35b3 e-flex e-con-boxed e-con e-child" data-id="782a35b3" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-39f0c53c e-con-full e-flex e-con e-child" data-id="39f0c53c" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-57717fe1 e-con-full e-flex e-con e-child" data-id="57717fe1" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-6997771d elementor-widget elementor-widget-heading" data-id="6997771d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">100% Transparent offer</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-495b96c0 elementor-widget elementor-widget-text-editor" data-id="495b96c0" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							Receive a definitive financing proposal in 48 hours.						</div>
+				</div>
+				<div class="elementor-element elementor-element-76dce2 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="76dce2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="2" height="82" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202%2082'%3E%3C/svg%3E" class="attachment-full size-full wp-image-687" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg"><noscript><img decoding="async" width="2" height="82" src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg" class="attachment-full size-full wp-image-687" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-53ba6882 elementor-widget__width-initial elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="53ba6882" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="324" height="112" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20112'%3E%3C/svg%3E" class="attachment-full size-full wp-image-688" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg"><noscript><img decoding="async" width="324" height="112" src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg" class="attachment-full size-full wp-image-688" alt="" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-417d09b8 e-con-full e-flex e-con e-child" data-id="417d09b8" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-378ffad3 elementor-absolute elementor-widget elementor-widget-heading" data-id="378ffad3" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">2</span>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3d45cc3c elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="3d45cc3c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="233" height="226" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20233%20226'%3E%3C/svg%3E" class="attachment-full size-full wp-image-689" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/step-2.png"><noscript><img decoding="async" width="233" height="226" src="https://robyncapital.com/wp-content/uploads/2023/06/step-2.png" class="attachment-full size-full wp-image-689" alt="" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-3965a97f e-flex e-con-boxed e-con e-child" data-id="3965a97f" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-d37d661 e-con-full e-flex e-con e-child" data-id="d37d661" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-33ce8a0e e-con-full e-flex e-con e-child" data-id="33ce8a0e" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-6af545e8 elementor-absolute elementor-widget elementor-widget-heading" data-id="6af545e8" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">3</span>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2a3c764a elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="2a3c764a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="238" height="216" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20238%20216'%3E%3C/svg%3E" class="attachment-full size-full wp-image-690" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/step-3.png"><noscript><img decoding="async" width="238" height="216" src="https://robyncapital.com/wp-content/uploads/2023/06/step-3.png" class="attachment-full size-full wp-image-690" alt="" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-265e96ff e-con-full e-flex e-con e-child" data-id="265e96ff" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-59e0e541 elementor-widget elementor-widget-heading" data-id="59e0e541" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">Get cash now</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1f30591f elementor-widget elementor-widget-text-editor" data-id="1f30591f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							No personal liability. Our financing is entirely secured by the stock you own.						</div>
+				</div>
+				<div class="elementor-element elementor-element-72a2376c elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="72a2376c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="2" height="82" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202%2082'%3E%3C/svg%3E" class="attachment-full size-full wp-image-687" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg"><noscript><img decoding="async" width="2" height="82" src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg" class="attachment-full size-full wp-image-687" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-602ec231 elementor-widget__width-initial elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="602ec231" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="324" height="112" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20112'%3E%3C/svg%3E" class="attachment-full size-full wp-image-688" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg"><noscript><img decoding="async" width="324" height="112" src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg" class="attachment-full size-full wp-image-688" alt="" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-e4af6ed e-flex e-con-boxed e-con e-child" data-id="e4af6ed" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-3087ddb9 e-con-full e-flex e-con e-child" data-id="3087ddb9" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-7fe1b7d6 e-con-full e-flex e-con e-child" data-id="7fe1b7d6" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-70473db6 elementor-widget elementor-widget-heading" data-id="70473db6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">Keep your shares</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3a86837a elementor-widget elementor-widget-text-editor" data-id="3a86837a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							You earned this. We take all the risk.						</div>
+				</div>
+				<div class="elementor-element elementor-element-75fc0bbe elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="75fc0bbe" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="2" height="82" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202%2082'%3E%3C/svg%3E" class="attachment-full size-full wp-image-687" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg"><noscript><img decoding="async" width="2" height="82" src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg" class="attachment-full size-full wp-image-687" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-9da0b15 elementor-widget__width-initial elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="9da0b15" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="324" height="112" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20112'%3E%3C/svg%3E" class="attachment-full size-full wp-image-688" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg"><noscript><img decoding="async" width="324" height="112" src="https://robyncapital.com/wp-content/uploads/2023/06/line.svg" class="attachment-full size-full wp-image-688" alt="" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-70b07dae e-con-full e-flex e-con e-child" data-id="70b07dae" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-19c754ea elementor-absolute elementor-widget elementor-widget-heading" data-id="19c754ea" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">4</span>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2b6d86e9 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="2b6d86e9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="242" height="243" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20242%20243'%3E%3C/svg%3E" class="attachment-full size-full wp-image-691" alt="" data-lazy-srcset="https://robyncapital.com/wp-content/uploads/2023/06/step-4.png 242w, https://robyncapital.com/wp-content/uploads/2023/06/step-4-150x150.png 150w" data-lazy-sizes="(max-width: 242px) 100vw, 242px" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/step-4.png"><noscript><img decoding="async" width="242" height="243" src="https://robyncapital.com/wp-content/uploads/2023/06/step-4.png" class="attachment-full size-full wp-image-691" alt="" srcset="https://robyncapital.com/wp-content/uploads/2023/06/step-4.png 242w, https://robyncapital.com/wp-content/uploads/2023/06/step-4-150x150.png 150w" sizes="(max-width: 242px) 100vw, 242px" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-5fddf747 e-flex e-con-boxed e-con e-child" data-id="5fddf747" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-1ba8597f e-con-full e-flex e-con e-child" data-id="1ba8597f" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-2bb258b8 e-con-full e-flex e-con e-child" data-id="2bb258b8" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-59b837d1 elementor-absolute elementor-widget elementor-widget-heading" data-id="59b837d1" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<span class="elementor-heading-title elementor-size-default">5</span>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2817a604 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="2817a604" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="223" height="218" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20223%20218'%3E%3C/svg%3E" class="attachment-full size-full wp-image-692" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/step-5.png"><noscript><img decoding="async" width="223" height="218" src="https://robyncapital.com/wp-content/uploads/2023/06/step-5.png" class="attachment-full size-full wp-image-692" alt="" /></noscript>															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1115f012 e-con-full e-flex e-con e-child" data-id="1115f012" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-5efbd1b8 elementor-widget elementor-widget-heading" data-id="5efbd1b8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">Get much more cash later</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3513eac3 elementor-widget elementor-widget-text-editor" data-id="3513eac3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							At an IPO or M&amp;A, you receive your upside and we receive our share of the top.
+Never out-of-pocket.						</div>
+				</div>
+				<div class="elementor-element elementor-element-72f009c9 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="72f009c9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="2" height="82" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202%2082'%3E%3C/svg%3E" class="attachment-full size-full wp-image-687" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg"><noscript><img decoding="async" width="2" height="82" src="https://robyncapital.com/wp-content/uploads/2023/06/dot-line-1.svg" class="attachment-full size-full wp-image-687" alt="" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+					</div>
+				</section>
+		<div class="elementor-element elementor-element-697ae9eb e-flex e-con-boxed e-con e-parent" data-id="697ae9eb" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;content_width&quot;:&quot;boxed&quot;}" data-core-v316-plus="true">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-212f2008 elementor-testimonial--align-left elementor-testimonial--skin-default elementor-testimonial--layout-image_inline elementor-arrows-yes elementor-pagination-type-bullets elementor-widget elementor-widget-testimonial-carousel" data-id="212f2008" data-element_type="widget" data-settings="{&quot;slides_per_view&quot;:&quot;1&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;show_arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;speed&quot;:500,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;loop&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;space_between_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]}}" data-widget_type="testimonial-carousel.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://robyncapital.com/wp-content/plugins/elementor-pro/assets/css/widget-carousel.min.css">		<div class="elementor-swiper">
+			<div class="elementor-main-swiper swiper">
+				<div class="swiper-wrapper">
+											<div class="swiper-slide">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+								<div data-elementor-type="container" data-elementor-id="747" class="elementor elementor-747">
+							<div class="elementor-element elementor-element-5e1da8b2 e-con-full e-flex e-con e-parent" data-id="5e1da8b2" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}" data-core-v316-plus="true">
+		<div class="elementor-element elementor-element-19838cd5 e-con-full e-flex e-con e-child" data-id="19838cd5" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-61969339 elementor-widget elementor-widget-heading" data-id="61969339" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Pay for...
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-534a9561 elementor-widget elementor-widget-heading" data-id="534a9561" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Your options</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-22e999bb elementor-widget elementor-widget-text-editor" data-id="22e999bb" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>We can tailor our solution to your specific need</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-391a5460 elementor-align-left elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="391a5460" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://robyncapital.com/request-funding/?tab=get-started">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon elementor-align-icon-right">
+				<svg x="0px" y="0px" viewBox="0 0 476.213 476.213" fill="currentColor" xml:space="preserve">                        <polygon points="345.606,107.5 324.394,128.713 418.787,223.107 0,223.107 0,253.107                         418.787,253.107 324.394,347.5 345.606,368.713 476.213,238.106 "></polygon>                    </svg>			</span>
+						<span class="elementor-button-text">Request Funding</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-485736e8 elementor-widget elementor-widget-text-editor" data-id="485736e8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							* All the case studies presented here are real investments by Robyn Capital, anonymized to protect our clients’ privacy.						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-35265f66 e-con-full e-flex e-con e-child" data-id="35265f66" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-2fa038a7 e-con-full e-flex e-con e-child" data-id="2fa038a7" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-4c141604 elementor-widget elementor-widget-heading" data-id="4c141604" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Group Manager  &amp; Automation Leader</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-249f11fa elementor-widget elementor-widget-heading" data-id="249f11fa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Unicorn cyber security company</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-55e6a40c elementor-widget elementor-widget-heading" data-id="55e6a40c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">$10,000</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-15030ae6 elementor-widget elementor-widget-text-editor" data-id="15030ae6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>To exercise her options while keeping 82% of her future upside</p>						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-50867003 elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="50867003" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="122" height="98" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20122%2098'%3E%3C/svg%3E" class="attachment-large size-large wp-image-739" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/slide-1.svg"><noscript><img decoding="async" width="122" height="98" src="https://robyncapital.com/wp-content/uploads/2023/06/slide-1.svg" class="attachment-large size-large wp-image-739" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-72862519 elementor-absolute elementor-widget elementor-widget-image" data-id="72862519" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="312" height="312" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20312%20312'%3E%3C/svg%3E" class="attachment-large size-large wp-image-740" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/bgcircleblu.svg"><noscript><img decoding="async" width="312" height="312" src="https://robyncapital.com/wp-content/uploads/2023/06/bgcircleblu.svg" class="attachment-large size-large wp-image-740" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-3310329c elementor-widget elementor-widget-image" data-id="3310329c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="640" height="261" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20261'%3E%3C/svg%3E" class="attachment-large size-large wp-image-741" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/money-bags-1.svg"><noscript><img decoding="async" width="640" height="261" src="https://robyncapital.com/wp-content/uploads/2023/06/money-bags-1.svg" class="attachment-large size-large wp-image-741" alt="" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+							</div>
+							</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+											</div>
+		</div>
+								</div>
+											<div class="swiper-slide">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+								<div data-elementor-type="container" data-elementor-id="745" class="elementor elementor-745">
+							<div class="elementor-element elementor-element-1693b7e2 e-con-full e-flex e-con e-parent" data-id="1693b7e2" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}" data-core-v316-plus="true">
+		<div class="elementor-element elementor-element-558cf4d e-con-full e-flex e-con e-child" data-id="558cf4d" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-1ef2ed44 elementor-widget elementor-widget-heading" data-id="1ef2ed44" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Pay for...
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-5fcfd847 elementor-widget elementor-widget-heading" data-id="5fcfd847" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Your house</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2b0eefd2 elementor-widget elementor-widget-text-editor" data-id="2b0eefd2" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>We can tailor our solution to your specific need</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-acfa0a0 elementor-align-left elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="acfa0a0" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://robyncapital.com/request-funding/?tab=get-started">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon elementor-align-icon-right">
+				<svg x="0px" y="0px" viewBox="0 0 476.213 476.213" fill="currentColor" xml:space="preserve">                        <polygon points="345.606,107.5 324.394,128.713 418.787,223.107 0,223.107 0,253.107                         418.787,253.107 324.394,347.5 345.606,368.713 476.213,238.106 "></polygon>                    </svg>			</span>
+						<span class="elementor-button-text">Request Funding</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-228ec5b6 elementor-widget elementor-widget-text-editor" data-id="228ec5b6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							* All the case studies presented here are real investments by Robyn Capital, anonymized to protect our clients’ privacy.						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-537b6e53 e-con-full e-flex e-con e-child" data-id="537b6e53" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-16baa9c7 e-con-full e-flex e-con e-child" data-id="16baa9c7" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-76c1c8c9 elementor-widget elementor-widget-heading" data-id="76c1c8c9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Data Science Team Lead</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-45d12eee elementor-widget elementor-widget-heading" data-id="45d12eee" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Israeli unicorn in the big data realm</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7823deda elementor-widget elementor-widget-heading" data-id="7823deda" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">$600,000</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6789fdab elementor-widget elementor-widget-text-editor" data-id="6789fdab" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>To buy a new house while keeping the majority of his future upside</p>						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-77bbb2f9 elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="77bbb2f9" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="122" height="98" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20122%2098'%3E%3C/svg%3E" class="attachment-large size-large wp-image-739" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/slide-1.svg"><noscript><img decoding="async" width="122" height="98" src="https://robyncapital.com/wp-content/uploads/2023/06/slide-1.svg" class="attachment-large size-large wp-image-739" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-5eabeda4 elementor-absolute elementor-widget elementor-widget-image" data-id="5eabeda4" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="312" height="312" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20312%20312'%3E%3C/svg%3E" class="attachment-large size-large wp-image-740" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/bgcircleblu.svg"><noscript><img decoding="async" width="312" height="312" src="https://robyncapital.com/wp-content/uploads/2023/06/bgcircleblu.svg" class="attachment-large size-large wp-image-740" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-14f9aba0 elementor-widget elementor-widget-image" data-id="14f9aba0" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="640" height="224" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20224'%3E%3C/svg%3E" class="attachment-large size-large wp-image-744" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/house.svg"><noscript><img decoding="async" width="640" height="224" src="https://robyncapital.com/wp-content/uploads/2023/06/house.svg" class="attachment-large size-large wp-image-744" alt="" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+							</div>
+							</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+											</div>
+		</div>
+								</div>
+											<div class="swiper-slide">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+								<div data-elementor-type="container" data-elementor-id="742" class="elementor elementor-742">
+							<div class="elementor-element elementor-element-2aebf19c e-con-full e-flex e-con e-parent" data-id="2aebf19c" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}" data-core-v316-plus="true">
+		<div class="elementor-element elementor-element-ed4f72e e-con-full e-flex e-con e-child" data-id="ed4f72e" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-32787ed8 elementor-widget elementor-widget-heading" data-id="32787ed8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Pay for...
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7737cc35 elementor-widget elementor-widget-heading" data-id="7737cc35" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Your company</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-41b1817f elementor-widget elementor-widget-text-editor" data-id="41b1817f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>We can tailor our solution to your specific need</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-78ba70c2 elementor-align-left elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="78ba70c2" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://robyncapital.com/request-funding/?tab=get-started">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon elementor-align-icon-right">
+				<svg x="0px" y="0px" viewBox="0 0 476.213 476.213" fill="currentColor" xml:space="preserve">                        <polygon points="345.606,107.5 324.394,128.713 418.787,223.107 0,223.107 0,253.107                         418.787,253.107 324.394,347.5 345.606,368.713 476.213,238.106 "></polygon>                    </svg>			</span>
+						<span class="elementor-button-text">Request Funding</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-3c4f052f elementor-widget elementor-widget-text-editor" data-id="3c4f052f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							* All the case studies presented here are real investments by Robyn Capital, anonymized to protect our clients’ privacy.						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-48fbf131 e-con-full e-flex e-con e-child" data-id="48fbf131" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-4da78751 e-con-full e-flex e-con e-child" data-id="4da78751" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-4f59eb48 elementor-widget elementor-widget-heading" data-id="4f59eb48" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Vice President</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-5827741c elementor-widget elementor-widget-heading" data-id="5827741c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Large Israeli BI company</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-35b22225 elementor-widget elementor-widget-heading" data-id="35b22225" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">$250,000</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-196ebeba elementor-widget elementor-widget-text-editor" data-id="196ebeba" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>To start his own company</p>						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-46adfa6f elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="46adfa6f" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="122" height="98" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20122%2098'%3E%3C/svg%3E" class="attachment-large size-large wp-image-739" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/slide-1.svg"><noscript><img decoding="async" width="122" height="98" src="https://robyncapital.com/wp-content/uploads/2023/06/slide-1.svg" class="attachment-large size-large wp-image-739" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-60dacf37 elementor-absolute elementor-widget elementor-widget-image" data-id="60dacf37" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="312" height="312" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20312%20312'%3E%3C/svg%3E" class="attachment-large size-large wp-image-740" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/bgcircleblu.svg"><noscript><img decoding="async" width="312" height="312" src="https://robyncapital.com/wp-content/uploads/2023/06/bgcircleblu.svg" class="attachment-large size-large wp-image-740" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-5b87e69 elementor-widget elementor-widget-image" data-id="5b87e69" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="640" height="261" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20261'%3E%3C/svg%3E" class="attachment-large size-large wp-image-741" alt="" data-lazy-src="https://robyncapital.com/wp-content/uploads/2023/06/money-bags-1.svg"><noscript><img decoding="async" width="640" height="261" src="https://robyncapital.com/wp-content/uploads/2023/06/money-bags-1.svg" class="attachment-large size-large wp-image-741" alt="" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+							</div>
+							</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+											</div>
+		</div>
+								</div>
+									</div>
+															<div class="swiper-pagination"></div>
+																<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0">
+							<i aria-hidden="true" class="eicon-chevron-left"></i>							<span class="elementor-screen-only">Previous</span>
+						</div>
+						<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0">
+							<i aria-hidden="true" class="eicon-chevron-right"></i>							<span class="elementor-screen-only">Next</span>
+						</div>
+												</div>
+		</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-75416ca0 e-flex e-con-boxed e-con e-parent" data-id="75416ca0" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}" data-core-v316-plus="true">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3970bb0e elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="3970bb0e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">We invest in startup
+employees &amp; founders</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-5fb3de16 elementor-align-left elementor-mobile-align-justify elementor-widget-mobile__width-inherit elementor-widget elementor-widget-button" data-id="5fb3de16" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="/request-funding/?tab=get-started">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon elementor-align-icon-right">
+				<svg x="0px" y="0px" viewBox="0 0 476.213 476.213" fill="currentColor" xml:space="preserve">                        <polygon points="345.606,107.5 324.394,128.713 418.787,223.107 0,223.107 0,253.107                         418.787,253.107 324.394,347.5 345.606,368.713 476.213,238.106 "></polygon>                    </svg>			</span>
+						<span class="elementor-button-text">Request Funding</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+				</div>
+							</div>
+		
+
+
+<div class="wrapper custom-footer-style" id="wrapper-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <footer class="site-footer" id="colophon">
+                    <div class="contact-us-wrapper">
+                        <div class="contact-us-text">
+                            Follow Us
+                        </div>
+                        <div class="contact-us-socials">
+                            <a class="fa fa-facebook-square social-icon" href="https://www.facebook.com/Robyn-Capital-108965337608607" title="Facebook"></a>
+                            <a class="fa fa-linkedin-square social-icon" href="https://www.linkedin.com/company/67140459/admin/" title="Linkedin" target="_blank"></a>
+                        </div>
+                    </div>
+                    <div class="right-wrapper">
+                      <div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="https://robyncapital.com/terms-and-conditions/">Terms and Conditions</a></li>
+<li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-50"><a rel="privacy-policy" href="https://robyncapital.com/privacy-policy/">Privacy Policy</a></li>
+</ul></div>                        <div class="rights">All Rights Reserved, Robyn Capital 2026</div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+    countPosts = Number("14")
+</script>
+<link rel="stylesheet" id="elementor-post-747-css" href="https://robyncapital.com/wp-content/uploads/elementor/css/post-747.css?ver=1733769984" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-745-css" href="https://robyncapital.com/wp-content/uploads/elementor/css/post-745.css?ver=1733769985" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-742-css" href="https://robyncapital.com/wp-content/uploads/elementor/css/post-742.css?ver=1733769985" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1707332213" id="swv-js" defer=""></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/robyncapital.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1707332213" id="contact-form-7-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://cdn.enable.co.il/licenses/enable-L21080vz195yrdob-0723-48083/init.js?ver=1.4.1" id="enable-accessibility-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/robyncapital.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/themes/understrap-child-master/js/child-theme.min.js?ver=0.5.5" id="child-understrap-scripts-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/themes/understrap-child-master/src/js/datePicker/datepicker.min.js?ver=0.5.5" id="date-picker-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/themes/understrap-child-master/src/js/datePicker/datepicker.en.min.js?ver=0.5.5" id="date-picker-en-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/themes/understrap-child-master/src/js/jquery.mask.min.js?ver=0.5.5" id="jquery-mask-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/themes/understrap-child-master/src/js/slick.min.js?ver=0.5.5" id="slick-slider-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/cache/min/1/wp-content/themes/understrap-child-master/src/js/swiper.js?ver=1707332213" id="swiper-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/cache/min/1/wp-content/themes/understrap-child-master/src/js/cookie.js?ver=1707332213" id="cookie-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/cache/min/1/wp-content/themes/understrap-child-master/js/custom.js?ver=1707332213" id="custom-scripts-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6LcaSD4eAAAAAF4Id0bfpwTArPJbjILdrnv27Dmx&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LcaSD4eAAAAAF4Id0bfpwTArPJbjILdrnv27Dmx","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1707332213" id="wpcf7-recaptcha-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.13.2" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.17.3" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.17.3" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-pro-frontend-js-before">
+/* <![CDATA[ */
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/robyncapital.com\/wp-admin\/admin-ajax.php","nonce":"dc540d5b99","urls":{"assets":"https:\/\/robyncapital.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/robyncapital.com\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/robyncapital.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.13.2" id="elementor-pro-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-frontend-js-before">
+/* <![CDATA[ */
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselWrapperAriaLabel":"Carousel | Horizontal scrolling: Arrow Left & Right","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.17.3","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"additional_custom_breakpoints":true,"container":true,"e_swiper_latest":true,"theme_builder_v2":true,"landing-pages":true,"page-transitions":true,"notes":true,"loop":true,"form-submissions":true,"e_scroll_snap":true},"urls":{"assets":"https:\/\/robyncapital.com\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":21,"title":"Robyn%20Capital%20-%20The%20%231%20Employee%20Options%20Exercise%20Solution","excerpt":"","featuredImage":false}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.17.3" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.13.2" id="pro-elements-handlers-js" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js" defer=""></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-includes/js/wp-util.min.js?ver=6.7.4" id="wp-util-js" defer=""></script>
+<script type="text/javascript" id="wpforms-elementor-js-extra">
+/* <![CDATA[ */
+var wpformsElementorVars = {"captcha_provider":"recaptcha","recaptcha_type":"v2"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://robyncapital.com/wp-content/plugins/wpforms-lite/assets/js/integrations/elementor/frontend.min.js?ver=1.7.8" id="wpforms-elementor-js" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://robyncapital.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+
+
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

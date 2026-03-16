@@ -1,0 +1,63 @@
+[2026-03-10T09:40:38.100Z] === Homepage AI Extractor: Dramaton ===
+[2026-03-10T09:40:38.100Z] Started at: 2026-03-10T09:40:38.100Z
+[2026-03-10T09:40:38.100Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773135638100_Dramaton
+[2026-03-10T09:40:38.100Z] Company: Dramaton
+[2026-03-10T09:40:38.100Z] Website: dramaton.com
+[2026-03-10T09:40:38.101Z] cbRank: 456534
+[2026-03-10T09:40:38.101Z] Reasons: h
+[2026-03-10T09:40:38.101Z] Fetching: https://dramaton.com
+[2026-03-10T09:40:41.007Z] Redirected: https://dramaton.com -> https://dramaton.com/
+[2026-03-10T09:40:41.010Z] Saved HTML (6325 bytes) to page.html
+[2026-03-10T09:40:41.013Z] Extracted 14 unique links from page
+[2026-03-10T09:40:41.014Z] Saved 14 links to links.json
+[2026-03-10T09:40:41.018Z] Extracted footer HTML (1061 chars)
+[2026-03-10T09:40:41.018Z] No header section found in DOM
+[2026-03-10T09:40:41.025Z] Website (post-redirect): https://dramaton.com/ → origin: https://dramaton.com
+[2026-03-10T09:40:41.025Z] External links: 3 (of 14 total)
+[2026-03-10T09:40:41.025Z] ── All external links ──
+[2026-03-10T09:40:41.025Z]   EXT: https://cert.privo.com/#/companies/dramaton
+[2026-03-10T09:40:41.025Z]   EXT: https://www.instagram.com/superslimesimulator
+[2026-03-10T09:40:41.025Z]   EXT: https://www.tiktok.com/@squishymagicapp
+[2026-03-10T09:40:41.025Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T09:40:41.026Z]   UNCATEGORIZED: https://cert.privo.com/#/companies/dramaton
+[2026-03-10T09:40:41.026Z]   REGEX: ig <- https://www.instagram.com/superslimesimulator
+[2026-03-10T09:40:41.026Z]   REGEX: tt <- https://www.tiktok.com/@squishymagicapp
+[2026-03-10T09:40:41.026Z] Programmatic result: ws:1, ig:1, tt:1 | 1 uncategorized
+[2026-03-10T09:40:41.026Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T09:40:41.027Z] Saved AI prompt (2876 chars) to ai_prompt.txt
+[2026-03-10T09:40:41.027Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T09:40:41.045Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T09:40:51.340Z]   AI: First token received, streaming...
+[2026-03-10T09:40:59.184Z] AI response complete: 130 chars in 18.2s
+[2026-03-10T09:40:59.185Z] Saved AI response to ai_response.json
+[2026-03-10T09:40:59.185Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T09:40:59.185Z]   AI LINK: https://www.tiktok.com/@squishymagicapp
+[2026-03-10T09:40:59.186Z]   AI LINK: https://www.instagram.com/superslimesimulator/
+[2026-03-10T09:40:59.186Z]   AI LINK: https://cert.privo.com/#/companies/dramaton
+[2026-03-10T09:40:59.186Z] AI returned 3 valid links
+[2026-03-10T09:40:59.186Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T09:40:59.186Z]   AI→REGEX: tt <- https://www.tiktok.com/@squishymagicapp (duplicate, skipped)
+[2026-03-10T09:40:59.186Z]   AI→REGEX: ig <- https://www.instagram.com/superslimesimulator/ (duplicate, skipped)
+[2026-03-10T09:40:59.186Z]   AI→URLS: https://cert.privo.com (cleaned from https://cert.privo.com/#/companies/dramaton)
+[2026-03-10T09:40:59.186Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T09:40:59.186Z] Footer/header origins (3):
+[2026-03-10T09:40:59.186Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-10T09:40:59.187Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T09:40:59.187Z]   FOOTER/HEADER ORIGIN: https://cert.privo.com
+[2026-03-10T09:40:59.187Z]   SKIP (AI claimed): https://cert.privo.com/#/companies/dramaton
+[2026-03-10T09:40:59.187Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T09:40:59.187Z] ── Step 3: Final dedup ──
+[2026-03-10T09:40:59.187Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T09:40:59.187Z] ── FINAL RESULT ──
+[2026-03-10T09:40:59.187Z]   ws (1):
+[2026-03-10T09:40:59.187Z]     - https://dramaton.com
+[2026-03-10T09:40:59.187Z]   ig (1):
+[2026-03-10T09:40:59.187Z]     - https://www.instagram.com/superslimesimulator
+[2026-03-10T09:40:59.187Z]   tt (1):
+[2026-03-10T09:40:59.187Z]     - https://www.tiktok.com/@squishymagicapp
+[2026-03-10T09:40:59.187Z]   urls (1):
+[2026-03-10T09:40:59.187Z]     - https://cert.privo.com
+[2026-03-10T09:40:59.188Z] Summary: ws:1, ig:1, tt:1, urls:1
+[2026-03-10T09:40:59.188Z] Saved final result to result.json
+[2026-03-10T09:40:59.188Z] Override fields: ws, ig, tt, urls
+[2026-03-10T09:40:59.188Z] Finished at: 2026-03-10T09:40:59.188Z

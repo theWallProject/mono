@@ -1,0 +1,972 @@
+<!DOCTYPE html><html ng-app="myApp" lang="he" ng-controller="appCtrl" class="ng-scope" data-equally-meta="true"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פיתוח אפליקציות, עיצוב UX\UI, בניית אתרים, עיצוב חווית משתמש</title>
+    <meta name="description" content="Yit מתמחה במתן שירותים דיגיטליים מתקדמים בראייה של 360 מעלות, במטרה להבטיח את המענה המדויק עבור הפרויקט שלכם. הצוות שלנו כולל את הטובים בתחומם – כל אחד ואחת מהם ישמחו להעמיד לרשותכם את המומחיות, היצירתיות והניסיון שלהם">
+    <meta name="title" content="פיתוח אפליקציות, עיצוב UX\UI, בניית אתרים, עיצוב חווית משתמש">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yit.co.il/">
+    <meta property="og:title" content="פיתוח אפליקציות, עיצוב UX\UI, בניית אתרים, עיצוב חווית משתמש">
+    <meta property="og:description" content="Yit מתמחה במתן שירותים דיגיטליים מתקדמים בראייה של 360 מעלות, במטרה להבטיח את המענה המדויק עבור הפרויקט שלכם. הצוות שלנו כולל את הטובים בתחומם – כל אחד ואחת מהם ישמחו להעמיד לרשותכם את המומחיות, היצירתיות והניסיון שלהם">
+    <meta property="og:image" content="https://yit.co.il/images/CustomYitLogo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://yit.co.il/">
+    <meta property="twitter:title" content="פיתוח אפליקציות, עיצוב UX\UI, בניית אתרים, עיצוב חווית משתמש">
+    <meta property="twitter:description" content="Yit מתמחה במתן שירותים דיגיטליים מתקדמים בראייה של 360 מעלות, במטרה להבטיח את המענה המדויק עבור הפרויקט שלכם. הצוות שלנו כולל את הטובים בתחומם – כל אחד ואחת מהם ישמחו להעמיד לרשותכם את המומחיות, היצירתיות והניסיון שלהם">
+    <meta property="twitter:image" content="https://yit.co.il/images/CustomYitLogo.png">
+
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-AW-1024944910&amp;cx=c&amp;gtm=4e6390"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-616KWLBG4K&amp;cx=c&amp;gtm=4e6390"></script><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKMva7GIh5eGl3U/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-jTIhI7HJPFGKjRS0um8GXc5TaoePlQfvy9Bkpdfl6RDdGT8t3YYKN63/UT4yLzmg"></script><script src="https://connect.facebook.net/signals/config/842366193020929?v=2.9.278&amp;r=canary&amp;domain=yit.co.il&amp;hme=b0ad3da822578fe2b808f13c29c26424c1eec6df21f897230a1f8d7975c03c8e&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C262%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C249%2C250%2C248%2C61%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C255%2C254%2C277%2C201%2C190%2C191%2C189%2C280%2C272%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-N3XMPZ"></script><script>
+        dataLayer = [];
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-N3XMPZ');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Ads: 382876680 -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-382876680"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-382876680');
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '842366193020929');
+        fbq('track', 'PageView');
+    </script>
+    <!-- End Facebook Pixel Code -->
+    
+    
+    <!-- css bundle -->
+    <!-- ngIf: lang =='heb' --><link ng-if="lang =='heb'" href="/Built/style_rtl.bundle.css?v=0109.2" rel="stylesheet" type="text/css" class="ng-scope"><!-- end ngIf: lang =='heb' -->
+    <!-- ngIf: lang =='eng' -->
+    <link rel="icon" href="../../favicon.ico" type="image/gif" sizes="16x16">
+    <link href="https://fonts.googleapis.com/css?family=Heebo&amp;display=swap" rel="stylesheet">
+
+    <script>
+        var appRoot = '/';
+    </script>
+
+    
+    <link rel="stylesheet" href="/scss/vendors/owlCarousel/2.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="/scss/vendors/owlCarousel/2.3.3/owl.theme.default.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.js"></script>
+    <script src="/scripts/jquery-3.7.1.min.js"></script>
+    <script src="//code.angularjs.org/snapshot/angular-sanitize.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld3AcwpAAAAACIE5lNwCGTDirYAsGncaRk66854"></script>
+<script defer="" id="equallyWidget" src="https://widget.prod.equally.ai/equally-widget.min.js"></script><style>[ea-rm-navmenu]:focus-within,[ea-rm-navmenu]:focus-within *{transition:none !important;transition-duration:0s !important;animation:none !important;animation-duration:0s !important;pointer-events:auto !important}[eq-rm-accordion-body=false] *{display:none !important;visibility:hidden !important}.equally-ai___bright-contrast{color:#000 !important;background-color:#fff !important;border-color:#000 !important}.equally-ai___sr-only{display:block !important;position:absolute !important;left:0px !important;top:0px !important;margin:-1px 0px 0px -1px !important;padding:0px !important;width:1px !important;height:1px !important;font-weight:normal !important;font-size:15px !important;line-height:1px !important;overflow:hidden !important;clip:rect(0px, 0px, 0px, 0px) !important;border:0px !important;outline:0px !important;cursor:text !important;text-transform:capitalize !important;color:#000 !important;background:#fff !important}.equally-ai___tooltip{position:fixed;line-height:1.2;padding:8px 17px;max-width:500px;font-size:13px;border-radius:5px;color:#fff;pointer-events:none;user-select:none;background-color:rgba(0,0,0,.8);z-index:9263494759;font-family:Arial,Helvetica,sans-serif !important;transition:all 0s ease 0s !important}.equally-ai___reverse-contrast{-webkit-filter:filter(1) !important;filter:invert(1) !important}.equally-ai___monochrome-contrast{-webkit-filter:grayscale(100%);filter:grayscale(100%)}[data-eq-contrast-mode=bright] *::before,[data-eq-contrast-mode=bright] *::after{color:#000 !important;border-color:#000 !important}[data-eq-contrast-mode=reverse] *::before,[data-eq-contrast-mode=reverse] *::after{color:#000 !important}.equally-ai___dark-contrast,.equally-ai___dark{background-color:#000 !important;color:#fff !important}button.equally-ai___dark-contrast,[role=button].equally-ai___dark-contrast{outline:1px solid #fff}.equally-ai___high-saturation{filter:saturate(200%) !important}.z-9999{z-index:9999 !important}body.equally-ai___dyslexia *:not(i):not([class^=fa-]):not(.fa):not(.icon):not([class^=icon-]):not([class*=" icon-"]):not(:empty){font-family:"opendyslexic" !important}body.equally-ai___readable-font *:not(i):not([class^=fa-]):not(.fa):not(.icon):not([class^=icon-]):not([class*=" icon-"]):not(:empty){font-family:Arial,Helvetica,sans-serif !important}.equally-ai___apple-switch-label span .equally-ai___apple-switch-unchecked{display:flex;margin:7px;color:#bebebe}.equally-ai___apple-switch-label::before{content:"";position:relative;top:1px;left:1px;width:40px;height:22px;display:block;background:#cbd3df !important;border-radius:12px;transition:background .2s ease}body.equally-ai___navigation-active>:not(#equally-ai___init-button) a:focus,body.equally-ai___navigation-active>:not(#equally-ai___init-button) input:focus,body.equally-ai___navigation-active>:not(#equally-ai___init-button) select:focus,body.equally-ai___navigation-active>:not(#equally-ai___init-button) textarea:focus,body.equally-ai___navigation-active>:not(#equally-ai___init-button) [tabindex]:not([tabindex="-1"]):focus{outline:none}body.equally-ai___navigation-active .equally-ai___navigation:focus{outline:solid 3px var(--equally-focus-color, #1738f5) !important;outline-offset:-3px !important;outline-style:solid !important;box-shadow:inset 0px 0px 0px 4px #fff !important}body.equally-ai___navigation-active :focus[data-equally-inner-focus]{outline-offset:-5px !important}body.equally-ai___navigation-active .equally-ai___navigation-within{outline:none}body.equally-ai___navigation-active .equally-ai___navigation-within:focus-within>*{outline:3px solid var(--equally-focus-color, #1738f5) !important;outline-offset:3px !important;outline-style:inset !important}.equally-ai___menu-focus:focus,.equally-ai___menu-focus:focus.equally-ai___navigation,.equally-ai___frame-focus{outline:solid 3px #1738f5 !important;outline-offset:5px !important;outline-style:inset !important}body.equally-ai___evaluation .equally-ai___mono-contrast{background-color:#000 !important;color:#fff !important;border-color:#000 !important;opacity:0}.equally-ai___smooth-scroll{scroll-behavior:smooth}.equally-open-dropdown{display:var(--equally-display, block) !important;margin:auto !important;opacity:1 !important;visibility:visible !important;max-height:90vh !important;min-height:0 !important;max-width:none !important;bottom:auto !important;left:var(--equally-position-left, initial) !important;right:initial !important;z-index:999999999 !important;clip:initial !important;overflow:visible !important;height:auto !important;-webkit-transform:translateY(0) !important;-moz-transform:translateY(0) !important;-ms-transform:translateY(0) !important;-o-transform:translateY(0) !important;transform:translateY(0) !important;-webkit-transition:transform .001s linear !important;-moz-transition:transform .001s linear !important;-o-transition:transform .001s linear !important;transition:transform .001s linear !important;-webkit-transition-delay:.001s !important;-moz-transition-delay:.001s !important;-o-transition-delay:.001s !important;transition-delay:.001s !important;-o-animation-timing-function:step-end !important;-moz-animation-timing-function:step-end !important;animation-timing-function:step-end !important;-o-animation-iteration-count:1 !important;-ms-animation-iteration-count:1 !important;-moz-animation-iteration-count:1 !important;-webkit-animation-iteration-count:1 !important;animation-iteration-count:1 !important}.equally-open-dropdown>a{visibility:visible !important}.equally-ai___adhd_top_panel{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;margin:auto !important;width:100% !important;pointer-events:none !important;background-color:rgba(0,0,0,.5) !important;z-index:2147483647 !important}.equally-ai___adhd_top_panel_visible{top:0 !important;bottom:auto !important;zoom:1.041 !important}@media only screen and (max-width: 768px){.equally-ai___adhd_top_panel_visible{display:none;visibility:hidden;zoom:initial !important}}.equally-ai___adhd_bottom_panel{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;margin:auto !important;width:100% !important;pointer-events:none !important;background-color:rgba(0,0,0,.5) !important;z-index:2147483647 !important}.equally-ai___adhd_panel_hidden{display:none;visibility:hidden}.equally-ai___adhd_bottom_panel_visible{top:auto !important;bottom:0 !important;zoom:1.041 !important}@media only screen and (max-width: 768px){.equally-ai___adhd_bottom_panel_visible{display:none;visibility:hidden;zoom:initial !important}}#equally-ai___init-button{position:fixed !important;cursor:pointer !important;z-index:9999999999 !important;transform:scale(1) !important;transition:all ease-out 150ms !important;top:auto;left:auto;right:auto;bottom:auto;padding:0 !important;margin:0 !important;box-shadow:none !important;overflow:visible !important;background-image:none !important;border-radius:50% !important;outline:3px solid rgba(0,0,0,0) !important;border:3px solid rgba(0,0,0,0) !important;display:flex !important;justify-content:center !important;align-items:center !important;background-color:var(--equally-action-color);color:var(--equally-fab-icon-color)}#equally-ai___init-button svg{transform:none;transition:none;margin:0;padding:0}#equally-ai___init-button:hover{transform:scale(1.15) !important}#equally-ai___init-button:focus{outline-color:#1738f5 !important;outline-offset:5px !important;outline-style:inset !important}@media only screen and (max-width: 768px){#equally-ai___init-button:focus{outline-color:rgba(0,0,0,0) !important}}#equally-ai___init-button.equally-ai-hidden-icon{display:none !important;visibility:hidden !important}.equally-ai___anchor{width:5rem !important;height:5rem !important;padding:0 !important;margin:0 !important}#equally-ai___activation-anchor-icon{fill:var(--equally-fab-icon-color)}.equally-ai___ok-svg{height:1.5rem;width:1.5rem;border-radius:9999px;position:absolute;fill:var(--equally-fab-check-bg-color) !important;color:var(--equally-fab-check-bg-color) !important;stroke:var(--equally-fab-check-color) !important}.equally-ai___ok-svg rect{fill:var(--equally-fab-check-bg-color) !important}.equally-ai___ok-svg path{stroke:var(--equally-fab-check-color)}#equally-ai___frame{border:none;position:fixed;bottom:25px;width:97%;height:95%;max-width:97vw !important;max-height:95% !important;border-radius:.5rem;box-shadow:2px 10px 20px rgba(0,0,0,.25);z-index:3992616838273;visibility:visible;background-color:rgba(0,0,0,0);vertical-align:unset !important;margin:0 !important;filter:none !important}#equally-ai___frame.exp{height:300px !important}@media only screen and (min-width: 768px){#equally-ai___frame{width:500px}}@media only screen and (max-width: 47em){#equally-ai___frame{right:5px}}@media only screen and (max-width: 600px){#equally-ai___frame.exp{height:297px !important}}#equally-modal-root{z-index:9999}.equally___ai-visibility-visible{visibility:visible !important}.equally___ai-visibility-hidden{visibility:hidden !important}.equally-ai___frame-background{display:none}@media screen and (max-width: 47em){.equally-ai___frame-background{display:block;position:fixed !important;inset:0 !important;bottom:0 !important;z-index:30;width:100%;height:100%;background-color:rgba(0,0,0,.3);backdrop-filter:blur(3px)}}.equally-ai___keyboard-navigation-tooltip{display:none;position:absolute;top:-100%;min-width:70px;text-align:center;white-space:nowrap;left:0;padding:5px 10px;border-radius:7px;color:#fff;font-size:13px;font-weight:400;line-height:1.3;background-color:rgba(0,0,0,.8);z-index:999999999999999;text-transform:uppercase}.equally___ai-top-3{top:.75rem}.equally___ai-bottom-3{bottom:.75rem}.equally___ai-right-2{right:.5rem}.equally___ai-right-3{right:.75rem}.equally___ai-left-3{left:.75rem}.equally___ai-hidden{display:none}.equally___ai-inline{display:inline-block}.equally___ai-right-10{right:1.25rem}@media screen and (max-width: 47em){.equally___ai-right-10{right:initial}}.equally___ai-left-10{left:1.25rem}@media screen and (max-width: 47em){.equally___ai-left-10{left:initial}}@keyframes spin{to{transform:rotate(360deg)}}.equally___ai-spinner{position:absolute;animation:spin 1s linear infinite;fill:var(--equally-fab-icon-color)}body.equally___ai-read-mode{background-color:#f2f3f8;max-width:600px;margin:auto;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#222;line-height:1.5;background-image:none !important}body.equally___ai-read-mode *{box-sizing:border-box;background-image:none !important}body.equally___ai-read-mode p{margin:20px 0;color:#222 !important}body.equally___ai-read-mode h1,body.equally___ai-read-mode h2{font-weight:bold;font-size:22px;margin:20px 0;color:#222 !important}body.equally___ai-read-mode h3,body.equally___ai-read-mode h4,body.equally___ai-read-mode h5,body.equally___ai-read-mode h6{font-size:17px;margin:20px 0;color:#222 !important}body.equally___ai-read-mode ol,body.equally___ai-read-mode ul{padding:0 20px;margin:20px 0}body.equally___ai-read-mode a{color:#146ff8 !important;text-decoration:none;padding:0 !important;background-color:rgba(0,0,0,0) !important;margin:5px 0 !important;display:inline-block !important}body.equally___ai-read-mode span,body.equally___ai-read-mode strong,body.equally___ai-read-mode em{color:#222 !important}.equally-ai___a11y-menu{position:fixed !important;width:100% !important;height:100% !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;transition:all .2s ease-out !important;z-index:-99999 !important;background-color:rgba(0,0,0,0) !important}.equally-ai___a11y-menu:focus-within{background-color:rgba(0,0,0,.3) !important;z-index:99999 !important}.equally-ai___a11y-menu___btn{position:absolute !important;top:24px !important;left:30px !important;width:320px !important;transform:translateY(-300%) !important;transition:transform .2s ease-out !important;background:#fff !important;color:#000a14 !important;padding:13px 25px !important;border:2px solid #000a14 !important;outline:6px solid rgba(74,212,147,.8) !important;border-radius:16px !important;text-decoration:none !important;font-weight:500 !important;font-size:15px !important;line-height:150% !important;gap:15px !important;text-decoration:unset !important}.equally-ai___a11y-menu___btn div{display:flex !important;flex-direction:row !important;justify-content:center !important;align-items:center !important;gap:15px !important}.equally-ai___a11y-menu___btn div span{font-family:"EQ-Nunito Sans",sans-serif !important}.equally-ai___a11y-menu___btn span svg{position:relative !important;top:3px !important;height:24px !important;width:24px !important}.equally-ai___a11y-menu___btn:focus{visibility:visible !important;transform:translateY(0) !important}.equally-ai__custom-focus:focus{outline:3px solid var(--equally-focus-color, #007bff) !important;outline-offset:5px !important;outline-style:inset !important}.equally-ai___underline{text-decoration:underline !important}</style><style></style></head>
+<body class=" yit-home-page heb"><div id="equally-ai___init-access-tool"></div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3XMPZ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Facebook Pixel Code -->
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=842366193020929&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+
+<header sticky="" class="main fixed-top active-yellow">
+    <div class="container wrapper navpadding">
+        <nav class="navbar navbar-toggleable-md justify-content-center align-items-center flex-row">
+            <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span id="burger" class="yit-navbar-toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img class="navbar-brand" src="/images/logo white.png" alt="YIT">
+            </a>
+            <a class="top-contact-btn btn rounded-corners" href="/ContactUs">דברו איתנו</a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link p-0" href="/About">
+                                        מי אנחנו
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link p-0" href="/Expertise">
+                                        המומחיות שלנו
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link p-0" href="/Projects">
+                                        פרוייקטים
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link p-0" href="/Customers">
+                                        הלקוחות שלנו
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link p-0" href="/JoinUs">
+                                        קריירה
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link p-0" href="/Articles">
+                                        בלוג
+                                    </a>
+                                </li>
+
+                    <li class="nav-item cms-item">
+                        <a class="btn rounded-corners transparent cms-button" href="https://tamka-cms.com" target="_blank">
+                            <img src="/images/tamka-logo-white2.png">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn rounded-corners" href="/ContactUs">דברו איתנו</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link p-0" ng-click="switchLang($event)">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+    
+
+<main ng-controller="homeCtrl" class="ng-scope">
+    <section class="container-fluid m-0" id="page-theme-section">
+        <div class="row">
+            <!--<div class="col" style="background-image: url(../../images/homepage/Home--cover2.jpg)">-->
+            <div class="col">
+                <!--<img src="../../images/homepage/Home--cover2.jpg" class="img-fluid">-->
+                <img src="../../images/homepage/Ynet_hero_mobile.jpg" class="img-fluid" alt="">
+                
+                <div data-ride="carousel" class="carousel carousel-fade  h-100" id="carousel-example-captions">
+                    <ol class="carousel-indicators hide ">
+                        <li class="active" data-slide-to="0" data-target="#carousel-example-captions"></li>
+                        <li data-slide-to="1" data-target="#carousel-example-captions" class=""></li>
+                        <li data-slide-to="2" data-target="#carousel-example-captions" class=""></li>
+                    </ol>
+                    <div role="listbox" class="carousel-inner  h-100" aria-label="קרוסלה">
+                        <div class="carousel-item active">
+                            <img src="../../images/homepage/Home-main2.jpg" alt="">
+                        </div>
+                        <div class="carousel-item h-100">
+                            <img src="../../images/homepage/Home-main1.jpg" alt="">
+                        </div>
+                        <div class="carousel-item  h-100">
+                            <img src="../../images/homepage/Home-main4.jpg" alt="">
+                        </div>
+                        <div class="carousel-item  h-100">
+                            <img src="../../images/homepage/Home-main5.jpg" alt="">
+                        </div>
+                        
+                    </div>
+                    <a data-slide="prev" role="button" href="#carousel-example-captions" class="left carousel-control hide">
+                        <span aria-hidden="true" class="icon-prev"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a data-slide="next" role="button" href="#carousel-example-captions" class="right carousel-control hide">
+                        <span aria-hidden="true" class="icon-next"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="inner d-flex align-items-center justify-content-center">
+                    <h1>
+        <span class="dot">.</span>UX\UI<span class="dot">.</span>  WEB<span class="dot">.</span>  MOBILE
+      </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="d-flex justify-content-center" id="services-blocks-section">
+        <div class="our-services d-flex flex-wrap">
+            <!--******-->
+            <!-- ngRepeat: r in redblocks --><a ng-repeat="r in redblocks" href="/Expertise#uiux" class="item d-flex flex-column align-items-center justify-content-center ng-scope">
+                <div class="icons-wrap item d-flex flex-column align-items-center justify-content-center">
+                    <span class="icon-holder">
+                        <img ng-src="../../images/uiux.svg" src="../../images/uiux.svg">
+                    </span>
+                    <div class="service">
+                        <!-- ngIf: lang =='heb' --><span ng-if="lang =='heb'" class="ng-binding ng-scope">עיצוב UI/UX  </span><!-- end ngIf: lang =='heb' -->
+                        <!-- ngIf: lang =='eng' -->
+                    </div>
+                </div>
+            </a><!-- end ngRepeat: r in redblocks --><a ng-repeat="r in redblocks" href="/Expertise#dev" class="item d-flex flex-column align-items-center justify-content-center ng-scope">
+                <div class="icons-wrap item d-flex flex-column align-items-center justify-content-center">
+                    <span class="icon-holder">
+                        <img ng-src="../../images/dev.svg" src="../../images/dev.svg">
+                    </span>
+                    <div class="service">
+                        <!-- ngIf: lang =='heb' --><span ng-if="lang =='heb'" class="ng-binding ng-scope">פיתוח  </span><!-- end ngIf: lang =='heb' -->
+                        <!-- ngIf: lang =='eng' -->
+                    </div>
+                </div>
+            </a><!-- end ngRepeat: r in redblocks --><a ng-repeat="r in redblocks" href="/Expertise#mob" class="item d-flex flex-column align-items-center justify-content-center ng-scope">
+                <div class="icons-wrap item d-flex flex-column align-items-center justify-content-center">
+                    <span class="icon-holder">
+                        <img ng-src="../../images/mobile.svg" src="../../images/mobile.svg">
+                    </span>
+                    <div class="service">
+                        <!-- ngIf: lang =='heb' --><span ng-if="lang =='heb'" class="ng-binding ng-scope">מובייל  </span><!-- end ngIf: lang =='heb' -->
+                        <!-- ngIf: lang =='eng' -->
+                    </div>
+                </div>
+            </a><!-- end ngRepeat: r in redblocks --><a ng-repeat="r in redblocks" href="/Expertise#cms" class="item d-flex flex-column align-items-center justify-content-center ng-scope">
+                <div class="icons-wrap item d-flex flex-column align-items-center justify-content-center">
+                    <span class="icon-holder">
+                        <img ng-src="../../images/cms.svg" src="../../images/cms.svg">
+                    </span>
+                    <div class="service">
+                        <!-- ngIf: lang =='heb' --><span ng-if="lang =='heb'" class="ng-binding ng-scope">CMS  </span><!-- end ngIf: lang =='heb' -->
+                        <!-- ngIf: lang =='eng' -->
+                    </div>
+                </div>
+            </a><!-- end ngRepeat: r in redblocks --><a ng-repeat="r in redblocks" href="/Expertise#infra" class="item d-flex flex-column align-items-center justify-content-center ng-scope">
+                <div class="icons-wrap item d-flex flex-column align-items-center justify-content-center">
+                    <span class="icon-holder">
+                        <img ng-src="../../images/hosting.svg" src="../../images/hosting.svg">
+                    </span>
+                    <div class="service">
+                        <!-- ngIf: lang =='heb' --><span ng-if="lang =='heb'" class="ng-binding ng-scope">תשתיות ואירוח  </span><!-- end ngIf: lang =='heb' -->
+                        <!-- ngIf: lang =='eng' -->
+                    </div>
+                </div>
+            </a><!-- end ngRepeat: r in redblocks --><a ng-repeat="r in redblocks" href="/Expertise#analysis" class="item d-flex flex-column align-items-center justify-content-center ng-scope">
+                <div class="icons-wrap item d-flex flex-column align-items-center justify-content-center">
+                    <span class="icon-holder">
+                        <img ng-src="../../images/analysis.svg" src="../../images/analysis.svg">
+                    </span>
+                    <div class="service">
+                        <!-- ngIf: lang =='heb' --><span ng-if="lang =='heb'" class="ng-binding ng-scope">אנליזה  </span><!-- end ngIf: lang =='heb' -->
+                        <!-- ngIf: lang =='eng' -->
+                    </div>
+                </div>
+            </a><!-- end ngRepeat: r in redblocks -->
+            <!--******-->
+        </div>
+    </section>
+    <section class="container" id="our-story-section">
+        <div class="row justify-content-center">
+            <div class="col-md-10 d-flex flex-column align-items-center">
+
+                <h2 class="title story-title already-visible ng-binding">  ברוכים הבאים </h2>
+                <p class="text-center story-p already-visible ng-binding">
+                    yit מתמחה במתן שירותים דיגיטליים מתקדמים בראייה של 360 מעלות, בניית אתרים, עיצוב אתרים, פיתוח אפליקציות, אפיון ועיצוב חווית משתמש, פיתוח מערכות תוכן מתקדמות, במטרה להבטיח את המענה המדויק עבור הפרויקט שלכם. הצוות שלנו כולל את הטובים בתחומם – כל אחד ואחת מהם ישמחו להעמיד לרשותכם את המומחיות, היצירתיות והניסיון שלהם. שנתחיל?
+                </p>
+                <a href="/Home/About" class="btn rounded-corners ng-binding">  עוד עלינו</a>
+            </div>
+        </div>
+    </section>
+    <section ng-controller="tabsCtrl" class="bg-gray ng-scope" id="tabs-section">
+         <div id="ng_tabs" class="container">
+    <div class="tabs_headlines">
+        <ul class="tabs-sec">
+            <!-- ngRepeat: th in tabheaders --><li ng-repeat="th in tabheaders" data-index="0" iconhandler="" class="ng-scope">
+                <a href="#" ng-click="iconClick(th,$index,$event)">
+                    <img class="tab-icon" ng-src="../../images/tabs/uiux_on.svg" alt="" src="../../images/tabs/uiux_on.svg">
+                    <h5 class="on" style="font-family:Fauna One !important">UI/UX</h5>
+                </a>
+            </li><!-- end ngRepeat: th in tabheaders --><li ng-repeat="th in tabheaders" data-index="1" iconhandler="" class="ng-scope">
+                <a href="#" ng-click="iconClick(th,$index,$event)">
+                    <img class="tab-icon" ng-src="../../images/tabs/dev_off.svg" alt="" src="../../images/tabs/dev_off.svg">
+                    <h5 class="off" style="font-family:">פיתוח</h5>
+                </a>
+            </li><!-- end ngRepeat: th in tabheaders --><li ng-repeat="th in tabheaders" data-index="2" iconhandler="" class="ng-scope">
+                <a href="#" ng-click="iconClick(th,$index,$event)">
+                    <img class="tab-icon" ng-src="../../images/tabs/mob_off.svg" alt="" src="../../images/tabs/mob_off.svg">
+                    <h5 class="off" style="font-family:">מובייל</h5>
+                </a>
+            </li><!-- end ngRepeat: th in tabheaders --><li ng-repeat="th in tabheaders" data-index="3" iconhandler="" class="ng-scope">
+                <a href="#" ng-click="iconClick(th,$index,$event)">
+                    <img class="tab-icon" ng-src="../../images/tabs/cms_off.svg" alt="" src="../../images/tabs/cms_off.svg">
+                    <h5 class="off" style="font-family:Fauna One !important">CMS</h5>
+                </a>
+            </li><!-- end ngRepeat: th in tabheaders --><li ng-repeat="th in tabheaders" data-index="4" iconhandler="" class="ng-scope">
+                <a href="#" ng-click="iconClick(th,$index,$event)">
+                    <img class="tab-icon" ng-src="../../images/tabs/infra_off.svg" alt="" src="../../images/tabs/infra_off.svg">
+                    <h5 class="off" style="font-family:">תשתיות ואירוח</h5>
+                </a>
+            </li><!-- end ngRepeat: th in tabheaders --><li ng-repeat="th in tabheaders" data-index="5" iconhandler="" class="ng-scope">
+                <a href="#" ng-click="iconClick(th,$index,$event)">
+                    <img class="tab-icon" ng-src="../../images/tabs/analysis_off.svg" alt="" src="../../images/tabs/analysis_off.svg">
+                    <h5 class="off" style="font-family:">אנליזה</h5>
+                </a>
+            </li><!-- end ngRepeat: th in tabheaders -->
+        </ul>
+    </div>
+    <div id="line">
+        <div id="dot"></div>
+    </div>
+    <!-- ngRepeat: tab in tabs --><a ng-repeat="tab in tabs" href="/Expertise#uiux" data-index="0" class="tab-show tab-item" tabhandler="">
+        <h5 class="tab-header ng-binding">UI/UX</h5>
+        <div class="details">
+            <h4 class="tab-title Fauna One !important">
+                מעטפת שלמה של חוויות.
+            </h4>
+            <p class="tab-text ng-binding">
+                מומחי הארכיטקטורה שלנו פועלים בצמוד לסטודיו הייעודי וטווים יחד בחוטים של כישרון, מקצוענות ודמיון – כל פרויקט לפי מידותיו ובהתאם לדרישת הלקוח
+            </p>
+            <!-- ngIf: tab.isCms -->
+        </div>
+        
+        <div class="tab-img">
+            <img ng-src="../../images/tabs/pic-tabs-home1.png" class="img-fluid" alt="מסך מחשב נייד מציג דף אינטרנט בעברית עם מגוון כתבות חדשות, כולל גבר בשיחה" src="../../images/tabs/pic-tabs-home1.png">
+        </div>
+
+
+    </a><!-- end ngRepeat: tab in tabs --><a ng-repeat="tab in tabs" href="/Expertise#dev" data-index="1" class="tab-hide tab-item" tabhandler="">
+        <h5 class="tab-header ng-binding">פיתוח</h5>
+        <div class="details">
+            <h4 class="tab-title ">
+                מחוברים לחזית הקדמה הטכנולוגית.
+            </h4>
+            <p class="tab-text ng-binding">
+                צוותי הפיתוח שלנו פועלים יחד כדי להבטיח מימוש מלא של הפוטנציאל המסחרי, הגשמת היעדים ויישום המודל העסקי של המוצר שלכם – כדי שתמיד תהיו צעד אחד לפני כולם.
+            </p>
+            <!-- ngIf: tab.isCms -->
+        </div>
+        
+        <div class="tab-img">
+            <img ng-src="../../images/tabs/pic-tabs-home5.png" class="img-fluid" alt="" src="../../images/tabs/pic-tabs-home5.png">
+        </div>
+
+
+    </a><!-- end ngRepeat: tab in tabs --><a ng-repeat="tab in tabs" href="/Expertise#mob" data-index="2" class="tab-hide tab-item" tabhandler="">
+        <h5 class="tab-header ng-binding">מובייל</h5>
+        <div class="details">
+            <h4 class="tab-title ">
+                חדשנות מחייבת תנועה.
+            </h4>
+            <p class="tab-text ng-binding">
+                אנחנו ממוקדים בפתרונות מובייל חוצי פלטפורמות, כדי שהפרויקט שלכם יגיע בשלמותו לכולם, בכל מכשיר ובכל מקום.
+            </p>
+            <!-- ngIf: tab.isCms -->
+        </div>
+        
+        <div class="tab-img">
+            <img ng-src="../../images/tabs/mobile.png" class="img-fluid" alt="" src="../../images/tabs/mobile.png">
+        </div>
+
+
+    </a><!-- end ngRepeat: tab in tabs --><a ng-repeat="tab in tabs" href="/Expertise#cms" data-index="3" class="tab-hide tab-item" tabhandler="">
+        <h5 class="tab-header ng-binding">CMS</h5>
+        <div class="details">
+            <h4 class="tab-title Fauna One !important">
+                ניהול עם נגיעה אישית.
+            </h4>
+            <p class="tab-text ng-binding">
+                מערכות ניהול התוכן היעילות והמתקדמות ביותר נולדו אצלנו, והן מתופעלות, מתוחזקות ומשתכללות על ידינו כל הזמן.
+            </p>
+            <!-- ngIf: tab.isCms --><div ng-if="tab.isCms" onclick="window.open('https://tamka-cms.com/', '_blank')" class="button ng-binding ng-scope">לצפייה במערכת לחצו כאן</div><!-- end ngIf: tab.isCms -->
+        </div>
+        
+        <div class="tab-img">
+            <img ng-src="../../images/tabs/pic-tabs-home2.png" class="img-fluid" alt="" src="../../images/tabs/pic-tabs-home2.png">
+        </div>
+
+
+    </a><!-- end ngRepeat: tab in tabs --><a ng-repeat="tab in tabs" href="/Expertise#infra" data-index="4" class="tab-hide tab-item" tabhandler="">
+        <h5 class="tab-header ng-binding">תשתיות ואירוח</h5>
+        <div class="details">
+            <h4 class="tab-title ">
+                לפרויקט שלכם יש בית.
+            </h4>
+            <p class="tab-text ng-binding">
+                מרכז המידע המשוכלל שלנו מספק פתרונות תפעול ואבטחה היקפיים, ומאחסן את הפלטפורמות הדיגיטליות המובילות בישראל.
+            </p>
+            <!-- ngIf: tab.isCms -->
+        </div>
+        
+        <div class="tab-img">
+            <img ng-src="../../images/tabs/pic-tabs-home3.png" class="img-fluid" alt="" src="../../images/tabs/pic-tabs-home3.png">
+        </div>
+
+
+    </a><!-- end ngRepeat: tab in tabs --><a ng-repeat="tab in tabs" href="/Expertise#analysis" data-index="5" class="tab-hide tab-item" tabhandler="">
+        <h5 class="tab-header ng-binding">אנליזה</h5>
+        <div class="details">
+            <h4 class="tab-title ">
+                ללמוד זה לצמוח.
+            </h4>
+            <p class="tab-text ng-binding">
+                מחלקת המחקר והפיתוח שלנו מיישמת את הכלים המתקדמים ביותר למדידה וניטור, ומציעה תובנות משמעותיות כדי שהפרויקט שלכם יגיע הכי רחוק שאפשר.
+            </p>
+            <!-- ngIf: tab.isCms -->
+        </div>
+        
+        <div class="tab-img">
+            <img ng-src="../../images/tabs/pic-tabs-home4.png" class="img-fluid" alt="" src="../../images/tabs/pic-tabs-home4.png">
+        </div>
+
+
+    </a><!-- end ngRepeat: tab in tabs -->
+</div>
+    </section>
+    <section class="container" id="latest-projects-section">
+        <div class="row">
+            <div class="col text-center">
+                <h2 class="module pb-4 m-0 ng-binding">
+                    פרויקטים נבחרים
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12 d-flex flex-column justify-content-between">
+                <figure class="figure d-flex flex-column justify-content-between bg-ivrit">
+                    <img src="../../images/homepage/ynet.jpg" class="figure-img img-fluid" alt="">
+                    <figcaption>
+                        <h5 class="title">
+                            <a href="Project?project=ynet">
+                                Ynet
+                            </a>
+                        </h5>
+                        <small class="description">
+                            <a href="/Expertise#uiux">UI/UX</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#dev">Development</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#mob">Mobile</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#cms">CMS</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#infra">Hosting</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#analysis">Analysis</a>
+                        </small>
+                    </figcaption>
+                </figure>
+                <figure class="figure d-flex flex-column justify-content-between bg-calcalist">
+                    <img src="../../images/homepage/alljobs.jpg" class="figure-img img-fluid" alt="">
+                    <figcaption>
+                        <h5 class="title">
+                            <a href="Project?project=alljobs">All Jobs</a>
+                        </h5>
+                        <small class="description">
+                            <a href="/Expertise#infra">Hosting</a>
+                        </small>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6 col-12 d-flex flex-column justify-content-between">
+
+                <figure class="figure d-flex flex-column justify-content-between">
+                    <img src="../../images/expertise/what-we-do-2.jpg" class="figure-img img-fluid" alt="שלושה צילומי מסך חופפים של ממשק דוא&quot;ל מבוסס אינטרנט על רקע כחול בהיר.">
+                    <figcaption class="figcaption-container d-flex justify-content-between">
+                        <div class="headline">
+                            <div class="logo-cms"></div>
+                            <div class="desc ng-binding">מערכת ניהול תוכן מתקדמת</div>
+                        </div>
+                        <a class="button ng-binding" href="https://tamka-cms.com/" target="_blank">לצפייה במערכת לחצו כאן</a>  
+                    </figcaption>
+                </figure>
+
+                <figure class="figure d-flex flex-column justify-content-between">
+                    <img src="../../images/homepage/yedioth.jpg" class="figure-img img-fluid" alt="">
+                    <figcaption>
+                        <h5 class="title">
+                            <a href="Project?project=yedioth" class="ng-binding">
+                                אפליקציית ידיעות אחרונות
+                            </a>
+                        </h5>
+                        <small class="description">
+                            <a href="/Expertise#uiux">UI/UX</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#dev">Development</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#mob">Mobile</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#cms">CMS</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#infra">Hosting</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#analysis">Analysis</a>
+                        </small>
+                    </figcaption>
+                </figure>
+
+                <div class="row">
+                    <div class="col-md-6 col-12 d-flex flex-column justify-content-between figureHalf">
+                        <figure class="figure d-flex flex-column justify-content-between daka90figure" style="height: 600px;">
+                            <img src="../../images/homepage/daka90.jpg" class="figure-img img-fluid daka90img" alt="">
+                            <figcaption>
+                                <h5 class="title">
+                                    <a href="Project?project=daka90">Daka90</a>
+                                </h5>
+                                <small class="description">
+                                    <a href="/Expertise#uiux">UI/UX</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#mob">Mobile</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#analysis">Analysis</a>
+                                </small>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-12 d-flex flex-column justify-content-between figureHalf">
+                        <figure class="figure d-flex flex-column justify-content-between">
+                            <img src="../../images/homepage/calcalist.jpg" class="figure-img img-fluid" alt="">
+                            <figcaption>
+                                <h5 class="title">
+                                    <a href="Project?project=calcalist" class="ng-binding">
+                                        כלכליסט
+                                    </a>
+                                </h5>
+                                <small class="description">
+                                    <a href="/Expertise#uiux">UI/UX</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#dev">Development</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#mob">Mobile</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#cms">CMS</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#infra">Hosting</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#analysis">Analysis</a>
+                                </small>
+                            </figcaption>
+                        </figure>
+                        <figure class="figure d-flex flex-column justify-content-between">
+                            <img src="../../images/homepage/cgi-s.png" class="figure-img img-fluid" alt="">
+                            <figcaption class="front">
+                                <h5 class="title">
+                                    <a href="Project?project=cgi">cgi</a>
+                                </h5>
+                                <small class="description">
+                                    <a href="/Expertise#uiux">UI/UX</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#mob">Mobile</a> &nbsp; | &nbsp;
+                                    <a href="/Expertise#infra">Hosting</a>
+                                </small>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6 col-12 d-flex flex-column justify-content-between">
+                <figure class="figure d-flex flex-column justify-content-between bg-calcalist figure70height">
+                    <img src="../../images/homepage/PPI3.PNG" class="figure-img img-fluid" alt="">
+                    <figcaption>
+                        <h5 class="title">
+                            <a href="Projects/ProjectPPI?project=ppi">STOREEZ</a>
+                        </h5>
+                        <small class="description">
+                            <a href="/Expertise#uiux">UI/UX</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#dev">Development</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#mob">Mobile</a>
+                        </small>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6 col-12 d-flex flex-column justify-content-between">
+                <figure class="figure d-flex flex-column justify-content-between bg-calcalist  figure70height">
+                    <img src="../../images/homepage/chn7_3.PNG" class="figure-img img-fluid" alt="">
+                    <figcaption>
+                        <h5 class="title">
+                            <a href="Project?project=chnSeven" class="ng-binding">ערוץ 7</a>
+                        </h5>
+                        <small class="description">
+                            <a href="/Expertise#uiux">UI/UX</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#dev">Development</a> &nbsp; | &nbsp;
+                            <a href="/Expertise#mob">Mobile</a>
+                        </small>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col text-center pt-1">
+                <a href="Projects" class="btn rounded-corners ng-binding">
+                    כל הפרויקטים
+                </a>
+            </div>
+        </div>
+</section>
+    <section id="testimonials-section">
+        <div class="image-source" style="background-image: url(../../images/homepage/Home-middle.png);">
+            <img src="../../images/homepage/Home-middle.png" class="img-fluid" alt="">
+        </div>
+            <div class="m-cont row">
+                <button class="ma-right">
+                    <img src="../../images/testimonials - arrow right.png" class="img-fluid arrow" alt="">
+                </button>
+                <div class="ma-carousel owl-carousel owl-rtl owl-loaded owl-drag">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                <div class="owl-stage-outer"><div class="owl-stage" style="transition: all; width: 11798px; transform: translate3d(2950px, 0px, 0px);"><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            במסגרת עבודתי כמנהל "עברית" ספרים קבלתי שירותים מ yit  הכוללים תחזוקת אתר מכירות אונליין,
+                            תחזוקת שרתים, תחזוקת אפליקציות אנדרואיד ו- IOS
+                            לאורך תקופה זו זכיתי לטיפול מקצועי, בלתי אמצעי, חשיבה יצירתית ומקורית ויחס תומך וקשוב.
+                            yit היוותה פלטפורמה טכנולוגית לפעילות "עברית" מיומה הראשון ואפשרה במידה
+                            רבה את הפיכתה של "עברית" לחלוצה והגדולה בתחומה בארץ.
+                        </div>
+                        <div class="ma-title">
+                            גיא בן נון – מנהל עברית
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Evrit.png" class="img-fluid" alt="Evrit">
+                        </div>
+                    </div></div><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            תודה לצוות yit היקר – מקצוענות שפוגשת יחס אישי.
+                            פיתוח אתר חדש הפכה לחוויה.
+                            לאורך כל הדרך קיבלנו יחס אישי מכל הגורמים המעורבים והרגשנו תמיד שאנחנו בראש סדר העדיפות.
+                            כל בורג ובורג במכונה המשומנת הזו (yit) העצים את החוויה של פיתוח אתר חדש.
+                        </div>
+                        <div class="ma-title">
+                            הראל מנור – מנהל פרויקטים –שוק סיטוני לישראל בע"מ
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Shuk.png" class="img-fluid" alt="שוק סיטוני לישראל">
+                        </div>
+                    </div></div><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            היה לנו לעונג לעבוד מול צוות yit, שהיו מקצועיים, אדיבים, נעימים ושירותיים, והתגייסו כדי לספק לנו את המוצר הטוב ביותר במהירות, בחוכמה ובגמישות. אין לנו ספק שעוד נעבוד איתם בעתיד.
+                        </div>
+                        <div class="ma-title">
+                            לירון הלברייך - מנהלת קריאטיב וליאת בקייר - יזמות ואסטרטגיה, סלונה
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Saloona.png" class="img-fluid" alt="Saloona">
+                        </div>
+                    </div></div><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            מומחים בהנגשת מידע בצורה קריאטיבית ומקצועית.
+                            שירותיים, ונכונים לאתגרים מורכבים תוך תשומת לב לפרטים הקטנים.
+                        </div>
+                        <div class="ma-title">
+                            מתן עמירה - מנהל דיגיטל - המכון הישראלי לדמוקרטיה
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Democracy.png" class="img-fluid" alt="המכון הישראלי לדמוקרטיה">
+                        </div>
+                    </div></div><div class="owl-item active center" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            התחושה היא שאני חלק ממשפחת yit ותמיד ניתן לי שירות אישי ומענה מיידי לכל בעיה שהיא.
+                            אנשי המקצוע ב yit הם מהבכירים והמנוסים שפגשתי בשוק לאורך השנים.
+                            אני תמיד שמח להעזר בהם לטובת הקמת פרויקטים מורכבים.
+                        </div>
+                        <div class="ma-title">
+                            בוני גרוסמן – סמנכ"ל טכנולוגיות - alljobs
+                        </div>
+                        <div class="ma-img">
+                           <img src="/images/homepage/AllJobs.png" class="img-fluid" alt="alljobs">
+                        </div>
+                    </div></div><div class="owl-item active" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            yit נבחרה לפתח ולארח את אתר הדקה ה -90  בשנת 2011.
+                            החברה עמדה בכל היעדים הללו ובהצלחה רבה תוך השקעת משאבים במערכות מהשורה הראשונה.
+                            טכנולוגיה לא מספיק לדקלם, צריך שיהיה לך DNA.
+                            ב yit יש אשפי מקצוע שה- DNA  שלהם הוא טכנולוגיה.
+                        </div>
+                        <div class="ma-title">
+                            תהל שומרון – CTO  - הדקה ה - 90
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Daka 90.png" class="img-fluid" alt="הדקה ה 90">
+                        </div>
+                    </div></div><div class="owl-item" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            חברת yit הקימה, פיתחה וליוותה את אתר האינטרנט והאפליקציה שלנו.
+                            לאורך כל השנים הללו ליוו את הפרויקט, מהתכנון, לעיצוב, להקמה ולתחזוקה שלאחר מכן.
+                            לאורך כל התקופה החברה הקפידה על איכות עבודה, שירותיות ויצירתיות גבוהה ביותר.
+                            גם בנושא יציבות האתר, תשתיות לא חווינו שום תקלה קריטית בכל השנים הללו.
+                            yit תרמה מאוד להצלחתן של המוצרים הדיגיטליים שלנו ושותפה מלאה לכל פעולותינו בעולם הדיגיטלי.
+                        </div>
+                        <div class="ma-title">
+                            סטיב שומכר – מנכ"ל כלכליסט
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Calcalist.png" class="img-fluid" alt="כלכליסט">
+                        </div>
+                    </div></div><div class="owl-item" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            ברצוני להודות לכל העוסקים במלאכה הן בתחום העיצוב והפיתוח על כל הפלטפורמות והן בתחום התשתיות
+                            על מקצועיות, עמידה בלוח זמנים, שירותיות, יצירתיות ומסירות
+                            גם בתקופת צוק איתן האינטנסיבית האתר המשיך לעבוד באותה רמת שירות טכנולוגית המוכרת והאיכותיות של ynet
+                            תענוג לעבוד עם צוות מנצח כשזה!
+                        </div>
+                        <div class="ma-title">
+                            אבי בן טל – מנכ"ל ynet
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/ynet.png" class="img-fluid" alt="ynet">
+                        </div>
+                    </div></div><div class="owl-item" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            במסגרת עבודתי כמנהל "עברית" ספרים קבלתי שירותים מ yit  הכוללים תחזוקת אתר מכירות אונליין,
+                            תחזוקת שרתים, תחזוקת אפליקציות אנדרואיד ו- IOS
+                            לאורך תקופה זו זכיתי לטיפול מקצועי, בלתי אמצעי, חשיבה יצירתית ומקורית ויחס תומך וקשוב.
+                            yit היוותה פלטפורמה טכנולוגית לפעילות "עברית" מיומה הראשון ואפשרה במידה
+                            רבה את הפיכתה של "עברית" לחלוצה והגדולה בתחומה בארץ.
+                        </div>
+                        <div class="ma-title">
+                            גיא בן נון – מנהל עברית
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Evrit.png" class="img-fluid" alt="Evrit">
+                        </div>
+                    </div></div><div class="owl-item" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            תודה לצוות yit היקר – מקצוענות שפוגשת יחס אישי.
+                            פיתוח אתר חדש הפכה לחוויה.
+                            לאורך כל הדרך קיבלנו יחס אישי מכל הגורמים המעורבים והרגשנו תמיד שאנחנו בראש סדר העדיפות.
+                            כל בורג ובורג במכונה המשומנת הזו (yit) העצים את החוויה של פיתוח אתר חדש.
+                        </div>
+                        <div class="ma-title">
+                            הראל מנור – מנהל פרויקטים –שוק סיטוני לישראל בע"מ
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Shuk.png" class="img-fluid" alt="שוק סיטוני לישראל">
+                        </div>
+                    </div></div><div class="owl-item" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            היה לנו לעונג לעבוד מול צוות yit, שהיו מקצועיים, אדיבים, נעימים ושירותיים, והתגייסו כדי לספק לנו את המוצר הטוב ביותר במהירות, בחוכמה ובגמישות. אין לנו ספק שעוד נעבוד איתם בעתיד.
+                        </div>
+                        <div class="ma-title">
+                            לירון הלברייך - מנהלת קריאטיב וליאת בקייר - יזמות ואסטרטגיה, סלונה
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Saloona.png" class="img-fluid" alt="Saloona">
+                        </div>
+                    </div></div><div class="owl-item" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            מומחים בהנגשת מידע בצורה קריאטיבית ומקצועית.
+                            שירותיים, ונכונים לאתגרים מורכבים תוך תשומת לב לפרטים הקטנים.
+                        </div>
+                        <div class="ma-title">
+                            מתן עמירה - מנהל דיגיטל - המכון הישראלי לדמוקרטיה
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Democracy.png" class="img-fluid" alt="המכון הישראלי לדמוקרטיה">
+                        </div>
+                    </div></div><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            התחושה היא שאני חלק ממשפחת yit ותמיד ניתן לי שירות אישי ומענה מיידי לכל בעיה שהיא.
+                            אנשי המקצוע ב yit הם מהבכירים והמנוסים שפגשתי בשוק לאורך השנים.
+                            אני תמיד שמח להעזר בהם לטובת הקמת פרויקטים מורכבים.
+                        </div>
+                        <div class="ma-title">
+                            בוני גרוסמן – סמנכ"ל טכנולוגיות - alljobs
+                        </div>
+                        <div class="ma-img">
+                           <img src="/images/homepage/AllJobs.png" class="img-fluid" alt="alljobs">
+                        </div>
+                    </div></div><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            yit נבחרה לפתח ולארח את אתר הדקה ה -90  בשנת 2011.
+                            החברה עמדה בכל היעדים הללו ובהצלחה רבה תוך השקעת משאבים במערכות מהשורה הראשונה.
+                            טכנולוגיה לא מספיק לדקלם, צריך שיהיה לך DNA.
+                            ב yit יש אשפי מקצוע שה- DNA  שלהם הוא טכנולוגיה.
+                        </div>
+                        <div class="ma-title">
+                            תהל שומרון – CTO  - הדקה ה - 90
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Daka 90.png" class="img-fluid" alt="הדקה ה 90">
+                        </div>
+                    </div></div><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            חברת yit הקימה, פיתחה וליוותה את אתר האינטרנט והאפליקציה שלנו.
+                            לאורך כל השנים הללו ליוו את הפרויקט, מהתכנון, לעיצוב, להקמה ולתחזוקה שלאחר מכן.
+                            לאורך כל התקופה החברה הקפידה על איכות עבודה, שירותיות ויצירתיות גבוהה ביותר.
+                            גם בנושא יציבות האתר, תשתיות לא חווינו שום תקלה קריטית בכל השנים הללו.
+                            yit תרמה מאוד להצלחתן של המוצרים הדיגיטליים שלנו ושותפה מלאה לכל פעולותינו בעולם הדיגיטלי.
+                        </div>
+                        <div class="ma-title">
+                            סטיב שומכר – מנכ"ל כלכליסט
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/Calcalist.png" class="img-fluid" alt="כלכליסט">
+                        </div>
+                    </div></div><div class="owl-item cloned" style="width: 737.328px;"><div class="ma-item">
+                        <div class="ma-txt">
+                            ברצוני להודות לכל העוסקים במלאכה הן בתחום העיצוב והפיתוח על כל הפלטפורמות והן בתחום התשתיות
+                            על מקצועיות, עמידה בלוח זמנים, שירותיות, יצירתיות ומסירות
+                            גם בתקופת צוק איתן האינטנסיבית האתר המשיך לעבוד באותה רמת שירות טכנולוגית המוכרת והאיכותיות של ynet
+                            תענוג לעבוד עם צוות מנצח כשזה!
+                        </div>
+                        <div class="ma-title">
+                            אבי בן טל – מנכ"ל ynet
+                        </div>
+                        <div class="ma-img">
+                            <img src="/images/homepage/ynet.png" class="img-fluid" alt="ynet">
+                        </div>
+                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+                <button class="ma-left">
+                    <img src="../../images/testimonials - arrow left.png" class="img-fluid arrow" alt="">
+                </button>
+            </div>
+    </section>
+    <section ng-controller="customersCtrl" class="container ng-scope" id="our-clients-section">
+        <div class="row">
+            <div class="col text-center">
+                <h3 class="mb-3 ng-binding">
+                    הלקוחות שלנו
+                </h3>
+            </div>
+        </div>
+        <div class="customers-ctrl" style="overflow-y: hidden; height: 426px;">
+            <!-- ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_1.png" cus="" alt="" src="../../images/customers/Costumers_1.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_2.png" cus="" alt="" src="../../images/customers/Costumers_2.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_3.png" cus="" alt="" src="../../images/customers/Costumers_3.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_4.png" cus="" alt="" src="../../images/customers/Costumers_4.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_5.png" cus="" alt="" src="../../images/customers/Costumers_5.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_6.png" cus="" alt="" src="../../images/customers/Costumers_6.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_7.png" cus="" alt="" src="../../images/customers/Costumers_7.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_8.png" cus="" alt="" src="../../images/customers/Costumers_8.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_9.png" cus="" alt="" src="../../images/customers/Costumers_9.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_10.png" cus="" alt="" src="../../images/customers/Costumers_10.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_11.png" cus="" alt="" src="../../images/customers/Costumers_11.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_12.png" cus="" alt="" src="../../images/customers/Costumers_12.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_13.png" cus="" alt="" src="../../images/customers/Costumers_13.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_14.png" cus="" alt="" src="../../images/customers/Costumers_14.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_15.png" cus="" alt="" src="../../images/customers/Costumers_15.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_16.png" cus="" alt="" src="../../images/customers/Costumers_16.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_17.png" cus="" alt="" src="../../images/customers/Costumers_17.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_18.png" cus="" alt="" src="../../images/customers/Costumers_18.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_19.png" cus="" alt="" src="../../images/customers/Costumers_19.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_20.png" cus="" alt="" src="../../images/customers/Costumers_20.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_21.png" cus="" alt="" src="../../images/customers/Costumers_21.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_22.png" cus="" alt="" src="../../images/customers/Costumers_22.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_23.png" cus="" alt="" src="../../images/customers/Costumers_23.png" style="width: 200px;"><!-- end ngRepeat: c in Customers --><img class="cus-img ng-scope" ng-repeat="c in Customers" ng-src="../../images/customers/Costumers_24.png" cus="" alt="" src="../../images/customers/Costumers_24.png" style="width: 200px;"><!-- end ngRepeat: c in Customers -->
+        </div>
+
+        <div class="row btn-wrapper  ">
+            <div class="col text-center">
+                <a class="btn rounded-corners" href="/Customers">עוד לקוחות</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <section id="contact-form-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xxl-2 col-lg-2">
+                <div class="wrapper h-100 d-lg-flex flex-column">
+                    <span class="h3 ng-binding"> תנו לנו&nbsp;</span>
+                    <span class="h3 ng-binding">  לעבוד על </span>
+                    <span class="h3 ng-binding"> הפרויקט שלכם</span>
+                </div>
+            </div>
+            <div class="col-xxl-6 col-lg-8 d-flex flex-lg-row flex-column justify-content-between">
+                <fieldset>
+                    <div class="form-group" id="emailHelp">
+                        <input type="text" class="form-control input-name" id="" aria-describedby="emailHelp" placeholder="שם" data-holder="שם" aria-label="שם">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control input-email" id="" aria-describedby="emailHelp" placeholder="דואר אלקטרוני" data-holder="דואר אלקטרוני" aria-label="דואר אלקטרוני">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-phone" id="" aria-describedby="emailHelp" placeholder="טלפון" data-holder="טלפון" aria-label="טלפון">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group message-group d-flex justify-content-end">
+                        <textarea class="form-control" id="" placeholder="הודעה" rows="3" aria-label="הודעה"></textarea>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xxl-2 col-lg-2 no-gutters">
+            </div>
+            <div class="col-xxl-4 col-lg-4 no-gutters privacyDiv">
+                <input type="checkbox" id="privacyCheckbox" class="privacyCheckbox" value="">
+                <label for="privacyCheckbox" class="privacyCheckboxLabel ng-binding">קראתי, הבנתי והנני מסכים <a href="/Privacy.pdf" class="privacyHref ng-binding">למדיניות הפרטיות באתר</a></label>
+                <br>
+                <label id="privacyErr" class="privacyErr ng-binding">* נא לאשר את מדיניות הפרטיות</label>
+            </div>
+            <div class="col-xxl-2 col-lg-4 no-gutters text-right">
+                <div class="btn rounded-corners whited ng-binding">
+                    בואו נדבר
+                </div>
+            </div>
+        </div>
+    <div class="form-messages"> <style>.form-messages * { color:white; list-style:none;} </style></div></div>
+</section>
+
+<!-- footer -->
+<footer class="py-5">
+    <div class="container">
+        <div class="row justify-content-center pb-1">
+            <div class="col-lg-1 col-3 text-center">
+                <a href="/"><img class="img-fluid logo" alt="logo"></a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-6 col-md-8 col-12 d-flex justify-content-center">
+                <ul class="d-flex align-items-center flex-lg-row flex-column" id="footer-contact">
+                    <li><a href="tel:03-6082888" aria-label="03-6082888 קריאה">03-6082888</a></li>
+                    <!-- ngIf: lang =='eng' -->
+                    <!-- ngIf: lang =='heb' --><li ng-if="lang =='heb'" class="ng-scope">נח מוזס 1 , ראשון לציון</li><!-- end ngIf: lang =='heb' -->
+                    <!--<li class="hide"><a href="mailto:a@a.com">yit@mail.co.il</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+
+<script src="/scripts/tether.min.js" type="text/javascript"></script>
+<script src="/scripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="/Built/main.bundle.js" type="text/javascript"></script>
+
+
+<div id="loader">
+    <div class="container">
+        <i class="fa fa-spinner rotateme" aria-hidden="true"></i>
+    </div>
+</div>
+<div id="async-message" class="text-center async-msg">
+    <div class="container">
+        <div class="close_message">
+
+        </div>
+        <img src="/images/thanks.png" alt="">
+        <script>
+            $("#async-message").on("click", function (e) {
+                $("#async-message").fadeOut();
+            });
+        </script>
+    </div>
+</div>
+<a href="tel:03-6082888" aria-label="03-6082888 קריאה">
+    <img id="cnt-lnk" src="/images/Contact.png">
+</a>
+<script src="https://images-azak.ynet.co.il/static/EquallyAI/EquallyAI.js" async=""></script>
+<script>
+        var AppSettings =
+        {
+            baseUrl: 'https://yit.co.il',
+            reCaptchaSiteKey : '6Ld3AcwpAAAAACIE5lNwCGTDirYAsGncaRk66854'
+        };
+</script>
+    
+    <script src="/scripts/vendors/owlCarousel/2.3.3/owl.carousel.min.js"></script>
+<script id="" text="" charset="" type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=AW-1024944910"></script>
+    <script>
+        $('document').ready(function ()
+        {
+            var t=$('.ma-carousel').owlCarousel(
+            {
+                items: 1,
+                rtl: true,
+                loop: true,
+                dots: false,
+                nav: false,
+                center: true,
+                autoplay:false
+            });
+            $('.ma-right').click(function ()
+            {
+                t.trigger('next.owl.carousel');
+            })
+            $('.ma-left').click(function ()
+            {
+                t.trigger('prev.owl.carousel', [300]);
+            })
+        });
+    </script>
+
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-k2ggzv41utz7" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Ld3AcwpAAAAACIE5lNwCGTDirYAsGncaRk66854&amp;co=aHR0cHM6Ly95aXQuY28uaWw6NDQz&amp;hl=en&amp;v=QvLuXwupqtKMva7GIh5eGl3U&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=csbdloy6tdj7"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;" aria-label="תגובת CAPTCHA"></textarea></div><iframe style="display: none;"></iframe></div>
+<script type="text/javascript" id="" charset="">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date);gtag("config","AW-1024944910");</script></body></html>

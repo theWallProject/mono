@@ -62,7 +62,7 @@ function WhatsNew() {
 
   const handleAndroid = () => {
     track("Button", "Click", "options_android_app")
-    window.open("https://play.google.com/store/apps/details?id=com.thewall.android", "_blank")
+    window.open("https://play.google.com/store/apps/details?id=com.thewallboycott.android", "_blank")
   }
 
   const handleDonate = () => {
@@ -111,9 +111,7 @@ function WhatsNew() {
               a game-changer for a solo developer project like this. It means more features, faster updates, and less
               time freelancing to keep the lights on.
             </p>
-            <p
-              className={styles.featureText}
-              style={{ fontWeight: "600", color: "#ffffff", fontSize: "19px" }}>
+            <p className={styles.featureText} style={{ fontWeight: "600", color: "#ffffff", fontSize: "19px" }}>
               Every single vote counts. Yours could be the one that tips the scale. It takes 10 seconds and costs
               nothing.
             </p>
@@ -128,10 +126,10 @@ function WhatsNew() {
           <section className={styles.featureSection}>
             <h2 className={styles.sectionTitle}>Massive Data Update</h2>
             <p className={styles.featureText}>
-              Hundreds of data enhancements across the entire database. We ran extensive automation pipelines followed by
-              hours of manual verification to detect and link social media profiles for the 20,000+ companies we track.
-              LinkedIn, Facebook, X, Instagram, GitHub, YouTube, TikTok, Threads - if a flagged company has a presence
-              there, we now catch it.
+              Hundreds of data enhancements across the entire database. We ran extensive automation pipelines followed
+              by hours of manual verification to detect and link social media profiles for the 20,000+ companies we
+              track. LinkedIn, Facebook, X, Instagram, GitHub, YouTube, TikTok, Threads - if a flagged company has a
+              presence there, we now catch it.
             </p>
             <p className={styles.featureText}>
               This means the extension now detects significantly more profiles when you browse social media. Fewer slip

@@ -1,0 +1,63 @@
+[2026-03-11T02:16:01.235Z] === Homepage AI Extractor: Brigex ===
+[2026-03-11T02:16:01.236Z] Started at: 2026-03-11T02:16:01.236Z
+[2026-03-11T02:16:01.236Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773195361235_Brigex
+[2026-03-11T02:16:01.236Z] Company: Brigex
+[2026-03-11T02:16:01.236Z] Website: brigex.com
+[2026-03-11T02:16:01.236Z] cbRank: 547686
+[2026-03-11T02:16:01.236Z] Reasons: h
+[2026-03-11T02:16:01.236Z] Fetching: https://brigex.com
+[2026-03-11T02:16:11.674Z] Network idle timeout — continuing with current state
+[2026-03-11T02:16:11.715Z] Redirected: https://brigex.com -> https://brigex.com/
+[2026-03-11T02:16:11.720Z] Saved HTML (106829 bytes) to page.html
+[2026-03-11T02:16:11.723Z] Extracted 10 unique links from page
+[2026-03-11T02:16:11.723Z] Saved 10 links to links.json
+[2026-03-11T02:16:11.726Z] Extracted footer HTML (6115 chars)
+[2026-03-11T02:16:11.726Z] Extracted header HTML (11337 chars)
+[2026-03-11T02:16:11.731Z] Website (post-redirect): https://brigex.com/ → origin: https://brigex.com
+[2026-03-11T02:16:11.731Z] External links: 3 (of 10 total)
+[2026-03-11T02:16:11.731Z] ── All external links ──
+[2026-03-11T02:16:11.731Z]   EXT: https://www.facebook.com/Brigex-Business-Development-192243344164980
+[2026-03-11T02:16:11.731Z]   EXT: https://www.linkedin.com/company/brigex
+[2026-03-11T02:16:11.731Z]   EXT: https://www.youtube.com/channel/UCP7JFLmffl2IZ7P-UDjE8ng/videos
+[2026-03-11T02:16:11.731Z] ── Step 1: Programmatic categorization ──
+[2026-03-11T02:16:11.731Z]   REGEX: fb <- https://www.facebook.com/Brigex-Business-Development-192243344164980
+[2026-03-11T02:16:11.731Z]   REGEX: li <- https://www.linkedin.com/company/brigex
+[2026-03-11T02:16:11.732Z]   REGEX: ytc <- https://www.youtube.com/channel/UCP7JFLmffl2IZ7P-UDjE8ng/videos
+[2026-03-11T02:16:11.732Z] Programmatic result: ws:1, fb:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-11T02:16:11.732Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-11T02:16:11.732Z] Saved AI prompt (3930 chars) to ai_prompt.txt
+[2026-03-11T02:16:11.733Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-11T02:16:11.753Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-11T02:16:26.423Z]   AI: First token received, streaming...
+[2026-03-11T02:16:41.099Z] AI response complete: 173 chars in 29.4s
+[2026-03-11T02:16:41.100Z] Saved AI response to ai_response.json
+[2026-03-11T02:16:41.100Z] ── Parsing AI response (3 lines) ──
+[2026-03-11T02:16:41.100Z]   AI LINK: https://www.facebook.com/Brigex-Business-Development-192243344164980/
+[2026-03-11T02:16:41.100Z]   AI LINK: https://www.linkedin.com/company/brigex
+[2026-03-11T02:16:41.101Z]   AI LINK: https://www.youtube.com/channel/UCP7JFLmffl2IZ7P-UDjE8ng/videos
+[2026-03-11T02:16:41.101Z] AI returned 3 valid links
+[2026-03-11T02:16:41.101Z] ── Categorizing 3 AI-returned links ──
+[2026-03-11T02:16:41.101Z]   AI→REGEX: fb <- https://www.facebook.com/Brigex-Business-Development-192243344164980/ (duplicate, skipped)
+[2026-03-11T02:16:41.101Z]   AI→REGEX: li <- https://www.linkedin.com/company/brigex (duplicate, skipped)
+[2026-03-11T02:16:41.101Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCP7JFLmffl2IZ7P-UDjE8ng/videos (duplicate, skipped)
+[2026-03-11T02:16:41.101Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-11T02:16:41.102Z] Footer/header origins (3):
+[2026-03-11T02:16:41.102Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-11T02:16:41.102Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-11T02:16:41.102Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-11T02:16:41.102Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-11T02:16:41.102Z] ── Step 3: Final dedup ──
+[2026-03-11T02:16:41.102Z] No urls to dedup
+[2026-03-11T02:16:41.102Z] ── FINAL RESULT ──
+[2026-03-11T02:16:41.102Z]   ws (1):
+[2026-03-11T02:16:41.102Z]     - https://brigex.com
+[2026-03-11T02:16:41.102Z]   li (1):
+[2026-03-11T02:16:41.103Z]     - https://www.linkedin.com/company/brigex
+[2026-03-11T02:16:41.103Z]   fb (1):
+[2026-03-11T02:16:41.103Z]     - https://www.facebook.com/brigex-business-development-192243344164980
+[2026-03-11T02:16:41.103Z]   ytc (1):
+[2026-03-11T02:16:41.103Z]     - https://www.youtube.com/channel/UCP7JFLmffl2IZ7P-UDjE8ng
+[2026-03-11T02:16:41.103Z] Summary: ws:1, fb:1, li:1, ytc:1
+[2026-03-11T02:16:41.103Z] Saved final result to result.json
+[2026-03-11T02:16:41.103Z] Override fields: ws, li, fb, ytc
+[2026-03-11T02:16:41.104Z] Finished at: 2026-03-11T02:16:41.104Z

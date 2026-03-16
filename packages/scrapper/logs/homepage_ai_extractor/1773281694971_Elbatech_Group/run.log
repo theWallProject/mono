@@ -1,0 +1,64 @@
+[2026-03-12T02:14:54.971Z] === Homepage AI Extractor: Elbatech Group ===
+[2026-03-12T02:14:54.971Z] Started at: 2026-03-12T02:14:54.971Z
+[2026-03-12T02:14:54.972Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773281694971_Elbatech_Group
+[2026-03-12T02:14:54.972Z] Company: Elbatech Group
+[2026-03-12T02:14:54.972Z] Website: elbatech.co.il
+[2026-03-12T02:14:54.972Z] cbRank: 753152
+[2026-03-12T02:14:54.972Z] Reasons: h
+[2026-03-12T02:14:54.972Z] Fetching: https://elbatech.co.il
+[2026-03-12T02:14:58.482Z] Redirected: https://elbatech.co.il -> https://elbatech.co.il/
+[2026-03-12T02:14:58.498Z] Saved HTML (466189 bytes) to page.html
+[2026-03-12T02:14:58.502Z] Extracted 29 unique links from page
+[2026-03-12T02:14:58.503Z] Saved 29 links to links.json
+[2026-03-12T02:14:58.506Z] Extracted footer HTML (4747 chars)
+[2026-03-12T02:14:58.507Z] Extracted header HTML (1281 chars)
+[2026-03-12T02:14:58.511Z] Website (post-redirect): https://elbatech.co.il/ → origin: https://elbatech.co.il
+[2026-03-12T02:14:58.512Z] External links: 4 (of 29 total)
+[2026-03-12T02:14:58.512Z] ── All external links ──
+[2026-03-12T02:14:58.512Z]   EXT: https://www.enable.co.il
+[2026-03-12T02:14:58.512Z]   EXT: https://www.facebook.com/EbatechGroup
+[2026-03-12T02:14:58.512Z]   EXT: https://www.linkedin.com/company/elbatech-group/mycompany/?viewAsMember=true
+[2026-03-12T02:14:58.512Z]   EXT: https://www.upress.co.il
+[2026-03-12T02:14:58.512Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T02:14:58.512Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-12T02:14:58.512Z]   REGEX: fb <- https://www.facebook.com/EbatechGroup
+[2026-03-12T02:14:58.513Z]   REGEX: li <- https://www.linkedin.com/company/elbatech-group/mycompany/?viewAsMember=true
+[2026-03-12T02:14:58.513Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-12T02:14:58.513Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-12T02:14:58.513Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T02:14:58.514Z] Saved AI prompt (4439 chars) to ai_prompt.txt
+[2026-03-12T02:14:58.514Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T02:14:58.529Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T02:15:14.471Z]   AI: First token received, streaming...
+[2026-03-12T02:15:19.704Z] AI response complete: 114 chars in 21.2s
+[2026-03-12T02:15:19.705Z] Saved AI response to ai_response.json
+[2026-03-12T02:15:19.705Z] ── Parsing AI response (2 lines) ──
+[2026-03-12T02:15:19.705Z]   AI LINK: https://www.linkedin.com/company/elbatech-group/mycompany/?viewAsMember=true
+[2026-03-12T02:15:19.706Z]   AI LINK: https://www.facebook.com/EbatechGroup
+[2026-03-12T02:15:19.706Z] AI returned 2 valid links
+[2026-03-12T02:15:19.706Z] ── Categorizing 2 AI-returned links ──
+[2026-03-12T02:15:19.706Z]   AI→REGEX: li <- https://www.linkedin.com/company/elbatech-group/mycompany/?viewAsMember=true (duplicate, skipped)
+[2026-03-12T02:15:19.706Z]   AI→REGEX: fb <- https://www.facebook.com/EbatechGroup (duplicate, skipped)
+[2026-03-12T02:15:19.706Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T02:15:19.706Z] Footer/header origins (3):
+[2026-03-12T02:15:19.707Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T02:15:19.707Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T02:15:19.707Z]   FOOTER/HEADER ORIGIN: https://elbatech.co.il
+[2026-03-12T02:15:19.707Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-12T02:15:19.707Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-12T02:15:19.707Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-12T02:15:19.707Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T02:15:19.707Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T02:15:19.707Z] ── Step 3: Final dedup ──
+[2026-03-12T02:15:19.707Z] No urls to dedup
+[2026-03-12T02:15:19.707Z] ── FINAL RESULT ──
+[2026-03-12T02:15:19.707Z]   ws (1):
+[2026-03-12T02:15:19.708Z]     - https://elbatech.co.il
+[2026-03-12T02:15:19.708Z]   li (1):
+[2026-03-12T02:15:19.708Z]     - https://www.linkedin.com/company/elbatech-group
+[2026-03-12T02:15:19.708Z]   fb (1):
+[2026-03-12T02:15:19.708Z]     - https://www.facebook.com/ebatechgroup
+[2026-03-12T02:15:19.708Z] Summary: ws:1, fb:1, li:1
+[2026-03-12T02:15:19.710Z] Saved final result to result.json
+[2026-03-12T02:15:19.710Z] Override fields: ws, li, fb
+[2026-03-12T02:15:19.710Z] Finished at: 2026-03-12T02:15:19.710Z

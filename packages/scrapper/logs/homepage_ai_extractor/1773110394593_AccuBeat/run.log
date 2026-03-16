@@ -1,0 +1,64 @@
+[2026-03-10T02:39:54.594Z] === Homepage AI Extractor: AccuBeat ===
+[2026-03-10T02:39:54.594Z] Started at: 2026-03-10T02:39:54.594Z
+[2026-03-10T02:39:54.594Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773110394593_AccuBeat
+[2026-03-10T02:39:54.594Z] Company: AccuBeat
+[2026-03-10T02:39:54.594Z] Website: accubeat.com
+[2026-03-10T02:39:54.594Z] cbRank: 352369
+[2026-03-10T02:39:54.594Z] Reasons: h
+[2026-03-10T02:39:54.594Z] Fetching: https://accubeat.com
+[2026-03-10T02:40:06.120Z] Network idle timeout — continuing with current state
+[2026-03-10T02:40:06.219Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-10T02:40:14.183Z] Redirected: https://accubeat.com -> https://www.accubeat.com/
+[2026-03-10T02:40:14.224Z] Saved HTML (1281049 bytes) to page.html
+[2026-03-10T02:40:14.228Z] Extracted 56 unique links from page
+[2026-03-10T02:40:14.230Z] Saved 56 links to links.json
+[2026-03-10T02:40:14.235Z] Extracted footer HTML (8556 chars)
+[2026-03-10T02:40:14.235Z] Extracted header HTML (18402 chars)
+[2026-03-10T02:40:14.240Z] Website (post-redirect): https://www.accubeat.com/ → origin: https://www.accubeat.com
+[2026-03-10T02:40:14.241Z] External links: 3 (of 56 total)
+[2026-03-10T02:40:14.241Z] ── All external links ──
+[2026-03-10T02:40:14.241Z]   EXT: https://www.igraphics.co.il
+[2026-03-10T02:40:14.241Z]   EXT: https://www.linkedin.com/company/accubeat
+[2026-03-10T02:40:14.241Z]   EXT: https://www.youtube.com/@accubeatltd3697
+[2026-03-10T02:40:14.241Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T02:40:14.241Z]   UNCATEGORIZED: https://www.igraphics.co.il
+[2026-03-10T02:40:14.241Z]   REGEX: li <- https://www.linkedin.com/company/accubeat
+[2026-03-10T02:40:14.241Z]   REGEX: ytp <- https://www.youtube.com/@accubeatltd3697
+[2026-03-10T02:40:14.241Z] Programmatic result: ws:1, li:1, ytp:1 | 1 uncategorized
+[2026-03-10T02:40:14.241Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T02:40:14.242Z] Saved AI prompt (6656 chars) to ai_prompt.txt
+[2026-03-10T02:40:14.242Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T02:40:14.268Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T02:40:43.948Z]   AI: First token received, streaming...
+[2026-03-10T02:40:49.155Z] AI response complete: 83 chars in 34.9s
+[2026-03-10T02:40:49.156Z] Saved AI response to ai_response.json
+[2026-03-10T02:40:49.156Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T02:40:49.156Z]   AI LINK: https://www.linkedin.com/company/accubeat/
+[2026-03-10T02:40:49.156Z]   AI LINK: https://www.youtube.com/@accubeatltd3697
+[2026-03-10T02:40:49.156Z] AI returned 2 valid links
+[2026-03-10T02:40:49.156Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T02:40:49.156Z]   AI→REGEX: li <- https://www.linkedin.com/company/accubeat/ (duplicate, skipped)
+[2026-03-10T02:40:49.157Z]   AI→REGEX: ytp <- https://www.youtube.com/@accubeatltd3697 (duplicate, skipped)
+[2026-03-10T02:40:49.157Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T02:40:49.157Z] Footer/header origins (4):
+[2026-03-10T02:40:49.157Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T02:40:49.157Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-10T02:40:49.157Z]   FOOTER/HEADER ORIGIN: https://www.accubeat.com
+[2026-03-10T02:40:49.157Z]   FOOTER/HEADER ORIGIN: https://www.igraphics.co.il
+[2026-03-10T02:40:49.157Z]   ADDED: urls <- https://www.igraphics.co.il
+[2026-03-10T02:40:49.157Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-10T02:40:49.157Z] ── Step 3: Final dedup ──
+[2026-03-10T02:40:49.158Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-10T02:40:49.158Z] ── FINAL RESULT ──
+[2026-03-10T02:40:49.158Z]   ws (1):
+[2026-03-10T02:40:49.158Z]     - https://www.accubeat.com
+[2026-03-10T02:40:49.158Z]   li (1):
+[2026-03-10T02:40:49.158Z]     - https://www.linkedin.com/company/accubeat
+[2026-03-10T02:40:49.158Z]   ytp (1):
+[2026-03-10T02:40:49.158Z]     - https://www.youtube.com/@accubeatltd3697
+[2026-03-10T02:40:49.158Z]   urls (1):
+[2026-03-10T02:40:49.158Z]     - https://www.igraphics.co.il
+[2026-03-10T02:40:49.158Z] Summary: ws:1, li:1, ytp:1, urls:1
+[2026-03-10T02:40:49.159Z] Saved final result to result.json
+[2026-03-10T02:40:49.159Z] Override fields: ws, li, ytp, urls
+[2026-03-10T02:40:49.159Z] Finished at: 2026-03-10T02:40:49.159Z

@@ -1,0 +1,64 @@
+[2026-03-10T19:55:22.313Z] === Homepage AI Extractor: InboundJunction ===
+[2026-03-10T19:55:22.313Z] Started at: 2026-03-10T19:55:22.313Z
+[2026-03-10T19:55:22.313Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773172522312_InboundJunction
+[2026-03-10T19:55:22.313Z] Company: InboundJunction
+[2026-03-10T19:55:22.313Z] Website: inboundjunction.com
+[2026-03-10T19:55:22.313Z] cbRank: 514005
+[2026-03-10T19:55:22.313Z] Reasons: h
+[2026-03-10T19:55:22.313Z] Fetching: https://inboundjunction.com
+[2026-03-10T19:55:26.699Z] Redirected: https://inboundjunction.com -> https://inboundjunction.com/
+[2026-03-10T19:55:26.707Z] Saved HTML (208396 bytes) to page.html
+[2026-03-10T19:55:26.714Z] Extracted 20 unique links from page
+[2026-03-10T19:55:26.715Z] Saved 20 links to links.json
+[2026-03-10T19:55:26.718Z] Extracted footer HTML (4709 chars)
+[2026-03-10T19:55:26.718Z] Extracted header HTML (5675 chars)
+[2026-03-10T19:55:26.723Z] Website (post-redirect): https://inboundjunction.com/ → origin: https://inboundjunction.com
+[2026-03-10T19:55:26.723Z] External links: 3 (of 20 total)
+[2026-03-10T19:55:26.723Z] ── All external links ──
+[2026-03-10T19:55:26.723Z]   EXT: https://twitter.com/inboundjunction
+[2026-03-10T19:55:26.723Z]   EXT: https://www.facebook.com/InboundJunction
+[2026-03-10T19:55:26.723Z]   EXT: https://www.linkedin.com/company/inbound-junction
+[2026-03-10T19:55:26.723Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T19:55:26.724Z]   REGEX: tw <- https://twitter.com/inboundjunction
+[2026-03-10T19:55:26.724Z]   REGEX: fb <- https://www.facebook.com/InboundJunction
+[2026-03-10T19:55:26.724Z]   REGEX: li <- https://www.linkedin.com/company/inbound-junction
+[2026-03-10T19:55:26.724Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-10T19:55:26.724Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T19:55:26.727Z] Saved AI prompt (4661 chars) to ai_prompt.txt
+[2026-03-10T19:55:26.727Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T19:55:26.747Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T19:55:47.922Z]   AI: First token received, streaming...
+[2026-03-10T19:55:53.960Z] AI response complete: 128 chars in 27.2s
+[2026-03-10T19:55:53.961Z] Saved AI response to ai_response.json
+[2026-03-10T19:55:53.962Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T19:55:53.962Z]   AI LINK: https://www.facebook.com/InboundJunction/
+[2026-03-10T19:55:53.962Z]   AI LINK: https://twitter.com/inboundjunction
+[2026-03-10T19:55:53.962Z]   AI LINK: https://www.linkedin.com/company/inbound-junction/
+[2026-03-10T19:55:53.962Z] AI returned 3 valid links
+[2026-03-10T19:55:53.962Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T19:55:53.962Z]   AI→REGEX: fb <- https://www.facebook.com/InboundJunction/ (duplicate, skipped)
+[2026-03-10T19:55:53.962Z]   AI→REGEX: tw <- https://twitter.com/inboundjunction (duplicate, skipped)
+[2026-03-10T19:55:53.962Z]   AI→REGEX: li <- https://www.linkedin.com/company/inbound-junction/ (duplicate, skipped)
+[2026-03-10T19:55:53.963Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T19:55:53.963Z] Footer/header origins (5):
+[2026-03-10T19:55:53.963Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T19:55:53.963Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-10T19:55:53.963Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T19:55:53.963Z]   FOOTER/HEADER ORIGIN: https://inboundjunction.com
+[2026-03-10T19:55:53.963Z]   FOOTER/HEADER ORIGIN: https://www.inboundjunction.com
+[2026-03-10T19:55:53.963Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T19:55:53.963Z] ── Step 3: Final dedup ──
+[2026-03-10T19:55:53.963Z] No urls to dedup
+[2026-03-10T19:55:53.963Z] ── FINAL RESULT ──
+[2026-03-10T19:55:53.964Z]   ws (1):
+[2026-03-10T19:55:53.964Z]     - https://inboundjunction.com
+[2026-03-10T19:55:53.964Z]   li (1):
+[2026-03-10T19:55:53.964Z]     - https://www.linkedin.com/company/inbound-junction
+[2026-03-10T19:55:53.964Z]   fb (1):
+[2026-03-10T19:55:53.964Z]     - https://www.facebook.com/inboundjunction
+[2026-03-10T19:55:53.964Z]   tw (1):
+[2026-03-10T19:55:53.964Z]     - https://x.com/inboundjunction
+[2026-03-10T19:55:53.964Z] Summary: ws:1, tw:1, fb:1, li:1
+[2026-03-10T19:55:53.965Z] Saved final result to result.json
+[2026-03-10T19:55:53.965Z] Override fields: ws, li, fb, tw
+[2026-03-10T19:55:53.965Z] Finished at: 2026-03-10T19:55:53.965Z

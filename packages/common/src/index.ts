@@ -220,12 +220,15 @@ export const API_ENDPOINT_RULE_FACEBOOK = {
 } as const satisfies APIEndpointRule
 
 /**
- * Twitter regex - should be used with case-insensitive flag ('i') since Twitter IDs are case-insensitive
+ * Twitter regex - should be used with case-insensitive flag ('i') since Twitter IDs are case-insensitive.
+ * Uses (?<![\w.])(?:www\.)? for twitter.com/x.com to reject non-www subdomains
+ * (e.g. platform.twitter.com, developer.twitter.com) while allowing www.twitter.com.
+ * Keeps (?<!\w) for t.co since it has no subdomain issues.
  */
 export const API_ENDPOINT_RULE_TWITTER = {
   domain: "twitter.com",
   regex:
-    "(?<!\\w)(?:twitter\\.com|x\\.com|t\\.co)/(?!search|hashtag|i/|intent|settings|privacy|tos|en/)(?![^/?]+/status/)([^/?]+)"
+    "(?:(?<![\\w.])(?:www\\.)?(?:twitter\\.com|x\\.com)|(?<!\\w)t\\.co)/(?!search|hashtag|i/|intent|settings|privacy|tos|en/)(?![^/?]+/status/)([^/?]+)"
 } as const satisfies APIEndpointRule
 
 export const API_ENDPOINT_RULE_INSTAGRAM = {
@@ -413,7 +416,7 @@ export function findInDatabaseBySelector(
   domain: SpecialDomains,
   database: FinalDBFileType[]
 ): FinalDBFileType | null {
-  // "il" is not a database field, skip database lookup
+  // "il" is not a database field — it's only used as a result key for .il domain fallback detection
   if (selectorKey === "il") {
     return null
   }

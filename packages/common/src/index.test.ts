@@ -365,6 +365,17 @@ describe("API_ENDPOINT_RULE_TWITTER", () => {
       testRule(rule, "https://au10tix.com/company", false)
       testRule(rule, "au10tix.com/company", false)
     })
+
+    it("should not match twitter.com subdomains (e.g., platform.twitter.com widget embeds)", () => {
+      testRule(
+        rule,
+        "https://platform.twitter.com/widgets/follow_button.2f70fb173b9000da126c79afe2098f02.en.html",
+        false
+      )
+      testRule(rule, "https://developer.twitter.com/en/docs", false)
+      testRule(rule, "https://syndication.twitter.com/timeline", false)
+      testRule(rule, "https://publish.twitter.com/oembed", false)
+    })
   })
 })
 

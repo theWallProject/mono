@@ -1,0 +1,90 @@
+[2026-03-12T10:34:30.882Z] === Homepage AI Extractor: MXI ===
+[2026-03-12T10:34:30.882Z] Started at: 2026-03-12T10:34:30.882Z
+[2026-03-12T10:34:30.882Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773311670881_MXI
+[2026-03-12T10:34:30.882Z] Company: MXI
+[2026-03-12T10:34:30.882Z] Website: mxi.co.il
+[2026-03-12T10:34:30.882Z] cbRank: 911574
+[2026-03-12T10:34:30.882Z] Reasons: h
+[2026-03-12T10:34:30.882Z] Fetching: https://mxi.co.il
+[2026-03-12T10:34:32.978Z] Redirected: https://mxi.co.il -> https://www.mxi.co.il/
+[2026-03-12T10:34:32.993Z] Saved HTML (410611 bytes) to page.html
+[2026-03-12T10:34:32.997Z] Extracted 33 unique links from page
+[2026-03-12T10:34:32.998Z] Saved 33 links to links.json
+[2026-03-12T10:34:33.002Z] Extracted footer HTML (14355 chars)
+[2026-03-12T10:34:33.002Z] Extracted header HTML (9037 chars)
+[2026-03-12T10:34:33.006Z] Website (post-redirect): https://www.mxi.co.il/ → origin: https://www.mxi.co.il
+[2026-03-12T10:34:33.007Z] External links: 7 (of 33 total)
+[2026-03-12T10:34:33.007Z] ── All external links ──
+[2026-03-12T10:34:33.007Z]   EXT: https://goo.gl/maps/RMgx9TBPQSjMFZAJ8
+[2026-03-12T10:34:33.007Z]   EXT: https://www.facebook.com/MXIDIGITAL
+[2026-03-12T10:34:33.007Z]   EXT: https://www.instagram.com/mxidigital
+[2026-03-12T10:34:33.007Z]   EXT: https://www.linkedin.com/company/maxi-site
+[2026-03-12T10:34:33.007Z]   EXT: https://www.waze.com/ul?ll=31.91455070%2C34.80237160&navigate=yes&zoom=16
+[2026-03-12T10:34:33.007Z]   EXT: https://www.youtube.com/c/Maxi-site
+[2026-03-12T10:34:33.007Z]   EXT: https://x.com/MaxiSite360
+[2026-03-12T10:34:33.007Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T10:34:33.007Z]   UNCATEGORIZED: https://goo.gl/maps/RMgx9TBPQSjMFZAJ8
+[2026-03-12T10:34:33.008Z]   REGEX: fb <- https://www.facebook.com/MXIDIGITAL
+[2026-03-12T10:34:33.008Z]   REGEX: ig <- https://www.instagram.com/mxidigital
+[2026-03-12T10:34:33.008Z]   REGEX: li <- https://www.linkedin.com/company/maxi-site
+[2026-03-12T10:34:33.008Z]   UNCATEGORIZED: https://www.waze.com/ul?ll=31.91455070%2C34.80237160&navigate=yes&zoom=16
+[2026-03-12T10:34:33.008Z]   REGEX: ytp <- https://www.youtube.com/c/Maxi-site
+[2026-03-12T10:34:33.008Z]   REGEX: tw <- https://x.com/MaxiSite360
+[2026-03-12T10:34:33.008Z] Programmatic result: ws:1, fb:1, ig:1, li:1, ytp:1, tw:1 | 2 uncategorized
+[2026-03-12T10:34:33.008Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T10:34:33.010Z] Saved AI prompt (8760 chars) to ai_prompt.txt
+[2026-03-12T10:34:33.010Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T10:34:33.022Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T10:35:15.476Z]   AI: First token received, streaming...
+[2026-03-12T10:35:26.847Z] AI response complete: 179 chars in 53.8s
+[2026-03-12T10:35:26.848Z] Saved AI response to ai_response.json
+[2026-03-12T10:35:26.848Z] ── Parsing AI response (5 lines) ──
+[2026-03-12T10:35:26.848Z]   AI LINK: https://www.youtube.com/c/Maxi-site
+[2026-03-12T10:35:26.848Z]   AI LINK: https://www.linkedin.com/company/maxi-site/
+[2026-03-12T10:35:26.848Z]   AI LINK: https://x.com/MaxiSite360
+[2026-03-12T10:35:26.849Z]   AI LINK: https://www.instagram.com/mxidigital/
+[2026-03-12T10:35:26.849Z]   AI LINK: https://www.facebook.com/MXIDIGITAL
+[2026-03-12T10:35:26.849Z] AI returned 5 valid links
+[2026-03-12T10:35:26.849Z] ── Categorizing 5 AI-returned links ──
+[2026-03-12T10:35:26.849Z]   AI→REGEX: ytp <- https://www.youtube.com/c/Maxi-site (duplicate, skipped)
+[2026-03-12T10:35:26.849Z]   AI→REGEX: li <- https://www.linkedin.com/company/maxi-site/ (duplicate, skipped)
+[2026-03-12T10:35:26.849Z]   AI→REGEX: tw <- https://x.com/MaxiSite360 (duplicate, skipped)
+[2026-03-12T10:35:26.849Z]   AI→REGEX: ig <- https://www.instagram.com/mxidigital/ (duplicate, skipped)
+[2026-03-12T10:35:26.850Z]   AI→REGEX: fb <- https://www.facebook.com/MXIDIGITAL (duplicate, skipped)
+[2026-03-12T10:35:26.850Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T10:35:26.850Z] Footer/header origins (8):
+[2026-03-12T10:35:26.850Z]   FOOTER/HEADER ORIGIN: https://www.mxi.co.il
+[2026-03-12T10:35:26.850Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-12T10:35:26.850Z]   FOOTER/HEADER ORIGIN: https://www.waze.com
+[2026-03-12T10:35:26.850Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-12T10:35:26.850Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T10:35:26.850Z]   FOOTER/HEADER ORIGIN: https://x.com
+[2026-03-12T10:35:26.850Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-12T10:35:26.851Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T10:35:26.851Z]   ADDED: urls <- https://goo.gl/maps/RMgx9TBPQSjMFZAJ8
+[2026-03-12T10:35:26.851Z]   ADDED: urls <- https://www.waze.com/ul (cleaned from https://www.waze.com/ul?ll=31.91455070%2C34.80237160&navigate=yes&zoom=16)
+[2026-03-12T10:35:26.851Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-12T10:35:26.851Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T10:35:26.851Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T10:35:26.851Z] ── Step 3: Final dedup ──
+[2026-03-12T10:35:26.851Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T10:35:26.851Z] ── FINAL RESULT ──
+[2026-03-12T10:35:26.851Z]   ws (1):
+[2026-03-12T10:35:26.851Z]     - https://www.mxi.co.il
+[2026-03-12T10:35:26.852Z]   li (1):
+[2026-03-12T10:35:26.852Z]     - https://www.linkedin.com/company/maxi-site
+[2026-03-12T10:35:26.852Z]   fb (1):
+[2026-03-12T10:35:26.852Z]     - https://www.facebook.com/mxidigital
+[2026-03-12T10:35:26.852Z]   tw (1):
+[2026-03-12T10:35:26.852Z]     - https://x.com/maxisite360
+[2026-03-12T10:35:26.852Z]   ig (1):
+[2026-03-12T10:35:26.852Z]     - https://www.instagram.com/mxidigital
+[2026-03-12T10:35:26.852Z]   ytp (1):
+[2026-03-12T10:35:26.852Z]     - https://www.youtube.com/@maxi-site
+[2026-03-12T10:35:26.852Z]   urls (2):
+[2026-03-12T10:35:26.852Z]     - https://goo.gl/maps/RMgx9TBPQSjMFZAJ8
+[2026-03-12T10:35:26.853Z]     - https://www.waze.com/ul
+[2026-03-12T10:35:26.853Z] Summary: ws:1, fb:1, ig:1, li:1, ytp:1, tw:1, urls:2
+[2026-03-12T10:35:26.853Z] Saved final result to result.json
+[2026-03-12T10:35:26.853Z] Override fields: ws, li, fb, tw, ig, ytp, urls
+[2026-03-12T10:35:26.854Z] Finished at: 2026-03-12T10:35:26.854Z

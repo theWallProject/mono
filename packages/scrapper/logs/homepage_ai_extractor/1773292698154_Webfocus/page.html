@@ -1,0 +1,1756 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="he" class="pointer skrollr skrollr-desktop fa-events-icons-ready"><head>
+    <style id="customRules"></style><meta charset="utf-8">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script async="" src="//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js"></script><script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'https://www.webfocus.co.il/',
+
+        AccountUUID: 'ceeb69f0152b4bbd9ff5ebd4967865f1',
+
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: '7131611d',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Sun Feb 01 08:47:23 UTC 2026',
+        ExternalUid: null,
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: 'dfacb4b2a2d0489f8d82448c8765d516',
+        InitialPageId: '1197253847',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: '2521cfacec634038915a5a2d817e28db',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '500000',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'he',
+        currentLocale: 'he',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: -1,
+            NavbarLiveHomePage: 'https://www.webfocus.co.il/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: true,
+        planID: '7',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'he',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 6;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Injecting site-wide to the head -->
+
+
+
+
+<!-- End Injecting site-wide to the head -->
+
+<!-- Inject secured cdn script -->
+
+
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<!-- Add manifest -->
+<!-- End PWA settings -->
+
+
+
+<link rel="canonical" href="https://www.webfocus.co.il/">
+
+<meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<!--Add favorites icons-->
+
+<link rel="icon" type="image/x-icon" href="https://irp.cdn-website.com/7131611d/site_favicon_16_1641228190684.ico">
+
+<!-- End favorite icons -->
+<link rel="preconnect" href="https://lirp.cdn-website.com/">
+
+
+
+<!-- render the required CSS and JS in the head section -->
+<script id="d-js-dmapi">
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+
+<!-- loadCSS function header.jsp-->
+
+
+
+
+
+
+<script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+
+
+<script data-role="deferred-init" type="text/javascript">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    
+
+</style>
+<style id="cssVariables" type="text/css">
+    
+</style>
+
+
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended][data-background-image] {
+    visibility: hidden;
+  }
+
+</style>
+
+
+
+<style id="criticalCss">
+    @charset "UTF-8";*,.dmPopup,:after,:before{box-sizing:border-box}.dmInner{min-height:100vh!important;position:relative;min-width:768px!important}.dmPopup,.dmPopupMask{position:fixed;left:0}[dmtemplateid*=amburger] .dmLayoutWrapper{overflow:hidden}.clearfix:after{clear:both;visibility:hidden;line-height:0;height:0}.clearfix:after,.clearfix:before{content:" ";display:table}.clearfix{display:inline-block}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}.dmRoot .hasFontIcon{background-image:none!important}.dmPopupMask{margin:0;display:none;width:10px;z-index:1000000999;top:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{text-align:left;top:10px;width:93%;z-index:1000009999!important;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}#dm .dmInner div.u_hcontainer,#dm .p_hfcontainer div.u_1705692124,#dm .p_hfcontainer div.u_1919575698{position:relative!important;top:0!important;height:auto!important}.dmDesktopBody:not(.editGrid) [data-anim-extended],.flexslider .slides>li .slide-inner,.slides:after,:not(.runtime-module-container) .layout-drawer,:not(.runtime-module-container) .layout-drawer-hamburger,:not(.runtime-module-container) .layout-drawer-overlay{visibility:hidden}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}.lh-1{line-height:normal}.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow .dmRespColsWrapper{display:flex}#dm .hasBackgroundOverlay:not(.dmPopupPage):not(.layout-drawer){position:relative!important}#dm .hasBackgroundOverlay:not(.hasExtraLayerOverlay):before{display:block!important;position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;content:" "!important;border-radius:inherit}#dm .dmInner .dmWidget.align-center,.align-center{margin-left:auto;margin-right:auto}.text-align-center{text-align:center}body.fix-mobile-scrolling{overflow:initial}#dmRoot{text-decoration-skip-ink:none}@media (min-width:1025px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnMedium{display:none!important}#dmRoot.responsiveTablet #dm [data-responsive-name=ResponsiveDesktopTopTabletHamburger] .site_content{margin-top:0!important}:root{--btn-text-font-size:20px}}@media (min-width:768px) and (max-width:1024px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer #hamburger-header-container~#stickyHeaderSpacer,#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnLarge{display:none!important}:root{--btn-text-font-size:20px}}@media (max-width:767px){#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer #hamburger-header-container~#stickyHeaderSpacer,#dmRoot.responsiveTablet #dm #dmStyle_outerContainer #dmStyle_innerContainer .showOnLarge{display:none!important}}#dm .flexslider .slides li:first-child>img{width:100%;height:100%;object-fit:contain;position:absolute;display:block}body{-webkit-overflow-scrolling:touch}:not(.runtime-module-container) .layout-drawer{position:fixed;transform:translate(-100%,-100%)}:not(.runtime-module-container) .layout-drawer[data-origin=side-reverse]{transform:translate(100%,0)}:not(.runtime-module-container) .layout-drawer-overlay{opacity:0}.runtime-module-container{width:100%}.runtime-module-container[dmtemplateid*=amburger] #site_content,.runtime-module-container[dmtemplateid*=amburger] .dmInner{position:static}.runtime-module-container[dmtemplateid*=amburger] #site_content .site_content{position:relative}.runtime-module-container[dmtemplateid*=amburger] .dmLayoutWrapper{background-color:transparent}.runtime-module-container .hamburger-header-container{position:fixed;z-index:2;top:0;left:0;width:100%}.runtime-module-container .hamburger-header-container .hamburger-header{min-height:43px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-hamburger,.runtime-module-container .layout-drawer-overlay{visibility:visible}.runtime-module-container[dmtemplateid*=amburger] .site_content{margin-top:59px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-overlay{height:100%;position:fixed;top:0;left:0}.runtime-module-container .layout-drawer{background-color:#fff;width:75vw;transform:translate(-100%,0);overflow:auto;-webkit-overflow-scrolling:auto;z-index:13;display:flex;flex-direction:column}.runtime-module-container .layout-drawer .dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:0}.runtime-module-container .layout-drawer[data-origin=side-reverse]{transform:translate(100%,0);left:auto;right:0}.runtime-module-container .layout-drawer-overlay{width:100vw;background-color:rgba(0,0,0,.4);opacity:0;z-index:6}body:not([data-flex-site]) .layout-drawer .dmRespRow:not(:first-of-type):not(:last-of-type){flex:1 1 auto}.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:18px;margin-left:env(safe-area-inset-left);padding:17px 11px;z-index:14;width:52px;height:52px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:18px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}@media (max-width:767px){.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:10px;margin-left:env(safe-area-inset-left);padding:13px 9px;z-index:14;width:40px;height:40px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:10px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}}.hamburger-reverse .layout-drawer-hamburger{left:auto;right:10px;margin-right:env(safe-area-inset-right)}#dm-outer-wrapper #hamburger-header-container #hamburger-header .dmRespCol{display:flex;flex-direction:column;justify-content:center}nav{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}button{font-family:inherit;font-size:100%;margin:0;line-height:normal;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:" ";display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}@media screen and (min-width:1200px){.rows-1200 .dmRespRow:not(.fullBleedMode) .dmRespColsWrapper{max-width:1200px}}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmDesktopBody .dmRespRow .large-1{position:relative;width:8.33333%}.dmDesktopBody .dmRespRow .large-3{position:relative;width:25%}.dmDesktopBody .dmRespRow .large-6{position:relative;width:50%}.dmDesktopBody .dmRespRow .large-8{position:relative;width:66.66667%}.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}[class*=" dm-common-icons-"]{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-common-icons!important}.dm-common-icons-close:before{content:"\e901"}#dm div.dmContent [class*=" icon-"],[class*=" icon-"]{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=" icon-"]:before{text-decoration:none;display:inline-block;speak:none}a [class*=" icon-"]{display:inline}[class*=" icon-"]{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:"\f005"}.icon-angle-down:before{content:"\f107"}#dm .dmRespRow .dmRespCol>.dmWidget{overflow:initial}@media (min-width:768px){.hamburger-reverse .layout-drawer-hamburger{right:18px}#dm .dmRespRow .dmRespCol>.dmWidget{width:280px;max-width:100%}#dm .dmRespRow .dmRespCol.large-1>.dmWidget{width:100%}}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.flexButton):not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;clear:both;position:relative;text-align:center;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmWidget .text,#dm div.dmRespCol>*,.flexslider .slides>li .slide-inner *{line-height:normal}#dm .dmInner .dmWidget.slide-button{margin-bottom:0}#dm .dmInner .dmWidget:after{content:"";display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;white-space:normal;padding:10px 7px;max-width:98%}#dm .dmWidget.slide-button:after{display:none}.dmImageSlider{height:350px;position:relative;clear:both}.flexslider{-webkit-transform:translate3d(0,0,0);padding:0;-webkit-transform:translateZ(0);direction:ltr;margin:0;zoom:1;opacity:1!important}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-center{text-align:center!important}.dmNewParagraph[data-version] [class*=size-]{width:auto!important;height:auto!important}.dmNewParagraph[data-version] h1,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}.slides{margin:0;padding:0;list-style:none}.flexslider,.flexslider .slides>li{height:100%;overflow:hidden;position:relative}.flexslider .slides{height:100%;zoom:1}.flexslider .slides>li{display:none;text-align:center}.flexslider .slides img{width:100%;display:block;margin:auto}.slides:after{content:" ";display:block;clear:both;line-height:0;height:0}html[xmlns] .slides{display:block}.flexslider .color-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.25);display:block}.flexslider .slides>li .slide-inner{font-weight:700;color:#fff;position:absolute;z-index:1}.flexslider .slides>li .slide-inner .slide-title{margin:0}.flexslider .slides>li .slide-inner .slide-text{margin:0;font-size:19px;font-weight:400;white-space:pre-line}#dm .dmInner .flexslider .slides>li .slide-inner .slide-button{margin-top:20px;margin-left:auto;margin-right:auto}.flexslider .slides>li[layout=center] .slide-inner{max-width:70%;max-height:80%}#dm .flexslider .slides .dmWidget .text{max-width:100%;width:100%;padding:10px 20px!important}#dm .dmInner .flexslider.ed-version .slide-button{-js-display:inline-flex;display:inline-flex;justify-content:center;align-items:center}.flexslider:not([position]):not([layout]) .slides>li[layout=center][position=center] .slide-inner{right:auto!important;bottom:auto!important;text-align:center}.flexslider.ed-version .slides img{display:none}.flexslider.ed-version:not([layout]) .slides>li[layout=center]{-ms-flex-pack:center;-ms-flex-align:center;display:flex!important;justify-content:center;align-items:center}.flexslider.ed-version:not([layout]) .slides>li[layout=center] .slide-inner{position:static!important;top:auto!important;left:auto!important;margin:0!important}.flexslider.ed-version:not([layout]) .slides>li[layout=center] .slide-inner .slide-button.slide-button-invisible{display:none!important}.flexslider.ed-version:not([layout]) .slide-inner{max-width:70%;max-height:80%;background-color:transparent;top:50%!important;left:50%!important;right:auto!important;width:auto}.flexslider.ed-version:not([layout]) .slide-inner .slide-title{display:block!important;text-align:center!important}.dmHeader,.dmPhotoGalleryHolder,.imageWidget a{text-align:center}#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-top_center .photoGalleryThumbs .caption-container .caption-inner .caption-button{margin:10px auto}#dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder{width:100%;padding:0;display:none}#dm .dmPhotoGallery.newPhotoGallery .layout-container .photogallery-column .photoGalleryThumbs .image-container a img{display:none!important}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-button{margin:10px auto;max-width:100%}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-button .text{padding:10px 20px!important}.imageWidget{position:relative}.imageWidget a{font-style:italic}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}A IMG{border:none}h1,h3,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}.clearfix,a,img,li,ul{vertical-align:top}#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmInner{font-size:16px;background:#fff;color:#666}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#463939;outline:0;vertical-align:inherit}.dmInner ul:not(.defaultList){padding:0}.dmHeader{background:#68ccd1;color:#666;position:relative;width:100%;max-width:100%}DIV.dmBody{padding:0;clear:both}.dmContent{margin:0;padding:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmLargeBody .imageWidget:not(.displayNone){display:inline-block;max-width:100%}#dm .dmRespColsWrapper,.dmStandardDesktop{display:block}.imageWidget:not(.displayNone) img{width:100%}h3{font-weight:400;font-size:23px}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol,.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:first-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:last-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:only-child{padding-left:0;padding-right:0}#dmFirstContainer .dmRespRowsWrapper:after,#dmFirstContainer .dmRespRowsWrapper:before{content:"";display:table}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.dmStandardDesktop{margin:0 auto}.dmPhotoGalleryHolder{font-size:medium!important;margin:0;list-style:none}#dm .dmPhotoGallery .dmPhotoGalleryHolder{width:100%;padding:0}body{width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important;background-color:#eee}.main-navigation.unifiednav{-js-display:flex;display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{-js-display:flex;display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{-js-display:flex;display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{-js-display:flex;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=THICK_BORDER_ROUND] .iconBg,#dm .dmWidget:not([data-buttonstyle]) .iconBg,.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{opacity:1}.main-navigation.unifiednav.effect-bottom2{padding:calc(12px - .2em - 2px) 15px}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{transform:scaleX(0);border-top-width:2px}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after{margin-top:.2em}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{margin-bottom:.2em;border-top-color:transparent}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{transform:scaleX(1)}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{transform-origin:left}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{justify-content:inherit}.main-navigation.unifiednav:not(.unifiednav_vertical)[data-direction=RIGHT]>.unifiednav__container{flex-direction:row-reverse}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container{flex-direction:column;flex:1 1 100%}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{padding:8px 0;margin:0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:initial}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap{flex-direction:column}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{content:''!important;width:100%;height:0;color:#d1d1d1;align-self:flex-start;border:0 solid currentColor}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_2] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:5px 0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][data-show-vertical-sub-items=HIDE]>.unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__item.dmNavItemSelected>.nav-item-text .icon::before{transform:rotate(180deg)}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container{flex-wrap:wrap;justify-content:inherit}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container .nav-item-text::before{text-align:left}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])[data-direction=RIGHT]>.unifiednav__container{flex-direction:row-reverse}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{content:''}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmStandardDesktop .dmHeader{background-color:#68ccd1;max-width:100%}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:100px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed):empty{min-height:1px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column{min-height:100px}#dm div.dmContent h1{color:#666}#dm div.dmContent h1,#dm div.dmContent h1 *,#dm div.dmContent h3,#dm div.dmInner{line-height:initial}#dm div.dmContent h3{color:#fff}#dm div.dmInner h1,#dm div.dmInner h3{font-family:Montserrat,"Montserrat Fallback"}#dm DIV.dmInner{background-repeat:no-repeat;background-image:url(https://irt-cdn.multiscreensite.com/ce0bb35f932b47bb809d0e37905542ba/dms3rep/multi/site_background_education-2087x1173.jpg);background-size:cover;background-position:50% 0}#dm div.dmOuter div.dmInner{background-position:center center;background-repeat:repeat;background-size:auto}.dmLargeBody .dmBody .dmRespRowsWrapper{background-color:transparent}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{color:rgba(0,0,0,1);font-family:Assistant,"Assistant Fallback";font-weight:400}#dm div.dmContent h1,#dm div.dmContent h3{color:rgba(24,167,73,1);font-weight:400;font-family:Assistant,"Assistant Fallback";font-style:normal;text-decoration:none;direction:rtl}#dm .dmNewParagraph,#dm h1,#dm h3{direction:rtl;text-align:right}#dm div.dmContent .dmNewParagraph[data-version] h1{text-decoration:inherit}#dm div.dmContent .dmNewParagraph[data-version] h1 *{text-decoration:none}#dm DIV.dmOuter DIV.dmInner{background-image:none;background-color:rgba(255,255,255,1)}#dm div.dmInner,#dm div.dmInner .dmRespCol{font-size:16px}#dm div.dmContent h1{font-size:28px}#dm .dmContent .dmRespRow{padding:10px}#dm .dmContent .dmRespRow .dmRespCol{padding-top:0}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{font-size:20px}#dm div.dmContent h3{font-size:22px}@media all{:root{--btn-text-direction:rtl;--btn-border-r-color:var(--btn-border-color);--btn-border-l-color:var(--btn-border-color);--btn-border-b-width:var(--btn-border-width);--btn-border-width:0px;--btn-border-radius:12px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-bg-color:rgb(57, 175, 105);--btn-border-color:rgba(0, 0, 0, 0);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-bg-image:none;--btn-border-b-color:var(--btn-border-color);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:var(--btn-border-color);--btn-text-align:center;--btn-text-color:rgb(255, 255, 255);--btn-text-decoration:none;--btn-text-font-weight:700;--btn-icon-color:rgb(247, 247, 247);--btn-icon-fill:rgb(247, 247, 247);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:rgb(11, 78, 126);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:rgb(65, 67, 69);--btn-hover-text-color:var(--btn-text-color);--btn-hover-text-font-weight:var(--btn-text-font-weight);--btn-hover-text-decoration:var(--btn-text-decoration);--btn-hover-text-font-style:var(--btn-text-font-style)}}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:20px}}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=THICK_BORDER_ROUND]{border-radius:6px;overflow:initial;background-clip:border-box}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=THICK_BORDER_ROUND] .text{padding:10px 7px}#dm .dmWidget:not([data-buttonstyle]){border-radius:50px}#dm .dmWidget:not([data-buttonstyle]) .text{padding:10px 0}#dm div.dmInner #site_content .dmWidget,#dm div.dmInner .dmHeader .dmWidget{background-color:var(--btn-bg-color);background-image:var(--btn-bg-image);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm div.dmInner #site_content .dmWidget span.text{color:var(--btn-text-color);font-size:var(--btn-text-font-size);font-weight:var(--btn-text-font-weight);text-decoration:var(--btn-text-decoration)}#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before,#dm .p_hfcontainer .u_1755327939.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1755327939.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:14px!important}#dm div.dmInner #site_content .dmWidget span.icon,#dm div.dmInner .dmHeader .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm div.dmInner #site_content .dmWidget:not([data-buttonstyle]) .iconBg{display:var(--btn-icon-wrpr-display)}#dm .dmBody .u_1001187930,#dm .dmBody .u_1152157185,#dm .dmBody .u_1228353224,#dm .dmBody .u_1237090353,#dm .dmBody .u_1245878491,#dm .dmBody .u_1256885827,#dm .dmBody .u_1331377656,#dm .dmBody .u_1522816031,#dm .dmBody .u_1640553281,#dm .dmBody .u_1708035844,#dm .dmBody .u_1732299749,#dm .dmBody .u_1770010019,#dm .dmBody .u_1798450618,#dm .dmBody .u_1802498586,#dm .dmBody .u_1938414959,#dm .dmBody .u_1970983712,a.u_1633449258 .iconBg{display:none!important}#dm .p_hfcontainer div.u_1923160809 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer .u_1144820115.main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{align-self:flex-start!important}#dm .p_hfcontainer nav.u_1144820115.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{color:rgba(147,147,147,1)!important;font-weight:400!important}#dm .p_hfcontainer nav.u_1144820115.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected{font-weight:400!important;color:rgba(100,100,100,1)!important}#dm .p_hfcontainer .u_1144820115.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{text-align:left!important;padding-top:10px!important;padding-bottom:10px!important}#dm .dmInner div.u_hcontainer,#dm .p_hfcontainer div.u_1705692124{text-align:center!important;margin:0 auto!important;float:none!important;left:0!important;width:100%!important}#dm .p_hfcontainer div.u_1487227164 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer nav.u_1755327939{color:#fff!important}#dm .p_hfcontainer nav.u_1144820115{color:#000!important}#dm .p_hfcontainer nav.u_1755327939.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after{border-top-color:rgba(7,181,67,1)!important;border-top-style:solid!important;border-top-width:2px!important}#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{background-color:rgba(0,0,0,.68)!important;box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important;border-style:solid!important;border-width:0!important}a.u_1633449258{border-radius:6px!important;-moz-border-radius:6px!important;-webkit-border-radius:6px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}#dm .p_hfcontainer a.u_1633449258{border-style:solid!important;border-width:1px!important}#dm .p_hfcontainer .u_1755327939.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1755327939.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:21px!important}#dm .dmInner div.u_hcontainer{max-width:100%!important;min-width:0!important;padding:25px 0 20px!important}#dm .dmInner div.dmHeader.u_hcontainer{padding-bottom:20px!important;padding-top:25px!important}[dmtemplateid=Hamburger] .layout-drawer-hamburger.hamburger-on-header{color:rgba(102,102,102,1)!important;background-color:rgba(0,0,0,0)!important}#dm .p_hfcontainer div#hamburger-drawer.layout-drawer,#dm .p_hfcontainer div#hamburger-header{background-color:rgba(255,255,255,1)!important}#dm .p_hfcontainer div.u_1705692124{max-width:none!important;min-width:0!important;padding:15px 40px!important}#dm .p_hfcontainer div.u_1183846399{padding:0!important;margin:0!important}#dm .p_hfcontainer nav.u_1144820115.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{font-size:24px!important}#dm .p_hfcontainer div.u_1826294544{margin-top:0!important;padding:0!important}#dm .p_hfcontainer div.u_1919575698{display:block!important;float:none!important;left:0!important;width:100%!important;max-width:100%!important;min-width:0!important;text-align:left!important;padding:2px 0!important;margin:0 auto 8px 0!important}#dm .p_hfcontainer div.u_1021493186{padding-top:30px!important;margin-top:0!important;padding-right:40px!important;padding-left:40px!important}#dm .p_hfcontainer div.u_1676049285{margin-top:0!important;padding:100px 40px!important}#dm .p_hfcontainer div.u_1655486006{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}#dm .p_hfcontainer #hamburger-drawer.layout-drawer:not([data-origin=top]){width:49vw!important}#dm .p_hfcontainer div.u_1359743311,#dm .p_hfcontainer nav.u_1144820115{width:100%!important;height:auto!important;max-width:calc(100% - 0px)!important;min-width:25px!important;float:none!important;top:0!important;left:0!important;position:relative!important}#dm .p_hfcontainer nav.u_1144820115{justify-content:flex-start!important;align-items:stretch!important;text-align:start!important;padding:0!important;margin:113px 0 0!important}#dm .p_hfcontainer div.u_1359743311{display:block!important;text-align:left!important;padding:2px 0!important;margin:16px 0 8px!important}#dm .p_hfcontainer div#hamburger-header{box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;border-bottom-style:solid!important;border-bottom-color:rgba(249,249,249,1)!important;border-bottom-width:0!important}[dmtemplateid=Hamburger].runtime-module-container .layout-drawer-hamburger{top:20.73px!important}[dmtemplateid=Hamburger] .site_content{margin-top:93.45px!important}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding:15px 0!important}.fHeader #hcontainer.dmHeader[freeheader=true]{padding-top:initial!important;padding-bottom:initial!important}.stickyHeaderSpacer{height:104.59px!important}#dm .p_hfcontainer div.u_1923160809{float:none!important;top:0!important;left:0!important;width:170px!important;position:relative!important;max-width:100%!important;min-width:0!important;text-align:center!important;display:block!important;padding:0!important;margin:0 auto 0 0!important}#dm .p_hfcontainer div.u_1487227164,a.u_1633449258{float:none!important;left:0!important;position:relative!important;min-width:25px!important;padding:0!important;top:0!important;text-align:center!important}a.u_1633449258 span.text{font-weight:400!important;font-size:18px!important}a.u_1633449258{width:calc(100% - 382px)!important;height:30px!important;max-width:119px!important}#dm .p_hfcontainer div.u_1487227164{width:calc(100% - 78px)!important;max-width:250px!important;display:block!important;height:auto!important;margin:0 auto!important}#dm .p_hfcontainer a.u_1633449258,#dm .p_hfcontainer div.u_1497450766,#dm .p_hfcontainer nav.u_1755327939{float:none!important;position:relative!important;max-width:100%!important;left:0!important}#dm .p_hfcontainer nav.u_1755327939.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{font-family:Assistant!important;font-size:21px!important}#dm .p_hfcontainer nav.u_1755327939{top:0!important;width:1268.59px!important;height:auto!important;justify-content:flex-end!important;align-items:stretch!important;min-width:0!important;text-align:right!important;padding:7px 5px 6.8px!important;margin:11px 0 0 auto!important}#dm .p_hfcontainer a.u_1633449258{top:0!important;width:calc(100% - 0px)!important;height:27.99px!important;min-width:25px!important;text-align:center!important;justify-content:center!important;align-items:center!important;padding:0!important;margin:22px auto 10px!important}#dm .p_hfcontainer div.u_1077206189,#dm .p_hfcontainer div.u_1497450766,#dm .p_hfcontainer div.u_1774785963,#dm .p_hfcontainer div.u_1988171087{margin:0!important;padding:0!important}#dm .dmInner div.fHeader.dmHeaderContainer #hcontainer.dmHeader[freeheader=true]{padding:12px 0!important;margin:0!important}#dm .p_hfcontainer div.u_1497450766{width:auto!important;top:0!important;height:auto!important;min-width:0!important;text-align:center!important}@media (min-width:1025px){.responsiveTablet .stickyHeaderSpacer{height:90.56px!important}}#dm .dmBody .u_1662180717:before{opacity:.5!important;background-color:#000!important}#dm .dmBody div.u_1693794588 .slides .slide-button{background-color:rgba(0,0,0,0)!important;border-style:solid!important;border-width:0!important}#dm .dmBody div.u_1693794588 .color-overlay{background-color:rgba(0,0,0,0)!important}#dm .dmBody div.u_1693794588 .slides .slide-text{direction:rtl!important;font-family:Assistant!important;font-size:20px!important}#dm .dmBody div.u_1693794588 .slides .slide-title{font-family:Assistant!important;color:rgba(255,255,255,1)!important}#dm .dmBody div.u_1662180717:before{background-color:rgba(0,0,0,1)!important;opacity:.9!important}#dm .dmBody .u_1174458392{background-position:50% 50%!important}#dm .dmBody div.u_1680568498 .slides .slide-button{background-color:rgba(0,0,0,0)!important}#dm .dmBody div.u_1693794588,#dm .dmBody div.u_1871257310{display:block!important;float:none!important;position:relative!important;min-width:25px!important}#dm .d-page-1716942098 DIV.dmInner{background-repeat:no-repeat!important;background-size:cover!important;background-attachment:fixed!important;background-position:50% 50%!important}#dm .dmBody div.u_1693794588{top:0!important;left:0!important;width:calc(100% - 112px)!important;height:604px!important;max-width:621px!important;text-align:start!important;padding:0!important;margin:0 112.67px 0 112.66px!important}#dm .dmBody div.u_1871257310{top:0!important;left:0!important;width:calc(100% - 0px)!important;height:auto!important;max-width:701px!important;padding:2px 0!important;margin:119px 145.33px 8px 0!important}#dm .dmBody a.u_1155854600{float:none!important;top:0!important;left:0!important;width:calc(100% - 510px)!important;position:relative!important;height:48px!important;max-width:180px!important;min-width:25px!important;text-align:center!important;padding:0!important;margin:27px auto 10px!important}#dm .dmBody div.u_1020443324,#dm .dmBody div.u_1662180717{width:auto!important;max-width:100%!important;min-width:0!important;text-align:start!important;float:none!important;top:0!important;left:0!important;position:relative!important;height:auto!important}#dm .dmBody div.u_1020443324{padding:59.5px 10px!important;margin:0!important}#dm .dmBody div.u_1653117772{margin:0!important;padding:0 26.17px 0 0!important}#dm .dmBody div.u_1662180717{background-image:url(https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-8636587-1920w.jpeg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important;background-attachment:fixed!important;background-size:cover!important;background-repeat:no-repeat!important;padding:165px 10px 0!important;margin:-100px 0 0!important}#dm .dmBody div.u_1103186670{float:none!important;top:0!important;left:0!important;width:calc(100% - 17px)!important;position:relative!important;height:auto!important;max-width:1166px!important;min-width:25px!important;padding:2px 0!important;margin:8px auto!important}.font-size-22{font-size:22px!important}.font-size-18{font-size:18px!important}.font-size-48,.size-48{font-size:48px!important}.font-size-36,.size-36{font-size:36px!important} #dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder:not(.photo-gallery-done) {display: none;} @media (max-width:767px){ [data-hidden-on-mobile] {display:none!important}}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+
+    
+</style>
+
+
+
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Roboto Fallback";
+  src: local('Arial');
+  ascent-override: 92.6709%;
+  descent-override: 24.3871%;
+  size-adjust: 100.1106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Cardo Fallback";
+  src: local('Arial');
+  ascent-override: 103.8482%;
+  descent-override: 38.1494%;
+  size-adjust: 95.354%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Montserrat Fallback";
+  src: local('Arial');
+  ascent-override: 84.9466%;
+  descent-override: 22.0264%;
+  size-adjust: 113.954%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Poppins Fallback";
+  src: local('Arial');
+  ascent-override: 92.326%;
+  descent-override: 30.7753%;
+  line-gap-override: 8.793%;
+  size-adjust: 113.7274%;
+}@font-face {
+  font-family: "Lato Fallback";
+  src: local('Arial');
+  ascent-override: 101.3181%;
+  descent-override: 21.865%;
+  size-adjust: 97.4159%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Assistant Fallback";
+  src: local('Arial');
+  ascent-override: 109.3873%;
+  descent-override: 30.7484%;
+  size-adjust: 93.3381%;
+  line-gap-override: 0%;
+ }
+</style>
+
+
+<!-- End render the required css and JS in the head section -->
+
+
+
+
+
+
+
+  <link type="application/rss+xml" rel="alternate" href="https://www.webfocus.co.il/feed/rss2">
+  <link type="application/atom+xml" rel="alternate" href="https://www.webfocus.co.il/feed/atom">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.webfocus.co.il/">
+  <script type="application/ld+json">
+
+
+    {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "WEBFOCUS • הקמת אתרים",
+        "url" : "https://www.webfocus.co.il/"
+    }
+
+
+  </script>
+  <title>
+    
+    בניית אתרי אינטרנט תדמיתיים | WEBFOCUS • הקמת אתרים
+  
+  </title>
+  <meta name="description" content="WEBFOCUS מתמחים בבניית אתרי אינטרנט תדמיתיים מותאמים אישית. פנו אלינו לקבלת פתרונות דיגיטליים מקצועיים.">
+  <meta name="keywords" content="הקמת אתרים, בניית אתרים,">
+  <meta name="author" content="webfocus הקמת אתרים">
+  <meta name="generator" content="webfocus.co.il">
+  <meta name="msvalidate.01" content="9FA36E15EEF9EA5C170710DF4E550494">
+  <meta name="alexaVerifyID" content="9mNhPzs4SaeoluFfUeeI98_Gspo">
+  <meta name="google-site-verification" content="wZFA5hXcxbmfcIsGWP7bZE5Cnk5NCIFXDFT8kbomK5c">
+  <meta name="y_key" content="f9855781dc71eab7">
+  <meta name="msvalidate.01" content="9FA36E15EEF9EA5C170710DF4E550494">
+  <script>
+
+
+
+
+
+
+
+
+
+axsStyles = (document.head || document.getElementsByTagName('head')[0]).appendChild(document.createElement('style'));
+document.addEventListener('mousedown',function(){axsStyles.innerHTML='* {outline:none !important}'});
+document.addEventListener('keydown',function(){axsStyles.innerHTML=''});   
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  </script><style></style>
+  <script src="https://use.fontawesome.com/e85de8f912.js">
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  </script><link rel="stylesheet" href="https://use.fontawesome.com/e85de8f912.css" media="all">
+  <!-- Start of Nagishly Pixel script (Copy and paste this to your website) -->  <script>
+
+
+
+
+
+
+
+
+
+    (function(){
+        var s    = document.createElement('script');
+        var h    = document.querySelector('head') || document.body;
+        s.src    = 'https://acsbapp.com/apps/app/dist/js/app.js';
+        s.async  = true;
+        s.onload = function(){
+            acsbJS.init({
+                statementLink    : '',
+                footerHtml       : '',
+                hideMobile       : false,
+                hideTrigger      : false,
+                disableBgProcess : false,
+                language         : 'he',
+                position         : 'left',
+                leadColor        : '#146ff8',
+                triggerColor     : '#146ff8',
+                triggerRadius    : '50%',
+                triggerPositionX : 'right',
+                triggerPositionY : 'bottom',
+                triggerIcon      : 'wheels',
+                triggerSize      : 'medium',
+                triggerOffsetX   : 20,
+                triggerOffsetY   : 20,
+                mobile           : {
+                    triggerSize      : 'small',
+                    triggerPositionX : 'right',
+                    triggerPositionY : 'center',
+                    triggerOffsetX   : 10,
+                    triggerOffsetY   : 0,
+                    triggerRadius    : '50%'
+                }
+            });
+        };
+        h.appendChild(s);
+    })();
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  </script><script src="https://acsbapp.com/apps/app/dist/js/app.js" async=""></script>
+  <!-- End of Nagishly Pixel script -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="בניית אתרי אינטרנט תדמיתיים | WEBFOCUS • הקמת אתרים">
+  <meta name="twitter:description" content="WEBFOCUS מתמחים בבניית אתרי אינטרנט תדמיתיים מותאמים אישית. פנו אלינו לקבלת פתרונות דיגיטליים מקצועיים.">
+  <meta name="twitter:image" content="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/WEBFOCUS+COVER+820-1920w.png">
+  <meta property="og:description" content="WEBFOCUS מתמחים בבניית אתרי אינטרנט תדמיתיים מותאמים אישית. פנו אלינו לקבלת פתרונות דיגיטליים מקצועיים.">
+  <meta property="og:title" content="בניית אתרי אינטרנט תדמיתיים | WEBFOCUS • הקמת אתרים">
+  <meta property="og:image" content="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/WEBFOCUS+COVER+820-1920w.png">
+<script type="application/ld+json">
+{
+  "@context" : {
+    "@vocab" : "http://schema.org/"
+  },
+  "@type" : "ProfessionalService",
+  "name" : "WEBFOCUS • הקמת אתרים",
+  "address" : {
+    "@type" : "PostalAddress",
+    "addressLocality" : "Modi'in Makkabbim-Re'ut",
+    "addressRegion" : "Merkaz",
+    "postalCode" : "71700",
+    "addressCountry" : "IL"
+  },
+  "geo" : {
+    "@type" : "GeoCoordinates",
+    "latitude" : "31.89863",
+    "longitude" : "35.0094"
+  },
+  "url" : "https://www.webfocus.co.il",
+  "description" : "ברוכים הבאים ל-WEBFOCUS.",
+  "telephone" : "050-9191212",
+  "email" : "gil@webfocus.co.il",
+  "logo" : "https://irp.cdn-website.com/7131611d/dms3rep/multi/WebFocus800.png",
+  "sameAs" : [ "https://facebook.com/webfocus", "https://linkedin.com/in/gil-dor-הקמת-אתרים" ],
+  "image" : [ "https://irp.cdn-website.com/7131611d/dms3rep/multi/WebFocus800.png" ],
+  "openingHoursSpecification" : [ {
+    "@type" : "OpeningHoursSpecification",
+    "dayOfWeek" : [ "Monday", "Tuesday", "Wednesday", "Thursday", "Sunday" ],
+    "opens" : "09:00",
+    "closes" : "18:00"
+  } ],
+  "@id" : "https://www.webfocus.co.il"
+}
+</script>
+
+
+
+<!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+<script src="https://static.cdn-website.com/libs/bower-skrollr/skrollr.min.js"></script><script src="https://static.cdn-website.com/libs/flexslider/jquery.flexslider.min.js"></script></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home" class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody responsiveTablet pcCustomScrollbar d1SiteBody dmBodyNoIscroll" style="padding:0;margin:0;"><span role="alert" data-acsb-sr-alert="true" data-acsb-sr-only="true" class="acsb-sr-alert acsb-sr-only" data-acsb-force-visible="true" style="position: absolute; width: 200px; height: 1px; margin-top: -1px; z-index: -1; border: 0px; top: 0px; left: 0px; overflow: hidden; outline: 0px;">למצב קורא מסך - לחץ על הכפתור הראשון של האתר</span><access-widget-ui data-acsb="" class="notranslate"></access-widget-ui><a href="https://accessibe.com/blog/knowledgebase/screen-reader-guide" target="_blank" rel="noopener" tabindex="-1" data-acsb="sr-trigger" data-acsb-sr-only="true" class="acsb-sr-only" style="position: absolute; width: 200px; height: 1px; margin-top: -1px; z-index: -1; border: 0px; top: 0px; left: 0px; overflow: hidden; outline: 0px;">מדריך קורא מסך, משוב ודיווח על בעיות | חלון חדש</a><access-widget-ui data-acsb="skipLinks" class="notranslate"></access-widget-ui><access-widget-ui data-acsb="" class="notranslate"></access-widget-ui><access-widget-ui data-acsb="" class="notranslate"></access-widget-ui>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class="dmwr">
+    
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+         <div dmwrapped="true" id="1901957768" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="Hamburger" data-responsive-name="ResponsiveDesktopTopTabletHamburger" class="runtime-module-container dm-bfs dm-layout-home hasAnimations rows-1200 inMiniHeaderMode hasStickyHeader hamburger-reverse dmPageBody d-page-1716942098 inputs-css-clean dmFreeHeader" id="dm-outer-wrapper" data-page-class="1716942098" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div id="site_content"> <div class="p_hfcontainer showOnMedium"> <div id="hamburger-drawer" class="hamburger-drawer layout-drawer" layout="e9d510f4eb904e939c2be8efaf777e6e===header" data-origin="side-reverse" data-auto-height="true" aria-hidden="true" inert=""> <div class="u_1826294544 dmRespRow" style="text-align: center;" id="1826294544"> <div class="dmRespColsWrapper" id="1337204992"> <div class="u_1183846399 dmRespCol small-12 medium-12 large-12 empty-column" id="1183846399"></div> 
+</div> 
+</div> 
+ <div class="u_1021493186 dmRespRow middleDrawerRow" style="text-align: center;" id="1021493186"> <div class="dmRespColsWrapper" id="1170137577"> <div class="dmRespCol small-12 u_1808057136 medium-12 large-12" id="1808057136"> <nav class="u_1144820115 effect-bottom2 main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="vertical_nav_layout_2" layout-sub="" data-show-vertical-sub-items="HIDE" id="1144820115" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-logo-src="" alt="" data-nav-structure="VERTICAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item dmUDNavigationItem_010101604698 currentPage dmNavItemSelected" target="" data-target-page-alias="" aria-current="page" data-auto="selected-page" tabindex="0"> <span class="nav-item-text " data-link-text="
+         דף הבית
+        " data-auto="page-text-style">דף הבית<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/הקמת-אתרים-Webfocus" class="unifiednav__item dmUDNavigationItem_010101666741" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         נעים להכיר
+        " data-auto="page-text-style">נעים להכיר<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/בניית-אתרי-תדמית" class="unifiednav__item dmUDNavigationItem_010101982119" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         בניית אתרי תדמית
+        " data-auto="page-text-style">בניית אתרי תדמית<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/תיק-עבודות" class="unifiednav__item dmUDNavigationItem_010101802062" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         תיק עבודות
+        " data-auto="page-text-style">תיק עבודות<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/קטלוג-דיגיטלי" class="unifiednav__item dmUDNavigationItem_010101319868" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         קטלוג דיגיטלי
+        " data-auto="page-text-style">קטלוג דיגיטלי<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/מאמרים" class="unifiednav__item dmUDNavigationItem_0101014586" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         מאמרים
+        " data-auto="page-text-style">מאמרים<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/המלצות" class="unifiednav__item dmUDNavigationItem_010101138393" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         המלצות
+        " data-auto="page-text-style">המלצות<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/צרו-קשר" class="unifiednav__item dmUDNavigationItem_010101341412" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         צרו קשר
+        " data-auto="page-text-style">צרו קשר<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1676049285" style="text-align: center;" id="1676049285"> <div class="dmRespColsWrapper" id="1888750820"> <div class="u_1916182198 dmRespCol small-12 medium-12 large-12" id="1916182198"> <div class="u_1919575698 dmNewParagraph" id="1919575698" style="transition: none;"><div style=""><span style=""><span style=""><span style="" class="font-size-22 lh-1"><span style="font-weight: 500;"><font style="color: rgb(100, 100, 100);">Get in touch</font></span></span></span></span></div></div> <div class="u_1359743311 dmNewParagraph" id="1359743311"><div><span style="font-size: 20px;"><font style="color: rgb(255, 255, 255);"></font></span></div><div><span style="font-weight: 300;" class="font-size-18 lh-1"><font style="color: rgb(103, 103, 103);"><div style="text-align: left;"><span style="font-weight: inherit;"><font style="">555-555-5555</font></span></div><div style="text-align: left;"><span style="font-weight: inherit;"><font style="">mymail@mailservice.com</font></span></div></font></span></div><div><span style="font-size: 20px;"><font style="color: rgb(255, 255, 255);"></font></span></div></div></div> 
+</div> 
+</div> 
+</div> 
+ <div class="layout-drawer-overlay" id="layout-drawer-overlay"></div> 
+</div> 
+ <div class="site_content"> <div id="hamburger-header-container" class="showOnMedium hamburger-header-container p_hfcontainer"> <div id="hamburger-header" class="hamburger-header p_hfcontainer" layout="44dc38f951e9489490b055748e10ba9f===header" has-shadow="true"> <div class="u_1705692124 dmRespRow" style="text-align: center;" id="1705692124"> <div class="dmRespColsWrapper" id="1469942216"> <div class="dmRespCol small-12 u_1655486006 medium-12 large-12" id="1655486006"> <div class="u_1923160809 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1923160809" editablewidget="true"> <a href="/דף-הבית" id="1573522578" file="false"><img src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/WebFocus800-1920w.png" id="1761992403" class="" data-dm-image-path="https://irp.cdn-website.com/7131611d/dms3rep/multi/WebFocus800.png" alt="הקמת אתרים - WEBFOCUS - לוגו" onerror="handleImageLoadError(this)"></a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <button class="showOnMedium layout-drawer-hamburger hamburger-on-header" id="layout-drawer-hamburger" aria-label="menu" aria-controls="hamburger-drawer" aria-expanded="false"> <span class="hamburger__slice"></span> 
+ <span class="hamburger__slice"></span> 
+ <span class="hamburger__slice"></span> 
+</button> 
+ <div class="dmHeaderContainer fHeader d-header-wrapper showOnLarge"> <div id="hcontainer" class="u_hcontainer dmHeader p_hfcontainer" freeheader="true" headerlayout="b58ba5b5703b4cd7b5f5f7951565dc87===horizontal-layout-5" layout="3160be7e691447abbddc535d6cfafc7a===header" data-scrollable-target="body" data-scrollable-target-threshold="1" data-scroll-responder-id="1" logo-size-target="66%"> <div dm:templateorder="85" class="dmHeaderResp dmHeaderStack noSwitch" id="1709005236"> <div class="u_1497450766 dmRespRow fullBleedChanged fullBleedMode mini-header-show-row" style="text-align: center;" id="1497450766"> <div class="dmRespColsWrapper" id="1558336121"> <div class="u_1077206189 dmRespCol small-12 large-3 medium-3 has-one-widget-only" id="1077206189"> <div class="u_1487227164 imageWidget align-center" data-widget-type="image" id="1487227164" data-element-type="image" editablewidget="true"> <a href="/" id="1843756126" file="false"><img src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/WHITE+logo+800-1920w.png" id="1801782992" class="" data-dm-image-path="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/WHITE+logo+800-1920w.png" alt="Webfocus logo הקמת אתרים" onerror="handleImageLoadError(this)"></a> 
+</div> 
+</div> 
+ <div class="u_1988171087 dmRespCol small-12 large-1 medium-1 has-one-widget-only" id="1988171087"> <a data-display-type="block" class="u_1633449258 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="https://www.webhouse.co.il" data-element-type="dButtonLinkId" id="1633449258" target="_blank" data-buttonstyle="THICK_BORDER_ROUND"> <span class="iconBg" id="1194186700"> <span class="icon hasFontIcon icon-star" id="1421294657"></span> 
+</span> 
+ <span class="text" id="1263100871">אזור לקוחות</span> 
+</a> 
+</div> 
+ <div class="u_1774785963 dmRespCol small-12 large-8 medium-8 has-one-widget-only" id="1774785963"> <nav class="u_1755327939 effect-bottom2 main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_1" layout-sub="submenu_horizontal_1" data-show-vertical-sub-items="HOVER" id="1755327939" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-direction="RIGHT" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item dmUDNavigationItem_010101604698 currentPage dmNavItemSelected" target="" data-target-page-alias="" aria-current="page" data-auto="selected-page" tabindex="0"> <span class="nav-item-text " data-link-text="
+         דף הבית
+        " data-auto="page-text-style">דף הבית<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/הקמת-אתרים-Webfocus" class="unifiednav__item dmUDNavigationItem_010101666741" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         נעים להכיר
+        " data-auto="page-text-style">נעים להכיר<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/בניית-אתרי-תדמית" class="unifiednav__item dmUDNavigationItem_010101982119" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         בניית אתרי תדמית
+        " data-auto="page-text-style">בניית אתרי תדמית<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/תיק-עבודות" class="unifiednav__item dmUDNavigationItem_010101802062" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         תיק עבודות
+        " data-auto="page-text-style">תיק עבודות<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/קטלוג-דיגיטלי" class="unifiednav__item dmUDNavigationItem_010101319868" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         קטלוג דיגיטלי
+        " data-auto="page-text-style">קטלוג דיגיטלי<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/מאמרים" class="unifiednav__item dmUDNavigationItem_0101014586" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         מאמרים
+        " data-auto="page-text-style">מאמרים<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/המלצות" class="unifiednav__item dmUDNavigationItem_010101138393" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         המלצות
+        " data-auto="page-text-style">המלצות<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class="unifiednav__item-wrap" data-auto="more-pages" data-depth="0"> <a href="/צרו-קשר" class="unifiednav__item dmUDNavigationItem_010101341412" target="" data-target-page-alias="" tabindex="0"> <span class="nav-item-text " data-link-text="
+         צרו קשר
+        " data-auto="page-text-style">צרו קשר<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent" role="main"> <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl dmRespRowsWrapperSize1" id="1716942098"> <div class="u_1662180717 dmRespRow fullBleedChanged fullBleedMode hasBackgroundOverlay dmSectionParallaxNew skrollable skrollable-between" id="1662180717" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -100px;" data-bottom-top="background-position: 50% -9px;" style="background-position: 50% -0.181696px;"> <div class="dmRespColsWrapper" id="1420544551"> <div class="dmRespCol small-12 large-6 medium-6 u_1653117772" id="1653117772"> <div class="u_1693794588 flex-container dmImageSlider dmNoMargin dmNoMark running-animation-RUDWF2WU" data-widget-type="imageSlider" dmle_volatile_widget="true" data-element-type="dSliderId" id="1693794588" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJ2aWV3cG9ydCIsImFuaW1hdGlvbiI6ImJvdW5jZUluIiwicmV2ZXJzZSI6ZmFsc2UsImludGVuc2l0eSI6MSwidmlld3BvcnRUaHJlc2hvbGRzIjp7InRvcCI6IjAlIiwiYm90dG9tIjoiMCUifSwiZGVsYXkiOjAsImR1cmF0aW9uIjoxfX0=" editablewidget="true" style="opacity: 1; transform: scale3d(0.974764, 0.974764, 0.974764); visibility: visible !important;"> <div class="flexslider ed-version" sliderscriptparams="{'stretch':false,'animation':true,'randomize':false,'directionNav':false,'isAutoPlay':true,'isFade':false,'controlNav':false,'slideshowSpeed':7000,'animationDuration':600,'pausePlay':true}" id="1072845412">  
+<div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" id="1486948106" style="width: 1600%; transition-duration: 0s; transform: translate3d(-491.844px, 0px, 0px);"><li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1136823062" class="dmCoverImgContainer clone" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/integral-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;" aria-hidden="true"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/integral-1920w.png" id="1337290484_clone" alt="מסך מחשב עם רקע שחור, טקסט ואיורים ירוקים, כפתורים ממוספרים 1-5." onerror="handleImageLoadError(this)" style="display: none;" draggable="false"> <div class="color-overlay" id="1800754977_clone"></div> 
+ <div class="slide-inner" id="1281398064_clone" duda_id="1281398064_clone"> <div class="text-wrapper" id="1366518863_clone"> <h3 class="slide-title u_1228353224" id="1228353224_clone">Slide title</h3> 
+ <div class="slide-text richText u_1245878491" id="1245878491_clone">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1832961887_clone"> <span class="iconBg" id="1631306790_clone"> <span class="icon hasFontIcon icon-star" id="1621341867_clone"></span> 
+</span> 
+ <span class="text" id="1354347990_clone">Button</span> 
+</div> 
+</div> 
+</li> <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1174458392" class="u_1174458392 dmCoverImgContainer flex-active-slide" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Shemers-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Shemers-1920w.png" id="1731684159" class="" alt="הקמת אתרי תדמית באינטרנט" onerror="handleImageLoadError(this)" style="display: none;" draggable="false"> <div class="color-overlay" id="1742156109"></div> 
+ <div class="slide-inner fadeInUp animated" id="1875009676" duda_id="1875009676"> <div class="text-wrapper" id="1117434934"> <h3 class="slide-title u_1237090353" id="1237090353">Slide title</h3> 
+ <div class="slide-text richText u_1708035844" id="1708035844">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1534139462"> <span class="iconBg" id="1215979108"> <span class="icon hasFontIcon icon-star" id="1680970469"></span> 
+</span> 
+ <span class="text" id="1464872599">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1862976421" class="dmCoverImgContainer" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/weizer-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/weizer-1920w.png" id="1880928350" alt="יד אוחזת בטלפון המציגה את אתר האינטרנט של " משרד="" עורכי="" דין="" עמנואל="" יאיר"="" בעברית."="" onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1709330340"></div> 
+ <div class="slide-inner" id="1443849410" duda_id="1443849410"> <div class="text-wrapper" id="1572019118"> <h3 class="slide-title u_1770010019" id="1770010019">Slide title</h3> 
+ <div class="slide-text richText u_1938414959" id="1938414959">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1304203966"> <span class="iconBg" id="1394120298"> <span class="icon hasFontIcon icon-star" id="1470532882"></span> 
+</span> 
+ <span class="text" id="1655675897">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1022874520" class="dmCoverImgContainer" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Mahut-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Mahut-1920w.png" id="1621487175" alt="אתר אינטרנט על מסך שולחן עבודה, עם כותרת בעברית וסמלים." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1696644421"></div> 
+ <div class="slide-inner" id="1740700652" duda_id="1740700652"> <div class="text-wrapper" id="1886143680"> <h3 class="slide-title u_1798450618" id="1798450618">Slide title</h3> 
+ <div class="slide-text richText u_1331377656" id="1331377656">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1577898314"> <span class="iconBg" id="1472198625"> <span class="icon hasFontIcon icon-star" id="1359626915"></span> 
+</span> 
+ <span class="text" id="1336968899">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1579529490" class="dmCoverImgContainer" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Ricklin-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Ricklin-1920w.png" id="1937025344" alt="טאבלט המציג אתר אינטרנט עם תמונות של מעטפות, לוגואים ובולים, שקשורים אולי לשירותי דואר." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1426731979"></div> 
+ <div class="slide-inner" id="1139408698" duda_id="1139408698"> <div class="text-wrapper" id="1500201744"> <h3 class="slide-title u_1732299749" id="1732299749">Slide title</h3> 
+ <div class="slide-text richText u_1001187930" id="1001187930">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1998837820"> <span class="iconBg" id="1449487636"> <span class="icon hasFontIcon icon-star" id="1001404791"></span> 
+</span> 
+ <span class="text" id="1310759295">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1733955880" class="dmCoverImgContainer" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Rivo-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Rivo-1920w.png" id="1404318220" alt="מסך המחשב מציג אתר אינטרנט עם טקסט ותמונה של אישה נוגעת בפניה. האתר מיועד ככל הנראה לשירותי קוסמטיקה." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1527411307"></div> 
+ <div class="slide-inner" id="1049249731" duda_id="1049249731"> <div class="text-wrapper" id="1124008268"> <h3 class="slide-title u_1802498586" id="1802498586">Slide title</h3> 
+ <div class="slide-text richText u_1256885827" id="1256885827">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1589785146"> <span class="iconBg" id="1498742799"> <span class="icon hasFontIcon icon-star" id="1359155649"></span> 
+</span> 
+ <span class="text" id="1681741697">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1136823062" class="dmCoverImgContainer" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/integral-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/integral-1920w.png" id="1337290484" alt="מסך מחשב עם רקע שחור, טקסט ואיורים ירוקים, כפתורים ממוספרים 1-5." onerror="handleImageLoadError(this)" style="display: none;" draggable="false"> <div class="color-overlay" id="1800754977"></div> 
+ <div class="slide-inner" id="1281398064" duda_id="1281398064"> <div class="text-wrapper" id="1366518863"> <h3 class="slide-title u_1228353224" id="1228353224">Slide title</h3> 
+ <div class="slide-text richText u_1245878491" id="1245878491">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1832961887"> <span class="iconBg" id="1631306790"> <span class="icon hasFontIcon icon-star" id="1621341867"></span> 
+</span> 
+ <span class="text" id="1354347990">Button</span> 
+</div> 
+</div> 
+</li> 
+<li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1174458392" class="u_1174458392 dmCoverImgContainer clone" show-caption="false" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Shemers-1920w.png&quot;); background-size: contain; background-repeat: no-repeat; background-position: center center; margin-right: 0px; opacity: 1; width: 491.844px; float: left; display: block;" aria-hidden="true"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Shemers-1920w.png" id="1731684159_clone" class="" alt="הקמת אתרי תדמית באינטרנט" onerror="handleImageLoadError(this)" style="display: none;" draggable="false"> <div class="color-overlay" id="1742156109_clone"></div> 
+ <div class="slide-inner" id="1875009676_clone" duda_id="1875009676_clone"> <div class="text-wrapper" id="1117434934_clone"> <h3 class="slide-title u_1237090353" id="1237090353_clone">Slide title</h3> 
+ <div class="slide-text richText u_1708035844" id="1708035844_clone">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1534139462_clone"> <span class="iconBg" id="1215979108_clone"> <span class="icon hasFontIcon icon-star" id="1680970469_clone"></span> 
+</span> 
+ <span class="text" id="1464872599_clone">Button</span> 
+</div> 
+</div> 
+</li></ul></div></div> 
+</div> 
+</div> 
+ <div class="dmRespCol large-6 medium-6 small-12" id="1082925704"> <div class="u_1871257310 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1871257310" style="transition: none 0s ease 0s; text-align: right; display: block;"> <h1 class="m-size-38 text-align-center size-48"><span class="m-font-size-38 font-size-48" style="color: rgb(255, 255, 255); display: initial;"><span class="m-font-size-38 font-size-48" style="color: rgb(255, 255, 255); display: initial;">הגיע הזמן שגם לעסק שלך<br>יהיה</span> 
+</span><span class="m-font-size-38 font-size-48" style="color: rgb(7, 181, 67); display: initial; font-weight: bold;">אתר אינטרנט</span></h1> 
+ <h1 class="m-size-38 text-align-center size-48"><span class="m-font-size-38 font-size-48" style="color: rgb(255, 255, 255); display: initial;"><span class="m-font-size-38 font-size-48" style="color: rgb(255, 255, 255); display: initial;">תדמיתי ומעוצב</span> 
+</span><span class="m-font-size-38 font-size-48" style="color: rgb(7, 181, 67); display: initial; font-weight: bold;">בטאץ' אישי</span><span class="m-font-size-38 font-size-48" style="color: rgb(7, 181, 67); display: initial;"><br></span></h1> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1020443324 dmRespRow" id="1020443324"> <div class="dmRespColsWrapper" id="1931355588"> <div class="dmRespCol large-12 medium-12 small-12" id="1974426993"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1381532547" style="transition: opacity 1s ease-in-out 0s;"> <h1 class="text-align-center size-36 m-size-29"><span style="font-weight: bold; display: unset;" class="font-size-36 m-font-size-29">קצת עלינו</span></h1> 
+</div> 
+ <div class="u_1103186670 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1103186670" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center"><span style="font-weight: bold; display: initial;">WEBF</span><span style="font-weight: bold; display: initial; color: rgb(24, 167, 73);">O</span><span style="font-weight: bold; display: initial;">CUS</span><span class="" style="display: initial;"> <span style="display: initial;">מתמחים בהקמת אתרי אינטרנט תדמיתיים לעסקים קטנים ובינוניים.</span></span></p><p class="text-align-center"><span style="display: initial;"><br></span></p><p class="text-align-center"><span style="font-weight: bold; display: initial;">WEBF</span><span style="font-weight: bold; display: initial; color: rgb(24, 167, 73);">O</span><span style="font-weight: bold; display: initial;">CUS</span><span class="" style="display: initial;"> <span style="display: initial;">מספקים מעטפת פתרונות לנראות הדיגיטלית של העסק במרחב האינטרנטי.</span></span></p><p class="text-align-center"><span style="display: initial;">האפיון, הפיתוח ועד העלאת האתר לאויר - הכל נעשה בשקיפות מלאה מול הלקוחות.</span></p><p class="text-align-center"><span style="display: initial;">מעל 15&nbsp; שנות פעילות, ונסיון עשיר של מעל 500 אתרי אינטרנט באים לידי ביטוי במקצועיות, יעילות והבנת הצרכים של העסק.</span></p></div> 
+ <a data-display-type="block" class="u_1155854600 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="/הקמת-אתרים-Webfocus" data-element-type="dButtonLinkId" id="1155854600"> <span class="iconBg" id="1508466106"> <span class="icon hasFontIcon icon-star" id="1279638164"></span> 
+</span> 
+ <span class="text" id="1183409539">קראו עוד</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1009625242 dmRespRow hasExtraLayerOverlay relativePos" id="1009625242" data-video-bg="eyJzcmMiOiJodHRwczovL3ZpZC5jZG4td2Vic2l0ZS5jb20vNzEzMTYxMWQvdmlkZW9zL1p4aTFPWU81UTJhcERyZmRxSmx0X0xpbmVzMTMwMFg1MDAtMTVGUFMtdi5tcDQiLCJpZCI6Imh0dHBzOi8vdmlkLmNkbi13ZWJzaXRlLmNvbS83MTMxNjExZC92aWRlb3MvWnhpMU9ZTzVRMmFwRHJmZHFKbHRfTGluZXMxMzAwWDUwMC0xNUZQUy12Lm1wNCIsInByb3ZpZGVyIjoiY2RuIiwiZW1iZWQiOiJodHRwczovL3ZpZC5jZG4td2Vic2l0ZS5jb20vNzEzMTYxMWQvdmlkZW9zL1p4aTFPWU81UTJhcERyZmRxSmx0X0xpbmVzMTMwMFg1MDAtMTVGUFMtdi5tcDQiLCJyYXRpbyI6MC4zODQ2MTUzODQ2MTUzODQ2NCwidGh1bWJuYWlsIjoiaHR0cHM6Ly9pcnAuY2RuLXdlYnNpdGUuY29tLzcxMzE2MTFkL2RtczNyZXAvbXVsdGkvWnhpMU9ZTzVRMmFwRHJmZHFKbHRfTGluZXMxMzAwWDUwMC0xNUZQUy52Mi4wMDAwMDAwLmpwZyIsInN1cHBvcnRCZ09uTW9iaWxlIjp0cnVlLCJzdXBwb3J0QmdMb29wIjp0cnVlLCJwb3N0ZXIiOiJodHRwczovL2lycC5jZG4td2Vic2l0ZS5jb20vNzEzMTYxMWQvZG1zM3JlcC9tdWx0aS9aeGkxT1lPNVEyYXBEcmZkcUpsdF9MaW5lczEzMDBYNTAwLTE1RlBTLnYyLjAwMDAwMDAuanBnIn0=" data-video-bg-mobile="true" data-video-init="true"> <div class="videobgwrapper video-ssr" data-ratio="0.38461538461538464"> <video autoplay="autoplay" playsinline="playsinline" muted="muted" loop="loop" class="videobgframe" poster="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Zxi1OYO5Q2apDrfdqJlt_Lines1300X500-15FPS.v2.0000000-1920w.jpg" src="https://vid.cdn-website.com/7131611d/videos/Zxi1OYO5Q2apDrfdqJlt_Lines1300X500-15FPS-v.mp4" style="object-position: 50% 50%" id="videobgframe-1009625242"></video> 
+</div> 
+ <div class="bgExtraLayerOverlay"></div> 
+ <div class="dmRespColsWrapper" id="1613714267"> <div class="dmRespCol large-12 medium-12 small-12" id="1964184333"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1084608490" style="transition: opacity 1s ease-in-out 0s;"> <h1 class="text-align-center size-36 m-size-29"><span style="display: initial; color: rgb(255, 255, 255); font-weight: bold;" class="font-size-36 m-font-size-29">השירותים שלנו</span></h1> 
+</div> 
+ <div class="dmPhotoGallery newPhotoGallery dmPhotoGalleryResp u_1622697583 photo-gallery-done photoGallery text-layout-bottom captionAlignment-top_center" galleryoptionsparams="{thumbnailsPerRow: 3, rowsToShow: 3, imageScaleMethod: true}" data-desktop-layout="square" data-desktop-columns="4" data-element-type="dPhotoGalleryId" data-desktop-text-layout="bottom" id="1622697583" data-desktop-caption-alignment="top_center" data-anim-desktop="none" data-image-hover-effect="shine" data-image-animation="fadeInUp" data-link-gallery="true" data-mobile-caption-alignment="top_center" editablewidget="true" data-widget-type="photoGallery" style="visibility: visible !important;"> <div class="dmPhotoGalleryHolder clearfix gallery shadowEffectToChildren gallery4inArow" id="1362986591"></div><div class="layout-container square"><div class="photogallery-row" data-index="0"><div class="photogallery-column  column-4" data-index="0"><div index="0" class="photoGalleryThumbs" data-index="0"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1388359459" data-dm-force-device="mobile" class="u_1529485769 has-link" href="/הקמת-חנות-וירטואלית" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/tv-channel-3413659_1920.jpg" style=""><img id="1283361344" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/tv-channel-3413659_1920-1920w.jpg" alt="הקמת חנויות וירטואליות" aria-labelledby="1388359459" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1741472447" class="caption-container u_1741472447" style=""> <span class="caption-inner"> <h3 id="1388359459" class="caption-title u_1388359459">חנויות וירטואליות</h3> 
+ <div id="1181923808" class="caption-text u_1181923808"><p class="rteBlock">הקמת חנויות וירטואליות הכוללות חיבור לסליקה, קטלוג מוצרים מחולק לקטגוריות ותתי-קטגוריות ואפשרויות רבות נוספות.</p></div> 
+ <a id="1822078645" class="caption-button dmWidget  clearfix u_1822078645" href="/הקמת-חנות-וירטואלית" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">מידע נוסף</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div><div class="photogallery-column  column-4" data-index="1"><div index="1" class="photoGalleryThumbs" data-index="1"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1157692478" data-dm-force-device="mobile" class="u_1883239840 has-link" href="/קטלוג-דיגיטלי" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/online-4091231_1920.jpg" style=""><img id="1540595738" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/online-4091231_1920-1920w.jpg" alt="קטלוג דיגיטלי" aria-labelledby="1157692478" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1578151996" class="caption-container u_1578151996" style=""> <span class="caption-inner"> <h3 id="1157692478" class="caption-title u_1157692478">קטלוג דיגיטלי</h3> 
+ <div id="1823031574" class="caption-text u_1823031574"><p class="rteBlock">בניית קטלוג דיגיטלי לגלישה ודפדוף נוח.</p><p class="rteBlock">מתאים לצפיה בכל המסכים וללא הגבלת עמודים.</p></div> 
+ <a id="1009341835" class="caption-button dmWidget  clearfix u_1009341835" href="/קטלוג-דיגיטלי" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">מידע נוסף</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div><div class="photogallery-column  column-4" data-index="2"><div index="2" class="photoGalleryThumbs" data-index="2"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1873752137" data-dm-force-device="mobile" class="u_1470909809 has-link" href="/בניית-עמוד-נחיתה" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/website-3227784_1920.jpg" style=""><img id="1341753174" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/website-3227784_1920-1920w.jpg" alt="הקמת קטלוג דיגיטלי" aria-labelledby="1873752137" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1784527263" class="caption-container u_1784527263" style=""> <span class="caption-inner"> <h3 id="1873752137" class="caption-title u_1873752137">דפי נחיתה</h3> 
+ <div id="1614765360" class="caption-text u_1614765360"><p class="rteBlock">בניית עמודי נחיתה עבור קמפיינים ממומנים ופרסום ממוקד למוצרים או שירותים.</p><p class="rteBlock">מתאים לגלישה מכל מכשיר.</p></div> 
+ <a id="1788066792" class="caption-button dmWidget  clearfix u_1788066792" href="/בניית-עמוד-נחיתה" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">מידע נוסף</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div><div class="photogallery-column  column-4" data-index="3"><div index="3" class="photoGalleryThumbs" data-index="3"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1667720780" data-dm-force-device="mobile" class="u_1950358522 has-link" href="/בניית-אתרי-תדמית" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/tv-channel-3413659_1920.jpg" style=""><img id="1217998496" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/tv-channel-3413659_1920-1920w.jpg" alt="הקמת אתרי אינטרנט תדמיתיים" aria-labelledby="1667720780" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1610738101" class="caption-container u_1610738101" style=""> <span class="caption-inner"> <h3 id="1667720780" class="caption-title u_1667720780">הקמת אתרים תדמיתיים</h3> 
+ <div id="1727193652" class="caption-text u_1727193652"><p class="rteBlock">אתרי אינטרנט תדמיתיים מעוצבים בטאץ' אישי, מותאמים לגלישה מכל מכשיר ועם מערכת ניהול חכמה וקלה לתפעול.</p></div> 
+ <a id="1720160924" class="caption-button dmWidget  clearfix u_1720160924" href="/בניית-אתרי-תדמית" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">מידע נוסף</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div></div></div> 
+  
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1539779621 dmRespRow" id="1539779621"> <div class="dmRespColsWrapper" id="1678964315"> <div class="dmRespCol large-12 medium-12 small-12" id="1941788773"> <div class="u_1568738941 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1568738941" style="transition: opacity 1s ease-in-out 0s;"> <h1 class="text-align-center m-size-29 size-36"><span class="font-size-36 m-font-size-29" style="font-weight: bold; display: unset;">פרוייקטים לדוגמא:</span></h1> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1770601843 dmRespRow" id="1770601843"> <div class="dmRespColsWrapper" id="1542367886"> <div class="dmRespCol small-12 medium-12 large-12" id="1758916903"> <div class="dmPhotoGallery newPhotoGallery dmPhotoGalleryResp u_1658355356 hasShadow photo-gallery-done photoGallery text-layout-bottom captionAlignment-top_center" galleryoptionsparams="{thumbnailsPerRow: 3, rowsToShow: 3, imageScaleMethod: true}" data-desktop-layout="square" data-desktop-columns="4" data-element-type="dPhotoGalleryId" data-desktop-text-layout="bottom" id="1658355356" data-desktop-caption-alignment="top_center" data-placeholder="false" data-image-hover-effect="shine" data-link-gallery="true" data-mobile-caption-alignment="top_center" editablewidget="true" data-widget-type="photoGallery"> <div class="dmPhotoGalleryHolder clearfix gallery shadowEffectToChildren gallery4inArow" id="1362986591"></div><div class="layout-container square"><div class="photogallery-row" data-index="0"><div class="photogallery-column  column-4" data-index="0"><div index="0" class="photoGalleryThumbs" data-index="0"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1747011131" data-dm-force-device="mobile" class="u_1095479298 has-link" href="/תיק-עבודות" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/JackyChen.jpg" style=""><img id="1049252865" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/JackyChen-1920w.jpg" alt="ג'קי חן בניקיון" aria-labelledby="1747011131" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1284557681" class="caption-container u_1284557681" style="display:none"> <span class="caption-inner"> <h3 id="1747011131" class="caption-title u_1747011131">ג'קי חן בניקיון</h3> 
+ <div id="1742312960" class="caption-text u_1742312960"><p class="rteBlock">אתר תדמיתי שיווקי לחברת נקיון. האתר משלב וידאו תדמיתי בעמוד ברקע עמוד הבית ותפריט המבורגר</p></div> 
+ <a id="1970983712" class="caption-button dmWidget  clearfix u_1970983712" href="/תיק-עבודות" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div><div class="photogallery-column  column-4" data-index="1"><div index="1" class="photoGalleryThumbs" data-index="1"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1786753460" data-dm-force-device="mobile" class="u_1187515010 has-link" href="/תיק-עבודות" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/shemers.jpg" style=""><img id="1789615682" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/shemers-1920w.jpg" alt="שמר'ס - קאוצ'ינג קולינרי" aria-labelledby="1786753460" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1167573107" class="caption-container u_1167573107" style="display:none"> <span class="caption-inner"> <h3 id="1786753460" class="caption-title u_1786753460">שמר'ס - קאוצ'ינג קולינרי</h3> 
+ <div id="1516267469" class="caption-text u_1516267469"><p class="rteBlock">השף ליאור שמר המתמחה בבשרים, יגיע אליכם הבית ללמד אתכם את תורת הקולינריה הבשרית</p></div> 
+ <a id="1152157185" class="caption-button dmWidget  clearfix u_1152157185" href="/תיק-עבודות" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div><div class="photogallery-column  column-4" data-index="2"><div index="2" class="photoGalleryThumbs" data-index="2"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1284026936" data-dm-force-device="mobile" class="u_1613939680 has-link" href="/תיק-עבודות" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/mahut.jpg" style=""><img id="1253283065" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/mahut-1920w.jpg" alt="מהות ישראל - עמותה העוסקת בחוסן הנפשי והחברתי בישראל ובפרט בזמני משבר ולחימה." aria-labelledby="1284026936" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1852224757" class="caption-container u_1852224757" style="display:none"> <span class="caption-inner"> <h3 id="1284026936" class="caption-title u_1284026936">מהו"ת ישראל</h3> 
+ <div id="1709954987" class="caption-text u_1709954987"><p class="rteBlock">עמותה העוסקת בחוסן הנפשי והחברתי בישראל ובפרט בזמני משבר ולחימה.</p></div> 
+ <a id="1522816031" class="caption-button dmWidget  clearfix u_1522816031" href="/תיק-עבודות" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div><div class="photogallery-column  column-4" data-index="3"><div index="3" class="photoGalleryThumbs" data-index="3"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1726400301" data-dm-force-device="mobile" class="u_1060340680 has-link" href="/תיק-עבודות" data-image-url="https://irp.cdn-website.com/7131611d/dms3rep/multi/integral.jpg" style=""><img id="1424884392" data-src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/integral-1920w.jpg" alt="שי טאובס - מומחה במיתוג ובניית אסטרטגיה שיווקית לעסקים" aria-labelledby="1726400301" onerror="handleImageLoadError(this)"></a> 
+</div> 
+ <div id="1792058908" class="caption-container u_1792058908" style="display:none"> <span class="caption-inner"> <h3 id="1726400301" class="caption-title u_1726400301">אינטגרל</h3> 
+ <div id="1338505797" class="caption-text u_1338505797"><p class="rteBlock">שי טאובס - מומחה במיתוג ובניית אסטרטגיה שיווקית לעסקים</p></div> 
+ <a id="1640553281" class="caption-button dmWidget  clearfix u_1640553281" href="/תיק-עבודות" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div></div></div></div> 
+  
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1744536093" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center"><a href="/תיק-עבודות" runtime_url="/תיק-עבודות" type="page" style="display: initial; font-weight: bold;">להתרשמות מפרוייקטים נוספים מעניינים, לחצו כא</a><span class="" style="display: initial; font-weight: bold;"><span style="display: initial; font-weight: bold;">ן&nbsp;</span> 
+</span><span style="display: initial; font-weight: bold; color: rgb(57, 175, 105);">⫸⫸</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1216052345 dmRespRow" id="1216052345"> <div class="dmRespColsWrapper" id="1438140194"> <div class="dmRespCol large-12 medium-12 small-12" id="1829493591"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1548590528" style="transition: opacity 1s ease-in-out 0s;"> <h1 class="m-size-29 text-align-center size-36"><span class="m-font-size-29 font-size-36" style="display: unset; font-weight: bold;">לקוחות ממליצים:</span></h1> 
+</div> 
+ <div class="u_1680568498 flex-container dmImageSlider dmNoMargin dmNoMark" data-widget-type="imageSlider" dmle_volatile_widget="true" data-element-type="dSliderId" id="1680568498" editablewidget="true"> <div class="flexslider ed-version" sliderscriptparams="{ stretch: true, animation: true, randomize: false, directionNav: true, isAutoPlay: true, isFade: true, controlNav: false, slideshowSpeed: 7000, animationDuration: 600, pausePlay: true }" id="1814554481" position="center"> <ul class="slides" id="1376361685" style=""> <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1856852039" class="dmCoverImgContainer flex-active-slide" show-caption="true" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png&quot;); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png" id="1039485160" alt="תמונה לבנה ריקה." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1219616505"></div> 
+ <div class="slide-inner fadeInUp animated" id="1302288164" duda_id="1302288164"> <div class="text-wrapper" id="1740172160"> <h3 class="slide-title u_1375247912" id="1375247912">דניאל זולוטוביצקי, עורך דין קניין רוחני ומשפט מסחרי</h3> 
+ <div class="slide-text richText u_1562904585" id="1562904585" style=""><p class="rteBlock">איש מקצוע מעולה! אמין, ישר, יצירתי, קשוב, זמין לכל שאלה. ממליץ בחום מניסיון אישי של בניית 2 אתרים</p></div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1553733566"> <span class="iconBg" id="1964972327"> <span class="icon hasFontIcon icon-star" id="1910545878"></span> 
+</span> 
+ <span class="text" id="1010493965">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1317756860" class="dmCoverImgContainer" show-caption="true" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png&quot;); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png" id="1914908053" alt="תמונה לבנה ריקה." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1926414269"></div> 
+ <div class="slide-inner" id="1848388953" duda_id="1848388953"> <div class="text-wrapper" id="1629212896"> <h3 class="slide-title u_1915588392" id="1915588392">צביקה יצחקי, אימון קריירה ותעסוקה</h3> 
+ <div class="slide-text richText u_1562468082" id="1562468082"><p class="rteBlock">גיל מקצוען, ידען ובעל תודעת שרות יוצאת מן הכלל!!!!!!</p><p class="rteBlock">ממליץ בחום לפנות ולהתייעץ עמו - יודע להתאים לכל אחד החליפה הייחודית!!!</p></div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1862700041"> <span class="iconBg" id="1164564383"> <span class="icon hasFontIcon icon-star" id="1737115262"></span> 
+</span> 
+ <span class="text" id="1767440534">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1285685372" class="dmCoverImgContainer" show-caption="true" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png&quot;); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png" id="1761230739" alt="תמונה לבנה ריקה." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1285027567"></div> 
+ <div class="slide-inner" id="1056459049" duda_id="1056459049"> <div class="text-wrapper" id="1303449129"> <h3 class="slide-title u_1224159701" id="1224159701">אביעד בן יצחק, שושלות ועצי יוחסין</h3> 
+ <div class="slide-text richText" id="1897886762"><p class="rteBlock">שירות מעולה. מחיר הוגן. מקצוען ברמות. ממליץ בחום מנסיון אישי</p></div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1814595874"> <span class="iconBg" id="1764707524"> <span class="icon hasFontIcon icon-star" id="1040570770"></span> 
+</span> 
+ <span class="text" id="1720641689">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1759310772" class="dmCoverImgContainer" show-caption="true" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png&quot;); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png" id="1603498498" alt="תמונה לבנה ריקה." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1409323207"></div> 
+ <div class="slide-inner" id="1568721769" duda_id="1568721769"> <div class="text-wrapper" id="1440220916"> <h3 class="slide-title u_1662319368" id="1662319368">עדי גודל סולומון, דיאטנית קלינית</h3> 
+ <div class="slide-text richText u_1018924588" id="1018924588"><p class="rteBlock">ממליצה בחום, גיל ואני עובדים יחד מעל 6 שנים, השירות מקצועי, מהיר, נעים ואדיב!!!!!</p></div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1500030386"> <span class="iconBg" id="1705539274"> <span class="icon hasFontIcon icon-star" id="1018763422"></span> 
+</span> 
+ <span class="text" id="1804082859">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1892886973" class="dmCoverImgContainer" show-caption="true" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png&quot;); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png" id="1210833875" alt="תמונה לבנה ריקה." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1398669968"></div> 
+ <div class="slide-inner" id="1492765175" duda_id="1492765175"> <div class="text-wrapper" id="1126745040"> <h3 class="slide-title u_1883503105" id="1883503105">איתן אשכנזי, איתן מחשבים</h3> 
+ <div class="slide-text richText u_1167934979" id="1167934979"><p class="rteBlock">גיל בנה לי כבר 3 אתרים לעסקים שונים שלי - תמיד קשוב וזמין לבקשות ושאלות שלי. ממשק הניהול מאפשר לבצע את רוב הדברים לבד, ומה שאי אפשר לבד או שאני לא יודע לבצע, גיל תמיד שמח לעזור ולסדר בקלות תוך מס' דקות.</p></div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1720963479"> <span class="iconBg" id="1922813904"> <span class="icon hasFontIcon icon-star" id="1769802817"></span> 
+</span> 
+ <span class="text" id="1245035691">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1340854968" class="dmCoverImgContainer" show-caption="true" style="background-image: url(&quot;https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png&quot;); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img dm="true" src="https://lirp.cdn-website.com/7131611d/dms3rep/multi/opt/Empty-1920w.png" id="1654165659" alt="תמונה לבנה ריקה." onerror="handleImageLoadError(this)" draggable="false" style="display: none;"> <div class="color-overlay" id="1322578788"></div> 
+ <div class="slide-inner" id="1024492302" duda_id="1024492302"> <div class="text-wrapper" id="1411551650"> <h3 class="slide-title u_1350558746" id="1350558746">עמי ויסברג, מאמן אישי ועסקי</h3> 
+ <div class="slide-text richText u_1958161773" id="1958161773"><p class="rteBlock">גיל הקים לי אתר המתואם בדיוק לצרכים שלי ולא תבנית של משהו או מישהו אחר. כיף לי לעבוד באתר שלי, הוא קל לתפעול, גיל זמין ונותן מענה בימים ובשעות שאחרים רק חולמים (אבל ממש חולמים). האתר זמין לבעלי צרכים מיוחדים והוא כל הזמן צומח יחד איתי</p></div> 
+</div> 
+ <div class="slide-button dmWidget clearfix slide-button-invisible" id="1011227948"> <span class="iconBg" id="1071883510"> <span class="icon hasFontIcon icon-star" id="1165207642"></span> 
+</span> 
+ <span class="text" id="1748889318">Button</span> 
+</div> 
+</div> 
+</li> 
+</ul> 
+<ul class="flex-direction-nav"><li><a class="flex-prev" href="">Previous</a></li><li><a class="flex-next" href="">Next</a></li></ul></div> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1569015648" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center size-16 m-size-13"><span style="display: unset;" class="font-size-16 m-font-size-13">⭐⭐⭐⭐⭐</span></p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="u_fcontainer f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1943048428"> <div class="dmRespRow fullBleedChanged fullBleedMode u_1849179256 mobile-columns-reversed" id="1849179256"> <div class="dmRespColsWrapper" id="1363117058"> <div class="dmRespCol large-4 medium-4 small-12" id="1053038422"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1198373285" style="transition: opacity 1s ease-in-out 0s;"><p><strong><font color="#ffffff">ה</font></strong><strong style="display: initial;"><font color="#ffffff">סתקרנתם? תרצו לשמוע עוד?</font></strong></p><p><span style="color: rgb(255, 255, 255); display: initial;">גם לכם מגיע אתר אינטרנט יחודי ומייצג!</span></p></div> 
+ <a data-display-type="block" class="u_1778788586 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="/צרו-קשר" data-element-type="dButtonLinkId" id="1778788586" data-buttonstyle="FLAT_ROUND_ICON" icon-name="dm-icon-phone"> <span class="iconBg" id="1203701307"> <span class="icon hasFontIconstar hasFontIcon dm-icon-phone" id="1368778459"></span> 
+</span> 
+ <span class="text" id="1826781106">השאירו לנו הודעה</span> 
+</a> 
+</div> 
+ <div class="dmRespCol large-4 medium-4 small-12" id="1106358920"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1581901453" style="transition: opacity 1s ease-in-out 0s;"><p><strong style="font-weight: bold; display: initial; color: rgb(74, 245, 133);">כלים ומידע ללקוחות:</strong></p><p><a href="https://coolsymbol.com/copy/Hammer_Emoji_Symbol_%F0%9F%94%A8" target="_blank" runtime_url="https://coolsymbol.com/copy/Hammer_Emoji_Symbol_%F0%9F%94%A8" style="display: initial; color: rgb(255, 255, 255);" class="m-font-size-18 font-size-22">»</a><span single-space="true" class="" style="display: initial; color: rgb(255, 255, 255);"> <span style="display: initial; color: rgb(255, 255, 255);"></span> 
+</span><a href="https://www.webhouse.co.il/account/index.asp?tool_id=23" target="_blank" runtime_url="https://www.webhouse.co.il/account/index.asp?tool_id=23" type="url" style="display: initial; color: rgb(255, 255, 255);">כניסה לממשק ניהול תוכן</a></p><p><span style="display: initial; color: rgb(255, 255, 255);" class="m-font-size-18 font-size-22">»</span><span single-space="true" class="" style="display: initial; color: rgb(255, 255, 255);"> <span style="display: initial; color: rgb(255, 255, 255);"></span> 
+</span><a href="http://webmail.enter-system.com" target="_blank" runtime_url="http://webmail.enter-system.com" type="url" style="display: initial; color: rgb(255, 255, 255);">ממשק דואר אלקטרוני</a></p><p><a href="https://coolsymbol.com/copy/Hammer_Emoji_Symbol_%F0%9F%94%A8" target="_blank" runtime_url="https://coolsymbol.com/copy/Hammer_Emoji_Symbol_%F0%9F%94%A8" style="color: rgb(255, 255, 255); display: initial;" class="m-font-size-18 font-size-22">»</a><span single-space="true" class="" style="color: rgb(255, 255, 255); display: initial;"> <span style="color: rgb(255, 255, 255); display: initial;"></span> 
+</span><a href="https://www.webhouse.co.il/account/helpDesk/index.asp?sl=he" target="_blank" runtime_url="https://www.webhouse.co.il/account/helpDesk/index.asp?sl=he" type="url" style="color: rgb(255, 255, 255); display: initial;">מרכז תמיכה ועזרה</a></p><p><a href="https://coolsymbol.com/copy/Hammer_Emoji_Symbol_%F0%9F%94%A8" target="_blank" runtime_url="https://coolsymbol.com/copy/Hammer_Emoji_Symbol_%F0%9F%94%A8" style="display: initial; color: rgb(255, 255, 255); font-weight: normal;" class="m-font-size-18 font-size-22">»</a><span single-space="true" class="" style="display: initial; color: rgb(255, 255, 255);"> <span style="display: initial; color: rgb(255, 255, 255);"></span> 
+</span><a href="/כלים-ותוכנות-לבניית-אתרים" runtime_url="/כלים-ותוכנות-לבניית-אתרים" type="page" style="display: initial; color: rgb(255, 255, 255);">כלים ותוכנות עזר</a></p><p><span class="m-font-size-18" style="display: initial; color: rgb(255, 255, 255);"><span style="display: initial; color: rgb(255, 255, 255);" class="m-font-size-18">»</span> 
+</span><a href="/תנאי-שימוש" runtime_url="/תנאי-שימוש" type="page" style="display: initial; color: rgb(255, 255, 255);">תנאי שימוש / תקנון</a></p><p><span class="" style="display: initial; color: rgb(255, 255, 255);"><span style="display: initial; color: rgb(255, 255, 255);">»</span> 
+</span><a href="/הצהרת-נגישות" runtime_url="/הצהרת-נגישות" type="page" style="display: initial; color: rgb(255, 255, 255);">הצהרת נגישות</a></p><p><span class="" style="display: initial; color: rgb(255, 255, 255);"><span style="display: initial; color: rgb(255, 255, 255);">»</span> 
+</span><a href="https://direct.tranzila.com/webfocuscha" target="_blank" runtime_url="https://direct.tranzila.com/webfocuscha" type="url" style="display: initial; color: rgb(255, 255, 255);">תשלום בכ. אשראי מאובטח</a></p><p><a href="/מדיניות-פרטיות" runtime_url="/מדיניות-פרטיות" type="page" style="display: initial; color: rgb(255, 255, 255);">» מדיניות פרטיות</a><span single-space="true" class="" style="display: initial; color: rgb(255, 255, 255);"> <span style="display: initial; color: rgb(255, 255, 255);"></span> 
+</span><span style="display: initial;"><br></span></p></div> 
+</div> 
+ <div class="dmRespCol large-4 medium-4 small-12" id="1353557383"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1243120083" style="transition: opacity 1s ease-in-out 0s;"><p><span style="font-weight: bold; color: rgb(74, 245, 133); display: initial;">אולי יעניין אתכם גם:</span></p><p><span class="" style="color: rgb(255, 255, 255); display: initial;"><span style="color: rgb(255, 255, 255); display: initial;">»</span> 
+</span><a href="/מאגר-תמונות-חינם-לאתרים" runtime_url="/מאגר-תמונות-חינם-לאתרים" type="page" style="color: rgb(255, 255, 255); display: initial;">מאגר תמונות</a></p><p><span class="" style="color: rgb(255, 255, 255); display: initial;"><span style="color: rgb(255, 255, 255); display: initial;">»</span> 
+</span><a href="/טיפים-ומאמרים-מקצועיים" runtime_url="/טיפים-ומאמרים-מקצועיים" type="page" style="color: rgb(255, 255, 255); display: initial;">מאמרים מקצועיים</a></p><p><span class="" style="color: rgb(255, 255, 255); display: initial;"><span style="color: rgb(255, 255, 255); display: initial;">»</span> 
+</span><a href="/מדריך-קידום-אתרים" runtime_url="/מדריך-קידום-אתרים" type="page" style="color: rgb(255, 255, 255); display: initial;">מדריך קידום אתרים</a></p><p><span style="color: rgb(255, 255, 255); display: initial;">» &nbsp;</span><a href="/מקצוענים-בתחום-האינטרנט" runtime_url="/מקצוענים-בתחום-האינטרנט" type="page" style="color: rgb(255, 255, 255); display: initial;">נבחרת התותחים - המומלצים שלנו</a></p><p><span class="" style="display: initial; color: rgb(255, 255, 255);"><span style="display: initial; color: rgb(255, 255, 255);">»</span> 
+</span><a href="/בניית-עמוד-נחיתה" runtime_url="/בניית-עמוד-נחיתה" type="page" style="display: initial; color: rgb(255, 255, 255);">עמודי נחיתה</a></p><p><span class="" style="display: initial; color: rgb(255, 255, 255);"><span style="display: initial; color: rgb(255, 255, 255);">»</span> 
+</span><a href="/הקמת-חנות-וירטואלית" runtime_url="/הקמת-חנות-וירטואלית" type="page" style="display: initial; color: rgb(255, 255, 255);">הקמת חנות וירטואלית</a></p><p><a href="https://coolsymbol.com/copy/Writing_Hand_Emoji_Symbol_%E2%9C%8D%EF%B8%8F" target="_blank" runtime_url="https://coolsymbol.com/copy/Writing_Hand_Emoji_Symbol_%E2%9C%8D%EF%B8%8F" style="display: initial; color: rgb(255, 255, 255);">»</a><span single-space="true" class="" style="color: rgb(255, 255, 255); display: initial;"> <span style="color: rgb(255, 255, 255); display: initial;"></span> 
+</span><a href="/סרטונים-מאויירים-לעסק" runtime_url="/סרטונים-מאויירים-לעסק" type="page" style="color: rgb(255, 255, 255); display: initial;">סרטונים מאויירים לעסק</a></p><p><a href="https://www.youtube.com/channel/UCie9wmvVOLi8wzYXEhdA2XQ" runtime_url="https://www.youtube.com/channel/UCie9wmvVOLi8wzYXEhdA2XQ" type="url" style="display: initial; color: rgb(255, 255, 255);" target="_blank">» סרטוני אנימציה מדובבים לעסק</a><span single-space="true" class="" style="display: initial;"> <span style="display: initial;"></span> 
+</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1172294368"> <div class="dmRespColsWrapper" id="1644254139"> <div class="dmRespCol large-12 medium-12 small-12" id="1961940109"> <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1680740423" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center m-size-13 size-16"><span class="font-size-16 m-font-size-13" style="display: initial; color: rgb(255, 255, 255);">התכנים באתר- לרבות טקסט, תמונות, סרטים, וכל תוכן ומידע אחר, מוגנים בזכויות יוצרים ©.<br>הניסוח באתר בלשון זכר מטעמי נוחות בלבד.&nbsp; המחירים המוצגים באתר אינם כוללים מע"מ למעט אם צוין אחרת.</span></p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- loadCSS function fonts.jsp-->
+
+
+
+<link rel="stylesheet" href="https://irp.cdn-website.com/fonts/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Cardo:ital,wght@0,400;0,700;1,400&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Assistant:ital,wght@0,200..800;1,200..800&amp;family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;subset=latin-ext&amp;display=block" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link rel="stylesheet" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static.cdn-website.com/mnlt/production/6248/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" type="text/css">
+
+<!-- End of RT CSS Include -->
+
+<link rel="stylesheet" href="https://irp.cdn-website.com/WIDGET_CSS/bad783e7cfddba3677827354cc04754d.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link rel="stylesheet" href="https://irp.cdn-website.com/7131611d/files/7131611d_withFlex_1.min.css?v=170" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style id="additionalGlobalCss" type="text/css">
+</style>
+
+<!-- Page CSS -->
+<link rel="stylesheet" href="https://irp.cdn-website.com/7131611d/files/7131611d_home_withFlex_1.min.css?v=170" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" type="text/css">
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-16, .size-16, .size-16 > font { font-size: 16px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "HEBREW"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_6248";
+    var build = "2026-03-04T07_48_29";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2026-03-04T07_48_29";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+<!-- Load jQuery -->
+<script type="text/javascript" id="d-js-jquery" src="https://static.cdn-website.com/libs/jquery/jquery-3.7.0.min.js"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+
+<!-- HEAD RT JS Include -->
+<script id="d-js-params">
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/6248';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/6248';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+    rtCommonProps["booking.cal.api.domain"] = 'api.cal.com';
+
+    
+    rtCommonProps['common.mapsProvider'] = 'google';
+    
+    rtCommonProps["google.places.key"] = 'QUl6YVN5Qkh4QUNTaXlZT1VrQnN3QzdWY2txc1NNNEN0anByWVNz';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'google';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["flex.animation.design.panel.layout"] =true;
+    rtFlags["runtime.cwv.report.cls.enabled"] =false;
+    rtFlags["runtime.cwv.report.lcp.enabled"] =false;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["contact.form.custom.errors.enabled"] =false;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+    rtFlags["runtime.ssr.runtime.filter-sort.newFilterSortWidgetWithOptions.enabled"] =false;
+    rtFlags["runtime.ssr.ssrSlider.jumpThreshold.enabled"] =true;
+</script>
+<script src="https://static.cdn-website.com/mnlt/production/6248/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js" id="d-js-core"></script>
+<!-- End of HEAD RT JS Include -->
+<script src="https://static.cdn-website.com/mnlt/production/6248/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js"></script>
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript">
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+</script>
+<script async="" src="https://www.googletagmanager.com/gtm.js?id=GT-NC68Z49" id="d-js-gtm" onload="window.dispatchEvent(new CustomEvent('gtmLoaded', { bubbles: true }))"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YLJZ97631B"></script>
+<script type="text/javascript" id="d_track_ga">
+  _dm_gaq.siteAlias = '7131611d';
+  _dm_gaq.systemAggregatedGaqID = '';
+  _dm_gaq.externalGaqID = 'G-YLJZ97631B';
+  _dm_gaq.gaAggregatedEventAttributes = {
+	  'site_alias':  _dm_gaq.siteAlias,
+	  'product': 'DM_DIRECT',
+	  'plan': 'BUSINESS_PLUS',
+	  'dfooter': 'false',
+	  'sitetype': '1',
+	  'pwaEnabled': 'true'
+  }
+
+  _dm_gaq.pushEvent = function(trackingId, event, category, label, value, additionalParams = {}) {
+	  const eventProps = {
+		  send_to: trackingId,
+		  event_category: category,
+		  event_label: label,
+		  value,
+		  ...additionalParams,
+		  ...(trackingId === _dm_gaq.systemAggregatedGaqID
+				  ? _dm_gaq.gaAggregatedEventAttributes : {})
+	  };
+	  gtag('event', event, eventProps);
+  }
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+    gtag('set', 'developer_id.dMDU5Nj', true);
+
+  function pushInsiteImpressions(id) {
+	  _dm_insite.forEach((rule) => {
+		  _dm_gaq.pushEvent(id, 'insite_impression', 'insite', rule.ruleType + '__' + rule.ruleId);
+	  });
+  }
+
+if(_dm_gaq.systemAggregatedGaqID){
+	// track aggregated account
+	gtag('config', '', {
+		'send_page_view': false,
+		'anonymize_ip': true,
+		'transport_type': 'beacon',
+		'custom_map': {'dimension1': 'site_alias', 'dimension2': 'product', 'dimension3': 'dFooter', 'dimension4': 'sitetype'}
+	});
+
+	_dm_gaq.pushEvent('', 'page_view');
+	pushInsiteImpressions(_dm_gaq.systemAggregatedGaqID);
+}
+
+if(_dm_gaq.externalGaqID && _dm_gaq.externalGaqID!= '') {
+	gtag('config', 'G-YLJZ97631B', {
+		'send_page_view': false,
+		'anonymize_ip': true,
+		'transport_type': 'beacon',
+		'linker': {
+			'domains': ['webfocus.co.il']
+		}
+	});
+	_dm_gaq.pushEvent('G-YLJZ97631B', 'page_view');
+	pushInsiteImpressions(_dm_gaq.externalGaqID);
+}
+</script>
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: '7131611d'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+   <div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="סגור (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="שיתוף"></button>
+
+                <button class="pswp__button pswp__button--fs" title="החלפת מצב מסך מלא"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="הגדל/הקטן"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="הקודם (חץ ימינה)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="הבא (חץ שמאלה)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root" data-locale="he_IL"></div>
+<!-- Alias: 7131611d -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+
+
+<iframe role="presentation" srcdoc="&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;title&gt;apiSanitizer&lt;/title&gt;&lt;/head&gt;&lt;/body&gt;&lt;/html&gt;" style="visibility: hidden; pointer-events: none; position: fixed;"></iframe><div class="acsb-trigger acsb-widget" tabindex="0" role="button"></div></body></html>

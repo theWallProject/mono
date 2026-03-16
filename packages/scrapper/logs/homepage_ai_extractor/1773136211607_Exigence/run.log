@@ -1,0 +1,72 @@
+[2026-03-10T09:50:11.608Z] === Homepage AI Extractor: Exigence ===
+[2026-03-10T09:50:11.608Z] Started at: 2026-03-10T09:50:11.608Z
+[2026-03-10T09:50:11.608Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773136211607_Exigence
+[2026-03-10T09:50:11.608Z] Company: Exigence
+[2026-03-10T09:50:11.608Z] Website: exigence.io
+[2026-03-10T09:50:11.608Z] cbRank: 459287
+[2026-03-10T09:50:11.608Z] Reasons: h
+[2026-03-10T09:50:11.608Z] Fetching: https://exigence.io
+[2026-03-10T09:50:15.829Z] Redirected: https://exigence.io -> https://www.exigence.io/
+[2026-03-10T09:50:15.863Z] Saved HTML (1137794 bytes) to page.html
+[2026-03-10T09:50:15.866Z] Extracted 21 unique links from page
+[2026-03-10T09:50:15.868Z] Saved 21 links to links.json
+[2026-03-10T09:50:15.871Z] Extracted footer HTML (5676 chars)
+[2026-03-10T09:50:15.872Z] Extracted header HTML (1374 chars)
+[2026-03-10T09:50:15.878Z] Website (post-redirect): https://www.exigence.io/ → origin: https://www.exigence.io
+[2026-03-10T09:50:15.879Z]   SUBDOMAIN: blog.exigence.io (added to ws)
+[2026-03-10T09:50:15.879Z]   SUBDOMAIN: status.exigence.io (added to ws)
+[2026-03-10T09:50:15.879Z] Website subdomains found: 2
+[2026-03-10T09:50:15.879Z] External links: 3 (of 21 total)
+[2026-03-10T09:50:15.879Z] ── All external links ──
+[2026-03-10T09:50:15.879Z]   EXT: https://calendly.com/exigence/exigencedemo
+[2026-03-10T09:50:15.879Z]   EXT: https://twitter.com/exigence_ltd
+[2026-03-10T09:50:15.879Z]   EXT: https://www.linkedin.com/company/exigence-ltd-?trk=biz-companies-cym
+[2026-03-10T09:50:15.879Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T09:50:15.879Z]   UNCATEGORIZED: https://calendly.com/exigence/exigencedemo
+[2026-03-10T09:50:15.880Z]   REGEX: tw <- https://twitter.com/exigence_ltd
+[2026-03-10T09:50:15.880Z]   REGEX: li <- https://www.linkedin.com/company/exigence-ltd-?trk=biz-companies-cym
+[2026-03-10T09:50:15.880Z] Programmatic result: ws:3, tw:1, li:1 | 1 uncategorized
+[2026-03-10T09:50:15.880Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T09:50:15.880Z] Saved AI prompt (5152 chars) to ai_prompt.txt
+[2026-03-10T09:50:15.881Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T09:50:15.898Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T09:50:40.616Z]   AI: First token received, streaming...
+[2026-03-10T09:50:52.840Z] AI response complete: 172 chars in 37.0s
+[2026-03-10T09:50:52.843Z] Saved AI response to ai_response.json
+[2026-03-10T09:50:52.843Z] ── Parsing AI response (4 lines) ──
+[2026-03-10T09:50:52.843Z]   AI LINK: https://twitter.com/exigence_ltd
+[2026-03-10T09:50:52.843Z]   AI LINK: https://www.linkedin.com/company/exigence-ltd-?trk=biz-companies-cym
+[2026-03-10T09:50:52.843Z]   AI LINK: https://calendly.com/exigence/exigencedemo
+[2026-03-10T09:50:52.843Z]   AI LINK: https://status.exigence.io/
+[2026-03-10T09:50:52.843Z] AI returned 4 valid links
+[2026-03-10T09:50:52.843Z] ── Categorizing 4 AI-returned links ──
+[2026-03-10T09:50:52.843Z]   AI→REGEX: tw <- https://twitter.com/exigence_ltd (duplicate, skipped)
+[2026-03-10T09:50:52.844Z]   AI→REGEX: li <- https://www.linkedin.com/company/exigence-ltd-?trk=biz-companies-cym (duplicate, skipped)
+[2026-03-10T09:50:52.844Z]   AI→URLS: https://calendly.com/exigence/exigencedemo
+[2026-03-10T09:50:52.844Z]   AI→URLS: https://status.exigence.io (cleaned from https://status.exigence.io/)
+[2026-03-10T09:50:52.844Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T09:50:52.844Z] Footer/header origins (4):
+[2026-03-10T09:50:52.844Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-10T09:50:52.844Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T09:50:52.844Z]   FOOTER/HEADER ORIGIN: https://www.exigence.io
+[2026-03-10T09:50:52.844Z]   FOOTER/HEADER ORIGIN: https://status.exigence.io
+[2026-03-10T09:50:52.844Z]   SKIP (AI claimed): https://calendly.com/exigence/exigencedemo
+[2026-03-10T09:50:52.845Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T09:50:52.845Z] ── Step 3: Final dedup ──
+[2026-03-10T09:50:52.845Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T09:50:52.845Z] ── FINAL RESULT ──
+[2026-03-10T09:50:52.845Z]   ws (3):
+[2026-03-10T09:50:52.845Z]     - https://blog.exigence.io
+[2026-03-10T09:50:52.845Z]     - https://status.exigence.io
+[2026-03-10T09:50:52.845Z]     - https://www.exigence.io
+[2026-03-10T09:50:52.845Z]   li (1):
+[2026-03-10T09:50:52.845Z]     - https://www.linkedin.com/company/exigence-ltd-
+[2026-03-10T09:50:52.845Z]   tw (1):
+[2026-03-10T09:50:52.845Z]     - https://x.com/exigence_ltd
+[2026-03-10T09:50:52.845Z]   urls (2):
+[2026-03-10T09:50:52.845Z]     - https://calendly.com/exigence/exigencedemo
+[2026-03-10T09:50:52.845Z]     - https://status.exigence.io
+[2026-03-10T09:50:52.845Z] Summary: ws:3, tw:1, li:1, urls:2
+[2026-03-10T09:50:52.846Z] Saved final result to result.json
+[2026-03-10T09:50:52.846Z] Override fields: ws, li, tw, urls
+[2026-03-10T09:50:52.846Z] Finished at: 2026-03-10T09:50:52.846Z

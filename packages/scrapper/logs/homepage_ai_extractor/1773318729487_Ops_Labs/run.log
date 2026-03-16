@@ -1,0 +1,78 @@
+[2026-03-12T12:32:09.487Z] === Homepage AI Extractor: Ops Labs ===
+[2026-03-12T12:32:09.488Z] Started at: 2026-03-12T12:32:09.488Z
+[2026-03-12T12:32:09.488Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773318729487_Ops_Labs
+[2026-03-12T12:32:09.488Z] Company: Ops Labs
+[2026-03-12T12:32:09.488Z] Website: opslabs.io
+[2026-03-12T12:32:09.488Z] cbRank: 952232
+[2026-03-12T12:32:09.488Z] Reasons: h
+[2026-03-12T12:32:09.488Z] Fetching: https://opslabs.io
+[2026-03-12T12:32:20.837Z] Network idle timeout — continuing with current state
+[2026-03-12T12:32:20.888Z] Redirected: https://opslabs.io -> https://www.opslabs.io/
+[2026-03-12T12:32:20.905Z] Saved HTML (462453 bytes) to page.html
+[2026-03-12T12:32:20.909Z] Extracted 15 unique links from page
+[2026-03-12T12:32:20.909Z] Saved 15 links to links.json
+[2026-03-12T12:32:20.914Z] Extracted footer HTML (7877 chars)
+[2026-03-12T12:32:20.914Z] Extracted header HTML (10499 chars)
+[2026-03-12T12:32:20.919Z] Website (post-redirect): https://www.opslabs.io/ → origin: https://www.opslabs.io
+[2026-03-12T12:32:20.919Z] External links: 6 (of 15 total)
+[2026-03-12T12:32:20.919Z] ── All external links ──
+[2026-03-12T12:32:20.919Z]   EXT: http://www.theflow.pro
+[2026-03-12T12:32:20.919Z]   EXT: https://wa.me/972525342469
+[2026-03-12T12:32:20.919Z]   EXT: https://www.facebook.com/OPS-LABS-103793238079644
+[2026-03-12T12:32:20.919Z]   EXT: https://www.linkedin.com/company/dvoskin-consulting-ltd
+[2026-03-12T12:32:20.920Z]   EXT: https://www2.deloitte.com/il/en/footerlinks/contact-us.html?icid=bn_contact-us
+[2026-03-12T12:32:20.920Z]   EXT: https://www2.deloitte.com/il/en/pages/cloud/topics/index.html
+[2026-03-12T12:32:20.920Z] ── Step 1: Programmatic categorization ──
+[2026-03-12T12:32:20.920Z]   UNCATEGORIZED: http://www.theflow.pro
+[2026-03-12T12:32:20.920Z]   UNCATEGORIZED: https://wa.me/972525342469
+[2026-03-12T12:32:20.921Z]   REGEX: fb <- https://www.facebook.com/OPS-LABS-103793238079644
+[2026-03-12T12:32:20.921Z]   REGEX: li <- https://www.linkedin.com/company/dvoskin-consulting-ltd
+[2026-03-12T12:32:20.921Z]   UNCATEGORIZED: https://www2.deloitte.com/il/en/footerlinks/contact-us.html?icid=bn_contact-us
+[2026-03-12T12:32:20.921Z]   UNCATEGORIZED: https://www2.deloitte.com/il/en/pages/cloud/topics/index.html
+[2026-03-12T12:32:20.921Z] Programmatic result: ws:1, fb:1, li:1 | 4 uncategorized
+[2026-03-12T12:32:20.921Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-12T12:32:20.922Z] Saved AI prompt (7331 chars) to ai_prompt.txt
+[2026-03-12T12:32:20.922Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-12T12:32:20.948Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-12T12:33:01.315Z]   AI: First token received, streaming...
+[2026-03-12T12:33:13.977Z] AI response complete: 133 chars in 53.1s
+[2026-03-12T12:33:13.978Z] Saved AI response to ai_response.json
+[2026-03-12T12:33:13.978Z] ── Parsing AI response (3 lines) ──
+[2026-03-12T12:33:13.978Z]   AI LINK: https://www.linkedin.com/company/dvoskin-consulting-ltd/
+[2026-03-12T12:33:13.978Z]   AI LINK: https://www.facebook.com/OPS-LABS-103793238079644
+[2026-03-12T12:33:13.979Z]   AI LINK: https://wa.me/972525342469
+[2026-03-12T12:33:13.979Z] AI returned 3 valid links
+[2026-03-12T12:33:13.979Z] ── Categorizing 3 AI-returned links ──
+[2026-03-12T12:33:13.979Z]   AI→REGEX: li <- https://www.linkedin.com/company/dvoskin-consulting-ltd/ (duplicate, skipped)
+[2026-03-12T12:33:13.979Z]   AI→REGEX: fb <- https://www.facebook.com/OPS-LABS-103793238079644 (duplicate, skipped)
+[2026-03-12T12:33:13.979Z]   AI→URLS: https://wa.me/972525342469
+[2026-03-12T12:33:13.979Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-12T12:33:13.979Z] Footer/header origins (5):
+[2026-03-12T12:33:13.979Z]   FOOTER/HEADER ORIGIN: https://www.opslabs.io
+[2026-03-12T12:33:13.980Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-12T12:33:13.980Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-12T12:33:13.980Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-12T12:33:13.980Z]   FOOTER/HEADER ORIGIN: http://www.theflow.pro
+[2026-03-12T12:33:13.980Z]   ADDED: urls <- http://www.theflow.pro
+[2026-03-12T12:33:13.980Z]   SKIP (AI claimed): https://wa.me/972525342469
+[2026-03-12T12:33:13.980Z]   SKIP (not in footer/header): https://www2.deloitte.com/il/en/footerlinks/contact-us.html?icid=bn_contact-us
+[2026-03-12T12:33:13.980Z]   SKIP (not in footer/header): https://www2.deloitte.com/il/en/pages/cloud/topics/index.html
+[2026-03-12T12:33:13.980Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-12T12:33:13.980Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-12T12:33:13.980Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-12T12:33:13.980Z] ── Step 3: Final dedup ──
+[2026-03-12T12:33:13.980Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-12T12:33:13.980Z] ── FINAL RESULT ──
+[2026-03-12T12:33:13.980Z]   ws (1):
+[2026-03-12T12:33:13.981Z]     - https://www.opslabs.io
+[2026-03-12T12:33:13.981Z]   li (1):
+[2026-03-12T12:33:13.981Z]     - https://www.linkedin.com/company/dvoskin-consulting-ltd
+[2026-03-12T12:33:13.981Z]   fb (1):
+[2026-03-12T12:33:13.981Z]     - https://www.facebook.com/ops-labs-103793238079644
+[2026-03-12T12:33:13.981Z]   urls (2):
+[2026-03-12T12:33:13.981Z]     - http://www.theflow.pro
+[2026-03-12T12:33:13.981Z]     - https://wa.me/972525342469
+[2026-03-12T12:33:13.981Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-12T12:33:13.982Z] Saved final result to result.json
+[2026-03-12T12:33:13.982Z] Override fields: ws, li, fb, urls
+[2026-03-12T12:33:13.982Z] Finished at: 2026-03-12T12:33:13.982Z

@@ -1,0 +1,63 @@
+[2026-03-10T06:00:45.696Z] === Homepage AI Extractor: Sizer ===
+[2026-03-10T06:00:45.696Z] Started at: 2026-03-10T06:00:45.696Z
+[2026-03-10T06:00:45.696Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773122445696_Sizer
+[2026-03-10T06:00:45.696Z] Company: Sizer
+[2026-03-10T06:00:45.696Z] Website: sizer.me
+[2026-03-10T06:00:45.697Z] cbRank: 403109
+[2026-03-10T06:00:45.697Z] Reasons: h
+[2026-03-10T06:00:45.697Z] Fetching: https://sizer.me
+[2026-03-10T06:00:52.166Z] Redirected: https://sizer.me -> https://sizer.me/
+[2026-03-10T06:00:52.173Z] Saved HTML (210922 bytes) to page.html
+[2026-03-10T06:00:52.178Z] Extracted 15 unique links from page
+[2026-03-10T06:00:52.179Z] Saved 15 links to links.json
+[2026-03-10T06:00:52.182Z] Extracted footer HTML (7891 chars)
+[2026-03-10T06:00:52.182Z] Extracted header HTML (10591 chars)
+[2026-03-10T06:00:52.187Z] Website (post-redirect): https://sizer.me/ → origin: https://sizer.me
+[2026-03-10T06:00:52.187Z] External links: 3 (of 15 total)
+[2026-03-10T06:00:52.187Z] ── All external links ──
+[2026-03-10T06:00:52.188Z]   EXT: https://twitter.com/sizerme
+[2026-03-10T06:00:52.188Z]   EXT: https://www.facebook.com/MySizer
+[2026-03-10T06:00:52.188Z]   EXT: https://www.linkedin.com/company/sizer-ltd-
+[2026-03-10T06:00:52.188Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:00:52.188Z]   REGEX: tw <- https://twitter.com/sizerme
+[2026-03-10T06:00:52.188Z]   REGEX: fb <- https://www.facebook.com/MySizer
+[2026-03-10T06:00:52.188Z]   REGEX: li <- https://www.linkedin.com/company/sizer-ltd-
+[2026-03-10T06:00:52.188Z] Programmatic result: ws:1, tw:1, fb:1, li:1 | 0 uncategorized
+[2026-03-10T06:00:52.188Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:00:52.189Z] Saved AI prompt (6053 chars) to ai_prompt.txt
+[2026-03-10T06:00:52.189Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:00:52.212Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:01:15.007Z]   AI: First token received, streaming...
+[2026-03-10T06:01:20.813Z] AI response complete: 106 chars in 28.6s
+[2026-03-10T06:01:20.814Z] Saved AI response to ai_response.json
+[2026-03-10T06:01:20.814Z] ── Parsing AI response (3 lines) ──
+[2026-03-10T06:01:20.814Z]   AI LINK: https://www.facebook.com/MySizer/
+[2026-03-10T06:01:20.814Z]   AI LINK: https://twitter.com/sizerme
+[2026-03-10T06:01:20.814Z]   AI LINK: https://www.linkedin.com/company/sizer-ltd-/
+[2026-03-10T06:01:20.814Z] AI returned 3 valid links
+[2026-03-10T06:01:20.815Z] ── Categorizing 3 AI-returned links ──
+[2026-03-10T06:01:20.815Z]   AI→REGEX: fb <- https://www.facebook.com/MySizer/ (duplicate, skipped)
+[2026-03-10T06:01:20.815Z]   AI→REGEX: tw <- https://twitter.com/sizerme (duplicate, skipped)
+[2026-03-10T06:01:20.815Z]   AI→REGEX: li <- https://www.linkedin.com/company/sizer-ltd-/ (duplicate, skipped)
+[2026-03-10T06:01:20.815Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:01:20.815Z] Footer/header origins (4):
+[2026-03-10T06:01:20.815Z]   FOOTER/HEADER ORIGIN: https://sizer.me
+[2026-03-10T06:01:20.816Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T06:01:20.816Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-10T06:01:20.816Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-10T06:01:20.816Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-10T06:01:20.816Z] ── Step 3: Final dedup ──
+[2026-03-10T06:01:20.816Z] No urls to dedup
+[2026-03-10T06:01:20.816Z] ── FINAL RESULT ──
+[2026-03-10T06:01:20.816Z]   ws (1):
+[2026-03-10T06:01:20.816Z]     - https://sizer.me
+[2026-03-10T06:01:20.816Z]   li (1):
+[2026-03-10T06:01:20.816Z]     - https://www.linkedin.com/company/sizer-ltd-
+[2026-03-10T06:01:20.816Z]   fb (1):
+[2026-03-10T06:01:20.816Z]     - https://www.facebook.com/mysizer
+[2026-03-10T06:01:20.816Z]   tw (1):
+[2026-03-10T06:01:20.816Z]     - https://x.com/sizerme
+[2026-03-10T06:01:20.816Z] Summary: ws:1, tw:1, fb:1, li:1
+[2026-03-10T06:01:20.817Z] Saved final result to result.json
+[2026-03-10T06:01:20.817Z] Override fields: ws, li, fb, tw
+[2026-03-10T06:01:20.817Z] Finished at: 2026-03-10T06:01:20.817Z

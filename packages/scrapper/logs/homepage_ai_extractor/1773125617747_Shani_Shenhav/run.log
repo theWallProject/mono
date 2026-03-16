@@ -1,0 +1,66 @@
+[2026-03-10T06:53:37.748Z] === Homepage AI Extractor: Shani Shenhav ===
+[2026-03-10T06:53:37.748Z] Started at: 2026-03-10T06:53:37.748Z
+[2026-03-10T06:53:37.748Z] Log directory: E:\code\The Wall\mono\packages\scrapper\logs\homepage_ai_extractor\1773125617747_Shani_Shenhav
+[2026-03-10T06:53:37.748Z] Company: Shani Shenhav
+[2026-03-10T06:53:37.748Z] Website: shanishenhav.com
+[2026-03-10T06:53:37.748Z] cbRank: 418820
+[2026-03-10T06:53:37.748Z] Reasons: h
+[2026-03-10T06:53:37.748Z] Fetching: https://shanishenhav.com
+[2026-03-10T06:53:41.511Z] Redirected: https://shanishenhav.com -> https://shanishenhav.com/
+[2026-03-10T06:53:41.517Z] Saved HTML (107495 bytes) to page.html
+[2026-03-10T06:53:41.520Z] Extracted 12 unique links from page
+[2026-03-10T06:53:41.521Z] Saved 12 links to links.json
+[2026-03-10T06:53:41.524Z] Extracted footer HTML (18283 chars)
+[2026-03-10T06:53:41.524Z] Extracted header HTML (1057 chars)
+[2026-03-10T06:53:41.528Z] Website (post-redirect): https://shanishenhav.com/ → origin: https://shanishenhav.com
+[2026-03-10T06:53:41.528Z] External links: 4 (of 12 total)
+[2026-03-10T06:53:41.528Z] ── All external links ──
+[2026-03-10T06:53:41.528Z]   EXT: https://www.facebook.com/shani.shenhav
+[2026-03-10T06:53:41.528Z]   EXT: https://www.google.com/intl/en/policies/privacy
+[2026-03-10T06:53:41.528Z]   EXT: https://www.google.com/intl/en/policies/terms
+[2026-03-10T06:53:41.529Z]   EXT: https://www.instagram.com/shani.shenhav
+[2026-03-10T06:53:41.529Z] ── Step 1: Programmatic categorization ──
+[2026-03-10T06:53:41.529Z]   REGEX: fb <- https://www.facebook.com/shani.shenhav
+[2026-03-10T06:53:41.529Z]   UNCATEGORIZED: https://www.google.com/intl/en/policies/privacy
+[2026-03-10T06:53:41.529Z]   UNCATEGORIZED: https://www.google.com/intl/en/policies/terms
+[2026-03-10T06:53:41.529Z]   REGEX: ig <- https://www.instagram.com/shani.shenhav
+[2026-03-10T06:53:41.529Z] Programmatic result: ws:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-10T06:53:41.529Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-10T06:53:41.531Z] Saved AI prompt (2499 chars) to ai_prompt.txt
+[2026-03-10T06:53:41.531Z]   AI: Connecting to LM Studio at http://100.86.94.30:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-10T06:53:41.545Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-10T06:53:50.472Z]   AI: First token received, streaming...
+[2026-03-10T06:53:54.606Z] AI response complete: 78 chars in 13.1s
+[2026-03-10T06:53:54.606Z] Saved AI response to ai_response.json
+[2026-03-10T06:53:54.606Z] ── Parsing AI response (2 lines) ──
+[2026-03-10T06:53:54.607Z]   AI LINK: https://www.facebook.com/shani.shenhav
+[2026-03-10T06:53:54.607Z]   AI LINK: https://www.instagram.com/shani.shenhav
+[2026-03-10T06:53:54.607Z] AI returned 2 valid links
+[2026-03-10T06:53:54.607Z] ── Categorizing 2 AI-returned links ──
+[2026-03-10T06:53:54.607Z]   AI→REGEX: fb <- https://www.facebook.com/shani.shenhav (duplicate, skipped)
+[2026-03-10T06:53:54.607Z]   AI→REGEX: ig <- https://www.instagram.com/shani.shenhav (duplicate, skipped)
+[2026-03-10T06:53:54.607Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-10T06:53:54.607Z] Footer/header origins (4):
+[2026-03-10T06:53:54.608Z]   FOOTER/HEADER ORIGIN: https://shanishenhav.com
+[2026-03-10T06:53:54.608Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-10T06:53:54.608Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-10T06:53:54.608Z]   FOOTER/HEADER ORIGIN: https://www.google.com
+[2026-03-10T06:53:54.608Z]   ADDED: urls <- https://www.google.com/intl/en/policies/privacy
+[2026-03-10T06:53:54.608Z]   ADDED: urls <- https://www.google.com/intl/en/policies/terms
+[2026-03-10T06:53:54.608Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-10T06:53:54.608Z] ── Step 3: Final dedup ──
+[2026-03-10T06:53:54.608Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-10T06:53:54.608Z] ── FINAL RESULT ──
+[2026-03-10T06:53:54.608Z]   ws (1):
+[2026-03-10T06:53:54.608Z]     - https://shanishenhav.com
+[2026-03-10T06:53:54.608Z]   fb (1):
+[2026-03-10T06:53:54.608Z]     - https://www.facebook.com/shani.shenhav
+[2026-03-10T06:53:54.608Z]   ig (1):
+[2026-03-10T06:53:54.608Z]     - https://www.instagram.com/shani.shenhav
+[2026-03-10T06:53:54.608Z]   urls (2):
+[2026-03-10T06:53:54.609Z]     - https://www.google.com/intl/en/policies/privacy
+[2026-03-10T06:53:54.609Z]     - https://www.google.com/intl/en/policies/terms
+[2026-03-10T06:53:54.609Z] Summary: ws:1, fb:1, ig:1, urls:2
+[2026-03-10T06:53:54.609Z] Saved final result to result.json
+[2026-03-10T06:53:54.609Z] Override fields: ws, fb, ig, urls
+[2026-03-10T06:53:54.609Z] Finished at: 2026-03-10T06:53:54.609Z
