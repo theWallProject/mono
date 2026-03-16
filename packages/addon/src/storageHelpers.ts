@@ -7,38 +7,6 @@ export const HINT_COMPANY_DISMISSED_PERM_PREFIX = "hint_company_dismissed_perm_"
 export const HINTS_SYSTEM_DISABLED_KEY = "hints_system_disabled"
 export const WHATS_NEW_SHOWN_VERSIONS_KEY = "whats_new_shown_versions"
 
-export const getStorageItem = async (key: string) => {
-  log(`getStorageItem getting key[${key}]`)
-  return new Promise((resolve, reject) => {
-    try {
-      chrome.storage.session.get([key], (result) => {
-        log(`getStorageItem got key[${key}] result`, result[key])
-
-        resolve(result[key] || null)
-      })
-    } catch (e) {
-      error(`getStorageItem error: ${key}`, e)
-
-      reject(e)
-    }
-  })
-}
-
-export const setStorageItem = async <T>(key: string, value: T): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    try {
-      chrome.storage.session.set({ [key]: value }, () => {
-        log(`setStorageItem setting key[${key}] with value`, value)
-
-        resolve()
-      })
-    } catch (e) {
-      error(`setStorageItem error: ${key} ${value}`, e)
-      reject(e)
-    }
-  })
-}
-
 export const getLocalStorageItem = async (key: string) => {
   log(`getLocalStorageItem getting key[${key}]`)
   return new Promise((resolve, reject) => {

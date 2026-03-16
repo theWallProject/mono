@@ -117,13 +117,13 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       console.log(`[TEST] ✓ Share button is clickable`)
     })
 
-    it("should display skip button (allow for a month) on banner", async () => {
-      console.log("[TEST] Verifying skip button is visible")
-      const skipButton = await waitForBannerButton(page, /allow.*month/i)
+    it("should display close button on banner", async () => {
+      console.log("[TEST] Verifying close button is visible")
+      const closeButton = await waitForBannerButton(page, /close/i)
 
-      const isVisible = await skipButton.first().isVisible()
+      const isVisible = await closeButton.first().isVisible()
       expect(isVisible).toBe(true)
-      console.log(`[TEST] ✓ Skip button displayed`)
+      console.log(`[TEST] ✓ Close button displayed`)
     })
 
     it("should display donation button on banner", async () => {
@@ -193,8 +193,8 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
   })
 
   describe("Banner - Dismissal Tests (Requires Navigation)", () => {
-    it("should dismiss banner when skip button is clicked", async () => {
-      console.log("[TEST] Starting: should dismiss banner when skip button is clicked")
+    it("should dismiss banner when close button is clicked", async () => {
+      console.log("[TEST] Starting: should dismiss banner when close button is clicked")
 
       const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true })
       console.log(`[TEST] Selected URL: ${testUrl.url}`)
@@ -209,9 +209,9 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
         await waitForBanner(page)
 
-        console.log("[TEST] Clicking skip button")
-        const skipButton = await waitForBannerButton(page, /allow.*month/i)
-        await skipButton.first().click()
+        console.log("[TEST] Clicking close button")
+        const closeButton = await waitForBannerButton(page, /close/i)
+        await closeButton.first().click()
 
         console.log("[TEST] Waiting for banner to be dismissed")
         await page
@@ -235,8 +235,8 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
       }
     })
 
-    it("should not show banner again after dismissal in same session", async () => {
-      console.log("[TEST] Starting: should not show banner again after dismissal in same session")
+    it("should not show banner again after dismissal on same page", async () => {
+      console.log("[TEST] Starting: should not show banner again after dismissal on same page")
 
       // Use a different URL than the previous tests to avoid storage conflicts
       const testUrl = getRandomResult({ isHint: false, excludeLoginRequired: true, ruleType: "urlOnly" })
@@ -259,8 +259,8 @@ describe("Banner Display - Single Tab Isolated Tests", () => {
 
         // Dismiss banner
         console.log("[TEST] Dismissing banner")
-        const skipButton = await waitForBannerButton(page, /allow.*month/i)
-        await skipButton.first().click()
+        const closeButton = await waitForBannerButton(page, /close/i)
+        await closeButton.first().click()
 
         // Wait for banner to disappear
         await page

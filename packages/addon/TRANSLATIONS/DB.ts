@@ -153,17 +153,6 @@ export const TRANSLATIONS = {
     zh_CN: "报告错误",
     zh_TW: "報告錯誤"
   },
-  modalDismissSession: {
-    en: "Allow for a month",
-    ar: "السماح لمدة شهر",
-    id: "Izinkan selama sebulan",
-    ms: "Izinkan selama sebulan",
-    bn: "এক মাস প্রতিষ্ঠাতা ইসরাইলী সংস্থার সাথে সংযুক্ত!",
-    fr: "Prévoir un mois",
-    nl: "Toestaan gedurende een maand",
-    zh_CN: "允许一个月",
-    zh_TW: "允许一个月"
-  },
   modalSupportPalestine: {
     en: "Support Palestine",
     ar: "إدعم فلسطين",

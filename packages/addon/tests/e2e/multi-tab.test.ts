@@ -257,8 +257,8 @@ describe.skip("Multi-Tab Scenarios", () => {
       expect(await isBannerDisplayed(page2)).toBe(true)
 
       // Dismiss in first tab
-      const dismissButton = page1.getByRole("button", { name: /allow.*month/i }).first()
-      await dismissButton.click()
+      const closeButton = page1.getByRole("button", { name: /close/i }).first()
+      await closeButton.click()
 
       // Wait for banner to be dismissed
       await waitFor(
@@ -273,7 +273,9 @@ describe.skip("Multi-Tab Scenarios", () => {
       )
       expect(await isBannerDisplayed(page1)).toBe(false)
 
-      // Second tab banner should still be visible (session dismissal is per-tab)
+      // Second tab banner should still be visible (dismissal is stored but tab 2's
+      // Banner component already loaded its state before tab 1 wrote the dismissal,
+      // and it does not reactively update from storage changes)
       expect(await isBannerDisplayed(page2)).toBe(true)
     } finally {
       await page1.close()

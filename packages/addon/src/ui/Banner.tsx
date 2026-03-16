@@ -127,17 +127,19 @@ export const Banner = () => {
     return text.replace(/\{\{url\}\}/g, replacement)
   }
 
-  const onDismissSessionClick = (key: string, selector: string) => {
+  const onDismissClick = () => {
+    if (!testResult || testResult.isHint || testResult.isDismissed) return
+    track("Button", "Click", "dismiss_close")
     chrome.runtime.sendMessage<Message>(
       {
         action: MessageTypes.DissmissUrl,
-        key,
-        selector
+        key: testResult.rule.key,
+        selector: testResult.rule.selector
       },
       () => {
         setTimeout(() => {
           setTestResult(undefined)
-        }, 1000)
+        }, 100)
       }
     )
   }
@@ -466,6 +468,21 @@ export const Banner = () => {
           <div className={style.modalWrapper}>
             {/* Modal container with shield icon */}
             <div className={style.modalContainer}>
+              {/* Close button - top right */}
+              <button
+                type="button"
+                className={style.closeButton}
+                onClick={onDismissClick}
+                aria-label="Close">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1 1L13 13M13 1L1 13"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
               {/* Shield circle background */}
               <div className={style.shieldCircleBg} />
               {/* Shield icon */}
@@ -535,15 +552,7 @@ export const Banner = () => {
                       }}
                     />
                   )}
-                  <Button
-                    title={getI18nMessage("modalDismissSession")}
-                    onClick={() => {
-                      track("Button", "Click", "allow_month")
 
-                      onDismissSessionClick(testResult.rule.key, testResult.rule.selector)
-                    }}
-                    variant="secondary"
-                  />
                 </div>
               </div>
 
@@ -555,6 +564,7 @@ export const Banner = () => {
                   onClick={handleReportMistakeClick}
                   title={getI18nMessage("buttomBarButtonReport")}>
                   <img src={getExtensionURL(warningIcon)} alt="Report" />
+                  <span>{getI18nMessage("buttomBarButtonReport")}</span>
                 </button>
               </div>
             </div>

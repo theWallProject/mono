@@ -2,7 +2,7 @@
 
 import { error, log, warn } from "./helpers"
 import { isUrlFlagged } from "./storage"
-import { getWhatsNewShownVersions, markWhatsNewVersionAsShown, setStorageItem } from "./storageHelpers"
+import { getWhatsNewShownVersions, markWhatsNewVersionAsShown, setLocalStorageItem } from "./storageHelpers"
 import { MessageTypes, type Message, type MessageResponseMap, type SendResponse } from "./types"
 
 // Versions that should trigger the "what's new" page
@@ -11,9 +11,6 @@ const WHATS_NEW_VERSIONS = ["1.7.0", "1.9.0", "1.10.0", "1.10.2"]
 
 chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)
-  chrome.storage.session.clear(() => {
-    log("cleared session [onInstalled]...")
-  })
 
   // Check if we should show "what's new" page
   if (details.reason === "install" || details.reason === "update") {
@@ -80,9 +77,6 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 chrome.runtime.onStartup.addListener(() => {
   log("background:runtime.onStartup")
-  chrome.storage.session.clear(() => {
-    log("cleared session...")
-  })
 })
 
 function isSpecialUrl(url: string) {
@@ -216,14 +210,14 @@ function handleDissmissUrlMessage(
 ): void {
   const key = `${message.key}_${message.selector}`
   const now = Date.now()
-  setStorageItem(key, now)
+  setLocalStorageItem(key, now)
     .then(() => {
-      log(`chrome.runtime.onMessage setStorageItem succes of key ${key}`)
+      log(`chrome.runtime.onMessage setLocalStorageItem succes of key ${key}`)
       sendResponse(true)
       return true
     })
     .catch((err) => {
-      error(`chrome.runtime.onMessage setStorageItem error for key ${key}`, err)
+      error(`chrome.runtime.onMessage setLocalStorageItem error for key ${key}`, err)
       // Still send true to acknowledge the message, error is logged
       sendResponse(true)
     })

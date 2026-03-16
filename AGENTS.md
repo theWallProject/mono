@@ -183,8 +183,7 @@ Rules in `src/rules/config.ts`, processors in `src/rules/processors/`.
 
 **Storage:**
 
-- `chrome.storage.session` - Temporary dismissals (1 month)
-- `chrome.storage.local` - Persistent settings
+- `chrome.storage.local` - All persistent data: dismissals (1 month TTL), hint settings, what's new tracking
 - Abstraction: `storageHelpers.ts`
 
 **Data:** `src/db/ALL.json` (2.8MB)

@@ -7,12 +7,9 @@ const Button: FC<{
   onClick: () => void
   onMouseEnter?: MouseEventHandler<HTMLButtonElement>
   onMouseLeave?: MouseEventHandler<HTMLButtonElement>
-  variant?: "primary" | "secondary"
-}> = ({ title, onClick, onMouseEnter, onMouseLeave, variant = "primary" }) => {
-  const className = variant === "secondary" ? `${style.button} ${style.buttonSecondary}` : style.button
-
+}> = ({ title, onClick, onMouseEnter, onMouseLeave }) => {
   return (
-    <button onClick={onClick} className={className} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <button onClick={onClick} className={style.button} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title}
     </button>
   )
