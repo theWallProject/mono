@@ -42,6 +42,8 @@ import {
 import { assertGitPreconditions, commitCompanyResult } from "./git_commit"
 import { runUpdateSteps } from "../../index"
 
+const FINALIZE_BATCH_SIZE = 10
+
 // ────────────────────────────────────────────────────────────────────────────
 // Data loading
 // ────────────────────────────────────────────────────────────────────────────
@@ -748,8 +750,19 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
 
   let successCount = 0
   let failCount = 0
+  let processedCount = 0
+  let pendingFinalize = false
   const skippedCompanies: Array<{ name: string; errorMessage: string }> = []
   const maxSkips = HOMEPAGE_AI_EXTRACTOR_CONFIG.batch.maxSkipsPerBatch
+
+  const runFinalizeIfNeeded = async (force = false) => {
+    const shouldRun = force || (pendingFinalize && processedCount % FINALIZE_BATCH_SIZE === 0)
+    if (!shouldRun) return
+    log(`\nFinalizing batch (${processedCount} companies processed)...`)
+    await runUpdateSteps({ shouldScrap: false, shouldValidate: false })
+    pendingFinalize = false
+    log(`Finalization complete.\n`)
+  }
 
   for (let i = 0; i < itemsToProcess.length; i++) {
     const item = itemsToProcess[i]
@@ -778,6 +791,8 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
 
         skippedCompanies.push({ name: item.name, errorMessage: retryErrMsg })
         failCount++
+        processedCount++
+        pendingFinalize = true
         addToRetryList(
           item.name,
           item.ws ?? "",
@@ -794,6 +809,7 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
           for (const s of skippedCompanies) {
             error(`  - ${s.name}: ${s.errorMessage}`)
           }
+          log(`Note: ${processedCount} companies were processed but not finalized before abort.`)
           throw new Error(
             `Batch aborted: ${skippedCompanies.length} companies skipped due to unexpected errors (max ${maxSkips}). ` +
             `This likely indicates a systemic issue.`
@@ -806,6 +822,8 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
     if (!result.success) {
       // Expected failure — add to retry list and continue with next company
       failCount++
+      processedCount++
+      pendingFinalize = true
       log(`FAILED (expected): ${result.errorType} — ${result.errorMessage}`)
       addToRetryList(
         result.companyName,
@@ -845,6 +863,8 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
     // the homepage didn't yield useful data. Send to retry for manual review.
     if (isWsOnlyOverride(resolvedOverride)) {
       failCount++
+      processedCount++
+      pendingFinalize = true
       log(`WS-ONLY: no social links or app stores found — only website domain`)
       addToRetryList(
         item.name,
@@ -862,6 +882,8 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
     // If not, add to retry list for manual review instead of saving.
     if (!allLinksGreen(item.name, resolvedOverride)) {
       failCount++
+      processedCount++
+      pendingFinalize = true
       const reason = describeNonGreenFields(item.name, resolvedOverride)
       log(`NOT GREEN: ${reason}`)
       addToRetryList(item.name, item.ws ?? "", "NON_GREEN_LINKS", reason)
@@ -874,17 +896,18 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
     currentOverrides[item.name] = resolvedOverride
     await saveManualOverrides(currentOverrides, { allowNewKeys: true })
     successCount++
+    processedCount++
+    pendingFinalize = true
     log(`SAVED (${successCount}/${itemsToProcess.length})`)
 
     // Remove from retry list if it was there
     removeFromRetryList(item.name)
 
-    // Regenerate ALL.json and all output files so the commit is fully self-contained
-    log(`Regenerating database for "${item.name}"...`)
-    await runUpdateSteps({ shouldScrap: false, shouldValidate: false })
-
-    // Commit this company's changes atomically
+    // Commit this company's changes atomically (without running pipeline)
     commitCompanyResult(item.name, true)
+
+    // Run finalize every N companies
+    await runFinalizeIfNeeded()
 
     // Delay between companies to be polite
     if (i < itemsToProcess.length - 1) {
@@ -893,6 +916,9 @@ export const runBatch = async (batchSize?: number): Promise<void> => {
       await new Promise((resolve) => setTimeout(resolve, delay))
     }
   }
+
+  // Finalize any remaining changes
+  await runFinalizeIfNeeded(true)
 
   await closeSharedBrowser()
 
