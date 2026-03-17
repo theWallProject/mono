@@ -233,7 +233,7 @@ export const API_ENDPOINT_RULE_TWITTER = {
 
 export const API_ENDPOINT_RULE_INSTAGRAM = {
   domain: "instagram.com",
-  regex: "(?:instagram\\.com)/(?!explore|reels|p/|stories|tv/|direct|accounts)([^/?]+)"
+  regex: "(?:instagram\\.com)/(?!explore|reel(?:s|/|$)|p/|stories|tv/|direct|accounts)([^/?]+)"
 } as const satisfies APIEndpointRule
 
 // TODO: Support GitHub marketplace URLs (github.com/marketplace/*) as a dedicated link field for tracking extensions/apps

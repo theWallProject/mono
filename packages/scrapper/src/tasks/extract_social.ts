@@ -150,7 +150,7 @@ const extractSocialLinks = async (data: MergedDataItem[]) => {
       const result = results && results[1]
 
       if (result) {
-        if (["explore", "accounts", "direct", "stories", "reels"].includes(result)) {
+        if (["explore", "accounts", "direct", "stories", "reels", "reel"].includes(result)) {
           return
         }
         if (instagramMap[result]) {
