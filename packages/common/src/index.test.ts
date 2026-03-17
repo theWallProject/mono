@@ -413,6 +413,18 @@ describe("API_ENDPOINT_RULE_INSTAGRAM", () => {
       testRule(rule, "https://www.instagram.com/reels", false)
     })
 
+    it("should not match instagram.com/reel/ID (singular reel link)", () => {
+      testRule(rule, "https://www.instagram.com/reel/DGIcFXtzkZ4", false)
+    })
+
+    it("should not match instagram.com/reel (bare, no trailing path)", () => {
+      testRule(rule, "https://www.instagram.com/reel", false)
+    })
+
+    it("should still match a username starting with 'reel' (e.g. reelfilms)", () => {
+      testRule(rule, "https://www.instagram.com/reelfilms", true, "reelfilms")
+    })
+
     it("should not match instagram.com/p/", () => {
       testRule(rule, "https://www.instagram.com/p/ABC123xyz", false)
     })

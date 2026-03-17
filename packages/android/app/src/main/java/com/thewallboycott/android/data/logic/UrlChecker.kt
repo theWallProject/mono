@@ -73,7 +73,7 @@ class UrlChecker(
                     "instagram.com",
                     // Captures the username from instagram.com/{username}
                     // Excludes common paths like /explore, /reels, etc.
-                    "(?:instagram\\.com)/(?!explore|reels|p/|stories|tv/|direct|accounts)([^/?]+)"
+                    "(?:instagram\\.com)/(?!explore|reel(?:s|/|$)|p/|stories|tv/|direct|accounts)([^/?]+)"
                 ),
                 APIEndpointRule(
                     "github.com",

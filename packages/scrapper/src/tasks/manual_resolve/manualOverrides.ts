@@ -17001,7 +17001,7 @@ export const manualOverrides: Record<
     li: ["https://www.linkedin.com/company/oshiseafood"],
     fb: ["https://www.facebook.com/weareoshi"],
     tw: ["https://x.com/oshiseafood"],
-    ig: ["https://www.instagram.com/oshiseafood", "https://www.instagram.com/reel"],
+    ig: ["https://www.instagram.com/oshiseafood"],
     urls: ["https://drive.google.com/drive/u/0/folders/1AXbMSVpL74o6hpV35ykh9WK97H1Opmr5", "https://oshi.fish"],
     _meta: { isHomepage: true, isVerified: true }
   },
