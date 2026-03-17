@@ -7,8 +7,12 @@
 
 export const HOMEPAGE_AI_EXTRACTOR_CONFIG = {
   lmStudio: {
-    /** Base URL for the LM Studio server (OpenAI-compatible API) */
-    baseUrl: "http://100.86.94.30:1234",
+    /** Base URL for the LM Studio server (OpenAI-compatible API) - set via LM_STUDIO_URL env */
+    baseUrl: (() => {
+      const url = process.env.LM_STUDIO_URL
+      if (!url) throw new Error("LM_STUDIO_URL environment variable is required")
+      return url
+    })(),
     /** Model identifier as registered in LM Studio */
     model: "Qwen2.5-72B-Instruct-GGUF",
     /** Maximum tokens for AI response */

@@ -23,6 +23,7 @@ const globalIgnores = {
     "packages/addon/build-scripts/**",
     "packages/scrapper/results/**",
     "packages/scrapper/dist/**",
+    "packages/scrapper/logs/**",
     "**/coverage/**",
     "**/playwright-report/**",
     "**/.playwright/**",
