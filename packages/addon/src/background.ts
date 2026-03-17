@@ -28,7 +28,8 @@ chrome.runtime.onInstalled.addListener((details) => {
             log(`Opening what's new page for version ${currentVersion}`)
             // Open the what's new page
             await chrome.tabs.create({
-              url: chrome.runtime.getURL("tabs/whats-new.html")
+              url: chrome.runtime.getURL("tabs/whats-new.html"),
+              active: false
             })
             // Mark this version as shown
             await markWhatsNewVersionAsShown(currentVersion)
