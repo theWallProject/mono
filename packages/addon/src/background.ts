@@ -12,6 +12,11 @@ const WHATS_NEW_VERSIONS = ["1.7.0", "1.9.0", "1.10.0", "1.10.2"]
 chrome.runtime.onInstalled.addListener((details) => {
   log("background:runtime.onInstalled", details)
 
+  // Set uninstall URL for feedback survey
+  chrome.runtime.setUninstallURL("https://tally.so/r/Np0Jpl").catch((err) => {
+    error("Failed to set uninstall URL:", err)
+  })
+
   // Check if we should show "what's new" page
   if (details.reason === "install" || details.reason === "update") {
     void (async () => {
