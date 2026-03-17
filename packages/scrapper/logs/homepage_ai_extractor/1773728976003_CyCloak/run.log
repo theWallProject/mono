@@ -1,0 +1,54 @@
+[2026-03-17T06:29:36.004Z] === Homepage AI Extractor: CyCloak ===
+[2026-03-17T06:29:36.004Z] Started at: 2026-03-17T06:29:36.004Z
+[2026-03-17T06:29:36.004Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773728976003_CyCloak
+[2026-03-17T06:29:36.004Z] Company: CyCloak
+[2026-03-17T06:29:36.004Z] Website: cycloak.com
+[2026-03-17T06:29:36.004Z] cbRank: 1518564
+[2026-03-17T06:29:36.004Z] Reasons: h
+[2026-03-17T06:29:36.005Z] Fetching: https://cycloak.com
+[2026-03-17T06:29:39.182Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-17T06:29:42.148Z] Redirected: https://cycloak.com -> https://cycloak.com/
+[2026-03-17T06:29:42.154Z] Saved HTML (104257 bytes) to page.html
+[2026-03-17T06:29:42.156Z] Extracted 5 unique links from page
+[2026-03-17T06:29:42.157Z] Saved 5 links to links.json
+[2026-03-17T06:29:42.162Z] Extracted footer HTML (5357 chars)
+[2026-03-17T06:29:42.162Z] Extracted header HTML (3493 chars)
+[2026-03-17T06:29:42.166Z] Website (post-redirect): https://cycloak.com/ → origin: https://cycloak.com
+[2026-03-17T06:29:42.167Z] External links: 2 (of 5 total)
+[2026-03-17T06:29:42.167Z] ── All external links ──
+[2026-03-17T06:29:42.167Z]   EXT: https://www.linkedin.com/company/cycloak
+[2026-03-17T06:29:42.167Z]   EXT: https://www.linkedin.com/company/cycloak/posts
+[2026-03-17T06:29:42.167Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T06:29:42.167Z]   REGEX: li <- https://www.linkedin.com/company/cycloak
+[2026-03-17T06:29:42.167Z]   REGEX: li <- https://www.linkedin.com/company/cycloak/posts (duplicate, skipped)
+[2026-03-17T06:29:42.167Z] Programmatic result: ws:1, li:1 | 0 uncategorized
+[2026-03-17T06:29:42.168Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T06:29:42.172Z] Saved AI prompt (3525 chars) to ai_prompt.txt
+[2026-03-17T06:29:42.172Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T06:29:42.176Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T06:29:54.867Z]   AI: First token received, streaming...
+[2026-03-17T06:29:56.690Z] AI response complete: 47 chars in 14.5s
+[2026-03-17T06:29:56.692Z] Saved AI response to ai_response.json
+[2026-03-17T06:29:56.692Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T06:29:56.692Z]   AI LINK: https://www.linkedin.com/company/cycloak/posts/
+[2026-03-17T06:29:56.692Z] AI returned 1 valid links
+[2026-03-17T06:29:56.692Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T06:29:56.692Z]   AI→REGEX: li <- https://www.linkedin.com/company/cycloak/posts/ (duplicate, skipped)
+[2026-03-17T06:29:56.693Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T06:29:56.693Z] Footer/header origins (2):
+[2026-03-17T06:29:56.694Z]   FOOTER/HEADER ORIGIN: https://www.cycloak.com
+[2026-03-17T06:29:56.694Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T06:29:56.694Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T06:29:56.694Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T06:29:56.694Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T06:29:56.694Z] ── Step 3: Final dedup ──
+[2026-03-17T06:29:56.695Z] No urls to dedup
+[2026-03-17T06:29:56.695Z] ── FINAL RESULT ──
+[2026-03-17T06:29:56.695Z]   ws (1):
+[2026-03-17T06:29:56.695Z]     - https://cycloak.com
+[2026-03-17T06:29:56.695Z]   li (1):
+[2026-03-17T06:29:56.695Z]     - https://www.linkedin.com/company/cycloak
+[2026-03-17T06:29:56.695Z] Summary: ws:1, li:1
+[2026-03-17T06:29:56.696Z] Saved final result to result.json
+[2026-03-17T06:29:56.697Z] Override fields: ws, li
+[2026-03-17T06:29:56.697Z] Finished at: 2026-03-17T06:29:56.697Z

@@ -1,0 +1,63 @@
+[2026-03-17T00:58:56.297Z] === Homepage AI Extractor: Perform ===
+[2026-03-17T00:58:56.297Z] Started at: 2026-03-17T00:58:56.297Z
+[2026-03-17T00:58:56.298Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773709136297_Perform
+[2026-03-17T00:58:56.298Z] Company: Perform
+[2026-03-17T00:58:56.298Z] Website: perform.co.il
+[2026-03-17T00:58:56.298Z] cbRank: 1313671
+[2026-03-17T00:58:56.298Z] Reasons: h
+[2026-03-17T00:58:56.298Z] Fetching: https://perform.co.il
+[2026-03-17T00:59:06.826Z] Network idle timeout — continuing with current state
+[2026-03-17T00:59:06.861Z] Redirected: https://perform.co.il -> https://www.perform.co.il/
+[2026-03-17T00:59:06.865Z] Saved HTML (49355 bytes) to page.html
+[2026-03-17T00:59:06.868Z] Extracted 10 unique links from page
+[2026-03-17T00:59:06.869Z] Saved 10 links to links.json
+[2026-03-17T00:59:06.873Z] Extracted footer HTML (1278 chars)
+[2026-03-17T00:59:06.873Z] Extracted header HTML (2559 chars)
+[2026-03-17T00:59:06.876Z] Website (post-redirect): https://www.perform.co.il/ → origin: https://www.perform.co.il
+[2026-03-17T00:59:06.876Z] External links: 4 (of 10 total)
+[2026-03-17T00:59:06.876Z] ── All external links ──
+[2026-03-17T00:59:06.876Z]   EXT: https://instagram.com/perform.co.il
+[2026-03-17T00:59:06.876Z]   EXT: https://www.facebook.com/perform.co.il
+[2026-03-17T00:59:06.877Z]   EXT: https://www.google.com/maps/place/Herzl+St+16,+Tel+Aviv-Yafo
+[2026-03-17T00:59:06.877Z]   EXT: https://www.linkedin.com/company/perform-
+[2026-03-17T00:59:06.877Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:59:06.877Z]   REGEX: ig <- https://instagram.com/perform.co.il
+[2026-03-17T00:59:06.877Z]   REGEX: fb <- https://www.facebook.com/perform.co.il
+[2026-03-17T00:59:06.877Z]   UNCATEGORIZED: https://www.google.com/maps/place/Herzl+St+16,+Tel+Aviv-Yafo
+[2026-03-17T00:59:06.877Z]   REGEX: li <- https://www.linkedin.com/company/perform-
+[2026-03-17T00:59:06.877Z] Programmatic result: ws:1, ig:1, fb:1, li:1 | 1 uncategorized
+[2026-03-17T00:59:06.877Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:59:06.922Z] Saved AI prompt (2627 chars) to ai_prompt.txt
+[2026-03-17T00:59:06.922Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:59:06.926Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:59:14.710Z]   AI: AI returned empty response (265 raw bytes) — model produced no tokens
+[2026-03-17T00:59:14.710Z] AI response complete: 0 chars in 7.8s
+[2026-03-17T00:59:14.712Z] Saved AI response to ai_response.json
+[2026-03-17T00:59:14.712Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T00:59:14.712Z] AI returned 0 valid links
+[2026-03-17T00:59:14.712Z] ── Categorizing 0 AI-returned links ──
+[2026-03-17T00:59:14.713Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:59:14.713Z] Footer/header origins (4):
+[2026-03-17T00:59:14.713Z]   FOOTER/HEADER ORIGIN: https://www.perform.co.il
+[2026-03-17T00:59:14.713Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T00:59:14.714Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-17T00:59:14.714Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T00:59:14.714Z]   SKIP (not in footer/header): https://www.google.com/maps/place/Herzl+St+16,+Tel+Aviv-Yafo
+[2026-03-17T00:59:14.714Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T00:59:14.714Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:59:14.714Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T00:59:14.714Z] ── Step 3: Final dedup ──
+[2026-03-17T00:59:14.714Z] No urls to dedup
+[2026-03-17T00:59:14.715Z] ── FINAL RESULT ──
+[2026-03-17T00:59:14.715Z]   ws (1):
+[2026-03-17T00:59:14.715Z]     - https://www.perform.co.il
+[2026-03-17T00:59:14.715Z]   li (1):
+[2026-03-17T00:59:14.715Z]     - https://www.linkedin.com/company/perform-
+[2026-03-17T00:59:14.715Z]   fb (1):
+[2026-03-17T00:59:14.715Z]     - https://www.facebook.com/perform.co.il
+[2026-03-17T00:59:14.715Z]   ig (1):
+[2026-03-17T00:59:14.715Z]     - https://www.instagram.com/perform.co.il
+[2026-03-17T00:59:14.715Z] Summary: ws:1, ig:1, fb:1, li:1
+[2026-03-17T00:59:14.716Z] Saved final result to result.json
+[2026-03-17T00:59:14.717Z] Override fields: ws, li, fb, ig
+[2026-03-17T00:59:14.717Z] Finished at: 2026-03-17T00:59:14.717Z

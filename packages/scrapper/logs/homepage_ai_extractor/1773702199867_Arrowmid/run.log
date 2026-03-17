@@ -1,0 +1,64 @@
+[2026-03-16T23:03:19.867Z] === Homepage AI Extractor: Arrowmid ===
+[2026-03-16T23:03:19.867Z] Started at: 2026-03-16T23:03:19.867Z
+[2026-03-16T23:03:19.867Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773702199867_Arrowmid
+[2026-03-16T23:03:19.867Z] Company: Arrowmid
+[2026-03-16T23:03:19.868Z] Website: arrowmid.com
+[2026-03-16T23:03:19.868Z] cbRank: 1248836
+[2026-03-16T23:03:19.868Z] Reasons: h
+[2026-03-16T23:03:19.868Z] Fetching: https://arrowmid.com
+[2026-03-16T23:03:29.556Z] Redirected: https://arrowmid.com -> https://www.arrowmid.com/
+[2026-03-16T23:03:29.565Z] Saved HTML (384080 bytes) to page.html
+[2026-03-16T23:03:29.569Z] Extracted 65 unique links from page
+[2026-03-16T23:03:29.573Z] Saved 65 links to links.json
+[2026-03-16T23:03:29.576Z] Extracted footer HTML (36044 chars)
+[2026-03-16T23:03:29.576Z] Extracted header HTML (45568 chars)
+[2026-03-16T23:03:29.580Z] Website (post-redirect): https://www.arrowmid.com/ → origin: https://www.arrowmid.com
+[2026-03-16T23:03:29.580Z] External links: 3 (of 65 total)
+[2026-03-16T23:03:29.580Z] ── All external links ──
+[2026-03-16T23:03:29.580Z]   EXT: https://www.facebook.com/arc2002ltd
+[2026-03-16T23:03:29.581Z]   EXT: https://www.linkedin.com/company/arrowmid
+[2026-03-16T23:03:29.581Z]   EXT: https://www.waze.com/en/live-map/directions/il/tel-aviv-district/or-yehuda/moshe-aviv-st-10?place=ChIJu_u9wKBKHRURJSFpgFBDU6Q
+[2026-03-16T23:03:29.581Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T23:03:29.581Z]   REGEX: fb <- https://www.facebook.com/arc2002ltd
+[2026-03-16T23:03:29.581Z]   REGEX: li <- https://www.linkedin.com/company/arrowmid
+[2026-03-16T23:03:29.581Z]   UNCATEGORIZED: https://www.waze.com/en/live-map/directions/il/tel-aviv-district/or-yehuda/moshe-aviv-st-10?place=ChIJu_u9wKBKHRURJSFpgFBDU6Q
+[2026-03-16T23:03:29.581Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-16T23:03:29.581Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T23:03:29.582Z] Saved AI prompt (5130 chars) to ai_prompt.txt
+[2026-03-16T23:03:29.582Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T23:03:29.586Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T23:03:53.895Z]   AI: First token received, streaming...
+[2026-03-16T23:03:58.505Z] AI response complete: 78 chars in 28.9s
+[2026-03-16T23:03:58.506Z] Saved AI response to ai_response.json
+[2026-03-16T23:03:58.506Z] ── Parsing AI response (2 lines) ──
+[2026-03-16T23:03:58.507Z]   AI LINK: https://www.facebook.com/arc2002ltd
+[2026-03-16T23:03:58.507Z]   AI LINK: https://www.linkedin.com/company/arrowmid/
+[2026-03-16T23:03:58.507Z] AI returned 2 valid links
+[2026-03-16T23:03:58.507Z] ── Categorizing 2 AI-returned links ──
+[2026-03-16T23:03:58.507Z]   AI→REGEX: fb <- https://www.facebook.com/arc2002ltd (duplicate, skipped)
+[2026-03-16T23:03:58.507Z]   AI→REGEX: li <- https://www.linkedin.com/company/arrowmid/ (duplicate, skipped)
+[2026-03-16T23:03:58.508Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T23:03:58.509Z] Footer/header origins (4):
+[2026-03-16T23:03:58.509Z]   FOOTER/HEADER ORIGIN: https://www.waze.com
+[2026-03-16T23:03:58.509Z]   FOOTER/HEADER ORIGIN: https://www.arrowmid.com
+[2026-03-16T23:03:58.509Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T23:03:58.509Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T23:03:58.510Z]   ADDED: urls <- https://www.waze.com/en/live-map/directions/il/tel-aviv-district/or-yehuda/moshe-aviv-st-10 (cleaned from https://www.waze.com/en/live-map/directions/il/tel-aviv-district/or-yehuda/moshe-aviv-st-10?place=ChIJu_u9wKBKHRURJSFpgFBDU6Q)
+[2026-03-16T23:03:58.510Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-16T23:03:58.510Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T23:03:58.510Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T23:03:58.510Z] ── Step 3: Final dedup ──
+[2026-03-16T23:03:58.510Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-16T23:03:58.510Z] ── FINAL RESULT ──
+[2026-03-16T23:03:58.510Z]   ws (1):
+[2026-03-16T23:03:58.510Z]     - https://www.arrowmid.com
+[2026-03-16T23:03:58.511Z]   li (1):
+[2026-03-16T23:03:58.511Z]     - https://www.linkedin.com/company/arrowmid
+[2026-03-16T23:03:58.511Z]   fb (1):
+[2026-03-16T23:03:58.511Z]     - https://www.facebook.com/arc2002ltd
+[2026-03-16T23:03:58.511Z]   urls (1):
+[2026-03-16T23:03:58.511Z]     - https://www.waze.com/en/live-map/directions/il/tel-aviv-district/or-yehuda/moshe-aviv-st-10
+[2026-03-16T23:03:58.512Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-16T23:03:58.516Z] Saved final result to result.json
+[2026-03-16T23:03:58.516Z] Override fields: ws, li, fb, urls
+[2026-03-16T23:03:58.516Z] Finished at: 2026-03-16T23:03:58.516Z

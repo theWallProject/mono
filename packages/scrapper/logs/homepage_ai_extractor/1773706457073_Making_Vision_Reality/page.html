@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link data-minify="1" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/css/bootstrap.min.css?ver=1767960008" rel="stylesheet">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v23.7 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Medical Animation | Industrial Animation | Promotional Animation</title><link rel="preload" data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&#038;display=swap" /></noscript><link rel="preload" data-rocket-preload="" as="image" href="https://www.mvr.co.il/wp-content/uploads/2017/05/1-Animations.jpg" fetchpriority="high">
+	<meta name="description" content="MVR specializes in transforming complex information into powerful animation. Our movies make new possibilities come to life. Visit to view our showreel!">
+	<link rel="canonical" href="https://www.mvr.co.il/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Medical Animation | Industrial Animation | Promotional Animation">
+	<meta property="og:description" content="MVR specializes in transforming complex information into powerful animation. Our movies make new possibilities come to life. Visit to view our showreel!">
+	<meta property="og:url" content="https://www.mvr.co.il/">
+	<meta property="og:site_name" content="Medical Animations | Industrial Animations | Promotional Animations">
+	<meta property="article:modified_time" content="2024-11-05T09:35:42+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.mvr.co.il/","url":"https://www.mvr.co.il/","name":"Medical Animation | Industrial Animation | Promotional Animation","isPartOf":{"@id":"https://www.mvr.co.il/#website"},"datePublished":"2017-05-07T12:50:33+00:00","dateModified":"2024-11-05T09:35:42+00:00","description":"MVR specializes in transforming complex information into powerful animation. Our movies make new possibilities come to life. Visit to view our showreel!","breadcrumb":{"@id":"https://www.mvr.co.il/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.mvr.co.il/"]}]},{"@type":"BreadcrumbList","@id":"https://www.mvr.co.il/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.mvr.co.il/#website","url":"https://www.mvr.co.il/","name":"Medical Animations | Industrial Animations | Promotional Animations","description":"MVR Making Vision Reality","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.mvr.co.il/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//www.mvr.co.il">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="Medical Animations | Industrial Animations | Promotional Animations » Feed" href="https://www.mvr.co.il/feed/">
+<link rel="alternate" type="application/rss+xml" title="Medical Animations | Industrial Animations | Promotional Animations » Comments Feed" href="https://www.mvr.co.il/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Medical Animations | Industrial Animations | Promotional Animations » Home Comments Feed" href="https://www.mvr.co.il/home/feed/">
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="https://www.mvr.co.il/wp-includes/css/dist/block-library/style.min.css?ver=6.6.5" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="lazy-p-lightbox-main-css-css" href="https://www.mvr.co.il/wp-content/plugins/easy-lightbox-wp/css/litebox.min.css?ver=1.1.2" type="text/css" media="">
+<link data-minify="1" rel="stylesheet" id="mvr-style-css" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/style.css?ver=1767960008" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer="" defer=""></script>
+<link rel="https://api.w.org/" href="https://www.mvr.co.il/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.mvr.co.il/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.mvr.co.il/xmlrpc.php?rsd">
+<link rel="shortlink" href="https://www.mvr.co.il/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.mvr.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mvr.co.il%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.mvr.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mvr.co.il%2F&amp;format=xml">
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+		jQuery(document).ready(function() {
+			jQuery(".litebox").liteBox();
+			jQuery("div[id^=gallery] a").liteBox();
+
+			jQuery('div.gallery a').attr('data-litebox-group', 'galone');
+		});
+	});</script>
+	<link rel="pingback" href="https://www.mvr.co.il/xmlrpc.php"><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<script type="rocketlazyloadscript">function yydev_tagmanager_js_lazy_load() {var YY_analytics_TAG = document.createElement('script');YY_analytics_TAG.src = 'https://www.googletagmanager.com/gtag/js?id=G-FESPWPEB7Z';var first_analytics_ScriptTag = document.getElementsByTagName('script')[0];first_analytics_ScriptTag.parentNode.insertBefore(YY_analytics_TAG, first_analytics_ScriptTag);window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-FESPWPEB7Z');var gtmScript = document.createElement('script');gtmScript.type = 'text/javascript';gtmScript.async = true;gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N2PVHLR';var firstScript = document.getElementsByTagName('script')[0];firstScript.parentNode.insertBefore(gtmScript, firstScript);yydev_tagmanager_stop = 1;}var yydev_tagmanager_stop = 0;document.addEventListener('DOMContentLoaded', function(event) {setTimeout(run_yydev_tagmanager_lazy_load, 5000);});function run_yydev_tagmanager_lazy_load() {if(yydev_tagmanager_stop == 0) {yydev_tagmanager_js_lazy_load();}}window.addEventListener('scroll', function(e) {if( this.scrollY > 10 && yydev_tagmanager_stop == 0) {yydev_tagmanager_js_lazy_load();}});document.addEventListener('DOMContentLoaded', function() {document.body.addEventListener('mouseup', yydev_run_event_lazyload);document.body.addEventListener('mousedown', yydev_run_event_lazyload);document.body.addEventListener('click', yydev_run_event_lazyload);document.body.addEventListener('mousemove', yydev_run_event_lazyload);document.body.addEventListener('keypress', yydev_run_event_lazyload);});function yydev_run_event_lazyload() {if (typeof yydev_tagmanager_stop !== 'undefined' && yydev_tagmanager_stop === 0) {yydev_tagmanager_js_lazy_load();}}</script>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link data-minify="1" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/css/media.css?ver=1767960008" rel="stylesheet" type="text/css">
+<link data-minify="1" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/css/animate.css?ver=1767960008" rel="stylesheet" type="text/css">
+
+
+<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><link href="https://www.google.com" rel="preconnect"></head>
+<body style="" class=" ">
+	
+<div id="page" class="site">
+	<header id="header" class="site-header op-out" role="banner">
+		<div class="container">
+           <div class="row">
+           <div class="col-md-12 col-sm-12 col-xs-12">
+           <nav class="navbar">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img width="122" height="54" src="https://www.mvr.co.il/wp-content/themes/mvr/img/logoHeader.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+        <li class=""><a href="/core/">Core</a></li>
+        <li class=""><a href="/create/">Create</a></li>
+        <li class=""><a href="/works/">Works</a></li>
+        <li><a href="https://www.youtube.com/watch?v=yLCE0cL7kx4" class="litebox">Showreel</a></li>
+        <li class=""><a href="/connect/">Connect</a></li>
+        <li class="m-arb "><a href="/homepage-il/">עברית</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+           </div>                      
+           </div>        
+        </div>
+		
+	</header><!-- #header -->
+
+	<div id="content">
+
+<div id="slider">
+ <ul class="jR3DCarouselGallery">
+       <li><div id="150" class="Slide" style="background-image: url('https://www.mvr.co.il/wp-content/uploads/2017/05/1-Animations.jpg');"></div></li>
+          <li><div id="159" class="Slide" style="background-image: url('https://www.mvr.co.il/wp-content/uploads/2017/05/4-Heart-Animation.jpg');"></div></li>
+          <li><div data-bg="https://www.mvr.co.il/wp-content/uploads/2017/05/2-Nerve-Animations.jpg" id="153" class="Slide rocket-lazyload" style=""></div></li>
+          <li><div data-bg="https://www.mvr.co.il/wp-content/uploads/2016/05/5-Medical-Animation.jpg" id="12" class="Slide rocket-lazyload" style=""></div></li>
+          <li><div data-bg="https://www.mvr.co.il/wp-content/uploads/2016/05/7-Animation.jpg" id="7" class="Slide rocket-lazyload" style=""></div></li>
+          <li><div data-bg="https://www.mvr.co.il/wp-content/uploads/2017/05/8-Medic-Animation.jpg" id="147" class="Slide rocket-lazyload" style=""></div></li>
+          <li><div data-bg="https://www.mvr.co.il/wp-content/uploads/2017/05/3-Vein-Animation.jpg" id="156" class="Slide rocket-lazyload" style=""></div></li>
+      </ul>
+ <div id="sliderPlayControl" class="animated fadeInUp">
+ <img width="213" height="95" id="sliderLogo" src="https://www.mvr.co.il/wp-content/themes/mvr/img/logoMainImage.png">
+ <h1 id="sliderTitle" class="fadeInUp">Making Vision Reality</h1>
+ <a id="sliderPlay" href="https://www.youtube.com/watch?v=yLCE0cL7kx4" class="litebox">
+ <img width="100" height="100" src="https://www.mvr.co.il/wp-content/themes/mvr/img/playShowreel.png">
+ <br>
+ <span>View Our Showreel</span>
+ </a>
+ </div>
+		 <a href="#showcase" class="anchor_link next"></a>
+</div>
+
+<div id="homeShowreel">
+
+    <div id="parallax_container792" class="parallax-window-container adamrob_parallax_fullwidth ">
+
+<section id="parallax_792" class="adamrob_parallax adamrob_parallax_fullwidth  " style="height:900px; background-image: url(https://www.mvr.co.il/wp-content/uploads/2017/05/showreelBGparallax.jpg); background-size: cover;" speed="0">
+
+
+	<div id="parallax_792_content" class="adamrob_pcontainer" style="height:900px;">
+
+
+		<div id="parallax_792_posttitle" class="adamrob_parallax_posttitle" style="text-align:left; padding:20px;">
+			<div style="">
+				MVRshowreel English			</div>
+		</div>
+
+		<div id="parallax_792_postcontent" class="adamrob_parallax_postcontent" style="padding:20px;">
+			<div id="inneShowreel"><img width="1080" height="612" decoding="async" src="/wp-content/uploads/2017/05/MVRshowreel.jpg"><br>
+<a id="showreelPlay" class="litebox" href="https://www.youtube.com/watch?v=n0rp7wAq3Ic"><br>
+<img width="100" height="100" decoding="async" class="playShow" src="/wp-content/themes/mvr/img/playShowreel.png"><br>
+<img width="345" height="54" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20345%2054'%3E%3C/svg%3E" data-lazy-src="/wp-content/themes/mvr/img/MVR_showreel.png"><noscript><img width="345" height="54" decoding="async" src="/wp-content/themes/mvr/img/MVR_showreel.png" /></noscript><br>
+</a></div>
+		</div>
+
+	
+
+	</div>
+
+</section>
+	
+		    </div>
+	</div>
+
+<div id="showcase">
+<h2 class="redTitle">PROJECTS SHOWCASE<span class="redHeadLine"></span></h2>
+<ul class="cbp-rfgrid">
+         <li><a href="https://www.youtube.com/watch?v=_mqbPXY0kwI" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie01_omeq.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie01_omeq.jpg" /></noscript><div><h3>Omeq Medical</h3></div></a></li>
+          <li><a href="https://www.youtube.com/watch?v=hJSncMtYzDc" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie02_ImpulseDynamics.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie02_ImpulseDynamics.jpg" /></noscript><div><h3>Impulse Dynamics</h3></div></a></li>
+          <li><a href="https://www.youtube.com/watch?v=Adu-96AVIJs" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie03_Embolitech.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie03_Embolitech.jpg" /></noscript><div><h3>Embolitech</h3></div></a></li>
+          <li><a href="https://www.youtube.com/watch?v=FU9vqv1gHFA" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie04_Embolitech.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie04_Embolitech.jpg" /></noscript><div><h3>Escala Medical</h3></div></a></li>
+          <li><a href="https://www.youtube.com/watch?v=Q4JrlQZfiaI" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie05_BRH.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie05_BRH.jpg" /></noscript><div><h3>B.R.H Medical</h3></div></a></li>
+          <li><a href="https://www.youtube.com/watch?v=73o_O7sIOas" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie06_RenalDynamics.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie06_RenalDynamics.jpg" /></noscript><div><h3>Renal Dynamics</h3></div></a></li>
+          <li><a href="https://www.youtube.com/watch?v=KlMX_409tl8" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie07_Carbofix.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie07_Carbofix.jpg" /></noscript><div><h3>Carbofix</h3></div></a></li>
+          <li><a href="https://www.youtube.com/watch?v=Fb6q9XpyzqE" class="litebox"><img width="480" height="270" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20270'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie08_Synagile.jpg"><noscript><img width="480" height="270" src="https://www.mvr.co.il/wp-content/uploads/2017/05/movie08_Synagile.jpg" /></noscript><div><h3>SynAgile</h3></div></a></li>
+     </ul>
+<div class="readMore">
+<a class="btn MVRredbtn" href="/works">View More Projects</a>
+</div>
+</div>
+
+<div id="publishing">
+
+
+<section data-bg="https://www.mvr.co.il/wp-content/uploads/2017/05/Pushing_discoveriesBG_parallax.jpg" id="parallax_793" class="adamrob_parallax rocket-lazyload" style="height:900px;  background-size: cover;" speed="0">
+
+
+	<div id="parallax_793_content" class="adamrob_pcontainer" style="height:900px;">
+
+
+		<div id="parallax_793_posttitle" class="adamrob_parallax_posttitle" style="text-align:left; padding:20px;">
+			<div style="">
+				Publishing Discover English			</div>
+		</div>
+
+		<div id="parallax_793_postcontent" class="adamrob_parallax_postcontent" style="padding:20px;">
+			<div id="publishingDiscover">
+<h2>Pushing discoveries forward</h2>
+<p class="exept">We create videos that transform complex information into powerful animations,<br>
+persuasively clear, clever, and compelling.</p>
+<p class="exept">Our immersive movies make astonishing new possibilities come to life.</p>
+<p><img width="123" height="123" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20123%20123'%3E%3C/svg%3E" data-lazy-src="/wp-content/themes/mvr/img/eitan.png"><noscript><img width="123" height="123" decoding="async" src="/wp-content/themes/mvr/img/eitan.png" /></noscript><br>
+<span class="directly"><b>Eitan A. Raz </b>/ Founder &amp; Managing Director</span></p>
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-sm-6 col-xs-12">
+<p>From script to screen, we visualize the inner working of biomedical processes in a way that is incredibly informative.</p>
+<p>Our visual content makes sophisticated science seem simple, balancing accurate details with artful aesthetics to generate an immediate market response.</p>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+<p>As the trusted partners of trailblazing innovators and established industry leaders for over a decade, we specialize in communicating clinical messages in multiple mediums.</p>
+<p>Our capacity for in-depth research, knack for precision, and power for retelling the story beautifully in color and motion, ensures discoveries are pushed forward to become reality.</p>
+</div>
+<p><a class="btn btnPublishing" href="/core/">Learn More About Us</a></p>
+</div>
+</div>
+</div>
+		</div>
+
+	
+
+	</div>
+
+</section>
+	
+	</div>
+
+<div data-wpr-lazyrender="1" id="partners">
+<h2 class="redTitle">SOME OF OUR CLIENTS<span class="redHeadLine"></span></h2>
+<ul class="logoShowcase">
+      <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/trueleaf.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/trueleaf.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/surmodics.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/surmodics.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/bounce.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/bounce.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/novelrad.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/novelrad.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/mego.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/mego.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/human.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/human.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/hospitech.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/hospitech.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/merck.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/merck.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/heracare.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/heracare.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/append_medical.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/append_medical.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/eximo.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/eximo.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/endomatic.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/endomatic.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/bio_refine.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/bio_refine.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/sano.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/sano.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2022/09/terra-medical1.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2022/09/terra-medical1.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/1-ait-medical.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/1-ait-medical.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/2-coviden-animation.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/2-coviden-animation.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/3-fast-medical-animation.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/3-fast-medical-animation.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/4-inspire-medical.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/4-inspire-medical.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/5-lap-space-medical-anim.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/5-lap-space-medical-anim.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/6-lumenis-animation.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/6-lumenis-animation.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/7-care-medication.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/7-care-medication.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/8-rtack-medical.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/8-rtack-medical.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/9-baro-nova-medical.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/9-baro-nova-medical.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/10-valve-medical.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/10-valve-medical.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/11-industrial-gordian.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/11-industrial-gordian.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/12-med-igus-animation.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/12-med-igus-animation.png" /></noscript></li>
+          <li><img width="138" height="65" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20138%2065'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/uploads/2017/05/13-biop-medico.png"><noscript><img width="138" height="65" src="https://www.mvr.co.il/wp-content/uploads/2017/05/13-biop-medico.png" /></noscript></li>
+     </ul>
+	<script type="rocketlazyloadscript">
+	var ajaxurl = 'https://www.mvr.co.il/wp-admin/admin-ajax.php';
+	var true_posts = 'a:65:{s:5:"error";s:0:"";s:1:"m";s:0:"";s:1:"p";s:1:"2";s:11:"post_parent";s:0:"";s:7:"subpost";s:0:"";s:10:"subpost_id";s:0:"";s:10:"attachment";s:0:"";s:13:"attachment_id";i:0;s:4:"name";s:0:"";s:8:"pagename";s:0:"";s:7:"page_id";s:1:"2";s:6:"second";s:0:"";s:6:"minute";s:0:"";s:4:"hour";s:0:"";s:3:"day";i:0;s:8:"monthnum";i:0;s:4:"year";i:0;s:1:"w";i:0;s:13:"category_name";s:0:"";s:3:"tag";s:0:"";s:3:"cat";s:0:"";s:6:"tag_id";s:0:"";s:6:"author";s:0:"";s:11:"author_name";s:0:"";s:4:"feed";s:0:"";s:2:"tb";s:0:"";s:5:"paged";i:0;s:8:"meta_key";s:0:"";s:10:"meta_value";s:0:"";s:7:"preview";s:0:"";s:1:"s";s:0:"";s:8:"sentence";s:0:"";s:5:"title";s:0:"";s:6:"fields";s:0:"";s:10:"menu_order";s:0:"";s:5:"embed";s:0:"";s:12:"category__in";a:0:{}s:16:"category__not_in";a:0:{}s:13:"category__and";a:0:{}s:8:"post__in";a:0:{}s:12:"post__not_in";a:0:{}s:13:"post_name__in";a:0:{}s:7:"tag__in";a:0:{}s:11:"tag__not_in";a:0:{}s:8:"tag__and";a:0:{}s:12:"tag_slug__in";a:0:{}s:13:"tag_slug__and";a:0:{}s:15:"post_parent__in";a:0:{}s:19:"post_parent__not_in";a:0:{}s:10:"author__in";a:0:{}s:14:"author__not_in";a:0:{}s:14:"search_columns";a:0:{}s:19:"ignore_sticky_posts";b:0;s:16:"suppress_filters";b:0;s:13:"cache_results";b:1;s:22:"update_post_term_cache";b:1;s:22:"update_menu_item_cache";b:0;s:19:"lazy_load_term_meta";b:1;s:22:"update_post_meta_cache";b:1;s:9:"post_type";s:0:"";s:14:"posts_per_page";i:10;s:8:"nopaging";b:0;s:17:"comments_per_page";s:2:"50";s:13:"no_found_rows";b:0;s:5:"order";s:4:"DESC";}';
+	var current_page = 1;
+	var max_pages = '3';
+	</script>
+	<div id="true_loadmore">
+    <a style="display: none;" href="#" class="btn MVRredbtn" id="true_loadPrew">Back</a>
+    <a href="#" class="btn MVRredbtn" id="true_loadNext">More clients</a>
+    </div>
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+jQuery(function($){
+	$('#true_loadPrew, #true_loadNext').click(function(){
+	   var el = $(this);
+       var prewText = el.text();
+		el.text('Loading...'); // ������� ����� ������, � ����� ������ ������� ���������
+		var data1 = {
+			'action': 'loadmore',
+			'page' : current_page,
+            'buttonID':el.attr('id')
+		};
+		$.ajax({
+			url:ajaxurl, // ���������
+			data:data1, // �����
+			type:'POST', // ��� �������
+			success:function(data){
+					el.text(prewText);
+                    $('.logoShowcase').html(data); // �������� ���� ����
+                    console.log(data1.buttonID);
+                    if(data1.buttonID == 'true_loadNext'){
+					current_page++; // ���������� ����� ������ �� ������
+                    }else{
+                      current_page--;  
+                    }
+					if (current_page >= max_pages) {
+					   $("#true_loadNext").css('display', 'none'); // ���� ������� �������, ������ ������
+                       $('#true_loadmore').css('width', '150px');
+                       }else{
+                        $("#true_loadNext").css('display', 'block');
+                       }
+                       if (current_page <= 1) {
+					   $("#true_loadPrew").css('display', 'none'); // ���� ������� �������, ������ ������
+                       $('#true_loadmore').css('width', '150px');
+                       }else{
+                        $("#true_loadPrew").css('display', 'block');
+                       }
+                   if (current_page < max_pages && current_page > 1) {
+                    $('#true_loadmore').css('width', '220px');
+                   }
+			}
+		});
+        return false;
+	});
+});
+});</script>
+</div>
+
+<div data-wpr-lazyrender="1" id="connect">
+
+
+<section data-bg="https://www.mvr.co.il/wp-content/uploads/2017/05/formBGparallax.jpg" id="parallax_795" class="adamrob_parallax rocket-lazyload" style="height:750px;  background-size: cover;" speed="0">
+
+
+	<div id="parallax_795_content" class="adamrob_pcontainer" style="height:750px;">
+
+
+		<div id="parallax_795_posttitle" class="adamrob_parallax_posttitle" style="text-align:left; padding:20px;">
+			<div style="">
+				Connect with us English			</div>
+		</div>
+
+		<div id="parallax_795_postcontent" class="adamrob_parallax_postcontent" style="padding:20px;">
+			<h2 class="whiteTitle">CONNECT WITH US</h2>
+
+<div class="wpcf7 no-js" id="wpcf7-f794-o1" lang="ru-RU" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f794-o1" method="post" class="wpcf7-form init" aria-label="Контактная форма" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="794">
+<input type="hidden" name="_wpcf7_version" value="5.9.8">
+<input type="hidden" name="_wpcf7_locale" value="ru_RU">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f794-o1">
+<input type="hidden" name="_wpcf7_container_post" value="0">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+<input type="hidden" name="_wpcf7_recaptcha_response" value="">
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-xs-12">
+			<p><span class="wpcf7-form-control-wrap" data-name="username"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Name" value="" type="text" name="username"></span>
+			</p>
+		</div>
+		<div class="col-md-3 col-xs-12">
+			<p><span class="wpcf7-form-control-wrap" data-name="email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" value="" type="email" name="email"></span>
+			</p>
+		</div>
+		<div class="col-md-3 col-xs-12">
+			<p><span class="wpcf7-form-control-wrap" data-name="company"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Company" value="" type="text" name="company"></span>
+			</p>
+		</div>
+		<div class="col-md-3 col-xs-12">
+			<p><span class="wpcf7-form-control-wrap" data-name="phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Phone" value="" type="tel" name="phone"></span>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<p><span class="wpcf7-form-control-wrap" data-name="message"><textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message" name="message"></textarea></span>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Send">
+			</p>
+		</div>
+	</div>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+
+		</div>
+
+	
+
+	</div>
+
+</section>
+	
+	</div>
+
+
+	</div><!-- #content -->
+
+	<footer data-wpr-lazyrender="1">
+		<div class="container-fluid f1">
+		<div class="row">       	
+			<div class="col-md-5 col-sm-5 col-xs-6 fphone">
+				<ul class="footerContacts">
+				<li><a onclick="ga('send', 'event', 'Phone', 'click', 'Click phone');" href="tel:+(972) 723387521" class="phone">+(972) 72-3387521</a></li>
+				</ul>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-6 femail">
+				<ul class="footerContacts">
+				<li><a onclick="ga('send', 'event', 'Mail', 'click', 'Click mail');" href="mailto:info@mvr.co.il" class="mail">info@mvr.co.il</a></li>
+				</ul>
+			</div>
+			<div class="col-md-5 col-sm-5 col-xs-12 fsocial">
+				<ul class="footerContacts">
+				<li><a href="https://www.facebook.com/MVR-595471800481820/" class="fb" target="_blank"><img width="31" height="32" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2031%2032'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/themes/mvr/img/fb.png"><noscript><img width="31" height="32" src="https://www.mvr.co.il/wp-content/themes/mvr/img/fb.png" /></noscript></a></li>
+				<li><a href="https://www.linkedin.com/in/eitan-raz-99230a34/" class="in" target="_blank"><img width="32" height="35" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2035'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/themes/mvr/img/in.png"><noscript><img width="32" height="35" src="https://www.mvr.co.il/wp-content/themes/mvr/img/in.png" /></noscript></a></li>
+				<li><a href="https://www.youtube.com/channel/UClySjjEjdgekk-z5dFA4RuQ" class="youtoobe" target="_blank"><img width="34" height="39" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2034%2039'%3E%3C/svg%3E" data-lazy-src="https://www.mvr.co.il/wp-content/themes/mvr/img/youtoobe.png"><noscript><img width="34" height="39" src="https://www.mvr.co.il/wp-content/themes/mvr/img/youtoobe.png" /></noscript></a></li>
+				</ul>
+			</div>
+		</div>	
+		<div class="row">
+        	<div class="col-md-12 footerLinks flinks">
+								<a href="/">Home <span class="sr-only">(current)</span>
+				</a><a href="/core/">Core</a>
+				<a href="/create/">Create</a>
+				<a href="/works/">Works</a>
+				<a href="https://www.youtube.com/watch?v=yLCE0cL7kx4" class="litebox">Showreel</a>
+				<a href="/connect/">Connect</a>
+				<a href="/homepage-il/" class="m-arb">עברית</a>
+								</div>
+        </div>
+		</div>	
+		<div class="container-fluid f2">
+		<div class="row">	
+			<div class="clearfix">
+        	<div class="col-md-6 col-sm-6 col-xs-12 fright">
+				<p class="copy">©  All rights reserved to MVR 2022</p>
+        	</div>
+        	<div class="col-md-6 col-sm-6 col-xs-12 fsite">				
+				<a title="Web Site Optimization, Optimized Web Design, Optimized Web Design, Web Marketing " href="https://www.upmaster.co.il/" target="new">
+					<img style="height:20px" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%2030'%3E%3C/svg%3E" alt="UpMaster - SEO, SEM, SMO, SMM, SERM" height="30" data-lazy-src="https://www.upmaster.co.il/sites/www.upmaster.co.il/computers/images/logo.png"><noscript><img style="height:20px" src="https://www.upmaster.co.il/sites/www.upmaster.co.il/computers/images/logo.png" alt="UpMaster - SEO, SEM, SMO, SMM, SERM" height="30"></noscript> Website optimization and building 
+				</a>
+        	</div>
+			</div>
+        </div>
+		</div>	
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type="rocketlazyloadscript" data-rocket-src="https://www.mvr.co.il/wp-content/themes/mvr/js/jquery.min.js" data-rocket-defer="" defer=""></script>
+<!--<script type="rocketlazyloadscript" data-rocket-src="/js/jquery-3.6.1.min.js"></script>-->
+<!--<script type="rocketlazyloadscript" data-rocket-src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>-->
+<script type="rocketlazyloadscript" data-rocket-src="https://www.mvr.co.il/wp-content/themes/mvr/js/bootstrap.min.js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+$('input[type="submit"]').click(function(){
+    ga('send', 'event', 'Form', 'click', 'Submit contact form');
+});
+
+
+$(window).on('scroll', function(event){
+	var scroll = $(window).scrollTop();	
+	if(scroll >= 150){		
+		$('#header').addClass('op-in');
+		$('#header').removeClass('op-out');
+	}
+	else{
+		if($('#header').hasClass('op-in')){
+			$('#header').removeClass('op-in');
+			$('#header').addClass('op-out');
+		}					
+	}
+});	
+$("a[href^=#]").click(function(e) {   
+	e.preventDefault();   
+	var dest = $(this).attr('href');  
+	$('html,body').animate({ scrollTop: $(dest).offset().top-50 }, 'slow'); 
+});
+});</script>
+
+<link data-minify="1" rel="stylesheet" id="adamrob-parallax-scroll-sc-css-css" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/plugins/adamrob-parallax-scroll/public/css/adamrob-parallax-scroll-shortcode.css?ver=1767960008" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="parallax-CSS-css" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/plugins/adamrob-parallax-scroll/public/css/adamrob-parallax-scroll-parallax-legacy.css?ver=1767960008" type="text/css" media="all">
+<link data-minify="1" rel="stylesheet" id="contact-form-7-css" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1767960008" type="text/css" media="all">
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/plugins/easy-lightbox-wp/js/images-loaded.min.js?ver=1.1.2" id="lazy-p-lightbox-image-l-js-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/plugins/easy-lightbox-wp/js/litebox.min.js?ver=1.1.2" id="lazy-p-lightbox-main-js-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-browser-checker-js-after">
+/* <![CDATA[ */
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket-preload-links-js-extra">
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.mvr.co.il","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="rocket-preload-links-js-after">
+/* <![CDATA[ */
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/js/navigation.js?ver=1767960008" id="mvr-navigation-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/js/skip-link-focus-fix.js?ver=1767960008" id="mvr-skip-link-focus-fix-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6Lep56IhAAAAABaMF0Q4jygxuskM47ol19XMgGkk&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6Lep56IhAAAAABaMF0Q4jygxuskM47ol19XMgGkk","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1767960008" id="wpcf7-recaptcha-js" data-rocket-defer="" defer=""></script>
+<script type="text/javascript" id="parallax-script-fullwidth-js-extra">
+/* <![CDATA[ */
+var parallax_script_options = {"parallaxdivid":"adamrob_parallax_fullwidth ","parallaxcontainerid":"adamrob_parallax_container_fullwidth "};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/plugins/adamrob-parallax-scroll/public/js/adamrob-parallax-scroll-fullwidth.js?ver=1767960008" id="parallax-script-fullwidth-js" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1767960008" id="swv-js" data-rocket-defer="" defer=""></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.mvr.co.il\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" data-rocket-src="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1767960008" id="contact-form-7-js" data-rocket-defer="" defer=""></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://www.mvr.co.il/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><link data-minify="1" href="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/css/responsiveslides.css?ver=1767960008" type="text/css" rel="stylesheet">
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://www.mvr.co.il/wp-content/cache/min/1/wp-content/themes/mvr/js/responsiveslides.js?ver=1767960008" data-rocket-defer="" defer=""></script>
+<script type="rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
+  $('.jR3DCarouselGallery').responsiveSlides({
+    nextText: "",
+    nav: true,
+    speed: 2000
+  });
+});
+});</script>
+
+
+
+</body></html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 則新訊息</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* 主内容区 */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            max-width: 800px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        /* 功能展示 */
+        .features {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* 定价区域 */
+        .pricing {
+            margin-bottom: 60px;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--warning);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: normal;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+        }
+        
+        .pricing-features li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--success);
+            margin-right: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* 合规区域 */
+        .compliance {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+        }
+        
+        .compliance-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .compliance-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .compliance-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .compliance-list li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--success);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .legal-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .legal-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .customer-service {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        .customer-service img { width: 32px; height: 32px; }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .features, .compliance {
+                padding: 30px 20px;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+  
+  <script src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-main.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-vendor.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-vendors.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-common.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-runtime.js" charset="UTF-8" crossorigin="*"></script><script src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-app.js" charset="UTF-8" crossorigin="*"></script><script async="" src="https://scripts.clarity.ms/0.8.57/clarity.js"></script><script src="https://connect.facebook.net/signals/config/1031614062517862?v=2.9.280&amp;r=stable&amp;domain=ai-predator.com&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://embed.tawk.to/687897261786aa1911e6bd7f/1j0bgss1t" charset="UTF-8" crossorigin="*"></script><script async="" src="https://www.clarity.ms/tag/sguebyxzcj"></script><script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sguebyxzcj");
+  </script>
+  <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/687897261786aa1911e6bd7f/1j0bgss1t';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+  <!--End of Tawk.to Script-->
+  <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1031614062517862');
+    fbq('track', 'PageView');
+    </script>
+  <!-- End Meta Pixel Code -->
+  <script>
+      var Tawk_API = Tawk_API || {};
+      Tawk_API.onChatMaximized = function() {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Contact', {
+            method: 'online-support'
+          });
+        }
+      };
+  </script>
+  <!-- TikTok Pixel Code Start -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t][];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t][],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    
+    
+      ttq.load('D2A529JC77U4ENLN6RO0');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+  <!-- TikTok Pixel Code End -->
+<script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-2d0d2b7c.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-2d224aff.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-2d0aef27.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-3ea2c7ce.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-2d0da3af.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-4fe9d5dd.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-7941cc06.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-6289ff8e.js"></script><script charset="utf-8" src="https://embed.tawk.to/_s/v4/app/69967ba6a3b/js/twk-chunk-2d0c8092.js"></script><style type="text/css">#i2ce4l4f12vs1773734671831 {outline:none !important;
+visibility:visible !important;
+resize:none !important;
+box-shadow:none !important;
+overflow:visible !important;
+background:none !important;
+opacity:1 !important;
+filter:alpha(opacity=100) !important;
+-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important;
+-mz-opacity:1 !important;
+-khtml-opacity:1 !important;
+top:auto !important;
+right:0px !important;
+bottom:0px !important;
+left:auto !important;
+position:fixed !important;
+border:0 !important;
+min-height:0px  !important;
+min-width:0px  !important;
+max-height:none  !important;
+max-width:none  !important;
+padding:0px !important;
+margin:0px !important;
+-moz-transition-property:none !important;
+-webkit-transition-property:none !important;
+-o-transition-property:none !important;
+transition-property:none !important;
+transform:none !important;
+-webkit-transform:none !important;
+-ms-transform:none !important;
+width:auto !important;
+height:auto  !important;
+display:none !important;
+z-index:2000000000 !important;
+background-color:transparent !important;
+cursor:none !important;
+float:none !important;
+border-radius:unset !important;
+pointer-events:auto !important;
+clip:auto !important;
+color-scheme:light !important;}#i2ce4l4f12vs1773734671831.widget-hidden {display: none !important;}#i2ce4l4f12vs1773734671831.widget-visible {display: block !important;}
+@media print{
+ #i2ce4l4f12vs1773734671831.widget-visible { 
+display: none !important;
+ }
+}</style><style type="text/css">.tawk-button-hover[data-v-2fc2d95d]:focus,.tawk-button-hover[data-v-2fc2d95d]:hover{background-color:hsla(0,0%,100%,.2)!important;border-radius:5px!important}</style><style type="text/css">@keyframes tawkMaxOpen{0%{opacity:0;transform:translate(0, 30px);;}to{opacity:1;transform:translate(0, 0px);}}@-moz-keyframes tawkMaxOpen{0%{opacity:0;transform:translate(0, 30px);;}to{opacity:1;transform:translate(0, 0px);}}@-webkit-keyframes tawkMaxOpen{0%{opacity:0;transform:translate(0, 30px);;}to{opacity:1;transform:translate(0, 0px);}}#zsp3k4cmhmus1773734671894.open{animation : tawkMaxOpen .25s ease!important;}@keyframes tawkMaxClose{from{opacity: 1;transform:translate(0, 0px);;}to{opacity: 0;transform:translate(0, 30px);;}}@-moz-keyframes tawkMaxClose{from{opacity: 1;transform:translate(0, 0px);;}to{opacity: 0;transform:translate(0, 30px);;}}@-webkit-keyframes tawkMaxClose{from{opacity: 1;transform:translate(0, 0px);;}to{opacity: 0;transform:translate(0, 30px);;}}#zsp3k4cmhmus1773734671894.closed{animation: tawkMaxClose .25s ease!important}</style><script src="https://cdn.jsdelivr.net/emojione/2.2.7/lib/js/emojione.min.js" type="text/javascript" async="" defer=""></script></head>
+<body>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1031614062517862&ev=PageView&noscript=1"
+    /></noscript>
+    <div class="container">
+        <!-- 头部区域 -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <div class="logo-text">围猎者Pro</div>
+            </div>
+        </header>
+        
+        <!-- 主内容区 -->
+        <section class="hero">
+            <h1>专业算力软件解决方案，提升团队效率80%</h1>
+            <p>围猎者Pro是一款专为现代企业设计的智能办公套件，整合项目管理、团队协作、数据分析等核心功能，助力企业数字化转型。</p>
+            <a href="#pricing" class="btn">立即选购</a>
+        </section>
+        
+        <!-- 功能特点 -->
+        <section class="features">
+            <h2 class="section-title">核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>智能项目管理</h3>
+                    <p>可视化项目进度管理，自动任务分配，实时跟踪团队工作进展，确保项目按时交付。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>团队协作中心</h3>
+                    <p>集成算力、自动化运行、全自动运行，打破部门壁垒，提升团队协作效率。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>数据分析洞察</h3>
+                    <p>强大的数据可视化分析工具，自动生成业务报表，助力企业做出数据驱动决策。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 定价区域 -->
+        <section class="pricing" id="pricing">
+            <h2 class="section-title">选择您的方案</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>基础版</h3>
+                    <div class="price">$98<span>/月</span></div>
+                    <p>适合初创团队和小型企业</p>
+                    <ul class="pricing-features">
+                        <li>最多10个用户</li>
+                        <li>基础项目管理功能</li>
+                        <li>5GB云存储空间</li>
+                        <li>基础分析报表</li>
+                        <li>工作日客服支持</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">开始使用</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-tag">推荐</div>
+                    <h3>专业版</h3>
+                    <div class="price">$198<span>/月</span></div>
+                    <p>适合成长型企业和团队</p>
+                    <ul class="pricing-features">
+                        <li>最多50个用户</li>
+                        <li>高级项目管理功能</li>
+                        <li>无限云存储空间</li>
+                        <li>高级数据分析工具</li>
+                        <li>API集成支持</li>
+                        <li>24/7优先客服支持</li>
+                    </ul>
+                    <a href="#" class="btn">立即购买</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>企业版</h3>
+                    <div class="price">定制<span>价格</span></div>
+                    <p>适合大型企业和机构</p>
+                    <ul class="pricing-features">
+                        <li>无限用户数量</li>
+                        <li>所有高级功能</li>
+                        <li>私有云部署选项</li>
+                        <li>专属客户经理</li>
+                        <li>定制化开发支持</li>
+                        <li>SLA 99.9% 正常运行保障</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">联系销售</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 合规区域 -->
+        <section class="compliance">
+            <h2 class="section-title">合规与安全</h2>
+            <div class="compliance-content">
+             <p>本产品及相关服务严格遵守新加坡法律与监管要求，包括但不限于：</p>
+<ul class="compliance-list">
+  <li>符合《个人数据保护法案》（PDPA）对于用户数据的保护与使用规范</li>
+  <li>不收集、不存储任何未经授权的用户敏感信息</li>
+  <li>如涉及支付服务，依照《支付服务法案》（PSA）提交合规备案或豁免声明</li>
+  <li>网站行为及功能完全遵守《计算机滥用与网络安全法案》（CMCA）</li>
+</ul>
+
+                
+                <div class="legal-links">
+                    <a href="#"><i class="fas fa-file-contract"></i> 用户协议</a>
+                    <a href="#"><i class="fas fa-user-shield"></i> 隐私政策</a>
+                    <a href="#"><i class="fas fa-file-invoice"></i> 发票制度</a>
+                    <a href="#"><i class="fas fa-gavel"></i> 免责声明</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2023 围猎者项目组宣</p>
+         
+        </footer>
+    </div>
+
+
+<div id="i2ce4l4f12vs1773734671831" class="widget-visible"><iframe src="about:blank" frameborder="0" scrolling="no" width="64px" height="60px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:20px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:60px !important; min-width:64px !important; max-height:60px !important; max-width:64px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:64px !important; height:60px !important; display:block !important; z-index:1000003 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="mig1mihp02ic1773734671867" class="" title="chat widget" referrerpolicy="no-referrer-when-downgrade"></iframe><iframe srcdoc="&lt;html&gt;&lt;/html&gt;" frameborder="0" scrolling="no" width="550px" height="520px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:98px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:520px !important; min-width:550px !important; max-height:520px !important; max-width:550px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:550px !important; height:520px !important; display:none !important; z-index:1000003 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:18px !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="zsp3k4cmhmus1773734671894" class="" title="chat widget" referrerpolicy="no-referrer-when-downgrade"></iframe><iframe src="about:blank" frameborder="0" scrolling="no" height="30px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:30px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:45px !important; min-width:550px !important; max-height:45px !important; max-width:550px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:550px !important; height:45px !important; display:none !important; z-index:1000002 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="n8ko1eqajl781773734671879" class="" title="chat widget" referrerpolicy="no-referrer-when-downgrade"></iframe><iframe src="about:blank" frameborder="0" scrolling="no" width="360px" height="300px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:20px !important; bottom:90px; left:auto !important; position:fixed !important; border:0 !important; min-height:300px !important; min-width:360px !important; max-height:300px !important; max-width:360px !important; padding:0 !important; margin:0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:none !important; -webkit-transform:none !important; -ms-transform:none !important; width:360px !important; height:300px !important; display:block !important; z-index:auto !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important;" id="wrc2a1ie8c1o1773734671886" class="" title="chat widget" referrerpolicy="no-referrer-when-downgrade"></iframe><iframe src="about:blank" frameborder="0" scrolling="no" width="120px" height="90px" style="outline:none !important; visibility:visible !important; resize:none !important; box-shadow:none !important; overflow:visible !important; background:none !important; opacity:1 !important; filter:alpha(opacity=100) !important; -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity 1}) !important; -mz-opacity:1 !important; -khtml-opacity:1 !important; top:auto !important; right:0px !important; bottom:80px !important; left:auto !important; position:fixed !important; border:0 !important; min-height:90px !important; min-width:120px !important; max-height:90px !important; max-width:120px !important; padding:0 !important; margin:0px 0 0 0 !important; -moz-transition-property:none !important; -webkit-transition-property:none !important; -o-transition-property:none !important; transition-property:none !important; transform:rotate(0deg) translateZ(0); -webkit-transform:rotate(0deg) translateZ(0); -ms-transform:rotate(0deg) translateZ(0); width:120px !important; height:90px !important; display:none !important; z-index:1000000 !important; background-color:transparent !important; cursor:none !important; float:none !important; border-radius:unset !important; pointer-events:auto !important; clip:auto !important; color-scheme:light !important; -moz-transform:rotate(0deg) translateZ(0); -o-transform:rotate(0deg) translateZ(0); transform-origin:0; -moz-transform-origin:0; -webkit-transform-origin:0; -o-transform-origin:0; -ms-transform-origin:0;" id="m6unu34d53v81773734671874" class="" title="chat widget" referrerpolicy="no-referrer-when-downgrade"></iframe></div></body></html>

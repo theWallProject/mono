@@ -1,0 +1,65 @@
+[2026-03-16T21:52:14.239Z] === Homepage AI Extractor: Vigdu Technologies ===
+[2026-03-16T21:52:14.239Z] Started at: 2026-03-16T21:52:14.239Z
+[2026-03-16T21:52:14.239Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773697934239_Vigdu_Technologies
+[2026-03-16T21:52:14.239Z] Company: Vigdu Technologies
+[2026-03-16T21:52:14.240Z] Website: vigdu.com
+[2026-03-16T21:52:14.240Z] cbRank: 1212182
+[2026-03-16T21:52:14.240Z] Reasons: h
+[2026-03-16T21:52:14.240Z] Fetching: https://vigdu.com
+[2026-03-16T21:52:16.542Z] Redirected: https://vigdu.com -> https://vigdu.com/
+[2026-03-16T21:52:16.546Z] Saved HTML (158762 bytes) to page.html
+[2026-03-16T21:52:16.549Z] Extracted 10 unique links from page
+[2026-03-16T21:52:16.549Z] Saved 10 links to links.json
+[2026-03-16T21:52:16.552Z] Extracted footer HTML (1627 chars)
+[2026-03-16T21:52:16.552Z] Extracted header HTML (2878 chars)
+[2026-03-16T21:52:16.555Z] Website (post-redirect): https://vigdu.com/ → origin: https://vigdu.com
+[2026-03-16T21:52:16.555Z] External links: 3 (of 10 total)
+[2026-03-16T21:52:16.555Z] ── All external links ──
+[2026-03-16T21:52:16.556Z]   EXT: https://www.linkedin.com/company/vigdu-ltd/?originalSubdomain=il
+[2026-03-16T21:52:16.556Z]   EXT: https://www.youtube.com/channel/UCZZud3P8yhLb0uIq-3Er_lg
+[2026-03-16T21:52:16.556Z]   EXT: https://www.youtube.com/watch?v=XiwD-peJp6I
+[2026-03-16T21:52:16.556Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T21:52:16.556Z]   REGEX: li <- https://www.linkedin.com/company/vigdu-ltd/?originalSubdomain=il
+[2026-03-16T21:52:16.556Z]   REGEX: ytc <- https://www.youtube.com/channel/UCZZud3P8yhLb0uIq-3Er_lg
+[2026-03-16T21:52:16.556Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-16T21:52:16.556Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=XiwD-peJp6I
+[2026-03-16T21:52:16.556Z] Programmatic result: ws:1, li:1, ytc:1 | 0 uncategorized
+[2026-03-16T21:52:16.556Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T21:52:16.560Z] Saved AI prompt (2746 chars) to ai_prompt.txt
+[2026-03-16T21:52:16.560Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T21:52:16.564Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T21:52:26.377Z]   AI: First token received, streaming...
+[2026-03-16T21:52:35.229Z] AI response complete: 121 chars in 18.7s
+[2026-03-16T21:52:35.230Z] Saved AI response to ai_response.json
+[2026-03-16T21:52:35.230Z] ── Parsing AI response (2 lines) ──
+[2026-03-16T21:52:35.231Z]   AI LINK: https://www.linkedin.com/company/vigdu-ltd/?originalSubdomain=il
+[2026-03-16T21:52:35.231Z]   AI LINK: https://www.youtube.com/channel/UCZZud3P8yhLb0uIq-3Er_lg
+[2026-03-16T21:52:35.231Z] AI returned 2 valid links
+[2026-03-16T21:52:35.231Z] ── Categorizing 2 AI-returned links ──
+[2026-03-16T21:52:35.231Z]   AI→REGEX: li <- https://www.linkedin.com/company/vigdu-ltd/?originalSubdomain=il (duplicate, skipped)
+[2026-03-16T21:52:35.232Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCZZud3P8yhLb0uIq-3Er_lg (duplicate, skipped)
+[2026-03-16T21:52:35.232Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T21:52:35.232Z] Footer/header origins (3):
+[2026-03-16T21:52:35.232Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T21:52:35.232Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-16T21:52:35.232Z]   FOOTER/HEADER ORIGIN: https://vigdu.com
+[2026-03-16T21:52:35.233Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-16T21:52:35.233Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T21:52:35.233Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-16T21:52:35.509Z]   YOUTUBE: resolved UCZZud3P8yhLb0uIq-3Er_lg → @vigdutechnologies3378
+[2026-03-16T21:52:35.509Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-16T21:52:35.509Z] ── Step 3: Final dedup ──
+[2026-03-16T21:52:35.509Z] No urls to dedup
+[2026-03-16T21:52:35.509Z] ── FINAL RESULT ──
+[2026-03-16T21:52:35.509Z]   ws (1):
+[2026-03-16T21:52:35.509Z]     - https://vigdu.com
+[2026-03-16T21:52:35.510Z]   li (1):
+[2026-03-16T21:52:35.510Z]     - https://www.linkedin.com/company/vigdu-ltd
+[2026-03-16T21:52:35.510Z]   ytp (1):
+[2026-03-16T21:52:35.510Z]     - https://www.youtube.com/@vigdutechnologies3378
+[2026-03-16T21:52:35.510Z]   ytc (1):
+[2026-03-16T21:52:35.510Z]     - https://www.youtube.com/channel/UCZZud3P8yhLb0uIq-3Er_lg
+[2026-03-16T21:52:35.510Z] Summary: ws:1, li:1, ytc:1, ytp:1
+[2026-03-16T21:52:35.514Z] Saved final result to result.json
+[2026-03-16T21:52:35.514Z] Override fields: ws, li, ytp, ytc
+[2026-03-16T21:52:35.514Z] Finished at: 2026-03-16T21:52:35.514Z

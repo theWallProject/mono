@@ -1,0 +1,59 @@
+[2026-03-17T02:58:26.275Z] === Homepage AI Extractor: Scheffer Group ===
+[2026-03-17T02:58:26.275Z] Started at: 2026-03-17T02:58:26.275Z
+[2026-03-17T02:58:26.276Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773716306275_Scheffer_Group
+[2026-03-17T02:58:26.276Z] Company: Scheffer Group
+[2026-03-17T02:58:26.276Z] Website: scheffer.co.il
+[2026-03-17T02:58:26.276Z] cbRank: 1385940
+[2026-03-17T02:58:26.276Z] Reasons: h
+[2026-03-17T02:58:26.276Z] Fetching: https://scheffer.co.il
+[2026-03-17T02:58:33.617Z] Redirected: https://scheffer.co.il -> https://www.scheffer.co.il/
+[2026-03-17T02:58:33.624Z] Saved HTML (142260 bytes) to page.html
+[2026-03-17T02:58:33.629Z] Extracted 75 unique links from page
+[2026-03-17T02:58:33.630Z] Saved 75 links to links.json
+[2026-03-17T02:58:33.633Z] Extracted footer HTML (4639 chars)
+[2026-03-17T02:58:33.633Z] Extracted header HTML (16841 chars)
+[2026-03-17T02:58:33.637Z] Website (post-redirect): https://www.scheffer.co.il/ → origin: https://www.scheffer.co.il
+[2026-03-17T02:58:33.637Z] External links: 3 (of 75 total)
+[2026-03-17T02:58:33.637Z] ── All external links ──
+[2026-03-17T02:58:33.637Z]   EXT: http://www.negishim.org
+[2026-03-17T02:58:33.637Z]   EXT: https://www.facebook.com/schefferdiamonds
+[2026-03-17T02:58:33.638Z]   EXT: https://www.youtube.com/watch?v=b6sWMF73Quw
+[2026-03-17T02:58:33.638Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T02:58:33.638Z]   UNCATEGORIZED: http://www.negishim.org
+[2026-03-17T02:58:33.638Z]   REGEX: fb <- https://www.facebook.com/schefferdiamonds
+[2026-03-17T02:58:33.638Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T02:58:33.638Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=b6sWMF73Quw
+[2026-03-17T02:58:33.638Z] Programmatic result: ws:1, fb:1 | 1 uncategorized
+[2026-03-17T02:58:33.638Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T02:58:33.668Z] Saved AI prompt (6271 chars) to ai_prompt.txt
+[2026-03-17T02:58:33.669Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T02:58:33.673Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T02:59:05.527Z]   AI: First token received, streaming...
+[2026-03-17T02:59:05.995Z] AI response complete: 25 chars in 32.3s
+[2026-03-17T02:59:05.997Z] Saved AI response to ai_response.json
+[2026-03-17T02:59:05.997Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T02:59:05.997Z]   AI LINK: http://www.scheffer.co.il
+[2026-03-17T02:59:05.997Z] AI returned 1 valid links
+[2026-03-17T02:59:05.997Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T02:59:05.998Z]   AI→URLS: http://www.scheffer.co.il
+[2026-03-17T02:59:05.999Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T02:59:05.999Z] Footer/header origins (2):
+[2026-03-17T02:59:06.000Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T02:59:06.000Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T02:59:06.000Z]   SKIP (not in footer/header): http://www.negishim.org
+[2026-03-17T02:59:06.000Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T02:59:06.000Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T02:59:06.000Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T02:59:06.000Z] ── Step 3: Final dedup ──
+[2026-03-17T02:59:06.000Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T02:59:06.001Z] ── FINAL RESULT ──
+[2026-03-17T02:59:06.001Z]   ws (1):
+[2026-03-17T02:59:06.001Z]     - https://www.scheffer.co.il
+[2026-03-17T02:59:06.001Z]   fb (1):
+[2026-03-17T02:59:06.001Z]     - https://www.facebook.com/schefferdiamonds
+[2026-03-17T02:59:06.001Z]   urls (1):
+[2026-03-17T02:59:06.001Z]     - http://www.scheffer.co.il
+[2026-03-17T02:59:06.002Z] Summary: ws:1, fb:1, urls:1
+[2026-03-17T02:59:06.003Z] Saved final result to result.json
+[2026-03-17T02:59:06.003Z] Override fields: ws, fb
+[2026-03-17T02:59:06.003Z] Finished at: 2026-03-17T02:59:06.003Z

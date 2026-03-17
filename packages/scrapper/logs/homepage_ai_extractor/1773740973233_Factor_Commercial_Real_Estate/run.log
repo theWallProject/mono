@@ -1,0 +1,65 @@
+[2026-03-17T09:49:33.233Z] === Homepage AI Extractor: Factor Commercial Real Estate ===
+[2026-03-17T09:49:33.233Z] Started at: 2026-03-17T09:49:33.233Z
+[2026-03-17T09:49:33.233Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773740973233_Factor_Commercial_Real_Estate
+[2026-03-17T09:49:33.233Z] Company: Factor Commercial Real Estate
+[2026-03-17T09:49:33.234Z] Website: factor-re.co.il
+[2026-03-17T09:49:33.234Z] cbRank: 1629734
+[2026-03-17T09:49:33.234Z] Reasons: h
+[2026-03-17T09:49:33.234Z] Fetching: https://factor-re.co.il
+[2026-03-17T09:49:40.202Z] Redirected: https://factor-re.co.il -> https://factor-re.co.il/
+[2026-03-17T09:49:40.208Z] Saved HTML (239870 bytes) to page.html
+[2026-03-17T09:49:40.212Z] Extracted 23 unique links from page
+[2026-03-17T09:49:40.213Z] Saved 23 links to links.json
+[2026-03-17T09:49:40.215Z] Extracted footer HTML (8131 chars)
+[2026-03-17T09:49:40.215Z] Extracted header HTML (10644 chars)
+[2026-03-17T09:49:40.220Z] Website (post-redirect): https://factor-re.co.il/ → origin: https://factor-re.co.il
+[2026-03-17T09:49:40.220Z] External links: 4 (of 23 total)
+[2026-03-17T09:49:40.220Z] ── All external links ──
+[2026-03-17T09:49:40.220Z]   EXT: https://www.calcalist.co.il/real-estate/article/sylrgwd8c
+[2026-03-17T09:49:40.220Z]   EXT: https://www.calcalist.co.il/real_estate/articles/0,7340,L-3744357,00.html
+[2026-03-17T09:49:40.220Z]   EXT: https://www.facebook.com/profile.php?id=100055363546453
+[2026-03-17T09:49:40.220Z]   EXT: https://www.linkedin.com/company/10564596/admin
+[2026-03-17T09:49:40.220Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T09:49:40.220Z]   UNCATEGORIZED: https://www.calcalist.co.il/real-estate/article/sylrgwd8c
+[2026-03-17T09:49:40.221Z]   UNCATEGORIZED: https://www.calcalist.co.il/real_estate/articles/0,7340,L-3744357,00.html
+[2026-03-17T09:49:40.221Z]   REGEX: li <- https://www.linkedin.com/company/10564596/admin
+[2026-03-17T09:49:40.221Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T09:49:41.648Z]   RESOLVE: https://www.facebook.com/profile.php?id=100055363546453 → https://www.facebook.com/people/Factor/100055363546453
+[2026-03-17T09:49:41.660Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Factor/100055363546453 (from https://www.facebook.com/profile.php?id=100055363546453)
+[2026-03-17T09:49:41.660Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-17T09:49:41.660Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T09:49:41.663Z] Saved AI prompt (5699 chars) to ai_prompt.txt
+[2026-03-17T09:49:41.663Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T09:49:41.667Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T09:50:04.637Z]   AI: First token received, streaming...
+[2026-03-17T09:50:13.545Z] AI response complete: 104 chars in 31.9s
+[2026-03-17T09:50:13.547Z] Saved AI response to ai_response.json
+[2026-03-17T09:50:13.547Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T09:50:13.547Z]   AI LINK: https://www.facebook.com/profile.php?id=100055363546453
+[2026-03-17T09:50:13.547Z]   AI LINK: https://www.linkedin.com/company/10564596/admin/
+[2026-03-17T09:50:13.548Z] AI returned 2 valid links
+[2026-03-17T09:50:13.548Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T09:50:14.518Z]   RESOLVE: https://www.facebook.com/profile.php?id=100055363546453 → https://www.facebook.com/people/Factor/100055363546453
+[2026-03-17T09:50:14.530Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/Factor/100055363546453 (from https://www.facebook.com/profile.php?id=100055363546453)
+[2026-03-17T09:50:14.530Z]   AI→REGEX: li <- https://www.linkedin.com/company/10564596/admin/ (duplicate, skipped)
+[2026-03-17T09:50:14.531Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T09:50:14.531Z] Footer/header origins (3):
+[2026-03-17T09:50:14.531Z]   FOOTER/HEADER ORIGIN: https://factor-re.co.il
+[2026-03-17T09:50:14.531Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T09:50:14.531Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T09:50:14.531Z]   SKIP (not in footer/header): https://www.calcalist.co.il/real-estate/article/sylrgwd8c
+[2026-03-17T09:50:14.531Z]   SKIP (not in footer/header): https://www.calcalist.co.il/real_estate/articles/0,7340,L-3744357,00.html
+[2026-03-17T09:50:14.531Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T09:50:14.531Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T09:50:14.531Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T09:50:14.531Z] ── Step 3: Final dedup ──
+[2026-03-17T09:50:14.531Z] No urls to dedup
+[2026-03-17T09:50:14.531Z] ── FINAL RESULT ──
+[2026-03-17T09:50:14.531Z]   ws (1):
+[2026-03-17T09:50:14.531Z]     - https://factor-re.co.il
+[2026-03-17T09:50:14.531Z]   li (1):
+[2026-03-17T09:50:14.531Z]     - https://www.linkedin.com/company/10564596
+[2026-03-17T09:50:14.531Z] Summary: ws:1, li:1
+[2026-03-17T09:50:14.532Z] Saved final result to result.json
+[2026-03-17T09:50:14.532Z] Override fields: ws, li
+[2026-03-17T09:50:14.532Z] Finished at: 2026-03-17T09:50:14.532Z

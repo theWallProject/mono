@@ -1,0 +1,71 @@
+[2026-03-17T04:28:50.609Z] === Homepage AI Extractor: Al-Magor ===
+[2026-03-17T04:28:50.609Z] Started at: 2026-03-17T04:28:50.609Z
+[2026-03-17T04:28:50.609Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773721730609_Al-Magor
+[2026-03-17T04:28:50.610Z] Company: Al-Magor
+[2026-03-17T04:28:50.610Z] Website: al-magor.co.il
+[2026-03-17T04:28:50.610Z] cbRank: 1444669
+[2026-03-17T04:28:50.610Z] Reasons: h
+[2026-03-17T04:28:50.610Z] Fetching: https://al-magor.co.il
+[2026-03-17T04:28:56.520Z] Redirected: https://al-magor.co.il -> https://al-magor.co.il/
+[2026-03-17T04:28:56.526Z] Saved HTML (171854 bytes) to page.html
+[2026-03-17T04:28:56.531Z] Extracted 53 unique links from page
+[2026-03-17T04:28:56.531Z] Saved 53 links to links.json
+[2026-03-17T04:28:56.534Z] Extracted footer HTML (19920 chars)
+[2026-03-17T04:28:56.534Z] Extracted header HTML (20749 chars)
+[2026-03-17T04:28:56.538Z] Website (post-redirect): https://al-magor.co.il/ → origin: https://al-magor.co.il
+[2026-03-17T04:28:56.538Z]   SUBDOMAIN: heb.al-magor.co.il (added to ws)
+[2026-03-17T04:28:56.539Z] Website subdomains found: 1
+[2026-03-17T04:28:56.539Z] External links: 4 (of 53 total)
+[2026-03-17T04:28:56.539Z] ── All external links ──
+[2026-03-17T04:28:56.539Z]   EXT: https://cz.linkedin.com/company/al-magor
+[2026-03-17T04:28:56.539Z]   EXT: https://www.en.gumtec.co.il
+[2026-03-17T04:28:56.539Z]   EXT: https://www.facebook.com/Al-magor-103344467689315
+[2026-03-17T04:28:56.539Z]   EXT: https://www.youtube.com/@al-magorprofessionaltools299
+[2026-03-17T04:28:56.539Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T04:28:56.539Z]   REGEX: li <- https://cz.linkedin.com/company/al-magor
+[2026-03-17T04:28:56.540Z]   UNCATEGORIZED: https://www.en.gumtec.co.il
+[2026-03-17T04:28:56.540Z]   REGEX: fb <- https://www.facebook.com/Al-magor-103344467689315
+[2026-03-17T04:28:56.540Z]   REGEX: ytp <- https://www.youtube.com/@al-magorprofessionaltools299
+[2026-03-17T04:28:56.540Z] Programmatic result: ws:2, li:1, fb:1, ytp:1 | 1 uncategorized
+[2026-03-17T04:28:56.540Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T04:28:56.544Z] Saved AI prompt (11164 chars) to ai_prompt.txt
+[2026-03-17T04:28:56.544Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T04:28:56.547Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T04:29:45.652Z]   AI: First token received, streaming...
+[2026-03-17T04:29:46.373Z] AI response complete: 27 chars in 49.8s
+[2026-03-17T04:29:46.374Z] Saved AI response to ai_response.json
+[2026-03-17T04:29:46.375Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T04:29:46.375Z]   AI LINK: https://www.en.gumtec.co.il
+[2026-03-17T04:29:46.375Z] AI returned 1 valid links
+[2026-03-17T04:29:46.375Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T04:29:46.375Z]   AI→URLS: https://www.en.gumtec.co.il
+[2026-03-17T04:29:46.376Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T04:29:46.377Z] Footer/header origins (6):
+[2026-03-17T04:29:46.377Z]   FOOTER/HEADER ORIGIN: https://al-magor.co.il
+[2026-03-17T04:29:46.377Z]   FOOTER/HEADER ORIGIN: https://www.en.gumtec.co.il
+[2026-03-17T04:29:46.377Z]   FOOTER/HEADER ORIGIN: https://heb.al-magor.co.il
+[2026-03-17T04:29:46.377Z]   FOOTER/HEADER ORIGIN: https://cz.linkedin.com
+[2026-03-17T04:29:46.377Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T04:29:46.378Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T04:29:46.378Z]   SKIP (AI claimed): https://www.en.gumtec.co.il
+[2026-03-17T04:29:46.378Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T04:29:46.378Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T04:29:46.378Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T04:29:46.378Z] ── Step 3: Final dedup ──
+[2026-03-17T04:29:46.378Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T04:29:46.378Z] ── FINAL RESULT ──
+[2026-03-17T04:29:46.379Z]   ws (2):
+[2026-03-17T04:29:46.379Z]     - https://al-magor.co.il
+[2026-03-17T04:29:46.379Z]     - https://heb.al-magor.co.il
+[2026-03-17T04:29:46.379Z]   li (1):
+[2026-03-17T04:29:46.379Z]     - https://www.linkedin.com/company/al-magor
+[2026-03-17T04:29:46.379Z]   fb (1):
+[2026-03-17T04:29:46.379Z]     - https://www.facebook.com/al-magor-103344467689315
+[2026-03-17T04:29:46.380Z]   ytp (1):
+[2026-03-17T04:29:46.380Z]     - https://www.youtube.com/@al-magorprofessionaltools299
+[2026-03-17T04:29:46.380Z]   urls (1):
+[2026-03-17T04:29:46.380Z]     - https://www.en.gumtec.co.il
+[2026-03-17T04:29:46.380Z] Summary: ws:2, li:1, fb:1, ytp:1, urls:1
+[2026-03-17T04:29:46.381Z] Saved final result to result.json
+[2026-03-17T04:29:46.382Z] Override fields: ws, li, fb, ytp, urls
+[2026-03-17T04:29:46.382Z] Finished at: 2026-03-17T04:29:46.382Z

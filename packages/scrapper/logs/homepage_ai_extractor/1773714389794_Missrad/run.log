@@ -1,0 +1,65 @@
+[2026-03-17T02:26:29.795Z] === Homepage AI Extractor: Missrad ===
+[2026-03-17T02:26:29.795Z] Started at: 2026-03-17T02:26:29.795Z
+[2026-03-17T02:26:29.795Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773714389794_Missrad
+[2026-03-17T02:26:29.795Z] Company: Missrad
+[2026-03-17T02:26:29.795Z] Website: missrad.co.il
+[2026-03-17T02:26:29.795Z] cbRank: 1367521
+[2026-03-17T02:26:29.795Z] Reasons: h
+[2026-03-17T02:26:29.795Z] Fetching: https://missrad.co.il
+[2026-03-17T02:26:40.387Z] Network idle timeout — continuing with current state
+[2026-03-17T02:26:40.422Z] Redirected: https://missrad.co.il -> https://www.missrad.co.il/
+[2026-03-17T02:26:40.432Z] Saved HTML (405903 bytes) to page.html
+[2026-03-17T02:26:40.435Z] Extracted 9 unique links from page
+[2026-03-17T02:26:40.436Z] Saved 9 links to links.json
+[2026-03-17T02:26:40.438Z] Extracted footer HTML (3859 chars)
+[2026-03-17T02:26:40.438Z] Extracted header HTML (7985 chars)
+[2026-03-17T02:26:40.442Z] Website (post-redirect): https://www.missrad.co.il/ → origin: https://www.missrad.co.il
+[2026-03-17T02:26:40.442Z] External links: 3 (of 9 total)
+[2026-03-17T02:26:40.442Z] ── All external links ──
+[2026-03-17T02:26:40.442Z]   EXT: http://www.leeordekel.com
+[2026-03-17T02:26:40.442Z]   EXT: https://www.facebook.com/Missrad17
+[2026-03-17T02:26:40.443Z]   EXT: https://www.instagram.com/missrad_office
+[2026-03-17T02:26:40.443Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T02:26:40.443Z]   UNCATEGORIZED: http://www.leeordekel.com
+[2026-03-17T02:26:40.443Z]   REGEX: fb <- https://www.facebook.com/Missrad17
+[2026-03-17T02:26:40.443Z]   REGEX: ig <- https://www.instagram.com/missrad_office
+[2026-03-17T02:26:40.443Z] Programmatic result: ws:1, fb:1, ig:1 | 1 uncategorized
+[2026-03-17T02:26:40.443Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T02:26:40.447Z] Saved AI prompt (5126 chars) to ai_prompt.txt
+[2026-03-17T02:26:40.447Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T02:26:40.451Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T02:27:07.839Z]   AI: First token received, streaming...
+[2026-03-17T02:27:11.845Z] AI response complete: 77 chars in 31.4s
+[2026-03-17T02:27:11.846Z] Saved AI response to ai_response.json
+[2026-03-17T02:27:11.846Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T02:27:11.847Z]   AI LINK: https://www.instagram.com/missrad_office/
+[2026-03-17T02:27:11.847Z]   AI LINK: https://www.facebook.com/Missrad17/
+[2026-03-17T02:27:11.847Z] AI returned 2 valid links
+[2026-03-17T02:27:11.847Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T02:27:11.848Z]   AI→REGEX: ig <- https://www.instagram.com/missrad_office/ (duplicate, skipped)
+[2026-03-17T02:27:11.848Z]   AI→REGEX: fb <- https://www.facebook.com/Missrad17/ (duplicate, skipped)
+[2026-03-17T02:27:11.848Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T02:27:11.848Z] Footer/header origins (4):
+[2026-03-17T02:27:11.849Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T02:27:11.849Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T02:27:11.849Z]   FOOTER/HEADER ORIGIN: http://www.leeordekel.com
+[2026-03-17T02:27:11.849Z]   FOOTER/HEADER ORIGIN: https://www.missrad.co.il
+[2026-03-17T02:27:11.849Z]   ADDED: urls <- http://www.leeordekel.com
+[2026-03-17T02:27:11.849Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T02:27:11.849Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T02:27:11.849Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T02:27:11.849Z] ── Step 3: Final dedup ──
+[2026-03-17T02:27:11.850Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T02:27:11.850Z] ── FINAL RESULT ──
+[2026-03-17T02:27:11.850Z]   ws (1):
+[2026-03-17T02:27:11.850Z]     - https://www.missrad.co.il
+[2026-03-17T02:27:11.850Z]   fb (1):
+[2026-03-17T02:27:11.850Z]     - https://www.facebook.com/missrad17
+[2026-03-17T02:27:11.850Z]   ig (1):
+[2026-03-17T02:27:11.850Z]     - https://www.instagram.com/missrad_office
+[2026-03-17T02:27:11.850Z]   urls (1):
+[2026-03-17T02:27:11.850Z]     - http://www.leeordekel.com
+[2026-03-17T02:27:11.851Z] Summary: ws:1, fb:1, ig:1, urls:1
+[2026-03-17T02:27:11.852Z] Saved final result to result.json
+[2026-03-17T02:27:11.852Z] Override fields: ws, fb, ig, urls
+[2026-03-17T02:27:11.852Z] Finished at: 2026-03-17T02:27:11.852Z

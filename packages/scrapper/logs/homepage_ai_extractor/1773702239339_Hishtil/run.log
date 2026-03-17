@@ -1,0 +1,84 @@
+[2026-03-16T23:03:59.339Z] === Homepage AI Extractor: Hishtil ===
+[2026-03-16T23:03:59.339Z] Started at: 2026-03-16T23:03:59.339Z
+[2026-03-16T23:03:59.339Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773702239339_Hishtil
+[2026-03-16T23:03:59.339Z] Company: Hishtil
+[2026-03-16T23:03:59.339Z] Website: hishtil.com
+[2026-03-16T23:03:59.339Z] cbRank: 1249095
+[2026-03-16T23:03:59.339Z] Reasons: h
+[2026-03-16T23:03:59.339Z] Fetching: https://hishtil.com
+[2026-03-16T23:04:13.888Z] Network idle timeout — continuing with current state
+[2026-03-16T23:04:13.923Z] Redirected: https://hishtil.com -> https://www.hishtil.com/
+[2026-03-16T23:04:13.927Z] Saved HTML (71281 bytes) to page.html
+[2026-03-16T23:04:13.929Z] Extracted 54 unique links from page
+[2026-03-16T23:04:13.930Z] Saved 54 links to links.json
+[2026-03-16T23:04:13.932Z] Extracted footer HTML (3609 chars)
+[2026-03-16T23:04:13.932Z] Extracted header HTML (19081 chars)
+[2026-03-16T23:04:13.936Z] Website (post-redirect): https://www.hishtil.com/ → origin: https://www.hishtil.com
+[2026-03-16T23:04:13.936Z]   SUBDOMAIN: catalogue.hishtil.com (added to ws)
+[2026-03-16T23:04:13.937Z] Website subdomains found: 1
+[2026-03-16T23:04:13.937Z] External links: 6 (of 54 total)
+[2026-03-16T23:04:13.937Z] ── All external links ──
+[2026-03-16T23:04:13.937Z]   EXT: http://www.elipaz.com
+[2026-03-16T23:04:13.937Z]   EXT: http://www.hishtil.co.il
+[2026-03-16T23:04:13.937Z]   EXT: https://bit.ly/2ERyNxT
+[2026-03-16T23:04:13.937Z]   EXT: https://www.facebook.com/Hishtil
+[2026-03-16T23:04:13.937Z]   EXT: https://www.linkedin.com/company/Hishtil
+[2026-03-16T23:04:13.937Z]   EXT: https://www.meteoblue.com/en/weather/week/index?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget
+[2026-03-16T23:04:13.937Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T23:04:13.938Z]   UNCATEGORIZED: http://www.elipaz.com
+[2026-03-16T23:04:13.938Z]   UNCATEGORIZED: http://www.hishtil.co.il
+[2026-03-16T23:04:13.938Z]   UNCATEGORIZED: https://bit.ly/2ERyNxT
+[2026-03-16T23:04:13.938Z]   REGEX: fb <- https://www.facebook.com/Hishtil
+[2026-03-16T23:04:13.938Z]   REGEX: li <- https://www.linkedin.com/company/Hishtil
+[2026-03-16T23:04:13.938Z]   UNCATEGORIZED: https://www.meteoblue.com/en/weather/week/index?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget
+[2026-03-16T23:04:13.938Z] Programmatic result: ws:2, fb:1, li:1 | 4 uncategorized
+[2026-03-16T23:04:13.938Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T23:04:13.942Z] Saved AI prompt (3602 chars) to ai_prompt.txt
+[2026-03-16T23:04:13.942Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T23:04:13.945Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T23:04:27.134Z]   AI: First token received, streaming...
+[2026-03-16T23:04:32.551Z] AI response complete: 98 chars in 18.6s
+[2026-03-16T23:04:32.552Z] Saved AI response to ai_response.json
+[2026-03-16T23:04:32.553Z] ── Parsing AI response (3 lines) ──
+[2026-03-16T23:04:32.553Z]   AI LINK: http://www.hishtil.co.il
+[2026-03-16T23:04:32.553Z]   AI LINK: https://www.facebook.com/Hishtil
+[2026-03-16T23:04:32.553Z]   AI LINK: https://www.linkedin.com/company/Hishtil
+[2026-03-16T23:04:32.553Z] AI returned 3 valid links
+[2026-03-16T23:04:32.554Z] ── Categorizing 3 AI-returned links ──
+[2026-03-16T23:04:32.554Z]   AI→URLS: http://www.hishtil.co.il
+[2026-03-16T23:04:32.554Z]   AI→REGEX: fb <- https://www.facebook.com/Hishtil (duplicate, skipped)
+[2026-03-16T23:04:32.554Z]   AI→REGEX: li <- https://www.linkedin.com/company/Hishtil (duplicate, skipped)
+[2026-03-16T23:04:32.556Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T23:04:32.556Z] Footer/header origins (7):
+[2026-03-16T23:04:32.557Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T23:04:32.557Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T23:04:32.557Z]   FOOTER/HEADER ORIGIN: http://www.hishtil.com
+[2026-03-16T23:04:32.557Z]   FOOTER/HEADER ORIGIN: http://www.elipaz.com
+[2026-03-16T23:04:32.557Z]   FOOTER/HEADER ORIGIN: https://www.hishtil.com
+[2026-03-16T23:04:32.557Z]   FOOTER/HEADER ORIGIN: https://www.meteoblue.com
+[2026-03-16T23:04:32.557Z]   FOOTER/HEADER ORIGIN: http://www.hishtil.co.il
+[2026-03-16T23:04:32.557Z]   ADDED: urls <- http://www.elipaz.com
+[2026-03-16T23:04:32.558Z]   SKIP (AI claimed): http://www.hishtil.co.il
+[2026-03-16T23:04:32.558Z]   SKIP (not in footer/header): https://bit.ly/2ERyNxT
+[2026-03-16T23:04:32.558Z]   ADDED: urls <- https://www.meteoblue.com/en/weather/week/index (cleaned from https://www.meteoblue.com/en/weather/week/index?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget)
+[2026-03-16T23:04:32.558Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-16T23:04:32.558Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T23:04:32.559Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T23:04:32.559Z] ── Step 3: Final dedup ──
+[2026-03-16T23:04:32.559Z] Dedup: removed 0 of 3 URLs already in specialized fields
+[2026-03-16T23:04:32.559Z] ── FINAL RESULT ──
+[2026-03-16T23:04:32.559Z]   ws (2):
+[2026-03-16T23:04:32.559Z]     - https://catalogue.hishtil.com
+[2026-03-16T23:04:32.559Z]     - https://www.hishtil.com
+[2026-03-16T23:04:32.560Z]   li (1):
+[2026-03-16T23:04:32.560Z]     - https://www.linkedin.com/company/hishtil
+[2026-03-16T23:04:32.560Z]   fb (1):
+[2026-03-16T23:04:32.560Z]     - https://www.facebook.com/hishtil
+[2026-03-16T23:04:32.560Z]   urls (3):
+[2026-03-16T23:04:32.560Z]     - http://www.elipaz.com
+[2026-03-16T23:04:32.560Z]     - http://www.hishtil.co.il
+[2026-03-16T23:04:32.560Z]     - https://www.meteoblue.com/en/weather/week/index
+[2026-03-16T23:04:32.561Z] Summary: ws:2, fb:1, li:1, urls:3
+[2026-03-16T23:04:32.562Z] Saved final result to result.json
+[2026-03-16T23:04:32.562Z] Override fields: ws, li, fb, urls
+[2026-03-16T23:04:32.562Z] Finished at: 2026-03-16T23:04:32.562Z

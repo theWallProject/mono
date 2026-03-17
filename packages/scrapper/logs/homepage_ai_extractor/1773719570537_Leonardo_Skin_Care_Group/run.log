@@ -1,0 +1,82 @@
+[2026-03-17T03:52:50.538Z] === Homepage AI Extractor: Leonardo Skin Care Group ===
+[2026-03-17T03:52:50.538Z] Started at: 2026-03-17T03:52:50.538Z
+[2026-03-17T03:52:50.538Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773719570537_Leonardo_Skin_Care_Group
+[2026-03-17T03:52:50.538Z] Company: Leonardo Skin Care Group
+[2026-03-17T03:52:50.538Z] Website: leonardo-tech.com
+[2026-03-17T03:52:50.538Z] cbRank: 1419217
+[2026-03-17T03:52:50.539Z] Reasons: h
+[2026-03-17T03:52:50.539Z] Fetching: https://leonardo-tech.com
+[2026-03-17T03:52:52.529Z] Redirected: https://leonardo-tech.com -> https://leonardo-tech.com/
+[2026-03-17T03:52:52.540Z] Saved HTML (381382 bytes) to page.html
+[2026-03-17T03:52:52.545Z] Extracted 56 unique links from page
+[2026-03-17T03:52:52.546Z] Saved 56 links to links.json
+[2026-03-17T03:52:52.549Z] No footer section found in DOM
+[2026-03-17T03:52:52.549Z] Extracted header HTML (3897 chars)
+[2026-03-17T03:52:52.552Z] Website (post-redirect): https://leonardo-tech.com/ → origin: https://leonardo-tech.com
+[2026-03-17T03:52:52.552Z]   SUBDOMAIN: en.leonardo-tech.com (added to ws)
+[2026-03-17T03:52:52.552Z] Website subdomains found: 1
+[2026-03-17T03:52:52.552Z] External links: 7 (of 56 total)
+[2026-03-17T03:52:52.552Z] ── All external links ──
+[2026-03-17T03:52:52.552Z]   EXT: https://wa.me/972525597079
+[2026-03-17T03:52:52.553Z]   EXT: https://wa.me/972772312137?text=
+[2026-03-17T03:52:52.553Z]   EXT: https://www.cosmolook.co.il
+[2026-03-17T03:52:52.553Z]   EXT: https://www.facebook.com/Leonardogroup360
+[2026-03-17T03:52:52.553Z]   EXT: https://www.instagram.com/leonardo_skin.care
+[2026-03-17T03:52:52.553Z]   EXT: https://www.leoglobals.com
+[2026-03-17T03:52:52.553Z]   EXT: https://www.youtube.com/channel/UCMiHczrG99nu6l1rRBsPMVA
+[2026-03-17T03:52:52.553Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T03:52:52.554Z]   UNCATEGORIZED: https://wa.me/972525597079
+[2026-03-17T03:52:52.554Z]   UNCATEGORIZED: https://wa.me/972772312137?text=
+[2026-03-17T03:52:52.554Z]   UNCATEGORIZED: https://www.cosmolook.co.il
+[2026-03-17T03:52:52.554Z]   REGEX: fb <- https://www.facebook.com/Leonardogroup360
+[2026-03-17T03:52:52.554Z]   REGEX: ig <- https://www.instagram.com/leonardo_skin.care
+[2026-03-17T03:52:52.554Z]   UNCATEGORIZED: https://www.leoglobals.com
+[2026-03-17T03:52:52.554Z]   REGEX: ytc <- https://www.youtube.com/channel/UCMiHczrG99nu6l1rRBsPMVA
+[2026-03-17T03:52:52.554Z] Programmatic result: ws:2, fb:1, ig:1, ytc:1 | 4 uncategorized
+[2026-03-17T03:52:52.554Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T03:52:52.558Z] Saved AI prompt (2101 chars) to ai_prompt.txt
+[2026-03-17T03:52:52.558Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T03:52:52.563Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T03:53:00.051Z]   AI: First token received, streaming...
+[2026-03-17T03:53:00.269Z] AI response complete: 26 chars in 7.7s
+[2026-03-17T03:53:00.271Z] Saved AI response to ai_response.json
+[2026-03-17T03:53:00.271Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T03:53:00.271Z]   AI LINK: https://www.leoglobals.com
+[2026-03-17T03:53:00.272Z] AI returned 1 valid links
+[2026-03-17T03:53:00.272Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T03:53:00.272Z]   AI→URLS: https://www.leoglobals.com
+[2026-03-17T03:53:00.272Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T03:53:00.273Z] Footer/header origins (3):
+[2026-03-17T03:53:00.273Z]   FOOTER/HEADER ORIGIN: https://leonardo-tech.com
+[2026-03-17T03:53:00.273Z]   FOOTER/HEADER ORIGIN: https://www.cosmolook.co.il
+[2026-03-17T03:53:00.273Z]   FOOTER/HEADER ORIGIN: https://www.leoglobals.com
+[2026-03-17T03:53:00.273Z]   SKIP (not in footer/header): https://wa.me/972525597079
+[2026-03-17T03:53:00.273Z]   SKIP (not in footer/header): https://wa.me/972772312137?text=
+[2026-03-17T03:53:00.274Z]   ADDED: urls <- https://www.cosmolook.co.il
+[2026-03-17T03:53:00.274Z]   SKIP (AI claimed): https://www.leoglobals.com
+[2026-03-17T03:53:00.274Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T03:53:00.274Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T03:53:00.274Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T03:53:00.553Z]   YOUTUBE: resolved UCMiHczrG99nu6l1rRBsPMVA → @leo-5710
+[2026-03-17T03:53:00.553Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T03:53:00.553Z] ── Step 3: Final dedup ──
+[2026-03-17T03:53:00.553Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T03:53:00.554Z] ── FINAL RESULT ──
+[2026-03-17T03:53:00.554Z]   ws (2):
+[2026-03-17T03:53:00.554Z]     - https://en.leonardo-tech.com
+[2026-03-17T03:53:00.554Z]     - https://leonardo-tech.com
+[2026-03-17T03:53:00.554Z]   fb (1):
+[2026-03-17T03:53:00.554Z]     - https://www.facebook.com/leonardogroup360
+[2026-03-17T03:53:00.554Z]   ig (1):
+[2026-03-17T03:53:00.554Z]     - https://www.instagram.com/leonardo_skin.care
+[2026-03-17T03:53:00.554Z]   ytp (1):
+[2026-03-17T03:53:00.554Z]     - https://www.youtube.com/@leo-5710
+[2026-03-17T03:53:00.554Z]   ytc (1):
+[2026-03-17T03:53:00.554Z]     - https://www.youtube.com/channel/UCMiHczrG99nu6l1rRBsPMVA
+[2026-03-17T03:53:00.555Z]   urls (2):
+[2026-03-17T03:53:00.555Z]     - https://www.cosmolook.co.il
+[2026-03-17T03:53:00.555Z]     - https://www.leoglobals.com
+[2026-03-17T03:53:00.555Z] Summary: ws:2, fb:1, ig:1, ytc:1, urls:2, ytp:1
+[2026-03-17T03:53:00.555Z] Saved final result to result.json
+[2026-03-17T03:53:00.555Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-17T03:53:00.556Z] Finished at: 2026-03-17T03:53:00.556Z

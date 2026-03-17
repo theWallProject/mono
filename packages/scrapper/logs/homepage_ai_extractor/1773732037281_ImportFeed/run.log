@@ -1,0 +1,74 @@
+[2026-03-17T07:20:37.282Z] === Homepage AI Extractor: ImportFeed ===
+[2026-03-17T07:20:37.282Z] Started at: 2026-03-17T07:20:37.282Z
+[2026-03-17T07:20:37.282Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773732037281_ImportFeed
+[2026-03-17T07:20:37.282Z] Company: ImportFeed
+[2026-03-17T07:20:37.282Z] Website: importfeed.com
+[2026-03-17T07:20:37.282Z] cbRank: 1538399
+[2026-03-17T07:20:37.282Z] Reasons: h
+[2026-03-17T07:20:37.282Z] Fetching: https://importfeed.com
+[2026-03-17T07:20:40.766Z] Dismissed cookie consent popup via: .cc-btn.cc-allow
+[2026-03-17T07:20:43.734Z] Redirected: https://importfeed.com -> https://www.importfeed.com/
+[2026-03-17T07:20:43.736Z] Saved HTML (20287 bytes) to page.html
+[2026-03-17T07:20:43.738Z] Extracted 14 unique links from page
+[2026-03-17T07:20:43.738Z] Saved 14 links to links.json
+[2026-03-17T07:20:43.740Z] Extracted footer HTML (1219 chars)
+[2026-03-17T07:20:43.740Z] Extracted header HTML (895 chars)
+[2026-03-17T07:20:43.744Z] Website (post-redirect): https://www.importfeed.com/ → origin: https://www.importfeed.com
+[2026-03-17T07:20:43.744Z]   SUBDOMAIN: app.importfeed.com (added to ws)
+[2026-03-17T07:20:43.745Z] Website subdomains found: 1
+[2026-03-17T07:20:43.745Z] External links: 4 (of 14 total)
+[2026-03-17T07:20:43.745Z] ── All external links ──
+[2026-03-17T07:20:43.745Z]   EXT: https://safedrivesystems.com
+[2026-03-17T07:20:43.745Z]   EXT: https://www.facebook.com/BBFinanceSolutions
+[2026-03-17T07:20:43.745Z]   EXT: https://www.facebook.com/casific
+[2026-03-17T07:20:43.745Z]   EXT: https://www.sunnymusicgroup.com
+[2026-03-17T07:20:43.745Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T07:20:43.745Z]   UNCATEGORIZED: https://safedrivesystems.com
+[2026-03-17T07:20:43.745Z]   REGEX: fb <- https://www.facebook.com/BBFinanceSolutions
+[2026-03-17T07:20:43.745Z]   REGEX: fb <- https://www.facebook.com/casific
+[2026-03-17T07:20:43.745Z]   UNCATEGORIZED: https://www.sunnymusicgroup.com
+[2026-03-17T07:20:43.746Z] Programmatic result: ws:2, fb:2 | 2 uncategorized
+[2026-03-17T07:20:43.746Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T07:20:43.749Z] Saved AI prompt (2576 chars) to ai_prompt.txt
+[2026-03-17T07:20:43.749Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T07:20:43.753Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T07:20:52.689Z]   AI: First token received, streaming...
+[2026-03-17T07:20:59.689Z] AI response complete: 147 chars in 15.9s
+[2026-03-17T07:20:59.690Z] Saved AI response to ai_response.json
+[2026-03-17T07:20:59.690Z] ── Parsing AI response (8 lines) ──
+[2026-03-17T07:20:59.691Z]   AI LINK: https://app.importfeed.com/login
+[2026-03-17T07:20:59.691Z]   AI LINK: https://app.importfeed.com/signup
+[2026-03-17T07:20:59.691Z]   AI IGNORED (not a URL): /about/
+[2026-03-17T07:20:59.691Z]   AI IGNORED (not a URL): /client-portal/
+[2026-03-17T07:20:59.691Z]   AI IGNORED (not a URL): /pricing/
+[2026-03-17T07:20:59.691Z]   AI IGNORED (not a URL): /terms-of-service/
+[2026-03-17T07:20:59.692Z]   AI IGNORED (not a URL): /privacy-policy/
+[2026-03-17T07:20:59.692Z]   AI IGNORED (not a URL): /security/
+[2026-03-17T07:20:59.692Z] AI returned 2 valid links
+[2026-03-17T07:20:59.692Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T07:20:59.692Z]   AI→URLS: https://app.importfeed.com/login
+[2026-03-17T07:20:59.692Z]   AI→URLS: https://app.importfeed.com/signup
+[2026-03-17T07:20:59.693Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T07:20:59.693Z] Footer/header origins (1):
+[2026-03-17T07:20:59.693Z]   FOOTER/HEADER ORIGIN: https://app.importfeed.com
+[2026-03-17T07:20:59.693Z]   SKIP (not in footer/header): https://safedrivesystems.com
+[2026-03-17T07:20:59.693Z]   SKIP (not in footer/header): https://www.sunnymusicgroup.com
+[2026-03-17T07:20:59.693Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T07:20:59.694Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T07:20:59.694Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T07:20:59.694Z] ── Step 3: Final dedup ──
+[2026-03-17T07:20:59.694Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T07:20:59.694Z] ── FINAL RESULT ──
+[2026-03-17T07:20:59.694Z]   ws (2):
+[2026-03-17T07:20:59.694Z]     - https://app.importfeed.com
+[2026-03-17T07:20:59.694Z]     - https://www.importfeed.com
+[2026-03-17T07:20:59.695Z]   fb (2):
+[2026-03-17T07:20:59.695Z]     - https://www.facebook.com/bbfinancesolutions
+[2026-03-17T07:20:59.695Z]     - https://www.facebook.com/casific
+[2026-03-17T07:20:59.695Z]   urls (2):
+[2026-03-17T07:20:59.695Z]     - https://app.importfeed.com/login
+[2026-03-17T07:20:59.695Z]     - https://app.importfeed.com/signup
+[2026-03-17T07:20:59.695Z] Summary: ws:2, fb:2, urls:2
+[2026-03-17T07:20:59.696Z] Saved final result to result.json
+[2026-03-17T07:20:59.697Z] Override fields: ws, fb
+[2026-03-17T07:20:59.697Z] Finished at: 2026-03-17T07:20:59.697Z

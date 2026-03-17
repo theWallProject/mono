@@ -1,0 +1,992 @@
+<!DOCTYPE html><html lang="en"><head>
+
+    <meta charset="utf-8">
+    <!-- <base href="/"> -->
+
+    <title>ComTainer</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon.png?v=4" type="image/x-icon">
+    <!-- Template Basic Images Start -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-P77KQB2"></script><script src="https://kit.fontawesome.com/6997fd8dc6.js" crossorigin="anonymous"></script>
+    <!-- Template Basic Images End -->
+    <!-- Custom Browsers Color Start -->
+    <meta name="theme-color" content="#000">
+    <!-- Custom Browsers Color End -->
+
+    <link rel="stylesheet" href="css/main.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/scripts.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async=""></script>
+<script type="text/javascript">window.onload = function () { Calendly.initBadgeWidget({ url: 'https://calendly.com/comtainer-main', text: 'Schedule time with us', color: '#006bff', textColor: '#ffffff', branding: false }); }</script>
+<!-- Calendly badge widget end --><!-- Calendly badge widget end -->
+    <style>
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            border:none !important;
+            background-color: transparent !important;
+        }
+        .select2-search__field{
+            margin-top: -5px !important;
+            margin-left: 8px;
+        }
+ 
+.select2-selection--multiple:before{
+    content: "\f107";
+    font-family: "FontAwesome";
+    font-size: 15px;
+    color: #000;
+    right: 8px;
+    top: 9px;
+    padding: 0 0 1px;
+    position: absolute;
+    pointer-events: none;
+    font-weight: 800;
+}
+
+
+.select2-results__option {
+  padding-right: 20px;
+  vertical-align: middle;
+}
+.select2-results__option:before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #e9e9e9;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.select2-results__option[aria-selected=true]:before {
+  font-family:fontAwesome;
+  content: "\f00c";
+  color: #fff;
+  background-color: #f77750;
+  border: 0;
+  display: inline-block;
+  padding-left: 3px;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+	background-color: #fff;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: #eaeaeb;
+	color: #272727;
+}
+.select2-container--default .select2-selection--multiple {
+	margin-bottom: 10px;
+}
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+	border-radius: 4px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+	border-color: #f77750;
+	border-width: 2px;
+}
+.select2-container--default .select2-selection--multiple {
+	border-width: 2px;
+}
+.select2-container--open .select2-dropdown--below {
+	
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+.select2-selection .select2-selection--multiple:after {
+	content: 'hhghgh';
+}
+.button-examples {
+  display: flex;
+  /* The direction in which lines of text are stacked */
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  padding: 6px;
+  color: #0989c2;
+  font-weight: 300;
+  width: 100px;
+  border:none;
+  font-size:44px;
+}
+ .button-examples:hover {
+     color: #fff;
+ }
+.button-examples p {
+  margin-top: -17px !important;
+  font-size: .8rem;
+  /*margin: 0 auto;*/
+}
+.modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+  }
+
+
+
+.modal-body {
+  position:relative;
+  padding:0px;
+}
+.close {
+  position:absolute;
+  right:-30px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  color:#fff;
+  opacity:1;
+}
+@media only screen and (max-width: 600px) {
+  .button-examples {
+    display:contents;
+  }
+  .import__export-form.select2.select2-container {
+    width: 100% !important;
+    } 
+}
+        .alert {
+            position: fixed;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 0;
+            border: 1px solid transparent;
+            border-radius: 0;
+            background-color: #dabe64;
+            color: #000;
+            text-align: center;
+            font-size: 12px;
+            z-index: 10000;
+        }
+        .closebtn:hover {
+            color: #000;
+         }
+      .closebtn {
+        margin-left: 15px;
+        margin-right: 10px;
+        color: #000;
+        float: right;
+        font-size: 26px;
+        line-height: 12px;
+        cursor: pointer;
+        transition: .3s;
+    }
+    </style>
+<!-- Hotjar Tracking Code for www.comtainer.tech -->
+<script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 2543465, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+</script><script async="" src="https://static.hotjar.com/c/hotjar-2543465.js?sv=6"></script>
+<!---- End of hotjar code --->
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P77KQB2');</script>
+<!-- End Google Tag Manager -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3XRS6CNX73"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-3XRS6CNX73');
+</script>
+
+
+
+    
+
+
+<script async="" src="https://script.hotjar.com/modules.a7ec23974042e4df49ed.js" charset="utf-8"></script></head>
+    
+<body><div class="calendly-badge-widget"><div class="calendly-badge-content" style="background: rgb(0, 107, 255); color: rgb(255, 255, 255);">Schedule time with us</div></div>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P77KQB2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="wrapper">
+        <header class="header">
+            <div class="alert" id="divCookiesRibbon" style="">
+<span class="closebtn" id="btnCloseCookies"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">×</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+This site uses cookies to improve your navigation. </font><font style="vertical-align: inherit;">By continuing on this site, you consent to their use. </font></font><a href="javascript:privacy();"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Learn more on our page</font></font></a>
+</div>
+            <div class="container">
+                <div class="row">
+                    <div class="top__line">
+                        <a href="/">
+                            <img src="img/logo.svg" alt="logo"></a>
+                        <nav>
+                            <ul class="main__menu">
+                                <li><a href="https://platform.comtainer.tech/ExternalLoadingCalc/RecieveParam?containers=1&amp;unit=KG&amp;package=BOXES" style="color:#f57f29;font-weight:500;">Loading Calculator</a></li>
+                                  
+                                <li><a href="https://blog.comtainer.tech/frequently-asked-questions/" target="_blank">FAQ</a></li>
+                                <li><a href="https://blog.comtainer.tech/blog-posts/" target="_blank">Blog</a></li>
+                                <li><a href="javascript:terms();">Terms</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                            <div id="theModal" class="modal fade text-center">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                  </div>
+                                </div>
+                              </div>
+                        </nav>
+                        <a href="https://platform.comtainer.tech/Account/Login" class="login__btn">Log in</a>
+                        <a href="https://platform.comtainer.tech/Account/Register" class="login__btn">Register</a>
+                        <div class="humburger">
+                            <div class="burger"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+
+            <section class="promo__section">
+                <div class="promo__section-inner" style="background-image: url(img/footer__bg.png);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="promo__section-content">
+                                    <h2>Introducing our new Smart Consolidation Platform, the most efficient, easy-to-use consolidation management tool on the market today!</h2>
+                                    
+                                    <p>Using the automated platform, you can simplify planning, visualize container space, and optimize consolidation efficiency.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Import/Export Section -->
+                <div id="import"></div>
+                <div class="import__export">
+                    <div class="promo__section-content" style="padding-top:70px;">
+                        <h2>STUFFING TOOL - Absolutely FREE</h2>
+                        <div class="row justify-content-center" style="margin-top:0px !important;">
+                            <div class="col-md-8" style="font-size: 16px;line-height: 20px;">Visualize containers with our free stuffing calculator. Choose your container size, enter pallet dimensions, mark unstackable items, and optimize shipping space.</div>
+                        </div>
+                        
+                    </div>
+                    <div class="container">
+                        <div class="row  justify-content-center" style="margin-top: -55px;">
+
+                            <form method="post" action="./" id="form" class="import__export-form">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="gIOD8rPveKFFCC3jtQRqaIjGBKHvtdwUhaiqZPWU0inaJYmehdFL1ITqDHYL7R624Ed/+8nxbCTsb0SIQIYLMLrP9aD7zf459QFtb+NmOxE=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form'];
+if (!theForm) {
+    theForm = document.form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="+JTBKUn8vokkZ+l8s47DMVL5g9BpcA6JDqJ2VcBHJ1hSVQ6uiwFiHRfIRhF/fNioJEUhvOcLLpHRSYp95fqgsP16Vyb1hzBFJwQmy8TucnGrmYLqEHuFxQOZD+Shvvo3lePEi2bWL5CRQnS+/00Q/LgD1yE2v92vnNkSQ27o7fsrcH9J8dndH94h/nfzQu1T">
+</div>
+                                <div class="import__export-form-item">
+                                    <label>Container types:</label>
+                                    <select name="drpContainers" id="drpContainers" multiple="" required="" data-select2-id="drpContainers" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+	<option value="ALL">ALL</option>
+	<option value="20DV">20DV</option>
+	<option value="40DV">40DV</option>
+	<option value="40HC">40HC</option>
+	<option value="45HC">45HC</option>
+	<option value="40WHC">40WHC</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 260px; height: 61px;"><span class="selection"><span class="select2-selection select2-selection--multiple dropdown" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered" style="font-size: 17px; font-weight: 700; margin-top: 9px; margin-right: 190px; width: 250%; color: rgb(0, 0, 0);"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="Select" style="width: 256px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                                <div class="import__export-form-item">
+                                    <label>Unit of measurement:</label>
+                                    <select name="drpUnit" id="drpUnit" required="">
+	<option value="KG">KG/CM</option>
+	<option value="LBS">LBS/INCH</option>
+</select>
+                                </div>
+                                <div class="import__export-form-item">
+                                    <label>Package type:</label>
+                                    <select name="drpPackage" id="drpPackage" required="">
+	<option value="BOXES">Boxes/Crates</option>
+	<option value="USPALLET">Pallets 48" X 40"</option>
+	<option value="EUROPALLET1">Pallets 120 X 80Cm (Euro1)</option>
+	<option value="EUROPALLET2">Pallets 120 X 100Cm (Euro2)</option>
+	<option value="OTHER">Other Pallets</option>
+</select>
+                                </div>
+                                
+                                <button onclick="__doPostBack('btnSubmit','')" id="btnSubmit" type="button" style="display: none"></button>
+                                <button class="import__export-form-btn" id="bSubmit" type="submit" style="background-color:#f57f29;font-weight:600;">GO!</button>
+                                
+                                <button class="button-examples video-btn" data-toggle="modal" data-target="#myModal" data-src="https://www.youtube.com/embed/iLfhuVP9wmM">
+                                    <i class="fa fa-play-circle-o"><!--" aria-hidden="true" style="display:block;"--></i>
+                                    <p>Watch Video</p>
+                                </button>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+            </section>
+
+            <!-- Start Service Icon Section -->
+
+            <section class="service__icon">
+                <div class="container">
+                    <div class="row">
+                        <div class="service__icon-inner">
+                            <div class="service__icon-item">
+                                <div class="service__icon-item-image">
+                                    <img src="img/cons1.svg" alt="Consolidators">
+                                </div>
+                            </div>
+                            <div class="service__icon-item">
+                                <div class="service__icon-item-image">
+                                    <img src="img/forw1.svg" alt="Consolidators">
+                                </div>
+                            </div>
+                            <div class="service__icon-item">
+                                <div class="service__icon-item-image">
+                                    <img src="img/imp_exp1.svg" alt="Consolidators">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Start Features Section -->
+            <section class="features" id="features">
+
+                <div class="container">
+                    
+                    <div class="features__item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="features__title">
+                                    <h3>Forwarders</h3>
+                                </div>
+                                <p class="features__description">Rate Management - 24/7 Online Quotes .</p>
+                                <p>Each customer receives the price specifically designated for him.. </p>
+                                <ul class="features__list">
+                                    <li>Deliver automated price quotes to customers 24/7 </li>
+                                    <li>Let us Implement your tariffs for you :) *60 Days FREE*</li>
+                                    <li>Deliver up to 20% more quotes each week!</li>
+                                    <li>Empower your (Super) Back office</li>
+                                    <li>Client’s online booking </li>
+                                    <li>Easily update customers online with any relevant information</li>
+
+                                    
+                                </ul>
+                                <a class="features__button" href="https://platform.comtainer.tech/Account/Register">Free 60 Days Trial!</a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="features__img">
+                                    <img class="img-responsive" src="img/forworders.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features__item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="features__img">
+                                    <img class="img-responsive" src="img/consolidation.png" alt="">                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="features__title">
+                                    <h3>Consolidators</h3>
+                                </div>
+                                <p class="features__description">SCP - Smart Consolidation Platform. Eliminate manual processing and calculations through automated processes, leaving you more time to focus on serving your customers and growing your business.</p>
+                                <ul class="features__list">
+                                        <li>Maximize utilization of container space</li>
+                                        <li>Manage consolidation with your agent</li>
+                                        <li>Upgrade shipment booking process</li>
+                                        <li>Track and manage your consolidations</li>
+                                        <li>Deliver automated price quotes to customers 24/7 </li>
+                                        <li>Create multiple price lists for different customer segments</li>
+                                        <li>Manage your consolidation process from one place in real time</li>
+                                        <li>Full statistics on all your activities</li>
+                                             
+                                       
+                                  </ul>
+                                  <a class="features__button" href="https://platform.comtainer.tech/Account/Register">Free 60 Days Trial!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features__item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="features__title">
+                                    <h3>Traders</h3>
+                                </div>
+                                <p class="features__description">Maximize container space while receiving accurate, detailed pricing from your preferred suppliers.</p>
+                                <ul class="features__list">
+                                    <li>Free container stuffing tool </li>
+                                    <li>Improve work with your Forwarder</li>
+                                    <li>Receive real-time alerts from forwarder</li>
+                                    <li>Receive price quotes 24/7</li>
+                                    <li>Order services anytime through system</li>
+                                    <li>Increase efficiency of company employees</li>
+                                    <li>Track cargo</li>
+                                </ul>
+                                <a class="features__button" href="https://platform.comtainer.tech/ExternalLoadingCalc/RecieveParam">Free 3D Loading Calculator!</a>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="features__img">
+                                    <img class="img-responsive" src="img/export.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Start About Section -->
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="section__title">
+                        <h2>About us</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="about__img">
+                                <img class="img-responsive" src="img/about.png" alt="about">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about__content">
+                                <div class="about__content-description">ComTainer is a technology company empowering consolidators around the globe, using a smart consolidation management platform.</div>
+                                <span>For the first time, the entire shipment cycle is live and online.</span>
+                                <p>ComTainer has deep roots in the shipping and logistics industry. The company’s products introduce digital transformation to an industry that relies on Excel spreadsheets and manual processes to fill containers. </p>
+                                <p>ComTainer is optimized logistics, providing digital tools that enhance communication between importers, exporters, forwarders, consolidators, traders and agents. We simplify price quotes, optimize containers, reduce mistakes, and improve efficiency by over 300%, enabling increased profits and automated processes throughout the industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="manager__team">
+                                <div class="section__title about__title">
+                                    <h2>Management team</h2>
+                                </div>
+                                <div class="mt_description">
+                                    Leveraging over 40 years of global shipment logistics to create a platform that works.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team__members">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="team__members-item">
+                                    <div class="member__photo">
+                                        <img src="img/founder.png" alt="photo">
+                                        <ul class="member__meta">
+                                            <li>Yaron Per</li>
+                                            <li>Co-Founder and CEO</li>
+                                        </ul>
+                                    </div>
+                                    <p>
+                                        As a fourth-generation logistics professional, Yaron is an industry expert who served for more than 20 years in key roles in large and small freight forwarding companies, most recently as a business development director. Previously, Yaron served as head of regional transactions for leading freight forwarding companies, where he built logistics solutions, new trade lines, and implemented an IT system to support his company’s growing need for automation. 
+                            
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="team__members-item">
+                                    <div class="member__photo">
+                                        <img src="img/chiff__officer.png" alt="photo">
+                                        <ul class="member__meta">
+                                            <li>Oren Alony</li>
+                                            <li>Co-Founder and Chief Business Officer</li>
+                                        </ul>
+                                    </div>
+                                    <p>
+                                        During his 20 years at large freight forwarding companies, Oren served in key roles including Director of the Exports’ department at one of the largest freight forwarders companies in Israel. Oren has experience as Head of Operational Team and Director of Business Development and brings a clear vision to the ComTainer team based on his deep understanding of the industry.
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="team__members-item">
+                                    <div class="member__photo">
+                                        <img src="img/cto_founder.png" alt="photo">
+                                        <ul class="member__meta">
+                                            <li>Bezalel Racovsky</li>
+                                            <li>Co-Founder, CTO</li>
+                                        </ul>
+                                    </div>
+                                    <p>Betzalel is a technology expert with broad experience in e-commerce development. Betzalel holds a BSc degree in Information technology, and has spent his career in the software development world. He built the original version flight booking website gulliver.co.il as well as their B2B flight booking systems. He has worked as the CTO for several gaming operations.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Start Blog Section -->
+            
+            <section id="review" class="features">
+                <div class="section__title">
+                    <h2>Review</h2>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4" style="font-size: 20px; font-weight: bolder;">
+                            Read about us in <a href="https://finder.startupnationcentral.org/company_page/comtainer" target="_blank">StartupNation</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+            <section id="clip" class="features">
+                <div class="section__title">
+                    <h2>Media</h2>
+                </div>
+                <div class="container">
+                    <div class="row  d-flex justify-content-end align-items-center">
+                        <iframe width="1200" height="600" src="https://www.youtube.com/embed/2v5dwE0Axo0" title="Comtainer LTD." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                         
+                    </div>
+                </div>
+            </section>
+            <br><br>
+            <!-- Start FAQ Section -->
+           
+
+            <section class="ultimate" style="background-image: url(img/auto_cont.png);">
+                <div class="container">
+                    <div class="row d-flex justify-content-end align-items-center">
+                        <div class="col-md-6">
+                            <div class="ultimate__content">
+                                <h2>The ultimate logistic and shipment platform</h2>
+                                <p>Use comtainer to manage the full logistic of your shipments from one place. Save time, money and effort. Increase your control and efficiency, and avoid any surprises along the way.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <footer id="contact" class="footer" style="background-image: url(img/footer__bg.png);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form action="" id="contactForm">
+                                <div class="form__title">
+                                    <h2>Contact us</h2>
+                                </div>
+                                <div class="form__group">
+                                    <label for="exampleInputEmail1">Your name</label>
+                                    <input type="text" class="form-control" placeholder="Name" name="name" id="name">
+                                </div>
+                                <div class="form__group">
+                                    <label for="exampleInputEmail1">Your e-mail</label>
+                                    <input type="email" class="form-control" placeholder="Enter your e-mail" name="email" id="email">
+                                </div>
+                                <div class="form__group">
+                                    <label for="exampleInputEmail1">Company Name</label>
+                                    <input type="text" placeholder="Enter your company name" name="company" id="company">
+                                </div>
+                                <div>
+                                    <div id="error" style="display: none; color: red">Please enter all fields</div>
+                                </div>
+                                <button type="button" id="contactUsForm" class="footer__form-btn">Contact Us</button>
+                                <div>
+                                    <div id="thankyou" style="display: none; color: greenyellow">Thank You! We will be in touch soon...</div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-4 d-flex justify-content-end mobile__resp">
+                            <div class="footer__contact">
+                                <ul>
+                                    <li>
+                                        <h3>Phone:</h3>
+                                        <a href="tel:+972504545480">+972 50 4545480</a>
+                                    </li>
+							        <li>
+                                        <h3>E-mail:</h3>
+                                        <a href="mailto:admin@comtainer.tech">admin@comtainer.tech</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-end mobile__resp">
+                            <div class="footer__social">
+                                <h3>Our socials:</h3>
+                                <ul>
+                                    <li><a target="_blank" href="https://www.facebook.com/ComTainerLTD/">
+                                        <img src="img/facebook.svg" alt="facebook"></a></li>
+                                    <li><a target="_blank" href="https://www.linkedin.com/company/comtainer-ltd">
+                                        <img src="img/linkedin.svg" alt="linkedin"></a></li>
+                                    <li><a target="_blank" href="#">
+                                        <img src="img/skype.svg" alt="skype"></a></li>
+                                    <li><a target="_blank" href="#">
+                                        <img src="img/twiter.svg" alt="skype"></a></li>
+                                </ul>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <span style="color: #fff;">All Rights Reserved. Copyright © 2019</span>
+            </footer>
+        </main>
+
+
+
+
+
+     <!-- The Modal -->
+ <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      
+      <div class="modal-body">
+
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>        
+        <!-- 16:9 aspect ratio -->
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+</div>
+        
+        
+      </div>
+
+    </div>
+  </div>
+</div> 
+        <!-- end modal -->
+
+    </div>
+
+
+    <script src="js/jeoquery.js"></script><iframe id="_hjSafeContext_68250003" title="_hjSafeContext" tabindex="-1" aria-hidden="true" src="about:blank" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
+    <script>$(document).ready(function () {
+
+            // Gets the video src from the data-src on each button
+
+            var $videoSrc;
+            $('.video-btn').click(function () {
+                $videoSrc = $(this).data("src");
+            });
+            console.log($videoSrc);
+
+
+
+            // when the modal is opened autoplay it  
+    $('#myModal').on('shown.bs.modal', function (e) {
+
+        // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+        $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+    });
+
+
+
+            // stop playing the youtube video when I close the modal
+    $('#myModal').on('hide.bs.modal', function (e) {
+        // a poor man's stop video
+        $("#video").attr('src', $videoSrc);
+    });
+
+        
+            $('#drpContainers').select2({
+                placeholder: "Select",
+                allowClear: false,
+                closeOnSelect: false,               
+                allowHtml: true,
+                allowClear: true,
+                tags: true 
+            });
+            $(".select2-selection--multiple").addClass("dropdown");
+            $(".select2-container").css("height", "61px");
+            //$(".select2-selection").width('280px');
+            $(".select2-selection__rendered").css("font-size", "17px");
+            $(".select2-selection__rendered").css("font-weight", "700");
+            $(".select2-selection__rendered").css("margin-top", "9px");
+            $(".select2-selection__rendered").css("margin-right", "190px");
+            $(".select2-selection__rendered").css("width", "250%");
+            $(".select2-selection__rendered").css("background-color", "transparent !important");
+            $(".select2-selection__rendered").css("color","#000");
+            $(".select2-selection--multiple").css("background-color", "transparent !important");
+            $(".select2-selection--multiple").css("border", "none !important");
+            $(".select2-container--default,.select2-selection--multiple,.select2-selection__choice").css("background-color", "transparent !important");
+            jeoquery.defaultData.userName = 'tompi';
+
+            //$(document).on("change", ".select2-results__option", function (event) {
+            //    var selected = [];
+            //    if ($(this).innerText !== "ALL") {
+            //        selected.push($(this).innerText);                   
+            //    }
+            //   // $("#drpContainers").select2("val", selected);
+            //    alert($(this).attr("aria-selected"));
+            //});
+            $(document).on("click", ".select2-selection__choice__remove", function (event) {
+                var item = $(this).parent().attr("title");
+                if (item === "ALL") {
+                    $("#drpContainers").val('').trigger('change');
+                    $('#drpContainers').select2('close');
+                }
+            });
+            $(document).on("click", ".select2-results__option", function (event) {
+                var selected = [];
+                var last = $(this).attr("id").split("-");
+                if (last[4] != "ALL") {
+                    var arr = $('#drpContainers').val().split(",");
+                    selected.push(last[4]);
+                    //$("#drpContainers").val(last).trigger('change');
+                    $("#drpContainers").val(arr).trigger("change");
+                    //$('#drpContainers').select2('close');
+                    //$('#drpContainers').select2("val", $("#drpContainers").select2("val").concat(last[4]));
+                    return;
+                }
+                var checkedlis = $("li[class*='select2-results__option--highlighted']");
+                var notchecked = $("li[class*='select2-results__option']");
+                var single = checkedlis[0];
+                var single2 = notchecked[0];
+                
+                if (single.innerText === "ALL" && single.ariaSelected) {
+                    //$(".select2-results__option").trigger('click');
+                    notchecked.each(function (i, e) {
+                        var id = e.id;
+                        var b = id.split("-");
+
+                        selected.push(b[4]);
+                        //$("#drpContainers").select2("val", b[4]);
+
+                    });
+                    $("#drpContainers").val(selected).trigger("change");
+                    $('#drpContainers').select2('close');
+                }
+
+                if (single2.innerText == "ALL" && single2.ariaSelected == "false") {
+                    $("#drpContainers").val('').trigger('change');
+                    $('#drpContainers').select2('close');
+                }
+               
+            });
+            
+            $(document).on("keypress", ".select2-input", function (event) {
+                alert('k');
+                if (event.ctrlKey || event.metaKey) {
+                    var id = $(this).parents("div[class*='select2-results__option--highlighted']").attr("id").replace("s2id_", "");
+                    var element = $("#" + id);
+                    if (event.which == 97) {
+                        var selected = [];
+                        element.find("option").each(function (i, e) {
+                            selected[selected.length] = $(e).attr("value");
+                        });
+                        element.select2("val", selected);
+                    } else if (event.which == 100) {
+                        element.select2("val", "");
+                    }
+                }
+            });
+            $('#originPort').on("select2:select", function (event) {
+                var value = $(event.currentTarget).find("option:selected").val();
+                $('#originPortInput').val(value);
+            });
+            $('#destinationPort').on("select2:select", function (event) {
+                var value = $(event.currentTarget).find("option:selected").val();
+                $('#destinationPortInput').val(value);
+            });
+            //console.log('test');
+
+            $('#originPort, #destinationPort').select2({
+                ajax: {
+                    url: 'WebService.asmx/GetPortsList',
+                    dataType: 'json',
+                    delay: 250,
+                    method: 'POST',
+                    data: function (params) {
+                        var query = {
+                            search: params.term,
+                        }
+                        return query;
+                    },
+                    processResults: function (data, params) {
+                        return {
+                            results: data,
+
+                        };
+                    },
+                    cache: true
+                },
+                placeholder: 'Search for a Port',
+                minimumInputLength: 1,
+            });
+            $("#drpPackage").change(function () {                
+                    $("#bSubmit").trigger('click');                
+            });
+            //$("#contactForm").submit(function (e) {
+            $("#contactUsForm").click(function (e) {
+                e.preventDefault();
+                const formData = $("#contactForm").serializeArray();
+                const dataJson = new Map();
+                formData.map(function (el) { dataJson.set(el.name, el.value) }); // error
+
+                if (
+                    !(
+                        dataJson.get("name") &&
+                        dataJson.get("email") &&
+                        dataJson.get("company")
+                    )
+                ) {
+                    $("#error").show();
+                    return;
+                }
+                else { $("#error").hide(); }
+
+                var dataValue = JSON.stringify({ "name": dataJson.get("name"), "email": dataJson.get("email"), "company": dataJson.get("company") });
+                //var Data = JSON.stringify({ columnname: columnName, inputVal: input });
+
+                $.ajax({
+                    type: "POST",
+                    url: "zap.ashx/transfer?name=" + dataJson.get("name") + "&email=" + dataJson.get("email") + "&company=" + dataJson.get("company"),
+                    //data: '{ "name":' + dataJson.get("name") + ', "email": "vvvv@cccc.com","company":' + dataJson.get("company") +  ' }',
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function () {
+                        $("#thankyou").show();
+                        $("#name").val('');
+                        $("#email").val('');
+                        $("#company").val('');
+                    }
+                    
+                });
+                
+                const toEmail = "management@comtainer.tech";
+                const mailSubject = "Join Comtainer.";
+                const mailText = 'Hi Comtainer Team, \n My company name is' + dataJson.get("company") + 'and my %0AContact e-mail is' + dataJson.get("email") + '. \n\r I’d be happy to hear back from you. \n  Best, \n' + dataJson.get("name");
+
+                //window.open('mailto:' + toEmail + '?subject=' + mailSubject + '&body=' + mailText);
+            });
+            $("#originCity").jeoCityAutoComplete({
+                callback: function (city) {
+                    $("#originCity").val(city.name);
+                    originCity = city.name;
+                    $("#originLat").val(city.lat);
+                    originLat = city.lat;
+                    $("#originLng").val(city.lng);
+                    originLng = city.lng;
+                    $("#originState").val(city.adminName1);
+                    $("#originCountryCode").val(city.countryCode);
+                }
+            });
+            $("#destCity").jeoCityAutoComplete({
+                callback: function (city) {
+                    $("#destCity").val(city.name);
+                    destinationCity = city.name;
+                    $("#destLat").val(city.lat);
+                    destinationLat = city.lat;
+                    $("#destLng").val(city.lng);
+                    destinationLng = city.lng;
+                    $("#destState").val(city.adminName1);
+                    $("#destCountryCode").val(city.countryCode);
+                }
+            });
+
+            $("#form").on("submit", function (e) {
+                //e.preventDefault();
+                $("#btnSubmit").trigger("click");
+            });
+            $("bSubmit").click(function () {
+                $("#btnSubmit").trigger("click");
+            });
+     
+    const getCookieValue = document.cookie.match('(^|;) ?cookie_ribbon=([^;]*)(;|$)');
+    
+   
+    if (getCookieValue == null || getCookieValue == '') {
+        $("#divCookiesRibbon").show();
+    }
+
+    
+    $("#btnCloseCookies").click(function () {
+
+        var expires = new Date();
+        expires.setTime(expires.getTime() + (10000 * 24 * 60 * 60 * 1000));
+        document.cookie = 'cookie_ribbon=checked;path=/' + ';expires=' + expires.toUTCString();
+        var width = $(window).width();
+        //if (width < 880) {
+        //    $(".header-clear").addClass("fixed-height1");
+        //    $(".header-fixed").addClass("fixed-height2");
+
+        //}
+        $("#divCookiesRibbon").fadeOut("slow", function () {
+        });
+    });
+        });
+        function terms() {
+            window.open('/terms.html', 'terms&conditions', 'window', 'toolbar=no, menubar=no, resizable=yes');
+        }
+        function privacy() {
+            window.open('/privacy.html', 'ComTainer Privacy Policy', 'window', 'toolbar=no, menubar=no, resizable=yes');
+        }
+    </script>
+
+
+</body></html>

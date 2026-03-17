@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style="font-size: 100%;"><head><title>Revyuz</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><meta name="image" property="og:image" content="https://revyuz-media.s3.eu-central-1.amazonaws.com/Revyuz/revyuz-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="description" property="og:description" content="Empowering recruiters &amp; candidates to discover opportunities based on contextual matching."><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400&amp;display=swap" rel="stylesheet"><link rel="shortcut icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="57x57" href="/static/icons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/static/icons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/static/icons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/static/icons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/static/icons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/static/icons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/static/icons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/static/icons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/static/icons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/static/icons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-TCZKHWLJMP&amp;cx=c&amp;gtm=4e63d1"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-168138382-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-168138382-1")</script><script>!function(t,h,e,j,s,n){t.hj=t.hj||function(){(t.hj.q=t.hj.q||[]).push(arguments)},t._hjSettings={hjid:1987551,hjsv:6},s=h.getElementsByTagName("head")[0],(n=h.createElement("script")).async=1,n.src="https://static.hotjar.com/c/hotjar-"+t._hjSettings.hjid+".js?sv="+t._hjSettings.hjsv,s.appendChild(n)}(window,document)</script><script async="" src="https://static.hotjar.com/c/hotjar-1987551.js?sv=6"></script><link href="/static/css/main.9600715a.css" rel="stylesheet"><style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+	from { opacity: 0.99; }
+	to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+	animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+	position: absolute;
+	direction: ltr;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+	position: absolute;
+	width: 1000000px;
+	height: 1000000px;
+	left: 0;
+	top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	left: 0;
+	top: 0;
+}
+</style><script async="" src="https://script.hotjar.com/modules.a7ec23974042e4df49ed.js" charset="utf-8"></script><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" class="_access-font-icon-0"></head><body class="scrollbar" style="font-size: 0.875em;"><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><div class="App home"><div><nav class="navigation-wrapper"><a class="navigation-section-left" href="/"><div class="navigation-logo"></div><div class="navigation-title">Revyuz</div></a><div class="navigation-section-right"><a target="_self" class="navigation-menu-item false" href="/candidates"><div class="navigation-menu-label">Candidates</div></a><a class="navigation-menu-item false" href="/employers"><div class="navigation-menu-label">Employers</div></a><a class="navigation-menu-item false" href="/contact"><div class="navigation-menu-label">Contact Us</div></a><a href="/login"><div class="navigation-menu-login hvr-sweep-to-right">Log in</div></a></div></nav></div><div class="app-content-wrapper"><div class=""><div class="home-bg" style="background-image: url(&quot;/static/media/long-1.a66ed8c4.jpg&quot;);"></div><div class="container content hero"><div class="row vertical-row"><div class="col-md-6"><div class="vertical-col"><div class="typewriter"><h1>Hi, we are <strong>Revyuz</strong></h1><h2>We believe that <strong>people</strong> are more than CVs and jobs are more than <strong>jobs</strong> descriptions</h2></div></div></div></div></div><div class="container content"><div class="row vertical-row"><div class="col-md-6"><div class="spiders-wrapper"><div class="spider-wrapper"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><span class="quote-container "><blockquote class="speech-bubble"><p>Based on colleagues' review analysis and industry benchmarks</p><small>- Revyuz</small></blockquote><span aria-hidden="true" class="fa fa-info hvr-icon"></span></span><canvas height="387" width="555" style="display: block; width: 535px; height: 360px;" class="chartjs-render-monitor"></canvas></div></div></div><div class="col-md-6"><div class="vertical-col"><h2>Revyuz reinvents the way <strong>employers</strong> profile jobs</h2><h3>Empowering both recruiters and <strong>candidates</strong> to discover opportunities based on contextual matching</h3></div></div></div><hr class="space m"><div class="row vertical-row"><div class="col-md-6"><div class="vertical-col"><h2>Our platform leverages the power of AI and 360<sup>o</sup> reviews</h2><h3>We profile and brand job requirements based on both industry data and organizational network analysis</h3><br><div class="row"><div class="col-md-5"><a class="continue-btn hvr-icon-bob" href="/candidates">Explore opportunities&nbsp;<span aria-hidden="true" class="fa fa-rocket hvr-icon"></span></a></div><div class="col-md-5"><a href="https://t.me/revyuz" target="_blank" class="continue-btn hvr-icon-bob">Follow us&nbsp;<span aria-hidden="true" class="fa fa-telegram hvr-icon"></span></a></div></div></div></div><div class="col-md-6"><img src="/static/media/anime-spider.371bf400.gif" alt="" data-anima="fade-right" data-time="1000"></div></div><hr class="space"><div class="row vertical-row vertical-row-reverse"><div class="col-md-6"><img src="/static/media/anime-report.cfbdaaa3.gif" alt="" data-anima="fade-left" data-time="1000"></div><div class="col-md-6"><div class="vertical-col"><h2>Let us find you the perfect fit</h2><h3>Revyuz is a SaaS platform designed to support companies’ management and HR with both recruitment process and workforce’s skills analysis</h3><div class="row"><div class="col-md-6"><a class="continue-btn hvr-icon-bob" href="/employers">Learn more&nbsp;&nbsp;<span aria-hidden="true" class="fa fa-light-bulb hvr-icon"></span></a></div></div></div></div></div><hr class="space m"><div class="row vertical-row"><div class="col-md-6"><div class="vertical-col"><h2>Contact us</h2><h3>There is so much more to talk about, use this form to contact us</h3><div class="row"><div class="col-md-6"><a class="continue-btn hvr-icon-bob" href="/contact">Contact us&nbsp;&nbsp;<span aria-hidden="true" class="fa fa-rocket hvr-icon"></span></a></div></div></div></div><div class="col-md-6"><img src="/static/media/anime-clock.ab88b34b.gif" alt="" data-anima="fade-right" data-time="1000"></div></div></div></div></div><footer><a class="false" href="/privacy-policy">Privacy</a><a href="/">|</a><a class="false" href="/terms-conditions">Terms</a></footer></div></div><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script><script type="text/javascript" src="/static/js/main.84fef97b.js"></script><iframe id="_hjSafeContext_65343591" title="_hjSafeContext" tabindex="-1" aria-hidden="true" src="about:blank" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><style class="_access-main-css">
+        ._access-scrollbar::-webkit-scrollbar-track, .mat-autocomplete-panel::-webkit-scrollbar-track, .mat-tab-body-content::-webkit-scrollbar-track, .mat-select-panel:not([class*='mat-elevation-z'])::-webkit-scrollbar-track, .mat-menu-panel::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+        ._access-scrollbar::-webkit-scrollbar, .mat-autocomplete-panel::-webkit-scrollbar, .mat-tab-body-content::-webkit-scrollbar, .mat-select-panel:not([class*='mat-elevation-z'])::-webkit-scrollbar, .mat-menu-panel::-webkit-scrollbar {
+            width: 6px;
+            background-color: #F5F5F5;
+        }
+        ._access-scrollbar::-webkit-scrollbar-thumb, .mat-autocomplete-panel::-webkit-scrollbar-thumb, .mat-tab-body-content::-webkit-scrollbar-thumb, .mat-select-panel:not([class*='mat-elevation-z'])::-webkit-scrollbar-thumb, .mat-menu-panel::-webkit-scrollbar-thumb {
+            background-color: #999999;
+        }
+        ._access-icon {
+            position: fixed;
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            opacity: 0;
+            transition-duration: .35s;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+            transform: scale(1);
+        }
+        ._access-icon:hover {
+            
+            box-shadow: 1px 1px 10px rgba(0,0,0,.9);
+            transform: scale(1.1);
+            
+        }
+        .circular._access-icon {
+            border-radius: 50%;
+            border: .5px solid white;
+        }
+        
+        .access_read_guide_bar{
+            box-sizing: border-box;
+            background: #000000;
+            width: 100%!important;
+            min-width: 100%!important;
+            position: fixed!important;
+            height: 12px !important;
+            border: solid 3px #20ff69;
+            border-radius: 5px;
+            top: 15px;
+            z-index: 2147483647;
+        }
+        .access-high-contrast *{
+            background-color: #000 !important;
+            background-image: none !important;
+            border-color: #fff !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            color: #fff !important;
+            text-indent: 0 !important;
+            text-shadow: none !important;
+        }
+        ._access-menu {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            position: fixed;
+            width: 25vw;
+            height: auto;
+            transition-duration: .35s;
+            z-index: 99991;
+            opacity: 1;
+            background-color: #fff;
+            color: #000;
+            border-radius: 3px;
+            border: solid 1px #f1f0f1;
+            font-family: RobotoDraft, Roboto, sans-serif, Arial;
+            min-width: 300px;
+            box-shadow: 0px 0px 1px #aaa;
+            max-height: 100vh;
+            
+        }
+        ._access-menu.close {
+            z-index: -1;
+            width: 0;
+            opacity: 0;
+            background-color: transparent;
+        }
+        ._access-menu.bottom {
+            bottom: 0;
+        }
+        ._access-menu.top {
+            top: 0;
+        }
+        ._access-menu.left {
+            left: 0;
+        }
+        ._access-menu.close.left {
+            left: -25vw;
+        }
+        ._access-menu.right {
+            right: 0;
+        }
+        ._access-menu.close.right {
+            right: -25vw;
+        }
+        ._access-menu ._text-center {
+            text-align: center;
+        }
+        ._access-menu h3 {
+            font-size: 22px !important;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding: 0;
+            color: rgba(0,0,0,.87);
+            letter-spacing: initial!important;
+            word-spacing: initial!important;
+        }
+        ._access-menu ._menu-close-btn {
+            left: 5px;
+            color: #d63c3c;
+            transition: .3s ease;
+            transform: rotate(0deg);
+        }
+        ._access-menu ._menu-reset-btn:hover,._access-menu ._menu-close-btn:hover {
+            transform: rotate(180deg);
+        }
+        ._access-menu ._menu-reset-btn {
+            right: 5px;
+            color: #4054b2;
+            transition: .3s ease;
+            transform: rotate(0deg);
+        }
+        ._access-menu ._menu-btn {
+            position: absolute;
+            top: 5px;
+            cursor: pointer;
+            font-size: 24px !important;
+            font-weight: bold;
+            background: transparent;
+            border: none;
+        }
+        ._access-menu ul {
+            padding: 0;
+            position: relative;
+            font-size: 18px !important;
+            margin: 0;
+            overflow: auto;
+            max-height: calc(100vh - 77px);
+        }
+        html._access_cursor * {
+            cursor: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyOS4xODhweCIgaGVpZ2h0PSI0My42MjVweCIgdmlld0JveD0iMCAwIDI5LjE4OCA0My42MjUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI5LjE4OCA0My42MjUiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iI0Q5REFEOSIgc3Ryb2tlLXdpZHRoPSIxLjE0MDYiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgcG9pbnRzPSIyLjgsNC41NDkgMjYuODQ3LDE5LjkwMiAxNi45NjQsMjIuNzAxIDI0LjIzOSwzNy43NDkgMTguMjc4LDQyLjAxNyA5Ljc0MSwzMC43MjQgMS4xMzgsMzUuODA5ICIvPjxnPjxnPjxnPjxwYXRoIGZpbGw9IiMyMTI2MjciIGQ9Ik0yOS4xNzUsMjEuMTU1YzAuMDcxLTAuNjEzLTAuMTY1LTEuMjUzLTAuNjM1LTEuNTczTDIuMTY1LDAuMjU4Yy0wLjQyNC0wLjMyLTAuOTg4LTAuMzQ2LTEuNDM1LTAuMDUzQzAuMjgyLDAuNDk3LDAsMS4wMywwLDEuNjE3djM0LjE3MWMwLDAuNjEzLDAuMzA2LDEuMTQ2LDAuNzc2LDEuNDM5YzAuNDcxLDAuMjY3LDEuMDU5LDAuMjEzLDEuNDgyLTAuMTZsNy40ODItNi4zNDRsNi44NDcsMTIuMTU1YzAuMjU5LDAuNDgsMC43MjksMC43NDYsMS4yLDAuNzQ2YzAuMjM1LDAsMC40OTQtMC4wOCwwLjcwNi0wLjIxM2w2Ljk4OC00LjU4NWMwLjMyOS0wLjIxMywwLjU2NS0wLjU4NiwwLjY1OS0xLjAxM2MwLjA5NC0wLjQyNiwwLjAyNC0wLjg4LTAuMTg4LTEuMjI2bC02LjM3Ni0xMS4zODJsOC42MTEtMi43NDVDMjguNzA1LDIyLjI3NCwyOS4xMDUsMjEuNzY4LDI5LjE3NSwyMS4xNTV6IE0xNi45NjQsMjIuNzAxYy0wLjQyNCwwLjEzMy0wLjc3NiwwLjUwNi0wLjk0MSwwLjk2Yy0wLjE2NSwwLjQ4LTAuMTE4LDEuMDEzLDAuMTE4LDEuNDM5bDYuNTg4LDExLjc4MWwtNC41NDEsMi45ODVsLTYuODk0LTEyLjMxNWMtMC4yMTItMC4zNzMtMC41NDEtMC42NC0wLjk0MS0wLjcyYy0wLjA5NC0wLjAyNy0wLjE2NS0wLjAyNy0wLjI1OS0wLjAyN2MtMC4zMDYsMC0wLjU4OCwwLjEwNy0wLjg0NywwLjMyTDIuOCwzMi41OVY0LjU0OWwyMS41OTksMTUuODA2TDE2Ljk2NCwyMi43MDF6Ii8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg==),auto!important;
+        }
+        ._access-menu ul li {
+            list-style-type: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            margin: 5px;
+            font-size: 18px !important;
+            line-height: 18px !important;
+            color: rgba(0,0,0,.6);
+            letter-spacing: initial!important;
+            word-spacing: initial!important;
+        }
+        ._access-menu ul li button {
+            background: #f9f9f9;
+            padding: 10px 0;
+            width: 100%;
+            text-indent: 35px;
+            text-align: start;
+            position: relative;
+            transition-duration: .35s;
+            transition-timing-function: ease-in-out;
+            border: solid 1px #f1f0f1;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        ._access-menu ul.before-collapse li button {
+            opacity: 0.05;
+        }
+        ._access-menu ul li button.active, ._access-menu ul li button.active:hover {
+            background-color: #000;
+        }
+        ._access-menu ul li button.active, ._access-menu ul li button.active:hover, ._access-menu ul li button.active:before, ._access-menu ul li button.active:hover:before {
+            color: #fff;
+        }
+        ._access-menu ul li button:hover {
+            color: rgba(0,0,0,.8);
+            background-color: #eaeaea;
+        }
+        ._access-menu ul li.not-supported {
+            display: none;
+        }
+        ._access-menu ul li button:before {
+            content: ' ';
+            font-family: Material Icons;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "liga" 1;
+            font-style: normal;
+            text-transform: none;
+            line-height: 1;
+            font-size: 24px !important;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            top: 7px;
+            left: 5px;
+            position: absolute;
+            color: rgba(0,0,0,.6);
+            direction: ltr;
+            text-indent: 0;
+            transition-duration: .35s;
+            transition-timing-function: ease-in-out;
+        }
+        ._access-menu ul li button svg path {
+            fill: rgba(0,0,0,.6);
+            transition-duration: .35s;
+            transition-timing-function: ease-in-out;
+        }
+        ._access-menu ul li button:hover svg path {
+            fill: rgba(0,0,0,.8);
+        }
+        ._access-menu ul li button.active svg path {
+            fill: #fff;
+        }
+        ._access-menu ul li:hover button:before {
+            color: rgba(0,0,0,.8);
+        }
+        ._access-menu ul li button.active button:before {
+            color: #fff;
+        }
+        ._access-menu ul li button[data-access-action="increaseText"]:before {
+            content: "zoom_in";
+        }
+        ._access-menu ul li button[data-access-action="decreaseText"]:before {
+            content: "zoom_out";
+        }
+        ._access-menu ul li button[data-access-action="increaseTextSpacing"]:before {
+            content: "unfold_more";
+            transform: rotate(90deg) translate(-7px, 2px);
+            top: 14px;
+            left: 0;
+        }
+        ._access-menu ul li button[data-access-action="decreaseTextSpacing"]:before {
+            content: "unfold_less";
+            transform: rotate(90deg) translate(-7px, 2px);
+            top: 14px;
+            left: 0;
+        }
+        ._access-menu ul li button[data-access-action="invertColors"]:before {
+            content: "invert_colors";
+        }
+        ._access-menu ul li button[data-access-action="grayHues"]:before {
+            content: "format_color_reset";
+        }
+        ._access-menu ul li button[data-access-action="underlineLinks"]:before {
+            content: "format_underlined";
+        }
+        ._access-menu ul li button[data-access-action="bigCursor"]:before {
+            /*content: 'touch_app';*/
+        }
+        ._access-menu ul li button[data-access-action="readingGuide"]:before {
+            content: "border_horizontal";
+        }
+        ._access-menu ul li button[data-access-action="textToSpeech"]:before {
+            content: "record_voice_over";
+        }
+        ._access-menu ul li button[data-access-action="speechToText"]:before {
+            content: "mic";
+        }
+        ._access-menu ul li button[data-access-action="disableAnimations"]:before {
+            content: "animation";
+        }
+        ._access-menu ul li button[data-access-action="iframeModals"]:before {
+            content: "policy";
+        }</style><i class="_access-icon material-icons _access" style="width: 50px; height: 50px; font-size: 40px; line-height: 45px; text-indent: 5px; background-color: rgb(64, 84, 178); color: rgb(255, 255, 255); bottom: 50px; left: 8px; z-index: 9999; opacity: 1;" title="Accessibility Options">accessibility</i><div class="_access-menu close _access bottom type left"><h3 class="_text-center"><button class="_menu-close-btn _menu-btn material-icons" title="Close">close</button>Accessibility Options<button class="_menu-reset-btn _menu-btn material-icons" title="Reset">refresh</button></h3><ul class="before-collapse _access-scrollbar"><li><button data-access-action="increaseText">increase text size</button></li><li><button data-access-action="decreaseText">decrease text size</button></li><li><button data-access-action="increaseTextSpacing">increase text spacing</button></li><li><button data-access-action="decreaseTextSpacing">decrease text spacing</button></li><li><button data-access-action="invertColors" title="">invert colors</button></li><li><button data-access-action="grayHues" title="">gray hues</button></li><li><button data-access-action="underlineLinks" title="">underline links</button></li><li><button data-access-action="bigCursor" title=""><svg version="1.1" id="iconBigCursorSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="position: absolute;width: 19px;height: 19px;left: 17px;top: 9px; left: 9px;enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M 423.547 323.115 l -320 -320 c -3.051 -3.051 -7.637 -3.947 -11.627 -2.304 s -6.592 5.547 -6.592 9.856 V 480 c 0 4.501 2.837 8.533 7.083 10.048 c 4.224 1.536 8.981 0.192 11.84 -3.285 l 85.205 -104.128 l 56.853 123.179 c 1.792 3.883 5.653 6.187 9.685 6.187 c 1.408 0 2.837 -0.277 4.203 -0.875 l 74.667 -32 c 2.645 -1.131 4.736 -3.285 5.76 -5.973 c 1.024 -2.688 0.939 -5.675 -0.277 -8.299 l -57.024 -123.52 h 132.672 c 4.309 0 8.213 -2.603 9.856 -6.592 C 427.515 330.752 426.598 326.187 423.547 323.115 Z"></path></svg>big cursor</button></li><li><button data-access-action="readingGuide" title="">reading guide</button></li><li><button data-access-action="textToSpeech">text to speech</button></li><li><button data-access-action="speechToText">speech to text</button></li><li><button data-access-action="disableAnimations">disable animations</button></li></ul></div></body></html>

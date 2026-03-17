@@ -1,0 +1,63 @@
+[2026-03-17T05:57:54.341Z] === Homepage AI Extractor: T-SYTE ===
+[2026-03-17T05:57:54.342Z] Started at: 2026-03-17T05:57:54.342Z
+[2026-03-17T05:57:54.342Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773727074341_T-SYTE
+[2026-03-17T05:57:54.342Z] Company: T-SYTE
+[2026-03-17T05:57:54.342Z] Website: t-syte.com
+[2026-03-17T05:57:54.342Z] cbRank: 1500802
+[2026-03-17T05:57:54.342Z] Reasons: h
+[2026-03-17T05:57:54.342Z] Fetching: https://t-syte.com
+[2026-03-17T05:57:57.648Z] Redirected: https://t-syte.com -> https://t-syte.com/
+[2026-03-17T05:57:57.655Z] Saved HTML (236298 bytes) to page.html
+[2026-03-17T05:57:57.659Z] Extracted 10 unique links from page
+[2026-03-17T05:57:57.659Z] Saved 10 links to links.json
+[2026-03-17T05:57:57.662Z] Extracted footer HTML (3468 chars)
+[2026-03-17T05:57:57.662Z] Extracted header HTML (1019 chars)
+[2026-03-17T05:57:57.665Z] Website (post-redirect): https://t-syte.com/ → origin: https://t-syte.com
+[2026-03-17T05:57:57.666Z] External links: 5 (of 10 total)
+[2026-03-17T05:57:57.666Z] ── All external links ──
+[2026-03-17T05:57:57.666Z]   EXT: https://anicca.world
+[2026-03-17T05:57:57.666Z]   EXT: https://entitymed.com
+[2026-03-17T05:57:57.666Z]   EXT: https://habitu.health
+[2026-03-17T05:57:57.666Z]   EXT: https://www.linkedin.com/company/t-syte
+[2026-03-17T05:57:57.666Z]   EXT: https://www.path-keeper.com
+[2026-03-17T05:57:57.666Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:57:57.666Z]   UNCATEGORIZED: https://anicca.world
+[2026-03-17T05:57:57.666Z]   UNCATEGORIZED: https://entitymed.com
+[2026-03-17T05:57:57.666Z]   UNCATEGORIZED: https://habitu.health
+[2026-03-17T05:57:57.666Z]   REGEX: li <- https://www.linkedin.com/company/t-syte
+[2026-03-17T05:57:57.667Z]   UNCATEGORIZED: https://www.path-keeper.com
+[2026-03-17T05:57:57.667Z] Programmatic result: ws:1, li:1 | 4 uncategorized
+[2026-03-17T05:57:57.667Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:57:57.670Z] Saved AI prompt (3593 chars) to ai_prompt.txt
+[2026-03-17T05:57:57.670Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:57:57.674Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:58:10.821Z]   AI: First token received, streaming...
+[2026-03-17T05:58:12.200Z] AI response complete: 40 chars in 14.5s
+[2026-03-17T05:58:12.201Z] Saved AI response to ai_response.json
+[2026-03-17T05:58:12.201Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T05:58:12.201Z]   AI LINK: https://www.linkedin.com/company/t-syte/
+[2026-03-17T05:58:12.202Z] AI returned 1 valid links
+[2026-03-17T05:58:12.202Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T05:58:12.202Z]   AI→REGEX: li <- https://www.linkedin.com/company/t-syte/ (duplicate, skipped)
+[2026-03-17T05:58:12.202Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:58:12.203Z] Footer/header origins (2):
+[2026-03-17T05:58:12.203Z]   FOOTER/HEADER ORIGIN: https://t-syte.com
+[2026-03-17T05:58:12.203Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T05:58:12.203Z]   SKIP (not in footer/header): https://anicca.world
+[2026-03-17T05:58:12.203Z]   SKIP (not in footer/header): https://entitymed.com
+[2026-03-17T05:58:12.203Z]   SKIP (not in footer/header): https://habitu.health
+[2026-03-17T05:58:12.204Z]   SKIP (not in footer/header): https://www.path-keeper.com
+[2026-03-17T05:58:12.204Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T05:58:12.204Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:58:12.204Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:58:12.204Z] ── Step 3: Final dedup ──
+[2026-03-17T05:58:12.204Z] No urls to dedup
+[2026-03-17T05:58:12.204Z] ── FINAL RESULT ──
+[2026-03-17T05:58:12.205Z]   ws (1):
+[2026-03-17T05:58:12.205Z]     - https://t-syte.com
+[2026-03-17T05:58:12.205Z]   li (1):
+[2026-03-17T05:58:12.205Z]     - https://www.linkedin.com/company/t-syte
+[2026-03-17T05:58:12.205Z] Summary: ws:1, li:1
+[2026-03-17T05:58:12.206Z] Saved final result to result.json
+[2026-03-17T05:58:12.206Z] Override fields: ws, li
+[2026-03-17T05:58:12.207Z] Finished at: 2026-03-17T05:58:12.207Z

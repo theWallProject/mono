@@ -1,0 +1,69 @@
+[2026-03-17T02:51:53.250Z] === Homepage AI Extractor: Biofeed ===
+[2026-03-17T02:51:53.250Z] Started at: 2026-03-17T02:51:53.250Z
+[2026-03-17T02:51:53.250Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773715913250_Biofeed
+[2026-03-17T02:51:53.250Z] Company: Biofeed
+[2026-03-17T02:51:53.250Z] Website: biofeed.co.il
+[2026-03-17T02:51:53.250Z] cbRank: 1381190
+[2026-03-17T02:51:53.251Z] Reasons: h
+[2026-03-17T02:51:53.251Z] Fetching: https://biofeed.co.il
+[2026-03-17T02:52:01.304Z] Redirected: https://biofeed.co.il -> https://biofeed.co.il/enhome/
+[2026-03-17T02:52:01.309Z] Saved HTML (104583 bytes) to page.html
+[2026-03-17T02:52:01.312Z] Extracted 27 unique links from page
+[2026-03-17T02:52:01.313Z] Saved 27 links to links.json
+[2026-03-17T02:52:01.316Z] Extracted footer HTML (68 chars)
+[2026-03-17T02:52:01.316Z] Extracted header HTML (4568 chars)
+[2026-03-17T02:52:01.321Z] Website (post-redirect): https://biofeed.co.il/enhome/ → origin: https://biofeed.co.il
+[2026-03-17T02:52:01.321Z] External links: 4 (of 27 total)
+[2026-03-17T02:52:01.321Z] ── All external links ──
+[2026-03-17T02:52:01.321Z]   EXT: http://appy.co.il
+[2026-03-17T02:52:01.321Z]   EXT: https://www.facebook.com/pages/Biofeed/134686513275055
+[2026-03-17T02:52:01.321Z]   EXT: https://www.linkedin.com/company/10115802?trk=prof-0-ovw-curr_pos
+[2026-03-17T02:52:01.321Z]   EXT: https://www.youtube.com/channel/UC08toSK0awM22e5xtXyXTRA
+[2026-03-17T02:52:01.321Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T02:52:01.321Z]   UNCATEGORIZED: http://appy.co.il
+[2026-03-17T02:52:01.322Z]   REGEX: li <- https://www.linkedin.com/company/10115802?trk=prof-0-ovw-curr_pos
+[2026-03-17T02:52:01.322Z]   REGEX: ytc <- https://www.youtube.com/channel/UC08toSK0awM22e5xtXyXTRA
+[2026-03-17T02:52:01.322Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T02:52:04.286Z]   RESOLVE: https://www.facebook.com/pages/Biofeed/134686513275055 → https://www.facebook.com/BiofeedControl
+[2026-03-17T02:52:04.291Z]   RESOLVED: fb <- https://www.facebook.com/BiofeedControl (from https://www.facebook.com/pages/Biofeed/134686513275055)
+[2026-03-17T02:52:04.291Z] Programmatic result: ws:1, li:1, ytc:1, fb:1 | 1 uncategorized
+[2026-03-17T02:52:04.291Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T02:52:04.295Z] Saved AI prompt (1963 chars) to ai_prompt.txt
+[2026-03-17T02:52:04.295Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T02:52:04.298Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T02:52:10.880Z]   AI: First token received, streaming...
+[2026-03-17T02:52:10.881Z] AI response complete: 17 chars in 6.6s
+[2026-03-17T02:52:10.883Z] Saved AI response to ai_response.json
+[2026-03-17T02:52:10.883Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T02:52:10.883Z]   AI LINK: http://appy.co.il
+[2026-03-17T02:52:10.883Z] AI returned 1 valid links
+[2026-03-17T02:52:10.883Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T02:52:10.884Z]   AI→URLS: http://appy.co.il
+[2026-03-17T02:52:10.884Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T02:52:10.884Z] Footer/header origins (1):
+[2026-03-17T02:52:10.884Z]   FOOTER/HEADER ORIGIN: https://biofeed.co.il
+[2026-03-17T02:52:10.884Z]   SKIP (AI claimed): http://appy.co.il
+[2026-03-17T02:52:10.884Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T02:52:10.885Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T02:52:10.885Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T02:52:11.141Z]   YOUTUBE: resolved UC08toSK0awM22e5xtXyXTRA → @biofeedcontrol
+[2026-03-17T02:52:11.142Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T02:52:11.142Z] ── Step 3: Final dedup ──
+[2026-03-17T02:52:11.142Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T02:52:11.142Z] ── FINAL RESULT ──
+[2026-03-17T02:52:11.142Z]   ws (1):
+[2026-03-17T02:52:11.143Z]     - https://biofeed.co.il
+[2026-03-17T02:52:11.143Z]   li (1):
+[2026-03-17T02:52:11.143Z]     - https://www.linkedin.com/company/10115802
+[2026-03-17T02:52:11.143Z]   fb (1):
+[2026-03-17T02:52:11.143Z]     - https://www.facebook.com/biofeedcontrol
+[2026-03-17T02:52:11.143Z]   ytp (1):
+[2026-03-17T02:52:11.143Z]     - https://www.youtube.com/@biofeedcontrol
+[2026-03-17T02:52:11.143Z]   ytc (1):
+[2026-03-17T02:52:11.143Z]     - https://www.youtube.com/channel/UC08toSK0awM22e5xtXyXTRA
+[2026-03-17T02:52:11.143Z]   urls (1):
+[2026-03-17T02:52:11.143Z]     - http://appy.co.il
+[2026-03-17T02:52:11.143Z] Summary: ws:1, li:1, ytc:1, fb:1, urls:1, ytp:1
+[2026-03-17T02:52:11.144Z] Saved final result to result.json
+[2026-03-17T02:52:11.144Z] Override fields: ws, li, fb, ytp, ytc, urls
+[2026-03-17T02:52:11.144Z] Finished at: 2026-03-17T02:52:11.144Z

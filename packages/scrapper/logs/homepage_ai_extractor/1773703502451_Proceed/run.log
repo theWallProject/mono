@@ -1,0 +1,79 @@
+[2026-03-16T23:25:02.452Z] === Homepage AI Extractor: Proceed ===
+[2026-03-16T23:25:02.452Z] Started at: 2026-03-16T23:25:02.452Z
+[2026-03-16T23:25:02.452Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773703502451_Proceed
+[2026-03-16T23:25:02.452Z] Company: Proceed
+[2026-03-16T23:25:02.452Z] Website: proceed.co.il
+[2026-03-16T23:25:02.452Z] cbRank: 1266387
+[2026-03-16T23:25:02.452Z] Reasons: h
+[2026-03-16T23:25:02.452Z] Fetching: https://proceed.co.il
+[2026-03-16T23:25:05.200Z] Redirected: https://proceed.co.il -> https://proceed.co.il/
+[2026-03-16T23:25:05.214Z] Saved HTML (590270 bytes) to page.html
+[2026-03-16T23:25:05.225Z] Extracted 27 unique links from page
+[2026-03-16T23:25:05.226Z] Saved 27 links to links.json
+[2026-03-16T23:25:05.230Z] Extracted footer HTML (42172 chars)
+[2026-03-16T23:25:05.230Z] Extracted header HTML (34941 chars)
+[2026-03-16T23:25:05.234Z] Website (post-redirect): https://proceed.co.il/ → origin: https://proceed.co.il
+[2026-03-16T23:25:05.234Z] External links: 5 (of 27 total)
+[2026-03-16T23:25:05.234Z] ── All external links ──
+[2026-03-16T23:25:05.234Z]   EXT: https://proceedtech.co.il
+[2026-03-16T23:25:05.234Z]   EXT: https://wa.me/972548114843
+[2026-03-16T23:25:05.235Z]   EXT: https://www.facebook.com/ProceedConsultingCompany
+[2026-03-16T23:25:05.235Z]   EXT: https://www.instagram.com/proceed_il?igsh=MW9oZjcyanZ3czJwaQ==
+[2026-03-16T23:25:05.235Z]   EXT: https://www.linkedin.com/company/proceed
+[2026-03-16T23:25:05.235Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T23:25:05.235Z]   UNCATEGORIZED: https://proceedtech.co.il
+[2026-03-16T23:25:05.235Z]   UNCATEGORIZED: https://wa.me/972548114843
+[2026-03-16T23:25:05.235Z]   REGEX: fb <- https://www.facebook.com/ProceedConsultingCompany
+[2026-03-16T23:25:05.235Z]   REGEX: ig <- https://www.instagram.com/proceed_il?igsh=MW9oZjcyanZ3czJwaQ==
+[2026-03-16T23:25:05.235Z]   REGEX: li <- https://www.linkedin.com/company/proceed
+[2026-03-16T23:25:05.235Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 2 uncategorized
+[2026-03-16T23:25:05.235Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T23:25:05.239Z] Saved AI prompt (9400 chars) to ai_prompt.txt
+[2026-03-16T23:25:05.239Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T23:25:05.243Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T23:25:41.519Z]   AI: First token received, streaming...
+[2026-03-16T23:25:56.475Z]   AI streaming: 200 chars received (51.2s elapsed)
+[2026-03-16T23:25:56.478Z] AI response complete: 206 chars in 51.2s
+[2026-03-16T23:25:56.479Z] Saved AI response to ai_response.json
+[2026-03-16T23:25:56.479Z] ── Parsing AI response (5 lines) ──
+[2026-03-16T23:25:56.480Z]   AI LINK: https://proceedtech.co.il
+[2026-03-16T23:25:56.480Z]   AI LINK: https://www.facebook.com/ProceedConsultingCompany
+[2026-03-16T23:25:56.480Z]   AI LINK: https://www.instagram.com/proceed_il?igsh=MW9oZjcyanZ3czJwaQ==
+[2026-03-16T23:25:56.480Z]   AI LINK: https://www.linkedin.com/company/proceed
+[2026-03-16T23:25:56.480Z]   AI LINK: https://wa.me/972548114843
+[2026-03-16T23:25:56.481Z] AI returned 5 valid links
+[2026-03-16T23:25:56.481Z] ── Categorizing 5 AI-returned links ──
+[2026-03-16T23:25:56.481Z]   AI→URLS: https://proceedtech.co.il
+[2026-03-16T23:25:56.481Z]   AI→REGEX: fb <- https://www.facebook.com/ProceedConsultingCompany (duplicate, skipped)
+[2026-03-16T23:25:56.482Z]   AI→REGEX: ig <- https://www.instagram.com/proceed_il?igsh=MW9oZjcyanZ3czJwaQ== (duplicate, skipped)
+[2026-03-16T23:25:56.482Z]   AI→REGEX: li <- https://www.linkedin.com/company/proceed (duplicate, skipped)
+[2026-03-16T23:25:56.482Z]   AI→URLS: https://wa.me/972548114843
+[2026-03-16T23:25:56.483Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T23:25:56.483Z] Footer/header origins (4):
+[2026-03-16T23:25:56.483Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T23:25:56.483Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-16T23:25:56.484Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T23:25:56.484Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-16T23:25:56.484Z]   SKIP (AI claimed): https://proceedtech.co.il
+[2026-03-16T23:25:56.484Z]   SKIP (AI claimed): https://wa.me/972548114843
+[2026-03-16T23:25:56.484Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-16T23:25:56.484Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T23:25:56.484Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T23:25:56.484Z] ── Step 3: Final dedup ──
+[2026-03-16T23:25:56.484Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-16T23:25:56.485Z] ── FINAL RESULT ──
+[2026-03-16T23:25:56.485Z]   ws (1):
+[2026-03-16T23:25:56.485Z]     - https://proceed.co.il
+[2026-03-16T23:25:56.485Z]   li (1):
+[2026-03-16T23:25:56.485Z]     - https://www.linkedin.com/company/proceed
+[2026-03-16T23:25:56.485Z]   fb (1):
+[2026-03-16T23:25:56.486Z]     - https://www.facebook.com/proceedconsultingcompany
+[2026-03-16T23:25:56.486Z]   ig (1):
+[2026-03-16T23:25:56.486Z]     - https://www.instagram.com/proceed_il
+[2026-03-16T23:25:56.486Z]   urls (2):
+[2026-03-16T23:25:56.486Z]     - https://proceedtech.co.il
+[2026-03-16T23:25:56.486Z]     - https://wa.me/972548114843
+[2026-03-16T23:25:56.486Z] Summary: ws:1, fb:1, ig:1, li:1, urls:2
+[2026-03-16T23:25:56.488Z] Saved final result to result.json
+[2026-03-16T23:25:56.488Z] Override fields: ws, li, fb, ig, urls
+[2026-03-16T23:25:56.488Z] Finished at: 2026-03-16T23:25:56.488Z

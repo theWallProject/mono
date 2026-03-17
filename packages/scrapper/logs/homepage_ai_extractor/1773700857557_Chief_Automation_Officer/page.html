@@ -1,0 +1,541 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+                  <!-- Google tag (gtag.js) -->
+            <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-17991257376"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'AW-17991257376');
+            </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="csrf-token" content="CfDJ8CxqSVWCQXdKpo1PpIxgUxZRwZKUZYThVvuQU__fySL0BwjlAEMmMVjnTGUAlo4oNbe3P981EzB7e_vRtOQMUzN0Ol-bBzd2DZZqonwfXfm0k0NLjmz4lgbTeeRDcH9H7JBblnwE8XNDhtMI-rXE5JQ">
+    <title>הבית של העסק שלך - Officer</title>
+
+    <link rel="stylesheet" href="/lib/Bootstrap/css/bootstrap.rtl.min.css" id="bootstrap">
+    <link rel="stylesheet" href="/lib/Fontawesome/css/all.min.css" media="all" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="/lib/BootstrapToggle/bootstrap5-toggle.min.css" media="all" onload="if(media!='all')media='all'">
+    <link rel="Stylesheet" href="/css/bootstrap-social.css" media="all" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="/lib/Toastr/toastr.min.css" media="all" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="/css/site.css" media="all" onload="if(media!='all')media='all'">
+    <link rel="stylesheet" href="/css/DualListSelector.css" media="all" onload="if(media!='all')media='all'">
+
+
+    <meta name="description" content="אופיסר תאפשר לך לייעל את פעילות העסק ולשפר ביצועים תוך הגדלת ההכנסות והקטנת ההוצאות">
+    <meta name="keywords" content="שיפור ביצועים, הגדלת הכנסות, קיטון בהוצאות, התייעלות, שימוש בכלים מתקדמים, חדשנות, אופיסר, Officer">
+    
+    <script defer="" src="/lib/jquery/jquery.min.js"></script>
+    <script defer="" src="/lib/JqueryUI/jquery-ui.min.js"></script>
+
+
+
+    <script defer="" src="/lib/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <script defer="" src="/lib/SignalR/dist/browser/signalr.min.js"></script>
+    <script defer="" src="/lib/MomentJs/moment-with-locales.min.js"></script>
+    <script defer="" src="/js/Components/FormItems.js"></script>
+    <script defer="" src="/js/Realtime.js"></script>
+    <script defer="" src="/js/Validations.js"></script>
+    <script defer="" src="/js/GlobalShared.js"></script>
+    <script defer="" src="/lib/BodyMovin/lottie.min.js"></script>
+    
+
+
+   
+    
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                    ".wrapper").style.visibility = "hidden";
+                document.querySelector(
+                    "#loader").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                    "#loader").style.display = "none";
+                document.querySelector(
+                    ".wrapper").style.visibility = "visible";
+            }
+        };
+    </script>
+    
+    <script defer="" src="/js/site.js"></script>
+
+    <script>
+    // if (location.hostname === 'localhost' && 'caches' in window) {
+    //       caches.keys().then(cacheNames => {
+    //         cacheNames.forEach(cacheName => {
+    //           caches.delete(cacheName).then(success => {
+    //             if (success) {
+    //               console.log(`✅ Cache '${cacheName}' deleted.`);
+    //             } else {
+    //               console.warn(`⚠️ Failed to delete cache '${cacheName}'.`);
+    //             }
+    //           });
+    //         });
+    //       });
+    //     }
+       if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').then(function (registration) {
+      console.log('ServiceWorker registered with scope: ', registration.scope);
+
+      // If a new SW is waiting (already downloaded), show prompt
+      if (registration.waiting) {
+        showUpdateToast(registration);
+      }
+
+      // If a new SW is found
+      registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (
+            newWorker.state === 'installed' &&
+            navigator.serviceWorker.controller // i.e. there's already a SW controlling this page
+          ) {
+            showUpdateToast(registration);
+          }
+        });
+      });
+    });
+
+    // Listen for background sync messages (unchanged)
+    navigator.serviceWorker.addEventListener('message', event => {
+      if (event.data?.type === 'REPLAY_SUCCESS') {
+        if (event.data.url.includes("/api/CaseVisit/UpsertVisit")) {
+          showStencilRequestSuccess();
+        } else {
+          toastr.success('התמונות עלו לתיק בהצלחה!');
+        }
+      }
+    });
+  });
+
+  // Watch for controller change — triggered after skipWaiting
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    console.log('New service worker has taken control — reloading');
+    window.location.reload();
+  });
+}
+
+// ✅ Toast UI + event
+function showUpdateToast(registration) {
+  const toastEl = document.getElementById('update-toast');
+  const toastBtn = document.getElementById('update-toast-btn');
+  const toast = new bootstrap.Toast(toastEl, { autohide: false });
+
+  toastBtn.onclick = () => {
+    if (registration.waiting) {
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+    }
+  };
+
+  toast.show();
+}
+        
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-256x256.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <!--<%=manifest %>-->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Officer">
+    <meta property="og:title" content="Officer - היעילות שלך היא ההצלחה שלנו">
+    <meta property="og:url" content="https://officer.org.il/">
+    <meta property="og:image" content="https://officer.org.il/android-icon-192x192.png">
+    <meta property="og:description" content="אנחנו נסייע לך לייעל את תהליכי העבודה שלך ולמקסם את הפוטנציאל הטמון בעסק שלך">
+    <!--
+    <%=remarkethead %>
+    -->
+    <style>
+        #loader {
+            border: 12px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 12px solid #444444;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+          @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+      
+    .center {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <div id="loader" class="center" style="visibility: visible; display: none;"><img src="/images/logo.png" style="width:150px;" alt="אופיסר" class="lazy img-fluid mx-auto"></div>
+    <!-- Google Tag Manager (noscript) -->
+    <div class="wrapper" style="visibility: visible;">
+
+            <noscript>
+                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRHFWJR"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <header class="sticky-top">
+
+
+
+            <nav class="navbar navbar-expand-lg primarynavbar-mcs navbar-inverse bg-inverse">
+                <a class="navbar-brand" href="https://officer.org.il">
+
+                    <img src="/api/API/GetLogo" style="max-height:40px;max-width:90px;width:auto;height:auto" alt="אופיסר" class="logo">
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span> </span>
+                    <span> </span>
+                    <span> </span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarCollapse">
+                    <ul class="navbar-nav" id="RightNavBar">
+                        <li title="אודות" class="nav-item mx-3"><a class="nav-link" href="/About">אודות </a></li><li title="יצירת קשר" class="nav-item mx-3"><a class="nav-link" href="/Contact">יצירת קשר </a></li>
+                    </ul>
+                    <ul class="nav navbar-nav ms-auto" id="LeftNavBar">
+                        <!--   <li>
+                            <a class="nav-link" onclick="switchTheme(this)" id="theme-selector">
+                                <i class="fas fa-sun"></i>
+                                <span class="d-inline d-md-none">שינוי תצוגה</span>
+                            </a>
+
+                        </li>-->
+                        <div class="d-block text-center"><a class="btn btn-outline-success rounded-pill bold px-4" href="/SignUp">הרשמה </a><a class="btn btn-success rounded-pill bold px-5 mx-2" href="/SignIn">כניסה </a></div>
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+        <div id="ajax-overlay" style="opacity: 0.0221035;">
+            <div id="lottie1" class="lottie lottieStyle">
+            </div>
+
+        </div>
+
+        <div id="page-overlay" style="opacity: 0.0236693;">
+            <div id="lottie2" class="lottie lottieStyle">
+        </div>
+        </div>
+
+
+
+        <a id="FloatingTop" class="FloatingTop" onclick="topFunction()" data-bs-toggle="tooltip" title="חזרה למעלה"><i class="fa fa-chevron-up"></i></a>
+        
+<div>
+    <div class="container-fluid">
+        <div class="row top50 bot30 primarybackground">
+            <div class="col-sm-12 col-md-4 offset-md-4 text-center top30">
+                <h1 class="extrabold bigHeader">מערכת Officer מותאמת במיוחד לעסק שלך!</h1>
+                <h5 class="top10">מערכת Officer הינה מערכת גמישה אשר מותאמת בצורה מושלמת לצרכים העסקיים שלך. באמצעות המערכת אנו נאפשר לך להגדיל את ההכנסות, להקטין את ההוצאות, לייעל את העבודה וגם לספק חוויית שירות טובה יותר ללקוחות העסק.</h5>
+            </div>
+            <div class="col-sm-12 col-md-4 offset-md-4 text-center top30">
+                <a href="../SignIn" class="btn btn-success rounded-pill mx-3">בואו נתחיל <i class="fas fa-arrow-left"></i></a>
+            </div>
+            <div class="col-12 top20">
+                <img src="/images/BigprimaryBackground.png" class="img-fluid d-block" alt="המערכת המושלמת עבורך">
+            </div>
+        </div>
+        <div class="row bot30 secondarybackground">
+
+            <div class="col-12 col-md-6 order-2 order-md-1 top30">
+                <img src="/images/secondarybackground.png" class="img-fluid d-block" alt="הנתונים מסונכרנים באופן שוטף בין המשרד לבין השטח">
+            </div>
+            <div class="col-12 col-md-5 order-1 order-md-2 top30 my-auto">
+                <h1 class="extrabold">Officer מאפשרת לך להיות עם היד על הדופק גם מול עובדי השטח</h1>
+                <h5 class="top10">למערכת פיצ'רים מתקדמים המאפשרים העברת מידע קלה ונוחה מהמשרד אל אנשי השטח ומאנשי השטח אל המשרד בלחיצת כפתור.</h5>
+            </div>
+
+        </div>
+        <div class="row top25 bot15 secondarybackground">
+            <!--#98caff-->
+            <div class="col-12 bot15 extrabold"><h4>אז למה כדאי להתקדם ל-Officer ?</h4></div>
+<!---->
+            <div class="col-12 OfficerCarousel slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2514px; transform: translate3d(0px, 0px, 0px);"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" role="tabpanel" id="slick-slide00" style="width: 365px;"><div><div class="mx-3" style="width: 100%; display: inline-block;">
+                    <div class="card rounded border-danger">
+                        <div class="card-header bg-danger text-center text-white bold">
+                            <div class="row">
+                                <div class="col">מעקב מלא אחרי התיקים שלך</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fa fa-briefcase text-danger fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center secondarytext">
+                                    אופיסר מאפשרת לדעת בכל רגע נתון באיזה שלב בתהליך כל תיק נמצא. המערכת תתאים עצמה לתהליכים הייחודיים של העסק שלך ותוודא שאף תיק לא "ייפול בין הכסאות"
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center">
+                                    <input type="button" id="Start1" class="btn btn-default btn-outline-danger rounded-pill" value="בואו נתחיל" tabindex="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" role="tabpanel" id="slick-slide01" style="width: 365px;"><div><div class="mx-3" style="width: 100%; display: inline-block;">
+                    <div class="card rounded border-warning">
+                        <div class="card-header bg-warning text-center text-white bold">
+                            <div class="row">
+                                <div class="col">כתיבת חוות דעת בצורה נוחה</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-file-signature text-warning fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center secondarytext">
+                                    המערכת כוללת רכיב אינטגרלי המאפשר כתיבה נוחה של חוות דעת באמצעות שליפה באופן אוטומטי של נתונים והתמונות מהתיק וממסמכי השטח
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center">
+                                    <input type="button" id="Start2" class="btn btn-default btn-outline-warning rounded-pill" value="בואו נתחיל" tabindex="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" role="tabpanel" id="slick-slide02" style="width: 365px;"><div><div class="mx-3" style="width: 100%; display: inline-block;">
+                    <div class="card rounded border-success">
+                        <div class="card-header bg-success text-center text-white bold">
+                            <div class="row">
+                                <div class="col">ניהול עבודת אנשי השטח באופן מקיף</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-user-tie text-success fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center secondarytext">
+                                    למערכת רכיב משוכלל המאפשר להפוך את הקישור בין אנשי השטח למשרד לקל ונוח על ידי הגדרת שאלונים בצורה גמישה המותאמת בדיוק לצרכי העסק שלך
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center">
+                                    <input type="button" id="Start3" class="btn btn-default btn-outline-success rounded-pill" value="בואו נתחיל" tabindex="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div><div class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide03" style="width: 365px;"><div><div class="mx-3" style="width: 100%; display: inline-block;">
+                    <div class="card rounded border-danger">
+                        <div class="card-header bg-danger text-center text-white bold">
+                            <div class="row">
+                                <div class="col">קשר רציף עם הלקוחות</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-envelope-open-text text-danger fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center secondarytext">
+                                    המערכת מאפשרת לך לשמור על קשר רציף עם לקוחותיך ומשמשת גם כ-CRM. באפשרותך לשלוח מיילים, SMS ו-Whatsapp ללקוחות בקלות ומתעדת אותם בתיק
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center">
+                                    <input type="button" id="Start4" class="btn btn-default btn-outline-danger rounded-pill" value="בואו נתחיל" tabindex="-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div><div class="slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide04" style="width: 365px;"><div><div class="mx-3" style="width: 100%; display: inline-block;">
+                    <div class="card rounded border-warning">
+                        <div class="card-header bg-warning text-center text-white bold">
+                            <div class="row">
+                                <div class="col">קבלת תובנות עסקיות</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-lightbulb text-warning fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center secondarytext">
+                                    המערכת מאפשרת לקבל ניתוחי עומק שיצביעו על נקודות חיוביות ונקודות לשיפור כגון הזמן הממוצע לביצוע תיק. עובדים יעילים יותר ופחות וכו'
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center">
+                                    <input type="button" id="Start5" class="btn btn-default btn-outline-warning rounded-pill" value="בואו נתחיל" tabindex="-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div><div class="slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide05" style="width: 365px;"><div><div class="mx-3" style="width: 100%; display: inline-block;">
+                    <div class="card rounded border-success">
+                        <div class="card-header bg-success text-center text-white bold">
+                            <div class="row">
+                                <div class="col">עבודה בענן שמאפשרת לעבוד מכל מקום ובכל זמן</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <i class="fas fa-cloud text-success fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center secondarytext">
+                                    העבודה בענן מאפשרת לחסוך הוצאות כבדות על שרת מקומי (בעלות השרת, תחזוק, חשמל ועוד) ואף חשוב מכך מאפשרת לך ולעובדים לעבוד מכל מקום ובכל זמן
+                                </div>
+                            </div>
+                            <div class="row top20">
+                                <div class="col text-center">
+                                    <input type="button" id="Start6" class="btn btn-default btn-outline-success rounded-pill" value="בואו נתחיל" tabindex="-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div></div></div><ul class="slick-dots" style="" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 2" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 2" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 2" tabindex="-1">3</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control03" aria-controls="slick-slide03" aria-label="4 of 2" tabindex="-1">4</button></li></ul></div>
+           
+
+
+        </div>
+        <div class="row top50 bot15 ThirdBackground">
+            <img src="/images/ticked.svg" style="position:relative;top:10px;left:-15%;width:100px;" alt="אנחנו פה בשבילך">
+            <img src="/images/ticked.svg" class="d-none d-md-block" style="position: relative; top: 75px; left: -75%; width: 100px;" alt="נוכל לעזור לך עם כל דבר">
+            <img src="/images/ticked.svg" class="d-none d-md-block" style="position: relative; top: 40px; left: -50%; width: 50px;" alt="צריך רק להרים אלינו טלפון">
+            <div class="col-12 text-center">
+                <h1 class="extrabold text-white">ההצלחה שלך היא המטרה שלנו!</h1>
+                <h4 class="text-white-50" style="opacity:1">אנחנו פה בשבילך, נשמח לסייע בכל דבר ולשמוע כיצד ניתן לעזור לך לשפר את הפעילות בעסק שלך</h4>
+
+            </div>
+            <div class="col text-center top30">
+                <input type="button" class="btn btn-outline-success btn-default rounded-pill px-3" id="GotoContact" value="יצירת קשר">
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" type="text/css" href="/lib/Slick/Slick.css">
+
+<link rel="stylesheet" type="text/css" href="/lib/Slick/slick-theme.css">
+<script defer="" type="text/javascript" src="/lib/Slick/Slick.min.js"></script>
+<script defer="" type="text/javascript" src="/js/LoginModal.js"></script>
+<script defer="" type="text/javascript" src="/js/Index.js"></script>
+    </div>
+    <footer>
+
+        <div class="container-fluid footer">
+            <div class="row FooterBackground">
+
+
+                <div class="col-12 col-md-3 top10 text-center">
+                    <a itemprop="url" href="https://officer.org.il">
+                        <img itemprop="logo" src="/images/logo.png" style="width:150px;" alt="אופיסר" class="lazy img-fluid mx-auto">
+                    </a>
+                    <!--  <a itemprop="url" href= "https://officer.org.il">
+                          <img itemprop="logocomtec" src="/images/comteclogo.png" style="width:150px;" alt="אופיסר" class="lazy img-fluid mx-auto">
+                        </a>-->
+                    <img itemprop="image" src="/images/logo.png" style="width:150px;display:none;" runat="server" alt="Logo" class="lazy img-fluid">
+                </div>
+                <div class="col-12 col-md-2 my-auto top10 extrabold text-center">
+                    <p style="font-size:20px;color:grey">
+                        <a rel="noopener" href="/PrivacyPolicy" target="_blank" style="text-decoration: none; color: grey">מדיניות פרטיות</a> |
+                        <a rel="noopener" href="/TermsofUse" target="_blank" style="text-decoration: none; color: grey">תנאי שימוש</a>
+                    </p>
+                </div>
+                <div class="col-12 col-md-1 my-auto top10 extrabold text-center">
+                    <p style="font-size:20px;color:grey">
+                        <img src="/images/ISO-27001.png" alt="בעלי הסמכת ISO-27001" style="width:25%;min-width:50px;margin-top:-5px">
+                    </p>
+                </div>
+                <div class="col-12 col-md-3 my-auto top10 text-center">
+                    <p class="footer-company-name" style="color:gray;">
+                        <span itemprop="name">אופיסר</span>
+                        © 2026 ע"י צ'יף אוטומיישן אופיסר בע"מ
+                    </p>
+                </div>
+                <div class="col-12 col-md-3 my-auto top10 mx-auto text-center">
+                    <!--<a href="https://wa.me/972507508077?text=היי%20אופיסר" target="_blank" rel="noopener" class="mx-3 officergreenlight">
+                        <i class="fab fa-whatsapp fa-2x"></i>
+                    </a>-->
+                    <a href="tel:97236991069" target="_self" rel="noopener noreferrer" class="mx-3 officergreenlight">
+                        <i class="fa fa-phone fa-2x"></i>
+                    </a>
+                    <a href="../Contact" class="mx-3 officergreenlight">
+                        <i class="fa fa-file fa-2x"></i>
+                    </a>
+                    <a href="mailto:support@cao.co.il" class="mx-3 officergreenlight">
+                        <i class="fa fa-envelope fa-2x"></i>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+           // Your web app's Firebase configuration
+           // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        //   var firebaseConfig = {
+        //       apiKey: "AIzaSyCPCotROpJj0soXXgefgq0SUZnwWkfHm7A",
+        //       authDomain: "officer-266904.firebaseapp.com",
+        //       databaseURL: "https://officer-266904.firebaseio.com",
+        //       projectId: "officer-266904",
+        //       storageBucket: "officer-266904.appspot.com",
+        //       messagingSenderId: "402889606211",
+        //       appId: "1:402889606211:web:44477eb30a8713e77a00f6",
+        //       measurementId: "G-52V23GR5SL"
+        //   };
+        //   // Initialize Firebase
+        //   firebase.initializeApp(firebaseConfig);
+        ////   firebase.analytics();
+        //   const messaging = firebase.messaging();
+        //   messaging.usePublicVapidKey("BJ4umYzjpOxe9evC6ZUrkkyMXnOoLBYDgFHK7CkzaNQ2dGuvLDMxXK1NDT3Z8iptAtpK3tQet9jHtt69Mch4fpQ");
+
+    </script>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+          <div id="update-toast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">
+                🚀 גרסה חדשה זמינה. יש ללחוץ על "רענן" להפעלת העדכון.
+              </div>
+              <button type="button" class="btn btn-light btn-sm me-2 my-auto" id="update-toast-btn">
+                רענן
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+
+</body></html>

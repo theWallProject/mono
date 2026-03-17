@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        TalkSparks - The Communities Network, Connect to people who share your interests    </title>
+    <script src="https://connect.facebook.net/en_US/all.js?hash=c8fc9479f274282b8614e2618a985d26" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" async="" src="//connect.facebook.net/en_US/all.js"></script><script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.PCvl17LujMs.O/m=client,plusone/rt=j/sv=1/d=1/ed=1/rs=AHpOoo-sAn5Asuf3MvShXCH_dsg8tE46Tw/cb=gapi.loaded_0?le=scs" async=""></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://apis.google.com/js/client:plusone.js?onload=renderGoogleButtons" gapi_processed="true"></script><script src="/static/landingpage/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/signup.js"></script>
+    <link href="/static/css/signup.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/RestAPI.js"></script>
+    <script type="text/javascript" src="/static/js/User.js"></script>
+
+    <link href="/static/landingpage/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/ts_google.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Rocket extras -->
+    <link href="/static/landingpage/animate.css" rel="stylesheet">
+    <link href="/static/landingpage/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/landingpage/style.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="/static/landingpage/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon" href="/static/images/logos/apple/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/images/logos/apple/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/images/logos/apple/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/images/logos/apple/touch-icon-ipad-retina.png">
+    <link rel="shortcut icon" href="/favicon.png" type="image/png">
+        <style>
+    /* since popovers are in modal and we can't change container: 'body' */
+    .popover {
+        z-index: 1060;
+    }
+    .btn-block
+    {
+        padding-left:4px;
+    }
+    .btn-block:hover
+    {
+        color: #fff;
+    }
+    .facebook_blue_btn:hover, .facebook_blue_btn:focus, .facebook_blue_btn:active, .facebook_blue_btn.active, .facebook_blue_btn.disabled, .facebook_blue_btn[disabled] {
+        background-color: #383a74;
+    }
+    #features
+    {
+        padding-top:32px;
+    }
+
+    .panel, .panel .form-group
+    {
+        width: 100%;
+    }
+    .navbar-header
+    {
+        float:left;
+    }
+
+    .container>.navbar-header, .container>.navbar-collapse {
+        margin-right: -12px;
+    }
+
+    .header-button {
+        margin-left: 11px;
+        /*margin-top: 5px;*/
+    }
+
+    .navbar-right
+    {
+        float: right!important;
+    }
+
+    .navbar-inverse .navbar-brand {
+        margin-right: inherit;
+        padding-bottom: 0px;padding-top: 25px;
+    }
+
+    @media (max-width: 767px)
+    {
+        .navbar-right button {
+            margin: 23px 0;
+        }
+        #features
+        {
+            padding:10px;
+            padding-top:11px;
+        }
+        .navbar-inverse .navbar-brand {
+            padding-top: 32px;
+        }
+
+    }
+
+    @media (max-width: 320px)
+    {
+        .navbar-brand
+        {
+            margin-right: 4px !important;
+            padding:4px !important;
+        }
+        .navbar-right button {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .navbar-header
+        {
+            margin-right:5px !important;
+            margin-left: 0px !important;
+        }
+        .header-button {
+            margin-right: 8px;
+            margin-left: 0px;
+        }
+    }
+    @media (max-width: 372px)
+    {
+        .navbar-right
+        {
+            float: left!important;
+            /*clear: both;*/
+        }
+        .container>.navbar-right {
+            margin-right: 0px;
+            margin-left: 5px;
+        }
+
+        .container {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+
+    </style>
+<style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+
+.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+
+.fb_dialog{background:#525252b3;position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:700;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) #fff no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:#0006;inset:0;min-height:100%;position:absolute;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba),to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:#fff 0 1px 1px -1px inset;color:#fff;font:700 14px Helvetica,sans-serif;text-overflow:ellipsis;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2),to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:700 12px Helvetica,sans-serif;margin:2px -12px;padding:2px 6px 3px;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:700;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4A4A4A;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4A4A4A;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/y2/r/onuUJj0tCqE.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+</style></head>
+<body style="">
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44679296-1', 'talksparks.com');
+    ga('send', 'pageview');
+
+
+        window.onload=function()
+        {
+            user = User.init();
+
+            user.getUser(function(content) {
+                //var jsonObj = $.parseJSON(content);
+
+            });
+
+            restObj = new RestAPI();
+
+            initBootstrapTooltips();
+			initBootstrapPopovers();
+			//initSearchBoxTypeahead();
+			initChooseCategoryDropdown('navsearch');//initialize the choose category dropdown for the category search box
+            initChooseCategoryDropdown();//initialize the choose category dropdown in the new discussion modal
+};
+</script><!--
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=105132559576470";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>-->
+
+<!-- Parallax Background -->
+<!-- image is set in the CSS as a background image -->
+<div id="parallax" style="position: fixed;background: url('/static/images/homepage_bg.jpg') center center no-repeat;background-size: cover;"></div>
+<!-- End Parallax Background -->
+
+<!-- Start Header -->
+<header id="header" class="navbar navbar-inverse navbar-fixed-top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <!--<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>-->
+            <!-- Your Logo -->
+            <a href="" class="navbar-brand"><img src="/static/images/spark_logo_small.png" width="140px"> </a>
+        </div>
+        <!-- Start Navigation -->
+        <!--<nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">-->
+        <nav class="navbar-right" role="navigation">
+            <ul class="nav navbar-nav" style="display:none;">
+                <li class="active">
+                    <a href="#hero">Home</a>
+                </li>
+                <li>
+                    <a href="#features">Features</a>
+                </li>
+                <li>
+                    <a href="#image">About</a>
+                </li>
+                <li>
+                    <a href="#gallery">Gallery</a>
+                </li>
+                <li>
+                    <a href="#faq">FAQ</a>
+                </li>
+                <li>
+                    <a href="#slider">Testimonials</a>
+                </li>
+                <li>
+                    <a href="#newsletter">Subscribe</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right header-button">
+                <li>
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#signinModal"><a href="" style="color:white;">Sign In</a></button>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right header-button">
+                <li>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal"><a href="" style="color:white;">Join Now</a></button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- End Header -->
+
+<!-- Start Hero Section -->
+<section id="hero" class="section active-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <!--<div class="fb_box_container_top">
+                <div class="fb_box_container fb-like-box" data-href="https://www.facebook.com/TalkSparks" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
+                </div>-->
+            </div>
+            <div class="col-md-7">
+                <div class="lp-element animate fadeInDown animated" data-animate="fadeInDown">
+                    <h1>The Communities Network</h1>
+                    <p class="lead">
+                        Connect to people who share your interests                    </p>
+                    <p><a class="btn btn-success btn-lg" role="button" data-toggle="modal" data-target="#signupModal" href="">Join Now!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+
+<!-- Start Features -->
+<section id="features"><!-- class="section"> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Title -->
+                <div class="overview" data-animate="flipInX"><!-- class="overview animate" -->
+                    <h1><strong>Pick a topic</strong>, there's a community for you</h1>
+                    <p class="lead" style="text-align:left;"></p><div style="text-align:left;margin: 40px 10%;">
+<div class="page-header" style="margin:0px;border:0px;padding-bottom:0px;"><h2 style="font-size:22px;">TalkSparks is where you connect to communities of people who share your interests, whatever your interests may be.</h2></div>
+No matter what topic you can think of, on TalkSparks you'll find a community of people who are interested in the same thing.<br>
+        <br>
+        Simple as that.<br>
+        <br>
+        So whether you're passionate or have questions about The Lakers, Homeland, Harry Potter, GTA, The Beatles, parenting, cooking, dogs, gardening, home improvement... you get it, you can <b>discuss anything with people who care about the same things you do</b>.<br>
+        <br>
+        It's what online forums used to be but done right, with a similar experience that we're all used to from social networks.<br>
+        <br>
+        Welcome to your new obsession.
+        <br>
+        <br>
+        <br><img src="/static/landingpage/screenshots.jpg" style="width: 100%;max-width:916px">
+</div><p></p>
+                    <a class="btn btn-success btn-lg" role="button" data-toggle="modal" data-target="#signupModal" href="">Join our community now</a>
+<br><br><br>
+                    <div class="fb_box_container_bottom">
+                        <!--<div class="fb_box_container fb-like-box" data-href="https://www.facebook.com/TalkSparks" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true" data-width="100"></div>-->
+
+                        <iframe class="fb_iframe" src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FTalkSparks&amp;width&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true&amp;appId=105132559576470" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowtransparency="true"></iframe>
+
+
+                    </div>
+                </div>
+
+            </div>
+                    </div>
+    </div>
+</section>
+<!--
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signupModal">
+    Sign Up!
+</button>-->
+<!-- start Facebook -->
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+<script type="text/javascript" src="/static/js/ts_facebook.js"></script>
+<!-- end Facebook -->
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="signupModalLabel">Sign Up!</h4>
+            </div>
+            -->
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" style="position:absolute;top:0px;right:4px;" title="Close the sign up form">×</button>
+                                <div id="sign_up_1_html" class="panel">
+                    <div>Great, it's easy to join our community of gamers</div>
+                    <button class="btn btn-info btn-block facebook_blue_btn" id="sign-up-facebook" onclick="SetFacebookSignup();return false;">
+                        <span class="icon-facebook" style="vertical-align:middle;font-size: larger;"></span><span class="fa fa-facebook" style="vertical-align:middle;font-size: larger;"></span> <span style="margin-left:11px;">Sign In With Facebook</span>
+                    </button>
+
+                    <button class="btn btn-info btn-block google_red_btn" id="sign-up-google" onclick="SetGoogleSignup();return false;">
+                        <span class="icon-google-plus" style="vertical-align:middle;font-size: larger;"></span><span class="fa fa-google-plus" style="vertical-align:middle;font-size: larger;"></span> <span style="margin-left:11px;">Sign In With Google</span>
+                    </button>
+
+                    <div style="font-size:11px;margin-top:8px;">We promise we'll never post without your permission</div>
+
+                    <div style="margin-top:10px;">
+                    Or <a href="#" onclick="ts_fb_data.saved_facebook_response=null;ShowSignupForm();return false;">sign up with an email</a>
+                    </div>
+
+                    <div style="font-size:11px;">(sign up with Twitter coming soon)</div>
+                </div>
+
+                <div class="panel" id="sign_up_email_html" style="display:none;">
+<form action="" method="POST" onsubmit="SignUp();return false;" class="form-horizontal form-large" role="form" name="signup_form">
+                    <legend style="color: inherit;" id="form_legend">Sign up <div style="float: right;font-size: 14px;cursor: pointer;" onclick="GoBackAStep();">Back</div></legend>
+
+                    <div id="sign_up_additional_msg" style="display:none;margin-bottom:6px;"></div>
+                    <div class="form-group" id="signupfname_group">
+                        <label for="signupfname" class="col-lg-5 control-label">First Name</label>
+                        <div class="col-lg-7 ">
+                            <input type="text" class="form-control" name="signupfname" id="signupfname" placeholder="What your friends call you">
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="signuplname_group">
+                        <label for="signuplname" class="col-lg-5 control-label">Last Name</label>
+                        <div class="col-lg-7">
+                            <input type="text" class="form-control" name="signuplname" id="signuplname" placeholder="What you'd be called in court">
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="signupmail_group">
+                        <label for="signupmail" class="col-lg-5 control-label">Email</label>
+                        <div class="col-lg-7">
+                            <input type="email" class="form-control" name="signupmail" id="signupmail" placeholder="If you ever forget your password">                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupusername" class="col-lg-5 control-label">Username</label>
+                        <div class="col-lg-7">
+                            <input type="text" class="form-control" name="signupusername" id="signupusername" placeholder="Grab a good one fast">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signuppassword1" class="col-lg-5 control-label">Password</label>
+                        <div class="col-lg-7">
+                            <input type="password" class="form-control" name="signuppassword1" id="signuppassword1" placeholder="The password you want">
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="signuppassword2_group">
+                        <label for="signuppassword2" class="col-lg-5 control-label">Confirm Password</label>
+                        <div class="col-lg-7">
+                            <input type="password" class="form-control" name="signuppassword2" id="signuppassword2" placeholder="Confirm your password">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="signupbetacode" id="signupbetacode" value="homepagelp1" class="input-xlarge" placeholder="Invite code (optional)"><div id="betacodeerror" class="errormsg"></div>                    <div style="text-align:center;margin-top:11px;">
+                         <button class="btn btn-primary" id="signupbutton" data-loading-text="Creating account...">Create Account</button>
+                    </div>
+
+                 </form>               </div>
+
+               <script>
+                BindEventsToSignupForm();
+
+                google_buttons_to_render.push(function () {
+                    gapi.signin.render('sign-up-google', {
+                        'callback': 'TSConnectedGoogleCallback',
+                        'clientid': '853908487690-67rilme30a31b6efruomppkl7ng7binm.apps.googleusercontent.com',
+                        'cookiepolicy': 'single_host_origin',
+                        'scope': 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+                    });
+                });
+               </script>            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>-->
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="signinModalLabel">Sign Up!</h4>
+            </div>
+            -->
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" style="position:absolute;top:0px;right:4px;" title="Close the sign in form">×</button>
+
+                    <form method="post" role="form" accept-charset="UTF-8" onsubmit="SignIn('main','','');return false;" style="text-align:center;">        <div id="smallloginfrm_left" class="form-group ">
+            <input class="large_form_element btn-block" type="text" placeholder="Email" id="mainemail" name="mainemail">
+            <input class="large_form_element btn-block" type="password" placeholder="Password" id="mainpassword" name="mainpassword">
+            <input class="btn btn-info btn-block large_form_element" type="submit" id="mainloginbtn" value="Sign In" data-loading-text="Logging In...">
+            <input type="hidden" id="loginbetacode" value=""></div><label style="text-align:center;margin-top:5px">or</label>        <div id="smallloginfrm_right" class="form-group ">
+            <button class="btn btn-block large_form_element facebook_blue_btn" id="main-sign-in-facebook" onclick="SetFacebookSignin('main','');return false;" data-loading-text="Connecting...">
+                <span class="icon-facebook" style="vertical-align:middle;font-size: larger;margin-right:11px;"></span> Sign In With Facebook
+            </button>
+            <button class="btn btn-block large_form_element google_red_btn loginfrm_google" id="sign-in-google-main" onclick="SetGoogleSignin('main','');return false;" data-loading-text="Connecting...">
+                <span class="icon-google-plus" style="vertical-align:middle;font-size: larger;margin-right:11px;"></span> Sign In With Google
+            </button>
+
+            <!-- <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter" onClick="alert('Sign in with Twitter isn\'t supported yet. You can currently sign in with Facebook or an email address');">-->
+            <div class="form-group" style="margin-top: 22px;"><a href="/password_reset/" target="_top">            Forgot your password?</a>
+            </div>
+        </div>
+        </form>
+<script>
+google_buttons_to_render.push(function () {
+    gapi.signin.render('sign-in-google-main', {
+        'callback': 'TSConnectedGoogleCallback',
+        'clientid': '853908487690-67rilme30a31b6efruomppkl7ng7binm.apps.googleusercontent.com',
+        'cookiepolicy': 'single_host_origin',
+        'scope': 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
+    });
+});
+</script>            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>-->
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/static/landingpage/bootstrap.js"></script>
+<script src="/static/landingpage/waypoints.min.js"></script>
+<script src="/static/landingpage/jquery.scrollto.min.js"></script>
+<script src="/static/landingpage/jquery.localscroll.min.js"></script>
+<script src="/static/landingpage/jquery.prettyPhoto.js"></script>
+<script src="/static/landingpage/scripts.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+
+
+
+</body></html>

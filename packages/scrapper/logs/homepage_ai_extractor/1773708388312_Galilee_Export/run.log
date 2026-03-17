@@ -1,0 +1,78 @@
+[2026-03-17T00:46:28.312Z] === Homepage AI Extractor: Galilee Export ===
+[2026-03-17T00:46:28.312Z] Started at: 2026-03-17T00:46:28.312Z
+[2026-03-17T00:46:28.312Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773708388312_Galilee_Export
+[2026-03-17T00:46:28.312Z] Company: Galilee Export
+[2026-03-17T00:46:28.312Z] Website: galilee-export.com
+[2026-03-17T00:46:28.312Z] cbRank: 1306342
+[2026-03-17T00:46:28.312Z] Reasons: h
+[2026-03-17T00:46:28.313Z] Fetching: https://galilee-export.com
+[2026-03-17T00:46:31.961Z] Dismissed cookie consent popup via: button:has-text("I agree")
+[2026-03-17T00:46:34.938Z] Redirected: https://galilee-export.com -> https://galilee-export.com/
+[2026-03-17T00:46:34.943Z] Saved HTML (152727 bytes) to page.html
+[2026-03-17T00:46:34.946Z] Extracted 45 unique links from page
+[2026-03-17T00:46:34.946Z] Saved 45 links to links.json
+[2026-03-17T00:46:34.949Z] Extracted footer HTML (16004 chars)
+[2026-03-17T00:46:34.949Z] Extracted header HTML (39018 chars)
+[2026-03-17T00:46:34.952Z] Website (post-redirect): https://galilee-export.com/ → origin: https://galilee-export.com
+[2026-03-17T00:46:34.953Z] External links: 5 (of 45 total)
+[2026-03-17T00:46:34.953Z] ── All external links ──
+[2026-03-17T00:46:34.953Z]   EXT: http://www.google.com/maps/place/32.0328571,34.850180799999976
+[2026-03-17T00:46:34.953Z]   EXT: https://www.facebook.com/profile.php?id=61575843650032
+[2026-03-17T00:46:34.953Z]   EXT: https://www.linkedin.com/company/galilee-export?trk=pro_other_cmpy
+[2026-03-17T00:46:34.953Z]   EXT: https://www.pionet.co.il
+[2026-03-17T00:46:34.953Z]   EXT: https://www.youtube.com/@galileeexport
+[2026-03-17T00:46:34.953Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:46:34.954Z]   UNCATEGORIZED: http://www.google.com/maps/place/32.0328571,34.850180799999976
+[2026-03-17T00:46:34.954Z]   REGEX: li <- https://www.linkedin.com/company/galilee-export?trk=pro_other_cmpy
+[2026-03-17T00:46:34.954Z]   UNCATEGORIZED: https://www.pionet.co.il
+[2026-03-17T00:46:34.954Z]   REGEX: ytp <- https://www.youtube.com/@galileeexport
+[2026-03-17T00:46:34.954Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T00:46:36.602Z]   RESOLVE: https://www.facebook.com/profile.php?id=61575843650032 → https://www.facebook.com/people/Galilee-Export/61575843650032
+[2026-03-17T00:46:36.606Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Galilee-Export/61575843650032 (from https://www.facebook.com/profile.php?id=61575843650032)
+[2026-03-17T00:46:36.606Z] Programmatic result: ws:1, li:1, ytp:1 | 2 uncategorized
+[2026-03-17T00:46:36.607Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:46:36.610Z] Saved AI prompt (5693 chars) to ai_prompt.txt
+[2026-03-17T00:46:36.610Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:46:36.614Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:47:00.564Z]   AI: First token received, streaming...
+[2026-03-17T00:47:11.757Z] AI response complete: 160 chars in 35.1s
+[2026-03-17T00:47:11.758Z] Saved AI response to ai_response.json
+[2026-03-17T00:47:11.758Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T00:47:11.759Z]   AI LINK: https://www.youtube.com/@galileeexport
+[2026-03-17T00:47:11.759Z]   AI LINK: https://www.linkedin.com/company/galilee-export?trk=pro_other_cmpy
+[2026-03-17T00:47:11.759Z]   AI LINK: https://www.facebook.com/profile.php?id=61575843650032
+[2026-03-17T00:47:11.759Z] AI returned 3 valid links
+[2026-03-17T00:47:11.759Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T00:47:11.760Z]   AI→REGEX: ytp <- https://www.youtube.com/@galileeexport (duplicate, skipped)
+[2026-03-17T00:47:11.760Z]   AI→REGEX: li <- https://www.linkedin.com/company/galilee-export?trk=pro_other_cmpy (duplicate, skipped)
+[2026-03-17T00:47:12.889Z]   RESOLVE: https://www.facebook.com/profile.php?id=61575843650032 → https://www.facebook.com/people/Galilee-Export/61575843650032
+[2026-03-17T00:47:12.894Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/Galilee-Export/61575843650032 (from https://www.facebook.com/profile.php?id=61575843650032)
+[2026-03-17T00:47:12.894Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:47:12.894Z] Footer/header origins (6):
+[2026-03-17T00:47:12.895Z]   FOOTER/HEADER ORIGIN: https://galilee-export.com
+[2026-03-17T00:47:12.895Z]   FOOTER/HEADER ORIGIN: http://www.google.com
+[2026-03-17T00:47:12.895Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T00:47:12.895Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T00:47:12.895Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T00:47:12.895Z]   FOOTER/HEADER ORIGIN: https://www.pionet.co.il
+[2026-03-17T00:47:12.895Z]   ADDED: urls <- http://www.google.com/maps/place/32.0328571,34.850180799999976
+[2026-03-17T00:47:12.895Z]   ADDED: urls <- https://www.pionet.co.il
+[2026-03-17T00:47:12.895Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-17T00:47:12.895Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:47:12.895Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T00:47:12.895Z] ── Step 3: Final dedup ──
+[2026-03-17T00:47:12.896Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T00:47:12.896Z] ── FINAL RESULT ──
+[2026-03-17T00:47:12.896Z]   ws (1):
+[2026-03-17T00:47:12.896Z]     - https://galilee-export.com
+[2026-03-17T00:47:12.896Z]   li (1):
+[2026-03-17T00:47:12.896Z]     - https://www.linkedin.com/company/galilee-export
+[2026-03-17T00:47:12.896Z]   ytp (1):
+[2026-03-17T00:47:12.896Z]     - https://www.youtube.com/@galileeexport
+[2026-03-17T00:47:12.896Z]   urls (2):
+[2026-03-17T00:47:12.896Z]     - http://www.google.com/maps/place/32.0328571,34.850180799999976
+[2026-03-17T00:47:12.896Z]     - https://www.pionet.co.il
+[2026-03-17T00:47:12.896Z] Summary: ws:1, li:1, ytp:1, urls:2
+[2026-03-17T00:47:12.897Z] Saved final result to result.json
+[2026-03-17T00:47:12.897Z] Override fields: ws, li, ytp, urls
+[2026-03-17T00:47:12.897Z] Finished at: 2026-03-17T00:47:12.897Z

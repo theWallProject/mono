@@ -1,0 +1,78 @@
+[2026-03-17T02:20:10.568Z] === Homepage AI Extractor: Peled Technical Supply ===
+[2026-03-17T02:20:10.568Z] Started at: 2026-03-17T02:20:10.568Z
+[2026-03-17T02:20:10.569Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773714010567_Peled_Technical_Supply
+[2026-03-17T02:20:10.569Z] Company: Peled Technical Supply
+[2026-03-17T02:20:10.569Z] Website: peledtech.com
+[2026-03-17T02:20:10.569Z] cbRank: 1365047
+[2026-03-17T02:20:10.569Z] Reasons: h
+[2026-03-17T02:20:10.569Z] Fetching: https://peledtech.com
+[2026-03-17T02:20:15.139Z] Redirected: https://peledtech.com -> https://peledtech.com/
+[2026-03-17T02:20:15.150Z] Saved HTML (364216 bytes) to page.html
+[2026-03-17T02:20:15.153Z] Extracted 53 unique links from page
+[2026-03-17T02:20:15.154Z] Saved 53 links to links.json
+[2026-03-17T02:20:15.157Z] Extracted footer HTML (16108 chars)
+[2026-03-17T02:20:15.157Z] Extracted header HTML (20573 chars)
+[2026-03-17T02:20:15.162Z] Website (post-redirect): https://peledtech.com/ → origin: https://peledtech.com
+[2026-03-17T02:20:15.162Z] External links: 5 (of 53 total)
+[2026-03-17T02:20:15.162Z] ── All external links ──
+[2026-03-17T02:20:15.162Z]   EXT: https://alonabrodsky.co.il
+[2026-03-17T02:20:15.162Z]   EXT: https://namelesspace.com
+[2026-03-17T02:20:15.163Z]   EXT: https://www.facebook.com/signet.peledtech
+[2026-03-17T02:20:15.163Z]   EXT: https://www.instagram.com/peledsignet
+[2026-03-17T02:20:15.163Z]   EXT: https://www.youtube.com/channel/UCC5BgIqtGfOzG8cYLejKJrA
+[2026-03-17T02:20:15.163Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T02:20:15.163Z]   UNCATEGORIZED: https://alonabrodsky.co.il
+[2026-03-17T02:20:15.163Z]   UNCATEGORIZED: https://namelesspace.com
+[2026-03-17T02:20:15.163Z]   REGEX: fb <- https://www.facebook.com/signet.peledtech
+[2026-03-17T02:20:15.163Z]   REGEX: ig <- https://www.instagram.com/peledsignet
+[2026-03-17T02:20:15.163Z]   REGEX: ytc <- https://www.youtube.com/channel/UCC5BgIqtGfOzG8cYLejKJrA
+[2026-03-17T02:20:15.163Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 2 uncategorized
+[2026-03-17T02:20:15.163Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T02:20:15.166Z] Saved AI prompt (11027 chars) to ai_prompt.txt
+[2026-03-17T02:20:15.167Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T02:20:15.172Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T02:21:26.407Z]   AI: First token received, streaming...
+[2026-03-17T02:21:37.049Z] AI response complete: 138 chars in 81.9s
+[2026-03-17T02:21:37.050Z] Saved AI response to ai_response.json
+[2026-03-17T02:21:37.051Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T02:21:37.051Z]   AI LINK: https://www.instagram.com/peledsignet/
+[2026-03-17T02:21:37.051Z]   AI LINK: https://www.facebook.com/signet.peledtech/
+[2026-03-17T02:21:37.051Z]   AI LINK: https://www.youtube.com/channel/UCC5BgIqtGfOzG8cYLejKJrA
+[2026-03-17T02:21:37.051Z] AI returned 3 valid links
+[2026-03-17T02:21:37.051Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T02:21:37.052Z]   AI→REGEX: ig <- https://www.instagram.com/peledsignet/ (duplicate, skipped)
+[2026-03-17T02:21:37.052Z]   AI→REGEX: fb <- https://www.facebook.com/signet.peledtech/ (duplicate, skipped)
+[2026-03-17T02:21:37.052Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCC5BgIqtGfOzG8cYLejKJrA (duplicate, skipped)
+[2026-03-17T02:21:37.053Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T02:21:37.053Z] Footer/header origins (5):
+[2026-03-17T02:21:37.053Z]   FOOTER/HEADER ORIGIN: https://peledtech.com
+[2026-03-17T02:21:37.053Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T02:21:37.053Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T02:21:37.053Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T02:21:37.053Z]   FOOTER/HEADER ORIGIN: https://namelesspace.com
+[2026-03-17T02:21:37.054Z]   SKIP (not in footer/header): https://alonabrodsky.co.il
+[2026-03-17T02:21:37.054Z]   ADDED: urls <- https://namelesspace.com
+[2026-03-17T02:21:37.054Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T02:21:37.054Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T02:21:37.054Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T02:21:37.508Z]   YOUTUBE: resolved UCC5BgIqtGfOzG8cYLejKJrA → @peledtech219
+[2026-03-17T02:21:37.508Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T02:21:37.509Z] ── Step 3: Final dedup ──
+[2026-03-17T02:21:37.509Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T02:21:37.509Z] ── FINAL RESULT ──
+[2026-03-17T02:21:37.509Z]   ws (1):
+[2026-03-17T02:21:37.509Z]     - https://peledtech.com
+[2026-03-17T02:21:37.509Z]   fb (1):
+[2026-03-17T02:21:37.509Z]     - https://www.facebook.com/signet.peledtech
+[2026-03-17T02:21:37.510Z]   ig (1):
+[2026-03-17T02:21:37.510Z]     - https://www.instagram.com/peledsignet
+[2026-03-17T02:21:37.510Z]   ytp (1):
+[2026-03-17T02:21:37.510Z]     - https://www.youtube.com/@peledtech219
+[2026-03-17T02:21:37.510Z]   ytc (1):
+[2026-03-17T02:21:37.510Z]     - https://www.youtube.com/channel/UCC5BgIqtGfOzG8cYLejKJrA
+[2026-03-17T02:21:37.510Z]   urls (1):
+[2026-03-17T02:21:37.510Z]     - https://namelesspace.com
+[2026-03-17T02:21:37.510Z] Summary: ws:1, fb:1, ig:1, ytc:1, urls:1, ytp:1
+[2026-03-17T02:21:37.511Z] Saved final result to result.json
+[2026-03-17T02:21:37.511Z] Override fields: ws, fb, ig, ytp, ytc, urls
+[2026-03-17T02:21:37.511Z] Finished at: 2026-03-17T02:21:37.511Z

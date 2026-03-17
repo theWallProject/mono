@@ -1,0 +1,86 @@
+[2026-03-16T04:31:20.518Z] === Homepage AI Extractor: Digipave ===
+[2026-03-16T04:31:20.518Z] Started at: 2026-03-16T04:31:20.518Z
+[2026-03-16T04:31:20.518Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773635480517_Digipave
+[2026-03-16T04:31:20.518Z] Company: Digipave
+[2026-03-16T04:31:20.518Z] Website: digipave.com
+[2026-03-16T04:31:20.518Z] cbRank: 1191699
+[2026-03-16T04:31:20.518Z] Reasons: h
+[2026-03-16T04:31:20.518Z] Fetching: https://digipave.com
+[2026-03-16T04:31:31.165Z] Network idle timeout — continuing with current state
+[2026-03-16T04:31:31.212Z] Redirected: https://digipave.com -> https://www.digipave.com/
+[2026-03-16T04:31:31.225Z] Saved HTML (564148 bytes) to page.html
+[2026-03-16T04:31:31.229Z] Extracted 12 unique links from page
+[2026-03-16T04:31:31.229Z] Saved 12 links to links.json
+[2026-03-16T04:31:31.232Z] Extracted footer HTML (7860 chars)
+[2026-03-16T04:31:31.232Z] Extracted header HTML (4859 chars)
+[2026-03-16T04:31:31.235Z] Website (post-redirect): https://www.digipave.com/ → origin: https://www.digipave.com
+[2026-03-16T04:31:31.236Z] External links: 9 (of 12 total)
+[2026-03-16T04:31:31.236Z] ── All external links ──
+[2026-03-16T04:31:31.236Z]   EXT: https://il.linkedin.com/in/danihorwitz
+[2026-03-16T04:31:31.236Z]   EXT: https://il.linkedin.com/in/yoav-lukas-dreifuss
+[2026-03-16T04:31:31.236Z]   EXT: https://twitter.com/digipave
+[2026-03-16T04:31:31.236Z]   EXT: https://www.facebook.com/digipave
+[2026-03-16T04:31:31.236Z]   EXT: https://www.instagram.com/digipave
+[2026-03-16T04:31:31.236Z]   EXT: https://www.linkedin.com/company/digipave/?viewAsMember=true
+[2026-03-16T04:31:31.236Z]   EXT: https://www.linkedin.com/in/danihorwitz
+[2026-03-16T04:31:31.236Z]   EXT: https://www.linkedin.com/in/yoav-dreifuss
+[2026-03-16T04:31:31.236Z]   EXT: https://www.linkedin.com/in/yoav-lukas-dreifuss
+[2026-03-16T04:31:31.236Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T04:31:31.238Z]   UNCATEGORIZED: https://il.linkedin.com/in/danihorwitz
+[2026-03-16T04:31:31.238Z]   UNCATEGORIZED: https://il.linkedin.com/in/yoav-lukas-dreifuss
+[2026-03-16T04:31:31.238Z]   REGEX: tw <- https://twitter.com/digipave
+[2026-03-16T04:31:31.238Z]   REGEX: fb <- https://www.facebook.com/digipave
+[2026-03-16T04:31:31.239Z]   REGEX: ig <- https://www.instagram.com/digipave
+[2026-03-16T04:31:31.239Z]   REGEX: li <- https://www.linkedin.com/company/digipave/?viewAsMember=true
+[2026-03-16T04:31:31.239Z] ── Step 1b: Resolving 3 regex-domain URLs via redirect ──
+[2026-03-16T04:31:31.239Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/danihorwitz
+[2026-03-16T04:31:31.239Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/yoav-dreifuss
+[2026-03-16T04:31:31.239Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/yoav-lukas-dreifuss
+[2026-03-16T04:31:31.239Z] Programmatic result: ws:1, tw:1, fb:1, ig:1, li:1 | 2 uncategorized
+[2026-03-16T04:31:31.239Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T04:31:31.240Z] Saved AI prompt (7694 chars) to ai_prompt.txt
+[2026-03-16T04:31:31.241Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T04:31:31.245Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T04:32:11.043Z]   AI: First token received, streaming...
+[2026-03-16T04:32:20.420Z] AI response complete: 160 chars in 49.2s
+[2026-03-16T04:32:20.422Z] Saved AI response to ai_response.json
+[2026-03-16T04:32:20.422Z] ── Parsing AI response (4 lines) ──
+[2026-03-16T04:32:20.423Z]   AI LINK: https://www.facebook.com/digipave/
+[2026-03-16T04:32:20.423Z]   AI LINK: https://www.instagram.com/digipave/
+[2026-03-16T04:32:20.423Z]   AI LINK: https://twitter.com/digipave
+[2026-03-16T04:32:20.424Z]   AI LINK: https://www.linkedin.com/company/digipave/?viewAsMember=true
+[2026-03-16T04:32:20.424Z] AI returned 4 valid links
+[2026-03-16T04:32:20.424Z] ── Categorizing 4 AI-returned links ──
+[2026-03-16T04:32:20.424Z]   AI→REGEX: fb <- https://www.facebook.com/digipave/ (duplicate, skipped)
+[2026-03-16T04:32:20.424Z]   AI→REGEX: ig <- https://www.instagram.com/digipave/ (duplicate, skipped)
+[2026-03-16T04:32:20.424Z]   AI→REGEX: tw <- https://twitter.com/digipave (duplicate, skipped)
+[2026-03-16T04:32:20.425Z]   AI→REGEX: li <- https://www.linkedin.com/company/digipave/?viewAsMember=true (duplicate, skipped)
+[2026-03-16T04:32:20.425Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T04:32:20.425Z] Footer/header origins (5):
+[2026-03-16T04:32:20.425Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T04:32:20.425Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-16T04:32:20.426Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-16T04:32:20.426Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T04:32:20.426Z]   FOOTER/HEADER ORIGIN: https://www.digipave.com
+[2026-03-16T04:32:20.426Z]   SKIP (not in footer/header): https://il.linkedin.com/in/danihorwitz
+[2026-03-16T04:32:20.426Z]   SKIP (not in footer/header): https://il.linkedin.com/in/yoav-lukas-dreifuss
+[2026-03-16T04:32:20.426Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-16T04:32:20.426Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T04:32:20.427Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T04:32:20.427Z] ── Step 3: Final dedup ──
+[2026-03-16T04:32:20.427Z] No urls to dedup
+[2026-03-16T04:32:20.427Z] ── FINAL RESULT ──
+[2026-03-16T04:32:20.427Z]   ws (1):
+[2026-03-16T04:32:20.427Z]     - https://www.digipave.com
+[2026-03-16T04:32:20.427Z]   li (1):
+[2026-03-16T04:32:20.427Z]     - https://www.linkedin.com/company/digipave
+[2026-03-16T04:32:20.427Z]   fb (1):
+[2026-03-16T04:32:20.427Z]     - https://www.facebook.com/digipave
+[2026-03-16T04:32:20.427Z]   tw (1):
+[2026-03-16T04:32:20.427Z]     - https://x.com/digipave
+[2026-03-16T04:32:20.427Z]   ig (1):
+[2026-03-16T04:32:20.427Z]     - https://www.instagram.com/digipave
+[2026-03-16T04:32:20.428Z] Summary: ws:1, tw:1, fb:1, ig:1, li:1
+[2026-03-16T04:32:20.428Z] Saved final result to result.json
+[2026-03-16T04:32:20.429Z] Override fields: ws, li, fb, tw, ig
+[2026-03-16T04:32:20.429Z] Finished at: 2026-03-16T04:32:20.429Z

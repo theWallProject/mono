@@ -1,0 +1,74 @@
+[2026-03-17T00:19:34.821Z] === Homepage AI Extractor: Tara ===
+[2026-03-17T00:19:34.821Z] Started at: 2026-03-17T00:19:34.821Z
+[2026-03-17T00:19:34.821Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773706774821_Tara
+[2026-03-17T00:19:34.821Z] Company: Tara
+[2026-03-17T00:19:34.821Z] Website: tara.co.il
+[2026-03-17T00:19:34.821Z] cbRank: 1291676
+[2026-03-17T00:19:34.821Z] Reasons: h
+[2026-03-17T00:19:34.821Z] Fetching: https://tara.co.il
+[2026-03-17T00:19:37.994Z] Redirected: https://tara.co.il -> https://www.tara.co.il/
+[2026-03-17T00:19:37.998Z] Saved HTML (95632 bytes) to page.html
+[2026-03-17T00:19:38.001Z] Extracted 24 unique links from page
+[2026-03-17T00:19:38.004Z] Saved 24 links to links.json
+[2026-03-17T00:19:38.007Z] Extracted footer HTML (7121 chars)
+[2026-03-17T00:19:38.007Z] Extracted header HTML (3319 chars)
+[2026-03-17T00:19:38.010Z] Website (post-redirect): https://www.tara.co.il/ → origin: https://www.tara.co.il
+[2026-03-17T00:19:38.010Z] External links: 5 (of 24 total)
+[2026-03-17T00:19:38.010Z] ── All external links ──
+[2026-03-17T00:19:38.011Z]   EXT: https://wa.me/972548299983
+[2026-03-17T00:19:38.011Z]   EXT: https://www.facebook.com/taramilk
+[2026-03-17T00:19:38.011Z]   EXT: https://www.google.com
+[2026-03-17T00:19:38.011Z]   EXT: https://www.instagram.com/tara_milk
+[2026-03-17T00:19:38.011Z]   EXT: https://www.tiktok.com/@taramilkofficial
+[2026-03-17T00:19:38.011Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:19:38.011Z]   UNCATEGORIZED: https://wa.me/972548299983
+[2026-03-17T00:19:38.011Z]   REGEX: fb <- https://www.facebook.com/taramilk
+[2026-03-17T00:19:38.011Z]   UNCATEGORIZED: https://www.google.com
+[2026-03-17T00:19:38.011Z]   REGEX: ig <- https://www.instagram.com/tara_milk
+[2026-03-17T00:19:38.011Z]   REGEX: tt <- https://www.tiktok.com/@taramilkofficial
+[2026-03-17T00:19:38.011Z] Programmatic result: ws:1, fb:1, ig:1, tt:1 | 2 uncategorized
+[2026-03-17T00:19:38.012Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:19:38.012Z] Saved AI prompt (8070 chars) to ai_prompt.txt
+[2026-03-17T00:19:38.012Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:19:38.017Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:20:12.611Z]   AI: First token received, streaming...
+[2026-03-17T00:20:18.825Z] AI response complete: 110 chars in 40.8s
+[2026-03-17T00:20:18.826Z] Saved AI response to ai_response.json
+[2026-03-17T00:20:18.827Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T00:20:18.827Z]   AI LINK: https://www.facebook.com/taramilk
+[2026-03-17T00:20:18.827Z]   AI LINK: https://www.instagram.com/tara_milk
+[2026-03-17T00:20:18.827Z]   AI LINK: https://www.tiktok.com/@taramilkofficial
+[2026-03-17T00:20:18.827Z] AI returned 3 valid links
+[2026-03-17T00:20:18.827Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T00:20:18.828Z]   AI→REGEX: fb <- https://www.facebook.com/taramilk (duplicate, skipped)
+[2026-03-17T00:20:18.828Z]   AI→REGEX: ig <- https://www.instagram.com/tara_milk (duplicate, skipped)
+[2026-03-17T00:20:18.828Z]   AI→REGEX: tt <- https://www.tiktok.com/@taramilkofficial (duplicate, skipped)
+[2026-03-17T00:20:18.829Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:20:18.829Z] Footer/header origins (5):
+[2026-03-17T00:20:18.829Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T00:20:18.829Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T00:20:18.830Z]   FOOTER/HEADER ORIGIN: https://www.tiktok.com
+[2026-03-17T00:20:18.830Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-17T00:20:18.830Z]   FOOTER/HEADER ORIGIN: https://www.tara.co.il
+[2026-03-17T00:20:18.830Z]   ADDED: urls <- https://wa.me/972548299983
+[2026-03-17T00:20:18.830Z]   SKIP (not in footer/header): https://www.google.com
+[2026-03-17T00:20:18.830Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T00:20:18.830Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:20:18.830Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T00:20:18.830Z] ── Step 3: Final dedup ──
+[2026-03-17T00:20:18.831Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T00:20:18.831Z] ── FINAL RESULT ──
+[2026-03-17T00:20:18.831Z]   ws (1):
+[2026-03-17T00:20:18.831Z]     - https://www.tara.co.il
+[2026-03-17T00:20:18.831Z]   fb (1):
+[2026-03-17T00:20:18.831Z]     - https://www.facebook.com/taramilk
+[2026-03-17T00:20:18.831Z]   ig (1):
+[2026-03-17T00:20:18.832Z]     - https://www.instagram.com/tara_milk
+[2026-03-17T00:20:18.832Z]   tt (1):
+[2026-03-17T00:20:18.832Z]     - https://www.tiktok.com/@taramilkofficial
+[2026-03-17T00:20:18.832Z]   urls (1):
+[2026-03-17T00:20:18.832Z]     - https://wa.me/972548299983
+[2026-03-17T00:20:18.832Z] Summary: ws:1, fb:1, ig:1, tt:1, urls:1
+[2026-03-17T00:20:18.833Z] Saved final result to result.json
+[2026-03-17T00:20:18.834Z] Override fields: ws, fb, ig, tt, urls
+[2026-03-17T00:20:18.834Z] Finished at: 2026-03-17T00:20:18.834Z

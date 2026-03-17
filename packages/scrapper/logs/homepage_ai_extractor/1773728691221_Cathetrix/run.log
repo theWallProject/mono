@@ -1,0 +1,61 @@
+[2026-03-17T06:24:51.222Z] === Homepage AI Extractor: Cathetrix ===
+[2026-03-17T06:24:51.222Z] Started at: 2026-03-17T06:24:51.222Z
+[2026-03-17T06:24:51.222Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773728691221_Cathetrix
+[2026-03-17T06:24:51.222Z] Company: Cathetrix
+[2026-03-17T06:24:51.222Z] Website: cathetrix.com
+[2026-03-17T06:24:51.222Z] cbRank: 1514910
+[2026-03-17T06:24:51.222Z] Reasons: h
+[2026-03-17T06:24:51.222Z] Fetching: https://cathetrix.com
+[2026-03-17T06:25:01.922Z] Network idle timeout — continuing with current state
+[2026-03-17T06:25:01.956Z] Redirected: https://cathetrix.com -> https://cathetrix.com/
+[2026-03-17T06:25:01.963Z] Saved HTML (145942 bytes) to page.html
+[2026-03-17T06:25:01.966Z] Extracted 40 unique links from page
+[2026-03-17T06:25:01.967Z] Saved 40 links to links.json
+[2026-03-17T06:25:01.971Z] Extracted footer HTML (8340 chars)
+[2026-03-17T06:25:01.971Z] Extracted header HTML (28385 chars)
+[2026-03-17T06:25:01.974Z] Website (post-redirect): https://cathetrix.com/ → origin: https://cathetrix.com
+[2026-03-17T06:25:01.975Z] External links: 3 (of 40 total)
+[2026-03-17T06:25:01.975Z] ── All external links ──
+[2026-03-17T06:25:01.975Z]   EXT: https://tubex-med.com
+[2026-03-17T06:25:01.975Z]   EXT: https://wa.me/972522423043
+[2026-03-17T06:25:01.975Z]   EXT: https://www.tael-consulting.com/en
+[2026-03-17T06:25:01.975Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T06:25:01.975Z]   UNCATEGORIZED: https://tubex-med.com
+[2026-03-17T06:25:01.975Z]   UNCATEGORIZED: https://wa.me/972522423043
+[2026-03-17T06:25:01.975Z]   UNCATEGORIZED: https://www.tael-consulting.com/en
+[2026-03-17T06:25:01.975Z] Programmatic result: ws:1 | 3 uncategorized
+[2026-03-17T06:25:01.975Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T06:25:01.977Z] Saved AI prompt (6566 chars) to ai_prompt.txt
+[2026-03-17T06:25:01.977Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T06:25:01.981Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T06:25:28.540Z]   AI: First token received, streaming...
+[2026-03-17T06:25:30.617Z] AI response complete: 26 chars in 28.6s
+[2026-03-17T06:25:30.619Z] Saved AI response to ai_response.json
+[2026-03-17T06:25:30.619Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T06:25:30.619Z]   AI LINK: https://wa.me/972522423043
+[2026-03-17T06:25:30.619Z] AI returned 1 valid links
+[2026-03-17T06:25:30.620Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T06:25:30.620Z]   AI→URLS: https://wa.me/972522423043
+[2026-03-17T06:25:30.621Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T06:25:30.621Z] Footer/header origins (3):
+[2026-03-17T06:25:30.621Z]   FOOTER/HEADER ORIGIN: https://wa.me
+[2026-03-17T06:25:30.621Z]   FOOTER/HEADER ORIGIN: https://tubex-med.com
+[2026-03-17T06:25:30.621Z]   FOOTER/HEADER ORIGIN: https://cathetrix.com
+[2026-03-17T06:25:30.622Z]   ADDED: urls <- https://tubex-med.com
+[2026-03-17T06:25:30.622Z]   SKIP (AI claimed): https://wa.me/972522423043
+[2026-03-17T06:25:30.622Z]   SKIP (not in footer/header): https://www.tael-consulting.com/en
+[2026-03-17T06:25:30.622Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T06:25:30.622Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T06:25:30.622Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T06:25:30.622Z] ── Step 3: Final dedup ──
+[2026-03-17T06:25:30.623Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T06:25:30.623Z] ── FINAL RESULT ──
+[2026-03-17T06:25:30.623Z]   ws (1):
+[2026-03-17T06:25:30.623Z]     - https://cathetrix.com
+[2026-03-17T06:25:30.623Z]   urls (2):
+[2026-03-17T06:25:30.623Z]     - https://tubex-med.com
+[2026-03-17T06:25:30.623Z]     - https://wa.me/972522423043
+[2026-03-17T06:25:30.624Z] Summary: ws:1, urls:2
+[2026-03-17T06:25:30.625Z] Saved final result to result.json
+[2026-03-17T06:25:30.625Z] Override fields: ws, urls
+[2026-03-17T06:25:30.625Z] Finished at: 2026-03-17T06:25:30.625Z

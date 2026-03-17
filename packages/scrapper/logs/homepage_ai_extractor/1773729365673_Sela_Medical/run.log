@@ -1,0 +1,74 @@
+[2026-03-17T06:36:05.674Z] === Homepage AI Extractor: Sela Medical ===
+[2026-03-17T06:36:05.674Z] Started at: 2026-03-17T06:36:05.674Z
+[2026-03-17T06:36:05.674Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773729365673_Sela_Medical
+[2026-03-17T06:36:05.674Z] Company: Sela Medical
+[2026-03-17T06:36:05.674Z] Website: selamedical.co.il
+[2026-03-17T06:36:05.674Z] cbRank: 1523211
+[2026-03-17T06:36:05.674Z] Reasons: h
+[2026-03-17T06:36:05.674Z] Fetching: https://selamedical.co.il
+[2026-03-17T06:36:10.200Z] Redirected: https://selamedical.co.il -> https://www.selamedical.co.il/
+[2026-03-17T06:36:10.214Z] Saved HTML (503534 bytes) to page.html
+[2026-03-17T06:36:10.218Z] Extracted 39 unique links from page
+[2026-03-17T06:36:10.219Z] Saved 39 links to links.json
+[2026-03-17T06:36:10.229Z] Extracted footer HTML (12881 chars)
+[2026-03-17T06:36:10.229Z] Extracted header HTML (21950 chars)
+[2026-03-17T06:36:10.234Z] Website (post-redirect): https://www.selamedical.co.il/ → origin: https://www.selamedical.co.il
+[2026-03-17T06:36:10.234Z] External links: 6 (of 39 total)
+[2026-03-17T06:36:10.234Z] ── All external links ──
+[2026-03-17T06:36:10.234Z]   EXT: https://layer.co.il
+[2026-03-17T06:36:10.234Z]   EXT: https://www.enable.co.il
+[2026-03-17T06:36:10.234Z]   EXT: https://www.facebook.com/Selamedical
+[2026-03-17T06:36:10.234Z]   EXT: https://www.instagram.com/sela_medical
+[2026-03-17T06:36:10.234Z]   EXT: https://www.linkedin.com/company/sela-medical-ltd.
+[2026-03-17T06:36:10.234Z]   EXT: https://www.upress.co.il
+[2026-03-17T06:36:10.235Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T06:36:10.235Z]   UNCATEGORIZED: https://layer.co.il
+[2026-03-17T06:36:10.235Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-17T06:36:10.235Z]   REGEX: fb <- https://www.facebook.com/Selamedical
+[2026-03-17T06:36:10.235Z]   REGEX: ig <- https://www.instagram.com/sela_medical
+[2026-03-17T06:36:10.235Z]   REGEX: li <- https://www.linkedin.com/company/sela-medical-ltd.
+[2026-03-17T06:36:10.235Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-17T06:36:10.235Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 3 uncategorized
+[2026-03-17T06:36:10.235Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T06:36:10.239Z] Saved AI prompt (10043 chars) to ai_prompt.txt
+[2026-03-17T06:36:10.239Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T06:36:10.243Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T06:36:58.792Z]   AI: First token received, streaming...
+[2026-03-17T06:36:59.745Z] AI response complete: 30 chars in 49.5s
+[2026-03-17T06:36:59.746Z] Saved AI response to ai_response.json
+[2026-03-17T06:36:59.746Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T06:36:59.747Z]   AI LINK: https://www.selamedical.co.il/
+[2026-03-17T06:36:59.747Z] AI returned 1 valid links
+[2026-03-17T06:36:59.747Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T06:36:59.747Z]   AI→URLS: https://www.selamedical.co.il (cleaned from https://www.selamedical.co.il/)
+[2026-03-17T06:36:59.748Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T06:36:59.749Z] Footer/header origins (5):
+[2026-03-17T06:36:59.749Z]   FOOTER/HEADER ORIGIN: https://www.selamedical.co.il
+[2026-03-17T06:36:59.749Z]   FOOTER/HEADER ORIGIN: https://layer.co.il
+[2026-03-17T06:36:59.749Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T06:36:59.749Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T06:36:59.749Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T06:36:59.750Z]   ADDED: urls <- https://layer.co.il
+[2026-03-17T06:36:59.750Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-17T06:36:59.750Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-17T06:36:59.750Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T06:36:59.750Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T06:36:59.750Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T06:36:59.750Z] ── Step 3: Final dedup ──
+[2026-03-17T06:36:59.751Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T06:36:59.751Z] ── FINAL RESULT ──
+[2026-03-17T06:36:59.751Z]   ws (1):
+[2026-03-17T06:36:59.751Z]     - https://www.selamedical.co.il
+[2026-03-17T06:36:59.751Z]   li (1):
+[2026-03-17T06:36:59.751Z]     - https://www.linkedin.com/company/sela-medical-ltd.
+[2026-03-17T06:36:59.752Z]   fb (1):
+[2026-03-17T06:36:59.752Z]     - https://www.facebook.com/selamedical
+[2026-03-17T06:36:59.752Z]   ig (1):
+[2026-03-17T06:36:59.752Z]     - https://www.instagram.com/sela_medical
+[2026-03-17T06:36:59.752Z]   urls (2):
+[2026-03-17T06:36:59.753Z]     - https://layer.co.il
+[2026-03-17T06:36:59.753Z]     - https://www.selamedical.co.il
+[2026-03-17T06:36:59.753Z] Summary: ws:1, fb:1, ig:1, li:1, urls:2
+[2026-03-17T06:36:59.754Z] Saved final result to result.json
+[2026-03-17T06:36:59.754Z] Override fields: ws, li, fb, ig, urls
+[2026-03-17T06:36:59.754Z] Finished at: 2026-03-17T06:36:59.754Z

@@ -1,0 +1,81 @@
+[2026-03-17T10:31:25.482Z] === Homepage AI Extractor: Moonsite ===
+[2026-03-17T10:31:25.482Z] Started at: 2026-03-17T10:31:25.482Z
+[2026-03-17T10:31:25.482Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773743485481_Moonsite
+[2026-03-17T10:31:25.482Z] Company: Moonsite
+[2026-03-17T10:31:25.482Z] Website: moonsite.co.il
+[2026-03-17T10:31:25.482Z] cbRank: 1660009
+[2026-03-17T10:31:25.482Z] Reasons: h
+[2026-03-17T10:31:25.482Z] Fetching: https://moonsite.co.il
+[2026-03-17T10:31:29.680Z] Redirected: https://moonsite.co.il -> https://www.moonsite.co.il/
+[2026-03-17T10:31:29.683Z] Saved HTML (60006 bytes) to page.html
+[2026-03-17T10:31:29.685Z] Extracted 35 unique links from page
+[2026-03-17T10:31:29.686Z] Saved 35 links to links.json
+[2026-03-17T10:31:29.688Z] Extracted footer HTML (5378 chars)
+[2026-03-17T10:31:29.688Z] Extracted header HTML (3541 chars)
+[2026-03-17T10:31:29.691Z] Website (post-redirect): https://www.moonsite.co.il/ → origin: https://www.moonsite.co.il
+[2026-03-17T10:31:29.692Z]   SUBDOMAIN: jobs.moonsite.co.il (added to ws)
+[2026-03-17T10:31:29.692Z] Website subdomains found: 1
+[2026-03-17T10:31:29.692Z] External links: 6 (of 35 total)
+[2026-03-17T10:31:29.692Z] ── All external links ──
+[2026-03-17T10:31:29.692Z]   EXT: https://goo.gl/maps/vKwBJf9byf32
+[2026-03-17T10:31:29.692Z]   EXT: https://maps.app.goo.gl/zp54yLWJ84Q81bPL7
+[2026-03-17T10:31:29.692Z]   EXT: https://twitter.com/moonsiteltd
+[2026-03-17T10:31:29.692Z]   EXT: https://umbraco.com
+[2026-03-17T10:31:29.692Z]   EXT: https://www.facebook.com/moonsite
+[2026-03-17T10:31:29.693Z]   EXT: https://www.linkedin.com/company/moonsite-software-ltd
+[2026-03-17T10:31:29.693Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T10:31:29.693Z]   UNCATEGORIZED: https://goo.gl/maps/vKwBJf9byf32
+[2026-03-17T10:31:29.693Z]   UNCATEGORIZED: https://maps.app.goo.gl/zp54yLWJ84Q81bPL7
+[2026-03-17T10:31:29.693Z]   REGEX: tw <- https://twitter.com/moonsiteltd
+[2026-03-17T10:31:29.693Z]   UNCATEGORIZED: https://umbraco.com
+[2026-03-17T10:31:29.693Z]   REGEX: fb <- https://www.facebook.com/moonsite
+[2026-03-17T10:31:29.693Z]   REGEX: li <- https://www.linkedin.com/company/moonsite-software-ltd
+[2026-03-17T10:31:29.693Z] Programmatic result: ws:2, tw:1, fb:1, li:1 | 3 uncategorized
+[2026-03-17T10:31:29.693Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T10:31:29.697Z] Saved AI prompt (3773 chars) to ai_prompt.txt
+[2026-03-17T10:31:29.697Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T10:31:29.701Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T10:31:45.257Z]   AI: First token received, streaming...
+[2026-03-17T10:31:51.460Z] AI response complete: 120 chars in 21.8s
+[2026-03-17T10:31:51.461Z] Saved AI response to ai_response.json
+[2026-03-17T10:31:51.461Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T10:31:51.462Z]   AI LINK: https://twitter.com/moonsiteltd
+[2026-03-17T10:31:51.462Z]   AI LINK: https://www.facebook.com/moonsite
+[2026-03-17T10:31:51.462Z]   AI LINK: https://www.linkedin.com/company/moonsite-software-ltd
+[2026-03-17T10:31:51.462Z] AI returned 3 valid links
+[2026-03-17T10:31:51.462Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T10:31:51.463Z]   AI→REGEX: tw <- https://twitter.com/moonsiteltd (duplicate, skipped)
+[2026-03-17T10:31:51.463Z]   AI→REGEX: fb <- https://www.facebook.com/moonsite (duplicate, skipped)
+[2026-03-17T10:31:51.463Z]   AI→REGEX: li <- https://www.linkedin.com/company/moonsite-software-ltd (duplicate, skipped)
+[2026-03-17T10:31:51.464Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T10:31:51.464Z] Footer/header origins (5):
+[2026-03-17T10:31:51.464Z]   FOOTER/HEADER ORIGIN: https://maps.app.goo.gl
+[2026-03-17T10:31:51.464Z]   FOOTER/HEADER ORIGIN: https://goo.gl
+[2026-03-17T10:31:51.464Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-17T10:31:51.465Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T10:31:51.465Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T10:31:51.465Z]   ADDED: urls <- https://goo.gl/maps/vKwBJf9byf32
+[2026-03-17T10:31:51.465Z]   ADDED: urls <- https://maps.app.goo.gl/zp54yLWJ84Q81bPL7
+[2026-03-17T10:31:51.465Z]   SKIP (not in footer/header): https://umbraco.com
+[2026-03-17T10:31:51.465Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-17T10:31:51.466Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T10:31:51.466Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T10:31:51.466Z] ── Step 3: Final dedup ──
+[2026-03-17T10:31:51.466Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T10:31:51.466Z] ── FINAL RESULT ──
+[2026-03-17T10:31:51.467Z]   ws (2):
+[2026-03-17T10:31:51.467Z]     - https://jobs.moonsite.co.il
+[2026-03-17T10:31:51.467Z]     - https://www.moonsite.co.il
+[2026-03-17T10:31:51.467Z]   li (1):
+[2026-03-17T10:31:51.467Z]     - https://www.linkedin.com/company/moonsite-software-ltd
+[2026-03-17T10:31:51.467Z]   fb (1):
+[2026-03-17T10:31:51.468Z]     - https://www.facebook.com/moonsite
+[2026-03-17T10:31:51.468Z]   tw (1):
+[2026-03-17T10:31:51.468Z]     - https://x.com/moonsiteltd
+[2026-03-17T10:31:51.468Z]   urls (2):
+[2026-03-17T10:31:51.468Z]     - https://goo.gl/maps/vKwBJf9byf32
+[2026-03-17T10:31:51.468Z]     - https://maps.app.goo.gl/zp54yLWJ84Q81bPL7
+[2026-03-17T10:31:51.468Z] Summary: ws:2, tw:1, fb:1, li:1, urls:2
+[2026-03-17T10:31:51.469Z] Saved final result to result.json
+[2026-03-17T10:31:51.470Z] Override fields: ws, li, fb, tw, urls
+[2026-03-17T10:31:51.470Z] Finished at: 2026-03-17T10:31:51.470Z

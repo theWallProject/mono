@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="he"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>מטטרון - פיתוח משחקים, פיתוח תוכנה</title>
+	<link href="assets/css/mobile.css" rel="stylesheet" type="text/css">
+<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+<link href="assets/css/carusel.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-V6M1DDVL8N&amp;cx=c&amp;gtm=4e63d1"></script><script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/carusel.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="assets/3d/Build/UnityLoader.js"></script>
+<script src="assets/js/animations.js?a=1"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-11639843-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-11639843-1');
+</script>
+
+
+
+</head>
+<body>
+<script>
+  var myzoom=100;
+  var zoomstep=5;
+  var zoomMax=150;
+  var zoomMin=100;
+  var readableFont='arial';
+  var initFont = $('body').css("font-family");
+  function toggleAccMenu(){
+    if($('.accPanel').css("display")=="none"){
+      $('.accPanel').css('display','flex');
+    }else{
+      $('.accPanel').hide();
+    }
+  }
+  function accClose(){
+    $('.accPanel').hide();
+  }
+  function m_bw(){
+    $('body').removeClass('f_bw f_inv f_con').addClass('f_bw');
+  }
+  function m_inv(){
+    $('body').removeClass('f_bw f_inv f_con').addClass('f_inv');
+  }
+  function m_con(){
+    $('body').removeClass('f_bw f_inv f_con').addClass('f_con');
+  }
+  function m_bigger(){
+    myzoom = Math.min(myzoom+zoomstep , zoomMax);
+    document.body.style.zoom = myzoom+"%";
+  }
+  function m_smaller(){
+    myzoom = Math.max(myzoom-zoomstep , zoomMin);
+    document.body.style.zoom = myzoom+"%";
+  }
+  function m_font(){
+    $('body').css("font-family",readableFont);
+  }
+  function m_reset(){
+    myzoom=100;
+    document.body.style.zoom = myzoom+"%";
+    $('body').removeClass('f_bw f_inv f_con');
+    $('body').css("font-family",initFont);
+  }
+
+  var k_c=false
+  function handleKeyDown(e) {
+    if(e.keyCode==17)k_c=true;
+    if(e.keyCode==73 && k_c){
+      toggleAccMenu();
+    }
+ 
+    if(e.keyCode == 27){
+      accClose();
+    }
+  }
+  function handleKeyUp(e) {
+      if(e.keyCode==17)k_c=false;
+  }
+
+  window.onkeydown = handleKeyDown;
+  window.onkeyup = handleKeyUp;
+
+  function initfocus(){
+    $('.accMenu').focus();
+  }
+  $(function() {
+    initfocus();
+
+    $(window).click(function() {   
+      if($('.accPanel').css("display")!="none"){
+        accClose(); 
+      }
+    });
+
+  });
+</script>
+<style>
+.accMenu{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 120px;
+  right: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+
+}
+.accMenu img{
+  width: 100%;
+  height: auto;
+}
+.accPanel{
+  position: fixed;
+  top: 180px;
+  right: 8px;
+  width: 349px;
+
+  border-radius: 10px;
+  background-color: white;
+  border: solid 1px #0d4ea2;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: none;
+}
+.acb{
+  width: 100px;
+  height: 90px;
+  margin: 5px;
+  cursor: pointer;
+  border: solid 1px gray;
+  border-radius: 5px;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+.acb:hover{
+  background-color: gray;
+}
+.acb .ic{
+  width: 50px;
+  height:50px;
+  margin: auto;
+}
+.acb .ic img{
+  width: 100%;
+}
+.acb .tx{
+    font-size: 16px;
+}
+.f_bw{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.f_inv{
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+.f_con{
+  -webkit-filter: contrast(2);
+  filter: contrast(2);
+}
+
+</style>
+
+<a href="javascript:toggleAccMenu()" class="accMenu" tabindex="0" title="Ctrl+i לפתיחה">
+  <img src="assets/images/acc_menu.png">
+</a>
+
+<!--  onClick="toggleAccMenu();"-->
+
+<div class="accPanel">
+
+  <a href="javascript:m_bw();" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_1.png"></div><div class="tx">ביטול צבעים</div></a>
+  <a href="javascript:m_inv();" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_2.png"></div><div class="tx">היפוך צבעים</div></a>
+  <a href="javascript:m_con();" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_3.png"></div><div class="tx">ניגודיות גבוה</div></a>
+  <a href="javascript:m_bigger();" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_4.png"></div><div class="tx">הגדל גופן</div></a>
+  <a href="javascript:m_smaller();" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_5.png"></div><div class="tx">הקטן גופן</div></a>
+  <a href="javascript:m_font();" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_6.png"></div><div class="tx">גופן קריא</div></a>
+  <a href="acc.pdf" target="_blank" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_8.png"></div><div class="tx">הצהרת נגישות</div></a>
+  <a href="javascript:m_reset();" tabindex="0" class="acb"><div class="ic"><img src="assets/images/acc_icons/acc_7.png"></div><div class="tx">איפוס</div></a>
+
+</div>
+
+<header>
+		<div class="header">
+			<a href="index.php" class="mainLogo"><img src="assets/images/metatron_logo_beta.png" alt="מטטרון"></a>
+			<a href="javascript:$('header div.header nav').toggle();" class="hamburger">
+				<img src="assets/images/menu-button-of-three-horizontal-lines.svg">
+			</a>
+			<nav>
+				<a href="about.php" onclick="return changePage('about.php');">אודות</a>
+				<a href="projects.php" onclick="return changePage('projects.php');">פרויקטים</a>
+				<a href="services.php" onclick="return changePage('services.php');">שירותים</a>
+				<a href="#">בקרוב</a>
+				<!--<a href="contact.php" onClick="return changePage('contact.php');">צור קשר</a>-->
+				<a href="https://metatron.co.il/contactus.php">צור קשר</a>
+				<a href="https://metatron.co.il/index.php?showOld=1">מעבר לאתר הישן</a>
+				
+			</nav>
+		</div>
+	</header>
+<div id="loader">
+		<img src="assets/images/m_preload.gif" id="loader1" style="display: none;">
+		<img src="assets/images/m_loaded.gif" id="loader2" style="display: inline;">
+	</div>
+	<div id="gameContainer" style="padding: 0px; margin: 0px; border: 0px; background: rgb(35, 31, 32);"><canvas id="#canvas" width="1280" height="720" style="width: 100%; height: 100%; cursor: default;"></canvas></div>	
+	<div class="pageContent">
+		<br>
+		<div class="homePageLeftSide mainLeftSide">
+			<img src="assets/images/homepage_main_logo.png" alt="Metatron">
+			<img src="assets/images/homepage_digital_exp.png" alt="Digital Experience">
+		</div>
+	</div>
+
+	<!-- <div class="debugmenu">
+	<button onClick="deb1()">hide preloader</button>
+	<button onClick="gameontop()">game on top</button>
+	<button onClick="disgameontop()">disable game on top</button>
+	</div> -->
+
+
+			<script>
+				function deb1() {
+					$('#loader2').show();
+					$('#loader1').hide();
+					setTimeout('readyToStart()',2000);
+				}
+				function gameontop(){
+					$("#gameContainer").css("z-index","99999");
+					
+				}
+				function disgameontop(){
+					$("#gameContainer").css("z-index","0");
+					
+				}
+			</script>
+
+<script src="blob:https://metatron.co.il/c4a7db62-8b79-4425-8a73-e48f768355f1" id="834f02382ff8f07a060d8aba6808b8c0"></script></body></html>

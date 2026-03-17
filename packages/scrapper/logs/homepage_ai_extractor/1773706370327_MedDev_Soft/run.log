@@ -1,0 +1,80 @@
+[2026-03-17T00:12:50.327Z] === Homepage AI Extractor: MedDev Soft ===
+[2026-03-17T00:12:50.327Z] Started at: 2026-03-17T00:12:50.327Z
+[2026-03-17T00:12:50.327Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773706370327_MedDev_Soft
+[2026-03-17T00:12:50.328Z] Company: MedDev Soft
+[2026-03-17T00:12:50.328Z] Website: meddevsoft.com
+[2026-03-17T00:12:50.328Z] cbRank: 1288115
+[2026-03-17T00:12:50.328Z] Reasons: h
+[2026-03-17T00:12:50.328Z] Fetching: https://meddevsoft.com
+[2026-03-17T00:12:53.756Z] Redirected: https://meddevsoft.com -> https://meddevsoft.com/
+[2026-03-17T00:12:53.764Z] Saved HTML (282872 bytes) to page.html
+[2026-03-17T00:12:53.767Z] Extracted 16 unique links from page
+[2026-03-17T00:12:53.768Z] Saved 16 links to links.json
+[2026-03-17T00:12:53.770Z] Extracted footer HTML (16064 chars)
+[2026-03-17T00:12:53.770Z] Extracted header HTML (4477 chars)
+[2026-03-17T00:12:53.775Z] Website (post-redirect): https://meddevsoft.com/ → origin: https://meddevsoft.com
+[2026-03-17T00:12:53.775Z] External links: 3 (of 16 total)
+[2026-03-17T00:12:53.775Z] ── All external links ──
+[2026-03-17T00:12:53.775Z]   EXT: http://www.bluedot.co.il
+[2026-03-17T00:12:53.775Z]   EXT: https://www.facebook.com/MedDevSoft
+[2026-03-17T00:12:53.775Z]   EXT: https://www.linkedin.com/company/meddevsoft
+[2026-03-17T00:12:53.775Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:12:53.775Z]   UNCATEGORIZED: http://www.bluedot.co.il
+[2026-03-17T00:12:53.775Z]   REGEX: fb <- https://www.facebook.com/MedDevSoft
+[2026-03-17T00:12:53.776Z]   REGEX: li <- https://www.linkedin.com/company/meddevsoft
+[2026-03-17T00:12:53.776Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-17T00:12:53.776Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:12:53.779Z] Saved AI prompt (9123 chars) to ai_prompt.txt
+[2026-03-17T00:12:53.779Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:12:53.782Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:13:32.525Z]   AI: First token received, streaming...
+[2026-03-17T00:13:44.916Z]   AI streaming: 201 chars received (51.1s elapsed)
+[2026-03-17T00:13:45.858Z] AI response complete: 229 chars in 52.1s
+[2026-03-17T00:13:45.859Z] Saved AI response to ai_response.json
+[2026-03-17T00:13:45.859Z] ── Parsing AI response (7 lines) ──
+[2026-03-17T00:13:45.860Z]   AI LINK: https://www.facebook.com/MedDevSoft
+[2026-03-17T00:13:45.860Z]   AI LINK: https://www.linkedin.com/company/meddevsoft/
+[2026-03-17T00:13:45.860Z]   AI LINK: https://meddevsoft.com
+[2026-03-17T00:13:45.860Z]   AI LINK: https://meddevsoft.com/about/
+[2026-03-17T00:13:45.860Z]   AI LINK: https://meddevsoft.com/services/
+[2026-03-17T00:13:45.861Z]   AI LINK: https://meddevsoft.com/portfolio/
+[2026-03-17T00:13:45.861Z]   AI LINK: https://meddevsoft.com/news/
+[2026-03-17T00:13:45.861Z] AI returned 7 valid links
+[2026-03-17T00:13:45.861Z] ── Categorizing 7 AI-returned links ──
+[2026-03-17T00:13:45.861Z]   AI→REGEX: fb <- https://www.facebook.com/MedDevSoft (duplicate, skipped)
+[2026-03-17T00:13:45.862Z]   AI→REGEX: li <- https://www.linkedin.com/company/meddevsoft/ (duplicate, skipped)
+[2026-03-17T00:13:45.862Z]   AI→URLS: https://meddevsoft.com
+[2026-03-17T00:13:45.862Z]   AI→URLS: https://meddevsoft.com/about (cleaned from https://meddevsoft.com/about/)
+[2026-03-17T00:13:45.862Z]   AI→URLS: https://meddevsoft.com/services (cleaned from https://meddevsoft.com/services/)
+[2026-03-17T00:13:45.862Z]   AI→URLS: https://meddevsoft.com/portfolio (cleaned from https://meddevsoft.com/portfolio/)
+[2026-03-17T00:13:45.863Z]   AI→URLS: https://meddevsoft.com/news (cleaned from https://meddevsoft.com/news/)
+[2026-03-17T00:13:45.863Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:13:45.863Z] Footer/header origins (4):
+[2026-03-17T00:13:45.863Z]   FOOTER/HEADER ORIGIN: https://meddevsoft.com
+[2026-03-17T00:13:45.863Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T00:13:45.864Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T00:13:45.864Z]   FOOTER/HEADER ORIGIN: http://www.bluedot.co.il
+[2026-03-17T00:13:45.864Z]   ADDED: urls <- http://www.bluedot.co.il
+[2026-03-17T00:13:45.864Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T00:13:45.864Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:13:45.864Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T00:13:45.864Z] ── Step 3: Final dedup ──
+[2026-03-17T00:13:45.865Z] Dedup: removed 0 of 6 URLs already in specialized fields
+[2026-03-17T00:13:45.865Z] ── FINAL RESULT ──
+[2026-03-17T00:13:45.865Z]   ws (1):
+[2026-03-17T00:13:45.865Z]     - https://meddevsoft.com
+[2026-03-17T00:13:45.865Z]   li (1):
+[2026-03-17T00:13:45.866Z]     - https://www.linkedin.com/company/meddevsoft
+[2026-03-17T00:13:45.866Z]   fb (1):
+[2026-03-17T00:13:45.866Z]     - https://www.facebook.com/meddevsoft
+[2026-03-17T00:13:45.866Z]   urls (6):
+[2026-03-17T00:13:45.866Z]     - http://www.bluedot.co.il
+[2026-03-17T00:13:45.866Z]     - https://meddevsoft.com
+[2026-03-17T00:13:45.866Z]     - https://meddevsoft.com/about
+[2026-03-17T00:13:45.866Z]     - https://meddevsoft.com/news
+[2026-03-17T00:13:45.866Z]     - https://meddevsoft.com/portfolio
+[2026-03-17T00:13:45.867Z]     - https://meddevsoft.com/services
+[2026-03-17T00:13:45.867Z] Summary: ws:1, fb:1, li:1, urls:6
+[2026-03-17T00:13:45.868Z] Saved final result to result.json
+[2026-03-17T00:13:45.868Z] Override fields: ws, li, fb, urls
+[2026-03-17T00:13:45.868Z] Finished at: 2026-03-17T00:13:45.868Z

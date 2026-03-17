@@ -1,0 +1,72 @@
+[2026-03-16T21:50:29.410Z] === Homepage AI Extractor: ITFS Group ===
+[2026-03-16T21:50:29.410Z] Started at: 2026-03-16T21:50:29.410Z
+[2026-03-16T21:50:29.410Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773697829409_ITFS_Group
+[2026-03-16T21:50:29.410Z] Company: ITFS Group
+[2026-03-16T21:50:29.410Z] Website: itfsgroup.com
+[2026-03-16T21:50:29.410Z] cbRank: 1211478
+[2026-03-16T21:50:29.410Z] Reasons: h
+[2026-03-16T21:50:29.410Z] Fetching: https://itfsgroup.com
+[2026-03-16T21:50:40.238Z] Network idle timeout — continuing with current state
+[2026-03-16T21:50:40.271Z] Redirected: https://itfsgroup.com -> https://www.itfsgroup.com/
+[2026-03-16T21:50:40.281Z] Saved HTML (420265 bytes) to page.html
+[2026-03-16T21:50:40.284Z] Extracted 9 unique links from page
+[2026-03-16T21:50:40.287Z] Saved 9 links to links.json
+[2026-03-16T21:50:40.289Z] Extracted footer HTML (11907 chars)
+[2026-03-16T21:50:40.289Z] Extracted header HTML (7265 chars)
+[2026-03-16T21:50:40.293Z] Website (post-redirect): https://www.itfsgroup.com/ → origin: https://www.itfsgroup.com
+[2026-03-16T21:50:40.293Z] External links: 5 (of 9 total)
+[2026-03-16T21:50:40.293Z] ── All external links ──
+[2026-03-16T21:50:40.294Z]   EXT: http://www.facebook.com/wix
+[2026-03-16T21:50:40.294Z]   EXT: http://www.linkedin.com/company/447510?trk=tyah
+[2026-03-16T21:50:40.294Z]   EXT: http://www.twitter.com/wix
+[2026-03-16T21:50:40.294Z]   EXT: https://plus.google.com/117167403531518744294
+[2026-03-16T21:50:40.294Z]   EXT: https://www.facebook.com/itfs.israel.7
+[2026-03-16T21:50:40.294Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T21:50:40.294Z]   REGEX: fb <- http://www.facebook.com/wix
+[2026-03-16T21:50:40.295Z]   REGEX: li <- http://www.linkedin.com/company/447510?trk=tyah
+[2026-03-16T21:50:40.295Z]   REGEX: tw <- http://www.twitter.com/wix
+[2026-03-16T21:50:40.295Z]   UNCATEGORIZED: https://plus.google.com/117167403531518744294
+[2026-03-16T21:50:40.295Z]   REGEX: fb <- https://www.facebook.com/itfs.israel.7
+[2026-03-16T21:50:40.295Z] Programmatic result: ws:1, fb:2, li:1, tw:1 | 1 uncategorized
+[2026-03-16T21:50:40.295Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T21:50:40.296Z] Saved AI prompt (9433 chars) to ai_prompt.txt
+[2026-03-16T21:50:40.296Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T21:50:40.300Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T21:51:25.850Z]   AI: First token received, streaming...
+[2026-03-16T21:51:31.371Z] AI response complete: 45 chars in 51.1s
+[2026-03-16T21:51:31.373Z] Saved AI response to ai_response.json
+[2026-03-16T21:51:31.373Z] ── Parsing AI response (1 lines) ──
+[2026-03-16T21:51:31.373Z]   AI LINK: https://plus.google.com/117167403531518744294
+[2026-03-16T21:51:31.373Z] AI returned 1 valid links
+[2026-03-16T21:51:31.374Z] ── Categorizing 1 AI-returned links ──
+[2026-03-16T21:51:31.374Z]   AI→URLS: https://plus.google.com/117167403531518744294
+[2026-03-16T21:51:31.374Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T21:51:31.374Z] Footer/header origins (6):
+[2026-03-16T21:51:31.374Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-16T21:51:31.375Z]   FOOTER/HEADER ORIGIN: http://www.twitter.com
+[2026-03-16T21:51:31.375Z]   FOOTER/HEADER ORIGIN: https://plus.google.com
+[2026-03-16T21:51:31.375Z]   FOOTER/HEADER ORIGIN: https://www.itfsgroup.com
+[2026-03-16T21:51:31.375Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T21:51:31.375Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-16T21:51:31.375Z]   SKIP (AI claimed): https://plus.google.com/117167403531518744294
+[2026-03-16T21:51:31.375Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-16T21:51:31.375Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T21:51:31.375Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T21:51:31.375Z] ── Step 3: Final dedup ──
+[2026-03-16T21:51:31.375Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-16T21:51:31.376Z] ── FINAL RESULT ──
+[2026-03-16T21:51:31.376Z]   ws (1):
+[2026-03-16T21:51:31.376Z]     - https://www.itfsgroup.com
+[2026-03-16T21:51:31.376Z]   li (1):
+[2026-03-16T21:51:31.376Z]     - https://www.linkedin.com/company/447510
+[2026-03-16T21:51:31.376Z]   fb (2):
+[2026-03-16T21:51:31.376Z]     - https://www.facebook.com/itfs.israel.7
+[2026-03-16T21:51:31.376Z]     - https://www.facebook.com/wix
+[2026-03-16T21:51:31.376Z]   tw (1):
+[2026-03-16T21:51:31.376Z]     - https://x.com/wix
+[2026-03-16T21:51:31.377Z]   urls (1):
+[2026-03-16T21:51:31.377Z]     - https://plus.google.com/117167403531518744294
+[2026-03-16T21:51:31.377Z] Summary: ws:1, fb:2, li:1, tw:1, urls:1
+[2026-03-16T21:51:31.378Z] Saved final result to result.json
+[2026-03-16T21:51:31.379Z] Override fields: ws, li, fb, tw, urls
+[2026-03-16T21:51:31.379Z] Finished at: 2026-03-16T21:51:31.379Z

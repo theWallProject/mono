@@ -1,0 +1,62 @@
+[2026-03-17T05:49:18.083Z] === Homepage AI Extractor: School of Shine ===
+[2026-03-17T05:49:18.083Z] Started at: 2026-03-17T05:49:18.083Z
+[2026-03-17T05:49:18.083Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773726558082_School_of_Shine
+[2026-03-17T05:49:18.084Z] Company: School of Shine
+[2026-03-17T05:49:18.084Z] Website: schoolofshine.com
+[2026-03-17T05:49:18.084Z] cbRank: 1495332
+[2026-03-17T05:49:18.084Z] Reasons: h
+[2026-03-17T05:49:18.084Z] Fetching: https://schoolofshine.com
+[2026-03-17T05:49:29.021Z] Network idle timeout — continuing with current state
+[2026-03-17T05:49:29.062Z] Redirected: https://schoolofshine.com -> https://www.schoolofshine.com/
+[2026-03-17T05:49:29.089Z] Saved HTML (1198924 bytes) to page.html
+[2026-03-17T05:49:29.093Z] Extracted 23 unique links from page
+[2026-03-17T05:49:29.094Z] Saved 23 links to links.json
+[2026-03-17T05:49:29.096Z] Extracted footer HTML (15855 chars)
+[2026-03-17T05:49:29.096Z] Extracted header HTML (16571 chars)
+[2026-03-17T05:49:29.100Z] Website (post-redirect): https://www.schoolofshine.com/ → origin: https://www.schoolofshine.com
+[2026-03-17T05:49:29.101Z] External links: 3 (of 23 total)
+[2026-03-17T05:49:29.101Z] ── All external links ──
+[2026-03-17T05:49:29.101Z]   EXT: http://www.facebook.com/schoolofshine
+[2026-03-17T05:49:29.101Z]   EXT: http://www.instagram.com/schoolofshine
+[2026-03-17T05:49:29.101Z]   EXT: https://www.facebook.com/events/1280207736290816/?ref=newsfeed
+[2026-03-17T05:49:29.101Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:49:29.101Z]   REGEX: fb <- http://www.facebook.com/schoolofshine
+[2026-03-17T05:49:29.101Z]   REGEX: ig <- http://www.instagram.com/schoolofshine
+[2026-03-17T05:49:29.101Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T05:49:29.101Z]   SKIP (regex domain, no match): https://www.facebook.com/events/1280207736290816/?ref=newsfeed
+[2026-03-17T05:49:29.102Z] Programmatic result: ws:1, fb:1, ig:1 | 0 uncategorized
+[2026-03-17T05:49:29.102Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:49:29.105Z] Saved AI prompt (11008 chars) to ai_prompt.txt
+[2026-03-17T05:49:29.105Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:49:29.109Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:50:26.995Z]   AI: First token received, streaming...
+[2026-03-17T05:50:30.517Z] AI response complete: 76 chars in 61.4s
+[2026-03-17T05:50:30.518Z] Saved AI response to ai_response.json
+[2026-03-17T05:50:30.518Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T05:50:30.519Z]   AI LINK: http://www.instagram.com/schoolofshine
+[2026-03-17T05:50:30.519Z]   AI LINK: http://www.facebook.com/schoolofshine
+[2026-03-17T05:50:30.519Z] AI returned 2 valid links
+[2026-03-17T05:50:30.519Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T05:50:30.519Z]   AI→REGEX: ig <- http://www.instagram.com/schoolofshine (duplicate, skipped)
+[2026-03-17T05:50:30.519Z]   AI→REGEX: fb <- http://www.facebook.com/schoolofshine (duplicate, skipped)
+[2026-03-17T05:50:30.520Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:50:30.520Z] Footer/header origins (3):
+[2026-03-17T05:50:30.520Z]   FOOTER/HEADER ORIGIN: https://www.schoolofshine.com
+[2026-03-17T05:50:30.520Z]   FOOTER/HEADER ORIGIN: http://www.instagram.com
+[2026-03-17T05:50:30.520Z]   FOOTER/HEADER ORIGIN: http://www.facebook.com
+[2026-03-17T05:50:30.521Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T05:50:30.521Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:50:30.521Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:50:30.521Z] ── Step 3: Final dedup ──
+[2026-03-17T05:50:30.521Z] No urls to dedup
+[2026-03-17T05:50:30.521Z] ── FINAL RESULT ──
+[2026-03-17T05:50:30.521Z]   ws (1):
+[2026-03-17T05:50:30.522Z]     - https://www.schoolofshine.com
+[2026-03-17T05:50:30.522Z]   fb (1):
+[2026-03-17T05:50:30.522Z]     - https://www.facebook.com/schoolofshine
+[2026-03-17T05:50:30.522Z]   ig (1):
+[2026-03-17T05:50:30.522Z]     - https://www.instagram.com/schoolofshine
+[2026-03-17T05:50:30.522Z] Summary: ws:1, fb:1, ig:1
+[2026-03-17T05:50:30.523Z] Saved final result to result.json
+[2026-03-17T05:50:30.524Z] Override fields: ws, fb, ig
+[2026-03-17T05:50:30.524Z] Finished at: 2026-03-17T05:50:30.524Z

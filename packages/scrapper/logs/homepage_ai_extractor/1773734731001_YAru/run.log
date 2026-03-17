@@ -1,0 +1,68 @@
+[2026-03-17T08:05:31.001Z] === Homepage AI Extractor: YAru ===
+[2026-03-17T08:05:31.001Z] Started at: 2026-03-17T08:05:31.001Z
+[2026-03-17T08:05:31.002Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773734731001_YAru
+[2026-03-17T08:05:31.002Z] Company: YAru
+[2026-03-17T08:05:31.002Z] Website: yarugame.com
+[2026-03-17T08:05:31.002Z] cbRank: 1563611
+[2026-03-17T08:05:31.002Z] Reasons: h
+[2026-03-17T08:05:31.002Z] Fetching: https://yarugame.com
+[2026-03-17T08:05:46.354Z] Network idle timeout — continuing with current state
+[2026-03-17T08:05:46.386Z] Redirected: https://yarugame.com -> https://www.yarugame.com/
+[2026-03-17T08:05:46.388Z] Saved HTML (29992 bytes) to page.html
+[2026-03-17T08:05:46.390Z] Extracted 9 unique links from page
+[2026-03-17T08:05:46.391Z] Saved 9 links to links.json
+[2026-03-17T08:05:46.392Z] Extracted footer HTML (1218 chars)
+[2026-03-17T08:05:46.392Z] No header section found in DOM
+[2026-03-17T08:05:46.396Z] Website (post-redirect): https://www.yarugame.com/ → origin: https://www.yarugame.com
+[2026-03-17T08:05:46.396Z] External links: 6 (of 9 total)
+[2026-03-17T08:05:46.397Z] ── All external links ──
+[2026-03-17T08:05:46.397Z]   EXT: http://tau-innovation.com/startupchallenge
+[2026-03-17T08:05:46.397Z]   EXT: https://play.google.com/store
+[2026-03-17T08:05:46.397Z]   EXT: https://play.google.com/store/apps/details?id=com.yarunaut.yaru
+[2026-03-17T08:05:46.397Z]   EXT: https://www.facebook.com/YaruGame
+[2026-03-17T08:05:46.397Z]   EXT: https://www.facebook.com/groups/TabTaleSuperCasualContest/permalink/1740793959544984
+[2026-03-17T08:05:46.397Z]   EXT: https://www.facebook.com/pg/startau/photos/?tab=album&album_id=1665474890159585
+[2026-03-17T08:05:46.397Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T08:05:46.397Z]   UNCATEGORIZED: http://tau-innovation.com/startupchallenge
+[2026-03-17T08:05:46.397Z]   UNCATEGORIZED: https://play.google.com/store
+[2026-03-17T08:05:46.397Z]   REGEX: android_app_ids <- com.yarunaut.yaru (from https://play.google.com/store/apps/details?id=com.yarunaut.yaru)
+[2026-03-17T08:05:46.398Z]   REGEX: fb <- https://www.facebook.com/YaruGame
+[2026-03-17T08:05:46.398Z]   REGEX: fb <- https://www.facebook.com/pg/startau/photos/?tab=album&album_id=1665474890159585
+[2026-03-17T08:05:46.398Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T08:05:46.398Z]   SKIP (regex domain, no match): https://www.facebook.com/groups/TabTaleSuperCasualContest/permalink/1740793959544984
+[2026-03-17T08:05:46.398Z] Programmatic result: ws:1, android_app_ids:1, fb:2 | 2 uncategorized
+[2026-03-17T08:05:46.398Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T08:05:46.402Z] Saved AI prompt (3114 chars) to ai_prompt.txt
+[2026-03-17T08:05:46.402Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T08:05:46.406Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T08:05:56.046Z]   AI: First token received, streaming...
+[2026-03-17T08:05:56.513Z] AI response complete: 29 chars in 10.1s
+[2026-03-17T08:05:56.514Z] Saved AI response to ai_response.json
+[2026-03-17T08:05:56.514Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T08:05:56.515Z]   AI LINK: https://play.google.com/store
+[2026-03-17T08:05:56.515Z] AI returned 1 valid links
+[2026-03-17T08:05:56.515Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T08:05:56.515Z]   AI→URLS: https://play.google.com/store
+[2026-03-17T08:05:56.515Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T08:05:56.515Z] Footer/header origins (0):
+[2026-03-17T08:05:56.516Z]   SKIP (not in footer/header): http://tau-innovation.com/startupchallenge
+[2026-03-17T08:05:56.516Z]   SKIP (AI claimed): https://play.google.com/store
+[2026-03-17T08:05:56.516Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T08:05:56.516Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T08:05:56.516Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T08:05:56.516Z] ── Step 3: Final dedup ──
+[2026-03-17T08:05:56.516Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T08:05:56.516Z] ── FINAL RESULT ──
+[2026-03-17T08:05:56.517Z]   ws (1):
+[2026-03-17T08:05:56.517Z]     - https://www.yarugame.com
+[2026-03-17T08:05:56.517Z]   fb (2):
+[2026-03-17T08:05:56.517Z]     - https://www.facebook.com/pg
+[2026-03-17T08:05:56.517Z]     - https://www.facebook.com/yarugame
+[2026-03-17T08:05:56.517Z]   urls (1):
+[2026-03-17T08:05:56.517Z]     - https://play.google.com/store
+[2026-03-17T08:05:56.517Z]   android_app_ids (1):
+[2026-03-17T08:05:56.517Z]     - com.yarunaut.yaru
+[2026-03-17T08:05:56.518Z] Summary: ws:1, android_app_ids:1, fb:2, urls:1
+[2026-03-17T08:05:56.518Z] Saved final result to result.json
+[2026-03-17T08:05:56.519Z] Override fields: ws, fb, urls, android_app_ids
+[2026-03-17T08:05:56.519Z] Finished at: 2026-03-17T08:05:56.519Z

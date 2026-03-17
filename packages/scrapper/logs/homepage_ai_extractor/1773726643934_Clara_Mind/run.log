@@ -1,0 +1,71 @@
+[2026-03-17T05:50:43.935Z] === Homepage AI Extractor: Clara Mind ===
+[2026-03-17T05:50:43.935Z] Started at: 2026-03-17T05:50:43.935Z
+[2026-03-17T05:50:43.935Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773726643934_Clara_Mind
+[2026-03-17T05:50:43.935Z] Company: Clara Mind
+[2026-03-17T05:50:43.935Z] Website: claramind.com
+[2026-03-17T05:50:43.935Z] cbRank: 1495836
+[2026-03-17T05:50:43.935Z] Reasons: h
+[2026-03-17T05:50:43.936Z] Fetching: https://claramind.com
+[2026-03-17T05:50:46.776Z] Redirected: https://claramind.com -> https://www.claramind.com/
+[2026-03-17T05:50:46.785Z] Saved HTML (383438 bytes) to page.html
+[2026-03-17T05:50:46.788Z] Extracted 12 unique links from page
+[2026-03-17T05:50:46.789Z] Saved 12 links to links.json
+[2026-03-17T05:50:46.792Z] Extracted footer HTML (21295 chars)
+[2026-03-17T05:50:46.793Z] Extracted header HTML (143249 chars)
+[2026-03-17T05:50:46.796Z] Website (post-redirect): https://www.claramind.com/ → origin: https://www.claramind.com
+[2026-03-17T05:50:46.796Z]   SUBDOMAIN: app.claramind.com (added to ws)
+[2026-03-17T05:50:46.796Z] Website subdomains found: 1
+[2026-03-17T05:50:46.796Z] External links: 4 (of 12 total)
+[2026-03-17T05:50:46.796Z] ── All external links ──
+[2026-03-17T05:50:46.796Z]   EXT: https://play.google.com/store/apps/details?id=com.clara
+[2026-03-17T05:50:46.796Z]   EXT: https://twitter.com/clara_mind
+[2026-03-17T05:50:46.796Z]   EXT: https://www.facebook.com/Claramind-125371945530836
+[2026-03-17T05:50:46.796Z]   EXT: https://www.instagram.com/claramind_app
+[2026-03-17T05:50:46.797Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:50:46.797Z]   REGEX: android_app_ids <- com.clara (from https://play.google.com/store/apps/details?id=com.clara)
+[2026-03-17T05:50:46.797Z]   REGEX: tw <- https://twitter.com/clara_mind
+[2026-03-17T05:50:46.797Z]   REGEX: fb <- https://www.facebook.com/Claramind-125371945530836
+[2026-03-17T05:50:46.797Z]   REGEX: ig <- https://www.instagram.com/claramind_app
+[2026-03-17T05:50:46.797Z] Programmatic result: ws:2, android_app_ids:1, tw:1, fb:1, ig:1 | 0 uncategorized
+[2026-03-17T05:50:46.797Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:50:46.804Z] Saved AI prompt (9992 chars) to ai_prompt.txt
+[2026-03-17T05:50:46.805Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:50:46.807Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:51:41.712Z]   AI: First token received, streaming...
+[2026-03-17T05:51:51.185Z] AI response complete: 122 chars in 64.4s
+[2026-03-17T05:51:51.186Z] Saved AI response to ai_response.json
+[2026-03-17T05:51:51.187Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T05:51:51.187Z]   AI LINK: https://www.facebook.com/Claramind-125371945530836
+[2026-03-17T05:51:51.187Z]   AI LINK: https://www.instagram.com/claramind_app/
+[2026-03-17T05:51:51.187Z]   AI LINK: https://twitter.com/clara_mind
+[2026-03-17T05:51:51.187Z] AI returned 3 valid links
+[2026-03-17T05:51:51.187Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T05:51:51.188Z]   AI→REGEX: fb <- https://www.facebook.com/Claramind-125371945530836 (duplicate, skipped)
+[2026-03-17T05:51:51.188Z]   AI→REGEX: ig <- https://www.instagram.com/claramind_app/ (duplicate, skipped)
+[2026-03-17T05:51:51.188Z]   AI→REGEX: tw <- https://twitter.com/clara_mind (duplicate, skipped)
+[2026-03-17T05:51:51.190Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:51:51.190Z] Footer/header origins (3):
+[2026-03-17T05:51:51.190Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T05:51:51.190Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T05:51:51.190Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-17T05:51:51.191Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T05:51:51.191Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:51:51.191Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:51:51.191Z] ── Step 3: Final dedup ──
+[2026-03-17T05:51:51.191Z] No urls to dedup
+[2026-03-17T05:51:51.192Z] ── FINAL RESULT ──
+[2026-03-17T05:51:51.192Z]   ws (2):
+[2026-03-17T05:51:51.192Z]     - https://app.claramind.com
+[2026-03-17T05:51:51.192Z]     - https://www.claramind.com
+[2026-03-17T05:51:51.192Z]   fb (1):
+[2026-03-17T05:51:51.192Z]     - https://www.facebook.com/claramind-125371945530836
+[2026-03-17T05:51:51.193Z]   tw (1):
+[2026-03-17T05:51:51.193Z]     - https://x.com/clara_mind
+[2026-03-17T05:51:51.193Z]   ig (1):
+[2026-03-17T05:51:51.193Z]     - https://www.instagram.com/claramind_app
+[2026-03-17T05:51:51.193Z]   android_app_ids (1):
+[2026-03-17T05:51:51.193Z]     - com.clara
+[2026-03-17T05:51:51.193Z] Summary: ws:2, android_app_ids:1, tw:1, fb:1, ig:1
+[2026-03-17T05:51:51.194Z] Saved final result to result.json
+[2026-03-17T05:51:51.194Z] Override fields: ws, fb, tw, ig, android_app_ids
+[2026-03-17T05:51:51.195Z] Finished at: 2026-03-17T05:51:51.195Z

@@ -1,0 +1,58 @@
+[2026-03-17T02:44:20.730Z] === Homepage AI Extractor: Casterra Ag ===
+[2026-03-17T02:44:20.730Z] Started at: 2026-03-17T02:44:20.730Z
+[2026-03-17T02:44:20.730Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773715460729_Casterra_Ag
+[2026-03-17T02:44:20.730Z] Company: Casterra Ag
+[2026-03-17T02:44:20.730Z] Website: casterra.co
+[2026-03-17T02:44:20.731Z] cbRank: 1375289
+[2026-03-17T02:44:20.731Z] Reasons: h
+[2026-03-17T02:44:20.731Z] Fetching: https://casterra.co
+[2026-03-17T02:44:24.958Z] Redirected: https://casterra.co -> https://casterra.co/
+[2026-03-17T02:44:24.965Z] Saved HTML (162175 bytes) to page.html
+[2026-03-17T02:44:24.968Z] Extracted 20 unique links from page
+[2026-03-17T02:44:24.969Z] Saved 20 links to links.json
+[2026-03-17T02:44:24.972Z] Extracted footer HTML (10061 chars)
+[2026-03-17T02:44:24.972Z] Extracted header HTML (5691 chars)
+[2026-03-17T02:44:24.976Z] Website (post-redirect): https://casterra.co/ → origin: https://casterra.co
+[2026-03-17T02:44:24.977Z] External links: 2 (of 20 total)
+[2026-03-17T02:44:24.977Z] ── All external links ──
+[2026-03-17T02:44:24.977Z]   EXT: https://www.linkedin.com/company/casterra-ag
+[2026-03-17T02:44:24.977Z]   EXT: https://www.youtube.com/@casterraag
+[2026-03-17T02:44:24.977Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T02:44:24.977Z]   REGEX: li <- https://www.linkedin.com/company/casterra-ag
+[2026-03-17T02:44:24.977Z]   REGEX: ytp <- https://www.youtube.com/@casterraag
+[2026-03-17T02:44:24.977Z] Programmatic result: ws:1, li:1, ytp:1 | 0 uncategorized
+[2026-03-17T02:44:24.977Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T02:44:24.981Z] Saved AI prompt (7779 chars) to ai_prompt.txt
+[2026-03-17T02:44:24.981Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T02:44:24.986Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T02:45:09.882Z]   AI: First token received, streaming...
+[2026-03-17T02:45:13.938Z] AI response complete: 82 chars in 49.0s
+[2026-03-17T02:45:13.940Z] Saved AI response to ai_response.json
+[2026-03-17T02:45:13.940Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T02:45:13.940Z]   AI LINK: https://www.linkedin.com/company/casterra-ag/
+[2026-03-17T02:45:13.940Z]   AI LINK: https://www.youtube.com/@casterraag/
+[2026-03-17T02:45:13.941Z] AI returned 2 valid links
+[2026-03-17T02:45:13.941Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T02:45:13.941Z]   AI→REGEX: li <- https://www.linkedin.com/company/casterra-ag/ (duplicate, skipped)
+[2026-03-17T02:45:13.941Z]   AI→REGEX: ytp <- https://www.youtube.com/@casterraag/ (duplicate, skipped)
+[2026-03-17T02:45:13.942Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T02:45:13.942Z] Footer/header origins (3):
+[2026-03-17T02:45:13.942Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T02:45:13.942Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T02:45:13.943Z]   FOOTER/HEADER ORIGIN: https://casterra.co
+[2026-03-17T02:45:13.943Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T02:45:13.943Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T02:45:13.943Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T02:45:13.943Z] ── Step 3: Final dedup ──
+[2026-03-17T02:45:13.943Z] No urls to dedup
+[2026-03-17T02:45:13.943Z] ── FINAL RESULT ──
+[2026-03-17T02:45:13.944Z]   ws (1):
+[2026-03-17T02:45:13.944Z]     - https://casterra.co
+[2026-03-17T02:45:13.944Z]   li (1):
+[2026-03-17T02:45:13.944Z]     - https://www.linkedin.com/company/casterra-ag
+[2026-03-17T02:45:13.944Z]   ytp (1):
+[2026-03-17T02:45:13.944Z]     - https://www.youtube.com/@casterraag
+[2026-03-17T02:45:13.944Z] Summary: ws:1, li:1, ytp:1
+[2026-03-17T02:45:13.945Z] Saved final result to result.json
+[2026-03-17T02:45:13.946Z] Override fields: ws, li, ytp
+[2026-03-17T02:45:13.946Z] Finished at: 2026-03-17T02:45:13.946Z

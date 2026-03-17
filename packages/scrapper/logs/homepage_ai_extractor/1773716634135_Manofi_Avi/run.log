@@ -1,0 +1,70 @@
+[2026-03-17T03:03:54.135Z] === Homepage AI Extractor: Manofi Avi ===
+[2026-03-17T03:03:54.135Z] Started at: 2026-03-17T03:03:54.135Z
+[2026-03-17T03:03:54.135Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773716634135_Manofi_Avi
+[2026-03-17T03:03:54.136Z] Company: Manofi Avi
+[2026-03-17T03:03:54.136Z] Website: avi-cranes.co.il
+[2026-03-17T03:03:54.136Z] cbRank: 1389571
+[2026-03-17T03:03:54.136Z] Reasons: h
+[2026-03-17T03:03:54.136Z] Fetching: https://avi-cranes.co.il
+[2026-03-17T03:04:06.605Z] Network idle timeout — continuing with current state
+[2026-03-17T03:04:06.646Z] Redirected: https://avi-cranes.co.il -> https://www.avi-cranes.co.il/
+[2026-03-17T03:04:06.666Z] Saved HTML (968503 bytes) to page.html
+[2026-03-17T03:04:06.670Z] Extracted 25 unique links from page
+[2026-03-17T03:04:06.671Z] Saved 25 links to links.json
+[2026-03-17T03:04:06.674Z] Extracted footer HTML (18847 chars)
+[2026-03-17T03:04:06.674Z] Extracted header HTML (6384 chars)
+[2026-03-17T03:04:06.679Z] Website (post-redirect): https://www.avi-cranes.co.il/ → origin: https://www.avi-cranes.co.il
+[2026-03-17T03:04:06.679Z] External links: 4 (of 25 total)
+[2026-03-17T03:04:06.679Z] ── All external links ──
+[2026-03-17T03:04:06.680Z]   EXT: http://www.negishim.org
+[2026-03-17T03:04:06.680Z]   EXT: https://haulotte-community.haulotte.com/a/the-place-of-women-in-the-rental-business-9
+[2026-03-17T03:04:06.680Z]   EXT: https://he-il.facebook.com/groups/340809745439
+[2026-03-17T03:04:06.680Z]   EXT: https://www.youtube.com/channel/UCYr3tTF2X0TGeiUHxSa-ovA
+[2026-03-17T03:04:06.680Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T03:04:06.681Z]   UNCATEGORIZED: http://www.negishim.org
+[2026-03-17T03:04:06.681Z]   UNCATEGORIZED: https://haulotte-community.haulotte.com/a/the-place-of-women-in-the-rental-business-9
+[2026-03-17T03:04:06.681Z]   UNCATEGORIZED: https://he-il.facebook.com/groups/340809745439
+[2026-03-17T03:04:06.681Z]   REGEX: ytc <- https://www.youtube.com/channel/UCYr3tTF2X0TGeiUHxSa-ovA
+[2026-03-17T03:04:06.681Z] Programmatic result: ws:1, ytc:1 | 3 uncategorized
+[2026-03-17T03:04:06.682Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T03:04:06.685Z] Saved AI prompt (2930 chars) to ai_prompt.txt
+[2026-03-17T03:04:06.685Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T03:04:06.689Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T03:04:16.990Z]   AI: First token received, streaming...
+[2026-03-17T03:04:26.933Z] AI response complete: 104 chars in 20.2s
+[2026-03-17T03:04:26.934Z] Saved AI response to ai_response.json
+[2026-03-17T03:04:26.934Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T03:04:26.935Z]   AI LINK: https://www.youtube.com/channel/UCYr3tTF2X0TGeiUHxSa-ovA
+[2026-03-17T03:04:26.935Z]   AI LINK: https://he-il.facebook.com/groups/340809745439/
+[2026-03-17T03:04:26.935Z] AI returned 2 valid links
+[2026-03-17T03:04:26.935Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T03:04:26.935Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCYr3tTF2X0TGeiUHxSa-ovA (duplicate, skipped)
+[2026-03-17T03:04:26.936Z]   AI→URLS: https://he-il.facebook.com/groups/340809745439 (cleaned from https://he-il.facebook.com/groups/340809745439/)
+[2026-03-17T03:04:26.936Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T03:04:26.936Z] Footer/header origins (3):
+[2026-03-17T03:04:26.936Z]   FOOTER/HEADER ORIGIN: https://www.avi-cranes.co.il
+[2026-03-17T03:04:26.936Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T03:04:26.937Z]   FOOTER/HEADER ORIGIN: https://he-il.facebook.com
+[2026-03-17T03:04:26.937Z]   SKIP (not in footer/header): http://www.negishim.org
+[2026-03-17T03:04:26.937Z]   SKIP (not in footer/header): https://haulotte-community.haulotte.com/a/the-place-of-women-in-the-rental-business-9
+[2026-03-17T03:04:26.937Z]   SKIP (AI claimed): https://he-il.facebook.com/groups/340809745439
+[2026-03-17T03:04:26.937Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T03:04:26.937Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T03:04:26.937Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T03:04:27.154Z]   YOUTUBE: resolved UCYr3tTF2X0TGeiUHxSa-ovA → @%D7%9E%D7%A0%D7%95%D7%A4%D7%99%D7%90%D7%91%D7%99-%D7%967%D7
+[2026-03-17T03:04:27.154Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T03:04:27.154Z] ── Step 3: Final dedup ──
+[2026-03-17T03:04:27.155Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T03:04:27.155Z] ── FINAL RESULT ──
+[2026-03-17T03:04:27.155Z]   ws (1):
+[2026-03-17T03:04:27.155Z]     - https://www.avi-cranes.co.il
+[2026-03-17T03:04:27.155Z]   ytp (1):
+[2026-03-17T03:04:27.155Z]     - https://www.youtube.com/@%D7%9E%D7%A0%D7%95%D7%A4%D7%99%D7%90%D7%91%D7%99-%D7%967%D7
+[2026-03-17T03:04:27.155Z]   ytc (1):
+[2026-03-17T03:04:27.155Z]     - https://www.youtube.com/channel/UCYr3tTF2X0TGeiUHxSa-ovA
+[2026-03-17T03:04:27.155Z]   urls (1):
+[2026-03-17T03:04:27.156Z]     - https://he-il.facebook.com/groups/340809745439
+[2026-03-17T03:04:27.156Z] Summary: ws:1, ytc:1, urls:1, ytp:1
+[2026-03-17T03:04:27.157Z] Saved final result to result.json
+[2026-03-17T03:04:27.157Z] Override fields: ws, ytp, ytc, urls
+[2026-03-17T03:04:27.157Z] Finished at: 2026-03-17T03:04:27.157Z

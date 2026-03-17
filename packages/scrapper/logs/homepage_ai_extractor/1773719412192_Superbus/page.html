@@ -1,0 +1,804 @@
+<!DOCTYPE html><html lang="he"><head></head><body onload="getNews()">
+    
+
+    <meta charset="utf-8">
+    
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-4XKGZDL4F7&amp;cx=c&amp;_slc=1"></script><script src="https://connect.facebook.net/signals/config/608626577161690?v=2.9.280&amp;r=stable&amp;domain=superbus.co.il&amp;hme=b758cff5989f970d61536a685dcccfaabd7a9508da12548b3811a55c83b2e4ae&amp;ex_m=101%2C194%2C143%2C22%2C69%2C70%2C136%2C65%2C64%2C11%2C151%2C87%2C16%2C130%2C123%2C72%2C75%2C129%2C148%2C153%2C8%2C4%2C5%2C7%2C6%2C3%2C88%2C98%2C154%2C159%2C208%2C59%2C175%2C176%2C52%2C264%2C30%2C71%2C220%2C219%2C218%2C23%2C32%2C100%2C58%2C10%2C60%2C94%2C95%2C96%2C102%2C126%2C31%2C29%2C128%2C125%2C124%2C144%2C73%2C147%2C145%2C146%2C47%2C57%2C119%2C15%2C150%2C42%2C251%2C252%2C250%2C26%2C27%2C28%2C45%2C137%2C74%2C109%2C18%2C20%2C41%2C37%2C39%2C38%2C80%2C89%2C93%2C107%2C135%2C138%2C43%2C108%2C24%2C21%2C115%2C66%2C35%2C140%2C139%2C141%2C132%2C131%2C25%2C34%2C56%2C106%2C149%2C67%2C17%2C142%2C111%2C78%2C63%2C19%2C82%2C83%2C112%2C81%2C33%2C280%2C201%2C190%2C191%2C189%2C283%2C275%2C49%2C202%2C104%2C127%2C77%2C117%2C51%2C44%2C46%2C110%2C116%2C122%2C55%2C61%2C50%2C53%2C97%2C152%2C1%2C120%2C14%2C118%2C12%2C2%2C54%2C90%2C62%2C114%2C86%2C85%2C155%2C156%2C91%2C92%2C9%2C121%2C99%2C48%2C133%2C84%2C76%2C68%2C113%2C103%2C40%2C134%2C0%2C79%2C36%2C105%2C13%2C157" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script src="js/jquery-2.2.3.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="css/‏‏stylesheet.css">
+    <script>
+        function openCloseMenu(){
+            x = document.getElementById('hamburger').src;
+            console.log(x.indexOf("hamburger"));
+            if (x.indexOf("hamburger")>0){
+                document.getElementById('mobileSubMenu').style.display='inline';
+                document.getElementById('hamburger').src="cut/mClose.svg";
+            }
+            else{
+                document.getElementById('mobileSubMenu').style.display='none';
+                document.getElementById('hamburger').src="cut/hamburger.svg";
+            }
+        }
+    </script>
+    
+    <title>סופרבוס - חברת התחבורה בעמקים ובירושלים</title>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-74509615-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '608626577161690');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src=https://www.facebook.com/tr?id=608626577161690&ev=PageView&noscript=1/></noscript>
+    <script>
+        function setData(){
+            document.getElementById("toTochen").innerHTML = "עבור לתוכן ראשי";
+        }
+
+        function forgetData(){
+            document.getElementById("toTochen").innerHTML = "";
+        }
+
+        function handle(e){
+            if(e.keyCode === 13 || e.keyCode === 9){
+                document.getElementById("toTochen").innerHTML = "";
+                e.preventDefault(); 
+            }
+        }
+    </script>
+
+
+<div class="topSection">
+    <div class="logo">
+        <a href="main.asp" alt="מעבר לעמוד הראשי" tabindex="1"><div style="float:right;width:200px;height:100%"><img src="cut/box0.png" alt="מעבר לעמוד הראשי" style="width:100%;height:100%"></div></a>
+        <a href="#tochen" style="color:white;position:fixed;right:200px;top:10px;" id="toTochen" tabindex="1" onfocus="setData()" onblur="forgetData()" onkeypress="handle(event)"></a>
+        <div class="topMenuSection">
+            <div id="m1" class="oneItem" onmouseover="something('m1')" onkeyup="something('m1')" tabindex="1">
+                <div class="topEmpty">&nbsp;</div>
+                <div class="oneIcon"><img src="cut/info.svg" style="max-height:100%" alt=""></div>
+                <div class="text">מידע לנוסע</div>
+            </div>
+            <div id="sm1" style="position:absolute;top:130px;left:0px;width:180px;height:auto;background-color:#FFFFFF;box-shadow: 0px 3px 6px #00000029;display:none;color:#5B5B5B;height:auto">
+                
+                    <a href="inner.asp?page=72" tabindex="1"><div class="oneMenuItem">תכנון מסלול</div></a>
+                    
+                    <a href="inner.asp?page=46" tabindex="1"><div class="oneMenuItem">שאלות נפוצות</div></a>
+                    
+                    <a href="inner.asp?page=45" tabindex="1"><div class="oneMenuItem">שרותי נגישות</div></a>
+                    
+                    <a href="inner.asp?page=50" tabindex="1"><div class="oneMenuItem">מרכזי שירות</div></a>
+                       
+            </div>
+            <div id="m2" class="oneItem" onmouseover="something('m2')" onkeyup="something('m2')" tabindex="1">
+                <div class="topEmpty">&nbsp;</div>
+                <div class="oneIcon"><img src="cut/ravkav.svg" style="max-height:100%" alt=""></div>
+                <div class="text">רב קו</div>
+            </div>
+            <div id="sm2" style="position:absolute;top:130px;left:0px;width:180px;height:auto;background-color:#FFFFFF;box-shadow: 0px 3px 6px #00000029;display:none;color:#5B5B5B;height:auto">
+                
+                    <a href="inner.asp?page=73" tabindex="1"><div class="oneMenuItem">רפורמת צדק תחבורתי</div></a>
+                    
+                    <a href="inner.asp?page=38" tabindex="1"><div class="oneMenuItem">רב קו</div></a>
+                    
+                    <a href="inner.asp?page=43" tabindex="1"><div class="oneMenuItem">רכישת כרטיסים</div></a>
+                    
+                    <a href="inner.asp?page=71" tabindex="1"><div class="oneMenuItem">תעריף מוגדל</div></a>
+                    
+                    <a href="inner.asp?page=57" tabindex="1"><div class="oneMenuItem">סטודנטים</div></a>
+                      
+            </div>
+            <div id="m3" class="oneItem" onmouseover="something('m3')" onkeyup="something('m3')" tabindex="1">
+                <div class="topEmpty">&nbsp;</div>
+                <div class="oneIcon"><img src="cut/wanted.svg" style="max-height:100%" alt=""></div>
+                <div class="text">דרושים</div>
+            </div>
+            <div id="sm3" style="position:absolute;top:130px;left:0px;width:180px;height:auto;background-color:#FFFFFF;box-shadow: 0px 3px 6px #00000029;display:none;color:#5B5B5B;height:auto">
+                
+                    <a href="inner.asp?page=35" tabindex="1"><div class="oneMenuItem">הצגת משרות</div></a>
+                    
+                    <a href="inner.asp?page=67" tabindex="1"><div class="oneMenuItem">ביה"ס לתחבורה</div></a>
+                     
+            </div>
+            <div id="m4" class="oneItem" onmouseover="something('m4')" onkeyup="something('m4')" tabindex="1">
+                <div class="topEmpty">&nbsp;</div>
+                <div class="oneIcon"><img src="cut/environment.svg" style="max-height:100%" alt=""></div>
+                <div class="text">איכות הסביבה</div>
+            </div>
+            <div id="sm4" style="position:absolute;top:130px;left:0px;width:180px;height:auto;background-color:#FFFFFF;box-shadow: 0px 3px 6px #00000029;display:none;color:#5B5B5B;height:auto">
+                
+                    <a href="inner.asp?page=54" tabindex="1"><div class="oneMenuItem">תקן פליטת זיהום אוויר</div></a>
+                     
+            </div>
+            <div id="m5" class="oneItem" onmouseover="something('m5')" onkeyup="something('m5')" tabindex="1">
+                <div class="topEmpty">&nbsp;</div>
+                <div class="oneIcon"><img src="cut/about.svg" style="max-height:100%" alt=""></div>
+                <div class="text">אודות</div>
+            </div>
+            <div id="sm5" style="position:absolute;top:130px;left:0px;width:180px;height:auto;background-color:#FFFFFF;box-shadow: 0px 3px 6px #00000029;display:none;color:#5B5B5B;height:auto">
+                
+                    <a href="inner.asp?page=30" tabindex="1"><div class="oneMenuItem">מי אנחנו</div></a>
+                    
+                    <a href="inner.asp?page=55" tabindex="1"><div class="oneMenuItem">חזון החברה</div></a>
+                    
+                    <a href="inner.asp?page=34" tabindex="1"><div class="oneMenuItem">קשרי קהילה</div></a>
+                    
+                    <a href="inner.asp?page=51" tabindex="1"><div class="oneMenuItem">הסעים ותיור</div></a>
+                     
+            </div>
+            <div id="m6" class="oneItem" onmouseover="something('m6')" onkeyup="something('m6')" tabindex="1">
+                <div class="topEmpty">&nbsp;</div>
+                <div class="oneIcon"><img src="cut/contact.svg" style="max-height:100%" alt=""></div>
+                <div class="text">יצירת קשר</div>
+            </div>
+            <div id="sm6" style="position:absolute;top:130px;left:0px;width:180px;height:auto;background-color:#FFFFFF;box-shadow: 0px 3px 6px #00000029;display:none;color:#5B5B5B;height:auto">
+                
+                    <a href="inner.asp?page=39" tabindex="1"><div class="oneMenuItem">צור קשר</div></a>
+                    
+                    <a href="inner.asp?page=49" tabindex="1"><div class="oneMenuItem">אבידות ומציאות</div></a>
+                     
+            </div>
+        </div>
+        <div class="languages">
+            <div style="float:right;margin-left:10px">
+                <a href="http://superbus.co.il/en"><img src="cut/eng.png" alt="קישור לאתר באנגלית"></a>
+            </div>
+            <div style="float:right;margin-left:10px">
+                <a href="http://superbus.co.il/ar"><img src="cut/arb.png" alt="קישור לאתר בערבית"></a>
+            </div>
+        </div>
+        <div class="mobileMenu" onclick="openCloseMenu()" onkeypress="openCloseMenu()" tabindex="1"><img id="hamburger" src="cut/hamburger.svg"></div>
+    </div> 
+</div>
+<!--<a href="inner.asp?page=lines">
+    <div class="mobileSearch">
+        <div style="float:right;width:100%;height:40px;backgorund-color:white;margin-bottom:2px;color:#2C2C2C;background-color:white;padding:5px;font-weight:bold">תכנון מסלול</div>
+        <div class="oneSection" style="background-color:#315FA3;cursor:pointer" onclick="location.href='inner.asp?page=72'">
+            <div class="image"><img src="cut/destSearch.svg" style="max-width:100%" /></div>
+            <div class="text" style="color:white">חיפוש <br />לפי מוצא ויעד</div>
+        </div>
+        <a href="https://moovitapp.com/israel-1/poi/he" style="color:white" target="_blank"><div class="oneSection" style="background-color:#197481">
+                <div class="image"><img src="cut/timeSearch.svg" style="max-width:100%" /></div>
+                <div class="text" style="color:white">חיפוש<br /> זמן אמת</div>
+            </div></a>
+            <a href="inner.asp?page=lines" style="color:white"><div class="oneSection" style="background-color:#0C806F;border-bottom-right-radius: 25px;">
+                <div class="image"><img src="cut/lineSearch.svg" style="max-width:100%"  /></div>
+                <div class="text" style="color:white">חיפוש<br /> לפי קו</div>
+            </div></a>
+    </div>
+</a>-->
+
+    <div class="searchArea" style="z-index:7;margin-top:-20px">
+        <iframe src="carousel6.html" class="carousel" scrolling="no" tabindex="1"></iframe>
+    </div>
+        <a name="tochen">
+        </a><div class="searchIn"><a name="tochen">
+            <div class="title">
+                <div style="float:right;margin-left:0.5rem"><img src="cut/zoom.png"></div>
+                <div style="float:right;width:75%"><input id="freeSearch" style="width:100%;height:40px;border:0px;font-size:1.5rem;color:#000;font-family:Heebo-Regular;outline:none" placeholder="חיפוש חופשי"></div>
+            </div>
+            <!--<a href="https://www.bus.co.il/otobusimmvc" style="color:white" target="_blank">-->
+            </a><a href="inner.asp?page=72"><div class="oneSection" style="background-color:#315FA3;cursor:pointer">
+                <div class="image"><img src="cut/destSearch.svg"></div>
+                <div class="text" style="color:white">חיפוש <br>לפי מוצא ויעד</div>
+            </div></a>
+            <!--</a>-->
+            <a href="https://moovitapp.com/israel-1/poi/he" style="color:white" target="_blank" alt="קישור לאתר מוביט" title="קישור לאתר מוביט"><div class="oneSection" style="background-color:#197481">
+                <div class="image"><img src="cut/timeSearch.svg" aria-label="העברה לאתר מוביט"></div>
+                <div class="text">חיפוש<br> זמן אמת</div>
+            </div></a>
+            <a href="inner.asp?page=lines" style="color:white"><div class="oneSection" style="background-color:#0C806F">
+                <div class="image"><img src="cut/lineSearch.svg"></div>
+                <div class="text">חיפוש<br> לפי קו</div>
+            </div></a>
+        </div>
+        
+        
+        <div class="areas">
+            <div class="mobileSearch">
+                <div style="float:right;width:33.33%;height:100%;background-color:#0C806F;padding:5px;cursor:pointer" onclick="location.href='inner.asp?page=72'">
+                    <div style="float:right;width:33%"><img src="cut/destSearch.svg" style="max-width:90%;margin-top:10px"></div>
+                    <div style="float:right;width:58%;margin-right:5%;color:white">חיפוש <br>לפי מוצא ויעד</div>
+                </div>
+                <a href="https://moovitapp.com/israel-1/poi/he" style="color:white" target="_blank">
+                <div style="float:right;width:33.33%;height:100%;background-color:#197481;padding:5px">
+                    <div style="float:right;width:33%"><img src="cut/timeSearch.svg" style="max-width:90%;margin-top:10px"></div>
+                    <div style="float:right;width:58%;margin-right:5%;color:white">חיפוש<br> זמן אמת</div>
+                </div>
+                </a>
+                <a href="inner.asp?page=lines" style="color:white">
+                <div style="float:right;width:33.33%;height:100%;background-color:#315FA3;padding:5px">
+                    <div style="float:right;width:33%"><img src="cut/lineSearch.svg" style="max-width:90%;margin-top:10px"></div>
+                    <div style="float:right;width:58%;margin-right:5%;color:white">חיפוש<br> לפי קו</div>
+                </div>
+                </a>
+            </div>
+            <div class="areasIn">
+                <div class="oneArea" style="border-top: 10px solid #003E7E"><a href="inner.asp?page=lines&amp;subTitle=some&amp;area=22">אשכול ירושלים</a></div>
+                <div class="oneArea" style="border-top: 10px solid #008A5E"><a href="inner.asp?page=lines&amp;subTitle=some&amp;area=16">אשכול עמקים</a></div>
+                <div class="oneArea" style="border-top: 10px solid #8A5E00"><a href="inner.asp?page=lines&amp;subTitle=some&amp;area=24">אשכול גוש דן</a></div>
+                <div class="oneArea" style="border-top:10px solid #A7CF3C">
+                    <a href="http://metronit.co.il"><div class="matronit" style="color:#2C2C2C">מטרונית חיפה</div></a>
+                </div>
+                <div class="oneArea" style="border-top:10px solid #D84091;color:#2C2C2C"><a href="inner.asp?page=39">מוקד סופרבוס</a></div>
+            </div>
+        </div>
+
+    
+    <div class="news">
+        <div class="newsInner">
+            <h1 class="title" style="margin-bottom:10px;font-size:32px">סופרבוס - איתך בכל דרך</h1>
+            <h2 class="title">עדכונים וחדשות</h2>
+            <button aria-label="לפריט הבא" class="oneArrow" style="background-color:transparent;border:0px" onclick="nextNews()"><img src="cut/arrowRight.svg"></button>
+            <div class="items">
+                
+                    <div id="news1" class="oneItem" style="background-color:#F3F7F8">
+                        <div class="title">&nbsp;</div>
+                        <div class="data" style="border-right:4px solid #003E7E">
+                            <div class="date">
+                                <div id="news11" class="onePart">3/15/2026</div><div class="onePart">13:04</div>
+                            </div>
+                            <a href="inner.asp?page=news&amp;item=5168">
+                            <div class="text" id="news12" title="עדכון פעילות התחבורה הציבורית ליום ב’ ה-16/3/26" aria-label="קרא עוד אודות עדכון פעילות התחבורה הציבורית ליום ב’ ה-16/3">
+                                עדכון פעילות התחבורה הציבורית ליום ב’ ה-16/3
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div id="news2" class="oneItem" style="background-color:#F3F7F8">
+                        <div class="title">&nbsp;</div>
+                        <div class="data" style="border-right:4px solid #003E7E">
+                            <div class="date">
+                                <div id="news21" class="onePart">3/15/2026</div><div class="onePart">13:04</div>
+                            </div>
+                            <a href="inner.asp?page=news&amp;item=5169">
+                            <div class="text" id="news22" title="יבנאל, חסימת כביש בשיכון עליון - 16.03.26" aria-label="קרא עוד אודות יבנאל, חסימת כביש בשיכון עליון - 16.03.26">
+                                יבנאל, חסימת כביש בשיכון עליון - 16.03.26
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div id="news3" class="oneItem" style="background-color:#F3F7F8">
+                        <div class="title">&nbsp;</div>
+                        <div class="data" style="border-right:4px solid #003E7E">
+                            <div class="date">
+                                <div id="news31" class="onePart">3/13/2026</div><div class="onePart">13:04</div>
+                            </div>
+                            <a href="inner.asp?page=news&amp;item=5167">
+                            <div class="text" id="news32" title="ראשון לציון, עדכון וביטול תחנה קבוע לקו 85 - החל מתאריך 16.03.26" aria-label="קרא עוד אודות ראשון לציון, עדכון וביטול תחנה קבוע לקו 85 - החל מ">
+                                ראשון לציון, עדכון וביטול תחנה קבוע לקו 85 - החל מ
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div id="news4" class="oneItem" style="background-color:#F3F7F8">
+                        <div class="title">&nbsp;</div>
+                        <div class="data" style="border-right:4px solid #003E7E">
+                            <div class="date">
+                                <div id="news41" class="onePart">2/28/2026</div><div class="onePart">13:04</div>
+                            </div>
+                            <a href="inner.asp?page=news&amp;item=5156">
+                            <div class="text" id="news42" title="עדכון פעילות התחבורה הציבורית בשל המצב הביטחוני - החל מתאריך 28.02.26" aria-label="קרא עוד אודות עדכון פעילות התחבורה הציבורית בשל המצב הביטחוני - ">
+                                עדכון פעילות התחבורה הציבורית בשל המצב הביטחוני - 
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            <button aria-label="לפריט הקודם" class="oneArrow" style="background-color:transparent;border:0px" onclick="prevNews()"><img src="cut/arrowLeft.svg"></button>
+        </div>
+    </div>
+    
+    <div class="allUpdates">
+        <a href="inner.asp?page=news"><div class="updatesIn">כל העדכונים</div></a>
+    </div>
+    <div class="banners compOnly">
+    <div class="bannersIn">
+        
+        <div class="right">
+            <!--<div style="float:right;width:100%;height:100%">
+                <div style="float:right;width:77.6%">
+                    <div style="float:right;width:100%"><img src="images/a.jpg"></div>
+                </div>
+                <div style="float:right;width:22.4%">
+                    <div style="float:right;width:100%"><a href="pdf/540_heb.pdf" target="_blank" alt="קובץ מידע לגבי קו 540 בעברית"><img src="images/b.jpg" style="width:100%"></a>
+                    </div>
+                    <div style="float:right;width:100%">
+                        <a href="pdf/540_arb.pdf" target="_blank" alt="קובץ מיידע לגבי קו 540 בערבית">
+                        <img src="images/c.jpg" style="width:100%">
+                        </a>
+                    </div>
+                    <div style="float:right;width:100%">
+                        <a href="pdf/540_eng.pdf" target="_blank" alt="קובץ מידע לגבי קו 540 באנגלית">
+                        <img src="images/d.jpg" style="width:100%">
+                        </a>
+                    </div>
+                </div>
+            </div>-->
+            <!--<div class="bottomBanners" style="margin-top:-264px;height:264px;width:30%;margin-left:0px;float:left">
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/rosh_2023_he.pdf" target="_blank" alt="קישור לקובץ בעברית" title="קישור לקובץ בעברית"><div style="float:left;width:100%;height:100%">&nbsp;</div></a>
+                </div>                
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/rosh_2023_ar.pdf" target="_blank" alt="קישור לקובץ בערבית" title="קישור לקובץ בערבית"><div style="float:left;width:100%;height:100%">&nbsp;</div></a>
+                    
+                </div>
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/rosh_2023_en.pdf" target="_blank" alt="קישור לקובץ באנגלית" title="קישור לקובץ באנגלית"><div style="float:left;width:100%;height:100%">&nbsp;</div></a>
+                    
+                </div>
+                
+            </div>-->
+            <!--<div class="bottomBanners">
+                <div alt="קישור לקובץ באנגלית" style="float:left;width:20%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/rosh_2023_en.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+                <div alt="קישור לקובץ בערבית" style="float:left;width:10%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/rosh_2023_ar.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+                <div alt="קישור לקובץ בעברית" style="float:left;width:10%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/rosh_2023_he.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+            </div>-->
+            
+            <!--<div style="float:right;width:100%;height:100%">
+                <a href="https://www.latet.org.il/pesach2023/?utm_source=google&utm_medium=cpa" target="blank">
+                <img src="cut/banner_latet.jpg" style="width:100%">
+                </a>
+            </div>-->
+            <!--<div style="float:right;width:100%;height:100%">
+            <img src="cut/banner_shava.jpg" style="width:100%">
+            </div>
+            <div class="bottomBanners">
+                <div style="float:left;width:15%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="https://pti.org.il/derekh-shava/" target="_blank"><div style="float:left;width:90%;height:60px">&nbsp;</div></a></div>
+                <div style="float:left;width:15%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/shava_arabic.pdf" target="_blank"><div style="float:left;width:90%;height:60px">&nbsp;</div></a></div>
+            </div>-->
+            <!--<div style="float:right;width:100%;height:100%">
+                <a href="https://kav-layla.co.il/Web/He/Default.aspx" target="_blank"><img src="cut/banner_chanuka.jpg" style="width:100%"></a>
+            </div>-->
+            <!--<div style="float:right;width:100%;height:100%">
+                <img src="images/banner_163.jpg" style="width:100%" alt="קו 163">
+            </div>--> 
+            <!--<div class="bottomBanners" style="margin-top:-264px;height:264px;width:30%;margin-left:0px;float:left">
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/b_163_heb.pdf" target="_blank"><div style="float:left;width:18%;height:100%">&nbsp;</div></a>
+                    
+                </div>                
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/b_163_arb.pdf" target="_blank"><div style="float:left;width:18%;height:100%">&nbsp;</div></a>
+                    
+                </div>
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                   <a href="pdf/b_163_eng.pdf" target="_blank"><div style="float:left;width:18%;height:100%">&nbsp;</div></a>
+                    
+                </div>-->
+                <!--<div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="https://youtu.be/tNCgW-yhhHk" target="_blank"><div style="float:left;width:18%;height:100%">&nbsp;</div></a>
+                    <a href="pdf/kav5_ru.pdf" target="_blank"><div style="float:left;width:18%;height:100%">&nbsp;</div></a>
+                    
+                </div>
+            </div>-->
+        </div>
+        <div class="left">
+            <!--<div style="float:right;width:100%;height:100%">
+                <a href="pdf/9095_file.pdf" target="_blank" alt="החל מיום שישי 1/12/2023 יח בכסלו תשפד חברת סופרבוס מפעילה קו חדש - 95 ומשדרגת קו קיים - 90. נעבור את הדרך הזאת יחד">
+                <img src="images/banner_95.jpg" style="width:100%">
+                </a>
+            </div>-->
+            <!--<div style="float:right;width:100%;height:100%">
+                <a href="pdf/binder1.pdf" target="_blank" alt="תגבור בפסח">
+                <img src="images/sukot23.jpg" style="width:100%" alt="סוכות 2023"  title="סוכות 2023">
+                </a>
+            </div>
+            <div class="bottomBanners">
+                <div alt="קישור לקובץ באנגלית" style="float:left;width:20%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/sukot_2023_en.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+                <div alt="קישור לקובץ בערבית" style="float:left;width:10%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/sukot_2023_ar.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+                <div alt="קישור לקובץ בעברית" style="float:left;width:10%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/sukot_2023_he.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+            </div>
+
+            <div class="bottomBanners" style="margin-top:-264px;height:264px;width:30%;margin-left:0px;float:left">
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/sukot_2023_he.pdf" target="_blank" alt="קישור לקובץ בעברית" title="קישור לקובץ בעברית"><div style="float:left;width:100%;height:100%">&nbsp;</div></a>
+                </div>                
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/sukot_2023_ar.pdf" target="_blank" alt="קישור לקובץ בערבית" title="קישור לקובץ בערבית"><div style="float:left;width:100%;height:100%">&nbsp;</div></a>
+                    
+                </div>
+                <div style="float:left;width:100%;height:25%;background-color:transparent">
+                    <a href="pdf/sukot_2023_en.pdf" target="_blank" alt="קישור לקובץ באנגלית" title="קישור לקובץ באנגלית"><div style="float:left;width:100%;height:100%">&nbsp;</div></a>
+                    
+                </div>
+                
+            </div>-->
+            
+        </div>
+        <!--<div class="left">
+            <a href="pdf/tveria1.pdf" target="_blank"><img src="images/tverias.jpg" style="width:100%"></a>-->
+            <!--<a href="pdf/zofim1.pdf" target="_blank"><img src="images/517s.jpg" style="width:100%"></a>    -->
+            <!--<img src="images/passover.jpg" style="width:100%"/>
+        </div>-->
+        
+            <!--<div style="float:right;width:100%;height:100%">
+                <img src="cut/banner_jer_2502.jpg" style="width:100%" alt="תחנות בירושלים">
+            </div> 
+            <div class="bottomBanners" style="margin-top:-264px;height:264px">
+                <div style="float:left;width:72%;height:164px;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/74_78_heb.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+                <div style="float:left;width:30%;height:60px;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/74_78_eng.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+                <div style="float:left;width:30%;height:60px;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/74_78_ar.pdf" target="_blank"><div style="float:right;width:100%;height:100%">&nbsp;</div></a></div>
+            </div>
+        </div>-->
+        <!--<div class="left">
+            <div style="float:right;width:100%;height:100%">
+                <a href="pdf/migdal_heb.pdf"><img src="cut/migdal_bottom.png" style="width:100%"></a>
+            </div> 
+            <div class="bottomBanners">
+                <div style="float:left;width:100%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/migdal_rus.jpg" target="_blank"><div style="float:left;width:100%;height:60px">&nbsp;</div></a></div>
+            </div>
+            <div class="bottomBanners">
+                <div style="float:left;width:20%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/new_met_eng.pdf" target="_blank"><div style="float:left;width:90%;height:60px">&nbsp;</div></a></div>
+                <div style="float:left;width:20%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/new_met_arb.pdf" target="_blank"><div style="float:left;width:90%;height:60px">&nbsp;</div></a></div>
+                <div style="float:left;width:20%;height:100%;background-color:transparent;border-radius:20px;text-align:center;padding-top:4px"><a href="pdf/new_met_heb.pdf" target="_blank"><div style="float:left;width:90%;height:60px">&nbsp;</div></a></div>
+            </div>
+        </div>-->
+        <!--<div class="right"><img src="cut/bannerRight.png" style="width:100%" /></div>
+        <div class="left">
+            <div style="float:right;width:100%;height:100%">
+                <img src="cut/banner_jer.jpg" style="width:100%" />
+            </div>
+            <div style="float:left;width:30%;height:40px;margin-top:-75px;text-align:left;margin-left:1%">
+                <div style="float:right;width:30%;margin-left:5%;height:100%;background-color:#EAEAEA;border-radius:20px;text-align:center;padding-top:4px"><a href="docs/Alon-A5-web.pdf" target="_blank">עברית</a></div>
+                <div style="float:right;width:30%;margin-left:5%;height:100%;background-color:#EAEAEA;border-radius:20px;text-align:center;padding-top:4px"><a href="docs/Alon-A5-english web.pdf" target="_blank">English</a></div>
+                <div style="float:right;width:30%;height:100%;background-color:#EAEAEA;border-radius:20px;text-align:center;padding-top:4px"><a href="docs/Alon-A5-arabic web.pdf" target="_blank">العربية</a></div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!--<div class="footer">
+    <div class="footerIn">
+        <div class="oneSection">
+            <div class="title">מידע לנוסע</div>
+            
+                <a href="inner.asp?page=72" style="color:white"><div class="text">תכנון מסלול</div></a>
+                
+                <a href="inner.asp?page=46" style="color:white"><div class="text">שאלות נפוצות</div></a>
+                
+                <a href="inner.asp?page=45" style="color:white"><div class="text">שרותי נגישות</div></a>
+                
+                <a href="inner.asp?page=50" style="color:white"><div class="text">מרכזי שירות</div></a>
+                   
+            <a href="https://www.rail.co.il/" target="_blank"><div class="text" style="color:white">רכבת ישראל</div></a>
+            <a href="https://www.cfir.co.il/" target="_blank"><div class="text" style="color:white">כפיר - רכבת קלה ירושלים</div></a>
+        </div>
+        <div class="oneSection">
+            <div class="title">רב קו</div>
+            
+                <a href="inner.asp?page=73" style="color:white"><div class="text">רפורמת צדק תחבורתי</div></a>
+                
+                <a href="inner.asp?page=38" style="color:white"><div class="text">רב קו</div></a>
+                
+                <a href="inner.asp?page=43" style="color:white"><div class="text">רכישת כרטיסים</div></a>
+                
+                <a href="inner.asp?page=71" style="color:white"><div class="text">תעריף מוגדל</div></a>
+                
+                <a href="inner.asp?page=57" style="color:white"><div class="text">סטודנטים</div></a>
+                    
+        </div>
+        <div class="oneSection">
+            <div class="title">דרושים</div>
+            
+                <a href="inner.asp?page=35" style="color:white" ><div class="text">הצגת משרות</div></a>
+                
+                <a href="inner.asp?page=67" style="color:white" ><div class="text">ביה"ס לתחבורה</div></a>
+                    
+            <div class="title1">איכות הסביבה</div>
+            
+                <a href="inner.asp?page=54" style="color:white" ><div class="text">תקן פליטת זיהום אוויר</div></a>
+                   
+        </div>
+        <div class="oneSection">
+            <div class="title">אודות</div>
+            
+                <a href="inner.asp?page=30" style="color:white" ><div class="text">מי אנחנו</div></a>
+                
+                <a href="inner.asp?page=55" style="color:white" ><div class="text">חזון החברה</div></a>
+                
+                <a href="inner.asp?page=34" style="color:white" ><div class="text">קשרי קהילה</div></a>
+                
+                <a href="inner.asp?page=51" style="color:white" ><div class="text">הסעים ותיור</div></a>
+                  
+        </div>
+        <div class="oneSection">
+            <div class="title">יצירת קשר</div>
+            <div class="text">מוקד 1-700-700-181</div>
+            <div class="text">כתובת ת.ד 511</div>
+            <div class="text">מודיעין 7171801</div>
+            <div class="text">בדואר אלקטרוני <a href="inner.asp?page=contactForm" style="color:white;text-decoration:underline">צור קשר</a></div>
+            <div class="text">פקס 073-2226135</div>
+            
+        </div>
+        <div style="float:right;width:100%;height:20px">&nbsp;</div>
+        <a href="https://www.facebook.com/SuperBus.IL" target="_blank">
+        <div style="float:right;width:100%;color:white;font-size:1.1rem;font-family:Heebo-Medium">
+            <div style="float:right;margin-left:0.5rem"><img src="cut/facebook.png"></div>
+            <div style="float:right;padding-top:3px">בקרו אותנו בפייסבוק</div>
+        </div>
+        </a>
+    </div>
+</div>-->
+<div style="float:right;width:100%;height:80px;background-color:#5B5B5B">
+    <div style="margin:0px auto;max-width:500px;padding-top:5px;color:white;text-align:center">
+        <a href="inner.asp?page=69" style="color:white"><div style="float:right;width:25%">פרטיות</div></a>
+        <a href="inner.asp?page=45" style="color:white"><div style="float:right;width:25%">הצהרת נגישות</div></a>
+        <a href="inner.asp?page=70" style="color:white"><div style="float:right;width:25%">פרטי שימוש</div></a>
+        <a href="inner.asp?page=75" style="color:white"><div style="float:right;width:25%">מפת האתר</div></a>
+    </div>
+</div>
+<div id="mobileSubMenu" class="mobileSubMenu" style="padding:10px" tabindex="1">
+    <div style="float:right;width:100%;color:white;padding:10px">
+        <div id="mm1" style="float:right;width:100%;font-size:1.33rem" tabindex="1" onclick="openCloseSubMenu(this.id)" onkeypress="openCloseSubMenu(this.id)">מידע לנוסע</div>   
+        <div id="msm1" style="float:right;width:100%;display:none">
+        
+            <a href="inner.asp?page=72"><div class="oneMenuItem">תכנון מסלול</div></a>
+            
+            <a href="inner.asp?page=46"><div class="oneMenuItem">שאלות נפוצות</div></a>
+            
+            <a href="inner.asp?page=45"><div class="oneMenuItem">שרותי נגישות</div></a>
+            
+            <a href="inner.asp?page=50"><div class="oneMenuItem">מרכזי שירות</div></a>
+            
+        </div>
+    </div>
+    <div style="float:right;width:100%;color:white;padding:10px">
+        <div id="mm2" style="float:right;width:100%;font-size:1.33rem" onclick="openCloseSubMenu(this.id)">רב קו</div>
+        <div id="msm2" style="float:right;width:100%;display:none">
+        
+            <a href="inner.asp?page=73"><div class="oneMenuItem">רפורמת צדק תחבורתי</div></a>
+            
+            <a href="inner.asp?page=38"><div class="oneMenuItem">רב קו</div></a>
+            
+            <a href="inner.asp?page=43"><div class="oneMenuItem">רכישת כרטיסים</div></a>
+            
+            <a href="inner.asp?page=71"><div class="oneMenuItem">תעריף מוגדל</div></a>
+            
+            <a href="inner.asp?page=57"><div class="oneMenuItem">סטודנטים</div></a>
+            
+        </div>
+    </div>
+    <div style="float:right;width:100%;color:white;padding:10px">
+        <div id="mm3" style="float:right;width:100%;font-size:1.33rem" onclick="openCloseSubMenu(this.id)">דרושים</div>
+        <div id="msm3" style="float:right;width:100%;display:none">
+        
+            <a href="inner.asp?page=35"><div class="oneMenuItem">הצגת משרות</div></a>
+            
+            <a href="inner.asp?page=67"><div class="oneMenuItem">ביה"ס לתחבורה</div></a>
+            
+        </div>
+    </div>
+    <div style="float:right;width:100%;color:white;padding:10px">
+        <div id="mm4" style="float:right;width:100%;font-size:1.33rem" onclick="openCloseSubMenu(this.id)">איכות הסביבה</div>
+        <div id="msm4" style="float:right;width:100%;display:none">
+        
+            <a href="inner.asp?page=54"><div class="oneMenuItem">תקן פליטת זיהום אוויר</div></a>
+            
+        </div>
+    </div>
+    <div style="float:right;width:100%;color:white;padding:10px">
+        <div id="mm5" style="float:right;width:100%;font-size:1.33rem" onclick="openCloseSubMenu(this.id)">אודות</div>
+        <div id="msm5" style="float:right;width:100%;display:none">
+        
+            <a href="inner.asp?page=30"><div class="oneMenuItem">מי אנחנו</div></a>
+            
+            <a href="inner.asp?page=55"><div class="oneMenuItem">חזון החברה</div></a>
+            
+            <a href="inner.asp?page=34"><div class="oneMenuItem">קשרי קהילה</div></a>
+            
+            <a href="inner.asp?page=51"><div class="oneMenuItem">הסעים ותיור</div></a>
+            
+        </div>
+    </div>
+    <div style="float:right;width:100%;color:white;padding:10px">
+        <div id="mm6" style="float:right;width:100%;font-size:1.33rem" onclick="openCloseSubMenu(this.id)">צור קשר</div>
+        <div id="msm6" style="float:right;width:100%;display:none">
+        
+            <a href="inner.asp?page=39"><div class="oneMenuItem">צור קשר</div></a>
+            
+            <a href="inner.asp?page=49"><div class="oneMenuItem">אבידות ומציאות</div></a>
+            
+        </div>
+    </div>
+</div>
+<div id="subMenu" style="position:absolute;top:130px;left:0px;width:180px;height:auto;background-color:#FFFFFF;box-shadow: 0px 3px 6px #00000029;display:none">
+</div>
+   
+
+<script>
+        var myVar1;
+        var myVar2;
+        var myVar3;
+        var myVar4;
+        var myVar5;
+        var myVar6;
+        var menuItem;
+        var hgt;
+
+        (function() {
+            document.onmousemove = handleMouseMove;
+            function handleMouseMove(event) {
+                var eventDoc, doc, body;
+
+                event = event || window.event; // IE-ism
+
+                // If pageX/Y aren't available and clientX/Y are,
+                // calculate pageX/Y - logic taken from jQuery.
+                // (This is to support old IE)
+                if (event.pageX == null && event.clientX != null) {
+                    eventDoc = (event.target && event.target.ownerDocument) || document;
+                    doc = eventDoc.documentElement;
+                    body = eventDoc.body;
+
+                    event.pageX = event.clientX +
+                      (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+                      (doc && doc.clientLeft || body && body.clientLeft || 0);
+                    event.pageY = event.clientY +
+                      (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+                      (doc && doc.clientTop  || body && body.clientTop  || 0 );
+                }
+
+                if (event.pageY>hgt){
+                    for (i = 1; i <= 6; i++) {
+                        document.getElementById("sm" + i + "").style.display = "none";
+                    }
+                }
+
+                // Use event.pageX / event.pageY here
+            }
+        })();
+
+        
+        function showData() {
+            document.getElementById("data").innerHTML = window.innerWidth+","+window.innerHeight;
+        }
+        function something(x) {
+            //document.getElementById("subMenu").style.left = (document.getElementById(x).offsetLeft - document.getElementById(x).offsetWidth)+"px";
+            //document.getElementById("subMenu").style.width = document.getElementById(x).offsetWidth*2+"px";
+            //document.getElementById("subMenu").style.display = "inline";
+            y = x.charAt(1);
+            menuItem = y;
+            for (i = 1; i <= 6; i++) {
+                document.getElementById("sm" + i + "").style.display = "none";
+            }
+            document.getElementById("sm"+y).style.left = (document.getElementById(x).offsetLeft - document.getElementById(x).offsetWidth)+"px";
+            document.getElementById("sm"+y).style.width = document.getElementById(x).offsetWidth*2+"px";
+            document.getElementById("sm"+y).style.display = "inline";
+            //document.getElementById("sm" + y + "").style.display = "inline";
+            switch (parseInt(y)){
+                case 3: case 4: case 6: hgt = 250; break;
+                case 1: case 2: hgt = 380; break; 
+                case 5: hgt = 330; break;
+            }
+            
+        }
+        function openCloseSubMenu(x){
+            y = x.charAt(2);
+            $("#msm"+y+"").slideToggle();
+        }
+
+        // Get the input field
+        var input = document.getElementById("freeSearch");
+
+        // Execute a function when the user releases a key on the keyboard
+        input.addEventListener("keyup", function(event) {
+          // Number 13 is the "Enter" key on the keyboard
+          if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            location.href="inner.asp?page=lines&subTitle=some&search="+document.getElementById("freeSearch").value+"";
+          }
+        });
+</script>
+    <script>
+        var obj, obj1;
+        var current=0;
+        var current1=0;
+        var total1;
+        var myVar, myVar1;
+
+        function prevNews(){
+            current-=2;
+            if (current<0) current+=obj.items.length;
+            clearInterval(myVar);
+            newsFunc();
+            myVar = setInterval(newsFunc, 5000);
+        }
+
+        function nextNews(){
+            clearInterval(myVar);
+            newsFunc();
+            myVar = setInterval(newsFunc, 5000);
+        }
+
+        function newsFunc(){
+            for (i=1;i<=4;i++){
+                if ((i+current)<obj.items.length){
+                    document.getElementById("news"+i+"2").innerHTML = obj.items[i+current].title.substring(0,50);
+                    document.getElementById("news"+i+"1").innerHTML = obj.items[i+current].date;
+                }
+                else{
+                    document.getElementById("news"+i+"2").innerHTML = obj.items[i+current-obj.items.length].title.substring(0,50);
+                    document.getElementById("news"+i+"1").innerHTML = obj.items[i+current-obj.items.length].date;
+                }
+            }
+            current++;
+            if (current>=obj.items.length) current=0;
+        }
+
+        function imagesFunc(){
+            current1++;
+            if (current1>=total1) current1=0;
+            console.log(current1+","+total1);
+            x = window.innerWidth;
+            if (x>800){
+                document.getElementById("mainImage").style.backgroundImage="url('images/"+obj1.items[current1].theFile+"')";
+            }
+            else
+            {
+                document.getElementById("mainImage").style.backgroundImage="url('images/"+obj1.items[current1].smallFile+"')";
+                document.getElementById("mainImage").style.backgroundPosition="center 100px";
+                document.getElementById("mainImage").style.backgroundSize="100% auto";
+                document.getElementById("mainImage").style.backgroundRepeat="no-repeat";
+            }
+        }
+
+        function getImages(){
+            $.ajax({
+                url: "getImages.asp",
+                type: "GET",
+                crossDomain: true,
+                async: true,
+                success: function (result) {
+                    obj1 = JSON.parse(result); 
+                    total1 = obj1.items.length;
+                    current1=-1;
+                    imagesFunc();
+                    myVar1 = setInterval(imagesFunc, 3000);
+                },
+                error: function (jqXHR, status) {
+
+                }
+            });
+        }
+
+        function getNews(){
+            $.ajax({
+                url: "getNews.asp",
+                type: "GET",
+                crossDomain: true,
+                async: true,
+                success: function (result) {
+                    obj = JSON.parse(result); 
+                    myVar = setInterval(newsFunc, 5000);
+                    getImages();
+                },
+                error: function (jqXHR, status) {
+
+                }
+            });
+        }
+    </script>
+
+</body></html>

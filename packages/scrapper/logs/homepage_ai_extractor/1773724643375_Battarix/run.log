@@ -1,0 +1,74 @@
+[2026-03-17T05:17:23.376Z] === Homepage AI Extractor: Battarix ===
+[2026-03-17T05:17:23.376Z] Started at: 2026-03-17T05:17:23.376Z
+[2026-03-17T05:17:23.376Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773724643375_Battarix
+[2026-03-17T05:17:23.376Z] Company: Battarix
+[2026-03-17T05:17:23.377Z] Website: battarix.com
+[2026-03-17T05:17:23.377Z] cbRank: 1477570
+[2026-03-17T05:17:23.377Z] Reasons: h
+[2026-03-17T05:17:23.377Z] Fetching: https://battarix.com
+[2026-03-17T05:17:27.236Z] Redirected: https://battarix.com -> https://battarix.com/
+[2026-03-17T05:17:27.248Z] Saved HTML (494763 bytes) to page.html
+[2026-03-17T05:17:27.252Z] Extracted 24 unique links from page
+[2026-03-17T05:17:27.252Z] Saved 24 links to links.json
+[2026-03-17T05:17:27.255Z] Extracted footer HTML (24486 chars)
+[2026-03-17T05:17:27.255Z] Extracted header HTML (489 chars)
+[2026-03-17T05:17:27.260Z] Website (post-redirect): https://battarix.com/ → origin: https://battarix.com
+[2026-03-17T05:17:27.261Z] External links: 5 (of 24 total)
+[2026-03-17T05:17:27.261Z] ── All external links ──
+[2026-03-17T05:17:27.261Z]   EXT: https://apps.shopify.com/pdf-uploader
+[2026-03-17T05:17:27.261Z]   EXT: https://web.facebook.com/Battarix
+[2026-03-17T05:17:27.261Z]   EXT: https://www.instagram.com/battarix_/?hl=en
+[2026-03-17T05:17:27.261Z]   EXT: https://www.linkedin.com/company/battarix
+[2026-03-17T05:17:27.261Z]   EXT: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-17T05:17:27.261Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:17:27.262Z]   UNCATEGORIZED: https://apps.shopify.com/pdf-uploader
+[2026-03-17T05:17:27.262Z]   REGEX: fb <- https://web.facebook.com/Battarix
+[2026-03-17T05:17:27.262Z]   REGEX: ig <- https://www.instagram.com/battarix_/?hl=en
+[2026-03-17T05:17:27.262Z]   REGEX: li <- https://www.linkedin.com/company/battarix
+[2026-03-17T05:17:27.262Z]   UNCATEGORIZED: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-17T05:17:27.263Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 2 uncategorized
+[2026-03-17T05:17:27.263Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:17:27.264Z] Saved AI prompt (4724 chars) to ai_prompt.txt
+[2026-03-17T05:17:27.264Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:17:27.268Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:17:47.898Z]   AI: First token received, streaming...
+[2026-03-17T05:17:55.071Z] AI response complete: 119 chars in 27.8s
+[2026-03-17T05:17:55.073Z] Saved AI response to ai_response.json
+[2026-03-17T05:17:55.073Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T05:17:55.073Z]   AI LINK: https://web.facebook.com/Battarix
+[2026-03-17T05:17:55.073Z]   AI LINK: https://www.instagram.com/battarix_/?hl=en
+[2026-03-17T05:17:55.074Z]   AI LINK: https://www.linkedin.com/company/battarix/
+[2026-03-17T05:17:55.074Z] AI returned 3 valid links
+[2026-03-17T05:17:55.074Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T05:17:55.074Z]   AI→REGEX: fb <- https://web.facebook.com/Battarix (duplicate, skipped)
+[2026-03-17T05:17:55.074Z]   AI→REGEX: ig <- https://www.instagram.com/battarix_/?hl=en (duplicate, skipped)
+[2026-03-17T05:17:55.075Z]   AI→REGEX: li <- https://www.linkedin.com/company/battarix/ (duplicate, skipped)
+[2026-03-17T05:17:55.075Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:17:55.075Z] Footer/header origins (5):
+[2026-03-17T05:17:55.076Z]   FOOTER/HEADER ORIGIN: https://battarix.com
+[2026-03-17T05:17:55.076Z]   FOOTER/HEADER ORIGIN: https://web.facebook.com
+[2026-03-17T05:17:55.076Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T05:17:55.076Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T05:17:55.076Z]   FOOTER/HEADER ORIGIN: https://www.shopify.com
+[2026-03-17T05:17:55.076Z]   SKIP (not in footer/header): https://apps.shopify.com/pdf-uploader
+[2026-03-17T05:17:55.077Z]   ADDED: urls <- https://www.shopify.com (cleaned from https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore)
+[2026-03-17T05:17:55.077Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T05:17:55.077Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:17:55.077Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:17:55.077Z] ── Step 3: Final dedup ──
+[2026-03-17T05:17:55.077Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T05:17:55.077Z] ── FINAL RESULT ──
+[2026-03-17T05:17:55.077Z]   ws (1):
+[2026-03-17T05:17:55.078Z]     - https://battarix.com
+[2026-03-17T05:17:55.078Z]   li (1):
+[2026-03-17T05:17:55.078Z]     - https://www.linkedin.com/company/battarix
+[2026-03-17T05:17:55.078Z]   fb (1):
+[2026-03-17T05:17:55.078Z]     - https://www.facebook.com/battarix
+[2026-03-17T05:17:55.078Z]   ig (1):
+[2026-03-17T05:17:55.079Z]     - https://www.instagram.com/battarix_
+[2026-03-17T05:17:55.079Z]   urls (1):
+[2026-03-17T05:17:55.079Z]     - https://www.shopify.com
+[2026-03-17T05:17:55.079Z] Summary: ws:1, fb:1, ig:1, li:1, urls:1
+[2026-03-17T05:17:55.080Z] Saved final result to result.json
+[2026-03-17T05:17:55.080Z] Override fields: ws, li, fb, ig, urls
+[2026-03-17T05:17:55.081Z] Finished at: 2026-03-17T05:17:55.081Z

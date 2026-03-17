@@ -1,0 +1,67 @@
+[2026-03-17T04:43:00.722Z] === Homepage AI Extractor: Gornitzky & Co ===
+[2026-03-17T04:43:00.722Z] Started at: 2026-03-17T04:43:00.722Z
+[2026-03-17T04:43:00.722Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773722580721_Gornitzky_&_Co
+[2026-03-17T04:43:00.722Z] Company: Gornitzky & Co
+[2026-03-17T04:43:00.722Z] Website: gornitzky.com
+[2026-03-17T04:43:00.722Z] cbRank: 1454808
+[2026-03-17T04:43:00.723Z] Reasons: h
+[2026-03-17T04:43:00.723Z] Fetching: https://gornitzky.com
+[2026-03-17T04:43:05.354Z] Redirected: https://gornitzky.com -> https://www.gornitzky.com/
+[2026-03-17T04:43:05.360Z] Saved HTML (166449 bytes) to page.html
+[2026-03-17T04:43:05.366Z] Extracted 66 unique links from page
+[2026-03-17T04:43:05.367Z] Saved 66 links to links.json
+[2026-03-17T04:43:05.369Z] Extracted footer HTML (2889 chars)
+[2026-03-17T04:43:05.369Z] Extracted header HTML (26641 chars)
+[2026-03-17T04:43:05.373Z] Website (post-redirect): https://www.gornitzky.com/ → origin: https://www.gornitzky.com
+[2026-03-17T04:43:05.373Z] External links: 4 (of 66 total)
+[2026-03-17T04:43:05.373Z] ── All external links ──
+[2026-03-17T04:43:05.373Z]   EXT: https://www.facebook.com/Gornitzky
+[2026-03-17T04:43:05.373Z]   EXT: https://www.gornitzky.co.il
+[2026-03-17T04:43:05.373Z]   EXT: https://www.layer.co.il
+[2026-03-17T04:43:05.373Z]   EXT: https://www.linkedin.com/company/gornitzky
+[2026-03-17T04:43:05.374Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T04:43:05.374Z]   REGEX: fb <- https://www.facebook.com/Gornitzky
+[2026-03-17T04:43:05.374Z]   UNCATEGORIZED: https://www.gornitzky.co.il
+[2026-03-17T04:43:05.374Z]   UNCATEGORIZED: https://www.layer.co.il
+[2026-03-17T04:43:05.374Z]   REGEX: li <- https://www.linkedin.com/company/gornitzky
+[2026-03-17T04:43:05.374Z] Programmatic result: ws:1, fb:1, li:1 | 2 uncategorized
+[2026-03-17T04:43:05.374Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T04:43:05.377Z] Saved AI prompt (3383 chars) to ai_prompt.txt
+[2026-03-17T04:43:05.377Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T04:43:05.381Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T04:43:17.542Z]   AI: First token received, streaming...
+[2026-03-17T04:43:18.230Z] AI response complete: 27 chars in 12.9s
+[2026-03-17T04:43:18.232Z] Saved AI response to ai_response.json
+[2026-03-17T04:43:18.232Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T04:43:18.232Z]   AI LINK: https://www.gornitzky.co.il
+[2026-03-17T04:43:18.232Z] AI returned 1 valid links
+[2026-03-17T04:43:18.232Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T04:43:18.233Z]   AI→URLS: https://www.gornitzky.co.il
+[2026-03-17T04:43:18.234Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T04:43:18.234Z] Footer/header origins (5):
+[2026-03-17T04:43:18.234Z]   FOOTER/HEADER ORIGIN: https://www.gornitzky.com
+[2026-03-17T04:43:18.234Z]   FOOTER/HEADER ORIGIN: https://www.layer.co.il
+[2026-03-17T04:43:18.234Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T04:43:18.234Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T04:43:18.234Z]   FOOTER/HEADER ORIGIN: https://www.gornitzky.co.il
+[2026-03-17T04:43:18.235Z]   SKIP (AI claimed): https://www.gornitzky.co.il
+[2026-03-17T04:43:18.235Z]   ADDED: urls <- https://www.layer.co.il
+[2026-03-17T04:43:18.235Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T04:43:18.235Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T04:43:18.235Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T04:43:18.235Z] ── Step 3: Final dedup ──
+[2026-03-17T04:43:18.235Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T04:43:18.235Z] ── FINAL RESULT ──
+[2026-03-17T04:43:18.236Z]   ws (1):
+[2026-03-17T04:43:18.236Z]     - https://www.gornitzky.com
+[2026-03-17T04:43:18.236Z]   li (1):
+[2026-03-17T04:43:18.236Z]     - https://www.linkedin.com/company/gornitzky
+[2026-03-17T04:43:18.236Z]   fb (1):
+[2026-03-17T04:43:18.236Z]     - https://www.facebook.com/gornitzky
+[2026-03-17T04:43:18.236Z]   urls (2):
+[2026-03-17T04:43:18.236Z]     - https://www.gornitzky.co.il
+[2026-03-17T04:43:18.236Z]     - https://www.layer.co.il
+[2026-03-17T04:43:18.236Z] Summary: ws:1, fb:1, li:1, urls:2
+[2026-03-17T04:43:18.238Z] Saved final result to result.json
+[2026-03-17T04:43:18.238Z] Override fields: ws, li, fb, urls
+[2026-03-17T04:43:18.238Z] Finished at: 2026-03-17T04:43:18.238Z

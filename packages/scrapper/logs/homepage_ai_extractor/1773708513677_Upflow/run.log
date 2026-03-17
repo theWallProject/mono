@@ -1,0 +1,66 @@
+[2026-03-17T00:48:33.678Z] === Homepage AI Extractor: Upflow ===
+[2026-03-17T00:48:33.678Z] Started at: 2026-03-17T00:48:33.678Z
+[2026-03-17T00:48:33.678Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773708513677_Upflow
+[2026-03-17T00:48:33.678Z] Company: Upflow
+[2026-03-17T00:48:33.678Z] Website: upflow-tec.com
+[2026-03-17T00:48:33.678Z] cbRank: 1306972
+[2026-03-17T00:48:33.679Z] Reasons: h
+[2026-03-17T00:48:33.679Z] Fetching: https://upflow-tec.com
+[2026-03-17T00:48:36.980Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-17T00:48:39.967Z] Redirected: https://upflow-tec.com -> https://www.upflow-tec.com/
+[2026-03-17T00:48:39.985Z] Saved HTML (771823 bytes) to page.html
+[2026-03-17T00:48:39.987Z] Extracted 31 unique links from page
+[2026-03-17T00:48:40.016Z] Saved 31 links to links.json
+[2026-03-17T00:48:40.019Z] Extracted footer HTML (14276 chars)
+[2026-03-17T00:48:40.019Z] Extracted header HTML (11539 chars)
+[2026-03-17T00:48:40.023Z] Website (post-redirect): https://www.upflow-tec.com/ → origin: https://www.upflow-tec.com
+[2026-03-17T00:48:40.023Z] External links: 3 (of 31 total)
+[2026-03-17T00:48:40.023Z] ── All external links ──
+[2026-03-17T00:48:40.023Z]   EXT: https://forms.monday.com/forms/a6ca0f9b11cdfe343ed4324213320a0b?r=euc1
+[2026-03-17T00:48:40.023Z]   EXT: https://www.facebook.com/upflowtec?locale=he_IL
+[2026-03-17T00:48:40.023Z]   EXT: https://www.linkedin.com/company/38144202/admin/feed/posts/?feedType=following
+[2026-03-17T00:48:40.023Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:48:40.023Z]   UNCATEGORIZED: https://forms.monday.com/forms/a6ca0f9b11cdfe343ed4324213320a0b?r=euc1
+[2026-03-17T00:48:40.023Z]   REGEX: fb <- https://www.facebook.com/upflowtec?locale=he_IL
+[2026-03-17T00:48:40.023Z]   REGEX: li <- https://www.linkedin.com/company/38144202/admin/feed/posts/?feedType=following
+[2026-03-17T00:48:40.023Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-17T00:48:40.023Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:48:40.031Z] Saved AI prompt (7517 chars) to ai_prompt.txt
+[2026-03-17T00:48:40.031Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:48:40.035Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:49:16.557Z]   AI: First token received, streaming...
+[2026-03-17T00:49:26.360Z] AI response complete: 153 chars in 46.3s
+[2026-03-17T00:49:26.361Z] Saved AI response to ai_response.json
+[2026-03-17T00:49:26.361Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T00:49:26.362Z]   AI LINK: https://www.upflow-tec.com
+[2026-03-17T00:49:26.362Z]   AI LINK: https://www.linkedin.com/company/38144202/admin/feed/posts/?feedType=following
+[2026-03-17T00:49:26.362Z]   AI LINK: https://www.facebook.com/upflowtec?locale=he_IL
+[2026-03-17T00:49:26.362Z] AI returned 3 valid links
+[2026-03-17T00:49:26.362Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T00:49:26.362Z]   AI→URLS: https://www.upflow-tec.com
+[2026-03-17T00:49:26.363Z]   AI→REGEX: li <- https://www.linkedin.com/company/38144202/admin/feed/posts/?feedType=following (duplicate, skipped)
+[2026-03-17T00:49:26.363Z]   AI→REGEX: fb <- https://www.facebook.com/upflowtec?locale=he_IL (duplicate, skipped)
+[2026-03-17T00:49:26.363Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:49:26.363Z] Footer/header origins (3):
+[2026-03-17T00:49:26.363Z]   FOOTER/HEADER ORIGIN: https://www.upflow-tec.com
+[2026-03-17T00:49:26.363Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T00:49:26.364Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T00:49:26.364Z]   SKIP (not in footer/header): https://forms.monday.com/forms/a6ca0f9b11cdfe343ed4324213320a0b?r=euc1
+[2026-03-17T00:49:26.364Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T00:49:26.364Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:49:26.364Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T00:49:26.364Z] ── Step 3: Final dedup ──
+[2026-03-17T00:49:26.364Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T00:49:26.365Z] ── FINAL RESULT ──
+[2026-03-17T00:49:26.365Z]   ws (1):
+[2026-03-17T00:49:26.365Z]     - https://www.upflow-tec.com
+[2026-03-17T00:49:26.365Z]   li (1):
+[2026-03-17T00:49:26.365Z]     - https://www.linkedin.com/company/38144202
+[2026-03-17T00:49:26.365Z]   fb (1):
+[2026-03-17T00:49:26.365Z]     - https://www.facebook.com/upflowtec
+[2026-03-17T00:49:26.365Z]   urls (1):
+[2026-03-17T00:49:26.366Z]     - https://www.upflow-tec.com
+[2026-03-17T00:49:26.366Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-17T00:49:26.367Z] Saved final result to result.json
+[2026-03-17T00:49:26.367Z] Override fields: ws, li, fb
+[2026-03-17T00:49:26.367Z] Finished at: 2026-03-17T00:49:26.367Z

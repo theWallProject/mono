@@ -1,0 +1,74 @@
+[2026-03-17T05:06:52.412Z] === Homepage AI Extractor: Moose Care ===
+[2026-03-17T05:06:52.413Z] Started at: 2026-03-17T05:06:52.413Z
+[2026-03-17T05:06:52.413Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773724012412_Moose_Care
+[2026-03-17T05:06:52.413Z] Company: Moose Care
+[2026-03-17T05:06:52.413Z] Website: moosecare.com
+[2026-03-17T05:06:52.413Z] cbRank: 1468760
+[2026-03-17T05:06:52.413Z] Reasons: h
+[2026-03-17T05:06:52.413Z] Fetching: https://moosecare.com
+[2026-03-17T05:07:03.983Z] Network idle timeout — continuing with current state
+[2026-03-17T05:07:04.025Z] Redirected: https://moosecare.com -> https://moosecare.com/
+[2026-03-17T05:07:04.031Z] Saved HTML (194164 bytes) to page.html
+[2026-03-17T05:07:04.035Z] Extracted 15 unique links from page
+[2026-03-17T05:07:04.036Z] Saved 15 links to links.json
+[2026-03-17T05:07:04.039Z] Extracted footer HTML (38332 chars)
+[2026-03-17T05:07:04.039Z] Extracted header HTML (12360 chars)
+[2026-03-17T05:07:04.043Z] Website (post-redirect): https://moosecare.com/ → origin: https://moosecare.com
+[2026-03-17T05:07:04.043Z] External links: 5 (of 15 total)
+[2026-03-17T05:07:04.043Z] ── All external links ──
+[2026-03-17T05:07:04.043Z]   EXT: https://apps.apple.com/be/app/moose-shave/id1526263654
+[2026-03-17T05:07:04.044Z]   EXT: https://play.google.com/store/apps/details?id=com.moose
+[2026-03-17T05:07:04.044Z]   EXT: https://www.facebook.com/Moose-Care-211740807552014
+[2026-03-17T05:07:04.044Z]   EXT: https://www.instagram.com/moose_care
+[2026-03-17T05:07:04.044Z]   EXT: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-17T05:07:04.044Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:07:04.044Z]   UNCATEGORIZED: https://apps.apple.com/be/app/moose-shave/id1526263654
+[2026-03-17T05:07:04.044Z]   REGEX: android_app_ids <- com.moose (from https://play.google.com/store/apps/details?id=com.moose)
+[2026-03-17T05:07:04.044Z]   REGEX: fb <- https://www.facebook.com/Moose-Care-211740807552014
+[2026-03-17T05:07:04.044Z]   REGEX: ig <- https://www.instagram.com/moose_care
+[2026-03-17T05:07:04.044Z]   UNCATEGORIZED: https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+[2026-03-17T05:07:04.044Z] Programmatic result: ws:1, android_app_ids:1, fb:1, ig:1 | 2 uncategorized
+[2026-03-17T05:07:04.044Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:07:04.075Z] Saved AI prompt (4866 chars) to ai_prompt.txt
+[2026-03-17T05:07:04.075Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:07:04.079Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:07:24.647Z]   AI: First token received, streaming...
+[2026-03-17T05:07:37.501Z] AI response complete: 144 chars in 33.4s
+[2026-03-17T05:07:37.503Z] Saved AI response to ai_response.json
+[2026-03-17T05:07:37.503Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T05:07:37.503Z]   AI LINK: https://apps.apple.com/be/app/moose-shave/id1526263654
+[2026-03-17T05:07:37.503Z]   AI LINK: https://www.instagram.com/moose_care
+[2026-03-17T05:07:37.504Z]   AI LINK: https://www.facebook.com/Moose-Care-211740807552014/
+[2026-03-17T05:07:37.504Z] AI returned 3 valid links
+[2026-03-17T05:07:37.504Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T05:07:37.504Z]   AI→URLS: https://apps.apple.com/be/app/moose-shave/id1526263654
+[2026-03-17T05:07:37.504Z]   AI→REGEX: ig <- https://www.instagram.com/moose_care (duplicate, skipped)
+[2026-03-17T05:07:37.505Z]   AI→REGEX: fb <- https://www.facebook.com/Moose-Care-211740807552014/ (duplicate, skipped)
+[2026-03-17T05:07:37.506Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:07:37.506Z] Footer/header origins (3):
+[2026-03-17T05:07:37.506Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T05:07:37.506Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T05:07:37.506Z]   FOOTER/HEADER ORIGIN: https://www.shopify.com
+[2026-03-17T05:07:37.506Z]   SKIP (AI claimed): https://apps.apple.com/be/app/moose-shave/id1526263654
+[2026-03-17T05:07:37.507Z]   ADDED: urls <- https://www.shopify.com (cleaned from https://www.shopify.com/?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore)
+[2026-03-17T05:07:37.507Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T05:07:37.507Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:07:37.507Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:07:37.507Z] ── Step 3: Final dedup ──
+[2026-03-17T05:07:37.507Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T05:07:37.508Z] ── FINAL RESULT ──
+[2026-03-17T05:07:37.508Z]   ws (1):
+[2026-03-17T05:07:37.508Z]     - https://moosecare.com
+[2026-03-17T05:07:37.508Z]   fb (1):
+[2026-03-17T05:07:37.508Z]     - https://www.facebook.com/moose-care-211740807552014
+[2026-03-17T05:07:37.508Z]   ig (1):
+[2026-03-17T05:07:37.509Z]     - https://www.instagram.com/moose_care
+[2026-03-17T05:07:37.509Z]   urls (2):
+[2026-03-17T05:07:37.509Z]     - https://apps.apple.com/be/app/moose-shave/id1526263654
+[2026-03-17T05:07:37.509Z]     - https://www.shopify.com
+[2026-03-17T05:07:37.509Z]   android_app_ids (1):
+[2026-03-17T05:07:37.509Z]     - com.moose
+[2026-03-17T05:07:37.510Z] Summary: ws:1, android_app_ids:1, fb:1, ig:1, urls:2
+[2026-03-17T05:07:37.511Z] Saved final result to result.json
+[2026-03-17T05:07:37.511Z] Override fields: ws, fb, ig, urls, android_app_ids
+[2026-03-17T05:07:37.511Z] Finished at: 2026-03-17T05:07:37.511Z

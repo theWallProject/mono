@@ -1,0 +1,70 @@
+[2026-03-16T22:51:06.415Z] === Homepage AI Extractor: Wivo ===
+[2026-03-16T22:51:06.415Z] Started at: 2026-03-16T22:51:06.415Z
+[2026-03-16T22:51:06.415Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773701466414_Wivo
+[2026-03-16T22:51:06.415Z] Company: Wivo
+[2026-03-16T22:51:06.415Z] Website: wivo.co.il
+[2026-03-16T22:51:06.415Z] cbRank: 1245425
+[2026-03-16T22:51:06.415Z] Reasons: h
+[2026-03-16T22:51:06.415Z] Fetching: https://wivo.co.il
+[2026-03-16T22:51:09.131Z] Redirected: https://wivo.co.il -> https://wivo.co.il/
+[2026-03-16T22:51:09.139Z] Saved HTML (301374 bytes) to page.html
+[2026-03-16T22:51:09.142Z] Extracted 65 unique links from page
+[2026-03-16T22:51:09.142Z] Saved 65 links to links.json
+[2026-03-16T22:51:09.145Z] Extracted footer HTML (9493 chars)
+[2026-03-16T22:51:09.145Z] Extracted header HTML (15509 chars)
+[2026-03-16T22:51:09.148Z] Website (post-redirect): https://wivo.co.il/ → origin: https://wivo.co.il
+[2026-03-16T22:51:09.148Z] External links: 5 (of 65 total)
+[2026-03-16T22:51:09.148Z] ── All external links ──
+[2026-03-16T22:51:09.148Z]   EXT: https://view-board.co.il
+[2026-03-16T22:51:09.148Z]   EXT: https://web.whatsapp.com/send?phone=972522552543&text=
+[2026-03-16T22:51:09.149Z]   EXT: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-16T22:51:09.149Z]   EXT: https://www.facebook.com/wivosite
+[2026-03-16T22:51:09.149Z]   EXT: https://www.linkedin.com/in/wivo-olas/?originalSubdomain=il
+[2026-03-16T22:51:09.149Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T22:51:09.149Z]   UNCATEGORIZED: https://view-board.co.il
+[2026-03-16T22:51:09.149Z]   UNCATEGORIZED: https://web.whatsapp.com/send?phone=972522552543&text=
+[2026-03-16T22:51:09.149Z]   UNCATEGORIZED: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-16T22:51:09.149Z]   REGEX: fb <- https://www.facebook.com/wivosite
+[2026-03-16T22:51:09.149Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-16T22:51:09.149Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/wivo-olas/?originalSubdomain=il
+[2026-03-16T22:51:09.149Z] Programmatic result: ws:1, fb:1 | 3 uncategorized
+[2026-03-16T22:51:09.149Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T22:51:09.152Z] Saved AI prompt (6305 chars) to ai_prompt.txt
+[2026-03-16T22:51:09.153Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T22:51:09.155Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T22:51:34.911Z]   AI: First token received, streaming...
+[2026-03-16T22:51:42.067Z] AI response complete: 120 chars in 32.9s
+[2026-03-16T22:51:42.069Z] Saved AI response to ai_response.json
+[2026-03-16T22:51:42.069Z] ── Parsing AI response (3 lines) ──
+[2026-03-16T22:51:42.069Z]   AI LINK: https://www.facebook.com/wivosite/
+[2026-03-16T22:51:42.070Z]   AI LINK: https://www.linkedin.com/in/wivo-olas/?originalSubdomain=il
+[2026-03-16T22:51:42.070Z]   AI LINK: https://wivo.co.il/blogs/
+[2026-03-16T22:51:42.070Z] AI returned 3 valid links
+[2026-03-16T22:51:42.070Z] ── Categorizing 3 AI-returned links ──
+[2026-03-16T22:51:42.070Z]   AI→REGEX: fb <- https://www.facebook.com/wivosite/ (duplicate, skipped)
+[2026-03-16T22:51:42.071Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/wivo-olas/?originalSubdomain=il
+[2026-03-16T22:51:42.071Z]   AI→URLS: https://wivo.co.il/blogs (cleaned from https://wivo.co.il/blogs/)
+[2026-03-16T22:51:42.071Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T22:51:42.072Z] Footer/header origins (3):
+[2026-03-16T22:51:42.072Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T22:51:42.072Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T22:51:42.072Z]   FOOTER/HEADER ORIGIN: https://wivo.co.il
+[2026-03-16T22:51:42.072Z]   SKIP (not in footer/header): https://view-board.co.il
+[2026-03-16T22:51:42.072Z]   SKIP (not in footer/header): https://web.whatsapp.com/send?phone=972522552543&text=
+[2026-03-16T22:51:42.072Z]   SKIP (not in footer/header): https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-16T22:51:42.072Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-16T22:51:42.073Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T22:51:42.073Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T22:51:42.073Z] ── Step 3: Final dedup ──
+[2026-03-16T22:51:42.073Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-16T22:51:42.073Z] ── FINAL RESULT ──
+[2026-03-16T22:51:42.073Z]   ws (1):
+[2026-03-16T22:51:42.073Z]     - https://wivo.co.il
+[2026-03-16T22:51:42.073Z]   fb (1):
+[2026-03-16T22:51:42.074Z]     - https://www.facebook.com/wivosite
+[2026-03-16T22:51:42.074Z]   urls (1):
+[2026-03-16T22:51:42.074Z]     - https://wivo.co.il/blogs
+[2026-03-16T22:51:42.074Z] Summary: ws:1, fb:1, urls:1
+[2026-03-16T22:51:42.075Z] Saved final result to result.json
+[2026-03-16T22:51:42.076Z] Override fields: ws, fb
+[2026-03-16T22:51:42.076Z] Finished at: 2026-03-16T22:51:42.076Z

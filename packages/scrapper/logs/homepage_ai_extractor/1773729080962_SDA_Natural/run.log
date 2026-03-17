@@ -1,0 +1,62 @@
+[2026-03-17T06:31:20.962Z] === Homepage AI Extractor: SDA Natural ===
+[2026-03-17T06:31:20.962Z] Started at: 2026-03-17T06:31:20.962Z
+[2026-03-17T06:31:20.962Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773729080962_SDA_Natural
+[2026-03-17T06:31:20.963Z] Company: SDA Natural
+[2026-03-17T06:31:20.963Z] Website: sda-natural.com
+[2026-03-17T06:31:20.963Z] cbRank: 1519673
+[2026-03-17T06:31:20.963Z] Reasons: h
+[2026-03-17T06:31:20.963Z] Fetching: https://sda-natural.com
+[2026-03-17T06:31:25.214Z] Dismissed cookie consent popup via: button:has-text("Accept all")
+[2026-03-17T06:31:28.197Z] Redirected: https://sda-natural.com -> https://www.sda-natural.com/
+[2026-03-17T06:31:28.202Z] Saved HTML (84139 bytes) to page.html
+[2026-03-17T06:31:28.204Z] Extracted 19 unique links from page
+[2026-03-17T06:31:28.204Z] Saved 19 links to links.json
+[2026-03-17T06:31:28.207Z] Extracted footer HTML (2124 chars)
+[2026-03-17T06:31:28.207Z] Extracted header HTML (10178 chars)
+[2026-03-17T06:31:28.211Z] Website (post-redirect): https://www.sda-natural.com/ → origin: https://www.sda-natural.com
+[2026-03-17T06:31:28.211Z] External links: 3 (of 19 total)
+[2026-03-17T06:31:28.211Z] ── All external links ──
+[2026-03-17T06:31:28.211Z]   EXT: https://www.catom.co.il
+[2026-03-17T06:31:28.212Z]   EXT: https://www.catom.com
+[2026-03-17T06:31:28.212Z]   EXT: https://www.linkedin.com/company/sda-natural
+[2026-03-17T06:31:28.212Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T06:31:28.212Z]   UNCATEGORIZED: https://www.catom.co.il
+[2026-03-17T06:31:28.212Z]   UNCATEGORIZED: https://www.catom.com
+[2026-03-17T06:31:28.212Z]   REGEX: li <- https://www.linkedin.com/company/sda-natural
+[2026-03-17T06:31:28.212Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-17T06:31:28.212Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T06:31:28.216Z] Saved AI prompt (3716 chars) to ai_prompt.txt
+[2026-03-17T06:31:28.216Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T06:31:28.220Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T06:31:41.820Z]   AI: First token received, streaming...
+[2026-03-17T06:31:43.426Z] AI response complete: 45 chars in 15.2s
+[2026-03-17T06:31:43.428Z] Saved AI response to ai_response.json
+[2026-03-17T06:31:43.428Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T06:31:43.428Z]   AI LINK: https://www.linkedin.com/company/sda-natural/
+[2026-03-17T06:31:43.428Z] AI returned 1 valid links
+[2026-03-17T06:31:43.429Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T06:31:43.429Z]   AI→REGEX: li <- https://www.linkedin.com/company/sda-natural/ (duplicate, skipped)
+[2026-03-17T06:31:43.430Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T06:31:43.430Z] Footer/header origins (3):
+[2026-03-17T06:31:43.431Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T06:31:43.431Z]   FOOTER/HEADER ORIGIN: https://www.catom.com
+[2026-03-17T06:31:43.431Z]   FOOTER/HEADER ORIGIN: https://www.catom.co.il
+[2026-03-17T06:31:43.431Z]   ADDED: urls <- https://www.catom.co.il
+[2026-03-17T06:31:43.431Z]   ADDED: urls <- https://www.catom.com
+[2026-03-17T06:31:43.431Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-17T06:31:43.432Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T06:31:43.432Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T06:31:43.432Z] ── Step 3: Final dedup ──
+[2026-03-17T06:31:43.432Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T06:31:43.432Z] ── FINAL RESULT ──
+[2026-03-17T06:31:43.432Z]   ws (1):
+[2026-03-17T06:31:43.432Z]     - https://www.sda-natural.com
+[2026-03-17T06:31:43.432Z]   li (1):
+[2026-03-17T06:31:43.433Z]     - https://www.linkedin.com/company/sda-natural
+[2026-03-17T06:31:43.433Z]   urls (2):
+[2026-03-17T06:31:43.433Z]     - https://www.catom.co.il
+[2026-03-17T06:31:43.433Z]     - https://www.catom.com
+[2026-03-17T06:31:43.433Z] Summary: ws:1, li:1, urls:2
+[2026-03-17T06:31:43.434Z] Saved final result to result.json
+[2026-03-17T06:31:43.435Z] Override fields: ws, li, urls
+[2026-03-17T06:31:43.435Z] Finished at: 2026-03-17T06:31:43.435Z

@@ -1,0 +1,65 @@
+[2026-03-17T03:07:45.288Z] === Homepage AI Extractor: Metaktekot ===
+[2026-03-17T03:07:45.288Z] Started at: 2026-03-17T03:07:45.288Z
+[2026-03-17T03:07:45.288Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773716865287_Metaktekot
+[2026-03-17T03:07:45.288Z] Company: Metaktekot
+[2026-03-17T03:07:45.288Z] Website: metaktekot.com
+[2026-03-17T03:07:45.288Z] cbRank: 1393485
+[2026-03-17T03:07:45.289Z] Reasons: h
+[2026-03-17T03:07:45.289Z] Fetching: https://metaktekot.com
+[2026-03-17T03:07:50.691Z] Redirected: https://metaktekot.com -> https://metaktekot.com/
+[2026-03-17T03:07:50.697Z] Saved HTML (104249 bytes) to page.html
+[2026-03-17T03:07:50.700Z] Extracted 11 unique links from page
+[2026-03-17T03:07:50.700Z] Saved 11 links to links.json
+[2026-03-17T03:07:50.703Z] Extracted footer HTML (5241 chars)
+[2026-03-17T03:07:50.703Z] Extracted header HTML (3257 chars)
+[2026-03-17T03:07:50.708Z] Website (post-redirect): https://metaktekot.com/ → origin: https://metaktekot.com
+[2026-03-17T03:07:50.708Z] External links: 3 (of 11 total)
+[2026-03-17T03:07:50.708Z] ── All external links ──
+[2026-03-17T03:07:50.708Z]   EXT: https://media-eaters.com
+[2026-03-17T03:07:50.708Z]   EXT: https://www.facebook.com/metaktekot
+[2026-03-17T03:07:50.708Z]   EXT: https://www.linkedin.com/company/11069947/admin
+[2026-03-17T03:07:50.708Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T03:07:50.708Z]   UNCATEGORIZED: https://media-eaters.com
+[2026-03-17T03:07:50.708Z]   REGEX: fb <- https://www.facebook.com/metaktekot
+[2026-03-17T03:07:50.709Z]   REGEX: li <- https://www.linkedin.com/company/11069947/admin
+[2026-03-17T03:07:50.709Z] Programmatic result: ws:1, fb:1, li:1 | 1 uncategorized
+[2026-03-17T03:07:50.709Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T03:07:50.712Z] Saved AI prompt (3648 chars) to ai_prompt.txt
+[2026-03-17T03:07:50.712Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T03:07:50.716Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T03:08:07.230Z]   AI: First token received, streaming...
+[2026-03-17T03:08:13.626Z] AI response complete: 107 chars in 22.9s
+[2026-03-17T03:08:13.628Z] Saved AI response to ai_response.json
+[2026-03-17T03:08:13.628Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T03:08:13.628Z]   AI LINK: https://metaktekot.com
+[2026-03-17T03:08:13.628Z]   AI LINK: https://www.linkedin.com/company/11069947/admin/
+[2026-03-17T03:08:13.628Z]   AI LINK: https://www.facebook.com/metaktekot
+[2026-03-17T03:08:13.628Z] AI returned 3 valid links
+[2026-03-17T03:08:13.629Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T03:08:13.629Z]   AI→URLS: https://metaktekot.com
+[2026-03-17T03:08:13.629Z]   AI→REGEX: li <- https://www.linkedin.com/company/11069947/admin/ (duplicate, skipped)
+[2026-03-17T03:08:13.629Z]   AI→REGEX: fb <- https://www.facebook.com/metaktekot (duplicate, skipped)
+[2026-03-17T03:08:13.630Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T03:08:13.630Z] Footer/header origins (3):
+[2026-03-17T03:08:13.630Z]   FOOTER/HEADER ORIGIN: https://metaktekot.com
+[2026-03-17T03:08:13.631Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T03:08:13.631Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T03:08:13.631Z]   SKIP (not in footer/header): https://media-eaters.com
+[2026-03-17T03:08:13.631Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T03:08:13.631Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T03:08:13.631Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T03:08:13.631Z] ── Step 3: Final dedup ──
+[2026-03-17T03:08:13.631Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T03:08:13.631Z] ── FINAL RESULT ──
+[2026-03-17T03:08:13.632Z]   ws (1):
+[2026-03-17T03:08:13.632Z]     - https://metaktekot.com
+[2026-03-17T03:08:13.632Z]   li (1):
+[2026-03-17T03:08:13.632Z]     - https://www.linkedin.com/company/11069947
+[2026-03-17T03:08:13.632Z]   fb (1):
+[2026-03-17T03:08:13.632Z]     - https://www.facebook.com/metaktekot
+[2026-03-17T03:08:13.632Z]   urls (1):
+[2026-03-17T03:08:13.633Z]     - https://metaktekot.com
+[2026-03-17T03:08:13.633Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-17T03:08:13.634Z] Saved final result to result.json
+[2026-03-17T03:08:13.634Z] Override fields: ws, li, fb
+[2026-03-17T03:08:13.634Z] Finished at: 2026-03-17T03:08:13.634Z

@@ -1,0 +1,67 @@
+[2026-03-17T07:23:18.114Z] === Homepage AI Extractor: Integrity Software ===
+[2026-03-17T07:23:18.114Z] Started at: 2026-03-17T07:23:18.114Z
+[2026-03-17T07:23:18.114Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773732198113_Integrity_Software
+[2026-03-17T07:23:18.114Z] Company: Integrity Software
+[2026-03-17T07:23:18.114Z] Website: integrity-software.co.il
+[2026-03-17T07:23:18.114Z] cbRank: 1540485
+[2026-03-17T07:23:18.114Z] Reasons: h
+[2026-03-17T07:23:18.114Z] Fetching: https://integrity-software.co.il
+[2026-03-17T07:23:20.600Z] Redirected: https://integrity-software.co.il -> https://www.integrity-software.co.il/
+[2026-03-17T07:23:20.612Z] Saved HTML (454763 bytes) to page.html
+[2026-03-17T07:23:20.616Z] Extracted 147 unique links from page
+[2026-03-17T07:23:20.616Z] Saved 147 links to links.json
+[2026-03-17T07:23:20.619Z] Extracted footer HTML (10616 chars)
+[2026-03-17T07:23:20.619Z] Extracted header HTML (13910 chars)
+[2026-03-17T07:23:20.622Z] Website (post-redirect): https://www.integrity-software.co.il/ → origin: https://www.integrity-software.co.il
+[2026-03-17T07:23:20.623Z] External links: 4 (of 147 total)
+[2026-03-17T07:23:20.623Z] ── All external links ──
+[2026-03-17T07:23:20.623Z]   EXT: https://il.linkedin.com/company/integrity-software-israel-
+[2026-03-17T07:23:20.623Z]   EXT: https://www.facebook.com/IntegritySoftware
+[2026-03-17T07:23:20.623Z]   EXT: https://www.matrix-globalservices.com/?utm_source=subsidiary_website&utm_medium=button+&utm_campaign=subsidiary_website_footerlink&utm_content=subsidiary_website_footerlink
+[2026-03-17T07:23:20.623Z]   EXT: https://www.pc.co.il/kehila/435712/?fbclid=IwY2xjawMSdeRleHRuA2FlbQIxMQABHhONh2RNT5Xc2ACSu0mm9LWvO4WteAibv2KwwdDFUrpyra2QMIAdV63Awms3_aem_gWBbvppoJ9FRLMUufnKtxw
+[2026-03-17T07:23:20.623Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T07:23:20.624Z]   REGEX: li <- https://il.linkedin.com/company/integrity-software-israel-
+[2026-03-17T07:23:20.624Z]   REGEX: fb <- https://www.facebook.com/IntegritySoftware
+[2026-03-17T07:23:20.624Z]   UNCATEGORIZED: https://www.matrix-globalservices.com/?utm_source=subsidiary_website&utm_medium=button+&utm_campaign=subsidiary_website_footerlink&utm_content=subsidiary_website_footerlink
+[2026-03-17T07:23:20.624Z]   UNCATEGORIZED: https://www.pc.co.il/kehila/435712/?fbclid=IwY2xjawMSdeRleHRuA2FlbQIxMQABHhONh2RNT5Xc2ACSu0mm9LWvO4WteAibv2KwwdDFUrpyra2QMIAdV63Awms3_aem_gWBbvppoJ9FRLMUufnKtxw
+[2026-03-17T07:23:20.624Z] Programmatic result: ws:1, li:1, fb:1 | 2 uncategorized
+[2026-03-17T07:23:20.624Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T07:23:20.628Z] Saved AI prompt (9257 chars) to ai_prompt.txt
+[2026-03-17T07:23:20.628Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T07:23:20.632Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T07:23:58.020Z]   AI: First token received, streaming...
+[2026-03-17T07:24:02.389Z] AI response complete: 102 chars in 41.8s
+[2026-03-17T07:24:02.390Z] Saved AI response to ai_response.json
+[2026-03-17T07:24:02.390Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T07:24:02.391Z]   AI LINK: https://www.facebook.com/IntegritySoftware/
+[2026-03-17T07:24:02.391Z]   AI LINK: https://il.linkedin.com/company/integrity-software-israel-
+[2026-03-17T07:24:02.391Z] AI returned 2 valid links
+[2026-03-17T07:24:02.391Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T07:24:02.391Z]   AI→REGEX: fb <- https://www.facebook.com/IntegritySoftware/ (duplicate, skipped)
+[2026-03-17T07:24:02.392Z]   AI→REGEX: li <- https://il.linkedin.com/company/integrity-software-israel- (duplicate, skipped)
+[2026-03-17T07:24:02.393Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T07:24:02.393Z] Footer/header origins (4):
+[2026-03-17T07:24:02.393Z]   FOOTER/HEADER ORIGIN: https://www.integrity-software.co.il
+[2026-03-17T07:24:02.393Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T07:24:02.393Z]   FOOTER/HEADER ORIGIN: https://il.linkedin.com
+[2026-03-17T07:24:02.394Z]   FOOTER/HEADER ORIGIN: https://www.matrix-globalservices.com
+[2026-03-17T07:24:02.394Z]   ADDED: urls <- https://www.matrix-globalservices.com (cleaned from https://www.matrix-globalservices.com/?utm_source=subsidiary_website&utm_medium=button+&utm_campaign=subsidiary_website_footerlink&utm_content=subsidiary_website_footerlink)
+[2026-03-17T07:24:02.394Z]   SKIP (not in footer/header): https://www.pc.co.il/kehila/435712/?fbclid=IwY2xjawMSdeRleHRuA2FlbQIxMQABHhONh2RNT5Xc2ACSu0mm9LWvO4WteAibv2KwwdDFUrpyra2QMIAdV63Awms3_aem_gWBbvppoJ9FRLMUufnKtxw
+[2026-03-17T07:24:02.394Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T07:24:02.394Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T07:24:02.394Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T07:24:02.395Z] ── Step 3: Final dedup ──
+[2026-03-17T07:24:02.395Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T07:24:02.395Z] ── FINAL RESULT ──
+[2026-03-17T07:24:02.395Z]   ws (1):
+[2026-03-17T07:24:02.395Z]     - https://www.integrity-software.co.il
+[2026-03-17T07:24:02.396Z]   li (1):
+[2026-03-17T07:24:02.396Z]     - https://www.linkedin.com/company/integrity-software-israel-
+[2026-03-17T07:24:02.396Z]   fb (1):
+[2026-03-17T07:24:02.396Z]     - https://www.facebook.com/integritysoftware
+[2026-03-17T07:24:02.396Z]   urls (1):
+[2026-03-17T07:24:02.396Z]     - https://www.matrix-globalservices.com
+[2026-03-17T07:24:02.396Z] Summary: ws:1, li:1, fb:1, urls:1
+[2026-03-17T07:24:02.397Z] Saved final result to result.json
+[2026-03-17T07:24:02.398Z] Override fields: ws, li, fb, urls
+[2026-03-17T07:24:02.398Z] Finished at: 2026-03-17T07:24:02.398Z

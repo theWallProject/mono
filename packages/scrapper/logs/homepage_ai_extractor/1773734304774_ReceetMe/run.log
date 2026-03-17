@@ -1,0 +1,63 @@
+[2026-03-17T07:58:24.775Z] === Homepage AI Extractor: ReceetMe ===
+[2026-03-17T07:58:24.775Z] Started at: 2026-03-17T07:58:24.775Z
+[2026-03-17T07:58:24.775Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773734304774_ReceetMe
+[2026-03-17T07:58:24.775Z] Company: ReceetMe
+[2026-03-17T07:58:24.775Z] Website: receet.me
+[2026-03-17T07:58:24.775Z] cbRank: 1557268
+[2026-03-17T07:58:24.775Z] Reasons: h
+[2026-03-17T07:58:24.775Z] Fetching: https://receet.me
+[2026-03-17T07:58:28.272Z] Redirected: https://receet.me -> https://www.receet.me/
+[2026-03-17T07:58:28.282Z] Saved HTML (400383 bytes) to page.html
+[2026-03-17T07:58:28.285Z] Extracted 10 unique links from page
+[2026-03-17T07:58:28.288Z] Saved 10 links to links.json
+[2026-03-17T07:58:28.292Z] Extracted footer HTML (4618 chars)
+[2026-03-17T07:58:28.292Z] Extracted header HTML (8110 chars)
+[2026-03-17T07:58:28.296Z] Website (post-redirect): https://www.receet.me/ → origin: https://www.receet.me
+[2026-03-17T07:58:28.296Z] External links: 3 (of 10 total)
+[2026-03-17T07:58:28.296Z] ── All external links ──
+[2026-03-17T07:58:28.296Z]   EXT: https://play.google.com/store/apps/details?id=com.digitalcherry.receetme
+[2026-03-17T07:58:28.296Z]   EXT: https://www.facebook.com/receetme
+[2026-03-17T07:58:28.296Z]   EXT: https://www.youtube.com/channel/UCSChFS6EDnH78XshtuNil7w?view_as=subscriber
+[2026-03-17T07:58:28.296Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T07:58:28.296Z]   REGEX: android_app_ids <- com.digitalcherry.receetme (from https://play.google.com/store/apps/details?id=com.digitalcherry.receetme)
+[2026-03-17T07:58:28.296Z]   REGEX: fb <- https://www.facebook.com/receetme
+[2026-03-17T07:58:28.297Z]   REGEX: ytc <- https://www.youtube.com/channel/UCSChFS6EDnH78XshtuNil7w?view_as=subscriber
+[2026-03-17T07:58:28.297Z] Programmatic result: ws:1, android_app_ids:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-17T07:58:28.297Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T07:58:28.298Z] Saved AI prompt (5836 chars) to ai_prompt.txt
+[2026-03-17T07:58:28.298Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T07:58:28.301Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T07:58:53.914Z]   AI: First token received, streaming...
+[2026-03-17T07:59:01.968Z] AI response complete: 109 chars in 33.7s
+[2026-03-17T07:59:01.969Z] Saved AI response to ai_response.json
+[2026-03-17T07:59:01.970Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T07:59:01.970Z]   AI LINK: https://www.facebook.com/receetme
+[2026-03-17T07:59:01.970Z]   AI LINK: https://www.youtube.com/channel/UCSChFS6EDnH78XshtuNil7w?view_as=subscriber
+[2026-03-17T07:59:01.970Z] AI returned 2 valid links
+[2026-03-17T07:59:01.970Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T07:59:01.971Z]   AI→REGEX: fb <- https://www.facebook.com/receetme (duplicate, skipped)
+[2026-03-17T07:59:01.971Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCSChFS6EDnH78XshtuNil7w?view_as=subscriber (duplicate, skipped)
+[2026-03-17T07:59:01.971Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T07:59:01.972Z] Footer/header origins (2):
+[2026-03-17T07:59:01.972Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T07:59:01.972Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T07:59:01.972Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T07:59:01.972Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T07:59:01.972Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T07:59:02.287Z]   YOUTUBE: UCSChFS6EDnH78XshtuNil7w has no @handle (from https://www.youtube.com/channel/UCSChFS6EDnH78XshtuNil7w)
+[2026-03-17T07:59:02.287Z]   YOUTUBE: no new ytp URLs resolved
+[2026-03-17T07:59:02.287Z] ── Step 3: Final dedup ──
+[2026-03-17T07:59:02.287Z] No urls to dedup
+[2026-03-17T07:59:02.287Z] ── FINAL RESULT ──
+[2026-03-17T07:59:02.287Z]   ws (1):
+[2026-03-17T07:59:02.287Z]     - https://www.receet.me
+[2026-03-17T07:59:02.287Z]   fb (1):
+[2026-03-17T07:59:02.287Z]     - https://www.facebook.com/receetme
+[2026-03-17T07:59:02.287Z]   ytc (1):
+[2026-03-17T07:59:02.287Z]     - https://www.youtube.com/channel/UCSChFS6EDnH78XshtuNil7w
+[2026-03-17T07:59:02.287Z]   android_app_ids (1):
+[2026-03-17T07:59:02.287Z]     - com.digitalcherry.receetme
+[2026-03-17T07:59:02.287Z] Summary: ws:1, android_app_ids:1, fb:1, ytc:1
+[2026-03-17T07:59:02.288Z] Saved final result to result.json
+[2026-03-17T07:59:02.288Z] Override fields: ws, fb, ytc, android_app_ids
+[2026-03-17T07:59:02.288Z] Finished at: 2026-03-17T07:59:02.288Z

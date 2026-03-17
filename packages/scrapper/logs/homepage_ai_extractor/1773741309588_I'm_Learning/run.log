@@ -1,0 +1,85 @@
+[2026-03-17T09:55:09.589Z] === Homepage AI Extractor: I'm Learning ===
+[2026-03-17T09:55:09.589Z] Started at: 2026-03-17T09:55:09.589Z
+[2026-03-17T09:55:09.589Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773741309588_I'm_Learning
+[2026-03-17T09:55:09.589Z] Company: I'm Learning
+[2026-03-17T09:55:09.589Z] Website: iamlearning.co.il
+[2026-03-17T09:55:09.589Z] cbRank: 1635611
+[2026-03-17T09:55:09.589Z] Reasons: h
+[2026-03-17T09:55:09.589Z] Fetching: https://iamlearning.co.il
+[2026-03-17T09:55:15.667Z] Redirected: https://iamlearning.co.il -> https://www.iamlearning.co.il/
+[2026-03-17T09:55:15.675Z] Saved HTML (305451 bytes) to page.html
+[2026-03-17T09:55:15.679Z] Extracted 60 unique links from page
+[2026-03-17T09:55:15.679Z] Saved 60 links to links.json
+[2026-03-17T09:55:15.682Z] Extracted footer HTML (35665 chars)
+[2026-03-17T09:55:15.682Z] Extracted header HTML (8236 chars)
+[2026-03-17T09:55:15.687Z] Website (post-redirect): https://www.iamlearning.co.il/ → origin: https://www.iamlearning.co.il
+[2026-03-17T09:55:15.688Z] External links: 7 (of 60 total)
+[2026-03-17T09:55:15.688Z] ── All external links ──
+[2026-03-17T09:55:15.688Z]   EXT: http://www.linkedin.com/company/iamlearning
+[2026-03-17T09:55:15.688Z]   EXT: http://www.negishim.org
+[2026-03-17T09:55:15.688Z]   EXT: https://wa.me/9720522200695
+[2026-03-17T09:55:15.688Z]   EXT: https://wa.me/972522200695
+[2026-03-17T09:55:15.689Z]   EXT: https://www.facebook.com/IamLearning.co.il
+[2026-03-17T09:55:15.689Z]   EXT: https://www.iamlearningltd.com
+[2026-03-17T09:55:15.689Z]   EXT: https://www.youtube.com/channel/UC-uTyrnAc6W_HpbEURpFPJQ
+[2026-03-17T09:55:15.689Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T09:55:15.689Z]   REGEX: li <- http://www.linkedin.com/company/iamlearning
+[2026-03-17T09:55:15.689Z]   UNCATEGORIZED: http://www.negishim.org
+[2026-03-17T09:55:15.689Z]   UNCATEGORIZED: https://wa.me/9720522200695
+[2026-03-17T09:55:15.689Z]   UNCATEGORIZED: https://wa.me/972522200695
+[2026-03-17T09:55:15.689Z]   REGEX: fb <- https://www.facebook.com/IamLearning.co.il
+[2026-03-17T09:55:15.689Z]   UNCATEGORIZED: https://www.iamlearningltd.com
+[2026-03-17T09:55:15.689Z]   REGEX: ytc <- https://www.youtube.com/channel/UC-uTyrnAc6W_HpbEURpFPJQ
+[2026-03-17T09:55:15.689Z] Programmatic result: ws:1, li:1, fb:1, ytc:1 | 4 uncategorized
+[2026-03-17T09:55:15.689Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T09:55:15.691Z] Saved AI prompt (8693 chars) to ai_prompt.txt
+[2026-03-17T09:55:15.691Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T09:55:15.695Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T09:56:40.557Z]   AI: First token received, streaming...
+[2026-03-17T09:56:52.295Z] AI response complete: 175 chars in 96.6s
+[2026-03-17T09:56:52.296Z] Saved AI response to ai_response.json
+[2026-03-17T09:56:52.296Z] ── Parsing AI response (4 lines) ──
+[2026-03-17T09:56:52.296Z]   AI LINK: https://www.facebook.com/IamLearning.co.il/
+[2026-03-17T09:56:52.297Z]   AI LINK: https://www.youtube.com/channel/UC-uTyrnAc6W_HpbEURpFPJQ
+[2026-03-17T09:56:52.297Z]   AI LINK: http://www.linkedin.com/company/iamlearning
+[2026-03-17T09:56:52.297Z]   AI LINK: https://www.iamlearningltd.com
+[2026-03-17T09:56:52.297Z] AI returned 4 valid links
+[2026-03-17T09:56:52.297Z] ── Categorizing 4 AI-returned links ──
+[2026-03-17T09:56:52.298Z]   AI→REGEX: fb <- https://www.facebook.com/IamLearning.co.il/ (duplicate, skipped)
+[2026-03-17T09:56:52.298Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UC-uTyrnAc6W_HpbEURpFPJQ (duplicate, skipped)
+[2026-03-17T09:56:52.298Z]   AI→REGEX: li <- http://www.linkedin.com/company/iamlearning (duplicate, skipped)
+[2026-03-17T09:56:52.298Z]   AI→URLS: https://www.iamlearningltd.com
+[2026-03-17T09:56:52.301Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T09:56:52.301Z] Footer/header origins (4):
+[2026-03-17T09:56:52.301Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T09:56:52.302Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T09:56:52.302Z]   FOOTER/HEADER ORIGIN: http://www.linkedin.com
+[2026-03-17T09:56:52.302Z]   FOOTER/HEADER ORIGIN: https://www.iamlearningltd.com
+[2026-03-17T09:56:52.302Z]   SKIP (not in footer/header): http://www.negishim.org
+[2026-03-17T09:56:52.302Z]   SKIP (not in footer/header): https://wa.me/9720522200695
+[2026-03-17T09:56:52.303Z]   SKIP (not in footer/header): https://wa.me/972522200695
+[2026-03-17T09:56:52.303Z]   SKIP (AI claimed): https://www.iamlearningltd.com
+[2026-03-17T09:56:52.303Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T09:56:52.303Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T09:56:52.303Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T09:56:52.609Z]   YOUTUBE: resolved UC-uTyrnAc6W_HpbEURpFPJQ → @imlearning652
+[2026-03-17T09:56:52.609Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T09:56:52.609Z] ── Step 3: Final dedup ──
+[2026-03-17T09:56:52.609Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T09:56:52.609Z] ── FINAL RESULT ──
+[2026-03-17T09:56:52.610Z]   ws (1):
+[2026-03-17T09:56:52.610Z]     - https://www.iamlearning.co.il
+[2026-03-17T09:56:52.610Z]   li (1):
+[2026-03-17T09:56:52.610Z]     - https://www.linkedin.com/company/iamlearning
+[2026-03-17T09:56:52.610Z]   fb (1):
+[2026-03-17T09:56:52.610Z]     - https://www.facebook.com/iamlearning.co.il
+[2026-03-17T09:56:52.610Z]   ytp (1):
+[2026-03-17T09:56:52.610Z]     - https://www.youtube.com/@imlearning652
+[2026-03-17T09:56:52.610Z]   ytc (1):
+[2026-03-17T09:56:52.610Z]     - https://www.youtube.com/channel/UC-uTyrnAc6W_HpbEURpFPJQ
+[2026-03-17T09:56:52.610Z]   urls (1):
+[2026-03-17T09:56:52.610Z]     - https://www.iamlearningltd.com
+[2026-03-17T09:56:52.610Z] Summary: ws:1, li:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-17T09:56:52.611Z] Saved final result to result.json
+[2026-03-17T09:56:52.611Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-17T09:56:52.611Z] Finished at: 2026-03-17T09:56:52.611Z

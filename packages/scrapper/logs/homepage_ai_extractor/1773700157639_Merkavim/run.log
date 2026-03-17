@@ -1,0 +1,61 @@
+[2026-03-16T22:29:17.639Z] === Homepage AI Extractor: Merkavim ===
+[2026-03-16T22:29:17.639Z] Started at: 2026-03-16T22:29:17.639Z
+[2026-03-16T22:29:17.639Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773700157639_Merkavim
+[2026-03-16T22:29:17.639Z] Company: Merkavim
+[2026-03-16T22:29:17.639Z] Website: merkavim.co.il
+[2026-03-16T22:29:17.639Z] cbRank: 1234805
+[2026-03-16T22:29:17.639Z] Reasons: h
+[2026-03-16T22:29:17.639Z] Fetching: https://merkavim.co.il
+[2026-03-16T22:29:20.717Z] Redirected: https://merkavim.co.il -> https://www.merkavim.co.il/he/Default
+[2026-03-16T22:29:20.721Z] Saved HTML (68560 bytes) to page.html
+[2026-03-16T22:29:20.724Z] Extracted 36 unique links from page
+[2026-03-16T22:29:20.727Z] Saved 36 links to links.json
+[2026-03-16T22:29:20.729Z] No footer section found in DOM
+[2026-03-16T22:29:20.729Z] No header section found in DOM
+[2026-03-16T22:29:20.736Z] Website (post-redirect): https://www.merkavim.co.il/he/Default → origin: https://www.merkavim.co.il
+[2026-03-16T22:29:20.736Z] External links: 4 (of 36 total)
+[2026-03-16T22:29:20.736Z] ── All external links ──
+[2026-03-16T22:29:20.736Z]   EXT: http://www.netbiz.co.il
+[2026-03-16T22:29:20.736Z]   EXT: https://www.facebook.com/Merkavim.Israel
+[2026-03-16T22:29:20.736Z]   EXT: https://www.merkavim-catalog.com
+[2026-03-16T22:29:20.736Z]   EXT: https://www.youtube.com/user/merkavim
+[2026-03-16T22:29:20.737Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T22:29:20.737Z]   UNCATEGORIZED: http://www.netbiz.co.il
+[2026-03-16T22:29:20.737Z]   REGEX: fb <- https://www.facebook.com/Merkavim.Israel
+[2026-03-16T22:29:20.737Z]   UNCATEGORIZED: https://www.merkavim-catalog.com
+[2026-03-16T22:29:20.737Z]   REGEX: ytp <- https://www.youtube.com/user/merkavim
+[2026-03-16T22:29:20.737Z] Programmatic result: ws:1, fb:1, ytp:1 | 2 uncategorized
+[2026-03-16T22:29:20.737Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T22:29:20.738Z] Saved AI prompt (1991 chars) to ai_prompt.txt
+[2026-03-16T22:29:20.738Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T22:29:20.743Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T22:29:27.581Z]   AI: First token received, streaming...
+[2026-03-16T22:29:28.491Z] AI response complete: 32 chars in 7.8s
+[2026-03-16T22:29:28.492Z] Saved AI response to ai_response.json
+[2026-03-16T22:29:28.492Z] ── Parsing AI response (1 lines) ──
+[2026-03-16T22:29:28.493Z]   AI LINK: https://www.merkavim-catalog.com
+[2026-03-16T22:29:28.493Z] AI returned 1 valid links
+[2026-03-16T22:29:28.493Z] ── Categorizing 1 AI-returned links ──
+[2026-03-16T22:29:28.493Z]   AI→URLS: https://www.merkavim-catalog.com
+[2026-03-16T22:29:28.494Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T22:29:28.494Z] Footer/header origins (0):
+[2026-03-16T22:29:28.494Z]   SKIP (not in footer/header): http://www.netbiz.co.il
+[2026-03-16T22:29:28.494Z]   SKIP (AI claimed): https://www.merkavim-catalog.com
+[2026-03-16T22:29:28.494Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-16T22:29:28.494Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T22:29:28.495Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T22:29:28.495Z] ── Step 3: Final dedup ──
+[2026-03-16T22:29:28.495Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-16T22:29:28.495Z] ── FINAL RESULT ──
+[2026-03-16T22:29:28.495Z]   ws (1):
+[2026-03-16T22:29:28.495Z]     - https://www.merkavim.co.il
+[2026-03-16T22:29:28.495Z]   fb (1):
+[2026-03-16T22:29:28.495Z]     - https://www.facebook.com/merkavim.israel
+[2026-03-16T22:29:28.496Z]   ytp (1):
+[2026-03-16T22:29:28.496Z]     - https://www.youtube.com/@merkavim
+[2026-03-16T22:29:28.496Z]   urls (1):
+[2026-03-16T22:29:28.496Z]     - https://www.merkavim-catalog.com
+[2026-03-16T22:29:28.496Z] Summary: ws:1, fb:1, ytp:1, urls:1
+[2026-03-16T22:29:28.501Z] Saved final result to result.json
+[2026-03-16T22:29:28.501Z] Override fields: ws, fb, ytp
+[2026-03-16T22:29:28.501Z] Finished at: 2026-03-16T22:29:28.501Z

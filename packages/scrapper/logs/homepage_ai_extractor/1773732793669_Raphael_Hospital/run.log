@@ -1,0 +1,86 @@
+[2026-03-17T07:33:13.670Z] === Homepage AI Extractor: Raphael Hospital ===
+[2026-03-17T07:33:13.670Z] Started at: 2026-03-17T07:33:13.670Z
+[2026-03-17T07:33:13.671Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773732793669_Raphael_Hospital
+[2026-03-17T07:33:13.671Z] Company: Raphael Hospital
+[2026-03-17T07:33:13.671Z] Website: raphaelhospitals.co.il
+[2026-03-17T07:33:13.671Z] cbRank: 1541145
+[2026-03-17T07:33:13.671Z] Reasons: h
+[2026-03-17T07:33:13.671Z] Fetching: https://raphaelhospitals.co.il
+[2026-03-17T07:33:19.367Z] Dismissed cookie consent popup via: button:has-text("OK")
+[2026-03-17T07:33:22.336Z] Redirected: https://raphaelhospitals.co.il -> https://raphaelhospitals.co.il/
+[2026-03-17T07:33:22.341Z] Saved HTML (108767 bytes) to page.html
+[2026-03-17T07:33:22.344Z] Extracted 60 unique links from page
+[2026-03-17T07:33:22.344Z] Saved 60 links to links.json
+[2026-03-17T07:33:22.347Z] Extracted footer HTML (8348 chars)
+[2026-03-17T07:33:22.347Z] Extracted header HTML (10199 chars)
+[2026-03-17T07:33:22.350Z] Website (post-redirect): https://raphaelhospitals.co.il/ → origin: https://raphaelhospitals.co.il
+[2026-03-17T07:33:22.350Z]   SUBDOMAIN: doctors.raphaelhospitals.co.il (added to ws)
+[2026-03-17T07:33:22.350Z] Website subdomains found: 1
+[2026-03-17T07:33:22.350Z] External links: 6 (of 60 total)
+[2026-03-17T07:33:22.350Z] ── All external links ──
+[2026-03-17T07:33:22.350Z]   EXT: https://www.cookiehub.com/about-cookies
+[2026-03-17T07:33:22.350Z]   EXT: https://www.facebook.com/medica.centers?locale=he_IL
+[2026-03-17T07:33:22.350Z]   EXT: https://www.instagram.com/medica.centers
+[2026-03-17T07:33:22.350Z]   EXT: https://www.linkedin.com/in/medica-raphael-hospital-912357210
+[2026-03-17T07:33:22.350Z]   EXT: https://www.tvuna.co.il
+[2026-03-17T07:33:22.350Z]   EXT: https://www.youtube.com/@MedicaRaphaelHospitals
+[2026-03-17T07:33:22.350Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T07:33:22.351Z]   UNCATEGORIZED: https://www.cookiehub.com/about-cookies
+[2026-03-17T07:33:22.351Z]   REGEX: fb <- https://www.facebook.com/medica.centers?locale=he_IL
+[2026-03-17T07:33:22.351Z]   REGEX: ig <- https://www.instagram.com/medica.centers
+[2026-03-17T07:33:22.351Z]   UNCATEGORIZED: https://www.tvuna.co.il
+[2026-03-17T07:33:22.351Z]   REGEX: ytp <- https://www.youtube.com/@MedicaRaphaelHospitals
+[2026-03-17T07:33:22.351Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T07:33:22.351Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/medica-raphael-hospital-912357210
+[2026-03-17T07:33:22.351Z] Programmatic result: ws:2, fb:1, ig:1, ytp:1 | 2 uncategorized
+[2026-03-17T07:33:22.351Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T07:33:22.355Z] Saved AI prompt (7523 chars) to ai_prompt.txt
+[2026-03-17T07:33:22.355Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T07:33:22.359Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T07:33:57.231Z]   AI: First token received, streaming...
+[2026-03-17T07:34:12.144Z]   AI streaming: 201 chars received (49.8s elapsed)
+[2026-03-17T07:34:12.146Z] AI response complete: 205 chars in 49.8s
+[2026-03-17T07:34:12.147Z] Saved AI response to ai_response.json
+[2026-03-17T07:34:12.148Z] ── Parsing AI response (4 lines) ──
+[2026-03-17T07:34:12.148Z]   AI LINK: https://www.facebook.com/medica.centers?locale=he_IL
+[2026-03-17T07:34:12.148Z]   AI LINK: https://www.youtube.com/@MedicaRaphaelHospitals
+[2026-03-17T07:34:12.148Z]   AI LINK: https://www.linkedin.com/in/medica-raphael-hospital-912357210/
+[2026-03-17T07:34:12.148Z]   AI LINK: https://www.instagram.com/medica.centers/
+[2026-03-17T07:34:12.148Z] AI returned 4 valid links
+[2026-03-17T07:34:12.148Z] ── Categorizing 4 AI-returned links ──
+[2026-03-17T07:34:12.149Z]   AI→REGEX: fb <- https://www.facebook.com/medica.centers?locale=he_IL (duplicate, skipped)
+[2026-03-17T07:34:12.149Z]   AI→REGEX: ytp <- https://www.youtube.com/@MedicaRaphaelHospitals (duplicate, skipped)
+[2026-03-17T07:34:12.149Z]   AI→SKIP (regex domain, no match): https://www.linkedin.com/in/medica-raphael-hospital-912357210/
+[2026-03-17T07:34:12.149Z]   AI→REGEX: ig <- https://www.instagram.com/medica.centers/ (duplicate, skipped)
+[2026-03-17T07:34:12.150Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T07:34:12.150Z] Footer/header origins (7):
+[2026-03-17T07:34:12.151Z]   FOOTER/HEADER ORIGIN: https://www.raphaelhospitals.co.il
+[2026-03-17T07:34:12.151Z]   FOOTER/HEADER ORIGIN: https://www.tvuna.co.il
+[2026-03-17T07:34:12.151Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T07:34:12.151Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T07:34:12.151Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T07:34:12.151Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T07:34:12.152Z]   FOOTER/HEADER ORIGIN: https://doctors.raphaelhospitals.co.il
+[2026-03-17T07:34:12.152Z]   SKIP (not in footer/header): https://www.cookiehub.com/about-cookies
+[2026-03-17T07:34:12.152Z]   ADDED: urls <- https://www.tvuna.co.il
+[2026-03-17T07:34:12.152Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T07:34:12.152Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T07:34:12.153Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T07:34:12.153Z] ── Step 3: Final dedup ──
+[2026-03-17T07:34:12.153Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T07:34:12.153Z] ── FINAL RESULT ──
+[2026-03-17T07:34:12.153Z]   ws (2):
+[2026-03-17T07:34:12.153Z]     - https://doctors.raphaelhospitals.co.il
+[2026-03-17T07:34:12.153Z]     - https://raphaelhospitals.co.il
+[2026-03-17T07:34:12.154Z]   fb (1):
+[2026-03-17T07:34:12.154Z]     - https://www.facebook.com/medica.centers
+[2026-03-17T07:34:12.154Z]   ig (1):
+[2026-03-17T07:34:12.154Z]     - https://www.instagram.com/medica.centers
+[2026-03-17T07:34:12.154Z]   ytp (1):
+[2026-03-17T07:34:12.154Z]     - https://www.youtube.com/@medicaraphaelhospitals
+[2026-03-17T07:34:12.155Z]   urls (1):
+[2026-03-17T07:34:12.155Z]     - https://www.tvuna.co.il
+[2026-03-17T07:34:12.155Z] Summary: ws:2, fb:1, ig:1, ytp:1, urls:1
+[2026-03-17T07:34:12.156Z] Saved final result to result.json
+[2026-03-17T07:34:12.156Z] Override fields: ws, fb, ig, ytp, urls
+[2026-03-17T07:34:12.157Z] Finished at: 2026-03-17T07:34:12.157Z

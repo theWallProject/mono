@@ -1,0 +1,67 @@
+[2026-03-17T08:54:08.328Z] === Homepage AI Extractor: IOTT ===
+[2026-03-17T08:54:08.328Z] Started at: 2026-03-17T08:54:08.328Z
+[2026-03-17T08:54:08.328Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773737648327_IOTT
+[2026-03-17T08:54:08.328Z] Company: IOTT
+[2026-03-17T08:54:08.328Z] Website: i-ott.com
+[2026-03-17T08:54:08.328Z] cbRank: 1594833
+[2026-03-17T08:54:08.328Z] Reasons: h
+[2026-03-17T08:54:08.328Z] Fetching: https://i-ott.com
+[2026-03-17T08:54:19.201Z] Network idle timeout — continuing with current state
+[2026-03-17T08:54:19.234Z] Redirected: https://i-ott.com -> https://www.i-ott.com/
+[2026-03-17T08:54:19.245Z] Saved HTML (471515 bytes) to page.html
+[2026-03-17T08:54:19.248Z] Extracted 5 unique links from page
+[2026-03-17T08:54:19.248Z] Saved 5 links to links.json
+[2026-03-17T08:54:19.256Z] Extracted footer HTML (6833 chars)
+[2026-03-17T08:54:19.256Z] Extracted header HTML (1279 chars)
+[2026-03-17T08:54:19.259Z] Website (post-redirect): https://www.i-ott.com/ → origin: https://www.i-ott.com
+[2026-03-17T08:54:19.259Z] External links: 4 (of 5 total)
+[2026-03-17T08:54:19.259Z] ── All external links ──
+[2026-03-17T08:54:19.260Z]   EXT: http://wix.com/?utm_campaign=vir_created_with
+[2026-03-17T08:54:19.260Z]   EXT: https://titan-ventures.com
+[2026-03-17T08:54:19.260Z]   EXT: https://www.cobwebs.com
+[2026-03-17T08:54:19.260Z]   EXT: https://www.linkedin.com/company/i-ott
+[2026-03-17T08:54:19.260Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T08:54:19.260Z]   UNCATEGORIZED: http://wix.com/?utm_campaign=vir_created_with
+[2026-03-17T08:54:19.260Z]   UNCATEGORIZED: https://titan-ventures.com
+[2026-03-17T08:54:19.260Z]   UNCATEGORIZED: https://www.cobwebs.com
+[2026-03-17T08:54:19.260Z]   REGEX: li <- https://www.linkedin.com/company/i-ott
+[2026-03-17T08:54:19.260Z] Programmatic result: ws:1, li:1 | 3 uncategorized
+[2026-03-17T08:54:19.260Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T08:54:19.264Z] Saved AI prompt (6411 chars) to ai_prompt.txt
+[2026-03-17T08:54:19.264Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T08:54:19.268Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T08:54:48.467Z]   AI: First token received, streaming...
+[2026-03-17T08:54:51.493Z] AI response complete: 60 chars in 32.2s
+[2026-03-17T08:54:51.494Z] Saved AI response to ai_response.json
+[2026-03-17T08:54:51.494Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T08:54:51.495Z]   AI LINK: https://www.linkedin.com/company/i-ott
+[2026-03-17T08:54:51.495Z]   AI LINK: https://www.i-ott.com
+[2026-03-17T08:54:51.495Z] AI returned 2 valid links
+[2026-03-17T08:54:51.495Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T08:54:51.495Z]   AI→REGEX: li <- https://www.linkedin.com/company/i-ott (duplicate, skipped)
+[2026-03-17T08:54:51.496Z]   AI→URLS: https://www.i-ott.com
+[2026-03-17T08:54:51.496Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T08:54:51.496Z] Footer/header origins (3):
+[2026-03-17T08:54:51.496Z]   FOOTER/HEADER ORIGIN: https://www.i-ott.com
+[2026-03-17T08:54:51.496Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T08:54:51.496Z]   FOOTER/HEADER ORIGIN: http://wix.com
+[2026-03-17T08:54:51.496Z]   ADDED: urls <- http://wix.com (cleaned from http://wix.com/?utm_campaign=vir_created_with)
+[2026-03-17T08:54:51.497Z]   SKIP (not in footer/header): https://titan-ventures.com
+[2026-03-17T08:54:51.497Z]   SKIP (not in footer/header): https://www.cobwebs.com
+[2026-03-17T08:54:51.497Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T08:54:51.497Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T08:54:51.497Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T08:54:51.497Z] ── Step 3: Final dedup ──
+[2026-03-17T08:54:51.497Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T08:54:51.498Z] ── FINAL RESULT ──
+[2026-03-17T08:54:51.498Z]   ws (1):
+[2026-03-17T08:54:51.498Z]     - https://www.i-ott.com
+[2026-03-17T08:54:51.498Z]   li (1):
+[2026-03-17T08:54:51.498Z]     - https://www.linkedin.com/company/i-ott
+[2026-03-17T08:54:51.498Z]   urls (2):
+[2026-03-17T08:54:51.498Z]     - http://wix.com
+[2026-03-17T08:54:51.499Z]     - https://www.i-ott.com
+[2026-03-17T08:54:51.499Z] Summary: ws:1, li:1, urls:2
+[2026-03-17T08:54:51.500Z] Saved final result to result.json
+[2026-03-17T08:54:51.500Z] Override fields: ws, li, urls
+[2026-03-17T08:54:51.500Z] Finished at: 2026-03-17T08:54:51.500Z

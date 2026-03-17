@@ -1,0 +1,62 @@
+[2026-03-17T00:07:52.114Z] === Homepage AI Extractor: ERG Solutions ===
+[2026-03-17T00:07:52.114Z] Started at: 2026-03-17T00:07:52.114Z
+[2026-03-17T00:07:52.115Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773706072113_ERG_Solutions
+[2026-03-17T00:07:52.115Z] Company: ERG Solutions
+[2026-03-17T00:07:52.115Z] Website: erg.co.il
+[2026-03-17T00:07:52.115Z] cbRank: 1286139
+[2026-03-17T00:07:52.115Z] Reasons: h
+[2026-03-17T00:07:52.115Z] Fetching: https://erg.co.il
+[2026-03-17T00:07:56.115Z] Redirected: https://erg.co.il -> https://erg.co.il/
+[2026-03-17T00:07:56.128Z] Saved HTML (431666 bytes) to page.html
+[2026-03-17T00:07:56.132Z] Extracted 23 unique links from page
+[2026-03-17T00:07:56.133Z] Saved 23 links to links.json
+[2026-03-17T00:07:56.136Z] Extracted footer HTML (17792 chars)
+[2026-03-17T00:07:56.136Z] Extracted header HTML (8868 chars)
+[2026-03-17T00:07:56.139Z] Website (post-redirect): https://erg.co.il/ → origin: https://erg.co.il
+[2026-03-17T00:07:56.139Z] External links: 3 (of 23 total)
+[2026-03-17T00:07:56.139Z] ── All external links ──
+[2026-03-17T00:07:56.139Z]   EXT: https://api.whatsapp.com/send?phone=972503954366
+[2026-03-17T00:07:56.139Z]   EXT: https://b2b1.pro
+[2026-03-17T00:07:56.139Z]   EXT: https://www.topeak.co.il
+[2026-03-17T00:07:56.140Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:07:56.140Z]   UNCATEGORIZED: https://api.whatsapp.com/send?phone=972503954366
+[2026-03-17T00:07:56.140Z]   UNCATEGORIZED: https://b2b1.pro
+[2026-03-17T00:07:56.140Z]   UNCATEGORIZED: https://www.topeak.co.il
+[2026-03-17T00:07:56.140Z] Programmatic result: ws:1 | 3 uncategorized
+[2026-03-17T00:07:56.140Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:07:56.144Z] Saved AI prompt (11222 chars) to ai_prompt.txt
+[2026-03-17T00:07:56.144Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:07:56.148Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:09:00.288Z]   AI: First token received, streaming...
+[2026-03-17T00:09:06.410Z] AI response complete: 74 chars in 70.3s
+[2026-03-17T00:09:06.412Z] Saved AI response to ai_response.json
+[2026-03-17T00:09:06.412Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T00:09:06.412Z]   AI LINK: https://api.whatsapp.com/send?phone=972503954366
+[2026-03-17T00:09:06.412Z]   AI LINK: https://www.topeak.co.il/
+[2026-03-17T00:09:06.412Z] AI returned 2 valid links
+[2026-03-17T00:09:06.413Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T00:09:06.413Z]   AI→URLS: https://api.whatsapp.com/send (cleaned from https://api.whatsapp.com/send?phone=972503954366)
+[2026-03-17T00:09:06.413Z]   AI→URLS: https://www.topeak.co.il (cleaned from https://www.topeak.co.il/)
+[2026-03-17T00:09:06.414Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:09:06.414Z] Footer/header origins (3):
+[2026-03-17T00:09:06.414Z]   FOOTER/HEADER ORIGIN: https://erg.co.il
+[2026-03-17T00:09:06.414Z]   FOOTER/HEADER ORIGIN: https://api.whatsapp.com
+[2026-03-17T00:09:06.414Z]   FOOTER/HEADER ORIGIN: https://www.topeak.co.il
+[2026-03-17T00:09:06.414Z]   SKIP (AI claimed): https://api.whatsapp.com/send?phone=972503954366
+[2026-03-17T00:09:06.415Z]   SKIP (not in footer/header): https://b2b1.pro
+[2026-03-17T00:09:06.415Z]   SKIP (AI claimed): https://www.topeak.co.il
+[2026-03-17T00:09:06.415Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T00:09:06.415Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:09:06.415Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T00:09:06.415Z] ── Step 3: Final dedup ──
+[2026-03-17T00:09:06.415Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T00:09:06.416Z] ── FINAL RESULT ──
+[2026-03-17T00:09:06.416Z]   ws (1):
+[2026-03-17T00:09:06.416Z]     - https://erg.co.il
+[2026-03-17T00:09:06.416Z]   urls (2):
+[2026-03-17T00:09:06.416Z]     - https://api.whatsapp.com/send
+[2026-03-17T00:09:06.416Z]     - https://www.topeak.co.il
+[2026-03-17T00:09:06.416Z] Summary: ws:1, urls:2
+[2026-03-17T00:09:06.418Z] Saved final result to result.json
+[2026-03-17T00:09:06.418Z] Override fields: ws, urls
+[2026-03-17T00:09:06.418Z] Finished at: 2026-03-17T00:09:06.418Z

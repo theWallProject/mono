@@ -1,0 +1,56 @@
+[2026-03-17T10:18:54.451Z] === Homepage AI Extractor: Malcam ===
+[2026-03-17T10:18:54.452Z] Started at: 2026-03-17T10:18:54.452Z
+[2026-03-17T10:18:54.452Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773742734451_Malcam
+[2026-03-17T10:18:54.452Z] Company: Malcam
+[2026-03-17T10:18:54.452Z] Website: malcam.com
+[2026-03-17T10:18:54.452Z] cbRank: 1652537
+[2026-03-17T10:18:54.452Z] Reasons: h
+[2026-03-17T10:18:54.452Z] Fetching: https://malcam.com
+[2026-03-17T10:18:57.408Z] Redirected: https://malcam.com -> https://www.malcam.com/
+[2026-03-17T10:18:57.412Z] Saved HTML (61302 bytes) to page.html
+[2026-03-17T10:18:57.414Z] Extracted 20 unique links from page
+[2026-03-17T10:18:57.415Z] Saved 20 links to links.json
+[2026-03-17T10:18:57.417Z] Extracted footer HTML (6430 chars)
+[2026-03-17T10:18:57.417Z] Extracted header HTML (2335 chars)
+[2026-03-17T10:18:57.422Z] Website (post-redirect): https://www.malcam.com/ → origin: https://www.malcam.com
+[2026-03-17T10:18:57.422Z] External links: 2 (of 20 total)
+[2026-03-17T10:18:57.422Z] ── All external links ──
+[2026-03-17T10:18:57.422Z]   EXT: http://www.simply-smart.com
+[2026-03-17T10:18:57.422Z]   EXT: https://www.linkedin.com/company/malcam
+[2026-03-17T10:18:57.423Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T10:18:57.423Z]   UNCATEGORIZED: http://www.simply-smart.com
+[2026-03-17T10:18:57.423Z]   REGEX: li <- https://www.linkedin.com/company/malcam
+[2026-03-17T10:18:57.423Z] Programmatic result: ws:1, li:1 | 1 uncategorized
+[2026-03-17T10:18:57.423Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T10:18:57.426Z] Saved AI prompt (5671 chars) to ai_prompt.txt
+[2026-03-17T10:18:57.427Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T10:18:57.431Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T10:19:21.454Z]   AI: First token received, streaming...
+[2026-03-17T10:19:22.840Z] AI response complete: 40 chars in 25.4s
+[2026-03-17T10:19:22.842Z] Saved AI response to ai_response.json
+[2026-03-17T10:19:22.842Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T10:19:22.842Z]   AI LINK: https://www.linkedin.com/company/malcam/
+[2026-03-17T10:19:22.842Z] AI returned 1 valid links
+[2026-03-17T10:19:22.843Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T10:19:22.843Z]   AI→REGEX: li <- https://www.linkedin.com/company/malcam/ (duplicate, skipped)
+[2026-03-17T10:19:22.844Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T10:19:22.844Z] Footer/header origins (2):
+[2026-03-17T10:19:22.844Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T10:19:22.845Z]   FOOTER/HEADER ORIGIN: http://www.simply-smart.com
+[2026-03-17T10:19:22.845Z]   ADDED: urls <- http://www.simply-smart.com
+[2026-03-17T10:19:22.845Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T10:19:22.845Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T10:19:22.845Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T10:19:22.845Z] ── Step 3: Final dedup ──
+[2026-03-17T10:19:22.845Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T10:19:22.846Z] ── FINAL RESULT ──
+[2026-03-17T10:19:22.846Z]   ws (1):
+[2026-03-17T10:19:22.846Z]     - https://www.malcam.com
+[2026-03-17T10:19:22.846Z]   li (1):
+[2026-03-17T10:19:22.847Z]     - https://www.linkedin.com/company/malcam
+[2026-03-17T10:19:22.847Z]   urls (1):
+[2026-03-17T10:19:22.847Z]     - http://www.simply-smart.com
+[2026-03-17T10:19:22.847Z] Summary: ws:1, li:1, urls:1
+[2026-03-17T10:19:22.848Z] Saved final result to result.json
+[2026-03-17T10:19:22.848Z] Override fields: ws, li, urls
+[2026-03-17T10:19:22.849Z] Finished at: 2026-03-17T10:19:22.849Z

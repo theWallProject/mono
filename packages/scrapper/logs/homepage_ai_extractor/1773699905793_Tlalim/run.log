@@ -1,0 +1,78 @@
+[2026-03-16T22:25:05.794Z] === Homepage AI Extractor: Tlalim ===
+[2026-03-16T22:25:05.794Z] Started at: 2026-03-16T22:25:05.794Z
+[2026-03-16T22:25:05.794Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773699905793_Tlalim
+[2026-03-16T22:25:05.794Z] Company: Tlalim
+[2026-03-16T22:25:05.794Z] Website: tlalimgroup.com
+[2026-03-16T22:25:05.794Z] cbRank: 1231149
+[2026-03-16T22:25:05.794Z] Reasons: h
+[2026-03-16T22:25:05.794Z] Fetching: https://tlalimgroup.com
+[2026-03-16T22:25:11.297Z] Redirected: https://tlalimgroup.com -> https://tlalimgroup.com/
+[2026-03-16T22:25:11.314Z] Saved HTML (744833 bytes) to page.html
+[2026-03-16T22:25:11.317Z] Extracted 40 unique links from page
+[2026-03-16T22:25:11.318Z] Saved 40 links to links.json
+[2026-03-16T22:25:11.320Z] Extracted footer HTML (9147 chars)
+[2026-03-16T22:25:11.320Z] Extracted header HTML (6802 chars)
+[2026-03-16T22:25:11.324Z] Website (post-redirect): https://tlalimgroup.com/ → origin: https://tlalimgroup.com
+[2026-03-16T22:25:11.325Z] External links: 5 (of 40 total)
+[2026-03-16T22:25:11.325Z] ── All external links ──
+[2026-03-16T22:25:11.325Z]   EXT: https://www.facebook.com/profile.php?id=100082890774880&mibextid=LQQJ4d
+[2026-03-16T22:25:11.325Z]   EXT: https://www.instagram.com/tlalimgroup
+[2026-03-16T22:25:11.325Z]   EXT: https://www.linkedin.com/company/1635141/admin/feed/posts
+[2026-03-16T22:25:11.325Z]   EXT: https://www.webinside.co.il
+[2026-03-16T22:25:11.325Z]   EXT: https://www.youtube.com/watch?v=qf8FTG0IhiA
+[2026-03-16T22:25:11.326Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T22:25:11.326Z]   REGEX: ig <- https://www.instagram.com/tlalimgroup
+[2026-03-16T22:25:11.326Z]   REGEX: li <- https://www.linkedin.com/company/1635141/admin/feed/posts
+[2026-03-16T22:25:11.326Z]   UNCATEGORIZED: https://www.webinside.co.il
+[2026-03-16T22:25:11.326Z] ── Step 1b: Resolving 2 regex-domain URLs via redirect ──
+[2026-03-16T22:25:13.162Z]   RESOLVE: https://www.facebook.com/profile.php?id=100082890774880&mibextid=LQQJ4d → https://www.facebook.com/people/Tlalim-Group/100082890774880/?mibextid=LQQJ4d
+[2026-03-16T22:25:13.173Z]   SKIP (resolved but still no regex match): https://www.facebook.com/people/Tlalim-Group/100082890774880/?mibextid=LQQJ4d (from https://www.facebook.com/profile.php?id=100082890774880&mibextid=LQQJ4d)
+[2026-03-16T22:25:13.173Z]   SKIP (regex domain, no match): https://www.youtube.com/watch?v=qf8FTG0IhiA
+[2026-03-16T22:25:13.173Z] Programmatic result: ws:1, ig:1, li:1 | 1 uncategorized
+[2026-03-16T22:25:13.173Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T22:25:13.175Z] Saved AI prompt (6389 chars) to ai_prompt.txt
+[2026-03-16T22:25:13.175Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T22:25:13.179Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T22:25:41.306Z]   AI: First token received, streaming...
+[2026-03-16T22:25:58.773Z]   AI streaming: 201 chars received (45.6s elapsed)
+[2026-03-16T22:25:58.775Z] AI response complete: 213 chars in 45.6s
+[2026-03-16T22:25:58.776Z] Saved AI response to ai_response.json
+[2026-03-16T22:25:58.776Z] ── Parsing AI response (4 lines) ──
+[2026-03-16T22:25:58.776Z]   AI LINK: https://www.instagram.com/tlalimgroup/
+[2026-03-16T22:25:58.777Z]   AI LINK: https://www.facebook.com/profile.php?id=100082890774880&mibextid=LQQJ4d
+[2026-03-16T22:25:58.777Z]   AI LINK: https://www.youtube.com/watch?v=qf8FTG0IhiA
+[2026-03-16T22:25:58.777Z]   AI LINK: https://www.linkedin.com/company/1635141/admin/feed/posts/
+[2026-03-16T22:25:58.777Z] AI returned 4 valid links
+[2026-03-16T22:25:58.777Z] ── Categorizing 4 AI-returned links ──
+[2026-03-16T22:25:58.777Z]   AI→REGEX: ig <- https://www.instagram.com/tlalimgroup/ (duplicate, skipped)
+[2026-03-16T22:25:59.777Z]   RESOLVE: https://www.facebook.com/profile.php?id=100082890774880&mibextid=LQQJ4d → https://www.facebook.com/people/Tlalim-Group/100082890774880/?mibextid=LQQJ4d
+[2026-03-16T22:25:59.782Z]   AI→SKIP (resolved but still no regex match): https://www.facebook.com/people/Tlalim-Group/100082890774880/?mibextid=LQQJ4d (from https://www.facebook.com/profile.php?id=100082890774880&mibextid=LQQJ4d)
+[2026-03-16T22:25:59.783Z]   AI→SKIP (regex domain, no match): https://www.youtube.com/watch?v=qf8FTG0IhiA
+[2026-03-16T22:25:59.783Z]   AI→REGEX: li <- https://www.linkedin.com/company/1635141/admin/feed/posts/ (duplicate, skipped)
+[2026-03-16T22:25:59.783Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T22:25:59.783Z] Footer/header origins (6):
+[2026-03-16T22:25:59.783Z]   FOOTER/HEADER ORIGIN: https://tlalimgroup.com
+[2026-03-16T22:25:59.783Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-16T22:25:59.783Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T22:25:59.783Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-16T22:25:59.783Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T22:25:59.783Z]   FOOTER/HEADER ORIGIN: https://www.webinside.co.il
+[2026-03-16T22:25:59.783Z]   ADDED: urls <- https://www.webinside.co.il
+[2026-03-16T22:25:59.784Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-16T22:25:59.784Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T22:25:59.784Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T22:25:59.784Z] ── Step 3: Final dedup ──
+[2026-03-16T22:25:59.784Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-16T22:25:59.784Z] ── FINAL RESULT ──
+[2026-03-16T22:25:59.784Z]   ws (1):
+[2026-03-16T22:25:59.784Z]     - https://tlalimgroup.com
+[2026-03-16T22:25:59.784Z]   li (1):
+[2026-03-16T22:25:59.784Z]     - https://www.linkedin.com/company/1635141
+[2026-03-16T22:25:59.784Z]   ig (1):
+[2026-03-16T22:25:59.784Z]     - https://www.instagram.com/tlalimgroup
+[2026-03-16T22:25:59.784Z]   urls (1):
+[2026-03-16T22:25:59.784Z]     - https://www.webinside.co.il
+[2026-03-16T22:25:59.784Z] Summary: ws:1, ig:1, li:1, urls:1
+[2026-03-16T22:25:59.785Z] Saved final result to result.json
+[2026-03-16T22:25:59.785Z] Override fields: ws, li, ig, urls
+[2026-03-16T22:25:59.785Z] Finished at: 2026-03-16T22:25:59.785Z

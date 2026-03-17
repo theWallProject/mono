@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="mobile-web-app-capable" content="yes">
+	<style>
+		html, div
+		{
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		body
+		{
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: auto;
+		}
+		.table-container
+		{
+			/* Optional: Ensures the container takes up the full width */
+			width: 100%; /* Centers the container if it's narrower than the screen */
+			margin-left: auto;
+			margin-right: auto; /* Centers the text/child elements inside the container */
+			text-align: center;
+			vertical-align: top;
+		}
+		.mainTable
+		{
+			/* Centers the table itself within its container */
+			margin-left: auto;
+			margin-right: auto; /* Ensures the table is a block element to accept margins */
+			display: block;
+		}
+	</style>
+
+	<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202603120101/show_ads_impl_fy2021.js"></script><script src="jquery-3.7.1.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+		var lastDiv = 1;
+		var pLastAdsRefresh = new Date();
+		var lastWindowHight = 0;
+		$(document).ready(function() {
+			lastWindowHight = $(window).height();
+			$("#eb30App").css("height", $(window).height() + "px");
+			$("#eb30App").css("width", ($(window).width() / 2) + "px");
+			$("#eb30App").attr("src", "https://www.efobus.com/eb30web/index.html?param=60");
+
+			$(window).on("resize", function(pEvent) {
+				$("#eb30App").css("height", $(window).height() + "px");
+				$("#eb30App").css("width", ($(window).width() / 2) + "px");
+
+				if ($(window).height() - lastWindowHight > 50) {
+					$("#eb30App").attr("src", "https://www.efobus.com/eb30web/index.html?param=60");
+					lastWindowHight = $(window).height();
+				}
+
+			});
+
+
+			$(window).on("message", function(pEvent) {
+
+				var iframes = document.getElementsByTagName('iframe');
+				for (var i = 0; i < iframes.length; i++) {
+					if (iframes[i].contentWindow === pEvent.originalEvent.source) {
+						// This is the iframe that posted the message
+						// console.log('Message from iframe with ID:', iframes[i].id, ' data= ' + pEvent.originalEvent.data);
+
+						try {
+							var pData = JSON.parse(pEvent.originalEvent.data);
+							if (pData['msgCode'] !== null) {
+								switch (pData['msgCode']) {
+									case 1104: //<value enum="1104" description="GetNextBusTimeResponse" />  
+									case 1110: //			<value enum="1110" description="GetStationNextBusTimesResponse" /> 
+									case 1049: //			<value enum="1049" description="SearchRoutesForBrowserResponse" />
+									case 1051: //			<value enum="1051" description="GetRouteForBrowserResponse" />
+									case 1108: //			<value enum="1108" description="GetStopTimesResponse" />
+									case 1152: //			<value enum="1152" description="TripPlanResponse" />
+										{
+											if (++lastDiv > 3)
+												lastDiv = 1;
+											var divID = "#d" + lastDiv;
+
+											$(divID).html('<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4337232098909741" data-ad-slot="9295829724" data-ad-format="auto" data-full-width-responsive="true"></ins>');
+											(adsbygoogle = window.adsbygoogle || []).push({});
+										}
+										break;
+
+								}
+							}
+						} catch (e) {
+						}
+						break;
+					}
+				}
+
+			});
+		});
+
+		function disableParentScroll() {
+			document.body.style.overflowY = 'hidden';
+		}
+
+		function enableParentScroll() {
+			document.body.style.overflowY = 'auto';
+		}
+
+
+	</script>
+
+	<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4337232098909741" crossorigin="anonymous" data-checked-head="true"></script>
+
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+<body>
+	<div class="table-container" style="height: auto !important;">
+		<table width="100%" class="mainTable" style="height: auto !important;">
+			<tbody><tr style="height: auto !important;">
+				<td width="25%" id="d1" style="vertical-align: middle; height: auto !important;">
+					<ins class="adsbygoogle" style="display: block; height: 250px;" data-ad-client="ca-pub-4337232098909741" data-ad-slot="9295829724" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_1_host" style="border: none; height: 250px; width: 313px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:313px;height:250px;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="313" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-4337232098909741&amp;output=html&amp;h=250&amp;slotname=9295829724&amp;adk=1661953385&amp;adf=270095731&amp;pi=t.ma~as.9295829724&amp;w=313&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1771258037&amp;rafmt=1&amp;format=313x250&amp;url=https%3A%2F%2Fwww.efobus.com%2F3.0%2F%3Frc%3DIsrael&amp;fwr=0&amp;fwrattr=true&amp;rpe=1&amp;resp_fmts=3&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiMTAuMCIsIng4NiIsIiIsIiIsbnVsbCwwLG51bGwsIiIsW1siSGVhZGxlc3NDaHJvbWUiLCIiXSxbIk5vdD9BX0JyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIiXV0sMF0.&amp;abgtt=6&amp;dt=1773708586440&amp;bpp=1&amp;bdt=187&amp;idt=113&amp;shv=r20260312&amp;mjsv=m202603120101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;eoidce=1&amp;prev_fmts=0x0&amp;nras=1&amp;correlator=4894531453924&amp;frm=20&amp;pv=1&amp;u_tz=60&amp;u_his=2&amp;u_h=720&amp;u_w=1280&amp;u_ah=720&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=4&amp;ady=238&amp;biw=1280&amp;bih=720&amp;scr_x=0&amp;scr_y=0&amp;eid=31097043%2C31097122%2C31097125%2C95378425%2C95381489%2C95383702%2C95384194%2C95379823&amp;oid=2&amp;pvsid=4729988671937609&amp;tmod=1581219704&amp;uas=0&amp;nvt=1&amp;ref=https%3A%2F%2Fefobus.com%2F&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1296%2C808%2C1280%2C720&amp;vis=1&amp;rsz=d%7C%7CoEe%7Cn&amp;abl=XS&amp;pfx=0&amp;fu=128&amp;bc=31&amp;bz=1.01&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=116" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CLfBwa7bpZMDFfXFEQgdRoUgBQ" data-load-complete="true"></iframe></div></ins>
+				</td>
+				<td width="50%">
+					<iframe id="eb30App" width="100%" height="100%" style="height: 720px; width: 640px; border: none; overflow: auto;" align="center" allow="microphone; geolocation" onmouseenter="disableParentScroll()" onmouseleave="enableParentScroll()" src="https://www.efobus.com/eb30web/index.html?param=60"></iframe>
+				</td>
+				<td width="25%" id="d2" style="vertical-align: middle">
+					<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4337232098909741" data-ad-slot="9295829724" data-ad-format="auto" data-full-width-responsive="true"></ins>
+				</td>
+			</tr>
+		</tbody></table>
+		<div id="d3" align="center">
+			<ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-4337232098909741" data-ad-slot="9295829724" data-ad-format="auto" data-full-width-responsive="true"></ins>
+		</div>
+	</div>
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-ad-hi="true" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://pagead2.googlesyndication.com/pagead/ads?client=ca-pub-4337232098909741&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1771258037&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A134250504%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.efobus.com%2F3.0%2F%3Frc%3DIsrael&amp;pra=5&amp;aiof=9&amp;asro=0&amp;itsi=-1&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.0001&amp;aiactd=0.0001&amp;aicct=0.0001&amp;aicctd=0.0001&amp;ailct=0.0001&amp;ailctd=0.0001&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiMTAuMCIsIng4NiIsIiIsIiIsbnVsbCwwLG51bGwsIiIsW1siSGVhZGxlc3NDaHJvbWUiLCIiXSxbIk5vdD9BX0JyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIiXV0sMF0.&amp;abgtt=6&amp;dt=1773708586432&amp;bpp=8&amp;bdt=180&amp;idt=107&amp;shv=r20260312&amp;mjsv=m202603120101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;eoidce=1&amp;nras=1&amp;correlator=4894531453924&amp;frm=20&amp;pv=2&amp;u_tz=60&amp;u_his=2&amp;u_h=720&amp;u_w=1280&amp;u_ah=720&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1280&amp;bih=720&amp;scr_x=0&amp;scr_y=0&amp;eid=31097043%2C31097122%2C31097125%2C95378425%2C95381489%2C95383702%2C95384194%2C95379823&amp;oid=2&amp;pvsid=4729988671937609&amp;tmod=1581219704&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;ref=https%3A%2F%2Fefobus.com%2F&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1296%2C808%2C1280%2C720&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1.01&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=118" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins></body><iframe id="google_esf" name="google_esf" src="https://pagead2.googlesyndication.com/pagead/html/r20260312/r20190131/zrt_lookup_fy2021.html" style="display: none;"></iframe></html>

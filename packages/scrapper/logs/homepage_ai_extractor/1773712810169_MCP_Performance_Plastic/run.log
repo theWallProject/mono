@@ -1,0 +1,66 @@
+[2026-03-17T02:00:10.170Z] === Homepage AI Extractor: MCP Performance Plastic ===
+[2026-03-17T02:00:10.170Z] Started at: 2026-03-17T02:00:10.170Z
+[2026-03-17T02:00:10.170Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773712810169_MCP_Performance_Plastic
+[2026-03-17T02:00:10.170Z] Company: MCP Performance Plastic
+[2026-03-17T02:00:10.170Z] Website: mcp.co.il
+[2026-03-17T02:00:10.170Z] cbRank: 1357352
+[2026-03-17T02:00:10.170Z] Reasons: h
+[2026-03-17T02:00:10.171Z] Fetching: https://mcp.co.il
+[2026-03-17T02:00:13.009Z] Redirected: https://mcp.co.il -> https://www.mcp.co.il/
+[2026-03-17T02:00:13.012Z] Saved HTML (56236 bytes) to page.html
+[2026-03-17T02:00:13.015Z] Extracted 17 unique links from page
+[2026-03-17T02:00:13.015Z] Saved 17 links to links.json
+[2026-03-17T02:00:13.018Z] Extracted footer HTML (7319 chars)
+[2026-03-17T02:00:13.018Z] Extracted header HTML (1993 chars)
+[2026-03-17T02:00:13.022Z] Website (post-redirect): https://www.mcp.co.il/ → origin: https://www.mcp.co.il
+[2026-03-17T02:00:13.022Z] External links: 4 (of 17 total)
+[2026-03-17T02:00:13.023Z] ── All external links ──
+[2026-03-17T02:00:13.023Z]   EXT: http://www.mppackaging.co.il
+[2026-03-17T02:00:13.023Z]   EXT: https://www.linkedin.com/company/mcp-ltd
+[2026-03-17T02:00:13.023Z]   EXT: https://www.linkedin.com/company/mpp-group/?viewAsMember=true
+[2026-03-17T02:00:13.023Z]   EXT: https://www.polyraz.com
+[2026-03-17T02:00:13.023Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T02:00:13.023Z]   UNCATEGORIZED: http://www.mppackaging.co.il
+[2026-03-17T02:00:13.023Z]   REGEX: li <- https://www.linkedin.com/company/mcp-ltd
+[2026-03-17T02:00:13.023Z]   REGEX: li <- https://www.linkedin.com/company/mpp-group/?viewAsMember=true
+[2026-03-17T02:00:13.024Z]   UNCATEGORIZED: https://www.polyraz.com
+[2026-03-17T02:00:13.024Z] Programmatic result: ws:1, li:2 | 2 uncategorized
+[2026-03-17T02:00:13.024Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T02:00:13.027Z] Saved AI prompt (7708 chars) to ai_prompt.txt
+[2026-03-17T02:00:13.027Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T02:00:13.032Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T02:00:54.868Z]   AI: First token received, streaming...
+[2026-03-17T02:00:59.938Z] AI response complete: 103 chars in 46.9s
+[2026-03-17T02:00:59.939Z] Saved AI response to ai_response.json
+[2026-03-17T02:00:59.940Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T02:00:59.940Z]   AI LINK: https://www.linkedin.com/company/mpp-group/?viewAsMember=true
+[2026-03-17T02:00:59.940Z]   AI LINK: https://www.linkedin.com/company/mcp-ltd/
+[2026-03-17T02:00:59.940Z] AI returned 2 valid links
+[2026-03-17T02:00:59.940Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T02:00:59.941Z]   AI→REGEX: li <- https://www.linkedin.com/company/mpp-group/?viewAsMember=true (duplicate, skipped)
+[2026-03-17T02:00:59.941Z]   AI→REGEX: li <- https://www.linkedin.com/company/mcp-ltd/ (duplicate, skipped)
+[2026-03-17T02:00:59.941Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T02:00:59.942Z] Footer/header origins (3):
+[2026-03-17T02:00:59.942Z]   FOOTER/HEADER ORIGIN: http://www.mppackaging.co.il
+[2026-03-17T02:00:59.942Z]   FOOTER/HEADER ORIGIN: https://www.polyraz.com
+[2026-03-17T02:00:59.942Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T02:00:59.942Z]   ADDED: urls <- http://www.mppackaging.co.il
+[2026-03-17T02:00:59.942Z]   ADDED: urls <- https://www.polyraz.com
+[2026-03-17T02:00:59.942Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-17T02:00:59.943Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T02:00:59.943Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T02:00:59.943Z] ── Step 3: Final dedup ──
+[2026-03-17T02:00:59.943Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T02:00:59.943Z] ── FINAL RESULT ──
+[2026-03-17T02:00:59.943Z]   ws (1):
+[2026-03-17T02:00:59.943Z]     - https://www.mcp.co.il
+[2026-03-17T02:00:59.944Z]   li (2):
+[2026-03-17T02:00:59.944Z]     - https://www.linkedin.com/company/mcp-ltd
+[2026-03-17T02:00:59.944Z]     - https://www.linkedin.com/company/mpp-group
+[2026-03-17T02:00:59.944Z]   urls (2):
+[2026-03-17T02:00:59.944Z]     - http://www.mppackaging.co.il
+[2026-03-17T02:00:59.945Z]     - https://www.polyraz.com
+[2026-03-17T02:00:59.945Z] Summary: ws:1, li:2, urls:2
+[2026-03-17T02:00:59.946Z] Saved final result to result.json
+[2026-03-17T02:00:59.946Z] Override fields: ws, li, urls
+[2026-03-17T02:00:59.947Z] Finished at: 2026-03-17T02:00:59.947Z

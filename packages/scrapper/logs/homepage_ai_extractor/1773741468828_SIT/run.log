@@ -1,0 +1,90 @@
+[2026-03-17T09:57:48.828Z] === Homepage AI Extractor: SIT ===
+[2026-03-17T09:57:48.828Z] Started at: 2026-03-17T09:57:48.828Z
+[2026-03-17T09:57:48.828Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773741468828_SIT
+[2026-03-17T09:57:48.828Z] Company: SIT
+[2026-03-17T09:57:48.828Z] Website: sitsite.com
+[2026-03-17T09:57:48.828Z] cbRank: 1635928
+[2026-03-17T09:57:48.829Z] Reasons: h
+[2026-03-17T09:57:48.829Z] Fetching: https://sitsite.com
+[2026-03-17T09:57:53.419Z] Redirected: https://sitsite.com -> https://www.sitsite.com/
+[2026-03-17T09:57:53.438Z] Saved HTML (685042 bytes) to page.html
+[2026-03-17T09:57:53.440Z] Extracted 44 unique links from page
+[2026-03-17T09:57:53.441Z] Saved 44 links to links.json
+[2026-03-17T09:57:53.443Z] Extracted footer HTML (3508 chars)
+[2026-03-17T09:57:53.444Z] Extracted header HTML (6225 chars)
+[2026-03-17T09:57:53.447Z] Website (post-redirect): https://www.sitsite.com/ → origin: https://www.sitsite.com
+[2026-03-17T09:57:53.447Z]   SUBDOMAIN: es.sitsite.com (added to ws)
+[2026-03-17T09:57:53.448Z]   SUBDOMAIN: he.sitsite.com (added to ws)
+[2026-03-17T09:57:53.448Z] Website subdomains found: 2
+[2026-03-17T09:57:53.448Z] External links: 7 (of 44 total)
+[2026-03-17T09:57:53.448Z] ── All external links ──
+[2026-03-17T09:57:53.448Z]   EXT: https://twitter.com/SITInnovation
+[2026-03-17T09:57:53.448Z]   EXT: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-17T09:57:53.448Z]   EXT: https://www.enable.co.il
+[2026-03-17T09:57:53.448Z]   EXT: https://www.facebook.com/Systematicinventivethinking
+[2026-03-17T09:57:53.448Z]   EXT: https://www.linkedin.com/company/sit---systematic-inventive-thinking-
+[2026-03-17T09:57:53.449Z]   EXT: https://www.upress.co.il
+[2026-03-17T09:57:53.449Z]   EXT: https://www.youtube.com/user/SITBlog/featured
+[2026-03-17T09:57:53.449Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T09:57:53.449Z]   REGEX: tw <- https://twitter.com/SITInnovation
+[2026-03-17T09:57:53.449Z]   UNCATEGORIZED: https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-17T09:57:53.449Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-17T09:57:53.449Z]   REGEX: fb <- https://www.facebook.com/Systematicinventivethinking
+[2026-03-17T09:57:53.449Z]   REGEX: li <- https://www.linkedin.com/company/sit---systematic-inventive-thinking-
+[2026-03-17T09:57:53.449Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-17T09:57:53.449Z]   REGEX: ytp <- https://www.youtube.com/user/SITBlog/featured
+[2026-03-17T09:57:53.449Z] Programmatic result: ws:3, tw:1, fb:1, li:1, ytp:1 | 3 uncategorized
+[2026-03-17T09:57:53.450Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T09:57:53.453Z] Saved AI prompt (4192 chars) to ai_prompt.txt
+[2026-03-17T09:57:53.453Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T09:57:53.457Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T09:58:08.754Z]   AI: First token received, streaming...
+[2026-03-17T09:58:19.156Z]   AI streaming: 202 chars received (25.7s elapsed)
+[2026-03-17T09:58:19.158Z] AI response complete: 204 chars in 25.7s
+[2026-03-17T09:58:19.159Z] Saved AI response to ai_response.json
+[2026-03-17T09:58:19.159Z] ── Parsing AI response (4 lines) ──
+[2026-03-17T09:58:19.159Z]   AI LINK: https://www.facebook.com/Systematicinventivethinking/
+[2026-03-17T09:58:19.160Z]   AI LINK: https://www.youtube.com/user/SITBlog/featured
+[2026-03-17T09:58:19.160Z]   AI LINK: https://twitter.com/SITInnovation
+[2026-03-17T09:58:19.160Z]   AI LINK: https://www.linkedin.com/company/sit---systematic-inventive-thinking-/
+[2026-03-17T09:58:19.160Z] AI returned 4 valid links
+[2026-03-17T09:58:19.160Z] ── Categorizing 4 AI-returned links ──
+[2026-03-17T09:58:19.161Z]   AI→REGEX: fb <- https://www.facebook.com/Systematicinventivethinking/ (duplicate, skipped)
+[2026-03-17T09:58:19.161Z]   AI→REGEX: ytp <- https://www.youtube.com/user/SITBlog/featured (duplicate, skipped)
+[2026-03-17T09:58:19.161Z]   AI→REGEX: tw <- https://twitter.com/SITInnovation (duplicate, skipped)
+[2026-03-17T09:58:19.162Z]   AI→REGEX: li <- https://www.linkedin.com/company/sit---systematic-inventive-thinking-/ (duplicate, skipped)
+[2026-03-17T09:58:19.162Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T09:58:19.163Z] Footer/header origins (8):
+[2026-03-17T09:58:19.163Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T09:58:19.163Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T09:58:19.163Z]   FOOTER/HEADER ORIGIN: https://twitter.com
+[2026-03-17T09:58:19.163Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T09:58:19.163Z]   FOOTER/HEADER ORIGIN: https://www.sitsite.com
+[2026-03-17T09:58:19.164Z]   FOOTER/HEADER ORIGIN: http://www.sitsite.com
+[2026-03-17T09:58:19.164Z]   FOOTER/HEADER ORIGIN: http://es.sitsite.com
+[2026-03-17T09:58:19.164Z]   FOOTER/HEADER ORIGIN: http://he.sitsite.com
+[2026-03-17T09:58:19.164Z]   SKIP (not in footer/header): https://wordpress.org/plugins/gdpr-cookie-compliance
+[2026-03-17T09:58:19.164Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-17T09:58:19.164Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-17T09:58:19.164Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T09:58:19.165Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T09:58:19.165Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T09:58:19.165Z] ── Step 3: Final dedup ──
+[2026-03-17T09:58:19.165Z] No urls to dedup
+[2026-03-17T09:58:19.165Z] ── FINAL RESULT ──
+[2026-03-17T09:58:19.165Z]   ws (3):
+[2026-03-17T09:58:19.165Z]     - https://es.sitsite.com
+[2026-03-17T09:58:19.166Z]     - https://he.sitsite.com
+[2026-03-17T09:58:19.166Z]     - https://www.sitsite.com
+[2026-03-17T09:58:19.166Z]   li (1):
+[2026-03-17T09:58:19.166Z]     - https://www.linkedin.com/company/sit---systematic-inventive-thinking-
+[2026-03-17T09:58:19.166Z]   fb (1):
+[2026-03-17T09:58:19.167Z]     - https://www.facebook.com/systematicinventivethinking
+[2026-03-17T09:58:19.167Z]   tw (1):
+[2026-03-17T09:58:19.167Z]     - https://x.com/sitinnovation
+[2026-03-17T09:58:19.167Z]   ytp (1):
+[2026-03-17T09:58:19.167Z]     - https://www.youtube.com/@sitblog
+[2026-03-17T09:58:19.167Z] Summary: ws:3, tw:1, fb:1, li:1, ytp:1
+[2026-03-17T09:58:19.169Z] Saved final result to result.json
+[2026-03-17T09:58:19.169Z] Override fields: ws, li, fb, tw, ytp
+[2026-03-17T09:58:19.169Z] Finished at: 2026-03-17T09:58:19.169Z

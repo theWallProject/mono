@@ -1,0 +1,65 @@
+[2026-03-17T05:30:25.688Z] === Homepage AI Extractor: SweetHome ===
+[2026-03-17T05:30:25.688Z] Started at: 2026-03-17T05:30:25.688Z
+[2026-03-17T05:30:25.688Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773725425687_SweetHome
+[2026-03-17T05:30:25.689Z] Company: SweetHome
+[2026-03-17T05:30:25.689Z] Website: sweethome.co.il
+[2026-03-17T05:30:25.689Z] cbRank: 1487894
+[2026-03-17T05:30:25.689Z] Reasons: h
+[2026-03-17T05:30:25.689Z] Fetching: https://sweethome.co.il
+[2026-03-17T05:30:28.381Z] Redirected: https://sweethome.co.il -> https://www.sweethome.co.il/
+[2026-03-17T05:30:28.385Z] Saved HTML (53749 bytes) to page.html
+[2026-03-17T05:30:28.388Z] Extracted 41 unique links from page
+[2026-03-17T05:30:28.389Z] Saved 41 links to links.json
+[2026-03-17T05:30:28.391Z] Extracted footer HTML (4177 chars)
+[2026-03-17T05:30:28.391Z] Extracted header HTML (809 chars)
+[2026-03-17T05:30:28.395Z] Website (post-redirect): https://www.sweethome.co.il/ → origin: https://www.sweethome.co.il
+[2026-03-17T05:30:28.395Z]   SUBDOMAIN: my.sweethome.co.il (added to ws)
+[2026-03-17T05:30:28.396Z] Website subdomains found: 1
+[2026-03-17T05:30:28.396Z] External links: 3 (of 41 total)
+[2026-03-17T05:30:28.396Z] ── All external links ──
+[2026-03-17T05:30:28.396Z]   EXT: https://twitter.com/sweethomeco
+[2026-03-17T05:30:28.396Z]   EXT: https://www.facebook.com/sweethomecoil
+[2026-03-17T05:30:28.396Z]   EXT: https://www.linkedin.com/in/justin-grindea
+[2026-03-17T05:30:28.396Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:30:28.396Z]   REGEX: tw <- https://twitter.com/sweethomeco
+[2026-03-17T05:30:28.397Z]   REGEX: fb <- https://www.facebook.com/sweethomecoil
+[2026-03-17T05:30:28.397Z] ── Step 1b: Resolving 1 regex-domain URLs via redirect ──
+[2026-03-17T05:30:28.397Z]   SKIP (regex domain, no match): https://www.linkedin.com/in/justin-grindea
+[2026-03-17T05:30:28.397Z] Programmatic result: ws:2, tw:1, fb:1 | 0 uncategorized
+[2026-03-17T05:30:28.397Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:30:28.400Z] Saved AI prompt (4627 chars) to ai_prompt.txt
+[2026-03-17T05:30:28.400Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:30:28.404Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:30:48.281Z]   AI: First token received, streaming...
+[2026-03-17T05:30:55.333Z] AI response complete: 114 chars in 26.9s
+[2026-03-17T05:30:55.335Z] Saved AI response to ai_response.json
+[2026-03-17T05:30:55.335Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T05:30:55.335Z]   AI LINK: https://my.sweethome.co.il/cart.php?a=add&domain=transfer&language=Hebrew&currency=1
+[2026-03-17T05:30:55.335Z]   AI LINK: https://sweethome.co.il/blog/
+[2026-03-17T05:30:55.335Z] AI returned 2 valid links
+[2026-03-17T05:30:55.336Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T05:30:55.336Z]   AI→URLS: https://my.sweethome.co.il/cart.php (cleaned from https://my.sweethome.co.il/cart.php?a=add&domain=transfer&language=Hebrew&currency=1)
+[2026-03-17T05:30:55.336Z]   AI→URLS: https://sweethome.co.il/blog (cleaned from https://sweethome.co.il/blog/)
+[2026-03-17T05:30:55.338Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:30:55.338Z] Footer/header origins (1):
+[2026-03-17T05:30:55.338Z]   FOOTER/HEADER ORIGIN: https://my.sweethome.co.il
+[2026-03-17T05:30:55.338Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T05:30:55.338Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:30:55.338Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:30:55.338Z] ── Step 3: Final dedup ──
+[2026-03-17T05:30:55.339Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-17T05:30:55.339Z] ── FINAL RESULT ──
+[2026-03-17T05:30:55.339Z]   ws (2):
+[2026-03-17T05:30:55.339Z]     - https://my.sweethome.co.il
+[2026-03-17T05:30:55.339Z]     - https://www.sweethome.co.il
+[2026-03-17T05:30:55.339Z]   fb (1):
+[2026-03-17T05:30:55.339Z]     - https://www.facebook.com/sweethomecoil
+[2026-03-17T05:30:55.339Z]   tw (1):
+[2026-03-17T05:30:55.340Z]     - https://x.com/sweethomeco
+[2026-03-17T05:30:55.340Z]   urls (2):
+[2026-03-17T05:30:55.340Z]     - https://my.sweethome.co.il/cart.php
+[2026-03-17T05:30:55.340Z]     - https://sweethome.co.il/blog
+[2026-03-17T05:30:55.340Z] Summary: ws:2, tw:1, fb:1, urls:2
+[2026-03-17T05:30:55.341Z] Saved final result to result.json
+[2026-03-17T05:30:55.341Z] Override fields: ws, fb, tw, urls
+[2026-03-17T05:30:55.342Z] Finished at: 2026-03-17T05:30:55.342Z

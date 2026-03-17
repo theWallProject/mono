@@ -1,0 +1,70 @@
+[2026-03-17T09:25:27.832Z] === Homepage AI Extractor: NeuroTrigger ===
+[2026-03-17T09:25:27.832Z] Started at: 2026-03-17T09:25:27.832Z
+[2026-03-17T09:25:27.832Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773739527832_NeuroTrigger
+[2026-03-17T09:25:27.833Z] Company: NeuroTrigger
+[2026-03-17T09:25:27.833Z] Website: nt-med.com
+[2026-03-17T09:25:27.833Z] cbRank: 1615274
+[2026-03-17T09:25:27.833Z] Reasons: h
+[2026-03-17T09:25:27.833Z] Fetching: https://nt-med.com
+[2026-03-17T09:25:31.934Z] Redirected: https://nt-med.com -> https://www.nt-med.com/
+[2026-03-17T09:25:31.942Z] Saved HTML (238671 bytes) to page.html
+[2026-03-17T09:25:31.945Z] Extracted 12 unique links from page
+[2026-03-17T09:25:31.946Z] Saved 12 links to links.json
+[2026-03-17T09:25:31.949Z] Extracted footer HTML (3102 chars)
+[2026-03-17T09:25:31.949Z] Extracted header HTML (29344 chars)
+[2026-03-17T09:25:31.952Z] Website (post-redirect): https://www.nt-med.com/ → origin: https://www.nt-med.com
+[2026-03-17T09:25:31.952Z] External links: 5 (of 12 total)
+[2026-03-17T09:25:31.953Z] ── All external links ──
+[2026-03-17T09:25:31.953Z]   EXT: https://tradisgat.com/eye/neurotrigger
+[2026-03-17T09:25:31.953Z]   EXT: https://waze.to/?ll=32.1919424,34.8855377&navigate=yes
+[2026-03-17T09:25:31.953Z]   EXT: https://www.allinternet.co.il
+[2026-03-17T09:25:31.953Z]   EXT: https://www.facebook.com/neuro.trigger.7
+[2026-03-17T09:25:31.953Z]   EXT: https://www.linkedin.com/company/neurotrigger
+[2026-03-17T09:25:31.953Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T09:25:31.954Z]   UNCATEGORIZED: https://tradisgat.com/eye/neurotrigger
+[2026-03-17T09:25:31.954Z]   UNCATEGORIZED: https://waze.to/?ll=32.1919424,34.8855377&navigate=yes
+[2026-03-17T09:25:31.954Z]   UNCATEGORIZED: https://www.allinternet.co.il
+[2026-03-17T09:25:31.954Z]   REGEX: fb <- https://www.facebook.com/neuro.trigger.7
+[2026-03-17T09:25:31.955Z]   REGEX: li <- https://www.linkedin.com/company/neurotrigger
+[2026-03-17T09:25:31.955Z] Programmatic result: ws:1, fb:1, li:1 | 3 uncategorized
+[2026-03-17T09:25:31.955Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T09:25:31.958Z] Saved AI prompt (4417 chars) to ai_prompt.txt
+[2026-03-17T09:25:31.958Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T09:25:31.962Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T09:25:49.011Z]   AI: First token received, streaming...
+[2026-03-17T09:25:52.767Z] AI response complete: 87 chars in 20.8s
+[2026-03-17T09:25:52.768Z] Saved AI response to ai_response.json
+[2026-03-17T09:25:52.769Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T09:25:52.769Z]   AI LINK: https://www.linkedin.com/company/neurotrigger/
+[2026-03-17T09:25:52.769Z]   AI LINK: https://www.facebook.com/neuro.trigger.7
+[2026-03-17T09:25:52.769Z] AI returned 2 valid links
+[2026-03-17T09:25:52.769Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T09:25:52.770Z]   AI→REGEX: li <- https://www.linkedin.com/company/neurotrigger/ (duplicate, skipped)
+[2026-03-17T09:25:52.770Z]   AI→REGEX: fb <- https://www.facebook.com/neuro.trigger.7 (duplicate, skipped)
+[2026-03-17T09:25:52.771Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T09:25:52.771Z] Footer/header origins (4):
+[2026-03-17T09:25:52.771Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T09:25:52.771Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T09:25:52.771Z]   FOOTER/HEADER ORIGIN: https://www.nt-med.com
+[2026-03-17T09:25:52.771Z]   FOOTER/HEADER ORIGIN: https://www.allinternet.co.il
+[2026-03-17T09:25:52.771Z]   SKIP (not in footer/header): https://tradisgat.com/eye/neurotrigger
+[2026-03-17T09:25:52.772Z]   SKIP (not in footer/header): https://waze.to/?ll=32.1919424,34.8855377&navigate=yes
+[2026-03-17T09:25:52.772Z]   ADDED: urls <- https://www.allinternet.co.il
+[2026-03-17T09:25:52.772Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T09:25:52.772Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T09:25:52.772Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T09:25:52.772Z] ── Step 3: Final dedup ──
+[2026-03-17T09:25:52.772Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T09:25:52.772Z] ── FINAL RESULT ──
+[2026-03-17T09:25:52.772Z]   ws (1):
+[2026-03-17T09:25:52.773Z]     - https://www.nt-med.com
+[2026-03-17T09:25:52.773Z]   li (1):
+[2026-03-17T09:25:52.773Z]     - https://www.linkedin.com/company/neurotrigger
+[2026-03-17T09:25:52.773Z]   fb (1):
+[2026-03-17T09:25:52.773Z]     - https://www.facebook.com/neuro.trigger.7
+[2026-03-17T09:25:52.773Z]   urls (1):
+[2026-03-17T09:25:52.774Z]     - https://www.allinternet.co.il
+[2026-03-17T09:25:52.774Z] Summary: ws:1, fb:1, li:1, urls:1
+[2026-03-17T09:25:52.775Z] Saved final result to result.json
+[2026-03-17T09:25:52.776Z] Override fields: ws, li, fb, urls
+[2026-03-17T09:25:52.776Z] Finished at: 2026-03-17T09:25:52.776Z

@@ -1,0 +1,758 @@
+<!DOCTYPE html><html class="html" lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+<script type="rocketlazyloadscript" data-ad-client="ca-pub-2925132139880202" async="" data-rocket-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async="" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=UA-151867848-1"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151867848-1');
+</script>
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- This site is optimized with the Yoast SEO plugin v19.13 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Home - nextec-wiz.com</title>
+	<link rel="canonical" href="https://nextec-wiz.com/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Home - nextec-wiz.com">
+	<meta property="og:description" content="Creative Innovations Transforming the Future Nextec specializes in high-speed 2D &amp; 3D wafer inspection Scanning quality 2D &amp; 3D Optics Defect detection Metrology Integrated Package iFOX Next generation wafer inspection One machine that changes everything Read more &gt; Nextec development center in Machine Vision and Wafer Inspection We develop complex optical systems for 2D and […]">
+	<meta property="og:url" content="https://nextec-wiz.com/">
+	<meta property="og:site_name" content="nextec-wiz.com">
+	<meta property="article:publisher" content="https://www.facebook.com/NextecWIZinspect/">
+	<meta property="article:modified_time" content="2022-12-26T12:26:44+00:00">
+	<meta property="og:image" content="https://nextec-wiz.com/wp-content/uploads/2022/12/scan-150x150-2.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://nextec-wiz.com/","url":"https://nextec-wiz.com/","name":"Home - nextec-wiz.com","isPartOf":{"@id":"https://nextec-wiz.com/#website"},"about":{"@id":"https://nextec-wiz.com/#organization"},"primaryImageOfPage":{"@id":"https://nextec-wiz.com/#primaryimage"},"image":{"@id":"https://nextec-wiz.com/#primaryimage"},"thumbnailUrl":"https://nextec-wiz.com/wp-content/uploads/2022/12/scan-150x150-2.jpg","datePublished":"2021-11-25T10:19:00+00:00","dateModified":"2022-12-26T12:26:44+00:00","breadcrumb":{"@id":"https://nextec-wiz.com/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://nextec-wiz.com/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://nextec-wiz.com/#primaryimage","url":"https://nextec-wiz.com/wp-content/uploads/2022/12/scan-150x150-2.jpg","contentUrl":"https://nextec-wiz.com/wp-content/uploads/2022/12/scan-150x150-2.jpg","width":150,"height":150},{"@type":"BreadcrumbList","@id":"https://nextec-wiz.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://nextec-wiz.com/#website","url":"https://nextec-wiz.com/","name":"nextec-wiz.com","description":"","publisher":{"@id":"https://nextec-wiz.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://nextec-wiz.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://nextec-wiz.com/#organization","name":"nextec-wiz.com","url":"https://nextec-wiz.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://nextec-wiz.com/#/schema/logo/image/","url":"https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1.jpg","contentUrl":"https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1.jpg","width":320,"height":125,"caption":"nextec-wiz.com"},"image":{"@id":"https://nextec-wiz.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/NextecWIZinspect/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="nextec-wiz.com » Feed" href="https://nextec-wiz.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="nextec-wiz.com » Comments Feed" href="https://nextec-wiz.com/comments/feed/">
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="zeus-general-css" href="https://nextec-wiz.com/wp-content/plugins/zeus-elementor/assets/css/minified/general.min.css" media="all">
+<link rel="stylesheet" id="pa-frontend-css" href="https://nextec-wiz.com/wp-content/uploads/premium-addons-elementor/pa-frontend-81a1b11d7.min.css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="https://nextec-wiz.com/wp-includes/css/dist/block-library/style.min.css" media="all">
+<style id="wp-block-library-theme-inline-css">
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-top:4px solid;border-bottom:4px solid;margin-bottom:1.75em;color:currentColor}.wp-block-pullquote__citation,.wp-block-pullquote cite,.wp-block-pullquote footer{color:currentColor;text-transform:uppercase;font-size:.8125em;font-style:normal}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;position:relative;font-style:normal}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:"0 0 1em 0"}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}
+</style>
+<link rel="stylesheet" id="classic-theme-styles-css" href="https://nextec-wiz.com/wp-includes/css/classic-themes.min.css" media="all">
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="https://nextec-wiz.com/wp-content/plugins/contact-form-7/includes/css/styles.css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="https://nextec-wiz.com/wp-includes/css/dashicons.min.css" media="all">
+<link rel="stylesheet" id="rmp-menu-styles-css" href="https://nextec-wiz.com/wp-content/uploads/rmp-menu/css/rmp-menu.css" media="all">
+<link rel="stylesheet" id="oceanwp-style-css" href="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/css/style.min.css" media="all">
+<link rel="stylesheet" id="child-style-css" href="https://nextec-wiz.com/wp-content/themes/oceanwp-child-theme-master/style.css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://nextec-wiz.com/wp-content/uploads/elementor/css/custom-frontend-lite.min.css" media="all">
+<link rel="stylesheet" id="elementor-post-222-css" href="https://nextec-wiz.com/wp-content/uploads/elementor/css/post-222.css" media="all">
+<link rel="stylesheet" id="elementor-post-223-css" href="https://nextec-wiz.com/wp-content/uploads/elementor/css/post-223.css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/fonts/fontawesome/css/all.min.css" media="all">
+<link rel="stylesheet" id="simple-line-icons-css" href="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/css/third/simple-line-icons.min.css" media="all">
+<link rel="stylesheet" id="oceanwp-google-font-cairo-css" href="https://nextec-wiz.com/wp-content/uploads/oceanwp-webfonts-css/1a0078aa1fd9e9b2e65be7848ec1a4f2.css" media="all">
+<link rel="stylesheet" id="katex-css" href="https://nextec-wiz.com/wp-content/plugins/katex/assets/katex-0.13.13/katex.min.css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="https://nextec-wiz.com/wp-content/plugins/tablepress/css/build/default.css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="https://nextec-wiz.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css" media="all">
+<link rel="stylesheet" id="elementor-post-5-css" href="https://nextec-wiz.com/wp-content/uploads/elementor/css/post-5.css" media="all">
+<link rel="stylesheet" id="zeus-menu-css" href="https://nextec-wiz.com/wp-content/plugins/zeus-elementor/assets/css/minified/menu.min.css" media="all">
+<link rel="stylesheet" id="zeus-site-breadcrumbs-css" href="https://nextec-wiz.com/wp-content/plugins/zeus-elementor/assets/css/minified/site-breadcrumbs.min.css" media="all">
+<link rel="stylesheet" id="zeus-page-title-css" href="https://nextec-wiz.com/wp-content/plugins/zeus-elementor/assets/css/minified/page-title.min.css" media="all">
+<link rel="stylesheet" id="elementor-post-2-css" href="https://nextec-wiz.com/wp-content/uploads/elementor/css/post-2.css" media="all">
+<link rel="stylesheet" id="oe-widgets-style-css" href="https://nextec-wiz.com/wp-content/plugins/ocean-extra/assets/css/widgets.css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CCairo%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=6.1.10" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://nextec-wiz.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-brands-css" href="https://nextec-wiz.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css" media="all">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp-child-theme-master/js/script.js" id="custom-script-js"></script>
+<link rel="https://api.w.org/" href="https://nextec-wiz.com/wp-json/"><link rel="alternate" type="application/json" href="https://nextec-wiz.com/wp-json/wp/v2/pages/2"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://nextec-wiz.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://nextec-wiz.com/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.1.10">
+<link rel="shortlink" href="https://nextec-wiz.com/">
+<link rel="alternate" type="application/json+oembed" href="https://nextec-wiz.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnextec-wiz.com%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://nextec-wiz.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnextec-wiz.com%2F&amp;format=xml">
+<link rel="icon" href="https://nextec-wiz.com/wp-content/uploads/2022/12/cropped-favicon-512x512-2-32x32.png" sizes="32x32">
+<link rel="icon" href="https://nextec-wiz.com/wp-content/uploads/2022/12/cropped-favicon-512x512-2-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://nextec-wiz.com/wp-content/uploads/2022/12/cropped-favicon-512x512-2-180x180.png">
+<meta name="msapplication-TileImage" content="https://nextec-wiz.com/wp-content/uploads/2022/12/cropped-favicon-512x512-2-270x270.png">
+<!-- OceanWP CSS -->
+<style type="text/css">
+.background-image-page-header-overlay{background-color:rgba(0,0,0,0)}/* General CSS */input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,button[type="submit"]:hover,input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,button[type="submit"]:focus,.button:hover,.button:focus,#site-navigation-wrap .dropdown-menu >li.btn >a:hover >span,.post-quote-author,.omw-modal .omw-close-modal:hover,body div.wpforms-container-full .wpforms-form input[type=submit]:hover,body div.wpforms-container-full .wpforms-form button[type=submit]:hover,body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover{background-color:#003978}a:hover{color:#003978}a:hover .owp-icon use{stroke:#003978}.container{width:1300px}@media only screen and (min-width:960px){.content-area,.content-left-sidebar .content-area{width:80%}}@media only screen and (min-width:960px){.widget-area,.content-left-sidebar .widget-area{width:20%}}#main #content-wrap,.separate-layout #main #content-wrap{padding-top:40px;padding-bottom:0}.background-image-page-header .page-header-inner,.background-image-page-header .site-breadcrumbs{text-align:left}.page-header,.has-transparent-header .page-header{padding:30px 0 30px 0}.theme-button,input[type="submit"],button[type="submit"],button,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button{padding:15px 30px 15px 30px}body .theme-button,body input[type="submit"],body button[type="submit"],body button,body .button,body div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],body div.wpforms-container-full .wpforms-form .wpforms-page-button{background-color:#003978}body .theme-button:hover,body input[type="submit"]:hover,body button[type="submit"]:hover,body button:hover,body .button:hover,body div.wpforms-container-full .wpforms-form input[type=submit]:hover,body div.wpforms-container-full .wpforms-form input[type=submit]:active,body div.wpforms-container-full .wpforms-form button[type=submit]:hover,body div.wpforms-container-full .wpforms-form button[type=submit]:active,body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,body div.wpforms-container-full .wpforms-form .wpforms-page-button:active{background-color:#003978}/* Header CSS */#site-navigation-wrap .dropdown-menu >li >a,.oceanwp-mobile-menu-icon a,.mobile-menu-close,.after-header-content-inner >a{line-height:75px}#site-header,.has-transparent-header .is-sticky #site-header,.has-vh-transparent .is-sticky #site-header.vertical-header,#searchform-header-replace{background-color:#003978}#site-header{border-color:#003978}#site-header.has-header-media .overlay-header-media{background-color:rgba(0,0,0,0.5)}#site-logo #site-logo-inner a img,#site-header.center-header #site-navigation-wrap .middle-site-logo a img{max-width:320px}#site-header #site-logo #site-logo-inner a img,#site-header.center-header #site-navigation-wrap .middle-site-logo a img{max-height:125px}#site-navigation-wrap .dropdown-menu >li >a,.oceanwp-mobile-menu-icon a,#searchform-header-replace-close{color:#ffffff}#site-navigation-wrap .dropdown-menu >li >a .owp-icon use,.oceanwp-mobile-menu-icon a .owp-icon use,#searchform-header-replace-close .owp-icon use{stroke:#ffffff}#site-navigation-wrap .dropdown-menu >li >a:hover,.oceanwp-mobile-menu-icon a:hover,#searchform-header-replace-close:hover{color:#00a8c1}#site-navigation-wrap .dropdown-menu >li >a:hover .owp-icon use,.oceanwp-mobile-menu-icon a:hover .owp-icon use,#searchform-header-replace-close:hover .owp-icon use{stroke:#00a8c1}#site-navigation-wrap .dropdown-menu >.current-menu-item >a,#site-navigation-wrap .dropdown-menu >.current-menu-ancestor >a,#site-navigation-wrap .dropdown-menu >.current-menu-item >a:hover,#site-navigation-wrap .dropdown-menu >.current-menu-ancestor >a:hover{color:#00a8c1}#site-navigation-wrap .dropdown-menu >li >a{background-color:rgba(0,0,0,0)}#site-navigation-wrap .dropdown-menu >li >a:hover,#site-navigation-wrap .dropdown-menu >li.sfHover >a{background-color:rgba(0,0,0,0)}#site-navigation-wrap .dropdown-menu >.current-menu-item >a,#site-navigation-wrap .dropdown-menu >.current-menu-ancestor >a,#site-navigation-wrap .dropdown-menu >.current-menu-item >a:hover,#site-navigation-wrap .dropdown-menu >.current-menu-ancestor >a:hover{background-color:rgba(0,0,0,0)}.dropdown-menu .sub-menu{min-width:250px}.dropdown-menu .sub-menu,#searchform-dropdown,.current-shop-items-dropdown{background-color:#003978}.dropdown-menu .sub-menu,#searchform-dropdown,.current-shop-items-dropdown{border-color:#003978}.dropdown-menu ul li.menu-item,.navigation >ul >li >ul.megamenu.sub-menu >li,.navigation .megamenu li ul.sub-menu{border-color:#003978}.dropdown-menu ul li a.menu-link{color:#ffffff}.dropdown-menu ul li a.menu-link .owp-icon use{stroke:#ffffff}.dropdown-menu ul li a.menu-link:hover{color:#00a8c1}.dropdown-menu ul li a.menu-link:hover .owp-icon use{stroke:#00a8c1}.dropdown-menu ul li a.menu-link:hover{background-color:rgba(248,248,248,0)}.dropdown-menu ul >.current-menu-item >a.menu-link{color:#00a8c1}.dropdown-menu ul >.current-menu-item >a.menu-link{background-color:rgba(0,0,0,0)}/* Footer Widgets CSS */#footer-widgets{padding:0}/* Typography CSS */body{font-family:Cairo;font-weight:400;font-size:16px;color:#02091b}h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.oceanwp-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title{font-family:Cairo;color:#003978}h1{font-family:Cairo}h2{font-family:Cairo}h3{font-family:Cairo}h4{font-family:Cairo}#site-navigation-wrap .dropdown-menu >li >a,#site-header.full_screen-header .fs-dropdown-menu >li >a,#site-header.top-header #site-navigation-wrap .dropdown-menu >li >a,#site-header.center-header #site-navigation-wrap .dropdown-menu >li >a,#site-header.medium-header #site-navigation-wrap .dropdown-menu >li >a,.oceanwp-mobile-menu-icon a{font-family:Cairo;font-size:18px}.dropdown-menu ul li a.menu-link,#site-header.full_screen-header .fs-dropdown-menu ul.sub-menu li a{font-family:Cairo;font-size:16px}.page-header .page-header-title,.page-header.background-image-page-header .page-header-title{font-family:Cairo}.site-breadcrumbs{font-family:Cairo}.sidebar-box,.footer-box{font-family:Cairo}#footer-widgets .footer-box .widget-title{font-family:Cairo}
+</style></head>
+
+<body class="home page-template-default page page-id-2 wp-custom-logo wp-embed-responsive oceanwp-theme dropdown-mobile no-header-border default-breakpoint content-full-width page-with-background-title page-header-disabled no-margins elementor-default elementor-kit-5 elementor-page elementor-page-2" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627"></feFuncR><feFuncG type="table" tableValues="0 0.49803921568627"></feFuncG><feFuncB type="table" tableValues="0 0.49803921568627"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 0.27843137254902"></feFuncG><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0"></feFuncR><feFuncG type="table" tableValues="0 0.64705882352941"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.94901960784314"></feFuncG><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.44705882352941 0.4"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.66274509803922"></feFuncG><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg>
+	
+	<div id="outer-wrap" class="site clr">
+
+		<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+		
+		<div id="wrap" class="clr">
+
+			
+			
+<header id="site-header" class="custom-header clr" data-height="75" itemscope="itemscope" itemtype="https://schema.org/WPHeader" role="banner">
+
+	
+		
+
+<div id="site-header-inner" class="clr container">
+
+			<div data-elementor-type="wp-post" data-elementor-id="222" class="elementor elementor-222">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-e834267 elementor-section-stretched elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e834267" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5f22622" data-id="5f22622" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-32663a9 elementor-widget elementor-widget-image" data-id="32663a9" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>													<a href="https://nextec-wiz.com/">
+							<img width="320" height="125" src="https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1.jpg" class="attachment-full size-full wp-image-262" alt="" loading="lazy" srcset="https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1.jpg 320w, https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1-300x117.jpg 300w" sizes="(max-width: 320px) 100vw, 320px">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-cd776a9" data-id="cd776a9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9c829ae elementor-widget elementor-widget-text-editor" data-id="9c829ae" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#818a91;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#818a91;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p>Tel: +<a href="tel:97248571308">972 4 8571308</a> <a href="mailto:info@nextec-wiz.com">info@nextec-wiz.com</a></p>						</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-350a262 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="350a262" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-01e6710" data-id="01e6710" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-d5babdb elementor-widget elementor-widget-wp-widget-ocean_custom_menu" data-id="d5babdb" data-element_type="widget" data-widget_type="wp-widget-ocean_custom_menu.default">
+				<div class="elementor-widget-container">
+			<style type="text/css">.ocean_custom_menu-REPLACE_TO_ID > ul > li > a, .custom-menu-widget .ocean_custom_menu-REPLACE_TO_ID .dropdown-menu .sub-menu li a.menu-link{color:#ffffff;font-size:15px;}.custom-menu-widget .ocean_custom_menu-REPLACE_TO_ID.oceanwp-custom-menu > ul.click-menu .open-this{color:#ffffff;font-size:15px;}.ocean_custom_menu-REPLACE_TO_ID > ul > li > a:hover, .custom-menu-widget .ocean_custom_menu-REPLACE_TO_ID .dropdown-menu .sub-menu li a.menu-link:hover{color:#00a8c1;}.custom-menu-widget .ocean_custom_menu-REPLACE_TO_ID.oceanwp-custom-menu > ul.click-menu .open-this:hover{color:#00a8c1;}</style><div class="oceanwp-custom-menu clr ocean_custom_menu-REPLACE_TO_ID left dropdown-hover"><ul id="menu-main-menu" class="dropdown-menu sf-menu"><li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-24"><a href="https://nextec-wiz.com/" class="menu-link">Home</a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://nextec-wiz.com/about-us/" class="menu-link">About Us</a></li>
+<li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://nextec-wiz.com/wafer-inspection/" class="menu-link">Wafer Inspection</a></li>
+<li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-27"><a href="https://nextec-wiz.com/cmm-inspection/" class="menu-link">CMM Inspection <span class="nav-arrow fa fa-angle-down"></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-589" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-589"><a href="https://nextec-wiz.com/cmm-inspection/wizinspect/" class="menu-link">WIZinspect</a></li>
+	<li id="menu-item-572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-572"><a href="https://nextec-wiz.com/automation-solution/" class="menu-link">Automation Solution</a></li>
+	<li id="menu-item-573" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-573"><a href="https://nextec-wiz.com/non-contact-sensors/" class="menu-link">Non Contact Sensors</a></li>
+	<li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166"><a href="https://nextec-wiz.com/projects/" class="menu-link">Projects</a></li>
+	<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://nextec-wiz.com/services/" class="menu-link">Services</a></li>
+</ul>
+</li>
+<li id="menu-item-1242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-1242"><a href="https://nextec-wiz.com/contact-us/" class="menu-link">Contact us <span class="nav-arrow fa fa-angle-down"></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1237"><a href="https://nextec-wiz.com/contact-us/headquarters/" class="menu-link">Headquarters</a></li>
+	<li id="menu-item-1238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1238"><a href="https://nextec-wiz.com/contact-us/distributors/" class="menu-link">CMM – Distributors</a></li>
+	<li id="menu-item-1239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1239"><a href="https://nextec-wiz.com/contact-us/semiconductor/" class="menu-link">Semiconductor – Distributors</a></li>
+</ul>
+</li>
+</ul></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b31020e" data-id="b31020e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9240fe9 elementor-widget elementor-widget-shortcode" data-id="9240fe9" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><form aria-label="Search this website" role="search" method="get" class="oceanwp-searchform" id="searchform" action="https://nextec-wiz.com/" style="width: 150px;"><input aria-label="Insert search query" type="text" class="field" name="s" id="s" placeholder="Search"><button aria-label="Submit your search" type="submit" class="search-submit" value=""><i class="fa fa-search" aria-hidden="true"></i></button></form></div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-36ca073 elementor-section-stretched elementor-hidden-desktop elementor-hidden-laptop elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="36ca073" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-53dceb8" data-id="53dceb8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9fa0299 elementor-widget elementor-widget-text-editor" data-id="9fa0299" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Tel: +<a href="tel:97248571308">972 4 8571308</a> <a href="mailto:info@nextec-wiz.com">info@nextec-wiz.com</a></p>						</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-8f74b92 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8f74b92" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-bb63c60" data-id="bb63c60" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9469e64 elementor-widget elementor-widget-shortcode" data-id="9469e64" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode">			<button type="button" aria-controls="rmp-container-742" aria-label="Menu Trigger" id="rmp_menu_trigger-742" class="rmp_menu_trigger rmp-menu-trigger-boring">
+								<span class="rmp-trigger-box">
+									<span class="responsive-menu-pro-inner"></span>
+								</span>
+					</button>
+						<div id="rmp-container-742" class="rmp-container rmp-container rmp-slide-left">
+				<div id="rmp-menu-wrap-742" class="rmp-menu-wrap"><ul id="rmp-menu-742" class="rmp-menu" role="menubar" aria-label="Main Mob"><li id="rmp-menu-item-24" class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item rmp-menu-item rmp-menu-current-item rmp-menu-top-level-item" role="none"><a href="https://nextec-wiz.com/" class="rmp-menu-item-link" role="menuitem">Home</a></li><li id="rmp-menu-item-25" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-top-level-item" role="none"><a href="https://nextec-wiz.com/about-us/" class="rmp-menu-item-link" role="menuitem">About Us</a></li><li id="rmp-menu-item-26" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-top-level-item" role="none"><a href="https://nextec-wiz.com/wafer-inspection/" class="rmp-menu-item-link" role="menuitem">Wafer Inspection</a></li><li id="rmp-menu-item-27" class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children rmp-menu-item rmp-menu-item-has-children rmp-menu-top-level-item" role="none"><a href="https://nextec-wiz.com/cmm-inspection/" class="rmp-menu-item-link" role="menuitem">CMM Inspection<div class="rmp-menu-subarrow">▼</div></a><ul aria-label="CMM Inspection" role="menu" data-depth="2" class="rmp-submenu rmp-submenu-depth-1"><li id="rmp-menu-item-589" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/cmm-inspection/wizinspect/" class="rmp-menu-item-link" role="menuitem">WIZinspect</a></li><li id="rmp-menu-item-572" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/automation-solution/" class="rmp-menu-item-link" role="menuitem">Automation Solution</a></li><li id="rmp-menu-item-573" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/non-contact-sensors/" class="rmp-menu-item-link" role="menuitem">Non Contact Sensors</a></li><li id="rmp-menu-item-166" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/projects/" class="rmp-menu-item-link" role="menuitem">Projects</a></li><li id="rmp-menu-item-28" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/services/" class="rmp-menu-item-link" role="menuitem">Services</a></li></ul></li><li id="rmp-menu-item-1242" class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children rmp-menu-item rmp-menu-item-has-children rmp-menu-top-level-item" role="none"><a href="https://nextec-wiz.com/contact-us/" class="rmp-menu-item-link" role="menuitem">Contact us<div class="rmp-menu-subarrow">▼</div></a><ul aria-label="Contact us" role="menu" data-depth="2" class="rmp-submenu rmp-submenu-depth-1"><li id="rmp-menu-item-1237" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/contact-us/headquarters/" class="rmp-menu-item-link" role="menuitem">Headquarters</a></li><li id="rmp-menu-item-1238" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/contact-us/distributors/" class="rmp-menu-item-link" role="menuitem">CMM – Distributors</a></li><li id="rmp-menu-item-1239" class=" menu-item menu-item-type-post_type menu-item-object-page rmp-menu-item rmp-menu-sub-level-item" role="none"><a href="https://nextec-wiz.com/contact-us/semiconductor/" class="rmp-menu-item-link" role="menuitem">Semiconductor – Distributors</a></li></ul></li></ul></div>			<div id="rmp-search-box-742" class="rmp-search-box">
+					<form action="https://nextec-wiz.com/" class="rmp-search-form" role="search">
+						<input type="search" name="s" title="Search" placeholder="Search" class="rmp-search-box">
+					</form>
+				</div>
+						</div>
+			</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9fc6245" data-id="9fc6245" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-f724627 elementor-widget elementor-widget-image" data-id="f724627" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://nextec-wiz.com/">
+							<img width="320" height="125" src="https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1.jpg" class="attachment-full size-full wp-image-262" alt="" loading="lazy" srcset="https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1.jpg 320w, https://nextec-wiz.com/wp-content/uploads/2022/12/logo-320x125-1-300x117.jpg 300w" sizes="(max-width: 320px) 100vw, 320px">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+							</div>
+		
+</div>
+
+
+<div id="mobile-dropdown" class="clr">
+
+	<nav class="clr" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+
+		<ul id="menu-main-menu-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-24"><a href="https://nextec-wiz.com/" aria-current="page">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://nextec-wiz.com/about-us/">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://nextec-wiz.com/wafer-inspection/">Wafer Inspection</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-27"><a href="https://nextec-wiz.com/cmm-inspection/">CMM Inspection</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-589"><a href="https://nextec-wiz.com/cmm-inspection/wizinspect/">WIZinspect</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-572"><a href="https://nextec-wiz.com/automation-solution/">Automation Solution</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-573"><a href="https://nextec-wiz.com/non-contact-sensors/">Non Contact Sensors</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166"><a href="https://nextec-wiz.com/projects/">Projects</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://nextec-wiz.com/services/">Services</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1242"><a href="https://nextec-wiz.com/contact-us/">Contact us</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1237"><a href="https://nextec-wiz.com/contact-us/headquarters/">Headquarters</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1238"><a href="https://nextec-wiz.com/contact-us/distributors/">CMM – Distributors</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1239"><a href="https://nextec-wiz.com/contact-us/semiconductor/">Semiconductor – Distributors</a></li>
+</ul>
+</li>
+<li class="search-toggle-li"><a href="javascript:void(0)" class="site-search-toggle search-dropdown-toggle" aria-label="Search website"><i class=" icon-magnifier" aria-hidden="true" role="img"></i></a></li></ul>
+<div id="mobile-menu-search" class="clr">
+	<form aria-label="Search this website" method="get" action="https://nextec-wiz.com/" class="mobile-searchform">
+		<input aria-label="Insert search query" value="" class="field" id="ocean-mobile-search-1" type="search" name="s" autocomplete="off" placeholder="Search">
+		<button aria-label="Submit search" type="submit" class="searchform-submit">
+			<i class=" icon-magnifier" aria-hidden="true" role="img"></i>		</button>
+					</form>
+</div><!-- .mobile-menu-search -->
+
+	</nav>
+
+</div>
+
+
+		
+		
+</header><!-- #site-header -->
+
+
+			
+			<main id="main" class="site-main clr" role="main">
+
+				
+
+<div id="content-wrap" class="container clr">
+	
+		
+	<div id="primary" class="content-area clr">
+		
+				
+		<div id="content" class="site-content clr">
+			<p id="breadcrumbs"><span><span class="breadcrumb_last" aria-current="page">Home</span></span></p>						
+			
+<article class="single-page-article clr">
+
+	
+<div class="entry clr" itemprop="text">
+
+	
+			<div data-elementor-type="wp-page" data-elementor-id="2" class="elementor elementor-2">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-2bd1bc2 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-id="2bd1bc2" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/www.youtube.com\/watch?v=NzvWKILqAbs&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_privacy_mode&quot;:&quot;yes&quot;}">
+								<div class="elementor-background-video-container">
+													<div class="elementor-background-video-embed"></div>
+												</div>
+									<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6ceaa0a" data-id="6ceaa0a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-919fa74 animated-slow elementor-invisible elementor-widget elementor-widget-heading" data-id="919fa74" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;,&quot;_animation_delay&quot;:2000}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">Creative Innovations<br>
+Transforming the Future 
+
+</h1>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-41e8764 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="41e8764" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f30c3f9" data-id="f30c3f9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-ccae1a1 elementor-widget elementor-widget-heading" data-id="ccae1a1" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Nextec specializes in high-speed 2D &amp; 3D wafer inspection</h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a64bebd elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a64bebd" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-af9750a" data-id="af9750a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e441062 elementor-position-top elementor-vertical-align-top elementor-invisible elementor-widget elementor-widget-image-box" data-id="e441062" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<style>.elementor-widget-image-box .elementor-image-box-content{width:100%}@media (min-width:768px){.elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper,.elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper{display:flex}.elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper{text-align:right;flex-direction:row-reverse}.elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper{text-align:left;flex-direction:row}.elementor-widget-image-box.elementor-position-top .elementor-image-box-img{margin:auto}.elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper{align-items:flex-start}.elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper{align-items:center}.elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper{align-items:flex-end}}@media (max-width:767px){.elementor-widget-image-box .elementor-image-box-img{margin-left:auto!important;margin-right:auto!important;margin-bottom:15px}}.elementor-widget-image-box .elementor-image-box-img{display:inline-block}.elementor-widget-image-box .elementor-image-box-title a{color:inherit}.elementor-widget-image-box .elementor-image-box-wrapper{text-align:center}.elementor-widget-image-box .elementor-image-box-description{margin:0}</style><div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="150" height="150" src="https://nextec-wiz.com/wp-content/uploads/2022/12/scan-150x150-2.jpg" class="attachment-full size-full wp-image-242" alt="" loading="lazy"></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Scanning quality</h3></div></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-dd962a2" data-id="dd962a2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-02641df elementor-position-top elementor-vertical-align-top elementor-invisible elementor-widget elementor-widget-image-box" data-id="02641df" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="150" height="150" src="https://nextec-wiz.com/wp-content/uploads/2022/12/2D-3D-150x150-2.jpg" class="attachment-full size-full wp-image-243" alt="" loading="lazy"></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">2D &amp; 3D Optics</h3></div></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-9ec74ed" data-id="9ec74ed" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6b59378 elementor-position-top elementor-vertical-align-top elementor-invisible elementor-widget elementor-widget-image-box" data-id="6b59378" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:600}" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="150" height="150" src="https://nextec-wiz.com/wp-content/uploads/2022/12/defects-150x150-2.jpg" class="attachment-full size-full wp-image-244" alt="" loading="lazy"></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Defect detection</h3></div></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-f3731ce" data-id="f3731ce" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-a8e9a76 elementor-position-top elementor-vertical-align-top elementor-invisible elementor-widget elementor-widget-image-box" data-id="a8e9a76" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:800}" data-widget_type="image-box.default">
+				<div class="elementor-widget-container">
+			<div class="elementor-image-box-wrapper"><figure class="elementor-image-box-img"><img decoding="async" width="150" height="150" src="https://nextec-wiz.com/wp-content/uploads/2022/12/metrology-150x150-2.jpg" class="attachment-full size-full wp-image-245" alt="" loading="lazy"></figure><div class="elementor-image-box-content"><h3 class="elementor-image-box-title">Metrology Integrated Package</h3></div></div>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-8b71e22 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8b71e22" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-9adca1b" data-id="9adca1b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-ab7afef elementor-widget elementor-widget-heading" data-id="ab7afef" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">iFOX </h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-ecef8cd elementor-widget elementor-widget-heading" data-id="ecef8cd" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Next generation wafer inspection</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e90e00c elementor-widget elementor-widget-heading" data-id="e90e00c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">One machine that changes everything</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-0c4aecc elementor-widget elementor-widget-text-editor" data-id="0c4aecc" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><a href="https://nextec-wiz.com/wafer-inspection/">Read more &gt;</a></p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-736bd42 pa-aspect-ratio-169 elementor-widget elementor-widget-premium-addon-video-box" data-id="736bd42" data-element_type="widget" data-settings="{&quot;lightbox_content_animation&quot;:&quot;fadeIn&quot;,&quot;premium_video_box_video_type&quot;:&quot;youtube&quot;,&quot;aspect_ratio&quot;:&quot;169&quot;,&quot;video_lightbox_style&quot;:&quot;elementor&quot;}" data-widget_type="premium-addon-video-box.default">
+				<div class="elementor-widget-container">
+			
+		
+					<div data-lightbox="{&quot;type&quot;:&quot;elementor&quot;}" id="premium-video-box-container-736bd42" class="premium-video-box-container" data-overlay="false" data-type="youtube" data-thumbnail="1" data-hover="none">
+				<div>
+					
+					<div class="premium-video-box-inner-wrap" data-video-animation=" animated-" data-delay-animation="">
+						<div data-elementor-open-lightbox="yes" data-elementor-lightbox="{&quot;type&quot;:&quot;video&quot;,&quot;videoType&quot;:&quot;youtube&quot;,&quot;url&quot;:&quot;https:\/\/www.youtube.com\/embed\/Id8ZbaPLkI0?feature=oembed&amp;rel=0&amp;mute=0&amp;loop=0&amp;controls=1&quot;,&quot;modalOptions&quot;:{&quot;id&quot;:&quot;elementor-lightbox-736bd42&quot;,&quot;entranceAnimation&quot;:&quot;fadeIn&quot;,&quot;entranceAnimation_tablet&quot;:&quot;&quot;,&quot;entranceAnimation_mobile&quot;:&quot;&quot;,&quot;videoAspectRatio&quot;:&quot;169&quot;}}" class="premium-video-box-video-container">
+							
+													</div>
+							<div style="background-image:url('https://i.ytimg.com/vi/Id8ZbaPLkI0/maxresdefault.jpg')" class="premium-video-box-image-container none"></div>
+																											<div class="premium-video-box-play-icon-container">
+								<i class="premium-video-box-play-icon fa fa-play fa-lg"></i>
+							</div>
+																	</div>
+
+				</div>
+			</div>
+		
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-faa62d0" data-id="faa62d0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3f27933 elementor-widget elementor-widget-image" data-id="3f27933" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="749" height="617" src="https://nextec-wiz.com/wp-content/uploads/2022/12/iFOX-1.png" class="attachment-full size-full wp-image-247" alt="" loading="lazy" srcset="https://nextec-wiz.com/wp-content/uploads/2022/12/iFOX-1.png 749w, https://nextec-wiz.com/wp-content/uploads/2022/12/iFOX-1-300x247.png 300w" sizes="(max-width: 749px) 100vw, 749px">															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-69c10df elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="69c10df" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d6f9f1c" data-id="d6f9f1c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1b8fc2d elementor-widget elementor-widget-heading" data-id="1b8fc2d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Nextec development center in Machine Vision and Wafer Inspection</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-67ff82e elementor-widget elementor-widget-text-editor" data-id="67ff82e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<ul><li>We develop complex optical systems for 2D and 3D in-house use.</li><li>We are experts in image processing algorithms.</li><li>We excel in the ability to develop applications based on deep learning.</li></ul>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-39f34b5 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="39f34b5" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-38c31e4" data-id="38c31e4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4639a9b elementor-widget elementor-widget-heading" data-id="4639a9b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Nextec is considered a leading<br>
+supplier of non-contact inspection<br>
+solutions directly to<br>
+the production-floor</h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+							</div>
+		
+	
+</div>
+
+</article>
+				
+								
+				</div><!-- #content -->
+				
+								
+				</div><!-- #primary -->
+				
+								
+				</div><!-- #content-wrap -->
+				
+								
+				
+	</main><!-- #main -->
+
+	
+	
+	
+		
+<footer id="footer" class="site-footer" itemscope="itemscope" itemtype="https://schema.org/WPFooter" role="contentinfo">
+
+	
+	<div id="footer-inner" class="clr">
+
+		
+
+<div id="footer-widgets" class="oceanwp-row clr">
+
+	
+	<div class="footer-widgets-inner container">
+
+				<div data-elementor-type="wp-post" data-elementor-id="223" class="elementor elementor-223">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-6fb8109 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6fb8109" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-587e2a0" data-id="587e2a0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-58c1821 elementor-widget elementor-widget-heading" data-id="58c1821" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Quick Links</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-86d93f7 elementor-widget elementor-widget-wp-widget-nav_menu" data-id="86d93f7" data-element_type="widget" data-widget_type="wp-widget-nav_menu.default">
+				<div class="elementor-widget-container">
+			<div class="menu-footer-menu-container"><ul id="menu-footer-menu" class="menu"><li id="menu-item-679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-679"><a href="https://nextec-wiz.com/" aria-current="page">Home</a></li>
+<li id="menu-item-680" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-680"><a href="https://nextec-wiz.com/about-us/">About Us</a></li>
+<li id="menu-item-681" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-681"><a href="https://nextec-wiz.com/wafer-inspection/">Wafer Inspection</a></li>
+<li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682"><a href="https://nextec-wiz.com/cmm-inspection/">CMM Inspection</a></li>
+<li id="menu-item-683" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-683"><a href="https://nextec-wiz.com/projects/">Projects</a></li>
+<li id="menu-item-684" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-684"><a href="https://nextec-wiz.com/services/">Services</a></li>
+<li id="menu-item-685" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-685"><a href="https://nextec-wiz.com/contact-us/">Contact us</a></li>
+<li id="menu-item-686" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-686"><a href="https://nextec-wiz.com/contact-us/distributors/">Distributors</a></li>
+</ul></div>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-9e61ca4" data-id="9e61ca4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-3cf07d9 elementor-widget elementor-widget-heading" data-id="3cf07d9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Get In Touch</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7d887cf elementor-widget elementor-widget-text-editor" data-id="7d887cf" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><a href="tel:97248571308">+972 4 8571308</a><br>NEXTEC Technologies 2001 Ltd.<br>HaNapah Street 5, Karmiel 2165311</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-6c0611d e-grid-align-left elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="6c0611d" data-element_type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container{line-height:1;font-size:0}.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid{display:inline-grid}.elementor-widget-social-icons .elementor-grid{grid-column-gap:var(--grid-column-gap,5px);grid-row-gap:var(--grid-row-gap,5px);grid-template-columns:var(--grid-template-columns);justify-content:var(--justify-content,center);justify-items:var(--justify-content,center)}.elementor-icon.elementor-social-icon{font-size:var(--icon-size,25px);line-height:var(--icon-size,25px);width:calc(var(--icon-size, 25px) + (2 * var(--icon-padding, .5em)));height:calc(var(--icon-size, 25px) + (2 * var(--icon-padding, .5em)))}.elementor-social-icon{--e-social-icon-icon-color:#fff;display:inline-flex;background-color:#818a91;align-items:center;justify-content:center;text-align:center;cursor:pointer}.elementor-social-icon i{color:var(--e-social-icon-icon-color)}.elementor-social-icon svg{fill:var(--e-social-icon-icon-color)}.elementor-social-icon:last-child{margin:0}.elementor-social-icon:hover{opacity:.9;color:#fff}.elementor-social-icon-android{background-color:#a4c639}.elementor-social-icon-apple{background-color:#999}.elementor-social-icon-behance{background-color:#1769ff}.elementor-social-icon-bitbucket{background-color:#205081}.elementor-social-icon-codepen{background-color:#000}.elementor-social-icon-delicious{background-color:#39f}.elementor-social-icon-deviantart{background-color:#05cc47}.elementor-social-icon-digg{background-color:#005be2}.elementor-social-icon-dribbble{background-color:#ea4c89}.elementor-social-icon-elementor{background-color:#d30c5c}.elementor-social-icon-envelope{background-color:#ea4335}.elementor-social-icon-facebook,.elementor-social-icon-facebook-f{background-color:#3b5998}.elementor-social-icon-flickr{background-color:#0063dc}.elementor-social-icon-foursquare{background-color:#2d5be3}.elementor-social-icon-free-code-camp,.elementor-social-icon-freecodecamp{background-color:#006400}.elementor-social-icon-github{background-color:#333}.elementor-social-icon-gitlab{background-color:#e24329}.elementor-social-icon-globe{background-color:#818a91}.elementor-social-icon-google-plus,.elementor-social-icon-google-plus-g{background-color:#dd4b39}.elementor-social-icon-houzz{background-color:#7ac142}.elementor-social-icon-instagram{background-color:#262626}.elementor-social-icon-jsfiddle{background-color:#487aa2}.elementor-social-icon-link{background-color:#818a91}.elementor-social-icon-linkedin,.elementor-social-icon-linkedin-in{background-color:#0077b5}.elementor-social-icon-medium{background-color:#00ab6b}.elementor-social-icon-meetup{background-color:#ec1c40}.elementor-social-icon-mixcloud{background-color:#273a4b}.elementor-social-icon-odnoklassniki{background-color:#f4731c}.elementor-social-icon-pinterest{background-color:#bd081c}.elementor-social-icon-product-hunt{background-color:#da552f}.elementor-social-icon-reddit{background-color:#ff4500}.elementor-social-icon-rss{background-color:#f26522}.elementor-social-icon-shopping-cart{background-color:#4caf50}.elementor-social-icon-skype{background-color:#00aff0}.elementor-social-icon-slideshare{background-color:#0077b5}.elementor-social-icon-snapchat{background-color:#fffc00}.elementor-social-icon-soundcloud{background-color:#f80}.elementor-social-icon-spotify{background-color:#2ebd59}.elementor-social-icon-stack-overflow{background-color:#fe7a15}.elementor-social-icon-steam{background-color:#00adee}.elementor-social-icon-stumbleupon{background-color:#eb4924}.elementor-social-icon-telegram{background-color:#2ca5e0}.elementor-social-icon-thumb-tack{background-color:#1aa1d8}.elementor-social-icon-tripadvisor{background-color:#589442}.elementor-social-icon-tumblr{background-color:#35465c}.elementor-social-icon-twitch{background-color:#6441a5}.elementor-social-icon-twitter{background-color:#1da1f2}.elementor-social-icon-viber{background-color:#665cac}.elementor-social-icon-vimeo{background-color:#1ab7ea}.elementor-social-icon-vk{background-color:#45668e}.elementor-social-icon-weibo{background-color:#dd2430}.elementor-social-icon-weixin{background-color:#31a918}.elementor-social-icon-whatsapp{background-color:#25d366}.elementor-social-icon-wordpress{background-color:#21759b}.elementor-social-icon-xing{background-color:#026466}.elementor-social-icon-yelp{background-color:#af0606}.elementor-social-icon-youtube{background-color:#cd201f}.elementor-social-icon-500px{background-color:#0099e5}.elementor-shape-rounded .elementor-icon.elementor-social-icon{border-radius:10%}.elementor-shape-circle .elementor-icon.elementor-social-icon{border-radius:50%}</style>		<div class="elementor-social-icons-wrapper elementor-grid">
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-1c5a8b5" href="https://www.facebook.com/NextecWIZinspect/" target="_blank">
+						<span class="elementor-screen-only">Facebook</span>
+						<i class="fab fa-facebook"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-26dfdf0" href="https://www.linkedin.com/company/nextec-technologies-2001/" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<i class="fab fa-linkedin"></i>					</a>
+				</span>
+							<span class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-242b7c8" href="https://www.youtube.com/@user-jl8kf5kn4g/featured" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</span>
+					</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-70b1d62" data-id="70b1d62" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-f44ebf4 elementor-widget elementor-widget-heading" data-id="f44ebf4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Drop us a Message</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-95a88fe elementor-widget elementor-widget-shortcode" data-id="95a88fe" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><div class="wpcf7 no-js" id="wpcf7-f37-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/#wpcf7-f37-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="37">
+<input type="hidden" name="_wpcf7_version" value="5.7.2">
+<input type="hidden" name="_wpcf7_locale" value="en_US">
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f37-o1">
+<input type="hidden" name="_wpcf7_container_post" value="0">
+<input type="hidden" name="_wpcf7_posted_data_hash" value="">
+<input type="hidden" name="_wpcf7_recaptcha_response" value="">
+</div>
+<div class="footer-contact">
+	<div class="footer-contact-row">
+		<div class="footer-contact-cell-full">
+			<p><label for="footer-name">Name*</label><span class="wpcf7-form-control-wrap" data-name="footer-name"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" id="footer-name" aria-required="true" aria-invalid="false" value="" type="text" name="footer-name"></span>
+			</p>
+		</div>
+	</div>
+	<div class="footer-contact-row">
+		<div class="footer-contact-cell-full">
+			<p><label for="footer-email">Email*</label><span class="wpcf7-form-control-wrap" data-name="footer-email"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" id="footer-email" aria-required="true" aria-invalid="false" value="" type="email" name="footer-email"></span>
+			</p>
+		</div>
+	</div>
+	<div class="footer-contact-row">
+		<div class="footer-contact-cell-full">
+			<p><input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit" value="Send">
+			</p>
+		</div>
+	</div>
+</div><div class="wpcf7-response-output" aria-hidden="true"></div></form></div></div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1611b75 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1611b75" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-0c6f161" data-id="0c6f161" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6d5de1a elementor-widget elementor-widget-text-editor" data-id="6d5de1a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>© Copyright Nextec Technologies 2026</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7775049" data-id="7775049" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+							</div>
+		</section>
+							</div>
+		
+	</div><!-- .container -->
+
+	
+</div><!-- #footer-widgets -->
+
+
+	</div><!-- #footer-inner -->
+
+	
+</footer><!-- #footer -->
+
+	
+	
+</div><!-- #wrap -->
+
+
+</div><!-- #outer-wrap -->
+
+
+
+<a aria-label="Scroll to the top of the page" href="#" id="scroll-top" class="scroll-top-right"><i class=" fa fa-angle-up" aria-hidden="true" role="img"></i></a>
+
+
+
+
+        <script type="rocketlazyloadscript">
+            function _katexRender(rootElement) {
+                const eles = rootElement.querySelectorAll(".katex-eq:not(.katex-rendered)");
+                for(let idx=0; idx < eles.length; idx++) {
+                    const ele = eles[idx];
+                    ele.classList.add("katex-rendered");
+                    try {
+                        katex.render(
+                            ele.textContent,
+                            ele,
+                            {
+                                displayMode: ele.getAttribute("data-katex-display") === 'true',
+                                throwOnError: false
+                            }
+                        );
+                    } catch(n) {
+                        ele.style.color="red";
+                        ele.textContent = n.message;
+                    }
+                }
+            }
+
+            function katexRender() {
+                _katexRender(document);
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                katexRender();
+
+                // Perform a KaTeX rendering step when the DOM is mutated.
+                const katexObserver = new MutationObserver(function(mutations) {
+                    [].forEach.call(mutations, function(mutation) {
+                        if (mutation.target && mutation.target instanceof Element) {
+                            _katexRender(mutation.target);
+                        }
+                    });
+                });
+
+                const katexObservationConfig = {
+                    subtree: true,
+                    childList: true,
+                    attributes: true,
+                    characterData: true
+                };
+
+                katexObserver.observe(document.body, katexObservationConfig);
+            });
+
+        </script>
+            <script type="rocketlazyloadscript">
+    	window.onscroll = function() {myFunction()};
+		// Get the header
+		var header = document.getElementById( "site-header" );
+		
+		// Get the offset position of the navbar
+		var sticky = header.offsetTop;
+		// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+		function myFunction() {
+			if ( window.pageYOffset > 50 ) {		    
+				header.classList.add( "hfe-sticky" );
+				} else {
+				setTimeout(function(){
+					header.classList.remove( "hfe-sticky" );
+				}, 100);		    
+			}
+		}
+	</script>
+    <link rel="stylesheet" id="pa-prettyphoto-css" href="https://nextec-wiz.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/prettyphoto.min.css" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="https://nextec-wiz.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css" media="all">
+<link rel="stylesheet" id="e-animations-css" href="https://nextec-wiz.com/wp-content/plugins/elementor/assets/lib/animations/animations.min.css" media="all">
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/zeus-elementor/assets/js/vendors/asPieProgress.min.js" id="asPieProgress-js"></script>
+<script id="pa-frontend-js-extra">
+var PremiumSettings = {"ajaxurl":"https:\/\/nextec-wiz.com\/wp-admin\/admin-ajax.php","nonce":"ab6020c679"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/uploads/premium-addons-elementor/pa-frontend-81a1b11d7.min.js" id="pa-frontend-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js" id="swv-js"></script>
+<script id="contact-form-7-js-extra">
+var wpcf7 = {"api":{"root":"https:\/\/nextec-wiz.com\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/contact-form-7/includes/js/index.js" id="contact-form-7-js"></script>
+<script id="rmp_menu_scripts-js-extra">
+var rmp_menu = {"ajaxURL":"https:\/\/nextec-wiz.com\/wp-admin\/admin-ajax.php","wp_nonce":"ee040ca340","menu":[{"menu_theme":"Default","theme_type":"default","theme_location_menu":"0","submenu_submenu_arrow_width":"40","submenu_submenu_arrow_width_unit":"px","submenu_submenu_arrow_height":"39","submenu_submenu_arrow_height_unit":"px","submenu_arrow_position":"right","submenu_sub_arrow_background_colour":"","submenu_sub_arrow_background_hover_colour":"","submenu_sub_arrow_background_colour_active":"","submenu_sub_arrow_background_hover_colour_active":"","submenu_sub_arrow_border_width":"","submenu_sub_arrow_border_width_unit":"px","submenu_sub_arrow_border_colour":"#1d4354","submenu_sub_arrow_border_hover_colour":"#3f3f3f","submenu_sub_arrow_border_colour_active":"#1d4354","submenu_sub_arrow_border_hover_colour_active":"#3f3f3f","submenu_sub_arrow_shape_colour":"#fff","submenu_sub_arrow_shape_hover_colour":"#fff","submenu_sub_arrow_shape_colour_active":"#fff","submenu_sub_arrow_shape_hover_colour_active":"#fff","use_header_bar":"off","header_bar_items_order":{"logo":"off","title":"on","additional content":"off","menu":"on","search":"off"},"header_bar_title":"Responsive Menu","header_bar_html_content":"","header_bar_logo":"","header_bar_logo_link":"","header_bar_logo_width":"","header_bar_logo_width_unit":"%","header_bar_logo_height":"","header_bar_logo_height_unit":"px","header_bar_height":"80","header_bar_height_unit":"px","header_bar_padding":{"top":"0px","right":"5%","bottom":"0px","left":"5%"},"header_bar_font":"","header_bar_font_size":"14","header_bar_font_size_unit":"px","header_bar_text_color":"#ffffff","header_bar_background_color":"#1d4354","header_bar_breakpoint":"8000","header_bar_position_type":"fixed","header_bar_adjust_page":"on","header_bar_scroll_enable":"off","header_bar_scroll_background_color":"#36bdf6","mobile_breakpoint":"600","tablet_breakpoint":"1024","transition_speed":"0.5","sub_menu_speed":"0.2","show_menu_on_page_load":"off","menu_disable_scrolling":"off","menu_overlay":"off","menu_overlay_colour":"rgba(0,0,0,0.7)","desktop_menu_width":"","desktop_menu_width_unit":"%","desktop_menu_positioning":"absolute","desktop_menu_side":"left","desktop_menu_to_hide":"","use_current_theme_location":"off","mega_menu":{"225":"off","227":"off","229":"off","228":"off","226":"off"},"desktop_submenu_open_animation":"none","desktop_submenu_open_animation_speed":"100ms","desktop_submenu_open_on_click":"off","desktop_menu_hide_and_show":"off","menu_name":"Main Mob","menu_to_use":"main-menu","different_menu_for_mobile":"off","menu_to_use_in_mobile":"main-menu","use_mobile_menu":"on","use_tablet_menu":"on","use_desktop_menu":"off","menu_display_on":"shortcode","menu_to_hide":"","submenu_descriptions_on":"off","custom_walker":"","menu_background_colour":"#003978","menu_depth":"5","smooth_scroll_on":"off","smooth_scroll_speed":"500","menu_font_icons":{"id":["225"],"icon":[""]},"menu_links_height":"40","menu_links_height_unit":"px","menu_links_line_height":"40","menu_links_line_height_unit":"px","menu_depth_0":"5","menu_depth_0_unit":"%","menu_font_size":"15","menu_font_size_unit":"px","menu_font":"","menu_font_weight":"normal","menu_text_alignment":"left","menu_text_letter_spacing":"","menu_word_wrap":"off","menu_link_colour":"#fff","menu_link_hover_colour":"#fff","menu_current_link_colour":"#00a8c1","menu_current_link_hover_colour":"#00a8c1","menu_item_background_colour":"","menu_item_background_hover_colour":"","menu_current_item_background_colour":"","menu_current_item_background_hover_colour":"","menu_border_width":"","menu_border_width_unit":"px","menu_item_border_colour":"#1d4354","menu_item_border_colour_hover":"#1d4354","menu_current_item_border_colour":"#1d4354","menu_current_item_border_hover_colour":"#3f3f3f","submenu_links_height":"40","submenu_links_height_unit":"px","submenu_links_line_height":"40","submenu_links_line_height_unit":"px","menu_depth_side":"left","menu_depth_1":"10","menu_depth_1_unit":"%","menu_depth_2":"15","menu_depth_2_unit":"%","menu_depth_3":"20","menu_depth_3_unit":"%","menu_depth_4":"25","menu_depth_4_unit":"%","submenu_item_background_colour":"","submenu_item_background_hover_colour":"","submenu_current_item_background_colour":"","submenu_current_item_background_hover_colour":"","submenu_border_width":"","submenu_border_width_unit":"px","submenu_item_border_colour":"#1d4354","submenu_item_border_colour_hover":"#1d4354","submenu_current_item_border_colour":"#1d4354","submenu_current_item_border_hover_colour":"#3f3f3f","submenu_font_size":"13","submenu_font_size_unit":"px","submenu_font":"","submenu_font_weight":"normal","submenu_text_letter_spacing":"","submenu_text_alignment":"left","submenu_link_colour":"#fff","submenu_link_hover_colour":"#fff","submenu_current_link_colour":"#fff","submenu_current_link_hover_colour":"#fff","inactive_arrow_shape":"\u25bc","active_arrow_shape":"\u25b2","inactive_arrow_font_icon":"","active_arrow_font_icon":"","inactive_arrow_image":"","active_arrow_image":"","submenu_arrow_width":"40","submenu_arrow_width_unit":"px","submenu_arrow_height":"39","submenu_arrow_height_unit":"px","arrow_position":"right","menu_sub_arrow_shape_colour":"#fff","menu_sub_arrow_shape_hover_colour":"#fff","menu_sub_arrow_shape_colour_active":"#fff","menu_sub_arrow_shape_hover_colour_active":"#fff","menu_sub_arrow_border_width":"","menu_sub_arrow_border_width_unit":"px","menu_sub_arrow_border_colour":"#1d4354","menu_sub_arrow_border_hover_colour":"#3f3f3f","menu_sub_arrow_border_colour_active":"#1d4354","menu_sub_arrow_border_hover_colour_active":"#3f3f3f","menu_sub_arrow_background_colour":"","menu_sub_arrow_background_hover_colour":"","menu_sub_arrow_background_colour_active":"rgba(33,33,33,0.01)","menu_sub_arrow_background_hover_colour_active":"","fade_submenus":"off","fade_submenus_side":"left","fade_submenus_delay":"100","fade_submenus_speed":"500","use_slide_effect":"off","slide_effect_back_to_text":"Back","accordion_animation":"off","auto_expand_all_submenus":"off","auto_expand_current_submenus":"off","menu_item_click_to_trigger_submenu":"on","button_width":"55","button_width_unit":"px","button_height":"55","button_height_unit":"px","button_background_colour":"#003978","button_background_colour_hover":"#003978","button_background_colour_active":"#003978","toggle_button_border_radius":"5","button_transparent_background":"on","button_left_or_right":"left","button_position_type":"fixed","button_distance_from_side":"5","button_distance_from_side_unit":"%","button_top":"85","button_top_unit":"px","button_push_with_animation":"off","button_click_animation":"boring","button_line_margin":"5","button_line_margin_unit":"px","button_line_width":"25","button_line_width_unit":"px","button_line_height":"3","button_line_height_unit":"px","button_line_colour":"#fff","button_line_colour_hover":"#fff","button_line_colour_active":"#fff","button_font_icon":"","button_font_icon_when_clicked":"","button_image":"","button_image_when_clicked":"","button_title":"","button_title_open":"","button_title_position":"left","button_font":"","button_font_size":"14","button_font_size_unit":"px","button_title_line_height":"13","button_title_line_height_unit":"px","button_text_colour":"#fff","button_trigger_type_click":"on","button_trigger_type_hover":"off","button_click_trigger":"","items_order":{"menu":"on","search":"on","title":"","additional content":""},"menu_title":"Responsive Menu","menu_title_link":"","menu_title_link_location":"_self","menu_title_image":"","menu_title_font_icon":"","menu_title_section_padding":{"top":"10%","right":"5%","bottom":"0%","left":"5%"},"menu_title_background_colour":"","menu_title_background_hover_colour":"","menu_title_font_size":"25","menu_title_font_size_unit":"px","menu_title_alignment":"center","menu_title_font_weight":"400","menu_title_font_family":"","menu_title_colour":"#ffffff","menu_title_hover_colour":"#fff","menu_title_image_width":"","menu_title_image_width_unit":"%","menu_title_image_height":"","menu_title_image_height_unit":"px","menu_additional_content":"Add more content here...","menu_additional_section_padding":{"top":"0%","right":"5%","bottom":"10%","left":"5%"},"menu_additional_content_font_size":"16","menu_additional_content_font_size_unit":"px","menu_additional_content_alignment":"center","menu_additional_content_colour":"#6fda44","menu_search_box_text":"Search","menu_search_section_padding":{"top":"5%","right":"5%","bottom":"5%","left":"5%"},"menu_search_box_height":"45","menu_search_box_height_unit":"px","menu_search_box_border_radius":"30","menu_search_box_text_colour":"#1d4354","menu_search_box_background_colour":"#ffffff","menu_search_box_placeholder_colour":"#1d4354","menu_search_box_border_colour":"","menu_section_padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"},"menu_width":"75","menu_width_unit":"%","menu_maximum_width":"350","menu_maximum_width_unit":"px","menu_minimum_width":"320","menu_minimum_width_unit":"px","menu_auto_height":"off","menu_container_padding":{"top":"130px","right":"0px","bottom":"0px","left":"0px"},"menu_container_background_colour":"#003978","menu_background_image":"","animation_type":"slide","menu_appear_from":"left","animation_speed":"0.5","page_wrapper":"body","menu_close_on_body_click":"off","menu_close_on_scroll":"off","menu_close_on_link_click":"off","enable_touch_gestures":"off","hamburger_position_selector":"","menu_id":742,"active_toggle_contents":"\u25b2","inactive_toggle_contents":"\u25bc"}]};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/responsive-menu/v4.0.0/assets/js/rmp-menu.js" id="rmp_menu_scripts-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/imagesloaded.min.js" id="imagesloaded-js"></script>
+<script id="oceanwp-main-js-extra">
+var oceanwpLocalize = {"nonce":"b420f040b1","isRTL":"","menuSearchStyle":"drop_down","mobileMenuSearchStyle":"disabled","sidrSource":null,"sidrDisplace":"1","sidrSide":"left","sidrDropdownTarget":"link","verticalHeaderTarget":"link","customSelects":".woocommerce-ordering .orderby, #dropdown_product_cat, .widget_categories select, .widget_archive select, .single-product .variations_form .variations select","ajax_url":"https:\/\/nextec-wiz.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/theme.min.js" id="oceanwp-main-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/drop-down-mobile-menu.min.js" id="oceanwp-drop-down-mobile-menu-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/drop-down-search.min.js" id="oceanwp-drop-down-search-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/vendors/magnific-popup.min.js" id="ow-magnific-popup-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/ow-lightbox.min.js" id="oceanwp-lightbox-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/vendors/flickity.pkgd.min.js" id="ow-flickity-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/ow-slider.min.js" id="oceanwp-slider-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/scroll-effect.min.js" id="oceanwp-scroll-effect-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/scroll-top.min.js" id="oceanwp-scroll-top-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/themes/oceanwp/assets/js/select.min.js" id="oceanwp-select-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/katex/assets/katex-0.13.13/katex.min.js" id="katex-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6Lc5p7YjAAAAAFmcolTG9WjU3DnBKINXxeVrwed7&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js" id="regenerator-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js"></script>
+<script id="wpcf7-recaptcha-js-extra">
+var wpcf7_recaptcha = {"sitekey":"6Lc5p7YjAAAAAFmcolTG9WjU3DnBKINXxeVrwed7","actions":{"homepage":"homepage","contactform":"contactform"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/contact-form-7/modules/recaptcha/index.js" id="wpcf7-recaptcha-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/prettyPhoto.min.js" id="prettyPhoto-js-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js" id="elementor-waypoints-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/jquery/ui/core.min.js" id="jquery-ui-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/jquery/ui/mouse.min.js" id="jquery-ui-mouse-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-includes/js/jquery/ui/draggable.min.js" id="jquery-ui-draggable-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.9.2","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"additional_custom_breakpoints":true,"e_import_export":true,"e_hidden_wordpress_widgets":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"kit-elements-defaults":true},"urls":{"assets":"https:\/\/nextec-wiz.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":2,"title":"Home%20-%20nextec-wiz.com","excerpt":"","featuredImage":false}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://nextec-wiz.com/wp-content/plugins/elementor/assets/js/frontend.min.js" id="elementor-frontend-js"></script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+								
+<span id="elementor-device-mode-wpr" class="elementor-screen-only"></span></body></html>

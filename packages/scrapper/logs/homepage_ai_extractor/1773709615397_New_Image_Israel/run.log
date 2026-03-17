@@ -1,0 +1,62 @@
+[2026-03-17T01:06:55.398Z] === Homepage AI Extractor: New Image Israel ===
+[2026-03-17T01:06:55.398Z] Started at: 2026-03-17T01:06:55.398Z
+[2026-03-17T01:06:55.398Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773709615397_New_Image_Israel
+[2026-03-17T01:06:55.398Z] Company: New Image Israel
+[2026-03-17T01:06:55.398Z] Website: new-image.co.il
+[2026-03-17T01:06:55.398Z] cbRank: 1317537
+[2026-03-17T01:06:55.399Z] Reasons: h
+[2026-03-17T01:06:55.399Z] Fetching: https://new-image.co.il
+[2026-03-17T01:07:00.475Z] Redirected: https://new-image.co.il -> https://new-image.co.il/
+[2026-03-17T01:07:00.485Z] Saved HTML (364549 bytes) to page.html
+[2026-03-17T01:07:00.489Z] Extracted 28 unique links from page
+[2026-03-17T01:07:00.490Z] Saved 28 links to links.json
+[2026-03-17T01:07:00.493Z] Extracted footer HTML (2257 chars)
+[2026-03-17T01:07:00.493Z] Extracted header HTML (5356 chars)
+[2026-03-17T01:07:00.496Z] Website (post-redirect): https://new-image.co.il/ → origin: https://new-image.co.il
+[2026-03-17T01:07:00.497Z] External links: 2 (of 28 total)
+[2026-03-17T01:07:00.497Z] ── All external links ──
+[2026-03-17T01:07:00.497Z]   EXT: https://www.facebook.com/5newimage
+[2026-03-17T01:07:00.497Z]   EXT: https://www.youtube.com/channel/UCgaFFRhDWbu7jJFjeFq6u0Q
+[2026-03-17T01:07:00.497Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T01:07:00.497Z]   REGEX: fb <- https://www.facebook.com/5newimage
+[2026-03-17T01:07:00.497Z]   REGEX: ytc <- https://www.youtube.com/channel/UCgaFFRhDWbu7jJFjeFq6u0Q
+[2026-03-17T01:07:00.497Z] Programmatic result: ws:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-17T01:07:00.497Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T01:07:00.498Z] Saved AI prompt (3603 chars) to ai_prompt.txt
+[2026-03-17T01:07:00.498Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T01:07:00.502Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T01:07:14.947Z]   AI: First token received, streaming...
+[2026-03-17T01:07:21.962Z] AI response complete: 92 chars in 21.5s
+[2026-03-17T01:07:21.963Z] Saved AI response to ai_response.json
+[2026-03-17T01:07:21.964Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T01:07:21.964Z]   AI LINK: https://www.youtube.com/channel/UCgaFFRhDWbu7jJFjeFq6u0Q
+[2026-03-17T01:07:21.964Z]   AI LINK: https://www.facebook.com/5newimage/
+[2026-03-17T01:07:21.964Z] AI returned 2 valid links
+[2026-03-17T01:07:21.964Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T01:07:21.965Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCgaFFRhDWbu7jJFjeFq6u0Q (duplicate, skipped)
+[2026-03-17T01:07:21.965Z]   AI→REGEX: fb <- https://www.facebook.com/5newimage/ (duplicate, skipped)
+[2026-03-17T01:07:21.965Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T01:07:21.965Z] Footer/header origins (3):
+[2026-03-17T01:07:21.966Z]   FOOTER/HEADER ORIGIN: https://new-image.co.il
+[2026-03-17T01:07:21.966Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T01:07:21.966Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T01:07:21.966Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T01:07:21.966Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T01:07:21.966Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T01:07:22.217Z]   YOUTUBE: resolved UCgaFFRhDWbu7jJFjeFq6u0Q → @newimage-5911
+[2026-03-17T01:07:22.218Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-17T01:07:22.218Z] ── Step 3: Final dedup ──
+[2026-03-17T01:07:22.218Z] No urls to dedup
+[2026-03-17T01:07:22.218Z] ── FINAL RESULT ──
+[2026-03-17T01:07:22.218Z]   ws (1):
+[2026-03-17T01:07:22.218Z]     - https://new-image.co.il
+[2026-03-17T01:07:22.219Z]   fb (1):
+[2026-03-17T01:07:22.219Z]     - https://www.facebook.com/5newimage
+[2026-03-17T01:07:22.219Z]   ytp (1):
+[2026-03-17T01:07:22.219Z]     - https://www.youtube.com/@newimage-5911
+[2026-03-17T01:07:22.219Z]   ytc (1):
+[2026-03-17T01:07:22.219Z]     - https://www.youtube.com/channel/UCgaFFRhDWbu7jJFjeFq6u0Q
+[2026-03-17T01:07:22.219Z] Summary: ws:1, fb:1, ytc:1, ytp:1
+[2026-03-17T01:07:22.220Z] Saved final result to result.json
+[2026-03-17T01:07:22.220Z] Override fields: ws, fb, ytp, ytc
+[2026-03-17T01:07:22.220Z] Finished at: 2026-03-17T01:07:22.220Z

@@ -1,0 +1,884 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in.co.il | המערכת החכמה לניהול אירועים ועדכון זמן אמת</title>
+    <meta name="description" content="מערכת חכמה לניהול אירועים ועדכון זמן אמת. שליחת הודעות אוטומטית, אישור הגעה דיגיטלי, וניהול אורחים מתקדם.">
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://check-in.co.il/">
+    <meta property="og:title" content="Check-in.co.il | המערכת החכמה לניהול אירועים">
+    <meta property="og:description" content="ניהול עדכון זמן אמת חכם לחתונות ואירועים. בוט AI לליווי אישי. שירות מקצועי.">
+    <meta property="og:image" content="https://check-in.co.il/images/bot-hero-banner.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Check-in.co.il | ניהול אירועים">
+    <meta name="twitter:description" content="המערכת החכמה לעדכון זמן אמת וניהול אורחים">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/header-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=37.0">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Google Analytics 4 — Replace G-XXXXXXXXXX with your real Measurement ID -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+  </head>
+  <body>
+    <!-- Skip to content — accessibility -->
+    <a href="#contact" class="skip-to-content">דלג לתוכן</a>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container header-content">
+        <a href="#" class="logo">
+          <img src="images/header-logo.png" alt="Check-in.co.il" class="logo-img">
+        </a>
+        <nav class="nav" id="nav">
+          <a href="#home" class="nav-link active">עמוד ראשי</a>
+          <a href="#pricing" class="nav-link">מחירים</a>
+          <a href="#testimonials" class="nav-link">לקוחות</a>
+          <a href="#contact" class="nav-link">צור קשר</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="תפריט">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section — Clean Video -->
+    <section class="hero" id="home">
+      <div class="hero-bg hero-video-clean">
+        <video autoplay="" muted="" loop="" playsinline="" class="hero-video">
+          <source src="video/cek1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-frost-overlay"></div>
+      </div>
+    </section>
+
+    <!-- Bots Showcase + How It Works (merged) -->
+    <section class="bots-showcase how-it-works" id="bots">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">הכירו את הבוטים שלנו</h2>
+          <p class="section-subtitle">הצטרפו לאלפי הלקוחות שכבר מדברים איתם</p>
+        </div>
+
+        <div class="bots-grid">
+          <!-- Groom Bot -->
+          <div class="bot-card active" data-tab="steps">
+            <div class="bot-avatar">
+              <img src="Botticelli/Clean-cut groom bot.png" alt="בוט החתן">
+            </div>
+            <div class="bot-description">
+              <h3>בוט החתן</h3>
+              <p>
+                העוזר האישי של החתן לניהול האירוע - מענה לאורחים, תזכורות,
+                וניהול רשימת המוזמנים
+              </p>
+            </div>
+          </div>
+
+          <!-- Guest Bot -->
+          <div class="bot-card" data-tab="guest">
+            <div class="bot-avatar">
+              <img src="Botticelli/Guest bot clean blue design.png" alt="בוט האורח">
+            </div>
+            <div class="bot-description">
+              <h3>בוט האורח</h3>
+              <p>
+                השירות האישי לאורחים - מידע על האירוע, הנחיות הגעה, ואישור הגעה
+                בקליק
+              </p>
+            </div>
+          </div>
+
+          <!-- Bride Bot -->
+          <div class="bot-card" data-tab="bride">
+            <div class="bot-avatar">
+              <img src="Botticelli/Bestie Clean Source.png" alt="בוט הכלה">
+            </div>
+            <div class="bot-description">
+              <h3>בוט הכלה</h3>
+              <p>
+                העוזרת האישית של הכלה - תיאום עם ספקים, ניהול משימות, ותמיכה
+                לאורך כל הדרך
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Tab 2: Bot Steps -->
+        <div class="hiw-panel active" id="panel-steps">
+          <div class="hiw-timeline">
+            <!-- Step 1 -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">1</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">איתור וסינון ספקים חכם</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🔗</span>
+                    <strong>שידוך ספקים אוטומטי</strong>
+                    <p>
+                      המערכת מזמנת/חוסכת בזוג ומתאימה ספקים על בסיס העדפות
+                      אסתטיות, דרישות תרבותיות ומגבלות תקציב.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">📊</span>
+                    <strong>ניתוח הצעות מחיר (Benchmarking)</strong>
+                    <p>
+                      השוואה בזמן אמת של חבילות שירות ומחירים מול ממוצע השוק.
+                      מחיר ממוצע לשירותי הגעה עומד על כ-1,314 ש״ח.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🏷️</span>
+                    <strong>גישה לדילים וקבוצות רכישה</strong>
+                    <p>
+                      הבוט מחבר את הזוג לדילים בלעדיים וקבוצות רכישה שמפחיתות
+                      משמעותית את עלויות ההפקה.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">2</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">משא ומתן וסגירת עסקה</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">❓</span>
+                    <strong>מאגר ״שאלות קריטיות״</strong>
+                    <p>
+                      הבוט מספק רשימת שאלות מפתח לכל ספק וזמן מדיניות ביטול במצב
+                      בישחוקי כדי להבטיח חוזה שקוף והוגן.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">📅</span>
+                    <strong>מינוף טקטיקות חיסכון</strong>
+                    <p>
+                      ייעוץ בבחירת ימים זולים (שישי או ראשון) ושיננוז בשיטת
+                      ״התחייבות פינימום״ למניעת תשלום על ״מנות ריקות״.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">📦</span>
+                    <strong>סגירת מחירים נמוכים</strong>
+                    <p>
+                      הבוט פועל כמתווך חכם שמזהה הזדמנויות לחיסכון, כמו
+                      ״באנדלים״ של צלם ומנגנים או רכישת אלכוהול עצמאית.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">3</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">ניהול לוגיסטי ובקרה</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">💯</span>
+                    <strong>100% מענה בעדכון זמן אמת</strong>
+                    <p>
+                      שימוש בבינה מלאכותית (AI) לתזמון אופטימלי של הודעות
+                      וואטסאפ, מה שמעלה את אחוזי המענה וחוסך אלפי שקלים.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🤖</span>
+                    <strong>העוזר של החתן — הפחתת עומס</strong>
+                    <p>
+                      הבוט משמש כמרכז מידע לאורחים (חניה, ויזה, קוד לבוש), מה
+                      שמשחרר את החתן מטיפול בשאלות חוזרות.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">💼</span>
+                    <strong>ניהול תקציב ומקדמות</strong>
+                    <p>
+                      מעקב צמוד אחר הוצאות, גיבול חנגי תשלום לספקים והתראות על
+                      דד-ליינים ביורוקרטיים.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Bride's Bestie -->
+        <div class="hiw-panel" id="panel-bride">
+          <div class="hiw-timeline">
+            <!-- Step 1 -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">1</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">👗 תכנון הלוק והסטייל</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">💍</span>
+                    <strong>ניהול ספקי יופי</strong>
+                    <p>
+                      תיאום מראש עם מאפרת, מעצבת שיער, מעצבת שמלות ועוד. הבסטי
+                      שומרת על לו"ז ומזכירה על תורים.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">📋</span>
+                    <strong>צ׳קליסט אישי לכלה</strong>
+                    <p>
+                      רשימת מטלות מותאמת אישית — מהפיטינג הראשון ועד הרגע האחרון
+                      לפני הכניסה לחופה.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🎨</span>
+                    <strong>בורד השראה דיגיטלי</strong>
+                    <p>
+                      איסוף אוטומטי של רעיונות עיצוב, צבעים ותמונות השראה — הכל
+                      במקום אחד.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">2</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">💝 ניהול רגשי ותמיכה</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🧘</span>
+                    <strong>ניהול לחץ ורגעי משבר</strong>
+                    <p>
+                      הבסטי מזהה רגעים של לחץ ושולחת עידוד, טיפים להרגעה
+                      ותזכורות לנשום. היא תמיד כאן בשבילך.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">👯</span>
+                    <strong>תיאום עם השושבינות</strong>
+                    <p>
+                      קבוצת וואטסאפ חכמה שמתאמת שמלות, נעליים ואביזרים — בלי
+                      שהכלה תצטרך לרדוף אחרי אף אחת.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">📸</span>
+                    <strong>תיעוד המסע</strong>
+                    <p>
+                      שמירה אוטומטית של רגעים מיוחדים מתקופת ההכנות — פיטינגים,
+                      חגיגות ורגעי ״לפני״ לאלבום דיגיטלי.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">3</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">🌟 יום האירוע — הכלה במרכז</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">⏰</span>
+                    <strong>לו״ז דקה-דקה ליום</strong>
+                    <p>
+                      תזמון מדויק — מתי מגיעה המאפרת, מתי הצילומים, מתי הכניסה.
+                      הכל מסונכרן עם הבוט של החתן.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">💬</span>
+                    <strong>תקשורת חכמה</strong>
+                    <p>
+                      הבסטי מסננת הודעות שלא דחופות ביום האירוע, כך שהכלה נשארת
+                      רגועה ומרוכזת ברגע.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">✨</span>
+                    <strong>סנכרון עם בוט החתן</strong>
+                    <p>
+                      שיתוף נתונים בזמן אמת עם בוט החתן — כך שניהם יודעים מה
+                      קורה ואין הפתעות.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Guest Bot -->
+        <div class="hiw-panel" id="panel-guest">
+          <div class="hiw-timeline">
+            <!-- Phase 1: After Invitation -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">1</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">
+                  📨 מרגע קבלת ההזמנה — קשר יוזם וחם
+                </h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🤝</span>
+                    <strong>היכרות אישית</strong>
+                    <p>
+                      הבוט פונה לכל מוזמן בצורה אישית וחמה, מברר העדפות (חניה,
+                      נגישות, תזונה) ויוצר תחושת ״מישהו דואג לי״.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">✅</span>
+                    <strong>אישור הגעה חכם</strong>
+                    <p>
+                      תהליך אישור הגעה פשוט ונעים — לא שאלון יבש, אלא שיחה
+                      ידידותית שמרגישה כמו הודעה מחבר.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">📡</span>
+                    <strong>עדכונים בזמן אמת</strong>
+                    <p>
+                      הבוט מקבל נתונים ישירות מהבוטים של החתן והכלה ומעדכן את
+                      האורחים בכל שינוי — בקלות וברציפות.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 2: Week Before -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">2</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">📅 שבוע לפני — תזכורות חכמות</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🗓️</span>
+                    <strong>תזכורת יום חופשי</strong>
+                    <p>
+                      לחברים הקרובים — תזכורת חמה: ״אל תשכחו לקחת יום חופשי!
+                      🎉״. כי חתונה של חבר שווה חופש מהעבודה.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">👔</span>
+                    <strong>קוד לבוש ופרטים</strong>
+                    <p>
+                      הבוט שולח תזכורת על קוד לבוש, כתובת המקום, אפשרויות חניה
+                      ופרטים מעשיים — הכל בפורמט ברור.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">💛</span>
+                    <strong>בניית ציפייה</strong>
+                    <p>
+                      הודעה אישית שיוצרת התרגשות: ״עוד שבוע! אנחנו כל כך שמחים
+                      שאתם חלק מהיום המיוחד שלנו 💕״
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 3: Event Day -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">3</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">🎊 יום האירוע — ליווי מלא</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🚗</span>
+                    <strong>״יצאתם?״</strong>
+                    <p>
+                      הבוט בודק שהאורחים יצאו בזמן, שולח ניווט לוויז ומעדכן אם
+                      יש עומסים בדרך.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🏛️</span>
+                    <strong>״הגעתם?״</strong>
+                    <p>
+                      ברגע ההגעה — הנחיות חניה, כניסה דיגיטלית ומספר שולחן. הכל
+                      חלק ומהיר.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">💺</span>
+                    <strong>״התיישבתם?״</strong>
+                    <p>
+                      הבוט בודק שכולם מצאו את המקום השמור — ואם יש בעיה, הוא
+                      מתקן בזמן אמת.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 4: After Event -->
+            <div class="hiw-step">
+              <div class="hiw-step-number">4</div>
+              <div class="hiw-step-content">
+                <h3 class="hiw-step-title">🏠 סוף הערב — הגעתם הביתה בשלום!</h3>
+                <div class="hiw-step-cards">
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🚕</span>
+                    <strong>בדיקת הגעה בטוחה</strong>
+                    <p>
+                      בסוף הערב הבוט שולח הודעה חמה: ״היה מדהים! הגעתם הביתה
+                      בשלום?״ — כי אכפת לנו מכל אורח.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">🚫</span>
+                    <strong>לא האחראי על אוכל ומוזיקה</strong>
+                    <p>
+                      האוכל והמוזיקה? זו לא המחלקה שלו! 😄 הבוט מתמקד בטיפול
+                      אישי, לוגיסטיקה וחוויית האורח.
+                    </p>
+                  </div>
+                  <div class="hiw-mini-card">
+                    <span class="hiw-mini-icon">📊</span>
+                    <strong>דו״ח בזמן אמת לזוג</strong>
+                    <p>
+                      כל הנתונים חוזרים לבוטים של החתן והכלה — כמה הגיעו, מי
+                      חיכה, מי צריך תשומת לב.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </section>
+
+    <!-- From Chaos to Strategy Section -->
+    <section class="chaos-to-strategy" id="strategy">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">מכאוס לאסטרטגיה</h2>
+          <p class="section-subtitle">המערכת שהופכת את האירוע לביטוח אסטרטגי</p>
+        </div>
+        <div class="strategy-grid">
+          <!-- Before: Chaos Audit -->
+          <div class="strategy-column strategy-before" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="strategy-column-header">
+              <span class="strategy-icon">⚠️</span>
+              <h3>לפני (Chaos Audit)</h3>
+            </div>
+            <div class="strategy-items">
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">💥</span>
+                <div>
+                  <strong>כאוס</strong>
+                  <p>ניהול ללא שליטה, תוצאות בלתי צפויות</p>
+                </div>
+              </div>
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">🤖</span>
+                <div>
+                  <strong>הזיות אלגוריתמיות</strong>
+                  <p>נתונים לא מדויקים, החלטות על בסיס ניחושים</p>
+                </div>
+              </div>
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">💸</span>
+                <div>
+                  <strong>הפסד כספי</strong>
+                  <p>מנות ריקות, תשלומים מיותרים, בזבוז תקציבי</p>
+                </div>
+              </div>
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">😰</span>
+                <div>
+                  <strong>חרדה</strong>
+                  <p>לחץ בלתי נסבל, חוסר שקט נפשי</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="strategy-arrow">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="29" stroke="var(--gold)" stroke-width="2"></circle>
+              <path d="M20 30h20m-8-8l8 8-8 8" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+
+          <!-- After: Execute -->
+          <div class="strategy-column strategy-after" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="strategy-column-header">
+              <span class="strategy-icon">✨</span>
+              <h3>אחרי (Execute)</h3>
+            </div>
+            <div class="strategy-items">
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">🎯</span>
+                <div>
+                  <strong>שיטת Synthesis</strong>
+                  <p>מתודולוגיה מוכחת לניהול אירועים</p>
+                </div>
+              </div>
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">📊</span>
+                <div>
+                  <strong>Ground Truth Data</strong>
+                  <p>נתונים אמיתיים בזמן אמת, החלטות מבוססות עובדות</p>
+                </div>
+              </div>
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">💰</span>
+                <div>
+                  <strong>אופטימיזציה כספית</strong>
+                  <p>חיסכון ממוצע של ⪨450,000, אפס בזבוז</p>
+                </div>
+              </div>
+              <div class="strategy-item" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="strategy-item-icon">💎</span>
+                <div>
+                  <strong>Soft Glam</strong>
+                  <p>חוויית אירוע אלגנטית ושקטה</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="strategy-tagline">„מערכת הצ׳ק-אין היא לא רק כלי טכני; היא פוליסת הביטוח האסטרטגית של האירוע.“</p>
+
+      </div>
+    </section>
+
+    <!-- Trust Architecture Section -->
+    <section class="trust-architecture">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">ארכיטקטורת Zero-Latency</h2>
+          <p class="section-subtitle">זרימת נתונים בזמן אמת — מהאורח למרכז הבקרה</p>
+        </div>
+        <div class="trust-pipeline">
+          <div class="trust-step" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="trust-step-icon">📱</div>
+            <div class="trust-step-label">אורח (Client)</div>
+          </div>
+          <div class="trust-connector"></div>
+          <div class="trust-step" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="trust-step-icon">🔐</div>
+            <div class="trust-step-label">API Gateway</div>
+          </div>
+          <div class="trust-connector"></div>
+          <div class="trust-step" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="trust-step-icon">🗄️</div>
+            <div class="trust-step-label">PostgreSQL</div>
+          </div>
+          <div class="trust-connector"></div>
+          <div class="trust-step" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="trust-step-icon">⚡</div>
+            <div class="trust-step-label">Redis Real-Time</div>
+          </div>
+          <div class="trust-connector"></div>
+          <div class="trust-step" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="trust-step-icon">📊</div>
+            <div class="trust-step-label">מרכז בקרה</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">חבילות ומחירים</h2>
+          <p class="section-subtitle">בחרו את החבילה המתאימה לאירוע שלכם</p>
+        </div>
+        <div class="pricing-grid">
+          <!-- Standard Package -->
+          <div class="pricing-card" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="pricing-header">
+              <h3 class="pricing-name">עד 500 מוזמנים</h3>
+              <div class="pricing-price">
+                <span class="currency">₪</span>
+                <span class="amount">1,990</span>
+              </div>
+              <p class="pricing-period">תשלום חד פעמי</p>
+            </div>
+            <ul class="pricing-features">
+              <li class="highlight">
+                <span class="check">🤖</span> 3 עוזרי AI אישיים
+              </li>
+              <li><span class="check">✓</span> WhatsApp ללא הגבלה</li>
+              <li><span class="check">✓</span> עדכון זמן אמת דיגיטלי</li>
+              <li><span class="check">✓</span> ניהול אורחים מתקדם</li>
+              <li><span class="check">✓</span> עיצוב הזמנות</li>
+              <li><span class="check">✓</span> סידורי הושבה</li>
+              <li><span class="check">✓</span> תזכורות אוטומטיות</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">להתחיל עכשיו</a>
+          </div>
+
+          <!-- Large Package -->
+          <div class="pricing-card featured" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="pricing-badge">הכי פופולרי</div>
+            <div class="pricing-header">
+              <h3 class="pricing-name">500 - 1,000 מוזמנים</h3>
+              <div class="pricing-price">
+                <span class="currency">₪</span>
+                <span class="amount">2,990</span>
+              </div>
+              <p class="pricing-period">תשלום חד פעמי</p>
+            </div>
+            <ul class="pricing-features">
+              <li class="highlight">
+                <span class="check">🤖</span> 3 עוזרי AI אישיים
+              </li>
+              <li><span class="check">✓</span> WhatsApp ללא הגבלה</li>
+              <li><span class="check">✓</span> עדכון זמן אמת דיגיטלי</li>
+              <li><span class="check">✓</span> ניהול אורחים מתקדם</li>
+              <li><span class="check">✓</span> עיצוב הזמנות</li>
+              <li><span class="check">✓</span> סידורי הושבה</li>
+              <li><span class="check">✓</span> תזכורות אוטומטיות</li>
+              <li><span class="check">⭐</span> ליווי אישי</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">להתחיל עכשיו</a>
+          </div>
+
+          <!-- Enterprise Package -->
+          <div class="pricing-card vip" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="pricing-header">
+              <h3 class="pricing-name">מעל 1,000 מוזמנים</h3>
+              <div class="pricing-price">
+                <span class="amount" style="font-size: 2rem">מחיר מיוחד</span>
+              </div>
+              <p class="pricing-period">מותאם אישית</p>
+            </div>
+            <ul class="pricing-features">
+              <li class="highlight">
+                <span class="check">🤖</span> צוות עוזרי AI מורחב
+              </li>
+              <li><span class="check">✓</span> כל הפיצ'רים כלולים</li>
+              <li><span class="check">✓</span> תמיכה מועדפת 24/7</li>
+              <li><span class="check">✓</span> מנהל לקוח ייעודי</li>
+              <li><span class="check">✓</span> התאמות מיוחדות</li>
+              <li><span class="check">✓</span> אינטגרציות מותאמות</li>
+              <li><span class="check">⭐</span> עיצוב פרימיום</li>
+            </ul>
+            <a href="#contact" class="btn btn-gold">בקש הצעת מחיר</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">מה הלקוחות אומרים</h2>
+          <p class="section-subtitle">חוויות של זוגות שכבר השתמשו במערכת</p>
+        </div>
+        <div class="testimonials-grid">
+          <!-- Card 1 -->
+          <div class="testimonial-card" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">טקסט ביקורת ראשונה — יעודכן בהמשך</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">1</div>
+              <div class="author-info">
+                <span class="author-name">שם הלקוח</span>
+                <span class="author-event">סוג האירוע</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">טקסט ביקורת שנייה — יעודכן בהמשך</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">2</div>
+              <div class="author-info">
+                <span class="author-name">שם הלקוח</span>
+                <span class="author-event">סוג האירוע</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">טקסט ביקורת שלישית — יעודכן בהמשך</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">3</div>
+              <div class="author-info">
+                <span class="author-name">שם הלקוח</span>
+                <span class="author-event">סוג האירוע</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="section-header contact-header">
+              <h2 class="section-title">צור קשר</h2>
+              <p class="section-subtitle">נשמח לענות על כל שאלה</p>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-details">
+                <span class="contact-label">טלפון</span>
+                <a href="tel:03-1234567">03-1234567</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-details">
+                <span class="contact-label">אימייל</span>
+                <a href="mailto:support@check-in.co.il">support@check-in.co.il</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div class="contact-details">
+                <span class="contact-label">WhatsApp</span>
+                <a href="https://wa.me/972501234567">050-1234567</a>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 011.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772 4.915 4.915 0 01-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM12 9a3 3 0 110 6 3 3 0 010-6z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm" aria-label="טופס צור קשר">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="שם מלא" required="" aria-label="שם מלא" aria-required="true" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="טלפון" required="" aria-label="טלפון" aria-required="true" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="אימייל" aria-label="אימייל" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="הודעה" rows="4" aria-label="הודעה"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              שלח הודעה
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy CTA Section -->
+    <section class="strategy-cta">
+      <div class="container">
+        <div class="strategy-cta-content" style="opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s;">
+          <div class="strategy-cta-diamond">◇</div>
+          <h2>מוכנים ליישם את אסטרטגיית 2026?</h2>
+          <p>בואו לבנות את ה-Ground Truth של האירוע שלכם</p>
+          <div class="strategy-cta-buttons">
+            <a href="#contact" class="btn btn-gold btn-lg">להתחיל עכשיו</a>
+            <a href="https://wa.me/972501234567?text=היי! מעוניין לשמוע עוד על אסטרטגיית 2026" class="btn btn-outline-light btn-lg" target="_blank">דברו איתנו בוואטסאפ</a>
+          </div>
+          <p class="strategy-cta-tagline">Check-in.co.il — עדכון זמן אמת וניהול אירועים</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- Bot Logo -->
+          <div class="footer-bot">
+            <img src="images/bot-logo-gold.png" alt="הבוט הגאון" class="footer-bot-logo">
+            <h3 class="footer-bot-title">הבוט הגאון של החתן</h3>
+            <p class="footer-bot-desc">
+              עוזר דיגיטלי בואטספ שעונה לאורחים על שאלות חניה, ל"ן וקוד לבוש
+              בשמכם.
+            </p>
+          </div>
+
+          <!-- About / Legal -->
+          <div class="footer-column">
+            <h4>אודות</h4>
+            <a href="terms.html">תנאי שימוש</a>
+            <a href="privacy.html">מדיניות ופרטיות</a>
+            <a href="whatsapp-policy.html">מדיניות WhatsApp</a>
+            <a href="accessibility.html">נגישות</a>
+            <a href="sitemap.html">מפת אתר</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>קישורים</h4>
+            <a href="#bots">איך זה עובד</a>
+            <a href="#pricing">מחירים</a>
+            <a href="#contact">צור קשר</a>
+            <a href="faq.html">שאלות ותשובות</a>
+          </div>
+
+          <!-- Services -->
+          <div class="footer-column">
+            <h4>שירותים נוספים</h4>
+            <a href="#contact">פיתוח אתרים</a>
+            <a href="#contact">פיתוח מערכת ניהול</a>
+            <a href="#contact">פיתוח מערכת AI</a>
+            <a href="#contact" class="footer-highlight">דרושים</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-line"></div>
+          <p>© CREATE Management System 2026 - כל הזכויות שמורות</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/972501234567?text=היי! מעוניין לשמוע עוד על Check-in" class="whatsapp-float" aria-label="WhatsApp" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+      </svg>
+    </a>
+
+    <script src="script.js?v=32.0"></script>
+  
+
+</body></html>

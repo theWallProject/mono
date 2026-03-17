@@ -1,0 +1,61 @@
+[2026-03-17T00:56:12.615Z] === Homepage AI Extractor: VATA ===
+[2026-03-17T00:56:12.615Z] Started at: 2026-03-17T00:56:12.615Z
+[2026-03-17T00:56:12.615Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773708972614_VATA
+[2026-03-17T00:56:12.615Z] Company: VATA
+[2026-03-17T00:56:12.616Z] Website: vata.one
+[2026-03-17T00:56:12.616Z] cbRank: 1312415
+[2026-03-17T00:56:12.616Z] Reasons: h
+[2026-03-17T00:56:12.616Z] Fetching: https://vata.one
+[2026-03-17T00:56:23.198Z] Network idle timeout — continuing with current state
+[2026-03-17T00:56:23.239Z] Redirected: https://vata.one -> https://www.vata.one/
+[2026-03-17T00:56:23.264Z] Saved HTML (1070221 bytes) to page.html
+[2026-03-17T00:56:23.268Z] Extracted 9 unique links from page
+[2026-03-17T00:56:23.272Z] Saved 9 links to links.json
+[2026-03-17T00:56:23.275Z] Extracted footer HTML (7331 chars)
+[2026-03-17T00:56:23.275Z] Extracted header HTML (16168 chars)
+[2026-03-17T00:56:23.279Z] Website (post-redirect): https://www.vata.one/ → origin: https://www.vata.one
+[2026-03-17T00:56:23.279Z] External links: 3 (of 9 total)
+[2026-03-17T00:56:23.279Z] ── All external links ──
+[2026-03-17T00:56:23.279Z]   EXT: https://calendly.com/vata_one/intro
+[2026-03-17T00:56:23.279Z]   EXT: https://www.enforce.one
+[2026-03-17T00:56:23.279Z]   EXT: https://www.linkedin.com/company/vata
+[2026-03-17T00:56:23.279Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:56:23.279Z]   UNCATEGORIZED: https://calendly.com/vata_one/intro
+[2026-03-17T00:56:23.279Z]   UNCATEGORIZED: https://www.enforce.one
+[2026-03-17T00:56:23.280Z]   REGEX: li <- https://www.linkedin.com/company/vata
+[2026-03-17T00:56:23.280Z] Programmatic result: ws:1, li:1 | 2 uncategorized
+[2026-03-17T00:56:23.280Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:56:23.281Z] Saved AI prompt (5660 chars) to ai_prompt.txt
+[2026-03-17T00:56:23.281Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:56:23.285Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:56:44.965Z]   AI: First token received, streaming...
+[2026-03-17T00:56:46.131Z] AI response complete: 38 chars in 22.9s
+[2026-03-17T00:56:46.132Z] Saved AI response to ai_response.json
+[2026-03-17T00:56:46.133Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T00:56:46.133Z]   AI LINK: https://www.linkedin.com/company/vata/
+[2026-03-17T00:56:46.133Z] AI returned 1 valid links
+[2026-03-17T00:56:46.133Z] ── Categorizing 1 AI-returned links ──
+[2026-03-17T00:56:46.133Z]   AI→REGEX: li <- https://www.linkedin.com/company/vata/ (duplicate, skipped)
+[2026-03-17T00:56:46.134Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:56:46.134Z] Footer/header origins (3):
+[2026-03-17T00:56:46.134Z]   FOOTER/HEADER ORIGIN: https://www.vata.one
+[2026-03-17T00:56:46.134Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T00:56:46.134Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-17T00:56:46.135Z]   ADDED: urls <- https://calendly.com/vata_one/intro
+[2026-03-17T00:56:46.135Z]   SKIP (not in footer/header): https://www.enforce.one
+[2026-03-17T00:56:46.135Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T00:56:46.135Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:56:46.135Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T00:56:46.135Z] ── Step 3: Final dedup ──
+[2026-03-17T00:56:46.136Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T00:56:46.136Z] ── FINAL RESULT ──
+[2026-03-17T00:56:46.136Z]   ws (1):
+[2026-03-17T00:56:46.136Z]     - https://www.vata.one
+[2026-03-17T00:56:46.136Z]   li (1):
+[2026-03-17T00:56:46.136Z]     - https://www.linkedin.com/company/vata
+[2026-03-17T00:56:46.136Z]   urls (1):
+[2026-03-17T00:56:46.136Z]     - https://calendly.com/vata_one/intro
+[2026-03-17T00:56:46.136Z] Summary: ws:1, li:1, urls:1
+[2026-03-17T00:56:46.137Z] Saved final result to result.json
+[2026-03-17T00:56:46.138Z] Override fields: ws, li, urls
+[2026-03-17T00:56:46.138Z] Finished at: 2026-03-17T00:56:46.138Z

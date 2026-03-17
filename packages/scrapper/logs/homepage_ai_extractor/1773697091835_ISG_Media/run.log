@@ -1,0 +1,67 @@
+[2026-03-16T21:38:11.836Z] === Homepage AI Extractor: ISG Media ===
+[2026-03-16T21:38:11.836Z] Started at: 2026-03-16T21:38:11.836Z
+[2026-03-16T21:38:11.836Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773697091835_ISG_Media
+[2026-03-16T21:38:11.836Z] Company: ISG Media
+[2026-03-16T21:38:11.836Z] Website: isgmedia.com
+[2026-03-16T21:38:11.836Z] cbRank: 1204534
+[2026-03-16T21:38:11.836Z] Reasons: h
+[2026-03-16T21:38:11.836Z] Fetching: https://isgmedia.com
+[2026-03-16T21:38:14.881Z] Redirected: https://isgmedia.com -> https://isgmedia.com/
+[2026-03-16T21:38:14.883Z] Saved HTML (37019 bytes) to page.html
+[2026-03-16T21:38:14.885Z] Extracted 14 unique links from page
+[2026-03-16T21:38:14.886Z] Saved 14 links to links.json
+[2026-03-16T21:38:14.888Z] Extracted footer HTML (755 chars)
+[2026-03-16T21:38:14.888Z] Extracted header HTML (4705 chars)
+[2026-03-16T21:38:14.892Z] Website (post-redirect): https://isgmedia.com/ → origin: https://isgmedia.com
+[2026-03-16T21:38:14.892Z] External links: 3 (of 14 total)
+[2026-03-16T21:38:14.892Z] ── All external links ──
+[2026-03-16T21:38:14.892Z]   EXT: https://in.linkedin.com/company/isg-media
+[2026-03-16T21:38:14.892Z]   EXT: https://www.facebook.com/BollywoodAfrica
+[2026-03-16T21:38:14.892Z]   EXT: https://www.youtube.com/channel/UCJ5gxZt-uCv_7w49Mz2WmGQ
+[2026-03-16T21:38:14.892Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T21:38:14.893Z]   REGEX: li <- https://in.linkedin.com/company/isg-media
+[2026-03-16T21:38:14.893Z]   REGEX: fb <- https://www.facebook.com/BollywoodAfrica
+[2026-03-16T21:38:14.893Z]   REGEX: ytc <- https://www.youtube.com/channel/UCJ5gxZt-uCv_7w49Mz2WmGQ
+[2026-03-16T21:38:14.893Z] Programmatic result: ws:1, li:1, fb:1, ytc:1 | 0 uncategorized
+[2026-03-16T21:38:14.893Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T21:38:14.894Z] Saved AI prompt (2220 chars) to ai_prompt.txt
+[2026-03-16T21:38:14.894Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T21:38:14.898Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T21:38:22.824Z]   AI: First token received, streaming...
+[2026-03-16T21:38:23.043Z] AI response complete: 20 chars in 8.1s
+[2026-03-16T21:38:23.044Z] Saved AI response to ai_response.json
+[2026-03-16T21:38:23.045Z] ── Parsing AI response (1 lines) ──
+[2026-03-16T21:38:23.045Z]   AI LINK: http://isgmedia.com/
+[2026-03-16T21:38:23.045Z] AI returned 1 valid links
+[2026-03-16T21:38:23.045Z] ── Categorizing 1 AI-returned links ──
+[2026-03-16T21:38:23.046Z]   AI→URLS: http://isgmedia.com (cleaned from http://isgmedia.com/)
+[2026-03-16T21:38:23.046Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T21:38:23.047Z] Footer/header origins (4):
+[2026-03-16T21:38:23.047Z]   FOOTER/HEADER ORIGIN: http://isgmedia.com
+[2026-03-16T21:38:23.047Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-16T21:38:23.047Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-16T21:38:23.047Z]   FOOTER/HEADER ORIGIN: https://in.linkedin.com
+[2026-03-16T21:38:23.047Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-16T21:38:23.047Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T21:38:23.047Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-16T21:38:23.526Z]   YOUTUBE: resolved UCJ5gxZt-uCv_7w49Mz2WmGQ → @WHATSUPBOLLYWOODENGLISH
+[2026-03-16T21:38:23.527Z]   YOUTUBE: added 1 ytp URL(s) from ytc resolution
+[2026-03-16T21:38:23.527Z] ── Step 3: Final dedup ──
+[2026-03-16T21:38:23.527Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-16T21:38:23.527Z] ── FINAL RESULT ──
+[2026-03-16T21:38:23.527Z]   ws (1):
+[2026-03-16T21:38:23.527Z]     - https://isgmedia.com
+[2026-03-16T21:38:23.527Z]   li (1):
+[2026-03-16T21:38:23.527Z]     - https://www.linkedin.com/company/isg-media
+[2026-03-16T21:38:23.527Z]   fb (1):
+[2026-03-16T21:38:23.527Z]     - https://www.facebook.com/bollywoodafrica
+[2026-03-16T21:38:23.527Z]   ytp (1):
+[2026-03-16T21:38:23.527Z]     - https://www.youtube.com/@WHATSUPBOLLYWOODENGLISH
+[2026-03-16T21:38:23.528Z]   ytc (1):
+[2026-03-16T21:38:23.528Z]     - https://www.youtube.com/channel/UCJ5gxZt-uCv_7w49Mz2WmGQ
+[2026-03-16T21:38:23.528Z]   urls (1):
+[2026-03-16T21:38:23.528Z]     - http://isgmedia.com
+[2026-03-16T21:38:23.528Z] Summary: ws:1, li:1, fb:1, ytc:1, urls:1, ytp:1
+[2026-03-16T21:38:23.532Z] Saved final result to result.json
+[2026-03-16T21:38:23.532Z] Override fields: ws, li, fb, ytp, ytc
+[2026-03-16T21:38:23.532Z] Finished at: 2026-03-16T21:38:23.532Z

@@ -1,0 +1,70 @@
+[2026-03-16T21:40:43.854Z] === Homepage AI Extractor: Automatico ===
+[2026-03-16T21:40:43.854Z] Started at: 2026-03-16T21:40:43.854Z
+[2026-03-16T21:40:43.854Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773697243853_Automatico
+[2026-03-16T21:40:43.854Z] Company: Automatico
+[2026-03-16T21:40:43.854Z] Website: automatico.co.il
+[2026-03-16T21:40:43.854Z] cbRank: 1206429
+[2026-03-16T21:40:43.854Z] Reasons: h
+[2026-03-16T21:40:43.854Z] Fetching: https://automatico.co.il
+[2026-03-16T21:40:46.816Z] Redirected: https://automatico.co.il -> https://www.automatico.co.il/
+[2026-03-16T21:40:46.822Z] Saved HTML (211016 bytes) to page.html
+[2026-03-16T21:40:46.825Z] Extracted 24 unique links from page
+[2026-03-16T21:40:46.826Z] Saved 24 links to links.json
+[2026-03-16T21:40:46.828Z] Extracted footer HTML (2649 chars)
+[2026-03-16T21:40:46.828Z] Extracted header HTML (5155 chars)
+[2026-03-16T21:40:46.831Z] Website (post-redirect): https://www.automatico.co.il/ → origin: https://www.automatico.co.il
+[2026-03-16T21:40:46.832Z] External links: 6 (of 24 total)
+[2026-03-16T21:40:46.832Z] ── All external links ──
+[2026-03-16T21:40:46.832Z]   EXT: https://app.civi.co.il/promos/id=TRP9NSM4KE
+[2026-03-16T21:40:46.832Z]   EXT: https://calendly.com/assaf-automatico/60_minutes_meeting
+[2026-03-16T21:40:46.832Z]   EXT: https://saola.ai
+[2026-03-16T21:40:46.832Z]   EXT: https://welcome.dugsonconsulting.co.za
+[2026-03-16T21:40:46.832Z]   EXT: https://www.linkedin.com/company/automatico-il
+[2026-03-16T21:40:46.832Z]   EXT: https://www.loadmill.com
+[2026-03-16T21:40:46.832Z] ── Step 1: Programmatic categorization ──
+[2026-03-16T21:40:46.833Z]   UNCATEGORIZED: https://app.civi.co.il/promos/id=TRP9NSM4KE
+[2026-03-16T21:40:46.833Z]   UNCATEGORIZED: https://calendly.com/assaf-automatico/60_minutes_meeting
+[2026-03-16T21:40:46.833Z]   UNCATEGORIZED: https://saola.ai
+[2026-03-16T21:40:46.833Z]   UNCATEGORIZED: https://welcome.dugsonconsulting.co.za
+[2026-03-16T21:40:46.833Z]   REGEX: li <- https://www.linkedin.com/company/automatico-il
+[2026-03-16T21:40:46.833Z]   UNCATEGORIZED: https://www.loadmill.com
+[2026-03-16T21:40:46.833Z] Programmatic result: ws:1, li:1 | 5 uncategorized
+[2026-03-16T21:40:46.833Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-16T21:40:46.836Z] Saved AI prompt (3500 chars) to ai_prompt.txt
+[2026-03-16T21:40:46.836Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-16T21:40:46.839Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-16T21:40:59.866Z]   AI: First token received, streaming...
+[2026-03-16T21:41:01.238Z] AI response complete: 46 chars in 14.4s
+[2026-03-16T21:41:01.240Z] Saved AI response to ai_response.json
+[2026-03-16T21:41:01.240Z] ── Parsing AI response (1 lines) ──
+[2026-03-16T21:41:01.240Z]   AI LINK: https://www.linkedin.com/company/automatico-il
+[2026-03-16T21:41:01.240Z] AI returned 1 valid links
+[2026-03-16T21:41:01.240Z] ── Categorizing 1 AI-returned links ──
+[2026-03-16T21:41:01.241Z]   AI→REGEX: li <- https://www.linkedin.com/company/automatico-il (duplicate, skipped)
+[2026-03-16T21:41:01.242Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-16T21:41:01.242Z] Footer/header origins (3):
+[2026-03-16T21:41:01.242Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-16T21:41:01.242Z]   FOOTER/HEADER ORIGIN: https://app.civi.co.il
+[2026-03-16T21:41:01.242Z]   FOOTER/HEADER ORIGIN: https://calendly.com
+[2026-03-16T21:41:01.242Z]   ADDED: urls <- https://app.civi.co.il/promos/id=TRP9NSM4KE
+[2026-03-16T21:41:01.243Z]   ADDED: urls <- https://calendly.com/assaf-automatico/60_minutes_meeting
+[2026-03-16T21:41:01.243Z]   SKIP (not in footer/header): https://saola.ai
+[2026-03-16T21:41:01.243Z]   SKIP (not in footer/header): https://welcome.dugsonconsulting.co.za
+[2026-03-16T21:41:01.243Z]   SKIP (not in footer/header): https://www.loadmill.com
+[2026-03-16T21:41:01.243Z] Step 2b result: added 2 uncategorized domains from footer/header
+[2026-03-16T21:41:01.243Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-16T21:41:01.244Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-16T21:41:01.244Z] ── Step 3: Final dedup ──
+[2026-03-16T21:41:01.244Z] Dedup: removed 0 of 2 URLs already in specialized fields
+[2026-03-16T21:41:01.244Z] ── FINAL RESULT ──
+[2026-03-16T21:41:01.244Z]   ws (1):
+[2026-03-16T21:41:01.244Z]     - https://www.automatico.co.il
+[2026-03-16T21:41:01.245Z]   li (1):
+[2026-03-16T21:41:01.245Z]     - https://www.linkedin.com/company/automatico-il
+[2026-03-16T21:41:01.245Z]   urls (2):
+[2026-03-16T21:41:01.245Z]     - https://app.civi.co.il/promos/id=TRP9NSM4KE
+[2026-03-16T21:41:01.245Z]     - https://calendly.com/assaf-automatico/60_minutes_meeting
+[2026-03-16T21:41:01.246Z] Summary: ws:1, li:1, urls:2
+[2026-03-16T21:41:01.247Z] Saved final result to result.json
+[2026-03-16T21:41:01.247Z] Override fields: ws, li, urls
+[2026-03-16T21:41:01.247Z] Finished at: 2026-03-16T21:41:01.247Z

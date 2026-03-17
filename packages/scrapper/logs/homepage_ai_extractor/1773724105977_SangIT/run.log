@@ -1,0 +1,63 @@
+[2026-03-17T05:08:25.977Z] === Homepage AI Extractor: SangIT ===
+[2026-03-17T05:08:25.977Z] Started at: 2026-03-17T05:08:25.977Z
+[2026-03-17T05:08:25.977Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773724105977_SangIT
+[2026-03-17T05:08:25.978Z] Company: SangIT
+[2026-03-17T05:08:25.978Z] Website: sangit.co.il
+[2026-03-17T05:08:25.978Z] cbRank: 1470536
+[2026-03-17T05:08:25.978Z] Reasons: h
+[2026-03-17T05:08:25.978Z] Fetching: https://sangit.co.il
+[2026-03-17T05:08:32.630Z] Redirected: https://sangit.co.il -> https://sangit.co.il/
+[2026-03-17T05:08:32.636Z] Saved HTML (91421 bytes) to page.html
+[2026-03-17T05:08:32.639Z] Extracted 30 unique links from page
+[2026-03-17T05:08:32.640Z] Saved 30 links to links.json
+[2026-03-17T05:08:32.641Z] Extracted footer HTML (357 chars)
+[2026-03-17T05:08:32.641Z] Extracted header HTML (3124 chars)
+[2026-03-17T05:08:32.645Z] Website (post-redirect): https://sangit.co.il/ → origin: https://sangit.co.il
+[2026-03-17T05:08:32.646Z] External links: 5 (of 30 total)
+[2026-03-17T05:08:32.646Z] ── All external links ──
+[2026-03-17T05:08:32.646Z]   EXT: https://generatepress.com
+[2026-03-17T05:08:32.646Z]   EXT: https://www.acumatica.com/success-stories
+[2026-03-17T05:08:32.646Z]   EXT: https://www.celigo.com/customer-stories
+[2026-03-17T05:08:32.646Z]   EXT: https://www.linkedin.com/company/sangit
+[2026-03-17T05:08:32.646Z]   EXT: https://www.oracle.com/customers
+[2026-03-17T05:08:32.646Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:08:32.646Z]   UNCATEGORIZED: https://generatepress.com
+[2026-03-17T05:08:32.646Z]   UNCATEGORIZED: https://www.acumatica.com/success-stories
+[2026-03-17T05:08:32.646Z]   UNCATEGORIZED: https://www.celigo.com/customer-stories
+[2026-03-17T05:08:32.647Z]   REGEX: li <- https://www.linkedin.com/company/sangit
+[2026-03-17T05:08:32.647Z]   UNCATEGORIZED: https://www.oracle.com/customers
+[2026-03-17T05:08:32.647Z] Programmatic result: ws:1, li:1 | 4 uncategorized
+[2026-03-17T05:08:32.647Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:08:32.650Z] Saved AI prompt (2284 chars) to ai_prompt.txt
+[2026-03-17T05:08:32.650Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:08:32.654Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:08:39.205Z]   AI: AI returned empty response (266 raw bytes) — model produced no tokens
+[2026-03-17T05:08:39.205Z] AI response complete: 0 chars in 6.6s
+[2026-03-17T05:08:39.207Z] Saved AI response to ai_response.json
+[2026-03-17T05:08:39.207Z] ── Parsing AI response (1 lines) ──
+[2026-03-17T05:08:39.207Z] AI returned 0 valid links
+[2026-03-17T05:08:39.207Z] ── Categorizing 0 AI-returned links ──
+[2026-03-17T05:08:39.208Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:08:39.208Z] Footer/header origins (2):
+[2026-03-17T05:08:39.208Z]   FOOTER/HEADER ORIGIN: https://generatepress.com
+[2026-03-17T05:08:39.208Z]   FOOTER/HEADER ORIGIN: https://sangit.co.il
+[2026-03-17T05:08:39.208Z]   ADDED: urls <- https://generatepress.com
+[2026-03-17T05:08:39.209Z]   SKIP (not in footer/header): https://www.acumatica.com/success-stories
+[2026-03-17T05:08:39.209Z]   SKIP (not in footer/header): https://www.celigo.com/customer-stories
+[2026-03-17T05:08:39.209Z]   SKIP (not in footer/header): https://www.oracle.com/customers
+[2026-03-17T05:08:39.209Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T05:08:39.209Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:08:39.210Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:08:39.210Z] ── Step 3: Final dedup ──
+[2026-03-17T05:08:39.210Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T05:08:39.210Z] ── FINAL RESULT ──
+[2026-03-17T05:08:39.210Z]   ws (1):
+[2026-03-17T05:08:39.210Z]     - https://sangit.co.il
+[2026-03-17T05:08:39.211Z]   li (1):
+[2026-03-17T05:08:39.211Z]     - https://www.linkedin.com/company/sangit
+[2026-03-17T05:08:39.211Z]   urls (1):
+[2026-03-17T05:08:39.211Z]     - https://generatepress.com
+[2026-03-17T05:08:39.211Z] Summary: ws:1, li:1, urls:1
+[2026-03-17T05:08:39.212Z] Saved final result to result.json
+[2026-03-17T05:08:39.213Z] Override fields: ws, li, urls
+[2026-03-17T05:08:39.213Z] Finished at: 2026-03-17T05:08:39.213Z

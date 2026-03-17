@@ -1,0 +1,64 @@
+[2026-03-17T05:41:12.465Z] === Homepage AI Extractor: Gmunch ===
+[2026-03-17T05:41:12.465Z] Started at: 2026-03-17T05:41:12.465Z
+[2026-03-17T05:41:12.465Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773726072465_Gmunch
+[2026-03-17T05:41:12.465Z] Company: Gmunch
+[2026-03-17T05:41:12.465Z] Website: gmunch.com
+[2026-03-17T05:41:12.465Z] cbRank: 1490557
+[2026-03-17T05:41:12.465Z] Reasons: h
+[2026-03-17T05:41:12.465Z] Fetching: https://gmunch.com
+[2026-03-17T05:41:14.177Z] Redirected: https://gmunch.com -> https://gmunch.com/home
+[2026-03-17T05:41:14.180Z] Saved HTML (27294 bytes) to page.html
+[2026-03-17T05:41:14.183Z] Extracted 5 unique links from page
+[2026-03-17T05:41:14.184Z] Saved 5 links to links.json
+[2026-03-17T05:41:14.186Z] Extracted footer HTML (2277 chars)
+[2026-03-17T05:41:14.186Z] Extracted header HTML (1373 chars)
+[2026-03-17T05:41:14.189Z] Website (post-redirect): https://gmunch.com/home → origin: https://gmunch.com
+[2026-03-17T05:41:14.189Z] External links: 3 (of 5 total)
+[2026-03-17T05:41:14.189Z] ── All external links ──
+[2026-03-17T05:41:14.189Z]   EXT: https://instagram.com/gmunch_offical
+[2026-03-17T05:41:14.189Z]   EXT: https://www.facebook.com/Gmunch.LTD
+[2026-03-17T05:41:14.190Z]   EXT: https://www.linkedin.com/company/Gmunch
+[2026-03-17T05:41:14.190Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T05:41:14.190Z]   REGEX: ig <- https://instagram.com/gmunch_offical
+[2026-03-17T05:41:14.190Z]   REGEX: fb <- https://www.facebook.com/Gmunch.LTD
+[2026-03-17T05:41:14.190Z]   REGEX: li <- https://www.linkedin.com/company/Gmunch
+[2026-03-17T05:41:14.190Z] Programmatic result: ws:1, ig:1, fb:1, li:1 | 0 uncategorized
+[2026-03-17T05:41:14.190Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T05:41:14.191Z] Saved AI prompt (3686 chars) to ai_prompt.txt
+[2026-03-17T05:41:14.191Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T05:41:14.194Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T05:41:27.769Z]   AI: First token received, streaming...
+[2026-03-17T05:41:33.745Z] AI response complete: 112 chars in 19.6s
+[2026-03-17T05:41:33.747Z] Saved AI response to ai_response.json
+[2026-03-17T05:41:33.747Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T05:41:33.747Z]   AI LINK: https://www.facebook.com/Gmunch.LTD
+[2026-03-17T05:41:33.747Z]   AI LINK: https://www.linkedin.com/company/Gmunch
+[2026-03-17T05:41:33.747Z]   AI LINK: https://instagram.com/gmunch_offical
+[2026-03-17T05:41:33.747Z] AI returned 3 valid links
+[2026-03-17T05:41:33.748Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T05:41:33.748Z]   AI→REGEX: fb <- https://www.facebook.com/Gmunch.LTD (duplicate, skipped)
+[2026-03-17T05:41:33.748Z]   AI→REGEX: li <- https://www.linkedin.com/company/Gmunch (duplicate, skipped)
+[2026-03-17T05:41:33.748Z]   AI→REGEX: ig <- https://instagram.com/gmunch_offical (duplicate, skipped)
+[2026-03-17T05:41:33.749Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T05:41:33.749Z] Footer/header origins (3):
+[2026-03-17T05:41:33.749Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T05:41:33.749Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T05:41:33.749Z]   FOOTER/HEADER ORIGIN: https://instagram.com
+[2026-03-17T05:41:33.749Z] Step 2b result: added 0 uncategorized domains from footer/header
+[2026-03-17T05:41:33.749Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T05:41:33.749Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T05:41:33.750Z] ── Step 3: Final dedup ──
+[2026-03-17T05:41:33.750Z] No urls to dedup
+[2026-03-17T05:41:33.750Z] ── FINAL RESULT ──
+[2026-03-17T05:41:33.750Z]   ws (1):
+[2026-03-17T05:41:33.750Z]     - https://gmunch.com
+[2026-03-17T05:41:33.750Z]   li (1):
+[2026-03-17T05:41:33.750Z]     - https://www.linkedin.com/company/gmunch
+[2026-03-17T05:41:33.750Z]   fb (1):
+[2026-03-17T05:41:33.751Z]     - https://www.facebook.com/gmunch.ltd
+[2026-03-17T05:41:33.751Z]   ig (1):
+[2026-03-17T05:41:33.751Z]     - https://www.instagram.com/gmunch_offical
+[2026-03-17T05:41:33.751Z] Summary: ws:1, ig:1, fb:1, li:1
+[2026-03-17T05:41:33.752Z] Saved final result to result.json
+[2026-03-17T05:41:33.752Z] Override fields: ws, li, fb, ig
+[2026-03-17T05:41:33.752Z] Finished at: 2026-03-17T05:41:33.752Z

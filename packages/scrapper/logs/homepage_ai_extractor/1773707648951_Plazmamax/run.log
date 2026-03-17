@@ -1,0 +1,73 @@
+[2026-03-17T00:34:08.952Z] === Homepage AI Extractor: Plazmamax ===
+[2026-03-17T00:34:08.952Z] Started at: 2026-03-17T00:34:08.952Z
+[2026-03-17T00:34:08.953Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773707648951_Plazmamax
+[2026-03-17T00:34:08.953Z] Company: Plazmamax
+[2026-03-17T00:34:08.953Z] Website: plazmamax.com
+[2026-03-17T00:34:08.953Z] cbRank: 1298760
+[2026-03-17T00:34:08.953Z] Reasons: h
+[2026-03-17T00:34:08.953Z] Fetching: https://plazmamax.com
+[2026-03-17T00:34:13.606Z] Redirected: https://plazmamax.com -> https://plazmamax.com/
+[2026-03-17T00:34:13.613Z] Saved HTML (178680 bytes) to page.html
+[2026-03-17T00:34:13.616Z] Extracted 70 unique links from page
+[2026-03-17T00:34:13.616Z] Saved 70 links to links.json
+[2026-03-17T00:34:13.619Z] Extracted footer HTML (12155 chars)
+[2026-03-17T00:34:13.619Z] Extracted header HTML (26639 chars)
+[2026-03-17T00:34:13.623Z] Website (post-redirect): https://plazmamax.com/ → origin: https://plazmamax.com
+[2026-03-17T00:34:13.624Z] External links: 4 (of 70 total)
+[2026-03-17T00:34:13.624Z] ── All external links ──
+[2026-03-17T00:34:13.624Z]   EXT: https://www.facebook.com/Plazmamax.solutions
+[2026-03-17T00:34:13.624Z]   EXT: https://www.instagram.com/plazmamax
+[2026-03-17T00:34:13.624Z]   EXT: https://www.thefabricator.com/thefabricator/article/plasmacutting/the-evolution-of-plasma-cutting
+[2026-03-17T00:34:13.624Z]   EXT: https://www.youtube.com/channel/UCw64IwbE-BoMG1ePe5RjBcQ
+[2026-03-17T00:34:13.624Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T00:34:13.624Z]   REGEX: fb <- https://www.facebook.com/Plazmamax.solutions
+[2026-03-17T00:34:13.624Z]   REGEX: ig <- https://www.instagram.com/plazmamax
+[2026-03-17T00:34:13.624Z]   UNCATEGORIZED: https://www.thefabricator.com/thefabricator/article/plasmacutting/the-evolution-of-plasma-cutting
+[2026-03-17T00:34:13.624Z]   REGEX: ytc <- https://www.youtube.com/channel/UCw64IwbE-BoMG1ePe5RjBcQ
+[2026-03-17T00:34:13.625Z] Programmatic result: ws:1, fb:1, ig:1, ytc:1 | 1 uncategorized
+[2026-03-17T00:34:13.625Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T00:34:13.628Z] Saved AI prompt (5360 chars) to ai_prompt.txt
+[2026-03-17T00:34:13.628Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T00:34:13.632Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T00:34:34.164Z]   AI: First token received, streaming...
+[2026-03-17T00:34:44.456Z] AI response complete: 137 chars in 30.8s
+[2026-03-17T00:34:44.457Z] Saved AI response to ai_response.json
+[2026-03-17T00:34:44.457Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T00:34:44.458Z]   AI LINK: https://www.instagram.com/plazmamax
+[2026-03-17T00:34:44.458Z]   AI LINK: https://www.youtube.com/channel/UCw64IwbE-BoMG1ePe5RjBcQ
+[2026-03-17T00:34:44.458Z]   AI LINK: https://www.facebook.com/Plazmamax.solutions
+[2026-03-17T00:34:44.458Z] AI returned 3 valid links
+[2026-03-17T00:34:44.458Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T00:34:44.458Z]   AI→REGEX: ig <- https://www.instagram.com/plazmamax (duplicate, skipped)
+[2026-03-17T00:34:44.459Z]   AI→REGEX: ytc <- https://www.youtube.com/channel/UCw64IwbE-BoMG1ePe5RjBcQ (duplicate, skipped)
+[2026-03-17T00:34:44.459Z]   AI→REGEX: fb <- https://www.facebook.com/Plazmamax.solutions (duplicate, skipped)
+[2026-03-17T00:34:44.460Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T00:34:44.460Z] Footer/header origins (5):
+[2026-03-17T00:34:44.460Z]   FOOTER/HEADER ORIGIN: https://plazmamax.com
+[2026-03-17T00:34:44.460Z]   FOOTER/HEADER ORIGIN: https://www.thefabricator.com
+[2026-03-17T00:34:44.460Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T00:34:44.460Z]   FOOTER/HEADER ORIGIN: https://www.youtube.com
+[2026-03-17T00:34:44.460Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T00:34:44.461Z]   ADDED: urls <- https://www.thefabricator.com/thefabricator/article/plasmacutting/the-evolution-of-plasma-cutting
+[2026-03-17T00:34:44.461Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T00:34:44.461Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T00:34:44.461Z]   YOUTUBE: resolving 1 channel ID(s) to @handles
+[2026-03-17T00:34:44.792Z]   YOUTUBE: UCw64IwbE-BoMG1ePe5RjBcQ has no @handle (from https://www.youtube.com/channel/UCw64IwbE-BoMG1ePe5RjBcQ)
+[2026-03-17T00:34:44.792Z]   YOUTUBE: no new ytp URLs resolved
+[2026-03-17T00:34:44.792Z] ── Step 3: Final dedup ──
+[2026-03-17T00:34:44.792Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T00:34:44.792Z] ── FINAL RESULT ──
+[2026-03-17T00:34:44.792Z]   ws (1):
+[2026-03-17T00:34:44.792Z]     - https://plazmamax.com
+[2026-03-17T00:34:44.792Z]   fb (1):
+[2026-03-17T00:34:44.792Z]     - https://www.facebook.com/plazmamax.solutions
+[2026-03-17T00:34:44.792Z]   ig (1):
+[2026-03-17T00:34:44.792Z]     - https://www.instagram.com/plazmamax
+[2026-03-17T00:34:44.792Z]   ytc (1):
+[2026-03-17T00:34:44.792Z]     - https://www.youtube.com/channel/UCw64IwbE-BoMG1ePe5RjBcQ
+[2026-03-17T00:34:44.792Z]   urls (1):
+[2026-03-17T00:34:44.792Z]     - https://www.thefabricator.com/thefabricator/article/plasmacutting/the-evolution-of-plasma-cutting
+[2026-03-17T00:34:44.792Z] Summary: ws:1, fb:1, ig:1, ytc:1, urls:1
+[2026-03-17T00:34:44.793Z] Saved final result to result.json
+[2026-03-17T00:34:44.793Z] Override fields: ws, fb, ig, ytc, urls
+[2026-03-17T00:34:44.793Z] Finished at: 2026-03-17T00:34:44.793Z

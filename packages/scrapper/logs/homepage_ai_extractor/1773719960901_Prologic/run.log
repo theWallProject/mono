@@ -1,0 +1,73 @@
+[2026-03-17T03:59:20.902Z] === Homepage AI Extractor: Prologic ===
+[2026-03-17T03:59:20.902Z] Started at: 2026-03-17T03:59:20.902Z
+[2026-03-17T03:59:20.902Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773719960901_Prologic
+[2026-03-17T03:59:20.902Z] Company: Prologic
+[2026-03-17T03:59:20.903Z] Website: prologic.co.il
+[2026-03-17T03:59:20.903Z] cbRank: 1425084
+[2026-03-17T03:59:20.903Z] Reasons: h
+[2026-03-17T03:59:20.903Z] Fetching: https://prologic.co.il
+[2026-03-17T03:59:24.165Z] Redirected: https://prologic.co.il -> https://www.prologic.co.il/
+[2026-03-17T03:59:24.172Z] Saved HTML (206426 bytes) to page.html
+[2026-03-17T03:59:24.177Z] Extracted 204 unique links from page
+[2026-03-17T03:59:24.178Z] Saved 204 links to links.json
+[2026-03-17T03:59:24.183Z] Extracted footer HTML (9028 chars)
+[2026-03-17T03:59:24.183Z] Extracted header HTML (125412 chars)
+[2026-03-17T03:59:24.187Z] Website (post-redirect): https://www.prologic.co.il/ → origin: https://www.prologic.co.il
+[2026-03-17T03:59:24.187Z] External links: 5 (of 204 total)
+[2026-03-17T03:59:24.187Z] ── All external links ──
+[2026-03-17T03:59:24.187Z]   EXT: https://investors.solarwinds.com/stock-info/stock-quote-and-chart/default.aspx
+[2026-03-17T03:59:24.187Z]   EXT: https://www.facebook.com/PrologicIL
+[2026-03-17T03:59:24.188Z]   EXT: https://www.instagram.com/prologicltd
+[2026-03-17T03:59:24.188Z]   EXT: https://www.linkedin.com/company/prologic_2
+[2026-03-17T03:59:24.188Z]   EXT: https://www.secpod.com
+[2026-03-17T03:59:24.188Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T03:59:24.188Z]   UNCATEGORIZED: https://investors.solarwinds.com/stock-info/stock-quote-and-chart/default.aspx
+[2026-03-17T03:59:24.188Z]   REGEX: fb <- https://www.facebook.com/PrologicIL
+[2026-03-17T03:59:24.188Z]   REGEX: ig <- https://www.instagram.com/prologicltd
+[2026-03-17T03:59:24.188Z]   REGEX: li <- https://www.linkedin.com/company/prologic_2
+[2026-03-17T03:59:24.188Z]   UNCATEGORIZED: https://www.secpod.com
+[2026-03-17T03:59:24.188Z] Programmatic result: ws:1, fb:1, ig:1, li:1 | 2 uncategorized
+[2026-03-17T03:59:24.188Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T03:59:24.193Z] Saved AI prompt (4186 chars) to ai_prompt.txt
+[2026-03-17T03:59:24.193Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T03:59:24.197Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T03:59:40.971Z]   AI: First token received, streaming...
+[2026-03-17T03:59:47.133Z] AI response complete: 120 chars in 22.9s
+[2026-03-17T03:59:47.134Z] Saved AI response to ai_response.json
+[2026-03-17T03:59:47.135Z] ── Parsing AI response (3 lines) ──
+[2026-03-17T03:59:47.135Z]   AI LINK: https://www.facebook.com/PrologicIL/
+[2026-03-17T03:59:47.135Z]   AI LINK: https://www.instagram.com/prologicltd/
+[2026-03-17T03:59:47.135Z]   AI LINK: https://www.linkedin.com/company/prologic_2/
+[2026-03-17T03:59:47.135Z] AI returned 3 valid links
+[2026-03-17T03:59:47.136Z] ── Categorizing 3 AI-returned links ──
+[2026-03-17T03:59:47.136Z]   AI→REGEX: fb <- https://www.facebook.com/PrologicIL/ (duplicate, skipped)
+[2026-03-17T03:59:47.136Z]   AI→REGEX: ig <- https://www.instagram.com/prologicltd/ (duplicate, skipped)
+[2026-03-17T03:59:47.136Z]   AI→REGEX: li <- https://www.linkedin.com/company/prologic_2/ (duplicate, skipped)
+[2026-03-17T03:59:47.142Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T03:59:47.142Z] Footer/header origins (4):
+[2026-03-17T03:59:47.142Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T03:59:47.142Z]   FOOTER/HEADER ORIGIN: https://www.instagram.com
+[2026-03-17T03:59:47.143Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T03:59:47.143Z]   FOOTER/HEADER ORIGIN: https://www.secpod.com
+[2026-03-17T03:59:47.143Z]   SKIP (not in footer/header): https://investors.solarwinds.com/stock-info/stock-quote-and-chart/default.aspx
+[2026-03-17T03:59:47.143Z]   ADDED: urls <- https://www.secpod.com
+[2026-03-17T03:59:47.143Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T03:59:47.144Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T03:59:47.144Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T03:59:47.144Z] ── Step 3: Final dedup ──
+[2026-03-17T03:59:47.144Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T03:59:47.144Z] ── FINAL RESULT ──
+[2026-03-17T03:59:47.145Z]   ws (1):
+[2026-03-17T03:59:47.145Z]     - https://www.prologic.co.il
+[2026-03-17T03:59:47.145Z]   li (1):
+[2026-03-17T03:59:47.145Z]     - https://www.linkedin.com/company/prologic_2
+[2026-03-17T03:59:47.145Z]   fb (1):
+[2026-03-17T03:59:47.145Z]     - https://www.facebook.com/prologicil
+[2026-03-17T03:59:47.146Z]   ig (1):
+[2026-03-17T03:59:47.146Z]     - https://www.instagram.com/prologicltd
+[2026-03-17T03:59:47.146Z]   urls (1):
+[2026-03-17T03:59:47.146Z]     - https://www.secpod.com
+[2026-03-17T03:59:47.146Z] Summary: ws:1, fb:1, ig:1, li:1, urls:1
+[2026-03-17T03:59:47.147Z] Saved final result to result.json
+[2026-03-17T03:59:47.148Z] Override fields: ws, li, fb, ig, urls
+[2026-03-17T03:59:47.148Z] Finished at: 2026-03-17T03:59:47.148Z

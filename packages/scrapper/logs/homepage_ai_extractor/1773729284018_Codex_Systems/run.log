@@ -1,0 +1,75 @@
+[2026-03-17T06:34:44.018Z] === Homepage AI Extractor: Codex Systems ===
+[2026-03-17T06:34:44.018Z] Started at: 2026-03-17T06:34:44.018Z
+[2026-03-17T06:34:44.018Z] Log directory: C:\Users\ahmed\code\mono\packages\scrapper\logs\homepage_ai_extractor\1773729284018_Codex_Systems
+[2026-03-17T06:34:44.018Z] Company: Codex Systems
+[2026-03-17T06:34:44.018Z] Website: codex.co.il
+[2026-03-17T06:34:44.018Z] cbRank: 1521828
+[2026-03-17T06:34:44.018Z] Reasons: h
+[2026-03-17T06:34:44.018Z] Fetching: https://codex.co.il
+[2026-03-17T06:34:48.822Z] Redirected: https://codex.co.il -> https://www.codex.co.il/
+[2026-03-17T06:34:48.841Z] Saved HTML (833570 bytes) to page.html
+[2026-03-17T06:34:48.845Z] Extracted 21 unique links from page
+[2026-03-17T06:34:48.846Z] Saved 21 links to links.json
+[2026-03-17T06:34:48.849Z] Extracted footer HTML (2766 chars)
+[2026-03-17T06:34:48.849Z] Extracted header HTML (3433 chars)
+[2026-03-17T06:34:48.853Z] Website (post-redirect): https://www.codex.co.il/ → origin: https://www.codex.co.il
+[2026-03-17T06:34:48.854Z]   SUBDOMAIN: candidate.codex.co.il (added to ws)
+[2026-03-17T06:34:48.854Z] Website subdomains found: 1
+[2026-03-17T06:34:48.854Z] External links: 5 (of 21 total)
+[2026-03-17T06:34:48.854Z] ── All external links ──
+[2026-03-17T06:34:48.854Z]   EXT: https://www.careebiz.com
+[2026-03-17T06:34:48.854Z]   EXT: https://www.enable.co.il
+[2026-03-17T06:34:48.854Z]   EXT: https://www.facebook.com/codex.hasama
+[2026-03-17T06:34:48.854Z]   EXT: https://www.linkedin.com/company/codex-systems-ltd
+[2026-03-17T06:34:48.854Z]   EXT: https://www.upress.co.il
+[2026-03-17T06:34:48.854Z] ── Step 1: Programmatic categorization ──
+[2026-03-17T06:34:48.854Z]   UNCATEGORIZED: https://www.careebiz.com
+[2026-03-17T06:34:48.854Z]   UNCATEGORIZED: https://www.enable.co.il
+[2026-03-17T06:34:48.855Z]   REGEX: fb <- https://www.facebook.com/codex.hasama
+[2026-03-17T06:34:48.855Z]   REGEX: li <- https://www.linkedin.com/company/codex-systems-ltd
+[2026-03-17T06:34:48.855Z]   UNCATEGORIZED: https://www.upress.co.il
+[2026-03-17T06:34:48.855Z] Programmatic result: ws:2, fb:1, li:1 | 3 uncategorized
+[2026-03-17T06:34:48.855Z] Sending uncategorized links + HTML sections to AI for analysis...
+[2026-03-17T06:34:48.858Z] Saved AI prompt (3709 chars) to ai_prompt.txt
+[2026-03-17T06:34:48.858Z]   AI: Connecting to LM Studio at http://localhost:1234 (model: Qwen2.5-72B-Instruct-GGUF)...
+[2026-03-17T06:34:48.862Z]   AI: Connected — HTTP 200, waiting for first token...
+[2026-03-17T06:35:02.759Z]   AI: First token received, streaming...
+[2026-03-17T06:35:07.514Z] AI response complete: 90 chars in 18.7s
+[2026-03-17T06:35:07.515Z] Saved AI response to ai_response.json
+[2026-03-17T06:35:07.515Z] ── Parsing AI response (2 lines) ──
+[2026-03-17T06:35:07.515Z]   AI LINK: https://www.linkedin.com/company/codex-systems-ltd/
+[2026-03-17T06:35:07.516Z]   AI LINK: https://www.facebook.com/codex.hasama/
+[2026-03-17T06:35:07.516Z] AI returned 2 valid links
+[2026-03-17T06:35:07.516Z] ── Categorizing 2 AI-returned links ──
+[2026-03-17T06:35:07.516Z]   AI→REGEX: li <- https://www.linkedin.com/company/codex-systems-ltd/ (duplicate, skipped)
+[2026-03-17T06:35:07.516Z]   AI→REGEX: fb <- https://www.facebook.com/codex.hasama/ (duplicate, skipped)
+[2026-03-17T06:35:07.517Z] ── Step 2b: Footer/header uncategorized links ──
+[2026-03-17T06:35:07.517Z] Footer/header origins (6):
+[2026-03-17T06:35:07.517Z]   FOOTER/HEADER ORIGIN: https://www.codex.co.il
+[2026-03-17T06:35:07.517Z]   FOOTER/HEADER ORIGIN: https://candidate.codex.co.il
+[2026-03-17T06:35:07.517Z]   FOOTER/HEADER ORIGIN: https://www.linkedin.com
+[2026-03-17T06:35:07.518Z]   FOOTER/HEADER ORIGIN: https://www.facebook.com
+[2026-03-17T06:35:07.518Z]   FOOTER/HEADER ORIGIN: https://www.careebiz.com
+[2026-03-17T06:35:07.518Z]   FOOTER/HEADER ORIGIN: https://salarysurvey.codex.co.il
+[2026-03-17T06:35:07.518Z]   ADDED: urls <- https://www.careebiz.com
+[2026-03-17T06:35:07.518Z]   SKIP (not in footer/header): https://www.enable.co.il
+[2026-03-17T06:35:07.518Z]   SKIP (not in footer/header): https://www.upress.co.il
+[2026-03-17T06:35:07.518Z] Step 2b result: added 1 uncategorized domains from footer/header
+[2026-03-17T06:35:07.518Z] ── Step 2c: YouTube channel handle resolution ──
+[2026-03-17T06:35:07.518Z]   YOUTUBE: no ytc entries to resolve
+[2026-03-17T06:35:07.519Z] ── Step 3: Final dedup ──
+[2026-03-17T06:35:07.519Z] Dedup: removed 0 of 1 URLs already in specialized fields
+[2026-03-17T06:35:07.519Z] ── FINAL RESULT ──
+[2026-03-17T06:35:07.519Z]   ws (2):
+[2026-03-17T06:35:07.519Z]     - https://candidate.codex.co.il
+[2026-03-17T06:35:07.519Z]     - https://www.codex.co.il
+[2026-03-17T06:35:07.519Z]   li (1):
+[2026-03-17T06:35:07.519Z]     - https://www.linkedin.com/company/codex-systems-ltd
+[2026-03-17T06:35:07.519Z]   fb (1):
+[2026-03-17T06:35:07.520Z]     - https://www.facebook.com/codex.hasama
+[2026-03-17T06:35:07.520Z]   urls (1):
+[2026-03-17T06:35:07.520Z]     - https://www.careebiz.com
+[2026-03-17T06:35:07.520Z] Summary: ws:2, fb:1, li:1, urls:1
+[2026-03-17T06:35:07.521Z] Saved final result to result.json
+[2026-03-17T06:35:07.521Z] Override fields: ws, li, fb, urls
+[2026-03-17T06:35:07.521Z] Finished at: 2026-03-17T06:35:07.521Z
