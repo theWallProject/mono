@@ -50,7 +50,7 @@ export async function launchBrowserWithExtension(): Promise<{
   // Launch browser with extension and devtools open
   const context = await chromium.launchPersistentContext("", {
     headless: false,
-    devtools: true, // Open devtools automatically
+    // devtools: true, // Open devtools automatically
     args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`]
   })
 
