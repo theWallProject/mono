@@ -33,15 +33,15 @@ export const TRANSLATIONS = {
     zh_TW: "賽博錫安之墻 - 極端復國主義抵製助手" // The Wall of Cyber Zion - Assistant to the Resistance Against Extreme Zionism
   },
   extensionDescription: {
-    en: `Put more than 19,000 Boycott-worthy companies behind a wall 🧱`,
+    en: `Put more than 20,000 Boycott-worthy companies behind a wall 🧱`,
     ar: `ضع اكثر من 19 الف شركة للكيان الصهيوني خلف جدار عازل 🧱`,
     id: `Tempatkan lebih dari 19.000 perusahaan layak diboikot di balik tembok 🧱`,
-    ms: "19,000 lebih perusahaan layak diboikot di sebalik tembok 🧱",
-    bn: "19,000 বেশি বোয়াইট করা যায় এমন কোম্পানির দেশের দিকে একটি ধুরা 🧱",
+    ms: "20,000 lebih perusahaan layak diboikot di sebalik tembok 🧱",
+    bn: "20,000 বেশি বোয়াইট করা যায় এমন কোম্পানির দেশের দিকে একটি ধুরা 🧱",
     fr: "Mettre derrière un mur plus de 19 000 entreprises méritant d'être boycottées 🧱",
     nl: "Zet meer dan 19.000 Boycot-waardige bedrijven achter een muur 🧱",
     zh_CN: `协助你在赛博空间中通过 拒绝访问 的方式抵制超 19，000 家支持极端复国主义实体企业 🧱`, // Assist you in resisting over 19000 entities that support extreme Zionism in cyberspace by refusing access
-    zh_TW: `協助你在賽博空間中通過 拒絕訪問 的方式抵制超 19,000 家支持極端復國主義實體企業 🧱` // Assist you in resisting over 19000 entities that support extreme Zion
+    zh_TW: `協助你在賽博空間中通過 拒絕訪問 的方式抵制超 20,000 家支持極端復國主義實體企業 🧱` // Assist you in resisting over 19000 entities that support extreme Zion
   },
   reasonUrlIL: {
     en: "This Url ends with .il, This means it's an Israeli website!",
