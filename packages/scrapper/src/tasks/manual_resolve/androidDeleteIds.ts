@@ -19,5 +19,6 @@ export const androidDeleteIds: string[] = [
   "com.celray",
   "com.tumblr",
   "notion.id",
-  "com.substack.app"
+  "com.substack.app",
+  "com.haat.client"
 ]
